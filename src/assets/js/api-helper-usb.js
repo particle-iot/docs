@@ -293,6 +293,9 @@ $(document).ready(function () {
                     }
                 }
             };
+            if (userFirmwareBinary) {
+                options.userFirmwareBinary = userFirmwareBinary;
+            }
 
 
             if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {

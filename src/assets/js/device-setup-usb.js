@@ -17,11 +17,14 @@ $(document).ready(function() {
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
+        const gaCategory = 'USB Device Setup';
+
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
 
         let usbDevice;
         let deviceInfo = {};
+        let userFirmwareBinary;
 
         const setStatus = function(status) {
             $(thisElem).find('.setupStatus').text(status);
@@ -84,11 +87,14 @@ $(document).ready(function() {
 
                 setStatus('Checking device...');
 
+                // TODO: Add a info pane if this takes longer than ~5 seconds
+                // Possibly try resetting the device
+
                 deviceInfo.deviceId = usbDevice.id;
                 deviceInfo.platformId = usbDevice.platformId;
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
-
+                deviceInfo.targetVersion = '2.2.0'; // FIXME: Latest LTS? Or make selectable?
                 
                 if (usbDevice.isCellularDevice) {
                     deviceInfo.cellular = true;
@@ -99,13 +105,17 @@ $(document).ready(function() {
                 }
                 else {
                     deviceInfo.wifi = true;
-
+                    flashDevice();
                 }
 
+                
 
             }
             catch(e) {
                 console.log('exception', e);
+                // TODO: Handle errors like UsbError here
+                // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
+
             }
         };
 
@@ -183,7 +193,7 @@ $(document).ready(function() {
                         }
                     }
                     else {
-                        console.log('active already', result);
+                        console.log('active now', result);
                         flashDevice();
                         break;
                     }                            
@@ -246,20 +256,106 @@ $(document).ready(function() {
             
         };
 
-        const flashDevice = async function() {
+                /*
+        const prepareFirmware = async function() {
             try {
                 setSetupStep('setupStepFlashDevice');
 
                 // Prepare firmware
+                setStatus('Preparing device firmware...');
+
+                projectZip = new zip.fs.FS();
+
+                console.log('getting project source');
+                await projectZip.importHttpContent('/assets/files/projects/usb-setup.zip');
+
+                console.log('projectZip', projectZip);
+
+                let formData = new FormData();
+    
+                formData.append('platform_id', deviceInfo.platformId);
+                formData.append('build_target_version', deviceInfo.targetVersion);
+                let fileNum = 0;
+    
+                const addDir = async function(path, zipDir) {
+                    for(const d of zipDir.children) {
+                        const p = (path ? path + '/' : '') + d.name;
+                        if (d.directory) {
+                            await addDir(p, d);
+                        }
+                        else {
+                            const blob = await d.getBlob('text/plain');
+                            formData.append('file' + (++fileNum), blob, p);
+                        }
+                    }
+                }
+                await addDir('', projectZip.root.children[0]);
+    
+
+                const compileResult = await new Promise(function(resolve, reject) {
+                    const request = {
+                        contentType: false,
+                        data: formData,
+                        dataType: 'json',
+                        error: function (jqXHR) {
+                            ga('send', 'event', gaCategory, 'Setup Compile Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                            console.log('compile error');
+                            reject(jqXHR);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'POST',
+                        processData: false,
+                        success: function (resp, textStatus, jqXHR) {
+                            ga('send', 'event', gaCategory, 'Setup Compile Success');
+                            resolve(resp);        
+                        },
+                        url: 'https://api.particle.io/v1/binaries/'
+                    };
+        
+                    $.ajax(request);
+        
+                });
+
+                console.log('compile result', compileResult);
+
+                const resp = await fetch('https://api.particle.io' + compileResult.binary_url);
+
+                console.log('resp', resp);
+
+                userFirmwareBinary = await resp.arrayBuffer();
+
+
+                console.log('binary result', userFirmwareBinary);
+
+                flashDevice();
+            }
+            catch(e) {
+                console.log('exception', e);
+            }
+        };
+                */
+
+        const flashDevice = async function() {
+            try {
+                setSetupStep('setupStepFlashDevice');
 
                 // Flash device
                 setStatus('Flashing device...');
-                        
+                
+
+                const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
+                userFirmwareBinary = await resp.arrayBuffer();
+
+
                 let options = {
                     eventCategory: 'USB Device Setup',
-                    platformVersionInfo: deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice),
+                    platformVersionInfo: deviceInfo.platformVersionInfo,
+                    userFirmwareBinary,
                     setStatus,
-                    version: '2.2.0', // FIXME: Latest LTS? Or make selectable?
+                    version: deviceInfo.targetVersion, 
                     setupBit: 'done',
                     progressUpdate: function(msg, pct) {
                         $(thisElem).find('.setupStepFlashDeviceStatus').text(msg);
@@ -271,10 +367,9 @@ $(document).ready(function() {
                 const restoreResult = await dfuDeviceRestore(usbDevice, options);
 
                 console.log('restoreResult', restoreResult);
-
+            
                 if (restoreResult.ok) {
-                    // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
-                    configureWiFi();      
+                    reconnectToDevice();
                 }
                 else {
                     console.log('do something for dfu error');
@@ -286,17 +381,123 @@ $(document).ready(function() {
             }
         };
 
+        const reconnectToDevice = async function() {
+            setSetupStep('setupStepReconnecting');
+
+            setStatus('Waiting for device to restart...');
+
+            let nativeUsbDevice;
+
+            for(let tries = 0; tries < 3 && !nativeUsbDevice; tries++) {
+                await new Promise(function(resolve) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 8000);
+                });
+        
+                try {                    
+                    const nativeUsbDevices = await navigator.usb.getDevices()
+
+                    if (nativeUsbDevices.length > 0) {
+                        for(let dev of nativeUsbDevices) {
+                            if (dev.serialNumber == deviceInfo.deviceId) {
+                                nativeUsbDevice = dev;
+                                break;
+                            }
+                        }
+                    }            
+                }         
+                catch(e) {
+                    console.log('exception getting USB devices', e);
+                }
+
+            }
+
+
+            if (!nativeUsbDevice) {
+                setStatus('Authorize access to the device again');   
+                
+                console.log('TODO: display UI for to click button to reconnect');
+                return;
+            }
+            
+            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+
+            // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
+            configureWiFi();      
+
+        };
+
         const configureWiFi = async function() {
             if (!deviceInfo.wifi) {
                 waitDeviceOnline();
                 return;
             }
-
             setSetupStep('setupStepConfigureWiFi');
 
+            $(thisElem).find('.networkTable > tbody').html('');
+
+            setStatus('Scanning for Wi-Fi networks...');
+
             // Start Wi-Fi scan
+            let reqObj = {
+                op: 'wifiScan'
+            };
+
+            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
 
             // Display results
+            while(true) {
+                reqObj = {
+                    op: 'wifiScanResult'
+                } 
+                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                if (res.result) {
+                    console.log('do something for error response', res);
+                    break;
+                }
+
+                if (res.data) {
+                    // TODO: catch exception here
+                    const respObj = JSON.parse(res.data);
+                    
+                    if (respObj.done) {
+                        console.log('done!');
+                        break;
+                    }
+
+                    if (respObj.ssid) {
+                        console.log('respObj', respObj);
+
+                        // TODO: Dedupe list!
+
+                        const rowElem = document.createElement('tr');
+
+                        let colElem = document.createElement('td');
+                        $(colElem).text(respObj.ssid);
+
+                        $(rowElem).append(colElem);
+
+                        $(thisElem).find('.networkTable > tbody').append(rowElem);
+                    }
+                    else {
+                        // Wait a bit to try again
+                        await new Promise(function(resolve) {
+                            setTimeout(function() {
+                                resolve();
+                            }, 1000);
+                        });
+                    } 
+
+
+                }
+
+                
+            }
+
+            setStatus('Waiting for you to select one...');
+
+
 
             // Set Wi-Fi
 
@@ -305,7 +506,16 @@ $(document).ready(function() {
         const waitDeviceOnline = async function() {
             setSetupStep('setupStepWaitForOnline');
 
+            setStatus('Waiting for device to come online...');   
+
             // Wait for online
+            setInterval(function() {
+                let reqObj = {
+                    op: 'test'
+                };
+
+                usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+            }, 10000);
             
             
         };
