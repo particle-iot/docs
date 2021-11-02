@@ -617,12 +617,22 @@ $(document).ready(function() {
                 console.log('in waitDeviceOnline');
                 setStatus('Waiting for device to come online...');   
     
+                const deviceLogsElem = $(thisElem).find('.deviceLogs');
+                const deviceLogsTextElem = $(thisElem).find('.deviceLogs > textarea');
+                let deviceLogs = '';
+
+                $(deviceLogsElem).show();
+
                 const waitOnlineStepsElem = $(thisElem).find('.waitOnlineSteps');
     
                 // waitOnlineSteps
     
                 let networkReady = false;
     
+                $(thisElem).find('.waitOnlineStepNetwork > td > img').css('visibility', 'visible');
+
+                const doneUrl = '/assets/images/device-setup/ok-48.png';
+                
                 // Wait for online
                 await new Promise(function(resolve, reject) {
                     const timer = setInterval(async function() {
@@ -634,17 +644,24 @@ $(document).ready(function() {
                         if (res.result == 0 && res.data) {
                             const respObj = JSON.parse(res.data);
         
-                            console.log('status', respObj);
+                            // console.log('status', respObj);
         
+                            if (respObj.netReady && !networkReady) {
+                                networkReady = true;
+                                $(thisElem).find('.waitOnlineStepNetwork > td > img').attr('src', doneUrl);
+                                $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
+                            }
                             if (respObj.cloudConnected) {
                                 clearInterval(timer);
-                                $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
+                                $(thisElem).find('.waitOnlineStepCloud > td > img').attr('src', doneUrl);
+                                $(thisElem).find('.waitOnlineStepClaim > td > img').css('visibility', 'visible');
                                 resolve();
                                 return;
                             }
-                            if (respObj.netReady && !networkReady) {
-                                networkReady = true;
-                                $(thisElem).find('.waitOnlineStepNetwork > td > img').css('visibility', 'visible');
+                            if (respObj.logs) {
+                                deviceLogs += respObj.logs;
+                                $(deviceLogsTextElem).val(deviceLogs);
+                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());
                             }
                         }
                     }, 2000);
@@ -680,7 +697,10 @@ $(document).ready(function() {
 
                 console.log('claim result', result);
 
+
                 if (result.ok) {
+                    $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
+                    
                     // Wait a second so the green check shows up
                     await new Promise(function(resolve) {
                         setTimeout(function() {
@@ -689,6 +709,7 @@ $(document).ready(function() {
                     });
                 }
     
+                $(deviceLogsElem).hide();
                 nameDevice();
             }
             catch(e) {
