@@ -25,23 +25,11 @@ $(document).ready(function() {
         let usbDevice;
         let deviceInfo = {};
         let userFirmwareBinary;
-        let alreadyFlashed = false;
-        let goBackToStartAfterFlashing = false;
 
         const setStatus = function(status) {
             // $(thisElem).find('.setupStatus').text(status);
         }
 
-        const setupSteps = [
-            'setupStepSelectDevice',
-            'setupStepCheckDevice',
-            'setupStepActivateSim',
-            'setupStepFlashDevice',
-            'setupStepConfigureWiFi',
-            'setupStepWaitForOnline',
-            'setupStepDone'
-        ];
-        
         const setSetupStep = function(whichStep) {
             $(setupStepElem).children().each(function() {
                 $(this).hide();
@@ -52,7 +40,7 @@ $(document).ready(function() {
 
         setSetupStep('setupStepSelectDevice');
 
-        const selectDevice = async function() {
+        $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
                 {vendorId: 0x2b04}
             ];
@@ -64,8 +52,6 @@ $(document).ready(function() {
                     await usbDevice.close();
                     usbDevice = null;
                 }
-
-                setStatus('Select device to set up...');
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
@@ -80,11 +66,13 @@ $(document).ready(function() {
             catch(e) {
                 console.log('exception', e);
             }
-        };
-        $(setupSelectDeviceButtonElem).on('click', selectDevice);
+        });
+
+        /*
+
+        */
 
         const checkDevice = async function() {
-            goBackToStartAfterFlashing = false;
 
             try {
                 setSetupStep('setupStepCheckDevice');
@@ -111,37 +99,23 @@ $(document).ready(function() {
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
-
-                if (usbDevice.isInDfuMode) {
-                    // If the device is already in DFU mode, flash first
-                    goBackToStartAfterFlashing = true;
-                    flashDevice();
-                    return;
-                }
     
-                if (usbDevice.isCellularDevice) {
-                    $(thisElem).find('.setupStepCheckDeviceSIM').show();
-                    
+                if (usbDevice.isCellularDevice) {                    
                     deviceInfo.cellular = true;
 
-                    deviceInfo.iccid = await usbDevice.getIccid();
-
-                    console.log('deviceInfo', deviceInfo);
-                    activateSim();
+                    // Used to do this, but this does not work on Gen 2 cellular devices
+                    // deviceInfo.iccid = await usbDevice.getIccid();
                 }
                 else {
                     deviceInfo.wifi = true;
-                    flashDevice();
                 }
 
-                
-
+                flashDevice();
             }
             catch(e) {
                 console.log('exception', e);
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
-                goBackToStartAfterFlashing = true;
                 flashDevice();
             }
         };
@@ -154,6 +128,17 @@ $(document).ready(function() {
             let clockTimer;
             let clockStart;
 
+            const showStep = function(step) {
+                $(thisElem).find('.setupStepActivateSim').children().each(function() {
+                    $(this).hide();
+                });
+                $(thisElem).find('.' + step).show();    
+            }
+
+            showStep('setupStepActivateSimGet');
+
+
+            
             const startClock = function() {
                 $(thisElem).find('.setupStepActivateSimWaiting').show();
 
@@ -166,8 +151,26 @@ $(document).ready(function() {
 
             while(true) {
                 try {
-                    setStatus('Checking SIM...');
+                    reqObj = {
+                        op: 'iccid'
+                    } 
+                    const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    if (res.result) {
+                        console.log('do something for error response', res);
+                        break;
+                    }
     
+                    if (res.data) {
+                        // TODO: catch exception here
+                        const respObj = JSON.parse(res.data);
+
+                        deviceInfo.iccid = respObj.iccid;
+                        console.log('iccid', deviceInfo.iccid);
+                    }
+
+                    showStep('setupStepActivateSimChecking');
+
+
                     // listSIMs doesn't filter on iccid correctly
                     // checkSIM does a HEAD so it doesn't return enough useful information
                     const result = await new Promise(function(resolve, reject) {
@@ -218,17 +221,12 @@ $(document).ready(function() {
                     else {
                         console.log('active now', result);
 
-                        if (alreadyFlashed) {
-                            reqObj = {
-                                op: 'connect',
-                            };
-                            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-    
-                            waitDeviceOnline();
-                        }
-                        else {
-                            flashDevice();
-                        }
+                        reqObj = {
+                            op: 'connect',
+                        };
+                        await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                        waitDeviceOnline();
         
                         break;
                     }                            
@@ -258,8 +256,12 @@ $(document).ready(function() {
                         const result = await apiHelper.particle.activateSIM({ auth: apiHelper.auth.access_token, iccid: deviceInfo.iccid});
         
                         console.log('result', result);
+
+                        showStep('setupStepActivateSimWaiting');
+
                     }
                     catch(e) {
+                        // 403 if SIM is a product SIM I think
                         if (e.message.includes('408')) {
                             console.log('408 - activation in progress');
                             continue;
@@ -398,14 +400,13 @@ $(document).ready(function() {
                 if (restoreResult.ok) {
                     await reconnectToDevice();
 
-                    alreadyFlashed = true;
 
-                    if (goBackToStartAfterFlashing) {
-                        checkDevice();
+                    if (deviceInfo.wifi) {
+
+                        configureWiFi();                              
                     }
                     else {
-                        // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
-                        configureWiFi();                              
+                        activateSim();
                     }
                 }
                 else {
@@ -421,9 +422,15 @@ $(document).ready(function() {
         const reconnectToDevice = async function() {
             setSetupStep('setupStepReconnecting');
 
-            setStatus('Waiting for device to restart...');
-
             let nativeUsbDevice;
+
+            const showStep = function(step) {
+                $(thisElem).find('.setupStepReconnecting').children().each(function() {
+                    $(this).hide();
+                });
+                $(thisElem).find('.' + step).show();    
+            }
+            showStep('setupStepReconnectingWaiting');
 
             for(let tries = 0; tries < 4 && !nativeUsbDevice; tries++) {
                 await new Promise(function(resolve) {
@@ -452,10 +459,26 @@ $(document).ready(function() {
 
 
             if (!nativeUsbDevice) {
-                setStatus('Authorize access to the device again');   
+                showStep('setupStepReconnectingNeedReauthorize');
+
+                await new Promise(function(resolve, reject) {
+                    const filters = [
+                        {vendorId: 0x2b04}
+                    ];
+
+                    $(thisElem).find('.reconnectUsb').on('click', async function() {
+
+                        $(thisElem).find('.reconnectUsb').prop('disabled', true);
+
+                        nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
                 
-                console.log('TODO: display UI for to click button to reconnect');
-                return;
+                        $(thisElem).find('.reconnectUsb').prop('disabled', false);
+
+                        $(thisElem).find('.reconnectUsb').off('click');
+                        resolve();
+                    });
+            
+                });
             }
             
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});

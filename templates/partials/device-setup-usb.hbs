@@ -45,8 +45,14 @@
                 </div>
             </div>
             <div class="setupStepActivateSim" style="display:none">
+                <div class="setupStepActivateSimGet">
+                    <p>Getting SIM ICCID from the device... This usually takes a few seconds but can take up to a minute.</p>
+                </div>
+                <div class="setupStepActivateSimChecking">
+                    <p>Checking SIM status...</p>
+                </div>
                 <div class="setupStepActivateSimWaiting">
-                    <p>Waiting for SIM activation to complete</p>
+                    <p>Waiting for SIM activation to complete...</p>
                     <p>This can take anywhere from several seconds to several hours. Rarely, it can take a day or more.</p>
                     <p>You can wait here for activation to complete, or close this web page and come back later to 
                         see if activation has completed so you can proceed with setup.</p>
@@ -78,6 +84,10 @@
                     <p>Waiting for the device to finish updating itself and restart...</p>
                     <p>This will take several seconds, and the status LED may blink yellow, white, 
                         magenta (red and blue at the same time), blue, or green.</p>
+                </div>
+                <div class="setupStepReconnectingNeedReauthorize" style="display:none">
+                    <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
+                    <p><button class="reconnectUsb">Reconnect</button></p>
                 </div>
             </div>
             <div class="setupStepNoWiFi" style="display:none">

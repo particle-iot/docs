@@ -196,61 +196,64 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
 
     let nativeUsbDevice;
-
-    setStatus('Looking for device in DFU mode...');
-    const nativeUsbDevices = await navigator.usb.getDevices()
-
-    if (nativeUsbDevices.length > 0) {
-        for(let dev of nativeUsbDevices) {
-            if (dev.serialNumber == deviceId) {
-                nativeUsbDevice = dev;
-                break;
-            }
-        }
-    }
-    if (!nativeUsbDevice) {
-        setStatus('Authorize access to the DFU device');   
-        if (options.onAuthorizeDFU) {
-            options.onAuthorizeDFU();
-        }
-
-        const filters = [
-            {vendorId: 0x2b04, productId:(productId | 0xd000)}
-        ];
-                
-        nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
-    }
-
-    if (!nativeUsbDevice) {
-        const text = 'Unable to find device in DFU mode';
-        ga('send', 'event', options.eventCategory, text);
-        setStatus(text);
-        return {
-            ok: false,
-            noDfuDeviceFound: true,
-            text
-        };
-    }
-
-    const interfaces = dfu.findDeviceDfuInterfaces(nativeUsbDevice);
-
     let interface;
     let altInterface;
     let extInterface;
 
-    for(const tempInterface of interfaces) {
-        if (tempInterface.alternate.alternateSetting == 0) {
-            interface = tempInterface;
+    for(let tries = 1; tries <= 5; tries++) {
+        setStatus('Looking for device in DFU mode...');
+        const nativeUsbDevices = await navigator.usb.getDevices()
+    
+        if (nativeUsbDevices.length > 0) {
+            for(let dev of nativeUsbDevices) {
+                if (dev.serialNumber == deviceId) {
+                    nativeUsbDevice = dev;
+                    break;
+                }
+            }
         }
-        else
-        if (tempInterface.alternate.alternateSetting == 1) {
-            altInterface = tempInterface;
+        if (!nativeUsbDevice) {
+            setStatus('Authorize access to the DFU device');   
+            if (options.onAuthorizeDFU) {
+                options.onAuthorizeDFU();
+            }
+    
+            const filters = [
+                {vendorId: 0x2b04, productId:(productId | 0xd000)}
+            ];
+                    
+            nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         }
-        else
-        if (tempInterface.alternate.alternateSetting == 2) {
-            extInterface = tempInterface;
+    
+        if (nativeUsbDevice) {
+            const interfaces = dfu.findDeviceDfuInterfaces(nativeUsbDevice);
+    
+            for(const tempInterface of interfaces) {
+                if (tempInterface.alternate.alternateSetting == 0) {
+                    interface = tempInterface;
+                }
+                else
+                if (tempInterface.alternate.alternateSetting == 1) {
+                    altInterface = tempInterface;
+                }
+                else
+                if (tempInterface.alternate.alternateSetting == 2) {
+                    extInterface = tempInterface;
+                }
+            }
+            if (interface && altInterface) {
+                break;
+            }
         }
-    }
+
+        await new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                resolve();
+            }, 2000);
+        });
+    
+    }     
+
     if (!interface || !altInterface) {
         const text = 'Device did not respond to DFU mode. It may work if you try again or manually enter DFU mode.';
         setStatus(text);
@@ -260,7 +263,7 @@ async function dfuDeviceRestore(usbDevice, options) {
             text
         };
     }
-  
+
     if (options.onStartFlash) {
         options.onStartFlash();
     }
