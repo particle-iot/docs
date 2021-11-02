@@ -51,7 +51,7 @@
                 </div>
                 <div class="setupStepActivateSimGetSlow">
                     <p>Getting the SIM ICCID from the device...</p>
-                    <p>The cellular modem is not responding. It will take a few minutes to reset it.</p>
+                    <p>The cellular modem is not responding. It will take a little longer to reset it.</p>
                 </div>
                 <div class="setupStepActivateSimChecking">
                     <p>Checking SIM status...</p>
@@ -63,6 +63,14 @@
                         see if activation has completed so you can proceed with setup.</p>
                     <p class="setupStepActivateSimTimer"></p>
                 </div>
+            </div>
+            <div class="setupStepManualDfu" style="display:none">                
+                <p>An error occurred putting your device into DFU mode (blinking yellow).</p>
+                <p>Hold down the MODE (or SETUP) button and tap the RESET button. Continue to hold down MODE while 
+                    the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then 
+                    release.
+                </p>
+                <p><button class="continueDfu">Device is Blinking Yellow</button></p>
             </div>
             <div class="setupStepFlashDevice" style="display:none">                
                 <div class="setupStepFlashDeviceDownload" style="display:none">
@@ -76,7 +84,7 @@
                 </div>
                 <div class="setupStepFlashDeviceFlashing" style="display:none">
                     <p>Updating the firmware on the device...</p>
-                    <table class="flashDeviceSteps">
+                    <table class="flashDeviceSteps apiHelperTableNoMargin">
                         <thead>                        
                         </thead>
                         <tbody>                    
@@ -100,6 +108,16 @@
                 <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
             </div>
             <div class="setupStepConfigureWiFi" style="display:none">
+                <div class="searchingWiFi" style="visibility:hidden">
+                    <table class="apiHelperTableNoMargin">
+                        <tbody>
+                            <tr>
+                                <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px"></td>
+                                <td>Searching for Wi-Fi networks...</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <table class="networkTable apiHelperTableNoMargin">
                     <thead>
                         <tr>
@@ -115,7 +133,14 @@
                 <p class="passwordRow">Password: <input type="password" class="passwordInput" /></p>
                 <p><button class="setCredentials">Select Wi-Fi Network</button></p>
                 <p>&nbsp;</p>
-                <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                <div class="showUseExisting">
+                    <hr/>
+                    <p><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
+                </div>
+                <div>
+                    <hr/>
+                    <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                </div>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
                 <table class="waitOnlineSteps apiHelperTableNoMargin">
@@ -152,9 +177,36 @@
             </div>
         </div>
         <div class="deviceLogs" style="display:none">
-            <p>Device debugging logs:</p>
-            <textarea rows="10" cols="100" style="font-size: 9px">
-            </textarea>
+            <div>
+                <p><label><input type="checkbox" class="showDebuggingLogs" checked>Show device debugging logs</label></p>
+            </div>
+            <div class="deviceLogsTextButtons">
+                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px">
+                </textarea>
+                <p><button class="downloadLogs">Download Logs</button></p>                
+            </div>
+            <div class="cellularInfo" style="display:none">
+                <table class="cellularInfoTable apiHelperTableNoMargin">
+                    <tbody>
+                        <tr>
+                            <td>Country</td>
+                            <td class="cellularInfoCountry">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Carrier</td>
+                            <td class="cellularInfoCarrier">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Access Technology</td>
+                            <td class="cellularInfoTechnology">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Band</td>
+                            <td class="cellularInfoBand">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="setupStatus">
         </div>
