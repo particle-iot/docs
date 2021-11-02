@@ -27,7 +27,22 @@
                 <p>[some sort of animation of connecting your device by USB then selecting by Web USB here...]</p>
             </div>
             <div class="setupStepCheckDevice" style="display:none">
-                <p>[check device panel]</p>
+                <div class="setupStepCheckDeviceStart">
+                    <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
+                </div>
+                <div class="setupStepCheckDeviceTracker" style="display:none">
+                    <p>This setup tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
+                        use <a href="https://setup.particle.io">setup.particle.io</a> instead.
+                    </p>
+                </div>
+                <div class="setupStepCheckDeviceUnknown" style="display:none">
+                    <p>This setup tool cannot set up this type of device. You should use the Particle mobile apps for iOS
+                        and Android, or the <a href="https://docs.particle.io/cli/">Particle CLI</a>.
+                    </p>
+                </div>
+                <div class="setupStepCheckDeviceSIM">
+                    <p>Just a little longer while we check the SIM card in your device...</p>
+                </div>
             </div>
             <div class="setupStepActivateSim" style="display:none">
                 <div class="setupStepActivateSimWaiting">
@@ -39,14 +54,30 @@
                 </div>
             </div>
             <div class="setupStepFlashDevice" style="display:none">                
-                <table class="flashDeviceSteps">
-                    <thead>                        
-                    </thead>
-                    <tbody>                    
-                    </tbody>
-                </table>
+                <div class="setupStepFlashDeviceDownload" style="display:none">
+                    <p>Downloading the binaries for your device. This should only take a few seconds...</p>
+                </div>
+                <div class="setupStepFlashDeviceEnterDFU" style="display:none">
+                    <p>Putting device in DFU (firmware update) mode (blinking yellow). This should only take a few seconds, but can take up to 30 seconds sometimes.</p>
+                </div>
+                <div class="setupStepFlashDeviceAuthorizeDFU" style="display:none">
+                    <p>Select the device again. This is only necessary the first time you program this device from this web browser.</p>
+                </div>
+                <div class="setupStepFlashDeviceFlashing" style="display:none">
+                    <p>Updating the firmware on the device...</p>
+                    <table class="flashDeviceSteps">
+                        <thead>                        
+                        </thead>
+                        <tbody>                    
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="setupStepReconnecting" style="display:none">
+                <div class="setupStepReconnectingWaiting">
+                    <p>Waiting for the device to finish updating itself and restart...</p>
+                    <p>This will take several seconds, and the status LED will blink magenta (red and blue at the same time).</p>
+                </div>
             </div>
             <div class="setupStepConfigureWiFi" style="display:none">
                 <table class="networkTable apiHelperTableNoMargin">
@@ -89,10 +120,10 @@
             </div>
             <div class="setupStepNameDevice" style="display:none">
                 <p>You can name your device to make the devices in your account easier to identify.</p>
-                <p>Enter a name here, or choose a randomly generated name:</p>
+                <p>A randomly generated name has been generated, or you can enter your own here:</p>
                 <p><input type="text" class="nameInput" /> &nbsp;<button class="setName">Set Name</button></p>
 
-                <p>Or <a class="skipNaming">skip naming</a>. You can always rename your device later.</p>
+                <p>Or you can <a class="skipNaming">skip naming</a>. You can always rename your device later.</p>
             </div>
             <div class="setupStepDone" style="display:none">
                 <p>[next steps go here - tutorials, development environment, blink an led</p>

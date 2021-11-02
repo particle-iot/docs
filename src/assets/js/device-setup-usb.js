@@ -27,7 +27,7 @@ $(document).ready(function() {
         let userFirmwareBinary;
 
         const setStatus = function(status) {
-            $(thisElem).find('.setupStatus').text(status);
+            // $(thisElem).find('.setupStatus').text(status);
         }
 
         const setupSteps = [
@@ -84,19 +84,34 @@ $(document).ready(function() {
         const checkDevice = async function() {
             try {
                 setSetupStep('setupStepCheckDevice');
-
-                setStatus('Checking device...');
-
+                
                 // TODO: Add a info pane if this takes longer than ~5 seconds
                 // Possibly try resetting the device
+                $(thisElem).find('.setupStepCheckDevice').children().each(() => $(this).hide());
+                $(thisElem).find('.setupStepCheckDeviceStart').show();
+
 
                 deviceInfo.deviceId = usbDevice.id;
                 deviceInfo.platformId = usbDevice.platformId;
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
                 deviceInfo.targetVersion = '2.2.0'; // FIXME: Latest LTS? Or make selectable?
-                
+
+                $(thisElem).find('.setupStepCheckDeviceStart').hide();
+
+                if (usbDevice.platformId == 26) {
+                    $(thisElem).find('.setupStepCheckDeviceTracker').show();
+                    return;
+                }
+                else
+                if (!deviceInfo.platformVersionInfo) {
+                    $(thisElem).find('.setupStepCheckDeviceUnknown').show();
+                    return;
+                }
+
                 if (usbDevice.isCellularDevice) {
+                    $(thisElem).find('.setupStepCheckDeviceSIM').show();
+                    
                     deviceInfo.cellular = true;
                     deviceInfo.iccid = await usbDevice.getIccid();
 
@@ -261,9 +276,16 @@ $(document).ready(function() {
             try {
                 setSetupStep('setupStepFlashDevice');
 
-                // Flash device
-                setStatus('Flashing device...');
-                
+                const showStep = function(step) {
+                    $(thisElem).find('.setupStepFlashDevice').children().each(function() {
+                        $(this).hide();
+                    });
+                    $(thisElem).find('.' + step).show();    
+                }
+
+                showStep('setupStepFlashDeviceDownload');
+
+                // Flash device                
 
                 const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
                 userFirmwareBinary = await resp.arrayBuffer();
@@ -277,6 +299,15 @@ $(document).ready(function() {
                     setStatus,
                     version: deviceInfo.targetVersion, 
                     setupBit: 'done',
+                    onEnterDFU: function() {
+                        showStep('setupStepFlashDeviceEnterDFU');
+                    },
+                    onAuthorizeDFU: function() {
+                        showStep('setupStepFlashDeviceAuthorizeDFU');
+                    },
+                    onStartFlash: function() {
+                        showStep('setupStepFlashDeviceFlashing');
+                    },
                     progressUpdate: function(msg, pct, obj) {
                         // obj.pct
                         // obj.func == 'erase' else programming
@@ -438,6 +469,9 @@ $(document).ready(function() {
                     if (addedNetworks[ssid].respObj.sec != 0) {
                         setStatus('Enter Wi-Fi network password and click Select Wi-Fi Network');
                         $(passwordRowElem).show();
+
+                        $(passwordInputElem).focus();
+                        $(passwordInputElem).select();            
                     }
                     else {
                         setStatus('Click Select Wi-Fi Network');
@@ -453,7 +487,17 @@ $(document).ready(function() {
                 }
             };
 
-            const setCredentials = async function() {
+
+            $(passwordInputElem).on('keydown', function(ev) {
+                if (ev.key != 'Enter') {
+                    return;
+                }
+    
+                ev.preventDefault();
+                $(setCredentialsElem).trigger('click');    
+            });
+
+            $(setCredentialsElem).on('click', async function() {
                 $(setCredentialsElem).prop('disabled', true);
 
                 setStatus('Setting Wi-Fi credentials...');
@@ -482,11 +526,7 @@ $(document).ready(function() {
 
                 waitDeviceOnline();
                 return;
-            };
-
-            // TODO: Make a Return in the password field set credentials
-
-            $(setCredentialsElem).on('click', setCredentials);
+            });
 
             radioSelectionUpdate();
 
@@ -700,7 +740,7 @@ $(document).ready(function() {
 
                 if (result.ok) {
                     $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
-                    
+
                     // Wait a second so the green check shows up
                     await new Promise(function(resolve) {
                         setTimeout(function() {
@@ -742,10 +782,22 @@ $(document).ready(function() {
             };
 
             const nameInputElem = $(thisElem).find('.nameInput');
+            const setNameButtonElem = $(thisElem).find('.setName');
 
             $(nameInputElem).val(getRandomTrochee());
+            $(nameInputElem).focus();
+            $(nameInputElem).select();
             
-            const setName = async function() {
+            $(nameInputElem).on('keydown', function(ev) {
+                if (ev.key != 'Enter') {
+                    return;
+                }
+    
+                ev.preventDefault();
+                $(setNameButtonElem).trigger('click');    
+            });
+
+            $(setNameButtonElem).on('click', async function() {
                 const result = await new Promise(function(resolve, reject) {      
                     const requestObj = {
                         name: $(nameInputElem).val()
@@ -775,8 +827,7 @@ $(document).ready(function() {
 
                 console.log('name result', result);
                 setupDone();
-            };
-            $(thisElem).find('.setName').on('click', setName);
+            });
 
             
             $(thisElem).find('.skipNaming').on('click', function() {
@@ -789,7 +840,7 @@ $(document).ready(function() {
         const setupDone = async function() {
             setSetupStep('setupStepDone');
             
-            setStatus('Done!.');   
+            setStatus('Done!');   
 
 
         };

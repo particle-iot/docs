@@ -178,6 +178,9 @@ async function dfuDeviceRestore(usbDevice, options) {
     
 
     if (!usbDevice.isInDfuMode) {
+        if (options.onEnterDFU) {
+            options.onEnterDFU();
+        }
         setStatus('Putting device into DFU mode...');
         await usbDevice.enterDfuMode({noReconnectWait:true});
 
@@ -207,7 +210,10 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
     if (!nativeUsbDevice) {
         setStatus('Authorize access to the DFU device');   
-        
+        if (options.onAuthorizeDFU) {
+            options.onAuthorizeDFU();
+        }
+
         const filters = [
             {vendorId: 0x2b04, productId:(productId | 0xd000)}
         ];
@@ -254,7 +260,11 @@ async function dfuDeviceRestore(usbDevice, options) {
             text
         };
     }
-    
+  
+    if (options.onStartFlash) {
+        options.onStartFlash();
+    }
+
     const createDfuseDevice = async function(interface) {
         const dfuDevice = new dfu.Device(nativeUsbDevice, interface);
 
