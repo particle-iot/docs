@@ -3,9 +3,10 @@ $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
+    const gaCategory = 'USB Device Setup';
 
     if (!navigator.usb) {
-        ga('send', 'event', eventCategory, 'No WebUSB', navigator.userAgent);
+        ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
         $('.setupBrowserError').show();
         return;
     }
@@ -17,7 +18,6 @@ $(document).ready(function() {
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
-        const gaCategory = 'USB Device Setup';
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
@@ -25,6 +25,8 @@ $(document).ready(function() {
         let usbDevice;
         let deviceInfo = {};
         let userFirmwareBinary;
+        let alreadyFlashed = false;
+        let goBackToStartAfterFlashing = false;
 
         const setStatus = function(status) {
             // $(thisElem).find('.setupStatus').text(status);
@@ -82,6 +84,8 @@ $(document).ready(function() {
         $(setupSelectDeviceButtonElem).on('click', selectDevice);
 
         const checkDevice = async function() {
+            goBackToStartAfterFlashing = false;
+
             try {
                 setSetupStep('setupStepCheckDevice');
                 
@@ -89,7 +93,6 @@ $(document).ready(function() {
                 // Possibly try resetting the device
                 $(thisElem).find('.setupStepCheckDevice').children().each(() => $(this).hide());
                 $(thisElem).find('.setupStepCheckDeviceStart').show();
-
 
                 deviceInfo.deviceId = usbDevice.id;
                 deviceInfo.platformId = usbDevice.platformId;
@@ -109,10 +112,18 @@ $(document).ready(function() {
                     return;
                 }
 
+                if (usbDevice.isInDfuMode) {
+                    // If the device is already in DFU mode, flash first
+                    goBackToStartAfterFlashing = true;
+                    flashDevice();
+                    return;
+                }
+    
                 if (usbDevice.isCellularDevice) {
                     $(thisElem).find('.setupStepCheckDeviceSIM').show();
                     
                     deviceInfo.cellular = true;
+
                     deviceInfo.iccid = await usbDevice.getIccid();
 
                     console.log('deviceInfo', deviceInfo);
@@ -130,12 +141,9 @@ $(document).ready(function() {
                 console.log('exception', e);
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
-
+                goBackToStartAfterFlashing = true;
+                flashDevice();
             }
-        };
-
-        const checkSim = async function() {
-
         };
 
         const activateSim = async function() {
@@ -209,7 +217,19 @@ $(document).ready(function() {
                     }
                     else {
                         console.log('active now', result);
-                        flashDevice();
+
+                        if (alreadyFlashed) {
+                            reqObj = {
+                                op: 'connect',
+                            };
+                            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+    
+                            waitDeviceOnline();
+                        }
+                        else {
+                            flashDevice();
+                        }
+        
                         break;
                     }                            
     
@@ -378,8 +398,15 @@ $(document).ready(function() {
                 if (restoreResult.ok) {
                     await reconnectToDevice();
 
-                    // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
-                    configureWiFi();      
+                    alreadyFlashed = true;
+
+                    if (goBackToStartAfterFlashing) {
+                        checkDevice();
+                    }
+                    else {
+                        // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
+                        configureWiFi();                              
+                    }
                 }
                 else {
                     console.log('do something for dfu error');
@@ -398,11 +425,11 @@ $(document).ready(function() {
 
             let nativeUsbDevice;
 
-            for(let tries = 0; tries < 3 && !nativeUsbDevice; tries++) {
+            for(let tries = 0; tries < 4 && !nativeUsbDevice; tries++) {
                 await new Promise(function(resolve) {
                     setTimeout(function() {
                         resolve();
-                    }, 8000);
+                    }, 3000);
                 });
         
                 try {                    
@@ -447,6 +474,8 @@ $(document).ready(function() {
 
             setStatus('Scanning for Wi-Fi networks...');
 
+
+            $(thisElem).find('.scanAgain').prop('disabled', true);
 
             // Start Wi-Fi scan
             let reqObj = {
@@ -499,8 +528,10 @@ $(document).ready(function() {
 
             $(setCredentialsElem).on('click', async function() {
                 $(setCredentialsElem).prop('disabled', true);
-
-                setStatus('Setting Wi-Fi credentials...');
+                
+                // Setting credentials can take a few seconds, so put up the next step first
+                // so it's clear that the button worked
+                setSetupStep('setupStepWaitForOnline');
 
                 const ssid = $('input[name="selectedNetwork"]:checked').val();
 
@@ -515,12 +546,7 @@ $(document).ready(function() {
                 await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
 
                 reqObj = {
-                    op: 'wifiConnect',
-                };
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-
-                reqObj = {
-                    op: 'particleConnect',
+                    op: 'connect',
                 };
                 await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
 
@@ -545,13 +571,7 @@ $(document).ready(function() {
                     // TODO: catch exception here
                     const respObj = JSON.parse(res.data);
                     
-                    if (respObj.done) {
-                        console.log('done!');
-                        break;
-                    }
-
                     if (respObj.ssid) {
-                        console.log('respObj', respObj);
 
                         if (!addedNetworks[respObj.ssid]) {
                             let bars = 0;
@@ -573,11 +593,12 @@ $(document).ready(function() {
                             const rowElem = document.createElement('tr');
     
                             let colElem;
+                            let radioElem;
     
                             // Radio button
                             colElem = document.createElement('td');
                             {
-                                const radioElem = document.createElement('input');
+                                radioElem = document.createElement('input');
                                 $(radioElem).attr('type', 'radio');
                                 $(radioElem).attr('name', 'selectedNetwork');
                                 $(radioElem).attr('value', respObj.ssid);
@@ -622,33 +643,46 @@ $(document).ready(function() {
 
                             addedNetworks[respObj.ssid] = {
                                 respObj,
-                                rowElem
+                                rowElem,
+                                radioElem
                             };
-                        }
-                        
+                        }                        
+                    }
+                    if (respObj.done) {
+                        console.log('done!', addedNetworks);
 
+                        $(thisElem).find('.scanAgain').prop('disabled', false);
+
+                        const numNetworks = Object.keys(addedNetworks).length;
+                        if (numNetworks == 0) {
+                            setSetupStep('setupStepNoWiFi');
+                        }
+                        else
+                        if (numNetworks == 1) {
+                            const ssid = Object.keys(addedNetworks)[0];
+                            $(addedNetworks[ssid].radioElem).trigger('click');
+                        }
+
+                        break;
                     }
                     else {
                         // Wait a bit to try again
                         await new Promise(function(resolve) {
                             setTimeout(function() {
                                 resolve();
-                            }, 1000);
+                            }, 100);
                         });
-                    } 
+                    }
 
 
                 }
 
             }
 
-            setStatus('Waiting for you to select one...');
-
-
-
-            // Set Wi-Fi
-
         };
+
+        $(thisElem).find('.scanAgain').on('click', configureWiFi);
+
 
         const waitDeviceOnline = async function() {
             try {
@@ -704,7 +738,7 @@ $(document).ready(function() {
                                 deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());
                             }
                         }
-                    }, 2000);
+                    }, 100);
                 });
     
                 // Claim device

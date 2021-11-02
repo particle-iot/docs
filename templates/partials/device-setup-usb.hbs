@@ -76,8 +76,13 @@
             <div class="setupStepReconnecting" style="display:none">
                 <div class="setupStepReconnectingWaiting">
                     <p>Waiting for the device to finish updating itself and restart...</p>
-                    <p>This will take several seconds, and the status LED will blink magenta (red and blue at the same time).</p>
+                    <p>This will take several seconds, and the status LED may blink yellow, white, 
+                        magenta (red and blue at the same time), blue, or green.</p>
                 </div>
+            </div>
+            <div class="setupStepNoWiFi" style="display:none">
+                <p>No Wi-Fi networks were found.</p>
+                <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
             </div>
             <div class="setupStepConfigureWiFi" style="display:none">
                 <table class="networkTable apiHelperTableNoMargin">
@@ -94,6 +99,8 @@
                 </table>
                 <p class="passwordRow">Password: <input type="password" class="passwordInput" /></p>
                 <p><button class="setCredentials">Select Wi-Fi Network</button></p>
+                <p>&nbsp;</p>
+                <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
                 <table class="waitOnlineSteps apiHelperTableNoMargin">
@@ -120,7 +127,7 @@
             </div>
             <div class="setupStepNameDevice" style="display:none">
                 <p>You can name your device to make the devices in your account easier to identify.</p>
-                <p>A randomly generated name has been generated, or you can enter your own here:</p>
+                <p>A random device name has been generated, or you can enter your own here:</p>
                 <p><input type="text" class="nameInput" /> &nbsp;<button class="setName">Set Name</button></p>
 
                 <p>Or you can <a class="skipNaming">skip naming</a>. You can always rename your device later.</p>
