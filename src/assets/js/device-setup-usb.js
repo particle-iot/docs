@@ -4,6 +4,7 @@ $(document).ready(function() {
         return;
     }
     const gaCategory = 'USB Device Setup';
+    const storageActivateSim = "DeviceSetupActivatingSim";
 
     if (!navigator.usb) {
         ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
@@ -110,6 +111,22 @@ $(document).ready(function() {
                     deviceInfo.wifi = true;
                 }
 
+                const stor = localStorage.getItem(storageActivateSim);
+                if (stor) {
+                    try {
+                        const storObj = JSON.parse(stor);
+                        // TODO: Check date here
+                        if (stor.deviceId == deviceInfo.deviceId) {
+                            // TODO: Maybe ask user here?
+                            activateSim();
+                            return;''   
+                        }
+                    }
+                    catch(e) {
+
+                    }
+                }
+
                 flashDevice();
             }
             catch(e) {
@@ -155,18 +172,24 @@ $(document).ready(function() {
                         op: 'iccid'
                     } 
                     const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    if (res.result) {
-                        console.log('do something for error response', res);
-                        break;
+                    if (res.result || !res.data) {
+                        await new Promise(function(resolve) {
+                            setTimeout(function() {
+                                resolve();
+                            }, 5000);
+                        });
+                        continue;
                     }
     
-                    if (res.data) {
-                        // TODO: catch exception here
-                        const respObj = JSON.parse(res.data);
-
-                        deviceInfo.iccid = respObj.iccid;
-                        console.log('iccid', deviceInfo.iccid);
+                    const respObj = JSON.parse(res.data);
+                    if (!respObj.iccid) {
+                        showStep('setupStepActivateSimGetSlow');
+                        continue;
                     }
+
+                    deviceInfo.iccid = respObj.iccid;
+
+                    console.log('iccid', deviceInfo.iccid);
 
                     showStep('setupStepActivateSimChecking');
 
@@ -221,6 +244,9 @@ $(document).ready(function() {
                     else {
                         console.log('active now', result);
 
+
+                        localStorage.removeItem(storageActivateSim);
+
                         reqObj = {
                             op: 'connect',
                         };
@@ -252,6 +278,12 @@ $(document).ready(function() {
 
                         clockStart = new Date();
                         startClock();
+
+                        const stor = {
+                            deviceId: deviceInfo.deviceId,
+                            start: clockStart.getTime() / 1000
+                        };
+                        localStorage.setItem(storageActivateSim, JSON.stringify(stor));
 
                         const result = await apiHelper.particle.activateSIM({ auth: apiHelper.auth.access_token, iccid: deviceInfo.iccid});
         
@@ -693,7 +725,7 @@ $(document).ready(function() {
                         await new Promise(function(resolve) {
                             setTimeout(function() {
                                 resolve();
-                            }, 100);
+                            }, 500);
                         });
                     }
 
@@ -761,7 +793,7 @@ $(document).ready(function() {
                                 deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());
                             }
                         }
-                    }, 100);
+                    }, 1000);
                 });
     
                 // Claim device

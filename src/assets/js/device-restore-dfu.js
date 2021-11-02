@@ -200,7 +200,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     let altInterface;
     let extInterface;
 
-    for(let tries = 1; tries <= 5; tries++) {
+    for(let tries = 1; tries <= 8; tries++) {
         setStatus('Looking for device in DFU mode...');
         const nativeUsbDevices = await navigator.usb.getDevices()
     
@@ -249,7 +249,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         await new Promise(function(resolve, reject) {
             setTimeout(function() {
                 resolve();
-            }, 2000);
+            }, 3000);
         });
     
     }     
