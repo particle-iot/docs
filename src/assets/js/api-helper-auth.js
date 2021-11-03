@@ -24,13 +24,15 @@ $(document).ready(function() {
 
         const origUrl = window.location.href;
 		window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl); 
-
-        /*
-        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
-        $('.apiHelper').trigger('ssoLogout');
-        location.reload();
-        */
     };
+
+    apiHelper.loginAgain = function() {
+
+        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
+        // $('.apiHelper').trigger('ssoLogout');
+
+        handleLogin();
+    }
 
     $('.apiHelperFakeAuthButton').on('click', function() {
         const authData = prompt('JSON authentication data:');
@@ -69,6 +71,7 @@ $(document).ready(function() {
     $('.apiHelperFakeAuth').hide();
 
     if (auth) {
+        $('.apiHelperNotLoggedIn').hide();
         $('.apiHelperUser').text(auth.username);
 
         $('.apiHelperLoggedIn').each(function() {
@@ -85,6 +88,7 @@ $(document).ready(function() {
         $('#userMenuLogout > a').on('click', handleLogout);
     }
     else {
+        $('.apiHelperNotLoggedIn').show();
         if (window.location.hostname.endsWith('particle.io')) {
             $('.apiHelperCouldSSO').show();
 
