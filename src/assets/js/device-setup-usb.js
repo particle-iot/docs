@@ -608,6 +608,7 @@ $(document).ready(function() {
                                 try {
                                     nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters });
                         
+                                    showStep('setupStepFlashDeviceConnectDFU');
                                     $(thisElem).find('.reconnectUsb').prop('disabled', false);
             
                                     $(thisElem).find('.reconnectUsb').off('click');
