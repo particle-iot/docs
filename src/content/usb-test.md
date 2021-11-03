@@ -1,14 +1,11 @@
 ---
-title: USB Setup Test
+title: USB Test Tools
 layout: no-nav.hbs
 description: USB Test Tools
-includeDefinitions: [api-helper, device-setup-usb, api-helper-usb, webdfu, zip]
+includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ---
 
-{{> device-setup-usb}}
-
-
-{{!-- 
+# USB Test Tools
 
 {{> usb-test}}
 
@@ -25,5 +22,3 @@ includeDefinitions: [api-helper, device-setup-usb, api-helper-usb, webdfu, zip]
 ### Special Notes for Downgrading
 
 {{blurb name="downgrade"}}
-
---}}

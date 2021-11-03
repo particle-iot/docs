@@ -443,7 +443,6 @@ $(document).ready(function() {
     
                     }
 
-                    // console.log('iccid', deviceInfo.iccid);
 
                     showStep('setupStepActivateSimChecking');
 
@@ -483,7 +482,6 @@ $(document).ready(function() {
                     alreadyOwned = true;
                     if (result.status != 'active') {
                         if (result.last_status_change_action == 'activate' && result.state_change_in_progress) {
-                            console.log('activation in progress', result);
                             setStatus('SIM is being activated...');
                             if (!clockStart) {
                                 clockStart = new Date(result.last_status_change_action_on);
@@ -491,13 +489,10 @@ $(document).ready(function() {
                             }
                         }
                         else {
-                            console.log('need to activate', result)
                             needToActivate = true;
                         }
                     }
                     else {
-                        console.log('active now', result);
-
 
                         localStorage.removeItem(storageActivateSim);
 
@@ -539,8 +534,6 @@ $(document).ready(function() {
 
                         const result = await apiHelper.particle.activateSIM({ auth: apiHelper.auth.access_token, iccid: deviceInfo.iccid});
         
-                        console.log('result', result);
-
                         showStep('setupStepActivateSimWaiting');
 
                     }
@@ -878,7 +871,6 @@ $(document).ready(function() {
                 } 
                 const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                 if (res.result) {
-                    console.log('do something for error response', res);
                     break;
                 }
 
@@ -1046,15 +1038,17 @@ $(document).ready(function() {
                         res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                     }
                     catch(e) {
-                        console.log('control request exception', e);
-                        // clearInterval(timer);
+                        if (e.message.includes('The device was disconnected.')) {
+                            clearInterval(timer);
+                        } else {
+                            console.log('control request exception', e);
+                        }
                         return;
                     }
                     
                     if (res.result == 0 && res.data) {
                         const respObj = JSON.parse(res.data);
 
-                        // console.log('status', respObj);
                         if (checkStatus) {
                             checkStatus(respObj);
                         }
@@ -1069,12 +1063,9 @@ $(document).ready(function() {
                         if (respObj.mcc) {
                             setInfoTableItemObj(respObj);
 
-                            console.log('mcc=' + respObj.mcc + ' mnc=' + respObj.mnc + ' tech=' + respObj.tech + ' band=' + respObj.band);
-
                             if (mccmnc) {
                                 for(const obj of mccmnc) {
                                     if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        console.log('country=' + obj.country + ' carrier=' + obj.name);
                                         setInfoTableItemObj(obj);                                        
                                     }
                                 }
@@ -1141,8 +1132,6 @@ $(document).ready(function() {
         
                     $.ajax(request);            
                 });
-
-                console.log('claim result', result);
 
 
                 if (result.ok) {
@@ -1236,7 +1225,6 @@ $(document).ready(function() {
                     $.ajax(request);            
                 });
 
-                console.log('name result', result);
                 setupDone();
             });
 
