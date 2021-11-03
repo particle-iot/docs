@@ -593,8 +593,31 @@ $(document).ready(function() {
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
-                    onAuthorizeDFU: function() {
+                    onAuthorizeDFU: async function() {
                         showStep('setupStepFlashDeviceAuthorizeDFU');
+
+                        await new Promise(function(resolve, reject) {
+                            const filters = [
+                                {vendorId: 0x2b04}
+                            ];
+        
+                            $(thisElem).find('.reconnectUsb').on('click', async function() {
+        
+                                $(thisElem).find('.reconnectUsb').prop('disabled', true);
+        
+                                try {
+                                    nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters });
+                        
+                                    $(thisElem).find('.reconnectUsb').prop('disabled', false);
+            
+                                    $(thisElem).find('.reconnectUsb').off('click');
+                                    resolve(nativeUsbDevice);    
+                                }
+                                catch(e) {
+                                    reject(e);
+                                }
+                            });                    
+                        });
                     },
                     onStartFlash: function() {
                         showStep('setupStepFlashDeviceFlashing');

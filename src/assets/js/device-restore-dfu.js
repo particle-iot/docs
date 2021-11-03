@@ -215,14 +215,15 @@ async function dfuDeviceRestore(usbDevice, options) {
         if (!nativeUsbDevice) {
             setStatus('Authorize access to the DFU device');   
             if (options.onAuthorizeDFU) {
-                options.onAuthorizeDFU();
+                nativeUsbDevice = await options.onAuthorizeDFU();
             }
-    
-            const filters = [
-                {vendorId: 0x2b04, productId:(productId | 0xd000)}
-            ];
-                    
-            nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
+            else {
+                const filters = [
+                    {vendorId: 0x2b04, productId:(productId | 0xd000)}
+                ];
+                        
+                nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })    
+            }
         }
     
         if (nativeUsbDevice) {
