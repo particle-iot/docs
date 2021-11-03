@@ -42,14 +42,184 @@ $(document).ready(function() {
 
         setSetupStep('setupStepSelectDevice');
 
+
+        let infoTableItems = [
+            {
+                key: 'deviceId',
+                label: 'Device ID',
+            },
+            {
+                key: 'iccid',
+                label: 'ICCID',
+                cellular: true
+            },
+            {
+                key: 'imei',
+                label: 'IMEI',
+                cellular: true
+            },
+            {
+                key: 'mfg',
+                label: 'Modem Manufacturer',
+                cellular: true
+            },
+            {
+                key: 'model',
+                label: 'Modem Model',
+                cellular: true
+            },
+            {
+                key: 'fwvers',
+                label: 'Modem Firmware Version',
+                cellular: true
+            },
+            {
+                key: 'power',
+                label: 'Power Supply',
+                power: true
+            },
+            {
+                key: 'battery',
+                label: 'Battery',
+                power: true
+            },
+            {
+                key: 'soc',
+                label: 'Battery SoC',
+                power: true
+            },
+            {
+                key: 'country',
+                label: 'Country',
+                cellular: true
+            },
+            {
+                key: 'name',
+                label: 'Carrier',
+                cellular: true
+            },
+            {
+                key: 'tech',
+                label: 'Access Technology',
+                cellular: true
+            },
+            {
+                key: 'band',
+                label: 'Band',
+                cellular: true
+            }            
+        ];
+
+
+        const showInfoTable = function() {
+            const tbodyElem = $(thisElem).find('.cellularInfoTable > tbody');
+
+            $(tbodyElem).html('');
+            for(const item of infoTableItems) {
+                if (item.cellular && !deviceInfo.cellular) {
+                    item.hidden = true;
+                    continue;
+                }
+                if (item.wifi && !deviceInfo.wifi) {
+                    item.hidden = true;
+                    continue;
+                }
+                if (item.power && !deviceInfo.hasPMIC) {
+                    item.hidden = true;
+                    continue;
+                }
+
+                item.hidden = false;
+
+                const trElem = document.createElement('tr');
+                
+                const labelElem = document.createElement('td');
+                $(labelElem).text(item.label);
+                $(trElem).append(labelElem);
+
+                const valueElem = item.elem = document.createElement('td');
+                $(trElem).append(valueElem);
+                
+                $(tbodyElem).append(trElem);
+            }
+
+            $(thisElem).find('.cellularInfo').show();
+        }
+
+        const setInfoTableItem = function(key, value) {
+            if (value) {
+                for(const item of infoTableItems) {
+                    if (item.key == key) {
+                        $(item.elem).text(value);
+                    }
+                }    
+            }
+        };
+
+        const setInfoTableItemObj = function(obj) {
+            for(const key in obj) {
+                setInfoTableItem(key, obj[key]);
+            }
+        }
+
+        const getInfoTableText = function() {
+            let text = '';
+            
+            if ((thisElem).find('.cellularInfo').prop('display') == 'none') {
+                return text;
+            }
+
+            for(const item of infoTableItems) {
+                if (!item.hidden) {
+                    text += item.label + ': ' + $(item.elem).text() + '\n';
+                }
+            }
+            return text;
+        };
+
         $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
                 {vendorId: 0x2b04}
             ];
         
             try {
+                // Check access token
+                const result = await new Promise(function(resolve, reject) {
+    
+                    const request = {
+                        dataType: 'json',
+                        error: function (jqXHR) {
+                            reject(jqXHR.status);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'GET',
+                        success: function (resp, textStatus, jqXHR) {
+                            resolve(resp);
+                        },
+                        url: 'https://api.particle.io/v1/user'
+                    };
+        
+                    $.ajax(request);            
+                });
+
+            }
+            catch(e) {
+                if (e == 401) {
+                    $(thisElem).find('.apiHelperLoggedIn').hide();
+                    $(thisElem).find('.accessTokenError').show();
+
+                    $(thisElem).find('.loginAgain').on('click', apiHelper.loginAgain);
+                    return;
+                }
+            }
+
+            try {
                 $(setupSelectDeviceButtonElem).prop('disabled', false);
         
+            
                 if (usbDevice) {
                     await usbDevice.close();
                     usbDevice = null;
@@ -66,6 +236,9 @@ $(document).ready(function() {
                 checkDevice();
             }
             catch(e) {
+                if (e.message.includes('No device selected')) {
+                    return;
+                }
                 console.log('exception', e);
             }
         });
@@ -89,6 +262,16 @@ $(document).ready(function() {
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
                 deviceInfo.targetVersion = '2.2.0'; // FIXME: Latest LTS? Or make selectable?
+
+                switch(deviceInfo.platformId) {
+                    case 10: // electron (and E Series)
+                    case 13: // boron
+                    case 23: // bsom
+                    case 25: // bsom
+                    case 26: // tracker
+                        deviceInfo.hasPMIC = true;
+                        break;
+                }
 
                 $(thisElem).find('.setupStepCheckDeviceStart').hide();
 
@@ -148,6 +331,8 @@ $(document).ready(function() {
                 setSetupStep('setupStepManualDfu');
             }
         };
+
+
 
         const activateSim = async function() {
             setSetupStep('setupStepActivateSim');
@@ -209,7 +394,7 @@ $(document).ready(function() {
             while(true) {
                 try {
                     reqObj = {
-                        op: 'iccid'
+                        op: 'cellularInfo'
                     } 
                     const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                     if (res.result || !res.data) {
@@ -240,7 +425,25 @@ $(document).ready(function() {
 
                     deviceInfo.iccid = respObj.iccid;
 
-                    console.log('iccid', deviceInfo.iccid);
+                    showInfoTable();
+                    setInfoTableItem('deviceId', deviceInfo.deviceId);
+                    setInfoTableItemObj(respObj);
+
+                    $(thisElem).find('.batteryWarning').hide();   
+                    if (respObj.model) {
+                        if (respObj.model.startsWith('SARA-R') || respObj.model.startsWith('BG9')) {
+                            // LTE model, does not require a battery
+                        }
+                        else {
+                            // Non-LTE model 
+                            if (respObj.soc <= 0) {
+                                $(thisElem).find('.batteryWarning').show();   
+                            }
+                        }
+    
+                    }
+
+                    // console.log('iccid', deviceInfo.iccid);
 
                     showStep('setupStepActivateSimChecking');
 
@@ -312,8 +515,6 @@ $(document).ready(function() {
                 }
                 catch(e) {
                     if (e == 404) {
-                        // 
-                        console.log('SIM not active in account, need to activate');
                         needToActivate = true;
                     }
                     else {
@@ -344,18 +545,10 @@ $(document).ready(function() {
 
                     }
                     catch(e) {
+                        setSetupStep('setupStepSimActivationFailed');
+                        // if (e.message.includes('408')) { // activation in progress
                         // 403 if SIM is a product SIM I think
-                        if (e.message.includes('408')) {
-                            console.log('408 - activation in progress');
-                            continue;
-                        }
-                        else
-                        if (e.message.includes('401')) {
-                            console.log('401 error - expired token?');
-                        }
-                        else {
-                            console.log('exception', e);
-                        }
+                        console.log('exception', e);
                         break;
                     }    
                 }
@@ -828,11 +1021,13 @@ $(document).ready(function() {
         $(downloadLogsElem).on('click', function() {
             $(downloadLogsElem).prop('disabled', true);
 
-            let blob = new Blob([deviceLogs], {type:'text/plain'});
+            let blob = new Blob([getInfoTableText(), deviceLogs], {type:'text/plain'});
             saveAs(blob, 'logs.txt');	
 
             $(downloadLogsElem).prop('disabled', false);
         });
+
+
 
         const waitDeviceOnline = async function() {
             try {
@@ -851,7 +1046,9 @@ $(document).ready(function() {
                         res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                     }
                     catch(e) {
-                        clearInterval(timer);
+                        console.log('control request exception', e);
+                        // clearInterval(timer);
+                        return;
                     }
                     
                     if (res.result == 0 && res.data) {
@@ -870,19 +1067,15 @@ $(document).ready(function() {
                             }
                         }
                         if (respObj.mcc) {
-                            $(thisElem).find('.cellularInfo').show();
+                            setInfoTableItemObj(respObj);
 
                             console.log('mcc=' + respObj.mcc + ' mnc=' + respObj.mnc + ' tech=' + respObj.tech + ' band=' + respObj.band);
-                            $(thisElem).find('.cellularInfoTechnology').text(respObj.tech);
-                            $(thisElem).find('.cellularInfoBand').text(respObj.band);
 
                             if (mccmnc) {
                                 for(const obj of mccmnc) {
                                     if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
                                         console.log('country=' + obj.country + ' carrier=' + obj.name);
-                                        $(thisElem).find('.cellularInfoCountry').text(obj.country);
-                                        $(thisElem).find('.cellularInfoCarrier').text(obj.name);
-                                        
+                                        setInfoTableItemObj(obj);                                        
                                     }
                                 }
                             }                                          
@@ -970,6 +1163,7 @@ $(document).ready(function() {
                 nameDevice();
             }
             catch(e) {
+                setSetupStep('setupStepClaimFailed');
                 console.log('exception', e);
             }
 
@@ -1053,6 +1247,33 @@ $(document).ready(function() {
 
             
         };
+
+        $(thisElem).find('.setColorButton').on('click', function() {
+            const color =  $(thisElem).find('.colorSelector').val();
+            const red = parseInt(color.substr(1, 2), 16);
+            const green = parseInt(color.substr(3, 2), 16);
+            const blue = parseInt(color.substr(5, 2), 16);
+
+            const cmd = red + ',' + green + ',' + blue;
+
+
+            apiHelper.particle.callFunction({ deviceId: deviceInfo.deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
+                function (data) {
+                    ga('send', 'event', 'LED Color Test', 'Success');
+                    setStatus('Success! (' + data.body.return_value + ')');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);                
+                },
+                function (err) {
+                    ga('send', 'event', 'LED Color Test', 'Error', err);
+                    setStatus('Error: ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);                
+                }
+            );    
+        });
 
         const setupDone = async function() {
             setSetupStep('setupStepDone');

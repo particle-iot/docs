@@ -3,7 +3,7 @@
     "type": "post",
     "url": "/oauth/token",
     "title": "Generate an access token",
-    "description": "<p>Creates an access token that gives you access to the Cloud API.</p> <p>You must give a valid OAuth client ID and secret in HTTP Basic Auth or in the <code>client_id</code> and <code>client_secret</code> parameters. For controlling your own developer account, you can use <code>particle:particle</code>. Otherwise use a valid OAuth Client ID and Secret. This endpoint doesn't accept JSON requests, only form encoded requests. See <a href=\"#oauth-clients\">OAuth Clients</a>.</p>",
+    "description": "<p>Creates an access token that gives you access to the Cloud API.</p> <p>You must give a valid OAuth client ID and secret in HTTP Basic Auth or in the <code>client_id</code> and <code>client_secret</code> parameters. For controlling your own developer account, you can use <code>particle:particle</code>. Otherwise use a valid OAuth Client ID and Secret. This endpoint doesn't accept JSON requests, only form encoded requests. See <a href=\"#oauth-clients\">OAuth Clients</a>.</p> <p>Refresh tokens only work for product tokens, and even then they are not particularly useful. In order to generate a new access token from the refresh token you still need the client ID and secret. Because of this, it's simpler to just generate a new token, and then you don't need to remember and keep secure the refresh token. Also refresh tokens have a lifetime of 14 days, much shorter than the default access token lifetime of 90 days.</p>",
     "group": "Authentication_1",
     "header": {
       "fields": {
@@ -613,7 +613,7 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Accepts",
+            "field": "Accept",
             "description": "<p>Must be set to &quot;application/schema+json&quot; for this endpoint</p>"
           }
         ]
@@ -622,7 +622,7 @@
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\\n       -H \"Accepts: application/schema+json\"",
+        "content": "$ curl \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\\n       -H \"Accept: application/schema+json\"",
         "type": "bash"
       }
     ],
@@ -1584,37 +1584,6 @@
     "version": "0.0.0",
     "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
     "groupTitle": "Devices_12"
-  },
-  {
-    "type": "post",
-    "url": "/v1/devices",
-    "title": "Provision a new device ID",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "product_id",
-            "description": "<p>Product that allows self-provisioning</p>"
-          }
-        ]
-      }
-    },
-    "name": "ProvisionDevice",
-    "description": "<p>Create a new device ID</p>",
-    "group": "Devices_13",
-    "examples": [
-      {
-        "title": "$ curl https://api.particle.io/v1/devices \\",
-        "content": "$ curl https://api.particle.io/v1/devices \\\n       -d product_id=31 \\\n       -d access_token=1234",
-        "type": "bash"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
-    "groupTitle": "Devices_13"
   },
   {
     "type": "delete",
@@ -4366,10 +4335,10 @@
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Number",
             "optional": true,
-            "field": "device_id",
-            "description": "<p>The device ID to target the compilation</p>"
+            "field": "platform_id",
+            "description": "<p>The platform ID to target the compilation</p>"
           },
           {
             "group": "Parameter",
@@ -4391,7 +4360,7 @@
     "examples": [
       {
         "title": "$ curl -X POST \"https://api.particle.io/v1/binaries?access_token=1234\" \\",
-        "content": "$ curl -X POST \"https://api.particle.io/v1/binaries?access_token=1234\" \\\n       -F product_id=6 \\\n       -F \"file=@application.cpp;filename=application.cpp\" \\\n       -F \"file1=@lib/my_lib.cpp;filename=lib/my_lib.cpp\" \\\n       -F \"file2=@lib/my_lib.h;filename=lib/my_lib.h\"",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/binaries?access_token=1234\" \\\n       -F platform_id=6 \\\n       -F \"file=@application.cpp;filename=application.cpp\" \\\n       -F \"file1=@lib/my_lib.cpp;filename=lib/my_lib.cpp\" \\\n       -F \"file2=@lib/my_lib.h;filename=lib/my_lib.h\"",
         "type": "bash"
       }
     ],
@@ -7809,7 +7778,7 @@
             "type": "Boolean",
             "optional": false,
             "field": "intelligent",
-            "description": "<p>[Enterprise only] Flag this firmware release as an intelligent release so that devices do not need to reconnect to the cloud to receive the update and that they are informed of pending updates when devices are not available for updating.</p>"
+            "description": "<p>Flag this firmware release as an intelligent release so that devices do not need to reconnect to the cloud to receive the update and that they are informed of pending updates when devices are not available for updating.</p>"
           }
         ]
       }
@@ -8516,9 +8485,9 @@
   {
     "type": "get",
     "url": "/v1/user/service_agreements",
-    "title": "",
+    "title": "Get user service agreements",
     "name": "getServiceAgreements",
-    "description": "<p>get the service agreements related to a user</p>",
+    "description": "<p>Get the service agreements related to a user</p>",
     "group": "ServiceAgreements_1",
     "header": {
       "fields": {
@@ -8686,7 +8655,7 @@
   {
     "type": "get",
     "url": "/v1/orgs/:orgIdOrSlug/service_agreements",
-    "title": "",
+    "title": "Get organization service agreements",
     "name": "getServiceAgreementsForOrganization",
     "description": "<p>Get the service agreements related to an organization</p>",
     "group": "ServiceAgreements_1",
@@ -8881,9 +8850,9 @@
   {
     "type": "put",
     "url": "/v1/sims/:iccid",
-    "title": "Update SIM data limit",
+    "title": "Update SIM data limit (deprecated)",
     "group": "Sims_10",
-    "description": "<p>Update the data limit of a SIM card. The data limit represents the maximum data consumption before the SIM is paused until the beginning of the next billing period</p>",
+    "description": "<p>This API has been deprecated as there is no per-SIM data limit at this time.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9557,7 +9526,7 @@
     "title": "Get data usage for product fleet",
     "name": "simFleetDataUsage",
     "group": "Sims_4",
-    "description": "<p>Get fleet-wide SIM card data usage for a product in the current billing period, broken out by day. Daily usage totals represent an aggregate of all SIM cards that make up the product. Note that data usage reports can be delayed up to 1 hour.</p>",
+    "description": "<p>Get fleet-wide SIM card data usage for a product in the current billing period, broken out by day. Daily usage totals represent an aggregate of all SIM cards that make up the product. Data usage reports can be delayed until the next day, and occasionally by several days.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9737,7 +9706,7 @@
     "examples": [
       {
         "title": "Example request",
-        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/sims \\\n       -d sims[]=8934076500002586220 \\\n       -d country=US \\\n       -d access_token=1234",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/sims \\\n       -d sims[]=8934076500002586220 \\\n       -d access_token=1234",
         "type": "bash"
       }
     ],
@@ -9816,7 +9785,7 @@
     "url": "/v1/sims/:iccid",
     "title": "Reactivate SIM",
     "group": "Sims_9",
-    "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated, or when unpausing a SIM that has reached its monthly data limit. When unpausing a SIM, you should also pass <code>mb_limit</code> with the request to raise the SIM card's monthly data limit.</p>",
+    "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9838,14 +9807,14 @@
             "type": "Number",
             "optional": true,
             "field": "mb_limit",
-            "description": "<p>Optionally also set a new data limit in megabytes. This is useful when unpausing</p>"
+            "description": "<p>Deprecated. It is not possible to set a per-SIM data limit at this time.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "productIdOrSlug",
-            "description": "<p>Product ID or slug. <em>Product endpoint only</em> a SIM after it has reached its monthly data limit, to raise it's monthly limit for continued usage</p>"
+            "description": "<p>Product ID or slug. <em>Product endpoint only</em></p>"
           }
         ]
       }
