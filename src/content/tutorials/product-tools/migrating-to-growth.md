@@ -24,7 +24,7 @@ You can select any number of products from your free sandbox to migrate to growt
 
 ### 2. Name your organization
 
-All of the products in your growth plan are grouped together into an organization.
+All of the products in your growth plan are grouped together into an organization. 
 
 - [What is an organization?](#what-is-an-organization-)
 
@@ -41,10 +41,13 @@ Sign up at the [upgrade to growth page](https://www.particle.io/upgradetogrowth/
 
 A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth tier. This process can take several business days. We will ensure that your service is not impacted during this time.
 
+You'll be asked for the list of products to migrate, organization name, and number of blocks during your setup call.
+
 <div  align="center">
 <a href="https://www.particle.io/upgradetogrowth/"  target="_blank" class="button">UPGRADE TO GROWTH</a>
 </div>
 
+</p>&nbsp;<p>
 
 ## FAQ (Frequently Asked Questions)
 
