@@ -846,7 +846,14 @@ $(document).ready(function() {
                         op: 'status'
                     };
 
-                    const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    let res;
+                    try {
+                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
+                    catch(e) {
+                        clearInterval(timer);
+                    }
+                    
                     if (res.result == 0 && res.data) {
                         const respObj = JSON.parse(res.data);
 
