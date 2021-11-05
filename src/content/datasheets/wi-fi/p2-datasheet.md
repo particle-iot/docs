@@ -7,7 +7,7 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 # P2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2021-10-28**
+**Preliminary pre-release version 2021-11-04**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-datasheet.pdf"}}
@@ -17,7 +17,8 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 ### Overview
 
-[To be provided at a later date.]
+The P2 is a SMD module with a microcontroller and Wi-Fi networking. The form-factor is the same as the P1, but
+the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash that can support larger applications.
 
 ### Features
 
@@ -30,6 +31,7 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
   - ARM Cortex M4F CPU, 200 MHz
 - 1024 KB (1 MB) user application maximum size
 - 2 MB flash file system
+- FCC, IC, and CE certified
 
 
 ## Interfaces
@@ -51,7 +53,10 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 ### FCC Approved Antennas
 
-[To be provided at a later date.]
+| Antenna Type | Manufacturer | MFG. Part # | Gain |
+|-|-|-|-|
+| Dipole antenna | LumenRadio | 104-1001 | 2.15dBi |
+| PCB Antenna | Included | - | - |
 
 ---
 
@@ -445,11 +450,19 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 
 ### Module Dimensions
 
-[To be provided at a later date.]
+- P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (H) +/-0.0039"(0.1mm) (includes metal shielding)
+- The P2 should have the same width and length but the height may be slightly different as it has different metal shielding
+
+<div align=center><img src="/assets/images/p1-module-dimensions.png" width=600></div>
 
 ### Recommended PCB land pattern
 
-[To be provided at a later date.]
+The P2 can be mounted directly on a carrier PCB with following PCB land pattern:
+
+<div align=center><img src="/assets/images/p1-land-pattern.png" width=600px></div>
+
+A P1/P2 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern).
+
 
 ## Reference Design Schematic
 
@@ -601,7 +614,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
-| pre | 2021-10-28 | RK | Pre-release |
+| pre | 2021-11-04 | RK | Pre-release |
 
 
 ## Known Errata

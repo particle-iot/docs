@@ -230,7 +230,9 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | Analog Input | &check; | |
 | PWM | &check; | |
 
-On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode. This restriction does not exist on the P2 and Gen 3 devices.
+On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode. 
+
+This restriction does not exist on the P2 and Gen 3 devices; any pin can be used to wake from all sleep modes.
 
 ### CAN (Controller Area Network)
 
