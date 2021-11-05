@@ -13,7 +13,7 @@
   "boron/b523-datasheet.md": "e7c4a357fb4a15ed3beae4fd642f8867",
   "boron/boron-datasheet.md": "2f810a749368b40b291ee5c0d86b7381",
   "certifications/antenna.md": "cd6073192cc3245ca1f89a90150fdb5c",
-  "certifications/certification.md": "085786a2117759feb2ac7f047fc6838f",
+  "certifications/certification.md": "007729217634e98219dd686009e49577",
   "discontinued/core-datasheet.md": "0f0cf8b84fc9d5e56b28901c5d05014f",
   "discontinued/core-shields.md": "d79222707405cbe8f029b84dfb03c0c5",
   "discontinued/xenon-datasheet.md": "f1af00a56583ee93633efd45d9876068",
@@ -23,5 +23,7 @@
   "electron/electron-datasheet.md": "77a52357bfa085481e340d61f2ac0b72",
   "wi-fi/argon-datasheet.md": "03e93dc4d3c0aae96b900ebe38ce62fa",
   "wi-fi/p1-datasheet.md": "b6412d05ecc8c6c9872f3fb49d97cb16",
+  "wi-fi/p2-datasheet.md": "56e5ff9d16102680aa8ba812d302e0a1",
+  "wi-fi/p2-migration-guide.md": "2801c20e6e3a7b2813a1e0644c6b9727",
   "wi-fi/photon-datasheet.md": "8fc160024566bbb40d385200115f765d"
 }
