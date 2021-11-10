@@ -996,6 +996,14 @@ const path = require('path');
             }
         };
 
+        const getPinNameWithAlt = function(p) {
+            if (!p.altName) {
+                return p.name;
+            }
+            else {
+                return p.name + ' / ' + p.altName;
+            }
+        }
 
         let md = '';
 
@@ -1027,7 +1035,7 @@ const path = require('path');
                     continue;
                 }
                 
-                md += '| ' + pin.name + ' | ' + pin.num + ' | ';
+                md += '| ' + getPinNameWithAlt(pin) + ' | ' + pin.num + ' | ';
                 
                 for(const colInfo of functionCols) {
                     let added = false;
@@ -1064,7 +1072,7 @@ const path = require('path');
             });
     
             for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' | ' + (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ' + (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
             }
         }
 
@@ -1088,7 +1096,7 @@ const path = require('path');
             md += '| :---: | :--- | :--- |\n'
     
             for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' |\n';
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' |\n';
             }
 
         }
@@ -1113,7 +1121,7 @@ const path = require('path');
             md += '| :---: | :--- | :--- |\n'
     
             for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' |\n';
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' |\n';
             }
 
         }
@@ -1232,8 +1240,8 @@ const path = require('path');
                     // Neither device supports this port on this pin
                     continue;
                 }
-                md += '| ' + pinNum + ' | ' + p1pin.name + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
-                md += p2pin.name + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
+                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
+                md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
             }            
         }
 
@@ -1255,7 +1263,7 @@ const path = require('path');
             md += '| :---: | :--- | :--- | :--- |:--- |\n'
     
             for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' | ';
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ';
                 
                 md += getShortName(pin[options.interface]) + ' | ';
 
@@ -1281,7 +1289,7 @@ const path = require('path');
             md += '| :---: | :--- | :--- |:--- |\n'
     
             for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' | ';
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ';
                 
                 md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
             }
