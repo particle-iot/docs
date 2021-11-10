@@ -64,7 +64,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         setStatus('Downloading user firmware binary...');
         try {
             await new Promise(function(resolve, reject) {
-                fetch(downloadUrl)
+                fetch(options.downloadUrl)
                     .then(response => response.arrayBuffer())
                     .then(function(res) {
                         options.userFirmwareBinary = res;
@@ -476,7 +476,15 @@ async function dfuDeviceRestore(usbDevice, options) {
             // Gen 3
             const dfuseExtDevice =  await createDfuseDevice(extInterface);
 
-            dfuseExtDevice.startAddress = 0x80289000;
+            if (options.platformVersionInfo.id != 26) {
+                dfuseExtDevice.startAddress = 0x80289000;
+            }
+            else {
+                // Tracker
+                dfuseExtDevice.startAddress = 0x80689000;
+            }
+            console.log('startAddress=' + dfuseExtDevice.startAddress.toString(16));
+
             await dfuseExtDevice.do_download(4096, extPart, {});
 
             await dfuseExtDevice.close();
