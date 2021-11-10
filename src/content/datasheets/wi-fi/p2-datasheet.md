@@ -173,7 +173,6 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | D5 | 53 |   |   | SPI1 (SS) | Serial2 (TX) | PA[19] |
 | D6 | 55 |   | SWCLK |   |   | PB[3] |
 | D7 | 54 |   | SWDIO |   |   | PA[27] |
-| D8 | 24 |   |   |   |   | PA[28] |
 | RGBB | 31 |   |   |   |   | PB[22] |
 | RGBG | 32 |   |   |   |   | PB[23] |
 | RGBR | 29 |   |   |   |   | PA[30] |
@@ -370,7 +369,6 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 21 | NC | No connection. Do not connect anything to this pin. |  |
 | 22 | NC | No connection. Do not connect anything to this pin. |  |
 | 23 | A5 / D17 | A5 Analog in, GPIO, PWM, SPI. | PB[4] |
-| 24 | D8 | GPIO, PWM. (Was DAC/A6 on P1.) | PA[28] |
 | 25 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 28 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 29 | RGBR | RGB LED Red | PA[30] |
