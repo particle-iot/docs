@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the P1 to P2
 
 # P2 Migration Guide
 
-**Preliminary pre-release version 2021-10-28**
+**Preliminary pre-release version 2021-11-10**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-migration-guide.pdf"}}
@@ -60,9 +60,9 @@ Both the P1 and P2 have two SPI ports, however the pins are different for `SPI` 
 
 |      | P1    | P2 |
 | :--- | :---: | :---: |
-| SPI SCK  | A3 | D20/S2 |
-| SPI MISO | A4 | D19/S1 |
-| SPI MOSI | A5 | D18/S0 |
+| SPI SCK  | A3 | D20 / S2 |
+| SPI MISO | A4 | D19 / S1 |
+| SPI MOSI | A5 | D18 / S0 |
 
 The following are all SPI-related pins on the P1 and P2:
 
@@ -72,12 +72,12 @@ The following are all SPI-related pins on the P1 and P2:
 | :---: | :--- | :--- | :--- | :--- |
 | 21 | A4 | SPI (MISO) | NC | &nbsp; | 
 | 22 | A3 | SPI (SCK) | NC | &nbsp; | 
-| 23 | A5 | SPI (MOSI) | A5 | SPI (MOSI) | 
-| 40 | P1S0 | &nbsp; | S0 | SPI (MOSI) | 
-| 41 | P1S1 | &nbsp; | S1 | SPI (MISO) | 
-| 42 | P1S2 | &nbsp; | S2 | SPI (SCK) | 
+| 23 | A5 | SPI (MOSI) | A5 / D17 | SPI (MOSI) | 
+| 40 | P1S0 | &nbsp; | S0 / D18 | SPI (MOSI) | 
+| 41 | P1S1 | &nbsp; | S1 / D19 | SPI (MISO) | 
+| 42 | P1S2 | &nbsp; | S2 / D20 | SPI (SCK) | 
 | 45 | D2 | SPI1 (MOSI) | D2 | SPI1 (MOSI) | 
-| 49 | A2 | SPI (SS) | A2 | &nbsp; | 
+| 49 | A2 | SPI (SS) | A2 / D14 | &nbsp; | 
 | 51 | D3 | SPI1 (MISO) | D3 | SPI1 (MISO) | 
 | 52 | D4 | SPI1 (SCK) | D4 | SPI1 (SCK) | 
 | 53 | D5 | SPI1 (SS) | D5 | SPI1 (SS) | 
@@ -122,8 +122,8 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | 51 | D3 | &nbsp; | D3 | Serial2 (CTS) | 
 | 52 | D4 | &nbsp; | D4 | Serial2 (RX) | 
 | 53 | D5 | &nbsp; | D5 | Serial2 (TX) | 
-| 63 | RX | Serial1 (RX) | RX | Serial1 (RX)  | 
-| 64 | TX | Serial1 (TX) | TX | Serial1 (TX) | 
+| 63 | RX | Serial1 (RX) | RX / D10 | Serial1 (RX)  | 
+| 64 | TX | Serial1 (TX) | TX / D9 | Serial1 (TX) | 
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -156,21 +156,24 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | :---: | :--- | :--- | :--- | :--- |
 | 21 | A4 | &check; | NC | &nbsp; | 
 | 22 | A3 | &check; | NC | &nbsp; | 
-| 23 | A5 | &check; | A5 | &check; | 
-| 24 | DAC | &check; | D8 | &nbsp; | 
-| 30 | WKP | &check; | D11 | &nbsp; | 
-| 40 | P1S0 | &check; | S0 | &nbsp; | 
-| 41 | P1S1 | &check; | S1 | &nbsp; | 
-| 42 | P1S2 | &check; | S2 | &nbsp; | 
-| 43 | A1 | &check; | A1 | &check; | 
-| 44 | P1S3 | &check; | S3 | &nbsp; | 
-| 48 | P1S5 | &check; | S5 | &nbsp; | 
-| 49 | A2 | &check; | A2 | &check; | 
-| 50 | A0 | &check; | A0 | &check; | 
+| 23 | A5 | &check; | A5 / D17 | &check; | 
+| 24 | DAC / A6 | &check; | D8 | &nbsp; | 
+| 30 | WKP / A7 | &check; | D11 / WKP | &nbsp; | 
+| 35 | D1 | &nbsp; | D1 / A4 | &check; | 
+| 36 | D0 | &nbsp; | D0 / A3 | &check; | 
+| 40 | P1S0 | &check; | S0 / D18 | &nbsp; | 
+| 41 | P1S1 | &check; | S1 / D19 | &nbsp; | 
+| 42 | P1S2 | &check; | S2 / D20 | &nbsp; | 
+| 43 | A1 | &check; | A1 / D13 | &check; | 
+| 44 | P1S3 | &check; | S3 / D21 | &nbsp; | 
+| 48 | P1S5 | &check; | S5 / D23 | &nbsp; | 
+| 49 | A2 | &check; | A2 / D14 | &check; | 
+| 50 | A0 | &check; | A0 / D12 | &check; | 
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
 
+On the P2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, P2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for P2 pin D1 (hardware pin 35), which has the alias A4.
 
 ### PWM (Pulse-width modulation)
 
@@ -182,19 +185,19 @@ The pins that support PWM are different on the P1 and P2.
 | Pin | P1 Pin Name | P1 PWM | P2 Pin Name | P2 PWM |
 | :---: | :--- | :--- | :--- | :--- |
 | 21 | A4 | &check; | NC | &nbsp; | 
-| 23 | A5 | &check; | A5 | &check; | 
-| 24 | DAC | &nbsp; | D8 | &check; | 
-| 30 | WKP | &check; | D11 | &nbsp; | 
-| 33 | P1S6 | &check; | S6 | &nbsp; | 
-| 35 | D1 | &check; | D1 | &check; | 
-| 36 | D0 | &check; | D0 | &check; | 
-| 40 | P1S0 | &check; | S0 | &check; | 
-| 41 | P1S1 | &check; | S1 | &check; | 
+| 23 | A5 | &check; | A5 / D17 | &check; | 
+| 24 | DAC / A6 | &nbsp; | D8 | &check; | 
+| 30 | WKP / A7 | &check; | D11 / WKP | &nbsp; | 
+| 33 | P1S6 | &check; | S6 / D24 | &nbsp; | 
+| 35 | D1 | &check; | D1 / A4 | &check; | 
+| 36 | D0 | &check; | D0 / A3 | &check; | 
+| 40 | P1S0 | &check; | S0 / D18 | &check; | 
+| 41 | P1S1 | &check; | S1 / D19 | &check; | 
 | 45 | D2 | &check; | D2 | &nbsp; | 
-| 49 | A2 | &nbsp; | A2 | &check; | 
+| 49 | A2 | &nbsp; | A2 / D14 | &check; | 
 | 51 | D3 | &check; | D3 | &nbsp; | 
-| 63 | RX | &check; | RX | &nbsp; | 
-| 64 | TX | &check; | TX | &nbsp; | 
+| 63 | RX | &check; | RX / D10 | &nbsp; | 
+| 64 | TX | &check; | TX / D9 | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -213,7 +216,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | Pin | P1 Pin Name | P1 DAC | P2 Pin Name | P2 DAC |
 | :---: | :--- | :--- | :--- | :--- |
 | 22 | A3 | &check; | NC | &nbsp; | 
-| 24 | DAC | &check; | D8 | &nbsp; | 
+| 24 | DAC / A6 | &check; | D8 | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
@@ -246,7 +249,7 @@ The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 device
 
 | Pin | P1 Pin Name | P1 CAN | P2 Pin Name | P2 CAN |
 | :---: | :--- | :--- | :--- | :--- |
-| 35 | D1 | &check; | D1 | &nbsp; | 
+| 35 | D1 | &check; | D1 / A4 | &nbsp; | 
 | 45 | D2 | &check; | D2 | &nbsp; | 
 
 
@@ -550,9 +553,11 @@ The following pins were NC on the P1 but are used on the P2.
 | | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1|
-| Description | D0 GPIO, I2C, CAN | D1 GPIO, PWM, I2C|
+| Pin Alternate Name | n/a | A4|
+| Description | D0 GPIO, I2C, CAN | D1 GPIO, PWM, I2C, A4 Analog In|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
+| Supports analogRead | No | Yes|
 | Supports analogWrite (PWM) | Yes | Yes|
 | Supports tone | Yes | Yes|
 | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.|
@@ -563,9 +568,11 @@ The following pins were NC on the P1 but are used on the P2.
 | | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0|
-| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C|
+| Pin Alternate Name | n/a | A3|
+| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C, A3 Analog In|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
+| Supports analogRead | No | Yes|
 | Supports analogWrite (PWM) | Yes | Yes|
 | Supports tone | Yes | Yes|
 | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.|
@@ -709,7 +716,7 @@ The following pins were NC on the P1 but are used on the P2.
 | | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0|
-| Pin Alternate Name | n/a | D0|
+| Pin Alternate Name | n/a | D12|
 | Description | A0 Analog in, GPIO | A0 Analog in, GPIO|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
@@ -818,6 +825,7 @@ The following pins were NC on the P1 but are used on the P2.
 | | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX|
+| Pin Alternate Name | n/a | D10|
 | Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
