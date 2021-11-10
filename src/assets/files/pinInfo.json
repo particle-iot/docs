@@ -1171,22 +1171,6 @@
 					"mcuPin":30
 				},
 				{
-					"num":24,
-					"name":"D8",
-					"desc":"GPIO, PWM. (Was DAC/A6 on P1.)",
-					"isIO":true,
-					"is5VTolerant":false,
-					"digitalRead":true,
-					"digitalWrite":true,
-					"analogRead":false,
-					"analogWriteDAC":false,
-					"analogWritePWM":true,
-					"tone":true,
-					"attachInterrupt":true,
-					"hardwarePin":"PA[28]",
-					"mcuPin":38
-				},
-				{
 					"num":23,
 					"name":"A5",
 					"altName":"D17",

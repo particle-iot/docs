@@ -28,7 +28,7 @@ description: Migration guide for transitioning from the P1 to P2
 |  | 120 MHz | 200 MHz |
 | Hardware FPU | | &check; |
 | Secure Boot | | &check; |
-| Digital GPIO | 24 | 23 |
+| Digital GPIO | 24 | 22 |
 | Analog (ADC) | 13 | 4 |
 | Analog (DAC) | 2 | O |
 | SPI | 2 | 2 |
@@ -49,10 +49,11 @@ description: Migration guide for transitioning from the P1 to P2
 
 On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case for Gen 3 (nRF52840) and the P2 (RTL872x). You must not exceed 3.3V on any GPIO pin, including ports such as serial, I2C, and SPI.
 
-### Pins A3 and A4
+### Pins A3, A4, and DAC (A6)
 
-Pins A3 (module pin 22) and A4 (module pin 21) do not exist on the P2. You will need to use different pins if you are currently using these pins.
+Pins A3 (module pin 22), A4 (module pin 21), DAC/A6 (module pin 24) do not exist on the P2 and are NC.
 
+You will need to use different pins if you are currently using these pins.
 
 ### SPI
 
@@ -157,7 +158,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | 21 | A4 | &check; | NC | &nbsp; | 
 | 22 | A3 | &check; | NC | &nbsp; | 
 | 23 | A5 | &check; | A5 / D17 | &check; | 
-| 24 | DAC / A6 | &check; | D8 | &nbsp; | 
+| 24 | DAC / A6 | &check; | NC | &nbsp; | 
 | 30 | WKP / A7 | &check; | D11 / WKP | &nbsp; | 
 | 35 | D1 | &nbsp; | D1 / A4 | &check; | 
 | 36 | D0 | &nbsp; | D0 / A3 | &check; | 
@@ -186,7 +187,6 @@ The pins that support PWM are different on the P1 and P2.
 | :---: | :--- | :--- | :--- | :--- |
 | 21 | A4 | &check; | NC | &nbsp; | 
 | 23 | A5 | &check; | A5 / D17 | &check; | 
-| 24 | DAC / A6 | &nbsp; | D8 | &check; | 
 | 30 | WKP / A7 | &check; | D11 / WKP | &nbsp; | 
 | 33 | P1S6 | &check; | S6 / D24 | &nbsp; | 
 | 35 | D1 | &check; | D1 / A4 | &check; | 
@@ -216,7 +216,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | Pin | P1 Pin Name | P1 DAC | P2 Pin Name | P2 DAC |
 | :---: | :--- | :--- | :--- | :--- |
 | 22 | A3 | &check; | NC | &nbsp; | 
-| 24 | DAC / A6 | &check; | D8 | &nbsp; | 
+| 24 | DAC / A6 | &check; | NC | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
@@ -298,6 +298,7 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 | 20 | WL_JTAG_TDO | BCM43362 Debugging Pin. |
 | 21 | A4 | A4 Analog in, GPIO, SPI. |
 | 22 | A3 | A3 True analog out, analog in, GPIO. |
+| 24 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
 | 38 | VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
 | 38 | VBAT_MICRO | Battery for internal real-time clock. |
 | 56 | BTCX_STATUS | Coexistence signal: Bluetooth status and TX/RX direction. |
@@ -467,16 +468,14 @@ The following pins were NC on the P1 but are used on the P2.
 #### Module Pin 24
 | | P1 | P2 |
 | :--- | :--- | :--- |
-| Pin Name | DAC | D8|
+| Pin Name | DAC | NC|
 | Pin Alternate Name | A6 | n/a|
-| Description | DAC/A6 True analog out, analog in, GPIO. | GPIO, PWM. (Was DAC/A6 on P1.)|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | No|
-| Supports analogWrite (DAC) | Yes | No|
-| Supports analogWrite (PWM) | No | Yes|
-| Supports tone | No | Yes|
-| Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes|
+| Description | DAC/A6 True analog out, analog in, GPIO. | Leave unconnected|
+| Supports digitalRead | Yes | n/a|
+| Supports digitalWrite | Yes | n/a|
+| Supports analogRead | Yes | n/a|
+| Supports analogWrite (DAC) | Yes | n/a|
+| Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | n/a|
 #### Module Pin 25 (GND)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
