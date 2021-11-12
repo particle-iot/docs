@@ -6217,9 +6217,9 @@ Serial1.end();
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and 64 bytes on Gen 2 (Photon, P1, Electron, E Series) and cannot be changed.
+The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and 64 or 128 bytes depending on the UART mode on Gen 2 (Photon, P1, Electron, E Series). {{since when="3.2.0"}} See also [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
-For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
+For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-) [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
 ```cpp
 // EXAMPLE USAGE
@@ -6264,8 +6264,6 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 ### acquireSerialBuffer()
 
-{{api name1="Serial1.acquireSerialBuffer"}}
-
 ```cpp
 // SYNTAX
 HAL_USB_USART_Config acquireSerialBuffer()
@@ -6307,8 +6305,55 @@ It is possible for the application to allocate its own buffers for `Serial` (USB
 
 On Gen 2 devices (Photon, P1, Electron. E Series), the `USBSerial1` receive buffer can be resized using `acquireUSBSerial1Buffer`. Minimum receive buffer size is 65 bytes.
 
-This is not available for hardware UART ports like `Serial1`, `Serial2`, etc.. If you are getting hardware serial buffer overruns, the [Serial Buffer Library](https://github.com/rickkas7/SerialBufferRK) may be helpful.
+{{since when="3.2.0"}} This is also available for hardware UART ports like `Serial1`, `Serial2`, etc, see [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
+### acquireSerial1Buffer()
+
+{{api name1="Serial1.acquireSerialBuffer"}}
+
+```cpp
+// SYNTAX
+hal_usart_buffer_config_t acquireSerial1Buffer()
+{
+#if !HAL_PLATFORM_USART_9BIT_SUPPORTED
+    const size_t bufferSize = 64;
+#else
+    // If 9-bit mode is supported (e.g. on Gen 2 platforms)
+    // and it's planned to use this mode, it's necessary to allocate
+    // 2x the number of bytes.
+    const size_t bufferSize = 64 * sizeof(uint16_t);
+#endif // HAL_PLATFORM_USART_9BIT_SUPPORTED
+    hal_usart_buffer_config_t config = {
+        .size = sizeof(hal_usart_buffer_config_t),
+        .rx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .rx_buffer_size = bufferSize,
+        .tx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .tx_buffer_size = bufferSize
+    };
+
+    return config;
+}
+
+hal_usart_buffer_config_t acquireSerial2Buffer()
+{
+    const size_t bufferSize = 64;
+    hal_usart_buffer_config_t config = {
+        .size = sizeof(hal_usart_buffer_config_t),
+        .rx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .rx_buffer_size = bufferSize,
+        .tx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .tx_buffer_size = bufferSize
+    };
+
+    return config;
+}
+```
+
+{{since when="3.2.0"}}
+
+It is possible for the application to allocate its own buffers for `Serial1` and other hardware UART ports by implementing `acquireSerial1Buffer`, `acquireSerial2Buffer` etc. Minimum receive buffer size is 64 bytes.
+
+Depending on UART mode it might be required to allocate double the number of bytes (e.g. for 9-bit modes).
 
 ### blockOnOverrun()
 
@@ -10670,6 +10715,10 @@ size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
 - `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
 
 Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
+
+{{since when="3.2.0"}}
+
+If `BlePhy::BLE_PHYS_CODED` advertising PHY is set, it's possible to provide up to 255 (`BLE_MAX_ADV_DATA_LEN_EXT_CONNECTABLE`) of advertising data.
 
 The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
 
@@ -23249,6 +23298,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.1.x prereleases|[v3.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.2.0-rc.1)|-|-|-|-|-|-|
 |v3.1.x releases|[v3.1.0](https://github.com/particle-iot/device-os/releases/tag/v3.1.0)|-|-|-|-|-|-|
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
@@ -23289,6 +23339,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.1.x prereleases|[v3.2.0-rc.1](/reference/device-os/firmware/?fw_ver=3.2.0-rc.1&cli_ver=2.16.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.1.x releases|[v3.1.0](/reference/device-os/firmware/?fw_ver=3.1.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
@@ -23326,6 +23377,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.16.0 = 3.2.0-rc.1
 v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
 v2.11.0 = 2.1.0
@@ -23438,6 +23490,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@3.0.0endif
 ##### @FW_VER@3.1.0if
 ##### @FW_VER@3.1.0endif
+##### @FW_VER@3.2.0if
+##### @FW_VER@3.2.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -23526,6 +23580,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.11.0endif
 ##### @CLI_VER@2.12.0if
 ##### @CLI_VER@2.12.0endif
+##### @CLI_VER@2.16.0if
+##### @CLI_VER@2.16.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
