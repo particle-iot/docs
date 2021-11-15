@@ -26,12 +26,15 @@ $(document).ready(function() {
 		window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl); 
     };
 
-    apiHelper.loginAgain = function() {
+    if (typeof apiHelper != 'undefined') {
+        apiHelper.loginAgain = function() {
 
-        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
-        // $('.apiHelper').trigger('ssoLogout');
-
-        handleLogin();
+            Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
+            // $('.apiHelper').trigger('ssoLogout');
+    
+            handleLogin();
+        }
+    
     }
 
     $('.apiHelperFakeAuthButton').on('click', function() {
