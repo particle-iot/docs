@@ -27,6 +27,9 @@ $(document).ready(function() {
         let deviceInfo = {};
         let userFirmwareBinary;
         let mccmnc;
+        let setupOptions = {};
+
+        const minimumDeviceOsVersion = '2.1.0';
 
         const setStatus = function(status) {
             // $(thisElem).find('.setupStatus').text(status);
@@ -261,7 +264,10 @@ $(document).ready(function() {
                 deviceInfo.platformId = usbDevice.platformId;
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
-                deviceInfo.targetVersion = '2.2.0'; // FIXME: Latest LTS? Or make selectable?
+
+                if (!deviceInfo.targetVersion) {
+                    deviceInfo.targetVersion = minimumDeviceOsVersion;
+                }
 
                 switch(deviceInfo.platformId) {
                     case 10: // electron (and E Series)
@@ -321,7 +327,7 @@ $(document).ready(function() {
                     }
                 }
 
-                flashDevice();
+                confirmFlash();
             }
             catch(e) {
                 console.log('exception', e);
@@ -331,7 +337,6 @@ $(document).ready(function() {
                 setSetupStep('setupStepManualDfu');
             }
         };
-
 
 
         const activateSim = async function() {
@@ -391,11 +396,26 @@ $(document).ready(function() {
                 }, 1000);
             };
 
+            const nextStep = async function() {
+                reqObj = {
+                    op: 'connect',
+                };
+                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                waitDeviceOnline();
+            };
+
+            $(thisElem).find('.continueWithoutActivating').on('click', nextStep);
+
             while(true) {
                 try {
                     reqObj = {
                         op: 'cellularInfo'
                     } 
+                    if (setupOptions.simSelection) {
+                        reqObj.simSelection = setupOptions.simSelection;
+                    }
+
                     const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
                     if (res.result || !res.data) {
                         await new Promise(function(resolve) {
@@ -424,6 +444,7 @@ $(document).ready(function() {
                     }
 
                     deviceInfo.iccid = respObj.iccid;
+                    console.log('iccid=' + deviceInfo.iccid);
 
                     showInfoTable();
                     setInfoTableItem('deviceId', deviceInfo.deviceId);
@@ -446,6 +467,14 @@ $(document).ready(function() {
 
                     showStep('setupStepActivateSimChecking');
 
+                    let checkSimUrl;
+
+                    if (setupOptions.addToProduct) {
+                        checkSimUrl = 'https://api.particle.io/v1/products/' + setupOptions.productId + '/sims/' + deviceInfo.iccid;
+                    }
+                    else {
+                        checkSimUrl = 'https://api.particle.io/v1/sims/' + deviceInfo.iccid;
+                    }
 
                     // listSIMs doesn't filter on iccid correctly
                     // checkSIM does a HEAD so it doesn't return enough useful information
@@ -465,7 +494,7 @@ $(document).ready(function() {
                             success: function (resp, textStatus, jqXHR) {
                                 resolve(resp);
                             },
-                            url: 'https://api.particle.io/v1/sims/' + deviceInfo.iccid
+                            url: checkSimUrl
                         };
             
                         $.ajax(request);            
@@ -496,13 +525,7 @@ $(document).ready(function() {
 
                         localStorage.removeItem(storageActivateSim);
 
-                        reqObj = {
-                            op: 'connect',
-                        };
-                        await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-
-                        waitDeviceOnline();
-        
+                        nextStep();
                         break;
                     }                            
     
@@ -532,8 +555,16 @@ $(document).ready(function() {
                         };
                         localStorage.setItem(storageActivateSim, JSON.stringify(stor));
 
-                        const result = await apiHelper.particle.activateSIM({ auth: apiHelper.auth.access_token, iccid: deviceInfo.iccid});
-        
+                        let activateOptions = {
+                            auth: apiHelper.auth.access_token, 
+                            iccid: deviceInfo.iccid
+                        }
+
+                        if (setupOptions.addToProduct) {
+                            activateOptions.product = setupOptions.productId;
+                        }
+
+                        const result = await apiHelper.particle.activateSIM(activateOptions);
                         showStep('setupStepActivateSimWaiting');
 
                     }
@@ -561,7 +592,6 @@ $(document).ready(function() {
             }
             
         };
-
 
         const flashDevice = async function() {
             try {
@@ -776,6 +806,121 @@ $(document).ready(function() {
             
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
         };
+
+        const addToProduct = async function() {
+            setSetupStep('setupStepAddToProduct');
+
+            // Add device into product
+            const res = await apiHelper.particle.addDeviceToProduct({ 
+                deviceId: deviceInfo.deviceId,
+                product: setupOptions.productId,
+                auth: apiHelper.auth.access_token 
+            });
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+            }
+            else {
+                console.log('failed to add to product, do something here');
+            }
+
+            if (setupOptions.developmentDevice) {
+                await apiHelper.particle.markAsDevelopmentDevice({ 
+                    deviceId: deviceInfo.deviceId,
+                    product: setupOptions.productId,
+                    auth: apiHelper.auth.access_token 
+                });                
+            }
+            
+            flashDevice();
+
+        };
+
+
+        const confirmFlash = async function() {
+            setSetupStep('setupStepConfirm');
+
+            setupOptions = {}; 
+
+            const setupNoClaimElem = $(thisElem).find('.setupNoClaim');
+            $(setupNoClaimElem).prop('checked', false);
+
+            const setupAddToProductElem = $(thisElem).find('.setupAddToProduct');
+            const setupAddToProductSelectorElem = $(thisElem).find('.setupAddToProductSelector');
+            const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
+            const setupSimSelectionRowElem = $(thisElem).find('.setupSimSelectionRow');
+            const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
+            const setupDevelopmentDeviceRowElem = $(thisElem).find('.setupDevelopmentDeviceRow');
+            const setupDevelopmentDeviceElem = $(thisElem).find('.setupDevelopmentDevice');
+            const setupDeviceOsVersionElem = $(thisElem).find('.setupDeviceOsVersion');
+
+            $(productDestinationElem).data('filterPlatformId', deviceInfo.platformId);
+            $(productDestinationElem).data('updateProductList')();
+
+            const minSysVer = apiHelper.semVerToSystemVersion(minimumDeviceOsVersion);
+
+            for(const ver of deviceInfo.platformVersionInfo.versionArray) {
+                if (apiHelper.semVerToSystemVersion(ver) >= minSysVer) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).prop('value', ver);
+                    $(optionElem).text(ver);
+                    if (ver == minimumDeviceOsVersion) {
+                        $(optionElem).prop('selected', true);
+                    }
+
+                    $(setupDeviceOsVersionElem).append(optionElem);
+                }
+            }
+    
+
+
+            const showSimSelectionOption = (deviceInfo.platformId == 13);
+
+            if (showSimSelectionOption) { 
+                // Boron
+                $(setupSimSelectionRowElem).show();
+            }
+            else {
+                $(setupSimSelectionRowElem).hide();
+            }
+
+            $(setupAddToProductElem).on('click', function() {
+                setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
+                if (setupOptions.addToProduct) {
+                    $(setupAddToProductSelectorElem).show();
+                    $(setupDevelopmentDeviceRowElem).show()
+                }
+                else {
+                    $(setupAddToProductSelectorElem).hide();
+                    $(setupDevelopmentDeviceRowElem).hide();
+                }
+            });
+
+            $(productSelectElem).on('change', function() {
+                // Product changed                
+                console.log('product change ' + $(productSelectElem).val());
+            });
+
+
+            $(thisElem).find('.setupSetupDeviceButton').on('click', function() {
+                deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+
+                setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
+                setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
+
+                setupOptions.productId = $(productSelectElem).val();
+                if (showSimSelectionOption) {
+                    setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
+                }
+
+                if (setupOptions.addToProduct) {
+                    addToProduct();
+                }
+                else {
+                    flashDevice();
+                }
+            });
+
+        }
+
 
         const configureWiFi = async function() {
             if (!deviceInfo.wifi) {
@@ -1049,6 +1194,9 @@ $(document).ready(function() {
             try {
                 setSetupStep('setupStepWaitForOnline');
     
+                if (setupOptions.noClaim) {
+                    $(thisElem).find('.waitOnlineStepClaim').hide();
+                }
 
                 $(deviceLogsElem).show();
             
@@ -1129,49 +1277,52 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
-                // Claim device
-                const result = await new Promise(function(resolve, reject) {      
-                    const requestObj = {
-                        id: deviceInfo.deviceId
-                    }
-                    
-                    const request = {
-                        contentType: 'application/json',
-                        data: JSON.stringify(requestObj),
-                        dataType: 'json',
-                        error: function (jqXHR) {
-                            console.log('error', jqXHR);
-                            reject(jqXHR.status);
-                        },
-                        headers: {
-                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
-                        },
-                        method: 'POST',
-                        success: function (resp, textStatus, jqXHR) {
-                            resolve(resp);
-                        },
-                        url: 'https://api.particle.io/v1/devices/'
-                    };
-        
-                    $.ajax(request);            
-                });
-
-
-                if (result.ok) {
-                    $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
-
-                    // Wait a second so the green check shows up
-                    await new Promise(function(resolve) {
-                        setTimeout(function() {
-                            resolve();
-                        }, 1000);
+                if (!setupOptions.noClaim) {
+                    // Claim device
+                    const result = await new Promise(function(resolve, reject) {      
+                        const requestObj = {
+                            id: deviceInfo.deviceId
+                        }
+                        
+                        const request = {
+                            contentType: 'application/json',
+                            data: JSON.stringify(requestObj),
+                            dataType: 'json',
+                            error: function (jqXHR) {
+                                console.log('error', jqXHR);
+                                reject(jqXHR.status);
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json'
+                            },
+                            method: 'POST',
+                            success: function (resp, textStatus, jqXHR) {
+                                resolve(resp);
+                            },
+                            url: 'https://api.particle.io/v1/devices/'
+                        };
+            
+                        $.ajax(request);            
                     });
+
+
+                    if (result.ok) {
+                        $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
+
+                        // Wait a second so the green check shows up
+                        await new Promise(function(resolve) {
+                            setTimeout(function() {
+                                resolve();
+                            }, 1000);
+                        });
+                    }
+                    else {
+                        // TODO: Handle error. What happens if device is already claimed or 
+                        // in a product? This might cause an exception, not an error
+                    }
                 }
-                else {
-                    // TODO: Handle error. What happens if device is already claimed or 
-                    // in a product? This might cause an exception, not an error
-                }
+
     
                 nameDevice();
             }
@@ -1227,6 +1378,14 @@ $(document).ready(function() {
                         name: $(nameInputElem).val()
                     };
                     
+                    let requestUrl;
+                    if (setupOptions.addToProduct) {
+                        requestUrl = 'https://api.particle.io/v1/products/' + setupOptions.productId + '/devices/' + deviceInfo.deviceId;
+                    }
+                    else {
+                        requestUrl = 'https://api.particle.io/v1/devices/' + deviceInfo.deviceId;
+                    }
+
                     const request = {
                         contentType: 'application/json',
                         data: JSON.stringify(requestObj),
@@ -1243,7 +1402,7 @@ $(document).ready(function() {
                         success: function (resp, textStatus, jqXHR) {
                             resolve(resp);
                         },
-                        url: 'https://api.particle.io/v1/devices/' + deviceInfo.deviceId
+                        url: requestUrl
                     };
         
                     $.ajax(request);            
