@@ -6194,7 +6194,7 @@
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit a Webhook",
-    "description": "<p>Edit a Webhook. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit a Webhook. Subsequent triggering of this integration will be sent with the new attributes. The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_5",
     "parameter": {
       "fields": {
@@ -6369,7 +6369,7 @@
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit Azure IoT Hub Integration",
-    "description": "<p>Edit an Azure IoT Hub integration. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit an Azure IoT Hub integration. Subsequent triggering of this integration will be sent with the new attributes. The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_6",
     "parameter": {
       "fields": {
@@ -6481,7 +6481,7 @@
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit Google Cloud Platform Integration",
-    "description": "<p>Edit a Google Cloud platform integration. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit a Google Cloud platform integration. Subsequent triggering of this integration will be sent with the new attributes. The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_7",
     "parameter": {
       "fields": {
@@ -6638,7 +6638,7 @@
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit Google Maps Integration",
-    "description": "<p>Edit a Google Maps integration. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit a Google Maps integration. Subsequent triggering of this integration will be sent with the new attributes. The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_8",
     "parameter": {
       "fields": {
