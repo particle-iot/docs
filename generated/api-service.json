@@ -1172,13 +1172,6 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "customers.full_name",
-            "description": "<p>Name</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
             "field": "customers.username",
             "description": "<p>Username</p>"
           },
