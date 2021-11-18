@@ -30,7 +30,7 @@ Power is not always your only consideration! For example, if you are building a 
 
 ![Sleep Latency](/assets/images/tutorials/sleep-latency.png)
 
-There are three different wake modes, STOP, ultra-low power (ULP), and HIBERNATE. While HIBERNATE is the lowest power, it also has the fewest options for how to wake up. You typically choose the method that has the lowest power for the method you require.
+There are three different sleep modes, STOP, ultra-low power (ULP), and HIBERNATE. While HIBERNATE is the lowest power, it also has the fewest options for how to wake up. You typically choose the method that has the lowest power for the method you require.
 
 For example, if you need to wake after an amount of time on Gen 3 devices, you would probably use ULP. If you need to wake by cellular on Gen 2 devices, you need to use STOP.
 
@@ -74,7 +74,7 @@ The [network sleep configuration](/cards/firmware/sleep-sleep/network-systemslee
 ### Do I want to stay cloud connected?
 
 - If you want to wake the device for functions, variable requests, subscribed events, or OTA requests, you must stay cloud connected.
-- If your sleep duration is short, staying cloud connected will save some data. This doesn't affect your data operations quota, but it does count toward your cellular data limit and adds a few seconds to the sleep/wake cycle.
+- If your sleep duration is short, staying cloud connected will save some data. Disconnecting and reconnecting to the cloud doesn't affect your data operations quota, but it does count toward your cellular data limit and adds a few seconds to the sleep/wake cycle.
 - If you do not want to wake the device for cloud requests, you should disconnect from the cloud.
 
 Setting `SystemSleepNetworkFlag::INACTIVE_STANDBY` in [network sleep configuration](/cards/firmware/sleep-sleep/network-systemsleepconfiguration/) is how you disable the cloud connection while in sleep.
@@ -106,4 +106,11 @@ If you are using network standby with cloud connection enabled and are relying o
 ### Battery usage
 
 To get a general idea of how long a battery will last depending on mode and how of you wake, you can use the [Battery Calculator](https://particle-iot.github.io/BatteryCalculator/).
+
+### Very short sleep cycles
+
+Particle Device OS is not intended to handle very short sleep cycles. Practically speaking, the minimum is about 10 seconds.
+
+One exception is Gen 3 and BLE. The nRF52840 MCU on Gen 3 devices is able to "micro-sleep" and wake very briefly to handle BLE advertising, and allowing incoming BLE connections to wake the device. On these cycles Device OS does not consider the device to really be awake and your code does not run, it only wakes enough to handle the BLE stack and go back to sleep, on the order of microseconds.
+
 
