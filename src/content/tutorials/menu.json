@@ -350,6 +350,11 @@
         "href": "/tutorials/learn-more/about-serial/"
       },
       {
+        "dir": "about-sleep",
+        "title": "About Sleep",
+        "href": "/tutorials/learn-more/about-sleep/"
+      },
+      {
         "dir": "node-js",
         "title": "node.js getting started",
         "href": "/tutorials/learn-more/node-js/"
