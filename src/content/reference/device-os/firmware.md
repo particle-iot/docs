@@ -15701,6 +15701,8 @@ SystemSleepResult result = System.sleep(config);
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. 
 
+For introduction to sleep and the various sleep modes and trade-offs, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+
 The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the previous numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
@@ -15723,6 +15725,7 @@ The are are three sleep modes:
 | Relative wake options | Most | Some | Fewest |
 | Execution continues with variables intact | &check; | &check; | &nbsp; |
 
+To help decide which mode you should use, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
 
 ---
 
@@ -15756,6 +15759,7 @@ The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time, GPIO, analog, serial, and cellular. On Gen 3 also BLE and Wi-Fi.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
+
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -16093,6 +16097,9 @@ If you are waking on network activity, be sure to wait for `Particle.connected()
 If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data from the cloud to the device (function, variable, subscribe, OTA) will wake the device from sleep. However if you sleep for less than the keep-alive length, you can wake up with zero additional overhead. This is offers the fastest wake time with the least data usage.
 
 If you use `INACTIVE_STANDBY`, the modem is kept powered, but the cloud is disconnected. This eliminates the need to go through a reconnection process to the cellular tower (blinking green) and prevents problems with aggressive reconnection. The device will not wake from sleep on functions, variables, or OTA. However, it also will cause the cloud to disconnect. The device will be marked offline in the console, and will go through a cloud session resumption on wake. This will result in the normal session negotiation and device vitals events at wake that are normally part of the blinking cyan phase.
+
+For more information on using network sleep modes, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+
 
 ### analog() (SystemSleepConfiguration)
 

@@ -111,6 +111,6 @@ To get a general idea of how long a battery will last depending on mode and how 
 
 Particle Device OS is not intended to handle very short sleep cycles. Practically speaking, the minimum is about 10 seconds.
 
-One exception is Gen 3 and BLE. The nRF52840 MCU on Gen 3 devices is able to "micro-sleep" and wake very briefly to handle BLE advertising, and allowing incoming BLE connections to wake the device. On these cycles Device OS does not consider the device to really be awake and your code does not run, it only wakes enough to handle the BLE stack and go back to sleep, on the order of microseconds.
+One exception is Gen 3 and BLE. The nRF52840 MCU on Gen 3 devices is able to "micro-sleep" and wake very briefly to handle BLE advertising, and allowing incoming BLE connections to wake the device. On these cycles Device OS does not consider the device to really be awake and your code does not run, it only wakes enough to handle the BLE stack and go back to sleep, on the order of milliseconds.
 
 
