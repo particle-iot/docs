@@ -14856,6 +14856,14 @@ You should generally not try to do anything other than call `System.reset()` or 
 
 Calling these functions will likely cause the system to deadlock and not reset.
 
+The following is a recommended watchdog callback implementation. It sets a reset reason, and does not wait for the cloud connection to gracefully close, since the device is in a bad state and that will likely never complete.
+
+```
+void myWatchdogHandler(void) {
+  System.reset(RESET_REASON_USER_APPLICATION_WATCHDOG, RESET_NO_WAIT);
+}
+```
+
 Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 {{since when="1.5.0"}}
