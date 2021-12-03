@@ -51,24 +51,6 @@ You'll be asked for the list of products to migrate, organization name, and numb
 
 ## FAQ (Frequently Asked Questions)
 
-
-### What are free plan limits?
-
-The free plan is a place for prototyping products. It is free of charge, but there are limits on the number of devices and data operations you can use.
-
-- Up to {{freeTierDevices}} devices, any mix of cellular, Wi-Fi, and Tracker devices
-- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
-- Device communication is paused when a monthly limit is reached
-
-{{top}}
-
-### What is a data operation?
-
-{{blurb name="dataoperations"}}
-
-{{top}}
-
 ### How am I billed for the growth plan?
 
 You initially decide how many blocks you want when you create your growth organization. That many blocks will be billed at {{growthBlockPrice}} each at the start of your billing period.
@@ -113,6 +95,23 @@ You can get a rough estimate of the number of data operations if you publish dat
 {{> dataoperationscalc}}
 
 If you want to try to reduce the number of data operations you are using, see [minimizing data operations](/tutorials/device-cloud/introduction/#minimizing-data-operations).
+
+{{top}}
+
+### What is a data operation?
+
+{{blurb name="dataoperations"}}
+
+{{top}}
+
+### What are free plan limits?
+
+The free plan is a place for prototyping products. It is free of charge, but there are limits on the number of devices and data operations you can use.
+
+- Up to {{freeTierDevices}} devices, any mix of cellular, Wi-Fi, and Tracker devices
+- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
+- Device communication is paused when a monthly limit is reached
 
 {{top}}
 
