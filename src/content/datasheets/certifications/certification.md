@@ -231,7 +231,7 @@ Additional FCC Test Reports:
 Cellular certification:
 
 - FCC ID: [2AEMI-BRN402](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=86FVMi%2FyRce7yQ4d9ekA2g%3D%3D&fcc_id=2AEMI-BRN402)
-- [Certificate of Conformity](/assets/pdfs/boron402-cellular-fcc.pdf)
+- [Certificate of Conformity](/assets/pdfs/boron402-cellular-fcc.pdf) (updated 2021-12-03)
 
 NFC certification:
 
@@ -248,8 +248,8 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 Additional FCC Test Reports:
 
-- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/boron402-fcc-part15c.pdf)
-- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/boron402-fcc-rf-exposure.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/boron402-fcc-part15c.pdf) (updated 2021-12-03)
+- [RF Exposure Report FCC Part 2, Section 2.1091](/assets/pdfs/boron402-fcc-rf-exposure.pdf) (updated 2021-12-03)
 - [Test report FCC part 22](/assets/pdfs/boron402-fcc-part22.pdf)
 - [Test report FCC part 24](/assets/pdfs/boron402-fcc-part24.pdf)
 - [Test report FCC part 27](/assets/pdfs/boron402-fcc-part27.pdf)
