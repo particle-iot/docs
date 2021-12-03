@@ -18,6 +18,8 @@ wifi      - Wi-Fi devices only (cellular and wifi are mutually exclusive)
 cellular  - Cellular devices only (cellular and wifi are mutually exclusive)
 note      - A note (orange bar). Has precedence over others except warning. Note and warning are mutually exclusive.
 warning   - A warning (red bar). Has precedence over others. Note and warning are mutually exclusive.
+product   - For products (cyan/gen2 color)
+developer - For developer devices (navy/gen 3 color)
 
 If there's both a generation and network ("gen3 cellular") then the network color will
 be displayed because there can only be one colored bar visible at a time since 
@@ -89,6 +91,16 @@ module.exports = function(context) {
         if (context.hash.type.indexOf("gen2") >= 0) {
             message = 'Gen 2 Devices:';
             cssClass = 'note-gen2';
+        }
+        else
+        if (context.hash.type.indexOf("product") >= 0) {
+            message = 'Product Devices:';
+            cssClass = 'note-gen2';
+        }
+        else
+        if (context.hash.type.indexOf("developer") >= 0) {
+            message = 'Developer Devices:';
+            cssClass = 'note-gen3';
         }
 
         html += '<span class="note-prefix">' + message + '</span></p><div class="note-common ' + cssClass + ' content reference"><p>';
