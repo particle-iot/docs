@@ -51,6 +51,58 @@ You'll be asked for the list of products to migrate, organization name, and numb
 
 ## FAQ (Frequently Asked Questions)
 
+### How am I billed for the growth plan?
+
+You initially decide how many blocks you want when you create your growth organization. That many blocks will be billed at {{growthBlockPrice}} each at the start of your billing period.
+
+If another block is needed:
+
+- No action is required and you will not experience any interruption; a block will be added automatically.
+- You will be billed for additional blocks at the end of the billing cycle, not at the time additional blocks are added.
+- This will increase the default number of blocks you are billed for in future months. The next billing cycle will include the new larger number of blocks.
+
+Example:
+
+- You sign up for 4 blocks on January 1, and are charged for it 4 blocks. This the beginning of your billing cycle.
+- On January 28, you exceed 4 blocks of usage and are now in your 5th block.
+- On January 31, the end of your billing cycle, you have used 5 blocks and are billed for the additional block that was added during the cycle.
+- On February 1, the beginning of the next billing cycle, you will be billed for 5 blocks. 
+
+If the increase was a one-time event and you do not need the larger number of blocks in the future, or you wish to lower your blocks billed for the month you will need to submit a [support ticket](https://support.particle.io) to make this change.
+
+{{top}}
+
+### What is a block?
+
+Billing is measured in blocks.
+
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
+- Up to {{growthTierDevices}} devices.
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices.
+- Each block is {{growthBlockPrice}} per month.
+- Blocks are specific to cellular, Tracker, or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B Series are all cellular devices that can share the same block even though they are in different products.
+
+{{top}}
+
+### How many blocks do I need?
+
+If you exceed any limit, you will need another block. You can't just buy more data operations, or more cellular data, for example. For example, if you have 150 cellular devices, you will need a minimum of two blocks.
+
+You can find out your fleet usage in the [Billing & Usage](/tutorials/device-cloud/console/#billing-amp-usage) panel in the console if you are an organization administrator. 
+
+You can get a rough estimate of the number of data operations if you publish data periodically by using this calculator:
+
+{{> dataoperationscalc}}
+
+If you want to try to reduce the number of data operations you are using, see [minimizing data operations](/tutorials/device-cloud/introduction/#minimizing-data-operations).
+
+{{top}}
+
+### What is a data operation?
+
+{{blurb name="dataoperations"}}
+
+{{top}}
 
 ### What are free plan limits?
 
@@ -60,12 +112,6 @@ The free plan is a place for prototyping products. It is free of charge, but the
 - {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - Device communication is paused when a monthly limit is reached
-
-{{top}}
-
-### What is a data operation?
-
-{{blurb name="dataoperations"}}
 
 {{top}}
 
@@ -213,39 +259,3 @@ The [device list tool](/tutorials/product-tools/creating-a-product/#device-list-
 
 {{top}}
 
-### What is a block?
-
-Billing is measured in blocks.
-
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
-- Up to {{growthTierDevices}} devices.
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices.
-- Each block is {{growthBlockPrice}} per month.
-- Blocks are specific to cellular, Tracker, or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B Series are all cellular devices that can share the same block even though they are in different products.
-
-{{top}}
-
-### How many blocks do I need?
-
-If you exceed any limit, you will need another block. You can't just buy more data operations, or more cellular data, for example. For example, if you have 150 cellular devices, you will need a minimum of two blocks.
-
-You can find out your fleet usage in the [Billing & Usage](/tutorials/device-cloud/console/#billing-amp-usage) panel in the console if you are an organization administrator. 
-
-You can get a rough estimate of the number of data operations if you publish data periodically by using this calculator:
-
-{{> dataoperationscalc}}
-
-If you want to try to reduce the number of data operations you are using, see [minimizing data operations](/tutorials/device-cloud/introduction/#minimizing-data-operations).
-
-{{top}}
-
-### When are blocks billed?
-
-You initially decide how many blocks you want when you create your growth organization. That many blocks will be billed at {{growthBlockPrice}} each at the start of your billing period.
-
-If another block is needed:
-
-- You are not billed until the next billing cycle; no proration is needed.
-- If you exceed the number of blocks you had purchased at the beginning of this billing month, the new larger number of blocks will be the number of blocks purchased for the all future months.
-
-{{top}}
