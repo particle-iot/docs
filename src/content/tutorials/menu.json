@@ -103,6 +103,11 @@
         "href": "/tutorials/device-cloud/cloud-api/"
       },
       {
+        "dir": "device-claiming",
+        "title": "Device Claiming",
+        "href": "/tutorials/device-cloud/device-claiming/"
+      },
+      {
         "dir": "authentication",
         "title": "Authentication",
         "href": "/tutorials/device-cloud/authentication/"

@@ -1,10 +1,10 @@
 ---
-title: AN039 Device Claiming
+title: Device Claiming
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN039 Device Claiming
+# Device Claiming
 
 *A long treatise on Particle device claiming*
 
@@ -60,6 +60,19 @@ For devices in a product, you can claim the device either:
 Yes! Device claiming is unrelated to whether a device is online (breathing cyan) or not.
 
 For cellular devices, SIM activation is necessary in order for the device to get online. If the SIM is not activated, then the device will be stuck in blinking green and you will not be able to claim a non-product device until it's online and breathing cyan.
+
+### How is this related to billing?
+
+{{note op="start" type="developer"}}
+For developer (non-product) devices, there's a limit of 100 devices in the developer sandbox in the Free Tier. The device ownership (who claimed it) determines which account this device counts toward the limit for.
+{{note op="end"}}
+
+{{note op="start" type="product"}}
+For product devices, claiming is irrelevant. It's the total number of devices that are members of the product that count toward the block limit.
+{{note op="end"}}
+
+- Devices that are both claimed to an account **and** in a product, the device shows up in the developer sandbox device list but does not count toward the 100 device limit, except...
+- If the account has free tier products in it, every device in those product count against the 100 device limit, but may or may not show up in the sandbox device list.
 
 ### How do I claim a device?
 
@@ -201,18 +214,6 @@ The reason this occurs is that in order to find the Device ID, the mobile app ne
 - Once unclaimed, you can leave it that way, or use one of the claiming methods above to claim it to a different account.
 {{note op="end"}}
 
-### How is this related to billing?
-
-{{note op="start" type="developer"}}
-For developer (non-product) devices, there's a limit of 100 devices in the developer sandbox in the Free Tier. The device ownership (who claimed it) determines which account this device counts toward the limit for.
-{{note op="end"}}
-
-{{note op="start" type="product"}}
-For product devices, claiming is irrelevant. It's the total number of devices that are members of the product that count toward the block limit.
-{{note op="end"}}
-
-- Devices that are both claimed to an account **and** in a product, the device shows up in the developer sandbox device list but does not count toward the 100 device limit, except...
-- If the account has free tier products in it, every device in those product count against the 100 device limit, but may or may not show up in the sandbox device list.
 
 
 ## Product membership
@@ -439,9 +440,9 @@ The device name is optional. Within a developer account, the device name is uniq
 
 In products, however, the device name is not unique if devices are claimed to multiple users or customers. Different users or customers can have devices with the same name.
 
-### MAC
+### MAC Address
 
-The MAC (media access control) address uniquely identifies the Wi-Fi radio on the Photon, P1, Argon, and Tracker. It is assigned during manufacture and is typically 12 hexadecimal digits (48 bits).
+The MAC (media access control) Address uniquely identifies the Wi-Fi radio on the Photon, P1, Argon, and Tracker. It is assigned during manufacture and is typically 12 hexadecimal digits (48 bits).
 
 The Particle Ethernet FeatherWing has a separate MAC address that is randomly assigned a site-local address that is not necessarily globally unique.
 
