@@ -19,7 +19,7 @@ It's different than:
 
 ![](/assets/images/app-notes/AN039/claiming.png)
 
-Each device is identified by its unique Device ID, the 24-character hexadecimal string that uniquely identifies each device. This Device ID never changes, even if the ownership of the device changes.
+Each device is identified by its unique Device ID, the 24-character hexadecimal string that uniquely identifies each device. The Device ID never changes, even if the ownership of the device changes.
 
 ### Do I need to claim my devices?
 
@@ -37,7 +37,7 @@ For devices in a product, you can use unclaimed product devices if:
 - The device firmware does not subscribe to events (including webhook responses)
 - You do not need to use the Wi-Fi device setup SDK for the Photon/P1
 
-However, you still will need to handle product membership and possibly SIM activation even if you do not need to claim the device.
+However, you still will need to handle product membership and SIM activation even if you do not need to claim the device.
 
 It's also common for cellular products to claim all devices to a single account controlled by the product owner instead of using unclaimed product devices.
 {{note op="end"}}
@@ -79,18 +79,19 @@ You'll need to know the device ID to add the device this way, and the device mus
 
 A common sequence of events for setting up a Wi-Fi device using the CLI is:
 
-```
+```text
 particle identify
 particle usb dfu
 particle update
 particle serial wifi
 particle device add <device-id>
 particle device rename <device-id> <name>
+particle usb setup-done
 ```
 
-- When a new device reboots, it should go into listening mode (blinking dark blue), if not, it can be done by using the buttons or `particle usb listening`.
+- When a new device reboots, it should go into listening mode (blinking dark blue), if not, it can be done by holding down the MODE (or SETUP) button until the status LED blinks dark blue, or by using `particle usb listening`.
 
-- The `particle identify` command prints out the Device ID, which you will need in later step.
+- The `particle identify` command prints out the Device ID, which you will need in a later step.
 
 - The `particle usb dfu` command puts the device in DFU (blinking yellow) mode. If you have a very old device, this may fail and you will need to use the buttons. Hold down MODE (or SETUP) and tap RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release.
 
@@ -102,12 +103,15 @@ particle device rename <device-id> <name>
 
 - The `particle device rename` command sets the name of the device (optional). 
 
+- The `particle usb setup-done` command is only needed for Gen 3 devices such as the Argon or Boron.
 
 #### setup.particle.io claiming
 
-Using [setup.particle.io](https://setup.particle.io) you can set up cellular devices, and also the Photon as developer devices.
+- Using [setup.particle.io](https://setup.particle.io) you can set up cellular devices, and also the Photon, as developer devices.
 
-This is also the recommended way to set up a small number of Tracker One devices.
+- This is also the recommended way to set up a small number of Tracker One devices.
+
+- This is also a good way to activate a small number of developer SIM cards not part of a product.
 
 #### Web IDE claiming
 
@@ -175,12 +179,20 @@ You can unclaim developer devices from the Web IDE. Click on the **Devices** tab
 
 The Particle cloud API [unclaim device](/reference/device-cloud/api/#unclaim-device) endpoint is used to unclaim a device. There are two different endpoints, one for developer devices and one for product devices.
 
+#### Note about Photon unclaiming
 
+When you unclaim a device, it's a cloud-only operation. However, the Photon (and P1) also have a bit on the device that indicates the device has been claimed. If this bit is set the mobile app will warn you that the device has been claimed to another account when you try to claim it. This is merely a user interface issue. The device may in fact be unclaimed, and the mobile app will still allow you to claim it, regardless. 
+
+The reason this occurs is that in order to find the Device ID, the mobile app needs to connect to the Photon Wi-Fi configuration network. At this point, it it can no longer access the Particle Cloud to see if the device is really claimed, so it uses the bit on the device as a user interface hint, but it doesn't really affect operation beyond an extraneous warning.
 
 ### Transferring a device
 
 {{note op="start" type="developer"}}
-xxx
+- You can unclaim the device, then claim it to the new account.
+
+- If you use the mobile app with the Photon that is not in a product, you can transfer the device immediately.
+
+- Using the Particle CLI or Web IDE, you can claim the device. If already claimed, you can request a transfer. The the original owner will be emailed and has to respond affirmatively for the transfer to take place.
 {{note op="end"}}
 
 {{note op="start" type="product"}}
@@ -227,7 +239,7 @@ Firmware is uploaded the the console and identified by a version number. This ve
 PRODUCT_VERSION(2);
 ```
 
-The version number is a 16-bit unsigned integer (0 - 65535).
+The version number is a 16-bit unsigned integer (1 - 65535).
 
 When a device connects to the cloud, the version in the binary is compared to the version specified for the product default, device group, or a specific device (lock firmware version). If there is a version mismatch, the correct version will be flashed. It's an equality test, so this will either move the version up or down.
 
@@ -264,7 +276,7 @@ By far the most common, and recommended, way to handle adding devices to product
 
 You could also do this on a per-device basis as part of your [manufacturing flow](/tutorials/product-tools/manufacturing-cellular/).
 
-This is required if using the wildcard PRODUCT_ID macro.
+This is required if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro.
 
 ### Quarantine
 
@@ -301,7 +313,7 @@ From setup.particle.io you can activate a SIM:
 
 If you order a 50-pack of Particle SIM cards (plastic 4FF nano SIM cards) you will receive an email with the ICCIDs in the order. You can upload this file from the console to activate all of the SIM cards in bulk. Open the product, SIM Cards, then **Import SIM Cards**.
 
-You can also activate a single SIM card this way.
+You can also activate a single SIM card this way, whether a 4FF plastic SIM card or a built-in MFF2 SMD SIM, using its ICCID.
 
 ### Cloud API SIM activation
 
@@ -332,14 +344,32 @@ When using the Photon Device Setup SDK for iOS and Android you don't have to wor
 
 However, claim codes solve the problem of having a device add itself to a product and claim without having to divulge a product authentication key to the mobile app. This keeps your product authentication tokens more secure. 
 
+The claim code is generated by a cloud API call. This requires a product authentication token, however it can be a mobile app oAuth token that only is used for claiming and does not allow access to anything else. It could also be generated on your own server.
+
+The claim code is passed to the cloud when the device first connects to the cloud. This claims the device to a user or customer (simple auth or two-legged shadow). 
+
+A claim code may also may associate a device with a product. It's still best to associate devices with a product at time of manufacture, but it is possible to do so with a claim code.
+
 ## Setting Wi-Fi credentials
 
 ### Mobile app - Wi-Fi credentials
 
+The Particle mobile app is intended to set up developer devices, and thus it both sets Wi-Fi credentials and claims the device. This is what you want for developer use, but is probably not what you want for products.
+
 ### Photon setup SDK custom mobile app - Wi-Fi credentials
 
-### Particle CLI - Wi-Fi credenials
+The Photon setup SDK allows you to create your own white label iOS or Android mobile app that can set up a Photon or P1. It can set up both developer devices as well as simple auth or two-legged shadow auth customers.
 
+It cannot set up an Argon!
+
+
+### Particle CLI - Wi-Fi credentials
+
+With the device in listening mode (blinking dark blue):
+
+```
+particle serial wifi
+```
 
 ## Setup Done
 
@@ -359,5 +389,59 @@ particle usb setup-done
 
 This should be done with the device in normal operating mode or listening mode.
 
-### Web browser - setup done
+## Device identifiers
+
+### Device ID
+
+This is what is used internally for most device identification. It never changes. It's required for many cloud API calls.
+
+It's always 24 hexadecimal characters (96 bits). You always need to use the whole Device ID, because all of the bits are significant.
+
+### Serial number
+
+The Particle serial number uniquely identifies a Particle device and can be used in many places to set up a device instead of the Device ID or ICCID.
+
+It's typically printed under the data matrix (2D barcode, looks like a QR code) on most newer Particle devices.
+
+Newer serial numbers begin with `P` followed by a 3-digit number. There are also other serial number formats that begin with a model identifier (such as E310).
+
+The serial number is programmed into one-time-programmable (OTP) memory and cannot be changed. Some older Gen 2 devices do not have a serial number.
+
+### Data matrix 
+
+Most Particle device serial number stickers contain a data matrix code, a 2D barcode that looks like a QR code. This can be decoded by many handheld scanners and phone apps.
+
+On Gen 3 devices the data matrix contains the serial number, a space, and the mobile secret (used during setup over BLE).
+
+On other devices the data matrix only contains the serial number.
+
+### Mobile secret
+
+This is used on Gen 3 devices for setup over Bluetooth LE (BLE). It's not unique, but when combined with the serial number, is used for encrypted communication between the mobile app and the device over BLE.
+
+### ICCID
+
+This is the 19 to 21 digit number that identifies a SIM card. It always begins with 89. 
+
+This is typically used when activating a SIM card, particularly 4FF plastic SIM cards. The number is printed both on the small (4FF nano) as well as the larger plastic card.
+
+### IMEI
+
+The IMEI is a unique identifier associated with the cellular modem. While devices with removable SIM card (Electron, Boron) you can swap the SIM card, which changes the ICCID, the IMEI remains constant.
+
+Older Electrons with a u-blox sticker on the modem module, instead of a Particle serial number sticker, have the IMEI encoded in the 2D barcode.
+
+If your device is banned from mobile networks, for example in Turkey if you do not register your device with its telecommunications authority, your device can be banned by IMEI. Thus even changing SIM cards will not allow the device to get online.
+
+### Device name
+
+The device name is optional. Within a developer account, the device name is unique.
+
+In products, however, the device name is not unique if devices are claimed to multiple users or customers. Different users or customers can have devices with the same name.
+
+### MAC
+
+The MAC (media access control) address uniquely identifies the Wi-Fi radio on the Photon, P1, Argon, and Tracker. It is assigned during manufacture and is typically 12 hexadecimal digits (48 bits).
+
+The Particle Ethernet FeatherWing has a separate MAC address that is randomly assigned a site-local address that is not necessarily globally unique.
 
