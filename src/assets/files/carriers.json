@@ -24278,7 +24278,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -24292,7 +24293,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "Limited band compatibility, roaming restrictions"
+      "reason": "Limited band compatibility, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -24306,7 +24308,8 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "Limited band compatibility, roaming restrictions"
+      "reason": "Limited band compatibility, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -24327,7 +24330,8 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -24347,7 +24351,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -25501,7 +25506,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -25515,7 +25521,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "Permanent roaming issues, band compatibility"
+      "reason": "Permanent roaming issues, band compatibility",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -25529,7 +25536,8 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "Permanent roaming issues, band compatibility"
+      "reason": "Permanent roaming issues, band compatibility",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -25550,7 +25558,8 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -25569,7 +25578,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "Permanent roaming issues"
+      "reason": "Permanent roaming issues",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -29974,7 +29984,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -29987,7 +29998,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -30000,7 +30012,8 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -30021,7 +30034,8 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -30041,7 +30055,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -36520,7 +36535,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -36534,7 +36550,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -36548,7 +36565,8 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -36569,7 +36587,8 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -36588,7 +36607,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -37843,7 +37863,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -37856,7 +37877,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -37869,7 +37891,8 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -37890,7 +37913,8 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -37909,7 +37933,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -39973,42 +39998,48 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "EG91-E",
       "sim": 2,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
@@ -40022,42 +40053,48 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 2,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "U260",
       "sim": 1,
       "recommendation": "NR",
-      "reason": "bands not supported by modem"
+      "reason": "bands not supported by modem",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
       "modem": "U270",
       "sim": 1,
       "recommendation": "NR",
-      "reason": "not recommended due to permanent roaming restrictions"
+      "reason": "not recommended due to permanent roaming restrictions",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -40351,7 +40388,8 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
@@ -40365,7 +40403,8 @@
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
@@ -40379,7 +40418,8 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
@@ -40400,7 +40440,8 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",
@@ -40420,7 +40461,8 @@
       "modem": "U201",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "roaming restrictions"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",

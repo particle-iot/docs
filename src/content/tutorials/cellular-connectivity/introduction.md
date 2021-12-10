@@ -558,6 +558,8 @@ The following countries are at risk for permanent roaming restrictions:
 - Turkey
 - UAE
 
+You may be able to connect temporarily, for example doing setup of new devices to be used elsewhere. However you should not use devices regularly in these countries as the devices will likely be blocked and will then be unusable. Growth or enterprise deployments must not be made in areas with roaming restrictions.
+
 ### Carrier certification
 
 This is mainly an issue with LTE Cat M1 devices in the United States. Both AT&T and Verizon require device manufacturers to test and obtain a certification for their devices to connect to their LTE Cat M1 networks. Particle has completed this process for AT&T, which then involves Particle uploading the IMEI numbers for all certified devices to AT&T so they will not be blocked from the network.
