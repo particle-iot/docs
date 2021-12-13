@@ -53,7 +53,7 @@ You'll be asked for the list of products to migrate, organization name, and numb
 
 ### How am I billed for the growth plan?
 
-You initially decide how many blocks you want when you create your growth organization. That many blocks will be billed at {{growthBlockPrice}} each at the start of your billing period.
+You initially decide how many blocks you want when you create your growth organization. That many blocks will be billed at {{growthBlockCellularPrice}} each at the start of your billing period for cellular devices. For other types of devices, see [what is a block](#what-is-a-block-).
 
 If another block is needed:
 
@@ -79,8 +79,10 @@ Billing is measured in blocks.
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
 - Up to {{growthTierDevices}} devices.
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices.
-- Each block is {{growthBlockPrice}} per month.
 - Blocks are specific to cellular, Tracker, or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B Series are all cellular devices that can share the same block even though they are in different products.
+- Cellular blocks are {{growthBlockCellularPrice}} per month per block
+- Tracker blocks are {{growthBlockTrackerPrice}} per month per block
+- Wi-Fi blocks are {{growthBlockWiFiPrice}} per month per block
 
 {{top}}
 
