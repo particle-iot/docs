@@ -291,6 +291,12 @@ For cellular products in particular, claiming all devices to a single account ma
 
 With [Team Access Controls](/tutorials/product-tools/team-access-controls/) you can create a user account with specific restrictions. Using the Read-Only view, for example, provides a way to create a token that can view, but not modify, product devices.
 
+### API user
+
+The [API user](/reference/device-cloud/api/#api-users) feature makes it possible to create a non-expiring access token that only allows access to certain Particle cloud APIs. If you have a back-end that only uses a small number of APIs, using an API user can be more secure than using a user token.
+
+It's only available for products (not developer devices).
+
 ### Product bearer token authentication (products)
 
 While there is an API for creating an oAuth client you'll likely need to do this only once, or at least rarely, so you'll probably do it manually.

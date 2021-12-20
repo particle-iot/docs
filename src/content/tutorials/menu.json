@@ -360,6 +360,11 @@
         "href": "/tutorials/learn-more/about-sleep/"
       },
       {
+        "dir": "about-apps",
+        "title": "About Apps",
+        "href": "/tutorials/learn-more/about-apps/"
+      },
+      {
         "dir": "node-js",
         "title": "node.js getting started",
         "href": "/tutorials/learn-more/node-js/"
