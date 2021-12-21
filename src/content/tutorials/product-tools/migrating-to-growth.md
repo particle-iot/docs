@@ -53,7 +53,7 @@ You'll be asked for the list of products to migrate, organization name, and numb
 
 ### How am I billed for the growth plan?
 
-You initially decide how many blocks you want when you create your growth organization. That many blocks will be billed at {{growthBlockCellularPrice}} each at the start of your billing period for cellular devices. For other types of devices, see [what is a block](#what-is-a-block-).
+You initially decide how many blocks you want when you create your growth organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi, cellular, and Tracker. You can find the pricing [below](#what-is-a-block-).
 
 If another block is needed:
 
