@@ -350,6 +350,11 @@
         "dir": "an038-libraries",
         "title": "AN038 Libraries",
         "href": "/datasheets/app-notes/an038-libraries/"
+      },
+      {
+        "dir": "an039-remote-logging",
+        "title": "AN039 Remote Logging",
+        "href": "/datasheets/app-notes/an039-remote-logging/"
       }
     ],
     {
