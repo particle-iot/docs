@@ -53,6 +53,10 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
 
+    // options.ncpUpdate to update NCP, must be separate from a regular update because 
+    // only one module can use the OTA update option at a time and a normal device OS
+    // update uses that for the bootloader.
+
     if (!options.setupBit) {
         options.setupBit = 'unchanged';
     }
@@ -133,43 +137,68 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
 
     let moduleInfo;
+    let ncpImage;
+    let zipFs;
 
     ga('send', 'event', options.eventCategory, 'DFU Restore Started', options.version + '/' + options.platformVersionInfo.name);
 
-    setStatus('Downloading module info...');
+    if (!options.ncpUpdate) {
+        setStatus('Downloading module info...');
 
-    try {
-        await new Promise(function(resolve, reject) {
-            fetch('/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name + '.json')
-            .then(response => response.json())
-            .then(function(res) {
-                moduleInfo = res;
-                resolve();
-            });
-        });            
-    }
-    catch(e) {
-        return {
-            ok: false,
-            text: 'Failed to download module info',
-            e
+        try {
+            await new Promise(function(resolve, reject) {
+                fetch('/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name + '.json')
+                .then(response => response.json())
+                .then(function(res) {
+                    moduleInfo = res;
+                    resolve();
+                });
+            });            
         }
+        catch(e) {
+            return {
+                ok: false,
+                text: 'Failed to download module info',
+                e
+            }
+        }
+    
+        setStatus('Downloading restore image...');
+    
+        const zipUrl = '/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name + '.zip';
+    
+        zipFs = new zip.fs.FS();
+    
+        try {
+            await zipFs.importHttpContent(zipUrl);
+        }
+        catch(e) {
+            return {
+                ok: false,
+                text: 'Failed to download restore image',
+                e
+            }
+        }    
     }
+    else {
+        // is NCP update
 
-    setStatus('Downloading restore image...');
-
-    const zipUrl = '/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name + '.zip';
-
-    const zipFs = new zip.fs.FS();
-
-    try {
-        await zipFs.importHttpContent(zipUrl);
-    }
-    catch(e) {
-        return {
-            ok: false,
-            text: 'Failed to download restore image',
-            e
+        try {
+            await new Promise(function(resolve, reject) {
+                fetch('/assets/files/tracker/tracker-esp32-ncp@0.0.7.bin')
+                .then(response => response.arrayBuffer())
+                .then(function(res) {
+                    ncpImage = res;
+                    resolve();
+                });
+            });            
+        }
+        catch(e) {
+            return {
+                ok: false,
+                text: 'Failed to download NCP image',
+                e
+            }
         }
     }
 
@@ -347,11 +376,17 @@ async function dfuDeviceRestore(usbDevice, options) {
         { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' }
     ];
     let dfuParts = [];
-    for(const dfuPart of allDfuParts) {
-        const zipEntry = zipFs.find(dfuPart.name + '.bin');
-        if (zipEntry) {
-            dfuParts.push(dfuPart);
+
+    if (!options.ncpUpdate) {
+        for(const dfuPart of allDfuParts) {
+            const zipEntry = zipFs.find(dfuPart.name + '.bin');
+            if (zipEntry) {
+                dfuParts.push(dfuPart);
+            }
         }
+    }
+    else {
+        dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
     }
     if (options.progressDfuParts) {
         options.progressDfuParts(dfuParts);
@@ -360,9 +395,9 @@ async function dfuDeviceRestore(usbDevice, options) {
     let partName;
     let genericPartName;
     let extPart;
+    let extPartName;
 
-    // 
-    dfuseDevice.logProgress = function(done, total, func) {
+    const logProgress = function(done, total, func) {
         if (options.progressUpdate) {
             let msg;
             if (func == 'erase') {
@@ -379,7 +414,10 @@ async function dfuDeviceRestore(usbDevice, options) {
                 partName
             });
         }
-    }
+    };
+
+    // 
+    dfuseDevice.logProgress = logProgress;
 
 
     if (options.progressShowHide) {
@@ -391,9 +429,27 @@ async function dfuDeviceRestore(usbDevice, options) {
     for(const dfuPart of dfuParts) {
         partName = dfuPart.name;
 
-        const zipEntry = zipFs.find(partName + '.bin');
-        if (!zipEntry) {
-            continue;
+        let zipEntry;
+        let part;
+
+        if (partName != 'ncp') {
+            zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
+            if (!zipEntry) {
+                continue;
+            }    
+
+            part = await zipEntry.getUint8Array();
+
+            dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
+
+            if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+                part = part.slice(24); // MODULE_PREFIX_SIZE
+            }
+
+        }
+        else {
+            extPartName = 'ncp';
+            part = ncpImage;
         }
 
         if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
@@ -404,21 +460,19 @@ async function dfuDeviceRestore(usbDevice, options) {
 
         setStatus('Updating ' + genericPartName + '...');
 
-        let part = await zipEntry.getUint8Array();
 
         try {
-            dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
-
-            if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
-                part = part.slice(24); // MODULE_PREFIX_SIZE
+            if (partName == 'ncp') {
+                extPart = part;
             }
-
+            else
             if (partName == 'bootloader') {
                 // Flash to OTA region instead of actual location
 
                 if (extInterface) {
                     // Gen 3
                     extPart = part;
+                    extPartName = 'bootloader';
                 }
                 else {
                     // Gen 2
@@ -463,18 +517,20 @@ async function dfuDeviceRestore(usbDevice, options) {
 
     }
     
-    if (options.progressShowHide) {
-        options.progressShowHide(false);
-    }
 
     await dfuseDevice.close();
 
+
     {
         if (extInterface && extPart) {
-            partName = 'bootloader';
+            partName = genericPartName = extPartName;
+
+            setStatus('Updating ' + partName + '...');
 
             // Gen 3
             const dfuseExtDevice =  await createDfuseDevice(extInterface);
+
+            dfuseExtDevice.logProgress = logProgress;
 
             if (options.platformVersionInfo.id != 26) {
                 dfuseExtDevice.startAddress = 0x80289000;
@@ -483,7 +539,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                 // Tracker
                 dfuseExtDevice.startAddress = 0x80689000;
             }
-            console.log('startAddress=' + dfuseExtDevice.startAddress.toString(16));
 
             await dfuseExtDevice.do_download(4096, extPart, {});
 
@@ -495,11 +550,13 @@ async function dfuDeviceRestore(usbDevice, options) {
     {
 
         const dfuseAltDevice = await createDfuseDevice(altInterface);
+        
+        dfuseAltDevice.logProgress = logProgress;
 
 
         if (extInterface && options.setupBit != 'unchanged') {
             // setup done on gen3
-            partName = 'setup done';
+            partName = genericPartName = 'setup done';
        
             dfuseAltDevice.startAddress = 0x1fc6;
         
@@ -508,10 +565,6 @@ async function dfuDeviceRestore(usbDevice, options) {
               
             try {
                 await dfuseAltDevice.do_download(4096, flag, {doManifestation:false, noErase:true});                    
-
-                setTimeout(function() {
-                    setStatus('');
-                }, 1000);        
             }
             catch(e) {
                 const text = 'Error setting setup flag';
@@ -521,7 +574,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
         }
 
-        partName = 'ota flag';
+        partName = genericPartName = 'ota flag';
 
         dfuseAltDevice.startAddress = 1753;
         
@@ -532,10 +585,6 @@ async function dfuDeviceRestore(usbDevice, options) {
             await dfuseAltDevice.do_download(4096, flag, {doManifestation:true, noErase:true});                    
 
             setStatus('Resetting device...');
-
-            setTimeout(function() {
-                setStatus('');
-            }, 2000);        
         }
         catch(e) {
             const text = 'Error setting device flags, manually reset device';
@@ -543,6 +592,10 @@ async function dfuDeviceRestore(usbDevice, options) {
             dfuErrors.push(text);
         }
 
+        if (options.progressShowHide) {
+            options.progressShowHide(false);
+        }
+    
         await dfuseAltDevice.close();
     }
     

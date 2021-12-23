@@ -60,6 +60,7 @@ $(document).ready(function () {
                 if (deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name]) {
                     result = Object.assign({}, tempPlatformObj);
                     result.versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
+                    result.isTracker = (result.id == 26);
                     break;
                 }
             }
@@ -78,6 +79,8 @@ $(document).ready(function () {
         const restoreElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceRestore');
         const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgressTr');
         const modeSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceModeSelect');
+        const tinkerOptionElem = $(modeSelectElem).find('option[value="tinker"]');
+
 
         // Tabs
         const versionTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersionTr');
@@ -87,6 +90,10 @@ $(document).ready(function () {
         // Setup done
         const setupBitTrElem =  $(thisPartial).find('.apiHelperUsbRestoreSetupBitTr');
         const setupBitSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSetupBit');
+
+        // Update NCP
+        const updateNcpTrElem = $(thisPartial).find('.apiHelperUsbRestoreUpdateNcpTr');
+        const updateNcpCheckboxElem = $(thisPartial).find('.updateNcpCheckbox');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -111,6 +118,8 @@ $(document).ready(function () {
             $(versionElem).prop('disabled', true);
             $(restoreElem).prop('disabled', true);
             $(setupBitTrElem).hide();
+            $(updateNcpTrElem).hide();
+            $(tinkerOptionElem).text('Tinker (Factory Default)');
         };
 
         const checkRestoreButtonEnable = function() {
@@ -262,7 +271,15 @@ $(document).ready(function () {
                 if (platformVersionInfo.gen == 3) {
                     $(setupBitTrElem).show();
                 }
-                
+                if (platformVersionInfo.isTracker) {
+                    $(updateNcpTrElem).show();
+
+                    $(tinkerOptionElem).text('Tracker Edge (Factory Default)');
+                }
+                else {
+                    $(tinkerOptionElem).text('Tinker (Factory Default)');
+                }
+                    
                 $(versionElem).prop('disabled', false);
                 checkRestoreButtonEnable();
             }
@@ -274,12 +291,11 @@ $(document).ready(function () {
         }));
 
         if ($(restoreElem).on('click', async function () {
-            let options = {
+            let baseOptions = {
                 eventCategory,
                 platformVersionInfo,
                 setStatus,
                 version: $(versionElem).val(),
-                setupBit: $(setupBitSelectElem).val(),
                 progressUpdate: function(msg, pct) {
                     $(progressElem).find('td > span').text(msg);
                     $(progressElem).find('td > progress').val(pct);
@@ -293,6 +309,10 @@ $(document).ready(function () {
                     }
                 }
             };
+            let options = Object.assign({}, baseOptions);
+
+            options.setupBit = $(setupBitSelectElem).val();
+
             if (userFirmwareBinary) {
                 options.userFirmwareBinary = userFirmwareBinary;
             }
@@ -319,9 +339,60 @@ $(document).ready(function () {
             $(selectElem).prop('disabled', true);
             $(versionElem).prop('disabled', true);
 
-            const restoreResult = dfuDeviceRestore(usbDevice, options);
+            const deviceId = usbDevice.id;
+    
+            let restoreResult = await dfuDeviceRestore(usbDevice, options);
+
+            if (platformVersionInfo.isTracker && $(updateNcpCheckboxElem).prop('checked')) {
+                // Update Tracker NCP
+                let ncpOptions = Object.assign({}, baseOptions);
+                ncpOptions.ncpUpdate = true;
+
+                nativeUsbDevice = null;
+
+                setStatus('Waiting for updates to be applied...');
+                await new Promise(function(resolve, reject) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 10000);
+                });        
+
+                for(let tries = 1; tries <= 8; tries++) {
+                    setStatus('Attempting to reconnect to the device...');
+                    const nativeUsbDevices = await navigator.usb.getDevices()
+                
+                    if (nativeUsbDevices.length > 0) {
+                        for(let dev of nativeUsbDevices) {
+                            if (dev.serialNumber == deviceId) {
+                                nativeUsbDevice = dev;
+                                break;
+                            }
+                        }
+                    }
+                    await new Promise(function(resolve, reject) {
+                        setTimeout(function() {
+                            resolve();
+                        }, 1000);
+                    });        
+                }    
+                
+                if (nativeUsbDevice) {
+                    setStatus('Updating NCP...');
+
+                    usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+
+                    restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
+                }
+                else {
+                    setStatus('Failed to reconnect to device to update NCP');
+                }
+            }
 
             resetRestorePanel();
+
+            setTimeout(function() {
+                setStatus('');
+            }, 2000);
 
             if (options.downloadUrl) {
                 if ($(modeSelectElem).val() == 'url') {
