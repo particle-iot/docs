@@ -567,7 +567,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                 await dfuseAltDevice.do_download(4096, flag, {doManifestation:false, noErase:true});                    
             }
             catch(e) {
-                const text = 'Error setting setup flag';
+                const text = 'Error setting setup done flag';
                 setStatus(text);
                 dfuErrors.push(text);
             }

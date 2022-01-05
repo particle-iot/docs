@@ -659,6 +659,10 @@ $(document).ready(function() {
                         // obj.partName == system-part1, system-part2, system-part3, bootloader, softdevice, tinker
                         // (obj.partName is tinker even for a custom binary)
                         
+                        if (!dfuPartTableInfo[obj.partName]) {
+                            return;
+                        }
+
                         if (obj.func != 'erase') {
                             pct += 100;
                         }
@@ -730,7 +734,7 @@ $(document).ready(function() {
                     }
                 }
                 else {
-                    console.log('do something for dfu error');
+                    console.log('do something for dfu error', restoreResult);
                 }
                 
             }
