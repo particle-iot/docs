@@ -25,7 +25,7 @@ In this guide, we'll provide an overview of how you can use webhooks in your con
 
 Webhooks are tightly integrated with Particle's event system. Devices have the ability to both [publish events](/cards/firmware/cloud-functions/particle-publish/) to the Particle cloud, as well as [subscribe to events](/cards/firmware/cloud-functions/particle-subscribe/) from the cloud.
 
-A webhook listens for a specific event published by a device. When this event is published, the webhook triggers a [web request](http://rve.org.uk/dumprequest) to a URL on the web. The request sent by the webhook can include information about the event, such as its name as well as any data included when the event was published.
+A webhook listens for a specific event published by a device. When this event is published, the webhook triggers a web request to a URL on the web. The request sent by the webhook can include information about the event, such as its name as well as any data included when the event was published.
 
 You can configure a webhook to make different types of web requests. The most common type of webhook request is a `POST`, which is a method of _sending data_ to another web server. In the case of Particle webhooks, this would mean sending data from your devices to a third-party web service. Other types of web requests, like `GET` and `PUT` can also be made with webhooks.
 

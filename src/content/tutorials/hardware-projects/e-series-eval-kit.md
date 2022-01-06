@@ -41,8 +41,8 @@ You can find the datasheet of the sensor [here.](http://wiki.seeed.cc/Grove-Temp
 Flashing the grove sensor app using the web IDE
 
 ```cpp
-// You'll need to include the Adafruit DHT library from the libraries section
-#include "Adafruit_DHT.h"
+// You'll need to include the Adafruit_DHT_Particle library from the libraries section
+#include "Adafruit_DHT_Particle.h"
 
 // This example assumes the sensor to be plugged into CONN2
 #define DHTPIN D1     // what pin we're connected to

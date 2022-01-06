@@ -10,6 +10,23 @@ $(document).ready(function() {
             $(thisPartial).find('.apiHelperTrackerEdgeStatus').html(status);
         };
 
+        const menuElem = $(thisPartial).find('.apiHelperTrackerEdgeVersion');
+
+        fetch('/assets/files/tracker/trackerEdgeVersions.json')
+            .then(response => response.json())
+            .then(function(res) {
+                console.log('tracker-edge.json', res);
+                for(const obj of res) {
+                    const optionElem = document.createElement('option');
+
+                    $(optionElem).attr('value', obj.v);
+                    $(optionElem).text(obj.title);
+
+                    $(menuElem).append(optionElem);
+                }
+                resolve();
+            });
+
         $(thisPartial).find('.apiHelperTrackerEdgeDownload').on('click', function() {
             const thisButton = $(this);
             $(thisButton).attr('disabled', 'disabled');   

@@ -61,6 +61,7 @@ These are some of the products and libraries available:
 | [SparkFun Qwiic Scale - NAU7802](https://www.sparkfun.com/products/15242)| [SparkFun_Qwiic_Scale_NAU7802_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Scale_NAU7802_Arduino_Library) |
 | [SparkFun Qwiic Single Relay](https://www.sparkfun.com/products/15093)| [SparkFun_Qwiic_Relay_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Relay_Arduino_Library) |
 | [SparkFun Qwiic Thermocouple Amplifier - MCP9600 (PCC Connector)](https://www.sparkfun.com/products/16294)| [SparkFun_MCP9600_Arduino_Library](https://github.com/sparkfun/SparkFun_MCP9600_Arduino_Library) |
+| [SparkFun Qwiic ToF Imager - VL53L5CX](https://www.sparkfun.com/products/18642) | [SparkFun_VL53L5CX_Arduino_Library](https://github.com/sparkfun/SparkFun_VL53L5CX_Arduino_Library) |
 | [SparkFun Qwiic Twist - RGB Rotary Encoder Breakout](https://www.sparkfun.com/products/15083)| [SparkFun_Qwiic_Twist_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Twist_Arduino_Library) |
 | [SparkFun Triad Spectroscopy Sensor - AS7265x (Qwiic)](https://www.sparkfun.com/products/15050)| [SparkFun_AS7265x_Arduino_Library](https://github.com/sparkfun/SparkFun_AS7265x_Arduino_Library) |
 | [SparkFun Triad Spectroscopy Sensor - AS7265x (Qwiic)](https://www.sparkfun.com/products/15050)| [SparkFun_AS7265x_Arduino_Library](https://github.com/sparkfun/SparkFun_AS7265x_Arduino_Library) |

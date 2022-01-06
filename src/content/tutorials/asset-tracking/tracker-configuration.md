@@ -230,7 +230,7 @@ This sets this configuration object:
 }
 ```
 
-Unlike the schema, you only need to set values that you are changing.
+You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.
 
 ### Getting configuration
 

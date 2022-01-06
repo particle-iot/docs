@@ -187,10 +187,22 @@ module.exports = function(options) {
         return new Error('Error');
       }
       // apidoc terminates lines with CR, which doesn't work well with Github diffs
-      let s = apiReturn.data.replace(/\r/g, '\n');
-      fs.writeFileSync(savePath, s);
+      let dataArray = JSON.parse(apiReturn.data.replace(/\r/g, '\n'));
+
+      // Filter filename to remove beginning of path
+      for(let ii = 0; ii < dataArray.length; ii++) {
+        let obj = dataArray[ii];
+        if (obj.filename) {
+          let index = obj.filename.indexOf('api-service');
+          if (index > 0) {
+            obj.filename = obj.filename.substr(index);
+          }
+        }
+      }
+
+      fs.writeFileSync(savePath, JSON.stringify(dataArray, null, 2));
       //console.log(apiReturn.data);
-      return JSON.parse(apiReturn.data);
+      return dataArray;
     }).reduce(function collectApiData(data, thisData) {
       return thisData ? data.concat(thisData) : data;
     }, []);

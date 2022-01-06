@@ -207,7 +207,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 In addition to using the Tracker One assembled module, the following application note can help with creating your first board that uses the bare Tracker SoM module.
 
-- [AN025 Tracker SoM First Board](http://localhost:8080/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
+- [AN025 Tracker SoM First Board](/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 
 #### Country Compatibility - Tracker SoM
 

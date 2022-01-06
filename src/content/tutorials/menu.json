@@ -103,6 +103,11 @@
         "href": "/tutorials/device-cloud/cloud-api/"
       },
       {
+        "dir": "device-claiming",
+        "title": "Device Claiming",
+        "href": "/tutorials/device-cloud/device-claiming/"
+      },
+      {
         "dir": "authentication",
         "title": "Authentication",
         "href": "/tutorials/device-cloud/authentication/"
@@ -348,6 +353,16 @@
         "dir": "about-serial",
         "title": "About Serial",
         "href": "/tutorials/learn-more/about-serial/"
+      },
+      {
+        "dir": "about-sleep",
+        "title": "About Sleep",
+        "href": "/tutorials/learn-more/about-sleep/"
+      },
+      {
+        "dir": "about-apps",
+        "title": "About Apps",
+        "href": "/tutorials/learn-more/about-apps/"
       },
       {
         "dir": "node-js",

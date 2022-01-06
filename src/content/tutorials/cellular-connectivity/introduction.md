@@ -520,7 +520,7 @@ For example, the [B524 country details page for Germany](/tutorials/cellular-con
 
 For comparison, using the [B524 in Brazil](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Brazil&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended. The reason is that 850 MHz (band B5) is commonly used to provide service in rural areas because the signals travel a longer distance. The higher frequencies (1800, 2100, and 2600 MHz) are more commonly used in urban areas, thus it is likely that the B524 will not work in many areas of Brazil.
 
-Likewise, even though Japan is part of the EMEAA region, the [B524 in Japan](http://localhost:8080/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Japan&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended because so many of the bands used in Japan are not supported by the EG91-E.
+Likewise, even though Japan is part of the EMEAA region, the [B524 in Japan](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Japan&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended because so many of the bands used in Japan are not supported by the EG91-E.
 
 In the United States, LTE Cat M1 EtherSIM devices (Boron BRN404, B Series B404, Tracker T404 and ONE404, E Series E404, Electron ELC404) are a special case. The [country details for the United States](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=United%20States&device=Tracker%20T404%2FONE404%20LTE%20M1%20(NorAm%29%20EtherSIM) do not list T-Mobile as supported. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. EtherSIM LTE Cat M1 devices will connect to T-Mobile or AT&T, whichever has a stronger signal. (Pre-2021 LTE Cat M1 devices cannot connect to T-Mobile at all with the built-in Particle SIM on those devices.)
 
@@ -557,6 +557,8 @@ The following countries are at risk for permanent roaming restrictions:
 - Singapore
 - Turkey
 - UAE
+
+You may be able to connect temporarily, for example doing setup of new devices to be used elsewhere. However you should not use devices regularly in these countries as the devices will likely be blocked and will then be unusable. Growth or enterprise deployments must not be made in areas with roaming restrictions.
 
 ### Carrier certification
 

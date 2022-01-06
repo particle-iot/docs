@@ -1,0 +1,304 @@
+<div class="apiHelperDeviceSetupUsb">
+    <div class="apiHelper">
+        <div class="apiHelperNotLoggedIn apiHelperBox">
+            <div class="apiHelperCouldSSO apiHelperSmallText" style="display:none">
+                <p>Log in to your Particle account to set up a device</p>
+                <p><button class="apiHelperLoginButton">Login</button></p>
+                <p>Or <a href="https://login.particle.io/signup">create a new account</a> if you don't already have one.</p>
+            </div>
+            <div class="apiHelperFakeAuth apiHelperSmallText" style="display:none">
+                <p>Cannot use Particle Single Sign-On from outside the Particle domain.</p>
+                <p><button class="apiHelperFakeAuthButton">Enter authentication manually</button></p>
+            </div>
+        </div>
+    </div>
+    <div class="apiHelperLoggedIn">
+        <div class="setupProgress">
+            <table>
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="setupStep">
+            <div class="setupStepSelectDevice" style="display:none">
+                <p>Connect your Particle device to your computer with a USB cable, click the **Select Device** button, 
+                    select your device, and click **Connect**.</p>
+                <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
+                <p>This tool upgrades the device firmware, activates the SIM (for cellular devices), configures
+                    Wi-Fi (for Wi-Fi devices), and claims the device to your account.
+                </p>
+                <p>It is experimental, however if you run into trouble you should be able to
+                    use the <a href="https://docs.particle.io/cli/">Particle CLI</a> to recover the device.
+                </p>
+            </div>
+            <div class="setupStepCheckDevice" style="display:none">
+                <div class="setupStepCheckDeviceStart">
+                    <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
+                </div>
+                <div class="setupStepCheckDeviceTracker" style="display:none">
+                    <p>This setup tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
+                        use <a href="https://setup.particle.io">setup.particle.io</a> instead.
+                    </p>
+                </div>
+                <div class="setupStepCheckDeviceUnknown" style="display:none">
+                    <p>This setup tool cannot set up this type of device. You should use the Particle mobile apps for iOS
+                        and Android, or the <a href="https://docs.particle.io/cli/">Particle CLI</a>.
+                    </p>
+                </div>
+                <div class="setupStepCheckDeviceSIM">
+                    <p>Just a little longer while we check the SIM card in your device...</p>
+                </div>
+            </div>
+            <div class="setupStepConfirm" style="display:none">
+                <p>This tool will flash Device OS and setup firmware to your device, replacing the 
+                    existing Device OS and user firmware, and a portion of the virtual EEEPROM. 
+                    There is no way to restore the original data.</p>
+
+                <p>Proceed with flashing the device and setup?</p>
+
+                <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device and Setup</button></p>
+
+                <details style="padding-top: 100px">
+                    <summary>Advanced Setup Options</summary>
+                    <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
+
+                    <p>Device OS Version: <select class="setupDeviceOsVersion apiHelperSelect">
+                    </select></p>
+
+                    <p><label><input type="checkbox" class="setupNoClaim"/>Do not claim device</label></p>
+                    
+                    <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
+                    <table class="apiHelperTableNoMargin setupAddToProductSelector" style="display:none">
+                        <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
+                            <tr class="sandboxOrgRow" style="display:none">
+                                <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                                <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                                <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                                </td><td>&nbsp;</td></tr>
+                            <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                            <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="setupDevelopmentDeviceRow" style="display:none"><label><input type="checkbox" class="setupDevelopmentDevice"/>Mark as development device</label></p>
+
+                    <p class="setupSimSelectionRow" style="display:none">SIM Select: <select class="setupSimSelect apiHelperSelect">
+                        <option value="0">No change</option>
+                        <option value="1">Internal SIM (MFF2 SMD Particle SIM)</option>
+                        <option value="2">External SIM (4FF)</option>
+                    </select></p>
+
+                </details>
+            </div>
+            <div class="setupStepAddToProduct" style="display:none">
+                <p>Adding device to product...</p> 
+                <p>This should only take a few seconds.</p>
+            </div>
+            <div class="setupStepActivateSim" style="display:none">
+                <div class="setupStepActivateSimGet">
+                    <p>Getting the SIM ICCID from the device...</p>
+                    <p>This usually takes a few seconds but can take a minute.</p>
+                </div>
+                <div class="setupStepActivateSimGetSlow">
+                    <p>Getting the SIM ICCID from the device...</p>
+                    <p>The cellular modem is not responding. It will take a little longer to reset it.</p>
+                </div>
+                <div class="setupStepActivateSimChecking">
+                    <p>Checking SIM status...</p>
+                </div>
+                <div class="setupStepActivateSimWaiting">
+                    <p>Waiting for SIM activation to complete...</p>
+                    <p>This can take anywhere from several seconds to several hours. Rarely, it can take a day or more.</p>
+                    <p>You can wait here for activation to complete, or close this web page and come back later to 
+                        see if activation has completed so you can proceed with setup.</p>
+                    <p class="setupStepActivateSimTimer"></p>
+                </div>
+            </div>
+            <div class="setupStepManualDfu" style="display:none">                
+                <p>An error occurred putting your device into DFU mode (blinking yellow).</p>
+                <p>Hold down the MODE (or SETUP) button and tap the RESET button. Continue to hold down MODE while 
+                    the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then 
+                    release.
+                </p>
+                <p><button class="continueDfu">Device is Blinking Yellow</button></p>
+            </div>
+            <div class="setupStepFlashDevice" style="display:none">                
+                <div class="setupStepFlashDeviceDownload" style="display:none">
+                    <p>Downloading the binaries for your device. This should only take a few seconds...</p>
+                </div>
+                <div class="setupStepFlashDeviceEnterDFU" style="display:none">
+                    <p>Putting device in DFU (firmware update) mode (blinking yellow). This should only take a few seconds, but can take up to 30 seconds sometimes.</p>
+                </div>
+                <div class="setupStepFlashDeviceAuthorizeDFU" style="display:none">
+                    <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
+                    <p><button class="reconnectUsb">Reconnect</button></p>
+                    <p>This is normal the first time you program a device by DFU.</p>
+                </div>
+                <div class="setupStepFlashDeviceConnectDFU" style="display:none">
+                    <p>Connecting to the device in DFU mode...</p>
+                </div>
+                <div class="setupStepFlashDeviceFlashing" style="display:none">
+                    <p>Updating the firmware on the device...</p>
+                    <table class="flashDeviceSteps apiHelperTableNoMargin">
+                        <thead>                        
+                        </thead>
+                        <tbody>                    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="setupStepReconnecting" style="display:none">
+                <div class="setupStepReconnectingWaiting">
+                    <p>Waiting for the device to finish updating itself and restart...</p>
+                    <p>This will take several seconds, and the status LED may blink yellow, white, 
+                        magenta (red and blue at the same time), blue, or green.</p>
+                </div>
+                <div class="setupStepReconnectingNeedReauthorize" style="display:none">
+                    <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
+                    <p><button class="reconnectUsb">Reconnect</button></p>
+                </div>
+            </div>
+            <div class="setupStepNoWiFi" style="display:none">
+                <p>No Wi-Fi networks were found.</p>
+                <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                
+                <div class="showUseExisting">
+                    <p>&nbsp;</p>
+                    <p><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
+                </div>
+            </div>
+            <div class="setupStepConfigureWiFi" style="display:none">
+                <div class="searchingWiFi" style="visibility:hidden">
+                    <table class="apiHelperTableNoMargin">
+                        <tbody>
+                            <tr>
+                                <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px"></td>
+                                <td>Searching for Wi-Fi networks...</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <table class="networkTable apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Network Name</th>
+                            <th>Secure</th>
+                            <th>Signal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <p class="passwordRow">Password: <input type="password" class="passwordInput" /></p>
+                <p><button class="setCredentials">Select Wi-Fi Network</button></p>
+                <div class="showUseExisting">
+                    <p>&nbsp;</p>
+                    <p><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
+                </div>
+                <div>
+                    <p>&nbsp;</p>
+                    <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                </div>
+            </div>
+            <div class="setupStepWaitForOnline" style="display:none">
+                <table class="waitOnlineSteps apiHelperTableNoMargin">
+                    <thead>                        
+                    </thead>
+                    <tbody> 
+                        <tr class="waitOnlineStepNetwork">
+                            <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                            <td>Connecting to network</td>
+                            <td></td>
+                        </tr>            
+                        <tr class="waitOnlineStepCloud">
+                            <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                            <td>Connecting to the Particle cloud</td>
+                            <td></td>
+                        </tr>            
+                        <tr class="waitOnlineStepClaim">
+                            <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                            <td>Claiming device</td>
+                            <td></td>
+                        </tr>            
+                    </tbody>
+                </table>
+                <div class="batteryWarning" style="display:none">
+                    <p>It appears that you do not have a battery connected. A battery is recommended for all non-LTE cellular
+                        devices; running without a battery may cause connection or data transmission to fail.</p>
+                </div>
+            </div>
+            <div class="setupStepNameDevice" style="display:none">
+                <p>You can name your device to make the devices in your account easier to identify.</p>
+                <p>A random device name has been generated, or you can enter your own here:</p>
+                <p><input type="text" class="nameInput" /> &nbsp;<button class="setName">Set Name</button></p>
+
+                <p>Or you can <a class="skipNaming">skip naming</a>. You can always rename your device later.</p>
+            </div>
+            <div class="setupStepDone" style="display:none">
+                <p>Congratulations, you have completed setting up your device!</p>
+                <ul>
+                    <li>Get started with the <a href="/tutorials/hardware-projects/hardware-examples/#blink-an-led">Blink an LED tutorial</a>.</li>
+                    <li>Learn about the <a href="/tutorials/developer-tools/workbench/">Particle Workbench</a> and <a href="/tutorials/developer-tools/build/">Web IDE</a> development environments.</li>
+                    <li>Learn how the <a href="/tutorials/device-os/cloud-communication/">Particle cloud</a> can make Internet-connected devices easy to build.</li>
+                    <li>Get deep into device programming with the <a href="/reference/device-os/firmware/">Device OS API reference</a>.</li>
+                </ul>
+                <p>&nbsp;</p>
+                <p>Or just try changing the color of the status LED on your device over the cloud:</p>
+                <p><input type="color" class="colorSelector" value="#ff0000"/> &nbsp;
+                    <button class="setColorButton">Set Status LED Color</button></p>
+            </div>
+            <div class="setupStepClaimFailed" style="display:none">
+                <p>Claiming the device failed.</p>
+                <p>This typically occurs because the device is claimed to another
+                    user already, or was previously part of a product.
+                </p>
+            </div>
+            <div class="setupStepSimActivationFailed" style="display:none">
+                <p>Activating the SIM failed</p>
+                <p>This typically occurs because the SIM card is already assigned to
+                    another user or a product.
+
+                <p><button class="continueWithoutActivating">Continue Without Activating</button></p>
+                <p>If you continue without activating the SIM you may not be able to get online until you manually activate the SIM.</p>
+                </p>
+            </div>
+        </div>
+        <div class="deviceLogs" style="display:none">
+            <p>&nbsp;</p>
+            <div>
+                <p><label><input type="checkbox" class="showDebuggingLogs" checked>Show device debugging logs</label></p>
+            </div>
+            <div class="deviceLogsTextButtons">
+                <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px">
+                </textarea>
+                <p><button class="downloadLogs">Download Logs</button></p>                
+                <div class="cellularInfo" style="display:none">
+                    <table class="cellularInfoTable apiHelperTableNoMargin">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="setupStatus">
+        </div>
+        <div class="setupBrowserError" style="display:none">
+            <p>This setup tool can only be used on:</p>
+            <ul>
+                <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
+                <li>Edge (version 79 or later</li>
+                <li>Opera (Windows, Mac, Linux, or Android, version 48 or later</li>
+                <li>Samsung Internet (version 8.0 or later)</li>
+            </ul>
+            <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
+            you can use the Particle mobile app for iOS or Android, or the Particle CLI for Windows, 
+            Mac, and Linux, instead.</p>
+        </div>
+    </div>
+    <div class="accessTokenError" style="display:none">
+        <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
+        <p><button class="loginAgain">Log In Again</button></p>
+    </div>
+</div>
+
