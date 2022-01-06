@@ -101,7 +101,7 @@ Additionally, if a device is marked as a development device, then per-device con
 ### Development device configuration
 
 - All modules are editable for a given device while in development mode
-- Device settings take precedent in all cases
+- Device settings take precedence in all cases
 
 Note: If you go from development mode back to regular mode, the product settings do not override the settings that were set in development mode until the next time product settings are changed. This is the current behavior, but may change in the future.
 
