@@ -816,6 +816,14 @@ Reason for point location publish message, an array of causes enumeration string
 - `user` User-triggered publish
 - `batt_warn` Low battery warning
 - `batt_low` Low battery
+- `outside1` The device is currently outside of geofence zone 1 (and inside trigger is enabled)
+- `inside1` The device is currently outside of geofence zone 1 (and outside trigger is enabled)
+- `enter1` The device has entered geofence zone 1 (and enter trigger is enabled)
+- `exit1` The device has exited geofence zone 1 (and exit trigger is enabled)
+- `outside2`, `inside2`, `enter2`, and `exit2`
+- `outside3`, `inside3`, `enter3`, and `exit3`
+- `outside4`, `inside4`, `enter4`, and `exit4`
+
 
 The JSON schema for location events will be released soon.
 
