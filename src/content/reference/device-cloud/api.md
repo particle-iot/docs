@@ -805,7 +805,7 @@ Wi-Fi channel number. Added in Tracker Edge v12.
 
 #### trig
 
-Reason for point location publish message, an array of causes enumeration strings:
+Reason for point location publish message, an array of cause enumeration strings:
 
 - `time` time-based (`interval_max`)
 - `radius` movement-based (`radius`)
@@ -823,9 +823,6 @@ Reason for point location publish message, an array of causes enumeration string
 - `outside2`, `inside2`, `enter2`, and `exit2`
 - `outside3`, `inside3`, `enter3`, and `exit3`
 - `outside4`, `inside4`, `enter4`, and `exit4`
-
-
-The JSON schema for location events will be released soon.
 
 #### req_id
 
@@ -845,12 +842,10 @@ Note that `loc.alt` (altitude), `loc.v_acc` (vertical accuracy), `loc.hd` (headi
 
 The sources used for enhanced geolocation, an array. Can be "cell" or "wifi" or both. Added in Tracker Edge v12.
 
+### Location Point Schema
 
-### Tracker Configuration Events
+The full JSON schema for the location point can be downloaded [here](/assets/files/tracker/point-schema.json).
 
-Tracker Configuration Events are sent to devices to change configuration parameters. You should not send these events directly by yourself, as configuration events are designed to be synchronized between the device and cloud, including getting configuration updates after waking up from sleep or going out of cellular range.
-
-The JSON schema for configuration events will be released soon.
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
