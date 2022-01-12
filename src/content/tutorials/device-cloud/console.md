@@ -864,8 +864,8 @@ There are up to four notification zones, each of which can have their own settin
 
 The publish on inside, outside, enter, and exit affect the `trig` array in the location event. The following values may be present in the `trig` array for geofence events. Multiple items may be present:
 
-- `outside1` The device is currently outside of geofence zone 1 (and inside trigger is enabled)
-- `inside1` The device is currently outside of geofence zone 1 (and outside trigger is enabled)
+- `outside1` The device is currently outside of geofence zone 1 (and outside trigger is enabled)
+- `inside1` The device is currently inside of geofence zone 1 (and inside trigger is enabled)
 - `enter1` The device has entered geofence zone 1 (and enter trigger is enabled)
 - `exit1` The device has exited geofence zone 1 (and exit trigger is enabled)
 - `outside2`, `inside2`, `enter2`, and `exit2`
