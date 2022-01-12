@@ -19,6 +19,15 @@ $(document).ready(function() {
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
+        const troubleshootingMode = ($(thisElem).data('troubleshooting') == '1');
+        if (troubleshootingMode) {
+            $(thisElem).find('.troubleshootingMode').show();
+            $(thisElem).find('.setupMode').hide();
+        }
+        else {
+            $(thisElem).find('.troubleshootingMode').hide();
+            $(thisElem).find('.setupMode').show();
+        }
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
@@ -338,6 +347,54 @@ $(document).ready(function() {
             }
         };
 
+        const checkSimAndClaiming  = async function() {
+            setSetupStep('setupStepCheckSimAndClaiming');
+
+            const showStep = function(step) {
+                $(thisElem).find('.setupStepCheckSimAndClaiming').children().each(function() {
+                    $(this).hide();
+                });
+                $(thisElem).find('.' + step).show();    
+            }
+
+            showStep('setupStepCheckSimAndClaimingOwnership');
+
+            const deviceLookupOutputElem = $(thisElem).find('.apiHelperDeviceLookupOutput');
+            $(deviceLookupOutputElem).show();
+
+            let deviceLookup = apiHelper.deviceLookup({
+                deviceId: deviceInfo.deviceId,
+                deviceLookupElem: deviceLookupOutputElem                
+            });
+
+            await deviceLookup.run();
+
+            console.log('deviceLookup', deviceLookup);
+
+            if (!deviceLookup.deviceInfo) {
+                showStep('setupStepCheckSimAndClaimingNoDeviceInfo');
+
+            }
+            else if (deviceLookup.deviceMine) {
+
+            }
+            // deviceLookup.deviceMine
+
+            // deviceLookup.deviceInMyProduct, .deviceProductId, .deviceProductName
+
+            // deviceLookup.deviceInOrgProduct, .deviceProductId, .deviceProductName, .orgId, .orgName
+
+            // if (deviceLookup.)
+//            showStep('setupStepCheckSimAndClaimingCheckAccount');
+
+            // Do something with deviceLookup.deviceInfo.isProductDevice here
+
+
+            if (!deviceInfo.wifi) {
+                // showStep('setupStepCheckSimAndClaimingGetIccid');
+            }
+
+        };
 
         const activateSim = async function() {
             setSetupStep('setupStepActivateSim');
@@ -834,6 +891,11 @@ $(document).ready(function() {
             });
 
             await reconnectToDevice();
+
+            if (troubleshootingMode) {
+                checkSimAndClaiming();
+            }
+            else
             if (deviceInfo.wifi) {
 
                 configureWiFi();                              

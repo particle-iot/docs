@@ -557,6 +557,212 @@ $(document).ready(function() {
 
     });
 
+    apiHelper.deviceLookup = function(options) {
+        let deviceLookup = {};
+
+        // Input in options:
+        // deviceLookup.deviceId
+        // deviceLookup.deviceLookupElem
+
+        deviceLookup.options = options;
+        
+        deviceLookup.deviceFound = false;
+        // deviceLookup.deviceInfo;
+        deviceLookup.deviceMine = false;
+        // deviceLookup.deviceProductName;
+        // deviceLookup.deviceProductId;
+
+        if (!options.deviceLookupDetailBodyElem) {
+            options.deviceLookupDetailBodyElem = $(options.deviceLookupElem).find('.apiHelperDeviceLookupOutputDetails > table > tbody');
+        }
+        $(options.deviceLookupDetailBodyElem).html('');
+
+
+        deviceLookup.run = async function() {
+
+            {
+                $(options.deviceLookupElem).find('.apiHelperDeviceLookupClaimedMyAccount').show();
+
+                const currentOutput = function(status) {
+                    $(options.deviceLookupElem).find('.apiHelperDeviceLookupClaimedMyAccount > span').append(status);
+                };
+
+                try {
+                    const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, auth: apiHelper.auth.access_token });
+        
+                    currentOutput('\u2705 Yes!'); // green check
+                    deviceLookup.deviceFound = true;
+                    deviceLookup.deviceInfo = deviceData.body;      
+                    deviceLookup.deviceMine = true;  // Device is claimed to the account currently logged into
+
+                    deviceLookup.isProductDevice = (deviceLookup.deviceInfo.product_id > 100);
+                }
+                catch(e) {
+                    currentOutput('\u274C No'); // red x
+                }
+            }
+
+            if (!deviceLookup.deviceFound || deviceLookup.isProductDevice) {
+                $(options.deviceLookupElem).find('.apiHelperDeviceLookupProduct').show();
+
+                const currentOutput = function(status) {
+                    $(options.deviceLookupElem).find('.apiHelperDeviceLookupProduct > span').append(status);
+                };
+
+                try {
+                    const productsData = await apiHelper.getProducts();
+    
+                    let foundInProduct = false;
+    
+                    for(const product of productsData.products) {
+
+                        try {
+                            const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, product: product.id, auth: apiHelper.auth.access_token });
+            
+                            if (deviceData.body.product_id == product.id) {
+            
+                                currentOutput('\u2705 ' + product.name + ' (' + product.id + ') Yes!<br/>'); // green check
+                                foundInProduct = true;
+                                deviceLookup.deviceFound = true;
+                                deviceLookup.deviceInfo = deviceData.body;
+                                deviceLookup.deviceProductName = product.name;
+                                deviceLookup.deviceProductId = product.id;
+                                deviceLookup.deviceInMyProduct = true; // Device is in a product owned by this account (sandbox)
+                                deviceLookup.isProductDevice = true;
+                                break;
+                            }
+                        }
+                        catch(e) {
+                        }
+
+                        if (!foundInProduct) {
+                            currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
+                        }
+        
+                    }
+       
+    
+                }
+                catch(e) {
+                }
+            }
+
+            if ((!deviceLookup.deviceFound || deviceLookup.isProductDevice) && !options.modeNoCheckOrgs) {
+
+                const currentOutput = function(status) {
+                    $(options.deviceLookupElem).find('.apiHelperDeviceLookupOrg > span').append(status);
+                };
+
+                try {
+                    const orgsData = await apiHelper.getOrgs();
+    
+                    for(const org of orgsData.organizations) {
+                        // id, slug, name
+
+                        const orgProducts = await apiHelper.getOrgProducts(org.id);
+
+                        currentOutput('Checking organization ' + org.name + '...<br/>');
+                        $(options.deviceLookupElem).find('.apiHelperDeviceLookupOrg').show();
+
+                        for(const product of orgProducts.products) {
+                            let foundInOrgProduct = false;
+    
+                            try {
+                                const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, product: product.id, auth: apiHelper.auth.access_token });
+                                
+                                if (deviceData.body.product_id == product.id) {
+                                    currentOutput('\u2705 ' + product.name + ' (' + product.id + ') Yes!<br/>'); // green check
+                                    deviceLookup.deviceFound = true;
+                                    foundInOrgProduct = true;
+                                    deviceLookup.deviceInfo = deviceData.body;
+                                    deviceLookup.deviceProductName = product.name;
+                                    deviceLookup.deviceProductId = product.id;
+                                    deviceLookup.deviceInOrgProduct = true; // In an product in an org I have access to
+                                    deviceLookup.orgId = org.id;
+                                    deviceLookup.orgName = org.name;
+                                    deviceLookup.isProductDevice = true;
+                                    break;    
+                                }
+                            }
+                            catch(e) {
+                            }            
+
+                            if (!foundInOrgProduct) {
+                                currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
+                            }
+                        }
+                    }
+                    if (orgsData.organizations.length == 0) {
+                        currentOutput('\u274C You do not have access to any organizations<br/>'); // red x
+                    }
+                }
+                catch(e) {
+                }
+            }
+
+            if (deviceLookup.deviceInfo) {
+                const currentOutput = function(label, value) {
+                    if (typeof value == 'undefined') {
+                        return;
+                    }
+                    $(options.deviceLookupDetailBodyElem).append(
+                        '<tr>',
+                        $(document.createElement('td')).text(label),
+                        $(document.createElement('td')).text(value),
+                        '</tr>'
+                    );
+                };
+
+                const timeString = function(val) {
+                    if (val) {
+                        const d = new Date(val);
+                        return d.toLocaleString();
+                    }
+                    else {
+                        return 'unknown';
+                    }
+                };
+
+                currentOutput('Device ID', deviceLookup.deviceInfo.id);
+                currentOutput('Device Name', deviceLookup.deviceInfo.name);
+
+                currentOutput('Online', deviceLookup.deviceInfo.online);
+                currentOutput('Serial Number', deviceLookup.deviceInfo.serial_number);
+                currentOutput('ICCID', deviceLookup.deviceInfo.iccid);
+                currentOutput('IMEI', deviceLookup.deviceInfo.imei);
+                    
+                currentOutput('Device OS Version', deviceLookup.deviceInfo.system_firmware_version);
+
+                currentOutput('Last Handshake', timeString(deviceLookup.deviceInfo.last_handshake_at));
+                currentOutput('Last Heard', timeString(deviceLookup.deviceInfo.last_heard));
+                currentOutput('Status', deviceLookup.deviceInfo.status);
+
+                if (deviceLookup.isProductDevice) {
+                    currentOutput('Product ID', deviceLookup.deviceInfo.product_id);
+                    currentOutput('Product Name', deviceLookup.deviceProductName);
+                    currentOutput('Development', deviceLookup.deviceInfo.development);
+                    currentOutput('Quarantined', deviceLookup.deviceInfo.quarantined);
+                    currentOutput('Firmware Version', deviceLookup.deviceInfo.firmware_version);
+                    currentOutput('Desired Firmware Version', deviceLookup.deviceInfo.desired_firmware_version);
+    
+                    
+                    currentOutput('Firmware Updates Enabled', deviceLookup.deviceInfo.firmware_updates_enabled);
+                    currentOutput('Firmware Updates Forced', deviceLookup.deviceInfo.firmware_updates_forced);
+                    if (deviceLookup.deviceInfo.groups) {
+                        currentOutput('Groups', deviceLookup.deviceInfo.groups.join(' '));
+                    } 
+                    
+                    if (deviceLookup.orgName) {
+                        currentOutput('Organization Name', deviceLookup.orgName);
+                    }
+                }
+            }
+        };
+
+
+        return deviceLookup;
+    };
+
 
     $('.apiHelperDeviceLookup').each(function() {
         const deviceLookupElem = $(this);
@@ -686,7 +892,6 @@ $(document).ready(function() {
             }
 
             $(deviceLookupElem).find('.apiHelperDeviceLookupResult').html('');
-            $(deviceLookupDetailBodyElem).html('');
 
             $(deviceLookupElem).find('.apiHelperDeviceLookupClaimedMyAccount').show();
             $(deviceLookupElem).find('.apiHelperDeviceLookupProduct').hide();
@@ -694,176 +899,19 @@ $(document).ready(function() {
             $(deviceLookupElem).find('.apiHelperDeviceLookupClaimDiv').hide();
             $(deviceLookupElem).find('.apiHelperDeviceLookupRenameDeviceDiv').hide();
                             
-            let deviceFound = false;
-            let deviceInfo;
-            let deviceMine = false;
-            let deviceProductName;
-            let deviceProductId;
 
-            {
-                const currentOutput = function(status) {
-                    $(deviceLookupElem).find('.apiHelperDeviceLookupClaimedMyAccount > span').append(status);
-                };
+            let deviceLookup = apiHelper.deviceLookup({
+                deviceId,
+                deviceLookupElem,
+                modeNoCheckOrgs,
+                modeRemoveProduct,
+                deviceLookupDetailBodyElem
+            });
 
-                try {
-                    const deviceData = await apiHelper.particle.getDevice({ deviceId, auth: apiHelper.auth.access_token });
-        
-                    currentOutput('\u2705 Yes!'); // green check
-                    deviceFound = true;
-                    deviceInfo = deviceData.body;      
-                    deviceMine = true;     
-                }
-                catch(e) {
-                    currentOutput('\u274C No'); // red x
-                }
-            }
+            await deviceLookup.run();
 
-            if (!deviceFound || modeRemoveProduct) {
-                $(deviceLookupElem).find('.apiHelperDeviceLookupProduct').show();
-
-                const currentOutput = function(status) {
-                    $(deviceLookupElem).find('.apiHelperDeviceLookupProduct > span').append(status);
-                };
-
-                try {
-                    const productsData = await apiHelper.getProducts();
-    
-                    let foundInProduct = false;
-    
-                    for(const product of productsData.products) {
-
-                        try {
-                            const deviceData = await apiHelper.particle.getDevice({ deviceId, product: product.id, auth: apiHelper.auth.access_token });
-            
-                            if (deviceData.body.product_id == product.id) {
-            
-                                currentOutput('\u2705 ' + product.name + ' (' + product.id + ') Yes!<br/>'); // green check
-                                foundInProduct = true;
-                                deviceFound = true;
-                                deviceInfo = deviceData.body;
-                                deviceProductName = product.name;
-                                deviceProductId = product.id;
-                                break;
-                            }
-                        }
-                        catch(e) {
-                        }
-
-                        if (!foundInProduct) {
-                            currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
-                        }
-        
-                    }
-       
-    
-                }
-                catch(e) {
-                }
-            }
-
-            if ((!deviceFound || (modeRemoveProduct && !deviceProductId)) && !modeNoCheckOrgs) {
-                $(deviceLookupElem).find('.apiHelperDeviceLookupOrg').show();
-
-                const currentOutput = function(status) {
-                    $(deviceLookupElem).find('.apiHelperDeviceLookupOrg > span').append(status);
-                };
-
-                try {
-                    const orgsData = await apiHelper.getOrgs();
-    
-                    for(const org of orgsData.organizations) {
-                        // id, slug, name
-
-                        const orgProducts = await apiHelper.getOrgProducts(org.id);
-
-                        currentOutput('Checking organization ' + org.name + '...<br/>');
-
-                        for(const product of orgProducts.products) {
-                            let foundInOrgProduct = false;
-    
-                            try {
-                                const deviceData = await apiHelper.particle.getDevice({ deviceId, product: product.id, auth: apiHelper.auth.access_token });
-                                
-                                if (deviceData.body.product_id == product.id) {
-                                    currentOutput('\u2705 ' + product.name + ' (' + product.id + ') Yes!<br/>'); // green check
-                                    deviceFound = true;
-                                    foundInOrgProduct = true;
-                                    deviceInfo = deviceData.body;
-                                    deviceProductName = product.name;
-                                    deviceProductId = product.id;
-                                    break;    
-                                }
-                            }
-                            catch(e) {
-                            }            
-
-                            if (!foundInOrgProduct) {
-                                currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
-                            }
-                        }
-                    }
-                    if (orgsData.organizations.length == 0) {
-                        currentOutput('\u274C You do not have access to any organizations<br/>'); // red x
-                    }
-                }
-                catch(e) {
-                }
-            }
-
-            if (deviceInfo) {
-                const currentOutput = function(label, value) {
-                    if (typeof value == 'undefined') {
-                        return;
-                    }
-                    $(deviceLookupDetailBodyElem).append(
-                        '<tr>',
-                        $(document.createElement('td')).text(label),
-                        $(document.createElement('td')).text(value),
-                        '</tr>'
-                    );
-                };
-
-                const timeString = function(val) {
-                    if (val) {
-                        const d = new Date(val);
-                        return d.toLocaleString();
-                    }
-                    else {
-                        return 'unknown';
-                    }
-                };
-
-                currentOutput('Device ID', deviceInfo.id);
-                currentOutput('Device Name', deviceInfo.name);
-
-                currentOutput('Online', deviceInfo.online);
-                currentOutput('Serial Number', deviceInfo.serial_number);
-                currentOutput('ICCID', deviceInfo.iccid);
-                currentOutput('IMEI', deviceInfo.imei);
-                    
-                currentOutput('Device OS Version', deviceInfo.system_firmware_version);
-
-                currentOutput('Last Handshake', timeString(deviceInfo.last_handshake_at));
-                currentOutput('Last Heard', timeString(deviceInfo.last_heard));
-                currentOutput('Status', deviceInfo.status);
-
-                if (deviceInfo.product_id > 100) {
-                    currentOutput('Product ID', deviceInfo.product_id);
-                    currentOutput('Product Name', deviceProductName);
-                    currentOutput('Development', deviceInfo.development);
-                    currentOutput('Quarantined', deviceInfo.quarantined);
-                    currentOutput('Firmware Version', deviceInfo.firmware_version);
-                    currentOutput('Desired Firmware Version', deviceInfo.desired_firmware_version);
-    
-                    
-                    currentOutput('Firmware Updates Enabled', deviceInfo.firmware_updates_enabled);
-                    currentOutput('Firmware Updates Forced', deviceInfo.firmware_updates_forced);
-                    if (deviceInfo.groups) {
-                        currentOutput('Groups', deviceInfo.groups.join(' '));
-                    }    
-                }
-
-                if (deviceMine && modeUnclaim) {
+            if (deviceLookup.deviceInfo) {
+                if (deviceLookup.deviceMine && modeUnclaim) {
                     $('.apiHelperDeviceLookupUnclaimDeviceDiv').show();
                     $(deviceLookupElem).find('.apiHelperDeviceLookupUnclaimDeviceButton').on('click', async function() {
                         const setButtonStatus = function(status) {
@@ -871,15 +919,15 @@ $(document).ready(function() {
                         };
                         setButtonStatus('Unclaiming...');
                         try {
-                            await apiHelper.unclaimDevice(deviceInfo.id);
-                            setButtonStatus('Successfully unclaimed device ' + deviceInfo.id);
+                            await apiHelper.unclaimDevice(deviceLookup.deviceInfo.id);
+                            setButtonStatus('Successfully unclaimed device ' + deviceLookup.deviceInfo.id);
                         }
                         catch(e) {
                             setButtonStatus('Error unclaiming device');
                         }
                     });
                 }
-                if (deviceProductId && modeRemoveProduct) {
+                if (deviceLookup.deviceProductId && modeRemoveProduct) {
                     $('.apiHelperDeviceLookupRemoveProductDiv').show();
                     $(deviceLookupElem).find('.apiHelperDeviceLookupRemoveProductButton').on('click', async function() {
                         const setButtonStatus = function(status) {
@@ -887,18 +935,18 @@ $(document).ready(function() {
                         };
                         setButtonStatus('Removing from product...');
                         try {
-                            await apiHelper.unclaimProductDevice(deviceInfo.id, deviceProductId);
-                            await apiHelper.removeProductDevice(deviceInfo.id, deviceProductId);    
-                            setButtonStatus('Successfully removed from product ' + deviceProductName);
+                            await apiHelper.unclaimProductDevice(deviceLookup.deviceInfo.id, deviceLookup.deviceProductId);
+                            await apiHelper.removeProductDevice(deviceLookup.deviceInfo.id, deviceLookup.deviceProductId);    
+                            setButtonStatus('Successfully removed from product ' + deviceLookup.deviceProductName);
                         }
                         catch(e) {
-                            setButtonStatus('Error removing from product ' + deviceProductName);
+                            setButtonStatus('Error removing from product ' + deviceLookup.deviceProductName);
                         }
                     });
                 }
 
-                if (deviceMine && !modeUnclaim){
-                    $('.apiHelperDeviceLookupRenameDeviceName').val(deviceInfo.name);
+                if (deviceLookup.deviceMine && !modeUnclaim){
+                    $('.apiHelperDeviceLookupRenameDeviceName').val(deviceLookup.deviceInfo.name);
                     $(deviceLookupElem).find('.apiHelperDeviceLookupRenameDeviceDiv').show();    
                     apiHelper.setCommonDevice(deviceId);
                 }
