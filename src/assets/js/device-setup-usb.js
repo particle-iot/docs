@@ -371,8 +371,18 @@ $(document).ready(function() {
 
             console.log('deviceLookup', deviceLookup);
 
+            // TODO: Check service agreements to make sure account state == 'active'
+
             if (!deviceLookup.deviceInfo) {
                 showStep('setupStepCheckSimAndClaimingNoDeviceInfo');
+
+
+                await new Promise(function(resolve) {
+                    const buttonElem = $(thisElem).find('.setupContinueSetupButton');
+                    $(buttonElem).on('click', function() {
+                        resolve();
+                    });
+                });
 
             }
             else if (deviceLookup.deviceMine) {
@@ -390,8 +400,18 @@ $(document).ready(function() {
             // Do something with deviceLookup.deviceInfo.isProductDevice here
 
 
-            if (!deviceInfo.wifi) {
+            if (deviceInfo.wifi) {
+                // Check if there are Wi-Fi credentials and ask to use those or reconfigure
+                configureWiFi();                              
+            } 
+            else {
                 // showStep('setupStepCheckSimAndClaimingGetIccid');
+
+                // Check ICCID
+                // Boron: Is the external SIM slot activated
+                // Does this look like a 3rd-party SIM card? Use 3rd-party SIM flow (warn about activation, LTE M1, prompt for APN)
+                // If Particle SIM, check if activated
+                activateSim();
             }
 
         };
@@ -735,7 +755,8 @@ $(document).ready(function() {
             
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
-        
+            
+            // In troubleshooting mode, we do try to autoconnect
             reqObj = {
                 op: 'noAutoConnect',
             };
