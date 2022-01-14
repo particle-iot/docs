@@ -355,6 +355,11 @@
         "dir": "an039-remote-logging",
         "title": "AN039 Remote Logging",
         "href": "/datasheets/app-notes/an039-remote-logging/"
+      },
+      {
+        "dir": "an040-device-setup-patterns",
+        "title": "AN040 Device Setup Patterns",
+        "href": "/datasheets/app-notes/an040-device-setup-patterns/"
       }
     ],
     {

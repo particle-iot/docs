@@ -268,26 +268,41 @@ With Device OS 2.0 and later, it is also possible to use a wildcard product ID:
 PRODUCT_ID(PLATFORM_ID);
 ```
 
-This is handy if you have multiple products running the same firmware. However, it requires that you add all Device IDs to the product ahead of time,
+This is handy if you have multiple products running the same firmware. However, it requires that you add all device IDs to the product ahead of time,
 
 
-### Adding Device IDs to a product in advance
+### Adding device IDs to a product in advance
 
-By far the most common, and recommended, way to handle adding devices to products is to add the devices during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of Device IDs in the order. You can import the file into the Particle console.
+By far the most common, and recommended, way to handle adding devices to products is to add the devices during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of device IDs in the order. You can import the file into the Particle console.
 
 You could also do this on a per-device basis as part of your [manufacturing flow](/tutorials/product-tools/manufacturing-cellular/).
 
 This is required if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro.
 
+For information about how this affects billing, see [Billing for added devices](/tutorials/product-tools/creating-a-product/#billing-for-added-devices).
+
 ### Quarantine
 
-If a device has product firmware flashed to it with an explicit PRODUCT_ID defined, but the Device ID has not been added, it will be put into Quarantine.
+If a device has product firmware flashed to it with an explicit PRODUCT_ID defined, but the Device ID has not been added, it will be put into Quarantine by default.
 
 The reason is that without quarantine, anyone who knows your product ID could take any random device and add it to your product.
 
-### Auto-approve
+![Quarantine](/assets/images/console/quarantine.png)
+
+- Select a product, then **Devicess** (1).
+- Expand **Denied Devices** (2) if necessary.
+- Click **Approve** if desired.
+
+If a device appears in Denied Devices and you do not want to approve it, make sure it's flashed with non-product firmware. The default Tinker app can be used. The next time the device comes online with non-product firmware it will disappear from the denied devices list.
+
+#### Auto-approve
 
 Instead of entering quarantine, you can also enable auto-approve so any device with firmware that specifies your product ID will be added to your product automatically. This is not recommended. 
+
+![Quarantine Settings](/assets/images/console/quarantine-settings.png)
+
+- Select a product, then **Settings** (1).
+- Select **Auto-Approve** (2). This is not recommended.
 
 ## SIM activation
 

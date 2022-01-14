@@ -80,6 +80,78 @@ One major difference between developer devices and products is with device claim
 
 If you are using integrations, the choices made here affect where to put your integration. In most cases, you should put the integration in your product. If you are claiming all devices to a single account you could possibly put the integration there, however it's still generally better to put the integration in the product. If you are using unclaimed product devices or customer claiming, you must put the integration in your product.
 
+## Adding devices to a product
+
+It is recommended that you add, in advance, the device IDs of all devices you want to add to your product. This is desirable for several reasons, including:
+
+- If the device is a cellular device, this is necessary to associate the SIM ICCID with your account for billing purposes. If this is not done, the device cannot connect to cellular.
+- If you do not pre-add device IDs, the device will be stopped from joining your product and go into [quarantine](/tutorials/device-cloud/device-claiming/#quarantine) when it first connects to the cloud. This is usually a bad user experience as it requires the product creator to manually approve each device as it comes online.
+- If [auto-approve devices](/tutorials/device-cloud/device-claiming/#auto-approve) is used to prevent quarantine, this allows any device to join your product, including any random developer devices that knows your product ID. This is not recommended.
+- If you do not pre-add the device IDs, you cannot pre-claim devices if you are claiming to a single account.
+- If you are using wildcard product IDs, you must pre-add device IDs 
+
+Fortunately, it's easy to pre-add device IDs when you order in tray or reel quantities from the Particle wholesale store. You will be emailed a file containing the device IDs of all of the devices in your order. You can upload the file [in the console](/tutorials/device-cloud/console/#adding-devices) with just a few clicks.
+
+For all devices with built-in Particle SIMs, importing the device ID also imports the SIMs, so you only have to do one step. The exception are the older Electron 2G/3G devices (E260, E270, E350, ELC314) that use a separate plastic 4FF SIM card. In this case, when you order 50 packs of Particle SIM cards, you will also be mailed a file of ICCIDs that you can import as well.
+
+### Billing for added devices
+
+#### Adding product devices - free tier
+
+Adding a device to a product in the free tier will increase the number of devices in the account by one immediately. There is a limit of 100 devices across all types (cellular, tracker, or Wi-Fi) in a free account. As the account is free, there are no billing implications, other than contributing to the free plan usage limits.
+
+The limit is 100 devices per account, including non-product devices and all products owned by that user. Thus it's possible for the number of devices allowed in a free tier product to be lessn than 100. If you have more devices, you may want to upgrade to the growth tier.
+
+#### Adding product devices - growth tier
+
+Adding a device to a product in the growth tier can be done in advance, and in bulk. The growth plan has the concept of **metered devices** which includes all devices that have connected to the cloud at least once. Thus you can add many devices to your product at once, and only when you first turn them on and connect to the cloud does billing start. This allows devices to be assembled and configured without starting billing yet.
+
+Once a device comes online once, it will count against the 100 devices per block limit, even if does not connect to the cloud during the billing month.
+
+It's possible to set up the device by USB or JTAG/SWD, as long as it does not connect to the Particle cloud. Thus you can use your own manufacturing firmware to test your circuit board, custom sensors, etc. without starting billing.
+
+We recommend flashing the desired version of Device OS and your product firmware by USB or SWD/JTAG before shipping it to your end-users, as well.
+
+In order to remove a device from the billable device count, you must **Remove device** from the product and **Release ownership** of the SIM card.
+
+#### Adding product devices - enterprise tier
+
+Adding a device to a product in the enterprise tier can be done in advance, and in bulk. The enterprise plan has the concept of **metered devices** which includes all devices that have connected to the cloud at least once. Thus you can add many devices to your product at once, and only when you first turn them on and connect to the cloud does billing start. This allows devices to be assembled and configured without starting billing yet.
+
+Additionally, enterprise products have a six-month manufacturing grace period. For the first six months after the device first connects to the cloud, the device will only count as a metered device if it makes a connection to the Particle cloud. If the device is completely offline for the billing month, it will not count as a billable device.
+
+After the six-month manufacturing grace period, it behaves as the growth plan, and will be counted as a billable device even if it does not connect to the cloud.
+
+It's possible to set up the device by USB or JTAG/SWD, as long as it does not connect to the Particle cloud. Thus you can use your own manufacturing firmware to test your circuit board, custom sensors, etc. without starting the billing process.
+
+We recommend flashing the desired version of Device OS and your product firmware by USB or SWD/JTAG before shipping it to your end-users, as well.
+
+In order to remove a device from the billable device count, you must **Remove device** from the product and **Release ownership** of the SIM card.
+
+### Connecting during device testing
+
+In some cases, you may want to do an end-to-end test that also tests cellular or Wi-Fi connectivity. This provides the greatest assurance that the device will work out-of-the-box for your end-user but in some cases is impossible or impractical, in which case the [connecting by end-user](#connecting-by-end-user) may be a better choice.
+
+#### Adding to the product first
+
+Importing the devices to the product is easy when you order in tray or reel quantities from the Particle wholesale store. You'll be emailed a list of device IDs, which can be imported into the console in a few clicks. This both adds the devices to the product and activates the SIM card for cellular devices.
+
+
+
+#### Using a test account
+
+Another option is to use a test account during initial device testing. This makes it easy to run test firmware and test cellular or Wi-Fi connectivity. 
+
+Only after successfully completing the tests do you flash the final user firmware. 
+
+
+### Connecting by end-user
+
+Another option is to not connect to the cloud until the end-user uses the device for the first time. The disadvantage is that you will not complete and end-to-end test, however you can still test your device except for the cellular or Wi-Fi connectivity part. There are several reasons you might want to do this:
+
+- Your devices are assembled an tested out of the cellular area they will be used, for example assembly in China with US LTE Cat M1 devices that cannot connect there.
+- Your supply chain from assembly to end-user exceeds 6 months, and you want the simplest solution to reduce costs.
+
 ## Development Tools
 
 ### Workbench
