@@ -29,16 +29,37 @@
                         select your device, and click **Connect**.</p>
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
                 </div>
+                <h3>Other issues</h3>
+                <div>
+                    <p>I have a Gen 2 device (Photon, P1, Electron, or E Series). The status LED stays off, the buttons do not 
+                        do anything. On the Photon or Electron, the blue LED next to pin D7 is on and dim.<br/>
+                        <button disabled>I have the Dim D7 Issue</button> (this flow is not yet implemented)
+                    </p>
+                </div>
+                <div>
+                    <p>The device is hot to the touch, or does not turn on at all.<br/>
+                        <button disabled>I may have a power issue</button> (this flow is not yet implemented)
+                    </p>
+                </div>
+                <div>
+                    <p>When I use **Select Device** no devices show up in the device selection dialog.<br/>
+                        <button disabled>No USB device</button> (this flow is not yet implemented)
+                    </p>
+                </div>
                 <div class="setupMode">
                     <p>This tool upgrades the device firmware, activates the SIM (for cellular devices), configures
                         Wi-Fi (for Wi-Fi devices), and claims the device to your account.
                     </p>
-                </div>
-                <div>
                     <p>It is experimental, however if you run into trouble you should be able to
                         use the <a href="https://docs.particle.io/cli/">Particle CLI</a> to recover the device.
                     </p>
                 </div>
+            </div>
+            <div class="setupStepDimD7" style="display:none">
+                <p>If you have the Dim D7 issue, the bootloader in the device flash memory has become corrupted. 
+                    This requires a SWD/JTAG programmer to repair. 
+                </p>
+                <p></p>
             </div>
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
@@ -278,6 +299,9 @@
                         <button class="setColorButton">Set Status LED Color</button></p>
                 </div>
             </div>
+            <div class="setupStepTroubleshootingSuccess" style="display:none">
+                <p>Congratulations, it appears that your device is online and functioning properly now!</p>
+            </div>
             <div class="setupStepClaimFailed" style="display:none">
                 <p>Claiming the device failed.</p>
                 <p>This typically occurs because the device is claimed to another
@@ -303,21 +327,33 @@
                 <textarea class="deviceLogsText" rows="10" cols="100" style="font-size: 9px">
                 </textarea>
                 <p><button class="downloadLogs">Download Logs</button></p>                
-                <div class="cellularInfo" style="display:none">
-                    <table class="cellularInfoTable apiHelperTableNoMargin">
-                        <tbody>
-                        </tbody>
+            </div>
+        </div>
+        <div class="supportInfo">
+            <div class="userInfo" style="display:none">
+                <h3>User information</h3>
+                <table class="userInfoTable apiHelperTableNoMargin">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="apiHelperDeviceLookupOutput" style="display:none">
+                <h3>Device information</h3>
+                <div class="apiHelperDeviceLookupClaimedMyAccount" style="display:none;">Is the device claimed to my account? &nbsp;<span class="apiHelperDeviceLookupResult"></span></div>            
+                <div class="apiHelperDeviceLookupProduct" style="display:none;">Is the device in a product I have access to?<br/><span class="apiHelperDeviceLookupResult"></span></div>
+                <div class="apiHelperDeviceLookupOrg" style="display:none;">Is the device in an organization I have access to?<br/><span class="apiHelperDeviceLookupResult"></span></div>           
+                <div class="apiHelperDeviceLookupOutputDetails">
+                    <p>Device information retrieved from the cloud:</p>
+                    <table class="apiHelperTableNoMargin">
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="apiHelperDeviceLookupOutput" style="display:none">
-            <div class="apiHelperDeviceLookupClaimedMyAccount" style="display:none;">Is the device claimed to my account? &nbsp;<span class="apiHelperDeviceLookupResult"></span></div>            
-            <div class="apiHelperDeviceLookupProduct" style="display:none;">Is the device in a product I have access to?<br/><span class="apiHelperDeviceLookupResult"></span></div>
-            <div class="apiHelperDeviceLookupOrg" style="display:none;">Is the device in an organization I have access to?<br/><span class="apiHelperDeviceLookupResult"></span></div>           
-            <div class="apiHelperDeviceLookupOutputDetails">
-                <table class="apiHelperTableNoMargin">
-                    <tbody></tbody>
+            <div class="cellularInfo" style="display:none">
+                <h3>Cellular information</h3>
+                <table class="cellularInfoTable apiHelperTableNoMargin">
+                    <tbody>
+                    </tbody>
                 </table>
             </div>
         </div>

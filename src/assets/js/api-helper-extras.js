@@ -580,6 +580,8 @@ $(document).ready(function() {
 
         deviceLookup.run = async function() {
 
+            deviceLookup.userInfo = (await apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token })).body;
+
             {
                 $(options.deviceLookupElem).find('.apiHelperDeviceLookupClaimedMyAccount').show();
 
@@ -737,7 +739,14 @@ $(document).ready(function() {
                 currentOutput('Last Heard', timeString(deviceLookup.deviceInfo.last_heard));
                 currentOutput('Status', deviceLookup.deviceInfo.status);
 
+                if (deviceLookup.deviceMine) {
+                    currentOutput('Owner', deviceLookup.userInfo.username);
+                }
+
                 if (deviceLookup.isProductDevice) {
+                    if (deviceLookup.deviceMine) {
+                        currentOutput('Owner', deviceLookup.deviceInfo.username);
+                    }
                     currentOutput('Product ID', deviceLookup.deviceInfo.product_id);
                     currentOutput('Product Name', deviceLookup.deviceProductName);
                     currentOutput('Development', deviceLookup.deviceInfo.development);

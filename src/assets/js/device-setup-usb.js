@@ -189,6 +189,52 @@ $(document).ready(function() {
             return text;
         };
 
+        let userInfo;
+
+        const setUserInfoItem = function(label, value) {
+            const trElem = document.createElement('tr');
+
+            let tdElem = document.createElement('td');
+            $(tdElem).append(document.createTextNode(label));
+            $(trElem).append(tdElem);
+
+            tdElem = document.createElement('td');
+            if (value) {
+                $(tdElem).append(document.createTextNode(value));
+            }
+            $(trElem).append(tdElem);
+            
+            $(thisElem).find('.userInfoTable > tbody').append(trElem);
+        };
+
+        apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
+            function(data) {
+                userInfo = data.body;
+                
+                $(thisElem).find('.userInfo').show();
+
+                setUserInfoItem('Account email', userInfo.username);
+
+                let name = '';
+                if (userInfo.account_info.first_name) {
+                    name += userInfo.account_info.first_name;
+                }
+                if (userInfo.account_info.last_name) {
+                    if (name.length > 0) {
+                        name += ' ';
+                    }
+                    name += userInfo.account_info.last_name;
+                }
+                if (name) {
+                    setUserInfoItem('Name', name);
+                }
+
+            },
+            function(err) {
+                setStatus('Error retrieving user information (access token may have expired)');
+            }
+        )
+
         $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
                 {vendorId: 0x2b04}
@@ -1435,6 +1481,12 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
+                if (troubleshootingMode) {                    
+                    // TODO: Check if device is claimed to my account and 
+                    setSetupStep('setupStepTroubleshootingSuccess');
+                    return;
+                }
+
                 if (!setupOptions.noClaim) {
                     // Claim device
                     const result = await new Promise(function(resolve, reject) {      
@@ -1481,8 +1533,8 @@ $(document).ready(function() {
                     }
                 }
 
-    
                 nameDevice();
+    
             }
             catch(e) {
                 setSetupStep('setupStepClaimFailed');
