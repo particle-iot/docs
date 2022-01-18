@@ -100,7 +100,7 @@ For all devices with built-in Particle SIMs, importing the device ID also import
 
 Adding a device to a product in the free tier will increase the number of devices in the account by one immediately. There is a limit of 100 devices across all types (cellular, tracker, or Wi-Fi) in a free account. As the account is free, there are no billing implications, other than contributing to the free plan usage limits.
 
-The limit is 100 devices per account, including non-product devices and all products owned by that user. Thus it's possible for the number of devices allowed in a free tier product to be lessn than 100. If you have more devices, you may want to upgrade to the growth tier.
+The limit is 100 devices per account, including non-product devices and all products owned by that user. Thus it's possible for the number of devices allowed in a free tier product to be less than 100. If you have more devices, you may want to upgrade to the growth tier.
 
 #### Adding product devices - growth tier
 
@@ -136,13 +136,15 @@ In some cases, you may want to do an end-to-end test that also tests cellular or
 
 Importing the devices to the product is easy when you order in tray or reel quantities from the Particle wholesale store. You'll be emailed a list of device IDs, which can be imported into the console in a few clicks. This both adds the devices to the product and activates the SIM card for cellular devices.
 
-
+You can also add devices individually using the Particle cloud API. And example of this technique can be found in the [device cloud setup example script](https://github.com/particle-iot/node-example-device-cloud-setup). Two common methods are connecting by USB to read the Device ID, or scanning the serial number sticker on the device.
 
 #### Using a test account
 
 Another option is to use a test account during initial device testing. This makes it easy to run test firmware and test cellular or Wi-Fi connectivity. 
 
-Only after successfully completing the tests do you flash the final user firmware. 
+Only after successfully completing the tests do you flash the final user firmware and associate the device with the product.
+
+This method is more complicated and must be done with care to prevent long activation times when the SIM is activated later. See [SIM activation speed](/tutorials/device-cloud/device-claiming/#sim-activation-speed).
 
 
 ### Connecting by end-user
@@ -151,6 +153,10 @@ Another option is to not connect to the cloud until the end-user uses the device
 
 - Your devices are assembled an tested out of the cellular area they will be used, for example assembly in China with US LTE Cat M1 devices that cannot connect there.
 - Your supply chain from assembly to end-user exceeds 6 months, and you want the simplest solution to reduce costs.
+
+It's possible to set up the device by USB or JTAG/SWD, as long as it does not connect to the Particle cloud. Thus you can use your own manufacturing firmware to test your circuit board, custom sensors, etc. without starting the billing process.
+
+We recommend flashing the desired version of Device OS and your product firmware by USB or SWD/JTAG before shipping it to your end-users, as well.
 
 ## Development Tools
 

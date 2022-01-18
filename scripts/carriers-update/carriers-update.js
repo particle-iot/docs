@@ -895,6 +895,72 @@ const path = require('path');
         return md;
     };
 
+    updater.simActivationSpeed = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.cellAnt) {
+                return;
+            }
+            if (/*skuObj.lifecycle == 'Discontinued' || */skuObj.lifecycle == 'Hidden') {
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            skus.push(skuObj);
+        });
+
+        // Sort
+        skus.sort(function(a, b) {
+            return a.desc.localeCompare(b.name);
+        });
+
+        // Render
+        let md = '';
+
+        md += '| SKU | Device | SIM Activation Speed | Lifecycle | Replacement | \n';
+        md += '| :-- | :----- | :------------------: | :-------: | :---------: |\n'; 
+        
+
+        skus.forEach(function(skuObj) {
+            md += '| ' + skuObj.name + ' | ' + skuObj.desc;
+            
+            switch(skuObj.sim) {
+                case 1:
+                    md += ' | Generally fast<sup>2</sup>';
+                    break;
+
+                case 2:
+                case 3:
+                    md += ' | Sometimes slow<sup>3</sup>';
+                    break;
+
+                default:
+                case 4:
+                    md += ' | Fast<sup>1</sup>';
+                    break;
+
+            }
+
+            md += ' | ' + skuObj.lifecycle;
+            md += ' | ' + (skuObj.replacement ? skuObj.replacement : '');
+
+            md += '|\n';
+            
+        });
+
+        return md;    
+    };
 
     updater.docsToUpdate = [
         {
@@ -1271,10 +1337,18 @@ const path = require('path');
 
             
             
-        }
-
-
-        
+        },
+        {
+            path:'/tutorials/device-cloud/device-claiming.md', 
+            updates:[
+                {
+                    guid:'fabf0754-7838-11ec-90d6-0242ac120003', 
+                    generatorFn:function() {
+                        return updater.simActivationSpeed(); 
+                    } 
+                },
+            ]
+        }    
     ];
 
     updater.updateDocs = function(pathPrefix, docsPath, guid, md) {
