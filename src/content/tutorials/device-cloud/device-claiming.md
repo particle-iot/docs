@@ -102,7 +102,7 @@ particle device rename <device-id> <name>
 particle usb setup-done
 ```
 
-- When a new device reboots, it should go into listening mode (blinking dark blue), if not, it can be done by holding down the MODE (or SETUP) button until the status LED blinks dark blue, or by using `particle usb listening`.
+- When a new device reboots, it should go into listening mode (blinking dark blue), if not, it can be done by holding down the MODE (or SETUP) button until the status LED blinks dark blue, or by using `particle usb listen`.
 
 - The `particle identify` command prints out the Device ID, which you will need in a later step.
 
