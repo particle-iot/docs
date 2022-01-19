@@ -38,6 +38,8 @@ $(document).ready(function() {
         let mccmnc;
         let setupOptions = {};
 
+        const deviceLogsElem = $(thisElem).find('.deviceLogs');
+
         const minimumDeviceOsVersion = '2.1.0';
 
         const setStatus = function(status) {
@@ -464,6 +466,10 @@ $(document).ready(function() {
 
         const activateSim = async function() {
             setSetupStep('setupStepActivateSim');
+
+            if (troubleshootingMode) {
+                $(deviceLogsElem).show();
+            }
 
             let needToActivate = false;
             let alreadyOwned = false;
@@ -1327,7 +1333,6 @@ $(document).ready(function() {
 
         $(thisElem).find('.scanAgain').on('click', configureWiFi);
 
-        const deviceLogsElem = $(thisElem).find('.deviceLogs');
         const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
         const showDebuggingLogsElem = $(thisElem).find('.showDebuggingLogs');
         const deviceLogsTextButtonsElem = $(thisElem).find('.deviceLogsTextButtons');
