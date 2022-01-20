@@ -1,6 +1,6 @@
 {
 	"$schema": "https://particle.io/draft-07/schema#",
-	"$id": "https://github.com/particle-iot/tracker-edge/releases/tag/v13",
+	"$id": "https://github.com/particle-iot/tracker-edge/releases/tag/v17",
 	"type": "object",
 	"title": "Configuration schema for the Tracker Edge firmware from Particle",
 	"$comment": "the $id field doesn't strictly mean that this schema only works with that release of tracker-edge, rather, this means that the schema here was created for that version of tracker-edge, and will work on earlier and later versions until a new schema is required.  This means that schema v10 will work with firmware v11, as long as there's no added features in v11 not already mentioned here",
@@ -369,6 +369,7 @@
 			"title": "Geofence",
 			"description": "Configuration for geofencing settings",
 			"default": {},
+			"minimumFirmwareVersion": 17,
 			"deviceLevelOnly": true,
 			"properties": {
 				"interval": {
@@ -460,7 +461,7 @@
 						"outside": {
 							"$id": "#/properties/geofence/zone1/outside",
 							"type": "boolean",
-							"title": "Publish outsize zone",
+							"title": "Publish outside zone",
 							"description": "If enabled, publish event when the device is outside the zone.",
 							"default": false,
 							"examples": [
@@ -578,7 +579,7 @@
 						"outside": {
 							"$id": "#/properties/geofence/zone2/outside",
 							"type": "boolean",
-							"title": "Publish outsize zone",
+							"title": "Publish outside zone",
 							"description": "If enabled, publish event when the device is outside the zone.",
 							"default": false,
 							"examples": [
@@ -696,7 +697,7 @@
 						"outside": {
 							"$id": "#/properties/geofence/zone3/outside",
 							"type": "boolean",
-							"title": "Publish outsize zone",
+							"title": "Publish outside zone",
 							"description": "If enabled, publish event when the device is outside the zone.",
 							"default": false,
 							"examples": [
@@ -814,7 +815,7 @@
 						"outside": {
 							"$id": "#/properties/geofence/zone4/outside",
 							"type": "boolean",
-							"title": "If enabled, publish event when the device is outside the zone.",
+							"title": "Publish outside zone",
 							"description": "If enabled, publish event when the device is outside the zone.",
 							"default": false,
 							"examples": [

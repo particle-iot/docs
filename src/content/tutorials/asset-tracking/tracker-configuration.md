@@ -149,6 +149,7 @@ This is the full schema for Tracker Edge, as of version 13. You won't need to un
 
 - The `geofence` module was added in v13.
 - The `deviceLevelOnly` boolean flag was added in v13. This allows a configuration module to only be configured per-device, regardless of whether it's a development device or not.
+- The schema version does not change with every Tracker Edge version, and does not match. For example, Tracker Edge v17 is used with schema v13.
 
 ### Data types
 
