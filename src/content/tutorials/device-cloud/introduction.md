@@ -208,7 +208,7 @@ In the Enterprise tier, the amount of cellular data is pooled annually across al
 
 [Publishes from a device](/cards/firmware/cloud-functions/particle-publish/) a limited to 1 per second, at the maximum publish payload size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
-There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](http://localhost:8080/reference/device-cloud/webhooks/#limits).
+There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](/reference/device-cloud/webhooks/#limits).
 
 While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/device-cloud/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
 

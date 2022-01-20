@@ -518,6 +518,8 @@ The parts may arrive out of order. This has always been the case if retransmissi
 
 There is no express indication of how many parts there are. Any part less than 512 bytes is the last part, however if the data is a multiple of 512 bytes, then it will be impossible to tell. Some formats like JSON will only be parsable after all parts have been received.
 
+As a general rule, you should avoid returning more than 10 response chunks (5120 bytes). Event responses are sent very quickly, and all events are delivered on a best-effort basis. As the number of chunks returned increases, the greater likelihood that chunks will be dropped. There is no way to request retransmission, so the entire response will typically be unusable. 
+
 ### Errors
 
 Error responses from the target url will also be sent back in the response event.

@@ -6217,9 +6217,9 @@ Serial1.end();
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and 64 bytes on Gen 2 (Photon, P1, Electron, E Series) and cannot be changed.
+The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and 64 or 128 bytes depending on the UART mode on Gen 2 (Photon, P1, Electron, E Series). {{since when="3.2.0"}} See also [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
-For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
+For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-) [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
 ```cpp
 // EXAMPLE USAGE
@@ -6264,8 +6264,6 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 ### acquireSerialBuffer()
 
-{{api name1="Serial1.acquireSerialBuffer"}}
-
 ```cpp
 // SYNTAX
 HAL_USB_USART_Config acquireSerialBuffer()
@@ -6307,8 +6305,55 @@ It is possible for the application to allocate its own buffers for `Serial` (USB
 
 On Gen 2 devices (Photon, P1, Electron. E Series), the `USBSerial1` receive buffer can be resized using `acquireUSBSerial1Buffer`. Minimum receive buffer size is 65 bytes.
 
-This is not available for hardware UART ports like `Serial1`, `Serial2`, etc.. If you are getting hardware serial buffer overruns, the [Serial Buffer Library](https://github.com/rickkas7/SerialBufferRK) may be helpful.
+{{since when="3.2.0"}} This is also available for hardware UART ports like `Serial1`, `Serial2`, etc, see [`acquireSerial1Buffer`](#acquireserial1buffer-).
 
+### acquireSerial1Buffer()
+
+{{api name1="Serial1.acquireSerialBuffer"}}
+
+```cpp
+// SYNTAX
+hal_usart_buffer_config_t acquireSerial1Buffer()
+{
+#if !HAL_PLATFORM_USART_9BIT_SUPPORTED
+    const size_t bufferSize = 64;
+#else
+    // If 9-bit mode is supported (e.g. on Gen 2 platforms)
+    // and it's planned to use this mode, it's necessary to allocate
+    // 2x the number of bytes.
+    const size_t bufferSize = 64 * sizeof(uint16_t);
+#endif // HAL_PLATFORM_USART_9BIT_SUPPORTED
+    hal_usart_buffer_config_t config = {
+        .size = sizeof(hal_usart_buffer_config_t),
+        .rx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .rx_buffer_size = bufferSize,
+        .tx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .tx_buffer_size = bufferSize
+    };
+
+    return config;
+}
+
+hal_usart_buffer_config_t acquireSerial2Buffer()
+{
+    const size_t bufferSize = 64;
+    hal_usart_buffer_config_t config = {
+        .size = sizeof(hal_usart_buffer_config_t),
+        .rx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .rx_buffer_size = bufferSize,
+        .tx_buffer = new (std::nothrow) uint8_t[bufferSize],
+        .tx_buffer_size = bufferSize
+    };
+
+    return config;
+}
+```
+
+{{since when="3.2.0"}}
+
+It is possible for the application to allocate its own buffers for `Serial1` and other hardware UART ports by implementing `acquireSerial1Buffer`, `acquireSerial2Buffer` etc. Minimum receive buffer size is 64 bytes.
+
+Depending on UART mode it might be required to allocate double the number of bytes (e.g. for 9-bit modes).
 
 ### blockOnOverrun()
 
@@ -10671,6 +10716,10 @@ size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
 
 Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
 
+{{since when="3.2.0"}}
+
+If `BlePhy::BLE_PHYS_CODED` advertising PHY is set, it's possible to provide up to 255 (`BLE_MAX_ADV_DATA_LEN_EXT_CONNECTABLE`) of advertising data.
+
 The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
 
 The special value of 0xffff is reserved for internal use and testing. 
@@ -14743,7 +14792,7 @@ if (timer.isActive()) {
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-Device OS includes a software-based watchdog, [ApplicationWatchdog](https://docs.particle.io#application-watchdog), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
+Device OS includes a software-based watchdog, [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
 The application note [AN023 Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
@@ -14806,6 +14855,14 @@ You should generally not try to do anything other than call `System.reset()` or 
 - Do not call `Cellular.command()`.
 
 Calling these functions will likely cause the system to deadlock and not reset.
+
+The following is a recommended watchdog callback implementation. It sets a reset reason, and does not wait for the cloud connection to gracefully close, since the device is in a bad state and that will likely never complete.
+
+```
+void myWatchdogHandler(void) {
+  System.reset(RESET_REASON_USER_APPLICATION_WATCHDOG, RESET_NO_WAIT);
+}
+```
 
 Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
@@ -15652,6 +15709,8 @@ SystemSleepResult result = System.sleep(config);
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. 
 
+For introduction to sleep and the various sleep modes and trade-offs, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+
 The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the previous numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
@@ -15674,6 +15733,7 @@ The are are three sleep modes:
 | Relative wake options | Most | Some | Fewest |
 | Execution continues with variables intact | &check; | &check; | &nbsp; |
 
+To help decide which mode you should use, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
 
 ---
 
@@ -15707,6 +15767,7 @@ The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time, GPIO, analog, serial, and cellular. On Gen 3 also BLE and Wi-Fi.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
+
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -16044,6 +16105,9 @@ If you are waking on network activity, be sure to wait for `Particle.connected()
 If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data from the cloud to the device (function, variable, subscribe, OTA) will wake the device from sleep. However if you sleep for less than the keep-alive length, you can wake up with zero additional overhead. This is offers the fastest wake time with the least data usage.
 
 If you use `INACTIVE_STANDBY`, the modem is kept powered, but the cloud is disconnected. This eliminates the need to go through a reconnection process to the cellular tower (blinking green) and prevents problems with aggressive reconnection. The device will not wake from sleep on functions, variables, or OTA. However, it also will cause the cloud to disconnect. The device will be marked offline in the console, and will go through a cloud session resumption on wake. This will result in the normal session negotiation and device vitals events at wake that are normally part of the blinking cyan phase.
+
+For more information on using network sleep modes, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+
 
 ### analog() (SystemSleepConfiguration)
 
@@ -19220,6 +19284,13 @@ The String class allows you to use and manipulate strings of text in more comple
 
 For reference, character arrays are referred to as strings with a small s, and instances of the String class are referred to as Strings with a capital S. Note that constant strings, specified in "double quotes" are treated as char arrays, not instances of the String class.
 
+The `String` methods store the contents of the string as a heap allocated block of memory, such as with `malloc()`. As such, using a large number of long-lived strings can cause heap fragmentation, especially if you have used most of the available RAM.
+
+Because the contents of the string are stored separately from the object itself, and the string is variable length, you cannot pass `String` objects to `EEPROM.get()` or `EEPROM.put()`. You can only used fixed-length character arrays with `String`. 
+
+Likewise, you should not declare a `String` global variable as `retained` (saved in battery-backed SRAM), as the object will be retained, but the contents of the string will not, which is probably not what you intended.
+
+
 ### String()
 
 {{api name1="String"}}
@@ -19239,11 +19310,8 @@ Constructs an instance of the String class. There are multiple versions that con
 // SYNTAX
 String(val)
 String(val, base)
-```
 
-```cpp
 // EXAMPLES
-
 String stringOne = "Hello String";                     // using a constant String
 String stringOne =  String('a');                       // converting a constant char into a String
 String stringTwo =  String("This is a string");        // converting a constant string into a String object
@@ -19254,7 +19322,21 @@ String stringOne =  String(45, HEX);                   // using an int and a bas
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
 String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54
+
+// PROTOTYPES
+String(const char *cstr = "");
+String(const char *cstr, unsigned int length);
+String(const String &str);
+explicit String(char c);
+explicit String(unsigned char, unsigned char base=10);
+explicit String(int, unsigned char base=10);
+explicit String(unsigned int, unsigned char base=10);
+explicit String(long, unsigned char base=10);
+explicit String(unsigned long, unsigned char base=10);
+explicit String(float, int decimalPlaces=6);
+explicit String(double, int decimalPlaces=6);
 ```
+
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
 
 `String thisString = String(13)`
@@ -19284,13 +19366,20 @@ Access a particular character of the String.
 ```cpp
 // SYNTAX
 string.charAt(n)
+
+// PROTOTYPE
+char charAt(unsigned int index) const;
 ```
 Parameters:
 
   * `string`: a variable of type String
   * `n`: the character to access
 
-Returns: the n'th character of the String
+Returns: the n'th character of the String (n is zero-based, the first character of the string is index 0).
+
+If the index `n` is out of bounds (< 0 or >= length), then the value 0 is returned.
+
+You can also use `operator[]`. The expression `string[0]` and `string.charAt(0)` both return the first character of `string`.
 
 
 ### compareTo()
@@ -19299,10 +19388,14 @@ Returns: the n'th character of the String
 
 Compares two Strings, testing whether one comes before or after the other, or whether they're equal. The strings are compared character by character, using the ASCII values of the characters. That means, for example, that 'a' comes before 'b' but after 'A'. Numbers come before letters.
 
+String comparison only compares the 8-bit ASCII values. It does not compare UTF-8 encoded strings properly.
 
-```cpp
+```cpp  
 // SYNTAX
 string.compareTo(string2)
+
+// PROTOTYPE
+int compareTo(const String &s) const;
 ```
 
 Parameters:
@@ -19316,6 +19409,27 @@ Returns:
   * 0: if string equals string2
   * a positive number: if string comes after string2
 
+### comparison operators (String)
+
+```cpp
+// EXAMPLE
+String s1 = "test1";
+String s2 = "test2";
+if (s1 < s2) {
+  Log.info("s1 is less than s2");
+}
+
+// PROTOTYPES
+unsigned char operator <  (const String &rhs) const;
+unsigned char operator >  (const String &rhs) const;
+unsigned char operator <= (const String &rhs) const;
+unsigned char operator >= (const String &rhs) const;
+
+```
+
+In addition to the `compareTo` method, the class also supports the comparison operators, `<`, `<=`, `>`, `>=`.
+
+
 ### concat()
 
 {{api name1="String::concate"}}
@@ -19325,6 +19439,18 @@ Combines, or *concatenates* two strings into one string. The second string is ap
 ```cpp
 // SYNTAX
 string.concat(string2)
+
+// PROTOTYPES
+unsigned char concat(const String &str);
+unsigned char concat(const char *cstr);
+unsigned char concat(char c);
+unsigned char concat(unsigned char c);
+unsigned char concat(int num);
+unsigned char concat(unsigned int num);
+unsigned char concat(long num);
+unsigned char concat(unsigned long num);
+unsigned char concat(float num);
+unsigned char concat(double num);
 ```
 
 Parameters:
@@ -19332,6 +19458,26 @@ Parameters:
   * string, string2: variables of type String
 
 Returns: None
+
+### Concatenation operators (String)
+
+```cpp
+// EXAMPLE
+String s = "testing ";
+s += "123...";
+
+// PROTOTYPES
+String & operator += (const String &rhs);
+String & operator += (const char *cstr);
+String & operator += (char c);
+String & operator += (unsigned char num);
+String & operator += (int num);
+String & operator += (unsigned int num);
+String & operator += (long num);
+String & operator += (unsigned long num);
+```
+
+In addition to the `concat` method, you can use the concatenation operator `+=` to append a string to an existing `String` object.
 
 ### endsWith()
 
@@ -19342,6 +19488,9 @@ Tests whether or not a String ends with the characters of another String.
 ```cpp
 // SYNTAX
 string.endsWith(string2)
+
+// PROTOTYPE
+unsigned char endsWith(const String &suffix) const;
 ```
 
 Parameters:
@@ -19364,6 +19513,10 @@ Compares two strings for equality. The comparison is case-sensitive, meaning the
 ```cpp
 // SYNTAX
 string.equals(string2)
+
+// PROTOTYPES
+unsigned char equals(const String &s) const;
+unsigned char equals(const char *cstr) const;
 ```
 Parameters:
 
@@ -19374,6 +19527,28 @@ Returns:
   * true: if string equals string2
   * false: otherwise
 
+### Equality operators (String)
+
+```cpp
+// EXAMPLE
+String s1 = "test1";
+String s2 = "test2";
+if (s1 == s2) {
+  Log.info("they are equal");
+}
+
+
+// PROTOTYPES
+unsigned char operator == (const String &rhs) const;
+unsigned char operator == (const char *cstr) const;
+unsigned char operator != (const String &rhs) const;
+unsigned char operator != (const char *cstr) const;
+```
+
+In addition to the `equals` method, the class also supports the equility operator, `==`.
+
+
+
 ### equalsIgnoreCase()
 
 {{api name1="String::equalsIgnoreCase"}}
@@ -19383,6 +19558,9 @@ Compares two strings for equality. The comparison is not case-sensitive, meaning
 ```cpp
 // SYNTAX
 string.equalsIgnoreCase(string2)
+
+// PROTOTYPE
+unsigned char equalsIgnoreCase(const String &s) const;
 ```
 Parameters:
 
@@ -19392,6 +19570,8 @@ Returns:
 
   * true: if string equals string2 (ignoring case)
   * false: otherwise
+
+This function only works properly with 7-bit ASCII characters. It does not correctly compare other character sets such as ISO-8859-1 or Unicode UTF-8.
 
 ### format()
 
@@ -19408,11 +19588,24 @@ Particle.publish("startup", String::format("frobnicator started at %s", Time.tim
 int a = 123;
 Particle.publish("startup", String::format("{\"a\":%d}", a);
 
+
+// PROTOTYPE
+static String format(const char* format, ...);
 ```
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
 Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
+
+This method returns a temporary `String` object. Use care because the temporary object is deleted after return.
+
+```
+// DO NOT DO THIS: s points to a deleted object
+const char *s = String::format("testing %d", a); 
+
+// This is safe
+String s = String::format("testing %d", a);
+```
 
 ### getBytes()
 
@@ -19423,6 +19616,9 @@ Copies the string's characters to the supplied buffer.
 ```cpp
 // SYNTAX
 string.getBytes(buf, len)
+
+// PROTOTYPE
+void getBytes(unsigned char *buf, unsigned int bufsize, unsigned int index=0) const;
 ```
 Parameters:
 
@@ -19437,6 +19633,15 @@ Returns: None
 {{api name1="String::c_str"}}
 
 Gets a pointer (const char *) to the internal c-string representation of the string. You can use this to pass to a function that require a c-string. This string cannot be modified.
+
+```cpp
+// SYNTAX
+const char *s = string.c_str();
+
+// PROTOTYPE
+const char * c_str() const;
+```
+	
 
 The object also supports `operator const char *` so for things that specifically take a c-string (like Particle.publish) the conversion is automatic.
 
@@ -19462,6 +19667,12 @@ Locates a character or String within another String. By default, searches from t
 // SYNTAX
 string.indexOf(val)
 string.indexOf(val, from)
+
+// PROTOTYPES
+int indexOf( char ch ) const;
+int indexOf( char ch, unsigned int fromIndex ) const;
+int indexOf( const String &str ) const;
+int indexOf( const String &str, unsigned int fromIndex ) const;
 ```
 
 Parameters:
@@ -19470,7 +19681,7 @@ Parameters:
   * val: the value to search for - char or String
   * from: the index to start the search from
 
-Returns: The index of val within the String, or -1 if not found.
+Returns: The index of val within the String, or -1 if not found. The index value is 0-based.
 
 ### lastIndexOf()
 
@@ -19482,6 +19693,12 @@ Locates a character or String within another String. By default, searches from t
 // SYNTAX
 string.lastIndexOf(val)
 string.lastIndexOf(val, from)
+
+// PROTOTYPES
+int lastIndexOf( char ch ) const;
+int lastIndexOf( char ch, unsigned int fromIndex ) const;
+int lastIndexOf( const String &str ) const;
+int lastIndexOf( const String &str, unsigned int fromIndex ) const;
 ```
 
 Parameters:
@@ -19490,7 +19707,7 @@ Parameters:
   * val: the value to search for - char or String
   * from: the index to work backwards from
 
-Returns: The index of val within the String, or -1 if not found.
+Returns: The index of val within the String, or -1 if not found. The index value is 0-based.
 
 ### length()
 
@@ -19502,24 +19719,33 @@ Returns the length of the String, in characters. (Note that this doesn't include
 ```cpp
 // SYNTAX
 string.length()
+
+// PROTOTYPE
+inline unsigned int length(void) const;
 ```
 
 Parameters:
 
   * string: a variable of type String
 
-Returns: The length of the String in characters.
+Returns: The length of the String in characters. 
+
+The `length()` function is fast and is constant for any length of string, &Omicron;(1). You can efficiently use `length()` to determine if a string is empty: `length() == 0`.
 
 ### remove()
 
 {{api name1="String::remove"}}
 
-The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
+The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count. This modifies the object, not a copy.
 
 ```cpp
 // SYNTAX
 string.remove(index)
 string.remove(index,count)
+
+// PROTOTYPES
+String& remove(unsigned int index);
+String& remove(unsigned int index, unsigned int count);
 ```
 
 Parameters:
@@ -19528,17 +19754,21 @@ Parameters:
   * index: a variable of type unsigned int
   * count: a variable of type unsigned int
 
-Returns: None
+Returns: A reference to the String object (`*this`).
 
 ### replace()
 
 {{api name1="String::replace"}}
 
-The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
+The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring. This modified the object, not a copy.
 
 ```cpp
 // SYNTAX
 string.replace(substring1, substring2)
+
+// PROTOTYPES
+String& replace(char find, char replace);
+String& replace(const String& find, const String& replace);
 ```
 
 Parameters:
@@ -19547,7 +19777,7 @@ Parameters:
   * substring1: searched for - another variable of type String (single or multi-character), char or const char (single character only)
   * substring2: replaced with - another variable of type String (single or multi-character), char or const char (single character only)
 
-Returns: None
+Returns: A reference to the String object (`*this`).
 
 ### reserve()
 
@@ -19558,6 +19788,9 @@ The String reserve() function allows you to allocate a buffer in memory for mani
 ```cpp
 // SYNTAX
 string.reserve(size)
+
+// PROTOTYPE
+unsigned char reserve(unsigned int size);
 ```
 Parameters:
 
@@ -19601,6 +19834,9 @@ Sets a character of the String. Has no effect on indices outside the existing le
 ```cpp
 // SYNTAX
 string.setCharAt(index, c)
+
+// PROTOTYPE
+void setCharAt(unsigned int index, char c);
 ```
 Parameters:
 
@@ -19619,6 +19855,10 @@ Tests whether or not a String starts with the characters of another String.
 ```cpp
 // SYNTAX
 string.startsWith(string2)
+
+// PROTOTYPES
+unsigned char startsWith( const String &prefix) const;
+unsigned char startsWith(const String &prefix, unsigned int offset) const;
 ```
 
 Parameters:
@@ -19641,6 +19881,10 @@ Get a substring of a String. The starting index is inclusive (the corresponding 
 // SYNTAX
 string.substring(from)
 string.substring(from, to)
+
+// PROTOTYPE
+String substring( unsigned int beginIndex ) const;
+String substring( unsigned int beginIndex, unsigned int endIndex ) const;
 ```
 
 Parameters:
@@ -19660,6 +19904,10 @@ Copies the string's characters to the supplied buffer.
 ```cpp
 // SYNTAX
 string.toCharArray(buf, len)
+
+// PROTOTYPES
+String substring( unsigned int beginIndex ) const;
+String substring( unsigned int beginIndex, unsigned int endIndex ) const;
 ```
 Parameters:
 
@@ -19678,6 +19926,9 @@ Converts a valid String to a float. The input string should start with a digit. 
 ```cpp
 // SYNTAX
 string.toFloat()
+
+// PROTOTYPE
+float toFloat(void) const;
 ```
 
 Parameters:
@@ -19695,6 +19946,9 @@ Converts a valid String to an integer. The input string should start with an int
 ```cpp
 // SYNTAX
 string.toInt()
+
+// PROTOTYPE
+long toInt(void) const;
 ```
 
 Parameters:
@@ -19712,13 +19966,18 @@ Get a lower-case version of a String. `toLowerCase()` modifies the string in pla
 ```cpp
 // SYNTAX
 string.toLowerCase()
+
+// PROTOTYPE
+String& toLowerCase(void);
 ```
 
 Parameters:
 
   * string: a variable of type String
 
-Returns: None
+Returns: A reference to the String object (`*this`).
+
+This function only works properly with 7-bit ASCII characters. It does not correctly work with other character sets such as ISO-8859-1 or Unicode UTF-8.
 
 ### toUpperCase()
 
@@ -19729,30 +19988,38 @@ Get an upper-case version of a String. `toUpperCase()` modifies the string in pl
 ```cpp
 // SYNTAX
 string.toUpperCase()
+
+// PROTOTYPE
+String& toUpperCase(void);
 ```
 
 Parameters:
 
   * string: a variable of type String
 
-Returns: None
+Returns: A reference to the String object (`*this`).
+
+This function only works properly with 7-bit ASCII characters. It does not correctly work with other character sets such as ISO-8859-1 or Unicode UTF-8.
 
 ### trim()
 
 {{api name1="String::trim"}}
 
-Get a version of the String with any leading and trailing whitespace removed.
+Removes any leading and trailing whitespace (space or tab) from the string.
 
 ```cpp
 // SYNTAX
 string.trim()
+
+// PROTOTYPE
+String& trim(void);
 ```
 
 Parameters:
 
   * string: a variable of type String
 
-Returns: None
+Returns: A reference to the String object (`*this`). This refers to the String object itself, which has been modified, not a copy.
 
 
 ## Stream Class
@@ -23249,6 +23516,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.2.x prereleases|[v3.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.2.0-rc.1)|-|-|-|-|-|-|
 |v3.1.x releases|[v3.1.0](https://github.com/particle-iot/device-os/releases/tag/v3.1.0)|-|-|-|-|-|-|
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
@@ -23289,6 +23557,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.2.x prereleases|[v3.2.0-rc.1](/reference/device-os/firmware/?fw_ver=3.2.0-rc.1&cli_ver=2.16.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.1.x releases|[v3.1.0](/reference/device-os/firmware/?fw_ver=3.1.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
@@ -23326,6 +23595,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.16.0 = 3.2.0-rc.1
 v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
 v2.11.0 = 2.1.0
@@ -23438,6 +23708,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@3.0.0endif
 ##### @FW_VER@3.1.0if
 ##### @FW_VER@3.1.0endif
+##### @FW_VER@3.2.0if
+##### @FW_VER@3.2.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -23526,6 +23798,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.11.0endif
 ##### @CLI_VER@2.12.0if
 ##### @CLI_VER@2.12.0endif
+##### @CLI_VER@2.16.0if
+##### @CLI_VER@2.16.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

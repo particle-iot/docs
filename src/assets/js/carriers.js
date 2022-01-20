@@ -766,6 +766,9 @@ countryDetails.onCountrySelected = function(country) {
         let s = recommendation.reason;
         s = s.substr(0, 1).toUpperCase() + s.substr(1);
         html += '<p>' + s + '</p>\n';
+        if (recommendation.roamingRestrictions) {
+            html += '<p>There are permanent roaming restrictions in this country. See <a href="/tutorials/cellular-connectivity/introduction/#permanent-roaming">permanent roaming</a> for more information.</p>\n';
+        }
     }
 
     // Carrier band table

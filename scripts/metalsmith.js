@@ -51,6 +51,7 @@ var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
+var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
@@ -120,6 +121,13 @@ exports.metalsmith = function () {
     })))
     .use(msIf(
       environment === 'development',
+      trackerEdge({
+        sourceDir: '../src',
+        trackerDir: 'assets/files/tracker',
+        jsonFile: 'trackerEdgeVersions.json'
+      })))
+    .use(msIf(
+      environment === 'development',
       systemVersion({
       })))
     // Minify CSS
@@ -146,7 +154,7 @@ exports.metalsmith = function () {
     )
     .use(deviceRestoreInfo({
       sourceDir: '../src',
-      outputFile: '../src/assets/files/deviceRestore.json',
+      inputFile: 'assets/files/deviceRestore.json'
     }))
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({

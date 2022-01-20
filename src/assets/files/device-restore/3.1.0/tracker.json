@@ -106,5 +106,32 @@
       "suffixSize": 40,
       "crcBlock": "85f83481"
     }
+  },
+  "ncp": {
+    "prefixInfo": {
+      "moduleStartAddy": "0",
+      "moduleEndAddy": "d30cc",
+      "reserved": 33,
+      "moduleFlags": 0,
+      "moduleVersion": 7,
+      "platformID": 26,
+      "moduleFunction": 7,
+      "moduleIndex": 0,
+      "depModuleFunction": 4,
+      "depModuleIndex": 1,
+      "depModuleVersion": 3000,
+      "dep2ModuleFunction": 0,
+      "dep2ModuleIndex": 0,
+      "dep2ModuleVersion": 0,
+      "prefixOffset": 0
+    },
+    "suffixInfo": {
+      "productId": -1,
+      "productVersion": -1,
+      "fwUniqueId": "5f41718b446f108f61e4fa68c5c46aa7772bc03cfb785bc5f78aa15330454e30",
+      "reserved": 0,
+      "suffixSize": 36,
+      "crcBlock": "a15e6e07"
+    }
   }
 }

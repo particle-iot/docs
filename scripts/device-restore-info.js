@@ -119,7 +119,18 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
 module.exports = function(options) {
 
 	return function(files, metalsmith, done) {
-        updateDeviceRestoreInfo(metalsmith.path(options.sourceDir), metalsmith.path(options.outputFile));
+        // options.sourceDir is usually '../src' 
+        // options.inputFile begins with "assets/files" and does not have the leading slash
+
+        const outputFile = metalsmith.path(path.join(options.sourceDir, options.inputFile));
+
+        updateDeviceRestoreInfo(metalsmith.path(options.sourceDir), outputFile);
+
+        files[options.inputFile] = {
+            contents: fs.readFileSync(outputFile),
+            mode: '0644',
+            stats: fs.statSync(outputFile)
+        };
 
 		done();
 	};
