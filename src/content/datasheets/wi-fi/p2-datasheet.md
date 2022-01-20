@@ -7,7 +7,7 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 # P2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2021-11-10**
+**Preliminary pre-release version 2022-01-20**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-datasheet.pdf"}}
@@ -369,7 +369,10 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 21 | NC | No connection. Do not connect anything to this pin. |  |
 | 22 | NC | No connection. Do not connect anything to this pin. |  |
 | 23 | A5 / D17 | A5 Analog in, GPIO, PWM, SPI. | PB[4] |
+| 24 | NC | No connection. Do not connect anything to this pin. |  |
 | 25 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 26 | 3V3 | 3.3V power to MCU |  |
+| 27 | 3V3 | 3.3V power to MCU |  |
 | 28 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 29 | RGBR | RGB LED Red | PA[30] |
 | 30 | D11 / WKP | GPIO. (Was WKP/A7 on P1.) | PA[15] |

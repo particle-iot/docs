@@ -7,40 +7,60 @@ description: Migration guide for transitioning from the P1 to P2
 
 # P2 Migration Guide
 
-**Preliminary pre-release version 2021-11-10**
+**Preliminary pre-release version 2022-01-20**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
+The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
+
+| Feature | P2 | P1 | Argon |
+| :--- | :---: | :---: | :---: |
+| User application size | 1024 KB (1 MB) | 128 KB | 256 KB |
+| Flash file system<sup>1</sup> |  2 MB | | 2 MB |
+| | | | |
+| MCU | RTL8721DM | STM32F205RGY6 | nRF52840 |
+|  | Realtek Semiconductor | ST Microelectronics | Nordic Semiconductor |
+| CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
+| | Cortex M23 @ 20 MHz | | |
+| RAM<sup>2</sup> | 512 KB | 128 KB | 256 KB |
+| Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 
+| Hardware FPU | &check; | | &check; |
+| Secure Boot | &check; | | |
+| Trust Zone | &check; | | |
+| | | | |
+| Wi-Fi | 802.11 a/b/g/n | 802.11 b/g/n | 802.11 b/g/n |
+| &nbsp;&nbsp;2.4 GHz | &check; | &check; | &check; |
+| &nbsp;&nbsp;5 GHz | &check; | | |
+| Bluetooth | BLE 5.0 | | BLE 5.0 |
+| Antenna | Shared for Wi-Fi and BLE | Wi-Fi only | Separate Wi-Fi and BLE antennas |
+| | Built-in PCB antenna (Wi-Fi & BLE) | Built-in PCB antenna (Wi-Fi) | Built-in chip antenna (BLE) |
+| | | | Required external antenna (Wi-Fi) |
+| | Optional external (Wi-Fi & BLE)<sup>4</sup> | Optional external (Wi-Fi)<sup>4</sup> | Optional external (BLE)<sup>4</sup> |
+| | | | |
+| Peripherals | USB 2.0 | USB 1.1 | USB 1.1 |
+| Digital GPIO | 22 | 24 | 20 |
+| Analog (ADC) | 4 | 13 | 6 |
+| Analog (DAC) |  | 2 |  |
+| UART | 1 | 2 | 1 |
+| SPI | 2 | 2 | 2 |
+| PWM | 7 | 12 | 8 |
+| I2C | 1 | 1 | 1 |
+| CAN |  | 1 |  |
+| I2S |  | 1 | 1 |
+| JTAG | | &check; | |
+| SWD | &check; | &check; | &check; |
 
 
-|      | P1    | P2 |
-| :--- | :---: | :---: |
-| User application size | 128 KB | 1024 KB (1 MB) |
-| Flash file system<sup>1</sup> |  | 2 MB |
-| Wi-Fi | 802.11b/g/n | 802.11a/b/g/n Wi-Fi |
-| | 2.4 GHz | 2.4 GHz &amp; 5 GHz |
-| BLE | | &check;<sup>2</sup> |
-| MCU | STM32F205RGY6 | RTL8721DM |
-|  | ST Microelectronics | Realtek Semiconductor |
-| ARM CPU | Cortex M3 | Cortex M4F |
-|  | 120 MHz | 200 MHz |
-| Hardware FPU | | &check; |
-| Secure Boot | | &check; |
-| Digital GPIO | 24 | 22 |
-| Analog (ADC) | 13 | 4 |
-| Analog (DAC) | 2 | O |
-| SPI | 2 | 2 |
-| PWM | 12 | 7 |
-| I2C | 1 | 1 |
-| CAN | 1 | 0 |
-| I2S | 1 | 0 |
-| USB | 1 | 1 |
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
 
-<sup>2</sup>Wi-Fi and BLE share the same antenna (trace or external), using an internal coexistence mechanism.
+<sup>2</sup> Total RAM; amount available to user applications is smaller.
+
+<sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
+
+<sup>4</sup> Onboard or external antenna is selectable in software.
 
 
 ## Hardware 
@@ -470,7 +490,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | DAC | NC|
 | Pin Alternate Name | A6 | n/a|
-| Description | DAC/A6 True analog out, analog in, GPIO. | Leave unconnected|
+| Description | DAC/A6 True analog out, analog in, GPIO. | No connection. Do not connect anything to this pin.|
 | Supports digitalRead | Yes | n/a|
 | Supports digitalWrite | Yes | n/a|
 | Supports analogRead | Yes | n/a|
@@ -481,16 +501,16 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 26 (NC)
+#### Module Pin 26 (3V3)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 27 (NC)
+| Pin Name | 3V3|
+| Description | 3.3V power to MCU|
+#### Module Pin 27 (3V3)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
+| Pin Name | 3V3|
+| Description | 3.3V power to MCU|
 #### Module Pin 28 (GND)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
@@ -889,3 +909,22 @@ The following pins were NC on the P1 but are used on the P2.
 
 
 {{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+
+## Software
+
+### Wi-Fi Configuration
+
+The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+
+| Feature | P2 | P1 | Argon |
+| :--- | :---: | :---: | :---: |
+| Wi-Fi (SoftAP) | | &check; | |
+| BLE | &check; | | &check; |
+
+### Third-party libraries
+
+Most third-party libraries are believed to be compatible. The exceptions include:
+
+- Libraries that use peripherals that are not present (such as DAC)
+- Libraries for MCU-specific features (such as ADC DMA)
+- Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
