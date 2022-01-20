@@ -163,6 +163,14 @@
                     <p class="setupStepActivateSimTimer"></p>
                 </div>
             </div>
+            <div class="setupStepNoExternalSIM" style="display:none">                
+                <p>Your Boron is configured to use an external 4FF nano plastic SIM card, but it does not appear that one is inserted.</p>
+                <p>Click **Use Internal SIM** to change the SIM configuration.</p>
+                <p><button class="externalSimUseInternal">Use Internal SIM</button></p>
+                <!--
+                <p>Or power down your Boron and insert or reinsert the SIM card, and click **Try Again**</p>
+                <p><button class="externalSimTryAgain">Try Again</button></p> -->
+            </div>
             <div class="setupStepManualDfu" style="display:none">                
                 <p>An error occurred putting your device into DFU mode (blinking yellow).</p>
                 <p>Hold down the MODE (or SETUP) button and tap the RESET button. Continue to hold down MODE while 
@@ -317,6 +325,12 @@
                 <p>If you continue without activating the SIM you may not be able to get online until you manually activate the SIM.</p>
                 </p>
             </div>
+        </div>
+        <div class="towerScanOption" style="display:none">
+            <p>Your device can look for all compatible cellular towers near your device. This process takes 1 - 2 minutes and 
+                will interrupt the normal operation of your device. You may want to do this if your device is stuck on blinking
+                green or you want to troubleshoot intermittent cellular connectivity.</p>
+            <p><button class="doTowerScan">Tower Scan</button></p>                
         </div>
         <div class="deviceLogs" style="display:none">
             <p>&nbsp;</p>

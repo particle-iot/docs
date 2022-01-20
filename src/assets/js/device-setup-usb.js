@@ -32,13 +32,14 @@ $(document).ready(function() {
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
 
+        const userInfoElem = $(thisElem).find('.userInfo');
+
+
         let usbDevice;
         let deviceInfo = {};
         let userFirmwareBinary;
         let mccmnc;
         let setupOptions = {};
-
-        const deviceLogsElem = $(thisElem).find('.deviceLogs');
 
         const minimumDeviceOsVersion = '2.1.0';
 
@@ -213,7 +214,7 @@ $(document).ready(function() {
             function(data) {
                 userInfo = data.body;
                 
-                $(thisElem).find('.userInfo').show();
+                $(userInfoElem).show();
 
                 setUserInfoItem('Account email', userInfo.username);
 
@@ -302,6 +303,157 @@ $(document).ready(function() {
                 console.log('exception', e);
             }
         });
+
+        const deviceLogsElem = $(thisElem).find('.deviceLogs');
+        const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
+        const showDebuggingLogsElem = $(thisElem).find('.showDebuggingLogs');
+        const deviceLogsTextButtonsElem = $(thisElem).find('.deviceLogsTextButtons');
+        const downloadLogsElem = $(thisElem).find('.downloadLogs');
+        let deviceLogsTimer1;
+        let deviceLogsTimer2;
+
+        let deviceLogs = '';
+        let deviceLogsPartialLine;
+        let checkStatus;
+
+        let msgExternalSIM = false;
+        let msgCPINERROR = false;
+
+        $(showDebuggingLogsElem).on('click', function() {
+            if ($(showDebuggingLogsElem).prop('checked')) {                
+                $(deviceLogsTextElem).val(deviceLogs);
+                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                $(deviceLogsTextButtonsElem).show();
+            }
+            else {
+                $(deviceLogsTextButtonsElem).hide();
+            }
+        });
+
+        $(downloadLogsElem).on('click', function() {
+            $(downloadLogsElem).prop('disabled', true);
+
+            let blob = new Blob([getInfoTableText(), deviceLogs], {type:'text/plain'});
+            saveAs(blob, 'logs.txt');	
+
+            $(downloadLogsElem).prop('disabled', false);
+        });
+
+        const stopDeviceLogs = function() {
+            if (deviceLogsTimer1) {
+                clearInterval(deviceLogsTimer1);
+                deviceLogsTimer1 = null;
+            }
+            if (deviceLogsTimer2) {
+                clearInterval(deviceLogsTimer2);
+                deviceLogsTimer2 = null;
+            }
+        }
+
+        const processLogMessage = function(msg) {
+            if (msg.includes('Using external Nano SIM card')) {
+                msgExternalSIM = true;
+            }  
+            else
+            if (msg.includes('CPIN ERROR')) {
+                msgCPINERROR = true;
+            }
+        };
+
+        const showDeviceLogs = function() {
+            $(deviceLogsElem).show();
+
+            if (!deviceLogsTimer1) {
+                deviceLogsTimer1 = setInterval(async function() {
+                    let reqObj = {
+                        op: 'status'
+                    };
+    
+                    let res;
+                    try {
+                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
+                    catch(e) {
+                        if (e.message.includes('The device was disconnected.')) {
+                            stopDeviceLogs();
+                        } else {
+                            console.log('control request exception', e);
+                        }
+                        return;
+                    }
+                    
+                    if (res.result == 0 && res.data) {
+                        const respObj = JSON.parse(res.data);
+    
+                        if (checkStatus) {
+                            checkStatus(respObj);
+                        }
+    
+                        if (respObj.mcc) {
+                            setInfoTableItemObj(respObj);
+    
+                            if (mccmnc) {
+                                for(const obj of mccmnc) {
+                                    if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
+                                        setInfoTableItemObj(obj);                                        
+                                    }
+                                }
+                            }                                          
+                        }
+                    }
+                }, 2000);    
+            }
+            
+            if (!deviceLogsTimer2) {
+                deviceLogsTimer2 = setInterval(async function() {
+                    let reqObj = {
+                        op: 'logs'
+                    };
+    
+                    let res;
+                    try {
+                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
+                    catch(e) {
+                        if (e.message.includes('The device was disconnected.')) {
+                            stopDeviceLogs();
+                        } else {
+                            console.log('control request exception', e);
+                        }
+                        return;
+                    }
+                    
+                    if (res.result == 0 && res.data) {
+                        if (res.data.length > 0) {
+                            let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
+                            let lastLF = tempLog.lastIndexOf('\n');
+                            if (lastLF < (tempLog.length - 1)) {
+                                deviceLogsPartialLine = tempLog.substr(lastLF + 1);
+                                tempLog = tempLog.substr(0, lastLF + 1);
+                            }
+                            else {
+                                deviceLogsPartialLine = '';
+                            }
+                            for(let line of tempLog.split('\n')) {
+                                line = line.trim();
+                                if (line.length) {
+                                    processLogMessage(line);
+                                }
+                            }
+                            
+                            deviceLogs += tempLog;
+                            if ($(showDebuggingLogsElem).prop('checked')) {
+                                $(deviceLogsTextElem).val(deviceLogs);
+                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                            }
+                        }
+                    }
+                }, 1000);
+            }
+
+
+        };
+
 
         /*
 
@@ -467,9 +619,7 @@ $(document).ready(function() {
         const activateSim = async function() {
             setSetupStep('setupStepActivateSim');
 
-            if (troubleshootingMode) {
-                $(deviceLogsElem).show();
-            }
+            showDeviceLogs();
 
             let needToActivate = false;
             let alreadyOwned = false;
@@ -561,10 +711,24 @@ $(document).ready(function() {
                             });
                             continue;
                         }
+
+                        if (msgExternalSIM && msgCPINERROR) {
+                            setSetupStep('setupStepNoExternalSIM');
+
+                            $(thisElem).find('.externalSimUseInternal').on('click', async function() {
+                                let reqObj = {
+                                    op: 'internalSim'
+                                } 
+                                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                                
+                                setSetupStep('setupStepActivateSim');
+                            });
+
+                            continue;
+                        }
         
                         const respObj = JSON.parse(res.data);
                         if (!respObj.iccid) {
-                            console.log('no iccid in cellularInfo');
                             if (!hasResetModem) {
                                 hasResetModem = true;
                                 if (((new Date().getTime() - functionStart.getTime()) / 1000) > 50) {
@@ -586,7 +750,22 @@ $(document).ready(function() {
                         }
     
                         deviceInfo.iccid = respObj.iccid;
-    
+
+                        // 
+                        if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
+                            console.log('no tower scan available');
+                        }
+                        else {
+                            $(thisElem).find('.towerScanOption').show();
+
+                            $(thisElem).find('.doTowerScan').on('click', async function() {
+                                let reqObj = {
+                                    op: 'towerScan'
+                                } 
+                                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                            });
+                        }
+                            
                         showInfoTable();
                         setInfoTableItem('deviceId', deviceInfo.deviceId);
                         setInfoTableItemObj(respObj);    
@@ -820,6 +999,8 @@ $(document).ready(function() {
         const flashDevice = async function() {
             try {
                 setSetupStep('setupStepFlashDevice');
+
+                $(userInfoElem).hide();
 
                 const showStep = function(step) {
                     $(thisElem).find('.setupStepFlashDevice').children().each(function() {
@@ -1333,127 +1514,17 @@ $(document).ready(function() {
 
         $(thisElem).find('.scanAgain').on('click', configureWiFi);
 
-        const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
-        const showDebuggingLogsElem = $(thisElem).find('.showDebuggingLogs');
-        const deviceLogsTextButtonsElem = $(thisElem).find('.deviceLogsTextButtons');
-        const downloadLogsElem = $(thisElem).find('.downloadLogs');
-
-        let deviceLogs = '';
-        let checkStatus;
-
-        $(showDebuggingLogsElem).on('click', function() {
-            if ($(showDebuggingLogsElem).prop('checked')) {                
-                $(deviceLogsTextElem).val(deviceLogs);
-                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
-                $(deviceLogsTextButtonsElem).show();
-            }
-            else {
-                $(deviceLogsTextButtonsElem).hide();
-            }
-        });
-
-        $(downloadLogsElem).on('click', function() {
-            $(downloadLogsElem).prop('disabled', true);
-
-            let blob = new Blob([getInfoTableText(), deviceLogs], {type:'text/plain'});
-            saveAs(blob, 'logs.txt');	
-
-            $(downloadLogsElem).prop('disabled', false);
-        });
-
-
-
         const waitDeviceOnline = async function() {
             try {
                 setSetupStep('setupStepWaitForOnline');
     
+                $(userInfoElem).show();
+
                 if (setupOptions.noClaim) {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
-                $(deviceLogsElem).show();
-            
-                let timer1;
-                let timer2;
-
-                const clearTimers = function() {
-                    if (timer1) {
-                        clearInterval(timer1);
-                        timer1 = null;
-                    }
-                    if (timer2) {
-                        clearInterval(timer2);
-                        timer2 = null;
-                    }
-                }
-
-                timer1 = setInterval(async function() {
-                    let reqObj = {
-                        op: 'status'
-                    };
-
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            clearTimers();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        const respObj = JSON.parse(res.data);
-
-                        if (checkStatus) {
-                            checkStatus(respObj);
-                        }
-
-                        if (respObj.mcc) {
-                            setInfoTableItemObj(respObj);
-
-                            if (mccmnc) {
-                                for(const obj of mccmnc) {
-                                    if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);                                        
-                                    }
-                                }
-                            }                                          
-                        }
-                    }
-                }, 2000);
-                
-                timer2 = setInterval(async function() {
-                    let reqObj = {
-                        op: 'logs'
-                    };
-
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            clearTimers();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        if (res.data.length > 0) {
-                            deviceLogs += res.data;
-                            if ($(showDebuggingLogsElem).prop('checked')) {
-                                $(deviceLogsTextElem).val(deviceLogs);
-                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
-                            }
-                        }
-                    }
-                }, 1000);
+                showDeviceLogs();
 
                 const waitOnlineStepsElem = $(thisElem).find('.waitOnlineSteps');
     
