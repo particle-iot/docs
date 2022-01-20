@@ -15,7 +15,6 @@ $(document).ready(function() {
         fetch('/assets/files/tracker/trackerEdgeVersions.json')
             .then(response => response.json())
             .then(function(res) {
-                console.log('tracker-edge.json', res);
                 for(const obj of res) {
                     const optionElem = document.createElement('option');
 

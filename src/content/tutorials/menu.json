@@ -170,6 +170,11 @@
         "href": "/tutorials/asset-tracking/tracker-sleep/"
       },
       {
+        "dir": "geofencing",
+        "title": "Geofencing",
+        "href": "/tutorials/asset-tracking/geofencing/"
+      },
+      {
         "dir": "tracker-one-expansion",
         "title": "Tracker One Expansion",
         "href": "/tutorials/asset-tracking/tracker-one-expansion/"

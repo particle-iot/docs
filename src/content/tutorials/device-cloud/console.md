@@ -711,11 +711,16 @@ On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is
 
 ### Device Fleet Settings
 
-Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
+Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devicesin your fleet. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
 ![Settings Icon](/assets/images/tracker/map-settings.png)
 
 Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, an updated configuration is sent to the device.
+
+Additionally, the Geofence settings are always per-device, with no fleet-wide default. It's also possible to have per-device configuration for your own custom settings. The per-device settings are within the device configuration, and do not appear in the fleet settings.
+
+Finally, when a device is marked as a Development Device, all configuration fields can be configured per-device, and these can override the fleet settings. Development devices also do not get automatic fleet firmware updates.
+
 
 #### Location Settings
 
@@ -818,7 +823,57 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 
 You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/).
 
-#### Typical Settings
+
+### Device Settings
+
+Geofence settings are only configurable per-device, not in the fleet settings.
+
+Normally, for other settings, you will use the product settings across your fleet of Tracker devices. If you mark a device as a Development Device, you can change settings on a per-device basis within the Device Configuration.
+
+![Per-Device Settings](/assets/images/tracker/per-device.png)
+
+
+#### Geofence settings
+
+{{imageOverlay src="/assets/images/tracker/geofence-settings.png" alt="Geofence Settings" }}
+
+
+**Wake interval** configures how often to wake to check whether the device is inside or outside of the geofence. If no notification is required, and the Minimum location update frequency has not been met yet, then the device may go back to sleep quickly without having to connect to cellular. If zero, the geofence will only be checked when otherwise waking from sleep. If you are not using sleep modes, the wake interval is ignored.
+
+There are up to four notification zones, each of which can have their own settings.
+
+**Enable** turns on or off a zone, allowing it to be easily disabled.
+
+**Shape** sets the shape. Only one shape, Circular, is supported at this time.
+
+**Latitude (Degrees)** is the latitude of the center of the circle. This must be a decimal number (not hours, minutes, seconds), -90.0 to 90.0.
+
+**Longitude (Degrees)** is the latitude of the center of the circle. This must be a decimal number (not hours, minutes, seconds), -180.0 to 180.0.
+
+**Radius (Meters)** is the radius of the circle in meters (decimal).
+
+**Publish inside zone** publishes when inside the circle, limited by the Maximum location update frequency. 
+
+**Publish outside zone** publishes when outside the circle, limited by the Maximum location update frequency. 
+
+**Publish on enter zone** publishes when the device moves into the circle.
+
+**Publish on exit zone** publishes when the device moves out of the circle.
+
+**Time Before Trigger** requires that the device be inside or outside of the zone for this many seconds before notification. This can help reduce false alarms when the device may be near the edge of the zone. 0 means notify immediately without waiting. This is an integer.
+
+The publish on inside, outside, enter, and exit affect the `trig` array in the location event. The following values may be present in the `trig` array for geofence events. Multiple items may be present:
+
+- `outside1` The device is currently outside of geofence zone 1 (and outside trigger is enabled)
+- `inside1` The device is currently inside of geofence zone 1 (and inside trigger is enabled)
+- `enter1` The device has entered geofence zone 1 (and enter trigger is enabled)
+- `exit1` The device has exited geofence zone 1 (and exit trigger is enabled)
+- `outside2`, `inside2`, `enter2`, and `exit2`
+- `outside3`, `inside3`, `enter3`, and `exit3`
+
+
+
+### Typical Settings
 
 Typical settings in common scenarios:
 
@@ -867,7 +922,7 @@ Typical settings in common scenarios:
   If you have additional sensors that you are monitoring, and you want to continuously send samples at set time intervals, just set the maximum.
 
 
-#### Data Usage
+### Data Usage
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
@@ -914,12 +969,6 @@ For time trigger, here are some general guidelines. These are just location publ
 
 {{collapse op="end"}}
 
-
-### Device Settings
-
-Normally, you will use the product settings across your fleet of Tracker devices. If you mark a device as a Development Device, you can change settings on a per-device basis within the Device Configuration.
-
-![Per-Device Settings](/assets/images/tracker/per-device.png)
 
 ### View Device
 
