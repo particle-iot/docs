@@ -1025,6 +1025,14 @@
 					"modulePinName":"VDDIO_3V3_WL"
 				},
 				{
+					"num":26,
+					"name":"3V3",
+					"desc":"3.3V power to MCU",
+					"isPower":true,
+					"morePins":[27],
+					"showInTable":false
+				},
+				{
 					"num":8,
 					"name":"NC",
 					"desc":"No connection. Do not connect anything to this pin.",
@@ -1600,11 +1608,19 @@
 					"showInTable":false
 				},
 				{
+					"num":26,
+					"name":"3V3",
+					"desc":"3.3V power to MCU",
+					"isPower":true,
+					"morePins":[27],
+					"showInTable":false
+				},
+				{
 					"num":8,
 					"name":"NC",
 					"desc":"No connection. Do not connect anything to this pin.",
 					"isPower":true,
-					"morePins":[7,9,10,11,14,16,17,18,19,20,21,22,38,56,57,58,60,74,75],
+					"morePins":[7,9,10,11,14,16,17,18,19,20,21,22,24,38,56,57,58,60,74,75],
 					"showInTable":false
 				},
 				{
