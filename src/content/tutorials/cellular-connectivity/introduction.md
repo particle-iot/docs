@@ -399,11 +399,11 @@ The list below is not complete; you should check with the carrier in your area t
 
 AT&T deactivated their 2G network at the end of 2016. Electron 2G devices can only use T-Mobile at this time.
 
-AT&T's 3G shutdown should occur in [February 2022](https://www.att.com/esupport/article.html#!/wireless/KM1324171?gsi=0pwb92). After this occurs, the Electron U260, Electron E313, and E Series E310 will only connect to T-Mobile in the United States.
+AT&T's 3G shutdown will occur on **February 22, 2022**. After this occurs, the Electron U260, Electron E313, and E Series E310 will only connect to T-Mobile in the United States.
 
-T-Mobile will begin to reallocate 3G spectrum in March 2020 so there could be reduced coverage, and will eliminate all 3G coverage by October 1, 2021.
+T-Mobile began to reallocate 3G spectrum in March 2020 so there could be reduced coverage, and will eliminate all 3G coverage by July 1, 2022, leaving only 2G.
 
-T-Mobile will deactivate their 2G network on December 31, 2022. At this point, all 2G/3G devices will cease to work in the United States.
+T-Mobile will deactivate their 2G network at some point in the future, at which point 2G/3G devices will cease to work in the United States. This was originally scheduled for end of 2022. The new date has not been announced yet.
 
 The Boron 2G/3G only connects to T-Mobile in the United States already (it cannot connect to AT&T using the built-in MFF2 Particle SIM).
 
@@ -412,8 +412,9 @@ In the United States we strongly recommend using LTE Cat M1. AT&T has committed 
 | After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G | LTE Cat M1 |
 | --- | --- | :--: | :--: | :--: | :--: | :---: |
 | End of 2016 | AT&T ended 2G service | T-Mobile | Both | Both | T-Mobile | AT&T |
-| February 2022 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
-| End of 2022 | T-Mobile ends 2G service | None | None | None | None | AT&T |
+| February 22, 2022 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
+| July 1, 2022 | T-Mobile ends 3G service | T-Mobile 2G | T-Mobile 2G | T-Mobile 2G | T-Mobile 2G |  AT&T |
+| Not yet announced | T-Mobile ends 2G service | None | None | None | None | AT&T |
 
 
 ### Europe

@@ -1,4 +1,4 @@
-Particle Documentation [![Build Status](https://travis-ci.org/particle-iot/docs.svg?branch=master)](https://travis-ci.org/particle-iot/docs)
+Particle Documentation [![CircleCI](https://circleci.com/gh/particle-iot/docs/tree/master.svg?style=shield)](https://circleci.com/gh/particle-iot/docs/tree/master)
 ======================
 
 Here you'll find the documentation for the Particle platform, including
@@ -74,7 +74,7 @@ To run the tests locally, run:
 npm test
 ```
 
-The result will indicate whether the build will pass Travis CI.
+The result will indicate whether the build will pass CircleCI.
 
 #### Deployment
 
@@ -86,9 +86,9 @@ npm start
 Updating Production Documention
 -------------------------------
 
-When updated documentation is pushed to the `master` branch, it is automatically pushed to Amazon S3 by Travis CI.
+When updated documentation is pushed to the `master` branch, it is automatically pushed to Amazon S3 by CircleCI.
 
-To see the latest build, visit the [Travis CI page](https://travis-ci.org/particle-iot/docs).
+To see the latest build, visit the [CircleCI page](https://app.circleci.com/pipelines/github/particle-iot/docs).
 
 Organization
 ------------

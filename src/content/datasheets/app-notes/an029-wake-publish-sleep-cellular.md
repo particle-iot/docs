@@ -129,7 +129,7 @@ const std::chrono::milliseconds connectMaxTime = 6min;
 const std::chrono::milliseconds cloudMinTime = 10s;
 
 // How long to sleep.
-const std::chrono::seconds sleepTime = 1min;
+const std::chrono::seconds sleepTime = 15min;
 
 // Maximum time to wait for publish to complete. It normally takes 20 seconds for Particle.publish
 // to succeed or time out, but if cellular needs to reconnect, it could take longer, typically
@@ -264,16 +264,27 @@ If not, then it goes into sleep. This state is never exited; upon wake, the devi
 
             Log.info("going to sleep for %ld seconds", (long) sleepTime.count());
             
+            {
+                SystemSleepConfiguration config;
 #if HAL_PLATFORM_NRF52840
-            // Gen 3 (nRF52840) does not suppport SLEEP_MODE_DEEP with a time in seconds
-            // to wake up. This code uses stop mode sleep instead. 
-            System.sleep(WKP, RISING, sleepTime);
-            System.reset();
+                // Gen 3 (nRF52840) does not suppport HIBERNATE with a time duration
+                // to wake up. This code uses ULP sleep instead. 
+                config.mode(SystemSleepMode::ULTRA_LOW_POWER)
+                    .duration(sleepTime);
+                System.sleep(config);
+
+                // One difference is that ULP continues execution. For simplicity,
+                // we just match the HIBERNATE behavior by resetting here.
+                System.reset();
 #else
-            System.sleep(SLEEP_MODE_DEEP, sleepTime);
-            // This is never reached; when the device wakes from sleep it will start over 
-            // with setup()
+                config.mode(SystemSleepMode::HIBERNATE)
+                    .duration(sleepTime);
+                System.sleep(config);
+                // This is never reached; when the device wakes from sleep it will start over 
+                // with setup()
 #endif
+            }
+
             break; 
 ```
 
