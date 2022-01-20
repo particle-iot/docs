@@ -64,13 +64,13 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 
 The P2 module supports programming and debugging use SWD (Serial Wire Debug) on pins D6 and D7.
 
-| Pin | JTAG | SWD | MCU Pin | P2 Pin # | Pull at boot |
-| :-:|:-:|:-:|:-:|:-:|:-:|:- |
-| D7 | SWDIO | PA[27] | 54 | Pull-up |
-| D6 | SWCLK | PB[3] | 55 | Pull-down |
-| 3V3 | Power | | | | |
-| GND | Ground | | | | |
-| RST | Reset | | | | |
+| Pin   | JTAG   | SWD    | P2 Pin # | Pull at boot |
+| :---: | :----: | :----: | :------: | :----------: |
+| D7    | SWDIO  | PA[27] | 54       | Pull-up      |
+| D6    | SWCLK  | PB[3]  | 55       | Pull-down    |
+| 3V3   | Power  |        |          |              |
+| GND   | Ground |        |          |              |
+| RST   | Reset  |        |          |              |
 
 When the bootloader starts, for a brief period of time a weak pull-up is applied to pin D7 and pull-down to pin D6 to detect whether a SWD debugger is attached. After boot, you can use these things for regular GPIO, but beware of a possible GPIO state change caused by the pull-up or pull-down when using these pins as output.
 
