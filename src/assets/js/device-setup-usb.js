@@ -547,6 +547,45 @@ $(document).ready(function() {
             }
         };
 
+        const doTowerScan = async function() {
+            setSetupStep('setupStepTowerScan');
+            $(thisElem).find('.towerScanOption').hide();
+
+            const reqObj = {
+                op: 'towerScan'
+            } 
+            const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+            while(true) {
+                const reqObj2 = {
+                    op: 'towerScanResult'
+                } 
+                const res2 = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj2));
+                if (res2.result == 0 && res2.data) {
+                    const respObj = JSON.parse(res2.data);
+
+                    console.log('respObj', respObj);
+
+                    if (respObj.done) {
+                        console.log('done!', respObj);
+                        break;
+                    }
+                }
+                else {
+                    console.log('error');
+                    break;
+                }
+
+                console.log('in progress', res2);
+
+                await new Promise(function(resolve) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 5000);
+                });                
+            }
+        };
+
         const checkSimAndClaiming  = async function() {
             setSetupStep('setupStepCheckSimAndClaiming');
 
@@ -759,10 +798,8 @@ $(document).ready(function() {
                             $(thisElem).find('.towerScanOption').show();
 
                             $(thisElem).find('.doTowerScan').on('click', async function() {
-                                let reqObj = {
-                                    op: 'towerScan'
-                                } 
-                                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                                await doTowerScan();
+                                return;                                
                             });
                         }
                             
@@ -1520,7 +1557,7 @@ $(document).ready(function() {
     
                 $(userInfoElem).show();
 
-                if (setupOptions.noClaim) {
+                if (setupOptions.noClaim || troubleshootingMode) {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
@@ -1563,7 +1600,7 @@ $(document).ready(function() {
                     return;
                 }
 
-                if (!setupOptions.noClaim) {
+                if (!setupOptions.noClaim && !troubleshootingMode) {
                     // Claim device
                     const result = await new Promise(function(resolve, reject) {      
                         const requestObj = {
