@@ -364,6 +364,105 @@ async function dfuDeviceRestore(usbDevice, options) {
         return dfuseDevice;
     }
 
+    const parseModule = function(array, arrayOffset) {
+        let result = {};
+
+        const dv = new DataView(array, arrayOffset);
+
+        let offset = 0;
+
+        // offset 0, 4-bytes: module start address
+        result.moduleStartAddy = dv.getUint32(offset, true); // 0
+        offset += 4;
+        
+        // offset 4, 4-bytes: module end address
+        result.moduleEndAddy = dv.getUint32(offset, true); // 4
+        offset += 4;
+        
+        // reserved (MCU target on Gen 3)
+        result.reserved = dv.getUint8(offset);
+        offset++;
+
+        // offset 9, 1-byte: module flags (module_info_flags_t)
+        result.moduleFlags = dv.getUint8(offset); // 9
+        offset++
+
+        // offset 10, 2-bytes: module version (this is not the same as
+		// product version, it relates to the module export functions)
+        result.moduleVersion = dv.getUint16(offset, true); // 10
+        offset += 2;
+        
+        // offset 12, 2-bytes: Platform ID (6 for Photon)
+        result.platformID = dv.getUint16(offset, true);
+        offset += 2;
+
+        // offset 14, 1-byte: module function (5 for user firmware)
+        result.moduleFunction = dv.getUint8(offset);
+        offset++;
+
+        // offset 15, 1-byte: module index (1 for user firmware)
+        result.moduleIndex = dv.getUint8(offset);
+        offset++;
+
+		// offset 16, 1-byte: dependency module function (usually system, 4)
+		result.depModuleFunction = dv.getUint8(offset);
+        offset++;
+
+		// offset 17, 1-byte: dependency module index (usually 2, so
+		// dependency is system-part2)
+		result.depModuleIndex = dv.getUint8(offset);
+        offset++;
+
+		// offset 18, 1-byte: minimum version of system dependency
+        result.depModuleVersion = dv.getUint16(offset, true);
+        offset += 2;
+
+		// offset 20, 1-byte: dependency module function (usually system, 4)
+		result.dep2ModuleFunction = dv.getUint8(offset);
+        offset++;
+
+		// offset 21, 1-byte: dependency module index (usually 2, so
+		// dependency is system-part2)
+		result.dep2ModuleIndex = dv.getUint8(offset);
+        offset++;
+
+		// offset 22, 2-byte: minimum version of system dependency
+		result.dep2ModuleVersion = dv.getUint16(offset, true);
+        offset += 2;
+
+        result.prefixSize = offset;
+
+
+        result.valid = (result.moduleStartAddy < result.moduleEndAddy && 
+            result.moduleFunction == 5 &&
+            result.moduleIndex == 1);
+
+        console.log('parseModule arrayOffset=' + arrayOffset, result);
+
+        return result;
+    }
+
+    const fixUserBackup = function(array) {
+        let prefixHeader;
+
+        if (array.byteLength == (256 * 1024)) {
+            // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
+            prefixHeader = parseModule(array, 128 * 1024);
+            if (prefixHeader.valid) {
+                array = array.slice(128 * 1024);
+            }
+        }
+        
+        prefixHeader = parseModule(array, 0);
+        if (!prefixHeader.valid) {
+            return null;
+        }
+
+        // Trim the binary to be the actual size of the binary from the prefix header
+        const fullSize = prefixHeader.moduleEndAddy  - prefixHeader.moduleStartAddy + 4;
+        return array.slice(0, fullSize)
+    };
+
     const dfuseDevice = await createDfuseDevice(interface);
 
     const allDfuParts = [
@@ -376,6 +475,10 @@ async function dfuDeviceRestore(usbDevice, options) {
         { name: 'bootloader', title: 'Device OS Bootloader' },
     ];
     let dfuParts = [];
+
+    if (options.userBackup) {
+        dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
+    }
 
     if (!options.ncpUpdate) {
         for(const dfuPart of allDfuParts) {
@@ -398,7 +501,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     let extPartName;
 
     const logProgress = function(done, total, func) {
-        if (options.progressUpdate) {
+        if (options.progressUpdate && total) {
             let msg;
             if (func == 'erase') {
                 msg = 'Erasing ' + genericPartName;
@@ -432,6 +535,9 @@ async function dfuDeviceRestore(usbDevice, options) {
         let zipEntry;
         let part;
 
+        if (partName == 'user-backup') {
+        }
+        else
         if (partName != 'ncp') {
             zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
             if (!zipEntry) {
@@ -462,6 +568,27 @@ async function dfuDeviceRestore(usbDevice, options) {
 
 
         try {
+            if (partName == 'user-backup') {
+                let maxSize = 128 * 1024;
+                if (extInterface) {
+                    // Gen 3
+                    maxSize = 256 * 1024;
+                    dfuseDevice.startAddress = 0xb4000;
+                }
+                else {
+                    dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                }
+                const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
+
+                let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+
+                userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
+
+                if (userBinaryArrayBuffer) {
+                    options.userBackupBinary = userBinaryArrayBuffer;
+                }
+            }
+            else
             if (partName == 'ncp') {
                 extPart = part;
             }
@@ -503,6 +630,7 @@ async function dfuDeviceRestore(usbDevice, options) {
             setStatus('Downloading ' + genericPartName + ' complete!');
         }
         catch(e) {
+            console.log('exception downloading', e);
             const text = 'Downloading ' + genericPartName + ' failed';
             setStatus(text);
             dfuErrors.push(text);      
