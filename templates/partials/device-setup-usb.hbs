@@ -327,7 +327,23 @@
             </div>
             <div class="setupStepTowerScan" style="display:none">
                 <div class="setupStepTowerScanRunning">
-                    <p>Performing a scan for available towers (this takes 3 to 4 minutes)...</p>                
+                    <p>Performing a scan for available towers (this takes 3 to 6 minutes)...</p>                
+                    <table class="towerScanSteps apiHelperTableNoMargin">
+                        <thead>                        
+                        </thead>
+                        <tbody> 
+                            <tr class="towerScanStepPreparingModem">
+                                <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                                <td>Preparing the cellular modem for scanning</td>
+                                <td></td>
+                            </tr>            
+                            <tr class="towerScanStepsScanning">
+                                <td><img src="/assets/images/device-setup/spinner-48.gif" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                                <td>Scanning for towers</td>
+                                <td></td>
+                            </tr>            
+                        </tbody>
+                    </table>
                 </div>
                 <div class="setupStepTowerScanDone">
                     <p>Tower scan complete!</p>                

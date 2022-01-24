@@ -5,6 +5,7 @@ $(document).ready(function() {
     }
     const gaCategory = 'USB Device Setup';
     const storageActivateSim = "DeviceSetupActivatingSim";
+    const doneUrl = '/assets/images/device-setup/ok-48.png';
 
     if (!navigator.usb) {
         ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
@@ -561,10 +562,14 @@ $(document).ready(function() {
             showStep('setupStepTowerScanRunning');
             $(thisElem).find('.towerInfo').show();
 
+            $(thisElem).find('.towerScanStepPreparingModem > td > img').css('visibility', 'visible');
+
             const reqObj = {
                 op: 'towerScan'
             } 
             const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+            let wasScanning = false;
 
             while(true) {
                 const reqObj2 = {
@@ -574,7 +579,6 @@ $(document).ready(function() {
                 if (res2.result == 0 && res2.data) {
                     const respObj = JSON.parse(res2.data);
 
-                    console.log('respObj', respObj);
                     if (respObj.cells) {
                         
                         // Show in list of cells
@@ -618,9 +622,17 @@ $(document).ready(function() {
                             $(thisElem).find('.towerInfoTable > tbody').append(trElem);
                         }
                     }
+                    if (!wasScanning && respObj.scanning) {
+                        wasScanning = respObj.scanning;
+
+                        $(thisElem).find('.towerScanStepPreparingModem > td > img').attr('src', doneUrl);
+                        $(thisElem).find('.towerScanStepsScanning > td > img').css('visibility', 'visible');
+
+                    }
 
                     if (respObj.done) {
                         console.log('done!', respObj);
+                        $(thisElem).find('.towerScanStepsScanning > td > img').attr('src', doneUrl);
                         break;
                     }
                 }
@@ -1624,8 +1636,6 @@ $(document).ready(function() {
                 let networkReady = false;
     
                 $(thisElem).find('.waitOnlineStepNetwork > td > img').css('visibility', 'visible');
-
-                const doneUrl = '/assets/images/device-setup/ok-48.png';
                 
                 // Wait for online
                 await new Promise(function(resolve, reject) {
