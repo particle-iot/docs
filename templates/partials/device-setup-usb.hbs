@@ -326,7 +326,12 @@
                 </p>
             </div>
             <div class="setupStepTowerScan" style="display:none">
-                <p>Performing a scan for available towers (this takes 1 to 3 minutes)...</p>                
+                <div class="setupStepTowerScanRunning">
+                    <p>Performing a scan for available towers (this takes 3 to 4 minutes)...</p>                
+                </div>
+                <div class="setupStepTowerScanDone">
+                    <p>Tower scan complete!</p>                
+                </div>
             </div>
         </div>
         <div class="towerScanOption" style="display:none">
@@ -347,9 +352,20 @@
             </div>
         </div>
         <div class="supportInfo">
-            <div class="userInfo" style="display:none">
-                <h3>User information</h3>
-                <table class="userInfoTable apiHelperTableNoMargin">
+            <div class="towerInfo" style="display:none">
+                <h3>Tower information</h3>
+                <table class="towerInfoTable apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <th>MCC</th>
+                            <th>MNC</th>
+                            <th>CI</th>
+                            <th>LAC</th>
+                            <th>RSSI</th>
+                            <th>Carrier</th>
+                            <th>Band</th>
+                        </tr>
+                    </thead>
                     <tbody>
                     </tbody>
                 </table>
@@ -369,6 +385,13 @@
             <div class="cellularInfo" style="display:none">
                 <h3>Cellular information</h3>
                 <table class="cellularInfoTable apiHelperTableNoMargin">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="userInfo" style="display:none">
+                <h3>User information</h3>
+                <table class="userInfoTable apiHelperTableNoMargin">
                     <tbody>
                     </tbody>
                 </table>

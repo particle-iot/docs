@@ -551,6 +551,16 @@ $(document).ready(function() {
             setSetupStep('setupStepTowerScan');
             $(thisElem).find('.towerScanOption').hide();
 
+            const showStep = function(step) {
+                $(thisElem).find('.setupStepTowerScan').children().each(function() {
+                    $(this).hide();
+                });
+                $(thisElem).find('.' + step).show();    
+            }
+
+            showStep('setupStepTowerScanRunning');
+            $(thisElem).find('.towerInfo').show();
+
             const reqObj = {
                 op: 'towerScan'
             } 
@@ -565,6 +575,49 @@ $(document).ready(function() {
                     const respObj = JSON.parse(res2.data);
 
                     console.log('respObj', respObj);
+                    if (respObj.cells) {
+                        
+                        // Show in list of cells
+                        for(let cell of respObj.cells) {
+                            const trElem = document.createElement('tr');
+                            
+                            let tdElem = document.createElement('td');
+                            $(tdElem).text(cell.mcc);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.mnc);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.ci);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.lac);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.rssi);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            if (mccmnc) {
+                                for(const obj of mccmnc) {
+                                    if (obj.mcc == cell.mcc && obj.mnc == cell.mnc) {
+                                        $(tdElem).text(obj.name);
+                                    }
+                                }
+                            }         
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.band);
+                            $(trElem).append(tdElem);
+
+                            $(thisElem).find('.towerInfoTable > tbody').append(trElem);
+                        }
+                    }
 
                     if (respObj.done) {
                         console.log('done!', respObj);
@@ -576,14 +629,15 @@ $(document).ready(function() {
                     break;
                 }
 
-                console.log('in progress', res2);
-
                 await new Promise(function(resolve) {
                     setTimeout(function() {
                         resolve();
                     }, 5000);
                 });                
             }
+
+            showStep('setupStepTowerScanDone');
+
         };
 
         const checkSimAndClaiming  = async function() {
