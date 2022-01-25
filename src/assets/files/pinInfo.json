@@ -2884,7 +2884,7 @@
 				{
 					"num":8,
 					"name":"PMID",
-					"desc":"Connected to the PMID pin of the PMIC",
+					"desc":"Connected to the PMID pin of the PMIC (may change)",
 					"isPower":true
 				},
 				{
@@ -2896,18 +2896,18 @@
 				{
 					"num":13,
 					"name":"USBDATA+",
-					"desc":"USB Data+",
+					"desc":"USB Data+. Cannot be used as GPIO.",
 					"isUSB":true,
 					"is5VTolerant":true,
-					"hardwarePin":"PA12"
+					"hardwarePin":"D+"
 				},
 				{
 					"num":14,
 					"name":"USBDATA-",
-					"desc":"USB Data-",
+					"desc":"USB Data-. Cannot be used as GPIO.",
 					"isUSB":true,
 					"is5VTolerant":true,
-					"hardwarePin":"PA11"
+					"hardwarePin":"D-"
 				},
 				{
 					"num":16,
@@ -2945,9 +2945,9 @@
 				},
 				{
 					"num":19,
-					"name":"WKP",
-					"altName":"A7",
-					"desc":"WKP/A7 Wakeup (active high), analog in, GPIO.",
+					"name":"A7",
+					"altName":"WKP",
+					"desc":"A7 analog in, WKP (wakeup), GPIO.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -2979,7 +2979,7 @@
 				{
 					"num":21,
 					"name":"A5",
-					"desc":"A5 Analog in, GPIO, SPI.",
+					"desc":"A5 Analog in, GPIO, SPI MOSI, PWM.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -2997,7 +2997,7 @@
 				{
 					"num":22,
 					"name":"A4",
-					"desc":"A4 Analog in, GPIO, SPI, PWM.",
+					"desc":"A4 Analog in, GPIO, SPI MISO, PWM.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3015,7 +3015,7 @@
 				{
 					"num":23,
 					"name":"A3",
-					"desc":"A3 True analog out, analog in, GPIO, PWM",
+					"desc":"A3 analog in, GPIO, SPI SCK, PWM",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3145,7 +3145,7 @@
 				{
 					"num":35,
 					"name":"SWDIO",
-					"desc":"SWDIO|SWDIO for JTAG/SWD debugger. Not GPIO.",
+					"desc":"SWDIO for JTAG/SWD debugger. Internal pull-up. Not GPIO.",
 					"isIO":false,
 					"is5VTolerant":false,
 					"digitalRead":false,
@@ -3161,7 +3161,7 @@
 				{
 					"num":36,
 					"name":"SWDCLK",
-					"desc":"SWDCLK|SWCLK for JTAG/SWD debugger. Not GPIO.",
+					"desc":"SWCLK for JTAG/SWD debugger. Internal pull-down. Not GPIO.",
 					"isIO":false,
 					"is5VTolerant":false,
 					"digitalRead":false,
@@ -3193,7 +3193,7 @@
 				{
 					"num":38,
 					"name":"SWO",
-					"desc":"SWO|SWO for JTAG/SWD debugger. Not GPIO.",
+					"desc":"SWO for JTAG/SWD debugger. Not GPIO.",
 					"isIO":false,
 					"is5VTolerant":false,
 					"digitalRead":false,
@@ -3209,7 +3209,7 @@
 				{
 					"num":40,
 					"name":"D2",
-					"desc":"D2 GPIO",
+					"desc":"D2 GPIO, PWM",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3225,7 +3225,7 @@
 				{
 					"num":41,
 					"name":"D1",
-					"desc":"D0 GPIO, I2C",
+					"desc":"D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3243,7 +3243,7 @@
 				{
 					"num":42,
 					"name":"D0",
-					"desc":"D0 GPIO, I2C",
+					"desc":"D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3261,7 +3261,7 @@
 				{
 					"num":44,
 					"name":"C5",
-					"desc":"I2C",
+					"desc":"I2C Wire1 SCL, not GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":false,
@@ -3276,7 +3276,7 @@
 				{
 					"num":45,
 					"name":"C4",
-					"desc":"I2C",
+					"desc":"I2C Wire1 SDA, not GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":false,
@@ -3292,7 +3292,7 @@
 				{
 					"num":46,
 					"name":"C3",
-					"desc":"SPI1, GPIO.",
+					"desc":"SPI1 SCK, GPIO.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3308,7 +3308,7 @@
 				{
 					"num":47,
 					"name":"C2",
-					"desc":"SPI1, GPIO.",
+					"desc":"SPI1 MISO, GPIO.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3324,7 +3324,7 @@
 				{
 					"num":48,
 					"name":"C1",
-					"desc":"SPI1, GPIO.",
+					"desc":"SPI1 MOSI, GPIO.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3340,7 +3340,7 @@
 				{
 					"num":49,
 					"name":"C0",
-					"desc":"GPIO",
+					"desc":"GPIO, PWM.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
