@@ -205,19 +205,19 @@ The pins that support PWM are different on the P1 and P2.
 
 | Pin | P1 Pin Name | P1 PWM | P2 Pin Name | P2 PWM |
 | :---: | :--- | :--- | :--- | :--- |
-| 21 | A4 | &check; | NC | &nbsp; | 
-| 23 | A5 | &check; | A5 / D17 | &check; | 
-| 30 | WKP / A7 | &check; | D11 / WKP | &nbsp; | 
-| 33 | P1S6 | &check; | S6 / D24 | &nbsp; | 
-| 35 | D1 | &check; | D1 / A4 | &check; | 
-| 36 | D0 | &check; | D0 / A3 | &check; | 
-| 40 | P1S0 | &check; | S0 / D18 | &check; | 
-| 41 | P1S1 | &check; | S1 / D19 | &check; | 
-| 45 | D2 | &check; | D2 | &nbsp; | 
+| 21 | A4 | TIM3_CH1 | NC | &nbsp; | 
+| 23 | A5 | TIM3_CH2 | A5 / D17 | &check; | 
+| 30 | WKP / A7 | TIM5_CH1 | D11 / WKP | &nbsp; | 
+| 33 | P1S6 | TIM1_CH1 | S6 / D24 | &nbsp; | 
+| 35 | D1 | TIM4_CH1 | D1 / A4 | &check; | 
+| 36 | D0 | TIM4_CH2 | D0 / A3 | &check; | 
+| 40 | P1S0 | TIM3_CH3 | S0 / D18 | &check; | 
+| 41 | P1S1 | TIM3_CH4 | S1 / D19 | &check; | 
+| 45 | D2 | TIM3_CH2 | D2 | &nbsp; | 
 | 49 | A2 | &nbsp; | A2 / D14 | &check; | 
-| 51 | D3 | &check; | D3 | &nbsp; | 
-| 63 | RX | &check; | RX / D10 | &nbsp; | 
-| 64 | TX | &check; | TX / D9 | &nbsp; | 
+| 51 | D3 | TIM3_CH1 | D3 | &nbsp; | 
+| 63 | RX | TIM1_CH3 | RX / D10 | &nbsp; | 
+| 64 | TX | TIM1_CH2 | TX / D9 | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}

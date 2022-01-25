@@ -81,6 +81,16 @@
         "dir": "e-series-system-integration-manual",
         "title": "E Series System Integration Manual",
         "href": "/datasheets/electron/e-series-system-integration-manual/"
+      },
+      {
+        "dir": "e404x-datasheet",
+        "title": "E404X datasheet",
+        "href": "/datasheets/electron/e404x-datasheet/"
+      },
+      {
+        "dir": "e404x-migration-guide",
+        "title": "E404X migration guide",
+        "href": "/datasheets/electron/e404x-migration-guide/"
       }
     ],
     {
