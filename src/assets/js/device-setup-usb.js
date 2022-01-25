@@ -1234,12 +1234,6 @@ $(document).ready(function() {
                 const restoreResult = await dfuDeviceRestore(usbDevice, options);
             
                 if (restoreResult.ok) {
-                    if (options.userBackupBinary) {
-                        console.log('userBackupBinary', options.userBackupBinary);
-
-                        let blob = new Blob([options.userBackupBinary], {type:'application/octet-stream'});
-                        saveAs(blob, 'userFirmwareBackup.bin');	
-                    }
                 }
                 else {
                     console.log('dfu error', restoreResult);

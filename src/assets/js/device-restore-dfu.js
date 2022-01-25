@@ -585,7 +585,8 @@ async function dfuDeviceRestore(usbDevice, options) {
                 userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
 
                 if (userBinaryArrayBuffer) {
-                    options.userBackupBinary = userBinaryArrayBuffer;
+                    let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                    saveAs(blob, 'userFirmwareBackup.bin');	
                 }
             }
             else
