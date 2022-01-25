@@ -12,6 +12,7 @@
   "boron/b402-datasheet.md": "420a0337bea8ee248f3ff21440acd229",
   "boron/b523-datasheet.md": "e7c4a357fb4a15ed3beae4fd642f8867",
   "boron/boron-datasheet.md": "2f810a749368b40b291ee5c0d86b7381",
+  "boron/temp-404x.md": "aff44888c3b04312f4d2e7bab0922d93",
   "certifications/antenna.md": "cd6073192cc3245ca1f89a90150fdb5c",
   "certifications/certification.md": "300a7ac78d7dd2f4586a0b71928e6f84",
   "discontinued/core-datasheet.md": "0f0cf8b84fc9d5e56b28901c5d05014f",
@@ -20,10 +21,12 @@
   "electron/e-series-datasheet.md": "e085f59775fabd01239bad28f1fbf6a9",
   "electron/e-series-eval-board.md": "3fa592915c7243caf2e366ba5d78a727",
   "electron/e-series-system-integration-manual.md": "1de90e8ea5620235ec79acf431d28e85",
+  "electron/e404x-datasheet.md": "d9e49194640a60b3032d51b448d1fc38",
+  "electron/e404x-migration-guide.md": "8ef4ac8640052365082a0d0243cbf944",
   "electron/electron-datasheet.md": "77a52357bfa085481e340d61f2ac0b72",
   "wi-fi/argon-datasheet.md": "03e93dc4d3c0aae96b900ebe38ce62fa",
   "wi-fi/p1-datasheet.md": "b6412d05ecc8c6c9872f3fb49d97cb16",
   "wi-fi/p2-datasheet.md": "80e5a7e7b5fb287bf143a496a10ac0f3",
-  "wi-fi/p2-migration-guide.md": "8d49e18e53b7a6417417ac423109b118",
+  "wi-fi/p2-migration-guide.md": "1c91efe6a236f9c1b20a136f02f608d5",
   "wi-fi/photon-datasheet.md": "8fc160024566bbb40d385200115f765d"
 }
