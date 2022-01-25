@@ -896,10 +896,16 @@ const path = require('path');
     };
 
     updater.generatePinInfo = function(options) {
-        const platformInfo = updater.pinInfo.platforms.find(p => p.id == options.platform);
-        if (!platformInfo) {
+        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        if (!platformInfoNew) {
             return '';
         }
+
+        let platformInfoOld;
+        if (options.platformOld) {
+            platformInfoOld = updater.pinInfo.platforms.find(p => p.name == options.platformOld);
+        }
+
 
         let detailsForTag = {};
         for(const d of updater.pinInfo.details) {
@@ -1023,7 +1029,7 @@ const path = require('path');
             md += ':---: |\n'
 
             let pins = [];
-            for(const pin of platformInfo.pins) {
+            for(const pin of platformInfoNew.pins) {
                 pins.push(pin);
             }
             pins.sort(function(a, b) {
@@ -1065,7 +1071,7 @@ const path = require('path');
             md += '| Pin | Pin Name | Description | MCU |\n';
             md += '| :---: | :--- | :--- | :---: |\n'
 
-            let pins = expandMorePins(platformInfo.pins);    
+            let pins = expandMorePins(platformInfoNew.pins);    
 
             pins.sort(function(a, b) {
                 return a.num - b.num;
@@ -1076,13 +1082,12 @@ const path = require('path');
             }
         }
 
-        if (options.style == 'p2-migration-removed') {
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+        if (options.style == 'migration-removed') {
 
             let pins = [];
-            for(const pin of oldPlatformInfo.pins) {
+            for(const pin of platformInfoOld.pins) {
                 if (pin.name != 'NC') {
-                    if (!platformInfo.pins.find(p => p.num == pin.num)) {
+                    if (!platformInfoNew.pins.find(p => p.num == pin.num)) {
                         pins.push(pin);
                     }
                 }
@@ -1101,13 +1106,11 @@ const path = require('path');
 
         }
 
-        if (options.style == 'p2-migration-added') {
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
-
+        if (options.style == 'migration-added') {
             let pins = [];
-            for(const pin of platformInfo.pins) {
+            for(const pin of platformInfoNew.pins) {
                 if (pin.name != 'NC') {
-                    if (!oldPlatformInfo.pins.find(p => p.num == pin.num)) {
+                    if (!platformInfoOld.pins.find(p => p.num == pin.num)) {
                         pins.push(pin);
                     }
                 }
@@ -1126,8 +1129,7 @@ const path = require('path');
 
         }
         
-        if (options.style == 'p2-full-comparison') {
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+        if (options.style == 'full-comparison') {
 
             const comparisonTags = [
                 'name',
@@ -1151,15 +1153,15 @@ const path = require('path');
             ];
 
 
-            const p1pins = expandMorePins(oldPlatformInfo.pins);
-            const p2pins = expandMorePins(platformInfo.pins);
+            const oldPins = expandMorePins(platformInfoOld.pins);
+            const newPins = expandMorePins(platformInfoNew.pins);
 
             for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let p1pin = getPinInfo(p1pins, pinNum);
-                let p2pin = getPinInfo(p2pins, pinNum);
+                let oldPin = getPinInfo(oldPins, pinNum);
+                let newPin = getPinInfo(newPins, pinNum);
                 
-                if (p1pin.name == p2pin.name) {
-                    md += '#### Module Pin ' + pinNum + ' (' + p1pin.name + ')\n';
+                if (oldPin.name == newPin.name) {
+                    md += '#### Module Pin ' + pinNum + ' (' + oldPin.name + ')\n';
                 }
                 else {
                     md += '#### Module Pin ' + pinNum + '\n';
@@ -1167,39 +1169,39 @@ const path = require('path');
 
                 let hasChanges = false;
                 for(const tag of comparisonTags) {
-                    if (!p1pin[tag] && !p2pin[tag]) {
+                    if (!oldPin[tag] && !newPin[tag]) {
                         continue;
                     }
 
-                   if (getPinUsage(p1pin[tag]) != getPinUsage(p2pin[tag])) {
+                   if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
                        hasChanges = true;
                        break;
                    }
                 }
 
                 if (hasChanges) {
-                    md += '| | P1 | P2 |\n';
+                    md += '| | ' + options.platformOld + ' | ' + options.platformNew + ' |\n';
                     md += '| :--- | :--- | :--- |\n';
     
                     for(const tag of comparisonTags) {
-                        if (!p1pin[tag] && !p2pin[tag]) {
+                        if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
     
-                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(p1pin[tag]) + ' | ' + getPinUsage(p2pin[tag]) + '|\n';
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + ' | ' + getPinUsage(newPin[tag]) + '|\n';
     
                     }    
                 }
                 else {
-                    md += '| | Unchanged between P1 and P2 |\n';
+                    md += '| | Unchanged between ' + options.platformOld + ' and ' + options.platformNew + ' |\n';
                     md += '| :--- | :--- |\n';
 
                     for(const tag of comparisonTags) {
-                        if (!p1pin[tag] && !p2pin[tag]) {
+                        if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
     
-                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(p1pin[tag]) + '|\n';
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + '|\n';
                     }    
 
                 }
@@ -1208,18 +1210,26 @@ const path = require('path');
 
         }
 
-        if (options.style == 'p2-port-comparison') {
+        if (options.style == 'port-comparison') {
             // options.port
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+            const oldPins = expandMorePins(platformInfoOld.pins);
+            const newPins = expandMorePins(platformInfoNew.pins);
 
-            const p1pins = expandMorePins(oldPlatformInfo.pins);
-            const p2pins = expandMorePins(platformInfo.pins);
-
-            md += '| Pin | P1 Pin Name | P1 ' + options.label + ' | P2 Pin Name | P2 ' + options.label  + ' |\n';
+            md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
             md += '| :---: | :--- | :--- | :--- | :--- |\n'
 
-            const portColumnValue = function(value) {
+            const portColumnValue = function(pinInfo) {
+                const value = pinInfo[options.port];
                 if (value) {
+                    if (options.port == 'analogWritePWM') {
+                        if (pinInfo['hardwareTimer']) {
+                            return pinInfo['hardwareTimer'];
+                        }
+                        else {                            
+                            return '&check;';
+                        }
+                    }
+                    else
                     if (options.useShortName) {
                         return getShortName(value);
                     }
@@ -1233,15 +1243,15 @@ const path = require('path');
             } 
 
             for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let p1pin = getPinInfo(p1pins, pinNum);
-                let p2pin = getPinInfo(p2pins, pinNum);
+                let oldPin = getPinInfo(oldPins, pinNum);
+                let newPin = getPinInfo(newPins, pinNum);
 
-                if (!p1pin[options.port] && !p2pin[options.port]) {
+                if (!oldPin[options.port] && !newPin[options.port]) {
                     // Neither device supports this port on this pin
                     continue;
                 }
-                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
-                md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
+                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(oldPin) + ' | ' + portColumnValue(oldPin) + ' | ';
+                md += getPinNameWithAlt(newPin) + ' | ' + portColumnValue(newPin) + ' | \n';
             }            
         }
 
@@ -1249,7 +1259,7 @@ const path = require('path');
             // options.interface
 
             let pins = [];
-            for(const pin of platformInfo.pins) {
+            for(const pin of platformInfoNew.pins) {
                 if (pin[options.interface]) {
                     pins.push(pin);
                 }
@@ -1275,7 +1285,7 @@ const path = require('path');
             // options.interface
 
             let pins = [];
-            for(const pin of platformInfo.pins) {
+            for(const pin of platformInfoNew.pins) {
                 if (pin[options.interface]) {
                     pins.push(pin);
                 }
@@ -1346,6 +1356,115 @@ const path = require('path');
                         }); 
                     } 
                 }
+            ]
+        },
+        {
+            path:'/datasheets/electron/e404x-migration-guide.md', 
+            updates:[ 
+                {
+                    guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-removed',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0f8940d5-5d0b-4f16-bfa2-1666616ba9ef', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-added',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'aa218eb3-5975-4ba6-b26d-2a5d43c5378e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'full-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0fc429e8-585e-4f36-9874-e3fa37a1136e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'a7091023-5382-4496-8bfc-727593f0d426', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'analogRead',
+                            label: 'ADC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'c7f59d46-dca3-4376-b885-0b4ca924a28b', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'9327b9b9-21fd-46fd-a406-8c249ade9688', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'2ee8f339-68a5-4d9c-b6b9-0f359038d704', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'analogWriteDAC',
+                            label: 'DAC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'aaf618d9-4053-490d-8b3b-2ef6118592d6', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'can',
+                            label: 'CAN'
+                        }); 
+                    }
+                }              
             ]
         },
         {
@@ -1524,7 +1643,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'pinFunction',
-                            platform: 32
+                            platformOld: 'P1',
+                            platformNew: 'P2'
                         }); 
                     } 
                 },
@@ -1533,7 +1653,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'modulePins',
-                            platform: 32
+                            platformOld: 'P1',
+                            platformNew: 'P2'
                         }); 
                     } 
                 },
@@ -1542,7 +1663,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfacePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'serial'
                         }); 
                     }                     
@@ -1552,7 +1674,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfacePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'spi'
                         }); 
                     } 
@@ -1562,7 +1685,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfacePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'i2c'
                         }); 
                     } 
@@ -1572,7 +1696,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfacePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'hardwareADC'
                         }); 
                     } 
@@ -1582,7 +1707,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfaceTypePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'isUSB'
                         }); 
                     } 
@@ -1592,7 +1718,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfaceTypePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'isLED'
                         }); 
                     } 
@@ -1602,7 +1729,8 @@ const path = require('path');
                     generatorFn:function(){
                         return updater.generatePinInfo({
                             style: 'interfaceTypePins',
-                            platform: 32,
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             interface: 'isControl'
                         }); 
                     } 
@@ -1616,8 +1744,9 @@ const path = require('path');
                     guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-migration-removed',
-                            platform: 32
+                            style: 'migration-removed',
+                            platformOld: 'P1',
+                            platformNew: 'P2'
                         }); 
                     } 
                 },
@@ -1625,8 +1754,9 @@ const path = require('path');
                     guid:'0f8940d5-5d0b-4f16-bfa2-1666616ba9ef', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-migration-added',
-                            platform: 32
+                            style: 'migration-added',
+                            platformOld: 'P1',
+                            platformNew: 'P2'
                         }); 
                     } 
                 },
@@ -1634,8 +1764,9 @@ const path = require('path');
                     guid:'aa218eb3-5975-4ba6-b26d-2a5d43c5378e', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-full-comparison',
-                            platform: 32
+                            style: 'full-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2'
                         }); 
                     } 
                 },
@@ -1643,8 +1774,9 @@ const path = require('path');
                     guid:'0fc429e8-585e-4f36-9874-e3fa37a1136e', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'analogWritePWM',
                             label: 'PWM',
                         }); 
@@ -1654,8 +1786,9 @@ const path = require('path');
                     guid:'a7091023-5382-4496-8bfc-727593f0d426', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'analogRead',
                             label: 'ADC'
                         }); 
@@ -1665,8 +1798,9 @@ const path = require('path');
                     guid:'c7f59d46-dca3-4376-b885-0b4ca924a28b', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'serial',
                             label: 'Serial',
                             useShortName: true
@@ -1677,8 +1811,9 @@ const path = require('path');
                     guid:'9327b9b9-21fd-46fd-a406-8c249ade9688', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'spi',
                             label: 'SPI',
                             useShortName: true
@@ -1689,8 +1824,9 @@ const path = require('path');
                     guid:'2ee8f339-68a5-4d9c-b6b9-0f359038d704', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'analogWriteDAC',
                             label: 'DAC'
                         }); 
@@ -1700,8 +1836,9 @@ const path = require('path');
                     guid:'aaf618d9-4053-490d-8b3b-2ef6118592d6', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'can',
                             label: 'CAN'
                         }); 
@@ -1711,8 +1848,9 @@ const path = require('path');
                     guid:'8d8e7a73-c60c-4b04-8039-c5f8a7072f39', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-port-comparison',
-                            platform: 32,
+                            style: 'port-comparison',
+                            platformOld: 'P1',
+                            platformNew: 'P2',
                             port: 'i2s',
                             label: 'I2S',
                             useShortName: true
