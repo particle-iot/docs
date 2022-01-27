@@ -295,12 +295,17 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 {{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
 
-
-
-
 ### Interrupts
 
 There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the P2.
+
+### Retained memory
+
+Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the P2. This also prevents system usage of retained memory, including session resumption on reset.
+
+On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
+
+The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
 ### Pin functions removed
 
