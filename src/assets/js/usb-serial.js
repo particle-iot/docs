@@ -885,7 +885,7 @@ $(document).ready(function() {
                 },
                 {
                     id: 's',
-                    title: 'System firmware'
+                    title: 'Device OS (System firmware)'
                 },
                 {
                     id: 'b',
@@ -1005,7 +1005,7 @@ $(document).ready(function() {
                 trElem = document.createElement('tr');
 
                 thElem = document.createElement('th');
-                $(thElem).text('Module');
+                $(thElem).text('Module Dependencies');
                 $(trElem).append(thElem);
                 
                 thElem = document.createElement('th');
