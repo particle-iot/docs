@@ -23,7 +23,6 @@ $(document).ready(function() {
 
                     $(menuElem).append(optionElem);
                 }
-                resolve();
             });
 
         $(thisPartial).find('.apiHelperTrackerEdgeDownload').on('click', function() {

@@ -20,6 +20,8 @@ Some common use cases:
 - Theft detection, by triggering if a tracked item leaves a geofenced location
 - Destination tracking, by triggering when a tracked item arrives the geofenced location of its destination
 
+Geofencing requires Tracker Edge firmware v17. To upgrade your Tracker firmware, see [Tracker Edge Firmware](/tutorials/asset-tracking/tracker-edge-firmware/).
+
 {{> sso}}
 
 ## Processing location data
