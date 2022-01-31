@@ -35,7 +35,7 @@ You can download a complete project for use with Particle Workbench as a zip fil
 - Extract **tracker-edge.zip** in your Downloads directory 
 - Open the **tracker-edge** directory in Workbench; it is a pre-configured project directory.
 
-In order to use the Geofencing features, Tracker Edge v17 is required. This has not been released yet but the feature is available if you use the manual build instructions to build the default branch ("develop") in the next section.
+In order to use the Geofencing features, Tracker Edge v17 is required.
 
 ### Manually
 
