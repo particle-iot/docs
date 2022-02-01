@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Keypad",
     "version": "3.2.0",
-    "installs": 3698,
+    "installs": 3755,
     "license": "LGPL 1.2",
     "author": "Mark Stanley (mstanley@technologist.com), Alexander Brevig (alexanderbrevig@gmail.com), adapted for Spark Core by Sandro Lange",
     "sentence": "A Spark Core port of the Keypad Arduino library by Mark Stanley, Alexander Brevig",

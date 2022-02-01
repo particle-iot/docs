@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PulseSensorAmped",
     "version": "0.0.2",
-    "installs": 307,
+    "installs": 341,
     "author": "Bill Siever <bsiever@gmail.com>",
     "sentence": "Argon Port of Pulse Sensor Amped support",
     "url": "https://github.com/bsiever/Argon-pulsesensoramped",

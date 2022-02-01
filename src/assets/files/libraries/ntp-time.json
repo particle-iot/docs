@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ntp-time",
     "version": "0.1.0",
-    "installs": 17952,
+    "installs": 18647,
     "license": "MIT",
     "author": "Douglas Johnson",
     "sentence": "Keeps the Particle Time synced to NTP.",

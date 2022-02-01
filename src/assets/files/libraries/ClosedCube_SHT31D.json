@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ClosedCube_SHT31D",
     "version": "0.1.1",
-    "installs": 1506,
+    "installs": 1635,
     "license": "MIT",
     "author": "Garrett Hawes <hawesg@gmail.com>",
     "sentence": "A more complete SHT-3X(30/31/35) library.",

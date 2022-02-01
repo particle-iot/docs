@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280",
     "version": "1.1.5",
-    "installs": 133585,
+    "installs": 140022,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, Markus Haack (https://github.com/mhaack)",
     "sentence": "Adafruit BME280 Library",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkButton",
     "version": "0.0.9",
-    "installs": 1740,
+    "installs": 1806,
     "license": "LGPL",
     "author": "Richard Whitney <richard@spark.io>",
     "sentence": "This library has been superseded by InternetButton!",

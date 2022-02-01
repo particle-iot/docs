@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Fingerprint",
     "version": "1.0.3",
-    "installs": 3091,
+    "installs": 3450,
     "license": "BSD License",
     "author": "Paul Kourany",
     "sentence": "Adafruit Fingerprint Sensor library",

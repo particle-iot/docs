@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoT",
     "version": "5.1.0",
-    "installs": 5643,
+    "installs": 5837,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Control your Photon projects using MQTT events from other Photons, Alexa and iOS devices",

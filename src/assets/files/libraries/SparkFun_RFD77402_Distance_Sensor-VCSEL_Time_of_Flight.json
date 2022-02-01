@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_RFD77402_Distance_Sensor-VCSEL_Time_of_Flight",
     "version": "1.0.0",
-    "installs": 267,
+    "installs": 343,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Distance Sensor - RFD77402",

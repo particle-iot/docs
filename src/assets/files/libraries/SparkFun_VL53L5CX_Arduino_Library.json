@@ -1,0 +1,121 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_VL53L5CX_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_VL53L5CX_Arduino_Library/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_VL53L5CX_Arduino_Library",
+    "version": "1.0.0",
+    "installs": 232,
+    "author": "SparkFun Electronics",
+    "maintainer": "SparkFun Electronics",
+    "sentence": "Distance sensing (VL53L5CX) with 64 pixels up to 4 meters at 15Hz.",
+    "paragraph": "The SparkFun Qwiic ToF Imager is state of the art, 64 pixel Time-of-Flight (ToF), multizone 4 meter ranging sensor with milimeter resolution built around the VL53L5CX from ST. This library supports reading distances up to 4m across all 64 sensors at up to 15Hz. Multiple sensors *can* be daisy-chained for additional readings but data rates are limited by the 400kHz max I2C bus speed.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_VL53L5CX_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_VL53L5CX_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_VL53L5CX_Arduino_Library",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "electron": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "argon": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "boron": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "electron": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "argon": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          },
+          "boron": {
+            "Example1_DistanceArray": true,
+            "Example2_FastStartup": true,
+            "Example3_SetFrequency": true,
+            "Example4_MaxOutput": true,
+            "Example6_AdvancedSettings": true,
+            "Example7_Interrupts": true,
+            "Example8_SetAddress": true,
+            "Example9_TwoSensors": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Qwiic Time-of-Flight Sensor VL53L5CX Arduino Library\n=============================================\n\n![SparkFun Time-of-Flight Sensor VL53L5CX](https://cdn.sparkfun.com/assets/parts/1/8/1/6/9/18642-SparkFun_Qwiic_ToF_Imager_-_VL53L5CX-01.jpg)\n\n[*SparkFun Time-of-Flight 8x8 multizone ranging sensor with wide field of view*](https://www.sparkfun.com/products/18642)\n\nThe SparkFun Qwiic ToF Imager is built around VL53L5CX from ST Electronics; a state of the art, Time-of-Flight (ToF), multizone ranging sensor enhancing the ST FlightSense product family. This chip integrates a SPAD array, physical infrared filters, and diffractive optical elements (DOE) to achieve the best ranging performance in various ambient lighting conditions with a range of cover glass materials. Utilizing our handy Qwiic system, no soldering is required to connect it to the rest of your system. However, we still have broken out 0.1\"-spaced pins in case you prefer to use a breadboard.\n\nMultizone distance measurements are possible up to 8x8 zones with a wide 63° diagonal FoV which can be reduced by software. Thanks to ST Histogram patented algorithms, the VL53L5CX is able to detect different objects within the FoV. The Histogram also provides immunity to cover glass crosstalk beyond 60 cm.\n\nIdeal for 3D room mapping, obstacle detection for robotics, gesture recognition, IoT, laser-assisted autofocus, and AR/VR enhancement, the Qwiic connector on this sensor makes integration easy. \n\nRepository Contents\n-------------------\n\n* **/documents** - Datasheet, application notes, etc.\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n* **[Hardware Repo](https://github.com/sparkfun/SparkFun_Qwiic_ToF_Imager_VL53L5CX)** - Hardware Repository for the Qwiic ToF Imager VL53L5CX\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-tof-imager---vl53l5cx-hookup-guide)** - Hookup guide for the Qwiic ToF Imager VL53L5CX\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anyThing Development Board derivative under the same license.\n\nDistributed as-is; no warranty is given.\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}
