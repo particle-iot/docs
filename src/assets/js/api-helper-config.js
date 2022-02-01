@@ -152,9 +152,7 @@ $(document).ready(function() {
             apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:product, page }).then(
                 function(data) {
                     data.body.devices.forEach(function(dev) {
-                        if (dev.development) {
-                            deviceList.push(dev);
-                        }
+                        deviceList.push(dev);
                     });
 
                     if (page < data.body.meta.total_pages) {
@@ -316,7 +314,7 @@ $(document).ready(function() {
                 const deviceId = $(deviceSelectElem).val();
                 if (!deviceId) {
                     $(buttonElems).prop('disabled', true);
-                    setStatus('No development devices in this product');
+                    setStatus('No devices in this product');
                     return;
                 }
 
