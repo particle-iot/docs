@@ -112,8 +112,8 @@ exports.metalsmith = function () {
       environment === 'development',
       trackerSchema({
         dir: '../src/assets/files/tracker/',
-        officialSchema: 'tracker-edge.json',        
-        defaultSchema: 'default-schema.json',
+        officialSchema: 'tracker-edge.json',     // This is the source of the generated files
+        defaultSchema: 'default-schema.json',    // This is generated
         fragments: [
           'engine-schema',
           'test-schema'
