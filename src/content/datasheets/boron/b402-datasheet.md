@@ -45,6 +45,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * 3GPP Release 14 LTE Cat M1 
   * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
   * Embedded Particle EtherSIM (B404X)
+  * Requires Device OS 2.3.0 LTS (or later) or 3.2.0 (or later)
 
 <sup>1</sup> Not all bands enabled in software by default
 
