@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { option } = require('yargs');
 
 (function(updater) {
 
@@ -473,6 +474,228 @@ const path = require('path');
 
         return md;
     }
+
+    updater.generateTable = function(options, data) {
+        // options includes options, table headers, etc.
+        // data contains the data as an array of objects. The elements of the array are rows in the table.
+
+        // options.columns is an array of objects that specify columns of the table left to right
+        //   .title 
+        //   .justify left(default), center, right
+
+        let md = '';
+
+        // Table headers
+        let line = '';
+        for(const c of options.columns) {
+            let title = c.title;
+            if (!title) {
+                title = c.key.substr(0, 1).toUpperCase() + c.key.substr(1);
+            }            
+            line += '| ' + (title || '') + ' ';
+        }
+        md += line + '|\n'; 
+
+        // Table header separator
+        line = '';
+        for(const c of options.columns) {
+            let align;
+            switch(c.align || 'left') {
+                case 'center':
+                    line += '| :---: ';
+                    break;
+
+                case 'right':
+                    line += '| ---: ';
+                    break;
+                
+                // 'left'
+                default: 
+                    line += '| :--- ';
+                    break;
+            }
+        }
+        md += line + '|\n'; 
+
+
+        // Table data
+        for(const d of data) {
+            line = '';
+            for(const c of options.columns) {
+                if (c.checkmark) {
+                    line += '| ' + (d[c.key] ? '&check;' : '');
+                }
+                else
+                if (d[c.key]) {
+                    if (c.capitalizeValue) {
+                        line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1);
+                    }
+                    else {
+                        line += '| ' + d[c.key];
+                    }
+                }
+                else {
+                    line += '| ';
+                }
+            }
+            md += line + '|\n';             
+        }
+
+
+        return md;
+    };
+
+    updater.generateSkuList = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (options.includeSkus) {
+                if (options.includeSkus.includes(skuObj.name)) {
+                    skus.push(skuObj);
+                    return;
+                }
+            }
+
+            if (options.onlyGA && skuObj.lifecycle != 'GA' && skuObj.lifecycle != 'NRND-US') {
+                return;
+            }
+
+            if (skuObj.lifecycle == 'Discontinued' && skuObj.skuClass == 'kit') {
+                // Hide discontinued kits
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden, whether a kit or not
+                return;
+            }
+
+            if (options.omitSkus) {
+                if (options.omitSkus.includes(skuObj.name)) {
+                    return true;
+                }
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            skus.push(skuObj);
+        });
+
+
+        const hasReplacements = skus.some((e) => !!e.replacement);
+
+        const columnDefinitions = {
+            name: {
+                title: 'SKU'
+            },
+            desc: {
+                title: 'Description'
+            },
+            ethersim: {
+                title: 'EtherSim',
+                checkmark: true,
+                align: 'center'
+            },
+            inStock: {
+                title: 'In Stock',
+                align: 'center'
+            },
+            skuClass: {
+                title: 'Class',
+                capitalizeValue: true
+            },
+            gen: {
+                title: 'Gen',
+                align: 'center'
+            },
+            simName: {
+                title: 'SIM'
+            }
+
+            // region, modem, lifecycle, replacement
+        };
+
+
+        // Pick columns
+        let columns = [];
+        for(const key of options.columns) {
+            if (columnDefinitions[key]) {
+                if (options.hideEmptyReplacement && key == 'replacement') {
+                    if (!hasReplacements) {
+                        continue;
+                    }
+                }
+
+                columns.push(Object.assign({key}, columnDefinitions[key]));
+            }
+            else {
+                columns.push({
+                    key,
+                    title: key.substr(0, 1).toUpperCase() + key.substr(1)
+                });
+            }
+        }
+
+        // Generate data
+        let tableOptions = {
+            columns
+        };
+        let tableData = [];
+
+        skus.forEach(function(skuObj) {
+            let row = Object.assign({}, skuObj);
+
+            row.region = skuObj.skuRegion ? updater.skuRegionReadable[skuObj.skuRegion] : '';
+
+            if (skuObj.allocation || skuObj.maxOrder) {
+                row.inStock = 'Limited';
+            }
+            else if (skuObj.inStock) {
+                row.inStock = skuObj.inStock.substr(0, 1).toUpperCase() + skuObj.inStock.substr(1);
+            }
+            else {
+                row.inStock = 'No';
+            }
+            
+
+            if (skuObj.sim) {
+                row.ethersim = (skuObj.sim == 4);
+
+                row.simName = updater.datastore.findSimById(skuObj.sim).name;
+            }
+
+            tableData.push(row);
+        });
+
+        // Sort table rows
+        tableData.sort(function(a, b) {
+            if (options.sortFn) {
+                return options.sortFn(a, b);
+            }
+
+            const lifecycleA = updater.datastore.findSkuLifecycle(a.lifecycle);
+            const lifecycleB = updater.datastore.findSkuLifecycle(b.lifecycle);
+
+            let cmp = lifecycleA.sortOrder - lifecycleB.sortOrder;
+            if (cmp) {
+                return cmp;
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+    };
 
 
     updater.generateAntCell = function(options) {
@@ -962,6 +1185,321 @@ const path = require('path');
         return md;    
     };
 
+    updater.generatePinInfo = function(options) {
+        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        if (!platformInfoNew) {
+            return '';
+        }
+
+        let platformInfoOld;
+        if (options.platformOld) {
+            platformInfoOld = updater.pinInfo.platforms.find(p => p.name == options.platformOld);
+        }
+
+
+        let detailsForTag = {};
+        for(const d of updater.pinInfo.details) {
+            detailsForTag[d.tag] = d;
+        }
+
+        const expandMorePins = function(pinArray) {
+            let pins = [];
+            for(const pin of pinArray) {
+                pins.push(pin);
+                if (pin.morePins) {
+                    for(const pinNum of pin.morePins) {
+                        let pinCopy = Object.assign({}, pin);
+                        pinCopy.num = pinNum;
+                        pins.push(pinCopy);
+                    }
+                }
+            }        
+            return pins;
+        }
+
+
+        // Some fields use the format "short|a much longer description" using a vertical bar to
+        // separate the parts.
+        // This function gets the short (first) part or the whole string if there is no |.
+        const getShortName = function(t) {
+            if (typeof t == 'number') {
+                return t.toString();
+            }
+            else
+            if (typeof t != 'string') {
+                return t;
+            }
+            
+            var index = t.indexOf("|");
+            if (index > 0) {
+                return t.substring(0, index); 
+            }
+            else {
+                return t;
+            }
+        }
+
+        // Some fields use the format "short|a much longer description" using a vertical bar to
+        // separate the parts.
+        // This function gets the long (last) part or the whole string if there is no |.
+        const getLongDesc = function(t) {
+            if (typeof t == 'number') {
+                return t.toString();
+            }
+            else
+            if (typeof t != 'string') {
+                return t;
+            }
+
+            var index = t.indexOf("|");
+            if (index > 0) {
+                return t.substring(index + 1);
+            }
+            else {
+                return t;
+            }
+            
+        }
+
+        const getPinInfo = function(pinArray, pinNum) {
+            for(const p of pinArray) {
+                if (p.num == pinNum) {
+                    return p;
+                }
+            }
+            return {
+                pin: pinNum,
+                name: 'NC',
+                desc: 'Leave unconnected'
+            }
+        };
+
+        const getPinUsage = function(p) {
+            if (typeof p != 'undefined') {
+                if (p === true) {
+                    return 'Yes';
+                }
+                else
+                if (p === false) {
+                    return 'No';
+                }
+                else {
+                    return getLongDesc(p);
+                }
+            }
+            else {
+                return 'n/a';
+            }
+        };
+
+        const getPinNameWithAlt = function(p) {
+            if (!p.altName) {
+                return p.name;
+            }
+            else {
+                return p.name + ' / ' + p.altName;
+            }
+        }
+
+        let md = '';
+
+        if (options.style == 'pinFunction') {
+            const functionCols = [["hardwareADC"], ["i2c","swd"], ["spi"], ["serial"]];
+
+            md += '| Pin Name | Module Pin |';
+            for(const colInfo of functionCols) {
+                md += '  |';
+            }
+            md += ' MCU |\n';
+
+            md += '| :--- | :---: |';
+            for(const colInfo of functionCols) {
+                md += ' :---: |';
+            }
+            md += ':---: |\n'
+
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                pins.push(pin);
+            }
+            pins.sort(function(a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            for(const pin of pins) {
+                if (pin.isPower) {
+                    continue;
+                }
+                
+                md += '| ' + getPinNameWithAlt(pin) + ' | ' + pin.num + ' | ';
+                
+                for(const colInfo of functionCols) {
+                    let added = false;
+                    for(const key of colInfo) {
+                        if (pin[key]) {
+                            added = true;
+                            let s = pin[key];
+                            const barIndex = s.indexOf('|');
+                            if (barIndex > 0) {
+                                s = s.substr(0, barIndex);
+                            }
+                            md += s + ' | ';
+                            break;
+                        }
+                    }
+                    if (!added) {
+                        md += '  | ';
+                    }
+                }
+                
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+
+        if (options.style == 'modulePins') {
+            md += '| Pin | Pin Name | Description | MCU |\n';
+            md += '| :---: | :--- | :--- | :---: |\n'
+
+            let pins = expandMorePins(platformInfoNew.pins);    
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ' + (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+        if (options.style == 'migration-removed') {
+
+            let pins = [];
+            for(const pin of platformInfoOld.pins) {
+                if (pin.name != 'NC') {
+                    if (!platformInfoNew.pins.find(p => p.num == pin.num)) {
+                        pins.push(pin);
+                    }
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description |\n';
+            md += '| :---: | :--- | :--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' |\n';
+            }
+
+        }
+
+        if (options.style == 'migration-added') {
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin.name != 'NC') {
+                    if (!platformInfoOld.pins.find(p => p.num == pin.num)) {
+                        pins.push(pin);
+                    }
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description |\n';
+            md += '| :---: | :--- | :--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' |\n';
+            }
+
+        }
+        
+        if (options.style == 'full-comparison') {
+
+            const comparisonTags = [
+                'name',
+                'altName',
+                'desc',
+                'digitalRead',
+                'digitalWrite',
+                'analogRead',
+                'analogWriteDAC',
+                'analogWritePWM',
+                'tone',
+                'serial',
+                'spi',
+                'i2c',
+                'attachInterrupt',
+                'can',
+                'i2s',
+                'is5VTolerant',
+                'jtag',
+                'swd'      
+            ];
+
+
+            const oldPins = expandMorePins(platformInfoOld.pins);
+            const newPins = expandMorePins(platformInfoNew.pins);
+
+            for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                let oldPin = getPinInfo(oldPins, pinNum);
+                let newPin = getPinInfo(newPins, pinNum);
+                
+                if (oldPin.name == newPin.name) {
+                    md += '#### Module Pin ' + pinNum + ' (' + oldPin.name + ')\n';
+                }
+                else {
+                    md += '#### Module Pin ' + pinNum + '\n';
+                }
+
+                let hasChanges = false;
+                for(const tag of comparisonTags) {
+                    if (!oldPin[tag] && !newPin[tag]) {
+                        continue;
+                    }
+
+                   if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
+                       hasChanges = true;
+                       break;
+                   }
+                }
+
+                if (hasChanges) {
+                    md += '| | ' + options.platformOld + ' | ' + options.platformNew + ' |\n';
+                    md += '| :--- | :--- | :--- |\n';
+    
+                    for(const tag of comparisonTags) {
+                        if (!oldPin[tag] && !newPin[tag]) {
+                            continue;
+                        }
+    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + ' | ' + getPinUsage(newPin[tag]) + '|\n';
+    
+                    }    
+                }
+                else {
+                    md += '| | Unchanged between ' + options.platformOld + ' and ' + options.platformNew + ' |\n';
+                    md += '| :--- | :--- |\n';
+
+                    for(const tag of comparisonTags) {
+                        if (!oldPin[tag] && !newPin[tag]) {
+                            continue;
+                        }
+    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + '|\n';
+                    }    
+
+                }
+ 
+            }
+        }
+    };
+
     updater.docsToUpdate = [
         {
             path:'/datasheets/electron/electron-datasheet.md', 
@@ -1289,7 +1827,67 @@ const path = require('path');
                     generatorFn:function() {
                         return updater.generateFamilySkus('e series'); 
                     } 
-                }
+                },
+                {
+                    // SKUs by region
+                    guid:'921d1b74-0130-49e9-9322-3da75e405e4e',
+                    generatorFn:function() {
+                        console.log('skus by region');
+                        return updater.generateSkuList({
+                            columns: ['region', 'name', 'desc', 'modem', 'ethersim', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.modem;
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.skuRegion.localeCompare(b.skuRegion);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // SKUs by modem
+                    guid:'a85479cf-355b-45c8-9062-db69f037bfea',
+                    generatorFn:function() {
+                        console.log('skus by region');
+                        return updater.generateSkuList({
+                            columns: ['modem', 'name', 'desc', 'region', 'ethersim', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.modem;
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.modem.localeCompare(b.modem);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    }                 
+                },
+                {
+                    // SKUs by SIM
+                    guid:'8747e7eb-420e-425e-882c-e10117b77620',
+                    generatorFn:function() {
+                        console.log('skus by region');
+                        return updater.generateSkuList({
+                            columns: ['simName', 'name', 'desc', 'region', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.modem;
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.simName.localeCompare(b.simName);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    }                 
+                },
             ]
         },
         {
@@ -1348,10 +1946,155 @@ const path = require('path');
                     } 
                 },
             ]
+        },
+        {
+            path: '/tutorials/particle-hardware.md',
+            updates: [
+                {
+                    guid:'b7083b52-4bd3-47a6-85e8-396922c41b33',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'tracker' || !skuObj.name.includes('ONE');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'6a02fd77-1222-4208-8da5-45c9290c5f6d',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.accessory || !skuObj.name.includes('M8');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'455bf1d0-0230-4074-bfa7-99ce6e4f6245',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.gen != '3' || (skuObj.skuClass != 'prototyping' && skuObj.skuClass != 'kit');
+                            },
+                            sortFn: function(a, b) {
+                                /*
+                                const aKit = a.skuClass == 'kit';
+                                const bKit = b.skuClass == 'kit';
+
+                                // Put kits at the end of the list
+                                if (aKit && !bKit) {
+                                    return +1;
+                                }
+                                else
+                                if (!aKit && bKit) {
+                                    return -1;
+                                }
+                                */
+
+                                return a.name.localeCompare(b.name);
+                            },
+                            omitSkus: [
+                                'BRN310TRAY50', 'ARG-AQKT'
+                            ]
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'518869dc-61de-43db-add1-f0d57956c4e0',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'boron';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'b series';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'88844fc4-c390-44ff-9254-2fa41e2b8963',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'tracker' || skuObj.name.includes('ONE');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5e188545-21ff-4ef8-9510-155caea7014e',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'e series';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'8ba8241b-1084-463b-b5be-64cda68e3a4b',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'p series' || skuObj.name.includes('P0');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'2de596b8-2889-4df7-86d1-910d5551b34f',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.gen != '3';
+                            },
+                            includeSkus: [
+                                'FWNG-ETH', 'M2EVAL'
+                            ],
+                            omitSkus: [
+                                'BRN310TRAY50', 'ARG-AQKT'
+                            ]
+                        }); 
+                    } 
+                },
+
+
+                
+
+    
+
+            ]
         }    
     ];
 
-    updater.updateDocs = function(pathPrefix, docsPath, guid, md) {
+    updater.updateDocs = function(pathPrefix, docsPath, guid, md, files) {
         // path: path to md, relative to content. For example: /tutorials/cellular-connectivity/cellular-carriers.md
         // guid: the ID for the block to replace (typically a GUID)
         // md: The md file data to use as the replacement
@@ -1361,8 +2104,9 @@ const path = require('path');
         const replacePrefixBegin = '{{!-- BEGIN do not edit content below, it is automatically generated ';
         const replacePrefixEnd = '{{!-- END do not edit content above, it is automatically generated';
 
-        
-        const docsData = fs.readFileSync(pathPrefix + docsPath, 'utf8');
+        const filePath = pathPrefix + docsPath;
+
+        const docsData = fs.readFileSync(filePath, 'utf8');
         
         let preData = '';
         let postData = '';
@@ -1404,8 +2148,39 @@ const path = require('path');
             var newDocsData = preData + '\n' + md + '\n\n' + postData;
             
             if (docsData != newDocsData) {
-                fs.writeFileSync(pathPrefix + docsPath, newDocsData);	    
+
+                fs.writeFileSync(filePath, newDocsData);	    
                 console.log('updated ' + docsPath);
+
+                /*
+                let contentOnly = '';
+                let lineNum = 1;
+                let inHeader = true;
+                for(const line of newDocsData.split('\n')) {
+                    if (!inHeader) {
+                        contentOnly += line + '\n';
+                    }
+                    if (line == '---' && lineNum > 1) {
+                        inHeader = false;
+                    }
+                    lineNum++;
+                }
+
+                if '(files') {
+                    const key = docsPath.substr(1);
+                    console.log('key=' + key, files[key]);
+
+                    console.log('old', files[key].contents.toString());
+                    console.log('new', contentOnly);
+
+                    // Remove the leading slash for indexing into files
+                    files[key] = {
+                        contents: Buffer.from(contentOnly, "utf-8"),
+                        mode: '0644',
+                        stats: fs.statSync(filePath)
+                    };
+                }
+                */
             }
         }
         else {
@@ -1417,7 +2192,7 @@ const path = require('path');
     // Do the update
     // Called at the end of this file
     //
-    updater.doUpdate = function(scriptsDir) {
+    updater.doUpdate = function(scriptsDir, files) {
 
         const pathPrefix = path.resolve(scriptsDir, '../src/content');
 
@@ -1429,7 +2204,7 @@ const path = require('path');
                 // updatesObj.guid
                 // updatesObj.generatorFn (generates Markdown)
                 try {
-                    updater.updateDocs(pathPrefix, fileObj.path, updatesObj.guid, updatesObj.generatorFn());
+                    updater.updateDocs(pathPrefix, fileObj.path, updatesObj.guid, updatesObj.generatorFn(), files);
                 }
                 catch(e) {
                     console.log('exception processing ' + updatesObj.guid, e);

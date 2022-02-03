@@ -362,40 +362,40 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404MTY|
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | B404MEA|
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | Fast<sup>1</sup> | GA | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Fast<sup>1</sup> | GA | |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | BRN404TRAY50|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | BRN404KIT|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Sometimes slow<sup>3</sup> | NRND | BRN404KIT|
 | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Sometimes slow<sup>3</sup> | Discontinued | |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | BRN404|
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Fast<sup>1</sup> | GA | |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | GA | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | BRN314TRAY50|
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | BRN314KIT|
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
-| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
-| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | E404TRAY50|
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | E404MOD1|
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | E404KIT|
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Fast<sup>1</sup> | GA | |
-| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Fast<sup>1</sup> | GA | |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
-| E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | Discontinued | BRN314KIT|
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | NRND-US | |
+| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | E404TRAY50|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Discontinued | E404MOD1|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | Discontinued | E404KIT|
+| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Fast<sup>1</sup> | NRND-US | |
+| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
+| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Sometimes slow<sup>3</sup> | Discontinued | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Sometimes slow<sup>3</sup> | Discontinued | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | NRND-US | |
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | NRND | E314MOD1|
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | NRND | E314KIT|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Discontinued | E314MOD1|
+| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | E314KIT|
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
 | E350KIT | Electron 2G Kit (Global) | Generally fast<sup>2</sup> | Discontinued | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Generally fast<sup>2</sup> | NRND | ELC314TY|
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Fast<sup>1</sup> | GA | |
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | ELC404EA|
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | ELC404TY|
-| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Discontinued | ELC404EA|
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | ELC404TY|
+| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
 | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | ONE404MEA|
