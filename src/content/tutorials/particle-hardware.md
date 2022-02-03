@@ -206,6 +206,15 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
+
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :--- | :--- |
+| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
+| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
+| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| GA|
+| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
+
+
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
 #### Boron (Prototyping Gen 3 Cellular)

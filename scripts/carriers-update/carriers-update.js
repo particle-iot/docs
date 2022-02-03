@@ -2108,83 +2108,89 @@ const { option } = require('yargs');
 
         const docsData = fs.readFileSync(filePath, 'utf8');
         
-        let preData = '';
-        let postData = '';
-        let state = 0;
+        let blocks = [];
+        let inGuid = false;
+        let currentBlock = '';
         
         docsData.split("\n").forEach(function(line, index) {
-            switch(state) {
-            case 0:
+            if (!inGuid) {
+                currentBlock += line + '\n';
+
                 if (line.startsWith(replacePrefixBegin + guid)) {
-                    state = 1;
+                    inGuid = true;
+                    if (currentBlock.length) {
+                        blocks.push(currentBlock);
+                        blocks.push(null);
+                    }
+                    currentBlock = '';
                 }
-                preData += line + '\n';
-                break;
-            case 1:
-                // GUID is no longer required on the end marker, since you can't nest these
-                if (line.startsWith(replacePrefixEnd)) {
-                    postData += line + '\n';
-                    state = 2;
-                }
-                break;
-            case 2:
-                postData += line + '\n';
-                break;
             }
-            
+            else {
+                if (line.startsWith(replacePrefixEnd)) {
+                    inGuid = false;
+                    currentBlock = line + '\n';
+                }
+            }            
         });
 
-        // Make postData end with exactly one \n, otherwise it keeps getting one added on each run
-        let len = postData.length;
-        while(len > 0 && postData.charAt(len - 1) == '\n') {
+        if (currentBlock.length) {
+            blocks.push(currentBlock);
+        }
+
+        let newDocsData = '';
+
+        for(const b of blocks) {
+            if (b === null) {
+                newDocsData += '\n' + md + '\n\n';
+            }
+            else {
+                newDocsData += b;
+            }
+        }  
+
+        // Make newDocsData end with exactly one \n, otherwise it keeps getting one added on each run
+        let len = newDocsData.length;
+        while(len > 0 && newDocsData.charAt(len - 1) == '\n') {
             len--;
         }
-        if ((len + 1) < postData.length) {
-            postData = postData.substr(0, len + 1);
+        if ((len + 1) < newDocsData.length) {
+            newDocsData = newDocsData.substring(0, len + 1);
         }
-
         
-        if (preData != '' && postData != '') {
-            var newDocsData = preData + '\n' + md + '\n\n' + postData;
-            
-            if (docsData != newDocsData) {
+        if (docsData != newDocsData) {
 
-                fs.writeFileSync(filePath, newDocsData);	    
-                console.log('updated ' + docsPath);
+            fs.writeFileSync(filePath, newDocsData);	    
+            console.log('updated ' + docsPath);
 
-                /*
-                let contentOnly = '';
-                let lineNum = 1;
-                let inHeader = true;
-                for(const line of newDocsData.split('\n')) {
-                    if (!inHeader) {
-                        contentOnly += line + '\n';
-                    }
-                    if (line == '---' && lineNum > 1) {
-                        inHeader = false;
-                    }
-                    lineNum++;
+            /*
+            let contentOnly = '';
+            let lineNum = 1;
+            let inHeader = true;
+            for(const line of newDocsData.split('\n')) {
+                if (!inHeader) {
+                    contentOnly += line + '\n';
                 }
-
-                if '(files') {
-                    const key = docsPath.substr(1);
-                    console.log('key=' + key, files[key]);
-
-                    console.log('old', files[key].contents.toString());
-                    console.log('new', contentOnly);
-
-                    // Remove the leading slash for indexing into files
-                    files[key] = {
-                        contents: Buffer.from(contentOnly, "utf-8"),
-                        mode: '0644',
-                        stats: fs.statSync(filePath)
-                    };
+                if (line == '---' && lineNum > 1) {
+                    inHeader = false;
                 }
-                */
+                lineNum++;
             }
-        }
-        else {
-            console.log('marker ' + guid + ' missing from ' + docsPath);
+
+            if '(files') {
+                const key = docsPath.substr(1);
+                console.log('key=' + key, files[key]);
+
+                console.log('old', files[key].contents.toString());
+                console.log('new', contentOnly);
+
+                // Remove the leading slash for indexing into files
+                files[key] = {
+                    contents: Buffer.from(contentOnly, "utf-8"),
+                    mode: '0644',
+                    stats: fs.statSync(filePath)
+                };
+            }
+            */
         }
     }
 
