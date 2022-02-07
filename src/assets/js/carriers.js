@@ -673,7 +673,6 @@ const familyMapCreate = function() {
     }
 
     familyMap.clickToShow = function() {
-        console.log('clickToShow', familyMap);
 
         if (!familyMap.initMapStarted) {
             $(familyMap.options.mapDiv).find('.clickToShow').hide();

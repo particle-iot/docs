@@ -1842,7 +1842,6 @@ const { option } = require('yargs');
                     // SKUs by region
                     guid:'921d1b74-0130-49e9-9322-3da75e405e4e',
                     generatorFn:function() {
-                        console.log('skus by region');
                         return updater.generateSkuList({
                             columns: ['region', 'name', 'desc', 'modem', 'ethersim', 'gen', 'lifecycle', 'replacement'],
                             filterFn: function(skuObj) {
@@ -1862,7 +1861,6 @@ const { option } = require('yargs');
                     // SKUs by modem
                     guid:'a85479cf-355b-45c8-9062-db69f037bfea',
                     generatorFn:function() {
-                        console.log('skus by region');
                         return updater.generateSkuList({
                             columns: ['modem', 'name', 'desc', 'region', 'ethersim', 'gen', 'lifecycle', 'replacement'],
                             filterFn: function(skuObj) {
@@ -1882,7 +1880,6 @@ const { option } = require('yargs');
                     // SKUs by SIM
                     guid:'8747e7eb-420e-425e-882c-e10117b77620',
                     generatorFn:function() {
-                        console.log('skus by region');
                         return updater.generateSkuList({
                             columns: ['simName', 'name', 'desc', 'region', 'modem', 'gen', 'lifecycle', 'replacement'],
                             filterFn: function(skuObj) {
@@ -2108,13 +2105,14 @@ const { option } = require('yargs');
                     } 
                 },
                 {
+                    // Ethernet compatible models: All Gen3 except Tracker One
                     guid:'2de596b8-2889-4df7-86d1-910d5551b34f',
                     generatorFn:function() {
                         return updater.generateSkuList({
                             onlyGA: true,
                             columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                             filterFn: function(skuObj) {
-                                return skuObj.gen != '3';
+                                return skuObj.gen != '3' || skuObj.name.includes('ONE');
                             },
                             includeSkus: [
                                 'FWNG-ETH', 'M2EVAL'

@@ -10,7 +10,15 @@ includeDefinitions: [api-helper, carrier-family-map]
 
 *Finding the right Particle hardware for your project*
 
+- If you want an off-the-shelf, complete device with little or no hardware design required, see [off-the-shelf complete](#off-the-shelf-complete) below.
+- One way to start finding the right device is whether you're a hobbyist, prototyping, or producing a product. To start there, see [prototype or production](#prototype-or-production) below.
+- Another way to start is by deciding on [cellular or Wi-Fi](#cellular-or-wi-fi) first.
+
+
 ## Off-the-shelf complete
+
+
+### Tracker One
 
 If you want an off-the-shelf device can requires little or no hardware design, the [Tracker One](/datasheets/asset-tracking/tracker-one/) is a complete system with a waterproof IP67-rated enclosure. In includes cellular connectivity, GNSS (GPS) and Wi-Fi geolocation, and motion detection.
 
@@ -28,7 +36,7 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
 
-Tracker One devices are fully assembled and sealed, all you need to do is plug it once to charge the battery.
+Tracker One devices are fully assembled and sealed, all you need to do is plug it in to charge the battery.
 
 Included inside the fully assembled, sealed enclosure:
 
@@ -39,6 +47,15 @@ Included inside the fully assembled, sealed enclosure:
 - BLE antenna.
 - GNSS (GPS) antenna.
 - NFC tag antenna.
+- Power by USB-C or an external power supply.
+
+#### Country compatibility - Tracker
+
+{{> carrier-family-map family="tracker"}}
+
+#### M8 Expansion - Tracker One
+
+![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
 
 If you are interested in measuring temperature and humidity, an [external sensor](/tutorials/asset-tracking/m8-temperature-humidity/) can be connected to the M8 connector. The connector maintains the waterproof rating when in use.
 
@@ -93,7 +110,7 @@ If you're not sure whether you want Cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
 
-- The Boron 2G/3G (BRN314KIT) is not recommended in the United States due to the [2G/3G shutdown](/tutorials/cellular-connectivity/introduction/#united-states).
+- The Boron 2G/3G (BRN314KIT) should not be deployed in the United States due to the [2G/3G shutdown](/tutorials/cellular-connectivity/introduction/#united-states).
 - The Boron LTE Cat M1 (BRN404KIT) is the recommended model for the United States.
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply.
 - A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
@@ -116,10 +133,13 @@ There are numerous ways to expand Gen 3 devices:
 - [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and displays connect to digital, analog, I2C, and serial devices with a simple 4-pin cable.
 
 
-
 Its also possible to prototype with these easy to use modules, then include the same functionality on a custom board later. The Adafruit and SparkFun designs are all open-source and include hardware design files for EagleCAD.
 
 The [Beyond Prototyping Tutorial](/tutorials/learn-more/beyond-prototyping/) shows examples of how you can move from prototyping to custom circuit boards, with example designs.
+
+For more information about the Boron, see [Cellular - Boron](#boron-prototyping-gen-3-cellular-) below.
+
+For more information about the Argon, see [Wi-Fi - Argon](#argon-prototyping-gen-3-wi-fi-) below.
 
 ### Production
 
@@ -136,61 +156,21 @@ The software for prototyping and production devices is similar. It's often possi
 
 {{blurb name="b-series-overview"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
+For more information about the B Series SoM, see [Cellular - B Series SoM](#b-series-som-production-gen-3-cellular-) below.
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
-| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
-| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| GA|
-| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
-| M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| GA|
-
-
-{{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
-
-- The evaluation board does not include the SoM, be sure to also include a B404MEA or B524MTY.
 
 #### Tracker SoM (Gen 3 Cellular)
 
 {{blurb name="tracker-som-overview"}}
 
+For more information about the Tracker SoM, see [Cellular - Tracker SoM](#tracker-gen-3-cellular-) below.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 88844fc4-c390-44ff-9254-2fa41e2b8963 --}}
-
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| GA|
-| T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| GA|
-| T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| GA|
-| T524MEA| Tracker SoM LTE CAT1/3G/2G (Europe), [x1]| EMEAA| GA|
-| T524MKIT| Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]| EMEAA| GA|
-| T524MTY| Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
-
-
-{{!-- END do not edit content above, it is automatically generated 88844fc4-c390-44ff-9254-2fa41e2b8963 --}}
 
 #### E Series (Gen 2 Cellular)
 
 {{blurb name="e-series-overview"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
-
-| SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
-| :--- | :--- | :--- | :---: | :---: | :--- |
-| E310TRAY50| E Series 2G/3G (Global - E310), Tray [x50]| Global| | | NRND-US|
-| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| &check;| &check;| NRND-US|
-| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| | &check;| NRND-US|
-| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| | | NRND-US|
-| E402TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | &check;| NRND-US|
-| E404KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| NORAM| &check;| &check;| NRND-US|
-| E404MOD1| E Series LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| NRND-US|
-| E404TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | NRND-US|
-
-
-{{!-- END do not edit content above, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
-
-If you are currently using a Gen 2 cellular device (Electron or E Series) and are interested in migrating to a Gen 3 device (Boron or B Series SoM), see [Gen 2 Cellular Migration](/tutorials/learn-more/gen2-cellular-migration/).
+For more information about the E Series module, see [Cellular - E Series](#e-series-production-gen-2-cellular-) below.
 
 
 #### P1 (Gen 2 Wi-Fi)
@@ -201,15 +181,8 @@ The P1 module is a Wi-Fi module that you reflow solder to your own custom base b
 
 {{blurb name="argon-p1-table"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b --}}
+For more information about the P1 module, see [Wi-Fi - P1](/#p1-production-gen-2-wi-fi-) below.
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| P1MOD10| P1 Wi-Fi Module, Cut tape [x10]| Global| GA|
-| P1REEL| P1 Wi-Fi Module, Reel [x500]| Global| GA|
-
-
-{{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
 
 ## Cellular or Wi-Fi
 
@@ -243,6 +216,8 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
+- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
+
 #### Boron (Prototyping Gen 3 Cellular)
 
 {{blurb name="boron-overview"}}
@@ -263,9 +238,14 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 {{!-- END do not edit content above, it is automatically generated 518869dc-61de-43db-add1-f0d57956c4e0 --}}
 
+- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
+
+
 #### Tracker (Gen 3 Cellular)
 
-There are two variations of the Tracker
+The Tracker SoM is a SMD module intended to be reflowed to your own base board to create your product. The Tracker One is a complete integrated design with a sealed IP67 waterproof enclosure with a battery and all necessary antenna included inside the enclosure. The Tracker One contains the Tracker SoM internally.
+
+{{blurb name="tracker-som-overview"}}
 
 {{> carrier-family-map family="tracker"}}
 
@@ -288,10 +268,16 @@ There are two variations of the Tracker
 
 {{!-- END do not edit content above, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
 
+- The T404, T402, ONE404, ONE402 cannot be used in Central or South America.
+- The T524 and ONE524 are only recommended for use in Europe, Australia, and New Zealand.
+- The T524, T523, ONE524, ONE523 do not work out of the EMEAA region.
+- See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
+- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
 
 #### E Series (Production Gen 2 Cellular)
 
-If you are currently using a Gen 2 cellular device (Electron or E Series) and are interested in migrating to a Gen 3 device (Boron or B Series SoM), see [Gen 2 Cellular Migration](/tutorials/learn-more/gen2-cellular-migration/).
+{{blurb name="e-series-overview"}}
+
 
 {{> carrier-family-map family="e series"}}
 
@@ -312,13 +298,34 @@ If you are currently using a Gen 2 cellular device (Electron or E Series) and ar
 
 {{!-- END do not edit content above, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
 
+- Global models except in areas that have or will soon discontinue the use of 2G/3G, including the United States.
+- Do not deploy the E314 or E310 in the United States, see [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
+- See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
+- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
+- If you are currently using a Gen 2 cellular device (Electron or E Series) and are interested in migrating to a Gen 3 device (Boron or B Series SoM), see [Gen 2 Cellular Migration](/tutorials/learn-more/gen2-cellular-migration/).
+
 
 ### Wi-Fi
 
+There are two currently available Wi-Fi devices, the P1 and the Argon:
+
 {{blurb name="argon-p1-table"}}
 
+For product creators, Wi-Fi devices require a way to set the Wi-Fi credentials for the user's Wi-Fi network. This is typically done using a custom mobile app. The P1 has an available Device Setup SDK that makes it easy to create a custom white-label mobile app to set up the P1. This does not exist for the Argon at this time.
+
+| | P1 | Argon |
+| :--- | :---: | :---: |
+| Configuration via | Wi-Fi | BLE |
+| Setup SDK for iOS and Android | &check; | |
+| Enterprise Wi-Fi | &check; | |
+| 2.4 GHz Wi-Fi b/g/n | &check; | &check; |
+| 5 GHz Wi-Fi b/g/n | | |
 
 #### Argon (Prototyping Gen 3 Wi-Fi)
+
+![](/assets/images/argon/argon-top.png)
+
+The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom).
 
 {{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
 
@@ -335,6 +342,10 @@ If you are currently using a Gen 2 cellular device (Electron or E Series) and ar
 
 
 #### P1 (Production Gen 2 Wi-Fi)
+
+<div align="center"><img src="/assets/images/p1-vector.png" width="200"></div>
+
+The P1 is intended for production use. Even though the P1 is an older Gen 2 design, it is still safe to design to the P1-form factor.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b --}}
 
@@ -378,9 +389,14 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 
 ### Ethernet
 
+![](/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png)
+
+
 The Argon and Boron are compatible with the [Ethernet Featherwing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
 
 With the B Series SoM you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. The [B Series Eval Board](/datasheets/boron/b-series-eval-board/) includes this circuitry.
+
+You can also include Ethernet functionality on your Tracker SoM base board, but this is an unusual configuration and the [Tracker SoM Eval board](/datasheets/asset-tracking/tracker-som-eval-board/) does not include Ethernet. 
 
 It is not possible to use Ethernet with Gen 2 devices (Photon, P1, Electron, or E Series).
 
@@ -403,10 +419,6 @@ Ethernet is only intended for use as a method of connecting to the Internet. It 
 | BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
 | FWNG-ETH| Particle Ethernet FeatherWing, [x1]| Global| | | GA|
 | M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| | | GA|
-| ONE404MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| &check;| &check;| GA|
-| ONE404MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| &check;| &check;| GA|
-| ONE524MEA| Tracker One LTE CAT1/3G/2G (Europe), [x1]| EMEAA| &check;| &check;| GA|
-| ONE524MTY| Tracker One CAT1/3G/2G (Europe), Bulk [x40]| EMEAA| &check;| &check;| GA|
 | T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| | &check;| GA|
 | T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| | &check;| GA|
 | T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| | | GA|
