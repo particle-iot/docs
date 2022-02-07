@@ -43,6 +43,8 @@ Particle has a wide variety of cellular devices to suit many applications. There
 
 {{blurb name="b-series-overview"}}
 
+{{blurb name="b-series-models"}}
+
 {{!-- BEGIN do not edit content below, it is automatically generated 295a969b-7ffa-4f84-8234-7e4cb38d1f10 --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |

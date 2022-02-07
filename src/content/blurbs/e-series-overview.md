@@ -6,7 +6,7 @@ The E Series module is a 2nd-generation cellular device that is reflow soldered 
 | Feature | Electron | E Series Module | Base Board |
 | --- | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | &nbsp; |
-| MFF2 SMD Particle SIM | &nbsp; | &check; | &nbsp; |
+| MFF2 SMD Particle SIM<sup>1</sup> | &nbsp; | &check; | &nbsp; |
 | Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; |
 | USB Connector | &check; | &nbsp; | Optional |
 | Status LED | &check; | &nbsp; | Optional |
@@ -14,4 +14,5 @@ The E Series module is a 2nd-generation cellular device that is reflow soldered 
 | Battery Connector | &check; | &nbsp; | Optional |
 | PMIC and Fuel Gauge| &check; | &check; | |
 
+<sup>1</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
 

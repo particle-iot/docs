@@ -11,3 +11,5 @@
 | Status LED | Optional | &check; |
 | Reset and Mode Buttons | Optional | &check; |
 | LiPo Battery Connector | | &check; | 
+| Size | 28mm x 20mm | 51mm x 23mm |
+|      | 1.1" x 0.8" | 2.0" x 0.9" |

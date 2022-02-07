@@ -36,7 +36,7 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
 
-Tracker One devices are fully assembled and sealed, all you need to do is plug it in to charge the battery.
+The Tracker One is fully assembled and sealed; all you need to do is plug it in to wake it from shipping mode and you can immediately begin using it with no programming or assembly necessary!
 
 Included inside the fully assembled, sealed enclosure:
 
@@ -94,7 +94,7 @@ Even though these devices are ideal for prototyping, you can also scale with the
 
 There are also evaluation kits for the B Series SoM, Tracker SoM, and E Series modules that can be used for prototyping with those modules.
 
-If you're not sure whether you want Cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
+If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
 
@@ -145,7 +145,7 @@ For more information about the Argon, see [Wi-Fi - Argon](#argon-prototyping-gen
 
 When producing at scale, you may prefer to use devices that you reflow solder to your own base board (E Series, P1, and Tracker SoM) or securely mount in a M.2 socket (B Series SoM).
 
-If you're not sure whether you want Cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
+If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
 While you can use prototyping devices at scale, if you will be needing devices over a long period of time, production devices will generally be maintained for a longer period of time. For example, the Electron (prototyping) was discontinued before the E Series (production), even though both have similar hardware.
 
@@ -201,7 +201,14 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 {{blurb name="b-series-overview"}}
 
+{{blurb name="b-series-models"}}
+
 {{> carrier-family-map family="b series"}}
+
+
+- [B404 datasheet](/datasheets/boron/b402-datasheet/)
+- [B524 datasheet](/datasheets/boron/b523-datasheet/)
+- [B Series evaluation board](/datasheets/boron/b-series-eval-board/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
@@ -222,7 +229,13 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 {{blurb name="boron-overview"}}
 
+{{blurb name="boron-models"}}
+
 {{> carrier-family-map family="boron"}}
+
+- [Boron datasheet](/datasheets/boron/boron-datasheet/)
+- [Ways to expand Gen 3 feather devices](#prototyping) (above)
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated 518869dc-61de-43db-add1-f0d57956c4e0 --}}
 
@@ -249,6 +262,9 @@ The Tracker SoM is a SMD module intended to be reflowed to your own base board t
 
 {{> carrier-family-map family="tracker"}}
 
+- [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/)
+- [Tracker SoM evaluation board](/datasheets/asset-tracking/tracker-som-eval-board/)
+- [Tracker One datasheet](/datasheets/asset-tracking/tracker-one/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
 
@@ -281,6 +297,9 @@ The Tracker SoM is a SMD module intended to be reflowed to your own base board t
 
 {{> carrier-family-map family="e series"}}
 
+- [E Series datasheet](/datasheets/electron/e-series-datasheet/)
+- [E Series evaluation board](/datasheets/electron/e-series-eval-board/)
+- [E Series integration guide](/datasheets/electron/e-series-system-integration-manual/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
 
@@ -327,6 +346,9 @@ For product creators, Wi-Fi devices require a way to set the Wi-Fi credentials f
 
 The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom).
 
+- [Argon datasheet](/datasheets/wi-fi/argon-datasheet/)
+- [Ways to expand Gen 3 feather devices](#prototyping) (above)
+
 {{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
 
 | SKU | Description | Region | Lifecycle |
@@ -346,6 +368,8 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 <div align="center"><img src="/assets/images/p1-vector.png" width="200"></div>
 
 The P1 is intended for production use. Even though the P1 is an older Gen 2 design, it is still safe to design to the P1-form factor.
+
+- [P1 datasheet](/datasheets/wi-fi/p1-datasheet/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b --}}
 
