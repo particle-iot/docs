@@ -16,3 +16,17 @@ One of the benefits is that many of the extra features on the Boron have been om
 | PMIC and Fuel Gauge<sup>1</sup> | &check; | &nbsp; | Optional | &check; | 
 
 <sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
+
+The available models include:
+
+| Model | Region | EtherSIM | Bands | Replacement |
+| :--- | :--- | :---: | :--- | :--- |
+| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | |
+| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | |
+| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Use B404 instead |
+| B523 | Europe | | LTE Cat 1, 2G, 3G | Use B524 instead |
+
+- The B404 (and B402) cannot be used in Central or South America.
+- The B524 is only recommended for use in Europe, Australia, and New Zealand.
+- The B524 (and B523) do not work out of the EMEAA region.
+- See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries

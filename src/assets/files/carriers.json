@@ -19081,7 +19081,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
-      "inStock": "yes"
+      "inStock": "yes",
+      "batteryConn": true
     },
     {
       "name": "ARG-LDKT",
@@ -19102,7 +19103,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "batteryConn": true
     },
     {
       "name": "ARG-STRTKT",
@@ -19130,7 +19132,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
-      "inStock": "yes"
+      "inStock": "yes",
+      "batteryConn": true
     },
     {
       "name": "ARGN-H",
@@ -19158,6 +19161,7 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryConn": true,
       "maxOrder": 10
     },
     {
@@ -19186,6 +19190,7 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryConn": true,
       "maxOrder": 10
     },
     {
@@ -19213,7 +19218,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ASSET2GV2",
@@ -19234,7 +19240,8 @@
       "gnssAntInt": true,
       "gnssAntIntInc": true,
       "gnssAntExt": true,
-      "gnssAntExtInc": false
+      "gnssAntExtInc": false,
+      "batteryConn": true
     },
     {
       "name": "ASSET3G260V2",
@@ -19255,7 +19262,8 @@
       "gnssAntInt": true,
       "gnssAntIntInc": true,
       "gnssAntExt": true,
-      "gnssAntExtInc": false
+      "gnssAntExtInc": false,
+      "batteryConn": true
     },
     {
       "name": "ASSET3G270V2",
@@ -19276,7 +19284,8 @@
       "gnssAntInt": true,
       "gnssAntIntInc": true,
       "gnssAntExt": true,
-      "gnssAntExtInc": false
+      "gnssAntExtInc": false,
+      "batteryConn": true
     },
     {
       "name": "B402MEA",
@@ -19307,7 +19316,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B402MTY",
@@ -19338,7 +19348,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B404MEA",
@@ -19368,7 +19379,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B404MTY",
@@ -19398,7 +19410,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B523MEA",
@@ -19430,7 +19443,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B523MTY",
@@ -19462,7 +19476,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B524MEA",
@@ -19492,7 +19507,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B524MTY",
@@ -19522,7 +19538,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BAT1800",
@@ -19565,7 +19582,9 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "BRN310TRAY50",
@@ -19598,7 +19617,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN314KIT",
@@ -19630,6 +19650,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryInc": true,
+      "batteryConn": true,
       "maxOrder": 5
     },
     {
@@ -19661,7 +19683,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN402",
@@ -19693,7 +19716,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN402-AQKT",
@@ -19718,7 +19742,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "batteryConn": true
     },
     {
       "name": "BRN402KIT",
@@ -19750,7 +19775,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN402TRAY50",
@@ -19782,7 +19808,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN404",
@@ -19813,7 +19840,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN404KIT",
@@ -19845,6 +19873,7 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryConn": true,
       "maxOrder": 10
     },
     {
@@ -19876,7 +19905,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E260KIT",
@@ -19895,7 +19925,9 @@
       "skuClass": "kit",
       "skuRegion": "americas",
       "cellAnt": "ANTELEC",
-      "cellAntInc": true
+      "cellAntInc": true,
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E260TRAY50",
@@ -19914,7 +19946,8 @@
       "skuClass": "production",
       "skuRegion": "americas",
       "cellAnt": "ANTELEC",
-      "cellAntInc": false
+      "cellAntInc": false,
+      "batteryConn": true
     },
     {
       "name": "E270KIT",
@@ -19933,7 +19966,9 @@
       "skuClass": "kit",
       "skuRegion": "emeaa",
       "cellAnt": "ANTELEC",
-      "cellAntInc": true
+      "cellAntInc": true,
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E270TRAY50",
@@ -19952,7 +19987,8 @@
       "skuClass": "production",
       "skuRegion": "emeaa",
       "cellAnt": "ANTELEC",
-      "cellAntInc": false
+      "cellAntInc": false,
+      "batteryConn": true
     },
     {
       "name": "E310KIT",
@@ -19972,7 +20008,9 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E310MOD1",
@@ -19992,7 +20030,8 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryConn": true
     },
     {
       "name": "E310TRAY50",
@@ -20017,7 +20056,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E313EA",
@@ -20036,7 +20076,8 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryConn": true
     },
     {
       "name": "E313TRAY50",
@@ -20055,7 +20096,8 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryConn": true
     },
     {
       "name": "E314KIT",
@@ -20081,6 +20123,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryInc": true,
+      "batteryConn": true,
       "noProduction": true
     },
     {
@@ -20107,6 +20151,7 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryConn": true,
       "noProduction": true
     },
     {
@@ -20133,6 +20178,7 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryConn": true,
       "noProduction": true
     },
     {
@@ -20150,7 +20196,8 @@
       "skuClass": "kit",
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
-      "cellAntInc": true
+      "cellAntInc": true,
+      "batteryConn": true
     },
     {
       "name": "E350TRAY50",
@@ -20169,7 +20216,8 @@
       "skuClass": "production",
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
-      "cellAntInc": false
+      "cellAntInc": false,
+      "batteryConn": true
     },
     {
       "name": "E402KIT",
@@ -20189,7 +20237,9 @@
       "skuRegion": "noram",
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E402MOD1",
@@ -20209,7 +20259,8 @@
       "skuRegion": "noram",
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryConn": true
     },
     {
       "name": "E402TRAY50",
@@ -20235,7 +20286,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E404KIT",
@@ -20260,7 +20312,9 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E404MOD1",
@@ -20285,7 +20339,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E404TRAY50",
@@ -20310,7 +20365,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ELC314TY",
@@ -20334,7 +20390,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ELC402EA",
@@ -20354,7 +20411,8 @@
       "skuRegion": "noram",
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
+      "cellAntAlt": "ANTCW2EA",
+      "batteryConn": true
     },
     {
       "name": "ELC402TY",
@@ -20380,7 +20438,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ELC404TY",
@@ -20405,7 +20464,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "FWNG-ETH",
@@ -20615,6 +20675,7 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryInc": true,
       "maxOrder": 2
     },
     {
@@ -20651,7 +20712,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryInc": true
     },
     {
       "name": "ONE404MEA",
@@ -20687,7 +20749,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
-      "inStock": "no"
+      "inStock": "no",
+      "batteryInc": true
     },
     {
       "name": "ONE404MTY",
@@ -20722,7 +20785,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryInc": true
     },
     {
       "name": "ONE523MEA",
@@ -20760,6 +20824,7 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
+      "batteryInc": true,
       "maxOrder": 5
     },
     {
@@ -20798,7 +20863,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": false,
-      "inStock": "yes"
+      "inStock": "yes",
+      "batteryInc": true
     },
     {
       "name": "ONE524MEA",
@@ -20834,7 +20900,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": false,
-      "inStock": "no"
+      "inStock": "no",
+      "batteryInc": true
     },
     {
       "name": "ONE524MTY",
@@ -20869,7 +20936,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "batteryInc": true
     },
     {
       "name": "ONEM8CABEA",
@@ -21216,7 +21284,8 @@
       "skuClass": "kit",
       "skuRegion": "americas",
       "cellAnt": "ANT-ELEC",
-      "cellAntInc": true
+      "cellAntInc": true,
+      "batteryConn": true
     },
     {
       "name": "SNSRKIT3G270",
@@ -21234,7 +21303,8 @@
       "skuClass": "kit",
       "skuRegion": "emeaa",
       "cellAnt": "ANT-ELEC",
-      "cellAntInc": true
+      "cellAntInc": true,
+      "batteryConn": true
     },
     {
       "name": "SPKBTTN",

@@ -3,6 +3,7 @@ title: Particle Hardware
 columns: two
 layout: commonTwo.hbs
 description: Learn about selecting the right hardware for your project
+includeDefinitions: [api-helper, carrier-family-map]
 ---
 
 # {{title}}
@@ -26,6 +27,18 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
+
+Tracker One devices are fully assembled and sealed, all you need to do is plug it once to charge the battery.
+
+Included inside the fully assembled, sealed enclosure:
+
+- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- 2000 mAh LiPo battery.
+- Cellular antenna.
+- Wi-Fi antenna (for geolocation only, not for connectivity).
+- BLE antenna.
+- GNSS (GPS) antenna.
+- NFC tag antenna.
 
 If you are interested in measuring temperature and humidity, an [external sensor](/tutorials/asset-tracking/m8-temperature-humidity/) can be connected to the M8 connector. The connector maintains the waterproof rating when in use.
 
@@ -62,27 +75,31 @@ Gen 3 devices use the Adafruit Feather form-factory so easily add accessories li
 
 Even though these devices are ideal for prototyping, you can also scale with the Argon and Boron. For example, you may mount the device in a socket in your own custom circuit board when you're ready to scale, instead of using solderless breadboards or off-the-shelf Feather adapters.
 
+There are also evaluation kits for the B Series SoM, Tracker SoM, and E Series modules that can be used for prototyping with those modules.
+
 If you're not sure whether you want Cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| ARG-STRTKT| Argon Starter Kit [x1]| Global| GA|
-| ARGN-H| Argon [x1]| Global| GA|
-| ARGNKIT| Argon, Starter Kit  [x1]| Global| GA|
-| ARGNTRAY50| Argon, Tray [x50]| Global| GA|
-| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| NRND-US|
-| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| NRND-US|
-| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
-| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| GA|
-| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
+| SKU | Description | Region | Battery Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :--- |
+| ARG-STRTKT| Argon Starter Kit [x1]| Global| | GA|
+| ARGN-H| Argon [x1]| Global| | GA|
+| ARGNKIT| Argon, Starter Kit  [x1]| Global| | GA|
+| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
+| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | GA|
+| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| NRND-US|
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
 
-- The Boron 2G/3G (BRN314KIT and BRN314TRAY50) is not recommended in the United States due to the upcoming shutdown of 2G and 3G cellular networks in the United States. These devices will no longer function after the shutdown date.
-- The Boron LTE Cat M1 (BRN404KIT and BRN404TRAY50) is the recommended model for the United States.
+- The Boron 2G/3G (BRN314KIT) is not recommended in the United States due to the [2G/3G shutdown](/tutorials/cellular-connectivity/introduction/#united-states).
+- The Boron LTE Cat M1 (BRN404KIT) is the recommended model for the United States.
+- Can be powered by USB, rechargeable LiPo battery, or an external power supply.
+- A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
+- All Boron devices include a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one photodiode.
+- ARG-STRTKT includes a variety of [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
 
 There are numerous ways to expand Gen 3 devices:
 
@@ -96,6 +113,9 @@ There are numerous ways to expand Gen 3 devices:
   - Relays
   - Keypads
   - Small displays
+- [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and displays connect to digital, analog, I2C, and serial devices with a simple 4-pin cable.
+
+
 
 Its also possible to prototype with these easy to use modules, then include the same functionality on a custom board later. The Adafruit and SparkFun designs are all open-source and include hardware design files for EagleCAD.
 
@@ -124,10 +144,12 @@ The software for prototyping and production devices is similar. It's often possi
 | B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
 | B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| GA|
 | B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
+| M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| GA|
 
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
+- The evaluation board does not include the SoM, be sure to also include a B404MEA or B524MTY.
 
 #### Tracker SoM (Gen 3 Cellular)
 
@@ -154,16 +176,16 @@ The software for prototyping and production devices is similar. It's often possi
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| E310TRAY50| E Series 2G/3G (Global - E310), Tray [x50]| Global| NRND-US|
-| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| NRND-US|
-| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| NRND-US|
-| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| NRND-US|
-| E402TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| NRND-US|
-| E404KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| NORAM| NRND-US|
-| E404MOD1| E Series LTE CAT-M1 (NorAm), [x1]| NORAM| NRND-US|
-| E404TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| NRND-US|
+| SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| E310TRAY50| E Series 2G/3G (Global - E310), Tray [x50]| Global| | | NRND-US|
+| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| &check;| &check;| NRND-US|
+| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| | &check;| NRND-US|
+| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| | | NRND-US|
+| E402TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | &check;| NRND-US|
+| E404KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| NORAM| &check;| &check;| NRND-US|
+| E404MOD1| E Series LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| NRND-US|
+| E404TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | NRND-US|
 
 
 {{!-- END do not edit content above, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
@@ -204,6 +226,9 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 #### B Series SoM (Production Gen 3 Cellular)
 
+{{blurb name="b-series-overview"}}
+
+{{> carrier-family-map family="b series"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
@@ -213,22 +238,27 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 | B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
 | B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| GA|
 | B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
+| M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| GA|
 
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
 #### Boron (Prototyping Gen 3 Cellular)
 
+{{blurb name="boron-overview"}}
+
+{{> carrier-family-map family="boron"}}
+
 {{!-- BEGIN do not edit content below, it is automatically generated 518869dc-61de-43db-add1-f0d57956c4e0 --}}
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
-| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| GA|
-| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
-| BRN310TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| NRND-US|
-| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| NRND-US|
-| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| NRND-US|
+| SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | &check;| GA|
+| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| BRN310TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | | NRND-US|
+| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| &check;| NRND-US|
+| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | | NRND-US|
 
 
 {{!-- END do not edit content above, it is automatically generated 518869dc-61de-43db-add1-f0d57956c4e0 --}}
@@ -237,10 +267,50 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 There are two variations of the Tracker
 
+{{> carrier-family-map family="tracker"}}
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
+
+| SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| ONE404MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| &check;| &check;| GA|
+| ONE404MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| &check;| &check;| GA|
+| ONE524MEA| Tracker One LTE CAT1/3G/2G (Europe), [x1]| EMEAA| &check;| &check;| GA|
+| ONE524MTY| Tracker One CAT1/3G/2G (Europe), Bulk [x40]| EMEAA| &check;| &check;| GA|
+| T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| | &check;| GA|
+| T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| T524MEA| Tracker SoM LTE CAT1/3G/2G (Europe), [x1]| EMEAA| | &check;| GA|
+| T524MKIT| Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]| EMEAA| | &check;| GA|
+| T524MTY| Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]| EMEAA| | &check;| GA|
+
+
+{{!-- END do not edit content above, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
+
 
 #### E Series (Production Gen 2 Cellular)
 
 If you are currently using a Gen 2 cellular device (Electron or E Series) and are interested in migrating to a Gen 3 device (Boron or B Series SoM), see [Gen 2 Cellular Migration](/tutorials/learn-more/gen2-cellular-migration/).
+
+{{> carrier-family-map family="e series"}}
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
+
+| SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| E310TRAY50| E Series 2G/3G (Global - E310), Tray [x50]| Global| | | NRND-US|
+| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| &check;| &check;| NRND-US|
+| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| | &check;| NRND-US|
+| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| | | NRND-US|
+| E402TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | &check;| NRND-US|
+| E404KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| NORAM| &check;| &check;| NRND-US|
+| E404MOD1| E Series LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| NRND-US|
+| E404TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | NRND-US|
+
+
+{{!-- END do not edit content above, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
 
 
 ### Wi-Fi
@@ -250,9 +320,31 @@ If you are currently using a Gen 2 cellular device (Electron or E Series) and ar
 
 #### Argon (Prototyping Gen 3 Wi-Fi)
 
+{{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
+
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :--- | :--- |
+| ARG-AQKT| Argon Air Quality Monitor Kit [x1]| Global| GA|
+| ARG-STRTKT| Argon Starter Kit [x1]| Global| GA|
+| ARGN-H| Argon [x1]| Global| GA|
+| ARGNKIT| Argon, Starter Kit  [x1]| Global| GA|
+| ARGNTRAY50| Argon, Tray [x50]| Global| GA|
+
+
+{{!-- END do not edit content above, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10--}}
 
 
 #### P1 (Production Gen 2 Wi-Fi)
+
+{{!-- BEGIN do not edit content below, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b --}}
+
+| SKU | Description | Region | Lifecycle |
+| :--- | :--- | :--- | :--- |
+| P1MOD10| P1 Wi-Fi Module, Cut tape [x10]| Global| GA|
+| P1REEL| P1 Wi-Fi Module, Reel [x500]| Global| GA|
+
+
+{{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
 
 
 ### Both Cellular and Wi-Fi
@@ -266,22 +358,22 @@ If you want an option of cellular or Wi-Fi in your product, you'll need two or t
 
 These modules are pin-compatible in the Feather form-factor, so you can make two versions of your hardware, one cellular and one Wi-Fi, which you can use depending on local connectivity, for example.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5 --}}
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| ARG-STRTKT| Argon Starter Kit [x1]| Global| GA|
-| ARGN-H| Argon [x1]| Global| GA|
-| ARGNKIT| Argon, Starter Kit  [x1]| Global| GA|
-| ARGNTRAY50| Argon, Tray [x50]| Global| GA|
-| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| NRND-US|
-| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| NRND-US|
-| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
-| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| GA|
-| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
+| SKU | Description | Region | Battery Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :--- |
+| ARG-STRTKT| Argon Starter Kit [x1]| Global| | GA|
+| ARGN-H| Argon [x1]| Global| | GA|
+| ARGNKIT| Argon, Starter Kit  [x1]| Global| | GA|
+| ARGNTRAY50| Argon, Tray [x50]| Global| | GA|
+| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
+| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | GA|
+| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | GA|
+| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| NRND-US|
+| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | NRND-US|
 
 
-{{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
+{{!-- END do not edit content above, it is automatically generated a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5 --}}
 
 
 ### Ethernet
@@ -296,33 +388,33 @@ Ethernet is only intended for use as a method of connecting to the Internet. It 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}
 
-| SKU | Description | Region | Lifecycle |
-| :--- | :--- | :--- | :--- |
-| ARG-STRTKT| Argon Starter Kit [x1]| Global| GA|
-| ARGN-H| Argon [x1]| Global| GA|
-| ARGNKIT| Argon, Starter Kit  [x1]| Global| GA|
-| ARGNTRAY50| Argon, Tray [x50]| Global| GA|
-| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
-| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
-| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| GA|
-| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
-| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
-| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| GA|
-| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
-| FWNG-ETH| Particle Ethernet FeatherWing, [x1]| Global| GA|
-| M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| GA|
-| ONE404MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| GA|
-| ONE404MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| GA|
-| ONE524MEA| Tracker One LTE CAT1/3G/2G (Europe), [x1]| EMEAA| GA|
-| ONE524MTY| Tracker One CAT1/3G/2G (Europe), Bulk [x40]| EMEAA| GA|
-| T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| GA|
-| T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| GA|
-| T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| GA|
-| T524MEA| Tracker SoM LTE CAT1/3G/2G (Europe), [x1]| EMEAA| GA|
-| T524MKIT| Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]| EMEAA| GA|
-| T524MTY| Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
-| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| NRND-US|
-| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| NRND-US|
+| SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| ARG-STRTKT| Argon Starter Kit [x1]| Global| | | GA|
+| ARGN-H| Argon [x1]| Global| | | GA|
+| ARGNKIT| Argon, Starter Kit  [x1]| Global| | | GA|
+| ARGNTRAY50| Argon, Tray [x50]| Global| | | GA|
+| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| | &check;| GA|
+| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| | | GA|
+| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | &check;| GA|
+| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| FWNG-ETH| Particle Ethernet FeatherWing, [x1]| Global| | | GA|
+| M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| | | GA|
+| ONE404MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| &check;| &check;| GA|
+| ONE404MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| &check;| &check;| GA|
+| ONE524MEA| Tracker One LTE CAT1/3G/2G (Europe), [x1]| EMEAA| &check;| &check;| GA|
+| ONE524MTY| Tracker One CAT1/3G/2G (Europe), Bulk [x40]| EMEAA| &check;| &check;| GA|
+| T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| | &check;| GA|
+| T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| T524MEA| Tracker SoM LTE CAT1/3G/2G (Europe), [x1]| EMEAA| | &check;| GA|
+| T524MKIT| Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]| EMEAA| | &check;| GA|
+| T524MTY| Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]| EMEAA| | &check;| GA|
+| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| &check;| NRND-US|
+| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | | NRND-US|
 
 
 {{!-- END do not edit content above, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}

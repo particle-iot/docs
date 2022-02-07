@@ -593,8 +593,15 @@ const { option } = require('yargs');
         const hasReplacements = skus.some((e) => !!e.replacement);
 
         const columnDefinitions = {
-            name: {
-                title: 'SKU'
+            batteryInc: {
+                title: 'Battery Inc',
+                checkmark: true,
+                align: 'center'
+            },
+            cellAntInc: {
+                title: 'Cell Ant Inc',
+                checkmark: true,
+                align: 'center'
             },
             desc: {
                 title: 'Description'
@@ -604,21 +611,24 @@ const { option } = require('yargs');
                 checkmark: true,
                 align: 'center'
             },
+            gen: {
+                title: 'Gen',
+                align: 'center'
+            },
             inStock: {
                 title: 'In Stock',
                 align: 'center'
+            },
+            name: {
+                title: 'SKU'
+            },
+            simName: {
+                title: 'SIM'
             },
             skuClass: {
                 title: 'Class',
                 capitalizeValue: true
             },
-            gen: {
-                title: 'Gen',
-                align: 'center'
-            },
-            simName: {
-                title: 'SIM'
-            }
 
             // region, modem, lifecycle, replacement
         };
@@ -1975,43 +1985,47 @@ const { option } = require('yargs');
                     } 
                 },
                 {
+                    // Argon and Boron, no quantity packs
                     guid:'455bf1d0-0230-4074-bfa7-99ce6e4f6245',
                     generatorFn:function() {
                         return updater.generateSkuList({
                             onlyGA: true,
-                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'lifecycle'],
                             filterFn: function(skuObj) {
+                                if (skuObj.multiple) {
+                                    return true;
+                                }
                                 return skuObj.gen != '3' || (skuObj.skuClass != 'prototyping' && skuObj.skuClass != 'kit');
-                            },
-                            sortFn: function(a, b) {
-                                /*
-                                const aKit = a.skuClass == 'kit';
-                                const bKit = b.skuClass == 'kit';
-
-                                // Put kits at the end of the list
-                                if (aKit && !bKit) {
-                                    return +1;
-                                }
-                                else
-                                if (!aKit && bKit) {
-                                    return -1;
-                                }
-                                */
-
-                                return a.name.localeCompare(b.name);
                             },
                             omitSkus: [
                                 'BRN310TRAY50', 'ARG-AQKT'
                             ]
                         }); 
                     } 
-                },                
+                },                               
+                {
+                    // Argon and Boron, include multi-packs
+                    guid:'a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.gen != '3' || (skuObj.skuClass != 'prototyping' && skuObj.skuClass != 'kit');
+                            },
+                            omitSkus: [
+                                'BRN310TRAY50', 'ARG-AQKT'
+                            ]
+                        }); 
+                    } 
+                },               
+
                 {
                     guid:'518869dc-61de-43db-add1-f0d57956c4e0',
                     generatorFn:function() {
                         return updater.generateSkuList({
                             onlyGA: true,
-                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                             filterFn: function(skuObj) {
                                 return skuObj.family != 'boron';
                             },
@@ -2027,6 +2041,7 @@ const { option } = require('yargs');
                             filterFn: function(skuObj) {
                                 return skuObj.family != 'b series';
                             },
+                            includeSkus:['M2EVAL'],
                         }); 
                     } 
                 },
@@ -2043,11 +2058,37 @@ const { option } = require('yargs');
                     } 
                 },
                 {
-                    guid:'5e188545-21ff-4ef8-9510-155caea7014e',
+                    // All trackers
+                    guid:'b9f495c6-80bc-49d7-a4b7-cb210f89fb65',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'tracker';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // Argon
+                    guid:'a1f313d4-5b1a-409e-b03c-32ebec003b10',
                     generatorFn:function() {
                         return updater.generateSkuList({
                             onlyGA: true,
                             columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'argon';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5e188545-21ff-4ef8-9510-155caea7014e',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                             filterFn: function(skuObj) {
                                 return skuObj.family != 'e series';
                             },
@@ -2071,7 +2112,7 @@ const { option } = require('yargs');
                     generatorFn:function() {
                         return updater.generateSkuList({
                             onlyGA: true,
-                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                             filterFn: function(skuObj) {
                                 return skuObj.gen != '3';
                             },
