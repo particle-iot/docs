@@ -357,10 +357,15 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Fast<sup>1</sup> | GA | |
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B524MTY|
 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | NRND | B524MEA|
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
 | B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404MTY|
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | B404MEA|
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | Fast<sup>1</sup> | GA | |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Fast<sup>1</sup> | GA | |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |

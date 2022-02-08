@@ -197,12 +197,17 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM| B402MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| R410| | 3| NRND| B404MTY|
 | NORAM| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| R410| &check;| 3| GA| |
 | NORAM| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| R410| &check;| 3| GA| |
+| NORAM| B404XMEA| B Series LTE CAT-M1 (NorAm), [x1]| R510| &check;| 3| GA| |
+| NORAM| B404XMTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| R510| &check;| 3| GA| |
 | NORAM| BRN402| Boron LTE CAT-M1 (NorAm), [x1]| R410| | 3| NRND| BRN404|
 | NORAM| BRN402KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| R410| | 3| NRND| BRN404KIT|
 | NORAM| BRN402TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| R410| | 3| NRND| BRN404TRAY50|
 | NORAM| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| R410| &check;| 3| GA| |
 | NORAM| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| R410| &check;| 3| GA| |
 | NORAM| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| R410| &check;| 3| GA| |
+| NORAM| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| R510| &check;| 3| GA| |
+| NORAM| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| R510| &check;| 3| GA| |
+| NORAM| BRN404XTRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| R510| &check;| 3| GA| |
 | NORAM| E402KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| R410| | 2| Discontinued| E404KIT|
 | NORAM| E402MOD1| E Series LTE CAT-M1 (NorAm), [x1]| R410| | 2| Discontinued| E404MOD1|
 | NORAM| E402TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| R410| | 2| NRND-US| E404TRAY50|
@@ -282,6 +287,11 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | R410| ELC402EA| Electron LTE CAT-M1 (NorAm), [x1]| NORAM| | 2| Discontinued| ELC404EA|
 | R410| ELC402TY| Electron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | 2| NRND-US| ELC404TY|
 | R410| ELC404TY| Electron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| &check;| 2| NRND-US| |
+| R510| B404XMEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| &check;| 3| GA| |
+| R510| B404XMTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| &check;| 3| GA| |
+| R510| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| &check;| 3| GA| |
+| R510| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| NORAM| &check;| 3| GA| |
+| R510| BRN404XTRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| &check;| 3| GA| |
 | U201| BRN310TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | 3| NRND-US| BRN314TRAY50|
 | U201| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| 3| NRND-US| |
 | U201| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| &check;| 3| NRND-US| |
@@ -316,6 +326,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
 | EtherSim| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| GA| |
 | EtherSim| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| GA| |
+| EtherSim| B404XMEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| R510| 3| GA| |
+| EtherSim| B404XMTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R510| 3| GA| |
 | EtherSim| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| EG91-E| 3| GA| |
 | EtherSim| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| EG91-E| 3| GA| |
 | EtherSim| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| U201| 3| NRND-US| |
@@ -323,6 +335,9 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSim| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| GA| |
 | EtherSim| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| R410| 3| GA| |
 | EtherSim| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| GA| |
+| EtherSim| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| R510| 3| GA| |
+| EtherSim| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| NORAM| R510| 3| GA| |
+| EtherSim| BRN404XTRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R510| 3| GA| |
 | EtherSim| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| U201| 2| NRND-US| |
 | EtherSim| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| U201| 2| NRND-US| |
 | EtherSim| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| U201| 2| NRND-US| |

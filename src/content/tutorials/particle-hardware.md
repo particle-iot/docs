@@ -105,6 +105,8 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 | ARGNKIT| Argon, Starter Kit  [x1]| Global| | GA|
 | BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
 | BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | GA|
+| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
+| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| NORAM| | GA|
 | BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| NRND-US|
 
 
@@ -216,6 +218,8 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 | :--- | :--- | :--- | :--- |
 | B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
 | B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
+| B404XMEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| GA|
+| B404XMTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| GA|
 | B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| GA|
 | B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| GA|
 | M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| GA|
@@ -244,6 +248,9 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 | BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
 | BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | &check;| GA|
 | BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| NORAM| | &check;| GA|
+| BRN404XTRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
 | BRN310TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | | NRND-US|
 | BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| &check;| NRND-US|
 | BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | | NRND-US|
@@ -404,6 +411,9 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 | BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
 | BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | GA|
 | BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | GA|
+| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
+| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| NORAM| | GA|
+| BRN404XTRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | GA|
 | BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| NRND-US|
 | BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | NRND-US|
 
@@ -436,11 +446,16 @@ Ethernet is only intended for use as a method of connecting to the Internet. It 
 | ARGNTRAY50| Argon, Tray [x50]| Global| | | GA|
 | B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
 | B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| B404XMEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| B404XMTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
 | B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| | &check;| GA|
 | B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| | | GA|
 | BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
 | BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | &check;| GA|
 | BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
+| BRN404X| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | &check;| GA|
+| BRN404XKIT| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]| NORAM| | &check;| GA|
+| BRN404XTRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| | | GA|
 | FWNG-ETH| Particle Ethernet FeatherWing, [x1]| Global| | | GA|
 | M2EVAL| Particle M.2 SoM Evaluation Board [x1]| Global| | | GA|
 | T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| | &check;| GA|

@@ -45,21 +45,18 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | NRND|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | GA|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND-US|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | GA|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND-US|
 | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | ANT-FLXU | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXU | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXU | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | NRND|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | ANT-FLXU | &nbsp; | GA|
-| E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
-| E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
 | E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
 | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
 | E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
@@ -228,9 +225,9 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 | Family | SKUs |
 | :----- | :--- |
 | B Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B523MEA, B523MTY, B524MEA, B524MTY|
-| Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50, BRN404X, BRN404XKIT, BRN404XTRAY50|
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
-| Electron | E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+| Boron | BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50, BRN404X, BRN404XKIT, BRN404XTRAY50|
+| E Series | E310TRAY50, E314KIT, E314MOD1, E314TRAY50, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
+| Electron | ELC314TY, ELC402TY, ELC404TY|
 
 
 {{!-- END do not edit content above, it is automatically generated cee24faa-776d-11eb-9439-0242ac130002 --}}
@@ -275,16 +272,15 @@ These devices include Bluetooth LE (BLE) capabilities.
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | GA|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND-US|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN402KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404KIT | &check; | ANT-FLXV2 | &nbsp; | GA|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND-US|
 | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXV2 | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
@@ -368,16 +364,15 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &check; | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | NRND|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | GA|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | &nbsp; | NRND-US|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN402KIT | &check; | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404KIT | &check; | &nbsp; | GA|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | NRND-US|
 | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | &nbsp; | NRND|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | &nbsp; | GA|
