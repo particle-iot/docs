@@ -100,6 +100,13 @@ If you want to try to reduce the number of data operations you are using, see [m
 
 {{top}}
 
+### How do I add another block?
+
+Once you are on the growth plan, if you exceed the data operations limit, cellular data limit, or device limit an additional block will be added automatically. You do not need to do any manual steps to assure correct operation without interruption.
+
+{{top}}
+
+
 ### What is a data operation?
 
 {{blurb name="dataoperations"}}

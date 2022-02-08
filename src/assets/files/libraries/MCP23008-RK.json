@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23008-RK",
     "version": "0.0.4",
-    "installs": 2277,
+    "installs": 2377,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 8-port I2C GPIO Expander MCP23008",

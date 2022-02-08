@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ST7735",
     "version": "0.0.1",
-    "installs": 32917,
+    "installs": 33716,
     "license": "Choose a license",
     "author": "Someone <menan.vadivel@gmail.com>",
     "sentence": "Ported Adafruit_ST7735 library",

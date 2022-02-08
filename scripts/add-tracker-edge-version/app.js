@@ -51,6 +51,10 @@ async function run() {
         const { stdout, stderr } = await exec(cmd);        
     }
     {
+        const cmd = 'cd ' + edgeDir + ' && git fetch';
+        const { stdout, stderr } = await exec(cmd);
+    }
+    {
         const cmd = 'cd ' + edgeDir + ' && git checkout release/v' + version;
         const { stdout, stderr } = await exec(cmd);
     }

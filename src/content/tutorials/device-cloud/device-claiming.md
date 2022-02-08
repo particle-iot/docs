@@ -102,7 +102,7 @@ particle device rename <device-id> <name>
 particle usb setup-done
 ```
 
-- When a new device reboots, it should go into listening mode (blinking dark blue), if not, it can be done by holding down the MODE (or SETUP) button until the status LED blinks dark blue, or by using `particle usb listening`.
+- When a new device reboots, it should go into listening mode (blinking dark blue), if not, it can be done by holding down the MODE (or SETUP) button until the status LED blinks dark blue, or by using `particle usb listen`.
 
 - The `particle identify` command prints out the Device ID, which you will need in a later step.
 
@@ -268,26 +268,41 @@ With Device OS 2.0 and later, it is also possible to use a wildcard product ID:
 PRODUCT_ID(PLATFORM_ID);
 ```
 
-This is handy if you have multiple products running the same firmware. However, it requires that you add all Device IDs to the product ahead of time,
+This is handy if you have multiple products running the same firmware. However, it requires that you add all device IDs to the product ahead of time,
 
 
-### Adding Device IDs to a product in advance
+### Adding device IDs to a product in advance
 
-By far the most common, and recommended, way to handle adding devices to products is to add the devices during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of Device IDs in the order. You can import the file into the Particle console.
+By far the most common, and recommended, way to handle adding devices to products is to add the devices during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of device IDs in the order. You can import the file into the Particle console.
 
 You could also do this on a per-device basis as part of your [manufacturing flow](/tutorials/product-tools/manufacturing-cellular/).
 
 This is required if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro.
 
+For information about how this affects billing, see [Billing for added devices](/tutorials/product-tools/creating-a-product/#billing-for-added-devices).
+
 ### Quarantine
 
-If a device has product firmware flashed to it with an explicit PRODUCT_ID defined, but the Device ID has not been added, it will be put into Quarantine.
+If a device has product firmware flashed to it with an explicit PRODUCT_ID defined, but the Device ID has not been added, it will be put into Quarantine by default.
 
 The reason is that without quarantine, anyone who knows your product ID could take any random device and add it to your product.
 
-### Auto-approve
+![Quarantine](/assets/images/console/quarantine.png)
+
+- Select a product, then **Devicess** (1).
+- Expand **Denied Devices** (2) if necessary.
+- Click **Approve** if desired.
+
+If a device appears in Denied Devices and you do not want to approve it, make sure it's flashed with non-product firmware. The default Tinker app can be used. The next time the device comes online with non-product firmware it will disappear from the denied devices list.
+
+#### Auto-approve
 
 Instead of entering quarantine, you can also enable auto-approve so any device with firmware that specifies your product ID will be added to your product automatically. This is not recommended. 
+
+![Quarantine Settings](/assets/images/console/quarantine-settings.png)
+
+- Select a product, then **Settings** (1).
+- Select **Auto-Approve** (2). This is not recommended.
 
 ## SIM activation
 
@@ -323,6 +338,97 @@ You can activate SIMs using the Particle cloud API:
 - [Developer SIMs](/reference/device-cloud/api/#activate-sim)
 - [Product SIMs](/reference/device-cloud/api/#import-and-activate-product-sims)
 
+### SIM activation speed
+
+The amount of time it takes to activate or reactivate a SIM may depend on:
+
+- The device
+- Local conditions (the mobile carrier in your location)
+- Whether you are activating the SIM the first time, or reactivating it after deactivating or releasing ownership of the SIM
+
+{{!-- BEGIN do not edit content below, it is automatically generated fabf0754-7838-11ec-90d6-0242ac120003 --}}
+
+| SKU | Device | SIM Activation Speed | Lifecycle | Replacement | 
+| :-- | :----- | :------------------: | :-------: | :---------: |
+| ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Generally fast<sup>2</sup> | Discontinued | |
+| ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Generally fast<sup>2</sup> | Discontinued | |
+| ASSET2GV2 | Asset Tracker 2G | Generally fast<sup>2</sup> | Discontinued | |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Fast<sup>1</sup> | GA | |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Fast<sup>1</sup> | GA | |
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B524MTY|
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | NRND | B524MEA|
+| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
+| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | B404MTY|
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | B404MEA|
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Fast<sup>1</sup> | GA | |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | BRN404TRAY50|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | Sometimes slow<sup>3</sup> | NRND | BRN404KIT|
+| BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | Sometimes slow<sup>3</sup> | Discontinued | |
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | BRN404|
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | BRN314TRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | Discontinued | BRN314KIT|
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | NRND-US | |
+| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | E404TRAY50|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Discontinued | E404MOD1|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | Discontinued | E404KIT|
+| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Fast<sup>1</sup> | NRND-US | |
+| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
+| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Sometimes slow<sup>3</sup> | Discontinued | |
+| E313EA | E Series 2G/3G (Global - E313), [x1] | Sometimes slow<sup>3</sup> | Discontinued | |
+| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | NRND-US | |
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Discontinued | E314MOD1|
+| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | E314KIT|
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
+| E350KIT | Electron 2G Kit (Global) | Generally fast<sup>2</sup> | Discontinued | |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Generally fast<sup>2</sup> | Discontinued | ELC314TY|
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | Discontinued | ELC404EA|
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND-US | ELC404TY|
+| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | NRND-US | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | |
+| SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Generally fast<sup>2</sup> | Discontinued | |
+| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | ONE404MEA|
+| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Sometimes slow<sup>3</sup> | NRND | ONE404MTY|
+| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
+| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Fast<sup>1</sup> | GA | |
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | NRND | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Sometimes slow<sup>3</sup> | NRND | ONE524MTY|
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Fast<sup>1</sup> | GA | |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Fast<sup>1</sup> | GA | |
+| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | T404MEA|
+| T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | T404MKIT|
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | T404MTY|
+| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | Fast<sup>1</sup> | GA | |
+| T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
+| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | NRND | T524MEA|
+| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | T524MKIT|
+| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | NRND | T524MTY|
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Fast<sup>1</sup> | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Fast<sup>1</sup> | GA | |
+
+
+{{!-- END do not edit content above, it is automatically generated fabf0754-7838-11ec-90d6-0242ac120003 --}}
+
+- **Fast<sup>1</sup>**, you can generally activate the SIMs and the operation will occur within seconds.
+
+- **Generally fast<sup>2</sup>** SIM activation generally takes seconds, or up to a minute. On rare occasions, initial SIM activation can take longer, up to a day.
+
+- **Sometimes slow<sup>3</sup>**, the initial activation of a SIM from the factory generally occurs quickly. However, if you've deactivated the SIM, or released ownership of the SIM, reactivation can take tens of minutes, or sometimes days, to complete. Avoid situations where activation will be time-sensitive if possible. 
+
+Note that moving a SIM from a developer account (free sandbox) into a product can be done without releasing ownership if the original SIM owner is also a team member. This allows the operation to proceed without disrupting the cellular connection.
 
 ## Customers
 
@@ -460,4 +566,3 @@ In products, however, the device name is not unique if devices are claimed to mu
 The MAC (media access control) Address uniquely identifies the Wi-Fi radio on the Photon, P1, Argon, and Tracker. It is assigned during manufacture and is typically 12 hexadecimal digits (48 bits).
 
 The Particle Ethernet FeatherWing has a separate MAC address that is randomly assigned a site-local address that is not necessarily globally unique.
-

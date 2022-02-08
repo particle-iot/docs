@@ -75,7 +75,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                         resolve();
                     })
                     .catch(function(err) {
-                        console.log('error', err);
                         setStatus();
                         reject();
                     });
@@ -359,6 +358,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         */
 
         dfuseDevice.logInfo = function(msg) {
+            console.log(msg); // TEMPORARY
         };
 
         return dfuseDevice;
@@ -370,10 +370,10 @@ async function dfuDeviceRestore(usbDevice, options) {
         { name: 'system-part1', title: 'Device OS System Part 1' },
         { name: 'system-part2', title: 'Device OS System Part 2' },
         { name: 'system-part3', title: 'Device OS System Part 3' },
-        { name: 'bootloader', title: 'Device OS Bootloader' },
         { name: 'softdevice', title: 'nRF52 Soft Device' },
         { name: 'tinker', reset:true, title: 'User Firmware' },
-        { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' }
+        { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' },
+        { name: 'bootloader', title: 'Device OS Bootloader' },
     ];
     let dfuParts = [];
 
@@ -478,13 +478,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                     // Gen 2
                     dfuseDevice.startAddress = 0x80C0000;
                     await dfuseDevice.do_download(4096, part, {});
-                }
-                if (options.progressUpdate) {
-                    options.progressUpdate('', 100, {
-                        func: 'program',
-                        pct: 100,
-                        partName
-                    });
                 }
             }
             else
@@ -595,7 +588,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         if (options.progressShowHide) {
             options.progressShowHide(false);
         }
-    
+        
         await dfuseAltDevice.close();
     }
     

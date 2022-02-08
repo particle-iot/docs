@@ -7,7 +7,7 @@
   "attributes": {
     "name": "XPT2046_Touch",
     "version": "1.1.7",
-    "installs": 3593,
+    "installs": 4209,
     "license": "MIT",
     "author": "Paul Stoffregen, ported by Volker Ritzka",
     "sentence": "Library for the CPT2046 Touch chip",
