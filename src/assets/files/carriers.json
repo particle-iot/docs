@@ -18850,22 +18850,26 @@
     {
       "id": 1,
       "description": "Telefonica",
-      "simPlanKey": "telefonicaPPU2020"
+      "simPlanKey": "telefonicaPPU2020",
+      "name": "Type T"
     },
     {
       "id": 2,
       "description": "Kore/Vodafone",
-      "simPlanKey": "koreOneNet"
+      "simPlanKey": "koreOneNet",
+      "name": "Type KV"
     },
     {
       "id": 3,
       "description": "Kore/AT&T M1",
-      "simPlanKey": "koreNORAM"
+      "simPlanKey": "koreNORAM",
+      "name": "Type KA"
     },
     {
       "id": 4,
       "description": "Twilio SuperSIM",
-      "simPlanKey": "supersim"
+      "simPlanKey": "supersim",
+      "name": "EtherSim"
     }
   ],
   "simPlans": [
@@ -19022,6 +19026,36 @@
   ],
   "skus": [
     {
+      "name": "ACC-ADPT",
+      "desc": "Particle Classic Adapter, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "16 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "ACC-DEBUG",
+      "desc": "Particle Debugger, [x1]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "ACC-POE",
+      "desc": "Power-over-Ethernet Module",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "skuRegion": "global"
+    },
+    {
       "name": "ARG-AQKT",
       "desc": "Argon Air Quality Monitor Kit [x1]",
       "lifecycle": "GA",
@@ -19041,7 +19075,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "batteryConn": true
     },
     {
       "name": "ARG-LDKT",
@@ -19063,7 +19104,7 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "batteryConn": true
     },
     {
       "name": "ARG-STRTKT",
@@ -19085,7 +19126,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "batteryConn": true
     },
     {
       "name": "ARGN-H",
@@ -19107,7 +19155,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryConn": true,
+      "maxOrder": 10
     },
     {
       "name": "ARGNKIT",
@@ -19129,7 +19184,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryConn": true,
+      "maxOrder": 10
     },
     {
       "name": "ARGNTRAY50",
@@ -19151,7 +19213,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ASSET2GV2",
@@ -19173,7 +19241,7 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "ASSET3G260V2",
@@ -19195,7 +19263,7 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "ASSET3G270V2",
@@ -19217,7 +19285,7 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "B402MEA",
@@ -19243,7 +19311,13 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B402MTY",
@@ -19269,7 +19343,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B404MEA",
@@ -19294,7 +19374,13 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B404MTY",
@@ -19319,7 +19405,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B523MEA",
@@ -19346,7 +19438,13 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B523MTY",
@@ -19373,7 +19471,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B524MEA",
@@ -19398,7 +19502,13 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "B524MTY",
@@ -19423,12 +19533,34 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
+    },
+    {
+      "name": "BAT1800",
+      "desc": "Li-Po Battery, [x1]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "BATT18MOD50",
+      "desc": "Li-Po Battery, [x50]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": true,
+      "skuRegion": "global"
     },
     {
       "name": "BRN310KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "BRN314KIT",
       "modem": "U201",
       "sim": 2,
@@ -19451,7 +19583,8 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "BRN310TRAY50",
@@ -19479,12 +19612,18 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN314KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -19505,12 +19644,20 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryInc": true,
+      "batteryConn": true,
+      "maxOrder": 5
     },
     {
       "name": "BRN314TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -19531,7 +19678,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN402",
@@ -19558,7 +19711,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN402-AQKT",
@@ -19584,11 +19743,11 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "batteryConn": true
     },
     {
       "name": "BRN402KIT",
-      "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
+      "desc": "Boron LTE CAT-M1 (NorAm), Starter Kit [x1]",
       "lifecycle": "NRND",
       "replacement": "BRN404KIT",
       "modem": "R410",
@@ -19611,7 +19770,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN402TRAY50",
@@ -19638,7 +19803,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN404",
@@ -19664,11 +19835,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "BRN404KIT",
-      "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
+      "desc": "Boron LTE CAT-M1 (NorAm), Starter Kit [x1]",
       "lifecycle": "GA",
       "modem": "R410",
       "sim": 4,
@@ -19690,7 +19867,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryConn": true,
+      "maxOrder": 10
     },
     {
       "name": "BRN404TRAY50",
@@ -19716,7 +19900,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E260KIT",
@@ -19736,7 +19926,8 @@
       "skuRegion": "americas",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "mcu": "STM32F205"
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E260TRAY50",
@@ -19756,7 +19947,7 @@
       "skuRegion": "americas",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E270KIT",
@@ -19776,7 +19967,8 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "mcu": "STM32F205"
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E270TRAY50",
@@ -19796,12 +19988,12 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E310KIT",
       "desc": "E Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "E314KIT",
       "modem": "U201",
       "sim": 1,
@@ -19817,12 +20009,13 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E310MOD1",
       "desc": "E Series 2G/3G (Global - E310), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "E314MOD1",
       "modem": "U201",
       "sim": 1,
@@ -19838,7 +20031,7 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E310TRAY50",
@@ -19858,7 +20051,13 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E313EA",
@@ -19878,12 +20077,12 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
-      "name": "E313TY",
+      "name": "E313TRAY50",
       "desc": "E Series 2G/3G (Global - E313), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Discontinued",
       "modem": "U201",
       "multiple": true,
       "sim": 2,
@@ -19898,12 +20097,12 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E314KIT",
       "desc": "E Series 2G/3G (Global - E314) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -19918,12 +20117,20 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryInc": true,
+      "batteryConn": true,
+      "noProduction": true
     },
     {
       "name": "E314MOD1",
       "desc": "E Series 2G/3G (Global - E314), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -19938,12 +20145,19 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryConn": true,
+      "noProduction": true
     },
     {
       "name": "E314TRAY50",
       "desc": "E Series 2G/3G (Global - E314), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -19958,7 +20172,14 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryConn": true,
+      "noProduction": true
     },
     {
       "name": "E350KIT",
@@ -19976,12 +20197,12 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E350TRAY50",
       "desc": "Electron 2G (Global), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "ELC314TY",
       "modem": "G350",
       "multiple": true,
@@ -19996,12 +20217,12 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E402KIT",
       "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "E404KIT",
       "modem": "R410",
       "sim": 3,
@@ -20017,12 +20238,13 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E402MOD1",
       "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "E404MOD1",
       "modem": "R410",
       "sim": 3,
@@ -20038,12 +20260,12 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "E402TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "NRND-US",
       "replacement": "E404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -20059,12 +20281,18 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E404KIT",
       "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20079,12 +20307,19 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryInc": true,
+      "batteryConn": true
     },
     {
       "name": "E404MOD1",
       "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20099,12 +20334,18 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "E404TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -20119,12 +20360,18 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20138,12 +20385,18 @@
       "skuRegion": "global",
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ELC402EA",
       "desc": "Electron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "ELC404EA",
       "modem": "R410",
       "sim": 3,
@@ -20159,12 +20412,12 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "ELC402TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "NRND-US",
       "replacement": "ELC404TY",
       "modem": "R410",
       "multiple": true,
@@ -20180,12 +20433,18 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
     },
     {
       "name": "ELC404TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND-US",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -20200,7 +20459,186 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryConn": true
+    },
+    {
+      "name": "FWNG-ETH",
+      "desc": "Particle Ethernet FeatherWing, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "16 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "FWNG-INA219",
+      "desc": "Adafruit INA219 FeatherWing, [x1]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "FWNG-OLED",
+      "desc": "Adafruit OLED FeatherWing, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "16 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "FWNG-PWRLY",
+      "desc": "Adafruit Power Relay FeatherWing, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "16 weeks",
+      "allocation": false,
+      "inStock": "low",
+      "skuRegion": "global"
+    },
+    {
+      "name": "FWNG-TRP",
+      "desc": "Particle FeatherWing Tripler, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "16 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M2EVAL",
+      "desc": "Particle M.2 SoM Evaluation Board [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CAB3VEA",
+      "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1]",
+      "lifecycle": "Beta",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "14 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CAB3VTY",
+      "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40]",
+      "lifecycle": "Beta",
+      "accessory": true,
+      "multiple": true,
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "14 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CONNEA",
+      "desc": "M8 Connector (Straight), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "10 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CONNTY",
+      "desc": "M8 Connector (Straight), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "10 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8TEMPHUMIEA",
+      "desc": "M8 Sensor Temperature/Humidity (Straight), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "14 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8TEMPHUMITY",
+      "desc": "M8 Sensor Temperature/Humidity (Straight), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "14 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
     },
     {
       "name": "ONE402MEA",
@@ -20231,7 +20669,14 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryInc": true,
+      "maxOrder": 2
     },
     {
       "name": "ONE402MTY",
@@ -20262,7 +20707,13 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryInc": true
     },
     {
       "name": "ONE404MEA",
@@ -20292,7 +20743,14 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "batteryInc": true
     },
     {
       "name": "ONE404MTY",
@@ -20322,7 +20780,13 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryInc": true
     },
     {
       "name": "ONE523MEA",
@@ -20354,7 +20818,14 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "batteryInc": true,
+      "maxOrder": 5
     },
     {
       "name": "ONE523MTY",
@@ -20386,7 +20857,14 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "batteryInc": true
     },
     {
       "name": "ONE524MEA",
@@ -20416,7 +20894,14 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "batteryInc": true
     },
     {
       "name": "ONE524MTY",
@@ -20446,7 +20931,73 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "mcu": "nRF52840"
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true,
+      "batteryInc": true
+    },
+    {
+      "name": "ONEM8CABEA",
+      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "12 weeks",
+      "allocation": false,
+      "inStock": "low",
+      "skuRegion": "global"
+    },
+    {
+      "name": "ONEM8CABRAEA",
+      "desc": "M8 Accessory Cable 5V Power 3.3V Logic Right Angle), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "12 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "ONEM8CABRATY",
+      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Right Angle), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "12 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "ONEM8CABTY",
+      "desc": "M8 Accessory Cable 5V Power 3.3V Logic Straight), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "moq": 40,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "12 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
     },
     {
       "name": "P0MOD10",
@@ -20461,8 +21012,7 @@
       "wifiAntInt": false,
       "wifiAntIntInc": false,
       "wifiAntExt": true,
-      "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "wifiAntExtInc": false
     },
     {
       "name": "P0REEL",
@@ -20478,7 +21028,12 @@
       "wifiAntIntInc": false,
       "wifiAntExt": true,
       "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "moq": 1,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "35 weeks",
+      "allocation": true
     },
     {
       "name": "P1MOD10",
@@ -20494,7 +21049,12 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "moq": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "36 weeks",
+      "allocation": true
     },
     {
       "name": "P1REEL",
@@ -20510,7 +21070,12 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "moq": 500,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "50 weeks",
+      "allocation": true
     },
     {
       "name": "PHNTRAYH",
@@ -20526,7 +21091,12 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "54 weeks",
+      "allocation": true
     },
     {
       "name": "PHNTRAYNOH",
@@ -20542,7 +21112,12 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "54 weeks",
+      "allocation": true
     },
     {
       "name": "PHOTONH",
@@ -20558,7 +21133,12 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "54 weeks",
+      "allocation": true
     },
     {
       "name": "PHOTONKIT",
@@ -20573,8 +21153,7 @@
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
-      "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "wifiAntExtInc": false
     },
     {
       "name": "PHOTONNOH",
@@ -20589,8 +21168,105 @@
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
-      "wifiAntExtInc": false,
-      "mcu": "STM32F205"
+      "wifiAntExtInc": false
+    },
+    {
+      "name": "PROGSHIELD",
+      "desc": "Programmer Shield, [x1]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "PWRSHIELDH",
+      "desc": "Power Shield with Headers, [x1]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "RLYSHIELD",
+      "desc": "Relay Shield",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "skuRegion": "global"
+    },
+    {
+      "name": "SIMBLANK50",
+      "desc": "SIM Card, Tray [x50]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "8 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "SIMBLANKV2",
+      "desc": "EtherSIM Global IoT SIM Card, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "8 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
+    },
+    {
+      "name": "SIMBLANKV2_50",
+      "desc": "EtherSIM Global IoT SIM Card, Tray [x50]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "8 weeks",
+      "allocation": false,
+      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "SIMTELE",
+      "desc": "SIM Card, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "8 weeks",
+      "allocation": false,
+      "inStock": "low",
+      "skuRegion": "global"
+    },
+    {
+      "name": "SNSR-GRVKIT",
+      "desc": "Grove Starter Kit, [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "16 weeks",
+      "allocation": false,
+      "inStock": "yes",
+      "skuRegion": "global"
     },
     {
       "name": "SNSRKIT3G260",
@@ -20609,7 +21285,7 @@
       "skuRegion": "americas",
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
-      "mcu": "STM32F205"
+      "batteryConn": true
     },
     {
       "name": "SNSRKIT3G270",
@@ -20628,7 +21304,15 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
-      "mcu": "STM32F205"
+      "batteryConn": true
+    },
+    {
+      "name": "SPKBTTN",
+      "desc": "Internet Button, [x1]",
+      "lifecycle": "Discontinued",
+      "accessory": true,
+      "multiple": false,
+      "skuRegion": "global"
     },
     {
       "name": "T402MEA",
@@ -20661,7 +21345,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T402MKIT",
@@ -20694,7 +21383,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T402MTY",
@@ -20727,7 +21421,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T404MEA",
@@ -20759,7 +21458,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T404MKIT",
@@ -20791,7 +21495,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T404MTY",
@@ -20823,7 +21532,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T523MEA",
@@ -20857,7 +21571,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T523MKIT",
@@ -20891,7 +21610,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T523MTY",
@@ -20925,7 +21649,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T524MEA",
@@ -20957,7 +21686,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T524MKIT",
@@ -20989,7 +21723,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "mcu": "nRF52840"
+      "moq": 1,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "leadTime": "56 weeks",
+      "allocation": true
     },
     {
       "name": "T524MTY",
@@ -21021,7 +21760,12 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "mcu": "nRF52840"
+      "moq": 50,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "leadTime": "56 weeks",
+      "allocation": true
     }
   ],
   "skuClass": [

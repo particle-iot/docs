@@ -353,7 +353,7 @@
   "/tools/troubleshooting": "/tools/troubleshooting/lookup",
   "/tools/troubleshooting/lookup/usb-serial": "/tools/troubleshooting/usb-serial",
   "/troubleshooting": "/tutorials/device-os/led",
-  "/tutorials": "/tutorials/device-os/device-os",
+  "/tutorials": "/tutorials/particle-hardware",
   "/tutorials/asset-tracking/": "/tutorials/asset-tracking/introduction",
   "/tutorials/cellular-connectivity/billing/": "/tutorials/cellular-connectivity/data",
   "/tutorials/cellular-connectivity/sim-management/": "/tutorials/product-tools/sim-management",
