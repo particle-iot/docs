@@ -221,6 +221,10 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 
 {{!-- END do not edit content above, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
 
+- See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
+- Global 2G/3G devices should not be used in the United States because of the [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
+
+
 ## By Modem
 
 This table lists all SKUs, sorted by the type of cellular modem in the device.
@@ -531,6 +535,8 @@ In Canada, any of Rogers, Telus, or Bell is used for LTE Cat M1.
 | 2600 |  7        | &nbsp;  | &nbsp;  |         |         | &check; | &check; | &check; | 
 
 <sup>2</sup>The Canadian bands are for all types of LTE. Not all are used for LTE Cat M1. In particular, band 7 (2600 MHz) is only used for LTE Cat 1, not LTE Cat M1.
+
+Only the bands used in North America are enabled in the R410 cellular modem by default. This speeds to connection process.
 
 ## LTE Cat 1
 
