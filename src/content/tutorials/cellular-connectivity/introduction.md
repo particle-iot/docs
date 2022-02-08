@@ -671,6 +671,14 @@ The following SKU have LTE Cat 1 cellular modems:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+### LTE Cat 2 and up
+
+There exists LTE Cat 2 up to LTE Cat 18, but they are not supported by any Particle devices.
+
+LTE Cat 2 through LTE Cat 5 are the same technology as LTE Cat 1 (3GPP Rel 8), just faster. Since Particle devices don't even use the bandwidth available in LTE Cat 1 at this time, there is no advantage of the faster Cat values.
+
+All cell towers that support LTE support LTE Cat 1. 
+
 ### 5G
 
 There are currently no Particle devices that support 5G technologies, however most carriers plan to support both 4G LTE and 5G for the foreseeable future.
