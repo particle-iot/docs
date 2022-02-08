@@ -112,8 +112,8 @@ exports.metalsmith = function () {
       environment === 'development',
       trackerSchema({
         dir: '../src/assets/files/tracker/',
-        officialSchema: 'tracker-edge.json',        
-        defaultSchema: 'default-schema.json',
+        officialSchema: 'tracker-edge.json',     // This is the source of the generated files
+        defaultSchema: 'default-schema.json',    // This is generated
         fragments: [
           'engine-schema',
           'test-schema'
@@ -130,6 +130,12 @@ exports.metalsmith = function () {
       environment === 'development',
       systemVersion({
       })))
+    .use(msIf(
+        environment === 'development',
+        function(files, metalsmith, done) {
+        carriersUpdate.doUpdate(__dirname, files);
+        done();
+      }))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
@@ -257,12 +263,6 @@ exports.metalsmith = function () {
       pattern: '**/*.md',
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
-    }))
-    .use(msIf(
-      environment === 'development',
-      function(files, metalsmith, done) {
-      carriersUpdate.doUpdate(__dirname);
-      done();
     }))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder

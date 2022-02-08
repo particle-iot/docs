@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { option } = require('yargs');
 
 (function(updater) {
 
@@ -474,6 +475,238 @@ const path = require('path');
         return md;
     }
 
+    updater.generateTable = function(options, data) {
+        // options includes options, table headers, etc.
+        // data contains the data as an array of objects. The elements of the array are rows in the table.
+
+        // options.columns is an array of objects that specify columns of the table left to right
+        //   .title 
+        //   .justify left(default), center, right
+
+        let md = '';
+
+        // Table headers
+        let line = '';
+        for(const c of options.columns) {
+            let title = c.title;
+            if (!title) {
+                title = c.key.substr(0, 1).toUpperCase() + c.key.substr(1);
+            }            
+            line += '| ' + (title || '') + ' ';
+        }
+        md += line + '|\n'; 
+
+        // Table header separator
+        line = '';
+        for(const c of options.columns) {
+            let align;
+            switch(c.align || 'left') {
+                case 'center':
+                    line += '| :---: ';
+                    break;
+
+                case 'right':
+                    line += '| ---: ';
+                    break;
+                
+                // 'left'
+                default: 
+                    line += '| :--- ';
+                    break;
+            }
+        }
+        md += line + '|\n'; 
+
+
+        // Table data
+        for(const d of data) {
+            line = '';
+            for(const c of options.columns) {
+                if (c.checkmark) {
+                    line += '| ' + (d[c.key] ? '&check;' : '');
+                }
+                else
+                if (d[c.key]) {
+                    if (c.capitalizeValue) {
+                        line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1);
+                    }
+                    else {
+                        line += '| ' + d[c.key];
+                    }
+                }
+                else {
+                    line += '| ';
+                }
+            }
+            md += line + '|\n';             
+        }
+
+
+        return md;
+    };
+
+    updater.generateSkuList = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (options.includeSkus) {
+                if (options.includeSkus.includes(skuObj.name)) {
+                    skus.push(skuObj);
+                    return;
+                }
+            }
+
+            if (options.onlyGA && skuObj.lifecycle != 'GA' && skuObj.lifecycle != 'NRND-US') {
+                return;
+            }
+
+            if (skuObj.lifecycle == 'Discontinued' && skuObj.skuClass == 'kit') {
+                // Hide discontinued kits
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden, whether a kit or not
+                return;
+            }
+
+            if (options.omitSkus) {
+                if (options.omitSkus.includes(skuObj.name)) {
+                    return true;
+                }
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            skus.push(skuObj);
+        });
+
+
+        const hasReplacements = skus.some((e) => !!e.replacement);
+
+        const columnDefinitions = {
+            batteryInc: {
+                title: 'Battery Inc',
+                checkmark: true,
+                align: 'center'
+            },
+            cellAntInc: {
+                title: 'Cell Ant Inc',
+                checkmark: true,
+                align: 'center'
+            },
+            desc: {
+                title: 'Description'
+            },
+            ethersim: {
+                title: 'EtherSim',
+                checkmark: true,
+                align: 'center'
+            },
+            gen: {
+                title: 'Gen',
+                align: 'center'
+            },
+            inStock: {
+                title: 'In Stock',
+                align: 'center'
+            },
+            name: {
+                title: 'SKU'
+            },
+            simName: {
+                title: 'SIM'
+            },
+            skuClass: {
+                title: 'Class',
+                capitalizeValue: true
+            },
+
+            // region, modem, lifecycle, replacement
+        };
+
+
+        // Pick columns
+        let columns = [];
+        for(const key of options.columns) {
+            if (columnDefinitions[key]) {
+                if (options.hideEmptyReplacement && key == 'replacement') {
+                    if (!hasReplacements) {
+                        continue;
+                    }
+                }
+
+                columns.push(Object.assign({key}, columnDefinitions[key]));
+            }
+            else {
+                columns.push({
+                    key,
+                    title: key.substr(0, 1).toUpperCase() + key.substr(1)
+                });
+            }
+        }
+
+        // Generate data
+        let tableOptions = {
+            columns
+        };
+        let tableData = [];
+
+        skus.forEach(function(skuObj) {
+            let row = Object.assign({}, skuObj);
+
+            row.region = skuObj.skuRegion ? updater.skuRegionReadable[skuObj.skuRegion] : '';
+
+            if (skuObj.allocation || skuObj.maxOrder) {
+                row.inStock = 'Limited';
+            }
+            else if (skuObj.inStock) {
+                row.inStock = skuObj.inStock.substr(0, 1).toUpperCase() + skuObj.inStock.substr(1);
+            }
+            else {
+                row.inStock = 'No';
+            }
+            
+
+            if (skuObj.sim) {
+                row.ethersim = (skuObj.sim == 4);
+
+                row.simName = updater.datastore.findSimById(skuObj.sim).name;
+            }
+
+            tableData.push(row);
+        });
+
+        // Sort table rows
+        tableData.sort(function(a, b) {
+            if (options.sortFn) {
+                return options.sortFn(a, b);
+            }
+
+            const lifecycleA = updater.datastore.findSkuLifecycle(a.lifecycle);
+            const lifecycleB = updater.datastore.findSkuLifecycle(b.lifecycle);
+
+            let cmp = lifecycleA.sortOrder - lifecycleB.sortOrder;
+            if (cmp) {
+                return cmp;
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+    };
+
 
     updater.generateAntCell = function(options) {
         let skus = [];
@@ -895,11 +1128,84 @@ const path = require('path');
         return md;
     };
 
+    updater.simActivationSpeed = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.cellAnt) {
+                return;
+            }
+            if (/*skuObj.lifecycle == 'Discontinued' || */skuObj.lifecycle == 'Hidden') {
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            skus.push(skuObj);
+        });
+
+        // Sort
+        skus.sort(function(a, b) {
+            return a.desc.localeCompare(b.name);
+        });
+
+        // Render
+        let md = '';
+
+        md += '| SKU | Device | SIM Activation Speed | Lifecycle | Replacement | \n';
+        md += '| :-- | :----- | :------------------: | :-------: | :---------: |\n'; 
+        
+
+        skus.forEach(function(skuObj) {
+            md += '| ' + skuObj.name + ' | ' + skuObj.desc;
+            
+            switch(skuObj.sim) {
+                case 1:
+                    md += ' | Generally fast<sup>2</sup>';
+                    break;
+
+                case 2:
+                case 3:
+                    md += ' | Sometimes slow<sup>3</sup>';
+                    break;
+
+                default:
+                case 4:
+                    md += ' | Fast<sup>1</sup>';
+                    break;
+
+            }
+
+            md += ' | ' + skuObj.lifecycle;
+            md += ' | ' + (skuObj.replacement ? skuObj.replacement : '');
+
+            md += '|\n';
+            
+        });
+
+        return md;    
+    };
+
     updater.generatePinInfo = function(options) {
-        const platformInfo = updater.pinInfo.platforms.find(p => p.id == options.platform);
-        if (!platformInfo) {
+        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        if (!platformInfoNew) {
             return '';
         }
+
+        let platformInfoOld;
+        if (options.platformOld) {
+            platformInfoOld = updater.pinInfo.platforms.find(p => p.name == options.platformOld);
+        }
+
 
         let detailsForTag = {};
         for(const d of updater.pinInfo.details) {
@@ -1023,7 +1329,7 @@ const path = require('path');
             md += ':---: |\n'
 
             let pins = [];
-            for(const pin of platformInfo.pins) {
+            for(const pin of platformInfoNew.pins) {
                 pins.push(pin);
             }
             pins.sort(function(a, b) {
@@ -1065,7 +1371,7 @@ const path = require('path');
             md += '| Pin | Pin Name | Description | MCU |\n';
             md += '| :---: | :--- | :--- | :---: |\n'
 
-            let pins = expandMorePins(platformInfo.pins);    
+            let pins = expandMorePins(platformInfoNew.pins);    
 
             pins.sort(function(a, b) {
                 return a.num - b.num;
@@ -1076,13 +1382,12 @@ const path = require('path');
             }
         }
 
-        if (options.style == 'p2-migration-removed') {
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+        if (options.style == 'migration-removed') {
 
             let pins = [];
-            for(const pin of oldPlatformInfo.pins) {
+            for(const pin of platformInfoOld.pins) {
                 if (pin.name != 'NC') {
-                    if (!platformInfo.pins.find(p => p.num == pin.num)) {
+                    if (!platformInfoNew.pins.find(p => p.num == pin.num)) {
                         pins.push(pin);
                     }
                 }
@@ -1101,13 +1406,11 @@ const path = require('path');
 
         }
 
-        if (options.style == 'p2-migration-added') {
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
-
+        if (options.style == 'migration-added') {
             let pins = [];
-            for(const pin of platformInfo.pins) {
+            for(const pin of platformInfoNew.pins) {
                 if (pin.name != 'NC') {
-                    if (!oldPlatformInfo.pins.find(p => p.num == pin.num)) {
+                    if (!platformInfoOld.pins.find(p => p.num == pin.num)) {
                         pins.push(pin);
                     }
                 }
@@ -1126,8 +1429,7 @@ const path = require('path');
 
         }
         
-        if (options.style == 'p2-full-comparison') {
-            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+        if (options.style == 'full-comparison') {
 
             const comparisonTags = [
                 'name',
@@ -1151,15 +1453,15 @@ const path = require('path');
             ];
 
 
-            const p1pins = expandMorePins(oldPlatformInfo.pins);
-            const p2pins = expandMorePins(platformInfo.pins);
+            const oldPins = expandMorePins(platformInfoOld.pins);
+            const newPins = expandMorePins(platformInfoNew.pins);
 
             for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let p1pin = getPinInfo(p1pins, pinNum);
-                let p2pin = getPinInfo(p2pins, pinNum);
+                let oldPin = getPinInfo(oldPins, pinNum);
+                let newPin = getPinInfo(newPins, pinNum);
                 
-                if (p1pin.name == p2pin.name) {
-                    md += '#### Module Pin ' + pinNum + ' (' + p1pin.name + ')\n';
+                if (oldPin.name == newPin.name) {
+                    md += '#### Module Pin ' + pinNum + ' (' + oldPin.name + ')\n';
                 }
                 else {
                     md += '#### Module Pin ' + pinNum + '\n';
@@ -1167,39 +1469,39 @@ const path = require('path');
 
                 let hasChanges = false;
                 for(const tag of comparisonTags) {
-                    if (!p1pin[tag] && !p2pin[tag]) {
+                    if (!oldPin[tag] && !newPin[tag]) {
                         continue;
                     }
 
-                   if (getPinUsage(p1pin[tag]) != getPinUsage(p2pin[tag])) {
+                   if (getPinUsage(oldPin[tag]) != getPinUsage(newPin[tag])) {
                        hasChanges = true;
                        break;
                    }
                 }
 
                 if (hasChanges) {
-                    md += '| | P1 | P2 |\n';
+                    md += '| | ' + options.platformOld + ' | ' + options.platformNew + ' |\n';
                     md += '| :--- | :--- | :--- |\n';
     
                     for(const tag of comparisonTags) {
-                        if (!p1pin[tag] && !p2pin[tag]) {
+                        if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
     
-                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(p1pin[tag]) + ' | ' + getPinUsage(p2pin[tag]) + '|\n';
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + ' | ' + getPinUsage(newPin[tag]) + '|\n';
     
                     }    
                 }
                 else {
-                    md += '| | Unchanged between P1 and P2 |\n';
+                    md += '| | Unchanged between ' + options.platformOld + ' and ' + options.platformNew + ' |\n';
                     md += '| :--- | :--- |\n';
 
                     for(const tag of comparisonTags) {
-                        if (!p1pin[tag] && !p2pin[tag]) {
+                        if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
     
-                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(p1pin[tag]) + '|\n';
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + '|\n';
                     }    
 
                 }
@@ -1616,7 +1918,7 @@ const path = require('path');
                     guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-migration-removed',
+                            style: 'migration-removed',
                             platform: 32
                         }); 
                     } 
@@ -1625,7 +1927,7 @@ const path = require('path');
                     guid:'0f8940d5-5d0b-4f16-bfa2-1666616ba9ef', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-migration-added',
+                            style: 'migration-added',
                             platform: 32
                         }); 
                     } 
@@ -1634,7 +1936,7 @@ const path = require('path');
                     guid:'aa218eb3-5975-4ba6-b26d-2a5d43c5378e', 
                     generatorFn:function(){
                         return updater.generatePinInfo({
-                            style: 'p2-full-comparison',
+                            style: 'full-comparison',
                             platform: 32
                         }); 
                     } 
@@ -1840,7 +2142,64 @@ const path = require('path');
                     generatorFn:function() {
                         return updater.generateFamilySkus('e series'); 
                     } 
-                }
+                },
+                {
+                    // SKUs by region
+                    guid:'921d1b74-0130-49e9-9322-3da75e405e4e',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['region', 'name', 'desc', 'modem', 'ethersim', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.modem;
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.skuRegion.localeCompare(b.skuRegion);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // SKUs by modem
+                    guid:'a85479cf-355b-45c8-9062-db69f037bfea',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['modem', 'name', 'desc', 'region', 'ethersim', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.modem;
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.modem.localeCompare(b.modem);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    }                 
+                },
+                {
+                    // SKUs by SIM
+                    guid:'8747e7eb-420e-425e-882c-e10117b77620',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['simName', 'name', 'desc', 'region', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.modem;
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.simName.localeCompare(b.simName);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    }                 
+                },
             ]
         },
         {
@@ -1888,13 +2247,198 @@ const path = require('path');
 
             
             
-        }
+        },
+        {
+            path:'/tutorials/device-cloud/device-claiming.md', 
+            updates:[
+                {
+                    guid:'fabf0754-7838-11ec-90d6-0242ac120003', 
+                    generatorFn:function() {
+                        return updater.simActivationSpeed(); 
+                    } 
+                },
+            ]
+        },
+        {
+            path: '/tutorials/particle-hardware.md',
+            updates: [
+                {
+                    guid:'b7083b52-4bd3-47a6-85e8-396922c41b33',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'tracker' || !skuObj.name.includes('ONE');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'6a02fd77-1222-4208-8da5-45c9290c5f6d',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return !skuObj.accessory || !skuObj.name.includes('M8');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // Argon and Boron, no quantity packs
+                    guid:'455bf1d0-0230-4074-bfa7-99ce6e4f6245',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                if (skuObj.multiple) {
+                                    return true;
+                                }
+                                return skuObj.gen != '3' || (skuObj.skuClass != 'prototyping' && skuObj.skuClass != 'kit');
+                            },
+                            omitSkus: [
+                                'BRN310TRAY50', 'ARG-AQKT'
+                            ]
+                        }); 
+                    } 
+                },                               
+                {
+                    // Argon and Boron, include multi-packs
+                    guid:'a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.gen != '3' || (skuObj.skuClass != 'prototyping' && skuObj.skuClass != 'kit');
+                            },
+                            omitSkus: [
+                                'BRN310TRAY50', 'ARG-AQKT'
+                            ]
+                        }); 
+                    } 
+                },               
+
+                {
+                    guid:'518869dc-61de-43db-add1-f0d57956c4e0',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'boron';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'b series';
+                            },
+                            includeSkus:['M2EVAL'],
+                        }); 
+                    } 
+                },
+                {
+                    guid:'88844fc4-c390-44ff-9254-2fa41e2b8963',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'tracker' || skuObj.name.includes('ONE');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // All trackers
+                    guid:'b9f495c6-80bc-49d7-a4b7-cb210f89fb65',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'tracker';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // Argon
+                    guid:'a1f313d4-5b1a-409e-b03c-32ebec003b10',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'argon';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5e188545-21ff-4ef8-9510-155caea7014e',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'e series';
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    guid:'8ba8241b-1084-463b-b5be-64cda68e3a4b',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'p series' || skuObj.name.includes('P0');
+                            },
+                        }); 
+                    } 
+                },
+                {
+                    // Ethernet compatible models: All Gen3 except Tracker One
+                    guid:'2de596b8-2889-4df7-86d1-910d5551b34f',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.gen != '3' || skuObj.name.includes('ONE');
+                            },
+                            includeSkus: [
+                                'FWNG-ETH', 'M2EVAL'
+                            ],
+                            omitSkus: [
+                                'BRN310TRAY50', 'ARG-AQKT'
+                            ]
+                        }); 
+                    } 
+                },
 
 
-        
+                
+
+    
+
+            ]
+        }    
     ];
 
-    updater.updateDocs = function(pathPrefix, docsPath, guid, md) {
+    updater.updateDocs = function(pathPrefix, docsPath, guid, md, files) {
         // path: path to md, relative to content. For example: /tutorials/cellular-connectivity/cellular-carriers.md
         // guid: the ID for the block to replace (typically a GUID)
         // md: The md file data to use as the replacement
@@ -1904,55 +2448,93 @@ const path = require('path');
         const replacePrefixBegin = '{{!-- BEGIN do not edit content below, it is automatically generated ';
         const replacePrefixEnd = '{{!-- END do not edit content above, it is automatically generated';
 
+        const filePath = pathPrefix + docsPath;
+
+        const docsData = fs.readFileSync(filePath, 'utf8');
         
-        const docsData = fs.readFileSync(pathPrefix + docsPath, 'utf8');
-        
-        let preData = '';
-        let postData = '';
-        let state = 0;
+        let blocks = [];
+        let inGuid = false;
+        let currentBlock = '';
         
         docsData.split("\n").forEach(function(line, index) {
-            switch(state) {
-            case 0:
+            if (!inGuid) {
+                currentBlock += line + '\n';
+
                 if (line.startsWith(replacePrefixBegin + guid)) {
-                    state = 1;
+                    inGuid = true;
+                    if (currentBlock.length) {
+                        blocks.push(currentBlock);
+                        blocks.push(null);
+                    }
+                    currentBlock = '';
                 }
-                preData += line + '\n';
-                break;
-            case 1:
-                // GUID is no longer required on the end marker, since you can't nest these
-                if (line.startsWith(replacePrefixEnd)) {
-                    postData += line + '\n';
-                    state = 2;
-                }
-                break;
-            case 2:
-                postData += line + '\n';
-                break;
             }
-            
+            else {
+                if (line.startsWith(replacePrefixEnd)) {
+                    inGuid = false;
+                    currentBlock = line + '\n';
+                }
+            }            
         });
 
-        // Make postData end with exactly one \n, otherwise it keeps getting one added on each run
-        let len = postData.length;
-        while(len > 0 && postData.charAt(len - 1) == '\n') {
-            len--;
-        }
-        if ((len + 1) < postData.length) {
-            postData = postData.substr(0, len + 1);
+        if (currentBlock.length) {
+            blocks.push(currentBlock);
         }
 
-        
-        if (preData != '' && postData != '') {
-            var newDocsData = preData + '\n' + md + '\n\n' + postData;
-            
-            if (docsData != newDocsData) {
-                fs.writeFileSync(pathPrefix + docsPath, newDocsData);	    
-                console.log('updated ' + docsPath);
+        let newDocsData = '';
+
+        for(const b of blocks) {
+            if (b === null) {
+                newDocsData += '\n' + md + '\n\n';
             }
+            else {
+                newDocsData += b;
+            }
+        }  
+
+        // Make newDocsData end with exactly one \n, otherwise it keeps getting one added on each run
+        let len = newDocsData.length;
+        while(len > 0 && newDocsData.charAt(len - 1) == '\n') {
+            len--;
         }
-        else {
-            console.log('marker ' + guid + ' missing from ' + docsPath);
+        if ((len + 1) < newDocsData.length) {
+            newDocsData = newDocsData.substring(0, len + 1);
+        }
+        
+        if (docsData != newDocsData) {
+
+            fs.writeFileSync(filePath, newDocsData);	    
+            console.log('updated ' + docsPath);
+
+            /*
+            let contentOnly = '';
+            let lineNum = 1;
+            let inHeader = true;
+            for(const line of newDocsData.split('\n')) {
+                if (!inHeader) {
+                    contentOnly += line + '\n';
+                }
+                if (line == '---' && lineNum > 1) {
+                    inHeader = false;
+                }
+                lineNum++;
+            }
+
+            if '(files') {
+                const key = docsPath.substr(1);
+                console.log('key=' + key, files[key]);
+
+                console.log('old', files[key].contents.toString());
+                console.log('new', contentOnly);
+
+                // Remove the leading slash for indexing into files
+                files[key] = {
+                    contents: Buffer.from(contentOnly, "utf-8"),
+                    mode: '0644',
+                    stats: fs.statSync(filePath)
+                };
+            }
+            */
         }
     }
 
@@ -1960,7 +2542,7 @@ const path = require('path');
     // Do the update
     // Called at the end of this file
     //
-    updater.doUpdate = function(scriptsDir) {
+    updater.doUpdate = function(scriptsDir, files) {
 
         const pathPrefix = path.resolve(scriptsDir, '../src/content');
 
@@ -1974,7 +2556,7 @@ const path = require('path');
                 // updatesObj.guid
                 // updatesObj.generatorFn (generates Markdown)
                 try {
-                    updater.updateDocs(pathPrefix, fileObj.path, updatesObj.guid, updatesObj.generatorFn());
+                    updater.updateDocs(pathPrefix, fileObj.path, updatesObj.guid, updatesObj.generatorFn(), files);
                 }
                 catch(e) {
                     console.log('exception processing ' + updatesObj.guid, e);

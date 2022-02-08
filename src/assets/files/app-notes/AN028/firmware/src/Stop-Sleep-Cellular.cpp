@@ -190,8 +190,13 @@ void loop() {
                     lastDiagnosticsPublish = Time.now();
                 }
             }
-
-            System.sleep(WKP, RISING, sleepTime, SLEEP_NETWORK_STANDBY);
+            {
+                SystemSleepConfiguration config;
+                config.mode(SystemSleepMode::STOP)
+                    .duration(sleepTime)
+                    .network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY);
+                SystemSleepResult result = System.sleep(config);
+            }
 
             Log.info("woke from sleep");
 

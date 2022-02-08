@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CayenneLPP",
     "version": "1.0.2",
-    "installs": 206,
+    "installs": 265,
     "author": "Electronic Cats",
     "maintainer": "Electronic Cats <hola@electroniccats.com>",
     "sentence": "CayenneLPP Arduino Library.",

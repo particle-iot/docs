@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1306",
     "version": "0.0.2",
-    "installs": 269222,
+    "installs": 279251,
     "license": "SOME",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "A Port of the ADAFruit SSD1306 libary",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "libmodbus",
     "version": "0.0.1",
-    "installs": 569,
+    "installs": 649,
     "author": "Eric Sandeen",
     "architectures": [],
     "visibility": "public",

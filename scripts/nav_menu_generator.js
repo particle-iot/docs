@@ -34,20 +34,28 @@ function generateNavMenu(fileObj, contentDir) {
         return;
     }
 
+    let curSection;
+
     let menuJson = JSON.parse(fs.readFileSync(menuPath), 'utf8');
+
     for (let item of menuJson.items) {
         if (Array.isArray(item)) {
-            // Multi-level (like tutorials, reference, datasheets)
+            // Multi-level (like tutorials, reference, datasheets)            
             for (let itemInner of item) {
                 if (itemInner.dir === fileObj.path.name) {
-                    itemInner.activeItem = true;
+                    if (!sectionName || sectionName == curSection) {
+                        itemInner.activeItem = true;
+                    }
                 }
-            }
+            }    
         }
         else {
             // Single level deep (like quickstart or community)
             if (item.dir === fileObj.path.name) {
                 item.activeItem = true;
+            }
+            if (item.isSection) {
+                curSection = item.dir;
             }
         }
     }

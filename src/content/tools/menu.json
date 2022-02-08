@@ -37,6 +37,11 @@
                 "href": "/tools/troubleshooting/lookup"
             },
             {
+                "dir": "device-inspect",
+                "title": "Device Inspect",
+                "href": "/tools/troubleshooting/device-inspect"
+            },
+            {
                 "dir": "cloud-debug",
                 "title": "Cloud Debug",
                 "href": "/tools/troubleshooting/cloud-debug"

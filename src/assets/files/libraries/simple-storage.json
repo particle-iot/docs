@@ -7,7 +7,7 @@
   "attributes": {
     "name": "simple-storage",
     "version": "1.0.0",
-    "installs": 621,
+    "installs": 793,
     "license": "MIT",
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Load and store configuration from the EEPROM",

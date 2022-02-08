@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MLX90621",
     "version": "0.0.13",
-    "installs": 215,
+    "installs": 273,
     "license": "Public",
     "author": "Max Ritter",
     "sentence": "Library for interfacing with MLX90621 temp sensor array",
