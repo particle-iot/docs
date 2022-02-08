@@ -1507,7 +1507,97 @@ const { option } = require('yargs');
                 }
  
             }
+
         }
+
+        if (options.style == 'port-comparison') {
+            // options.port
+            const platformInfoOld = updater.pinInfo.platforms.find(p => p.id == 8);
+
+            const p1pins = expandMorePins(platformInfoOld.pins);
+            const p2pins = expandMorePins(platformInfoNew.pins);
+
+            md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
+            md += '| :---: | :--- | :--- | :--- | :--- |\n'
+
+            const portColumnValue = function(value) {
+                if (value) {
+                    if (options.useShortName) {
+                        return getShortName(value);
+                    }
+                    else {
+                        return '&check;';
+                    }
+                }
+                else {
+                    return '&nbsp;';
+                }
+            } 
+
+            for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                let p1pin = getPinInfo(p1pins, pinNum);
+                let p2pin = getPinInfo(p2pins, pinNum);
+
+                if (!p1pin[options.port] && !p2pin[options.port]) {
+                    // Neither device supports this port on this pin
+                    continue;
+                }
+                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
+                md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
+            }            
+        }
+
+        if (options.style == 'interfacePins') {
+            // options.interface
+
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin[options.interface]) {
+                    pins.push(pin);
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description | Interface | MCU |\n';
+            md += '| :---: | :--- | :--- | :--- |:--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ';
+                
+                md += getShortName(pin[options.interface]) + ' | ';
+
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+        if (options.style == 'interfaceTypePins') {
+            // options.interface
+
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin[options.interface]) {
+                    pins.push(pin);
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description | MCU |\n';
+            md += '| :---: | :--- | :--- |:--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ';
+                
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+        return md;
     };
 
     updater.docsToUpdate = [
