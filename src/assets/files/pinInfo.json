@@ -1176,12 +1176,12 @@
 					"tone":false,
 					"attachInterrupt":true,
 					"hardwarePin":"PA[15]",
-					"mcuPin":30
+					"mcuPin":28
 				},
 				{
 					"num":23,
 					"name":"A5",
-					"altName":"D17",
+					"altName":"D15",
 					"desc":"A5 Analog in, GPIO, PWM, SPI.",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1465,7 +1465,7 @@
 				{
 					"num":40,
 					"name":"S0",
-					"altName": "D18",
+					"altName": "D16",
 					"desc":"S0 GPIO, PWM, SPI. (Was P1S0 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1483,7 +1483,7 @@
 				{
 					"num":41,
 					"name":"S1",
-					"altName": "D19",
+					"altName": "D17",
 					"desc":"S1 GPIO, PWM, SPI. (Was P1S1 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1501,7 +1501,7 @@
 				{
 					"num":42,
 					"name":"S2",
-					"altName": "D20",
+					"altName": "D18",
 					"desc":"S2 GPIO, SPI. (Was P1S2 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1519,7 +1519,7 @@
 				{
 					"num":44,
 					"name":"S3",
-					"altName": "D21",
+					"altName": "D19",
 					"desc":"S3 GPIO. (Was P1S3 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1536,7 +1536,7 @@
 				{
 					"num":47,
 					"name":"S4",
-					"altName": "D22",
+					"altName": "D20",
 					"desc":"S4 GPIO. (Was P1S4 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1553,7 +1553,7 @@
 				{
 					"num":48,
 					"name":"S5",
-					"altName": "D23",
+					"altName": "D21",
 					"desc":"S5 GPIO. (Was P1S5 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1570,7 +1570,7 @@
 				{
 					"num":33,
 					"name":"S6",
-					"altName": "D24",
+					"altName": "D22",
 					"desc":"S6 GPIO. (Was P1S6/TESTMODE on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1616,11 +1616,11 @@
 					"showInTable":false
 				},
 				{
-					"num":8,
+					"num":7,
 					"name":"NC",
 					"desc":"No connection. Do not connect anything to this pin.",
 					"isPower":true,
-					"morePins":[7,9,10,11,14,16,17,18,19,20,21,22,24,38,56,57,58,60,74,75],
+					"morePins":[8,9,10,11,14,16,17,18,19,20,21,22,24,38,56,57,58,60,74,75],
 					"showInTable":false
 				},
 				{
