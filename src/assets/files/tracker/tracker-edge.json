@@ -1,6 +1,6 @@
 {
 	"$schema": "https://particle.io/draft-07/schema#",
-	"$id": "https://github.com/particle-iot/tracker-edge/releases/tag/v12",
+	"$id": "https://github.com/particle-iot/tracker-edge/releases/tag/v17",
 	"type": "object",
 	"title": "Configuration schema for the Tracker Edge firmware from Particle",
 	"$comment": "the $id field doesn't strictly mean that this schema only works with that release of tracker-edge, rather, this means that the schema here was created for that version of tracker-edge, and will work on earlier and later versions until a new schema is required.  This means that schema v10 will work with firmware v11, as long as there's no added features in v11 not already mentioned here",
@@ -362,6 +362,501 @@
 					]
 				}
 			}
+		},
+		"geofence": {
+			"$id": "#/properties/geofence",
+			"type": "object",
+			"title": "Geofence",
+			"description": "Configuration for geofencing settings",
+			"default": {},
+			"minimumFirmwareVersion": 17,
+			"deviceLevelOnly": true,
+			"properties": {
+				"interval": {
+					"$id": "#/properties/geofence/interval",
+					"type": "integer",
+					"title": "Wake interval (every n seconds)",
+					"description": "If device is configured for sleep, periodic interval to wake in order to evaluate geofences.",
+					"default": 0,
+					"examples": [
+						900
+					],
+					"minimum": 0
+				},
+				"zone1": {
+					"$id": "#/properties/geofence/zone1",
+					"type": "object",
+					"title": "Zone 1",
+					"description": "Configuration for Zone 1 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone1/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone1/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone1/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone1/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone1/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone1/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone1/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone1/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone1/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone1/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				},
+				"zone2": {
+					"$id": "#/properties/geofence/zone2",
+					"type": "object",
+					"title": "Zone 2",
+					"description": "Configuration for Zone 2 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone2/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone2/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone2/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone2/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone2/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone2/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone2/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone2/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone2/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone2/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				},
+				"zone3": {
+					"$id": "#/properties/geofence/zone3",
+					"type": "object",
+					"title": "Zone 3",
+					"description": "Configuration for Zone 3 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone3/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone3/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone3/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone3/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone3/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone3/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone3/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone3/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone3/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone3/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				},
+				"zone4": {
+					"$id": "#/properties/geofence/zone4",
+					"type": "object",
+					"title": "Zone 4",
+					"description": "Configuration for Zone 1 settings.",
+					"default": {},
+					"properties": {
+						"enable": {
+							"$id": "#/properties/geofence/zone4/enable",
+							"type": "boolean",
+							"title": "Enable",
+							"description": "If enabled, the zone will be evaluated by the device.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"shape_type": {
+							"$id": "#/properties/geofence/zone4/shape_type",
+							"type": "string",
+							"title": "Shape",
+							"description": "Shape of the geofence.",
+							"default": "circular",
+							"enum": [
+								"circular"
+							]
+						},
+						"lat": {
+							"$id": "#/properties/geofence/zone4/lat",
+							"type": "number",
+							"title": "Latitude (Degrees)",
+							"description": "Latitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								34
+							],
+							"minimum": -90,
+							"maximum": 90
+						},
+						"lon": {
+							"$id": "#/properties/geofence/zone4/lon",
+							"type": "number",
+							"title": "Longitude (Degrees)",
+							"description": "Longitudinal coordinate for the center point of the geofence.",
+							"default": 0,
+							"multipleOf": 1e-8,
+							"examples": [
+								121
+							],
+							"minimum": -180,
+							"maximum": 180
+						},
+						"radius": {
+							"$id": "#/properties/geofence/zone4/radius",
+							"type": "number",
+							"title": "Radius (Meters)",
+							"description": "Defines circular area covered by the geofence.",
+							"default": 0,
+							"examples": [
+								1000
+							],
+							"minimum": 0,
+							"maximum": 100000
+						},
+						"inside": {
+							"$id": "#/properties/geofence/zone4/inside",
+							"type": "boolean",
+							"title": "Publish inside zone",
+							"description": "If enabled, publish event when the device is inside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"outside": {
+							"$id": "#/properties/geofence/zone4/outside",
+							"type": "boolean",
+							"title": "Publish outside zone",
+							"description": "If enabled, publish event when the device is outside the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"enter": {
+							"$id": "#/properties/geofence/zone4/enter",
+							"type": "boolean",
+							"title": "Publish on enter zone",
+							"description": "If enabled, publish event when the device has entered the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"exit": {
+							"$id": "#/properties/geofence/zone4/exit",
+							"type": "boolean",
+							"title": "Publish on exit zone",
+							"description": "If enabled, publish event when the device has exited the zone.",
+							"default": false,
+							"examples": [
+								true
+							]
+						},
+						"verif": {
+							"$id": "#/properties/geofence/zone4/verif",
+							"type": "integer",
+							"title": "Time Before Trigger (Seconds)",
+							"description": "Amount of time the device is inside or outside the zone before triggering an event.",
+							"default": 0,
+							"examples": [
+								1
+							],
+							"minimum": 0
+						}
+					}
+				}
+			}
 		}
-	}
+	},
+	"additionalProperties": false
 }

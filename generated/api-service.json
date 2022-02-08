@@ -164,7 +164,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Authentication_1",
     "name": "PostOauthToken"
   },
@@ -250,7 +250,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Authentication_4"
   },
   {
@@ -314,7 +314,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Authentication_5"
   },
   {
@@ -352,7 +352,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Authentication_6"
   },
   {
@@ -390,7 +390,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Authentication_6"
   },
   {
@@ -449,7 +449,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Authentication_6"
   },
   {
@@ -485,7 +485,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_1"
   },
   {
@@ -546,7 +546,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_2"
   },
   {
@@ -591,7 +591,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_3"
   },
   {
@@ -636,7 +636,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_4"
   },
   {
@@ -663,7 +663,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_5"
   },
   {
@@ -672,7 +672,7 @@
     "title": "Set product configuration",
     "name": "SetProductConfig",
     "group": "Configuration_5",
-    "description": "<p>Set configuration values that will become the default for the product. This will also update eligible devices with this updated configuration.</p>",
+    "description": "<p>Set configuration values that will become the default for the product. This will also update eligible devices with this updated configuration.</p> <p>You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -702,7 +702,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_5"
   },
   {
@@ -711,7 +711,7 @@
     "title": "Set product configuration schema",
     "name": "SetProductConfigSchema",
     "group": "Configuration_5",
-    "description": "<p>Set configuration schema that will become the default for the product.</p>",
+    "description": "<p>Set configuration schema that will become the default for the product.</p> <p>This must be the entire schema, including the standard Particle parts; there is no merging of changes.</p>",
     "examples": [
       {
         "title": "$ curl -X PUT \"https://api.particle.io/v1/products/1234/config\" \\",
@@ -738,7 +738,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_5"
   },
   {
@@ -765,7 +765,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_6"
   },
   {
@@ -774,7 +774,7 @@
     "title": "Set device configuration",
     "name": "SetDeviceConfig",
     "group": "Configuration_6",
-    "description": "<p>Set some configuration values for the device that will override the product default. Send an empty request to reset the device to product defaults. Returns 200, 202 or 400 for various states 200 when the device is online and accepted the configuration changes. 202 when the device is offline. We'll complete the request when it comes online again 400 When the device is online, but has rejected some of the configuration keys.  A list of accepted and rejected keys with device error codes is provided</p>",
+    "description": "<p>Set some configuration values for the device that will override the product default.</p> <p>Send an empty request to reset the device to product defaults.</p> <p>Returns 200, 202 or 400 for various states</p> <ul> <li>200 when the device is online and accepted the configuration changes.</li> <li>202 when the device is offline. We'll complete the request when it comes online again</li> <li>400 When the device is online, but has rejected some of the configuration keys.  A list of accepted and rejected keys with device error codes is provided</li> </ul> <p>You should always get the entire configuration, change values, and set the whole configuration back. In HTTP REST APIs, POST and PUT do not merge changes with the existing data.</p>",
     "examples": [
       {
         "title": "$ curl -X PUT \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\",
@@ -806,7 +806,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_6"
   },
   {
@@ -815,7 +815,7 @@
     "title": "Set device configuration schema",
     "name": "SetDeviceSchema",
     "group": "Configuration_6",
-    "description": "<p>Set configuration schema for the device.</p>",
+    "description": "<p>Set configuration schema for the device.</p> <p>This must be the entire schema, including the standard Particle parts; there is no merging of changes.</p>",
     "examples": [
       {
         "title": "$ curl -X PUT \"https://api.particle.io/v1/products/1234/config/43210\" \\",
@@ -842,7 +842,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/configuration.js",
+    "filename": "api-service/src/views/configuration.js",
     "groupTitle": "Configuration_6"
   },
   {
@@ -894,7 +894,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Customers_10"
   },
   {
@@ -941,7 +941,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Customers_1"
   },
   {
@@ -1022,7 +1022,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Customers_2"
   },
   {
@@ -1096,7 +1096,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Customers_3"
   },
   {
@@ -1172,13 +1172,6 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "customers.full_name",
-            "description": "<p>Name</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
             "field": "customers.username",
             "description": "<p>Username</p>"
           },
@@ -1235,7 +1228,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Customers_4"
   },
   {
@@ -1357,7 +1350,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/accessToken.js",
+    "filename": "api-service/src/views/accessToken.js",
     "groupTitle": "Customers_5",
     "name": "PostOauthToken"
   },
@@ -1417,7 +1410,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Customers_6"
   },
   {
@@ -1521,7 +1514,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_10"
   },
   {
@@ -1582,7 +1575,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_12"
   },
   {
@@ -1590,6 +1583,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceID",
     "title": "Remove device from product",
     "name": "removeDeviceFromProduct",
+    "permission": [
+      {
+        "name": "devices:remove"
+      }
+    ],
     "group": "Devices_13",
     "description": "<p>Remove a device from a product and re-assign to a generic Particle product. This endpoint will unclaim the device if it is owned by a <code>customer</code>.</p>",
     "parameter": {
@@ -1642,7 +1640,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Devices_13"
   },
   {
@@ -1699,7 +1697,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_14"
   },
   {
@@ -1739,7 +1737,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_15"
   },
   {
@@ -1784,7 +1782,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_16"
   },
   {
@@ -1841,7 +1839,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_17",
     "name": "GetV1Serial_numbersSerial_number"
   },
@@ -1873,7 +1871,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_1"
   },
   {
@@ -1913,6 +1911,13 @@
             "optional": true,
             "field": "deviceName",
             "description": "<p>Filter results to devices with this name (partial matching)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "serialNumber",
+            "description": "<p>Filter results to devices with this serial number (partial matching)</p>"
           },
           {
             "group": "Parameter",
@@ -2026,13 +2031,13 @@
       "examples": [
         {
           "title": "GET /v1/products/:productIdOrSlug/devices",
-          "content": "GET /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"devices\": [\n\t \t{\n\t \t\t\"id\":\"1d002a000547343232363230\",\n\t \t\t\"name\":\"jeff_test_device\",\n\t \t\t\"last_ip_address\":\"199.230.10.194\",\n\t \t\t\"last_heard\":\"2016-06-10T15:00:07.100Z\",\n\t \t\t\"last_handshake_at\":\"2016-06-10T14:56:27.100Z\",\n\t \t\t\"product_id\":295,\n\t \t\t\"online\":false,\n\t \t\t\"platform_id\": 6,\n\t \t    \"cellular\": false,\n\t \t    \"functions\": [\n\t \t      \"cmd\"\n\t \t    ],\n\t \t    \"variables\": {\n\t \t      \"temperature\": \"double\"\n\t \t    },\n\t \t    \"status\": \"normal\",\n\t \t    \"system_firmware_version\": \"1.4.2\",\n\t \t    \"firmware_product_id\": 295,\n\t \t    \"groups\":[\"asia\",\"europe\"],\n\t \t\t\"firmware_version\":3,\n\t \t    \"desired_firmware_version\": null,\n\t \t    \"targeted_firmware_release_version\": 3,\n\t \t\t\"development\":false,\n\t \t\t\"quarantined\":false,\n\t \t\t\"denied\":false,\n\t \t\t\"owner\":\"jeff@particle.io\"\n\t \t},\n\t \t{\n\t \t\t\"id\":\"32001e000747343337373738\",\n\t \t\t\"last_ip_address\":\"199.21.86.18\",\n\t \t\t\"last_heard\":\"2016-06-10T15:00:07.100Z\",\n\t \t\t\"last_handshake_at\":\"2016-06-10T14:56:27.100Z\",\n\t \t\t\"product_id\":6,\n\t \t\t\"online\":false,\n\t \t\t\"platform_id\": 6,\n\t \t    \"cellular\": false,\n\t \t    \"status\": \"normal\",\n\t \t    \"system_firmware_version\": \"0.8.0\",\n\t \t    \"firmware_product_id\": 295,\n\t \t    \"development\": false,\n\t \t\t\"quarantined\": true,\n\t \t\t\"denied\": false\n\t \t},\n\t \t...\n\t],\n\t\"customers\": [\n\t\t{\n\t \t \tid:\"123abc3456\",\n\t\t \tusername: \"customer@gmail.com\",\n\t\t}\n\t],\n\t\"meta\": {\n\t\t\"total_pages\":1\n\t}\n}",
+          "content": "GET /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"devices\": [\n\t \t{\n\t \t\t\"id\":\"1d002a000547343232363230\",\n\t \t\t\"name\":\"jeff_test_device\",\n\t \t\t\"last_ip_address\":\"199.230.10.194\",\n\t \t\t\"last_heard\":\"2016-06-10T15:00:07.100Z\",\n\t \t\t\"last_handshake_at\":\"2016-06-10T14:56:27.100Z\",\n\t \t\t\"product_id\":295,\n\t \t\t\"online\":false,\n\t \t\t\"platform_id\": 13,\n\t \t    \"cellular\": true,\n\t \t    \"functions\": [\n\t \t      \"cmd\"\n\t \t    ],\n\t \t    \"variables\": {\n\t \t      \"temperature\": \"double\"\n\t \t    },\n\t \t    \"status\": \"normal\",\n\t \t    \"serial_number\": \"E40KAB111111111\",\n\t \t    \"iccid\": \"89014111111111111111\",\n         \"imei\": \"352753090000000\",\n         \"mobile_secret\": \"WBPYG6CPLRCFK4S\",\n\t \t    \"system_firmware_version\": \"3.0.0\",\n\t \t    \"firmware_product_id\": 295,\n\t \t    \"groups\":[\"asia\",\"europe\"],\n\t \t\t\"firmware_version\":3,\n\t \t    \"desired_firmware_version\": null,\n\t \t    \"targeted_firmware_release_version\": 3,\n\t \t\t\"development\":false,\n\t \t\t\"quarantined\":false,\n\t \t\t\"denied\":false,\n\t \t\t\"owner\":\"jeff@particle.io\"\n\t \t},\n\t \t{\n\t \t\t\"id\":\"32001e000747343337373738\",\n\t \t\t\"last_ip_address\":\"199.21.86.18\",\n\t \t\t\"last_heard\":\"2016-06-10T15:00:07.100Z\",\n\t \t\t\"last_handshake_at\":\"2016-06-10T14:56:27.100Z\",\n\t \t\t\"product_id\":13,\n\t \t\t\"online\":false,\n\t \t\t\"platform_id\": 13,\n\t \t    \"cellular\": true,\n\t \t    \"status\": \"normal\",\n\t \t    \"serial_number\": \"E40KAB111111112\",\n\t \t    \"iccid\": \"89014111111111111112\",\n         \"imei\": \"352753090000001\",\n         \"mobile_secret\": \"VNH9JNXMXW5YY9X\",\n\t \t    \"system_firmware_version\": \"2.0.0\",\n\t \t    \"firmware_product_id\": 295,\n\t \t    \"development\": false,\n\t \t\t\"quarantined\": true,\n\t \t\t\"denied\": false\n\t \t},\n\t \t...\n\t],\n\t\"customers\": [\n\t\t{\n\t \t \tid:\"123abc3456\",\n\t\t \tusername: \"customer@gmail.com\",\n\t\t}\n\t],\n\t\"meta\": {\n\t\t\"total_pages\":1\n\t}\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Devices_2"
   },
   {
@@ -2123,7 +2128,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Devices_3"
   },
   {
@@ -2319,6 +2324,13 @@
           },
           {
             "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mobile_secret",
+            "description": "<p>The shared secret used by a mobile app to communicate securely with a device over BLE during setup</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Number",
             "optional": false,
             "field": "firmware_product_id",
@@ -2378,7 +2390,7 @@
       "examples": [
         {
           "title": "GET /v1/devices/0123456789abcdef01234567",
-          "content": "GET /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"name\": \"gongbot\",\n  \"last_ip_address\": \"176.83.211.237\",\n  \"last_heard\": \"2015-07-17T22:28:40.907Z\",\n  \"last_handshake_at\": \"2015-07-15T20:08:00.456Z\",\n  \"product_id\": 6,\n  \"online\": true,\n  \"platform_id\": 6,\n  \"cellular\": false,\n  \"notes\": null,\n  \"functions\": [\n    \"gong\",\n    \"goto\"\n  ],\n  \"variables\": {\n    \"Gongs\": \"int32\"\n  },\n  \"status\": \"normal\",\n  \"serial_number\": \"AAAAAA111111111\",\n  \"system_firmware_version\": \"1.5.0\",\n  \"firmware_updates_enabled\": true,\n  \"firmware_updates_forced\": false\n}",
+          "content": "GET /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"name\": \"gongbot\",\n  \"last_ip_address\": \"176.83.211.237\",\n  \"last_heard\": \"2015-07-17T22:28:40.907Z\",\n  \"last_handshake_at\": \"2015-07-15T20:08:00.456Z\",\n  \"product_id\": 13,\n  \"online\": true,\n  \"platform_id\": 13,\n  \"cellular\": true,\n  \"notes\": null,\n  \"functions\": [\n    \"gong\",\n    \"goto\"\n  ],\n  \"variables\": {\n    \"Gongs\": \"int32\"\n  },\n  \"status\": \"normal\",\n  \"serial_number\": \"AAAAAA111111111\",\n  \"iccid\": \"89314404000111111111\",\n  \"imei\": \"357520000000000\",\n  \"mobile_secret\": \"NVYM5RK6AHCBELA\",\n  \"system_firmware_version\": \"1.5.0\",\n  \"firmware_updates_enabled\": true,\n  \"firmware_updates_forced\": false\n}",
           "type": "js"
         }
       ]
@@ -2396,7 +2408,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_4"
   },
   {
@@ -2432,7 +2444,7 @@
     "description": "<p>Get basic information about a given device that is part of a product</p> <p>See <a href=\"#get-device-information\">Get device information</a> for the response attributes</p>",
     "group": "Devices_5",
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_5"
   },
   {
@@ -2536,7 +2548,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_6"
   },
   {
@@ -2653,7 +2665,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_7",
     "name": "PostV1DevicesDeviceidFunctionname"
   },
@@ -2721,7 +2733,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_7",
     "name": "PutV1DevicesDeviceidPing"
   },
@@ -2758,6 +2770,11 @@
     "name": "updateDeviceName",
     "description": "<p>Rename a device, either owned by a user or a product</p>",
     "group": "Devices_8",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X PUT https://api.particle.io/v1/devices/0123456789abcdef01234567 \\",
@@ -2805,7 +2822,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_8"
   },
   {
@@ -2814,6 +2831,11 @@
     "title": "Add device notes",
     "name": "updateDeviceNotes",
     "group": "Devices_9",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -2888,7 +2910,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Devices_9"
   },
   {
@@ -2940,7 +2962,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Diagnostics_1"
   },
   {
@@ -3403,7 +3425,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Diagnostics_2"
   },
   {
@@ -3492,7 +3514,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Diagnostics_3"
   },
   {
@@ -3617,7 +3639,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Diagnostics_4"
   },
   {
@@ -3685,7 +3707,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Diagnostics_5"
   },
   {
@@ -3830,7 +3852,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Diagnostics_6"
   },
   {
@@ -3893,7 +3915,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Events_1"
   },
   {
@@ -3956,7 +3978,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Events_2"
   },
   {
@@ -4026,7 +4048,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Events_3"
   },
   {
@@ -4096,7 +4118,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Events_4"
   },
   {
@@ -4162,7 +4184,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Events_6"
   },
   {
@@ -4228,7 +4250,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Events_7"
   },
   {
@@ -4313,7 +4335,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Firmware_1"
   },
   {
@@ -4374,7 +4396,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Firmware_2"
   },
   {
@@ -4432,7 +4454,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/buildTarget.js",
+    "filename": "api-service/src/views/buildTarget.js",
     "groupTitle": "Firmware_4"
   },
   {
@@ -4440,6 +4462,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceId",
     "title": "Lock product device",
     "name": "lockProductDevice",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "description": "<p>Locks a product device to a specific version of product firmware. This device will download and run this firmware if it is not already running it the next time it connects to the cloud. You can optionally trigger an immediate update to this firmware for devices that are currently online</p>",
     "group": "Firmware_5",
     "parameter": {
@@ -4518,7 +4545,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Firmware_5"
   },
   {
@@ -4526,6 +4553,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceId",
     "title": "Unlock product device",
     "name": "unlockProductDevice",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "description": "<p>Unlocks a product device from receiving and running a specific version of product firmware. The device will now be eligible to receive released firmware in the product.</p>",
     "group": "Firmware_6",
     "parameter": {
@@ -4597,7 +4629,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Firmware_6"
   },
   {
@@ -4605,6 +4637,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceId",
     "title": "Mark product development device",
     "name": "markProductDevelopmentDevice",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "description": "<p>Mark a device in a product fleet as a <em>development device</em>. Once marked as a development device, it will opt-out from receiving automatic product firmware updates. This includes both locked firmware as well as released firmware.</p>",
     "group": "Firmware_7",
     "parameter": {
@@ -4676,7 +4713,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Firmware_7"
   },
   {
@@ -4684,6 +4721,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceId",
     "title": "Unmark product development device",
     "name": "unmarkProductDevelopmentDevice",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "description": "<p>Unmark a device in a product fleet as a <em>development device</em>. Once unmarked, the device will opt-in to receiving automatic product firmware updates. This includes both locked firmware as well as released firmware.</p>",
     "group": "Firmware_8",
     "parameter": {
@@ -4755,7 +4797,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Firmware_8"
   },
   {
@@ -4853,7 +4895,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_1"
   },
   {
@@ -4916,7 +4958,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_2"
   },
   {
@@ -4993,7 +5035,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_3"
   },
   {
@@ -5077,7 +5119,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_4"
   },
   {
@@ -5129,7 +5171,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_5"
   },
   {
@@ -5137,6 +5179,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceId",
     "title": "Assign groups to a device",
     "name": "updateDeviceGroups",
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "description": "<p>Update group memberships for an individual device. This is an <em>absolute</em> endpoint, meaning that regardless of previous group memberships, the group names passed to this endpoint will be the ones assigned to the device.</p> <p>If you pass a group name that does not yet exist, it will be created and assigned to the device.</p>",
     "group": "Groups_6",
     "parameter": {
@@ -5208,7 +5255,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Groups_6"
   },
   {
@@ -5288,7 +5335,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_7"
   },
   {
@@ -5386,7 +5433,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Groups_7"
   },
   {
@@ -5442,14 +5489,90 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Integraitons_1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/integrations",
+    "title": "List integrations",
+    "name": "listIntegrations",
+    "group": "Integrations_10",
+    "permission": [
+      {
+        "name": "integrations:list"
+      }
+    ],
+    "description": "<p>List all integrations. Pay special attention to the <code>integration_type</code> attribute of each integration, which will let you know whether the integration is a <a href=\"#create-a-webhook\">Webhook</a>, an <a href=\"#enable-azure-iot-hub-integration\">Azure IoT Hub</a> integration, or a <a href=\"#enable-google-cloud-platform-integration\">Google Cloud Platform</a> integration.</p> <p>If you would like to <em>only</em> list webhooks (integrations with <code>type: 'Webhook'</code>), you can use a slightly different endpoint:</p> <p><code>GET /v1/webhooks</code></p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "productIdOrSlug",
+            "description": "<p>Product ID or slug. <em>Product endpoint only</em>.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/integrations?access_token=12345\"",
+        "content": "$ curl \"https://api.particle.io/v1/integrations?access_token=12345\"",
+        "type": "bash"
+      },
+      {
+        "title": "List all product integrations",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/integrations?access_token=12345\"",
+        "type": "bash"
+      },
+      {
+        "title": "List all webhooks",
+        "content": "$ curl \"https://api.particle.io/v1/webhooks?access_token=12345\"",
+        "type": "bash"
+      },
+      {
+        "title": "List all product webhooks",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/webhooks?access_token=12345\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "-",
+            "description": "<p>An array of integration objects. The object will vary in its attributes depending on integration type. For information on specific integration type response bodies, please see creation docs for <a href=\"#create-a-webhook\">Webhooks</a>, <a href=\"#enable-azure-iot-hub-integration\">Azure IoT Hub</a>, and <a href=\"#enable-google-cloud-platform-integration\">Google Cloud Platform</a>.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/integrations",
+          "content": "GET /v1/integrations\nHTTP/1.1 200 OK\n[\n\t{\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"eventName\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/event.js",
+    "groupTitle": "Integrations_10"
   },
   {
     "type": "post",
     "url": "/v1/integrations/:integrationId/test",
     "title": "Test an integration",
-    "group": "Integrations_19",
+    "group": "Integrations_11",
+    "permission": [
+      {
+        "name": "integrations:test"
+      }
+    ],
     "description": "<p>Send a test event that triggers the integration. Helps build confidence that an integration is configured properly.</p>",
     "parameter": {
       "fields": {
@@ -5518,9 +5641,66 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
-    "groupTitle": "Integrations_19",
+    "filename": "api-service/src/views/event.js",
+    "groupTitle": "Integrations_11",
     "name": "PostV1IntegrationsIntegrationidTest"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/integrations/:integrationId",
+    "title": "Delete an integration",
+    "name": "Delete_Integration",
+    "group": "Integrations_12",
+    "permission": [
+      {
+        "name": "integrations:remove"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "integrationId",
+            "description": "<p>The ID of the desired integration</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "productIdOrSlug",
+            "description": "<p>Product ID or slug (only for product webhooks)</p>"
+          }
+        ]
+      }
+    },
+    "description": "<p>Delete an integration and immediate stop it from triggering. The integration can belong to a user or to a product.</p>",
+    "examples": [
+      {
+        "title": "$ curl -X DELETE https://api.particle.io/v1/integrations/12345 \\",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/integrations/12345 \\\n       -d access_token=12345",
+        "type": "bash"
+      },
+      {
+        "title": "Delete a product integration",
+        "content": "$ curl -X DELETE https://api.particle.io/v1/products/:productIdOrSlug/integrations/12345 \\\n       -d access_token=12345",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/webhooks",
+          "content": "DELETE /v1/webhooks\nHTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/event.js",
+    "groupTitle": "Integrations_12"
   },
   {
     "type": "post",
@@ -5529,6 +5709,11 @@
     "description": "<p>A webhook is a flexible type of integration that allows you to interact with a wide variety of external tools and services. Create a webhook either for devices you own as a Particle developer, or for your product fleet. For more info, check out <a href=\"/guide/tools-and-features/webhooks/\">the webhooks guide</a>.</p>",
     "group": "Integrations_1",
     "name": "CreateWebhook",
+    "permission": [
+      {
+        "name": "integrations:create"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -5729,66 +5914,19 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_1"
-  },
-  {
-    "type": "delete",
-    "url": "/v1/integrations/:integrationId",
-    "title": "Delete an integration",
-    "name": "Delete_Integration",
-    "group": "Integrations_20",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "integrationId",
-            "description": "<p>The ID of the desired integration</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "productIdOrSlug",
-            "description": "<p>Product ID or slug (only for product webhooks)</p>"
-          }
-        ]
-      }
-    },
-    "description": "<p>Delete an integration and immediate stop it from triggering. The integration can belong to a user or to a product.</p>",
-    "examples": [
-      {
-        "title": "$ curl -X DELETE https://api.particle.io/v1/integrations/12345 \\",
-        "content": "$ curl -X DELETE https://api.particle.io/v1/integrations/12345 \\\n       -d access_token=12345",
-        "type": "bash"
-      },
-      {
-        "title": "Delete a product integration",
-        "content": "$ curl -X DELETE https://api.particle.io/v1/products/:productIdOrSlug/integrations/12345 \\\n       -d access_token=12345",
-        "type": "bash"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "DELETE /v1/webhooks",
-          "content": "DELETE /v1/webhooks\nHTTP/1.1 204 No Content",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
-    "groupTitle": "Integrations_20"
   },
   {
     "type": "post",
     "url": "/v1/integrations",
     "title": "Enable Azure IoT Hub Integration",
     "group": "Integrations_2",
+    "permission": [
+      {
+        "name": "integrations:create"
+      }
+    ],
     "description": "<p>Enable an integration with Azure IoT Hub. For more details, check out <a href=\"/tutorials/integrations/azure-iot-hub/\">the tutorial</a>.</p>",
     "name": "enableIoTHubIntegration",
     "parameter": {
@@ -5942,7 +6080,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_2"
   },
   {
@@ -5950,6 +6088,11 @@
     "url": "/v1/integrations",
     "title": "Enable Google Cloud Platform Integration",
     "group": "Integrations_3",
+    "permission": [
+      {
+        "name": "integrations:create"
+      }
+    ],
     "description": "<p>Enable an integration with Google Cloud Platform. For more details, check out <a href=\"/tutorials/integrations/google-cloud-platform/\">the tutorial</a>.</p>",
     "name": "enableGoogleCloudPlatformSubIntegration",
     "parameter": {
@@ -6068,7 +6211,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_3"
   },
   {
@@ -6076,6 +6219,11 @@
     "url": "/v1/integrations",
     "title": "Enable Google Maps Integration",
     "group": "Integrations_4",
+    "permission": [
+      {
+        "name": "integrations:create"
+      }
+    ],
     "description": "<p>Enable an integration with Google Maps. For more details, check out <a href=\"/tutorials/integrations/google-maps/\">the tutorial</a>.</p>",
     "name": "enableGoogleCloudMapsIntegration",
     "parameter": {
@@ -6194,15 +6342,20 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_4"
   },
   {
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit a Webhook",
-    "description": "<p>Edit a Webhook. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit a Webhook. Subsequent triggering of this integration will be sent with the new attributes.</p> <p>The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_5",
+    "permission": [
+      {
+        "name": "integrations:update"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -6368,7 +6521,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_5",
     "name": "PutV1IntegrationsIntegrationid"
   },
@@ -6376,8 +6529,13 @@
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit Azure IoT Hub Integration",
-    "description": "<p>Edit an Azure IoT Hub integration. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit an Azure IoT Hub integration. Subsequent triggering of this integration will be sent with the new attributes.</p> <p>The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_6",
+    "permission": [
+      {
+        "name": "integrations:update"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -6480,7 +6638,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_6",
     "name": "PutV1IntegrationsIntegrationid"
   },
@@ -6488,8 +6646,13 @@
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit Google Cloud Platform Integration",
-    "description": "<p>Edit a Google Cloud platform integration. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit a Google Cloud platform integration. Subsequent triggering of this integration will be sent with the new attributes.</p> <p>The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_7",
+    "permission": [
+      {
+        "name": "integrations:update"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -6571,82 +6734,21 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_7",
     "name": "PutV1IntegrationsIntegrationid"
-  },
-  {
-    "type": "get",
-    "url": "/v1/integrations",
-    "title": "List integrations",
-    "name": "listIntegrations",
-    "group": "Integrations_7",
-    "description": "<p>List all integrations. Pay special attention to the <code>integration_type</code> attribute of each integration, which will let you know whether the integration is a <a href=\"#create-a-webhook\">Webhook</a>, an <a href=\"#enable-azure-iot-hub-integration\">Azure IoT Hub</a> integration, or a <a href=\"#enable-google-cloud-platform-integration\">Google Cloud Platform</a> integration.</p> <p>If you would like to <em>only</em> list webhooks (integrations with <code>type: 'Webhook'</code>), you can use a slightly different endpoint:</p> <p><code>GET /v1/webhooks</code></p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "productIdOrSlug",
-            "description": "<p>Product ID or slug. <em>Product endpoint only</em>.</p>"
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "$ curl \"https://api.particle.io/v1/integrations?access_token=12345\"",
-        "content": "$ curl \"https://api.particle.io/v1/integrations?access_token=12345\"",
-        "type": "bash"
-      },
-      {
-        "title": "List all product integrations",
-        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/integrations?access_token=12345\"",
-        "type": "bash"
-      },
-      {
-        "title": "List all webhooks",
-        "content": "$ curl \"https://api.particle.io/v1/webhooks?access_token=12345\"",
-        "type": "bash"
-      },
-      {
-        "title": "List all product webhooks",
-        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/webhooks?access_token=12345\"",
-        "type": "bash"
-      }
-    ],
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "-",
-            "description": "<p>An array of integration objects. The object will vary in its attributes depending on integration type. For information on specific integration type response bodies, please see creation docs for <a href=\"#create-a-webhook\">Webhooks</a>, <a href=\"#enable-azure-iot-hub-integration\">Azure IoT Hub</a>, and <a href=\"#enable-google-cloud-platform-integration\">Google Cloud Platform</a>.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "GET /v1/integrations",
-          "content": "GET /v1/integrations\nHTTP/1.1 200 OK\n[\n\t{\n\t\t\"id\":\"12345\",\n\t\t\"event\":\"eventName\",\n\t\t\"created_at\":\"2017-03-14T17:57:46.316Z\",\n\t\t\"integration_type\":\"Webhook\",\n\t\t\"url\":\"https://weather.com\",\n\t\t\"requestType\":\"POST\"\n\t}\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
-    "groupTitle": "Integrations_7"
   },
   {
     "type": "put",
     "url": "/v1/integrations/:integrationId",
     "title": "Edit Google Maps Integration",
-    "description": "<p>Edit a Google Maps integration. Subsequent triggering of this integration will be sent with the new attributes.</p>",
+    "description": "<p>Edit a Google Maps integration. Subsequent triggering of this integration will be sent with the new attributes.</p> <p>The configuration replaces the entire previous webhook configuration. It does not merge in changes.</p>",
     "group": "Integrations_8",
+    "permission": [
+      {
+        "name": "integrations:update"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -6728,7 +6830,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_8",
     "name": "PutV1IntegrationsIntegrationid"
   },
@@ -6738,6 +6840,11 @@
     "title": "Get integration",
     "name": "Get_Integration",
     "group": "Integrations_9",
+    "permission": [
+      {
+        "name": "integrations:get"
+      }
+    ],
     "description": "<p>Get a single integration. Pay special attention to the <code>integration_type</code> attribute of each integration, which will let you know whether the integration is a <a href=\"#create-a-webhook\">Webhook</a>, an <a href=\"#enable-azure-iot-hub-integration\">Azure IoT Hub</a> integration, a <a href=\"#enable-google-cloud-platform-integration\">Google Cloud Platform</a> integration, or a <a href=\"#enable-google-maps-integration\">Google Maps</a> integration.</p>",
     "parameter": {
       "fields": {
@@ -6799,7 +6906,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/event.js",
+    "filename": "api-service/src/views/event.js",
     "groupTitle": "Integrations_9"
   },
   {
@@ -6903,7 +7010,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/location.js",
+    "filename": "api-service/src/views/location.js",
     "groupTitle": "Location_1"
   },
   {
@@ -6972,7 +7079,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/location.js",
+    "filename": "api-service/src/views/location.js",
     "groupTitle": "Location_2"
   },
   {
@@ -6980,6 +7087,11 @@
     "url": "/v1/clients",
     "title": "List clients",
     "group": "OAuth_1",
+    "permission": [
+      {
+        "name": "clients:list"
+      }
+    ],
     "description": "<p>Get a list of all existing OAuth clients, either owned by the authenticated user or clients associated with a product.</p>",
     "parameter": {
       "fields": {
@@ -7061,7 +7173,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/client.js",
+    "filename": "api-service/src/views/client.js",
     "groupTitle": "OAuth_1",
     "name": "GetV1Clients"
   },
@@ -7112,6 +7224,11 @@
     },
     "name": "CreateOAuthClient",
     "group": "OAuth_2",
+    "permission": [
+      {
+        "name": "clients:create"
+      }
+    ],
     "description": "<p>Create an OAuth client that represents an app.</p> <p>Use <code>type=installed</code> for most web and mobile apps. If you want to have Particle users login to their account on Particle in order to give your app access to their devices, then you can go through the full OAuth authorization code grant flow using <code>type=web</code>. This is the same way you authorize the Particle IFTTT channel, and it is similar to the way you give any app access to your Facebook or Twitter account.</p> <p>Your client secret will never be displayed again! Save it in a safe place.</p> <p>If you use <code>type=web</code> then you will also need to pass a <code>redirect_uri</code> parameter in the POST body. This is the URL where users will be redirected after telling Particle they are willing to give your app access to their devices.</p> <p>The scopes provided only contain the <code>object</code> and <code>action</code> parts, skipping the <code>domain</code> which is being infered from the context.</p> <p>If you are building a web or mobile application for your Particle product, you should use the product-specific endpoint for creating a client (<code>POST /v1/products/:productIdOrSlug/clients</code>). This will grant this client (and access tokens generated by this client) access to product-specific behaviors like <a href=\"#call-a-function\">calling functions</a> and <a href=\"#get-a-variable-value\">checking variables</a> on product devices, <a href=\"#create-a-customer---client-credentials\">creating customers</a>, and <a href=\"#generate-a-customer-scoped-access-token\">generating customer scoped access tokens</a>.</p>",
     "examples": [
       {
@@ -7188,7 +7305,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/client.js",
+    "filename": "api-service/src/views/client.js",
     "groupTitle": "OAuth_2"
   },
   {
@@ -7197,6 +7314,11 @@
     "title": "Update a client",
     "description": "<p>Update the <code>name</code> or <code>scope</code> of an existing OAuth client.</p>",
     "group": "OAuth_3",
+    "permission": [
+      {
+        "name": "clients:update"
+      }
+    ],
     "name": "UpdateOAuthClient",
     "parameter": {
       "fields": {
@@ -7263,7 +7385,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/client.js",
+    "filename": "api-service/src/views/client.js",
     "groupTitle": "OAuth_3"
   },
   {
@@ -7272,6 +7394,11 @@
     "title": "Delete a client",
     "description": "<p>Remove an OAuth client</p>",
     "group": "OAuth_4",
+    "permission": [
+      {
+        "name": "clients:remove"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -7312,7 +7439,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/client.js",
+    "filename": "api-service/src/views/client.js",
     "groupTitle": "OAuth_4",
     "name": "DeleteV1ClientsClientid"
   },
@@ -7453,7 +7580,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_1"
   },
   {
@@ -7509,7 +7636,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_2"
   },
   {
@@ -7600,7 +7727,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_3"
   },
   {
@@ -7677,7 +7804,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_4"
   },
   {
@@ -7733,7 +7860,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_5"
   },
   {
@@ -7817,7 +7944,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_6"
   },
   {
@@ -7869,7 +7996,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "ProductFirmware_7"
   },
   {
@@ -7879,6 +8006,11 @@
     "name": "listProducts",
     "description": "<p>List products the currently authenticated user has access to</p>",
     "group": "Products_1",
+    "permission": [
+      {
+        "name": "products:list"
+      }
+    ],
     "header": {
       "fields": {
         "Header": [
@@ -7899,6 +8031,18 @@
         }
       ]
     },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/user/products?access_token=12345\"",
+        "content": "$ curl \"https://api.particle.io/v1/user/products?access_token=12345\"",
+        "type": "bash"
+      },
+      {
+        "title": "List Organization Products",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/particle/products?access_token=12345\"",
+        "type": "bash"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -7913,14 +8057,14 @@
       },
       "examples": [
         {
-          "title": "GET /v1/products",
-          "content": "GET /v1/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"mb_limit\": null,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}",
+          "title": "GET /v1/user/products",
+          "content": "GET /v1/user/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"subscription_id\": 1234,\n    \"mb_limit\": null,\n    \"user\": \"me@example.com\"\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Products_1"
   },
   {
@@ -8025,7 +8169,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Products_2"
   },
   {
@@ -8033,7 +8177,7 @@
     "url": "/v1/products/:productIdOrSlug/team",
     "title": "List team members",
     "name": "listUsersForProductOrOrg",
-    "group": "Products_4",
+    "group": "Products_3",
     "description": "<p>List all team members that are part of a given product</p>",
     "parameter": {
       "fields": {
@@ -8095,7 +8239,70 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
+    "groupTitle": "Products_3"
+  },
+  {
+    "type": "post",
+    "url": "/v1/products/:productIdOrSlug/team",
+    "title": "Invite team member",
+    "name": "inviteUserToProductOrOrgTeam",
+    "group": "Products_4",
+    "description": "<p>Invite a new member to a product team. Invitee will receive an email with a link to accept the invitation and join the team.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "description": "<p>Product ID or Slug</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the invitee. Must be a valid email associated with an Particle user</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "teams.users:invite"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example request",
+        "content": "$ curl \"https://api.particle.io/products/:productIdOrSlug/team\" \\\n       -d username=test@example.com \\\n       -d access_token=123abc",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "description": "<p>The invited user</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "POST /v1/products/:productIdOrSlug/team",
+          "content": "POST /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true,\n\t \"invited\": {\n\t\t\"username\": \"test@example.com\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Products_4"
   },
   {
@@ -8104,6 +8311,11 @@
     "title": "Create an API user",
     "name": "createProgrammaticUser",
     "group": "Products_5",
+    "permission": [
+      {
+        "name": "teams.users:invite"
+      }
+    ],
     "description": "<p>Create an API user with specified scopes. This API user will have a single non-expiring access token.</p>",
     "parameter": {
       "fields": {
@@ -8160,142 +8372,15 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Products_5"
-  },
-  {
-    "type": "post",
-    "url": "/v1/products/:productIdOrSlug/team",
-    "title": "Invite team member",
-    "name": "inviteUserToProductOrOrgTeam",
-    "group": "Products_5",
-    "description": "<p>Invite a new member to a product team. Invitee will receive an email with a link to accept the invitation and join the team.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "productIdOrSlug",
-            "description": "<p>Product ID or Slug</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "username",
-            "description": "<p>Username of the invitee. Must be a valid email associated with an Particle user</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "teams.users:invite"
-      }
-    ],
-    "examples": [
-      {
-        "title": "Example request",
-        "content": "$ curl \"https://api.particle.io/products/:productIdOrSlug/team\" \\\n       -d username=test@example.com \\\n       -d access_token=123abc",
-        "type": "bash"
-      }
-    ],
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "-",
-            "description": "<p>The invited user</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "POST /v1/products/:productIdOrSlug/team",
-          "content": "POST /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true,\n\t \"invited\": {\n\t\t\"username\": \"test@example.com\"\n  }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
-    "groupTitle": "Products_5"
-  },
-  {
-    "type": "delete",
-    "url": "/v1/products/:productIdOrSlug/team/:username",
-    "title": "Remove team member",
-    "name": "removeTeamMember",
-    "description": "<p>Remove a current team member.</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "productIdOrSlug",
-            "description": "<p>Product ID or Slug</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "username",
-            "description": "<p>Username of the team member to be removed</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "teams.users:remove"
-      }
-    ],
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access Token</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Authorization-Example",
-          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
-          "type": "json"
-        }
-      ]
-    },
-    "group": "Products_6",
-    "success": {
-      "examples": [
-        {
-          "title": "DELETE /v1/products/photon/team/jeff@particle.io",
-          "content": " DELETE /v1/products/photon/team/jeff@particle.io\n HTTP/1.1 200 OK\n {\n\t  \"ok\": true\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
-    "groupTitle": "Products_6"
   },
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/team/:username",
     "title": "Update team member",
     "name": "updateProductOrOrgTeamMember",
+    "group": "Products_6",
     "description": "<p>Update a current team member.</p>",
     "parameter": {
       "fields": {
@@ -8342,16 +8427,85 @@
         }
       ]
     },
-    "group": "Products_6",
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Products_6"
+  },
+  {
+    "type": "delete",
+    "url": "/v1/products/:productIdOrSlug/team/:username",
+    "title": "Remove team member",
+    "name": "removeTeamMember",
+    "group": "Products_7",
+    "description": "<p>Remove a current team member.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "description": "<p>Product ID or Slug</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the team member to be removed</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "teams.users:remove"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "DELETE /v1/products/photon/team/jeff@particle.io",
+          "content": " DELETE /v1/products/photon/team/jeff@particle.io\n HTTP/1.1 200 OK\n {\n\t  \"ok\": true\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/product.js",
+    "groupTitle": "Products_7"
   },
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/devices",
     "title": "Approve a quarantined device",
     "name": "approveQuarantinedDevice",
+    "permission": [
+      {
+        "name": "devices:import"
+      }
+    ],
     "description": "<p>Approve a quarantined device. This will immediately release the device from quarantine and allow it to publish events, receive firmware updates, etc.</p>",
     "parameter": {
       "fields": {
@@ -8404,7 +8558,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Quarantine_1"
   },
   {
@@ -8412,6 +8566,11 @@
     "url": "/v1/products/:productIdOrSlug/devices/:deviceID",
     "title": "Deny a quarantined device",
     "name": "denyQuarantinedDevice",
+    "permission": [
+      {
+        "name": "devices:remove"
+      }
+    ],
     "description": "<p>Deny a quarantined device</p>",
     "parameter": {
       "fields": {
@@ -8443,11 +8602,6 @@
         ]
       }
     },
-    "permission": [
-      {
-        "name": "devices:remove"
-      }
-    ],
     "header": {
       "fields": {
         "Header": [
@@ -8479,7 +8633,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Quarantine_2"
   },
   {
@@ -8649,7 +8803,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/serviceAgreement.js",
+    "filename": "api-service/src/views/serviceAgreement.js",
     "groupTitle": "ServiceAgreements_1"
   },
   {
@@ -8658,7 +8812,7 @@
     "title": "Get organization service agreements",
     "name": "getServiceAgreementsForOrganization",
     "description": "<p>Get the service agreements related to an organization</p>",
-    "group": "ServiceAgreements_1",
+    "group": "ServiceAgreements_2",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -8844,8 +8998,8 @@
       }
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
-    "groupTitle": "ServiceAgreements_1"
+    "filename": "api-service/src/views/product.js",
+    "groupTitle": "ServiceAgreements_2"
   },
   {
     "type": "put",
@@ -8901,7 +9055,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_10",
     "name": "PutV1SimsIccid"
   },
@@ -8911,6 +9065,11 @@
     "title": "Release SIM from account",
     "name": "releaseSimFromAccount",
     "group": "Sims_11",
+    "permission": [
+      {
+        "name": "sims:remove"
+      }
+    ],
     "description": "<p>Remove a SIM card from an account, disassociating the SIM card from a user or a product. The SIM will also be deactivated.</p> <p>Once the SIM card has been released, it can be claimed by a different user, or imported into a different product.</p>",
     "parameter": {
       "fields": {
@@ -8932,11 +9091,6 @@
         ]
       }
     },
-    "permission": [
-      {
-        "name": "sims:remove"
-      }
-    ],
     "examples": [
       {
         "title": "Release ownership of a SIM you own",
@@ -8964,7 +9118,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_11"
   },
   {
@@ -8973,6 +9127,11 @@
     "title": "List SIM cards",
     "name": "listSims",
     "group": "Sims_1",
+    "permission": [
+      {
+        "name": "sims:list"
+      }
+    ],
     "description": "<p>Get a list of the SIM cards owned by an individual or a product. The product endpoint is paginated, by default returns 25 SIM card records per page.</p>",
     "parameter": {
       "fields": {
@@ -9211,7 +9370,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_1"
   },
   {
@@ -9220,6 +9379,11 @@
     "title": "Get SIM information",
     "name": "listSim",
     "group": "Sims_2",
+    "permission": [
+      {
+        "name": "sims:get"
+      }
+    ],
     "description": "<p>Retrieve a SIM card owned by an individual or a product.</p>",
     "parameter": {
       "fields": {
@@ -9421,7 +9585,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_2"
   },
   {
@@ -9451,11 +9615,6 @@
         ]
       }
     },
-    "permission": [
-      {
-        "name": "sims.usage:get"
-      }
-    ],
     "examples": [
       {
         "title": "Data usage for a SIM you own",
@@ -9517,7 +9676,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_3"
   },
   {
@@ -9526,6 +9685,11 @@
     "title": "Get data usage for product fleet",
     "name": "simFleetDataUsage",
     "group": "Sims_4",
+    "permission": [
+      {
+        "name": "sims.usage:get"
+      }
+    ],
     "description": "<p>Get fleet-wide SIM card data usage for a product in the current billing period, broken out by day. Daily usage totals represent an aggregate of all SIM cards that make up the product. Data usage reports can be delayed until the next day, and occasionally by several days.</p>",
     "parameter": {
       "fields": {
@@ -9540,11 +9704,6 @@
         ]
       }
     },
-    "permission": [
-      {
-        "name": "sims.usage:get"
-      }
-    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/sims/data_usage?access_token=1234\"",
@@ -9608,7 +9767,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Sims_4"
   },
   {
@@ -9660,7 +9819,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_6",
     "name": "PutV1SimsIccid"
   },
@@ -9720,7 +9879,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "filename": "api-service/src/views/product.js",
     "groupTitle": "Sims_7"
   },
   {
@@ -9728,6 +9887,11 @@
     "url": "/v1/sims/:iccid",
     "title": "Deactivate SIM",
     "group": "Sims_8",
+    "permission": [
+      {
+        "name": "sims:update"
+      }
+    ],
     "description": "<p>Deactivates a SIM card, disabling its ability to connect to a cell tower. Devices with deactivated SIM cards are not billable.</p>",
     "parameter": {
       "fields": {
@@ -9776,7 +9940,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_8",
     "name": "PutV1SimsIccid"
   },
@@ -9785,6 +9949,14 @@
     "url": "/v1/sims/:iccid",
     "title": "Reactivate SIM",
     "group": "Sims_9",
+    "permission": [
+      {
+        "name": "sims:update"
+      },
+      {
+        "name": "sims:update"
+      }
+    ],
     "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated.</p>",
     "parameter": {
       "fields": {
@@ -9819,11 +9991,6 @@
         ]
       }
     },
-    "permission": [
-      {
-        "name": "sims:update"
-      }
-    ],
     "examples": [
       {
         "title": "Reactivate SIM",
@@ -9846,7 +10013,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "groupTitle": "Sims_9",
     "name": "PutV1SimsIccid"
   },
@@ -9920,7 +10087,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/user.js",
+    "filename": "api-service/src/views/user.js",
     "groupTitle": "User_1"
   },
   {
@@ -9991,7 +10158,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/user.js",
+    "filename": "api-service/src/views/user.js",
     "groupTitle": "User_2"
   },
   {
@@ -10036,7 +10203,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/user.js",
+    "filename": "api-service/src/views/user.js",
     "groupTitle": "User_2"
   },
   {
@@ -10076,7 +10243,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/user.js",
+    "filename": "api-service/src/views/user.js",
     "groupTitle": "User_3"
   },
   {
@@ -10137,7 +10304,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
+    "filename": "api-service/src/views/api.js",
     "group": "_Users_rickk_Documents_src_docs_merge_api_service_src_views_api_js",
     "groupTitle": "_Users_rickk_Documents_src_docs_merge_api_service_src_views_api_js"
   }

@@ -51,6 +51,7 @@ var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
+var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
@@ -111,8 +112,8 @@ exports.metalsmith = function () {
       environment === 'development',
       trackerSchema({
         dir: '../src/assets/files/tracker/',
-        officialSchema: 'tracker-edge.json',        
-        defaultSchema: 'default-schema.json',
+        officialSchema: 'tracker-edge.json',     // This is the source of the generated files
+        defaultSchema: 'default-schema.json',    // This is generated
         fragments: [
           'engine-schema',
           'test-schema'
@@ -120,8 +121,21 @@ exports.metalsmith = function () {
     })))
     .use(msIf(
       environment === 'development',
+      trackerEdge({
+        sourceDir: '../src',
+        trackerDir: 'assets/files/tracker',
+        jsonFile: 'trackerEdgeVersions.json'
+      })))
+    .use(msIf(
+      environment === 'development',
       systemVersion({
       })))
+    .use(msIf(
+        environment === 'development',
+        function(files, metalsmith, done) {
+        carriersUpdate.doUpdate(__dirname, files);
+        done();
+      }))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
@@ -146,7 +160,7 @@ exports.metalsmith = function () {
     )
     .use(deviceRestoreInfo({
       sourceDir: '../src',
-      outputFile: '../src/assets/files/deviceRestore.json',
+      inputFile: 'assets/files/deviceRestore.json'
     }))
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
@@ -249,12 +263,6 @@ exports.metalsmith = function () {
       pattern: '**/*.md',
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
-    }))
-    .use(msIf(
-      environment === 'development',
-      function(files, metalsmith, done) {
-      carriersUpdate.doUpdate(__dirname);
-      done();
     }))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder

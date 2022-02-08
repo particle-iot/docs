@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SeeedMotorShield",
     "version": "0.0.1",
-    "installs": 675,
+    "installs": 738,
     "license": "GNU GENERAL PUBLIC LICENSE",
     "author": "Baker Al-Nakib",
     "sentence": "Library for controling the DC Motor shield by Seeed",

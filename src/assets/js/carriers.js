@@ -563,108 +563,156 @@ rec2.init = function(options, callback) {
 // Family Map
 //
 const mapsApiKey = 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY';
+ 
+let familyMaps = [];
 
-let familyMap = {};
+const familyMapCreate = function() {
 
-familyMap.fromQuery = function(urlParams) {
-    const family = urlParams.get('family');
-    if (family) {
-        $('#' + familyMap.options.familySelect).val(family);
-    }
-};
+    let familyMap = {};
 
-familyMap.saveQuery = function() {
-    const family = $('#' + familyMap.options.familySelect).val();
-
-    history.pushState(null, '', '?tab=ModelMap&family=' + encodeURIComponent(family));
-};
-
-familyMap.drawMap = function() {
-    const family = $('#' + familyMap.options.familySelect).val();
-
-    familyMap.saveQuery();
-
-    const skuFamilyObj = datastore.findSkuFamily(family);
-
-    let models = [];
-    skuFamilyObj.group.forEach(function(obj) {
-        if (obj.lifecycle == 'GA') {
-            models.push(obj);
+    familyMap.fromQuery = function(urlParams) {
+        const family = urlParams.get('family');
+        if (family) {
+            $(familyMap.options.familySelect).val(family);
         }
-    });
-
-    let countryModelArray = [['Country', 'Model']];
-
-    datastore.data.countries.forEach(function(countryObj) {
-
-        let foundModel;
-
-        datastore.data.countryModemSim.forEach(function(cmsObj) {
-            if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
-                return;
-            }
-
-            models.forEach(function(modelObj, modelIndex) {
-                if (modelObj.sim == cmsObj.sim && modelObj.modem == cmsObj.modem) {
-                    foundModel = modelIndex;
-                }
-            });
-        });    
-        if (foundModel != undefined) {
-            countryModelArray.push([countryObj.isoCode, foundModel]);
-        }
-    });
-
-    var data = google.visualization.arrayToDataTable(countryModelArray);
-
-    var options = {
-        colorAxis: {colors: ['86E2D5', '00AEEF']}, // teal to cyan
-        legend: 'none',
-        tooltip: {trigger: 'none'}
     };
 
-    var chart = new google.visualization.GeoChart(document.getElementById(familyMap.options.mapDiv));
+    familyMap.saveQuery = function() {
+        const family = $(familyMap.options.familySelect).val();
 
-    chart.draw(data, options);
+        history.pushState(null, '', '?tab=ModelMap&family=' + encodeURIComponent(family));
+    };
 
-    // 
-    {
-        let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th></tr></thead><tbody>';
+    familyMap.drawMap = function() {
+        let family;
+        if (familyMap.options.familySelect) {
+            family = $(familyMap.options.familySelect).val();
+        }
+        else {
+            family = familyMap.options.family;
+        }
 
-        models.forEach(function(skuFamilyObj, modelIndex) {
-            const style = 'background-color:#' + options.colorAxis.colors[modelIndex];
+        if (!familyMap.options.noHistory) {
+            familyMap.saveQuery();
+        }
 
-            datastore.data.skus.forEach(function(skuObj) {
-                if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {
+        const skuFamilyObj = datastore.findSkuFamily(family);
+
+        let models = [];
+        skuFamilyObj.group.forEach(function(obj) {
+            if (obj.lifecycle == 'GA') {
+                models.push(obj);
+            }
+        });
+
+        let countryModelArray = [['Country', 'Model']];
+
+        datastore.data.countries.forEach(function(countryObj) {
+
+            let foundModel;
+
+            datastore.data.countryModemSim.forEach(function(cmsObj) {
+                if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
                     return;
                 }
-                
-                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + skuObj.name + '</td><td>' + skuObj.desc + '</td></tr>';
-            });
-        });
-        html += '</tbody></table></div>';
 
-        $('#' + familyMap.options.skusDiv).html(html);
+                models.forEach(function(modelObj, modelIndex) {
+                    if (modelObj.sim == cmsObj.sim && modelObj.modem == cmsObj.modem) {
+                        foundModel = modelIndex;
+                    }
+                });
+            });    
+            if (foundModel != undefined) {
+                countryModelArray.push([countryObj.isoCode, foundModel]);
+            }
+        });
+
+        var data = google.visualization.arrayToDataTable(countryModelArray);
+
+        var options = {
+            colorAxis: {colors: ['86E2D5', '00AEEF']}, // teal to cyan
+            legend: 'none',
+            tooltip: {trigger: 'none'}
+        };
+
+
+        var chart = new google.visualization.GeoChart(familyMap.options.mapDiv[0]);
+
+        chart.draw(data, options);
+
+        // 
+        {
+            let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th></tr></thead><tbody>';
+
+            models.forEach(function(skuFamilyObj, modelIndex) {
+                const style = 'background-color:#' + options.colorAxis.colors[modelIndex];
+
+                datastore.data.skus.forEach(function(skuObj) {
+                    if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {
+                        return;
+                    }
+                    
+                    html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + skuObj.name + '</td><td>' + skuObj.desc + '</td></tr>';
+                });
+            });
+            html += '</tbody></table></div>';
+
+            $(familyMap.options.skusDiv).html(html);
+        }
+
     }
 
-}
+    familyMap.initMap = function() {
+        familyMap.initMapStarted = true;
 
-familyMap.init = function(options, callback) {
-    // options: 
-    // mapDiv - ID for map div
-    // familySelect - ID for family select element
-    familyMap.options = options;
+        google.charts.load('current', {
+            'packages':['geochart'],
+            'mapsApiKey': mapsApiKey
+        });
+        google.charts.setOnLoadCallback(familyMap.drawMap);    
+    }
 
-    google.charts.load('current', {
-        'packages':['geochart'],
-        'mapsApiKey': mapsApiKey
-    });
-    google.charts.setOnLoadCallback(familyMap.drawMap);
-    
+    familyMap.clickToShow = function() {
 
-    $('#' + familyMap.options.familySelect).on('change', familyMap.drawMap);
+        if (!familyMap.initMapStarted) {
+            $(familyMap.options.mapDiv).find('.clickToShow').hide();
+            $(familyMap.options.mapDiv).off('click');
+            
+            familyMap.initMap();    
+        }
+    };
 
-    callback();
+    familyMap.init = function(options, callback) {
+        // options: 
+        // mapDiv - map div element
+        // familySelect - family select element
+        // family - the device family if familySelect is not present
+        // noHistory - don't update page history
+        familyMap.options = options;
+
+        if (familyMap.options.clickToShow) {
+            $(familyMap.options.mapDiv).find('.clickToShow').show();
+
+            $(familyMap.options.mapDiv).on('click', function() {
+                for(const m of familyMaps) {
+                    m.clickToShow();
+                }
+            });
+        }
+        else {
+            familyMap.initMap();
+        }
+
+        if (familyMap.options.familySelect) {
+            $(familyMap.options.familySelect).on('change', familyMap.drawMap);
+        }
+
+        familyMaps.push(familyMap);
+
+        callback();
+    };
+
+    return familyMap;
 };
 
 //
@@ -766,6 +814,9 @@ countryDetails.onCountrySelected = function(country) {
         let s = recommendation.reason;
         s = s.substr(0, 1).toUpperCase() + s.substr(1);
         html += '<p>' + s + '</p>\n';
+        if (recommendation.roamingRestrictions) {
+            html += '<p>There are permanent roaming restrictions in this country. See <a href="/tutorials/cellular-connectivity/introduction/#permanent-roaming">permanent roaming</a> for more information.</p>\n';
+        }
     }
 
     // Carrier band table
@@ -823,7 +874,7 @@ countryDetails.init = function(options, callback) {
 const carrierSelectTabs = {
     'ByDevice':carriers2, 
     'FindDevice':rec2, 
-    'ModelMap':familyMap, 
+    'ModelMap':familyMapCreate(), 
     'CountryDetails':countryDetails
 };
 
@@ -867,40 +918,61 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(window.location.search);
 
     datastore.init({path:'/assets/files/carriers.json'}, function() {
-        dataui.populateRegionSelectors();
 
-        carriers2.init({
-            deviceList:'deviceList',
-            regionList:'regionList',
-            regionGroup:'region6',
-            table:'countryCarrierTable'
-        },
-        function() {    
-            rec2.init({
-                idBase:'country2',
-                resultDiv:'recDiv'
+        if ($('#carrierTabs').length) {
+            // Full carriers page
+            dataui.populateRegionSelectors();
+
+            carriers2.init({
+                deviceList:'deviceList',
+                regionList:'regionList',
+                regionGroup:'region6',
+                table:'countryCarrierTable'
             },
-            function() {
-                familyMap.init({
-                    mapDiv:'familyMapDiv',
-                    familySelect:'familyMapSelect',
-                    skusDiv:'familyMapSkusDiv'
+            function() {    
+                rec2.init({
+                    idBase:'country2',
+                    resultDiv:'recDiv'
                 },
                 function() {
-                    countryDetails.init({
-                        deviceList:'countryDetailDeviceList',
-                        countryField:'countryDetailText',
-                        popupClass:'countryPopup',
-                        resultDiv:'countryDetailsResultsDiv',
-                        footnotesDiv:'countryDetailsFootnotesDiv'
+                    carrierSelectTabs.ModelMap.init({
+                        mapDiv:$('#familyMapDiv'),
+                        familySelect:$('#familyMapSelect'),
+                        skusDiv:$('#familyMapSkusDiv')
                     },
                     function() {
-                        carrierLoadQuery(urlParams);
-                    });
+                        countryDetails.init({
+                            deviceList:'countryDetailDeviceList',
+                            countryField:'countryDetailText',
+                            popupClass:'countryPopup',
+                            resultDiv:'countryDetailsResultsDiv',
+                            footnotesDiv:'countryDetailsFootnotesDiv'
+                        },
+                        function() {
+                            carrierLoadQuery(urlParams);
+                        });
+                    });   
+        
                 });   
     
             });   
+    
+        }
+        else {
+            // For now, the only special case is family map
+            $('.carrierFamilyMap').each(function() {
+                const thisElem = $(this);
 
-        });   
+                familyMapCreate().init({
+                    mapDiv:$(thisElem).find('.familyMapDiv'),
+                    skusDiv:$(thisElem).find('.familyMapSkusDiv'),
+                    family:$(thisElem).data('family'),
+                    noHistory: true,
+                    clickToShow: true
+                }, function() {
+    
+                });    
+            });
+        }
     });
 });

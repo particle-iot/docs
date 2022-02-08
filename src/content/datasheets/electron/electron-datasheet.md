@@ -784,13 +784,13 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | GA | |
-| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | NRND | ELC314TY|
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | ELC404EA|
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | ELC404TY|
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND-US | |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND-US | ELC404TY|
+| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | NRND-US | |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Discontinued | ELC314TY|
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | Discontinued | ELC314TY|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Discontinued | ELC314TY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Discontinued | ELC404EA|
 
 
 {{!-- END do not edit content above, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}

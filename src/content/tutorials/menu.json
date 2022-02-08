@@ -1,6 +1,11 @@
 {
   "items": [
     {
+      "dir": "particle-hardware",
+      "title": "Particle Hardware",
+      "href": "/tutorials/particle-hardware/"
+    },
+    {
       "dir": "device-os",
       "isSection": true
     },
@@ -103,6 +108,11 @@
         "href": "/tutorials/device-cloud/cloud-api/"
       },
       {
+        "dir": "device-claiming",
+        "title": "Device Claiming",
+        "href": "/tutorials/device-cloud/device-claiming/"
+      },
+      {
         "dir": "authentication",
         "title": "Authentication",
         "href": "/tutorials/device-cloud/authentication/"
@@ -163,6 +173,11 @@
         "dir": "tracker-sleep",
         "title": "Tracker Sleep",
         "href": "/tutorials/asset-tracking/tracker-sleep/"
+      },
+      {
+        "dir": "geofencing",
+        "title": "Geofencing",
+        "href": "/tutorials/asset-tracking/geofencing/"
       },
       {
         "dir": "tracker-one-expansion",
@@ -332,6 +347,11 @@
         "dir": "som-first-board",
         "title": "B Series SoM First Board",
         "href": "/tutorials/hardware-projects/som-first-board/"
+      },
+      {
+        "dir": "debugger-adapter",
+        "title": "Debugger Adapter",
+        "href": "/tutorials/hardware-projects/debugger-adapter/"
       }
     ],
     {
@@ -348,6 +368,16 @@
         "dir": "about-serial",
         "title": "About Serial",
         "href": "/tutorials/learn-more/about-serial/"
+      },
+      {
+        "dir": "about-sleep",
+        "title": "About Sleep",
+        "href": "/tutorials/learn-more/about-sleep/"
+      },
+      {
+        "dir": "about-apps",
+        "title": "About Apps",
+        "href": "/tutorials/learn-more/about-apps/"
       },
       {
         "dir": "node-js",

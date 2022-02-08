@@ -30,13 +30,13 @@ The Electron is a 2nd-generation device designed to easily plug into a solderles
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | GA | |
-| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | NRND | ELC314TY|
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | ELC404EA|
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | ELC404TY|
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND-US | |
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND-US | ELC404TY|
+| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | NRND-US | |
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Discontinued | ELC314TY|
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | Discontinued | ELC314TY|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Discontinued | ELC314TY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Discontinued | ELC404EA|
 
 
 {{!-- END do not edit content above, it is automatically generated 7a6e03da-072c-4955-922a-288e9609292a --}}
@@ -62,20 +62,20 @@ Though the form-factor is different than the Electron, they are nearly identical
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | GA | |
-| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | GA | |
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | GA | |
-| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | GA | |
-| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | NRND-US | |
-| E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | NRND-US | |
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | NRND | E314MOD1|
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | E404KIT|
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | E404MOD1|
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | E404TRAY50|
+| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND-US | |
+| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | NRND-US | |
+| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND-US | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND-US | E404TRAY50|
+| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND-US | |
+| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | NRND-US | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | NRND-US | |
+| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | Discontinued | E314KIT|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Discontinued | E314MOD1|
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Discontinued | |
+| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | Discontinued | |
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | Discontinued | E404KIT|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Discontinued | E404MOD1|
 
 
 {{!-- END do not edit content above, it is automatically generated d5825d70-1978-4172-a917-9127c8879f4e --}}
@@ -134,18 +134,17 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | GA | |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | GA | |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | &check; | GA | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 | &check; | GA | |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | &check; | GA | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND-US | BRN314TRAY50|
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | NRND-US | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | NRND-US | |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | BRN404|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 |  | NRND | BRN404KIT|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | NRND | BRN404KIT|
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404TRAY50|
 
 
@@ -212,7 +211,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 In addition to using the Tracker One assembled module, the following application note can help with creating your first board that uses the bare Tracker SoM module.
 
-- [AN025 Tracker SoM First Board](http://localhost:8080/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
+- [AN025 Tracker SoM First Board](/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 
 #### Country Compatibility - Tracker SoM
 

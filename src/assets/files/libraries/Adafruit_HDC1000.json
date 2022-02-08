@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HDC1000",
     "version": "1.0.6",
-    "installs": 2756,
+    "installs": 2849,
     "license": "BSD",
     "author": "Adafruit info@adafruit.com",
     "sentence": "v2 library for HDC1000 and HDC1008 sensors, designed specifically to work with the HDC1008 breakout in the Adafruit shop, modified for Photon/Electron",

@@ -695,6 +695,23 @@ You will need to use this command to set up a device using WPA2 Enterprise and s
 
 Note: Argons cannot connect to a Wi-Fi network with a hidden SSID, even using the CLI. The reason is that prior to connecting, a Wi-Fi scan is done to find the BSSID with the strongest signal and connect to that. Otherwise, on network with multiple access points, the Argon would not necessarily connect to the best AP.
 
+It's possible to read Wi-Fi credentials from a file and send them to a device over serial.
+
+```sh
+$ particle serial wifi --file credentials.json
+```
+
+The JSON file for passing Wi-Fi credentials should look like this:
+```json
+{
+  "network": "my_ssid",
+  "security": "WPA2_AES",
+  "password": "my_password"
+}
+```
+
+The `security` property can be NONE, WEP, WPA2_AES, WPA2_TKIP, WPA2_AES+TKIP, WPA_AES, WPA_TKIP, WPA_AES+TKIP. For enterprise Wi-Fi, set security to WPA_802.1x or WPA2_802.1x and provide the `eap`, `username`, `outer_identity`, `client_certificate`, `private_key` and `root_ca` properties.
+
 
 ### particle serial list
 

@@ -361,7 +361,11 @@ The `diagnosticPublishTime` specifies how often to send device diagnostics. Beca
 This code does the sleep, which will block until wake-up occurs.
 
 ```
-            System.sleep(WKP, RISING, sleepTime, SLEEP_NETWORK_STANDBY);         
+            SystemSleepConfiguration config;
+            config.mode(SystemSleepMode::STOP)
+                .duration(sleepTime)
+                .network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY);
+            SystemSleepResult result = System.sleep(config);
 ```
 
 Since this uses stop mode sleep, upon wake execution continues with the next line of code with local and global variables still set, and the cloud still connected (since network standby mode is used). In this mode the device goes immediately into breathing cyan mode.

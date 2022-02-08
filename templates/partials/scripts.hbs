@@ -100,9 +100,17 @@
 {{#contains includeDefinitions 'api-helper-mustache'}}
 <script src="/assets/js/hogan-3.0.2.amd.js"></script>
 {{/contains}}
+{{#contains includeDefinitions 'carrier-family-map'}}
+<script src="/assets/js/datastore.js"></script>
+<script src="/assets/js/carriers.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{{/contains}}
 {{#contains includeDefinitions 'code-generator'}}
 <script src="/assets/js/CodeGenerator.js"></script>
 <script src="/assets/js/code-generator.js"></script>
+{{/contains}}
+{{#contains includeDefinitions 'device-setup-usb'}}
+<script src="/assets/js/device-setup-usb.js"></script>
 {{/contains}}
 {{#contains includeDefinitions 'stackblitz'}}
 <script src="https://unpkg.com/@stackblitz/sdk/bundles/sdk.umd.js"></script>
@@ -112,6 +120,7 @@
 <script src="/assets/js/usb-serial.js"></script>
 {{/contains}}
 {{#contains includeDefinitions 'webdfu'}}
+<script src="/assets/js/device-restore-dfu.js"></script>
 <script src="/assets/js/webdfu/dfu.js"></script>
 <script src="/assets/js/webdfu/dfuse.js"></script>
 {{/contains}}

@@ -1,0 +1,74 @@
+{
+  "type": "libraries",
+  "id": "CS_gasads1115",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CS_gasads1115/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "CS_gasads1115",
+    "version": "1.0.1",
+    "installs": 380,
+    "author": "Adafruit",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/CS_gasads1115",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "electron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "argon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "boron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "electron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "argon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "boron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# cityscanner-gasADS1115-lib\n \n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

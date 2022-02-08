@@ -61,21 +61,16 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
 | E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
 | E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
-| E Series 2G/3G (Global - E313), Tray [x50] | E313TY | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
-| E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | GA|
-| E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | GA|
-| E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | GA|
-| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | GA|
-| E Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | GA|
-| E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| E Series LTE CAT-M1 (NorAm), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | GA|
-| Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC | &nbsp; | NRND|
-| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | ANT-FLXU | &nbsp; | GA|
-| Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
-| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | GA|
+| E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
+| E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
+| E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
+| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
+| E Series LTE CAT-M1 (NorAm), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
+| E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
+| E Series LTE CAT-M1 (NorAm), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
+| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | ANT-FLXU | &nbsp; | NRND-US|
+| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
+| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | 1 | &nbsp; | NRND|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE524MTY | &check; | 1 | &nbsp; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe), [x1] | ONE523MEA | &check; | 1 | &nbsp; | NRND|
@@ -328,8 +323,8 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 
 | Family | SKUs |
 | :----- | :--- |
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
-| Electron | E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+| E Series | E310TRAY50, E314KIT, E314MOD1, E314TRAY50, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
+| Electron | ELC314TY, ELC402TY, ELC404TY|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
 
@@ -421,8 +416,8 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 
 | Family | SKUs |
 | :----- | :--- |
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
-| Electron | E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+| E Series | E310TRAY50, E314KIT, E314MOD1, E314TRAY50, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
+| Electron | ELC314TY, ELC402TY, ELC404TY|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
 

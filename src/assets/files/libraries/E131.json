@@ -7,7 +7,7 @@
   "attributes": {
     "name": "E131",
     "version": "1.0.1",
-    "installs": 801,
+    "installs": 871,
     "author": "AdmiralTriggerHappy",
     "sentence": "A Library to read E13.1 (sACN) data",
     "url": "the URL of the project, like https://github.com/AdmiralTriggerHappy/E131",

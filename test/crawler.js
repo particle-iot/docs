@@ -8,7 +8,7 @@ var util = require('util');
 var chalk = require('chalk');
 var _ = require('lodash');
 
-// Ignore links to these hosts since they occasionally fail on Travis
+// Ignore links to these hosts since they occasionally fail on CI
 // even though the links are valid. It's worth the risk of dead links to
 // avoid flaky builds
 var ignoreHosts = [

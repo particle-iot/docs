@@ -52,6 +52,23 @@ $(document).ready(function () {
         return null;
     };
 
+    apiHelper.getRestoreVersions = function(usbDevice) {
+        let result = null;
+
+        for(let tempPlatformObj of deviceRestoreInfo.platforms) {
+            if (tempPlatformObj.id == usbDevice.platformId) {
+                if (deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name]) {
+                    result = Object.assign({}, tempPlatformObj);
+                    result.versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
+                    result.isTracker = (result.id == 26);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+
     if ($('.apiHelperUsbRestoreDevice').each(function() {
         const thisPartial = $(this);
         const eventCategory = 'Device Restore USB';
@@ -62,11 +79,21 @@ $(document).ready(function () {
         const restoreElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceRestore');
         const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgressTr');
         const modeSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceModeSelect');
+        const tinkerOptionElem = $(modeSelectElem).find('option[value="tinker"]');
+
 
         // Tabs
         const versionTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersionTr');
         const fileTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceFileTr');
         const urlTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceUrlTr');
+
+        // Setup done
+        const setupBitTrElem =  $(thisPartial).find('.apiHelperUsbRestoreSetupBitTr');
+        const setupBitSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSetupBit');
+
+        // Update NCP
+        const updateNcpTrElem = $(thisPartial).find('.apiHelperUsbRestoreUpdateNcpTr');
+        const updateNcpCheckboxElem = $(thisPartial).find('.updateNcpCheckbox');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -80,7 +107,7 @@ $(document).ready(function () {
         }
 
         let usbDevice;
-        let platformObj;
+        let platformVersionInfo;
         let userFirmwareBinary;
 
         const resetRestorePanel = function() {
@@ -90,6 +117,9 @@ $(document).ready(function () {
             $(selectElem).prop('disabled', false);
             $(versionElem).prop('disabled', true);
             $(restoreElem).prop('disabled', true);
+            $(setupBitTrElem).hide();
+            $(updateNcpTrElem).hide();
+            $(tinkerOptionElem).text('Tinker (Factory Default)');
         };
 
         const checkRestoreButtonEnable = function() {
@@ -202,6 +232,7 @@ $(document).ready(function () {
                 $(selectElem).prop('disabled', false);
                 $(versionElem).prop('disabled', true);
                 $(restoreElem).prop('disabled', true);
+                $(setupBitTrElem).hide();
         
                 if (usbDevice) {
                     $(selectInfoElem).html('');
@@ -216,36 +247,39 @@ $(document).ready(function () {
                 usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
         
                 // Find available versions for this device
-                let versionArray;
-
-                for(let tempPlatformObj of deviceRestoreInfo.platforms) {
-                    if (tempPlatformObj.id == usbDevice.platformId) {
-                        if (deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name]) {
-                            versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
-                            platformObj = tempPlatformObj;
-                            break;
-                        }
-                    }
-                }
-                
-                if (!versionArray) {
+                platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
+                if (!platformVersionInfo) {
                     setStatus('No device restore images found for this device');
                     await usbDevice.close();
                     usbDevice = null;
                     return;
                 }
+                console.log('platformVersionInfo', platformVersionInfo);
+    
                 $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);
                 $(selectElem).text('Select a Different Device');
 
                 const lastVersion = $(versionElem).val();
                 $(versionElem).html('');
-                for(let ver of versionArray) {
+                for(let ver of platformVersionInfo.versionArray) {
                     versionElem.append('<option name="' + ver + '">' + ver + '</option>');
                 }
                 if (lastVersion && !lastVersion.startsWith('Select')) {
                     $(versionElem).val(lastVersion);
                 }
-                
+
+                if (platformVersionInfo.gen == 3) {
+                    $(setupBitTrElem).show();
+                }
+                if (platformVersionInfo.isTracker) {
+                    $(updateNcpTrElem).show();
+
+                    $(tinkerOptionElem).text('Tracker Edge (Factory Default)');
+                }
+                else {
+                    $(tinkerOptionElem).text('Tinker (Factory Default)');
+                }
+                    
                 $(versionElem).prop('disabled', false);
                 checkRestoreButtonEnable();
             }
@@ -256,55 +290,33 @@ $(document).ready(function () {
             }        
         }));
 
-        const getDFUDescriptorProperties = function(device) {
-            // Attempt to read the DFU functional descriptor
-            // TODO: read the selected configuration's descriptor
-            return device.readConfigurationDescriptor(0).then(
-                data => {
-                    let configDesc = dfu.parseConfigurationDescriptor(data);
-                    let funcDesc = null;
-                    let configValue = device.settings.configuration.configurationValue;
-                    if (configDesc.bConfigurationValue == configValue) {
-                        for (let desc of configDesc.descriptors) {
-                            if (desc.bDescriptorType == 0x21 && desc.hasOwnProperty("bcdDFUVersion")) {
-                                funcDesc = desc;
-                                break;
-                            }
-                        }
-                    }
-    
-                    if (funcDesc) {
-                        return {
-                            WillDetach:            ((funcDesc.bmAttributes & 0x08) != 0),
-                            ManifestationTolerant: ((funcDesc.bmAttributes & 0x04) != 0),
-                            CanUpload:             ((funcDesc.bmAttributes & 0x02) != 0),
-                            CanDnload:             ((funcDesc.bmAttributes & 0x01) != 0),
-                            TransferSize:          funcDesc.wTransferSize,
-                            DetachTimeOut:         funcDesc.wDetachTimeOut,
-                            DFUVersion:            funcDesc.bcdDFUVersion
-                        };
-                    } else {
-                        return {};
-                    }
-                },
-                error => {}
-            );
-        }
-
-
-        const hexAddr8 = function(n) {
-            let s = n.toString(16)
-            while (s.length < 8) {
-                s = '0' + s;
-            }
-            return "0x" + s;
-        };
-
         if ($(restoreElem).on('click', async function () {
+            let baseOptions = {
+                eventCategory,
+                platformVersionInfo,
+                setStatus,
+                version: $(versionElem).val(),
+                progressUpdate: function(msg, pct) {
+                    $(progressElem).find('td > span').text(msg);
+                    $(progressElem).find('td > progress').val(pct);
+                },
+                progressShowHide: function(show) {
+                    if (show) {
+                        $(progressElem).show();
+                    }
+                    else {
+                        $(progressElem).hide();
+                    }
+                }
+            };
+            let options = Object.assign({}, baseOptions);
 
-            let version = $(versionElem).val();
+            options.setupBit = $(setupBitSelectElem).val();
 
-            let downloadUrl;
+            if (userFirmwareBinary) {
+                options.userFirmwareBinary = userFirmwareBinary;
+            }
+
 
             if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
                 setStatus('Confirming...');
@@ -315,34 +327,74 @@ $(document).ready(function () {
                     resetRestorePanel();
                     return;
                 } 
-                downloadUrl = $(urlTrElem).find('td > input').val();
+                options.downloadUrl = $(urlTrElem).find('td > input').val();
             }
             if ($(modeSelectElem).val() == 'cloudDebug') {
                 const platformName = apiHelper.platformIdToName(usbDevice.platformId);
 
-                downloadUrl = '/assets/files/cloud-debug/' + platformName + '.bin';
+                options.downloadUrl = '/assets/files/cloud-debug/' + platformName + '.bin';
             }
 
-            if (downloadUrl) {
-                setStatus('Downloading user firmware binary...');
-                try {
+            $(restoreElem).prop('disabled', true);
+            $(selectElem).prop('disabled', true);
+            $(versionElem).prop('disabled', true);
+
+            const deviceId = usbDevice.id;
+    
+            let restoreResult = await dfuDeviceRestore(usbDevice, options);
+
+            if (platformVersionInfo.isTracker && $(updateNcpCheckboxElem).prop('checked')) {
+                // Update Tracker NCP
+                let ncpOptions = Object.assign({}, baseOptions);
+                ncpOptions.ncpUpdate = true;
+
+                nativeUsbDevice = null;
+
+                setStatus('Waiting for updates to be applied...');
+                await new Promise(function(resolve, reject) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 10000);
+                });        
+
+                for(let tries = 1; tries <= 8; tries++) {
+                    setStatus('Attempting to reconnect to the device...');
+                    const nativeUsbDevices = await navigator.usb.getDevices()
+                
+                    if (nativeUsbDevices.length > 0) {
+                        for(let dev of nativeUsbDevices) {
+                            if (dev.serialNumber == deviceId) {
+                                nativeUsbDevice = dev;
+                                break;
+                            }
+                        }
+                    }
                     await new Promise(function(resolve, reject) {
-                        fetch(downloadUrl)
-                            .then(response => response.arrayBuffer())
-                            .then(function(res) {
-                                userFirmwareBinary = res;
-                                resolve();
-                            })
-                            .catch(function(err) {
-                                console.log('error', err);
-                                setStatus('Unable to retrieve the user firmware binary URL');
-                                reject();
-                            });
-                    });    
+                        setTimeout(function() {
+                            resolve();
+                        }, 1000);
+                    });        
+                }    
+                
+                if (nativeUsbDevice) {
+                    setStatus('Updating NCP...');
+
+                    usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+
+                    restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
                 }
-                catch(e) {
-                    return;
+                else {
+                    setStatus('Failed to reconnect to device to update NCP');
                 }
+            }
+
+            resetRestorePanel();
+
+            setTimeout(function() {
+                setStatus('');
+            }, 2000);
+
+            if (options.downloadUrl) {
                 if ($(modeSelectElem).val() == 'url') {
                     history.pushState(null, '', '?url=' + encodeURIComponent(downloadUrl));
                 }
@@ -353,368 +405,6 @@ $(document).ready(function () {
                 }
             }
     
-            if (userFirmwareBinary) {
-                setStatus('Validating user firmware binary...');
-
-                let dv = new DataView(userFirmwareBinary);
-                    
-                const startAddr = dv.getUint32(0, true);
-                //console.log('startAddr=0x' + startAddr.toString(16));
-
-                const platformId = dv.getUint16(12, true);
-                const platformName = apiHelper.platformIdToName(platformId);
-                //console.log('platformId=' + platformId + ' platformName=' + platformName);
-                if (usbDevice.platformId != platformId) {
-                    setStatus('User firmware is for ' + platformName + ' but selected device is ' + apiHelper.platformIdToName(usbDevice.platformId));
-                    return;
-                }
-
-                const moduleFunction = dv.getUint8(14);
-                //console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
-                const moduleIndex = dv.getUint8(15);
-                //console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
-
-                if (moduleFunction != 5 || (moduleIndex != 1 && moduleIndex != 2)) {
-                    setStatus('Selected binary file does not appear to contain user firmware');
-                    return;
-                }
-
-
-                const systemVersion = dv.getUint16(18, true);
-                // console.log('systemVersion=' + systemVersion);
-                const systemVersionSemVer = apiHelper.systemVersionToSemVer(systemVersion);
-
-                const restoreSemVer = apiHelper.findRestoreSemVer(platformId, systemVersion);
-                // console.log('restoreSemVer=' + restoreSemVer);
-                if (!restoreSemVer) {
-                    setStatus('Selected user binary file targets a Device OS version not supported by Device Restore');
-                    return;
-                }
-
-                if (systemVersionSemVer != restoreSemVer) {
-                    // console.log('not an exact system match');
-                }
-                version = restoreSemVer;
-            }
-
-
-            $(restoreElem).prop('disabled', true);
-            $(selectElem).prop('disabled', true);
-            $(versionElem).prop('disabled', true);
-
-            let moduleInfo;
-
-            ga('send', 'event', eventCategory, 'DFU Restore Started', version + '/' + platformObj.name);
-
-            setStatus('Downloading module info...');
-
-            await new Promise(function(resolve, reject) {
-                fetch('/assets/files/device-restore/' + version + '/' + platformObj.name + '.json')
-                .then(response => response.json())
-                .then(function(res) {
-                    moduleInfo = res;
-                    resolve();
-                });
-            });
-
-            setStatus('Downloading restore image...');
-
-            const zipUrl = '/assets/files/device-restore/' + version + '/' + platformObj.name + '.zip';
-
-            const zipFs = new zip.fs.FS();
-
-            await zipFs.importHttpContent(zipUrl);
-        
-            const productId = usbDevice.productId;
-            const deviceId = usbDevice.id;
-            
-
-            if (!usbDevice.isInDfuMode) {
-                setStatus('Putting device into DFU mode...');
-                await usbDevice.enterDfuMode({noReconnectWait:true});
-
-                await new Promise(function(resolve, reject) {
-                    setTimeout(function() {
-                        resolve();
-                    }, 2000);
-                });
-
-                // Close connection to the CDC mode device
-                await usbDevice.close();
-                usbDevice = null;
-            }
-
-            let nativeUsbDevice;
-
-            setStatus('Looking for device in DFU mode...');
-            const nativeUsbDevices = await navigator.usb.getDevices()
-
-            if (nativeUsbDevices.length > 0) {
-                for(let dev of nativeUsbDevices) {
-                    if (dev.serialNumber == deviceId) {
-                        nativeUsbDevice = dev;
-                        break;
-                    }
-                }
-            }
-            if (!nativeUsbDevice) {
-                setStatus('Authorize access to the DFU device');   
-                
-                const filters = [
-                    {vendorId: 0x2b04, productId:(productId | 0xd000)}
-                ];
-                        
-                nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
-            }
-
-            if (!nativeUsbDevice) {
-                ga('send', 'event', eventCategory, 'No USB Device Found');
-                setStatus('Unable to find device in DFU mode');
-                resetRestorePanel();
-                return;
-            }
-
-            const interfaces = dfu.findDeviceDfuInterfaces(nativeUsbDevice);
-
-            let interface;
-            let altInterface;
-            let extInterface;
-
-            for(const tempInterface of interfaces) {
-                if (tempInterface.alternate.alternateSetting == 0) {
-                    interface = tempInterface;
-                }
-                else
-                if (tempInterface.alternate.alternateSetting == 1) {
-                    altInterface = tempInterface;
-                }
-                else
-                if (tempInterface.alternate.alternateSetting == 2) {
-                    extInterface = tempInterface;
-                }
-            }
-            if (!interface || !altInterface) {
-                setStatus('Device did not respond to DFU mode. It may work if you try again or manually enter DFU mode.');
-                resetRestorePanel();
-                return;
-            }
-            
-            const createDfuseDevice = async function(interface) {
-                const dfuDevice = new dfu.Device(nativeUsbDevice, interface);
-
-                await dfuDevice.open();
-    
-                const interfaceNames = await dfuDevice.readInterfaceNames();
-                if (interface.name === null) {
-                    let configIndex = interface.configuration.configurationValue;
-                    let intfNumber = interface["interface"].interfaceNumber;
-                    let alt = interface.alternate.alternateSetting;
-                    interface.name = interfaceNames[configIndex][intfNumber][alt];
-                }
-    
-    
-                /*
-                // Both Gen 2 and Gen 3 devices always have these settings, so we don't need to retrieve them
-                // CanDnload: true, CanUpload: true, DFUVersion: 282 (0x11a), DetachTimeOut: 255, ManifestationTolerant: false, TransferSize: 4096, WillDetach: true
-                const desc = await getDFUDescriptorProperties(dfuDevice);
-    
-                console.log('desc', desc);
-    
-                dfuDevice.properties = desc;
-    
-                if (desc.DFUVersion != 0x011a || dfuDevice.settings.alternate.interfaceProtocol != 0x02) {
-                    setStatus('Device missing dfuse protocol');
-                    return;
-                }
-                */
-    
-                const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);
-                /*
-                if (dfuseDevice.memoryInfo) {
-                    let totalSize = 0;
-                    for (let segment of dfuseDevice.memoryInfo.segments) {
-                        totalSize += segment.end - segment.start;
-                    }
-                    memorySummary = `Selected memory region: ${dfuseDevice.memoryInfo.name} ${totalSize}`;
-                    for (let segment of dfuseDevice.memoryInfo.segments) {
-                        let properties = [];
-                        if (segment.readable) {
-                            properties.push("readable");
-                        }
-                        if (segment.erasable) {
-                            properties.push("erasable");
-                        }
-                        if (segment.writable) {
-                            properties.push("writable");
-                        }
-                        let propertySummary = properties.join(", ");
-                        if (!propertySummary) {
-                            propertySummary = "inaccessible";
-                        }
-    
-                        memorySummary += `\n${hexAddr8(segment.start)}-${hexAddr8(segment.end-1)} (${propertySummary})`;
-                    }
-                    console.log('memorySummary', memorySummary);
-                    console.log('memoryInfo', dfuseDevice.memoryInfo);
-                }
-                */
-
-                dfuseDevice.logInfo = function(msg) {
-                };
-
-                return dfuseDevice;
-            }
-
-            const dfuseDevice = await createDfuseDevice(interface);
-
-
-            let partName;
-            let genericPartName;
-            let extPart;
-
-            // 
-            dfuseDevice.logProgress = function(done, total, func) {
-                if (func == 'erase') {
-                    $(progressElem).find('td > span').text('Erasing ' + genericPartName);
-                }
-                else {
-                    $(progressElem).find('td > span').text('Programming ' + genericPartName);
-                }
-                const pct = (total != 0) ? (done * 100 / total) : 0;
-                $(progressElem).find('td > progress').val(pct);
-            }
-
-            $(progressElem).show();
-
-            // System parts
-            const dfuParts = [
-                { name: 'system-part1' },
-                { name: 'system-part2' },
-                { name: 'system-part3' },
-                { name: 'bootloader' },
-                { name: 'softdevice' },
-                { name: 'tinker', reset:true },
-                { name: 'tracker-edge', reset:true }
-            ];
-            for(const dfuPart of dfuParts) {
-                partName = dfuPart.name;
-
-                const zipEntry = zipFs.find(partName + '.bin');
-                if (!zipEntry) {
-                    continue;
-                }
-
-                if (userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
-                    genericPartName = 'custom user firmware';     
-                } else {
-                    genericPartName = partName;
-                }
-
-                setStatus('Updating ' + genericPartName + '...');
-
-                let part = await zipEntry.getUint8Array();
-
-                try {
-                    dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
-
-                    if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
-                        part = part.slice(24); // MODULE_PREFIX_SIZE
-                    }
-
-                    if (partName == 'bootloader') {
-                        // Flash to OTA region instead of actual location
-
-                        if (extInterface) {
-                            // Gen 3
-                            extPart = part;
-                        }
-                        else {
-                            // Gen 2
-                            dfuseDevice.startAddress = 0x80C0000;
-                            await dfuseDevice.do_download(4096, part, {});
-                        }
-                    }
-                    else
-                    if (userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
-                        if (dfuseDevice.startAddress == 0xb4000 && userFirmwareBinary.byteLength < (129 * 1024)) {
-                            // Gen 3 256K binary. Erase the 128K binary slot because the new binary is < 128K
-                            // the 128K binary will still be there and have precedence, ignoring the new binary.
-                            const savedStart = dfuseDevice.startAddress;
-
-                            dfuseDevice.startAddress = 0xd4000;
-                            let emptyArray = new Uint8Array(1024);
-                            emptyArray.fill(0xff);
-                            await dfuseDevice.do_download(4096, emptyArray, {});
-
-                            dfuseDevice.startAddress = savedStart;
-                        }
-
-                        await dfuseDevice.do_download(4096, userFirmwareBinary, {});
-                    }
-                    else {
-                        await dfuseDevice.do_download(4096, part, {});
-                    }
-                    setStatus('Downloading ' + genericPartName + ' complete!');
-                }
-                catch(e) {
-                    setStatus('Downloading ' + genericPartName + ' failed');
-                }
-
-            }
-            
-            $(progressElem).hide();
-
-            await dfuseDevice.close();
-
-            {
-                if (extInterface && extPart) {
-                    partName = 'bootloader';
-
-                    // Gen 3
-                    const dfuseExtDevice =  await createDfuseDevice(extInterface);
-
-                    dfuseExtDevice.startAddress = 0x80289000;
-                    await dfuseExtDevice.do_download(4096, extPart, {});
-
-                    await dfuseExtDevice.close();
-                }
-            }
-
-            // Write 0xA5 to offset 1753 in alt 1 (DCT) 
-            {
-                partName = 'ota flag';
-
-                const dfuseAltDevice = await createDfuseDevice(altInterface);
-
-                dfuseAltDevice.startAddress = 1753;
-                
-                let flag = new Uint8Array(1);
-                flag[0] = 0xA5;
-                  
-                try {
-                    await dfuseAltDevice.do_download(4096, flag, {doManifestation:true, noErase:true});                    
-
-                    setStatus('Resetting device...');
-
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 2000);        
-                }
-                catch(e) {
-                    setStatus('Error setting device flags, manually reset device');
-                }
-
-                await dfuseAltDevice.close();
-            }
-            
-            if (usbDevice) {
-                await usbDevice.close();
-                usbDevice = null;
-            }
-            ga('send', 'event', eventCategory, 'DFU Restore Success', version + '/' + platformObj.name);
-
-            resetRestorePanel();
-
         }));
     }));
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT-TLS",
     "version": "0.2.23",
-    "installs": 65730,
+    "installs": 68282,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT-TLS",

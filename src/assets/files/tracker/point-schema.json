@@ -1,0 +1,295 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://github.com/particle-iot/asset_tracker_schema/blob/v1.0/point.json",
+	"title": "Particle point publish",
+	"description": "",
+	"type": "object",
+	"required": [
+		"cmd",
+		"time",
+		"loc"
+	],
+	"properties": {
+		"cmd": {
+			"$id": "#root/cmd",
+			"title": "Command",
+			"description": "Command type for device publish.",
+			"type": "string",
+			"enum": [
+				"loc"
+			]
+		},
+		"time": {
+			"$id": "#root/time",
+			"title": "POSIX Epoch time",
+			"description": "UTC time/date in 32-bit, signed, POSIX epoch format.",
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 2147483647
+		},
+		"loc": {
+			"$id": "#root/loc",
+			"title": "Location",
+			"description": "Latitude, longitude, altitude, and various GNSS related information related to geographic coordinates.",
+			"type": "object",
+			"required": [
+				"lck",
+				"lat",
+				"lon",
+				"alt"
+			],
+			"properties": {
+				"lck": {
+					"$id": "#root/loc/lck",
+					"title": "GNSS Lock Status",
+					"description": "Indication that GNSS device is locked to a number of satelites in constellation to ensure stated accuracy.  The value is zero if not locked; otherwise, the GNSS device is locked.",
+					"type": "integer",
+					"minimum": 0
+				},
+				"time": {
+					"$id": "#root/loc/time",
+					"title": "GPS Epoch time",
+					"description": "GPS domain timestamp time/date in 32-bit, signed, epoch format.  This is not synchronous to the system time.",
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 2147483647
+				},
+				"lat": {
+					"$id": "#root/loc/lat",
+					"title": "Latitude",
+					"description": "Latitude part of geographic coordinate in reference to WGS84 datum.",
+					"type": "number",
+					"minimum": -90.0,
+					"maximum": 90.0
+				},
+				"lon": {
+					"$id": "#root/loc/lon",
+					"title": "Longitude",
+					"description": "Longitude part of geographic coordinate in reference to WGS84 datum.",
+					"type": "number",
+					"minimum": -180.0,
+					"maximum": 180.0
+				},
+				"alt": {
+					"$id": "#root/loc/alt",
+					"title": "Altitude",
+					"description": "Altitude, in meters, part of geographic coordinate in reference to WGS84 datum.",
+					"type": "number"
+				},
+				"hd": {
+					"$id": "#root/loc/hd",
+					"title": "Heading",
+					"description": "Heading, in degrees, of perceived direction.",
+					"type": "number",
+					"minimum": -360.0,
+					"maximum": 360.0,
+					"default": 0.0
+				},
+				"spd": {
+					"$id": "#root/loc/spd",
+					"title": "Speed",
+					"description": "Speed, in meters per second, of perceived GNSS movement.",
+					"type": "number",
+					"minimum": 0.0,
+					"maximum": 299792458.0,
+					"default": 0.0
+				},
+				"h_acc": {
+					"$id": "#root/loc/h_acc",
+					"title": "Horizontal Accuracy",
+					"description": "Horizontal accuracy, in meters, of geographic latitude and longitude coordinates.",
+					"type": "number",
+					"minimum": 0.0,
+					"default": 0.0
+				},
+				"v_acc": {
+					"$id": "#root/loc/v_acc",
+					"title": "Vertical Accuracy",
+					"description": "Vertical accuracy, in meters, of geographic altitude coordinates.",
+					"type": "number",
+					"minimum": 0.0,
+					"default": 0.0
+				},
+				"temp": {
+					"$id": "#root/loc/temp",
+					"title": "Temperature",
+					"description": "Device temperature, in Celsius.",
+					"type": "number",
+					"minimum": -300.0,
+					"maximum": 150.0,
+					"default": -300.0
+				},
+				"batt": {
+					"$id": "#root/loc/batt",
+					"title": "Battery level",
+					"description": "Battery level, in percentage when available and valid.  This field will be omitted when no battery is connected.",
+					"type": "number",
+					"minimum": 0.0,
+					"maximum": 100.0,
+					"default": 0.0
+			  	},
+				"cell": {
+					"$id": "#root/loc/cell",
+					"title": "Cellular signal strength",
+					"description": "Cellular signal strength/quality, in percentage",
+					"type": "number",
+					"minimum": 0.0,
+					"maximum": 100.0,
+					"default": 0.0
+				}
+			}
+		},
+		"trig": {
+			"$id": "#root/trig",
+			"title": "Trigger Source",
+			"description": "Reason for point location publish message.",
+			"type": "array",
+			"default": [],
+			"items":{
+				"$id": "#root/trig/items",
+				"title": "Items",
+				"type": "string",
+				"default": "",
+				"enum": [
+					"time",
+					"radius",
+					"imu_m",
+					"imu_g",
+					"imu_o",
+					"lock",
+					"unlock",
+					"temp_h",
+					"temp_l",
+					"user",
+					"batt_warn",
+					"batt_low"
+				]
+			}
+		},
+		"loc_cb": {
+			"$id": "#root/loc_cb",
+			"title": "Enhanced location callback",
+			"description": "If true, the device is requesting the cloud to send an enhanced location message back to the device when sending synthesized events.",
+			"type": "boolean",
+			"default": false
+		}
+		"towers": {
+			"$id": "#root/towers",
+			"title": "Cell towers",
+			"description": "A list of serving and neighboring cell towers.",
+			"type": "array",
+			"default": [],
+			"items":{
+				"$id": "#root/towers/items",
+				"title": "Tower",
+				"type": "object",
+				"required": [
+					"str"
+				],
+				"properties": {
+					"str": {
+						"$id": "#root/towers/items/str",
+						"title": "Signal strength",
+						"description": "RSSI in dBm.",
+						"type": "number"
+					},
+					"rat": {
+						"$id": "#root/towers/items/rat",
+						"title": "Radio Access Technology",
+						"description": "Type of the cellular technology.",
+						"type": "string",
+						"default": "lte"
+					},
+					"mcc": {
+						"$id": "#root/towers/items/mcc",
+						"title": "Mobile Country Code",
+						"description": "Tower's mobile country code.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 999
+					},
+					"mnc": {
+						"$id": "#root/towers/items/mnc",
+						"title": "Mobile Network Code",
+						"description": "Tower's mobile network code.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 999
+					},
+					"lac": {
+						"$id": "#root/towers/items/lac",
+						"title": "Location Area Code",
+						"description": "Tower's local area code.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 65535
+					},
+					"cid": {
+						"$id": "#root/towers/items/cid",
+						"title": "Cell ID",
+						"description": "Unique cell tower ID.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 268435455
+					},
+					"nid": {
+						"$id": "#root/towers/items/nid",
+						"title": "Neighbor ID",
+						"description": "Physical Cell ID for neighbor.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 2147483647
+					},
+					"ch": {
+						"$id": "#root/towers/items/ch",
+						"title": "Channel",
+						"description": "Frequency channel number.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 2147483647
+					}
+				}
+			}
+		},
+		"wps": {
+			"$id": "#root/wps",
+			"title": "Wireless BSSIDs",
+			"description": "A filtered list of 2.4GHz access points.",
+			"type": "array",
+			"default": [],
+			"items":{
+				"$id": "#root/wps/items",
+				"title": "Tower",
+				"type": "object",
+				"required": [
+					"bssid",
+					"str",
+					"ch"
+				],
+				"properties": {
+					"bssid": {
+						"$id": "#root/wps/items/rat",
+						"title": "Wireless BSSID",
+						"description": "MAC address (BSSID) for network.",
+						"type": "string"
+					},
+					"str": {
+						"$id": "#root/wps/items/str",
+						"title": "Signal strength",
+						"description": "RSSI in dBm.",
+						"type": "number"
+					},
+					"ch": {
+						"$id": "#root/wps/items/ch",
+						"title": "Channel",
+						"description": "Frequency channel number.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 2147483647
+					}
+				}
+			}
+		}
+	}
+}

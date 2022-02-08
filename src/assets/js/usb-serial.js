@@ -360,6 +360,38 @@ usbSerial.version = function(listening, options) {
     });
 };
 
+
+usbSerial.moduleInfo = function(listening, options) {
+    let results = {
+        data: ''
+    };
+
+    const completion = function() {
+        listening.clearTimeout();
+        options.onCompletion(results);
+    };
+
+    listening.send('\ns');
+    listening.start({
+        onLine: function(line) {
+            line = line.trim();
+            if (!line || results.json) {
+                return;
+            }
+            try {
+                results.data += line;
+                results.json = JSON.parse(results.data);
+                completion();
+            }
+            catch(e) {
+            }
+        },
+        onTimeout: function() {
+            completion();
+        }
+    });
+};
+
 usbSerial.macAddress = function(listening, options) {
     let results = {};
 
@@ -832,5 +864,323 @@ $(document).ready(function() {
         });
     });
 
+    $('.apiHelperDeviceInspect').each(function() {
+
+        $(this).each(function() {
+            const thisElem = $(this);
+
+            const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+            const tableBodyElem = $(thisElem).find('.usbSerialToolsOutput > table > tbody');
+            const outputElem = $(thisElem).find('.usbSerialToolsOutput');
+            const outputJsonElem = $(thisElem).find('.apiHelperEventViewerOutputJson');
+
+            const setStatus = function(s) {
+                $(thisElem).find('.usbSerialToolsStatus').text(s);
+            };
+
+            const displayParts = [
+                {
+                    id: 'u',
+                    title: 'User firmware'
+                },
+                {
+                    id: 's',
+                    title: 'Device OS (System firmware)'
+                },
+                {
+                    id: 'b',
+                    title: 'Bootloader'
+                },
+                {
+                    id: 'a',
+                    title: 'Softdevice (Radio Stack)'
+                },
+                {
+                    id: 'c',
+                    title: 'Network Coprocessor (NCP)'
+                }
+            ];
+
+            const moduleTitleFromId = function(id) {
+                return displayParts.find((d) => d.id == id).title;
+            }
+
+            const versionText = function(m) {
+                let text = m.v.toString();
+
+                // Takes a module array (m) element or a dependency array element
+                if (m.f == 's') {
+                    const semVer = apiHelper.systemVersionToSemVer(m.v);
+                    if (semVer) {
+                        text += ' (' + semVer + ')';
+                    }
+                }
+                return text;
+            }
+
+            const createValidityTable = function(vc, vv) {
+                const flagBits = [
+                    {
+                        mask: 0x04,
+                        title: "Dependencies"
+                    },
+                    {
+                        mask: 0x02,
+                        title: "CRC"
+                    },
+                    {
+                        mask: 0x08,
+                        title: "Address"
+                    },
+                    {
+                        mask: 0x10,
+                        title: "Platform"
+                    },
+                    {
+                        mask: 0x20,
+                        title: "Product"
+                    }
+                ];
+
+                const cellWidth = '80px';
+
+                const tableElem = document.createElement('table');
+
+                const theadElem = document.createElement('thead');
+                
+                let trElem;
+
+                trElem = document.createElement('tr');
+
+                for(const f of flagBits) {
+                    if ((vc & f.mask) != 0) {
+                       const thElem = document.createElement('th');
+                       $(thElem).css('width', cellWidth)
+                                .css('text-align', 'center')
+                                .text(f.title);
+
+                       $(trElem).append(thElem); 
+                    }
+                }
+                $(theadElem).append(trElem);
+                $(tableElem).append(theadElem);
+
+                const tbodyElem = document.createElement('tbody');
+
+                trElem = document.createElement('tr');
+
+                for(const f of flagBits) {
+                    if ((vc & f.mask) != 0) {
+                        const tdElem = document.createElement('td');
+
+                        let cellContents;
+                        if ((vv & f.mask) != 0) {
+                            cellContents = '\u2705'; // Green Check
+                        }   
+                        else {
+                            cellContents = '\u274C'; // Red X
+                        }                     
+                        $(tdElem).css('text-align', 'center')
+                                 .text(cellContents);
+
+                        $(trElem).append(tdElem); 
+                    }
+                }
+                $(tbodyElem).append(trElem);
+
+                $(tableElem).append(tbodyElem);
+
+                return tableElem;
+            };
+
+            const createDependenciesTable = function(dArray, mArray) {
+
+                const tableElem = document.createElement('table');
+
+
+                const theadElem = document.createElement('thead');
+                
+                let trElem, thElem, tdElem;
+
+                trElem = document.createElement('tr');
+
+                thElem = document.createElement('th');
+                $(thElem).text('Module Dependencies');
+                $(trElem).append(thElem);
+                
+                thElem = document.createElement('th');
+                $(thElem).text('Part');
+                $(trElem).append(thElem);
+
+                thElem = document.createElement('th');
+                $(thElem).text('Version Required');
+                $(trElem).append(thElem);
+
+                thElem = document.createElement('th');
+                $(thElem).text('Current Version');
+                $(trElem).append(thElem);
+
+                thElem = document.createElement('th');
+                $(thElem).text('Met');
+                $(trElem).append(thElem);
+
+                $(theadElem).append(trElem);
+                $(tableElem).append(theadElem);
+
+                const tbodyElem = document.createElement('tbody');
+
+                for(const d of dArray) {
+                    trElem = document.createElement('tr');
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).text(moduleTitleFromId(d.f) /* + ' (' + d.f + ')' */);
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    if (parseInt(d.n) != 0) {
+                        $(tdElem).text(d.n);
+                    }
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).text(versionText(d));
+                    $(trElem).append(tdElem);
+
+                    let met = '&#x2715'; // X
+
+                    tdElem = document.createElement('td');
+                    for(const m of mArray) {
+                        if (m.f == d.f && m.n == d.n) {
+                            $(tdElem).text(versionText(m));
+                            if (m.v > d.v) {
+                                met = '&#x21E7'; // up arrow
+                            } 
+                            else if (m.v == d.v) {
+                                met = '&#x2713'; // checkmark
+                            }
+                        }
+                    }
+                    $(trElem).append(tdElem);
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).html(met);
+                    $(trElem).append(tdElem);
+
+                    $(tbodyElem).append(trElem);    
+                }
+
+                $(tableElem).append(tbodyElem);
+
+                return tableElem;                
+            };
+
+            const outputModuleInfo = function(moduleInfo) {
+
+                let parts = {};
+                for(const m of moduleInfo.m) {
+                    if (!parts[m.f]) {
+                        parts[m.f] = [];
+                    }
+                    parts[m.f].push(m);
+                }
+
+                // Parts:
+                // b = bootloader
+                // u = user firmware
+                // s = system firmware
+                // a = softdevice (radio stack)
+                // c = ncp
+
+                const hasMultipleSystemParts = (parts.s.length > 0);
+
+                for(const displayPart of displayParts) {
+                    if (parts[displayPart.id]) {
+                        for(const p of parts[displayPart.id]) {
+                            const hElem = document.createElement('h4');
+
+                            let title = displayPart.title;
+                            if (parts[displayPart.id].length > 1) {
+                                title += ' (part ' + p.n + ')';
+                            }
+                            $(hElem).text(title);
+                            
+                            $(outputElem).append(hElem);
+                            
+                            if (p.f != 'u') {
+                                let pElem = document.createElement('p');
+                                
+                                let text = 'Current version: ' + p.v;
+
+                                if (p.f == 's') {
+                                    text += ' (' + apiHelper.systemVersionToSemVer(p.v) + ')';
+                                }
+
+                                $(pElem).text(text);
+                                $(outputElem).append(pElem);    
+                            }
+    
+                            $(outputElem).append(createValidityTable(p.vc, p.vv));
+
+
+                            if (p.d && p.d.length > 0) {
+                                $(outputElem).append(createDependenciesTable(p.d, moduleInfo.m));                                
+                            }
+                        }
+                    }
+                }
+
+            };
+
+            if (!('serial' in navigator)) {
+                $(actionButtonElem).prop('disabled', true);
+                setStatus('This tool is only available on the Chrome web browser on Mac, Windows, and Linux, version 89 and later.');
+                return;
+            }
+    
+            $(actionButtonElem).on('click', function() {
+                const listening = usbSerial.listeningCommand();
+                $(actionButtonElem).prop('disabled', true);
+                $(outputJsonElem).hide();
+                $(outputElem).html('');
+
+                setStatus('Querying device for system module information...');
+
+                listening.connect({
+                    showWifiListeningDevices:true,            
+                    showCellularListeningDevices:true,
+                    onConnect: function() {
+                        usbSerial.moduleInfo(listening, {
+                            onCompletion: function(results) {
+
+                                try {
+                                    if (results.json) {
+                                        setStatus('');
+    
+                                        if ($(outputJsonElem).hasClass('apiHelperJsonLinter')) {
+                                            $(outputJsonElem).show();
+                                            
+                                            apiHelper.jsonLinterSetValue(outputJsonElem, JSON.stringify(results.json));
+                                        }
+                                        
+                                        outputModuleInfo(results.json);
+                                    }
+                                    else {
+                                        setStatus('Device did not return valid module information');
+                                    }    
+                                }
+                                catch(e) {
+                                    console.log(e);
+                                }
+
+                                listening.disconnect();
+                                $(actionButtonElem).prop('disabled', false);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+    });
 
 });
