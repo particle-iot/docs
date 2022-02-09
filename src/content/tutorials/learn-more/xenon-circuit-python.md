@@ -15,7 +15,7 @@ To complete the steps below, you'll need the following tools:
 2. Two available USB ports on your computer
 3. One Debugger for programming the Xenon, either:
   - A Segger J-Link ([Commerical](https://www.adafruit.com/product/2209) or [EDU](https://www.adafruit.com/product/1369) Version). Note that if you use this approach, you'll also need a [JTAG to SWD Cable Adapter Board](https://www.adafruit.com/product/2094) and a [10-pin 2.5 Socket Cable](https://www.adafruit.com/product/1675) to connect to the debugger pins on the Xenon.
-  - A [Particle Debugger](https://store.particle.io/collections/accessories/products/particle-debugger)
+  - A Particle Debugger
 
 In addition, you'll need to install the following software:
 

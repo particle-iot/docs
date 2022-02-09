@@ -67,7 +67,7 @@ tokens created using the client) should have. Scopes are used for
 security reasons to limit the allowed applications of OAuth client
 credentials. Depending on which authentication method you choose, you
 may need to specify a scope when creating your OAuth client. [More on
-scopes](http://tools.ietf.org/html/rfc6749#section-3.3).
+scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
 
 ### Creating an OAuth Client
 
@@ -132,8 +132,7 @@ or user, that allows reading data from and sending commands to that
 person's device(s). Any API endpoint that returns private information,
 or allows control of an individual's device requires an access token.
 Tokens *inherit scopes* from the OAuth clients used to create them, and
-can have more specific scopes of their own. [More on access
-tokens](http://tools.ietf.org/html/rfc6749#section-1.4).
+can have more specific scopes of their own.
 
 Here's a specific example. Let's say that on one of your own personal
 devices (with device ID `0123456789abcdef01234567`), you want to call the `lightsOn` function. Here is how you would
