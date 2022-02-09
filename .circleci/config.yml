@@ -32,22 +32,6 @@ jobs:
           from: build
           to: 's3://docs.staging.particle.io'
 
-  deploy-prerelease:
-    docker:
-      - image: 'cimg/python:3.6'
-        environment:        
-          AWS_ACCESS_KEY_ID: $PRERELEASE_AWS_ACCESS_KEY_ID
-          AWS_SECRET_ACCESS_KEY: $PRERELEASE_AWS_SECRET_ACCESS_KEY 
-    steps:
-      - attach_workspace:
-          at: .
-      - aws-s3/sync:
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=300"
-          from: build
-          to: 's3://prerelease-docs.particle.io'
-
   deploy-prod:
     docker:
       - image: 'cimg/python:3.6'
@@ -61,6 +45,16 @@ jobs:
           from: build
           to: 's3://docs.particle.io'
 
+  test:  
+    docker:
+      - image: cimg/node:12.22
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Test
+          command: npm test
+
 workflows:
   version: 2
   build-deploy:
@@ -72,16 +66,20 @@ workflows:
           filters:
             branches:
               only: staging
-      - deploy-prerelease:
-          requires:
-            - build
-          filters:
-            branches:
-              only: prerelease
       - deploy-prod:
           requires:
             - build
           filters:
             branches:
               only: master
-
+              
+  cron:
+    triggers:
+      - schedule:
+          cron: "0 6 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - test

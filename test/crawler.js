@@ -48,7 +48,12 @@ var stats = {
   errors:0    // number of broken links
 }
 
-var crawlerConfigPath = path.join(__dirname, '../config/crawler.json'); 
+var crawlerCacheDir = path.join(__dirname, '..', 'crawler-cache');
+if (!fs.existsSync(crawlerCacheDir)) {
+  fs.mkdirSync(crawlerCacheDir);
+}
+
+var crawlerConfigPath = path.join(crawlerCacheDir, 'crawler.json'); 
 console.log('crawlerConfigPath=' + crawlerConfigPath);
 var crawlerData = {};
 if (fs.existsSync(crawlerConfigPath)) {
