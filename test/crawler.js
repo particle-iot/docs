@@ -118,12 +118,13 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(600000);
 
-    // if (process.env.TRAVIS_EVENT_TYPE && process.env.TRAVIS_EVENT_TYPE !== 'cron') {
-    if (true) {
+    /*
+    if (process.env.TRAVIS_EVENT_TYPE && process.env.TRAVIS_EVENT_TYPE !== 'cron') {
       console.log('Skipping crawl, not a cron build');
       done();
       return;
     }
+    */
 
     var crawler = new Crawler('localhost', '/', 8081);
     crawler.maxConcurrency = 8;

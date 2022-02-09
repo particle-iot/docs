@@ -13,7 +13,7 @@ jobs:
       - node/install-packages
       - run:
           name: Build
-          command: npm test
+          command: npm run build
       - persist_to_workspace: 
           root: .
           paths:
