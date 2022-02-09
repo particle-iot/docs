@@ -213,7 +213,7 @@ If you are using the Boron, you should follow [the Boron 3rd-party SIM instructi
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
 - Find the carrier from the [carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
-- Use a tool such as <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> to find coverage. The OpenSignal apps for iOS and Android can provide coverage information world-wide.
+- Use a tool such as the OpenSignal mobile app to find coverage. The OpenSignal apps for iOS and Android can provide coverage information world-wide.
 - If you are using an E Series E402 (LTE) or Boron LTE, the built-in Particle SIM card can only be used in the United States, on AT&T. It will only work in areas with LTE coverage; it cannot fall back to 3G.
 
 If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!

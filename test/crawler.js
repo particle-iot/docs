@@ -28,6 +28,13 @@ var ignoreHosts = [
   'cloud.ibm.com', // returns 401 if not logged in but this is OK
   '192.168.0.1',
   'api.particle.io',
+  'webservices.nextbus.com', // To avoid hitting the API on examples
+  'sms-sgs.ic.gc.ca', // Error 503 - might need to investigate this further
+  'www.te.com', // will always time out
+  // Need to find a better workaround for these
+  'support.particle.io', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
+  'www.digikey.com', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
+  'media.digikey.com',
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
