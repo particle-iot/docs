@@ -41,6 +41,11 @@
         "href": "/tutorials/device-os/bluetooth-le/"
       },
       {
+        "dir": "development-tips",
+        "title": "Development tips",
+        "href": "/tutorials/device-os/development-tips/"
+      },
+      {
         "dir": "json",
         "title": "JSON",
         "href": "/tutorials/device-os/json/"
