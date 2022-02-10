@@ -4269,7 +4269,9 @@ void loop()
   - `INPUT_PULLUP` digital input with a pull-up resistor to 3V3
   - `INPUT_PULLDOWN` digital input with a pull-down to GND
   - `OUTPUT` an output (push-pull)
-  - `OUTPUT_OPEN_DRAIN` an open-drain or open-collector output. HIGH (1) leaves the output in high impedance state, LOW (0) pulls the output low. Typically used with an external pull-up resistor to allow any of multiple devices to set the value low safely.
+  - `OUTPUT_OPEN_DRAIN` an open-drain or open-collector output. HIGH (1) leaves the output in high impedance state, LOW (0) pulls the output low. Typically used with an external pull-up 
+  resistor to allow any of multiple devices to set the value low safely.
+  - `PIN_MODE_NONE` disconnects the GPIO from the MCU.
 
 You do not need to set the `pinMode()` to read an analog value using [`analogRead`](#analogread-adc-) as the pin will automatically be set to the correct mode when analogRead is called.
 
@@ -15826,7 +15828,7 @@ In this mode:
 - Network is kept on if used as a wake-up source (Gen 3 devices only).
 - BLE is kept on if used as a wake-up source (Gen 3 devices only).
 - GPIO, UART, ADC are only kept on if used as a wake-up source. 
-- OUTPUT GPIO are disabled in ultra-low power mode.
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time or GPIO. On Gen 3 also analog, serial, BLE, and network.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
@@ -15918,10 +15920,14 @@ In this mode:
 - You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later on Gen 3 devices.
 
 - Since the difference in current consumption is so small between HIBERNATE and ULTRA_LOW_POWER, using ULTRA_LOW_POWER is a good alternative if you wish to wake based on time on Gen 3 devices. The difference is 106 uA vs. 127 uA on the Boron LTE, for example.
+
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
 - On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
+
+- GPIO are put into high impedance state before sleep. However, you can use `pinMode(PIN_MODE_NONE)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
@@ -16194,6 +16200,19 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
 
+### Sleep and GPIO outputs
+
+In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
+
+This can result in unexpected current usage, depending on your design. You should `pinMode(PIN_MODE_NONE)` to disconnect the GPIO if you do not want the OUTPUT driven during sleep mode to get the lowest power usage. While this is not necessary if you are using Gen 2 HIBERNATE mode, it does not hurt to do so, allowing the same code to be used for both Gen 2 and Gen 3.
+
+Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
+
+| Sleep mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| STOP | Preserved | Preserved |
+| ULTRA_LOW_POWER | Preserved | Preserved |
+| HIBERNATE  | High-Z | Preserved |
 
 
 ## SystemSleepResult Class

@@ -45,21 +45,23 @@ npm run spell
 
 #### Testing
 
-**Note: This does not currently work due to the the text being turned into links incorrectly.** This results in a large number of false positives so it's hard to use this now.
-
-To run the tests locally, run:
+If you are making non-trivial changes, it’s a good idea to check links using the crawler. This takes a number of minutes to run:
 
 ```none
 npm test
 ```
 
-The result will indicate whether the build will pass Travis CI.
+If errors are reported, fix them and run the test again. The second time it will be much faster because it will have cached many of the lookups.
 
-#### Deployment
+Link checking is not done on commits or pull requests due to the variable amount of time it takes and that it may randomly fail, making it hard to publish at a specific time.
+
+#### Running locally
 
 ```none
 npm start
 ```
+
+Once the output stops, 
 
 #### Generate PDF datasheets
 
