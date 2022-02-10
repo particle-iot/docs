@@ -38,7 +38,7 @@ To complete this portion of the lab, you'll need the following:
 
 - [Particle Workbench](https://www.particle.io/workbench)
 - The trusty [Argon](https://store.particle.io/products/argon-kit) you've been using for other parts of this lab
-- One [Particle Debugger](https://store.particle.io/products/particle-debugger)
+- One Particle Debugger
 - A free USB port on your laptop
 
 The Particle Debugger is an accessory that attaches between your computer (via USB) and your Particle device and allows for in-circuit debugging. To do this the Argon must be connected to the same computer via Micro USB at the same time, so make sure you have enough ports available. If your laptop has only USB C ports available, you'll need an adapter that converts USB-C to USB-A.

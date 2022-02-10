@@ -340,7 +340,7 @@ The main advantage of this token is that it's restricted to the specific product
 
 ### List products
 
-The [list products](reference/device-cloud/api/#list-products) API is a simple GET request that returns all products available in the sandbox for this user.
+The [list products](/reference/device-cloud/api/#list-products) API is a simple GET request that returns all products available in the sandbox for this user.
 
 {{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
 
@@ -680,7 +680,7 @@ You'll probably also want to monitor the product event stream in the [console](h
 
 #### Function (customers)
 
-When [calling a Particle.function](reference/device-cloud/api/#call-a-function) on the device, there are two ways:
+When [calling a Particle.function](/reference/device-cloud/api/#call-a-function) on the device, there are two ways:
 
 If you're doing it from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 

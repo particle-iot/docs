@@ -95,14 +95,14 @@ All versions are available in [Github Device OS Releases](https://github.com/par
 | System Parts | All | &check; | &check;<sup>2</sup> |
 | User Firmware | All | &check; | &check;<sup>2</sup> |
 
-<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
+<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](/tools/device-programming/device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
 
 <sup>2</sup> While it's possible to flash system parts in listening mode (--serial), using DFU mode is generally more reliable. If you are downgrading in --serial mode, there are also additional restrictions, as the system parts must be flashed in reverse numerical order. Also, you can run into a situation where the device reboots too early in --serial mode, and completes the upgrade OTA, which defeats the purpose of flashing over USB first.
 
 
 ## USB (web-based)
 
-[Device Restore - USB](https://docs.particle.io/device-restore-usb/) is a convenient way to flash a specific version of Device OS, bootloader, SoftDevice, and user firmware onto a device over USB. It's normally used for individual developers, not manufacturing.
+[Device Restore - USB](/tools/device-programming/device-restore-usb/) is a convenient way to flash a specific version of Device OS, bootloader, SoftDevice, and user firmware onto a device over USB. It's normally used for individual developers, not manufacturing.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.

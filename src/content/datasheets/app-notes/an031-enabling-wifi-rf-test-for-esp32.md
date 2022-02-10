@@ -63,5 +63,5 @@ Harmonics:
 
 ## References
 
-[ESP32&ESP8266_RF_Performance_Test_Demonstration__EN.pdf](https://www.espressif.com/sites/default/files/tools/ESP32%26ESP8266_RF_Performance_Test_EN_0.zip)
+- [ESP32&ESP8266_RF_Performance_Test_Demonstration__EN.pdf](https://www.espressif.com/en/support/download/other-tools) in the ESP RF Test Tool and Test Guide
 

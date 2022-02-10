@@ -28,6 +28,13 @@ var ignoreHosts = [
   'cloud.ibm.com', // returns 401 if not logged in but this is OK
   '192.168.0.1',
   'api.particle.io',
+  'webservices.nextbus.com', // To avoid hitting the API on examples
+  'sms-sgs.ic.gc.ca', // Error 503 - might need to investigate this further
+  'www.te.com', // will always time out
+  // Need to find a better workaround for these
+  'support.particle.io', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
+  'www.digikey.com', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
+  'media.digikey.com',
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
@@ -41,7 +48,12 @@ var stats = {
   errors:0    // number of broken links
 }
 
-var crawlerConfigPath = path.join(__dirname, '../config/crawler.json'); 
+var crawlerCacheDir = path.join(__dirname, '..', 'crawler-cache');
+if (!fs.existsSync(crawlerCacheDir)) {
+  fs.mkdirSync(crawlerCacheDir);
+}
+
+var crawlerConfigPath = path.join(crawlerCacheDir, 'crawler.json'); 
 console.log('crawlerConfigPath=' + crawlerConfigPath);
 var crawlerData = {};
 if (fs.existsSync(crawlerConfigPath)) {
@@ -118,12 +130,13 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(600000);
 
-    // if (process.env.TRAVIS_EVENT_TYPE && process.env.TRAVIS_EVENT_TYPE !== 'cron') {
-    if (true) {
+    /*
+    if (process.env.TRAVIS_EVENT_TYPE && process.env.TRAVIS_EVENT_TYPE !== 'cron') {
       console.log('Skipping crawl, not a cron build');
       done();
       return;
     }
+    */
 
     var crawler = new Crawler('localhost', '/', 8081);
     crawler.maxConcurrency = 8;

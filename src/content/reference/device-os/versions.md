@@ -24,7 +24,7 @@ Unlike computer operating systems like Windows or Mac, Device OS will never be a
 
 ## Version Numbering
 
-Device OS releases follow [semantic versioning](http://tools.ietf.org/html/rfc2119) ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
+Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
 
 There are also occasionally beta releases (2.0.0-beta.1) and more commonly release candidate ("rc") releases (2.0.0-rc.1). There may be multiple release candidates (for example, 2.0.0-rc.4) before a final release is made (2.0.0).
 
