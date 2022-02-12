@@ -727,19 +727,25 @@ For example, in Norway, Telenor shut down their 3G network at the end of 2020, b
 
 In Australia, there is no longer 2G service on any carrier and the Electron 2G cannot be used.
 
-The Electron and E Series use Telstra in Australia. They intend to shut down their 3G network at [mid 2024](https://www.digitalmatter.com/About-Us/News/Telstra-Announces-3G-Shutdown). At that point, the Electron can only be used with a 3rd-party SIM card and the E Series will no longer work.
+While Telstra is planning to shut down 3G in June 2024, Optus plans to continue 3G on 900 MHz (but not 2100 MHz), and Vodafone has not announced a shutdown date. 
 
-The Boron 2G/3G uses Vodafone in Australia. They have not announced a 3G shutdown date.
+If you have an Electron U260 (Americas), it will be unable to connect because it previously only connected to Telstra on 3G B5 (850 MHz). The EtherSIM won't help as it's a band issue, not a SIM issue.
 
-| After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
-| --- | --- | :--: | :--: | :--: | :--: |
-| End of 2016 | Telstra ended 2G service | &nbsp;| &check; | &check; | &check; |
-| April 2019 | Telstra sends 2100 MHz 3G service | &nbsp;| &check; | &check; | &check; |
-| Mid 2024 | Telstra ends 850 MHz 3G service | &nbsp; | <sup>1</sup> | &nbsp; | &check; | 
+If you have an Electron U270 (EMEAA), it will continue to work on Optus 3G B8 (900 MHz).
 
-<sup>1</sup>Can use only with a 3rd-party SIM card.
+If you have a Boron BRN310, it will continue to connect to Vodafone on 3G B8 (900 MHz). 
 
-The B Series SoM B524 and Tracker SoM T524 are officially supported in Australia and New Zealand and provide LTE Cat 1 support with 3G fallback.
+The BRN314 can connect to Optus, Vodafone, and Telstra and will continue to connect to Optus and Vodafone after the Telstra 3G shutdown.
+
+The recommended models for Australia are the B Series SoM B524, Tracker SoM T524, and Tracker One ONE524, which support LTE Cat 1 with 2G/3G fallback and will continue to work in Australia on all three carriers.
+
+
+| After       | Event                            | Electron G350 | Electron U260 | Electron U270 | E Series 2G/3G | Boron 2G/3G |
+| ----------- | -------------------------------- | :-----------: | :-----------: | :-----------: | :------------: | :---------: |
+| End of 2016 | Telstra ended 2G service         | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
+| April 2019  | Telstra ends 2100 MHz 3G service | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
+| Mid 2024    | Telstra ends 850 MHz 3G service  | &nbsp;        | &nbsp;        | &check;       | &check;        | &check;     | 
+
 
 ### Canada
 
