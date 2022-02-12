@@ -36,6 +36,11 @@ Tracker One and Tracker SoM also typically include the [Tracker Edge](/tutorials
 
 ### Program structure
 
+We recommend the following boilerplate for every user application:
+
+```cpp
+```
+
 
 
 ## General tips
@@ -43,6 +48,8 @@ Tracker One and Tracker SoM also typically include the [Tracker Edge](/tutorials
 
 
 ## Watch out for
+
+### Failing to return a value
 
 ### Global constructors
 
