@@ -71,7 +71,9 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - build:
+        context:
+          - slack-secret
       - deploy-staging:
           requires:
             - build
@@ -95,3 +97,5 @@ workflows:
                 - master
     jobs:
       - test
+        context:
+          - slack-secret
