@@ -49,7 +49,7 @@ jobs:
           from: build
           to: 's3://docs.particle.io'
       - slack/notify:
-          event: success
+          event: pass
           template: basic_success_1
       - slack/notify:
           event: fail
