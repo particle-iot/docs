@@ -19,9 +19,6 @@ jobs:
           root: .
           paths:
             - build
-      - slack/notify:
-          event: fail
-          template: basic_fail_1
 
   deploy-staging:
     docker:
@@ -87,6 +84,8 @@ workflows:
             branches:
               only: master
       - notify:
+          requires:
+            - deploy-prod
           context:
             - slack-secrets
               
@@ -99,7 +98,10 @@ workflows:
               only:
                 - master
     jobs:
+      - test
       - notify:
+          requires:
+            - test
           context:
             - slack-secrets
 
