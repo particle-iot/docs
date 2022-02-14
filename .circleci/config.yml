@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Build
           command: npm run build
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
       - persist_to_workspace: 
           root: .
           paths:
@@ -45,6 +48,12 @@ jobs:
             --cache-control "max-age=300"
           from: build
           to: 's3://docs.particle.io'
+      - slack/notify:
+          event: pass
+          template: basic_success_1
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
   test:  
     docker:
       - image: cimg/node:12.22
@@ -54,23 +63,17 @@ jobs:
       - run:
           name: Test
           command: npm test
-  notify:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - slack/notify:
-          event: pass
-          template: basic_success_1
       - slack/notify:
           event: fail
           template: basic_fail_1
-
-
+          
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - build:
+          context:
+            - slack-secrets
       - deploy-staging:
           requires:
             - build
@@ -83,9 +86,6 @@ workflows:
           filters:
             branches:
               only: master
-      - notify:
-          requires:
-            - deploy-prod
           context:
             - slack-secrets
               
@@ -98,10 +98,6 @@ workflows:
               only:
                 - master
     jobs:
-      - test
-      - notify:
-          requires:
-            - test
+      - test:
           context:
             - slack-secrets
-
