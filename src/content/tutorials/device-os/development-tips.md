@@ -45,9 +45,19 @@ We recommend the following boilerplate for every user application:
 
 ## General tips
 
+### Use Log calls instead of Serial.print
+
+### Memory fragmentation
+
+### Code size
+
+### Stack size
+
 
 
 ## Watch out for
+
+Be sure to follow these rules carefully. If you are upgrading from older versions of Device OS (earlier than 1.4.0) and your code appeared to work correctly but does not when upgrading to newer versions of Device OS, one of these things could be the issue.
 
 ### Failing to return a value
 
