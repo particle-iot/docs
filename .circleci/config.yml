@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.1
   aws-s3: circleci/aws-s3@2.0.0
-  slack: circleci/slack@4.0
+  slack: circleci/slack@4.8.1
 
 jobs:
   build:  
