@@ -16,6 +16,8 @@ description: Desktop IDE for programming Particle IoT devices for Windows, Mac O
 </div>
 
 
+{{youtube "https://www.youtube.com/embed/w7xOmJR2HeE"}}
+
 ## Workbench Features
 
 ### Welcome Screen
