@@ -96,6 +96,6 @@ workflows:
               only:
                 - master
     jobs:
-      - test
+      - test:
         context:
           - slack-secret
