@@ -39,8 +39,70 @@ Tracker One and Tracker SoM also typically include the [Tracker Edge](/tutorials
 We recommend the following boilerplate for every user application:
 
 ```cpp
+#include "Particle.h"
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+SerialLogHandler logHandler;
+
+void setup() 
+{
+    Particle.connect();
+}
+
+void loop() 
+{
+}
 ```
 
+Breaking this down:
+
+```cpp
+#include "Particle.h"
+```
+
+This is necessary for all .cpp files, but optional for .ino files. We recommend always using .cpp files, even for the main application source file. See [preprocessor](/cards/firmware/preprocessor/preprocessor/) for the specific differences between standard .cpp file and .ino files.
+
+```cpp
+SYSTEM_THREAD(ENABLED);
+```
+
+[Threaded mode](/cards/firmware/system-thread/system-thread/) should be used for all user applications. It tends to provide the most consistent behavior and all products created by Particle Studios use this mode.
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+```
+
+You can a [system mode](/cards/firmware/system-modes/system-modes/) of `SEMI_AUTOMATIC` or `AUTOMATIC`, but by using the combination of `SEMI_AUTOMATIC` and a call `Particle.connect()` in `setup()` you have a great deal of flexibility for managing the cloud connection.
+
+```cpp
+SerialLogHandler logHandler;
+```
+
+Using the [log handler](/cards/firmware/logging/logging/) is the recommended way of creating debugging output. 
+
+```cpp
+void setup() 
+{
+    Particle.connect();
+}
+```
+
+When using `SEMI_AUTOMATIC` mode you need to add a call to [`Particle.connect()`](/cards/firmware/cloud-functions/particle-connect/), typically in `setup()`. This provides flexibility:
+
+- If you need to perform operations before connecting, you can put them before `Particle.connect()`. This is safer than using [`STARTUP`](/cards/firmware/macros/startup/#startup-) blocks.
+
+- On battery-powered cellular devices, you may want to check the [battery charge and skip connecting when the battery is low](/datasheets/app-notes/an029-wake-publish-sleep-cellular/). This is particularly useful for devices that also have a solar charger, to avoid completely discharging the battery or failing to connect due to insufficient power.
+ 
+
+```cpp
+void loop() 
+{
+}
+```
+
+The loop() function is where you put your code.
 
 
 ## General tips
@@ -53,11 +115,14 @@ We recommend the following boilerplate for every user application:
 
 ### Stack size
 
+### Avoid blocking loop
+
+### Periodic events (timers)
 
 
 ## Watch out for
 
-Be sure to follow these rules carefully. If you are upgrading from older versions of Device OS (earlier than 1.4.0) and your code appeared to work correctly but does not when upgrading to newer versions of Device OS, one of these things could be the issue.
+Be sure to follow these rules carefully. If you are upgrading from older versions of Device OS (earlier than 1.4.0) and your code appeared to work correctly but does not when upgrading to newer versions of Device OS, one of these things could be the issue, as explained below.
 
 ### Failing to return a value
 
