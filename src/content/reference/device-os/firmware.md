@@ -726,6 +726,18 @@ Only devices that are claimed to an account can subscribe to events.
 
 ---
 
+{{note op="start" type="note"}}
+By default, Tracker One and Tracker SoM devices are unclaimed product devices. You can either:
+
+- Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
+
+- Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
+
+For more information, see [Device claiming](/tutorials/device-cloud/device-claiming/).
+{{note op="end"}}
+
+---
+
 Additionally:
 
 {{blurb name="publish"}}
