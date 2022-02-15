@@ -413,7 +413,7 @@ rec2.selectMenu = function() {
         modemSimArray.forEach(function(modemSimObj, index) {
             generateCountryListReason(labelStr, modemSimObj);
 
-            html += dataui.generateSkuTable(modemSimObj, {});
+            html += dataui.generateSkuTable(modemSimObj.skus, {});
 
             if (showCarriers) {
                 generateCarrierTable(modemSimObj);
@@ -456,7 +456,7 @@ rec2.selectMenu = function() {
         modemSimArray.forEach(function(modemSimObj, index) {
             html += '<div class="sideBySide' + index + '">';
 
-            html += dataui.generateSkuTable(modemSimObj, {});
+            html += dataui.generateSkuTable(modemSimObj.skus, {});
 
             html += '</div>'; // child flex container
         });
@@ -761,6 +761,8 @@ countryDetails.buildMenu = function() {
 
         html += '</optgroup>';
     }); 
+    html += '<option value="all">Show All Devices</option>';
+
     $('#' + countryDetails.options.deviceList).html(html);
 };
 
@@ -773,40 +775,51 @@ countryDetails.getSkuFamilyDevice = function() {
     return datastore.data.skuFamily[valueArray[0]].group[valueArray[1]];
 };
 
-countryDetails.onCountrySelected = function(country) {
-    //$('#' + countryDetails.options.resultDiv).text('selected: ' + country);
-    countryDetails.country = country;
-
-    countryDetails.saveQuery();
-
-    const countryObj = datastore.findCountryByName(country);
-
-    $('#' + countryDetails.options.resultDiv).html('');
-
-    const skuFamilyDevice = countryDetails.getSkuFamilyDevice();
-    if (!skuFamilyDevice) {
-        return;
-    }
-    // region, lifecycle, sim, simPlan, modem
+countryDetails.generateTable = function(options) {
+    // options.country
+    // options.modem
+    // options.sim
+    // options.simPlan
+    // options.tableId
+    // options.resultDiv
+    // options.showSkus
+    const countryObj = datastore.findCountryByName(options.country);
 
     let recommendation;
     datastore.data.countryModemSim.forEach(function(obj) {
         // country, modem, sim, recommendation, reason
-        if (obj.country == country && obj.modem == skuFamilyDevice.modem && obj.sim == skuFamilyDevice.sim) {
+        if (obj.country == options.country && obj.modem == options.modem && obj.sim == options.sim) {
             recommendation = obj;
         }
     });
     if (!recommendation) {
         recommendation = {recommendation:'NR', reason:'Information not available'};
-        console.log('information not available country=' + country, skuFamilyDevice);
     }
     const recommendationObj = datastore.findRecommendationByName(recommendation.recommendation);
 
-    const simPlanObj = datastore.findSimPlanById(skuFamilyDevice.simPlan);
+    const simPlanObj = datastore.findSimPlanById(options.simPlan);
 
-    const modemObj = datastore.findModemByModel(skuFamilyDevice.modem);
+    const modemObj = datastore.findModemByModel(options.modem);
 
     let html = '';
+
+    if (options.showSeparator) {
+        html += '<div style="border-top-style: solid; border-width: 2px;"></div>';
+    }
+
+    if (options.showSkus) {
+        let skusArray = [];
+        for(let skuObj of datastore.data.skus) {
+            if (options.modem == skuObj.modem && options.sim == skuObj.sim && skuObj.simPlans.includes(options.simPlan)) {
+                skusArray.push(skuObj);
+            }
+        }
+        if (skusArray.length == 0) {
+            // No SKUs for this modem and SIM, do not display
+            return;
+        }
+        html += dataui.generateSkuTable(skusArray, {});
+    }
 
     // Recommendation
     html += '<span style="font-size: large;">' + recommendationObj.desc + '</span>\n';
@@ -820,16 +833,14 @@ countryDetails.onCountrySelected = function(country) {
     }
 
     // Carrier band table
+    const footnotesDivId = options.tableId + 'FootnotesDiv';
 
-    const tableId = 'carrierDetailTable';
-
-    html += '<table id="' + tableId + '">';
+    html += '<table id="' + options.tableId + '">';
     html += '<thead></thead><tbody></tbody>';
     html += '</table>';
+    html += '<div id="' + footnotesDivId + '"></div>';
 
-
-    // Modem information
-    $('#' + countryDetails.options.resultDiv).html(html);
+    $(options.resultDiv).append(html);
 
     // Update band information after adding table
     const bandUseChangeOptions = {
@@ -839,11 +850,79 @@ countryDetails.onCountrySelected = function(country) {
             noBandNoPlan:'3',
             warnM1:'4'
         },
-        footnotesDiv: countryDetails.options.footnotesDiv,
+        footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,
         showM1: modemObj.technologies.includes('M1')
     }
-    dataui.bandUseChangeHandler(tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
+    dataui.bandUseChangeHandler(options.tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
+}
+
+countryDetails.onCountrySelected = function(country) {
+
+    const resultDiv = $('#' + countryDetails.options.resultDiv);
+    $(resultDiv).html('');
+
+    const countryObj = datastore.findCountryByName(country);
+
+    const skuFamilyDevice = countryDetails.getSkuFamilyDevice();
+    if (skuFamilyDevice) {
+        // skuFamilyDevice: region, lifecycle, sim, simPlan, modem
+
+        countryDetails.country = country;
+
+        countryDetails.saveQuery();
+
+        countryDetails.generateTable({
+            country,
+            modem: skuFamilyDevice.modem,
+            sim: skuFamilyDevice.sim,
+            simPlan: skuFamilyDevice.simPlan,
+            tableId: 'carrierDetailTable',
+            resultDiv
+        });
+        
+    
+    }
+    else {
+        let modemSimSimPlan = [];
+        
+        for(const skuFamilyObj of datastore.data.skuFamily) {
+            if (skuFamilyObj.group) {
+                for(const skuFamilyGroupObj of skuFamilyObj.group) {
+                    let exists = false;
+                    for(const mspObj of modemSimSimPlan) {
+                        if (mspObj.modem == skuFamilyGroupObj.modem && 
+                            mspObj.sim == skuFamilyGroupObj.sim &&
+                            mspObj.simPlan == skuFamilyGroupObj.simPlan) {
+                            exists = true;
+                        }
+                    }
+                    if (!exists) {
+                        modemSimSimPlan.push({
+                            modem: skuFamilyGroupObj.modem,
+                            sim: skuFamilyGroupObj.sim,
+                            simPlan: skuFamilyGroupObj.simPlan,
+                            tableId: ('carrierDetailTable' + modemSimSimPlan.length)
+                        });
+                    }
+                }
+            }
+        }
+
+        for(const mspObj of modemSimSimPlan) {
+            countryDetails.generateTable({
+                country,
+                modem: mspObj.modem,
+                sim: mspObj.sim,
+                simPlan: mspObj.simPlan,
+                tableId: mspObj.tableId,
+                resultDiv,
+                showSeparator: true,
+                showSkus: true
+            });
+        }
+    }
+
 
 };     
 
