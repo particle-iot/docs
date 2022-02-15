@@ -761,7 +761,7 @@ countryDetails.buildMenu = function() {
 
         html += '</optgroup>';
     }); 
-    html += '<option value="all">Show All Devices</option>';
+    html += '<option disabled>&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</option><option value="all">Show All Devices</option>';
 
     $('#' + countryDetails.options.deviceList).html(html);
 };

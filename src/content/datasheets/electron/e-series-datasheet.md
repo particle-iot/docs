@@ -561,6 +561,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Antigua and Barbuda | E314 | 2G, 3G | Flow |
 | Argentina | E314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | E314 | 2G, 3G | Beeline, Ucom |
+| Aruba | E314 | 2G, 3G | Setar |
 | Australia | E314 | 3G | Optus, Telstra, Vodafone |
 | Austria | E314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | E314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
