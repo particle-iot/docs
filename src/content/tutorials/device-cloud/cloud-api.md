@@ -258,7 +258,7 @@ It should be obvious, but a reminder, just in case.
 
 **Don't commit access tokens to source control**
 
-If you have a public Github repository you definitely don't want to check access tokens into your account!
+If you have a public GitHub repository you definitely don't want to check access tokens into your account!
 
 If your repository is private it's not as bad, but still it's best to use other techniques.
 
@@ -443,7 +443,7 @@ You can retrieve device notes using the [get device information](/reference/devi
 
 ### Device vitals
 
-These examples show how to use the Device Vitals (Diagonstics) APIs. The Last Vitals just returns the single most recent record as JSON:
+These examples show how to use the Device Vitals (Diagnostics) APIs. The Last Vitals just returns the single most recent record as JSON:
 
 {{> cloud-api-device-vitals-last}}
 

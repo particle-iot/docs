@@ -17849,7 +17849,7 @@ While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-
 
 One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
-As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/).
 
 ### System.uptime()
 
@@ -21496,7 +21496,7 @@ Here, each line starts with a timestamp (a number of milliseconds since the syst
 
 All of the logging functions like `Log.info()` and `Log.error()` support sprintf-style argument formatting so you can use options like `%d` (integer), `%.2f` (2 decimal place floating point), or `%s` (c-string). 
 
-Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/).
 
 ```cpp
 // Using the Print64 firmware library to format a 64-bit integer (uint64_t)
@@ -23400,7 +23400,7 @@ void runTest() {
 
 One caveat is that sprintf-style formatting does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
-As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/).
 
 | Variation | Supported | Purpose |
 | :--- | :---: | :--- |

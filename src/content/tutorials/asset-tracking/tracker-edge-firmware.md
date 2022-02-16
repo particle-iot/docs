@@ -39,7 +39,7 @@ In order to use the Geofencing features, Tracker Edge v17 is required.
 
 ### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
@@ -318,7 +318,7 @@ In the example above we just use **Clone** to make a private copy of the source 
 
 ![Create repository](/assets/images/workbench/github-create-repo.png)
 
-Create a new Github repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
+Create a new GitHub repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
 
 ```bash
 git clone --bare https://github.com/particle-iot/tracker-edge.git

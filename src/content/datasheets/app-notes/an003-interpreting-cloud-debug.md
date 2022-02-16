@@ -662,7 +662,7 @@ Default server keys can be automatically restored on Device OS 0.7.0 and later s
 
 ### DNS issue or data service not enabled (fast blinking cyan)
 
-Sometimes a SIM will be mis-configured in the carrier network and will not allow IP data (GPRS) to be sent or received. One way you can tell is the `ERROR: Cloud: unable to resolve IP` error. 
+Sometimes a SIM will be misconfigured in the carrier network and will not allow IP data (GPRS) to be sent or received. One way you can tell is the `ERROR: Cloud: unable to resolve IP` error. 
 
 ```
 0000346244 [system] INFO: R   346.245 AT send      56 "AT+UDNSRN=0,\"e00fce687bd30b4135c361dc.udp.particle.io\"\r\n"

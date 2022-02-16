@@ -133,7 +133,7 @@ particle library copy
 #### Manually
 
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
@@ -262,7 +262,7 @@ particle library copy
 #### Manually
 
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 

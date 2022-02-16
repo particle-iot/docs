@@ -283,7 +283,7 @@ describe('Crawler', function() {
         }  
 
         if (toQueueUrl.indexOf('https://github.com/particle-iot/docs/tree/') === 0) {
-          // Github edit links are not crawled because it's not possible to edit pages until the page has
+          // GitHub edit links are not crawled because it's not possible to edit pages until the page has
           // been committed, but you can't commit the page until CI passes.
           return [];
         }
@@ -368,7 +368,7 @@ describe('Crawler', function() {
       var isWarning = (urlis.external && Math.floor(queueItem.stateData.code / 100) === 5);
       
       if (queueItem.stateData.code === 403 && urlis.isGithubReferrerLink) {
-    	  // Github is randomly returning 403 errors for some reason when the link redirects to AWS. Treat as warning, not error.
+    	  // GitHub is randomly returning 403 errors for some reason when the link redirects to AWS. Treat as warning, not error.
     	  isWarning = true;
       }
       if (queueItem.stateData.code === 403 && queueItem.url.indexOf('dfu-util.sourceforge.net') >= 0) {

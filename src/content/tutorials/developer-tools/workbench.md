@@ -221,15 +221,15 @@ Workbench leans heavily on the built-in IntelliSense features of Visual Studio C
 
 You can see IntelliSense in action by starting to type `Particle.` and see suggestions for public functions.
 
-![Intellisense](/assets/images/workbench/intellisense1.png)
+![IntelliSense](/assets/images/workbench/intellisense1.png)
 
 Or possible arguments.
 
-![Intellisense Arguments](/assets/images/workbench/intellisense2.png)
+![IntelliSense Arguments](/assets/images/workbench/intellisense2.png)
 
 IntelliSense for C++ includes a slew of advanced features for you to explore. For example, you can “peek” to the definition of a function.
 
-![Intellisense Peek](/assets/images/workbench/intellisense2.png)
+![IntelliSense Peek](/assets/images/workbench/intellisense2.png)
 
 
 ### Particle Themes
@@ -832,7 +832,7 @@ There is another option that is more common when working with Tracker Edge proje
 
 ![Create repository](/assets/images/workbench/github-create-repo.png)
 
-Create a new Github repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
+Create a new GitHub repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
 
 ```bash
 git clone --bare https://github.com/particle-iot/tracker-edge.git
@@ -907,7 +907,7 @@ If you duplicated your  **library.properties** it should have a name already. Th
 
 From the Command Palette, select **Particle: Import Project**. Now that the directory contains a project.properties file, you will be able to import it. 
 
-Now the library will appears in your Workbench window and have Intellisense highlighting.
+Now the library will appears in your Workbench window and have IntelliSense highlighting.
 
 ### Building Examples - Using CLI
 

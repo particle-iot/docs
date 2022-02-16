@@ -38,7 +38,7 @@ to run the sample hello world app. Filename completion is available so you can t
 
 The node.js scripts are run securely in your browser and no have access to files on your computer or other browser tabs. There are no browser extensions; it's all browser-based Javascript.
 
-When editing the code, don't forget to save your changes before running the script again (Command-S on the Mac and Ctrl-S on Windows and Linux). If you make changes to the file, it creates a copy ("fork") of the file and the URL changes so you don't need to worry about overwriting the public example. You can save and run the file without logging into Github, but changes will be lost when you close your browser window.
+When editing the code, don't forget to save your changes before running the script again (Command-S on the Mac and Ctrl-S on Windows and Linux). If you make changes to the file, it creates a copy ("fork") of the file and the URL changes so you don't need to worry about overwriting the public example. You can save and run the file without logging into GitHub, but changes will be lost when you close your browser window.
 
 ## Installation - computer
 
@@ -345,7 +345,7 @@ There's another common way this is done, see [array with iterator function](#arr
 
 #### Batch file array loop
 
-That syntax may look familar to DOS command prompt batch file users:
+That syntax may look familiar to DOS command prompt batch file users:
 
 {{> codebox content="/assets/files/node-tutorial/loop2.bat" format="bat"}}
 
@@ -602,7 +602,7 @@ npm install particle-api-js
     },
 ```
 
-- It creates a `package-lock.json` file. You probably won't need to mess with this, but it's used to keep track of the dependencies of the project. If you are committing a project to Github source control, you should add the `package-lock.json` file.
+- It creates a `package-lock.json` file. You probably won't need to mess with this, but it's used to keep track of the dependencies of the project. If you are committing a project to GitHub source control, you should add the `package-lock.json` file.
 - It creates the `node_modules` directory. This contains the downloaded package, as well as all of the libraries it depends on. You should not commit this directory to source control.
 
 ### List devices (Particle API)

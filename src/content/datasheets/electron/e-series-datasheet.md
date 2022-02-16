@@ -321,9 +321,9 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 |58| GND  | POWER     | System ground.
 |59| GND  | POWER     | System ground.
 |60| GND  | POWER     | System ground.
-|61| UB_USB+ | IO        | Data+ pin of the ublox USB port.
-|62| UB_USB- | IO        | Data- pin of the ublox USB port.
-|63| UB_VUSB_DET | IO        | USB detect pin of the ublox USB port. 5V on this pin enables the ublox's USB interface.
+|61| UB_USB+ | IO        | Data+ pin of the u-blox USB port.
+|62| UB_USB- | IO        | Data- pin of the u-blox USB port.
+|63| UB_VUSB_DET | IO        | USB detect pin of the u-blox USB port. 5V on this pin enables the u-blox's USB interface.
 
 
 

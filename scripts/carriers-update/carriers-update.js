@@ -607,7 +607,7 @@ const { option } = require('yargs');
                 title: 'Description'
             },
             ethersim: {
-                title: 'EtherSim',
+                title: 'EtherSIM',
                 checkmark: true,
                 align: 'center'
             },

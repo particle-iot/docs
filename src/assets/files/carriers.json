@@ -18869,7 +18869,7 @@
       "id": 4,
       "description": "Twilio SuperSIM",
       "simPlanKey": "supersim",
-      "name": "EtherSim"
+      "name": "EtherSIM"
     }
   ],
   "simPlans": [

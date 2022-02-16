@@ -171,7 +171,7 @@ We recommend flashing the desired version of Device OS and your product firmware
 
 Additionally, there is good integration between git and Microsoft Visual Studio Code (vscode, which is what underlies Particle Workbench), making it easy to use git.
 
-One popular provider of git source code repositories is Github. You can have private projects (repositories) in Github where you only allow certain users access, even in the free tier of Github. Each developer will have their own Github account. This could either be the same account email used for their Particle account, or a separate Github account at a different email. They do not need to be the same.
+One popular provider of git source code repositories is GitHub. You can have private projects (repositories) in GitHub where you only allow certain users access, even in the free tier of GitHub. Each developer will have their own GitHub account. This could either be the same account email used for their Particle account, or a separate GitHub account at a different email. They do not need to be the same.
 
 Or course you can use other source code control systems if you prefer.
 
@@ -207,11 +207,11 @@ One thing to beware of: If you have a project.properties file containing a libra
 
 You can search popular public libraries from the [library search tool](/cards/libraries/search/).
 
-### Github (single project)
+### GitHub (single project)
 
-In some cases, instead of committing the project.properties file to your Github repository, you may prefer to commit the `lib` directory instead. This allows a single git clone operation to obtain all of the files for building your application. It also assures consistent building for both local and cloud builds.
+In some cases, instead of committing the project.properties file to your GitHub repository, you may prefer to commit the `lib` directory instead. This allows a single git clone operation to obtain all of the files for building your application. It also assures consistent building for both local and cloud builds.
 
-### Github (submodules)
+### GitHub (submodules)
 
 However, if you have more than one project, this will result in a large number of copies of common files, which is best to avoid. Fortunately, git supports [submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), which allows a project repository to include a reference to another git repository, along with the version to use. Then when the library is cloned, you simply also clone all of the submodules:
 
@@ -404,7 +404,7 @@ The devices icon (2) shows the device list.
 
 **The device list shows all devices that are claimed to your account**
 
-This can lead to confusion because there is a limit of 100 devices in the free sandbox. However, there can be signficantly larger number of devices in this list because it also shows product and organization product devices that are claimed to your account. These organization products devices do not count against your device limit, but do show up in this list.
+This can lead to confusion because there is a limit of 100 devices in the free sandbox. However, there can be significantly larger number of devices in this list because it also shows product and organization product devices that are claimed to your account. These organization products devices do not count against your device limit, but do show up in this list.
 
 ### Sandbox products
 

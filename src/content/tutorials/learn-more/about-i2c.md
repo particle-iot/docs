@@ -449,7 +449,7 @@ Important note: Even though there are two sets of pins, for all practical purpos
 
 Each of the devices is a small board with two Qwiic connectors, tiny JST 1mm-pitch 4-pin connectors. The connector is keyed so you don't need to worry about connecting it backwards, and the devices can be daisy-chained, one after the other. 
 
-Here's a BME 280 temperature, humidity, and atmospheric pressure [sensor board](https://www.sparkfun.com/products/15440), pictured next to a US quarter coin:
+Here's a BME280 temperature, humidity, and atmospheric pressure [sensor board](https://www.sparkfun.com/products/15440), pictured next to a US quarter coin:
 
 ![BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 

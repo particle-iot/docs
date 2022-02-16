@@ -391,7 +391,7 @@ Particle.variable("sensor", sensor);
 
 With variables, you can update the global variable `sensor` as much as you want. It will only use data operations when the value is retrieved from the cloud.
 
-Also, you almost never call `Particle.variable()` from `loop()`. You call it from `setup()` to let the cloud know you have a variable available, not the the value changed! If you need to tell the clound when you change a value, you should use publish instead of variables.
+Also, you almost never call `Particle.variable()` from `loop()`. You call it from `setup()` to let the cloud know you have a variable available, not the the value changed! If you need to tell the cloud when you change a value, you should use publish instead of variables.
 
 
 Because we need to update `sensor` periodically, we do it from `loop()`, every second:
