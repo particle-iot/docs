@@ -726,7 +726,7 @@ CANH, CANL Absolute Maximum Ratings:
 | ESD Protection on CANH and CANL Pins (IEC 61000-4-2) | ±8 kV |
 | ESD Protection on CANH and CANL Pins (IEC 801; Human Body Model) | ±8 kV |
 
-CAN Tranceiver Characteristics
+CAN Transceiver Characteristics
 
 | Parameter | Symbol | Min | Typ | Max | Unit | Conditions |
 |:---|:---|:---:|:---:|:---:|:---:| :--- |
@@ -1069,8 +1069,8 @@ Caution: To maintain compliance with the FCC's RF exposure guidelines, place the
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
-1.This device may not cause harmful interference.
-2.This device must accept any interference received, including interference that may cause undesired operation.
+1. This device may not cause harmful interference.
+2. This device must accept any interference received, including interference that may cause undesired operation.
 This device complies with Part 15, Part 15.247 of the FCC Rules. The FCC ID for this device is 2AEMI-T40X.
 
 If the FCC ID is not visible with the module is installed inside another device, then it must be still responsible for the FCC compliance requirement of the end product which referring to the enclosed module and it also must display a label, such as the following:

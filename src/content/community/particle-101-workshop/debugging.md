@@ -38,7 +38,7 @@ To complete this portion of the lab, you'll need the following:
 
 - [Particle Workbench](https://www.particle.io/workbench)
 - The trusty [Argon](https://store.particle.io/products/argon-kit) you've been using for other parts of this lab
-- One [Particle Debugger](https://store.particle.io/products/particle-debugger)
+- One Particle Debugger
 - A free USB port on your laptop
 
 The Particle Debugger is an accessory that attaches between your computer (via USB) and your Particle device and allows for in-circuit debugging. To do this the Argon must be connected to the same computer via Micro USB at the same time, so make sure you have enough ports available. If your laptop has only USB C ports available, you'll need an adapter that converts USB-C to USB-A.
@@ -99,7 +99,7 @@ Now, get ready to wait a bit as Workbench creates a debug binary for your projec
   ![](/assets/images/workshops/particle-101/03/debugmenu2.png)
 From left to right in the image below, those buttons allow you to continue, step over the current line, step into the current line, step out of the current scope, restart the debug session (you’ll need to put the device back in DFU mode for this to work) and finally, to disconnect the session.
 <br /><br />
-5. Press the *continue button*. Your project will resume execution and break again on teh same line after the interval delay elapses.
+5. Press the *continue button*. Your project will resume execution and break again on the same line after the interval delay elapses.
 <br /><br />
 6. It's also possible to only break code when a condition you define is met. Start by setting another breakpoint a few lines later on the `createEventPayload` line.
 <br /><br />

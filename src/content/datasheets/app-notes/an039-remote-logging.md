@@ -84,7 +84,7 @@ Using the device name is convenient, however:
 - It cannot be done from unclaimed product devices
 - To reduce data operations, you can store the name in EEPROM. 
 
-The easiest way to use the device name is by using the **DeviceNameHelperRK** library. You can find the [full documentation on Github](https://github.com/rickkas7/DeviceNameHelperRK).
+The easiest way to use the device name is by using the **DeviceNameHelperRK** library. You can find the [full documentation on GitHub](https://github.com/rickkas7/DeviceNameHelperRK).
 
 If you do not want to use the device name, the device ID is a good alternative.
 
@@ -134,7 +134,7 @@ You can still enable the USB serial debug log, so logs will go to both:
 SerialLogHandler serialLog;
 ```
 
-This, in setup(), is part of the device name retrival. There's also a line in loop().
+This, in setup(), is part of the device name retrieval. There's also a line in loop().
 
 ```cpp
 DeviceNameHelperEEPROM::instance().setup(EEPROM_OFFSET);

@@ -711,7 +711,7 @@ On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is
 
 ### Device Fleet Settings
 
-Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devicesin your fleet. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
+Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devices in your fleet. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
 ![Settings Icon](/assets/images/tracker/map-settings.png)
 

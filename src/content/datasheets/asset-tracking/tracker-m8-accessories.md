@@ -123,7 +123,7 @@ The key on the M8 panel connector is at 3 o'clock (right side, nearest to the US
 
 ## M8 Connector 
 
-The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CAB. It's intended for building your own M8 cable assembly and is the female side of the connector that mates with the Tracker One M8 connector. It is a bare connector and does not include a shroud. It is intended that your cable manufacturer will add an overmould to seal your cable to the connector.
+The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CAB. It's intended for building your own M8 cable assembly and is the female side of the connector that mates with the Tracker One M8 connector. It is a bare connector and does not include a shroud. It is intended that your cable manufacturer will add an overmold to seal your cable to the connector.
 
 ![M8 Connector](/assets/images/at-som/at-m8-connector1.png)
 ![M8 Connector](/assets/images/at-som/at-m8-connector2.png)

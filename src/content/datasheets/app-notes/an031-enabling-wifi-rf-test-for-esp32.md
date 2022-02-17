@@ -31,7 +31,7 @@ There are two pins (UART) exposed on the back of the Argon for sending test mode
 
 ## Verification
 
-Connect the Argon to a spectrum analyzer via the u.FL (with labelled Wi-Fi) connector:
+Connect the Argon to a spectrum analyzer via the U.FL (with labelled Wi-Fi) connector:
 
 ![](/assets/images/app-notes/AN031/04.png)
 
@@ -63,5 +63,5 @@ Harmonics:
 
 ## References
 
-[ESP32&ESP8266_RF_Performance_Test_Demonstration__EN.pdf](https://www.espressif.com/sites/default/files/tools/ESP32%26ESP8266_RF_Performance_Test_EN_0.zip)
+- [ESP32&ESP8266_RF_Performance_Test_Demonstration__EN.pdf](https://www.espressif.com/en/support/download/other-tools) in the ESP RF Test Tool and Test Guide
 

@@ -38,7 +38,6 @@ The 3 main parts of the webhook are: which events from which devices trigger it,
 An event will trigger a webhook if:
 - The event name starts with the webhook `eventName`.
 - The device that published the event matches the webhook `deviceID` or all devices you own if `deviceID` is omitted.
-
 ## Webhook properties
 
 Webhook are created by specifying several properties in a configuration file in [JSON format](http://www.w3schools.com/js/js_json_intro.asp).

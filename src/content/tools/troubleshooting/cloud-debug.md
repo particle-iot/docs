@@ -27,7 +27,7 @@ After the status LED stops blinking magenta (red and blue at the same time), you
 
 ### Manual installation
 
-If you prefer to install manually or do not have a compatible browser or computer, you can follow the manual installation instructions on the [Cloud Debug Github](https://github.com/particle-iot/cloud-debug) page.
+If you prefer to install manually or do not have a compatible browser or computer, you can follow the manual installation instructions on the [Cloud Debug GitHub](https://github.com/particle-iot/cloud-debug) page.
 
 
 ## Viewing the results

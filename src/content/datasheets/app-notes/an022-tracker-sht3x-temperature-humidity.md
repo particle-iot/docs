@@ -105,7 +105,7 @@ Note that I2C requires pull-up resistors, and this design includes two sets, one
 
 There are a few commonly available SHT30 sensors:
 
-- [From Adafuit](https://www.adafruit.com/product/4099)
+- [From Adafruit](https://www.adafruit.com/product/4099)
 - [From Amazon](https://www.amazon.com/gp/product/B07F9X9Q37/ref=ppx_yo_dt_b_asin_title_o01_s00)
 
 Note that the color code printed on the PCB is for the Adafruit sensor. The sensor I got from Amazon had a different color code, so be careful!
@@ -134,7 +134,7 @@ particle library copy
 
 #### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 

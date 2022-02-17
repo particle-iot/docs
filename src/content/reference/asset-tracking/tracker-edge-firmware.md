@@ -484,7 +484,7 @@ struct LocationPoint {
 | :--- | :--- | :--- |
 | `int` | `locked` | Indication of GNSS locked status (1=lock/fix obtained) |
 | `unsigned int` | `lockedDuration` | Duration of the current GNSS lock (if applicable) | 
-| `bool` | `stable` | Indication if GNNS lock is stable (if applicable) |
+| `bool` | `stable` | Indication if GNSS lock is stable (if applicable) |
 | `time_t` | `epochTime` | Epoch time from device sources | 
 | `LocationTimescale` | `timeScale` | Epoch timescale |
 | `float` | `latitude` | Point latitude in degrees |

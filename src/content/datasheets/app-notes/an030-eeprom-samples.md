@@ -99,7 +99,7 @@ This example does non-drifting sample times. Thus you specify the sample period,
 const std::chrono::seconds sampleTime = 5min;
 ```
 
-These parameters are specific to the EEEPROM storage system. 
+These parameters are specific to the EEPROM storage system. 
 
 ```
 // Number of samples to keep. Each sample is 8 bytes.
@@ -842,7 +842,7 @@ Here I've reattached the antenna and the device has woken from sleep.
 918459 - 0000379596 [system] INFO: Clearing WLAN WD in disconnect()
 ```
 
-A third sample is queued right after waking up, to go with the two that are currently saved in EEEPROM.
+A third sample is queued right after waking up, to go with the two that are currently saved in EEPROM.
 
 ```
 918464 - 0000379594 [app] INFO: successfully queued readIndex=3754 writeIndex=3757

@@ -86,7 +86,7 @@ Note that this only provides cellular Internet to the Boron or B Series SoM. It 
 
 ### Keep-alive
 
-The [Particle.keepAlive](/cards/firmware/cloud-functions/particle-keepalive/) is necessary to mantain the cloud connection. For cellular devices, this defaults to 23 minutes for the Particle SIM. (For 3rd-party SIM cards, it could be as low as 30 seconds.)
+The [Particle.keepAlive](/cards/firmware/cloud-functions/particle-keepalive/) is necessary to maintain the cloud connection. For cellular devices, this defaults to 23 minutes for the Particle SIM. (For 3rd-party SIM cards, it could be as low as 30 seconds.)
 
 For Ethernet, the period will dependent on the local LAN connection. If you using the Argon and 2.1.0 or later, the default is 25 seconds.
 

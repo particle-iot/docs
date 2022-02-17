@@ -342,7 +342,7 @@ A future update to this tutorial will include some power and antenna options.
 
 ## Other Designs
 
-The Tracker SoM Evaluation board and Carrier Board (the board in the Tracker One) are open-source and the Eagle CAD design files are available in the [Tracker Hardware Github repository](https://github.com/particle-iot/tracker-hardware).
+The Tracker SoM Evaluation board and Carrier Board (the board in the Tracker One) are open-source and the Eagle CAD design files are available in the [Tracker Hardware GitHub repository](https://github.com/particle-iot/tracker-hardware).
 
 For information on production soldering and stencils, see [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) for information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
 

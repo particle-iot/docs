@@ -70,7 +70,7 @@ You can download a complete project for use with Particle Workbench as a zip fil
 
 
 #### Manually
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 

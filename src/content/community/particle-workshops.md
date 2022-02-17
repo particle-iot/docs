@@ -20,7 +20,7 @@ This site contains in-depth lab documents that complement in-person presentation
 
 ## Self-Guided Workshops
 
-- [Particle 101 Workshop](/community/particle-101-workshop/introduction/) - Requires a [Particle Argon](https://store.particle.io/products/argon-kit) and Grove Starter Kit for Particle. For the on-device debugging module, a [Particle Debugger](https://store.particle.io/collections/accessories/products/particle-debugger) is required.
+- [Particle 101 Workshop](/community/particle-101-workshop/introduction/) - Requires a [Particle Argon](https://store.particle.io/products/argon-kit) and Grove Starter Kit for Particle. For the on-device debugging module, a Particle Debugger is required.
 - [Particle Photon and Maker Kit Workshop](/community/photon-maker-kit-workshop/introduction/) - Requires a Particle Photon and [Particle Maker Kit](https://store.particle.io/collections/shields-and-kits).
 
 Interested in holding a Particle Workshop for your conference, company, or makerspace? [Send us an email](mailto://community@particle.io)!

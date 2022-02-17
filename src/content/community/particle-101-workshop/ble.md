@@ -24,7 +24,7 @@ Make sure you have completed **all** the prerequisites before advancing beyond t
 
 Let's explore using Bluetooth with Particle Devices.
 
-1. To use Bluetooth with a thrid generation Particle device, you'll need to be running Device OS version 1.3.0 or greater. To set this in Workbench, open the command palette (keyboard shortcut: *SHIFT + CMD/CTRL + P*), select the `Configure Project for Device` option, and select version `deviceOS@1.3.0` or newer.
+1. To use Bluetooth with a third generation Particle device, you'll need to be running Device OS version 1.3.0 or greater. To set this in Workbench, open the command palette (keyboard shortcut: *SHIFT + CMD/CTRL + P*), select the `Configure Project for Device` option, and select version `deviceOS@1.3.0` or newer.
 <br /><br />
 2. Next, you'll want to install a new library to help with getting power and battery info from your device. Open the command palette, select the `Install Library` command and enter `DiagnosticsHelperRK` into the textbox. Hit enter and the library will be installed.
 <br /><br />

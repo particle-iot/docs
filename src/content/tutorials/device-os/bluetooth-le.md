@@ -750,7 +750,7 @@ If the peripheral is not currently supported, the library is written in a modula
 
 #### Installation
 
-You can install the library through the Particle library system. The name is `ble-gateway`. You can also clone the library from [Github](https://github.com/particle-iot/ble-gateway-library) to include in your project or to modify it.
+You can install the library through the Particle library system. The name is `ble-gateway`. You can also clone the library from [GitHub](https://github.com/particle-iot/ble-gateway-library) to include in your project or to modify it.
 
 #### Usage
 
@@ -825,7 +825,7 @@ This [Application Note](https://support.particle.io/hc/en-us/articles/3600468629
 
 #### Installation
 
-You can install the library through the Particle library system. The name is `BeaconScanner`. You can also clone the library from [Github](https://github.com/particle-iot/beacon-scanner-library) to include in your project or to modify it.
+You can install the library through the Particle library system. The name is `BeaconScanner`. You can also clone the library from [GitHub](https://github.com/particle-iot/beacon-scanner-library) to include in your project or to modify it.
 
 #### Usage
 
@@ -852,7 +852,7 @@ void loop() {
 }
 ```
 
-There are other functions that allow you to collect a `Vector` of the nearby tags to do some local processing prior to publishing. You can see the full documentation in the [Github repository](https://github.com/particle-iot/beacon-scanner-library).
+There are other functions that allow you to collect a `Vector` of the nearby tags to do some local processing prior to publishing. You can see the full documentation in the [GitHub repository](https://github.com/particle-iot/beacon-scanner-library).
 
 
 
