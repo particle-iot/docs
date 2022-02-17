@@ -446,7 +446,7 @@ For this last section, we’re going to take the data from our sensors, and publ
   }
   ```
 
-6. In this function, we’ll do two things, build up a JSON object with all of our sensor values, and publish that data to the Particle Device Cloud. For the first, we’ll create a new JsonWriterStatic` object, which is a buffer that will hold all of our data as we build things up.
+6. In this function, we’ll do two things, build up a JSON object with all of our sensor values, and publish that data to the Particle Device Cloud. For the first, we’ll create a new JsonWriterStatic object, which is a buffer that will hold all of our data as we build things up.
 
   ```cpp
   JsonWriterStatic<256> jw;
@@ -486,7 +486,7 @@ For this last section, we’re going to take the data from our sensors, and publ
 
 ## Final Code
 
-You can download the full project, ready to import into Particle Workbench from the [Github air-quality-kit repository](https://github.com/particle-iot/air-quality-kit).
+You can download the full project, ready to import into Particle Workbench from the [GitHub air-quality-kit repository](https://github.com/particle-iot/air-quality-kit).
 
 If you are using the Web IDE, you can load a [copy of the source in Web IDE](https://go.particle.io/shared_apps/5f575e26fb925e0008019c73).
 

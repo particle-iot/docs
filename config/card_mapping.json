@@ -671,6 +671,7 @@
   "/reference/device-os/firmware/#analog-systemsleepconfiguration-": "/cards/firmware/sleep-sleep/analog-systemsleepconfiguration/",
   "/reference/device-os/firmware/#usart-systemsleepconfiguration-": "/cards/firmware/sleep-sleep/usart-systemsleepconfiguration/",
   "/reference/device-os/firmware/#ble-systemsleepconfiguration-": "/cards/firmware/sleep-sleep/ble-systemsleepconfiguration/",
+  "/reference/device-os/firmware/#sleep-and-gpio-outputs": "/cards/firmware/sleep-sleep/sleep-and-gpio-outputs/",
   "/reference/device-os/firmware/#systemsleepresult-class": "/cards/firmware/systemsleepresult-class/systemsleepresult-class/",
   "/reference/device-os/firmware/#wakeupreason-systemsleepresult-": "/cards/firmware/systemsleepresult-class/wakeupreason-systemsleepresult/",
   "/reference/device-os/firmware/#wakeuppin-systemsleepresult-": "/cards/firmware/systemsleepresult-class/wakeuppin-systemsleepresult/",

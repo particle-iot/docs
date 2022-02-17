@@ -122,7 +122,7 @@ You'll be notified once the library is installed, and a `lib` directory will be 
 ```
 {{box op="start" cssClass="boxed warningBox"}}
 **Tip:** Get any error message from Workbench?<br />
-From time-to-time, the intellisense engine in VS Code that Workbench depends on may report that it cannot find a library path and draw a red squiggly under your `#include` statement above. As long as your code compiles, (which you can verify by opening the command palette [CMD/CTRL+SHIFT+P] and choosing the `Particle: compile application (local)`) you can ignore this error.
+From time-to-time, the IntelliSense engine in VS Code that Workbench depends on may report that it cannot find a library path and draw a red squiggly under your `#include` statement above. As long as your code compiles, (which you can verify by opening the command palette [CMD/CTRL+SHIFT+P] and choosing the `Particle: compile application (local)`) you can ignore this error.
 <br/><br/>
 You can also resolve the issue by trying one of the steps detailed in this community forum post, [here](https://community.particle.io/t/intellisense-report-issues-here/48734).
 {{box op="end"}}

@@ -93,7 +93,7 @@ If you are making the Particle API calls from your back-end there is no need to 
 
 ### Authentication alternatives
 
-Instead of using Particle's authentication system, or your own proprietary system, it may make sense to use one of the many single sign-on options. For example, allowing you to use your existing login to Facebook, Google, Github, etc.. There are many libraries to assist with this, and most web developers will be familiar with doing this if you want to create a web app with single sign-on.
+Instead of using Particle's authentication system, or your own proprietary system, it may make sense to use one of the many single sign-on options. For example, allowing you to use your existing login to Facebook, Google, GitHub, etc.. There are many libraries to assist with this, and most web developers will be familiar with doing this if you want to create a web app with single sign-on.
 
 {{note op="start" type="developer"}}
 For personal home automation tasks you can hardcode an authentication token for your account directly into your mobile app. For better security, you should use a product (even if it's just for you) and use an [API user](/reference/device-cloud/api/#api-users) that only has limited functionality, such as get variable and call function. 

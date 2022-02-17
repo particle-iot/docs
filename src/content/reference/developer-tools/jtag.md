@@ -231,7 +231,7 @@ You can try the [experimental web browser based Particle Debugger interface](/to
 
 ## Particle Debugger with OpenOCD (standalone)
 
-It's also possible to install [OpenOCD standalone](http://openocd.org/getting-openocd/), without Particle Workbench. This is useful if you have a contract manufacturer or your own manufacturing station that you don't want to or can't install the entire Particle Workbench tool chain on.
+It's also possible to install [OpenOCD standalone](https://openocd.org/pages/getting-openocd.html), without Particle Workbench. This is useful if you have a contract manufacturer or your own manufacturing station that you don't want to or can't install the entire Particle Workbench tool chain on.
 
 Just follow the instructions above to install OpenOCD for Windows, Mac, or Linux, then follow the command line instructions above as for Workbench.
 
@@ -362,7 +362,7 @@ The Argon and Tracker NCP (Network Coprocessor) is an ESP32, used for Wi-Fi comm
 - It cannot be upgraded in DFU (blinking yellow) or by SWD/JTAG
 - The `particle update` command does not update the NCP
 
-Releases can be found on the [Github release site](https://github.com/particle-iot/esp32-ncp-firmware/releases).
+Releases can be found on the [GitHub release site](https://github.com/particle-iot/esp32-ncp-firmware/releases).
 
 - Download the appropriate .bin file
 - Connect the device by USB to your computer

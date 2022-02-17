@@ -138,7 +138,12 @@ dataui.countrySelector = function(options) {
         const countryObj = datastore.findCountryByName(text);
         if (countryObj) {
             if (countrySel.onCountrySelected) {
-                countrySel.onCountrySelected(countryObj.name);
+                try {
+                    countrySel.onCountrySelected(countryObj.name);
+                }
+                catch(e) {
+                    console.log('exception in handler', e);
+                }
             }
         }
     };
@@ -917,7 +922,7 @@ dataui.selectSkus = function(config) {
     return results;
 };
 
-dataui.generateSkuTable = function(modemSimObj, options) {
+dataui.generateSkuTable = function(skusArray, options) {
 
     if (options == undefined) {
         options = {};
@@ -926,15 +931,10 @@ dataui.generateSkuTable = function(modemSimObj, options) {
     let html = '';
 
     html += '<table><thead>';
-    html += '<tr><td>SKU</td><td>Description</td><td>Lifecycle</td></tr>'
+    html += '<tr><td>SKU</td><td>Description</td><td>Lifecycle</td><td>Replacement</td></tr>'
     html += '</thead><tbody>';
-    modemSimObj.skus.forEach(function(obj) {
-        let notes = '';
-        if (obj.replacement) {
-            notes = 'Sub ' + obj.replacement;
-        }
-
-        html += '<tr><td>' + obj.name + '</td><td>' + obj.desc + '</td><td>' + obj.lifecycle + '</td></tr>';
+    skusArray.forEach(function(obj) {
+        html += '<tr><td>' + obj.name + '</td><td>' + obj.desc + '</td><td>' + obj.lifecycle + '</td><td>' + (obj.replacement ? obj.replacement : '')+ '</td></tr>';
     });
     html += '</tbody></table>';
 

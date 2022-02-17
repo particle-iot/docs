@@ -95,7 +95,7 @@ Integration Traffic metric will sum the performance of all three.
 
 Delivery of each event will be attempted 3 times. The Integration
 Traffic metric shows the final outcome so one failure means one event
-that was dropped without being delivered after 3 attemps. In cases where
+that was dropped without being delivered after 3 attempts. In cases where
 there are many failures in rapid succession, the Particle Cloud will
 skip sending some events to decrease the pressure on the receiving
 server.
@@ -158,7 +158,7 @@ available to slice the data across different characteristics.
 alt="Fleet Health Date Range Selection" />
 
 It can be helpful to examine Fleet Health metrics collected at different
-time intervals. For instance, if doing a post mortem on a disruption,
+time intervals. For instance, if doing a postmortem on a disruption,
 you would want to go back to look at the time period in question.
 
 You can use the Date Range selector to change the time window for all
