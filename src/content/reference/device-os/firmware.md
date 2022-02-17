@@ -4283,8 +4283,7 @@ void loop()
   - `OUTPUT` an output (push-pull)
   - `OUTPUT_OPEN_DRAIN` an open-drain or open-collector output. HIGH (1) leaves the output in high impedance state, LOW (0) pulls the output low. Typically used with an external pull-up 
   resistor to allow any of multiple devices to set the value low safely.
-  - `PIN_MODE_NONE` disconnects the GPIO from the MCU.
-
+  
 You do not need to set the `pinMode()` to read an analog value using [`analogRead`](#analogread-adc-) as the pin will automatically be set to the correct mode when analogRead is called.
 
 When porting code from Arudino, pin numbers are numbered (0, 1, 2, ...) in Arduino code. Pin D0 has a value of 0, but it's best to use Particle pin names like D0 instead of just 0. This is especially true as the numeric value of A0 varies depending on the device and how many digital pins it has. For example, on the Argon, A0 is 19 but on the Photon it's 10. 
@@ -15939,7 +15938,7 @@ In this mode:
 {{note op="start" type="gen2"}}
 - On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
 
-- GPIO are put into high impedance state before sleep. However, you can use `pinMode(PIN_MODE_NONE)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
+- GPIO are put into high impedance state before sleep. However, you can use `pinMode(INPUT)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
@@ -16216,7 +16215,7 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 
 In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
 
-This can result in unexpected current usage, depending on your design. You should `pinMode(PIN_MODE_NONE)` to disconnect the GPIO if you do not want the OUTPUT driven during sleep mode to get the lowest power usage. While this is not necessary if you are using Gen 2 HIBERNATE mode, it does not hurt to do so, allowing the same code to be used for both Gen 2 and Gen 3.
+This can result in unexpected current usage, depending on your design. You should `pinMode(INPUT)` to disconnect the GPIO if you do not want the OUTPUT driven during sleep mode to get the lower. While this is not necessary if you are using Gen 2 HIBERNATE mode, it does not hurt to do so, allowing the same code to be used for both Gen 2 and Gen 3.
 
 Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
 
