@@ -62,7 +62,7 @@ During the flow below, you'll need to connect both your Particle and Google acco
 
 ### Publishing a payload with temp and humidity values
 
-Now, let's send the current temp, humidity and light level using a `Particle.publish` event. You'll sind a single event with all three values in a single JSON object. To do this, you'll use the `JSONParserGenerator` library.
+Now, let's send the current temp, humidity and light level using a `Particle.publish` event. You'll send a single event with all three values in a single JSON object. To do this, you'll use the `JSONParserGenerator` library.
 
 1. Open the Workbench Command Palette (CMD+SHIFT+P or CTRL+SHIFT+P) and select the *Particle: Install Library* option.
 <br /><br />

@@ -426,7 +426,7 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 ![](/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png)
 
 
-The Argon and Boron are compatible with the [Ethernet Featherwing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
+The Argon and Boron are compatible with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
 
 With the B Series SoM you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. The [B Series Eval Board](/datasheets/boron/b-series-eval-board/) includes this circuitry.
 

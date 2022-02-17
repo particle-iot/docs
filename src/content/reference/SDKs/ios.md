@@ -568,7 +568,7 @@ The Particle Photon Setup library is meant for integrating the initial setup pro
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
-With the Photon Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed. iOS Photon Setup Library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
+With the Photon Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed. iOS Photon Setup Library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependency.
 
 ### Usage
 
@@ -657,7 +657,7 @@ For additional information read [here](https://github.com/AgileBits/onepassword-
 
 Customize setup look and feel by accessing the `ParticleSetupCustomization` singleton appearance proxy `[ParticleSetupCustomization sharedInstance]`
 and modify its default properties. Setting the properties in this class is optional.
-These properies are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`.
+These properties are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`.
 
 In v0.9 `brandImageBackgroundImage` has been introduced in order to improve support for iPhone X. With introduction with iPhone X, the status bar is no longer fixed at 20px as it was since the original iPhone. To keep changes to API small `brandImage` should remain at 64px height (@1x). Top 20px (@1x) should still remain clear and the logo should be in the lower 44px (@1x). We suggest keeping this image with transparent background. If your design requires pattern or color under the logo, please use `brandImageBackgroundColor` or `brandImageBackgroundImage` respectively.
 

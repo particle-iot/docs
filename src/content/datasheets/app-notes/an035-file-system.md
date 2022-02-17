@@ -20,10 +20,10 @@ It's accessible from user firmware using the [POSIX file system API](/cards/firm
 
 ## Quick Facts
 
-The file system is based on the open-source [LittleFS](https://github.com/littlefs-project/littlefs) project. From their Github, the features include:
+The file system is based on the open-source [LittleFS](https://github.com/littlefs-project/littlefs) project. From their GitHub, the features include:
 
-- Power-loss resilience - littlefs is designed to handle random power failures. All file operations have strong copy-on-write guarantees and if power is lost the filesystem will fall back to the last known good state.
-- Dynamic wear leveling - littlefs is designed with flash in mind, and provides wear leveling over dynamic blocks. Additionally, littlefs can detect bad blocks and work around them.
+- Power-loss resilience - LittleFS is designed to handle random power failures. All file operations have strong copy-on-write guarantees and if power is lost the filesystem will fall back to the last known good state.
+- Dynamic wear leveling - LittleFS is designed with flash in mind, and provides wear leveling over dynamic blocks. Additionally, LittleFS can detect bad blocks and work around them.
 
 On most devices, the flash memory is MX25L1606 4 MB QSPI NOR flash. It's the 8 MB version on the Tracker SoM. Only half of the flash memory is devoted to the file system, the rest is reserved for other purposes including holding the temporary data during over-the-air (OTA) updates. The reserved space is not available to user applications.
 

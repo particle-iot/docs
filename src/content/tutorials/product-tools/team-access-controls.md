@@ -80,7 +80,7 @@ Someone with the Support role can:
 Developer is a role that is meant for the engineers on your team that
 are actively building and managing IoT projects with Particle. With this role, a
 person is granted both read & write access to Console and APIs, without the ability to take administrative
-actions. This includes team management and irreversable destructive
+actions. This includes team management and irreversible destructive
 actions.
 
 Someone with the Developer role can:

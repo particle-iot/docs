@@ -18893,7 +18893,7 @@
       "id": 4,
       "description": "Twilio SuperSIM",
       "simPlanKey": "supersim",
-      "name": "EtherSim"
+      "name": "EtherSIM"
     }
   ],
   "simPlans": [
@@ -20344,7 +20344,8 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "batteryInc": true
     },
     {
       "name": "E350TRAY50",
@@ -23836,8 +23837,7 @@
       "country": "Aruba",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Aruba",
@@ -25380,8 +25380,7 @@
       "country": "Botswana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Botswana",
@@ -25394,8 +25393,7 @@
       "country": "Botswana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Botswana",
@@ -25442,8 +25440,7 @@
       "country": "Botswana",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Botswana",
@@ -25543,7 +25540,8 @@
       "modem": "U201",
       "sim": 2,
       "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "reason": "roaming restrictions",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -25994,8 +25992,7 @@
       "country": "Cabo Verde",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Cabo Verde",
@@ -26008,8 +26005,7 @@
       "country": "Cabo Verde",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Cabo Verde",
@@ -26056,8 +26052,7 @@
       "country": "Cabo Verde",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Cabo Verde",
@@ -27099,8 +27094,7 @@
       "country": "Congo (Kinshasa)",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -27112,8 +27106,7 @@
       "country": "Congo (Kinshasa)",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -27160,8 +27153,7 @@
       "country": "Congo (Kinshasa)",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -32623,8 +32615,7 @@
       "country": "Jersey",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Jersey",
@@ -32636,8 +32627,7 @@
       "country": "Jersey",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Jersey",
@@ -32683,8 +32673,7 @@
       "country": "Jersey",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Jersey",
@@ -34131,8 +34120,7 @@
       "country": "Macao",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Macao",
@@ -34145,8 +34133,7 @@
       "country": "Macao",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Macao",
@@ -34194,8 +34181,7 @@
       "country": "Macao",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Macao",
@@ -34235,8 +34221,7 @@
       "country": "Madagascar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Madagascar",
@@ -34248,8 +34233,7 @@
       "country": "Madagascar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Madagascar",
@@ -34295,8 +34279,7 @@
       "country": "Madagascar",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Madagascar",
@@ -35858,8 +35841,7 @@
       "country": "Morocco",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Morocco",
@@ -35872,8 +35854,7 @@
       "country": "Morocco",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Morocco",
@@ -35920,8 +35901,7 @@
       "country": "Morocco",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Morocco",
@@ -37064,8 +37044,7 @@
       "country": "North Macedonia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "North Macedonia",
@@ -37077,8 +37056,7 @@
       "country": "North Macedonia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "North Macedonia",
@@ -37124,8 +37102,7 @@
       "country": "North Macedonia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "North Macedonia",
@@ -39875,8 +39852,7 @@
       "country": "Seychelles",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Seychelles",
@@ -39888,8 +39864,7 @@
       "country": "Seychelles",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Seychelles",
@@ -39909,8 +39884,7 @@
       "country": "Seychelles",
       "modem": "R410",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "recommendation": "POSS"
     },
     {
       "country": "Seychelles",
@@ -39935,8 +39909,7 @@
       "country": "Seychelles",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "POSS"
     },
     {
       "country": "Seychelles",

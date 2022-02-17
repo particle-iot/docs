@@ -607,7 +607,7 @@ const { option } = require('yargs');
                 title: 'Description'
             },
             ethersim: {
-                title: 'EtherSim',
+                title: 'EtherSIM',
                 checkmark: true,
                 align: 'center'
             },
@@ -1981,6 +1981,99 @@ const { option } = require('yargs');
                                     return cmp;
                                 }
                                 return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    }                 
+                },
+                {
+                    // SKUS - 2G only
+                    guid:'8d85e976-88f2-11ec-a8a3-0242ac120002',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['name', 'desc', 'region', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                const modemObj = updater.datastore.findModemByModel(skuObj.modem);
+                                if (!modemObj) {
+                                    return true;
+                                }
+                                if (modemObj.technologies.length != 1) {
+                                    return true;
+                                }
+                                return modemObj.technologies[0] != '2G';
+                            },
+                            sortFn: function(a, b) {
+                                let cmp = a.simName.localeCompare(b.simName);
+                                if (cmp) {
+                                    return cmp;
+                                }
+                                return a.name.localeCompare(b.name);
+                            },
+                        }); 
+                    }                 
+                },
+                {
+                    // SKUS - 2G/3G only
+                    guid:'84f9efae-88f3-11ec-a8a3-0242ac120002',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['name', 'desc', 'region', 'ethersim', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                const modemObj = updater.datastore.findModemByModel(skuObj.modem);
+                                if (!modemObj) {
+                                    return true;
+                                }
+                                if (modemObj.technologies.length != 2) {
+                                    return true;
+                                }
+                                return !modemObj.technologies.includes('2G') || !modemObj.technologies.includes('3G');
+                            },
+                        }); 
+                    }                 
+                },
+                ,
+                {
+                    // SKUS - LTE Cat M1
+                    guid:'2b701cb4-88f4-11ec-a8a3-0242ac120002',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['name', 'desc', 'region', 'ethersim', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                const modemObj = updater.datastore.findModemByModel(skuObj.modem);
+                                if (!modemObj) {
+                                    return true;
+                                }
+                                return !modemObj.technologies.includes('M1');
+                            },
+                        }); 
+                    }                 
+                },
+                {
+                    // SKUS - LTE Cat 1
+                    guid:'42193f40-88f4-11ec-a8a3-0242ac120002',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['name', 'desc', 'region', 'ethersim', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                const modemObj = updater.datastore.findModemByModel(skuObj.modem);
+                                if (!modemObj) {
+                                    return true;
+                                }
+                                return !modemObj.technologies.includes('Cat1');
+                            },
+                        }); 
+                    }                 
+                },
+                {
+                    // 3rd-party SIM compatible
+                    guid:'5299a764-88fa-11ec-a8a3-0242ac120002',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            columns: ['name', 'desc', 'region', 'ethersim', 'modem', 'gen', 'lifecycle', 'replacement'],
+                            filterFn: function(skuObj) {
+                                if (!skuObj.sim4ff) {
+                                    return true;
+                                }
+                                return false;
                             },
                         }); 
                     }                 

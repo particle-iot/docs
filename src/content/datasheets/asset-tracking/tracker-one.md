@@ -221,7 +221,7 @@ It can be read using the [getTemperature()](/reference/asset-tracking/tracker-ed
 
 ## Design Files
 
-The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD design files are available in Github:
+The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD design files are available in GitHub:
 
 [https://github.com/particle-iot/tracker-hardware](https://github.com/particle-iot/tracker-hardware)
 
@@ -427,7 +427,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
 
-This device must not be co-located or operating in conjunction with any other antenna or transmitter.This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. 
+This device must not be co-located or operating in conjunction with any other antenna or transmitter. This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. 
 
 This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
 
@@ -490,7 +490,7 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre1     | 2020 Apr 20 | RK | Preview Release1 |
+| pre1     | 2020 Apr 20 | RK | Preview Release |
 | pre2     | 2020 May 12 | RK | Added partial dimensions |
 | 001      | 2020 Jun 29 | RK | First release |
 | 002      | 2020 Jun 30 | RK | CAN 5V is limited to 400 mA, not 500 mA |

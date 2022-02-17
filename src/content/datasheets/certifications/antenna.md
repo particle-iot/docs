@@ -154,7 +154,7 @@ Cellular micro/pico/femto cells that use the Internet to connect to a specific c
 
 ## Wi-Fi
 
-The Particle 2.4 GHz W-Fi antenna is available in the [retail](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) and wholesale stores. Note: The same external antenna model is used for Wi-Fi and BLE.
+The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) and wholesale stores. Note: The same external antenna model is used for Wi-Fi and BLE.
 
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- |

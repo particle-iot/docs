@@ -518,6 +518,7 @@ The complete schematic and board files are open source and available on Particle
 | Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
 | Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
+| Aruba | BRN314 | 2G, 3G | Setar |
 | Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
 | Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | BRN314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |

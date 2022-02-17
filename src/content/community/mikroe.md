@@ -7,17 +7,17 @@ columns: two
 
 # Mikroe
 
-[MikroElektronika](https://www.mikroe.com/) has a collection of base boards and small accessory boards, Click, that connect by the mikroeBUS. 
+[MikroElektronika](https://www.mikroe.com/) has a collection of base boards and small accessory boards, Click, that connect by the mikroBUS. 
 
 The mikroBUS connector is has two rows of 8-pin 0.1" pitch headers. The Click boards can be approximately this size, or much longer if more space is needed. 
 
-Both the Feather and Gen 3 M.2 SoM Click shields have two mikroeBUS sockets.
+Both the Feather and Gen 3 M.2 SoM Click shields have two mikroBUS sockets.
 
 - SPI (SCK, MOSI, MISO) is shared on both sockets, however each socket has its own CS pin (CS1, CS2).
 - I2C is shared on both sockets, but I2C is designed to be used that way.
 - Serial is shared on both sockets, but you can generally use only one for serial, unless the serial is unidirectional from the MCU
 - Logic levels must be 3.3V to interface with the Argon, Boron or B Series SoM!
-- The mikroeBUS socket has both 3.3V and 5V on it.
+- The mikroBUS socket has both 3.3V and 5V on it.
 - The RST1/RST2 pin is used by some click boards to reset the click board. It is unrelated to the nRF52 MCU RST line.
 
 There are a very large number of Click shields available, however there is no set of available libraries like the Sparkfun Qwiic line. One reason is that the Mikroe line is designed around generic ARM processors, not Arduino. While the Arduino library system is different than Particle, the translation is very straightforward and was automated. There currently is no automatic translation of Mikroe libraries to Particle so they need to be done by hand.
@@ -87,9 +87,9 @@ This table just shows the socket-specific pin mapping:
 
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
-The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroeBUS Click boards:
+The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
 
-| M.2 Pin | Generic SoM | Gen 3 | mikroeBUS #1 | mikroeBUS #2 |
+| M.2 Pin | Generic SoM | Gen 3 | mikroBUS #1 | mikroBUS #2 |
 | :---: | :---: | :---: | :---: | :---: |
 | 20 | SCL | D1 | SCL | SCL |
 | 22 | SDA | D0 | SDA | SDA |

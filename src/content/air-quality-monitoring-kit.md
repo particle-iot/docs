@@ -38,7 +38,7 @@ For technical documentation on each of the included components, please see the l
 - **[Particle Argon](/argon/)**  
 - **[Particle Xenon](/xenon/)** (2)
 - **LiPo battery** (3)
-- **[2.4Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)**
+- **[2.4GHz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)**
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**

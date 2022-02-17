@@ -559,7 +559,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Argentina | Personal | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Armenia | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Armenia | Ucom | &nbsp; | &check; | &nbsp; | &nbsp; |
-| Aruba | Setar | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Aruba | Setar | &check; | &check; | &nbsp; | &nbsp; |
 | Australia | Optus | &check; | &check; | &check; | &nbsp; |
 | Australia | Telstra | &check; | &check; | &check; | &nbsp; |
 | Australia | Vodafone | &nbsp; | &check; | &check; | &nbsp; |

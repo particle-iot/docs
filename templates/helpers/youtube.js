@@ -6,6 +6,8 @@ module.exports = function(link) {
 	var html = 
 		'<div class="video-container"><div class="video-frame"><iframe src="'
 		+ link
-		+ '" width="560" height="315" frameborder="0" allowfullscreen></iframe></div></div>';
+		+ '" width="560" height="315" frameborder="0" '
+		+ 'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+		+ 'allowfullscreen></iframe></div></div>';
 	return new Handlebars.SafeString(html);
 }

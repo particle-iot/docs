@@ -258,7 +258,7 @@ It should be obvious, but a reminder, just in case.
 
 **Don't commit access tokens to source control**
 
-If you have a public Github repository you definitely don't want to check access tokens into your account!
+If you have a public GitHub repository you definitely don't want to check access tokens into your account!
 
 If your repository is private it's not as bad, but still it's best to use other techniques.
 
@@ -340,7 +340,7 @@ The main advantage of this token is that it's restricted to the specific product
 
 ### List products
 
-The [list products](reference/device-cloud/api/#list-products) API is a simple GET request that returns all products available in the sandbox for this user.
+The [list products](/reference/device-cloud/api/#list-products) API is a simple GET request that returns all products available in the sandbox for this user.
 
 {{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
 
@@ -443,7 +443,7 @@ You can retrieve device notes using the [get device information](/reference/devi
 
 ### Device vitals
 
-These examples show how to use the Device Vitals (Diagonstics) APIs. The Last Vitals just returns the single most recent record as JSON:
+These examples show how to use the Device Vitals (Diagnostics) APIs. The Last Vitals just returns the single most recent record as JSON:
 
 {{> cloud-api-device-vitals-last}}
 
@@ -680,7 +680,7 @@ You'll probably also want to monitor the product event stream in the [console](h
 
 #### Function (customers)
 
-When [calling a Particle.function](reference/device-cloud/api/#call-a-function) on the device, there are two ways:
+When [calling a Particle.function](/reference/device-cloud/api/#call-a-function) on the device, there are two ways:
 
 If you're doing it from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 

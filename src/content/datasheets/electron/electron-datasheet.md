@@ -637,6 +637,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Antigua and Barbuda | ELC314 | 2G, 3G | Flow |
 | Argentina | ELC314 | 2G, 3G | Claro, Movistar, Personal |
 | Armenia | ELC314 | 2G, 3G | Beeline, Ucom |
+| Aruba | ELC314 | 2G, 3G | Setar |
 | Australia | ELC314 | 3G | Optus, Telstra, Vodafone |
 | Austria | ELC314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | ELC314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
