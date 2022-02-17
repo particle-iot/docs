@@ -37,7 +37,7 @@ For technical documentation on each of the included components, please see the l
 
 {{box op="start"}}
 * [Particle Argon](/argon/)
-  * [2.4 Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
+  * [2.4 GHz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
   * Micro-USB cable
   * [LiPo battery](/tutorials/learn-more/batteries/)
 * Grove FeatherWing Adapter

@@ -44,7 +44,7 @@ Since all of the Nordic tools use the J-Link it really is recommended. It's also
 
 ## Learn About OpenThread
 
-Particle Mesh is really OpenThread, with much of the complexity hidden. Unfortuantely when you run a native OpenThread stack you'll now have to deal with that. A good place to start are the [OpenThread Guides](https://openthread.io/guides).
+Particle Mesh is really OpenThread, with much of the complexity hidden. Unfortunately when you run a native OpenThread stack you'll now have to deal with that. A good place to start are the [OpenThread Guides](https://openthread.io/guides).
 
 ## Setting up the Nordic development environment
 

@@ -9,7 +9,7 @@ description: Prototyping new designs
 # Prototyping
 
 
-## Sparkfun Qwiicc and Adafruit STEMMA QT
+## Sparkfun Qwiic and Adafruit STEMMA QT
 
 One convenient way to connect sensors and small displays is using I2C, the Inter-Integrated Circuit bus also known as I<sup>2</sup>C, pronounced "eye squared see," or sometimes IIC. This bus uses two bi-directional data lines (SDA and SCL), and often includes power (either 3.3V or 5V) and ground. You can connect multiple sensors to a single I2C bus, with some limitations, depending on the sensor. It's also easy to daisy-chain sensors, connecting multiple sensors to a single bus, one after the other.
 
@@ -54,9 +54,9 @@ This is an Adafruit BME280 breakout board, the same sensor as in the Sparkfun Qw
 
 ## Mikroe
 
-[MikroElektronika](https://www.mikroe.com/) has a collection of base boards and small accessory boards, Click, that connect by the mikroeBUS. 
+[MikroElektronika](https://www.mikroe.com/) has a collection of base boards and small accessory boards, Click, that connect by the mikroBUS. 
 
-The mikroeBUS includes I2C, SPI, serial, analog input (ADC), GPIO, PWM, and interrupts. A click shield available for Particle Gen 3 Feather (Argon, Boron) devices, as well as one for the B Series SoM. 
+The mikroBUS includes I2C, SPI, serial, analog input (ADC), GPIO, PWM, and interrupts. A click shield available for Particle Gen 3 Feather (Argon, Boron) devices, as well as one for the B Series SoM. 
 
 The [Mikroe community page](/community/mikroe/) has more information.
 

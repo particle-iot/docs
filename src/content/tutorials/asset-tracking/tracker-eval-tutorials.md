@@ -39,7 +39,7 @@ particle library copy
 
 #### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
@@ -333,4 +333,4 @@ If you are interested in prototyping designs intended to connect to the Tracker 
 ### Design Files
 
 The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in the 
-[Tracker Hardware Github repository](https://github.com/particle-iot/tracker-hardware).
+[Tracker Hardware GitHub repository](https://github.com/particle-iot/tracker-hardware).

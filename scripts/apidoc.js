@@ -186,7 +186,7 @@ module.exports = function(options) {
       if (!apiReturn) {
         return new Error('Error');
       }
-      // apidoc terminates lines with CR, which doesn't work well with Github diffs
+      // apidoc terminates lines with CR, which doesn't work well with GitHub diffs
       let dataArray = JSON.parse(apiReturn.data.replace(/\r/g, '\n'));
 
       // Filter filename to remove beginning of path

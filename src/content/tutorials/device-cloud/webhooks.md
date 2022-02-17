@@ -66,6 +66,8 @@ Let's configure our webhook:
 - Make sure the request type is set to `POST` and the request format is "Web Form"
 - If you'd like to limit the webhook triggering to a single one of your devices, choose it from the device dropdown
 
+Note that webhook event name is a prefix filter. If you set a webhook event name of `temp` the webhook will trigger for events `temp`, `temperature` and `temperature/basement`, but not `high_temp`.
+
 Next, click on "Advanced Settings," and chose "Custom" in the "Form Fields" section. Drop in the following key/value pairs:
 
 - `api_key`: `YOUR_API_KEY`<br/>

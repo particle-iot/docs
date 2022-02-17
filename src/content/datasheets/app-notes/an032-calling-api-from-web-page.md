@@ -28,7 +28,7 @@ the Console, manage devices, delete source code from the Web IDE, pretty much ev
 
 {{> codebox content="/assets/files/app-notes/AN032/embed-token.htm" format="html" height="300"}}
 
-If you are using source code management like Github, it's easy to accidentally share your account access 
+If you are using source code management like GitHub, it's easy to accidentally share your account access 
 token if you paste it into your code and have to remove it every time you commit a change.
 
 
@@ -42,7 +42,7 @@ the Particle cloud.
 This example:
 
 - Uses [Particle API JS](/reference/SDKs/javascript/) to interact with the Device from Javascript.
-- Uses [jQuery](https://jquery.com/) to handle some ajax (asynchronous HTTP requests) and web page manipulation.
+- Uses [jQuery](https://jquery.com/) to handle some AJAX (asynchronous HTTP requests) and web page manipulation.
 - Prompt for login to a Particle developer account.
 - Handles MFA (multi-factor authentication) if is is enabled on the account.
 - Stores a short-lived access token in browser local storage. 
@@ -52,7 +52,7 @@ This example:
 Download this file and save it to disk on your computer. Then double-click to open it in your browser. The technique 
 in this example works from file:// URLs so you don't need to host the page on an actual web server to use it. 
 
-The user interface isn't very pretty because we've left out the css styling, but it works.
+The user interface isn't very pretty because we've left out the CSS styling, but it works.
 
 ![Control LED](/assets/images/app-notes/AN032/control-led.png)
 
@@ -114,7 +114,7 @@ In jQuery, this marks the beginning of the function that is called when the HTML
 $(document).ready(function () {
 ```
 
-This is a single-page app that handles all operations using ajax (asynchronous Javascript) and never reloads the page.
+This is a single-page app that handles all operations using AJAX (asynchronous Javascript) and never reloads the page.
 
 Here's how we attach a function to be called when the Login form is submitted in jQuery. This also prevents the page from changing.
 
@@ -210,7 +210,7 @@ $('#otpForm').submit(function (e) {
 ```
 
 The Particle API JS does not have a function to delete the current access token 
-but it's easy to do with ajax.
+but it's easy to do with AJAX.
 
 ```js
 $('#logoutButton').on('click', function (e) {

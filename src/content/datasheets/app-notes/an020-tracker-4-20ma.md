@@ -124,7 +124,7 @@ particle library copy
 
 #### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
@@ -175,7 +175,7 @@ The next parameters are the range of the sensor (0 to 100). The false parameter 
 | false | Lower value is value for 0 mA |
 | true  | Lower value is the value for 4 mA (default) |
 
-More information about the configuration object can be found in the [4-20mA library Github](https://github.com/rickkas7/Sensor_4_20mA_RK).
+More information about the configuration object can be found in the [4-20mA library GitHub](https://github.com/rickkas7/Sensor_4_20mA_RK).
 
 ```cpp
 sensor

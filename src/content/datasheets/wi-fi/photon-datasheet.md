@@ -151,7 +151,7 @@ There are three gold pads on the top side of the PCB near pin A3.  These pads ar
 
 <div align=center><img src="/assets/images/photon_bt_coex.png" width=400></div>
 
-These pads would be used for the external coexistent interface to prevent simultaneous transmission on with an external radio, such as bluetooth, while the Wi-Fi radio is transmitting. However the Wi-Fi radio software that runs on the P0, Broadcom/Cypress WICED, never supported this feature, so it cannot be enabled.
+These pads would be used for the external coexistent interface to prevent simultaneous transmission on with an external radio, such as Bluetooth, while the Wi-Fi radio is transmitting. However the Wi-Fi radio software that runs on the P0, Broadcom/Cypress WICED, never supported this feature, so it cannot be enabled.
 
 ---
 

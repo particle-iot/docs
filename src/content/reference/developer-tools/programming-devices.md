@@ -46,7 +46,7 @@ Using the `particle update` command in the Particle CLI is the most common way t
 
 It's recommended that you first install the current version of the CLI using the [CLI installer](/tutorials/developer-tools/cli/). This is necessary to make sure the application dependencies such as dfu-util are installed, as well as any required device drivers for Windows and a udev rule for Linux.
 
-Then locate the version of the CLI you want in the [particle-cli Github releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
+Then locate the version of the CLI you want in the [particle-cli GitHub releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
 
 From the Terminal or Command Prompt window, `cd` into the directory and install dependencies. For example:
 
@@ -85,7 +85,7 @@ You can download the necessary files for several common Device OS releases as a 
 
 It is recommended that you use the latest in release line. For example, if you are using 1.5.x, use 1.5.2 instead of 1.5.0. Ideally, you should be using the latest LTS release (2.1.0, for example), unless you need features in a feature release (3.1.0, for example).
 
-All versions are available in [Github Device OS Releases](https://github.com/particle-iot/device-os/releases).
+All versions are available in [GitHub Device OS Releases](https://github.com/particle-iot/device-os/releases).
 
 | File | Generation | Listening | DFU |
 | :--- | :---: | :---: | :---: |
@@ -95,14 +95,14 @@ All versions are available in [Github Device OS Releases](https://github.com/par
 | System Parts | All | &check; | &check;<sup>2</sup> |
 | User Firmware | All | &check; | &check;<sup>2</sup> |
 
-<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
+<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](/tools/device-programming/device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
 
 <sup>2</sup> While it's possible to flash system parts in listening mode (--serial), using DFU mode is generally more reliable. If you are downgrading in --serial mode, there are also additional restrictions, as the system parts must be flashed in reverse numerical order. Also, you can run into a situation where the device reboots too early in --serial mode, and completes the upgrade OTA, which defeats the purpose of flashing over USB first.
 
 
 ## USB (web-based)
 
-[Device Restore - USB](https://docs.particle.io/device-restore-usb/) is a convenient way to flash a specific version of Device OS, bootloader, SoftDevice, and user firmware onto a device over USB. It's normally used for individual developers, not manufacturing.
+[Device Restore - USB](/tools/device-programming/device-restore-usb/) is a convenient way to flash a specific version of Device OS, bootloader, SoftDevice, and user firmware onto a device over USB. It's normally used for individual developers, not manufacturing.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.

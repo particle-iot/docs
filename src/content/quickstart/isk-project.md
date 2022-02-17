@@ -11,7 +11,7 @@ The Particle IoT Starter Kits comes with seven different components that work ou
 {{box op="start"}}
 For this project you'll need the following parts from you kit:
 * [Particle Argon](/argon/)
-  * [2.4 Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
+  * [2.4 GHz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
   * Micro-USB cable
   * [LiPo battery](/tutorials/learn-more/batteries/)
 * Grove FeatherWing Adapter
@@ -24,7 +24,7 @@ For this project you'll need the following parts from you kit:
 
 {{box op="start"}}
 **Note:** not every kit component is used for this build<br />
-You won't need every sensor that comes with the Iot Starter Kit for this project; however, the sensors that aren't used for this build, are used in other projects as well as the Particle Workshops.{{box op="end"}}
+You won't need every sensor that comes with the IoT Starter Kit for this project; however, the sensors that aren't used for this build, are used in other projects as well as the Particle Workshops.{{box op="end"}}
 
 1. Open the IoT Starter Kit and remove the three components listed above, as well as the bag of Grove connectors.
 <br />
@@ -57,7 +57,7 @@ To connect the sensor, connect a Grove cable to the port on the sensor. Then, co
 ```
 {{box op="start" cssClass="boxed warningBox"}}
 **Tip:** Get any error message from Workbench?<br />
-From time-to-time, the intellisense engine in VS Code that Workbench depends on may report that it cannot find a library path and draw a red squiggly under your `#include` statement above. As long as your code compiles, (which you can verify by opening the command palette [CMD/CTRL+SHIFT+P] and choosing the `Particle: compile application (local)`) you can ignore this error.
+From time-to-time, the IntelliSense engine in VS Code that Workbench depends on may report that it cannot find a library path and draw a red squiggly under your `#include` statement above. As long as your code compiles, (which you can verify by opening the command palette [CMD/CTRL+SHIFT+P] and choosing the `Particle: compile application (local)`) you can ignore this error.
 <br/><br/>
 You can also resolve the issue by trying one of the steps detailed in this community forum post, [here](https://community.particle.io/t/intellisense-report-issues-here/48734).
 {{box op="end"}}
@@ -291,7 +291,7 @@ Congratulations! You've made it through our first IoT Starter Kit project. This 
 
 ## Further projects and resources
 
-Other projects you can build using the components includ
+Other projects you can build using the components include
 * [Build a simple proximity detector](https://store.particle.io/blogs/featured-projects/build-a-simple-proximity-detection-device)
 
 

@@ -22,7 +22,7 @@ One convenient way to connect sensors is using I2C, the Inter-Integrated Circuit
 
 Each of the devices is a small board with two Qwiic connectors, tiny JST 1mm-pitch 4-pin connectors. The connector is keyed so you don't need to worry about connecting it backwards, and the devices can be daisy-chained, one after the other. They're intended to be used over relatively small distances, under a meter, though there is also long-distance differential version that requires more wires.
 
-Here's a BME 280 temperature, humidity, and atmospheric pressure [sensor board](https://www.sparkfun.com/products/15440), pictured next to a US quarter coin:
+Here's a BME280 temperature, humidity, and atmospheric pressure [sensor board](https://www.sparkfun.com/products/15440), pictured next to a US quarter coin:
 
 ![BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 

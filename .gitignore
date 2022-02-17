@@ -13,3 +13,4 @@ _pdf-datasheets-build/
 .idea/
 /src/content/cards
 tmp
+crawler-cache

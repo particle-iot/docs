@@ -24,7 +24,7 @@ Unlike computer operating systems like Windows or Mac, Device OS will never be a
 
 ## Version Numbering
 
-Device OS releases follow [semantic versioning](http://tools.ietf.org/html/rfc2119) ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
+Device OS releases follow semantic versioning ("semver") guidelines with MAJOR.MINOR.PATCH numbering. For example in the 1.5.x release line, there are 1.5.0, 1.5.1, and 1.5.2 versions.
 
 There are also occasionally beta releases (2.0.0-beta.1) and more commonly release candidate ("rc") releases (2.0.0-rc.1). There may be multiple release candidates (for example, 2.0.0-rc.4) before a final release is made (2.0.0).
 
@@ -77,7 +77,7 @@ Certain browsers can do a DFU upgrade or downgrade right from the browser page w
 
 It is also possible to update manually over USB. This allows for upgrades as well as downgrades, and operation while offline. 
 
-You can download binaries for any release from the Github releases for Device OS page:
+You can download binaries for any release from the GitHub releases for Device OS page:
 
 [https://github.com/particle-iot/device-os/releases](https://github.com/particle-iot/device-os/releases)
 
@@ -223,7 +223,7 @@ This should be done *after* upgrading system firmware.  The Electron bootloader 
 
 #### Updating SoftDevice and Bootloader
 
-Note: The SoftDevice .bin files provided on the Device OS Github release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAD because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
+Note: The SoftDevice .bin files provided on the Device OS GitHub release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAG because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
 
 #### Via OTA
 
