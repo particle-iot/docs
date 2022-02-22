@@ -120,7 +120,7 @@ void loop()
 }
 ```
 
-The loop() function is where you put your code.
+The loop() function is where you put your code. You should try to return as quickly as possible from the loop function. Typically the loop function is called 1000 times per second.
 
 
 ## General tips
