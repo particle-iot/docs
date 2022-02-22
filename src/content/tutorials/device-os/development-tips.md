@@ -34,6 +34,24 @@ Devices are intended to boot quickly, often within a second or two. On some devi
 
 Tracker One and Tracker SoM also typically include the [Tracker Edge](/tutorials/asset-tracking/tracker-edge-firmware/) base reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
 
+
+{{collapse op="start" label="More bootloader trivia"}}
+DCT operations such as those dealing with the device public and private keys, aren't actually implemented in the bootloader since 0.7.0. They're implemented in Device OS, so you need to have a working copy of Device OS in order to use those functions.
+
+All Gen 2 (STM32) and Gen 3 (nRF52) devices uses execute-in-place (XIP) to run all code directly from flash memory; it is not copied into RAM. This is the reason you can't upgrade the bootloader directly in DFU mode. Since DFU mode is run from the bootloader, the running code cannot be replaced while it's running. 
+
+However it is possible upgrade the bootloader by DFU by copying it into the OTA sectors, setting a flag in the DCT, and rebooting the device. This is how `particle update` in the Particle CLI and Device Restore over USB work. 
+
+The reason you can flash the bootloader in `--serial` mode (listening mode, blinking dark blue), is that Device OS is running at that point and the bootloader can be replaced because the bootloader is not longer running after Device OS boots.
+
+You can also upgrade the bootloader by SWD/JTAG because the debugger has direct access to the flash and nothing is running on the MCU.
+
+On Gen 2 devices, SWD/JTAG is only enabled by default in the bootloader. Compile-time flags and a local build (typically a monolithic debug build) can keep it running, however this takes over most of the D GPIO pins (D6 and D7 for SWD, and D3 - D7 for JTAG).
+
+Some very old versions of Device OS on the Photon and P1 included a copy of the bootloader in the system parts. The techniques above are used instead in current versions of Device OS.
+{{collapse op="end"}}
+
+
 ### Program structure
 
 We recommend the following boilerplate for every user application:
