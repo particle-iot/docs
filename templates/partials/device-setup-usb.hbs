@@ -29,30 +29,32 @@
                         select your device, and click **Connect**.</p>
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
                 </div>
-                <h3>Other issues</h3>
-                <div>
-                    <p>I have a Gen 2 device (Photon, P1, Electron, or E Series). The status LED stays off, the buttons do not 
-                        do anything. On the Photon or Electron, the blue LED next to pin D7 is on and dim.<br/>
-                        <button disabled>I have the Dim D7 Issue</button> (this flow is not yet implemented)
-                    </p>
-                </div>
-                <div>
-                    <p>The device is hot to the touch, or does not turn on at all.<br/>
-                        <button disabled>I may have a power issue</button> (this flow is not yet implemented)
-                    </p>
-                </div>
-                <div>
-                    <p>When I use **Select Device** no devices show up in the device selection dialog.<br/>
-                        <button disabled>No USB device</button> (this flow is not yet implemented)
-                    </p>
-                </div>
-                <div class="setupMode">
-                    <p>This tool upgrades the device firmware, activates the SIM (for cellular devices), configures
-                        Wi-Fi (for Wi-Fi devices), and claims the device to your account.
-                    </p>
-                    <p>It is experimental, however if you run into trouble you should be able to
-                        use the <a href="https://docs.particle.io/cli/">Particle CLI</a> to recover the device.
-                    </p>
+                <div class="troubleshootingMode">
+                    <h3>Other issues</h3>
+                    <div>
+                        <p>I have a Gen 2 device (Photon, P1, Electron, or E Series). The status LED stays off, the buttons do not 
+                            do anything. On the Photon or Electron, the blue LED next to pin D7 is on and dim.<br/>
+                            <button disabled>I have the Dim D7 Issue</button> (this flow is not yet implemented)
+                        </p>
+                    </div>
+                    <div>
+                        <p>The device is hot to the touch, or does not turn on at all.<br/>
+                            <button disabled>I may have a power issue</button> (this flow is not yet implemented)
+                        </p>
+                    </div>
+                    <div>
+                        <p>When I use **Select Device** no devices show up in the device selection dialog.<br/>
+                            <button disabled>No USB device</button> (this flow is not yet implemented)
+                        </p>
+                    </div>
+                    <div class="setupMode">
+                        <p>This tool upgrades the device firmware, activates the SIM (for cellular devices), configures
+                            Wi-Fi (for Wi-Fi devices), and claims the device to your account.
+                        </p>
+                        <p>It is experimental, however if you run into trouble you should be able to
+                            use the <a href="https://docs.particle.io/cli/">Particle CLI</a> to recover the device.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="setupStepDimD7" style="display:none">
