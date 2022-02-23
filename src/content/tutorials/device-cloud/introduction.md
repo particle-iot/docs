@@ -241,7 +241,7 @@ To configure a Photon or P1 using WPA2 Enterprise, follow the [WPA2 Enterprise S
 There are a variety of encryption protocols for WPA2 Enterprise, however only the following are supported on the Photon and P1:
 
 - EAP-TLS (certificate-based)
-- PEAPv0/EAP-MSCHAPv2 (username/password challenge/reponse)
+- PEAPv0/EAP-MSCHAPv2 (username/password challenge/response)
 
 
 | Parameter | Options |

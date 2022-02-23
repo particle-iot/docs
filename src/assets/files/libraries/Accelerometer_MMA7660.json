@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Accelerometer_MMA7660",
     "version": "0.0.1",
-    "installs": 494,
+    "installs": 605,
     "license": "MIT",
     "author": "Frankie Chu <xuguang.shao@seeed.cc>",
     "sentence": "accelerometer_MMA7760",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkCore-RF24",
     "version": "0.0.20",
-    "installs": 865,
+    "installs": 956,
     "license": "MIT",
     "author": "technobly",
     "sentence": "An Implementation of ManiacBug's RF24 Library for the Spark Core",

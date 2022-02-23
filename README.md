@@ -15,6 +15,66 @@ To set up a server running at `http://localhost:8080`, follow the installation i
 
 > _**NOTE:** Any changes made to the source content should be automatically picked up by the browser via `livereload`._
 
+### Bare-metal Hosting
+
+#### Device Setup
+
+To host this documentation locally, you'll need Node.js and npm (see the `engines` section of `package.json` for the exact versions):
+
+If you don't have node.js installed, you can download the installer (LTS recommended) from [nodejs.org](https://nodejs.org/en/).
+
+Once you have Node.js set up, navigate to the `docs` directory on your machine, and use the following commands:
+
+#### Install Dependencies
+
+To install any other necessary dependencies, run:
+
+```none
+npm install
+```
+
+#### Spell checking
+
+To check the spelling of all Markdown files, run:
+
+```none
+npm run spell
+```
+
+This is a good idea when you edit any .md files because it not only checks regular spelling, but it will flag if you don't capitalize and spell things exactly like the rest of the docs. For example: U.FL, Wi-Fi, etc..
+
+Actually, these two files are currently skipped because something in the files confuse the spelling checker and cause it to lose track of word breaks and then things fail horribly:
+
+- src/content/reference/asset-tracking/tracker-edge-firmware.md
+- src/content/reference/device-os/firmware.md
+
+#### Testing
+
+If you are making non-trivial changes, it’s a good idea to check links using the crawler. This takes a number of minutes to run:
+
+```none
+npm test
+```
+
+If errors are reported, fix them and run the test again. The second time it will be much faster because it will have cached many of the lookups.
+
+Link checking is not done on commits or pull requests due to the variable amount of time it takes and that it may randomly fail, making it hard to publish at a specific time.
+
+#### Running locally
+
+```none
+npm start
+```
+
+Once the output stops, 
+
+#### Generate PDF datasheets
+
+```none
+npm run pdf-generation
+```
+
+
 ### Containerized Hosting
 
 If you have Docker installed, then you can simply run the following commands to get started...
@@ -38,57 +98,14 @@ NOTE: If no options are specified, then ALL options will be selected.
 
 > _**NOTE:** Containerized hosting is currently only available on Linux devices. Mac is has an [open issue](https://github.com/docker/for-mac/issues/2965) involving `localhost`, and Windows has not been tested at this time._
 
-### Bare-metal Hosting
+The containerized version is not regularly used. It will probably work, but is not guaranteed to.
 
-#### Device Setup
 
-To host this documentation locally, you'll need Node.js and npm (see the `engines` section of `package.json` for the exact versions):
+Updating Production Documentation
+---------------------------------
 
-```none
-brew install nodejs
-```
+When updated documentation is pushed to the `master` branch, it is automatically pushed to Amazon S3 by Circle CI.
 
-Once you have Node.js set up, navigate to the `docs` directory on your machine, and use the following commands:
-
-#### Install Dependencies
-
-To install any other necessary dependencies, run:
-
-```none
-npm install
-```
-
-#### Spell checking
-
-To check the spelling of all Markdown files, run:
-
-```none
-npm run spell
-```
-
-#### Testing
-
-To run the tests locally, run:
-
-```none
-npm test
-```
-
-The result will indicate whether the build will pass CircleCI.
-
-#### Deployment
-
-```none
-export SEARCH_INDEX=0 # optional. speeds up the build if you don't need the search
-npm start
-```
-
-Updating Production Documention
--------------------------------
-
-When updated documentation is pushed to the `master` branch, it is automatically pushed to Amazon S3 by CircleCI.
-
-To see the latest build, visit the [CircleCI page](https://app.circleci.com/pipelines/github/particle-iot/docs).
 
 Organization
 ------------
@@ -107,77 +124,6 @@ The docs dynamically generate a table of contents for navigation purposes based 
 
 Note that there are only 2 levels of navigation that will appear in the table of contents. *`h4`s and below will not appear in the table of contents*.
 
-### Device Specific Content
-
-If you are working on a page that has device-specific content, the
-first thing you need to do is add the relevant device names to the
-front-matter of the MD file, like this:
-
-```markdown
-devices: [ photon, electron, core ]
-```
-
-Where Photon, Electron and Core are the relevant devices to this page.
-
-Then add a new key to [`device_features.json`](config/device_features.json) for each device that
-supports the feature:
-
-```markdown
-{
-  "Core": [
-    ...
-  ],
-  "Photon": [
-    ..
-    "backup-ram"
-  ],
-  "Electron": [
-    ...
-    "backup-ram"
-  ]
-}
-```
-
-Then, in the body of the page, you can specify feature-specific content by using:
-
-```markdown
-{{#if has-backup-ram}}
-## Backup RAM
-
-...
-{{/if}} {{!-- has-backup-ram --}}
-```
-
-For content that is exclusively for one device and where defining a new
-feature name doesn't make sense (for example, which pins have PWM
-support for a device), you can also device-specific content by using:
-
-```markdown
-{{#if photon}}
-  PHOTON SPECIFIC STUFFZ
-{{/if}}
-
-{{#if core}}
-  CORE SPECIFIC STUFFZ
-{{/if}}
-
-{{#if electron}}
-  ELECTRON SPECIFIC STUFFZ
-{{/if}}
-```
-
-Prefer defining new feature names over using device-specific sections.
-
-### Adding a new device
-
-When the firmware is available on a new device, add that device to the docs in these places:
-
-* Make the firmware docs available for the new device by adding an entry to the `devices` frontmatter in <src/content/reference/firmware.md>
-* Also update `devices` in the guides and tools frontmatter as appropriate
-* Update the device selection dropdown in <templates/partials/header.hbs>
-* Add the device in <src/assets/js> `rememberDevices()`
-* Add a new SVG in <src/assets/image> named `<device>.svg`
-* Tell the tests to crawl the new device page in <test/crawler.js>
 
 ### Redirects
 
@@ -201,7 +147,7 @@ This documentation is managed by Particle, but supported by the community. We we
 * Additional content that would help provide a complete understanding of the Particle platform
 * Translations to other languages
 
-Making a contribution is as simple as forking this repository, making edits to your fork, and contributing those edits as a pull request. For more information on how to make a pull request, see [Github's documentation](https://help.github.com/articles/using-pull-requests/).
+Making a contribution is as simple as forking this repository, making edits to your fork, and contributing those edits as a pull request. For more information on how to make a pull request, see [GitHub's documentation](https://help.github.com/articles/using-pull-requests/).
 
 License
 -------

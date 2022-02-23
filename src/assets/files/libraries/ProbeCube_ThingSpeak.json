@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ProbeCube_ThingSpeak",
     "version": "1.1.1",
-    "installs": 187,
+    "installs": 221,
     "license": "MIT",
     "author": "Lafudoci",
     "sentence": "A fork from https://github.com/mathworks/thingspeak-particle",

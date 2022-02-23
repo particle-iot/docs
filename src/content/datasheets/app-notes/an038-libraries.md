@@ -30,7 +30,7 @@ However, you can also use:
 
 - If you are using a Sparkfun Qwiic sensor (I2C), there is a list of sensors and their libraries in the [Qwiic reference](/community/qwiic/).
 
-- If you have the source to a library, see [Using non-libraries](#using-non-libraries) and Using Github libraries, below, for using it with Particle Workbench.
+- If you have the source to a library, see [Using non-libraries](#using-non-libraries) and Using GitHub libraries, below, for using it with Particle Workbench.
 
 
 ## Libraries and Workbench
@@ -114,16 +114,16 @@ In this example, there is a "non-library" called `SharedUtilities` in the `lib` 
 
 The fake library can contain multiple files, but it should only contain .cpp and .h files. It should not have .ino files!
 
-### Using Github libraries
+### Using GitHub libraries
 
-You can commit your entire project to Github (private or public), including the `lib` directory. You can reduce code duplication and make updates easier by using Git **submodules**.
+You can commit your entire project to GitHub (private or public), including the `lib` directory. You can reduce code duplication and make updates easier by using Git **submodules**.
 
 ```
 cd lib
 git submodule add https://github.com/particle-iot/CellularHelper
 ```
 
-In this example, instead of cloning the repository, we use `git submodule add`. This makes a copy of it locally, however when you commit your project to Github, it only contains a reference to the external project, not the contents of it.
+In this example, instead of cloning the repository, we use `git submodule add`. This makes a copy of it locally, however when you commit your project to GitHub, it only contains a reference to the external project, not the contents of it.
 
 If you've used Tracker Edge firmware, you've probably noticed that when you clone Tracker Edge you need to run the following command:
 
@@ -133,17 +133,17 @@ git submodule update --init --recursive
 
 This is what retrieves all of the submodules in its `lib` directory.
 
-This technique is great for working on shared code across teams and projects. You have the full power of Github teams and organizations to safely and securely manage access to your code.
+This technique is great for working on shared code across teams and projects. You have the full power of GitHub teams and organizations to safely and securely manage access to your code.
 
-Submodules can also be used with a fork of a repository. This allows you to easily modify an existing Github-based library in a fork and merge an updated original version with your changes.
+Submodules can also be used with a fork of a repository. This allows you to easily modify an existing GitHub-based library in a fork and merge an updated original version with your changes.
 
-See also [Working with Github](/tutorials/developer-tools/workbench/#working-with-github) for more tips for using it with Workbench.
+See also [Working with GitHub](/tutorials/developer-tools/workbench/#working-with-github) for more tips for using it with Workbench.
 
 ### Upgrading libraries
 
 Particle libraries are not automatically updated when new versions come out. The easiest way to update is to delete the line for the library you want to update from project.properties and then **Particle: Install Library** to update the project.properties file and copy a local version.
 
-If you are are using Github to manage libraries using submodules, to get the latest main (or master), you use:
+If you are are using GitHub to manage libraries using submodules, to get the latest main (or master), you use:
 
 ```
 git submodule update --remote
@@ -196,7 +196,7 @@ Some libraries are easier to port than others. Many will require no modification
 
 ### Making modifications for inclusion in the original source
 
-Sometimes you'll make changes to the original library and publish it. Other times, you may want your changes incorporated in the original library, typically by using a Github pull request. The most common way is to isolate any Particle-specific code in a `#ifdef` or `#ifndef`.
+Sometimes you'll make changes to the original library and publish it. Other times, you may want your changes incorporated in the original library, typically by using a GitHub pull request. The most common way is to isolate any Particle-specific code in a `#ifdef` or `#ifndef`.
 
 ```
 #ifdef PARTICLE

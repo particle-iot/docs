@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoTNodeThingSpeak",
     "version": "0.0.3",
-    "installs": 288,
+    "installs": 344,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",

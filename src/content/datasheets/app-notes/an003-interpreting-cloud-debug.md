@@ -388,6 +388,38 @@ If you subsequently reactivate the SIM card, it will generally reconnect after a
 
 ```
 
+#### External SIM not present
+
+On the Boron, if you've selected the external SIM using `setActiveSim()` but there is no SIM card present, you will see the following logs:
+
+```
+0000004394 [ncp.client] INFO: Using external Nano SIM card
+0000004395 [ncp.at] TRACE: > AT+CPIN?
+0000004399 [ncp.at] TRACE: < ERROR
+0000005399 [ncp.at] TRACE: > AT+CPIN?
+0000005403 [ncp.at] TRACE: < ERROR
+0000006403 [ncp.at] TRACE: > AT+CPIN?
+0000006407 [ncp.at] TRACE: < ERROR
+0000007407 [ncp.at] TRACE: > AT+CPIN?
+0000007411 [ncp.at] TRACE: < ERROR
+0000008411 [ncp.at] TRACE: > AT+CPIN?
+0000008415 [ncp.at] TRACE: < ERROR
+0000009415 [ncp.at] TRACE: > AT+CPIN?
+0000009419 [ncp.at] TRACE: < ERROR
+0000010419 [ncp.at] TRACE: > AT+CPIN?
+0000010423 [ncp.at] TRACE: < ERROR
+0000011423 [ncp.at] TRACE: > AT+CPIN?
+0000011427 [ncp.at] TRACE: < ERROR
+0000012427 [ncp.at] TRACE: > AT+CPIN?
+0000012431 [ncp.at] TRACE: < ERROR
+0000013431 [ncp.at] TRACE: > AT+CPIN?
+0000013435 [ncp.at] TRACE: < ERROR
+0000014435 [ncp.client] ERROR: Failed to perform early initialization
+0000014435 [ncp.client] ERROR: Failed to perform early initialization
+0000014436 [ncp.client] TRACE: Setting UART voltage translator state 0
+0000014437 [ncp.client] TRACE: Hard resetting the modem
+```
+
 #### Modem not responding (blinking green or dark blue)
 
 If the modem stops working entirely, then the log will look like this:
@@ -630,7 +662,7 @@ Default server keys can be automatically restored on Device OS 0.7.0 and later s
 
 ### DNS issue or data service not enabled (fast blinking cyan)
 
-Sometimes a SIM will be mis-configured in the carrier network and will not allow IP data (GPRS) to be sent or received. One way you can tell is the `ERROR: Cloud: unable to resolve IP` error. 
+Sometimes a SIM will be misconfigured in the carrier network and will not allow IP data (GPRS) to be sent or received. One way you can tell is the `ERROR: Cloud: unable to resolve IP` error. 
 
 ```
 0000346244 [system] INFO: R   346.245 AT send      56 "AT+UDNSRN=0,\"e00fce687bd30b4135c361dc.udp.particle.io\"\r\n"

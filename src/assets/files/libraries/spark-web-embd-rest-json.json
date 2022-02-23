@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-web-embd-rest-json",
     "version": "0.1.1",
-    "installs": 1999,
+    "installs": 2105,
     "license": "GPLv3",
     "author": "CaptainIgloo <joly dot sebastien at gmail dot com>",
     "sentence": "This project implement a Http server on Sparkcore itself. Once compiled into the Web IDE, the server will be available at http://IP-SPARKCORE (port 80 by default).",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sd-card-library",
     "version": "0.0.1",
-    "installs": 2937,
+    "installs": 3117,
     "license": "GPL v3",
     "author": "Daniel Sullivan <mumblepins@gmail.com>",
     "sentence": "SD Card Library (forked from https://github.com/technobly/SparkCore-SD)",

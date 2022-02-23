@@ -5,7 +5,7 @@ columns: two
 ---
 # AN006 Vehicle Power
 
-While the Electon, E Series, and Boron have power supply inputs that will accept 12V, it's best to avoid connecting the VIN power input directly to a vehicle electrical system. There may be voltage spikes that exceed the absolute maximum limits of the device and cause damage.
+While the Electron, E Series, and Boron have power supply inputs that will accept 12V, it's best to avoid connecting the VIN power input directly to a vehicle electrical system. There may be voltage spikes that exceed the absolute maximum limits of the device and cause damage.
 
 There are many possible designs, but we like the [OpenXC Platform](http://openxcplatform.com/) designs. These were created by Ford and open-sourced specifically for using micro-controllers in vehicles. 
 

@@ -711,11 +711,16 @@ On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is
 
 ### Device Fleet Settings
 
-Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
+Your Tracker devices are intended to, in general, be configured with fleet-wide settings that are used for all devices in your fleet. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
 ![Settings Icon](/assets/images/tracker/map-settings.png)
 
 Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, an updated configuration is sent to the device.
+
+Additionally, the Geofence settings are always per-device, with no fleet-wide default. It's also possible to have per-device configuration for your own custom settings. The per-device settings are within the device configuration, and do not appear in the fleet settings.
+
+Finally, when a device is marked as a Development Device, all configuration fields can be configured per-device, and these can override the fleet settings. Development devices also do not get automatic fleet firmware updates.
+
 
 #### Location Settings
 
@@ -818,7 +823,57 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 
 You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/).
 
-#### Typical Settings
+
+### Device Settings
+
+Geofence settings are only configurable per-device, not in the fleet settings.
+
+Normally, for other settings, you will use the product settings across your fleet of Tracker devices. If you mark a device as a Development Device, you can change settings on a per-device basis within the Device Configuration.
+
+![Per-Device Settings](/assets/images/tracker/per-device.png)
+
+
+#### Geofence settings
+
+{{imageOverlay src="/assets/images/tracker/geofence-settings.png" alt="Geofence Settings" }}
+
+
+**Wake interval** configures how often to wake to check whether the device is inside or outside of the geofence. If no notification is required, and the Minimum location update frequency has not been met yet, then the device may go back to sleep quickly without having to connect to cellular. If zero, the geofence will only be checked when otherwise waking from sleep. If you are not using sleep modes, the wake interval is ignored.
+
+There are up to four notification zones, each of which can have their own settings.
+
+**Enable** turns on or off a zone, allowing it to be easily disabled.
+
+**Shape** sets the shape. Only one shape, Circular, is supported at this time.
+
+**Latitude (Degrees)** is the latitude of the center of the circle. This must be a decimal number (not hours, minutes, seconds), -90.0 to 90.0.
+
+**Longitude (Degrees)** is the latitude of the center of the circle. This must be a decimal number (not hours, minutes, seconds), -180.0 to 180.0.
+
+**Radius (Meters)** is the radius of the circle in meters (decimal).
+
+**Publish inside zone** publishes when inside the circle, limited by the Maximum location update frequency. 
+
+**Publish outside zone** publishes when outside the circle, limited by the Maximum location update frequency. 
+
+**Publish on enter zone** publishes when the device moves into the circle.
+
+**Publish on exit zone** publishes when the device moves out of the circle.
+
+**Time Before Trigger** requires that the device be inside or outside of the zone for this many seconds before notification. This can help reduce false alarms when the device may be near the edge of the zone. 0 means notify immediately without waiting. This is an integer.
+
+The publish on inside, outside, enter, and exit affect the `trig` array in the location event. The following values may be present in the `trig` array for geofence events. Multiple items may be present:
+
+- `outside1` The device is currently outside of geofence zone 1 (and outside trigger is enabled)
+- `inside1` The device is currently inside of geofence zone 1 (and inside trigger is enabled)
+- `enter1` The device has entered geofence zone 1 (and enter trigger is enabled)
+- `exit1` The device has exited geofence zone 1 (and exit trigger is enabled)
+- `outside2`, `inside2`, `enter2`, and `exit2`
+- `outside3`, `inside3`, `enter3`, and `exit3`
+
+
+
+### Typical Settings
 
 Typical settings in common scenarios:
 
@@ -867,7 +922,7 @@ Typical settings in common scenarios:
   If you have additional sensors that you are monitoring, and you want to continuously send samples at set time intervals, just set the maximum.
 
 
-#### Data Usage
+### Data Usage
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
@@ -915,12 +970,6 @@ For time trigger, here are some general guidelines. These are just location publ
 {{collapse op="end"}}
 
 
-### Device Settings
-
-Normally, you will use the product settings across your fleet of Tracker devices. If you mark a device as a Development Device, you can change settings on a per-device basis within the Device Configuration.
-
-![Per-Device Settings](/assets/images/tracker/per-device.png)
-
 ### View Device
 
 #### Using the cmd box
@@ -954,3 +1003,128 @@ To use off-the-shelf Tracker Edge firmware releases, click on the **Firmware** i
 Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
 
 Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added automatically.
+
+## Devices and SIM cards
+
+There are multiple lists of devices and SIM card lists, and this section describes which one is which.
+
+### Devices - sandbox
+
+The devices list includes devices that are claimed to your account, that you are the owner of, in your free developer sandbox. These devices count against your free tier limit of 100 devices.
+
+It also includes devices that are claimed to your account, that are part of a product (free, growth, or enterprise). Devices that are claimed to your account but are part of product do not count toward your free device limit.
+
+The exception is free tier products owned by you, in which case all devices, whether claimed by you or not, count toward the 100 device limit. Only devices claimed by you show up in this list; the others are only in the product device list but still count toward the limit.
+
+In the developer sandbox, non-product, there is no add devices button. The intended paths to add a device are:
+
+- Using the Particle mobile apps for iOS and Android
+- Using the [Particle CLI](/tutorials/developer-tools/cli/)
+- Using [setup.particle.io](https://setup.particle.io) 
+
+![Devices - sandbox](/assets/images/console/sandbox-devices2.png)
+
+- **Sandbox** is selected in the upper left (1).
+- The **Devices** icon is selected in the left navigation bar (2).
+
+### SIM cards - sandbox
+
+Cellular devices with Particle SIM cards, either built-in (MFF2) or plastic nano SIM cards (4FF) show up in this list. 
+
+In the developer sandbox, non-product, there is no import button. The intended paths to activate a SIM card are:
+
+- From [setup.particle.io](https://setup.particle.io) where you can set up a cellular device with a SIM card, or activate just the SIM card
+- From the Particle mobile apps for iOS and Android
+
+![SIM cards - sandbox](/assets/images/console/sandbox-sims.png)
+
+- **Sandbox** is selected in the upper left (1).
+- The **SIM cards** icon is selected in the left navigation bar (2).
+
+### Products - sandbox
+
+The products list in the sandbox shows:
+
+- Free tier products that you are the owner of
+- Free tier products that you are a team member of
+
+You can tell by the email address under the product description as this is the owner of the product (3). If you are the owner, all devices in that product count toward your 100 device limit.
+
+![Products - sandbox](/assets/images/console/sandbox-products.png)
+
+- **Sandbox** is selected in the upper left (1).
+- The **Products** icon is selected in the left navigation bar (2).
+
+### Products Devices - sandbox
+
+This list shows all devices that are included in a product, regardless of claiming. 
+
+![Product devices - sandbox](/assets/images/console/sandbox-product-devices.png)
+
+- **Sandbox** is selected in the upper left (1).
+- The **Products** icon is selected, then a product. The current product is shown at the top (2).
+- The **Devices** icon is selected in the left navigation bar (3). Make sure you select the Devices icon inside the product, not the one at the top level of the console!
+
+If you click the **...** button on the right side of the product device list, there are three options:
+
+- **Mark as development device** 
+- **Unclaim device**
+- **Remove device**
+
+
+**Add Devices** allows a single device ID, or a file of device IDs, to be added to a product. Within the free sandbox, there is a limit of 100 devices. This is across all device types, and is further reduced by the non-product devices claimed by the product owner.
+
+
+### Products SIM cards - sandbox
+
+Cellular devices with Particle SIM cards, either built-in (MFF2) or plastic nano SIM cards (4FF), show up in this list. The cellular usage by these SIM cards count against the cellular data limit for the user account that owns the product.
+
+If the 45 MB per month limit is exceeded for the free sandbox account, the account is paused until the next billing cycle.
+
+![Product SIMs - sandbox](/assets/images/console/sandbox-product-sims.png)
+
+- **Sandbox** is selected in the upper left (1).
+- The **Products** icon is selected, then a product. The current product is shown at the top (2).
+- The **SIM cards** icon is selected in the left navigation bar (3). Make sure you select the SIM cards icon inside the product, not the one at the top level of the console!
+
+**Import SIM cards** adds a SIM to the product. This is normally only necessary if you have an Electron 2G/3G with a 4FF plastic nano SIM card. For all devices with a built-in MFF2 SMD SIM card, if you add the device to the product, its matching SIM card is automatically added as well.
+
+
+### Products - organization
+
+The products list in the organization shows all products in the organization you have selected. The Organization Team configuration determines what access you have (Administrator, Developer, View-Only, etc.) for all products in the organization. 
+
+It is also possible to invite team members to the product who are not part of the organization. For example, if you hire a outside contractor to work on a specific project you could grant developer access to only that product, not the whole organization.
+
+Organizations are used for both growth and enterprise tiers. An organization is a collection of products, shared team access controls, and shared billing that span across all products. This makes it much easier to manage multiple products. Every member of an organization also has a free sandbox associated with their account.
+
+![Products - organization](/assets/images/console/org-products.png)
+
+
+### Products Devices - organization
+
+This list shows all devices that are included in a product, regardless of claiming. 
+
+![Product devices - organization](/assets/images/console/org-product-devices.png)
+
+- An organization is selected in the upper left (1). 
+- The **Products** icon is selected, then a product. The current product is shown at the top (2).
+- The **Devices** icon is selected in the left navigation bar (3). Make sure you select the Devices icon inside the product, not the one at the top level of the console!
+
+**Add Devices** allows a single device ID, or a file of device IDs, to be added to a product. 
+
+
+### Products SIM cards - organization
+
+Cellular devices with Particle SIM cards, either built-in (MFF2) or plastic nano SIM cards (4FF), show up in this list. The cellular usage by these SIM cards count against the cellular data limit for the organization that owns the product.
+
+In the growth plan, for each class of class device (cellular or tracker), there is a pool of data based on the number of blocks. If you exceed this pool of cellular data, a new block is added to the organization.
+
+![Product SIMs - organization](/assets/images/console/org-product-sims.png)
+
+- An organization is selected in the upper left (1). 
+- The **Products** icon is selected, then a product. The current product is shown at the top (2).
+- The **SIM cards** icon is selected in the left navigation bar (3). Make sure you select the SIM cards icon inside the product, not the one at the top level of the console!
+
+
+

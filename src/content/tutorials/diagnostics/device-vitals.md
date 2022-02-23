@@ -201,7 +201,7 @@ at startup.
 Device OS allows you to instruct a device to send its vitals in
 application firmware.
 3. **Refreshing from the Device Cloud**: Remotely trigger a device to
-send its vitals ad-hoc via the Console or the Device Cloud API.
+send its vitals ad hoc via the Console or the Device Cloud API.
 
 The device delivers the diagnostics data to the Particle Device Cloud
 via the [`spark/device/diagnostics/update`](/reference/device-cloud/api/#device-vitals-event)

@@ -832,7 +832,7 @@ ping addr 8.8.8.8=0
 device.spark.io=0.0.0.0
 ```
 
-On LTE devices, `AT+CGED` is not supported so those calls all fail. Some versions of cloud debug will show some invalid neighbor cells. These will have a mcc of 65535 and should be ignored.
+On LTE devices, `AT+CGED` is not supported so those calls all fail. Some versions of cloud debug will show some invalid neighbor cells. These will have a MCC of 65535 and should be ignored.
 
 `AT+UPING` and `AT+UDSRN` are not supported on LTE devices and will always return an error. Because of this, device.spark.io will always be 0.0.0.0 and this is normal on LTE devices.
 

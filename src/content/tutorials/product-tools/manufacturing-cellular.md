@@ -87,7 +87,7 @@ This procedure is divided into the following sections:
 
 SIM Activation can be performed asynchronously to the manufacturing process, unless cellular connectivity tests are undertaken during manufacturing. 
 
-In some cases, such as using LTE Cat M1 devices (B Series B404/B402, Boron BRN404/BRN 402, E Series E404/E402, Electron LTE ELC404/ELC402) it will be impossible to do a full end-to-end test of cellular at the CM if your CM is based in China, as these devices are unable to connect to cellular in China. 
+In some cases, such as using LTE Cat M1 devices (B Series B404/B402, Boron BRN404/BRN402, E Series E404/E402, Electron LTE ELC404/ELC402) it will be impossible to do a full end-to-end test of cellular at the CM if your CM is based in China, as these devices are unable to connect to cellular in China. 
 
 **The recommended manufacturing flow uses the bulk-import function in the provisioning process to facilitate the activation of SIMs.** Doing so will greatly simplify the process and you can skip the steps in this section. 
 
@@ -191,7 +191,7 @@ In some cases, you will not want to enable cellular at manufacturing time:
   - Your CM is located out of the area of service for the device (for example, LTE Cat M1 when your CM is in China)
   - You do not want to start the billing on the device until later.
 
-In this case, your manufacturing test firmware can use [manual mode](/cards/firmware/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the u.FL connector and/or using an RF meter to test the viability of this connection.
+In this case, your manufacturing test firmware can use [manual mode](/cards/firmware/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the U.FL connector and/or using an RF meter to test the viability of this connection.
 
 If you do activate the SIM and use normal connectivity mode, the device will go through the sequence of blinking green, blinking cyan, fast blinking cyan, and finally breathing cyan. This provides the greatest confidence in the correct operation of the device, however it could also take up to 20 minutes.
 
@@ -283,7 +283,7 @@ curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices/$DEVICE_ID"
 
 Claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
 
-A generic administrator account is strongly recommended (eg. particle@company.com) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
+A generic administrator account is strongly recommended (particle@company.com, for example) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
 
 ```
 curl "https://api.particle.io/v1/devices 

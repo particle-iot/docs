@@ -726,6 +726,18 @@ Only devices that are claimed to an account can subscribe to events.
 
 ---
 
+{{note op="start" type="note"}}
+By default, Tracker One and Tracker SoM devices are unclaimed product devices. You can either:
+
+- Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
+
+- Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
+
+For more information, see [Device claiming](/tutorials/device-cloud/device-claiming/).
+{{note op="end"}}
+
+---
+
 Additionally:
 
 {{blurb name="publish"}}
@@ -4269,8 +4281,9 @@ void loop()
   - `INPUT_PULLUP` digital input with a pull-up resistor to 3V3
   - `INPUT_PULLDOWN` digital input with a pull-down to GND
   - `OUTPUT` an output (push-pull)
-  - `OUTPUT_OPEN_DRAIN` an open-drain or open-collector output. HIGH (1) leaves the output in high impedance state, LOW (0) pulls the output low. Typically used with an external pull-up resistor to allow any of multiple devices to set the value low safely.
-
+  - `OUTPUT_OPEN_DRAIN` an open-drain or open-collector output. HIGH (1) leaves the output in high impedance state, LOW (0) pulls the output low. Typically used with an external pull-up 
+  resistor to allow any of multiple devices to set the value low safely.
+  
 You do not need to set the `pinMode()` to read an analog value using [`analogRead`](#analogread-adc-) as the pin will automatically be set to the correct mode when analogRead is called.
 
 When porting code from Arudino, pin numbers are numbered (0, 1, 2, ...) in Arduino code. Pin D0 has a value of 0, but it's best to use Particle pin names like D0 instead of just 0. This is especially true as the numeric value of A0 varies depending on the device and how many digital pins it has. For example, on the Argon, A0 is 19 but on the Photon it's 10. 
@@ -15715,7 +15728,7 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
-The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/) and [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep).
+The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/) and [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the Tracker Edge sleep functionality, not Device OS.
 
 ### mode() (SystemSleepConfiguration)
 
@@ -15826,7 +15839,7 @@ In this mode:
 - Network is kept on if used as a wake-up source (Gen 3 devices only).
 - BLE is kept on if used as a wake-up source (Gen 3 devices only).
 - GPIO, UART, ADC are only kept on if used as a wake-up source. 
-- OUTPUT GPIO are disabled in ultra-low power mode.
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time or GPIO. On Gen 3 also analog, serial, BLE, and network.
 - On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
@@ -15918,10 +15931,14 @@ In this mode:
 - You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later on Gen 3 devices.
 
 - Since the difference in current consumption is so small between HIBERNATE and ULTRA_LOW_POWER, using ULTRA_LOW_POWER is a good alternative if you wish to wake based on time on Gen 3 devices. The difference is 106 uA vs. 127 uA on the Boron LTE, for example.
+
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
 - On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
+
+- GPIO are put into high impedance state before sleep. However, you can use `pinMode(INPUT)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
@@ -16194,6 +16211,19 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
 
+### Sleep and GPIO outputs
+
+In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
+
+This can result in unexpected current usage, depending on your design. You should `pinMode(INPUT)` to disconnect the GPIO if you do not want the OUTPUT driven during sleep mode to get the lower. While this is not necessary if you are using Gen 2 HIBERNATE mode, it does not hurt to do so, allowing the same code to be used for both Gen 2 and Gen 3.
+
+Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
+
+| Sleep mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| STOP | Preserved | Preserved |
+| ULTRA_LOW_POWER | Preserved | Preserved |
+| HIBERNATE  | High-Z | Preserved |
 
 
 ## SystemSleepResult Class
@@ -17818,7 +17848,7 @@ While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-
 
 One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
-As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/).
 
 ### System.uptime()
 
@@ -21465,7 +21495,7 @@ Here, each line starts with a timestamp (a number of milliseconds since the syst
 
 All of the logging functions like `Log.info()` and `Log.error()` support sprintf-style argument formatting so you can use options like `%d` (integer), `%.2f` (2 decimal place floating point), or `%s` (c-string). 
 
-Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/).
 
 ```cpp
 // Using the Print64 firmware library to format a 64-bit integer (uint64_t)
@@ -23369,7 +23399,7 @@ void runTest() {
 
 One caveat is that sprintf-style formatting does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
-As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/).
 
 | Variation | Supported | Purpose |
 | :--- | :---: | :--- |
@@ -23516,12 +23546,13 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.2.x releases|[v3.2.0](https://github.com/particle-iot/device-os/releases/tag/v3.2.0)|-|-|-|-|-|-|
 |v3.2.x prereleases|[v3.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.2.0-rc.1)|-|-|-|-|-|-|
 |v3.1.x releases|[v3.1.0](https://github.com/particle-iot/device-os/releases/tag/v3.1.0)|-|-|-|-|-|-|
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
-|v2.3.x default releases|-|-|-|-|-|-|-|
+|v2.3.x default releases|[v2.3.0](https://github.com/particle-iot/device-os/releases/tag/v2.3.0)|-|-|-|-|-|-|
 |v2.3.x prereleases|[v2.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.0-rc.1)|-|-|-|-|-|-|
 |v2.2.x default releases|[v2.2.0](https://github.com/particle-iot/device-os/releases/tag/v2.2.0)|-|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
@@ -23557,12 +23588,13 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.2.x releases|[v3.2.0](/reference/device-os/firmware/?fw_ver=3.2.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.2.x prereleases|[v3.2.0-rc.1](/reference/device-os/firmware/?fw_ver=3.2.0-rc.1&cli_ver=2.16.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.1.x releases|[v3.1.0](/reference/device-os/firmware/?fw_ver=3.1.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v2.3.x default releases|-|-|-|-|-|-|
+|v2.3.x default releases|[v2.3.0](/reference/device-os/firmware/?fw_ver=2.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.3.x prereleases|[v2.3.0-rc.1](/reference/device-os/firmware/?fw_ver=2.3.0-rc.1&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x default releases|[v2.2.0](/reference/device-os/firmware/?fw_ver=2.2.0&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
@@ -23595,9 +23627,10 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v2.16.0 = 3.2.0-rc.1
+v2.16.0 = 3.2.0-rc.1, 3.2.0
 v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
+v3.1.0  = 2.3.0
 v2.11.0 = 2.1.0
 v2.10.1 = 2.1.0-rc.1
 v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0, 2.0.2
@@ -23704,6 +23737,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@2.1.0endif
 ##### @FW_VER@2.2.0if
 ##### @FW_VER@2.2.0endif
+##### @FW_VER@2.3.0if
+##### @FW_VER@2.3.0endif
 ##### @FW_VER@3.0.0if
 ##### @FW_VER@3.0.0endif
 ##### @FW_VER@3.1.0if
@@ -23800,6 +23835,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.12.0endif
 ##### @CLI_VER@2.16.0if
 ##### @CLI_VER@2.16.0endif
+##### @CLI_VER@3.1.0if
+##### @CLI_VER@3.1.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

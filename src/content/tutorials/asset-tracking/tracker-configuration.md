@@ -11,6 +11,10 @@ includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-
 The Tracker provides a customizable configuration system:
 
 - **Standard configuration** allows features like publish intervals, sleep settings, etc. to be configured from [the console](https://console.particle.io).
+
+![](/assets/images/tracker/fleet-settings.png)
+
+
 - **Customized configuration** makes it possible to extend this to your own custom parameters and custom tabs in the console!
 
 ![](/assets/images/tracker/settings-engine2.png)
@@ -21,16 +25,19 @@ Additionally:
 - **Devices that are offline**, because of poor cellular coverage or use of sleep modes, receive configuration updates when they reconnect to the Particle cloud, if there were changes.
 - **On device, the configuration is cached** on the flash file system, so the last known configuration can be used before connecting to the cloud again.
 
+{{> sso}}
+
 ## Configuration
 
 Configuration is scoped so you can have:
 
 - **Fleet-wide configuration** so all devices in your product have a common setting.
-- **Per-device configuration** that override settings for a specific device in your product (when marked as a development device).
+- **Per-device configuration** for certain settings, like geofence settings, that are always specific to a single device. 
+It is also possible override settings for a specific device in your product, when marked as a development device.
 
 In addition to setting values directly from [the console](https://console.particle.io), you can get and set values from the [Particle Cloud API](/reference/device-cloud/api/#configuration).
 
-The configuration is hierarchical: 
+The configuration is hierarchical. The top level items (location, sleep, geofence) are known as "modules."
 
 - location
   - radius
@@ -49,6 +56,55 @@ The configuration is hierarchical:
   - exe_min
   - conn max
   - ...
+- geofence
+  - interval
+  - zone1
+    - enable
+    - shape_type
+    - lat
+    - lon
+    - radius
+    - inside
+    - outside
+    - enter
+    - leave
+    - verif
+  - zone2
+    - ...
+  - zone3
+    - ...
+  - zone4
+    - ...
+
+## Per-device configuration
+
+Certain configuration modules are per-device only. The geofence configuration is the only built-in module set up this way. You can add your own custom modules that include the `deviceLevelOnly` flag which will make your configuration always per-device only. When a configuration module is per-device only it does not appear in the product fleet-wide settings, only per-device.
+
+Additionally, if a device is marked as a development device, then per-device configuration is allowed for all configuration items. The per-device settings will always override the fleet-wide settings if present.
+
+![](/assets/images/tracker/device-settings.png)
+
+### Device level only configuration
+
+- Settings are only configurable for the device, not in fleet settings
+- Always device level, regardless of whether a development device or not
+- Example: geofence configuration
+- Also available for custom configuration schemas
+
+
+### Regular device configuration
+
+- Upon adding a device, the device gets default settings from the fleet settings
+- When fleet settings are updated, the device settings will be updated immediately if online
+- Or after reconnecting if offline or in sleep mode
+
+### Development device configuration
+
+- All modules are editable for a given device while in development mode
+- Device settings take precedence in all cases
+
+Note: If you go from development mode back to regular mode, the product settings do not override the settings that were set in development mode until the next time product settings are changed. This is the current behavior, but may change in the future.
+
 
 
 ## Schemas
@@ -87,10 +143,13 @@ This picture shows how elements in the schema directly map to what you can see i
 
 ### Default Schema
 
-This is the full schema for Tracker Edge, as of version 12. You won't need to understand the whole thing yet, but this is what it looks like:
+This is the full schema for Tracker Edge, as of version 13. You won't need to understand the whole thing yet, but this is what it looks like:
 
 {{> codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
 
+- The `geofence` module was added in v13.
+- The `deviceLevelOnly` boolean flag was added in v13. This allows a configuration module to only be configured per-device, regardless of whether it's a development device or not.
+- The schema version does not change with every Tracker Edge version, and does not match. For example, Tracker Edge v17 is used with schema v13.
 
 ### Data types
 
@@ -328,7 +387,7 @@ particle library copy
 
 #### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
@@ -589,6 +648,6 @@ The function to get the instance checks to see if it has been allocated. If it h
 
 ## Per-device configuration
 
-Tracker devices that are marked as development devices can have per-device configuration that overrides the product default configuration. In addition to using the console or curl, above, this tool makes it easy to view and edit the configuration in JSON format:
+Tracker devices with device level only configuration (such as geofencing) and devices that are marked as development devices can have per-device configuration. In addition to using the console or curl, above, this tool makes it easy to view and edit the configuration in JSON format:
 
 {{> tracker-config row="6" cols="70"}}

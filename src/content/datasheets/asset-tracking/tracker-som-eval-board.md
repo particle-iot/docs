@@ -193,7 +193,7 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 ## Design Files
 
-The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in Github:
+The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in GitHub:
 
 [https://github.com/particle-iot/tracker-hardware](https://github.com/particle-iot/tracker-hardware)
 

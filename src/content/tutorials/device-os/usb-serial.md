@@ -348,13 +348,13 @@ Log.info("mac: %02x-%02x-%02x-%02x-%02x-%02x",
     addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
 ```
 
-Sprintf-style formatting, including `Log.info()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/). This can happen if you want to print the event code for a [System Event Handler](/cards/firmware/system-events/system-events/) which is type `system_event_t` which is 64-bits wide.
+Sprintf-style formatting, including `Log.info()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in GitHub](https://github.com/rickkas7/Print64/). This can happen if you want to print the event code for a [System Event Handler](/cards/firmware/system-events/system-events/) which is type `system_event_t` which is 64-bits wide.
 
 You can learn more about `sprintf` [here](/cards/firmware/other-functions/sprintf/).
 
 These messages are limited to 200 characters and are truncated if longer. 
 
-If you want to use write longer data, you can use `Log.print(str)` which takes a pointer to a null-terminated c-string. Note that the output does not include the timestamp, category, and level, so you may want to preceed it with `Log.info()`, etc. but is not length-limited. You cannot use printf-style formating with `Log.print()`.
+If you want to use write longer data, you can use `Log.print(str)` which takes a pointer to a null-terminated c-string. Note that the output does not include the timestamp, category, and level, so you may want to precede it with `Log.info()`, etc. but is not length-limited. You cannot use printf-style formatting with `Log.print()`.
 
 You can also print data in hexadecimal using `Log.dump(ptr, len)` to print a buffer in hex as specified by pointer and length. It also does not include the timestamp, category, and level.
 

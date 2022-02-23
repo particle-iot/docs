@@ -7,7 +7,7 @@
   "attributes": {
     "name": "APNHelperRK",
     "version": "0.0.2",
-    "installs": 7699,
+    "installs": 8125,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Utilities for managing multiple 3rd-party SIM APNs from a single Electron binary",

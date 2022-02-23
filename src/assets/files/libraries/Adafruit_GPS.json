@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_GPS",
     "version": "1.0.3",
-    "installs": 67200,
+    "installs": 70595,
     "author": "Adafruit",
     "sentence": "An interrupt-based GPS library for no-parsing-required use",
     "architectures": [

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AES_GCM",
     "version": "1.0.0",
-    "installs": 915,
+    "installs": 1370,
     "license": "Apache-2",
     "author": "Jidesh Veeramachaneni",
     "sentence": "An AES GCM Library based on mbedtls 2.16.0.",

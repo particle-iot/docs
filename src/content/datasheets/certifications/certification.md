@@ -220,7 +220,7 @@ Additional FCC Test Reports:
 - [FCC Part 24](/assets/pdfs/boron310-fcc-part24-test-report.pdf)
 
 
-#### Boron LTE Cat M1 (BRN402 and BNR404)
+#### Boron LTE Cat M1 (BRN402 and BRN404)
 
 802.15.4 certification:
 
@@ -519,7 +519,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN 301-489 Test Report](/assets/pdfs/p1-EN301-489-test-report.pdf) (2021-09-16)
 - [EN62311 and EN50665 Test Report](/assets/pdfs/p1-EN62311-test-report.pdf) (2021-09-16)
 - [EN62368 Test Report](/assets/pdfs/p1-EN62368-test-report.pdf) (2021-09-16)
-- [RoHS Test Repot](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
+- [RoHS Test Report](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
 - [Declaration of Conformity](/assets/pdfs/new-certs/ce/p1-declaration.pdf) (2018-06-19)
 - [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf) (2018-06-19)
 

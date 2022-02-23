@@ -14,8 +14,8 @@ To complete the steps below, you'll need the following tools:
 1. a Particle Xenon
 2. Two available USB ports on your computer
 3. One Debugger for programming the Xenon, either:
-  - A Segger J-Link ([Commerical](https://www.adafruit.com/product/2209) or [EDU](https://www.adafruit.com/product/1369) Version). Note that if you use this approach, you'll also need a [JTAG to SWD Cable Adapter Board](https://www.adafruit.com/product/2094) and a [10-pin 2.5 Socket Cable](https://www.adafruit.com/product/1675) to connect to the debugger pins on the Xenon.
-  - A [Particle Debugger](https://store.particle.io/collections/accessories/products/particle-debugger)
+  - A Segger J-Link ([]Commercial](https://www.adafruit.com/product/2209) or [EDU](https://www.adafruit.com/product/1369) Version). Note that if you use this approach, you'll also need a [JTAG to SWD Cable Adapter Board](https://www.adafruit.com/product/2094) and a [10-pin 2.5 Socket Cable](https://www.adafruit.com/product/1675) to connect to the debugger pins on the Xenon.
+  - A Particle Debugger
 
 In addition, you'll need to install the following software:
 
@@ -29,7 +29,7 @@ In addition, you'll need to install the following software:
 
 The first step to using your Xenon with CircuitPython is to replace the Particle bootloader on the device with an nRF52-friendly bootloader. This replacement process is often referred to as "burning a bootloader."
 
-_*NOTE*_: If you want to build the bootloader yourself, follow the instructions below. Alternativly, you can download the latest bootloader from [Adafruit directly](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases) on the releases page for the `Adafruit_nRF52_Bootloader` repo. Scroll down and look for a file with a name that starts with `particle_xenon_bootloader-`. Click [here](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases/download/0.3.1/particle_xenon_bootloader-0.3.1_s140_6.1.1.hex) for a direct link to the `0.3.1` version.
+_*NOTE*_: If you want to build the bootloader yourself, follow the instructions below. Alternatively, you can download the latest bootloader from [Adafruit directly](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases) on the releases page for the `Adafruit_nRF52_Bootloader` repo. Scroll down and look for a file with a name that starts with `particle_xenon_bootloader-`. Click [here](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases/download/0.3.1/particle_xenon_bootloader-0.3.1_s140_6.1.1.hex) for a direct link to the `0.3.1` version.
 
 If you choose to download the bootloader directly, you can skip to [burning the bootloader with OpenOCD](#use-openocd-to-burn-the-bootloader-to-your-xenon)
 
@@ -114,7 +114,7 @@ Next, we'll use OpenOCD to burn this bootloader `hex` file to your Xenon.
 
   Don't worry if you get an error on this step, you should be able to ignore it.
 
-6. Once the command completes, hit the `RESET` button on your Xenon. After it reboots, the RGB LED will blink red and then turn Green. The blue D7 LED will remain on, and a new drive named `XENONBOOT` will show up on your computer. You can now unplug the Particle Debugger from your Xenon and computer an continue with the [Installing CirtcuitPython](#installing-circuitpython) steps below.
+6. Once the command completes, hit the `RESET` button on your Xenon. After it reboots, the RGB LED will blink red and then turn Green. The blue D7 LED will remain on, and a new drive named `XENONBOOT` will show up on your computer. You can now unplug the Particle Debugger from your Xenon and computer an continue with the [Installing CircuitPython](#installing-circuitpython) steps below.
 
 ### Option 2: Burning a new Bootloader with the Segger J-Link
 
@@ -144,7 +144,7 @@ If this is your first time using the Segger J-Link for burning a bootloader, you
 
   ![](/assets/images/nrfjprog-flash.png)
 
-2. Clean the build artifacts, and flash a new softdevice to the Xenon.
+2. Clean the build artifacts, and flash a new SoftDevice to the Xenon.
 
   ```bash
   make BOARD=particle_xenon clean
@@ -153,7 +153,7 @@ If this is your first time using the Segger J-Link for burning a bootloader, you
 
   ![](/assets/images/make-clean.png)
 
-3. Burn a new bootloader with the flash command. This will take a few moments, and once done, the RGB LED will blink red and then turn Green. The blue D7 LED will remain on, and a new drive named `XENONBOOT` will show up on your computer. You can now unplug the J-Link Debugger from your Xenon and computer an continue with the [Installing CirtcuitPython](#installing-circuitpython) steps below.
+3. Burn a new bootloader with the flash command. This will take a few moments, and once done, the RGB LED will blink red and then turn Green. The blue D7 LED will remain on, and a new drive named `XENONBOOT` will show up on your computer. You can now unplug the J-Link Debugger from your Xenon and computer an continue with the [Installing CircuitPython](#installing-circuitpython) steps below.
 
   ```bash
   make BOARD=particle_xenon flash
@@ -163,7 +163,7 @@ If this is your first time using the Segger J-Link for burning a bootloader, you
 
 ## Installing CircuitPython
 
-Once you've burned a new bootloader to your Xenonm and a `XENONBOOT` drive shows up on your machine, there are only a few steps left to get CircuitPython running on your device.
+Once you've burned a new bootloader to your Xenon and a `XENONBOOT` drive shows up on your machine, there are only a few steps left to get CircuitPython running on your device.
 
 1. Download the latest version of CircuitPython for the Xenon from [here](https://circuitpython.org/board/particle_xenon/). We used the current stable version (4.1.2 at the time of writing), but you can try any beta versions available and those should work as well. 
 

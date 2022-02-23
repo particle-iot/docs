@@ -35,16 +35,18 @@ You can download a complete project for use with Particle Workbench as a zip fil
 - Extract **tracker-edge.zip** in your Downloads directory 
 - Open the **tracker-edge** directory in Workbench; it is a pre-configured project directory.
 
+In order to use the Geofencing features, Tracker Edge v17 is required.
+
 ### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
 You will probably want to use the command line as there are additional commands you need to run after cloning the source:
 
 ```bash
-git clone https://github.com/particle-iot/tracker-edge 
+git clone https://github.com/particle-iot/tracker-edge
 cd tracker-edge
 git submodule update --init --recursive
 ```
@@ -284,6 +286,16 @@ These pins have a 3.3V maximum and are **not** 5V tolerant!
 
 You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
+## Subscribing to events
+
+By default, Tracker One and Tracker SoM devices are unclaimed product devices. One caveat of this is that your firmware cannot use [`Particle.subscribe`](/cards/firmware/cloud-functions/particle-subscribe/) to subscribe to events. You can either:
+
+- Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
+
+- Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
+
+For more information, see [Device claiming](/tutorials/device-cloud/device-claiming/).
+
 ## Using GitHub with Tracker Edge
 
 [GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
@@ -306,7 +318,7 @@ In the example above we just use **Clone** to make a private copy of the source 
 
 ![Create repository](/assets/images/workbench/github-create-repo.png)
 
-Create a new Github repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
+Create a new GitHub repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
 
 ```bash
 git clone --bare https://github.com/particle-iot/tracker-edge.git

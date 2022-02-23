@@ -28,6 +28,13 @@ var ignoreHosts = [
   'cloud.ibm.com', // returns 401 if not logged in but this is OK
   '192.168.0.1',
   'api.particle.io',
+  'webservices.nextbus.com', // To avoid hitting the API on examples
+  'sms-sgs.ic.gc.ca', // Error 503 - might need to investigate this further
+  'www.te.com', // will always time out
+  // Need to find a better workaround for these
+  'support.particle.io', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
+  'www.digikey.com', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
+  'media.digikey.com',
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
@@ -41,7 +48,12 @@ var stats = {
   errors:0    // number of broken links
 }
 
-var crawlerConfigPath = path.join(__dirname, '../config/crawler.json'); 
+var crawlerCacheDir = path.join(__dirname, '..', 'crawler-cache');
+if (!fs.existsSync(crawlerCacheDir)) {
+  fs.mkdirSync(crawlerCacheDir);
+}
+
+var crawlerConfigPath = path.join(crawlerCacheDir, 'crawler.json'); 
 console.log('crawlerConfigPath=' + crawlerConfigPath);
 var crawlerData = {};
 if (fs.existsSync(crawlerConfigPath)) {
@@ -118,12 +130,13 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(600000);
 
-    // if (process.env.TRAVIS_EVENT_TYPE && process.env.TRAVIS_EVENT_TYPE !== 'cron') {
-    if (true) {
+    /*
+    if (process.env.TRAVIS_EVENT_TYPE && process.env.TRAVIS_EVENT_TYPE !== 'cron') {
       console.log('Skipping crawl, not a cron build');
       done();
       return;
     }
+    */
 
     var crawler = new Crawler('localhost', '/', 8081);
     crawler.maxConcurrency = 8;
@@ -270,7 +283,7 @@ describe('Crawler', function() {
         }  
 
         if (toQueueUrl.indexOf('https://github.com/particle-iot/docs/tree/') === 0) {
-          // Github edit links are not crawled because it's not possible to edit pages until the page has
+          // GitHub edit links are not crawled because it's not possible to edit pages until the page has
           // been committed, but you can't commit the page until CI passes.
           return [];
         }
@@ -355,7 +368,7 @@ describe('Crawler', function() {
       var isWarning = (urlis.external && Math.floor(queueItem.stateData.code / 100) === 5);
       
       if (queueItem.stateData.code === 403 && urlis.isGithubReferrerLink) {
-    	  // Github is randomly returning 403 errors for some reason when the link redirects to AWS. Treat as warning, not error.
+    	  // GitHub is randomly returning 403 errors for some reason when the link redirects to AWS. Treat as warning, not error.
     	  isWarning = true;
       }
       if (queueItem.stateData.code === 403 && queueItem.url.indexOf('dfu-util.sourceforge.net') >= 0) {

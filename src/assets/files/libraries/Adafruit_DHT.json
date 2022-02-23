@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_DHT",
     "version": "0.0.4",
-    "installs": 355892,
+    "installs": 367633,
     "license": "MIT License",
     "author": "RussGrue <rstockhammer@hotmail.com>",
     "sentence": "Spark Core DHT Library based on Adafruit Arduino DHT Library",

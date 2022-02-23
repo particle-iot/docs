@@ -550,7 +550,7 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 ### Intro
 
-What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Particle.publish`.
+What if we simply want to know that something has happened, without all the information of a variable or all the action of a function? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Particle.publish`.
 
 `Particle.publish` sends a message to the cloud saying that some event has occurred. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
 
