@@ -21,6 +21,15 @@ $(document).ready(function() {
 
         const actionButtonElem = $(thisElem).find('.actionButton');
 
+        const progressTrElem = $(thisElem).find('.apiHelperFlashDumpUsbProgressTr');
+        const progressElem = $(progressTrElem).find('progress');
+
+        const statusElem = $(thisElem).find('.apiHelperFlashDumpUsbStatus');
+
+        const setStatus = function(s) {
+            $(statusElem).text(s);
+        }
+
         let usbDevice;
         let deviceInfo = {};
 
@@ -40,6 +49,8 @@ $(document).ready(function() {
                     usbDevice = null;
                 }
 
+                setStatus('Select device...');
+
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
                 usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
@@ -51,10 +62,17 @@ $(document).ready(function() {
     
                 // platformVersionInfo.name, .title, .id, .gen, .isTracker, .versionArray
 
-                $(extFlashOptionElem).prop('disabled', (deviceInfo.platformVersionInfo.gen == 2));
-
-
-                console.log('deviceInfo', deviceInfo);
+                if (deviceInfo.platformVersionInfo.gen == 2) {
+                    if ($(typeSelectElem).val() == 'ext') {
+                        $(typeSelectElem).val('main');
+                    }
+                    $(extFlashOptionElem).prop('disabled', true);
+                }
+                else {
+                    $(extFlashOptionElem).prop('disabled', false);
+                }
+                
+                setStatus('');
 
                 $(actionButtonElem).prop('disabled', false);
             }
@@ -85,16 +103,32 @@ $(document).ready(function() {
                 version: '',
                 platformVersionInfo: deviceInfo.platformVersionInfo,
                 // saveAs, filename
+                progressShowHide: function(show) {
+                    if (show) {
+                        $(progressTrElem).show();
+                    }
+                    else {
+                        $(progressTrElem).hide();
+                    }
+                },
+                progressUpdate: function(msg, pct, obj) {
+                    // obj.func, .pct, .partName
+                    $(progressElem).val(obj.pct);
+                },
+                setStatus: function(s) {
+                    setStatus(s);
+                }
             };
             switch(typeSelect) {
                 case 'main':
                     if (deviceInfo.platformVersionInfo.gen == 2) {
-                        deviceRestoreOptions.flashBackup.startAddress = 0x8000000;
+                        deviceRestoreOptions.flashBackup.startAddress = 0x08000000;
                     }
                     else {
                         deviceRestoreOptions.flashBackup.startAddress = 0x00000000;
                     }
                     deviceRestoreOptions.flashBackup.maxSize = 0x100000;
+
                     break;
 
                 case 'ext':
@@ -112,17 +146,14 @@ $(document).ready(function() {
                     break;
             }
 
-            console.log('deviceRestoreOptions', deviceRestoreOptions);
-
-            console.log('usbDevice', usbDevice);
 
             await dfuDeviceRestore(usbDevice, deviceRestoreOptions);
 
-            // Enable when done:
-            /*
+            setStatus('Download complete!');
+            
             $(typeSelectElem).prop('disabled', false);
             $(selectDeviceElem).prop('disabled', false);
-            */
+            
         });
     });
 });
