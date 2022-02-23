@@ -139,8 +139,13 @@ async function dfuDeviceRestore(usbDevice, options) {
     let ncpImage;
     let zipFs;
 
+
     ga('send', 'event', options.eventCategory, 'DFU Restore Started', options.version + '/' + options.platformVersionInfo.name);
 
+    if (options.flashBackup) {
+
+    }
+    else
     if (!options.ncpUpdate) {
         setStatus('Downloading module info...');
 
@@ -463,6 +468,28 @@ async function dfuDeviceRestore(usbDevice, options) {
         return array.slice(0, fullSize)
     };
 
+    const flashBackup = async function(dfuseDeviceToBackup, backupOptions) {
+        dfuseDeviceToBackup.startAddress = backupOptions.startAddress;
+
+        try {
+            console.log('flashBackup startAddress=' + dfuseDeviceToBackup.startAddress + ' maxSize=' + backupOptions.maxSize);
+            const userBinaryBlob = await dfuseDeviceToBackup.do_upload(4096, backupOptions.maxSize);
+
+            let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+    
+            if (backupOptions.saveAs) {
+                let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                saveAs(blob, backupOptions.filename);	    
+            }
+            else {
+                backupOptions.data = userBinaryArrayBuffer;
+            }    
+        }
+        catch(e) {
+            console.log('flashBackup exception', e);            
+        }
+    }
+
     const dfuseDevice = await createDfuseDevice(interface);
 
     const allDfuParts = [
@@ -476,20 +503,25 @@ async function dfuDeviceRestore(usbDevice, options) {
     ];
     let dfuParts = [];
 
-    if (options.userBackup) {
-        dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
-    }
-
-    if (!options.ncpUpdate) {
-        for(const dfuPart of allDfuParts) {
-            const zipEntry = zipFs.find(dfuPart.name + '.bin');
-            if (zipEntry) {
-                dfuParts.push(dfuPart);
-            }
-        }
+    if (options.flashBackup) {
+        dfuParts.push({ name: 'flash-backup', title: 'Flash backup' });
     }
     else {
-        dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
+        if (options.userBackup) {
+            dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
+        }
+    
+        if (!options.ncpUpdate) {
+            for(const dfuPart of allDfuParts) {
+                const zipEntry = zipFs.find(dfuPart.name + '.bin');
+                if (zipEntry) {
+                    dfuParts.push(dfuPart);
+                }
+            }
+        }
+        else {
+            dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
+        }    
     }
     if (options.progressDfuParts) {
         options.progressDfuParts(dfuParts);
@@ -535,7 +567,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         let zipEntry;
         let part;
 
-        if (partName == 'user-backup') {
+        if (partName == 'user-backup' || partName == 'flash-backup') {
         }
         else
         if (partName != 'ncp') {
@@ -568,6 +600,12 @@ async function dfuDeviceRestore(usbDevice, options) {
 
 
         try {
+            if (partName == 'flash-backup') {
+                if (options.flashBackup.type == 'main') {
+                    flashBackup(dfuseDevice, options.flashBackup);
+                }
+            }
+            else
             if (partName == 'user-backup') {
                 let maxSize = 128 * 1024;
                 if (extInterface) {
@@ -642,8 +680,18 @@ async function dfuDeviceRestore(usbDevice, options) {
 
     await dfuseDevice.close();
 
+    if (options.flashBackup) {
+        if (options.flashBackup.type == 'ext') {
+            const dfuseExtDevice =  await createDfuseDevice(extInterface);
 
-    {
+            dfuseExtDevice.logProgress = logProgress;
+
+            flashBackup(dfuseExtDevice, options.flashBackup);
+
+            await dfuseExtDevice.close();
+        }
+    }
+    else {
         if (extInterface && extPart) {
             partName = genericPartName = extPartName;
 
@@ -653,6 +701,8 @@ async function dfuDeviceRestore(usbDevice, options) {
             const dfuseExtDevice =  await createDfuseDevice(extInterface);
 
             dfuseExtDevice.logProgress = logProgress;
+
+
 
             if (options.platformVersionInfo.id != 26) {
                 dfuseExtDevice.startAddress = 0x80289000;
@@ -668,13 +718,28 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
 
-    // Write 0xA5 to offset 1753 in alt 1 (DCT) 
-    {
+    if (options.flashBackup) {
+        if (options.flashBackup.type == 'dct') {
+        
+            const dfuseAltDevice = await createDfuseDevice(altInterface);
+            
+            dfuseAltDevice.logProgress = logProgress;
+
+            flashBackup(dfuseAltDevice, options.flashBackup);
+
+            if (options.progressShowHide) {
+                options.progressShowHide(false);
+            }
+            
+            await dfuseAltDevice.close();
+        }
+    }
+    else {
+        // Write 0xA5 to offset 1753 in alt 1 (DCT) 
 
         const dfuseAltDevice = await createDfuseDevice(altInterface);
         
         dfuseAltDevice.logProgress = logProgress;
-
 
         if (extInterface && options.setupBit != 'unchanged') {
             // setup done on gen3
