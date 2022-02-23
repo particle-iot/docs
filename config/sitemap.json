@@ -1,10 +1,13 @@
 {
     "ignore":[
+        "assets/images",
+        "device-claiming.md",
+        "device-setup.md",
         "page-not-found.md",
         "raspberry-pi.md",
         "start.md",
         "towerinfo.md",
-        "assets/images" 
+        "troubleshooting2.md"
     ],
     "priority":{
         "cards/firmware":0.7,
