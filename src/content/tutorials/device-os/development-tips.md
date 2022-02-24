@@ -7,7 +7,7 @@ description: Tips for writing Particle device software
 
 # {{title}}
 
-*Tips for writing Particle device software*
+*Tips for writing Particle device firmware*
 
 ## Getting started
 
@@ -130,10 +130,23 @@ The loop() function is where you put your code. You should try to return as quic
 
 ### Use Log calls instead of Serial.print
 
+In many older and Arduino examples, you you may see `Serial.print()`. It's better practice to use [`Log.info()`](/cards/firmware/logging/logger-class/) instead.
+
+```cpp
+Log.info("analogvalue=%d", analogvalue);
+```
+
+- Logging level for specific categories can be controlled at runtime.
+- Device OS itself uses logging and can be configured this way.
+- Allows redirection to other ports (such as a hardware UART), remote logging services (like Solarwinds Papertrail), SD cards, and many others. 
+- Thread-safe, allowing logging safely from multiple threads.
+
 See [Logging](/cards/firmware/logging/logging/) for more information.
 
 
 ### Memory fragmentation
+
+Be careful when allocating large memory blocks on the heap using `new`, `malloc`, `strdup`, etc.. It's safe if you allocate the blocks once from setup(), but of you periodically allocate large blocks, especially of varying size, with varying lifetimes, as this can lead to heap fragmentation.
 
 See [Fragmentation](/datasheets/app-notes/an040-code-size-tips/#fragmentation) in Code Size Tips for more information.
 
@@ -209,11 +222,62 @@ Be sure to follow these rules carefully. If you are upgrading from older version
 
 ### Failing to return a value
 
+Failing to return a value from a function that is not `void` must be avoided.
+
+```cpp
+int functionHandler(String cmd) {
+    // Not returning a value will cause a compile error, or crash, depending on Device OS version
+}
+```
+
+In recent versions of Device OS, this generates a compile error:
+
+```
+src/TestApp.cpp: In function 'int functionHandler(String)':
+src/TestApp.cpp:5:1: error: no return statement in function returning non-void [-Werror=return-type]
+    5 | }
+      | ^
+```      
+
+In some older versions, it generates a warning, but if there are no other errors in the file, warnings are not displayed with the cloud compilers, so it's easy to miss. Unfortunately, it also causes the device to SOS fault at runtime.
+
+In very old versions of Device OS, it works, which can lead to the impression it's fine, and is a common reason code that worked with old versions of Device OS no longer works when upgraded.
+
+```cpp
+void sampleFunction() {
+    // Is void, does not require a return value
+}
+```
+
 ### Global constructors
 
 For more information see, [Global object constructors](/cards/firmware/global-object-constructors/global-object-constructors/).
 
 ### Interrupt service routines
+
+Interrupt service routines (ISR) are bits of code that run in an interrupt context. They literally interrupt the execution of the current thread, which could be the application thread, system thread, timer thread, or worker thread. Because of this, you need to be very careful in ISRs there are strict limits of what you can safely call from an ISR:
+
+- No memory allocation (`new`, `malloc`, `strdup`, etc.).
+- No Particle primitives like `Particle.publish`.
+- No Cellular, Wifi, TCPClient, TCPServer, UDP, etc..
+- No mutex locks, including things that also lock like SPI transactions.
+- Basically assume that all Device OS functions are unsafe, unless specifically listed as safe.
+
+A few of the locations that are interrupt service routines:
+
+- [attachInterrupt()](/cards/firmware/interrupts/attachinterrupt/) handlers.
+- [SPI onSelect()](cards/firmware/spi/onselect/) handlers.
+- [system button](/cards/firmware/system-events/system-events-overview/) handlers.
+- [SparkIntervalTimer](/cards/libraries/s/SparkIntervalTimer/) library timer callbacks.
+
+A few of the locations that are **not** ISRs:
+
+- [Software timers](/cards/firmware/software-timers/software-timers/) but they run with a small stack (1024 bytes).
+- [Function handlers](/cards/firmware/cloud-functions/particle-function/) are called from the loop thread.
+- [Calculated variable handlers](/cards/firmware/cloud-functions/particle-variable-calculated/) are called from the loop thread.
+- [Subscription handlers](/cards/firmware/cloud-functions/particle-subscribe/) are called from the loop thread, however you cannot `Particle.publish` from a subscription handler.
+- [Serial events](/cards/firmware/serial/serialevent/) are called from the loop thread.
+- [Application watchdog callback](/cards/firmware/application-watchdog/application-watchdog/) but the system is probably unstable when it is called.
 
 For more information, see [Interrupts](/cards/firmware/interrupts/interrupts/) in the Device OS firmware API reference.
 
@@ -235,7 +299,7 @@ When a heap allocation such as `new`, `malloc`, `strdup`, etc. fails, the out of
 
 Using an out of memory handler, you can flag this situation, then from loop, you can reset the device. This is not the default behavior in Device OS, because in some cases you may want to continue execution, free some memory in an application-specific manner, or use other techniques to resolve the situation.
 
-See [out of memory handler](/datasheets/app-notes/an040-code-size-tips/#out-of-memory-handler) for more information.
+See [out of memory handler](/datasheets/app-notes/an040-code-size-tips/#out-of-memory-handler) in Code Size Tips for more information.
 
 
 
