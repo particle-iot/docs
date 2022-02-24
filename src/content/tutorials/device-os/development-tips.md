@@ -34,9 +34,12 @@ Devices are intended to boot quickly, often within a second or two. On some devi
 
 Tracker One and Tracker SoM also typically include the [Tracker Edge](/tutorials/asset-tracking/tracker-edge-firmware/) base reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
 
+When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (Softdevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-programming/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
+
+---
 
 {{collapse op="start" label="More bootloader trivia"}}
-DCT operations such as those dealing with the device public and private keys, aren't actually implemented in the bootloader since 0.7.0. They're implemented in Device OS, so you need to have a working copy of Device OS in order to use those functions.
+DCT operations such as those dealing with the device public and private keys, aren't actually implemented in the bootloader since Device OS 0.7.0. They're implemented in Device OS, so you need to have a working copy of Device OS in order to use those functions.
 
 All Gen 2 (STM32) and Gen 3 (nRF52) devices uses execute-in-place (XIP) to run all code directly from flash memory; it is not copied into RAM. This is the reason you can't upgrade the bootloader directly in DFU mode. Since DFU mode is run from the bootloader, the running code cannot be replaced while it's running. 
 
@@ -127,11 +130,73 @@ The loop() function is where you put your code. You should try to return as quic
 
 ### Use Log calls instead of Serial.print
 
+See [Logging](/cards/firmware/logging/logging/) for more information.
+
+
 ### Memory fragmentation
+
+See [Fragmentation](/datasheets/app-notes/an040-code-size-tips/#fragmentation) in Code Size Tips for more information.
 
 ### Code size
 
+Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte (131,072 byte) flash memory sector for user code. Within the flash, there are a number of things including:
+
+- Your compiled code
+- String constants
+- Variables initialized to values other than 0
+- C++ template expansions
+- Some overhead
+
+Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/datasheets/app-notes/an033-256K-user-binaries/).
+
+See [Code Size Tips](/datasheets/app-notes/an040-code-size-tips/#out-of-memory-handler) for a great deal of information about code size.
+
 ### Stack size
+
+The stack on Particle devices is quite small:
+
+- Main loop thread: 6144 bytes
+- Software timer callbacks: 1024 bytes
+
+This means you should be careful with:
+
+- Allocating buffers on the stack
+- Deep recursion
+- Member variables in C++ classes that may be allocated on the stack
+
+
+```cpp
+void setup() {
+    Serial.begin();
+}
+
+void loop() {
+    char buf[256]; // <- stack allocated
+
+    // Using an uninitialized variable here, don't do this!
+    Serial.printlnf("buf[0]=%d", buf[0]); 
+    delay(1000);
+}
+```
+
+This is a stack allocated variable. It's small enough to be safe from loop.
+
+```cpp
+char buf[256]; // <- global static allocation
+
+void setup() {
+    Serial.begin();
+}
+
+void loop() {    
+    Serial.printlnf("buf[0]=%d", buf[0]);
+    delay(1000);
+}
+```
+
+This is a global memory allocation, done statically at compile time. This is the recommended way to handle buffers that are used periodically during execution.
+
+See [Stack](/datasheets/app-notes/an040-code-size-tips/#stack) in Code Size Tips for more information.
 
 ### Avoid blocking loop
 
@@ -146,13 +211,31 @@ Be sure to follow these rules carefully. If you are upgrading from older version
 
 ### Global constructors
 
+For more information see, [Global object constructors](/cards/firmware/global-object-constructors/global-object-constructors/).
+
 ### Interrupt service routines
+
+For more information, see [Interrupts](/cards/firmware/interrupts/interrupts/) in the Device OS firmware API reference.
 
 ### Mutex deadlock
 
+For more information about mutexes, see the [threading explainer](/datasheets/app-notes/an005-threading-explainer/#using-a-mutex-with-an-oled-display).
+
 ### SPI transactions
 
-### I2C transactions
+For more information, see [beginTransaction](/cards/firmware/spi/begintransaction/) in the Device OS firmware API reference.
+
+### I2C locking
+
+For more information, see [Wire.lock](/cards/firmware/wire-i2c/lock/) in the Device OS firmware API reference.
+
+### Out of memory handler
+
+When a heap allocation such as `new`, `malloc`, `strdup`, etc. fails, the out of memory handler is called, then the allocation returns null, as exceptions are not enabled on Particle devices.
+
+Using an out of memory handler, you can flag this situation, then from loop, you can reset the device. This is not the default behavior in Device OS, because in some cases you may want to continue execution, free some memory in an application-specific manner, or use other techniques to resolve the situation.
+
+See [out of memory handler](/datasheets/app-notes/an040-code-size-tips/#out-of-memory-handler) for more information.
 
 
 
