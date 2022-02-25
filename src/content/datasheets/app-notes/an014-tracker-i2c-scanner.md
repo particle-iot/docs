@@ -8,7 +8,7 @@ columns: two
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN014.zip).
 
 
-The code (tracker-i2cscanner.cpp) and pre-built binary for 1.5.4-rc.1 or later (tracker-i2cscanner.bin) can be found in the Github repository.
+The code (tracker-i2cscanner.cpp) and pre-built binary for 1.5.4-rc.1 or later (tracker-i2cscanner.bin) can be found in the GitHub repository.
 
 Or you can copy and paste the code below:
 

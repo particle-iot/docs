@@ -46,7 +46,7 @@ Using the `particle update` command in the Particle CLI is the most common way t
 
 It's recommended that you first install the current version of the CLI using the [CLI installer](/tutorials/developer-tools/cli/). This is necessary to make sure the application dependencies such as dfu-util are installed, as well as any required device drivers for Windows and a udev rule for Linux.
 
-Then locate the version of the CLI you want in the [particle-cli Github releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
+Then locate the version of the CLI you want in the [particle-cli GitHub releases](https://github.com/particle-iot/particle-cli/releases). For example, if you wanted Device OS 1.5.2, you'd want particle-cli v2.6.0. Expand **Assets** and download the .zip or .tar.gz for the source and extract it.
 
 From the Terminal or Command Prompt window, `cd` into the directory and install dependencies. For example:
 
@@ -85,7 +85,7 @@ You can download the necessary files for several common Device OS releases as a 
 
 It is recommended that you use the latest in release line. For example, if you are using 1.5.x, use 1.5.2 instead of 1.5.0. Ideally, you should be using the latest LTS release (2.1.0, for example), unless you need features in a feature release (3.1.0, for example).
 
-All versions are available in [Github Device OS Releases](https://github.com/particle-iot/device-os/releases).
+All versions are available in [GitHub Device OS Releases](https://github.com/particle-iot/device-os/releases).
 
 | File | Generation | Listening | DFU |
 | :--- | :---: | :---: | :---: |

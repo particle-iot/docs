@@ -131,7 +131,7 @@ The maximum location update frequency determines the minimum time between publis
 | Movement | Medium | | 
 | Sleep Mode | Enable | |
 
-This configuration uses the IMU (inerial measurement unit) to detect motion to wake from sleep. The maximum location update frequency determines the minimum time between publishes. Even if you move more often than that, it will restrict wake and publish. Setting this to a value of less than 10 minutes can result in excessive battery consumption and can result in your SIM card being banned by your mobile carrier for aggressive reconnection.
+This configuration uses the IMU (inertial measurement unit) to detect motion to wake from sleep. The maximum location update frequency determines the minimum time between publishes. Even if you move more often than that, it will restrict wake and publish. Setting this to a value of less than 10 minutes can result in excessive battery consumption and can result in your SIM card being banned by your mobile carrier for aggressive reconnection.
 
 The minimum location update frequency determines how often to wake up if there is no movement.
 

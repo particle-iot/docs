@@ -73,7 +73,7 @@ If you don't want to upgrade, OpenOCD mode works fine with the original version 
 
 It's normal if your operating system warns that the disk was not ejected safely. This process should work on Mac, Windows, and Linux. 
 
-If you're interested in the details of the DAPLink software that runs on the Particle Debugger, it's open source and available in the [Particle DAPLink fork Github](https://github.com/particle-iot/DAPLink/).
+If you're interested in the details of the DAPLink software that runs on the Particle Debugger, it's open source and available in the [Particle DAPLink fork GitHub](https://github.com/particle-iot/DAPLink/).
 
 Drag-and-drop flashing only works with .hex files. You can't drop a Particle .bin file directly onto the debugger DAPLINK volume. Also, it's still not particularly reliable on Gen 2 devices (Photon, P1, Electron, and E Series). For Gen 2 devices, you should stick with using openocd, which works quite well.
 

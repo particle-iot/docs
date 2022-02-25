@@ -362,7 +362,7 @@ The Argon and Tracker NCP (Network Coprocessor) is an ESP32, used for Wi-Fi comm
 - It cannot be upgraded in DFU (blinking yellow) or by SWD/JTAG
 - The `particle update` command does not update the NCP
 
-Releases can be found on the [Github release site](https://github.com/particle-iot/esp32-ncp-firmware/releases).
+Releases can be found on the [GitHub release site](https://github.com/particle-iot/esp32-ncp-firmware/releases).
 
 - Download the appropriate .bin file
 - Connect the device by USB to your computer

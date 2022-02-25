@@ -157,7 +157,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
 
-| Region | SKU | Description | Modem | EtherSim | Gen | Lifecycle | Replacement |
+| Region | SKU | Description | Modem | EtherSIM | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
 | Americas| E260TRAY50| Electron 2G/3G (Americas/Aus), Tray [x50]| U260| | 2| Discontinued| ELC314TY|
 | EMEAA| B523MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EG91-E| | 3| NRND| B524MEA|
@@ -231,7 +231,7 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 
 {{!-- BEGIN do not edit content below, it is automatically generated a85479cf-355b-45c8-9062-db69f037bfea --}}
 
-| Modem | SKU | Description | Region | EtherSim | Gen | Lifecycle | Replacement |
+| Modem | SKU | Description | Region | EtherSIM | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
 | BG96-MC| ONE402MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| | 3| NRND| ONE404MEA|
 | BG96-MC| ONE402MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| | 3| NRND| ONE404MTY|
@@ -299,8 +299,8 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 
 This table lists SKUs by the type of SIM. There are four possible Particle SIM cards:
 
-- EtherSim is used in all current devices and upcoming devices
-- Type KA is used in all non-EtherSim LTE Cat M1 devices: Boron LTE BRN402, B Series SoM B402, Tracker SoM T402, Tracker One ONE402, E Series LTE E402, Electron LTE ELC402
+- EtherSIM is used in all current devices and upcoming devices
+- Type KA is used in all non-EtherSIM LTE Cat M1 devices: Boron LTE BRN402, B Series SoM B402, Tracker SoM T402, Tracker One ONE402, E Series LTE E402, Electron LTE ELC402
 - Type KV is used in the Boron 2G/3G BRN310, B Series SoM B523, Tracker SoM T523, Tracker One ONE523
 - Type T is used in the E Series E310 and Electron (U260, U270, G350)
 
@@ -309,33 +309,33 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 
 | SIM | SKU | Description | Region | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
-| EtherSim| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| GA| |
-| EtherSim| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| GA| |
-| EtherSim| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| EG91-E| 3| GA| |
-| EtherSim| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| EG91-E| 3| GA| |
-| EtherSim| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| U201| 3| NRND-US| |
-| EtherSim| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| U201| 3| NRND-US| |
-| EtherSim| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| GA| |
-| EtherSim| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| R410| 3| GA| |
-| EtherSim| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| GA| |
-| EtherSim| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| U201| 2| NRND-US| |
-| EtherSim| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| U201| 2| NRND-US| |
-| EtherSim| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| U201| 2| NRND-US| |
-| EtherSim| E404KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| NORAM| R410| 2| NRND-US| |
-| EtherSim| E404MOD1| E Series LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 2| NRND-US| |
-| EtherSim| E404TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 2| NRND-US| |
-| EtherSim| ELC314TY| Electron 2G/3G (Global - U201) , Tray [x50]| Global| U201| 2| NRND-US| |
-| EtherSim| ELC404TY| Electron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 2| NRND-US| |
-| EtherSim| ONE404MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| BG96-MC| 3| GA| |
-| EtherSim| ONE404MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| BG96-MC| 3| GA| |
-| EtherSim| ONE524MEA| Tracker One LTE CAT1/3G/2G (Europe), [x1]| EMEAA| EG91-EX| 3| GA| |
-| EtherSim| ONE524MTY| Tracker One CAT1/3G/2G (Europe), Bulk [x40]| EMEAA| EG91-EX| 3| GA| |
-| EtherSim| T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| BG96-MC| 3| GA| |
-| EtherSim| T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| BG96-MC| 3| GA| |
-| EtherSim| T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| BG96-MC| 3| GA| |
-| EtherSim| T524MEA| Tracker SoM LTE CAT1/3G/2G (Europe), [x1]| EMEAA| EG91-EX| 3| GA| |
-| EtherSim| T524MKIT| Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]| EMEAA| EG91-EX| 3| GA| |
-| EtherSim| T524MTY| Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]| EMEAA| EG91-EX| 3| GA| |
+| EtherSIM| B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| GA| |
+| EtherSIM| B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| GA| |
+| EtherSIM| B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| EG91-E| 3| GA| |
+| EtherSIM| B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| EG91-E| 3| GA| |
+| EtherSIM| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| U201| 3| NRND-US| |
+| EtherSIM| BRN314TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| U201| 3| NRND-US| |
+| EtherSIM| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| GA| |
+| EtherSIM| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| R410| 3| GA| |
+| EtherSIM| BRN404TRAY50| Boron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| GA| |
+| EtherSIM| E314KIT| E Series 2G/3G (Global - E314) Evaluation Kit, [x1]| Global| U201| 2| NRND-US| |
+| EtherSIM| E314MOD1| E Series 2G/3G (Global - E314), [x1]| Global| U201| 2| NRND-US| |
+| EtherSIM| E314TRAY50| E Series 2G/3G (Global - E314), Tray [x50]| Global| U201| 2| NRND-US| |
+| EtherSIM| E404KIT| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]| NORAM| R410| 2| NRND-US| |
+| EtherSIM| E404MOD1| E Series LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 2| NRND-US| |
+| EtherSIM| E404TRAY50| E Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 2| NRND-US| |
+| EtherSIM| ELC314TY| Electron 2G/3G (Global - U201) , Tray [x50]| Global| U201| 2| NRND-US| |
+| EtherSIM| ELC404TY| Electron LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 2| NRND-US| |
+| EtherSIM| ONE404MEA| Tracker One LTE M1 (NorAm), [x1]| NORAM| BG96-MC| 3| GA| |
+| EtherSIM| ONE404MTY| Tracker One LTE M1 (NorAm), Bulk [x40]| NORAM| BG96-MC| 3| GA| |
+| EtherSIM| ONE524MEA| Tracker One LTE CAT1/3G/2G (Europe), [x1]| EMEAA| EG91-EX| 3| GA| |
+| EtherSIM| ONE524MTY| Tracker One CAT1/3G/2G (Europe), Bulk [x40]| EMEAA| EG91-EX| 3| GA| |
+| EtherSIM| T404MEA| Tracker SoM LTE M1 (NorAm), [x1]| NORAM| BG96-MC| 3| GA| |
+| EtherSIM| T404MKIT| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]| NORAM| BG96-MC| 3| GA| |
+| EtherSIM| T404MTY| Tracker SoM LTE M1 (NorAm), Tray [x50]| NORAM| BG96-MC| 3| GA| |
+| EtherSIM| T524MEA| Tracker SoM LTE CAT1/3G/2G (Europe), [x1]| EMEAA| EG91-EX| 3| GA| |
+| EtherSIM| T524MKIT| Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]| EMEAA| EG91-EX| 3| GA| |
+| EtherSIM| T524MTY| Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]| EMEAA| EG91-EX| 3| GA| |
 | Type KA| B402MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| NRND| B404MEA|
 | Type KA| B402MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| R410| 3| NRND| B404MTY|
 | Type KA| BRN402| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| R410| 3| NRND| BRN404|
@@ -375,8 +375,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 
 The Particle SIM supports many carriers around the world. The [list of mobile carriers](/tutorials/cellular-connectivity/cellular-carriers/) is the complete list, however it's important to note that different Particle SIM cards that support a different set of carriers, which may also vary depending on the device.
 
-- Boron 2G/3G EtherSIM BRN304 
-- Boron 2G/3G BRN302
+- Boron 2G/3G EtherSIM BRN314 
+- Boron 2G/3G BRN310
 - B Series B524 EtherSIM (LTE Cat 1 Europe, Australia, and New Zealand)
 - B Series B523 (LTE Cat 1 Europe)
 - LTE Cat M1 EtherSIM (Boron LTE, B Series B404, E Series LTE E404, and Electron LTE ELC404)
@@ -464,7 +464,7 @@ Some Particle devices are compatible with [3rd-party SIM cards](https://support.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5299a764-88fa-11ec-a8a3-0242ac120002 --}}
 
-| SKU | Description | Region | EtherSim | Modem | Gen | Lifecycle | Replacement |
+| SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
 | BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| &check;| R410| 3| GA| |
 | BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| &check;| R410| 3| GA| |
@@ -519,7 +519,7 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 
 {{!-- BEGIN do not edit content below, it is automatically generated 84f9efae-88f3-11ec-a8a3-0242ac120002 --}}
 
-| SKU | Description | Region | EtherSim | Modem | Gen | Lifecycle | Replacement |
+| SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
 | BRN310TRAY50| Boron 2G/3G (Global), Tray [x50]| Global| | U201| 3| NRND-US| BRN314TRAY50|
 | BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| U201| 3| NRND-US| |
@@ -591,7 +591,7 @@ The following SKUs have LTE Cat M1 cellular modems:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2b701cb4-88f4-11ec-a8a3-0242ac120002 --}}
 
-| SKU | Description | Region | EtherSim | Modem | Gen | Lifecycle | Replacement |
+| SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
 | B404MEA| B Series LTE CAT-M1 (NorAm), [x1]| NORAM| &check;| R410| 3| GA| |
 | B404MTY| B Series LTE CAT-M1 (NorAm), Tray [x50]| NORAM| &check;| R410| 3| GA| |
@@ -651,7 +651,7 @@ The following SKU have LTE Cat 1 cellular modems:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 42193f40-88f4-11ec-a8a3-0242ac120002 --}}
 
-| SKU | Description | Region | EtherSim | Modem | Gen | Lifecycle | Replacement |
+| SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
 | B524MEA| B Series LTE CAT-1/3G/2G (Europe) [x1]| EMEAA| &check;| EG91-E| 3| GA| |
 | B524MTY| B Series LTE CAT-1/3G/2G (Europe), Tray [x50]| EMEAA| &check;| EG91-E| 3| GA| |
@@ -727,19 +727,25 @@ For example, in Norway, Telenor shut down their 3G network at the end of 2020, b
 
 In Australia, there is no longer 2G service on any carrier and the Electron 2G cannot be used.
 
-The Electron and E Series use Telstra in Australia. They intend to shut down their 3G network at [mid 2024](https://www.digitalmatter.com/About-Us/News/Telstra-Announces-3G-Shutdown). At that point, the Electron can only be used with a 3rd-party SIM card and the E Series will no longer work.
+While Telstra is planning to shut down 3G in June 2024, Optus plans to continue 3G on 900 MHz (but not 2100 MHz), and Vodafone has not announced a shutdown date. 
 
-The Boron 2G/3G uses Vodafone in Australia. They have not announced a 3G shutdown date.
+If you have an Electron U260 (Americas), it will be unable to connect because it previously only connected to Telstra on 3G B5 (850 MHz). The EtherSIM won't help as it's a band issue, not a SIM issue.
 
-| After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
-| --- | --- | :--: | :--: | :--: | :--: |
-| End of 2016 | Telstra ended 2G service | &nbsp;| &check; | &check; | &check; |
-| April 2019 | Telstra sends 2100 MHz 3G service | &nbsp;| &check; | &check; | &check; |
-| Mid 2024 | Telstra ends 850 MHz 3G service | &nbsp; | <sup>1</sup> | &nbsp; | &check; | 
+If you have an Electron U270 (EMEAA), it will continue to work on Optus 3G B8 (900 MHz).
 
-<sup>1</sup>Can use only with a 3rd-party SIM card.
+If you have a Boron BRN310, it will continue to connect to Vodafone on 3G B8 (900 MHz). 
 
-The B Series SoM B524 and Tracker SoM T524 are officially supported in Australia and New Zealand and provide LTE Cat 1 support with 3G fallback.
+The BRN314 can connect to Optus, Vodafone, and Telstra and will continue to connect to Optus and Vodafone after the Telstra 3G shutdown.
+
+The recommended models for Australia are the B Series SoM B524, Tracker SoM T524, and Tracker One ONE524, which support LTE Cat 1 with 2G/3G fallback and will continue to work in Australia on all three carriers.
+
+
+| After       | Event                            | Electron G350 | Electron U260 | Electron U270 | E Series 2G/3G | Boron 2G/3G |
+| ----------- | -------------------------------- | :-----------: | :-----------: | :-----------: | :------------: | :---------: |
+| End of 2016 | Telstra ended 2G service         | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
+| April 2019  | Telstra ends 2100 MHz 3G service | &nbsp;        | &check;       | &check;       | &check;        | &check;     |
+| Mid 2024    | Telstra ends 850 MHz 3G service  | &nbsp;        | &nbsp;        | &check;       | &check;        | &check;     | 
+
 
 ### Canada
 

@@ -241,7 +241,7 @@ Argon:
 0000023317 [app] INFO: counter=5235241
 ```
 
-The reason it's bad and unpredictable is that when the thread begins execution, it does not yield until its 1 millisecond timeslice is completed used up and interrupted.
+The reason it's bad and unpredictable is that when the thread begins execution, it does not yield until its 1 millisecond time slice is completed used up and interrupted.
 
 ### With yield
 
@@ -1263,7 +1263,7 @@ Returns true if the specified thread is the currently running thread or false if
 
 ```cpp
 os_result_t os_thread_join(os_thread_t thread);
-````
+```
 
 - `thread` The thread handle to wait on
 
@@ -1296,9 +1296,9 @@ This frees the resources for the specified thread.
 os_result_t os_thread_yield(void);
 ```
 
-Yields the current thread's execution timeslice to allow other threads to run. If you don't call this or other function that yields, the thread will get a full 1 millisecond timeslices.
+Yields the current thread's execution time slice to allow other threads to run. If you don't call this or other function that yields, the thread will get a full 1 millisecond time slices.
 
-Calling `delay(1)` is effectively the same as `os_thread_yield()` as it will give up the current time slices until the next scheduled timeslices.
+Calling `delay(1)` is effectively the same as `os_thread_yield()` as it will give up the current time slices until the next scheduled time slices.
 
 
 #### os\_thread\_delay\_until

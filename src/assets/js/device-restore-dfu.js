@@ -139,8 +139,13 @@ async function dfuDeviceRestore(usbDevice, options) {
     let ncpImage;
     let zipFs;
 
+
     ga('send', 'event', options.eventCategory, 'DFU Restore Started', options.version + '/' + options.platformVersionInfo.name);
 
+    if (options.flashBackup) {
+
+    }
+    else
     if (!options.ncpUpdate) {
         setStatus('Downloading module info...');
 
@@ -327,6 +332,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         */
 
         const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);
+        
         /*
         if (dfuseDevice.memoryInfo) {
             let totalSize = 0;
@@ -356,49 +362,140 @@ async function dfuDeviceRestore(usbDevice, options) {
             console.log('memoryInfo', dfuseDevice.memoryInfo);
         }
         */
+        
 
         dfuseDevice.logInfo = function(msg) {
-            console.log(msg); // TEMPORARY
+            // console.log(msg); 
         };
 
         return dfuseDevice;
     }
 
-    const dfuseDevice = await createDfuseDevice(interface);
+    const parseModule = function(array, arrayOffset) {
+        let result = {};
 
-    const allDfuParts = [
-        { name: 'system-part1', title: 'Device OS System Part 1' },
-        { name: 'system-part2', title: 'Device OS System Part 2' },
-        { name: 'system-part3', title: 'Device OS System Part 3' },
-        { name: 'softdevice', title: 'nRF52 Soft Device' },
-        { name: 'tinker', reset:true, title: 'User Firmware' },
-        { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' },
-        { name: 'bootloader', title: 'Device OS Bootloader' },
-    ];
-    let dfuParts = [];
+        const dv = new DataView(array, arrayOffset);
 
-    if (!options.ncpUpdate) {
-        for(const dfuPart of allDfuParts) {
-            const zipEntry = zipFs.find(dfuPart.name + '.bin');
-            if (zipEntry) {
-                dfuParts.push(dfuPart);
+        let offset = 0;
+
+        // offset 0, 4-bytes: module start address
+        result.moduleStartAddy = dv.getUint32(offset, true); // 0
+        offset += 4;
+        
+        // offset 4, 4-bytes: module end address
+        result.moduleEndAddy = dv.getUint32(offset, true); // 4
+        offset += 4;
+        
+        // reserved (MCU target on Gen 3)
+        result.reserved = dv.getUint8(offset);
+        offset++;
+
+        // offset 9, 1-byte: module flags (module_info_flags_t)
+        result.moduleFlags = dv.getUint8(offset); // 9
+        offset++
+
+        // offset 10, 2-bytes: module version (this is not the same as
+		// product version, it relates to the module export functions)
+        result.moduleVersion = dv.getUint16(offset, true); // 10
+        offset += 2;
+        
+        // offset 12, 2-bytes: Platform ID (6 for Photon)
+        result.platformID = dv.getUint16(offset, true);
+        offset += 2;
+
+        // offset 14, 1-byte: module function (5 for user firmware)
+        result.moduleFunction = dv.getUint8(offset);
+        offset++;
+
+        // offset 15, 1-byte: module index (1 for user firmware)
+        result.moduleIndex = dv.getUint8(offset);
+        offset++;
+
+		// offset 16, 1-byte: dependency module function (usually system, 4)
+		result.depModuleFunction = dv.getUint8(offset);
+        offset++;
+
+		// offset 17, 1-byte: dependency module index (usually 2, so
+		// dependency is system-part2)
+		result.depModuleIndex = dv.getUint8(offset);
+        offset++;
+
+		// offset 18, 1-byte: minimum version of system dependency
+        result.depModuleVersion = dv.getUint16(offset, true);
+        offset += 2;
+
+		// offset 20, 1-byte: dependency module function (usually system, 4)
+		result.dep2ModuleFunction = dv.getUint8(offset);
+        offset++;
+
+		// offset 21, 1-byte: dependency module index (usually 2, so
+		// dependency is system-part2)
+		result.dep2ModuleIndex = dv.getUint8(offset);
+        offset++;
+
+		// offset 22, 2-byte: minimum version of system dependency
+		result.dep2ModuleVersion = dv.getUint16(offset, true);
+        offset += 2;
+
+        result.prefixSize = offset;
+
+
+        result.valid = (result.moduleStartAddy < result.moduleEndAddy && 
+            result.moduleFunction == 5 &&
+            result.moduleIndex == 1);
+
+        return result;
+    }
+
+    const fixUserBackup = function(array) {
+        let prefixHeader;
+
+        if (array.byteLength == (256 * 1024)) {
+            // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
+            prefixHeader = parseModule(array, 128 * 1024);
+            if (prefixHeader.valid) {
+                array = array.slice(128 * 1024);
             }
         }
-    }
-    else {
-        dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
-    }
-    if (options.progressDfuParts) {
-        options.progressDfuParts(dfuParts);
-    }
         
-    let partName;
-    let genericPartName;
-    let extPart;
-    let extPartName;
+        prefixHeader = parseModule(array, 0);
+        if (!prefixHeader.valid) {
+            return null;
+        }
+
+        // Trim the binary to be the actual size of the binary from the prefix header
+        const fullSize = prefixHeader.moduleEndAddy  - prefixHeader.moduleStartAddy + 4;
+        return array.slice(0, fullSize)
+    };
+
+    const flashBackup = async function(dfuseDeviceToBackup, backupOptions) {
+        dfuseDeviceToBackup.startAddress = backupOptions.startAddress;
+
+        setStatus('Dumping flash memory from the device...');
+
+        try {
+            const userBinaryBlob = await dfuseDeviceToBackup.do_upload(4096, backupOptions.maxSize);
+
+            let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+    
+            if (backupOptions.saveAs) {
+                let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                saveAs(blob, backupOptions.filename);	    
+            }
+            else {
+                backupOptions.data = userBinaryArrayBuffer;
+            }    
+        }
+        catch(e) {
+            console.log('flashBackup exception', e);            
+            const text = 'Dump flash failed';
+            setStatus(text);
+            dfuErrors.push(text);
+        }
+    }
 
     const logProgress = function(done, total, func) {
-        if (options.progressUpdate) {
+        if (options.progressUpdate && total) {
             let msg;
             if (func == 'erase') {
                 msg = 'Erasing ' + genericPartName;
@@ -416,105 +513,191 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     };
 
-    // 
-    dfuseDevice.logProgress = logProgress;
-
-
     if (options.progressShowHide) {
         options.progressShowHide(true);
     }
 
     let dfuErrors = [];
+    let extPart;
+    let extPartName;
+    let partName;
+        let genericPartName;
+    
+    if (!options.flashBackup || options.flashBackup.type == 'main') {
+        const dfuseDevice = await createDfuseDevice(interface);
 
-    for(const dfuPart of dfuParts) {
-        partName = dfuPart.name;
-
-        let zipEntry;
-        let part;
-
-        if (partName != 'ncp') {
-            zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
-            if (!zipEntry) {
-                continue;
-            }    
-
-            part = await zipEntry.getUint8Array();
-
-            dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
-
-            if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
-                part = part.slice(24); // MODULE_PREFIX_SIZE
-            }
-
+        const allDfuParts = [
+            { name: 'system-part1', title: 'Device OS System Part 1' },
+            { name: 'system-part2', title: 'Device OS System Part 2' },
+            { name: 'system-part3', title: 'Device OS System Part 3' },
+            { name: 'softdevice', title: 'nRF52 Soft Device' },
+            { name: 'tinker', reset:true, title: 'User Firmware' },
+            { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' },
+            { name: 'bootloader', title: 'Device OS Bootloader' },
+        ];
+        let dfuParts = [];
+    
+        if (options.flashBackup) {
+            dfuParts.push({ name: 'flash-backup', title: 'Flash backup' });
         }
         else {
-            extPartName = 'ncp';
-            part = ncpImage;
-        }
-
-        if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
-            genericPartName = 'custom user firmware';     
-        } else {
-            genericPartName = partName;
-        }
-
-        setStatus('Updating ' + genericPartName + '...');
-
-
-        try {
-            if (partName == 'ncp') {
-                extPart = part;
+            if (options.userBackup) {
+                dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
             }
-            else
-            if (partName == 'bootloader') {
-                // Flash to OTA region instead of actual location
-
-                if (extInterface) {
-                    // Gen 3
-                    extPart = part;
-                    extPartName = 'bootloader';
+        
+            if (!options.ncpUpdate) {
+                for(const dfuPart of allDfuParts) {
+                    const zipEntry = zipFs.find(dfuPart.name + '.bin');
+                    if (zipEntry) {
+                        dfuParts.push(dfuPart);
+                    }
                 }
-                else {
-                    // Gen 2
-                    dfuseDevice.startAddress = 0x80C0000;
-                    await dfuseDevice.do_download(4096, part, {});
-                }
-            }
-            else
-            if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
-                if (dfuseDevice.startAddress == 0xb4000 && options.userFirmwareBinary.byteLength < (129 * 1024)) {
-                    // Gen 3 256K binary. Erase the 128K binary slot because the new binary is < 128K
-                    // the 128K binary will still be there and have precedence, ignoring the new binary.
-                    const savedStart = dfuseDevice.startAddress;
-
-                    dfuseDevice.startAddress = 0xd4000;
-                    let emptyArray = new Uint8Array(1024);
-                    emptyArray.fill(0xff);
-                    await dfuseDevice.do_download(4096, emptyArray, {});
-
-                    dfuseDevice.startAddress = savedStart;
-                }
-
-                await dfuseDevice.do_download(4096, options.userFirmwareBinary, {});
             }
             else {
-                await dfuseDevice.do_download(4096, part, {});
-            }
-            setStatus('Downloading ' + genericPartName + ' complete!');
+                dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
+            }    
         }
-        catch(e) {
-            const text = 'Downloading ' + genericPartName + ' failed';
-            setStatus(text);
-            dfuErrors.push(text);      
+        if (options.progressDfuParts) {
+            options.progressDfuParts(dfuParts);
         }
-
-    }
+            
+        // 
+        dfuseDevice.logProgress = logProgress;
     
+        
+    
+        for(const dfuPart of dfuParts) {
+            partName = dfuPart.name;
+    
+            let zipEntry;
+            let part;
+    
+            if (partName == 'user-backup' || partName == 'flash-backup') {
+            }
+            else
+            if (partName != 'ncp') {
+                zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
+                if (!zipEntry) {
+                    continue;
+                }    
+    
+                part = await zipEntry.getUint8Array();
+    
+                dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
+    
+                if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+                    part = part.slice(24); // MODULE_PREFIX_SIZE
+                }
+    
+            }
+            else {
+                extPartName = 'ncp';
+                part = ncpImage;
+            }
+    
+            if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
+                genericPartName = 'custom user firmware';     
+            } else {
+                genericPartName = partName;
+            }
+    
+            setStatus('Updating ' + genericPartName + '...');
+    
+    
+            try {
+                if (partName == 'flash-backup') {
+                    if (options.flashBackup.type == 'main') {
+                        await flashBackup(dfuseDevice, options.flashBackup);
+                    }
+                }
+                else
+                if (partName == 'user-backup') {
+                    let maxSize = 128 * 1024;
+                    if (extInterface) {
+                        // Gen 3
+                        maxSize = 256 * 1024;
+                        dfuseDevice.startAddress = 0xb4000;
+                    }
+                    else {
+                        dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                    }
+                    const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
+    
+                    let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+    
+                    userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
+    
+                    if (userBinaryArrayBuffer) {
+                        let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                        saveAs(blob, 'userFirmwareBackup.bin');	
+                    }
+                }
+                else
+                if (partName == 'ncp') {
+                    extPart = part;
+                }
+                else
+                if (partName == 'bootloader') {
+                    // Flash to OTA region instead of actual location
+    
+                    if (extInterface) {
+                        // Gen 3
+                        extPart = part;
+                        extPartName = 'bootloader';
+                    }
+                    else {
+                        // Gen 2
+                        dfuseDevice.startAddress = 0x80C0000;
+                        await dfuseDevice.do_download(4096, part, {});
+                    }
+                }
+                else
+                if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
+                    if (dfuseDevice.startAddress == 0xb4000 && options.userFirmwareBinary.byteLength < (129 * 1024)) {
+                        // Gen 3 256K binary. Erase the 128K binary slot because the new binary is < 128K
+                        // the 128K binary will still be there and have precedence, ignoring the new binary.
+                        const savedStart = dfuseDevice.startAddress;
+    
+                        dfuseDevice.startAddress = 0xd4000;
+                        let emptyArray = new Uint8Array(1024);
+                        emptyArray.fill(0xff);
+                        await dfuseDevice.do_download(4096, emptyArray, {});
+    
+                        dfuseDevice.startAddress = savedStart;
+                    }
+    
+                    await dfuseDevice.do_download(4096, options.userFirmwareBinary, {});
+                }
+                else {
+                    await dfuseDevice.do_download(4096, part, {});
+                }
+                setStatus('Downloading ' + genericPartName + ' complete!');
+            }
+            catch(e) {
+                console.log('exception downloading', e);
+                const text = 'Downloading ' + genericPartName + ' failed';
+                setStatus(text);
+                dfuErrors.push(text);      
+            }
+    
+        }
+        
+        await dfuseDevice.close();
+    }
 
-    await dfuseDevice.close();
 
+    if (options.flashBackup) {
+        if (options.flashBackup.type == 'ext') {
+            const dfuseExtDevice =  await createDfuseDevice(extInterface);
 
-    {
+            dfuseExtDevice.logProgress = logProgress;
+
+            await flashBackup(dfuseExtDevice, options.flashBackup);
+
+            await dfuseExtDevice.close();
+        }
+    }
+    else {
         if (extInterface && extPart) {
             partName = genericPartName = extPartName;
 
@@ -539,13 +722,24 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
 
-    // Write 0xA5 to offset 1753 in alt 1 (DCT) 
-    {
+    if (options.flashBackup) {
+        if (options.flashBackup.type == 'dct') {
+        
+            const dfuseAltDevice = await createDfuseDevice(altInterface);
+            
+            dfuseAltDevice.logProgress = logProgress;
+
+            await flashBackup(dfuseAltDevice, options.flashBackup);
+            
+            await dfuseAltDevice.close();
+        }
+    }
+    else {
+        // Write 0xA5 to offset 1753 in alt 1 (DCT) 
 
         const dfuseAltDevice = await createDfuseDevice(altInterface);
         
         dfuseAltDevice.logProgress = logProgress;
-
 
         if (extInterface && options.setupBit != 'unchanged') {
             // setup done on gen3
@@ -584,14 +778,14 @@ async function dfuDeviceRestore(usbDevice, options) {
             setStatus(text);
             dfuErrors.push(text);
         }
-
-        if (options.progressShowHide) {
-            options.progressShowHide(false);
-        }
         
         await dfuseAltDevice.close();
     }
     
+    if (options.progressShowHide) {
+        options.progressShowHide(false);
+    }
+
     if (usbDevice) {
         await usbDevice.close();
         usbDevice = null;

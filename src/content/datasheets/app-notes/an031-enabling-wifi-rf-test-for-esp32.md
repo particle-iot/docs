@@ -31,7 +31,7 @@ There are two pins (UART) exposed on the back of the Argon for sending test mode
 
 ## Verification
 
-Connect the Argon to a spectrum analyzer via the u.FL (with labelled Wi-Fi) connector:
+Connect the Argon to a spectrum analyzer via the U.FL (with labelled Wi-Fi) connector:
 
 ![](/assets/images/app-notes/AN031/04.png)
 

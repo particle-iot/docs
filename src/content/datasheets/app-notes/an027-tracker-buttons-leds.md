@@ -138,7 +138,7 @@ Holding down the button for 4 seconds will toggle the buzzer on and off.
 
 The following libraries are used:
 
-| Library | Version | Github |
+| Library | Version | GitHub |
 | :--- | :--- | :--- |
 | MCP23008-RK | 0.0.4 | https://github.com/rickkas7/MCP23008-RK |
 | DebounceSwitchRK | 0.0.1 | https://github.com/rickkas7/DebounceSwitchRK |

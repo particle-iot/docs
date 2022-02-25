@@ -100,7 +100,7 @@ While the previous soldered boards all work fine, you can really make things loo
 
 I created the board schematic in [Eagle CAD](https://www.autodesk.com/products/eagle/overview). This small two-layer board can be done in the free version of Eagle CAD. 
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 ![Schematic](/assets/images/beyond-prototyping/schematic1.png)
 
@@ -152,7 +152,7 @@ And here's the board after reflow soldering:
 
 ![SMD Complete](/assets/images/beyond-prototyping/smd5.jpg)
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 #### Bill of Materials (BOM)
 
@@ -181,7 +181,7 @@ The schematic is the same, but the Eagle board layout is different:
 
 ![Under-Mount Board](/assets/images/beyond-prototyping/under3.jpg)
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 #### Bill of Materials (BOM)
 
@@ -206,7 +206,7 @@ The Gen 2 devices (Photon, P1, Electron, and E Series) use different pins becaus
 
 ![Photon Schematic](/assets/images/beyond-prototyping/photon-schematic.png)
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 #### Bill of Materials (BOM)
 
@@ -225,7 +225,7 @@ The Electron board is nearly identical to the Photon, except it has [18-pin head
 
 ![Electron](/assets/images/beyond-prototyping/electron.png)
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 #### Bill of Materials (BOM)
 
@@ -260,7 +260,7 @@ Board
 
 ![P1 Board](/assets/images/beyond-prototyping/p1-board.png)
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 #### Bill of Materials (BOM)
 
@@ -300,7 +300,7 @@ Board:
 
 ![E Series Board](/assets/images/beyond-prototyping/eseries-board.png)
 
-The Eagle CAD schematic and board files are in the **eagle** directory in the [Github repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
+The Eagle CAD schematic and board files are in the **eagle** directory in the [GitHub repository](https://github.com/particle-iot/docs-tutorials/tree/master/beyond-prototyping).
 
 #### Bill of Materials (BOM)
 

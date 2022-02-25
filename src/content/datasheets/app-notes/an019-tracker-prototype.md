@@ -26,7 +26,7 @@ With the Evaluation board you'll need the [Qwiic connector to prototyping wires]
 
 And you'll need the thermocouple adapter. I used a [SparkFun Qwiic Thermocouple Amplifier - MCP9600 (PCC Connector)](https://www.sparkfun.com/products/16294) but the one with [screw terminals](https://www.sparkfun.com/products/16295) also works. Just make sure it's one of the MCP9600 versions.
 
-If using the one with the PCC connector, you can get the [thermocouple from SparkFun](https://www.sparkfun.com/products/13715) or [this one from Amazon](https://www.amazon.com/gp/product/B07M84554V/ref=ppx_yo_dt_b_asin_title_o03_s00) but be careful because there are two sizes of K-type thermocouple connectors and the PCC connector is often refered to as the "mini" connector.
+If using the one with the PCC connector, you can get the [thermocouple from SparkFun](https://www.sparkfun.com/products/13715) or [this one from Amazon](https://www.amazon.com/gp/product/B07M84554V/ref=ppx_yo_dt_b_asin_title_o03_s00) but be careful because there are two sizes of K-type thermocouple connectors and the PCC connector is often referred to as the "mini" connector.
 
 
 Connect the following wires to the Tracker SoM Evaluation Board expansion connector:
@@ -67,7 +67,7 @@ particle library copy
 
 #### Manually
 
-The Tracker Edge firmware can be downloaded from Github:
+The Tracker Edge firmware can be downloaded from GitHub:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 

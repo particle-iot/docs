@@ -77,7 +77,7 @@ Certain browsers can do a DFU upgrade or downgrade right from the browser page w
 
 It is also possible to update manually over USB. This allows for upgrades as well as downgrades, and operation while offline. 
 
-You can download binaries for any release from the Github releases for Device OS page:
+You can download binaries for any release from the GitHub releases for Device OS page:
 
 [https://github.com/particle-iot/device-os/releases](https://github.com/particle-iot/device-os/releases)
 
@@ -223,7 +223,7 @@ This should be done *after* upgrading system firmware.  The Electron bootloader 
 
 #### Updating SoftDevice and Bootloader
 
-Note: The SoftDevice .bin files provided on the Device OS Github release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAD because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
+Note: The SoftDevice .bin files provided on the Device OS GitHub release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAG because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
 
 #### Via OTA
 

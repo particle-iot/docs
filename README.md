@@ -35,13 +35,18 @@ npm install
 
 #### Spell checking
 
-**Note: This does not currently work due to the parser getting confused while processing firmware.md**
-
 To check the spelling of all Markdown files, run:
 
 ```none
 npm run spell
 ```
+
+This is a good idea when you edit any .md files because it not only checks regular spelling, but it will flag if you don't capitalize and spell things exactly like the rest of the docs. For example: U.FL, Wi-Fi, etc..
+
+Actually, these two files are currently skipped because something in the files confuse the spelling checker and cause it to lose track of word breaks and then things fail horribly:
+
+- src/content/reference/asset-tracking/tracker-edge-firmware.md
+- src/content/reference/device-os/firmware.md
 
 #### Testing
 
@@ -142,7 +147,7 @@ This documentation is managed by Particle, but supported by the community. We we
 * Additional content that would help provide a complete understanding of the Particle platform
 * Translations to other languages
 
-Making a contribution is as simple as forking this repository, making edits to your fork, and contributing those edits as a pull request. For more information on how to make a pull request, see [Github's documentation](https://help.github.com/articles/using-pull-requests/).
+Making a contribution is as simple as forking this repository, making edits to your fork, and contributing those edits as a pull request. For more information on how to make a pull request, see [GitHub's documentation](https://help.github.com/articles/using-pull-requests/).
 
 License
 -------

@@ -11,7 +11,7 @@
         "start": "node ./scripts/server.js",
         "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
         "build": "node ./scripts/build.js",
-        "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'",
+        "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md' '!src/content/reference/asset-tracking/tracker-edge-firmware.md' '!src/content/reference/device-os/firmware.md' '!src/content/reference/discontinued/firmware-core.md' '!src/content/reference/discontinued/firmware-mesh.md' '!src/content/reference/discontinued/firmware-xenon.md'",
         "pdf-generation": "gulp --gulpfile ./scripts/pdf-generation/pdf-generation-gulpfile.js"
     },
     "dependencies": {

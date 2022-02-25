@@ -16,7 +16,7 @@ async function generateSystemVersionInfo(options, done) {
     let now = Math.floor(Date.now() / 1000);
     if (!oldVersionInfo || !oldVersionInfo.updated || oldVersionInfo.updated < (now - 86400)) {
 
-        // Download from Github
+        // Download from GitHub
         const url = 'https://raw.githubusercontent.com/particle-iot/device-os/develop/system/system-versions.md';
 
         let mdFile = '';
