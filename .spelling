@@ -3603,6 +3603,7 @@ cylinderical
 Time.isValid
 ]commercial
 M2EVAL
+AN040
  - src/content/tutorials/learn-more/ethernet-featherwing.md
 GS305P
 TP-LINK
@@ -5476,3 +5477,13 @@ Borons
 RBAC
 amongst
 auto-inheret
+ - src/content/datasheets/app-notes/an040-code-size-tips.md
+bss
+XIP
+ - src/content/flash-dump.md
+Chromebook
+99-particle
+ - src/content/tutorials/device-os/development-tips.md
+Solarwinds
+Wire.lock
+SparkIntervalTimer
