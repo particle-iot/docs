@@ -195,7 +195,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### ADC (Analog to Digital Converter)
 
-The P2 supports four ADC inputs.
+The P2 supports six ADC inputs.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
 
