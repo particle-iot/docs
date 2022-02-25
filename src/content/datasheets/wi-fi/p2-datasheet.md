@@ -142,12 +142,12 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 | Peripheral Type | Qty | Input(I) / Output(O) |
 | :-:|:-:|:-:|
-| Digital | 23 | I/O |
+| Digital | 22 | I/O |
 | Analog (ADC) | 6 | I |
 | SPI | 2 | I/O |
 | I2C | 1 | I/O |
 | USB | 1 | I/O |
-| PWM | 7 | O |
+| PWM | 6 | O |
 
 
 ### Pin markings

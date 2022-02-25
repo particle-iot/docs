@@ -45,7 +45,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | Analog (DAC) |  | 2 |  |
 | UART | 1 | 2 | 1 |
 | SPI | 2 | 2 | 2 |
-| PWM | 7 | 12 | 8 |
+| PWM | 6 | 12 | 8 |
 | I2C | 1 | 1 | 1 |
 | CAN |  | 1 |  |
 | I2S |  | 1 | 1 |
