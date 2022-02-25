@@ -25,14 +25,14 @@ Particle devices contain a base set of software:
 
 - Bootloader, which handles starting up the device. This is where DFU mode (blinking yellow) is implemented, as well as the code to load Device OS.
 - Device OS, which is the operating system of the device. This handles bringing up the base peripherals, networking interfaces, and makes sure that all of the required components are installed. If there are missing dependencies, the device will go into safe mode (breathing magenta) to upgrade the parts over-the-air.
-- User firmware, the part that you typically program. From the factory, the Tinker application is installed which allows simple control of the device over the cloud, but doesn't really do anything useful.
+- User firmware, the part that you typically program.
 - Other parts depending on the device. Gen 3 devices include SoftDevice, which implements the nRF52 BLE radio stack. Argon and Tracker devices include NCP, the Wi-Fi network coprocessor image. 
 
 Unlike a regular computer, Particle devices only run a single user application at a time. If your device needs to perform multiple functions you combine all of the necessary features into a single application. This application can be flashed over-the-air (cellular or Wi-Fi) or by USB. In many cases, you only need to flash the small user firmware and not all of Device OS, which speeds the update process and saves data when flashing over cellular.
 
 Devices are intended to boot quickly, often within a second or two. On some devices the cellular network connection can remain active across a reboot, which allows the device to be reprogrammed or just rebooted with minimal disruption.
 
-Tracker One and Tracker SoM also typically include the [Tracker Edge](/tutorials/asset-tracking/tracker-edge-firmware/) base reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
+Tracker One and Tracker SoM devices typically include the [Tracker Edge](/tutorials/asset-tracking/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
 
 When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (Softdevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-programming/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
 
@@ -213,7 +213,9 @@ See [Stack](/datasheets/app-notes/an040-code-size-tips/#stack) in Code Size Tips
 
 ### Avoid blocking loop
 
-### Periodic events (timers)
+You should avoid blocking loop. It's best to return from loop as often as possible instead of looping within `loop()` or using long `delay` calls.
+
+See [Finite State Machines](/datasheets/app-notes/an010-finite-state-machines/) for one technique to make this more manageable.
 
 
 ## Watch out for
@@ -249,9 +251,109 @@ void sampleFunction() {
 }
 ```
 
-### Global constructors
+### Global object constructors
+
+```cpp
+class MyClass {
+public:
+    MyClass() {
+        // Constructor        
+    }
+};
+
+MyClass myGlobalObject; // Global object
+
+void setup() {
+}
+
+void loop() {
+}
+```
+
+You must be careful in the constructors of global objects. In the code above, the class instance `myGlobalObject` of class `MyClass` is a global object. The class constructor is called very early in initialization, and, most dangerously, the order of the objects are constructed is undefined, and may vary in surprising ways. Newer versions of the gcc compiler tend to run the user constructors earlier, and this can cause code that previously just happen to work because of luck to crash at boot instead.
+
+The only things you can do safely from the constructor are:
+
+- Initialize variables
+- Allocate memory
+- Initialize pin modes (if absolutely necessary)
+
+To do more complex initialization, you should to two-step initialization, which is also good practice when you are making objects that are possibly subclassed, anyway:
+
+```cpp
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+    MyClass() {
+        // Constructor        
+    }
+
+    void setup() {
+        Log.info("safe to do things here!");
+    }
+};
+
+MyClass myGlobalObject; // Global object
+
+void setup() {
+    myGlobalObject.setup();
+}
+
+void loop() {
+}
+```
+
+In this example, complex parts of setup are deferred until `setup()` instead of being done at object construction time.
+
+Another better alternative to global objects is often to use the [singleton pattern](/datasheets/app-notes/an034-singleton/).
 
 For more information see, [Global object constructors](/cards/firmware/global-object-constructors/global-object-constructors/).
+
+### Mutex deadlock
+
+You must be very careful when using [SINGLE_THREADED_BLOCK](/cards/firmware/system-thread/single_threaded_block/) and you should avoid using it except to surround very small blocks of code that use only simple operations such as manipulating variables (such as queues), `digitalWrite()`, and `delayMicroseconds()`. 
+
+The reason is that many resources in the system are protected by mutexes. This includes things like SPI, I2C, the cellular modem, and logging. This is necessary so only a single thread can access the resource at time, but code that does not need that resource can continue to execute normally, and threads can swap as needed.
+
+If you attempt to acquire a lock on a resource from inside a `SINGLE_THREADED_BLOCK` that is currently in use by another thread, the system will **deadlock**. Your thread will not proceed, because the resource is locked. However, since you have disabled thread switching because you used `SINGLE_THREADED_BLOCK`, the resource lock can never be freed, because the other thread cannot be swapped in.
+
+In old versions of Device OS, some resources like SPI were not protected. This caused failures when the system thread and user thread attempted to access SPI at the same time. The solution is use a mutex, but if you have code that previously used SPI from a `SINGLE_THREADED_BLOCK`, which does not actually solve the simultaneous access issue, it would fail with newer versions of Device OS by deadlocking.
+
+For more information about mutexes, see the [threading explainer](/datasheets/app-notes/an005-threading-explainer/#using-a-mutex-with-an-oled-display).
+
+### SPI transactions
+
+You should always use SPI `beginTransaction` and `endTransaction` surrounding all operations on the SPI bus:
+
+- Transactions prevent multiple threads from trying to use the SPI bus at the same time
+- Transactions set the speed, byte order, and mode before each use allowing multiple devices on the same bus to have different settings safely
+- You should set the CS pin low after `beginTransaction` and restore it high before `endTransaction`
+
+Note that not all libraries that interact with SPI peripherals use transactions, but they should. If the library does not, it should be modified to use transactions.
+
+Prior to Ethernet on Gen 3 devices (Argon, Boron), the system thread never accessed `SPI`, so the lack of locking was less noticeable. You should still use locking, even if you are not using Ethernet.
+
+For more information, see [beginTransaction](/cards/firmware/spi/begintransaction/) in the Device OS firmware API reference.
+
+### I2C locking
+
+Similar to SPI locking, you should use `Wire.lock` and `Wire.unlock` around groups of I2C operations. For example, it's common to write a command code by I2C, then read the results in a separate operation. The entire operation should be surrounded by a lock/unlock pair, to prevent another thread from jumping in between the command and result.
+
+This is especially important on the B Series SoM if the PMIC and fuel gauge are on `Wire` as these can be read by the system thread.
+
+For more information, see [Wire.lock](/cards/firmware/wire-i2c/lock/) in the Device OS firmware API reference.
+
+### Software timers
+
+Beware when using [Software Timers](/cards/firmware/software-timers/software-timers/). You should:
+
+- Avoid performing lengthy operations from a timer callback as all timers execute from a single thread and other timers will not fire while one is already executing.
+- When possible set a flag and perform complex operations from `loop()` instead.
+- Avoid blocking operations like `Particle.publish()` from timers.
+- Timers run from a thread with a small stack (1024 bytes).
+
+In many cases, it may be better to trigger periodic operations from the `millis()` counter instead of using software timers.
 
 ### Interrupt service routines
 
@@ -259,14 +361,15 @@ Interrupt service routines (ISR) are bits of code that run in an interrupt conte
 
 - No memory allocation (`new`, `malloc`, `strdup`, etc.).
 - No Particle primitives like `Particle.publish`.
-- No Cellular, Wifi, TCPClient, TCPServer, UDP, etc..
+- No `Cellular`, `Wifi`, `TCPClient`, `TCPServer`, `UDP`, etc..
 - No mutex locks, including things that also lock like SPI transactions.
+- No queue calls except [`os_queue_put`](/datasheets/app-notes/an005-threading-explainer/#queue-functions) which is ISR safe
 - Basically assume that all Device OS functions are unsafe, unless specifically listed as safe.
 
 A few of the locations that are interrupt service routines:
 
 - [attachInterrupt()](/cards/firmware/interrupts/attachinterrupt/) handlers.
-- [SPI onSelect()](cards/firmware/spi/onselect/) handlers.
+- [SPI onSelect()](/cards/firmware/spi/onselect/) handlers.
 - [system button](/cards/firmware/system-events/system-events-overview/) handlers.
 - [SparkIntervalTimer](/cards/libraries/s/SparkIntervalTimer/) library timer callbacks.
 
@@ -279,19 +382,10 @@ A few of the locations that are **not** ISRs:
 - [Serial events](/cards/firmware/serial/serialevent/) are called from the loop thread.
 - [Application watchdog callback](/cards/firmware/application-watchdog/application-watchdog/) but the system is probably unstable when it is called.
 
+In old versions of Device OS, allocating memory from an ISR would proceed, except randomly corrupt memory, often causing the device to crash later for completely unrelated reasons. Newer versions of Device OS will panic immediately, which makes it seem like code that previously worked no longer works on newer versions of Device OS, but really this is an improvement over randomly failing later.
+
 For more information, see [Interrupts](/cards/firmware/interrupts/interrupts/) in the Device OS firmware API reference.
 
-### Mutex deadlock
-
-For more information about mutexes, see the [threading explainer](/datasheets/app-notes/an005-threading-explainer/#using-a-mutex-with-an-oled-display).
-
-### SPI transactions
-
-For more information, see [beginTransaction](/cards/firmware/spi/begintransaction/) in the Device OS firmware API reference.
-
-### I2C locking
-
-For more information, see [Wire.lock](/cards/firmware/wire-i2c/lock/) in the Device OS firmware API reference.
 
 ### Out of memory handler
 
