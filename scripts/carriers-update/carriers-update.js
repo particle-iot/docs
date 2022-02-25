@@ -1518,7 +1518,7 @@ const { option } = require('yargs');
             const p2pins = expandMorePins(platformInfoNew.pins);
 
             md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
-            md += '| :---: | :--- | :--- | :--- | :--- |\n'
+            md += '| :---: | :--- | :---: | :--- | :---: |\n'
 
             const portColumnValue = function(value) {
                 if (value) {
@@ -1595,6 +1595,30 @@ const { option } = require('yargs');
                 
                 md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
             }
+        }
+
+        if (options.style == 'pinNameChange2022_02_25') {
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin['nameBefore2022_02_25']) {
+                    pins.push(pin);
+                }
+            }
+
+            pins.sort(function(a, b) {
+                let cmp = parseInt(a['nameBefore2022_02_25'].substr(1)) - parseInt(b['nameBefore2022_02_25'].substr(1));
+                // console.log('a=' + a['nameBefore2022_02_25'] + ' b=' + b['nameBefore2022_02_25'] + ' cmp=' + cmp);
+                return cmp;
+            });
+
+            md += '| Pin | Old Pin Name | New Pin Name | Description | MCU |\n';
+            md += '| :---: | :---: | :---: | :--- |:--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + pin['nameBefore2022_02_25'] + '|' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' | ';
+                
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }            
         }
 
         return md;
@@ -1917,7 +1941,19 @@ const { option } = require('yargs');
                             interface: 'isControl'
                         }); 
                     } 
-                }
+                },
+                {
+                    guid:'3b7b8712-9617-11ec-b909-0242ac120002',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'pinNameChange2022_02_25',
+                            platformNew: 'P2'
+                        }); 
+                    } 
+                },
+
+
+                
             ]            
         },
         {

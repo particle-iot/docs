@@ -673,7 +673,7 @@
 				{
 					"num":35,
 					"name":"D1",
-					"desc":"D0 GPIO, I2C, CAN",
+					"desc":"D1 GPIO, I2C, CAN",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -1129,7 +1129,8 @@
 				{
 					"num":64,
 					"name":"TX",
-					"altName":"D9",
+					"altName":"D8",
+					"nameBefore2022_02_25":"D9",
 					"desc":"Serial1 TX (transmitted data), GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1147,7 +1148,8 @@
 				{
 					"num":63,
 					"name":"RX",
-					"altName": "D10",
+					"altName": "D9",
+					"nameBefore2022_02_25":"D10",
 					"desc":"Serial1 RX (received data), GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1164,8 +1166,9 @@
 				},
 				{
 					"num":30,
-					"name":"D11",
+					"name":"D10",
 					"altName":"WKP",
+					"nameBefore2022_02_25":"D11",
 					"desc":"GPIO. (Was WKP/A7 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1181,7 +1184,8 @@
 				{
 					"num":23,
 					"name":"A5",
-					"altName":"D15",
+					"altName":"D14",
+					"nameBefore2022_02_25":"D15",
 					"desc":"A5 Analog in, GPIO, PWM, SPI.",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1200,7 +1204,8 @@
 				{
 					"num":49,
 					"name":"A2",
-					"altName":"D14",
+					"altName":"D13",
+					"nameBefore2022_02_25":"D14",
 					"desc":"A2 Analog in, PWM, GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1218,7 +1223,8 @@
 				{
 					"num":43,
 					"name":"A1",
-					"altName":"D13",
+					"altName":"D12",
+					"nameBefore2022_02_25":"D13",
 					"desc":"A1 Analog in, GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1236,7 +1242,8 @@
 				{
 					"num":50,
 					"name":"A0",
-					"altName":"D12",
+					"altName":"D11",
+					"nameBefore2022_02_25":"D12",
 					"desc":"A0 Analog in, GPIO",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1465,7 +1472,8 @@
 				{
 					"num":40,
 					"name":"S0",
-					"altName": "D16",
+					"altName": "D15",
+					"nameBefore2022_02_25":"D16",
 					"desc":"S0 GPIO, PWM, SPI. (Was P1S0 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1483,7 +1491,8 @@
 				{
 					"num":41,
 					"name":"S1",
-					"altName": "D17",
+					"altName": "D16",
+					"nameBefore2022_02_25":"D17",
 					"desc":"S1 GPIO, PWM, SPI. (Was P1S1 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1501,7 +1510,8 @@
 				{
 					"num":42,
 					"name":"S2",
-					"altName": "D18",
+					"altName": "D17",
+					"nameBefore2022_02_25":"D18",
 					"desc":"S2 GPIO, SPI. (Was P1S2 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1519,7 +1529,8 @@
 				{
 					"num":44,
 					"name":"S3",
-					"altName": "D19",
+					"altName": "D18",
+					"nameBefore2022_02_25":"D19",
 					"desc":"S3 GPIO. (Was P1S3 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1536,7 +1547,8 @@
 				{
 					"num":47,
 					"name":"S4",
-					"altName": "D20",
+					"altName": "D19",
+					"nameBefore2022_02_25":"D20",
 					"desc":"S4 GPIO. (Was P1S4 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1553,7 +1565,8 @@
 				{
 					"num":48,
 					"name":"S5",
-					"altName": "D21",
+					"altName": "D20",
+					"nameBefore2022_02_25":"D21",
 					"desc":"S5 GPIO. (Was P1S5 on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -1570,7 +1583,8 @@
 				{
 					"num":33,
 					"name":"S6",
-					"altName": "D22",
+					"altName": "D21",
+					"nameBefore2022_02_25":"D22",
 					"desc":"S6 GPIO. (Was P1S6/TESTMODE on P1.)",
 					"isIO":true,
 					"is5VTolerant":false,

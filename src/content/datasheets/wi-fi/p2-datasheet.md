@@ -7,7 +7,7 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 # P2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2022-02-08**
+**Preliminary pre-release version 2022-02-25**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-datasheet.pdf"}}
@@ -160,13 +160,13 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 | Pin Name | Module Pin |  |  |  |  | MCU |
 | :--- | :---: | :---: | :---: | :---: | :---: |:---: |
-| A0 / D12 | 50 | ADC_4 |   |   |   | PB[1] |
-| A1 / D13 | 43 | ADC_5 |   |   |   | PB[2] |
-| A2 / D14 | 49 | ADC_3 |   |   |   | PB[7] |
-| A5 / D15 | 23 | ADC_0 |   | SPI (MOSI) |   | PB[4] |
+| A0 / D11 | 50 | ADC_4 |   |   |   | PB[1] |
+| A1 / D12 | 43 | ADC_5 |   |   |   | PB[2] |
+| A2 / D13 | 49 | ADC_3 |   |   |   | PB[7] |
+| A5 / D14 | 23 | ADC_0 |   | SPI (MOSI) |   | PB[4] |
 | D0 / A3 | 36 | ADC_2 | Wire (SDA) |   |   | PB[6] |
 | D1 / A4 | 35 | ADC_1 | Wire (SCL) |   |   | PB[5] |
-| D11 / WKP | 30 |   |   |   |   | PA[15] |
+| D10 / WKP | 30 |   |   |   |   | PA[15] |
 | D2 | 45 |   |   | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
 | D3 | 51 |   |   | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
 | D4 | 52 |   |   | SPI1 (SCK) | Serial2 (RX) | PA[18] |
@@ -177,16 +177,16 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | RGBG | 32 |   |   |   |   | PB[23] |
 | RGBR | 29 |   |   |   |   | PA[30] |
 | RST | 34 |   |   |   |   | CHIP_EN |
-| RX / D10 | 63 |   |   |   | Serial1 (RX)  | PA[8] |
-| S0 / D16 | 40 |   |   | SPI (MOSI) |   | PA[12] |
-| S1 / D17 | 41 |   |   | SPI (MISO) |   | PA[13] |
-| S2 / D18 | 42 |   |   | SPI (SCK) |   | PA[14] |
-| S3 / D19 | 44 |   |   |   |   | PB[26] |
-| S4 / D20 | 47 |   |   |   |   | PA[0] |
-| S5 / D21 | 48 |   |   |   |   | PB[29] |
-| S6 / D22 | 33 |   |   |   |   | PB[31] |
+| RX / D9 | 63 |   |   |   | Serial1 (RX)  | PA[8] |
+| S0 / D15 | 40 |   |   | SPI (MOSI) |   | PA[12] |
+| S1 / D16 | 41 |   |   | SPI (MISO) |   | PA[13] |
+| S2 / D17 | 42 |   |   | SPI (SCK) |   | PA[14] |
+| S3 / D18 | 44 |   |   |   |   | PB[26] |
+| S4 / D19 | 47 |   |   |   |   | PA[0] |
+| S5 / D20 | 48 |   |   |   |   | PB[29] |
+| S6 / D21 | 33 |   |   |   |   | PB[31] |
 | SETUP | 46 |   |   |   |   | PA[4] |
-| TX / D9 | 64 |   |   |   | Serial1 (TX) | PA[7] |
+| TX / D8 | 64 |   |   |   | Serial1 (TX) | PA[7] |
 | USBDATA- | 62 |   |   |   |   | PA[25] |
 | USBDATA+ | 61 |   |   |   |   | PA[26] |
 
@@ -201,12 +201,12 @@ The P2 supports four ADC inputs.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- |:--- |
-| 23 | A5 / D15 | A5 Analog in, GPIO, PWM, SPI. | ADC_0 | PB[4] |
+| 23 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI. | ADC_0 | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C, A4 Analog In | ADC_1 | PB[5] |
 | 36 | D0 / A3 | D0 GPIO, PWM, I2C, A3 Analog In | ADC_2 | PB[6] |
-| 43 | A1 / D13 | A1 Analog in, GPIO | ADC_5 | PB[2] |
-| 49 | A2 / D14 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
-| 50 | A0 / D12 | A0 Analog in, GPIO | ADC_4 | PB[1] |
+| 43 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
+| 49 | A2 / D13 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
+| 50 | A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
 
 
 {{!-- END do not edit content above, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
@@ -226,8 +226,8 @@ The P2 supports two UART serial interfaces.
 | 51 | D3 | D3 GPIO, Serial2, SPI1 | Serial2 (CTS) | PA[17] |
 | 52 | D4 | D4 GPIO, Serial2, SPI1 | Serial2 (RX) | PA[18] |
 | 53 | D5 | D5 GPIO, Serial2, SPI1 | Serial2 (TX) | PA[19] |
-| 63 | RX / D10 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
-| 64 | TX / D9 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
+| 63 | RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
+| 64 | TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
@@ -245,10 +245,10 @@ The P2 supports two SPI (serial peripheral interconnect) ports.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- |:--- |
-| 23 | A5 / D15 | A5 Analog in, GPIO, PWM, SPI. | SPI (MOSI) | PB[4] |
-| 40 | S0 / D16 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
-| 41 | S1 / D17 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
-| 42 | S2 / D18 | S2 GPIO, SPI. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
+| 23 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI. | SPI (MOSI) | PB[4] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
+| 42 | S2 / D17 | S2 GPIO, SPI. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
 | 45 | D2 | D2 GPIO, Serial2, SPI1 | SPI1 (MOSI) | PA[16] |
 | 51 | D3 | D3 GPIO, Serial2, SPI1 | SPI1 (MISO) | PA[17] |
 | 52 | D4 | D4 GPIO, Serial2, SPI1 | SPI1 (SCK) | PA[18] |
@@ -368,34 +368,34 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 20 | NC | No connection. Do not connect anything to this pin. |  |
 | 21 | NC | No connection. Do not connect anything to this pin. |  |
 | 22 | NC | No connection. Do not connect anything to this pin. |  |
-| 23 | A5 / D15 | A5 Analog in, GPIO, PWM, SPI. | PB[4] |
+| 23 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI. | PB[4] |
 | 24 | NC | No connection. Do not connect anything to this pin. |  |
 | 25 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 26 | 3V3 | 3.3V power to MCU |  |
 | 27 | 3V3 | 3.3V power to MCU |  |
 | 28 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 29 | RGBR | RGB LED Red | PA[30] |
-| 30 | D11 / WKP | GPIO. (Was WKP/A7 on P1.) | PA[15] |
+| 30 | D10 / WKP | GPIO. (Was WKP/A7 on P1.) | PA[15] |
 | 31 | RGBB | RGB LED Blue | PB[22] |
 | 32 | RGBG | RGB LED Green | PB[23] |
-| 33 | S6 / D22 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | PB[31] |
+| 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | PB[31] |
 | 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C, A4 Analog In | PB[5] |
 | 36 | D0 / A3 | D0 GPIO, PWM, I2C, A3 Analog In | PB[6] |
 | 37 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 38 | NC | No connection. Do not connect anything to this pin. |  |
 | 39 | GND | Ground. Be sure you connect all P1 ground pins. |  |
-| 40 | S0 / D16 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | PA[12] |
-| 41 | S1 / D17 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | PA[13] |
-| 42 | S2 / D18 | S2 GPIO, SPI. (Was P1S2 on P1.) | PA[14] |
-| 43 | A1 / D13 | A1 Analog in, GPIO | PB[2] |
-| 44 | S3 / D19 | S3 GPIO. (Was P1S3 on P1.) | PB[26] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | PA[13] |
+| 42 | S2 / D17 | S2 GPIO, SPI. (Was P1S2 on P1.) | PA[14] |
+| 43 | A1 / D12 | A1 Analog in, GPIO | PB[2] |
+| 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.) | PB[26] |
 | 45 | D2 | D2 GPIO, Serial2, SPI1 | PA[16] |
 | 46 | SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. | PA[4] |
-| 47 | S4 / D20 | S4 GPIO. (Was P1S4 on P1.) | PA[0] |
-| 48 | S5 / D21 | S5 GPIO. (Was P1S5 on P1.) | PB[29] |
-| 49 | A2 / D14 | A2 Analog in, PWM, GPIO | PB[7] |
-| 50 | A0 / D12 | A0 Analog in, GPIO | PB[1] |
+| 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | PA[0] |
+| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | PB[29] |
+| 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
+| 50 | A0 / D11 | A0 Analog in, GPIO | PB[1] |
 | 51 | D3 | D3 GPIO, Serial2, SPI1 | PA[17] |
 | 52 | D4 | D4 GPIO, Serial2, SPI1 | PA[18] |
 | 53 | D5 | D5 GPIO, Serial2, SPI1 | PA[19] |
@@ -408,8 +408,8 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 60 | NC | No connection. Do not connect anything to this pin. |  |
 | 61 | USBDATA+ | USB Data+ | PA[26] |
 | 62 | USBDATA- | USB Data- | PA[25] |
-| 63 | RX / D10 | Serial1 RX (received data), GPIO | PA[8] |
-| 64 | TX / D9 | Serial1 TX (transmitted data), GPIO | PA[7] |
+| 63 | RX / D9 | Serial1 RX (received data), GPIO | PA[8] |
+| 64 | TX / D8 | Serial1 TX (transmitted data), GPIO | PA[7] |
 | 65 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 66 | GND | Ground. Be sure you connect all P1 ground pins. |  |
 | 67 | GND | Ground. Be sure you connect all P1 ground pins. |  |
@@ -619,6 +619,35 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:---:|:---:|:---:|:----|
 | pre | 2021-11-04 | RK | Pre-release |
 |     | 2022-02-08 | RK | Corrected D pin aliases for A5 and S0-S6 |
+|     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22 |
+
+### D Pin Change (2022-02-25)
+
+The names of pins D9 - D22 have been changed do D8 - D21, eliminating the odd situation where there was previously no pin D8. This prevented being able to use a loop to initialize pins. This should not affect the hardware in any way, but software that used the D pin names instead of their more common names like TX (was D9, now D8) would need to be updated.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3b7b8712-9617-11ec-b909-0242ac120002 --}}
+
+| Pin | Old Pin Name | New Pin Name | Description | MCU |
+| :---: | :---: | :---: | :--- |:--- |
+| 64 | D9|TX / D8 | Serial1 TX (transmitted data), GPIO | PA[7] |
+| 63 | D10|RX / D9 | Serial1 RX (received data), GPIO | PA[8] |
+| 30 | D11|D10 / WKP | GPIO. (Was WKP/A7 on P1.) | PA[15] |
+| 50 | D12|A0 / D11 | A0 Analog in, GPIO | PB[1] |
+| 43 | D13|A1 / D12 | A1 Analog in, GPIO | PB[2] |
+| 49 | D14|A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
+| 23 | D15|A5 / D14 | A5 Analog in, GPIO, PWM, SPI. | PB[4] |
+| 40 | D16|S0 / D15 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | PA[12] |
+| 41 | D17|S1 / D16 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | PA[13] |
+| 42 | D18|S2 / D17 | S2 GPIO, SPI. (Was P1S2 on P1.) | PA[14] |
+| 44 | D19|S3 / D18 | S3 GPIO. (Was P1S3 on P1.) | PB[26] |
+| 47 | D20|S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | PA[0] |
+| 48 | D21|S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | PB[29] |
+| 33 | D22|S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | PB[31] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 
 ## Known Errata
 
