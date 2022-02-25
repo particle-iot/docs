@@ -93,10 +93,11 @@ The following are all SPI-related pins on the P1 and P2:
 | :---: | :--- | :---: | :--- | :---: |
 | 21 | A4 | SPI (MISO) | NC | &nbsp; | 
 | 22 | A3 | SPI (SCK) | NC | &nbsp; | 
-| 23 | A5 | SPI (MOSI) | A5 / D14 | SPI (MOSI) | 
+| 23 | A5 | SPI (MOSI) | A5 / D14 | &nbsp; | 
 | 40 | P1S0 | &nbsp; | S0 / D15 | SPI (MOSI) | 
 | 41 | P1S1 | &nbsp; | S1 / D16 | SPI (MISO) | 
 | 42 | P1S2 | &nbsp; | S2 / D17 | SPI (SCK) | 
+| 44 | P1S3 | &nbsp; | S3 / D18 | SPI (SS) | 
 | 45 | D2 | SPI1 (MOSI) | D2 | SPI1 (MOSI) | 
 | 49 | A2 | SPI (SS) | A2 / D13 | &nbsp; | 
 | 51 | D3 | SPI1 (MISO) | D3 | SPI1 (MISO) | 
@@ -141,8 +142,8 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | 32 | RGBG | Serial2 (TX) | RGBG | &nbsp; | 
 | 45 | D2 | &nbsp; | D2 | Serial2 (RTS) | 
 | 51 | D3 | &nbsp; | D3 | Serial2 (CTS) | 
-| 52 | D4 | &nbsp; | D4 | Serial2 (RX) | 
-| 53 | D5 | &nbsp; | D5 | Serial2 (TX) | 
+| 52 | D4 | &nbsp; | D4 | Serial2 (TX) | 
+| 53 | D5 | &nbsp; | D5 | Serial2 (RX) | 
 | 63 | RX | Serial1 (RX) | RX / D9 | Serial1 (RX)  | 
 | 64 | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) | 
 
@@ -480,13 +481,13 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5|
 | Pin Alternate Name | n/a | D14|
-| Description | A5 Analog in, GPIO, SPI. | A5 Analog in, GPIO, PWM, SPI.|
+| Description | A5 Analog in, GPIO, SPI. | A5 Analog in, GPIO, PWM.|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
 | Supports analogRead | Yes | Yes|
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes|
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes|
-| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object.|
+| SPI interface | MOSI. Use SPI object. | n/a|
 | Supports attachInterrupt | No | Yes|
 | Input is 5V Tolerant | Yes | No|
 #### Module Pin 24
@@ -672,10 +673,11 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | P1S3 | S3|
 | Pin Alternate Name | n/a | D18|
-| Description | P1S3 Analog in, GPIO | S3 GPIO. (Was P1S3 on P1.)|
+| Description | P1S3 Analog in, GPIO | S3 GPIO. (Was P1S3 on P1.), SPI SS|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
 | Supports analogRead | Yes | No|
+| SPI interface | n/a | Default SS for SPI.|
 | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes|
 | Input is 5V Tolerant | Yes | No|
 #### Module Pin 45 (D2)
@@ -767,7 +769,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Description | D4 GPIO, SPI1 | D4 GPIO, Serial2, SPI1|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
-| UART serial | n/a | RX. Use Serial2 object.|
+| UART serial | n/a | TX. Use Serial2 object.|
 | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object.|
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes|
 | I2S interface | I2S3_SCK | n/a|
@@ -780,7 +782,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Description | D5 GPIO, SPI1 | D5 GPIO, Serial2, SPI1|
 | Supports digitalRead | Yes | Yes|
 | Supports digitalWrite | Yes | Yes|
-| UART serial | n/a | TX. Use Serial2 object.|
+| UART serial | n/a | RX. Use Serial2 object.|
 | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.|
 | Supports attachInterrupt | Yes | Yes|
 | I2S interface | I2S3_WS | n/a|
@@ -940,4 +942,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |:---:|:---:|:---:|:----|
 | pre | 2021-11-04 | RK | Pre-release |
 |     | 2022-02-08 | RK | Corrected D pin aliases for A5 and S0-S6 |
-|     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22 |
+|     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |

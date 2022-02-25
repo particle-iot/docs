@@ -23,7 +23,7 @@
   "electron/electron-datasheet.md": "9dcd8a0a160e52479ea8fd3d709eb2d2",
   "wi-fi/argon-datasheet.md": "03e93dc4d3c0aae96b900ebe38ce62fa",
   "wi-fi/p1-datasheet.md": "b6412d05ecc8c6c9872f3fb49d97cb16",
-  "wi-fi/p2-datasheet.md": "1a3d93f0aaac2115d2eedd5ea060aaa4",
-  "wi-fi/p2-migration-guide.md": "43eb109fd83c0444c3310cd39845e2ac",
+  "wi-fi/p2-datasheet.md": "1c6fe312ddbdb2594d75f07b2e956904",
+  "wi-fi/p2-migration-guide.md": "f53ec371e4b284b842fbff779799e846",
   "wi-fi/photon-datasheet.md": "7995ee214c72a1cc063dbceedc48a189"
 }

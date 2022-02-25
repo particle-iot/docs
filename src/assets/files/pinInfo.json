@@ -1186,7 +1186,7 @@
 					"name":"A5",
 					"altName":"D14",
 					"nameBefore2022_02_25":"D15",
-					"desc":"A5 Analog in, GPIO, PWM, SPI.",
+					"desc":"A5 Analog in, GPIO, PWM.",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -1196,7 +1196,6 @@
 					"analogWritePWM":true,
 					"tone":true,
 					"attachInterrupt":true,
-					"spi":"SPI (MOSI)|MOSI. Use SPI object.",
 					"hardwarePin":"PB[4]",
 					"hardwareADC":"ADC_0",
 					"mcuPin":44
@@ -1345,7 +1344,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
-					"serial":"Serial2 (RX)|RX. Use Serial2 object.",
+					"serial":"Serial2 (TX)|TX. Use Serial2 object.",
 					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
 					"hardwarePin":"PA[18]",
 					"mcuPin":31
@@ -1363,7 +1362,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
-					"serial":"Serial2 (TX)|TX. Use Serial2 object.",
+					"serial":"Serial2 (RX)|RX. Use Serial2 object.",
 					"spi":"SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
 					"hardwarePin":"PA[19]",
 					"mcuPin":32
@@ -1531,7 +1530,7 @@
 					"name":"S3",
 					"altName": "D18",
 					"nameBefore2022_02_25":"D19",
-					"desc":"S3 GPIO. (Was P1S3 on P1.)",
+					"desc":"S3 GPIO. (Was P1S3 on P1.), SPI SS",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -1541,6 +1540,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
+					"spi":"SPI (SS)|Default SS for SPI.",
 					"hardwarePin":"PB[26]",
 					"mcuPin":63
 				},
