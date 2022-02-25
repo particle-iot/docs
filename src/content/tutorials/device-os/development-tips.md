@@ -34,7 +34,7 @@ Devices are intended to boot quickly, often within a second or two. On some devi
 
 Tracker One and Tracker SoM devices typically include the [Tracker Edge](/tutorials/asset-tracking/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
 
-When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (Softdevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-programming/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
+When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (SoftDevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-programming/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
 
 ---
 
