@@ -1196,76 +1196,6 @@ const { option } = require('yargs');
     };
 
     updater.generatePinInfo = function(options) {
-        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
-        if (!platformInfoNew) {
-            return '';
-        }
-
-        let platformInfoOld;
-        let mappedPins;
-
-        if (options.platformOld) {
-            platformInfoOld = updater.pinInfo.platforms.find(p => p.name == options.platformOld);
-
-            mappedPins = [];
-            let foundOld = [];
-
-            // Pins in platformInfoNew
-            for(const pinNew of platformInfoNew.pins) {
-                let m = {
-                    name: pinNew.name,
-                    new: pinNew
-                };
-                for(const pinOld of platformInfoOld.pins) {
-                    if (pinNew.name == pinOld.name) {
-                        m.old = pinOld;
-                        break;
-                    }
-                    if (pinOld.altName && pinNew.name == pinOld.altName) {
-                        m.old = pinOld;
-                        break;
-                    }
-                    if (pinNew.altName && pinNew.altName == pinOld.name) {
-                        m.name = pinNew.altName;
-                        m.old = pinOld;
-                        break;
-                    }
-                    if (pinNew.altName && pinOld.altName && pinNew.altName == pinOld.altName) {
-                        m.name = pinNew.altName;
-                        m.old = pinOld;
-                        break;
-                    }
-                    if (options.mapBy && pinNew[options.mapBy] && pinNew[options.mapBy] == pinOld.name) {
-                        m.old = pinOld;
-                    }
-                }
-                if (m.old) {
-                    foundOld[m.old.num] = true;
-                }
-                mappedPins.push(m);                
-            }
-            // Pins in platformInfoOld but not platformInfoNew
-            for(const pinOld of platformInfoOld.pins) {
-                if (!foundOld[pinOld.num]) {
-                    let m = {
-                        name: pinOld.name,
-                        new: pinOld
-                    };
-                    mappedPins.push(m);                    
-                }
-            }
-            // Sort
-            mappedPins.sort(function(a, b) {
-                return a.name.localeCompare(b.name);
-            });
-        }
-
-
-        let detailsForTag = {};
-        for(const d of updater.pinInfo.details) {
-            detailsForTag[d.tag] = d;
-        }
-
 
         const expandMorePins = function(pinArray) {
             let pins = [];
@@ -1365,6 +1295,124 @@ const { option } = require('yargs');
                 return p.name + ' / ' + p.altName;
             }
         }
+
+        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        if (!platformInfoNew) {
+            return '';
+        }
+
+        let platformInfoOld;
+        let mappedPins;
+
+        if (options.platformOld) {
+            platformInfoOld = updater.pinInfo.platforms.find(p => p.name == options.platformOld);
+
+            mappedPins = [];
+
+            if (options.mapBy) {
+                let foundNew = [];
+
+                // Pins in platformInfoNew
+                for(const pinOld of platformInfoOld.pins) {
+                    let m = {
+                        name: pinOld.name,
+                        title: pinOld.name,
+                        old: pinOld
+                    };
+                    for(const pinNew of platformInfoNew.pins) {
+                        if (pinNew.name == pinOld.name) {
+                            m.new = pinNew;
+                            break;
+                        }
+                        if (options.mapBy && pinNew[options.mapBy] && pinNew[options.mapBy] == pinOld.name) {                            
+                            m.title = pinNew.name + ' (was ' + pinOld.name + ')';
+                            m.new = pinNew;
+                            break;
+                        }
+                        if (pinOld.altName && pinNew.name == pinOld.altName) {
+                            m.new = pinNew;
+                            break;
+                        }
+                        if (pinNew.altName && pinNew.altName == pinOld.name) {
+                            m.name = pinNew.altName;
+                            m.title = pinNew.altName;
+                            m.new = pinNew;
+                            break;
+                        }
+                        if (pinNew.altName && pinOld.altName && pinNew.altName == pinOld.altName) {
+                            m.name = pinNew.altName;
+                            m.title = pinNew.altName;
+                            m.new = pinNew;
+                            break;
+                        }
+                    }
+                    if (m.new) {
+                        foundNew[m.new.num] = true;
+                    }
+                    mappedPins.push(m);                
+                }
+                // Pins in platformInfoNew but not platformInfoOld
+                for(const pinNew of platformInfoNew.pins) {
+                    if (!foundNew[pinNew.num]) {
+                        let m = {
+                            name: pinNew.name,
+                            title: pinNew.name,
+                            new: pinNew
+                        };
+                        mappedPins.push(m);                    
+                    }
+                }
+
+                // Sort
+                mappedPins.sort(function(a, b) {
+                    return a.name.localeCompare(b.name);
+                });
+                
+            }
+            else {
+                // Map by module pin number
+                const oldPinsExpanded = expandMorePins(platformInfoOld.pins);
+                const newPinsExpanded = expandMorePins(platformInfoNew.pins);
+    
+                for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                    let oldPin = getPinInfo(oldPinsExpanded, pinNum);
+                    let newPin = getPinInfo(newPinsExpanded, pinNum);
+    
+                    if (!oldPin[options.port] && !newPin[options.port]) {
+                        // Neither device supports this port on this pin
+                        continue;
+                    }
+
+                    let m = {
+                        num: pinNum,
+                        old: oldPin,
+                        new: newPin,
+                    };
+
+                    if (oldPin.name == newPin.name) {
+                        m.title = 'Module Pin ' + pinNum + ' (' + oldPin.name + ')\n';
+                    }
+                    else {
+                        m.title = 'Module Pin ' + pinNum + '\n';
+                    }
+                    mappedPins.push(m);                
+                }    
+
+                // Sort
+                mappedPins.sort(function(a, b) {
+                    return parseInt(a.num) - parseInt(b.num);
+                });
+
+            }
+                        
+        }
+
+
+        let detailsForTag = {};
+        for(const d of updater.pinInfo.details) {
+            detailsForTag[d.tag] = d;
+        }
+
 
         let md = '';
 
@@ -1547,21 +1595,27 @@ const { option } = require('yargs');
                 'swd'      
             ];
 
+            for(const m of mappedPins) {
+                let oldPin = m.old;
+                let newPin = m.new;
+                if (!oldPin && !newPin) {
+                    continue;
+                }
+                if (!oldPin) {
+                    oldPin = {
+                        name: 'NC',
+                        desc: 'Leave unconnected'
+                    }
+                }
+                if (!newPin) {
+                    newPin = {
+                        name: 'NC',
+                        desc: 'Leave unconnected'
+                    }
+                }
 
-            const oldPins = expandMorePins(platformInfoOld.pins);
-            const newPins = expandMorePins(platformInfoNew.pins);
-
-            for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let oldPin = getPinInfo(oldPins, pinNum);
-                let newPin = getPinInfo(newPins, pinNum);
+                md += '#### ' + m.title + '\n';
                 
-                if (oldPin.name == newPin.name) {
-                    md += '#### Module Pin ' + pinNum + ' (' + oldPin.name + ')\n';
-                }
-                else {
-                    md += '#### Module Pin ' + pinNum + '\n';
-                }
-
                 let hasChanges = false;
                 for(const tag of comparisonTags) {
                     if (!oldPin[tag] && !newPin[tag]) {
@@ -1653,52 +1707,24 @@ const { option } = require('yargs');
 
             
             let tableData = [];
+
             
-            if (!options.mapBy) {
-                // Map by module pin number
-                const oldPinsExpanded = expandMorePins(platformInfoOld.pins);
-                const newPinsExpanded = expandMorePins(platformInfoNew.pins);
-    
-                for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                    let oldPin = getPinInfo(oldPinsExpanded, pinNum);
-                    let newPin = getPinInfo(newPinsExpanded, pinNum);
-    
-                    if (!oldPin[options.port] && !newPin[options.port]) {
-                        // Neither device supports this port on this pin
-                        continue;
+            for(const m of mappedPins) {
+                if ((m.new && m.new[options.port]) || (m.old && m.old[options.port])) {
+                    let rowData = {};
+                    if (m.old) {
+                        rowData.oldPinName = getPinNameWithAlt(m.old);
+                        rowData.oldPort = portColumnValue(m.old[options.port]);
                     }
-                    let rowData = {
-                        num: pinNum,
-                        oldPinName: getPinNameWithAlt(oldPin),
-                        oldPort: portColumnValue(oldPin[options.port]),
-                        newPinName: getPinNameWithAlt(newPin),
-                        newPort: portColumnValue(newPin[options.port])
-                    };
-    
+                    if (m.new) {
+                        rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPort = portColumnValue(m.new[options.port]);
+                    }
                     tableData.push(rowData);
                 }
+
             }
-            else {
-                // Map by pin name
-
-                for(const m of mappedPins) {
-                    if ((m.new && m.new[options.port]) || (m.old && m.old[options.port])) {
-                        let rowData = {};
-                        if (m.old) {
-                            rowData.oldPinName = getPinNameWithAlt(m.old);
-                            rowData.oldPort = portColumnValue(m.old[options.port]);
-                        }
-                        if (m.new) {
-                            rowData.newPinName = getPinNameWithAlt(m.new);
-                            rowData.newPort = portColumnValue(m.new[options.port]);
-                        }
-                        
-                        tableData.push(rowData);    
-                    }
-
-                }
-            }
-
+        
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -1755,6 +1781,65 @@ const { option } = require('yargs');
                 tableData.push(rowData);
             }
 
+            md += updater.generateTable(tableOptions, tableData);
+        }
+
+        if (options.style == 'classic-adapter') {
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'oldPinName',
+                title: options.platformOld + ' Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'oldDesc',
+                title: options.platformOld + ' Description',
+            });
+            tableOptions.columns.push({
+                key: 'newPinName',
+                title: options.platformNew + ' Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'newDesc',
+                title: options.platformNew + ' Description',
+            });
+            /*
+            tableOptions.columns.push({
+                key: 'hardwarePin',
+                title: 'MCU'
+            });
+            */
+
+            let tableData = [];
+            for(const m of mappedPins) {
+                let rowData = {};
+                if (m.old) {
+                    rowData.oldPinName = getPinNameWithAlt(m.old);
+                    rowData.oldDesc = m.old.desc;
+                    if (m.new && m.new.classicAdapter) {
+                        rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newDesc = m.new.desc;    
+                    }
+                    else {
+                        rowData.newDesc = 'Not Connected';    
+                    }
+                }
+                else {
+                    rowData.oldDesc = 'Not Connected';
+                    rowData.newPinName = getPinNameWithAlt(m.new);
+                    rowData.newDesc = m.new.desc;                    
+                }
+                tableData.push(rowData);
+            }
             md += updater.generateTable(tableOptions, tableData);
         }
 
@@ -2344,6 +2429,7 @@ const { option } = require('yargs');
                             style: 'full-comparison',
                             platformNew: 'Photon 2',
                             platformOld: 'Argon',
+                            mapBy: 'argonPin',
                         }); 
                     } 
                 },
@@ -2480,6 +2566,7 @@ const { option } = require('yargs');
                             style: 'full-comparison',
                             platformNew: 'Photon 2',
                             platformOld: 'Photon',
+                            mapBy: 'argonPin',
                         }); 
                     } 
                 },
@@ -2583,7 +2670,19 @@ const { option } = require('yargs');
                             mapBy: 'photonPin',
                         }); 
                     }
-                }                
+                },
+                {
+                    guid:'0339ca50-9a3e-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'classic-adapter',
+                            platformNew: 'Photon 2',
+                            platformOld: 'Electron',
+                            noPinNumbers: true,
+                            mapBy: 'classicAdapter',
+                        }); 
+                    }
+                },
             ]
         },
         {

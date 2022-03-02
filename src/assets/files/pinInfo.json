@@ -1910,6 +1910,8 @@
 					"num":16,
 					"name":"D0",
 					"altName":"A3",
+					"argonName":"D0",
+					"photonName":"D0",
 					"classicAdapter":"D0",
 					"desc":"D0 GPIO, PWM, I2C SDA, A3 Analog In",
 					"isIO":true,
@@ -1930,6 +1932,8 @@
 					"num":17,
 					"name":"D1",
 					"altName":"A4",
+					"argonName":"D1",
+					"photonName":"D1",
 					"classicAdapter":"D1",
 					"desc":"D1 GPIO, PWM, I2C SCL, A4 Analog In",
 					"isIO":true,
@@ -2194,7 +2198,7 @@
 				{
 					"num":7,
 					"name":"A5",
-					"desc":"A5 Analog in, GPIO, SPI.",
+					"desc":"A5 Analog in, GPIO, SPI MOSI.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2212,7 +2216,7 @@
 				{
 					"num":8,
 					"name":"A4",
-					"desc":"A4 Analog in, GPIO, SPI.",
+					"desc":"A4 Analog in, GPIO, SPI MISO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2411,7 +2415,7 @@
 				{
 					"num":20,
 					"name":"C1",
-					"desc":"Serial5 TX (trasmitted data), SPI2, GPIO.",
+					"desc":"Serial5 TX (trasmitted data), SPI2 MOSI, GPIO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2428,7 +2432,7 @@
 				{
 					"num":21,
 					"name":"C2",
-					"desc":"Serial4 RX (received data), SPI2, GPIO.",
+					"desc":"Serial4 RX (received data), SPI2 MISO, GPIO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2445,7 +2449,7 @@
 				{
 					"num":22,
 					"name":"C3",
-					"desc":"Serial4 TX (transmitted data), SPI2, GPIO.",
+					"desc":"Serial4 TX (transmitted data), SPI2 SCK, GPIO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2462,7 +2466,7 @@
 				{
 					"num":23,
 					"name":"C4",
-					"desc":"I2C, CAN, GPIO.",
+					"desc":"I2C, CAN TX, GPIO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2480,7 +2484,7 @@
 				{
 					"num":24,
 					"name":"C5",
-					"desc":"I2C, CAN, GPIO.",
+					"desc":"I2C, CAN RX, GPIO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2498,7 +2502,7 @@
 				{
 					"num":25,
 					"name":"D0",
-					"desc":"D0 GPIO, I2C",
+					"desc":"D0 GPIO, I2C SDA",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2515,7 +2519,7 @@
 				{
 					"num":26,
 					"name":"D1",
-					"desc":"D0 GPIO, I2C, CAN",
+					"desc":"D0 GPIO, I2C SCL, CAN TX",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2533,7 +2537,7 @@
 				{
 					"num":27,
 					"name":"D2",
-					"desc":"D2 GPIO, SPI1, CAN",
+					"desc":"D2 GPIO, SPI1 MOSI, CAN RX",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2552,7 +2556,7 @@
 				{
 					"num":28,
 					"name":"D3",
-					"desc":"D3 GPIO, SPI1",
+					"desc":"D3 GPIO, SPI1 MISO",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2570,7 +2574,7 @@
 				{
 					"num":29,
 					"name":"D4",
-					"desc":"D4 GPIO, SPI1",
+					"desc":"D4 GPIO, SPI1 SCK",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2588,7 +2592,7 @@
 				{
 					"num":30,
 					"name":"D5",
-					"desc":"D5 GPIO, SPI1",
+					"desc":"D5 GPIO, SPI1 SS",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2606,7 +2610,7 @@
 				{
 					"num":31,
 					"name":"D6",
-					"desc":"D6 GPIO",
+					"desc":"D6 GPIO, SWCLK",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2623,7 +2627,7 @@
 				{
 					"num":32,
 					"name":"D7",
-					"desc":"D7 GPIO, Blue LED",
+					"desc":"D7 GPIO, Blue LED, SWDIO",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":"Yes. But the on-board LED will light when 3.3V is supplied on this pin as well.",

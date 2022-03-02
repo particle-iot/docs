@@ -13,11 +13,12 @@ description: Migration guide for transitioning from the Argon to Photon 2
 {{downloadButton url="/assets/pdfs/datasheets/photon2-argon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**TODO: Update this!**
+The Photon 2 is a development module with a microcontroller and Wi-Fi networking. The form-factor is similar to the Argon (Adafruit Feather), but
+the Photon 2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash that can support larger applications. 
 
-The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
+It is intended to replace both the Photon and Argon modules. It contains the same module as the P2, making it easier to migrate from a pin-based development module to a SMD mass-production module if desired.
 
-| Feature | P2 | P1 | Argon |
+| Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
 | User application size | 1024 KB (1 MB) | 128 KB | 256 KB |
 | Flash file system<sup>1</sup> |  2 MB | | 2 MB |
@@ -42,10 +43,10 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | | Optional external (Wi-Fi & BLE)<sup>4</sup> | Optional external (Wi-Fi)<sup>4</sup> | Optional external (BLE)<sup>4</sup> |
 | | | | |
 | Peripherals | USB 2.0 | USB 1.1 | USB 1.1 |
-| Digital GPIO | 22 | 24 | 20 |
-| Analog (ADC) | 4 | 13 | 6 |
+| Digital GPIO | 20 | 24 | 20 |
+| Analog (ADC) | 6 | 13 | 6 |
 | Analog (DAC) |  | 2 |  |
-| UART | 1 | 2 | 1 |
+| UART | 3 | 2 | 1 |
 | SPI | 2 | 2 | 2 |
 | PWM | 6 | 12 | 8 |
 | I2C | 1 | 1 | 1 |
@@ -53,7 +54,6 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | I2S |  | 1 | 1 |
 | JTAG | | &check; | |
 | SWD | &check; | &check; | &check; |
-
 
 
 <sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
@@ -64,18 +64,13 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 <sup>4</sup> Onboard or external antenna is selectable in software.
 
+There are two Photon 2 migration guides, depending on what you are migrating from:
+
+- [From Photon](/datasheets/wi-fi/photon-2-photon-migration-guide/)
+- [From Argon](/datasheets/wi-fi/photon-2-argon-migration-guide/)
 
 ## Hardware 
 
-### No 5V tolerance!
-
-On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case for Gen 3 (nRF52840) and the P2 (RTL872x). You must not exceed 3.3V on any GPIO pin, including ports such as serial, I2C, and SPI.
-
-### Pins A3, A4, and DAC (A6)
-
-Pins A3 (module pin 22), A4 (module pin 21), DAC/A6 (module pin 24) do not exist on the P2 and are NC.
-
-You will need to use different pins if you are currently using these pins.
 
 ### SPI
 
@@ -112,7 +107,7 @@ Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
 - Available clock divisors: 2, 4, 8, 16, 32, 64, 128, 256
 - Default divisor is 4
 
-#### SPI - P2 
+#### SPI - Photon 2
 
 | | SPI | SPI1 |
 | :--- | :--- | :--- |
@@ -124,9 +119,11 @@ Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
 ### Serial (UART)
 
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both the P1 and P2. There is no hardware flow control on this port on the P1 or P2.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 2 and Argon. There is no hardware flow control on this port on the Photon 2 or Argon.
 
 The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
+
+There is a third UART serial (`Serial3`) on the Photon 2 that also supports optional CTS/RTS hardware flow control.
 
 {{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
 
@@ -146,23 +143,21 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
 
-|      | P1    | P2 |
-| :--- | :---: | :---: |
-| Buffer size | 64 bytes | 2048 bytes |
-| 7-bit mode | &check; | &check; |
+|      | Argon    | Photon 2 |
+| :--- | :------: | :---: |
+| Buffer size | 64 bytes<sup>2</sup> | 2048 bytes |
+| 7-bit mode |  | &check; |
 | 8-bit mode | &check; | &check; |
-| 9-bit mode | &check; | |
 | 1 stop bit | &check; | &check; |
-| 2 stop bits | &check; | &check; |
+| 2 stop bits |  | &check; |
 | No parity | &check; | &check; |
 | Even parity | &check; | &check; |
-| Odd parity | &check; | &check; |
-| Break detection | &check; | |
-| LIN bus support | &check; | |
-| Half duplex | &check; | |
+| Odd parity |  | &check; |
 | CTS/RTS flow control |  | &check;<sup>1</sup> |
 
-<sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
+<sup>1</sup>CTS/RTS flow control only on `Serial2` and `Serial3`. It is optional.
+
+<sup>2</sup>On the Argon, the buffer be resized larger in Device OS 3.2.0 and later.
 
 ### Analog input (ADC)
 
@@ -179,11 +174,11 @@ For analog to digital conversion (ADC) using `analogRead()`.
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
 | A2 / D17 | &check; | A2 / D17 | &check; |
-| A3 / D16 | &check; | D0 / A3 | &check; |
-| A4 / D15 | &check; | D1 / A4 | &check; |
-| A5 / D14 | &check; | A5 / D14 | &check; |
-| A4 / D15 | &check; | D15 | &nbsp; |
 | A3 / D16 | &check; | D16 | &nbsp; |
+| A4 / D15 | &check; | D15 | &nbsp; |
+| A5 / D14 | &check; | A5 / D14 | &check; |
+| D0 | &nbsp; | D0 / A3 | &check; |
+| D1 | &nbsp; | D1 / A4 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
@@ -201,11 +196,11 @@ The pins that support PWM are different on the Argon and Photon 2.
 | A0 / D19 | &check; | A0 / D19 | &nbsp; |
 | A1 / D18 | &check; | A1 / D18 | &nbsp; |
 | A2 / D17 | &check; | A2 / D17 | &check; |
-| A3 / D16 | &check; | D0 / A3 | &check; |
-| A4 / D15 | &check; | D1 / A4 | &check; |
-| A5 / D14 | &check; | A5 / D14 | &check; |
-| A4 / D15 | &check; | D15 | &nbsp; |
 | A3 / D16 | &check; | D16 | &nbsp; |
+| A4 / D15 | &check; | D15 | &nbsp; |
+| A5 / D14 | &check; | A5 / D14 | &check; |
+| D0 | &nbsp; | D0 / A3 | &check; |
+| D1 | &nbsp; | D1 / A4 | &check; |
 | D2 | &check; | D2 | &nbsp; |
 | D3 | &check; | D3 | &check; |
 | D4 | &check; | D4 | &check; |
@@ -217,84 +212,31 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
-
-### WKP (A7)
-
-|      | P1    | P2 |
-| :--- | :---: | :---: |
-| Module Pin | 30 | 30 |
-| Pin Name | WKP | WKP |
-| | A7 | D11 |
-| Analog Input | &check; | |
-| PWM | &check; | |
-
-On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode. 
-
-This restriction does not exist on the P2 and Gen 3 devices; any pin can be used to wake from all sleep modes.
-
 ### Interrupts
 
-There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the P2.
+All pins can be used for interrupts on Gen 3 devices and the Photon 2.
+
+There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the Photon 2.
 
 ### Retained memory
 
-Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the P2. This also prevents system usage of retained memory, including session resumption on reset.
+Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the Photon 2. This also prevents system usage of retained memory, including session resumption on reset.
 
 On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
 
-The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+The flash file system can be used for data storage on the Photon 2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
-### Pin functions removed
-
-The following pins served P1-specific uses and are NC on the P2. You should not connect anything to these pins.
-
-{{!-- BEGIN do not edit content below, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
-
-| Pin | Pin Name | Description |
-| :---: | :--- | :--- |
-
-
-{{!-- END do not edit content above, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
-
-### Pin functions added
-
-The following pins were NC on the P1 but are used on the P2.
-
-
-{{!-- BEGIN do not edit content below, it is automatically generated 0f8940d5-5d0b-4f16-bfa2-1666616ba9ef --}}
-
-| Pin | Pin Name | Description |
-| :---: | :--- | :--- |
-
-
-{{!-- END do not edit content above, it is automatically generated 0f8940d5-5d0b-4f16-bfa2-1666616ba9ef --}}
 
 ### Full module pin comparison
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
-#### Module Pin 1 (RST)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | RST|
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
-#### Module Pin 2 (3V3)
+#### 3V3
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | 3V3 | 3V3|
 | Description | Regulated 3.3V DC output, maximum load 1000 mA | Regulated 3.3V DC output, maximum load 500 mA|
-#### Module Pin 3 (MODE)
-| | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | MODE | MODE|
-| Pin Alternate Name | D20 | n/a|
-| Description | MODE button, has internal pull-up | MODE button, has internal pull-up|
-#### Module Pin 4 (GND)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | GND|
-| Description | Ground.|
-#### Module Pin 5 (A0)
+#### A0
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0|
@@ -306,7 +248,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (PWM) | Yes | No|
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 6 (A1)
+#### A1
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1|
@@ -318,7 +260,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (PWM) | Yes | No|
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 7 (A2)
+#### A2
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2|
@@ -330,7 +272,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (PWM) | Yes | Yes|
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 8
+#### A3
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A3 | D16|
@@ -343,7 +285,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No|
 | UART serial | n/a | RX. Use Serial3 object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 9
+#### A4
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A4 | D15|
@@ -355,7 +297,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (PWM) | Yes | No|
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 10 (A5)
+#### A5
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5|
@@ -368,60 +310,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes|
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SS. Use SPI object. Can use any GPIO for SS/CS.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 11 (SCK)
-| | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | SCK | SCK|
-| Pin Alternate Name | D13 | D13|
-| Description | SPI SCK, GPIO | SPI SCK, D13 GPIO, Serial3 TX|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | n/a | TX. Use Serial3 object.|
-| SPI interface | SCK. Use SPI object. | SCK. Use SPI object.|
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 12 (MOSI)
-| | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | MOSI | MOSI|
-| Pin Alternate Name | D12 | D12|
-| Description | SPI MOSI, GPIO | SPI MOSI, D12 GPIO, Serial3 RTS|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | n/a | RTS. Use Serial3 object. Flow control optional.|
-| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object.|
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 13 (MISO)
-| | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | MISO | MISO|
-| Pin Alternate Name | D11 | D11|
-| Description | SPI MISO, GPIO | SPI MISO, D11 GPIO, Serial3 CTS|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | n/a | CTS. Use Serial3 object. Flow control optional.|
-| SPI interface | MISO. Use SPI object. | MISO. Use SPI object.|
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 14 (RX)
-| | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | RX | RX|
-| Pin Alternate Name | D10 | D10|
-| Description | Serial RX, GPIO | Serial1 RX (received data), GPIO|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | RX Use Serial1 object. | RX. Use Serial1 object.|
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 15 (TX)
-| | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | TX | TX|
-| Pin Alternate Name | D09 | D9|
-| Description | Serial TX, GPIO | Serial1 TX (transmitted data), GPIO|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | TX Use Serial1 object. | TX. Use Serial1 object.|
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 16 (D0)
+#### D0
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0|
@@ -434,7 +323,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | No | Yes|
 | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 17 (D1)
+#### D1
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1|
@@ -447,7 +336,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | No | Yes|
 | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 18 (D2)
+#### D2
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2|
@@ -460,7 +349,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object.|
 | I2C interface | SDA. Use Wire1 object. | n/a|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 19 (D3)
+#### D3
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3|
@@ -473,7 +362,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object.|
 | I2C interface | SCL. Use Wire1 object. | n/a|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 20 (D4)
+#### D4
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4|
@@ -485,7 +374,7 @@ The following pins were NC on the P1 but are used on the P2.
 | UART serial | n/a | RX. Use Serial2 object.|
 | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 21 (D5)
+#### D5
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5|
@@ -498,7 +387,7 @@ The following pins were NC on the P1 but are used on the P2.
 | UART serial | n/a | CTS. Use Serial2 object. Flow control optional.|
 | SPI interface | n/a | SS. Use SPI1 object. Can use any GPIO for SPI SS/CS.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 22 (D6)
+#### D6
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D6 | D6|
@@ -509,7 +398,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
 | SWD interface | n/a | SWCLK. 40K pull-down at boot.|
-#### Module Pin 23 (D7)
+#### D7
 | | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7|
@@ -518,252 +407,102 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalWrite | Yes | Yes|
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
-#### Module Pin 24 (VUSB)
+#### D8
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | D8 | D8|
+| Description | GPIO, PWM | GPIO, PWM, SWDIO|
+| Supports digitalRead | Yes | Yes.|
+| Supports digitalWrite | Yes | Yes.|
+| Supports analogWrite (PWM) | Yes | No|
+| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
+| SWD interface | n/a | SWDIO. 40K pull-up at boot.|
+#### EN
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | EN|
+| Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
+#### GND
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | GND|
+| Description | Ground.|
+#### LI+
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | LI+|
+| Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
+#### MISO
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | MISO | MISO|
+| Pin Alternate Name | D11 | D11|
+| Description | SPI MISO, GPIO | SPI MISO, D11 GPIO, Serial3 CTS|
+| Supports digitalRead | Yes | Yes|
+| Supports digitalWrite | Yes | Yes|
+| UART serial | n/a | CTS. Use Serial3 object. Flow control optional.|
+| SPI interface | MISO. Use SPI object. | MISO. Use SPI object.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
+#### MODE
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | MODE | MODE|
+| Pin Alternate Name | D20 | n/a|
+| Description | MODE button, has internal pull-up | MODE button, has internal pull-up|
+#### MOSI
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | MOSI | MOSI|
+| Pin Alternate Name | D12 | D12|
+| Description | SPI MOSI, GPIO | SPI MOSI, D12 GPIO, Serial3 RTS|
+| Supports digitalRead | Yes | Yes|
+| Supports digitalWrite | Yes | Yes|
+| UART serial | n/a | RTS. Use Serial3 object. Flow control optional.|
+| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
+#### RST
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | RST|
+| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
+#### RX
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | RX | RX|
+| Pin Alternate Name | D10 | D10|
+| Description | Serial RX, GPIO | Serial1 RX (received data), GPIO|
+| Supports digitalRead | Yes | Yes|
+| Supports digitalWrite | Yes | Yes|
+| UART serial | RX Use Serial1 object. | RX. Use Serial1 object.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
+#### SCK
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | SCK | SCK|
+| Pin Alternate Name | D13 | D13|
+| Description | SPI SCK, GPIO | SPI SCK, D13 GPIO, Serial3 TX|
+| Supports digitalRead | Yes | Yes|
+| Supports digitalWrite | Yes | Yes|
+| UART serial | n/a | TX. Use Serial3 object.|
+| SPI interface | SCK. Use SPI object. | SCK. Use SPI object.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
+#### TX
+| | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | TX | TX|
+| Pin Alternate Name | D09 | D9|
+| Description | Serial TX, GPIO | Serial1 TX (transmitted data), GPIO|
+| Supports digitalRead | Yes | Yes|
+| Supports digitalWrite | Yes | Yes|
+| UART serial | TX Use Serial1 object. | TX. Use Serial1 object.|
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes|
+#### VUSB
 | | Unchanged between Argon and Photon 2 |
 | :--- | :--- |
 | Pin Name | VUSB|
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
-#### Module Pin 25 (EN)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | EN|
-| Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
-#### Module Pin 26 (LI+)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | LI+|
-| Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
-#### Module Pin 27 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 28 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 29 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 30 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 31 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 32 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 33 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 34 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 35 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 36 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 37 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 38 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 39 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 40 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 41 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 42 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 43 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 44 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 45 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 46 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 47 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 48 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 49 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 50 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 51 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 52 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 53 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 54 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 55 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 56 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 57 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 58 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 59 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 60 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 61 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 62 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 63 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 64 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 65 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 66 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 67 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 68 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 69 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 70 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 71 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 72 (NC)
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
 
 
 {{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
@@ -776,7 +515,7 @@ The Photon 2 and Argon utilize BLE for configuration of Wi-Fi. Using BLE allow m
 
 Neither the Photon 2 nor Argon use the Wi-Fi based setup (SoftAP) that is used on the Photon and P1.
 
-| Feature | P2 | P1 | Argon |
+| Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
