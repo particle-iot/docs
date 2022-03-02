@@ -64,13 +64,13 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 
 The P2 module supports programming and debugging use SWD (Serial Wire Debug) on pins D6 and D7.
 
-| Pin   | JTAG   | SWD    | P2 Pin # | Pull at boot |
-| :---: | :----: | :----: | :------: | :----------: |
-| D7    | SWDIO  | PA[27] | 54       | Pull-up      |
-| D6    | SWCLK  | PB[3]  | 55       | Pull-down    |
-| 3V3   | Power  |        |          |              |
-| GND   | Ground |        |          |              |
-| RST   | Reset  |        |          |              |
+| Pin   | JTAG   | MCU Pin | P2 Pin # | Pull at boot |
+| :---: | :----: | :-----: | :------: | :----------: |
+| D7    | SWDIO  | PA[27]  | 54       | Pull-up      |
+| D6    | SWCLK  | PB[3]   | 55       | Pull-down    |
+| 3V3   | Power  |         |          |              |
+| GND   | Ground |         |          |              |
+| RST   | Reset  |         |          |              |
 
 When the bootloader starts, for a brief period of time a weak pull-up is applied to pin D7 and pull-down to pin D6 to detect whether a SWD debugger is attached. After boot, you can use these pins for regular GPIO, but beware of a possible GPIO state change caused by the pull-up or pull-down when using these pins as output.
 
@@ -161,33 +161,33 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 | Pin Name | Module Pin |   |   |   |   | MCU |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| A0 / D11 | 50 | ADC_4 | | | | PB[1] |
-| A1 / D12 | 43 | ADC_5 | | | | PB[2] |
-| A2 / D13 | 49 | ADC_3 | | | | PB[7] |
-| A5 / D14 | 23 | ADC_0 | | | | PB[4] |
-| D0 / A3 | 36 | ADC_2 | Wire (SDA) | | | PB[6] |
-| D1 / A4 | 35 | ADC_1 | Wire (SCL) | | | PB[5] |
-| D10 / WKP | 30 | | | | | PA[15] |
-| D2 | 45 | | | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
-| D3 | 51 | | | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
-| D4 | 52 | | | SPI1 (SCK) | Serial2 (TX) | PA[18] |
-| D5 | 53 | | | SPI1 (SS) | Serial2 (RX) | PA[19] |
-| D6 | 55 | | SWCLK | | | PB[3] |
-| D7 | 54 | | SWDIO | | | PA[27] |
-| RGBB | 31 | | | | | PB[22] |
-| RGBG | 32 | | | | | PB[23] |
-| RGBR | 29 | | | | | PA[30] |
-| RX / D9 | 63 | | | | Serial1 (RX)  | PA[8] |
-| S0 / D15 | 40 | | | SPI (MOSI) | | PA[12] |
-| S1 / D16 | 41 | | | SPI (MISO) | | PA[13] |
-| S2 / D17 | 42 | | | SPI (SCK) | | PA[14] |
-| S3 / D18 | 44 | | | SPI (SS) | | PB[26] |
-| S4 / D19 | 47 | | | | | PA[0] |
-| S5 / D20 | 48 | | | | | PB[29] |
-| S6 / D21 | 33 | | | | | PB[31] |
-| TX / D8 | 64 | | | | Serial1 (TX) | PA[7] |
-| USBDATA- | 62 | | | | | PA[25] |
-| USBDATA+ | 61 | | | | | PA[26] |
+| A0 / D11 | 50 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A1 / D12 | 43 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A2 / D13 | 49 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
+| A5 / D14 | 23 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
+| D0 / A3 | 36 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
+| D1 / A4 | 35 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
+| D10 / WKP | 30 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[15] |
+| D2 | 45 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
+| D3 | 51 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
+| D4 | 52 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | PA[18] |
+| D5 | 53 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
+| D6 | 55 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| D7 | 54 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| RGBB | 31 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
+| RGBG | 32 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
+| RGBR | 29 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
+| RX / D9 | 63 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
+| S0 / D15 | 40 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | PA[12] |
+| S1 / D16 | 41 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | PA[13] |
+| S2 / D17 | 42 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | PA[14] |
+| S3 / D18 | 44 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PB[26] |
+| S4 / D19 | 47 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| S5 / D20 | 48 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[29] |
+| S6 / D21 | 33 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[31] |
+| TX / D8 | 64 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
+| USBDATA- | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[25] |
+| USBDATA+ | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[26] |
 
 
 {{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
@@ -345,34 +345,34 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 1 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 2 | 3V3_RF | 3.3V power to RF module | |
-| 3 | 3V3_RF | 3.3V power to RF module | |
-| 4 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 5 | 3V3_IO | 3.3V power to MCU IO. | |
-| 6 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 7 | NC | No connection. Do not connect anything to this pin. | |
-| 8 | NC | No connection. Do not connect anything to this pin. | |
-| 9 | NC | No connection. Do not connect anything to this pin. | |
-| 10 | NC | No connection. Do not connect anything to this pin. | |
-| 11 | NC | No connection. Do not connect anything to this pin. | |
-| 12 | VBAT_MEAS | Battery voltage measurement (optional). | |
-| 13 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 14 | NC | No connection. Do not connect anything to this pin. | |
-| 15 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 16 | NC | No connection. Do not connect anything to this pin. | |
-| 17 | NC | No connection. Do not connect anything to this pin. | |
-| 18 | NC | No connection. Do not connect anything to this pin. | |
-| 19 | NC | No connection. Do not connect anything to this pin. | |
-| 20 | NC | No connection. Do not connect anything to this pin. | |
-| 21 | NC | No connection. Do not connect anything to this pin. | |
-| 22 | NC | No connection. Do not connect anything to this pin. | |
+| 1 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 2 | 3V3_RF | 3.3V power to RF module | &nbsp; |
+| 3 | 3V3_RF | 3.3V power to RF module | &nbsp; |
+| 4 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 5 | 3V3_IO | 3.3V power to MCU IO. | &nbsp; |
+| 6 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 7 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 8 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 9 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 10 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 11 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 12 | VBAT_MEAS | Battery voltage measurement (optional). | &nbsp; |
+| 13 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 14 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 15 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 16 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 17 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 18 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 19 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 20 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 21 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 22 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
-| 24 | NC | No connection. Do not connect anything to this pin. | |
-| 25 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 26 | 3V3 | 3.3V power to MCU | |
-| 27 | 3V3 | 3.3V power to MCU | |
-| 28 | GND | Ground. Be sure you connect all P1 ground pins. | |
+| 24 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 25 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 26 | 3V3 | 3.3V power to MCU | &nbsp; |
+| 27 | 3V3 | 3.3V power to MCU | &nbsp; |
+| 28 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
 | 29 | RGBR | RGB LED Red | PA[30] |
 | 30 | D10 / WKP | GPIO. (Was WKP/A7 on P1.) | PA[15] |
 | 31 | RGBB | RGB LED Blue | PB[22] |
@@ -381,9 +381,9 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C, A4 Analog In | PB[5] |
 | 36 | D0 / A3 | D0 GPIO, PWM, I2C, A3 Analog In | PB[6] |
-| 37 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 38 | NC | No connection. Do not connect anything to this pin. | |
-| 39 | GND | Ground. Be sure you connect all P1 ground pins. | |
+| 37 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 38 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 39 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | PA[14] |
@@ -400,26 +400,26 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 53 | D5 | D5 GPIO, Serial2, SPI1 | PA[19] |
 | 54 | D7 | D7 GPIO | PA[27] |
 | 55 | D6 | D6 GPIO | PB[3] |
-| 56 | NC | No connection. Do not connect anything to this pin. | |
-| 57 | NC | No connection. Do not connect anything to this pin. | |
-| 58 | NC | No connection. Do not connect anything to this pin. | |
-| 59 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 60 | NC | No connection. Do not connect anything to this pin. | |
+| 56 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 57 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 58 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 59 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 60 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
 | 61 | USBDATA+ | USB Data+ | PA[26] |
 | 62 | USBDATA- | USB Data- | PA[25] |
 | 63 | RX / D9 | Serial1 RX (received data), GPIO | PA[8] |
 | 64 | TX / D8 | Serial1 TX (transmitted data), GPIO | PA[7] |
-| 65 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 66 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 67 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 68 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 69 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 70 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 71 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 72 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 73 | GND | Ground. Be sure you connect all P1 ground pins. | |
-| 74 | NC | No connection. Do not connect anything to this pin. | |
-| 75 | NC | No connection. Do not connect anything to this pin. | |
+| 65 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 66 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 67 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 68 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 69 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 70 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 71 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 72 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 73 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
+| 74 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
+| 75 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}

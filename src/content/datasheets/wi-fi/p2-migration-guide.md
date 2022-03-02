@@ -34,6 +34,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | &nbsp;&nbsp;2.4 GHz | &check; | &check; | &check; |
 | &nbsp;&nbsp;5 GHz | &check; | | |
 | Bluetooth | BLE 5.0 | | BLE 5.0 |
+| NFC Tag |  | | External antenna required |
 | Antenna | Shared for Wi-Fi and BLE | Wi-Fi only | Separate Wi-Fi and BLE antennas |
 | | Built-in PCB antenna (Wi-Fi & BLE) | Built-in PCB antenna (Wi-Fi) | Built-in chip antenna (BLE) |
 | | | | Required external antenna (Wi-Fi) |
@@ -91,18 +92,18 @@ The following are all SPI-related pins on the P1 and P2:
 
 | Pin | P1 Pin Name | P1 SPI | P2 Pin Name | P2 SPI |
 | :---: | :--- | :--- | :--- | :--- |
-| | A4 | SPI (MISO) | NC | &nbsp; |
-| | A3 | SPI (SCK) | NC | &nbsp; |
-| | A5 | SPI (MOSI) | A5 / D14 | &nbsp; |
-| | P1S0 | &nbsp; | S0 / D15 | SPI (MOSI) |
-| | P1S1 | &nbsp; | S1 / D16 | SPI (MISO) |
-| | P1S2 | &nbsp; | S2 / D17 | SPI (SCK) |
-| | P1S3 | &nbsp; | S3 / D18 | SPI (SS) |
-| | D2 | SPI1 (MOSI) | D2 | SPI1 (MOSI) |
-| | A2 | SPI (SS) | A2 / D13 | &nbsp; |
-| | D3 | SPI1 (MISO) | D3 | SPI1 (MISO) |
-| | D4 | SPI1 (SCK) | D4 | SPI1 (SCK) |
-| | D5 | SPI1 (SS) | D5 | SPI1 (SS) |
+| &nbsp; | A4 | SPI (MISO) | NC | &nbsp; |
+| &nbsp; | A3 | SPI (SCK) | NC | &nbsp; |
+| &nbsp; | A5 | SPI (MOSI) | A5 / D14 | &nbsp; |
+| &nbsp; | P1S0 | &nbsp; | S0 / D15 | SPI (MOSI) |
+| &nbsp; | P1S1 | &nbsp; | S1 / D16 | SPI (MISO) |
+| &nbsp; | P1S2 | &nbsp; | S2 / D17 | SPI (SCK) |
+| &nbsp; | P1S3 | &nbsp; | S3 / D18 | SPI (SS) |
+| &nbsp; | D2 | SPI1 (MOSI) | D2 | SPI1 (MOSI) |
+| &nbsp; | A2 | SPI (SS) | A2 / D13 | &nbsp; |
+| &nbsp; | D3 | SPI1 (MISO) | D3 | SPI1 (MISO) |
+| &nbsp; | D4 | SPI1 (SCK) | D4 | SPI1 (SCK) |
+| &nbsp; | D5 | SPI1 (SS) | D5 | SPI1 (SS) |
 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
@@ -138,14 +139,14 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 | Pin | P1 Pin Name | P1 Serial | P2 Pin Name | P2 Serial |
 | :---: | :--- | :--- | :--- | :--- |
-| | RGBB | Serial2 (RX) | RGBB | &nbsp; |
-| | RGBG | Serial2 (TX) | RGBG | &nbsp; |
-| | D2 | &nbsp; | D2 | Serial2 (RTS) |
-| | D3 | &nbsp; | D3 | Serial2 (CTS) |
-| | D4 | &nbsp; | D4 | Serial2 (TX) |
-| | D5 | &nbsp; | D5 | Serial2 (RX) |
-| | RX | Serial1 (RX) | RX / D9 | Serial1 (RX)  |
-| | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
+| &nbsp; | RGBB | Serial2 (RX) | RGBB | &nbsp; |
+| &nbsp; | RGBG | Serial2 (TX) | RGBG | &nbsp; |
+| &nbsp; | D2 | &nbsp; | D2 | Serial2 (RTS) |
+| &nbsp; | D3 | &nbsp; | D3 | Serial2 (CTS) |
+| &nbsp; | D4 | &nbsp; | D4 | Serial2 (TX) |
+| &nbsp; | D5 | &nbsp; | D5 | Serial2 (RX) |
+| &nbsp; | RX | Serial1 (RX) | RX / D9 | Serial1 (RX)  |
+| &nbsp; | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -176,21 +177,21 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 | Pin | P1 Pin Name | P1 ADC | P2 Pin Name | P2 ADC |
 | :---: | :--- | :--- | :--- | :--- |
-| | A4 | &check; | NC | &nbsp; |
-| | A3 | &check; | NC | &nbsp; |
-| | A5 | &check; | A5 / D14 | &check; |
-| | DAC / A6 | &check; | NC | &nbsp; |
-| | WKP / A7 | &check; | D10 / WKP | &nbsp; |
-| | D1 | &nbsp; | D1 / A4 | &check; |
-| | D0 | &nbsp; | D0 / A3 | &check; |
-| | P1S0 | &check; | S0 / D15 | &nbsp; |
-| | P1S1 | &check; | S1 / D16 | &nbsp; |
-| | P1S2 | &check; | S2 / D17 | &nbsp; |
-| | A1 | &check; | A1 / D12 | &check; |
-| | P1S3 | &check; | S3 / D18 | &nbsp; |
-| | P1S5 | &check; | S5 / D20 | &nbsp; |
-| | A2 | &check; | A2 / D13 | &check; |
-| | A0 | &check; | A0 / D11 | &check; |
+| &nbsp; | A4 | &check; | NC | &nbsp; |
+| &nbsp; | A3 | &check; | NC | &nbsp; |
+| &nbsp; | A5 | &check; | A5 / D14 | &check; |
+| &nbsp; | DAC / A6 | &check; | NC | &nbsp; |
+| &nbsp; | WKP / A7 | &check; | D10 / WKP | &nbsp; |
+| &nbsp; | D1 | &nbsp; | D1 / A4 | &check; |
+| &nbsp; | D0 | &nbsp; | D0 / A3 | &check; |
+| &nbsp; | P1S0 | &check; | S0 / D15 | &nbsp; |
+| &nbsp; | P1S1 | &check; | S1 / D16 | &nbsp; |
+| &nbsp; | P1S2 | &check; | S2 / D17 | &nbsp; |
+| &nbsp; | A1 | &check; | A1 / D12 | &check; |
+| &nbsp; | P1S3 | &check; | S3 / D18 | &nbsp; |
+| &nbsp; | P1S5 | &check; | S5 / D20 | &nbsp; |
+| &nbsp; | A2 | &check; | A2 / D13 | &check; |
+| &nbsp; | A0 | &check; | A0 / D11 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
@@ -206,19 +207,19 @@ The pins that support PWM are different on the P1 and P2.
 
 | Pin | P1 Pin Name | P1 PWM | P2 Pin Name | P2 PWM |
 | :---: | :--- | :--- | :--- | :--- |
-| | A4 | &check; | NC | &nbsp; |
-| | A5 | &check; | A5 / D14 | &check; |
-| | WKP / A7 | &check; | D10 / WKP | &nbsp; |
-| | P1S6 | &check; | S6 / D21 | &nbsp; |
-| | D1 | &check; | D1 / A4 | &check; |
-| | D0 | &check; | D0 / A3 | &check; |
-| | P1S0 | &check; | S0 / D15 | &check; |
-| | P1S1 | &check; | S1 / D16 | &check; |
-| | D2 | &check; | D2 | &nbsp; |
-| | A2 | &nbsp; | A2 / D13 | &check; |
-| | D3 | &check; | D3 | &nbsp; |
-| | RX | &check; | RX / D9 | &nbsp; |
-| | TX | &check; | TX / D8 | &nbsp; |
+| &nbsp; | A4 | &check; | NC | &nbsp; |
+| &nbsp; | A5 | &check; | A5 / D14 | &check; |
+| &nbsp; | WKP / A7 | &check; | D10 / WKP | &nbsp; |
+| &nbsp; | P1S6 | &check; | S6 / D21 | &nbsp; |
+| &nbsp; | D1 | &check; | D1 / A4 | &check; |
+| &nbsp; | D0 | &check; | D0 / A3 | &check; |
+| &nbsp; | P1S0 | &check; | S0 / D15 | &check; |
+| &nbsp; | P1S1 | &check; | S1 / D16 | &check; |
+| &nbsp; | D2 | &check; | D2 | &nbsp; |
+| &nbsp; | A2 | &nbsp; | A2 / D13 | &check; |
+| &nbsp; | D3 | &check; | D3 | &nbsp; |
+| &nbsp; | RX | &check; | RX / D9 | &nbsp; |
+| &nbsp; | TX | &check; | TX / D8 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -236,8 +237,8 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 | Pin | P1 Pin Name | P1 DAC | P2 Pin Name | P2 DAC |
 | :---: | :--- | :--- | :--- | :--- |
-| | A3 | &check; | NC | &nbsp; |
-| | DAC / A6 | &check; | NC | &nbsp; |
+| &nbsp; | A3 | &check; | NC | &nbsp; |
+| &nbsp; | DAC / A6 | &check; | NC | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
@@ -270,8 +271,8 @@ The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 device
 
 | Pin | P1 Pin Name | P1 CAN | P2 Pin Name | P2 CAN |
 | :---: | :--- | :--- | :--- | :--- |
-| | D1 | &check; | D1 / A4 | &nbsp; |
-| | D2 | &check; | D2 | &nbsp; |
+| &nbsp; | D1 | &check; | D1 / A4 | &nbsp; |
+| &nbsp; | D2 | &check; | D2 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
@@ -288,10 +289,10 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 | Pin | P1 Pin Name | P1 I2S | P2 Pin Name | P2 I2S |
 | :---: | :--- | :--- | :--- | :--- |
-| | D2 | I2S3_SD | D2 | &nbsp; |
-| | SETUP | I2S3_MCK | SETUP | &nbsp; |
-| | D4 | I2S3_SCK | D4 | &nbsp; |
-| | D5 | I2S3_WS | D5 | &nbsp; |
+| &nbsp; | D2 | I2S3_SD | D2 | &nbsp; |
+| &nbsp; | SETUP | I2S3_MCK | SETUP | &nbsp; |
+| &nbsp; | D4 | I2S3_SCK | D4 | &nbsp; |
+| &nbsp; | D5 | I2S3_WS | D5 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}

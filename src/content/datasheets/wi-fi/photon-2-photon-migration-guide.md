@@ -37,6 +37,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 | &nbsp;&nbsp;2.4 GHz | &check; | &check; | &check; |
 | &nbsp;&nbsp;5 GHz | &check; | | |
 | Bluetooth | BLE 5.0 | | BLE 5.0 |
+| NFC Tag |  | | External antenna required |
 | Antenna | Shared for Wi-Fi and BLE | Wi-Fi only | Separate Wi-Fi and BLE antennas |
 | | Built-in PCB antenna (Wi-Fi & BLE) | Built-in PCB antenna (Wi-Fi) | Built-in chip antenna (BLE) |
 | | | | Required external antenna (Wi-Fi) |
@@ -71,6 +72,10 @@ There are two Photon 2 migration guides, depending on what you are migrating fro
 
 ## Hardware 
 
+### Battery support
+
+The Photon 2 has a connector for a Li-Po battery and built-in charger. The Photon does not include battery power functionality.
+
 ### No 5V tolerance!
 
 On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case for Gen 3 (nRF52840) and the Photon 2 (RTL872x). You must not exceed 3.3V on any GPIO pin, including ports such as serial, I2C, and SPI.
@@ -91,9 +96,9 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 | D3 | SPI1 (MISO) | D3 | SPI1 (MOSI) |
 | D4 | SPI1 (SCK) | D4 | SPI1 (MISO) |
 | D5 | SPI1 (SS) | D5 / WKP | SPI1 (SS) |
-| | | MISO / D11 | SPI (MISO) |
-| | | MOSI / D12 | SPI (MOSI) |
-| | | SCK / D13 | SPI (SCK) |
+| &nbsp; | &nbsp; | MISO / D11 | SPI (MISO) |
+| &nbsp; | &nbsp; | MOSI / D12 | SPI (MOSI) |
+| &nbsp; | &nbsp; | SCK / D13 | SPI (SCK) |
 | WKP / A7 | &nbsp; | D5 / WKP | SPI1 (SS) |
 
 
@@ -130,17 +135,17 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 | Photon Pin Name | Photon Serial | Photon 2 Pin Name | Photon 2 Serial |
 | :--- | :--- | :--- | :--- |
-| | | D16 | Serial3 (RX) |
+| &nbsp; | &nbsp; | D16 | Serial3 (RX) |
 | D2 | &nbsp; | D2 | Serial2 (RTS) |
 | D3 | &nbsp; | D3 | Serial2 (TX) |
 | D4 | &nbsp; | D4 | Serial2 (RX) |
 | D5 | &nbsp; | D5 / WKP | Serial2 (CTS) |
-| | | MISO / D11 | Serial3 (CTS) |
-| | | MOSI / D12 | Serial3 (RTS) |
-| RGBB | Serial2 (RX) | | |
-| RGBG | Serial2 (TX) | | |
+| &nbsp; | &nbsp; | MISO / D11 | Serial3 (CTS) |
+| &nbsp; | &nbsp; | MOSI / D12 | Serial3 (RTS) |
+| RGBB | Serial2 (RX) | &nbsp; | &nbsp; |
+| RGBG | Serial2 (TX) | &nbsp; | &nbsp; |
 | RX | Serial1 (RX) | RX / D10 | Serial1 (RX)  |
-| | | SCK / D13 | Serial3 (TX) |
+| &nbsp; | &nbsp; | SCK / D13 | Serial3 (TX) |
 | TX | Serial1 (TX) | TX / D9 | Serial1 (TX) |
 | WKP / A7 | &nbsp; | D5 / WKP | Serial2 (CTS) |
 
@@ -181,7 +186,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | A5 | &check; | A5 / D14 | &check; |
 | D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
-| DAC / A6 | &check; | | |
+| DAC / A6 | &check; | &nbsp; | &nbsp; |
 | WKP / A7 | &check; | D5 / WKP | &nbsp; |
 
 
@@ -228,7 +233,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | Photon Pin Name | Photon DAC | Photon 2 Pin Name | Photon 2 DAC |
 | :--- | :--- | :--- | :--- |
 | A3 | &check; | D0 / A3 | &nbsp; |
-| DAC / A6 | &check; | | |
+| DAC / A6 | &check; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
@@ -242,8 +247,8 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | Module Pin | 30 | 30 |
 | Pin Name | WKP | WKP |
 | | A7 | D11 |
-| Analog Input | &check; | |
-| PWM | &check; | |
+| Analog Input | &check; | &nbsp; |
+| PWM | &check; | &nbsp; |
 
 On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode. 
 
@@ -282,7 +287,7 @@ There is no software support for I2S on the Photon 2 either, and while the RTL87
 | D2 | I2S3_SD | D2 | &nbsp; |
 | D4 | I2S3_SCK | D4 | &nbsp; |
 | D5 | I2S3_WS | D5 / WKP | &nbsp; |
-| SETUP | I2S3_MCK | | |
+| SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
@@ -299,6 +304,11 @@ On Gen 2 and Gen 3 devices, retained memory is 3068 bytes.
 
 The flash file system can be used for data storage on the Photon 2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
+### USB
+
+The Photon 2 has a USB C connector, like the Tracker One and Tracker Eval Board.
+
+The Photon has a Micro USB B connector.
 
 ### Photon Bottom
 
@@ -314,6 +324,7 @@ The [Particle classic adapter](/datasheets/accessories/gen3-accessories/#classic
 
 There are many pin limitations, and in particular the classic adapter does not work if you need to use SPI.
 
+Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as these pins are the pins that hang over the edge and exist only on the Electron, not the Photon
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0339ca50-9a3e-11ec-b909-0242ac120002 --}}
 
@@ -326,17 +337,17 @@ There are many pin limitations, and in particular the classic adapter does not w
 | A3 | A3 True analog out, analog in, GPIO. | D16 | D16 GPIO, Serial3 RX. Was A3 on Argon. |
 | A4 | A4 Analog in, GPIO, SPI MISO. | D15 | D15 GPIO, Was A4 on Argon. |
 | A5 | A5 Analog in, GPIO, SPI MOSI. | A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO |
-| B0 | B0, GPIO, PWM | | Not Connected |
-| B1 | B1, GPIO, PWM | | Not Connected |
-| B2 | B2, analog in, GPIO, PWM | | Not Connected |
-| B3 | B3, analog in, GPIO, PWM | | Not Connected |
-| B4 | B4 Analog in, GPIO | | Not Connected |
+| B0 | B0, GPIO, PWM | &nbsp; | Not Connected |
+| B1 | B1, GPIO, PWM | &nbsp; | Not Connected |
+| B2 | B2, analog in, GPIO, PWM | &nbsp; | Not Connected |
+| B3 | B3, analog in, GPIO, PWM | &nbsp; | Not Connected |
+| B4 | B4 Analog in, GPIO | &nbsp; | Not Connected |
 | B5 | B5 Analog in, GPIO | MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS |
-| C0 | Serial5 RX (received data), GPIO. | | Not Connected |
-| C1 | Serial5 TX (trasmitted data), SPI2 MOSI, GPIO. | | Not Connected |
-| C2 | Serial4 RX (received data), SPI2 MISO, GPIO. | | Not Connected |
-| C3 | Serial4 TX (transmitted data), SPI2 SCK, GPIO. | | Not Connected |
-| C4 | I2C, CAN TX, GPIO. | | Not Connected |
+| C0 | Serial5 RX (received data), GPIO. | &nbsp; | Not Connected |
+| C1 | Serial5 TX (trasmitted data), SPI2 MOSI, GPIO. | &nbsp; | Not Connected |
+| C2 | Serial4 RX (received data), SPI2 MISO, GPIO. | &nbsp; | Not Connected |
+| C3 | Serial4 TX (transmitted data), SPI2 SCK, GPIO. | &nbsp; | Not Connected |
+| C4 | I2C, CAN TX, GPIO. | &nbsp; | Not Connected |
 | C5 | I2C, CAN RX, GPIO. | D8 | GPIO, PWM, SWDIO |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In |
@@ -347,14 +358,14 @@ There are many pin limitations, and in particular the classic adapter does not w
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK. |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO. Blue LED. |
 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX |
-| | Not Connected | EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. |
+| &nbsp; | Not Connected | EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. |
 | GND | Ground. You only need to use one of the Photon ground pins. | GND | Ground. |
-| | Not Connected | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. |
-| | Not Connected | MODE | MODE button, has internal pull-up |
+| &nbsp; | Not Connected | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. |
+| &nbsp; | Not Connected | MODE | MODE button, has internal pull-up |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
 | RX | Serial1 RX (received data), GPIO, PWM. | RX / D10 | Serial1 RX (received data), GPIO |
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D9 | Serial1 TX (transmitted data), GPIO |
-| VBAT | Battery for internal real-time clock, jumpered to 3V3. | | Not Connected |
+| VBAT | Battery for internal real-time clock, jumpered to 3V3. | &nbsp; | Not Connected |
 | VIN | Power in 3.9V to 12 VDC. Or power out (when powered by USB) 4.8 VDC at 1A maximum. | VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. |
 | WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS |
 
@@ -363,6 +374,9 @@ There are many pin limitations, and in particular the classic adapter does not w
 
 
 ### Full module pin comparison
+
+{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Photon 2 Pinout Diagram" class="full-width"}}
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 

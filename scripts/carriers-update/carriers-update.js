@@ -523,7 +523,7 @@ const { option } = require('yargs');
             line = '';
             for(const c of options.columns) {
                 if (c.checkmark) {
-                    line += '| ' + (d[c.key] ? '&check;' : '') + ' ';
+                    line += '| ' + (d[c.key] ? '&check;' : '&nbsp;') + ' ';
                 }
                 else
                 if (d[c.key]) {
@@ -535,7 +535,7 @@ const { option } = require('yargs');
                     }
                 }
                 else {
-                    line += '| ';
+                    line += '| &nbsp; ';
                 }
             }
             md += line + '|\n';             

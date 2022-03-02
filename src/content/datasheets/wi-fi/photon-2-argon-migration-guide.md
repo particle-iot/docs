@@ -37,6 +37,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 | &nbsp;&nbsp;2.4 GHz | &check; | &check; | &check; |
 | &nbsp;&nbsp;5 GHz | &check; | | |
 | Bluetooth | BLE 5.0 | | BLE 5.0 |
+| NFC Tag |  | | External antenna required |
 | Antenna | Shared for Wi-Fi and BLE | Wi-Fi only | Separate Wi-Fi and BLE antennas |
 | | Built-in PCB antenna (Wi-Fi & BLE) | Built-in PCB antenna (Wi-Fi) | Built-in chip antenna (BLE) |
 | | | | Required external antenna (Wi-Fi) |
@@ -71,6 +72,11 @@ There are two Photon 2 migration guides, depending on what you are migrating fro
 
 ## Hardware 
 
+### Antennas
+
+The Argon requires an external Wi-Fi antenna, and has a built-in chip antenna for BLE. It can optionally use an external chip antenna.
+
+The Photon 2 has a built-in trace antenna that is shared by Wi-Fi and BLE. It can optionally use an external 2.4 GHz antenna for both Wi-Fi and BLE.
 
 ### SPI
 
@@ -212,6 +218,20 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
+### CAN (Controller Area Network)
+
+Neither the Argon nor the Photon 2 support CAN.
+
+- The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
+- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the Photon 2.
+
+
+### I2S (Sound)
+
+The Argon supports I2S (sound) input and output with a third-party library.
+
+There is no software support for I2S on the Photon 2, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
+
 ### Interrupts
 
 All pins can be used for interrupts on Gen 3 devices and the Photon 2.
@@ -226,8 +246,18 @@ On Gen 2 and Gen 3 devices, retained memory is 3068 bytes.
 
 The flash file system can be used for data storage on the Photon 2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
+### USB
+
+The Photon 2 has a USB C connector, like the Tracker One and Tracker Eval Board.
+
+The Argon has a Micro USB B connector.
+
 
 ### Full module pin comparison
+
+{{imageOverlay src="/assets/images/argon/argon-pinout.png" alt="Argon Pinout Diagram" class="full-width"}}
+
+{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Photon 2 Pinout Diagram" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 

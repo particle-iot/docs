@@ -44,18 +44,45 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 ### Power
 
-Power can be supplied via:
+#### USB C
+The USB C port is the easiest way to power up the Photon 2. Please make sure that the USB port is able to provide at least 500mA. 
 
-- USB C connector on edge of module (up to 500 mA at 5V)
-- LiPo battery connector (JST-PH)
-- Li+ pin 
-- VUSB pin at 5VDC
+#### VUSB Pin
+The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.  This pin is also protected with an internal fuse rated at 1000mA.
 
-### RF
+It is also possible to use the VUSB to power the Photon 2 if not using the USB port. 
+
+#### LiPo
+If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Photon 2 has an on board LiPo charger that will charge and power the device when USB source is plugged in or power the device from the LiPo alone in the absence of the USB.
+
+{{box op="start" cssClass="boxed warningBox"}}
+**NOTE:**
+Please pay attention to the polarity of the JST-PH LiPo connector. Not all LiPo batteries follow the same polarity convention!
+{{box op="end"}}
+
+![LiPo Polarity](/assets/images/lipo-polarity.png)
+
+#### Li+ PIN
+This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Argon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
+
+#### 3V3 PIN
+This pin is the output of the on board 3.3V step-down switching regulator. The regulator is rated at 500mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
+
+#### EN PIN
+
+The **EN** pin is not a power pin, per se, but it controls the 3V3 power. The EN pin is pulled high by a 100K resistor to the higher of VUSB, the micro USB connector, or Li+. Because the pull-up can result in voltages near 5V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
+
+The EN pin can force the device into a deep power-down state where it uses very little power. It also can used to assure that the device is completely reset, similar to unplugging it, with one caveat:
+
+If using the EN pin to deeply reset the device, you must be careful not to allow leakage current back into the nRF52 MCU by GPIO or by pull-ups to 3V3. If you only power external devices by 3V3 you won't run into this, as 3V3 is de-powered when EN is low. 
+
+However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a nRF52 GPIO high when EN is low can provide enough current to keep the nRF52 from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the nRF52 when 3V3 is de-powered.
+
+### Antennna
 
 - The Photon 2 includes an on-module PCB trace antenna and a U.FL connector that allows the user to connect an external antenna.
 - The antenna is selected in software. The default is the PCB trace antenna.
-
+- A single antenna is used for both Wi-Fi and BLE.
 
 ### FCC Approved Antennas
 
@@ -72,7 +99,7 @@ The Photon 2 module supports programming and debugging use SWD (Serial Wire Debu
 
 When the bootloader starts, for a brief period of time a weak pull-up is applied to pin D8 and pull-down to pin D6 to detect whether a SWD debugger is attached. After boot, you can use these pins for regular GPIO, but beware of a possible GPIO state change caused by the pull-up or pull-down when using these pins as output.
 
-| Pin   | JTAG   | SWD    | Pull at boot |
+| Pin   | JTAG   | MCU Pin| Pull at boot |
 | :---: | :----: | :----: | :----------: |
 | D8    | SWDIO  | PA[27] | Pull-up      |
 | D6    | SWCLK  | PB[3]  | Pull-down    |
@@ -80,6 +107,21 @@ When the bootloader starts, for a brief period of time a weak pull-up is applied
 | GND   | Ground |        |              |
 | RST   | Reset  |        |              |
 
+
+![SWD Debug Connector](/assets/images/argon/swd-connector-pinout.png)
+
+
+### LED status
+
+#### System RGB LED
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/)
+
+#### Charge status LED
+
+|State | Description |
+|:---|:---|
+|ON | Charging in progress |
+|OFF | Charging complete |
 
 ---
 
@@ -161,7 +203,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### Pin markings
 
-<div align=center><img src="/assets/images/p1-pin-numbers.png" width=600></div>
+{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Pinout Diagram" class="full-width"}}
 
 ### GPIO and port listing
 
@@ -169,26 +211,26 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 | Pin Name |   |   |   |   | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | ADC_4 | | | | PB[1] |
-| A1 / D18 | ADC_5 | | | | PB[2] |
-| A2 / D17 | ADC_0 | | | | PB[4] |
-| A5 / D14 | ADC_3 | | SPI (SS) | | PB[7] |
-| D0 / A3 | ADC_2 | Wire (SDA) | | | PB[6] |
-| D1 / A4 | ADC_1 | Wire (SCL) | | | PB[5] |
-| D15 | | | | | PB[26] |
-| D16 | | | | Serial3 (RX) | PA[19] |
-| D2 | | | SPI1 (SCK) | Serial2 (RTS) | PA[14] |
-| D3 | | | SPI1 (MOSI) | Serial2 (TX) | PA[12] |
-| D4 | | | SPI1 (MISO) | Serial2 (RX) | PA[13] |
-| D5 / WKP | | | SPI1 (SS) | Serial2 (CTS) | PA[15] |
-| D6 | | SWCLK | | | PB[3] |
-| D7 | | | | | PA[0] |
-| D8 | | SWDIO | | | PA[27] |
-| MISO / D11 | | | SPI (MISO) | Serial3 (CTS) | PA[17] |
-| MOSI / D12 | | | SPI (MOSI) | Serial3 (RTS) | PA[16] |
-| RX / D10 | | | | Serial1 (RX)  | PA[8] |
-| SCK / D13 | | | SPI (SCK) | Serial3 (TX) | PA[18] |
-| TX / D9 | | | | Serial1 (TX) | PA[7] |
+| A0 / D19 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A1 / D18 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A2 / D17 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
+| A5 / D14 | ADC_3 | &nbsp; | SPI (SS) | &nbsp; | PB[7] |
+| D0 / A3 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
+| D1 / A4 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
+| D15 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[26] |
+| D16 | &nbsp; | &nbsp; | &nbsp; | Serial3 (RX) | PA[19] |
+| D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (RTS) | PA[14] |
+| D3 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (TX) | PA[12] |
+| D4 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (RX) | PA[13] |
+| D5 / WKP | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (CTS) | PA[15] |
+| D6 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
+| D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| D8 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (CTS) | PA[17] |
+| MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (RTS) | PA[16] |
+| RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
+| SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | Serial3 (TX) | PA[18] |
+| TX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
@@ -297,9 +339,9 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 | Pin Name | Description | MCU |
 | :--- | :--- | :--- |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
-| 3V3 | Regulated 3.3V DC output, maximum load 500 mA | |
+| 3V3 | Regulated 3.3V DC output, maximum load 500 mA | &nbsp; |
 | MODE | MODE button, has internal pull-up | PA[4] |
-| GND | Ground. | |
+| GND | Ground. | &nbsp; |
 | A0 / D19 | A0 Analog in, GPIO | PB[1] |
 | A1 / D18 | A1 Analog in, GPIO | PB[2] |
 | A2 / D17 | A2 Analog in, GPIO, PWM. | PB[4] |
@@ -320,9 +362,9 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 | D6 | D6 GPIO, SWCLK. | PB[3] |
 | D7 | D7 GPIO. Blue LED. | PA[0] |
 | D8 | GPIO, PWM, SWDIO | PA[27] |
-| VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | |
-| EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. | |
-| LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. | |
+| VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | &nbsp; |
+| EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. | &nbsp; |
+| LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
