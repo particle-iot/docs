@@ -1,0 +1,65 @@
+<div class="apiHelper apiHelperLocalLogIn">
+    <div class="apiHelperBox">
+        <div class="pageLogin">
+            <p>You must log in again to use this tool</p>
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr class="logInUsingRow">
+                        <td class="apiHelperProductSelectorLabel">Log in using:</td>
+                        <td><label><input name="logInUsingRadio" value="userPass" type="radio" checked />Username and Password</label> &nbsp;&nbsp;<label><input name="logInUsingRadio" value="token" type="radio" />Access token</label></td>
+                    </tr>
+                    <tr class="usernameRow">
+                        <td class="apiHelperProductSelectorLabel">Username (Email):</td>
+                        <td><input class="usernameInput" type="text"/></td>
+                    </tr>
+                    <tr class="passwordRow">
+                        <td class="apiHelperProductSelectorLabel">Password:</td>
+                        <td><input class="passwordInput" type="password"/></td>
+                    </tr>
+                    <tr class="accessTokenRow">
+                        <td class="apiHelperProductSelectorLabel">Access token:</td>
+                        <td><input class="accessTokenInput" type="text" size="50"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="apiHelperButton actionButton">Login</button>
+                        </td>                
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pageOTP" style="display:none">
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr class="otpRow">
+                        <td class="apiHelperProductSelectorLabel">MFA OTP Token:</td>
+                        <td><input class="otpInput" type="text" size="10"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="apiHelperButton actionButton">Continue Login</button>
+                        </td>                
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+        <div class="pageLogout" style="display:none">
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="apiHelperButton actionButton">Logout</button>
+                        </td>                
+                        <td>
+                            Logged in as: <span class="loggedInAs"></span>
+                        </td>                
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+        <div class="pageLoginFailed" style="display:none">
+            <p>Login failed. Try again.</p>
+        </div>
+    </div>
+</div>
+
