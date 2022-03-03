@@ -1151,9 +1151,270 @@ $(document).ready(function() {
 
     });
     
+    $('.apiHelperDeviceRemove').each(function() {
+        const thisPartial = $(this);
+        const gaCategory = 'deviceRemove';
+
+        const deviceTextAreaElem = $(thisPartial).find('.deviceTextArea');
+        const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
+        const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
+        const releaseSimElem = $(thisPartial).find('.releaseSim');
+        const dryRunCheckboxElem = $(thisPartial).find('.dryRunCheckbox');
+        const actionButtonElem = $(thisPartial).find('.actionButton');
+        const statusElem = $(thisPartial).find('.apiHelperStatus');
+        const logDivElem = $(thisPartial).find('.logDiv');
+        
+        const setStatus = function(s) {
+            $(statusElem).text(s);
+        }
+        const appendLog = function(s) {
+            const textNode = document.createTextNode(s);
+            $(logDivElem).append(textNode, document.createElement('br'));
+        }
+
+        let deviceList;
+        let deviceInfo = [];
+        let userInfo = {
+            productIndex: {},
+            productDevices: {}
+        };
+
+        const checkDeviceList = function() {
+            const deviceListRaw = $(deviceTextAreaElem).val();
+
+            const deviceIdRE = /([a-f0-9]{24})/gi;
+
+            deviceList = deviceListRaw.match(deviceIdRE);
+            if (deviceList && deviceList.length) {
+                $(actionButtonElem).prop('disabled', false);
+                setStatus(deviceList.length + ' device IDs entered');
+            }
+            else {
+                $(actionButtonElem).prop('disabled', true);
+                setStatus('No device IDs in box');
+            }
+        };
+
+        const getOrgProducts = function(options, org) {
+            return new Promise(async function(resolve, reject) {
+                const request = {
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        setStatus('Getting org products failed');
+                        reject();
+                    },
+                    headers: {
+                        'Accept':'application/json',
+                        'Authorization': 'Authorization: Bearer ' + options.accessToken
+                    },
+                    method: 'GET',
+                    success: function (resp, textStatus, jqXHR) {
+                        userInfo.orgs[org.id] = Object.assign({}, org);
+                        userInfo.orgs[org.id].products = resp.products;
+                        appendLog(userInfo.orgs[org.id].products.length + ' products in organization ' + org.name);
+                        resolve();
+                    },
+                    url: 'https://api.particle.io/v1/orgs/' + org.id + '/products/'
+                }; 
+    
+                $.ajax(request);
+            });
+        }
+
+
+
+        const getOrganizations = function(options) {
+            return new Promise(async function(resolve, reject) {
+                const request = {
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        setStatus('Listing organizations failed');
+                        reject();
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + options.accessToken,
+                        'Accept': 'application/json'
+                    },
+                    method: 'GET',
+                    success: function (resp, textStatus, jqXHR) {
+                        userInfo.orgList = resp.organizations;
+                        resolve();
+                    },
+                    url: 'https://api.particle.io/v1/orgs/'
+                };
+
+                $.ajax(request);
+            });
+        };
+
+        const listProductDevicesPage = function(options, productId, page) {
+            return new Promise(async function(resolve, reject) {
+                apiHelper.particle.listDevices({ auth: options.accessToken, product: productId, page }).then(
+                    function(data) {
+                        /*
+                        sandboxProductCount += data.body.devices.length;
+                        */
+                        if (!userInfo.productDevices[productId]) {
+                            userInfo.productDevices[productId] = [];
+                        }
+                        
+                        for(const d of data.body.devices) {
+                            userInfo.productDevices[productId].push(d);
+                        }
+
+                        resolve(page < data.body.meta.total_pages);
+                    },
+                    function(err) {
+                        setStatus('Error retrieving product device list');
+                        reject();
+                        $(actionButtonElem).prop('disable', false);
+                    }
+                );
+            });
+        };
+
+        const listProductDevices = async function(options, productId) {
+            for(let page = 1; ; page++) {
+                const more = await listProductDevicesPage(options, productId, page);
+                if (!more) {
+                    break;
+                }
+            }
+            appendLog(userInfo.productDevices[productId].length + ' devices in product ' + productId);
+        };
+ 
+
+        const getSandboxProducts = function(options) {
+            return new Promise(function(resolve, reject) {
+                const request = {
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        setStatus('Listing products failed');
+                        reject();
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + options.accessToken,
+                        'Accept': 'application/json'
+                    },
+                    method: 'GET',
+                    success: async function (resp, textStatus, jqXHR) {
+                        userInfo.sandboxProducts = resp.products;
+                        appendLog(userInfo.sandboxProducts.length + ' sandbox products found');
+                        
+                        for(const p of userInfo.sandboxProducts) {
+                            userInfo.productIndex[p.id] = {
+                                name: p.name,
+                                user: p.user,
+                                platform_id: p.platform_id,
+                                sandbox: true,
+                                mine: (p.user == userInfo.username)
+                            };                     
+
+                            await listProductDevices(options, p.id);
+                        }
+                        resolve();
+                    },
+                    url: 'https://api.particle.io/v1/user/products/'
+                };
+    
+                $.ajax(request);      
+            });
+        }
+
+        const getSandboxDevices = function(options) {
+            return new Promise(function(resolve, reject) {
+                apiHelper.particle.listDevices({ auth: options.accessToken }).then(
+                    function(data) {
+                        userInfo.sandboxDevices = data.body;
+                        appendLog(userInfo.sandboxDevices.length + ' sandbox devices found');
+
+                        for(let d of userInfo.sandboxDevices) {
+                            d.owner = userInfo.username;
+                        }
+                        resolve();
+                    },
+                    function(err) {
+                        setStatus('Error retrieving device list');
+                        reject();
+                        $(actionButtonElem).prop('disable', false);
+                    }
+                );
+            });
+        };
+
+        const executeOperations = async function(options) {
+            console.log('executeOperations', options);
+
+            try {
+                userInfo.username = apiHelper.localLogin.username;
+
+                await getSandboxDevices(options);
+    
+                await getSandboxProducts(options);
+                    
+                await getOrganizations(options);
+                
+                if (userInfo.orgList.length) {
+                    userInfo.orgs = {};
+                    for(let org of userInfo.orgList) {
+                        // org.id, org.name
+                        await getOrgProducts(options, org);  
+                        
+                        // adds org.products array of product
+
+                        for(let product of userInfo.orgs[org.id].products) {
+                            await listProductDevices(options, product.id);
+                        }
+                    }
+                }
+                else {
+                    appendLog('User does not have access to any organizations');
+                }    
+            }
+            catch(e) {
+                console.log('exception', e);
+            }
+
+            /*
+            appendLog('Checking ' + options.deviceList.length + ' deviceIDs...');
+            for(const deviceId of deviceList) {
+                deviceInfo.push({
+                    deviceId
+                });
+            }
+*/
+
+        };
+
+        $(deviceTextAreaElem).on('input', function() {
+            checkDeviceList();
+        });
+
+        $(actionButtonElem).on('click', function() {
+            let options = {
+                removeFromProduct: $(removeFromProductElem).prop('checked'),
+                unclaimDevice: $(unclaimDeviceElem).prop('checked'),
+                releaseSim: $(releaseSimElem).prop('checked'),
+                dryRun: $(dryRunCheckboxElem).prop('checked'),
+                accessToken: apiHelper.localLogin.accessToken,
+                deviceList,
+            };
+
+            $(logDivElem).text('');
+
+            executeOperations(options);
+        });
+
+
+
+        $(dryRunCheckboxElem).on('click', function() {
+            const dryRun = $(dryRunCheckboxElem).prop('checked');
+            $(actionButtonElem).text((dryRun ? 'Test' : 'Execute') + ' Operations');
+        });
+
+    });
 
     $('.apiHelperLocalLogIn').each(function() {
-        // Handler for pane to allow login by username/password or token
         const thisPartial = $(this);
         const gaCategory = 'localLogin';
 

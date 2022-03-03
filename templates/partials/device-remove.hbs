@@ -1,8 +1,37 @@
 <div class="apiHelper apiHelperDeviceRemove apiHelperRequiresLocalLogin">
     <div class="apiHelperBox">
-        <div>           
+        <div> 
+            <p>Device IDs to remove:<br/>
+            <p><textarea class="deviceTextArea" rows="10" cols="50"></textarea></p>
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr>
+                        <td colspan="2"><label><input class="removeFromProduct" type="checkbox" checked />Remove from product</label></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label><input class="unclaimDevice" type="checkbox" checked />Unclaim device</label></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label><input class="releaseSim" type="checkbox" checked />Release SIM ownership</label></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label><input class="dryRunCheckbox" type="checkbox" checked/>Dry run (test operations but do not execute)</label></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="apiHelperButton actionButton" disabled>Execute Operations</button>
+                        </td>                
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>            
         </div>
-        <div class="apiHelperDeviceLookupStatus"></div>       
+        <div class="apiHelperStatus"></div>
+        <div class="logDiv"></div>
     </div>
 </div>
 
