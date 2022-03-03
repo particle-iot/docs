@@ -1156,6 +1156,13 @@ $(document).ready(function() {
         const gaCategory = 'deviceRemove';
 
         const deviceTextAreaElem = $(thisPartial).find('.deviceTextArea');
+        const devOrProductRowElem = $(thisPartial).find('.devOrProductRow');
+        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
+        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
+        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
+        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
+
         const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
         const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
         const releaseSimElem = $(thisPartial).find('.releaseSim');
@@ -1195,208 +1202,194 @@ $(document).ready(function() {
             }
         };
 
-        const getOrgProducts = function(options, org) {
-            return new Promise(async function(resolve, reject) {
-                const request = {
-                    dataType: 'json',
-                    error: function (jqXHR) {
-                        setStatus('Getting org products failed');
-                        reject();
-                    },
-                    headers: {
-                        'Accept':'application/json',
-                        'Authorization': 'Authorization: Bearer ' + options.accessToken
-                    },
-                    method: 'GET',
-                    success: function (resp, textStatus, jqXHR) {
-                        userInfo.orgs[org.id] = Object.assign({}, org);
-                        userInfo.orgs[org.id].products = resp.products;
-                        appendLog(userInfo.orgs[org.id].products.length + ' products in organization ' + org.name);
-                        resolve();
-                    },
-                    url: 'https://api.particle.io/v1/orgs/' + org.id + '/products/'
-                }; 
-    
-                $.ajax(request);
-            });
-        }
-
-
-
-        const getOrganizations = function(options) {
-            return new Promise(async function(resolve, reject) {
-                const request = {
-                    dataType: 'json',
-                    error: function (jqXHR) {
-                        setStatus('Listing organizations failed');
-                        reject();
-                    },
-                    headers: {
-                        'Authorization': 'Bearer ' + options.accessToken,
-                        'Accept': 'application/json'
-                    },
-                    method: 'GET',
-                    success: function (resp, textStatus, jqXHR) {
-                        userInfo.orgList = resp.organizations;
-                        resolve();
-                    },
-                    url: 'https://api.particle.io/v1/orgs/'
-                };
-
-                $.ajax(request);
-            });
-        };
-
-        const listProductDevicesPage = function(options, productId, page) {
-            return new Promise(async function(resolve, reject) {
-                apiHelper.particle.listDevices({ auth: options.accessToken, product: productId, page }).then(
-                    function(data) {
-                        /*
-                        sandboxProductCount += data.body.devices.length;
-                        */
-                        if (!userInfo.productDevices[productId]) {
-                            userInfo.productDevices[productId] = [];
-                        }
-                        
-                        for(const d of data.body.devices) {
-                            userInfo.productDevices[productId].push(d);
-                        }
-
-                        resolve(page < data.body.meta.total_pages);
-                    },
-                    function(err) {
-                        setStatus('Error retrieving product device list');
-                        reject();
-                        $(actionButtonElem).prop('disable', false);
-                    }
-                );
-            });
-        };
-
-        const listProductDevices = async function(options, productId) {
-            for(let page = 1; ; page++) {
-                const more = await listProductDevicesPage(options, productId, page);
-                if (!more) {
-                    break;
+        const getDeviceInfo = function(options, deviceId) {
+            return new Promise(function(resolve, reject) {
+            
+                let url;
+                if (options.productId) {
+                    url = 'https://api.particle.io/v1/products/' + options.productId + '/devices/' + deviceId;
                 }
-            }
-            appendLog(userInfo.productDevices[productId].length + ' devices in product ' + productId);
-        };
- 
-
-        const getSandboxProducts = function(options) {
-            return new Promise(function(resolve, reject) {
-                const request = {
+                else {
+                    url = 'https://api.particle.io/v1/devices/' + deviceId;
+                }
+                
+                let request = {
                     dataType: 'json',
                     error: function (jqXHR) {
-                        setStatus('Listing products failed');
-                        reject();
+                        //ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                        reject(jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
                     },
                     headers: {
                         'Authorization': 'Bearer ' + options.accessToken,
                         'Accept': 'application/json'
                     },
                     method: 'GET',
-                    success: async function (resp, textStatus, jqXHR) {
-                        userInfo.sandboxProducts = resp.products;
-                        appendLog(userInfo.sandboxProducts.length + ' sandbox products found');
-                        
-                        for(const p of userInfo.sandboxProducts) {
-                            userInfo.productIndex[p.id] = {
-                                name: p.name,
-                                user: p.user,
-                                platform_id: p.platform_id,
-                                sandbox: true,
-                                mine: (p.user == userInfo.username)
-                            };                     
-
-                            await listProductDevices(options, p.id);
+                    success: function (resp, textStatus, jqXHR) {
+                        if (!options.productId) {
+                            // The API for sandbox devices does not fill in the owner field
+                            resp.owner = options.username;
                         }
-                        resolve();
+                        resolve(resp);
                     },
-                    url: 'https://api.particle.io/v1/user/products/'
-                };
-    
-                $.ajax(request);      
+                    url
+                }
+                $.ajax(request);
             });
         }
 
-        const getSandboxDevices = function(options) {
-            return new Promise(function(resolve, reject) {
-                apiHelper.particle.listDevices({ auth: options.accessToken }).then(
-                    function(data) {
-                        userInfo.sandboxDevices = data.body;
-                        appendLog(userInfo.sandboxDevices.length + ' sandbox devices found');
-
-                        for(let d of userInfo.sandboxDevices) {
-                            d.owner = userInfo.username;
-                        }
-                        resolve();
-                    },
-                    function(err) {
-                        setStatus('Error retrieving device list');
-                        reject();
-                        $(actionButtonElem).prop('disable', false);
-                    }
-                );
-            });
-        };
 
         const executeOperations = async function(options) {
             console.log('executeOperations', options);
 
             try {
-                userInfo.username = apiHelper.localLogin.username;
-
-                await getSandboxDevices(options);
-    
-                await getSandboxProducts(options);
+                // Verify
+                for(const deviceId of options.deviceList) {
                     
-                await getOrganizations(options);
-                
-                if (userInfo.orgList.length) {
-                    userInfo.orgs = {};
-                    for(let org of userInfo.orgList) {
-                        // org.id, org.name
-                        await getOrgProducts(options, org);  
-                        
-                        // adds org.products array of product
+                    try {
+                        const info = await getDeviceInfo(options, deviceId);
+                        deviceInfo[deviceId] = info;
 
-                        for(let product of userInfo.orgs[org.id].products) {
-                            await listProductDevices(options, product.id);
+                        // .id, .name, .online, .owner
+                        // .cellular then .iccid
+
+                        const idName = deviceId + ' (' + info.name + ')'; 
+
+                        if (info.cellular) {
+                            appendLog(idName + ' iccid=' + info.iccid);    
+                        }
+                        else {
+                            appendLog(idName);    
                         }
                     }
+                    catch(e) {
+                        console.log('exception', e);
+                        deviceInfo[deviceId] = {
+                            id: deviceId,
+                            error: true
+                        }
+                        appendLog(deviceId + ' unable to get information');
+                    }
+                    
+
                 }
-                else {
-                    appendLog('User does not have access to any organizations');
-                }    
             }
             catch(e) {
                 console.log('exception', e);
             }
 
-            /*
-            appendLog('Checking ' + options.deviceList.length + ' deviceIDs...');
-            for(const deviceId of deviceList) {
-                deviceInfo.push({
-                    deviceId
-                });
-            }
-*/
-
         };
+
+        const updateProductList = async function() {
+            $(orgSelectorRowElem).hide();
+            $(sandboxOrgRowElem).hide();    
+            
+            console.log('userInfo', userInfo);
+
+            const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+
+            if (userInfo.orgs && userInfo.orgs.length) {
+                // Has organizations
+
+
+                switch(devOrProduct) {
+                    case 'dev':
+                        // No sandbox or organization popups
+                        break;
+
+                    case 'product':
+                        $(sandboxOrgRowElem).show();
+                        switch(sandboxOrg) {
+                            case 'sandbox':
+                                break;
+
+                            case 'org':
+                                $(orgSelectorRowElem).show();
+                                break;
+                        }               
+                        break;
+                }
+            }
+
+            let productsData;
+
+            if (sandboxOrg == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            $(productSelectElem).html('');
+
+            for(const product of productsData.products) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', product.id);
+                $(optionElem).text(product.name + ' (' + product.id + ')');
+                $(productSelectElem).append(optionElem);
+            }
+        }
+
+        $(devOrProductRowElem).find('input').each(function() {
+            const radioElem = $(this);
+            $(radioElem).on('click', async function() {
+                const radioVal = $(devOrProductRowElem).find('input:checked').val();
+                switch(radioVal) {
+                    case 'product':
+                        $(productSelectorRowElem).show();
+                        break;
+
+                    case 'dev':
+                        $(productSelectorRowElem).hide();
+                        $(orgSelectorRowElem).hide();
+                        $(sandboxOrgRowElem).hide();
+                        break;                    
+                }
+                await updateProductList();
+            });
+        });
+
+        $(sandboxOrgRowElem).find('input').each(function() {
+            const radioElem = $(this);
+            $(radioElem).on('click', async function() {
+                const radioVal = $(devOrProductRowElem).find('input:checked').val();
+                console.log('sandboxOrg ' + radioVal);
+                await updateProductList();
+            });
+        });
+
+        $(orgSelectElem).on('change', updateProductList);
 
         $(deviceTextAreaElem).on('input', function() {
             checkDeviceList();
         });
 
         $(actionButtonElem).on('click', function() {
-            let options = {
+            const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+
+            let productId = 0;
+
+            if (devOrProduct == 'product') {
+                productId = $(productSelectElem).val();
+            }
+
+            let options = {                
                 removeFromProduct: $(removeFromProductElem).prop('checked'),
                 unclaimDevice: $(unclaimDeviceElem).prop('checked'),
                 releaseSim: $(releaseSimElem).prop('checked'),
                 dryRun: $(dryRunCheckboxElem).prop('checked'),
-                accessToken: apiHelper.localLogin.accessToken,
+                username: apiHelper.auth.username,
+                accessToken: apiHelper.auth.access_token,
+                isSandbox: (devOrProduct == 'dev'),
+                productId,
                 deviceList,
             };
 
@@ -1410,6 +1403,32 @@ $(document).ready(function() {
         $(dryRunCheckboxElem).on('click', function() {
             const dryRun = $(dryRunCheckboxElem).prop('checked');
             $(actionButtonElem).text((dryRun ? 'Test' : 'Execute') + ' Operations');
+        });
+
+        apiHelper.getOrgs().then(async function(orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            userInfo.orgs = orgsData.organizations;
+
+            if (orgsData.organizations.length > 0) {
+
+                for (let org of orgsData.organizations) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', org.id);
+                    $(optionElem).text(org.name);
+
+                    $(orgSelectElem).append(optionElem);        
+                }
+            
+            }
+            else {
+                // No orgs
+                // $(sandboxOrgRowElem).find('input[value=org]:radio').prop('disabled', true);
+                $(orgSelectorRowElem).hide();
+                $(sandboxOrgRowElem).hide();
+            }
+
+            await updateProductList();
         });
 
     });

@@ -5,6 +5,6 @@ description: Bulk device removal and unclaiming
 includeDefinitions: [api-helper, api-helper-extras, usb-serial]
 ---
 
-{{> local-login}}
+{{> sso}}
 
 {{> device-remove}}
