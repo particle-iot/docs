@@ -1354,8 +1354,6 @@ $(document).ready(function() {
 
 
         const checkOperations = async function(options) {
-            console.log('checkOperations', options);
-
             $(deviceTableBodyElem).html('');
             $(deviceTableDivElem).show();
 
@@ -1421,7 +1419,7 @@ $(document).ready(function() {
                         isCellular = true;
 
                         $(simTableDivElem).show();
-
+                        
                         let simInfo = accountSimList.find(e => e.iccid == deviceInfo.iccid);
                         if (!simInfo) {
                             simInfo = {
@@ -1456,17 +1454,30 @@ $(document).ready(function() {
                 }
                 setStatus('Device and SIM check complete!');
 
+                ga('send', 'event', gaCategory, 'Check Success');
+
                 checkExecuteButton(options);
             }
             catch(e) {
                 console.log('exception', e);
+                ga('send', 'event', gaCategory, 'Check Error');
             }
 
         };
 
         const executeOperations = async function(options) {
-            console.log('executeOperations', options);
             try {
+                let hasErrors = false;
+
+                let stats = {};
+
+                if (options.productId) {
+                    stats.product = true;
+                }
+                else {
+                    stats.sandbox = true;
+                }
+
                 for(const deviceId in deviceInfoMap) {
                     if (options.unclaimDevice && deviceInfoMap[deviceId].owner) {
                         const unclaimElem = deviceInfoMap[deviceId].unclaimElem;
@@ -1480,11 +1491,14 @@ $(document).ready(function() {
                                 // Unclaim developer device
                                 await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
                             }    
+                            stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
                             $(unclaimElem).html('&#x2705'); // green check
                         }
                         catch(e) {
                             console.log('exception', e);
                             $(unclaimElem).html('&#x274c'); // red x
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
                     }
 
@@ -1495,10 +1509,13 @@ $(document).ready(function() {
                             await apiHelper.particle.removeDevice({ deviceId, product:options.productId, auth: apiHelper.auth.access_token });
 
                             $(removeElem).html('&#x2705'); // green check
+                            stats.remove = stats.remove ? stats.remove + 1 : 1;
                         }
                         catch(e) {
                             console.log('exception', e);
                             $(removeElem).html('&#x274c'); // red x
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
                     }
 
@@ -1520,6 +1537,7 @@ $(document).ready(function() {
                                 // Remove developer SIM
                                 await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
                             }
+                            stats.release = stats.release ? stats.release + 1 : 1;
                             $(removeStatusElem).text('Released')
                             $(releaseElem).html('&#x2705'); // green check
                         }
@@ -1527,12 +1545,24 @@ $(document).ready(function() {
                             console.log('exception', e);
                             $(removeStatusElem).text('Released')
                             $(releaseElem).html('&#x274c'); // red x
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
                     }                    
-                }                 
+                }                
+                if (!hasErrors) {
+                    setStatus('All operations completed successfully!');
+                } 
+                else {
+                    setStatus('Operations completed, but errors occurred');
+                }
+
+                $(actionButtonElem).prop('disabled', false);
+                ga('send', 'event', gaCategory, 'Execute Success', JSON.stringify(stats));
             }
             catch(e) {
                 console.log('exception', e);
+                ga('send', 'event', gaCategory, 'Execute Error');
             }
         }
 
@@ -1563,8 +1593,7 @@ $(document).ready(function() {
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
             
-            console.log('userInfo', userInfo);
-
+    
             const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
@@ -1643,7 +1672,6 @@ $(document).ready(function() {
             const radioElem = $(this);
             $(radioElem).on('click', async function() {
                 const radioVal = $(devOrProductRowElem).find('input:checked').val();
-                console.log('sandboxOrg ' + radioVal);
                 await updateProductList();
             });
         });
@@ -1677,6 +1705,9 @@ $(document).ready(function() {
         $(executeButtonElem).on('click', function() {
             $(executeButtonElem).prop('disabled', true);
     
+            // Hide all warning panes
+            $(sandboxUnclaimWarningElem).hide();
+
             executeOperations(getOptions());
         });
 

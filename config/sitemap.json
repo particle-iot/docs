@@ -2,6 +2,7 @@
     "ignore":[
         "assets/images",
         "device-claiming.md",
+        "device-remove.md",
         "device-setup.md",
         "page-not-found.md",
         "raspberry-pi.md",

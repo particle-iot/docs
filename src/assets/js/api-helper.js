@@ -507,6 +507,7 @@ apiHelper.getAllSims = async function(options) {
         for(let page = 1; ; page++) {
             const resp = await apiHelper.particle.listSIMs({ auth: apiHelper.auth.access_token, product: options.productId, page });
             for(const d of resp.body.sims) {
+                d.iccid = d._id;
                 simList.push(d);
             }
 
