@@ -620,7 +620,8 @@ To see all billing related information, you can click on the billing icon in the
 
 For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
 
-<sup>1</sup>{{blurb name="free-warnings"}}
+<sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
+
 
 #### Free tier products
 

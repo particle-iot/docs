@@ -58,6 +58,7 @@ var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
+const sharedBlurb = require('./shared-blurb.js');
  
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -232,6 +233,10 @@ exports.metalsmith = function () {
     }))
     .use(navMenuGenerator({      
       contentDir: '../src/content',
+    }))
+    .use(sharedBlurb({
+      contentDir: '../src/content',
+      config: '../config/sharedBlurbs.json'
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link

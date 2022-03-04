@@ -435,7 +435,12 @@ Public events could previously be received by anyone on the Internet, and anyone
 
 Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
 
-{{blurb name="publish"}}
+{{!-- BEGIN shared-blurb e18d206a-9ba9-11ec-b909-0242ac120002 --}}
+- Publishes are not end-to-end confirmed. Even if the `Particle.publish` returns true, there is no guarantee that any recipient (another device, webhook, or SSE) will receive it.
+- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
+- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
+- It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
+{{!-- END shared-blurb --}}
  
 ---
 
@@ -740,7 +745,12 @@ For more information, see [Device claiming](/tutorials/device-cloud/device-claim
 
 Additionally:
 
-{{blurb name="publish"}}
+{{!-- BEGIN shared-blurb e18d206a-9ba9-11ec-b909-0242ac120002 --}}
+- Publishes are not end-to-end confirmed. Even if the `Particle.publish` returns true, there is no guarantee that any recipient (another device, webhook, or SSE) will receive it.
+- It is possible to receive an event more than once. The most common reason is a lost ACK, which will cause the device to send the event again. Storing a unique identifier in the event payload may help code defensively for this possibility.
+- It is possible that events will arrive out-of-order. The most common cause is retransmission, but it can also occur because events can flow through different redundant servers, each with slightly difference latency, so it's possible that two event sent rapidly will arrive out-of-order as well. This is common for multi-part webhook responses.
+- It is possible that even if `Particle.publish` returns false, the event will still be received by the cloud later. This occurs because the 20-second timeout is reached, so false is returned, but the event is still buffered in Device OS and will be retransmitted if the reconnection to the cloud succeeds.
+{{!-- END shared-blurb --}}
 
 
 ### Particle.unsubscribe()
