@@ -23,6 +23,47 @@
                         <td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td>
                     </tr>
                     <tr>
+                        <td colspan="2">
+                            <button class="apiHelperButton actionButton" disabled>Check Device Status</button>
+                        </td>                
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>            
+        </div>
+        <div class="deviceTableDiv" style="display:none">
+            <table class="apiHelperTableNoMargin">
+                <thead>
+                    <tr>
+                        <th>Device ID</th>
+                        <th>Device Name</th>
+                        <th>Claimed To</th>
+                        <th>Remove</th>
+                        <th>Unclaim</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="simTableDiv" style="display:none">
+            <table class="apiHelperTableNoMargin">
+                <thead>
+                    <tr>
+                        <th>ICCID</th>
+                        <th>Release</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr class="removeFromProductRow">
                         <td colspan="2"><label><input class="removeFromProduct" type="checkbox" checked />Remove from product</label></td>
                         <td>&nbsp;</td>
                     </tr>
@@ -30,25 +71,26 @@
                         <td colspan="2"><label><input class="unclaimDevice" type="checkbox" checked />Unclaim device</label></td>
                         <td>&nbsp;</td>
                     </tr>
-                    <tr>
+                    <tr class="releaseSimRow">
                         <td colspan="2"><label><input class="releaseSim" type="checkbox" checked />Release SIM ownership</label></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="2"><label><input class="dryRunCheckbox" type="checkbox" checked/>Dry run (test operations but do not execute)</label></td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
                         <td colspan="2">
-                            <button class="apiHelperButton actionButton" disabled>Execute Operations</button>
+                            <button class="apiHelperButton executeButton" disabled>Execute Operations</button>
                         </td>                
                         <td>&nbsp;</td>
                     </tr>
                 </tbody>
-            </table>            
+            </table>
         </div>
         <div class="apiHelperStatus"></div>
         <div class="logDiv"></div>
+        <div class="sandboxUnclaimWarning" style="display:none">
+            <p>Warning!<br/>
+            If you unclaim sandbox devices you can only claim them again if they are online and breathing cyan.
+            </p>
+        </div>
     </div>
 </div>
 

@@ -471,6 +471,53 @@ apiHelper.monitorUsage = function(options) {
     return resultObj;
 };
 
+apiHelper.getAllDevices = async function(options) {
+    let deviceList = [];
+
+    if (!options.productId) {
+        deviceList = (await apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token })).body;
+        if (options.owner) {
+            for(let d of deviceList) {
+                d.owner = options.owner;
+            }    
+        }
+    }
+    else {
+        for(let page = 1; ; page++) {
+            const resp = await apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product: options.productId, page });
+            for(const d of resp.body.devices) {
+                deviceList.push(d);
+            }
+
+            if (page >= resp.body.meta.total_pages) {
+                break;
+            }
+        }
+    }
+    return deviceList;
+};
+
+apiHelper.getAllSims = async function(options) {
+    let simList = [];
+
+    if (!options.productId) {
+        simList = (await apiHelper.particle.listSIMs({ auth: apiHelper.auth.access_token })).body;
+    }
+    else {
+        for(let page = 1; ; page++) {
+            const resp = await apiHelper.particle.listSIMs({ auth: apiHelper.auth.access_token, product: options.productId, page });
+            for(const d of resp.body.sims) {
+                simList.push(d);
+            }
+
+            if (page >= resp.body.meta.total_pages) {
+                break;
+            }
+        }
+    }
+    return simList;
+};
+
 $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
