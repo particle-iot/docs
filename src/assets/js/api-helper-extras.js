@@ -1156,12 +1156,7 @@ $(document).ready(function() {
         const gaCategory = 'deviceRemove';
 
         const deviceTextAreaElem = $(thisPartial).find('.deviceTextArea');
-        const devOrProductRowElem = $(thisPartial).find('.devOrProductRow');
-        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
-        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
-        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
-        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
 
         const removeFromProductRowElem = $(thisPartial).find('.removeFromProductRow');
         const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
@@ -1215,41 +1210,6 @@ $(document).ready(function() {
                 setStatus('No device IDs in box');
             }
         };
-
-        const getDeviceInfo = function(options, deviceId) {
-            return new Promise(function(resolve, reject) {
-            
-                let url;
-                if (options.productId) {
-                    url = 'https://api.particle.io/v1/products/' + options.productId + '/devices/' + deviceId;
-                }
-                else {
-                    url = 'https://api.particle.io/v1/devices/' + deviceId;
-                }
-                
-                let request = {
-                    dataType: 'json',
-                    error: function (jqXHR) {
-                        //ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
-                        reject(jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
-                    },
-                    headers: {
-                        'Authorization': 'Bearer ' + options.accessToken,
-                        'Accept': 'application/json'
-                    },
-                    method: 'GET',
-                    success: function (resp, textStatus, jqXHR) {
-                        if (!options.productId) {
-                            // The API for sandbox devices does not fill in the owner field
-                            resp.owner = options.username;
-                        }
-                        resolve(resp);
-                    },
-                    url
-                }
-                $.ajax(request);
-            });
-        }
 
         const checkExecuteButton = function(options) {
             let enableExecute = false;
@@ -1370,6 +1330,7 @@ $(document).ready(function() {
                 let accountSimList = await apiHelper.getAllSims({
                     productId: options.productId,
                 });
+                console.log('accountSimList', accountSimList);
     
                 if (options.productId) {
                     const teamList = (await apiHelper.particle.listTeamMembers({auth: apiHelper.auth.access_token, product: options.productId})).body.team;
@@ -1567,7 +1528,276 @@ $(document).ready(function() {
         }
 
         const getOptions = function() {
+            let options = $(thisPartial).data('getOptions')();
+
+            options.removeFromProduct = (options.productId != 0) && $(removeFromProductElem).prop('checked'),
+            options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
+            options.releaseSim = $(releaseSimElem).prop('checked');
+            options.username = apiHelper.auth.username;
+            options.accessToken = apiHelper.auth.access_token;
+            options.deviceList = deviceList;
+
+            return options;
+        }
+
+        $(thisPartial).on('updateProductList', async function(event, options) {
+            switch(options.devOrProduct) {
+                case 'product':
+                    $(removeFromProductRowElem).show();
+                    break;
+
+                case 'dev':
+                    $(removeFromProductRowElem).hide();
+                    break;                    
+
+            }
+        });
+
+
+        $(removeFromProductElem).on('click', function() {
+            checkExecuteButton(getOptions());
+        })
+        $(unclaimDeviceElem).on('click', function() {
+            checkExecuteButton(getOptions());
+        })
+        $(releaseSimElem).on('click', function() {
+            checkExecuteButton(getOptions());
+        })
+
+        
+
+        $(deviceTextAreaElem).on('input', function() {
+            checkDeviceList();
+        });
+
+        $(actionButtonElem).on('click', function() {
+    
+            $(logDivElem).text('');
+            $(actionButtonElem).prop('disabled', true);
+
+            checkOperations(getOptions());
+        });
+
+        $(executeButtonElem).on('click', function() {
+            $(executeButtonElem).prop('disabled', true);
+    
+            // Hide all warning panes
+            $(sandboxUnclaimWarningElem).hide();
+
+            executeOperations(getOptions());
+        });
+
+        $(productSelectElem).on('click', function() {
+            checkDeviceList();
+        });
+
+
+    });
+
+    $('.apiHelperListDevices').each(function() {
+        const thisPartial = $(this);
+        const gaCategory = 'listDevices';
+
+        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const actionButtonElem = $(thisPartial).find('.actionButton');
+
+        const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
+        const deviceTableElem = $(deviceTableDivElem).find('table');
+        const deviceTableBodyElem = $(deviceTableElem).find('tbody');
+        
+        const setStatus = function(s) {
+            $(statusElem).text(s);
+        }
+
+        let deviceInfoMap = {};
+        let userInfo = {
+            productIndex: {},
+            productDevices: {}
+        };
+
+        const addColumns = function(infoObj, columns) {
+            for(const col of columns) {
+                colElemKey = col + 'Elem';
+
+                const tdElem = infoObj[colElemKey] = document.createElement('td');
+
+                if (infoObj[col]) {
+                    $(tdElem).text(infoObj[col]);
+                }
+
+                $(infoObj.rowElem).append(tdElem);
+            }
+        };
+
+
+        const checkOperations = async function(options) {
+            $(deviceTableBodyElem).html('');
+            $(deviceTableDivElem).show();
+
+            $(simTableBodyElem).html('');
+
+            try {
+                // 
+                setStatus('Getting device and SIM lists...');
+                let accountDeviceList = await apiHelper.getAllDevices({
+                    productId: options.productId,
+                    owner: options.username
+                });
+
+                let accountSimList = await apiHelper.getAllSims({
+                    productId: options.productId,
+                });
+    
+                if (options.productId) {
+                    const teamList = (await apiHelper.particle.listTeamMembers({auth: apiHelper.auth.access_token, product: options.productId})).body.team;
+                    for(const t of teamList) {
+                        teamMap[t.username] = t;
+                    }
+                }
+                else {
+                    teamMap = {};
+                }
+
+                let isCellular = false;
+                let hasSim = false;
+
+                // 
+                for(const deviceId of options.deviceList) {
+                    let deviceInfo = accountDeviceList.find(e => e.id == deviceId);
+                    if (!deviceInfo) {
+                        deviceInfo = {
+                            id: deviceId,
+                            notFound: true
+                        }
+                    }
+
+                    {
+                        const rowElem = deviceInfo.rowElem = document.createElement('tr');
+
+                        deviceInfo.deviceId = deviceInfo.id;
+                        
+                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'remove', 'unclaim', 'removeStatus']);
+
+                        if (deviceInfo.notFound) {
+                            if (options.productId) {
+                                $(deviceInfo.removeStatusElem).text('Device not found in product');
+                            }
+                            else {
+                                $(deviceInfo.removeStatusElem).text('Device not found in sandbox');                                
+                            }
+                        }
+                                                                
+                        $(deviceTableBodyElem).append(rowElem);
+
+                        deviceInfoMap[deviceId] = deviceInfo;        
+                    }
+
+                    if (deviceInfo.cellular && deviceInfo.iccid) {
+                        isCellular = true;
+
+                        $(simTableDivElem).show();
+                        
+                        let simInfo = accountSimList.find(e => e.iccid == deviceInfo.iccid);
+                        if (!simInfo) {
+                            simInfo = {
+                                iccid: deviceInfo.iccid,
+                                notFound: true
+                            }
+                        }
+
+                        const rowElem = simInfo.rowElem = document.createElement('tr');
+
+                        addColumns(simInfo, ['iccid', 'release', 'removeStatus']);
+
+                        if (simInfo.notFound) {
+                            $(simInfo.removeStatusElem).text('SIM not found in product');
+                        }
+                        else {
+                            hasSim = true;
+                        }
+
+                        $(simTableBodyElem).append(rowElem);
+                        
+
+                        simInfoMap[deviceInfo.iccid] = simInfo;
+                    }
+                }
+
+                if (hasSim) {
+                    $(releaseSimRowElem).show();
+                }
+                else {
+                    $(releaseSimRowElem).hide();
+                }
+                setStatus('Device and SIM check complete!');
+
+                ga('send', 'event', gaCategory, 'Check Success');
+
+                checkExecuteButton(options);
+            }
+            catch(e) {
+                console.log('exception', e);
+                ga('send', 'event', gaCategory, 'Check Error');
+            }
+
+        };
+
+        
+        const getOptions = function() {
+            
+            let options = Object.assign({                
+                username: apiHelper.auth.username,
+                accessToken: apiHelper.auth.access_token,
+                deviceList,
+            }, $(thisPartial).data('getOptions')());
+
+            return options;
+        }
+
+        $(actionButtonElem).on('click', function() {
+    
+            $(logDivElem).text('');
+            $(actionButtonElem).prop('disabled', true);
+
+            checkOperations(getOptions());
+        });
+
+        $(productSelectElem).on('click', function() {
+            //checkDeviceList();
+        });
+    });
+
+    /*
+    const radioVal = $(devOrProductRowElem).find('input:checked').val();
+                switch(radioVal) {
+                    case 'product':
+                        $(productSelectorRowElem).show();
+                        $(removeFromProductRowElem).show();
+                        break;
+
+                    case 'dev':
+                        $(removeFromProductRowElem).hide();
+                        $(productSelectorRowElem).hide();
+                        $(orgSelectorRowElem).hide();
+                        $(sandboxOrgRowElem).hide();
+                        break;           
+    */
+
+    $('.apiHelperProductOrSandboxSelector').each(function() {
+        const thisPartial = $(this);
+
+        const devOrProductRowElem = $(thisPartial).find('.devOrProductRow');
+        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
+        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
+        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
+        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
+
+        let orgs;
+
+        const getOptions = function() {
             const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
             let productId = 0;
  
@@ -1576,14 +1806,11 @@ $(document).ready(function() {
             }
 
             let options = {                
-                removeFromProduct: (productId != 0) && $(removeFromProductElem).prop('checked'),
-                unclaimDevice: $(unclaimDeviceElem).prop('checked'),
-                releaseSim: $(releaseSimElem).prop('checked'),
-                username: apiHelper.auth.username,
-                accessToken: apiHelper.auth.access_token,
                 isSandbox: (devOrProduct == 'dev'),
-                productId,
-                deviceList,
+                hasOrgs: orgs.length > 0,
+                devOrProduct, // 'dev' (sandbox non-product) or 'product'
+                sandboxOrg,   // 'sandbox' product or 'org' product
+                productId,    // 0 if sandbox
             };
 
             return options;
@@ -1593,13 +1820,11 @@ $(document).ready(function() {
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
             
-    
             const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
-            if (userInfo.orgs && userInfo.orgs.length) {
+            if (orgs && orgs.length) {
                 // Has organizations
-
 
                 switch(devOrProduct) {
                     case 'dev':
@@ -1645,6 +1870,8 @@ $(document).ready(function() {
                 $(optionElem).text(product.name + ' (' + product.id + ')');
                 $(productSelectElem).append(optionElem);
             }
+
+            $(thisPartial).trigger('updateProductList', [getOptions()]);
         }
 
         $(devOrProductRowElem).find('input').each(function() {
@@ -1654,11 +1881,9 @@ $(document).ready(function() {
                 switch(radioVal) {
                     case 'product':
                         $(productSelectorRowElem).show();
-                        $(removeFromProductRowElem).show();
                         break;
 
                     case 'dev':
-                        $(removeFromProductRowElem).hide();
                         $(productSelectorRowElem).hide();
                         $(orgSelectorRowElem).hide();
                         $(sandboxOrgRowElem).hide();
@@ -1678,47 +1903,10 @@ $(document).ready(function() {
 
         $(orgSelectElem).on('change', updateProductList);
 
-        $(removeFromProductElem).on('click', function() {
-            checkExecuteButton(getOptions());
-        })
-        $(unclaimDeviceElem).on('click', function() {
-            checkExecuteButton(getOptions());
-        })
-        $(releaseSimElem).on('click', function() {
-            checkExecuteButton(getOptions());
-        })
-
-        
-
-        $(deviceTextAreaElem).on('input', function() {
-            checkDeviceList();
-        });
-
-        $(actionButtonElem).on('click', function() {
-    
-            $(logDivElem).text('');
-            $(actionButtonElem).prop('disabled', true);
-
-            checkOperations(getOptions());
-        });
-
-        $(executeButtonElem).on('click', function() {
-            $(executeButtonElem).prop('disabled', true);
-    
-            // Hide all warning panes
-            $(sandboxUnclaimWarningElem).hide();
-
-            executeOperations(getOptions());
-        });
-
-        $(productSelectElem).on('click', function() {
-            checkDeviceList();
-        });
-
         apiHelper.getOrgs().then(async function(orgsData) {
             // No orgs: orgsData.organizations empty array
             // Object in array orgsData.organizations: id, slug, name
-            userInfo.orgs = orgsData.organizations;
+            orgs = orgsData.organizations;
 
             if (orgsData.organizations.length > 0) {
 
@@ -1741,6 +1929,8 @@ $(document).ready(function() {
             await updateProductList();
         });
 
+        $(thisPartial).data('getOptions', getOptions);
+        
     });
 
     $('.apiHelperLocalLogIn').each(function() {
