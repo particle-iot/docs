@@ -1598,6 +1598,7 @@ $(document).ready(function() {
         const thisPartial = $(this);
         const gaCategory = 'listDevices';
 
+        const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
         const actionButtonElem = $(thisPartial).find('.actionButton');
 
@@ -1612,8 +1613,20 @@ $(document).ready(function() {
 
         let deviceList;
 
+        const urlParams = new URLSearchParams(window.location.search);
+
         const setStatus = function(s) {
             $(statusElem).text(s);
+        }
+
+        const getOptions = function() {
+            
+            let options = $(productOrSandboxSelectorElem).data('getOptions')();
+
+            options.username = apiHelper.auth.username;
+            options.accessToken = apiHelper.auth.access_token;
+
+            return options;
         }
 
         const clearDeviceList = function() {
@@ -1621,7 +1634,26 @@ $(document).ready(function() {
             $(deviceTableDivElem).hide();
         };
 
-        const refreshTable = async function(configObj) {
+        const updateSearchParam = function() {
+    
+            try {
+                let urlConfig = $(fieldSelectorElem).data('getUrlConfigObj')();
+
+                urlConfig = Object.assign($(productOrSandboxSelectorElem).data('getUrlConfigObj')(), urlConfig);
+                
+                //const options = getOptions();
+                //urlConfig.productId = options.productId;
+    
+                const searchStr = $.param(urlConfig);
+    
+                history.pushState(null, '', '?' + searchStr);     
+            }
+            catch(e) {
+                console.log('exception', e);
+            }
+        };
+
+        const refreshTable = async function(configObj) {            
             // 
             $(deviceTableHeadElem).html('');
             {
@@ -1640,30 +1672,31 @@ $(document).ready(function() {
 
             $(deviceTableBodyElem).html('');
 
-            for(const deviceInfo of deviceList) {
-                const deviceId = deviceInfo.id;
-                deviceInfo.deviceId = deviceInfo.id;
-
-                const rowElem = deviceInfo.rowElem = document.createElement('tr');
-
-                for(field of configObj.fields) {
-                    if (field.isChecked()) {
-                        colElemKey = field.key + 'Elem';
-
-                        const tdElem = deviceInfo[colElemKey] = document.createElement('td');
-        
-                        if (deviceInfo[field.key]) {
-                            $(tdElem).text(deviceInfo[field.key]);
+            if (deviceList) {
+                for(const deviceInfo of deviceList) {
+                    const deviceId = deviceInfo.id;
+                    deviceInfo.deviceId = deviceInfo.id;
+    
+                    const rowElem = deviceInfo.rowElem = document.createElement('tr');
+    
+                    for(field of configObj.fields) {
+                        if (field.isChecked()) {
+                            colElemKey = field.key + 'Elem';
+    
+                            const tdElem = deviceInfo[colElemKey] = document.createElement('td');
+            
+                            if (deviceInfo[field.key]) {
+                                $(tdElem).text(deviceInfo[field.key]);
+                            }
+            
+                            $(rowElem).append(tdElem);
                         }
-        
-                        $(rowElem).append(tdElem);
                     }
+    
+                    $(deviceTableBodyElem).append(rowElem);
+    
                 }
-
-                $(deviceTableBodyElem).append(rowElem);
-
             }
-
         };
 
         const getDeviceList = async function(options) {
@@ -1692,31 +1725,23 @@ $(document).ready(function() {
 
         };
 
-        
-        const getOptions = function() {
-            
-            let options = $(thisPartial).data('getOptions')();
-
-            options.username = apiHelper.auth.username;
-            options.accessToken = apiHelper.auth.access_token;
-
-            return options;
-        }
-
         $(actionButtonElem).on('click', function() {
             getDeviceList(getOptions());
         });
 
-        $(productSelectElem).on('click', function() {
+        $(productSelectElem).on('change', function() {
             clearDeviceList();
+            updateSearchParam();
         });
 
         $(thisPartial).on('updateProductList', async function(event, options) {
             clearDeviceList();
+            updateSearchParam();
         });
 
         $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
             refreshTable(config);
+            updateSearchParam();
         });
     });
 
@@ -1730,8 +1755,47 @@ $(document).ready(function() {
         $(configElem).replaceWith('');
 
         // console.log('configObj', configObj);
-        
-        const refreshTable = function() {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('k0')) {
+            let newFields = [];
+
+            for(let index = 0; ; index++) {
+                let key = urlParams.get('k' + index);
+                if (!key) {
+                    break;
+                }
+                let checked = false;    
+                if (key.startsWith('*')) {
+                    checked = true;
+                    key = key.substring(1);
+                }
+
+                const field = configObj.fields.find(f => f.key == key);
+                if (field) {
+                    field.checked = checked;
+                    const customTitle = urlParams.get('t' + index);
+                    if (customTitle) {
+                        field.customTitle = customTitle;
+                    }
+                    newFields.push(field);
+                }
+            }
+
+            for(const field of configObj.fields) {
+                const inNew = !!newFields.find(f => f.key == field.key);
+                if (!inNew) {
+                    field.checked = false;
+                    newFields.push(field);
+                }
+            }
+
+            // Add in other non-selected fields
+            configObj.fields = newFields;
+        }
+
+
+        const refreshTable = function() {   
             $(thisPartial).trigger('fieldSelectorUpdate', [configObj]);
         };
 
@@ -1782,6 +1846,42 @@ $(document).ready(function() {
         {
             $(tableElem).addClass('apiHelperTableNoMargin');
 
+            {
+                const theadElem = document.createElement('thead');
+                const trElem = document.createElement('tr');
+
+                {
+                    // Drag to reorder
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Reorder');
+                    $(trElem).append(thElem);
+                }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Include');
+                    $(trElem).append(thElem);
+                }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Column Name');
+                    $(trElem).append(thElem);
+                }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Key');
+                    $(trElem).append(thElem);
+                }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Sort By');
+                    $(trElem).append(thElem);
+                }
+
+                $(theadElem).append(trElem);
+
+                $(tableElem).append(theadElem);
+            }
+
             const tbodyElem = document.createElement('tbody');
 
             for(const field of configObj.fields) {
@@ -1823,12 +1923,29 @@ $(document).ready(function() {
 
                 // Field Name
                 tdElem = document.createElement('td');
-                $(tdElem).text(field.title);
+                $(tdElem).text(field.customTitle ? field.customTitle : field.title);
                 $(tdElem).on('click', function() {
                     $(checkboxElem).trigger('click');
                 });
                 trElem.append(tdElem);
-                // Field description?
+
+                // Key
+                tdElem = document.createElement('td');
+                $(tdElem).text(field.key);
+                $(tdElem).on('click', function() {
+                    $(checkboxElem).trigger('click');
+                });
+                trElem.append(tdElem);
+
+                // Sort
+                tdElem = field.sortByElem = document.createElement('td');
+                $(tdElem).addClass('apiHelperFieldSelectorSortBy')
+                $(tdElem).on('click', function() {
+                    $('.apiHelperFieldSelectorSortBy').text('');
+                    $(field.sortByElem).html('&check;');
+                });
+                trElem.append(tdElem);
+
 
                 $(trElem).on('dragover', function(ev) {
                     const key = ev.originalEvent.dataTransfer.getData("text");                    
@@ -1859,11 +1976,34 @@ $(document).ready(function() {
             return configObj;
         });
 
+        $(thisPartial).data('getUrlConfigObj', function() {
+            let resultObj = {};
+            let index = 0;
+
+            for(const field of configObj.fields) {
+
+                resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
+                    
+                if (configObj.customTitle) {
+                    resultObj['t' + index] = configObj.customTitle;
+                }
+
+                index++;
+            }
+            return resultObj;
+        });
+
+        $(thisPartial).data('loadUrlConfig', function(urlConfig) {
+            
+        });
+
 
     });
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
+
+        let urlParams = new URLSearchParams(window.location.search);
 
         const devOrProductRowElem = $(thisPartial).find('.devOrProductRow');
         const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
@@ -1871,6 +2011,7 @@ $(document).ready(function() {
         const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
         const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
+
 
         let orgs;
 
@@ -1896,13 +2037,41 @@ $(document).ready(function() {
         }
 
         const updateProductList = async function() {
+            if (!orgs) {
+                // Not fully loaded yet
+                return;
+            }
+
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
             
+            if (urlParams) {
+                const devOrProductParam = urlParams.get('devOrProduct');
+                if (devOrProductParam) {
+                    $(devOrProductRowElem).find('input[value="' + devOrProductParam + '"]').prop('checked', true);
+                }
+                const sandboxOrgParam = urlParams.get('sandboxOrg')
+                if (sandboxOrgParam) {
+                    $(sandboxOrgRowElem).find('input[value="' + sandboxOrgParam + '"]').prop('checked', true);
+                }
+            }
+
             const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            switch(devOrProduct) {
+                case 'product':
+                    $(productSelectorRowElem).show();
+                    break;
+
+                case 'dev':
+                    $(productSelectorRowElem).hide();
+                    $(orgSelectorRowElem).hide();
+                    $(sandboxOrgRowElem).hide();
+                    break;                    
+            }
+
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
-            if (orgs && orgs.length) {
+            if (orgs.length) {
                 // Has organizations
 
                 switch(devOrProduct) {
@@ -1950,32 +2119,31 @@ $(document).ready(function() {
                 $(productSelectElem).append(optionElem);
             }
 
+            if (urlParams) {
+                const productIdParam = urlParams.get('productId');
+                if (productIdParam) {
+                    const productId = parseInt(productIdParam);
+                    if (productId) {
+                        $(productSelectElem).val(productId);
+                    }
+                }
+                
+                urlParams = null;
+            }
+
             $(thisPartial).trigger('updateProductList', [getOptions()]);
         }
 
         $(devOrProductRowElem).find('input').each(function() {
             const radioElem = $(this);
             $(radioElem).on('click', async function() {
-                const radioVal = $(devOrProductRowElem).find('input:checked').val();
-                switch(radioVal) {
-                    case 'product':
-                        $(productSelectorRowElem).show();
-                        break;
-
-                    case 'dev':
-                        $(productSelectorRowElem).hide();
-                        $(orgSelectorRowElem).hide();
-                        $(sandboxOrgRowElem).hide();
-                        break;                    
-                }
                 await updateProductList();
             });
         });
 
         $(sandboxOrgRowElem).find('input').each(function() {
             const radioElem = $(this);
-            $(radioElem).on('click', async function() {
-                const radioVal = $(devOrProductRowElem).find('input:checked').val();
+            $(radioElem).on('click', async function() {d('input:checked').val();
                 await updateProductList();
             });
         });
@@ -1996,7 +2164,13 @@ $(document).ready(function() {
 
                     $(orgSelectElem).append(optionElem);        
                 }
-            
+                if (urlParams) {
+                    const orgId = urlParams.get('org');
+                    if (orgId) {
+                        $(orgSelectElem).val(orgId);
+                    }
+                }
+
             }
             else {
                 // No orgs
@@ -2011,6 +2185,26 @@ $(document).ready(function() {
 
         $(thisPartial).data('getOptions', getOptions);
         
+        $(thisPartial).data('getUrlConfigObj', function() {
+            let resultObj = {};
+
+            resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+
+            if (orgs && orgs.length) {
+                resultObj.org = $(orgSelectElem).val();
+            }
+ 
+            if (resultObj.devOrProduct == 'product') {
+                resultObj.productId = $(productSelectElem).val();
+            }
+            else {
+                resultObj.productId = 0;
+            }
+
+            return resultObj;
+        });
+
     });
 
     $('.apiHelperLocalLogIn').each(function() {
