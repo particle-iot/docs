@@ -1605,15 +1605,11 @@ $(document).ready(function() {
         const deviceTableElem = $(deviceTableDivElem).find('table');
         const deviceTableBodyElem = $(deviceTableElem).find('tbody');
         
+        const statusElem = $(thisPartial).find('.apiHelperStatus');
+
         const setStatus = function(s) {
             $(statusElem).text(s);
         }
-
-        let deviceInfoMap = {};
-        let userInfo = {
-            productIndex: {},
-            productDevices: {}
-        };
 
         const addColumns = function(infoObj, columns) {
             for(const col of columns) {
@@ -1629,47 +1625,27 @@ $(document).ready(function() {
             }
         };
 
+        const clearDeviceList = function() {
+            $(deviceTableBodyElem).html('');
+            $(deviceTableDivElem).hide();
+        };
 
-        const checkOperations = async function(options) {
+
+        const getDeviceList = async function(options) {
             $(deviceTableBodyElem).html('');
             $(deviceTableDivElem).show();
 
-            $(simTableBodyElem).html('');
-
             try {
                 // 
-                setStatus('Getting device and SIM lists...');
+                setStatus('Getting device list...');
                 let accountDeviceList = await apiHelper.getAllDevices({
                     productId: options.productId,
                     owner: options.username
                 });
 
-                let accountSimList = await apiHelper.getAllSims({
-                    productId: options.productId,
-                });
-    
-                if (options.productId) {
-                    const teamList = (await apiHelper.particle.listTeamMembers({auth: apiHelper.auth.access_token, product: options.productId})).body.team;
-                    for(const t of teamList) {
-                        teamMap[t.username] = t;
-                    }
-                }
-                else {
-                    teamMap = {};
-                }
-
-                let isCellular = false;
-                let hasSim = false;
-
                 // 
-                for(const deviceId of options.deviceList) {
-                    let deviceInfo = accountDeviceList.find(e => e.id == deviceId);
-                    if (!deviceInfo) {
-                        deviceInfo = {
-                            id: deviceId,
-                            notFound: true
-                        }
-                    }
+                for(const deviceInfo of accountDeviceList) {
+                    const deviceId = deviceInfo.id;
 
                     {
                         const rowElem = deviceInfo.rowElem = document.createElement('tr');
@@ -1688,56 +1664,16 @@ $(document).ready(function() {
                         }
                                                                 
                         $(deviceTableBodyElem).append(rowElem);
-
-                        deviceInfoMap[deviceId] = deviceInfo;        
-                    }
-
-                    if (deviceInfo.cellular && deviceInfo.iccid) {
-                        isCellular = true;
-
-                        $(simTableDivElem).show();
-                        
-                        let simInfo = accountSimList.find(e => e.iccid == deviceInfo.iccid);
-                        if (!simInfo) {
-                            simInfo = {
-                                iccid: deviceInfo.iccid,
-                                notFound: true
-                            }
-                        }
-
-                        const rowElem = simInfo.rowElem = document.createElement('tr');
-
-                        addColumns(simInfo, ['iccid', 'release', 'removeStatus']);
-
-                        if (simInfo.notFound) {
-                            $(simInfo.removeStatusElem).text('SIM not found in product');
-                        }
-                        else {
-                            hasSim = true;
-                        }
-
-                        $(simTableBodyElem).append(rowElem);
-                        
-
-                        simInfoMap[deviceInfo.iccid] = simInfo;
                     }
                 }
 
-                if (hasSim) {
-                    $(releaseSimRowElem).show();
-                }
-                else {
-                    $(releaseSimRowElem).hide();
-                }
-                setStatus('Device and SIM check complete!');
+                setStatus('Device list retrieved!');
 
-                ga('send', 'event', gaCategory, 'Check Success');
-
-                checkExecuteButton(options);
+                ga('send', 'event', gaCategory, 'Success');
             }
             catch(e) {
                 console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Check Error');
+                ga('send', 'event', gaCategory, 'Error');
             }
 
         };
@@ -1745,43 +1681,26 @@ $(document).ready(function() {
         
         const getOptions = function() {
             
-            let options = Object.assign({                
-                username: apiHelper.auth.username,
-                accessToken: apiHelper.auth.access_token,
-                deviceList,
-            }, $(thisPartial).data('getOptions')());
+            let options = $(thisPartial).data('getOptions')();
+
+            options.username = apiHelper.auth.username;
+            options.accessToken = apiHelper.auth.access_token;
 
             return options;
         }
 
         $(actionButtonElem).on('click', function() {
-    
-            $(logDivElem).text('');
-            $(actionButtonElem).prop('disabled', true);
-
-            checkOperations(getOptions());
+            getDeviceList(getOptions());
         });
 
         $(productSelectElem).on('click', function() {
-            //checkDeviceList();
+            clearDeviceList();
+        });
+
+        $(thisPartial).on('updateProductList', async function(event, options) {
+            clearDeviceList();
         });
     });
-
-    /*
-    const radioVal = $(devOrProductRowElem).find('input:checked').val();
-                switch(radioVal) {
-                    case 'product':
-                        $(productSelectorRowElem).show();
-                        $(removeFromProductRowElem).show();
-                        break;
-
-                    case 'dev':
-                        $(removeFromProductRowElem).hide();
-                        $(productSelectorRowElem).hide();
-                        $(orgSelectorRowElem).hide();
-                        $(sandboxOrgRowElem).hide();
-                        break;           
-    */
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
