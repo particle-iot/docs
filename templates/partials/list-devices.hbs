@@ -30,13 +30,80 @@
             </table>            
         </div>
         <div class="apiHelperStatus"></div>
+        <div class="apiHelperFieldSelector" style="height:200px; overflow:auto;">
+            <textarea style="display:none">
+                {
+                    "fields": [
+                        {
+                            "title": "Device ID",
+                            "key": "id",
+                            "checked": true
+                        },
+                        {
+                            "title": "Device Name",
+                            "key": "name",
+                            "checked": true
+                        },
+                        {
+                            "title": "ICCID",
+                            "key": "iccid" ,
+                            "checked": true
+                        },
+                        {
+                            "title": "IMEI",
+                            "key": "imei"
+                        },
+                        {
+                            "title": "Serial",
+                            "key": "serial_number"
+                        },
+                        {
+                            "title": "Owner",
+                            "key": "owner"
+                        },
+                        {
+                            "title": "Last Heard",
+                            "key": "last_heard"
+                        },
+                        {
+                            "title": "Last Handshake",
+                            "key": "last_handshake_at"
+                        },
+                        {
+                            "title": "Last IP",
+                            "key": "last_ip_address"
+                        },
+                        {
+                            "title": "Online",
+                            "key": "online"
+                        },
+                        {
+                            "title": "Status",
+                            "key": "status"
+                        },
+                        {
+                            "title": "Device OS Version",
+                            "key": "system_firmware_version"
+                        },
+                        {
+                            "title": "Product ID",
+                            "key": "product_id"
+                        },
+                        {
+                            "title": "Platform ID",
+                            "key": "platform_id"
+                        },
+                        {
+                            "title": "Notes",
+                            "key": "notes"
+                        }
+                    ]
+                }
+            </textarea>
+        </div>
         <div class="deviceTableDiv" style="display:none">
             <table class="apiHelperTableNoMargin">
                 <thead>
-                    <tr>
-                        <th>Device ID</th>
-                        <th>Device Name</th>
-                    </tr>
                 </thead>
                 <tbody>
                 </tbody>

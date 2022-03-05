@@ -1603,33 +1603,68 @@ $(document).ready(function() {
 
         const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
         const deviceTableElem = $(deviceTableDivElem).find('table');
+        const deviceTableHeadElem = $(deviceTableElem).find('thead');
         const deviceTableBodyElem = $(deviceTableElem).find('tbody');
         
         const statusElem = $(thisPartial).find('.apiHelperStatus');
 
+        const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
+
+        let deviceList;
+
         const setStatus = function(s) {
             $(statusElem).text(s);
         }
-
-        const addColumns = function(infoObj, columns) {
-            for(const col of columns) {
-                colElemKey = col + 'Elem';
-
-                const tdElem = infoObj[colElemKey] = document.createElement('td');
-
-                if (infoObj[col]) {
-                    $(tdElem).text(infoObj[col]);
-                }
-
-                $(infoObj.rowElem).append(tdElem);
-            }
-        };
 
         const clearDeviceList = function() {
             $(deviceTableBodyElem).html('');
             $(deviceTableDivElem).hide();
         };
 
+        const refreshTable = async function(configObj) {
+            // 
+            $(deviceTableHeadElem).html('');
+            {
+                const rowElem = document.createElement('tr');
+                for(field of configObj.fields) {
+                    if (field.isChecked()) {
+                        const thElem = document.createElement('th');
+                        $(thElem).text(field.title);
+                        $(rowElem).append(thElem);
+                    }
+                }
+
+                $(deviceTableHeadElem).append(rowElem);
+
+            }
+
+            $(deviceTableBodyElem).html('');
+
+            for(const deviceInfo of deviceList) {
+                const deviceId = deviceInfo.id;
+                deviceInfo.deviceId = deviceInfo.id;
+
+                const rowElem = deviceInfo.rowElem = document.createElement('tr');
+
+                for(field of configObj.fields) {
+                    if (field.isChecked()) {
+                        colElemKey = field.key + 'Elem';
+
+                        const tdElem = deviceInfo[colElemKey] = document.createElement('td');
+        
+                        if (deviceInfo[field.key]) {
+                            $(tdElem).text(deviceInfo[field.key]);
+                        }
+        
+                        $(rowElem).append(tdElem);
+                    }
+                }
+
+                $(deviceTableBodyElem).append(rowElem);
+
+            }
+
+        };
 
         const getDeviceList = async function(options) {
             $(deviceTableBodyElem).html('');
@@ -1638,36 +1673,15 @@ $(document).ready(function() {
             try {
                 // 
                 setStatus('Getting device list...');
-                let accountDeviceList = await apiHelper.getAllDevices({
+                deviceList = await apiHelper.getAllDevices({
                     productId: options.productId,
                     owner: options.username
                 });
 
-                // 
-                for(const deviceInfo of accountDeviceList) {
-                    const deviceId = deviceInfo.id;
-
-                    {
-                        const rowElem = deviceInfo.rowElem = document.createElement('tr');
-
-                        deviceInfo.deviceId = deviceInfo.id;
-                        
-                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'remove', 'unclaim', 'removeStatus']);
-
-                        if (deviceInfo.notFound) {
-                            if (options.productId) {
-                                $(deviceInfo.removeStatusElem).text('Device not found in product');
-                            }
-                            else {
-                                $(deviceInfo.removeStatusElem).text('Device not found in sandbox');                                
-                            }
-                        }
-                                                                
-                        $(deviceTableBodyElem).append(rowElem);
-                    }
-                }
 
                 setStatus('Device list retrieved!');
+
+                refreshTable($(fieldSelectorElem).data('getConfigObj')());
 
                 ga('send', 'event', gaCategory, 'Success');
             }
@@ -1700,6 +1714,152 @@ $(document).ready(function() {
         $(thisPartial).on('updateProductList', async function(event, options) {
             clearDeviceList();
         });
+
+        $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
+            refreshTable(config);
+        });
+    });
+
+    $('.apiHelperFieldSelector').each(function() {
+        const thisPartial = $(this);
+
+        const configElem = $(thisPartial).find('textarea');
+        const configText = configElem.text();
+        // console.log('configText', configText);
+        let configObj = JSON.parse(configText);
+        $(configElem).replaceWith('');
+
+        // console.log('configObj', configObj);
+        
+        const refreshTable = function() {
+            $(thisPartial).trigger('fieldSelectorUpdate', [configObj]);
+        };
+
+        const moveField = function(fromKey, toKey, afterTarget) {
+            let fromIndex = -1;
+            let toIndex = -1;
+            for(let ii = 0; ii < configObj.fields.length; ii++) {
+                if (configObj.fields[ii].key == fromKey) {
+                    fromIndex = ii;
+                }
+                if (configObj.fields[ii].key == toKey) {
+                    toIndex = ii;
+                }
+            }
+
+            if (fromIndex == toIndex || fromIndex < 0 || toIndex < 0) {
+                return;
+            }
+
+            // Reorder items in the DOM
+            $(configObj.fields[fromIndex].trElem).detach();
+            if (afterTarget) {
+                $(configObj.fields[toIndex].trElem).after(configObj.fields[fromIndex].trElem);
+
+            }
+            else {
+                $(configObj.fields[toIndex].trElem).before(configObj.fields[fromIndex].trElem);
+
+            }
+
+            // Reorder items in array
+            const fromArrayItem = configObj.fields[fromIndex];
+            configObj.fields.splice(fromIndex, 1);
+            if (toIndex > fromIndex) {
+                toIndex--;
+            }
+            if (afterTarget) {
+                toIndex++;
+            }
+            configObj.fields.splice(toIndex, 0, fromArrayItem);
+
+            //console.log('fields', configObj.fields);
+            refreshTable();
+            
+        };
+
+        const tableElem = document.createElement('table');
+        {
+            $(tableElem).addClass('apiHelperTableNoMargin');
+
+            const tbodyElem = document.createElement('tbody');
+
+            for(const field of configObj.fields) {
+                const trElem = field.trElem = document.createElement('tr');
+
+                let tdElem;
+
+                // Drag icon
+                tdElem = document.createElement('td');
+                const imgElem = document.createElement('img');
+                $(imgElem).attr('src', '/assets/images/drag-handle-black.png');
+                $(imgElem).attr('width', '20');
+                $(imgElem).attr('height', '20');
+                $(imgElem).attr('style', 'margin:0px !important');
+                $(imgElem).attr('draggable', 'true');
+                $(imgElem).on('dragstart', function(ev) {
+                    ev.originalEvent.dataTransfer.setData('text', field.key);
+                });
+                $(tdElem).append(imgElem);
+                trElem.append(tdElem);
+
+                // Checkbox
+                tdElem = document.createElement('td');
+
+                const checkboxElem = document.createElement('input');
+                $(checkboxElem).prop('type', 'checkbox');
+                if (field.checked) {
+                    $(checkboxElem).prop('checked', 'checked');
+                }
+                $(checkboxElem).on('click', function() {
+                    refreshTable();
+                });
+                $(tdElem).append(checkboxElem);
+                trElem.append(tdElem);
+
+                field.isChecked = function() {
+                    return $(checkboxElem).prop('checked');
+                };
+
+                // Field Name
+                tdElem = document.createElement('td');
+                $(tdElem).text(field.title);
+                $(tdElem).on('click', function() {
+                    $(checkboxElem).trigger('click');
+                });
+                trElem.append(tdElem);
+                // Field description?
+
+                $(trElem).on('dragover', function(ev) {
+                    const key = ev.originalEvent.dataTransfer.getData("text");                    
+                    if (key != field.key) {
+                        ev.preventDefault();
+                    }
+                });
+                $(trElem).on('drop', function(ev) {
+                    const key = ev.originalEvent.dataTransfer.getData("text");                    
+                    console.log('ev', ev);
+
+                    const targetClientHeight = ev.currentTarget.clientHeight;
+                    const afterTarget = (ev.originalEvent.offsetY >= (targetClientHeight / 2));
+
+                    moveField(key, field.key, afterTarget);
+                });
+    
+
+                $(tbodyElem).append(trElem);
+            }
+
+            $(tableElem).append(tbodyElem);
+        }
+
+        $(thisPartial).html(tableElem);
+
+        $(thisPartial).data('getConfigObj', function() {
+            return configObj;
+        });
+
+
     });
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
@@ -1847,6 +2007,7 @@ $(document).ready(function() {
 
             await updateProductList();
         });
+
 
         $(thisPartial).data('getOptions', getOptions);
         
