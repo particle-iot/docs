@@ -1661,7 +1661,7 @@ $(document).ready(function() {
                 for(field of configObj.fields) {
                     if (field.isChecked()) {
                         const thElem = document.createElement('th');
-                        $(thElem).text(field.title);
+                        $(thElem).text(field.customTitle ? field.customTitle : field.title);
                         $(rowElem).append(thElem);
                     }
                 }
@@ -1891,6 +1891,7 @@ $(document).ready(function() {
 
                 // Drag icon
                 tdElem = document.createElement('td');
+                $(tdElem).attr('style', 'vertical-align: middle !important');
                 const imgElem = document.createElement('img');
                 $(imgElem).attr('src', '/assets/images/drag-handle-black.png');
                 $(imgElem).attr('width', '20');
@@ -1905,6 +1906,7 @@ $(document).ready(function() {
 
                 // Checkbox
                 tdElem = document.createElement('td');
+                $(tdElem).attr('style', 'vertical-align: middle !important');
 
                 const checkboxElem = document.createElement('input');
                 $(checkboxElem).prop('type', 'checkbox');
@@ -1923,14 +1925,29 @@ $(document).ready(function() {
 
                 // Field Name
                 tdElem = document.createElement('td');
-                $(tdElem).text(field.customTitle ? field.customTitle : field.title);
-                $(tdElem).on('click', function() {
-                    $(checkboxElem).trigger('click');
+                $(tdElem).attr('style', 'vertical-align: middle !important');
+
+                const titleInputElem = document.createElement('input');
+                $(titleInputElem).attr('type', 'text');
+                $(titleInputElem).attr('value', field.customTitle ? field.customTitle : field.title);
+                $(titleInputElem).on('blur', function() {
+                    const title = $(titleInputElem).val();
+                    if (title != field.title) {
+                        field.customTitle = title;
+                        console.log('customTitle=' + title);
+                    }
+                    else {
+                        delete field.customTitle;
+                        console.log('default title');
+                    }
+                    refreshTable();
                 });
+                $(tdElem).append(titleInputElem);
                 trElem.append(tdElem);
 
                 // Key
                 tdElem = document.createElement('td');
+                $(tdElem).attr('style', 'vertical-align: middle !important');
                 $(tdElem).text(field.key);
                 $(tdElem).on('click', function() {
                     $(checkboxElem).trigger('click');
@@ -1939,6 +1956,7 @@ $(document).ready(function() {
 
                 // Sort
                 tdElem = field.sortByElem = document.createElement('td');
+                $(tdElem).attr('style', 'vertical-align: middle !important');
                 $(tdElem).addClass('apiHelperFieldSelectorSortBy')
                 $(tdElem).on('click', function() {
                     $('.apiHelperFieldSelectorSortBy').text('');
@@ -1984,8 +2002,8 @@ $(document).ready(function() {
 
                 resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
                     
-                if (configObj.customTitle) {
-                    resultObj['t' + index] = configObj.customTitle;
+                if (field.customTitle) {
+                    resultObj['t' + index] = field.customTitle;
                 }
 
                 index++;
