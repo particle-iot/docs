@@ -1625,7 +1625,6 @@ $(document).ready(function() {
             if (formatParam) {
                 $(formatSelectElem).val(formatParam);
             }
-            console.log('formatParam', formatParam);
             const headerParam = urlParams.get('header');
             if (headerParam !== null) {
                 $(includeHeaderCheckboxElem).prop('checked', !!headerParam);
@@ -1683,14 +1682,17 @@ $(document).ready(function() {
 
             let tableData = {
                 keys:[],
-                titles:[]
+                titles:[],
+                widths:[],
+                indexFor: {}
             }
 
             for(field of configObj.fields) {
                 if (field.isChecked()) {
                     tableData.keys.push(field.key);
                     tableData.titles.push(field.customTitle ? field.customTitle : field.title);
-
+                    tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
+                    tableData.indexFor[field.key] = tableData.keys.length - 1;
                 }
             }
 
@@ -1698,9 +1700,8 @@ $(document).ready(function() {
                 tableData.data = [];
 
                 for(const deviceInfo of deviceList) {
-                    let d = {
-                        deviceId: deviceInfo.id
-                    }
+                    let d = {};
+                    
                     for(const key of tableData.keys) {
                         if (typeof deviceInfo[key] !== 'undefined') {
                             if (Array.isArray(deviceInfo[key])) {
@@ -1744,11 +1745,14 @@ $(document).ready(function() {
             if (tableData.data) {
                 $(downloadDivElem).show();
 
-                for(const d of tableData.data) {    
+                for(const d of tableData.data) {
                     const rowElem = document.createElement('tr');
     
-                    for(const key of tableData.keys) {
+                    for(let col = 0; col < tableData.keys.length; col++) {
+                        const key = tableData.keys[col];
+
                         const tdElem = document.createElement('td');
+                        $(tdElem).attr('width', tableData.widths[col] + 'ch');
         
                         if (d[key]) {
                             $(tdElem).text(d[key]);
@@ -1855,7 +1859,16 @@ $(document).ready(function() {
                 XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableData.titles], { origin: "A1" });
             }
 
-            // TODO: Column widths
+            // Columns widths
+            if (!xlsxData.worksheet['!cols']) {
+                xlsxData.worksheet['!cols'] = [];
+            }
+            for(let ii = 0; ii < xlsxData.tableData.widths.length; ii++) {
+                if (!xlsxData.worksheet['!cols'][ii]) {
+                    xlsxData.worksheet['!cols'][ii] = {};
+                }
+                xlsxData.worksheet['!cols'][ii].wch = xlsxData.tableData.widths[ii];
+            }
 
             switch(xlsxData.options.format) {
                 case 'xlsx':
@@ -1913,6 +1926,12 @@ $(document).ready(function() {
         let configObj = JSON.parse(configText);
         $(configElem).replaceWith('');
 
+        for(const field of configObj.fields) {
+            if (!field.width) {
+                field.width = '10';
+            }
+        }
+
         // console.log('configObj', configObj);
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -1936,6 +1955,10 @@ $(document).ready(function() {
                     const customTitle = urlParams.get('t' + index);
                     if (customTitle) {
                         field.customTitle = customTitle;
+                    }
+                    const customWidth = urlParams.get('w' + index);
+                    if (customWidth) {
+                        field.customWidth = customWidth;
                     }
                     newFields.push(field);
                 }
@@ -2032,7 +2055,7 @@ $(document).ready(function() {
                 }
                 {
                     const thElem = document.createElement('th');
-                    $(thElem).text('Sort By');
+                    $(thElem).text('Width');
                     $(trElem).append(thElem);
                 }
 
@@ -2090,15 +2113,7 @@ $(document).ready(function() {
                 $(titleInputElem).attr('type', 'text');
                 $(titleInputElem).attr('value', field.customTitle ? field.customTitle : field.title);
                 $(titleInputElem).on('blur', function() {
-                    const title = $(titleInputElem).val();
-                    if (title != field.title) {
-                        field.customTitle = title;
-                        console.log('customTitle=' + title);
-                    }
-                    else {
-                        delete field.customTitle;
-                        console.log('default title');
-                    }
+                    field.customTitle = $(titleInputElem).val();
                     refreshTable();
                 });
                 $(tdElem).append(titleInputElem);
@@ -2113,14 +2128,17 @@ $(document).ready(function() {
                 });
                 trElem.append(tdElem);
 
-                // Sort
-                tdElem = field.sortByElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-                $(tdElem).addClass('apiHelperFieldSelectorSortBy')
-                $(tdElem).on('click', function() {
-                    $('.apiHelperFieldSelectorSortBy').text('');
-                    $(field.sortByElem).html('&check;');
+                // Width
+                tdElem = document.createElement('td');
+                const widthInputElem = document.createElement('input');
+                $(widthInputElem).attr('type', 'text');
+                $(widthInputElem).attr('value', field.customWidth ? field.customWidth : field.width); 
+                $(widthInputElem).attr('size', '5'); 
+                $(widthInputElem).on('blur', function() {
+                    field.customWidth = $(widthInputElem).val();                    
+                    refreshTable();
                 });
+                $(tdElem).append(widthInputElem);
                 trElem.append(tdElem);
 
 
@@ -2161,8 +2179,12 @@ $(document).ready(function() {
 
                 resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
                     
-                if (field.customTitle) {
+                if (field.customTitle && field.customTitle != field.title) {
                     resultObj['t' + index] = field.customTitle;
+                }
+
+                if (field.customWidth && field.customWidth != field.width) {
+                    resultObj['w' + index] = field.customWidth;
                 }
 
                 index++;
