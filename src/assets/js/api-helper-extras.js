@@ -1609,11 +1609,29 @@ $(document).ready(function() {
         
         const statusElem = $(thisPartial).find('.apiHelperStatus');
 
+        const downloadDivElem = $(thisPartial).find('.downloadDiv');
+        const formatSelectElem = $(thisPartial).find('.formatSelect');
+        const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
+        const downloadButtonElem = $(thisPartial).find('.downloadButton');
+        const copyButtonElem = $(thisPartial).find('.copyButton');
+
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
 
         let deviceList;
 
         const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams) {
+            const formatParam = urlParams.get('format');
+            if (formatParam) {
+                $(formatSelectElem).val(formatParam);
+            }
+            console.log('formatParam', formatParam);
+            const headerParam = urlParams.get('header');
+            if (headerParam !== null) {
+                $(includeHeaderCheckboxElem).prop('checked', !!headerParam);
+            }
+
+        }
 
         const setStatus = function(s) {
             $(statusElem).text(s);
@@ -1622,6 +1640,9 @@ $(document).ready(function() {
         const getOptions = function() {
             
             let options = $(productOrSandboxSelectorElem).data('getOptions')();
+
+            options.format = $(formatSelectElem).val();
+            options.header = $(includeHeaderCheckboxElem).prop('checked');
 
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
@@ -1632,70 +1653,116 @@ $(document).ready(function() {
         const clearDeviceList = function() {
             $(deviceTableBodyElem).html('');
             $(deviceTableDivElem).hide();
+            $(downloadDivElem).hide();
         };
 
         const updateSearchParam = function() {
     
             try {
+                const options = getOptions();
+
                 let urlConfig = $(fieldSelectorElem).data('getUrlConfigObj')();
 
                 urlConfig = Object.assign($(productOrSandboxSelectorElem).data('getUrlConfigObj')(), urlConfig);
                 
-                //const options = getOptions();
-                //urlConfig.productId = options.productId;
-    
+                urlConfig.format = options.format;
+                urlConfig.header = options.header;
+                
                 const searchStr = $.param(urlConfig);
     
                 history.pushState(null, '', '?' + searchStr);     
+
+                $(copyButtonElem).prop('disabled', (options.format != 'csv' && options.format != 'tsv'));
             }
             catch(e) {
                 console.log('exception', e);
             }
         };
 
-        const refreshTable = async function(configObj) {            
+        const getTableData = function(configObj) {
+
+            let tableData = {
+                keys:[],
+                titles:[]
+            }
+
+            for(field of configObj.fields) {
+                if (field.isChecked()) {
+                    tableData.keys.push(field.key);
+                    tableData.titles.push(field.customTitle ? field.customTitle : field.title);
+
+                }
+            }
+
+            if (deviceList) {
+                tableData.data = [];
+
+                for(const deviceInfo of deviceList) {
+                    let d = {
+                        deviceId: deviceInfo.id
+                    }
+                    for(const key of tableData.keys) {
+                        if (typeof deviceInfo[key] !== 'undefined') {
+                            if (Array.isArray(deviceInfo[key])) {
+                                // Occurs for groups and functions
+                                d[key] = deviceInfo[key].join(' ');
+    
+                                // TODO: Also handle object for variables. Maybe boolean as we well
+                            }
+                            else {
+                                d[key] = deviceInfo[key];
+                            }
+                        }
+                    }
+                    tableData.data.push(d);
+                }    
+            }
+
+            // TODO: Filtering of desired rows
+            // TODO: Date formatting
+
+            return tableData;
+        } 
+
+        const refreshTable = function(configObj) {            
             // 
+            const tableData = getTableData(configObj);
+
             $(deviceTableHeadElem).html('');
             {
                 const rowElem = document.createElement('tr');
-                for(field of configObj.fields) {
-                    if (field.isChecked()) {
-                        const thElem = document.createElement('th');
-                        $(thElem).text(field.customTitle ? field.customTitle : field.title);
-                        $(rowElem).append(thElem);
-                    }
+                for(const title of tableData.titles) {
+                    const thElem = document.createElement('th');
+                    $(thElem).text(title);
+                    $(rowElem).append(thElem);
                 }
-
                 $(deviceTableHeadElem).append(rowElem);
-
             }
 
             $(deviceTableBodyElem).html('');
 
-            if (deviceList) {
-                for(const deviceInfo of deviceList) {
-                    const deviceId = deviceInfo.id;
-                    deviceInfo.deviceId = deviceInfo.id;
+            if (tableData.data) {
+                $(downloadDivElem).show();
+
+                for(const d of tableData.data) {    
+                    const rowElem = document.createElement('tr');
     
-                    const rowElem = deviceInfo.rowElem = document.createElement('tr');
-    
-                    for(field of configObj.fields) {
-                        if (field.isChecked()) {
-                            colElemKey = field.key + 'Elem';
-    
-                            const tdElem = deviceInfo[colElemKey] = document.createElement('td');
-            
-                            if (deviceInfo[field.key]) {
-                                $(tdElem).text(deviceInfo[field.key]);
-                            }
-            
-                            $(rowElem).append(tdElem);
+                    for(const key of tableData.keys) {
+                        const tdElem = document.createElement('td');
+        
+                        if (d[key]) {
+                            $(tdElem).text(d[key]);
                         }
+        
+                        $(rowElem).append(tdElem);
                     }
     
                     $(deviceTableBodyElem).append(rowElem);
     
                 }
+            }
+            else {
+                $(downloadDivElem).hide();
             }
         };
 
@@ -1743,6 +1810,98 @@ $(document).ready(function() {
             refreshTable(config);
             updateSearchParam();
         });
+
+
+        $(formatSelectElem).on('change', function() {
+            updateSearchParam();
+        });
+
+        $(includeHeaderCheckboxElem).on('click', function() {
+            updateSearchParam();
+        });
+
+        const getXlsxData = function(options) {
+            if (!options) {
+                options = {};
+            }
+            if (!options.sheetName) {
+                options.sheetName = 'Devices';
+            }
+            let xlsxData = {};
+
+            xlsxData.options = getOptions();
+
+            if (!options.fileName) {
+                options.fileName = 'devices.' + xlsxData.options.format;
+            }
+
+            xlsxData.configObj = $(fieldSelectorElem).data('getConfigObj')();
+
+            xlsxData.tableData = getTableData(xlsxData.configObj);
+
+            let conversionOptions = {
+                header: xlsxData.tableData.keys
+            };
+            if (!xlsxData.options.header) {
+                conversionOptions.skipHeader = true;
+            }
+
+            xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
+
+            xlsxData.workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(xlsxData.workbook, xlsxData.worksheet, options.sheetName);
+
+            if (xlsxData.options.header) {
+                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableData.titles], { origin: "A1" });
+            }
+
+            // TODO: Column widths
+
+            switch(xlsxData.options.format) {
+                case 'xlsx':
+                    // toFile/toClipboard is ignored; cannot create 
+                    XLSX.writeFile(xlsxData.workbook, options.fileName);
+                    break;
+
+                case 'csv':
+                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet);
+                    break;
+
+                case 'tsv':
+                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet, {FS:'\t'});
+                    break;
+            }
+            if (xlsxData.textOut) {
+                console.log('textOut', xlsxData.textOut);
+
+                if (options.toClipboard) {
+                    var t = document.createElement('textarea');
+                    document.body.appendChild(t);
+                    $(t).text(xlsxData.textOut);
+                    t.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(t);
+                }
+                if (options.toFile) {
+                    let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
+                    saveAs(blob, options.fileName);	        
+                }
+            }
+
+            return xlsxData;
+        }
+
+        $(downloadButtonElem).on('click', function() {
+            getXlsxData({toFile: true});
+
+        });
+
+        $(copyButtonElem).on('click', function() {
+            getXlsxData({toClipboard: true});
+            
+        });
+
+
     });
 
     $('.apiHelperFieldSelector').each(function() {
@@ -1988,7 +2147,7 @@ $(document).ready(function() {
             $(tableElem).append(tbodyElem);
         }
 
-        $(thisPartial).html(tableElem);
+        $(thisPartial).append(tableElem);
 
         $(thisPartial).data('getConfigObj', function() {
             return configObj;

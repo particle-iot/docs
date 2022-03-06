@@ -1,3 +1,4 @@
+<!-- Required includeDefinitions: [api-helper, api-helper-extras, xlsx] -->
 <div class="apiHelper apiHelperListDevices apiHelperLoggedIn">
     <div class="apiHelperBox">
         <div class="apiHelperProductOrSandboxSelector"> 
@@ -30,7 +31,7 @@
             </table>            
         </div>
         <div class="apiHelperStatus"></div>
-        <div class="apiHelperFieldSelector" style="height:200px; overflow:auto;">
+        <div class="apiHelperFieldSelector" style="height:300px; overflow:auto;">
             <textarea style="display:none">
                 {
                     "fields": [
@@ -56,6 +57,10 @@
                         {
                             "title": "Serial",
                             "key": "serial_number"
+                        },
+                        {
+                            "title": "Groups",
+                            "key": "groups"
                         },
                         {
                             "title": "Owner",
@@ -94,20 +99,74 @@
                             "key": "platform_id"
                         },
                         {
+                            "title": "Firmware Version",
+                            "key": "firmware_version"
+                        },
+                        {
+                            "title": "Desired Firmware Version",
+                            "key": "desired_firmware_version"
+                        },
+                        {
+                            "title": "Dev",
+                            "key": "development"
+                        },
+                        {
+                            "title": "Quarantined",
+                            "key": "quarantined"
+                        },
+                        {
+                            "title": "Denied",
+                            "key": "denied"
+                        },
+                        {
                             "title": "Notes",
                             "key": "notes"
                         }
                     ]
                 }
             </textarea>
+            <div style="padding-top: 20px;">Fields to include:</div>
+        </div>
+        <div class="downloadDiv" style="display:none; padding-top: 20px;">
+            <div>Download Data:</div>
+            <div>
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">Format</td>
+                            <td>
+                                <select class="formatSelect apiHelperSelect">
+                                    <option value="xlsx" selected>Excel spreadsheet (.xlsx)</option>
+                                    <option value="csv">Comma-separated values (.csv)</option>
+                                    <option value="tsv">Tab-separated values (.tsv)</option>
+                                </select> &nbsp;&nbsp;
+                                <label><input class="includeHeaderCheckbox" type="checkbox" checked/>Include header row</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="apiHelperButton downloadButton">Download data</button> &nbsp;&nbsp;
+                                <button class="apiHelperButton copyButton">Copy data to clipboard</button>
+                            </td>                
+                        </tr>
+                    </tbody>
+                </table>      
+            </div>
         </div>
         <div class="deviceTableDiv" style="display:none">
-            <table class="apiHelperTableNoMargin">
-                <thead>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div>Preview:</div>
+            <div>
+                <table class="apiHelperTableNoMargin">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="downloadDiv" style="display:none; padding-top: 10px;">
+            <p style="font-size: x-small;">Excel and csv download provided by <a href="https://sheetjs.com/">SheetJS</a>. 
+                Data conversion is done entirely within your browser and not uploaded to any external services.</p>
         </div>
     </div>
 </div>
