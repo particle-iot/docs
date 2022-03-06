@@ -1803,6 +1803,10 @@ $(document).ready(function() {
             $(deviceTableDivElem).show();
 
             try {
+                let stats = {
+                    product: (options.productId != 0)
+                };
+
                 // 
                 setStatus('Getting device list...');
                 deviceList = await apiHelper.getAllDevices({
@@ -1810,16 +1814,17 @@ $(document).ready(function() {
                     owner: options.username
                 });
 
+                stats.count = deviceList.length;
 
                 setStatus('Device list retrieved!');
 
                 refreshTable($(fieldSelectorElem).data('getConfigObj')());
 
-                ga('send', 'event', gaCategory, 'Success');
+                ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
             }
             catch(e) {
                 console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Error');
+                ga('send', 'event', gaCategory, 'Get Devices Error');
             }
 
         };
@@ -1902,6 +1907,12 @@ $(document).ready(function() {
                         break;
                 }
             }
+            let stats = {
+                format: xlsxData.options.format,
+                cols: xlsxData.tableData.keys.length,
+                count: xlsxData.tableData.data.length
+            };
+
 
             xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
 
@@ -1927,6 +1938,7 @@ $(document).ready(function() {
                 case 'xlsx':
                     // toFile/toClipboard is ignored; cannot create 
                     XLSX.writeFile(xlsxData.workbook, options.fileName);
+                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
                     break;
 
                 case 'deviceId':
@@ -1947,10 +1959,13 @@ $(document).ready(function() {
                     t.select();
                     document.execCommand("copy");
                     document.body.removeChild(t);
+
+                    ga('send', 'event', gaCategory, 'Clipboard', JSON.stringify(stats));
                 }
                 if (options.toFile) {
                     let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
                     saveAs(blob, options.fileName);	        
+                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
                 }
             }
 
