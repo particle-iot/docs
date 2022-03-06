@@ -2395,7 +2395,7 @@ $(document).ready(function() {
 
         $(sandboxOrgRowElem).find('input').each(function() {
             const radioElem = $(this);
-            $(radioElem).on('click', async function() {d('input:checked').val();
+            $(radioElem).on('click', async function() {
                 await updateProductList();
             });
         });
