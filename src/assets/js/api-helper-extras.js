@@ -1678,7 +1678,7 @@ $(document).ready(function() {
     
                 history.pushState(null, '', '?' + searchStr);     
 
-                $(copyButtonElem).prop('disabled', (options.format != 'csv' && options.format != 'tsv'));
+                $(copyButtonElem).prop('disabled', (options.format == 'xlsx'));
             }
             catch(e) {
                 console.log('exception', e);
@@ -1693,14 +1693,23 @@ $(document).ready(function() {
                 widths:[],
                 indexFor: {}
             }
-
-            for(field of configObj.fields) {
-                if (field.isChecked()) {
-                    tableData.keys.push(field.key);
-                    tableData.titles.push(field.customTitle ? field.customTitle : field.title);
-                    tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
-                    tableData.indexFor[field.key] = tableData.keys.length - 1;
-                }
+            
+            if (options.export && options.format == 'deviceId') {
+                tableData.keys.push('id');
+            }
+            else
+            if (options.export && options.format == 'iccid') {
+                tableData.keys.push('iccid');                
+            }
+            else {
+                for(field of configObj.fields) {
+                    if (field.isChecked()) {
+                        tableData.keys.push(field.key);
+                        tableData.titles.push(field.customTitle ? field.customTitle : field.title);
+                        tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
+                        tableData.indexFor[field.key] = tableData.keys.length - 1;
+                    }
+                }    
             }
 
             if (deviceList) {
@@ -1708,6 +1717,10 @@ $(document).ready(function() {
 
                 for(const deviceInfo of deviceList) {
                     let d = {};
+
+                    if (options.export && options.format == 'iccid' && !deviceInfo['iccid']) {
+                        continue;
+                    }
 
                     for(const key of tableData.keys) {
                         if (typeof deviceInfo[key] !== 'undefined') {
@@ -1742,7 +1755,7 @@ $(document).ready(function() {
 
         const refreshTable = function(configObj) {            
             // 
-            const tableData = getTableData(configObj, {});
+            const tableData = getTableData(configObj, getOptions());
 
             $(deviceTableHeadElem).html('');
             {
@@ -1853,17 +1866,12 @@ $(document).ready(function() {
 
             xlsxData.options = getOptions();
 
-            if (!options.fileName) {
-                options.fileName = 'devices.' + xlsxData.options.format;
-            }
-
             xlsxData.configObj = $(fieldSelectorElem).data('getConfigObj')();
 
-            let getTableDataOptions = {};
+            let getTableDataOptions = getOptions();
 
-            if (xlsxData.options.dateFormat != 'iso') {
-                getTableDataOptions.convertDates = true;
-            }
+            getTableDataOptions.convertDates = (xlsxData.options.dateFormat != 'iso');
+            getTableDataOptions.export = true;
 
             xlsxData.tableData = getTableData(xlsxData.configObj, getTableDataOptions);
 
@@ -1875,6 +1883,24 @@ $(document).ready(function() {
             }
             if (xlsxData.options.dateFormat != 'iso') {
                 conversionOptions.dateNF = xlsxData.options.dateFormat;
+            }
+
+            if (!options.fileName) {
+                switch(xlsxData.options.format) {
+                    case 'deviceId':
+                        options.fileName = 'devices.txt';
+                        conversionOptions.skipHeader = true;
+                        break;
+
+                    case 'iccid':
+                        options.fileName = 'iccids.txt';
+                        conversionOptions.skipHeader = true;
+                        break;
+
+                    default:
+                        options.fileName = 'devices.' + xlsxData.options.format;
+                        break;
+                }
             }
 
             xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
@@ -1903,6 +1929,8 @@ $(document).ready(function() {
                     XLSX.writeFile(xlsxData.workbook, options.fileName);
                     break;
 
+                case 'deviceId':
+                case 'iccid':
                 case 'csv':
                     xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet);
                     break;
@@ -1912,8 +1940,6 @@ $(document).ready(function() {
                     break;
             }
             if (xlsxData.textOut) {
-                console.log('textOut', xlsxData.textOut);
-
                 if (options.toClipboard) {
                     var t = document.createElement('textarea');
                     document.body.appendChild(t);
