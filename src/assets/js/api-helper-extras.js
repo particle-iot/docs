@@ -1612,6 +1612,7 @@ $(document).ready(function() {
         const downloadDivElem = $(thisPartial).find('.downloadDiv');
         const formatSelectElem = $(thisPartial).find('.formatSelect');
         const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
+        const dateFormatSelectElem = $(thisPartial).find('.dateFormatSelect');
         const downloadButtonElem = $(thisPartial).find('.downloadButton');
         const copyButtonElem = $(thisPartial).find('.copyButton');
 
@@ -1629,6 +1630,10 @@ $(document).ready(function() {
             if (headerParam !== null) {
                 $(includeHeaderCheckboxElem).prop('checked', !!headerParam);
             }
+            const dateFormatParam = urlParams.get('dateFormat');
+            if (dateFormatParam) {
+                $(dateFormatSelectElem).val(dateFormatParam);
+            }
 
         }
 
@@ -1642,6 +1647,7 @@ $(document).ready(function() {
 
             options.format = $(formatSelectElem).val();
             options.header = $(includeHeaderCheckboxElem).prop('checked');
+            options.dateFormat = $(dateFormatSelectElem).val();
 
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
@@ -1666,6 +1672,7 @@ $(document).ready(function() {
                 
                 urlConfig.format = options.format;
                 urlConfig.header = options.header;
+                urlConfig.dateFormat = options.dateFormat;
                 
                 const searchStr = $.param(urlConfig);
     
@@ -1678,7 +1685,7 @@ $(document).ready(function() {
             }
         };
 
-        const getTableData = function(configObj) {
+        const getTableData = function(configObj, options) {
 
             let tableData = {
                 keys:[],
@@ -1701,7 +1708,7 @@ $(document).ready(function() {
 
                 for(const deviceInfo of deviceList) {
                     let d = {};
-                    
+
                     for(const key of tableData.keys) {
                         if (typeof deviceInfo[key] !== 'undefined') {
                             if (Array.isArray(deviceInfo[key])) {
@@ -1711,7 +1718,15 @@ $(document).ready(function() {
                                 // TODO: Also handle object for variables. Maybe boolean as we well
                             }
                             else {
-                                d[key] = deviceInfo[key];
+                                let value = deviceInfo[key];
+
+                                if (options.convertDates) {
+                                    if (key == 'last_heard' || key == 'last_handshake_at' ) {
+                                        value = new Date(value);
+                                    }
+                                }
+
+                                d[key] = value;
                             }
                         }
                     }
@@ -1727,7 +1742,7 @@ $(document).ready(function() {
 
         const refreshTable = function(configObj) {            
             // 
-            const tableData = getTableData(configObj);
+            const tableData = getTableData(configObj, {});
 
             $(deviceTableHeadElem).html('');
             {
@@ -1819,6 +1834,9 @@ $(document).ready(function() {
         $(formatSelectElem).on('change', function() {
             updateSearchParam();
         });
+        $(dateFormatSelectElem).on('change', function() {
+            updateSearchParam();
+        });
 
         $(includeHeaderCheckboxElem).on('click', function() {
             updateSearchParam();
@@ -1841,13 +1859,22 @@ $(document).ready(function() {
 
             xlsxData.configObj = $(fieldSelectorElem).data('getConfigObj')();
 
-            xlsxData.tableData = getTableData(xlsxData.configObj);
+            let getTableDataOptions = {};
+
+            if (xlsxData.options.dateFormat != 'iso') {
+                getTableDataOptions.convertDates = true;
+            }
+
+            xlsxData.tableData = getTableData(xlsxData.configObj, getTableDataOptions);
 
             let conversionOptions = {
                 header: xlsxData.tableData.keys
             };
             if (!xlsxData.options.header) {
                 conversionOptions.skipHeader = true;
+            }
+            if (xlsxData.options.dateFormat != 'iso') {
+                conversionOptions.dateNF = xlsxData.options.dateFormat;
             }
 
             xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
