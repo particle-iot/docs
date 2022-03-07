@@ -22,7 +22,7 @@ $(document).ready(function() {
     const handleLogout = function() {
         localStorage.removeItem('particleAuth'); // No longer used, but if present, remove
 
-        if (typeof apiHelper != 'undefined' && apiHelper.localLogin ) {
+        if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             ga('send', 'event', eventCategory, 'Logged Out Local');
             localStorage.removeItem('apiHelperLocalLogin');
 
@@ -47,6 +47,7 @@ $(document).ready(function() {
         }
         else {
             ga('send', 'event', eventCategory, 'Logged Out SSO');
+            localStorage.removeItem('apiHelperTestLogin');
             const origUrl = window.location.href;
             window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl);     
         }
