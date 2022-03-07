@@ -185,6 +185,7 @@ $(document).ready(function() {
     });
 
     $('.apiHelperManualLoginButton').on('click', function() {
+        $('.apiHelperManualLoginDiv').hide();
         $('.apiHelperLocalLogIn').show(); 
         $('.apiHelperLocalLoginLogInUsingRow').find('input[value="userPass"]').trigger('click');
     });
