@@ -138,7 +138,7 @@ apiHelper.confirmFlash = function() {
 }
 
 apiHelper.deviceListRefresh = function(next) {
-    if (apiHelper.fetchInProgress) {
+    if (apiHelper.fetchInProgress || !apiHelper.auth) {
         return;
     }
 
@@ -469,6 +469,58 @@ apiHelper.monitorUsage = function(options) {
     ga('send', 'event', options.eventCategory, 'Started');
 
     return resultObj;
+};
+
+apiHelper.getAllDevices = async function(options) {
+    let deviceList = [];
+
+    if (!options.productId) {
+        deviceList = (await apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token })).body;
+        if (options.owner) {
+            for(let d of deviceList) {
+                d.owner = options.owner;
+            }    
+        }
+    }
+    else {
+        for(let page = 1; ; page++) {
+            const resp = await apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product: options.productId, page });
+            for(const d of resp.body.devices) {
+                deviceList.push(d);
+            }
+
+            if (page >= resp.body.meta.total_pages) {
+                break;
+            }
+        }
+    }
+    return deviceList;
+};
+
+apiHelper.getAllSims = async function(options) {
+    let simList = [];
+
+    if (!options.productId) {
+        const resp = (await apiHelper.particle.listSIMs({ auth: apiHelper.auth.access_token }));
+        for(const d of resp.body.sims) {
+            d.iccid = d._id;
+            simList.push(d);
+        }
+    }
+    else {
+        for(let page = 1; ; page++) {
+            const resp = await apiHelper.particle.listSIMs({ auth: apiHelper.auth.access_token, product: options.productId, page });
+            for(const d of resp.body.sims) {
+                d.iccid = d._id;
+                simList.push(d);
+            }
+
+            if (page >= resp.body.meta.total_pages) {
+                break;
+            }
+        }
+    }
+    return simList;
 };
 
 $(document).ready(function() {
