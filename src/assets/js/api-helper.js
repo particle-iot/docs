@@ -488,6 +488,10 @@ apiHelper.getAllDevices = async function(options) {
             for(const d of resp.body.devices) {
                 deviceList.push(d);
             }
+            if (options.progressElem) {
+                $(options.progressElem).prop('value', page);
+                $(options.progressElem).prop('max', resp.body.meta.total_pages);
+            } 
 
             if (page >= resp.body.meta.total_pages) {
                 break;

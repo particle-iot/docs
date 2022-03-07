@@ -1609,6 +1609,9 @@ $(document).ready(function() {
         
         const statusElem = $(thisPartial).find('.apiHelperStatus');
 
+        const progressDivElem = $(thisPartial).find('.progressDiv');
+        const progressElem = $(progressDivElem).find('progress');
+
         const downloadDivElem = $(thisPartial).find('.downloadDiv');
         const formatSelectElem = $(thisPartial).find('.formatSelect');
         const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
@@ -1816,10 +1819,15 @@ $(document).ready(function() {
 
                 // 
                 setStatus('Getting device list...');
+                $(progressDivElem).show();
+
                 deviceList = await apiHelper.getAllDevices({
                     productId: options.productId,
-                    owner: options.username
+                    owner: options.username,
+                    progressElem: progressElem
                 });
+
+                $(progressDivElem).hide();
 
                 stats.count = deviceList.length;
 
