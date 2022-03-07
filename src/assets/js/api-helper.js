@@ -138,7 +138,7 @@ apiHelper.confirmFlash = function() {
 }
 
 apiHelper.deviceListRefresh = function(next) {
-    if (apiHelper.fetchInProgress) {
+    if (apiHelper.fetchInProgress || !apiHelper.auth) {
         return;
     }
 

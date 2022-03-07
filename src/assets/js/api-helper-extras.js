@@ -1618,6 +1618,12 @@ $(document).ready(function() {
 
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
 
+        if (!apiHelper.auth) {
+            // Not logged in
+            $(thisPartial).hide();
+            return;
+        }
+
         let deviceList;
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -1760,6 +1766,7 @@ $(document).ready(function() {
             $(deviceTableHeadElem).html('');
             {
                 const rowElem = document.createElement('tr');
+                let col = 0;
                 for(const title of tableData.titles) {
                     const thElem = document.createElement('th');
                     $(thElem).text(title);
@@ -1780,7 +1787,7 @@ $(document).ready(function() {
                         const key = tableData.keys[col];
 
                         const tdElem = document.createElement('td');
-                        $(tdElem).attr('width', tableData.widths[col] + 'ch');
+                        $(tdElem).css('width', tableData.widths[col] + 'ch');
         
                         if (d[key]) {
                             $(tdElem).text(d[key]);
@@ -2279,6 +2286,9 @@ $(document).ready(function() {
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
         const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
 
+        if (!apiHelper.auth) {
+            return;
+        }
 
         let orgs;
 
@@ -2474,222 +2484,6 @@ $(document).ready(function() {
 
     });
 
-    $('.apiHelperLocalLogIn').each(function() {
-        const thisPartial = $(this);
-        const gaCategory = 'localLogin';
-
-        const pageLoginElem = $(thisPartial).find('.pageLogin');
-        const logInUsingRowElem = $(pageLoginElem).find('.logInUsingRow');
-        const usernameRowElem = $(pageLoginElem).find('.usernameRow');
-        const usernameInputElem = $(pageLoginElem).find('.usernameInput');
-        const passwordRowElem = $(pageLoginElem).find('.passwordRow');
-        const passwordInputElem = $(pageLoginElem).find('.passwordInput');
-        const accessTokenRowElem = $(pageLoginElem).find('.accessTokenRow');
-        const accessTokenInputElem = $(pageLoginElem).find('.accessTokenInput');
-        const pageLoginButtonElem = $(pageLoginElem).find('.actionButton');
-
-        const pageOTPElem = $(thisPartial).find('.pageOTP');
-        const otpInputElem = $(pageOTPElem).find('.otpInput');
-        const pageOTPButtonElem = $(pageOTPElem).find('.actionButton');
-
-        const pageLogoutElem = $(thisPartial).find('.pageLogout');
-        const pageLogoutButtonElem = $(pageLogoutElem).find('.actionButton');
-        const loggedInAsElem = $(pageLogoutElem).find('.loggedInAs');
-        
-        const pageLoginFailedElem = $(thisPartial).find('.pageLoginFailed');
-
-        let mfaToken;
-
-        apiHelper.localLogin = {};
-
-
-        $('.apiHelperRequiresLocalLogin').each(function() {
-            $(this).hide();
-        });
-
-        const loginSuccess = function(token) {
-            apiHelper.localLogin.accessToken = token;
-            $(pageLogoutElem).show();
-            $(pageLoginFailedElem).hide();
-            $(loggedInAsElem).text(apiHelper.localLogin.username);
-
-            $('.apiHelperRequiresLocalLogin').each(function() {
-                $(this).show();
-            });
-        }
-        
-        const logInRadioChange = function() {
-            const radioVal = $(logInUsingRowElem).find("input:checked").val();
-            
-            switch(radioVal) {
-                case 'userPass':
-                    $(usernameRowElem).show();
-                    $(passwordRowElem).show();
-                    $(accessTokenRowElem).hide();
-                    $(usernameInputElem).focus();   
-                    break;
-                case 'token':
-                    $(usernameRowElem).hide();
-                    $(passwordRowElem).hide();
-                    $(accessTokenRowElem).show();
-                    $(accessTokenInputElem).focus();   
-                    break;
-            }
-        };
-        $(logInUsingRowElem).find('input').on('click', logInRadioChange);
-        logInRadioChange();
-
-        $(pageLoginButtonElem).on('click', function() {
-            $(pageLoginElem).hide();
-            $(pageLoginFailedElem).hide();
-
-            $('.apiHelperRequiresLocalLogin').each(function() {
-                $(this).hide();
-            });
-    
-            const radioVal = $(logInUsingRowElem).find("input:checked").val();
-            switch(radioVal) {
-                case 'userPass':
-                    // Attempt to log into the Particle cloud
-                    apiHelper.localLogin.username = $(usernameInputElem).val();
-                    $.ajax({
-                        data: {
-                            'client_id': 'particle',
-                            'client_secret': 'particle',
-                            'expires_in': 3600,
-                            'grant_type': 'password',
-                            'password': $(passwordInputElem).val(),
-                            'username': $(usernameInputElem).val()
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            if (jqXHR.status === 403) {
-                                // Got a 403 error, MFA required. Show the MFA/OTP page.
-                                mfaToken = jqXHR.responseJSON.mfa_token;
-                                $(pageOTPElem).show();
-                                $(otpInputElem).val('');
-                                $(otpInputElem).focus();
-                                return;
-                            }
-                            console.log('error ' + textStatus, errorThrown);
-                            $(pageLoginElem).show();
-                            $(pageLoginFailedElem).show();
-                        },
-                        method: 'POST',
-                        success: function (data) {
-                            loginSuccess(data.access_token);
-                        },
-                        url: 'https://api.particle.io/oauth/token',
-                    });
-                    break;
-
-                case 'token':
-                    // Verify the token
-                    $.ajax({
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.log('error ' + textStatus, errorThrown);
-                            $(pageLoginElem).show();
-                            $(pageLoginFailedElem).show();
-                        },
-                        method: 'GET',
-                        success: function (data) {
-                            apiHelper.localLogin.username = data.username;
-                            loginSuccess($(accessTokenInputElem).val());
-                        },
-                        url: 'https://api.particle.io/v1/user?access_token=' + $(accessTokenInputElem).val(),
-                    });
-                    break;
-            }
-            
-        });
-
-        $(usernameInputElem).on('keydown', function(ev) {
-            if (ev.key != 'Enter') {
-                return;
-            }
-
-            ev.preventDefault();
-            $(passwordInputElem).focus();   
-        });  
-
-        $(passwordInputElem).on('keydown', function(ev) {
-            if (ev.key != 'Enter') {
-                return;
-            }
-
-            ev.preventDefault();
-            $(pageLoginButtonElem).trigger('click');    
-        });  
-
-        $(accessTokenInputElem).on('keydown', function(ev) {
-            if (ev.key != 'Enter') {
-                return;
-            }
-
-            ev.preventDefault();
-            $(pageLoginButtonElem).trigger('click');    
-        });  
-        
-        $(otpInputElem).on('keydown', function(ev) {
-            if (ev.key != 'Enter') {
-                return;
-            }
-
-            ev.preventDefault();
-            $(pageOTPButtonElem).trigger('click');    
-        });  
-
-        $(pageOTPButtonElem).on('click', function() {
-            const otpValue = $(otpInputElem).val();
-
-            // console.log('otp login mfaToken=' + mfaToken + ' otpValue=' + otpValue);
-
-            $(pageOTPElem).hide();
-
-            $.ajax({
-                data: {
-                    'client_id': 'particle',
-                    'client_secret': 'particle',
-                    'grant_type': 'urn:custom:mfa-otp',
-                    'mfa_token': mfaToken,
-                    'otp': otpValue
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    // Invalid MFA token
-                    $(pageLoginElem).show();
-                    $(pageLoginFailedElem).show();
-                },
-                method: 'POST',
-                success: function (data) {
-                    loginSuccess(data.access_token);
-                },
-                url: 'https://api.particle.io/oauth/token',
-            });
-        })
-
-        $(pageLogoutButtonElem).on('click', function() {
-            console.log('logout');
-
-            $(pageLoginElem).show();
-            $(pageLogoutElem).hide();
-  
-
-            // Invalidate the token on the cloud side
-            $.ajax({
-                data: {
-                    'access_token': apiHelper.localLogin.accessToken
-                },
-                method: 'DELETE',
-                complete: function () {
-                    // Show the login page
-                    $('#mainDiv').css('display', 'none');
-                    $('#loginDiv').css('display', 'inline');
-                    $('#loginFailedDiv').css('display', 'none');
-                },
-                url: 'https://api.particle.io/v1/access_tokens/current',
-            });
-        })
-
-    });
 
 });
 
