@@ -275,13 +275,15 @@ However, if you change the device claiming you may need to move the webhook into
 
 ### Help me understand the device list!
 
+![Sandbox device list](/assets/images/console/sandbox-devices.png)
+
 The sandbox device list is confusing because it includes items that don't count against your free tier limit, and some devices that are part of the free tier limit are not in the list!
 
-The [device list tool](/tutorials/product-tools/creating-a-product/#device-list-details) can make it easier to understand the devices that do and do not count toward the 100 device limit.
-
-- The device limit is 100 total devices across all device types (cellular, Wi-Fi, and Tracker)
-- The device list in your sandbox lists all devices claimed to your account, but devices that are part of a product but claimed to your account do not count toward the device limit.
+- The device limit is 100 total devices across all device types (cellular, Wi-Fi, and Tracker).
+- If you select the **Show sandbox devices only checkbox** (3) it will show only developer devices claimed to your account.
 - However if you are the product owner for a free sandbox tier product, all devices in that product count toward the device limit, even if they are not claimed to your account.
+
+The [device list tool](/tutorials/product-tools/creating-a-product/#device-list-details) can make it easier to understand the devices that do and do not count toward the 100 device limit.
 
 {{top}}
 

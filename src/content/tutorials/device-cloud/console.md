@@ -29,13 +29,28 @@ set up a webhook to send data to an external service, and more.
 
 The Devices page allows you to see a list of the devices associated with
 your account. Here, you can see specific information about each device,
-including it's unique Device ID, it's name, the type of device (i.e.
-Photon or Electron) the last time it connected
+including it's unique Device ID, it's name, the type of device, the last time it connected
 to the Particle cloud, and whether or not the device is currently
 online.
 
-<img src="{{assets}}/images/console/devices-view.png"
-class="full-width"/>
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+![Sandbox device list](/assets/images/console/sandbox-devices.png)
+
+When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your growth or enterprise organization. 
+
+Clicking the **Devices** icon (2) shows the Device List.
+
+If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, growth, and enterprise organization products. 
+
+When checked, the list will only include non-product devices claimed to your account in the free developer sandbox.
+
+- **Total personal devices** is the number of non-product devices in your free developer sandbox.
+- **Total claimed product devices** is the total number of devices claimed to your account that are in a product.
+
+The 100-device limit in the free tier is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free tier products that you are the owner of. 
+
+The [Device List Details](/tutorials/product-tools/creating-a-product/#device-list-details) tool can break down exactly which devices count against your free tier limits.
+{{!-- END shared-blurb --}}
 
 You can also take certain actions on devices from this view, such as
 renaming the device and unclaiming it from your account.
