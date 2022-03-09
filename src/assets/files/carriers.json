@@ -19043,7 +19043,7 @@
     {
       "name": "ACC-DEBUG",
       "desc": "Particle Debugger, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -19051,7 +19051,7 @@
     {
       "name": "ACC-POE",
       "desc": "Power-over-Ethernet Module",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "skuRegion": "global"
     },
@@ -19087,7 +19087,7 @@
     {
       "name": "ARG-LDKT",
       "desc": "Argon Leak Detection Kit [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19196,7 +19196,7 @@
     {
       "name": "ARGNTRAY50",
       "desc": "Argon, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "3",
@@ -19224,7 +19224,7 @@
     {
       "name": "ASSET2GV2",
       "desc": "Asset Tracker 2G",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -19246,7 +19246,7 @@
     {
       "name": "ASSET3G260V2",
       "desc": "Asset Tracker 3G (Americas/Aus)",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -19268,7 +19268,7 @@
     {
       "name": "ASSET3G270V2",
       "desc": "Asset Tracker 3G (Eur/Asia/Afr)",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -19322,7 +19322,7 @@
     {
       "name": "B402MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404MTY",
       "modem": "R410",
       "multiple": true,
@@ -19385,7 +19385,7 @@
     {
       "name": "B404MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -19449,7 +19449,7 @@
     {
       "name": "B523MTY",
       "desc": "B Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B524MTY",
       "modem": "EG91-E",
       "multiple": true,
@@ -19544,7 +19544,7 @@
     {
       "name": "BAT1800",
       "desc": "Li-Po Battery, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -19552,7 +19552,7 @@
     {
       "name": "BATT18MOD50",
       "desc": "Li-Po Battery, [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": true,
       "skuRegion": "global"
@@ -19560,7 +19560,7 @@
     {
       "name": "BRN310KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "BRN314KIT",
       "modem": "U201",
       "sim": 2,
@@ -19589,7 +19589,7 @@
     {
       "name": "BRN310TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "replacement": "BRN314TRAY50",
       "modem": "U201",
       "multiple": true,
@@ -19657,7 +19657,7 @@
     {
       "name": "BRN314TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -19722,7 +19722,7 @@
     {
       "name": "BRN402-AQKT",
       "desc": "Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "R410",
       "sim": 3,
       "simPlans": [
@@ -19781,7 +19781,7 @@
     {
       "name": "BRN402TRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -19879,7 +19879,7 @@
     {
       "name": "BRN404TRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -19911,7 +19911,7 @@
     {
       "name": "E260KIT",
       "desc": "Electron 2G/3G (Americas/Aus) Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U260",
       "sim": 1,
@@ -19932,7 +19932,7 @@
     {
       "name": "E260TRAY50",
       "desc": "Electron 2G/3G (Americas/Aus), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U260",
       "multiple": true,
@@ -19952,7 +19952,7 @@
     {
       "name": "E270KIT",
       "desc": "Electron 2G/3G (EMEA) Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U270",
       "sim": 1,
@@ -19973,7 +19973,7 @@
     {
       "name": "E270TRAY50",
       "desc": "Electron 2G/3G (EMEA), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U270",
       "multiple": true,
@@ -19993,7 +19993,7 @@
     {
       "name": "E310KIT",
       "desc": "E Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E314KIT",
       "modem": "U201",
       "sim": 1,
@@ -20015,7 +20015,7 @@
     {
       "name": "E310MOD1",
       "desc": "E Series 2G/3G (Global - E310), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E314MOD1",
       "modem": "U201",
       "sim": 1,
@@ -20036,7 +20036,7 @@
     {
       "name": "E310TRAY50",
       "desc": "E Series 2G/3G (Global - E310), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 1,
@@ -20062,7 +20062,7 @@
     {
       "name": "E313EA",
       "desc": "E Series 2G/3G (Global - E313), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U201",
       "sim": 2,
       "simPlans": [
@@ -20082,7 +20082,7 @@
     {
       "name": "E313TRAY50",
       "desc": "E Series 2G/3G (Global - E313), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U201",
       "multiple": true,
       "sim": 2,
@@ -20157,7 +20157,7 @@
     {
       "name": "E314TRAY50",
       "desc": "E Series 2G/3G (Global - E314), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20184,7 +20184,7 @@
     {
       "name": "E350KIT",
       "desc": "Electron 2G Kit (Global)",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -20203,7 +20203,7 @@
     {
       "name": "E350TRAY50",
       "desc": "Electron 2G (Global), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "G350",
       "multiple": true,
@@ -20223,7 +20223,7 @@
     {
       "name": "E402KIT",
       "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E404KIT",
       "modem": "R410",
       "sim": 3,
@@ -20245,7 +20245,7 @@
     {
       "name": "E402MOD1",
       "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E404MOD1",
       "modem": "R410",
       "sim": 3,
@@ -20266,7 +20266,7 @@
     {
       "name": "E402TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "replacement": "E404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -20346,7 +20346,7 @@
     {
       "name": "E404TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -20372,7 +20372,7 @@
     {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20397,7 +20397,7 @@
     {
       "name": "ELC402EA",
       "desc": "Electron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "Deprecated",
       "replacement": "ELC404EA",
       "modem": "R410",
       "sim": 3,
@@ -20418,7 +20418,7 @@
     {
       "name": "ELC402TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "replacement": "ELC404TY",
       "modem": "R410",
       "multiple": true,
@@ -20486,7 +20486,7 @@
     {
       "name": "FWNG-INA219",
       "desc": "Adafruit INA219 FeatherWing, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -20554,7 +20554,7 @@
     {
       "name": "M8CAB3VEA",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1]",
-      "lifecycle": "Beta",
+      "lifecycle": "Sampling",
       "accessory": true,
       "multiple": false,
       "moq": 1,
@@ -20569,7 +20569,7 @@
     {
       "name": "M8CAB3VTY",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40]",
-      "lifecycle": "Beta",
+      "lifecycle": "Sampling",
       "accessory": true,
       "multiple": true,
       "moq": 40,
@@ -20682,7 +20682,7 @@
     {
       "name": "ONE402MTY",
       "desc": "Tracker One LTE M1 (NorAm), Bulk [x40]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "ONE404MTY",
       "modem": "BG96-MC",
       "multiple": true,
@@ -20756,7 +20756,7 @@
     {
       "name": "ONE404MTY",
       "desc": "Tracker One LTE M1 (NorAm), Bulk [x40]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -20831,7 +20831,7 @@
     {
       "name": "ONE523MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "ONE524MTY",
       "modem": "EG91-EX",
       "sim": 2,
@@ -20907,7 +20907,7 @@
     {
       "name": "ONE524MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -21003,7 +21003,7 @@
     {
       "name": "P0MOD10",
       "desc": "P0 Wi-Fi Module, Cut tape [x10]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21018,7 +21018,7 @@
     {
       "name": "P0REEL",
       "desc": "P0 Wi-Fi Module, Reel [x2000]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21060,7 +21060,7 @@
     {
       "name": "P1REEL",
       "desc": "P1 Wi-Fi Module, Reel [x500]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21081,7 +21081,7 @@
     {
       "name": "PHNTRAYH",
       "desc": "Photon with Headers, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21102,7 +21102,7 @@
     {
       "name": "PHNTRAYNOH",
       "desc": "Photon without Headers, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21144,7 +21144,7 @@
     {
       "name": "PHOTONKIT",
       "desc": "Photon with Headers Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21159,7 +21159,7 @@
     {
       "name": "PHOTONNOH",
       "desc": "Photon without Headers, Dev board Kit [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21174,7 +21174,7 @@
     {
       "name": "PROGSHIELD",
       "desc": "Programmer Shield, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -21182,7 +21182,7 @@
     {
       "name": "PWRSHIELDH",
       "desc": "Power Shield with Headers, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -21190,7 +21190,7 @@
     {
       "name": "RLYSHIELD",
       "desc": "Relay Shield",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "skuRegion": "global"
     },
@@ -21272,7 +21272,7 @@
     {
       "name": "SNSRKIT3G260",
       "desc": "Electron 3G (Americas/Aus) Sensor Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -21291,7 +21291,7 @@
     {
       "name": "SNSRKIT3G270",
       "desc": "Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -21310,7 +21310,7 @@
     {
       "name": "SPKBTTN",
       "desc": "Internet Button, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -21394,7 +21394,7 @@
     {
       "name": "T402MTY",
       "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T404MTY",
       "modem": "BG96-MC",
       "multiple": true,
@@ -21506,7 +21506,7 @@
     {
       "name": "T404MTY",
       "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -21621,7 +21621,7 @@
     {
       "name": "T523MTY",
       "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T524MTY",
       "modem": "EG91-EX",
       "multiple": true,
@@ -21734,7 +21734,7 @@
     {
       "name": "T524MTY",
       "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -22051,7 +22051,7 @@
             "U260"
           ],
           "region": "americas",
-          "lifecycle": "Discontinued",
+          "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
           "modem": "U260"
@@ -22062,7 +22062,7 @@
             "U270"
           ],
           "region": "emeaa",
-          "lifecycle": "Discontinued",
+          "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
           "modem": "U270"
@@ -22073,7 +22073,7 @@
             "G350"
           ],
           "region": "global",
-          "lifecycle": "Discontinued",
+          "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
           "modem": "G350"
@@ -22098,9 +22098,14 @@
   ],
   "skuLifecycle": [
     {
-      "name": "Beta",
-      "desc": "Beta (pre-release)",
+      "name": "In development",
+      "desc": "In development (pre-release)",
       "sortOrder": 1
+    },
+    {
+      "name": "Sampling",
+      "desc": "Pre-release samples in testing",
+      "sortOrder": 2
     },
     {
       "name": "GA",
@@ -22115,22 +22120,32 @@
     {
       "name": "NRND-US",
       "desc": "Not recommended for new designs in the United States",
-      "sortOrder": 2
-    },
-    {
-      "name": "EOS",
-      "desc": "End of support",
       "sortOrder": 4
     },
     {
-      "name": "Discontinued",
-      "desc": "Discontinued",
+      "name": "Deprecated",
+      "desc": "Deprecated",
       "sortOrder": 5
+    },
+    {
+      "name": "End of sale",
+      "desc": "Devices is no longer for sale",
+      "sortOrder": 6
+    },
+    {
+      "name": "End of support",
+      "desc": "Technical support no longer provided",
+      "sortOrder": 7
+    },
+    {
+      "name": "End of life",
+      "desc": "May not be supported in future software versions",
+      "sortOrder": 8
     },
     {
       "name": "Hidden",
       "desc": "Crossed out in SKU Master",
-      "sortOrder": 6
+      "sortOrder": 9
     }
   ],
   "bands": [
@@ -22394,10 +22409,24 @@
   ],
   "simModemFamily": [
     {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "BG96-MC",
+      "desc": "Tracker LTE M1 NorAm EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
       "sim": 3,
       "simPlan": 30,
       "modem": "BG96-MC",
       "desc": "Tracker LTE M1 NorAm",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "EG91-E",
+      "desc": "B Series LTE Cat1/3G/2G EMEAA EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -22416,6 +22445,13 @@
       "lifecycle": "GA"
     },
     {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "EG91-EX",
+      "desc": "Tracker LTE Cat1/3G/2G EMEAA EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
       "sim": 2,
       "simPlan": 21,
       "modem": "EG91-EX",
@@ -22428,6 +22464,13 @@
       "simPlan": 20,
       "modem": "EG91-EX",
       "desc": "Tracker LTE Cat1/3G/2G EMEAA",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "R410",
+      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -22462,58 +22505,30 @@
     {
       "sim": 4,
       "simPlan": 40,
-      "modem": "BG96-MC",
-      "desc": "Tracker LTE M1 NorAm EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "EG91-E",
-      "desc": "B Series LTE Cat1/3G/2G EMEAA EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "EG91-EX",
-      "desc": "Tracker LTE Cat1/3G/2G EMEAA EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "R410",
-      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
       "modem": "U201",
       "desc": "Boron, E Series, Electron 2G/3G Global EtherSIM",
-      "lifecycle": "Beta"
+      "lifecycle": "Deprecated"
     },
     {
       "sim": 1,
       "simPlan": 11,
       "modem": "U260",
       "desc": "Electron 3G Americas",
-      "lifecycle": "NRND"
+      "lifecycle": "Deprecated"
     },
     {
       "sim": 1,
       "simPlan": 11,
       "modem": "U270",
       "desc": "Electron 3G Europe/Asia/Africa",
-      "lifecycle": "NRND"
+      "lifecycle": "Deprecated"
     },
     {
       "sim": 1,
       "simPlan": 11,
       "modem": "G350",
       "desc": "Electron 2G",
-      "lifecycle": "Discontinued"
+      "lifecycle": "End of life"
     }
   ],
   "mapRegions": [

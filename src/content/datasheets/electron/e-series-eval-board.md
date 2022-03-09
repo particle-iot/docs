@@ -108,7 +108,7 @@ That's it! The rest of the development process should be similar to that of the 
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND-US | |
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND-US | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | Discontinued | E404KIT|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | End of life | E404KIT|
 
 
 {{!-- END do not edit content above, it is automatically generated 89806642-76cb-11eb-9439-0242ac130002 --}}

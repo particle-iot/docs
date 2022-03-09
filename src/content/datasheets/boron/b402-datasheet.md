@@ -544,9 +544,9 @@ The bootloader allows you to easily update the user application via several diff
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
-| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404MTY|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
+| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
