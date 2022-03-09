@@ -375,6 +375,11 @@
         "dir": "an039-remote-logging",
         "title": "AN039 Remote Logging",
         "href": "/datasheets/app-notes/an039-remote-logging/"
+      },
+      {
+        "dir": "an040-code-size-tips",
+        "title": "AN040 Code Size Tips",
+        "href": "/datasheets/app-notes/an040-code-size-tips/"
       }
     ],
     {

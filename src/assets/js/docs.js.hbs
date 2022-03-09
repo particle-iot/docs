@@ -39,7 +39,9 @@ Created by Zach Supalla.
 
   Docs.prettifyCode = function() {
     $('.content').find('pre code').each(function() {
-      $(this).addClass('prettyprint');
+      if (!$(this).hasClass('lang-none')) {
+        $(this).addClass('prettyprint');
+      }
     });
   };
 
