@@ -154,21 +154,73 @@ The software for prototyping and production devices is similar. It's often possi
 
 #### B Series SoM (Gen 3 Cellular)
 
-{{blurb name="b-series-overview"}}
+{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
+![B Series](/assets/images/b-series/b-series-top.png)
+
+The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+
+One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+
+| Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
+| --- | :---: | :---: | :---: | :---: |
+| U.FL Antenna Connector | &check; | &check; | Optional |&check; | 
+| MFF2 SMD Particle SIM<sup>2</sup> | &check; | &check; | &nbsp; |&check; | 
+| Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; | &nbsp; |
+| USB Connector | &check; | &nbsp; | Optional | Optional |
+| Status LED | &check; | &nbsp; | Optional | Optional |
+| Reset and Mode Buttons | &check; | &nbsp; | Optional | Optional |
+| Battery Connector | &check; | &nbsp; | Optional | Optional |
+| PMIC and Fuel Gauge<sup>1</sup> | &check; | &nbsp; | Optional | &check; | 
+
+<sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
+
+<sup>2</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+{{!-- END shared-blurb --}}
 
 For more information about the B Series SoM, see [Cellular - B Series SoM](#b-series-som-production-gen-3-cellular-) below.
 
 
 #### Tracker SoM (Gen 3 Cellular)
 
-{{blurb name="tracker-som-overview"}}
+{{!-- BEGIN shared-blurb 875eaa26-9bab-11ec-b909-0242ac120002 --}}
+![SoM](/assets/images/at-som/at-som-bg96.png)
+
+The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker One or reflow soldered to your own base board. It has features including:
+
+- Gen 3 hardware platform (nRF52840 MCU)
+- Quectel cellular modem
+- GNSS (GPS)
+- IMU (accelerometer)
+- Real-time clock
+- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- PMIC and fuel gauge chips (charger and battery level sensor)
+- Hardware watchdog
+{{!-- END shared-blurb --}}
 
 For more information about the Tracker SoM, see [Cellular - Tracker SoM](#tracker-gen-3-cellular-) below.
 
 
 #### E Series (Gen 2 Cellular)
 
-{{blurb name="e-series-overview"}}
+{{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
+![E Series](/assets/images/e-series/illustrations/e0-top.png)
+
+The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+
+
+| Feature | Electron | E Series Module | Base Board |
+| --- | :---: | :---: | :---: |
+| U.FL Antenna Connector | &check; | &check; | &nbsp; |
+| MFF2 SMD Particle SIM<sup>1</sup> | &nbsp; | &check; | &nbsp; |
+| Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; |
+| USB Connector | &check; | &nbsp; | Optional |
+| Status LED | &check; | &nbsp; | Optional |
+| Reset and Mode Buttons | &check; | &nbsp; | Optional |
+| Battery Connector | &check; | &nbsp; | Optional |
+| PMIC and Fuel Gauge| &check; | &check; | |
+
+<sup>1</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+{{!-- END shared-blurb --}}
 
 For more information about the E Series module, see [Cellular - E Series](#e-series-production-gen-2-cellular-) below.
 
@@ -179,7 +231,23 @@ For more information about the E Series module, see [Cellular - E Series](#e-ser
 
 The P1 module is a Wi-Fi module that you reflow solder to your own custom base board. It's smaller and less expensive than the Argon.
 
-{{blurb name="argon-p1-table"}}
+{{!-- BEGIN shared-blurb 6383e77a-9baa-11ec-b909-0242ac120002 --}}
+| Feature | P1 | Argon |
+| :--- | :---: | :---: |
+| | Production | Prototyping |
+| | Gen 2 | Gen 3 |
+| Style | SMD module | Bottom pins |
+| Integrated Wi-Fi antenna | &check; | |
+| U.FL Antenna Connector | &check; | &check; |
+| Configuration via | Wi-Fi | BLE |
+| Enterprise Wi-Fi | &check; | |
+| USB Connector | Optional | &check; |
+| Status LED | Optional | &check; |
+| Reset and Mode Buttons | Optional | &check; |
+| LiPo Battery Connector | | &check; | 
+| Size | 28mm x 20mm | 51mm x 23mm |
+|      | 1.1" x 0.8" | 2.0" x 0.9" |
+{{!-- END shared-blurb --}}
 
 For more information about the P1 module, see [Wi-Fi - P1](/#p1-production-gen-2-wi-fi-) below.
 
@@ -199,9 +267,45 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 #### B Series SoM (Production Gen 3 Cellular)
 
-{{blurb name="b-series-overview"}}
+{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
+![B Series](/assets/images/b-series/b-series-top.png)
 
-{{blurb name="b-series-models"}}
+The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
+
+One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+
+| Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
+| --- | :---: | :---: | :---: | :---: |
+| U.FL Antenna Connector | &check; | &check; | Optional |&check; | 
+| MFF2 SMD Particle SIM<sup>2</sup> | &check; | &check; | &nbsp; |&check; | 
+| Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; | &nbsp; |
+| USB Connector | &check; | &nbsp; | Optional | Optional |
+| Status LED | &check; | &nbsp; | Optional | Optional |
+| Reset and Mode Buttons | &check; | &nbsp; | Optional | Optional |
+| Battery Connector | &check; | &nbsp; | Optional | Optional |
+| PMIC and Fuel Gauge<sup>1</sup> | &check; | &nbsp; | Optional | &check; | 
+
+<sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
+
+<sup>2</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+{{!-- END shared-blurb --}}
+
+
+{{!-- BEGIN shared-blurb 97fa98d2-9baa-11ec-b909-0242ac120002 --}}
+The available models include:
+
+| Model | Region | EtherSIM | Bands | Replacement |
+| :--- | :--- | :---: | :--- | :--- |
+| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | |
+| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | |
+| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Use B404 instead |
+| B523 | Europe | | LTE Cat 1, 2G, 3G | Use B524 instead |
+
+- The B404 (and B402) cannot be used in Central or South America.
+- The B524 is only recommended for use in Europe, Australia, and New Zealand.
+- The B524 (and B523) do not work out of the EMEAA region.
+- See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries
+{{!-- END shared-blurb --}}
 
 {{> carrier-family-map family="b series"}}
 
@@ -227,9 +331,27 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 #### Boron (Prototyping Gen 3 Cellular)
 
-{{blurb name="boron-overview"}}
+{{!-- BEGIN shared-blurb 33f29de8-9bab-11ec-b909-0242ac120002 --}}
+![Boron](/assets/images/boron/boron-top.png)
 
-{{blurb name="boron-models"}}
+The Boron is the 3rd-generation cellular device in a prototyping form factor. It has pins on the bottom that can plug into a solderless breadboard, and is compatible with the Adafruit Feather form-factor to easily add accessories like sensors and displays. You can also plug it into a socket on a custom circuit board.
+
+- Includes a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Can be powered by USB, rechargeable LiPo battery, or an external power supply (3.9 - 12 VDC).
+{{!-- END shared-blurb --}}
+
+The available models include:
+
+| Model | Region | EtherSIM | Bands | Replacement |
+| :--- | :--- | :---: | :--- | :--- |
+| BRN404 | United States, Canada, Mexico | &check; | LTE Cat M1 | |
+| BRN314 | Global<sup>1</sup> | &check; | LTE Cat M1 | |
+| BRN402 | United States, Canada, Mexico | | 2G/3G | Use BRN404 instead |
+| BRN310 | Global<sup>1</sup> | | 2G/3G | Use BRN314 instead |
+
+- <sup>1</sup>Global except in areas that have or will soon discontinue the use of 2G/3G, including the United States.
+- Do not deploy the BRN314 or BRN310 in the United States, see [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
+- See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
 
 {{> carrier-family-map family="boron"}}
 
@@ -258,7 +380,20 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 The Tracker SoM is a SMD module intended to be reflowed to your own base board to create your product. The Tracker One is a complete integrated design with a sealed IP67 waterproof enclosure with a battery and all necessary antenna included inside the enclosure. The Tracker One contains the Tracker SoM internally.
 
-{{blurb name="tracker-som-overview"}}
+{{!-- BEGIN shared-blurb 875eaa26-9bab-11ec-b909-0242ac120002 --}}
+![SoM](/assets/images/at-som/at-som-bg96.png)
+
+The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker One or reflow soldered to your own base board. It has features including:
+
+- Gen 3 hardware platform (nRF52840 MCU)
+- Quectel cellular modem
+- GNSS (GPS)
+- IMU (accelerometer)
+- Real-time clock
+- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- PMIC and fuel gauge chips (charger and battery level sensor)
+- Hardware watchdog
+{{!-- END shared-blurb --}}
 
 {{> carrier-family-map family="tracker"}}
 
@@ -292,7 +427,25 @@ The Tracker SoM is a SMD module intended to be reflowed to your own base board t
 
 #### E Series (Production Gen 2 Cellular)
 
-{{blurb name="e-series-overview"}}
+{{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
+![E Series](/assets/images/e-series/illustrations/e0-top.png)
+
+The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+
+
+| Feature | Electron | E Series Module | Base Board |
+| --- | :---: | :---: | :---: |
+| U.FL Antenna Connector | &check; | &check; | &nbsp; |
+| MFF2 SMD Particle SIM<sup>1</sup> | &nbsp; | &check; | &nbsp; |
+| Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; |
+| USB Connector | &check; | &nbsp; | Optional |
+| Status LED | &check; | &nbsp; | Optional |
+| Reset and Mode Buttons | &check; | &nbsp; | Optional |
+| Battery Connector | &check; | &nbsp; | Optional |
+| PMIC and Fuel Gauge| &check; | &check; | |
+
+<sup>1</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+{{!-- END shared-blurb --}}
 
 
 {{> carrier-family-map family="e series"}}
@@ -328,7 +481,23 @@ The Tracker SoM is a SMD module intended to be reflowed to your own base board t
 
 There are two currently available Wi-Fi devices, the P1 and the Argon:
 
-{{blurb name="argon-p1-table"}}
+{{!-- BEGIN shared-blurb 6383e77a-9baa-11ec-b909-0242ac120002 --}}
+| Feature | P1 | Argon |
+| :--- | :---: | :---: |
+| | Production | Prototyping |
+| | Gen 2 | Gen 3 |
+| Style | SMD module | Bottom pins |
+| Integrated Wi-Fi antenna | &check; | |
+| U.FL Antenna Connector | &check; | &check; |
+| Configuration via | Wi-Fi | BLE |
+| Enterprise Wi-Fi | &check; | |
+| USB Connector | Optional | &check; |
+| Status LED | Optional | &check; |
+| Reset and Mode Buttons | Optional | &check; |
+| LiPo Battery Connector | | &check; | 
+| Size | 28mm x 20mm | 51mm x 23mm |
+|      | 1.1" x 0.8" | 2.0" x 0.9" |
+{{!-- END shared-blurb --}}
 
 For product creators, Wi-Fi devices require a way to set the Wi-Fi credentials for the user's Wi-Fi network. This is typically done using a custom mobile app. The P1 has an available Device Setup SDK that makes it easy to create a custom white-label mobile app to set up the P1. This does not exist for the Argon at this time.
 

@@ -394,17 +394,24 @@ The device lists can be confusing because there are multiple device lists with s
 
 ### Sandbox devices
 
-![Sandbox Devices](/assets/images/console/sandbox-devices.png)
-
 When you first open the console the sandbox device view is what you see. 
 
-If you have access to organizations in the growth or enterprise plans, the popup (1) allows you to choose between sandbox, your own free space to work with devices and products, or your organization.
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
-The devices icon (2) shows the device list.
+When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your growth or enterprise organization. 
 
-**The device list shows all devices that are claimed to your account**
+Clicking the **Devices** icon (2) shows the Device List.
 
-This can lead to confusion because there is a limit of 100 devices in the free sandbox. However, there can be significantly larger number of devices in this list because it also shows product and organization product devices that are claimed to your account. These organization products devices do not count against your device limit, but do show up in this list.
+If the **Show sandbox devices only** checkbox (3) is not checked, then the list will be like the old, pre-checkbox, behavior and will show devices that are claimed to your account, both in your free developer sandbox as well as product devices in free, growth, and enterprise organization products. 
+
+When checked, the list will only include non-product devices claimed to your account in the free developer sandbox.
+
+- **Total personal devices** is the number of non-product devices in your free developer sandbox.
+- **Total claimed product devices** is the total number of devices claimed to your account that are in a product.
+
+The 100-device limit in the free tier is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free tier products that you are the owner of. 
+{{!-- END shared-blurb --}}
 
 ### Sandbox products
 

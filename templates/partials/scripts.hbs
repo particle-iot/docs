@@ -112,6 +112,9 @@
 {{#contains includeDefinitions 'device-setup-usb'}}
 <script src="/assets/js/device-setup-usb.js"></script>
 {{/contains}}
+{{#contains includeDefinitions 'flash-dump-usb'}}
+<script src="/assets/js/flash-dump-usb.js"></script>
+{{/contains}}
 {{#contains includeDefinitions 'stackblitz'}}
 <script src="https://unpkg.com/@stackblitz/sdk/bundles/sdk.umd.js"></script>
 <script src='/assets/js/api-helper-stackblitz.js'></script>
@@ -123,6 +126,9 @@
 <script src="/assets/js/device-restore-dfu.js"></script>
 <script src="/assets/js/webdfu/dfu.js"></script>
 <script src="/assets/js/webdfu/dfuse.js"></script>
+{{/contains}}
+{{#contains includeDefinitions 'xlsx'}}
+<script src="/assets/js/xlsx.full.min.js"></script>
 {{/contains}}
 {{#contains includeDefinitions 'zip'}}
 <script src="/assets/js/zip-fs.min.js"></script>
