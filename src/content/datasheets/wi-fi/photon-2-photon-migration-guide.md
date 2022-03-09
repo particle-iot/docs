@@ -314,7 +314,7 @@ The Photon has a Micro USB B connector.
 
 The Photon 2 has components on both sides of the board, like the Argon. It is not available without the mounted headers, and cannot be reflowed directly to a base board like the Photon without headers.
 
-The Photon 2 does not have the solder pads for the RGB LED and SETUP/MODE button on the bottom. The RGB LED can be directed in software to other pins on the Photon 2. The SETUP/MODE button is avaiable on the header pins on the Photon 2.
+The Photon 2 does not have the solder pads for the RGB LED and SETUP/MODE button on the bottom. The RGB LED can be directed in software to other pins on the Photon 2. The SETUP/MODE button is available on the header pins on the Photon 2.
 
 ### Classic Adapter
 
