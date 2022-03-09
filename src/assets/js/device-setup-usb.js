@@ -5,6 +5,7 @@ $(document).ready(function() {
     }
     const gaCategory = 'USB Device Setup';
     const storageActivateSim = "DeviceSetupActivatingSim";
+    const doneUrl = '/assets/images/device-setup/ok-48.png';
 
     if (!navigator.usb) {
         ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
@@ -19,9 +20,21 @@ $(document).ready(function() {
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
+        const troubleshootingMode = ($(thisElem).data('troubleshooting') == '1');
+        if (troubleshootingMode) {
+            $(thisElem).find('.troubleshootingMode').show();
+            $(thisElem).find('.setupMode').hide();
+        }
+        else {
+            $(thisElem).find('.troubleshootingMode').hide();
+            $(thisElem).find('.setupMode').show();
+        }
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
+
+        const userInfoElem = $(thisElem).find('.userInfo');
+
 
         let usbDevice;
         let deviceInfo = {};
@@ -180,6 +193,52 @@ $(document).ready(function() {
             return text;
         };
 
+        let userInfo;
+
+        const setUserInfoItem = function(label, value) {
+            const trElem = document.createElement('tr');
+
+            let tdElem = document.createElement('td');
+            $(tdElem).append(document.createTextNode(label));
+            $(trElem).append(tdElem);
+
+            tdElem = document.createElement('td');
+            if (value) {
+                $(tdElem).append(document.createTextNode(value));
+            }
+            $(trElem).append(tdElem);
+            
+            $(thisElem).find('.userInfoTable > tbody').append(trElem);
+        };
+
+        apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
+            function(data) {
+                userInfo = data.body;
+                
+                $(userInfoElem).show();
+
+                setUserInfoItem('Account email', userInfo.username);
+
+                let name = '';
+                if (userInfo.account_info.first_name) {
+                    name += userInfo.account_info.first_name;
+                }
+                if (userInfo.account_info.last_name) {
+                    if (name.length > 0) {
+                        name += ' ';
+                    }
+                    name += userInfo.account_info.last_name;
+                }
+                if (name) {
+                    setUserInfoItem('Name', name);
+                }
+
+            },
+            function(err) {
+                setStatus('Error retrieving user information (access token may have expired)');
+            }
+        )
+
         $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
                 {vendorId: 0x2b04}
@@ -245,6 +304,157 @@ $(document).ready(function() {
                 console.log('exception', e);
             }
         });
+
+        const deviceLogsElem = $(thisElem).find('.deviceLogs');
+        const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
+        const showDebuggingLogsElem = $(thisElem).find('.showDebuggingLogs');
+        const deviceLogsTextButtonsElem = $(thisElem).find('.deviceLogsTextButtons');
+        const downloadLogsElem = $(thisElem).find('.downloadLogs');
+        let deviceLogsTimer1;
+        let deviceLogsTimer2;
+
+        let deviceLogs = '';
+        let deviceLogsPartialLine;
+        let checkStatus;
+
+        let msgExternalSIM = false;
+        let msgCPINERROR = false;
+
+        $(showDebuggingLogsElem).on('click', function() {
+            if ($(showDebuggingLogsElem).prop('checked')) {                
+                $(deviceLogsTextElem).val(deviceLogs);
+                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                $(deviceLogsTextButtonsElem).show();
+            }
+            else {
+                $(deviceLogsTextButtonsElem).hide();
+            }
+        });
+
+        $(downloadLogsElem).on('click', function() {
+            $(downloadLogsElem).prop('disabled', true);
+
+            let blob = new Blob([getInfoTableText(), deviceLogs], {type:'text/plain'});
+            saveAs(blob, 'logs.txt');	
+
+            $(downloadLogsElem).prop('disabled', false);
+        });
+
+        const stopDeviceLogs = function() {
+            if (deviceLogsTimer1) {
+                clearInterval(deviceLogsTimer1);
+                deviceLogsTimer1 = null;
+            }
+            if (deviceLogsTimer2) {
+                clearInterval(deviceLogsTimer2);
+                deviceLogsTimer2 = null;
+            }
+        }
+
+        const processLogMessage = function(msg) {
+            if (msg.includes('Using external Nano SIM card')) {
+                msgExternalSIM = true;
+            }  
+            else
+            if (msg.includes('CPIN ERROR')) {
+                msgCPINERROR = true;
+            }
+        };
+
+        const showDeviceLogs = function() {
+            $(deviceLogsElem).show();
+
+            if (!deviceLogsTimer1) {
+                deviceLogsTimer1 = setInterval(async function() {
+                    let reqObj = {
+                        op: 'status'
+                    };
+    
+                    let res;
+                    try {
+                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
+                    catch(e) {
+                        if (e.message.includes('The device was disconnected.')) {
+                            stopDeviceLogs();
+                        } else {
+                            console.log('control request exception', e);
+                        }
+                        return;
+                    }
+                    
+                    if (res.result == 0 && res.data) {
+                        const respObj = JSON.parse(res.data);
+    
+                        if (checkStatus) {
+                            checkStatus(respObj);
+                        }
+    
+                        if (respObj.mcc) {
+                            setInfoTableItemObj(respObj);
+    
+                            if (mccmnc) {
+                                for(const obj of mccmnc) {
+                                    if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
+                                        setInfoTableItemObj(obj);                                        
+                                    }
+                                }
+                            }                                          
+                        }
+                    }
+                }, 2000);    
+            }
+            
+            if (!deviceLogsTimer2) {
+                deviceLogsTimer2 = setInterval(async function() {
+                    let reqObj = {
+                        op: 'logs'
+                    };
+    
+                    let res;
+                    try {
+                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    }
+                    catch(e) {
+                        if (e.message.includes('The device was disconnected.')) {
+                            stopDeviceLogs();
+                        } else {
+                            console.log('control request exception', e);
+                        }
+                        return;
+                    }
+                    
+                    if (res.result == 0 && res.data) {
+                        if (res.data.length > 0) {
+                            let tempLog = (deviceLogsPartialLine ? deviceLogsPartialLine : '') + res.data;
+                            let lastLF = tempLog.lastIndexOf('\n');
+                            if (lastLF < (tempLog.length - 1)) {
+                                deviceLogsPartialLine = tempLog.substr(lastLF + 1);
+                                tempLog = tempLog.substr(0, lastLF + 1);
+                            }
+                            else {
+                                deviceLogsPartialLine = '';
+                            }
+                            for(let line of tempLog.split('\n')) {
+                                line = line.trim();
+                                if (line.length) {
+                                    processLogMessage(line);
+                                }
+                            }
+                            
+                            deviceLogs += tempLog;
+                            if ($(showDebuggingLogsElem).prop('checked')) {
+                                $(deviceLogsTextElem).val(deviceLogs);
+                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
+                            }
+                        }
+                    }
+                }, 1000);
+            }
+
+
+        };
+
 
         /*
 
@@ -338,9 +548,183 @@ $(document).ready(function() {
             }
         };
 
+        const doTowerScan = async function() {
+            setSetupStep('setupStepTowerScan');
+            $(thisElem).find('.towerScanOption').hide();
+
+            const showStep = function(step) {
+                $(thisElem).find('.setupStepTowerScan').children().each(function() {
+                    $(this).hide();
+                });
+                $(thisElem).find('.' + step).show();    
+            }
+
+            showStep('setupStepTowerScanRunning');
+            $(thisElem).find('.towerInfo').show();
+
+            $(thisElem).find('.towerScanStepPreparingModem > td > img').css('visibility', 'visible');
+
+            const reqObj = {
+                op: 'towerScan'
+            } 
+            const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+            let wasScanning = false;
+
+            while(true) {
+                const reqObj2 = {
+                    op: 'towerScanResult'
+                } 
+                const res2 = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj2));
+                if (res2.result == 0 && res2.data) {
+                    const respObj = JSON.parse(res2.data);
+
+                    if (respObj.cells) {
+                        
+                        // Show in list of cells
+                        for(let cell of respObj.cells) {
+                            const trElem = document.createElement('tr');
+                            
+                            let tdElem = document.createElement('td');
+                            $(tdElem).text(cell.mcc);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.mnc);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.ci);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.lac);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.rssi);
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            if (mccmnc) {
+                                for(const obj of mccmnc) {
+                                    if (obj.mcc == cell.mcc && obj.mnc == cell.mnc) {
+                                        $(tdElem).text(obj.name);
+                                    }
+                                }
+                            }         
+                            $(trElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            $(tdElem).text(cell.band);
+                            $(trElem).append(tdElem);
+
+                            $(thisElem).find('.towerInfoTable > tbody').append(trElem);
+                        }
+                    }
+                    if (!wasScanning && respObj.scanning) {
+                        wasScanning = respObj.scanning;
+
+                        $(thisElem).find('.towerScanStepPreparingModem > td > img').attr('src', doneUrl);
+                        $(thisElem).find('.towerScanStepsScanning > td > img').css('visibility', 'visible');
+
+                    }
+
+                    if (respObj.done) {
+                        console.log('done!', respObj);
+                        $(thisElem).find('.towerScanStepsScanning > td > img').attr('src', doneUrl);
+                        break;
+                    }
+                }
+                else {
+                    console.log('error');
+                    break;
+                }
+
+                await new Promise(function(resolve) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 5000);
+                });                
+            }
+
+            showStep('setupStepTowerScanDone');
+
+        };
+
+        const checkSimAndClaiming  = async function() {
+            setSetupStep('setupStepCheckSimAndClaiming');
+
+            const showStep = function(step) {
+                $(thisElem).find('.setupStepCheckSimAndClaiming').children().each(function() {
+                    $(this).hide();
+                });
+                $(thisElem).find('.' + step).show();    
+            }
+
+            showStep('setupStepCheckSimAndClaimingOwnership');
+
+            const deviceLookupOutputElem = $(thisElem).find('.apiHelperDeviceLookupOutput');
+            $(deviceLookupOutputElem).show();
+
+            let deviceLookup = apiHelper.deviceLookup({
+                deviceId: deviceInfo.deviceId,
+                deviceLookupElem: deviceLookupOutputElem                
+            });
+
+            await deviceLookup.run();
+
+            console.log('deviceLookup', deviceLookup);
+
+            // TODO: Check service agreements to make sure account state == 'active'
+
+            if (!deviceLookup.deviceInfo) {
+                showStep('setupStepCheckSimAndClaimingNoDeviceInfo');
+
+
+                await new Promise(function(resolve) {
+                    const buttonElem = $(thisElem).find('.setupContinueSetupButton');
+                    $(buttonElem).on('click', function() {
+                        resolve();
+                    });
+                });
+
+            }
+            else if (deviceLookup.deviceMine) {
+
+            }
+            // deviceLookup.deviceMine
+
+            // deviceLookup.deviceInMyProduct, .deviceProductId, .deviceProductName
+
+            // deviceLookup.deviceInOrgProduct, .deviceProductId, .deviceProductName, .orgId, .orgName
+
+            // if (deviceLookup.)
+//            showStep('setupStepCheckSimAndClaimingCheckAccount');
+
+            // Do something with deviceLookup.deviceInfo.isProductDevice here
+
+
+            if (deviceInfo.wifi) {
+                // Check if there are Wi-Fi credentials and ask to use those or reconfigure
+                configureWiFi();                              
+            } 
+            else {
+                // showStep('setupStepCheckSimAndClaimingGetIccid');
+
+                // Check ICCID
+                // Boron: Is the external SIM slot activated
+                // Does this look like a 3rd-party SIM card? Use 3rd-party SIM flow (warn about activation, LTE M1, prompt for APN)
+                // If Particle SIM, check if activated
+                activateSim();
+            }
+
+        };
 
         const activateSim = async function() {
             setSetupStep('setupStepActivateSim');
+
+            showDeviceLogs();
 
             let needToActivate = false;
             let alreadyOwned = false;
@@ -432,10 +816,24 @@ $(document).ready(function() {
                             });
                             continue;
                         }
+
+                        if (msgExternalSIM && msgCPINERROR) {
+                            setSetupStep('setupStepNoExternalSIM');
+
+                            $(thisElem).find('.externalSimUseInternal').on('click', async function() {
+                                let reqObj = {
+                                    op: 'internalSim'
+                                } 
+                                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                                
+                                setSetupStep('setupStepActivateSim');
+                            });
+
+                            continue;
+                        }
         
                         const respObj = JSON.parse(res.data);
                         if (!respObj.iccid) {
-                            console.log('no iccid in cellularInfo');
                             if (!hasResetModem) {
                                 hasResetModem = true;
                                 if (((new Date().getTime() - functionStart.getTime()) / 1000) > 50) {
@@ -457,7 +855,20 @@ $(document).ready(function() {
                         }
     
                         deviceInfo.iccid = respObj.iccid;
-    
+
+                        // 
+                        if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
+                            console.log('no tower scan available');
+                        }
+                        else {
+                            $(thisElem).find('.towerScanOption').show();
+
+                            $(thisElem).find('.doTowerScan').on('click', async function() {
+                                await doTowerScan();
+                                return;                                
+                            });
+                        }
+                            
                         showInfoTable();
                         setInfoTableItem('deviceId', deviceInfo.deviceId);
                         setInfoTableItemObj(respObj);    
@@ -678,7 +1089,8 @@ $(document).ready(function() {
             
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
-        
+            
+            // In troubleshooting mode, we do try to autoconnect
             reqObj = {
                 op: 'noAutoConnect',
             };
@@ -690,6 +1102,8 @@ $(document).ready(function() {
         const flashDevice = async function() {
             try {
                 setSetupStep('setupStepFlashDevice');
+
+                $(userInfoElem).hide();
 
                 const showStep = function(step) {
                     $(thisElem).find('.setupStepFlashDevice').children().each(function() {
@@ -813,6 +1227,10 @@ $(document).ready(function() {
                 };
 
             
+                if (troubleshootingMode) {
+                    options.userBackup = true;
+                }
+
                 const restoreResult = await dfuDeviceRestore(usbDevice, options);
             
                 if (restoreResult.ok) {
@@ -834,6 +1252,11 @@ $(document).ready(function() {
             });
 
             await reconnectToDevice();
+
+            if (troubleshootingMode) {
+                checkSimAndClaiming();
+            }
+            else
             if (deviceInfo.wifi) {
 
                 configureWiFi();                              
@@ -1198,128 +1621,17 @@ $(document).ready(function() {
 
         $(thisElem).find('.scanAgain').on('click', configureWiFi);
 
-        const deviceLogsElem = $(thisElem).find('.deviceLogs');
-        const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
-        const showDebuggingLogsElem = $(thisElem).find('.showDebuggingLogs');
-        const deviceLogsTextButtonsElem = $(thisElem).find('.deviceLogsTextButtons');
-        const downloadLogsElem = $(thisElem).find('.downloadLogs');
-
-        let deviceLogs = '';
-        let checkStatus;
-
-        $(showDebuggingLogsElem).on('click', function() {
-            if ($(showDebuggingLogsElem).prop('checked')) {                
-                $(deviceLogsTextElem).val(deviceLogs);
-                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
-                $(deviceLogsTextButtonsElem).show();
-            }
-            else {
-                $(deviceLogsTextButtonsElem).hide();
-            }
-        });
-
-        $(downloadLogsElem).on('click', function() {
-            $(downloadLogsElem).prop('disabled', true);
-
-            let blob = new Blob([getInfoTableText(), deviceLogs], {type:'text/plain'});
-            saveAs(blob, 'logs.txt');	
-
-            $(downloadLogsElem).prop('disabled', false);
-        });
-
-
-
         const waitDeviceOnline = async function() {
             try {
                 setSetupStep('setupStepWaitForOnline');
     
-                if (setupOptions.noClaim) {
+                $(userInfoElem).show();
+
+                if (setupOptions.noClaim || troubleshootingMode) {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
-                $(deviceLogsElem).show();
-            
-                let timer1;
-                let timer2;
-
-                const clearTimers = function() {
-                    if (timer1) {
-                        clearInterval(timer1);
-                        timer1 = null;
-                    }
-                    if (timer2) {
-                        clearInterval(timer2);
-                        timer2 = null;
-                    }
-                }
-
-                timer1 = setInterval(async function() {
-                    let reqObj = {
-                        op: 'status'
-                    };
-
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            clearTimers();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        const respObj = JSON.parse(res.data);
-
-                        if (checkStatus) {
-                            checkStatus(respObj);
-                        }
-
-                        if (respObj.mcc) {
-                            setInfoTableItemObj(respObj);
-
-                            if (mccmnc) {
-                                for(const obj of mccmnc) {
-                                    if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);                                        
-                                    }
-                                }
-                            }                                          
-                        }
-                    }
-                }, 2000);
-                
-                timer2 = setInterval(async function() {
-                    let reqObj = {
-                        op: 'logs'
-                    };
-
-                    let res;
-                    try {
-                        res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                    }
-                    catch(e) {
-                        if (e.message.includes('The device was disconnected.')) {
-                            clearTimers();
-                        } else {
-                            console.log('control request exception', e);
-                        }
-                        return;
-                    }
-                    
-                    if (res.result == 0 && res.data) {
-                        if (res.data.length > 0) {
-                            deviceLogs += res.data;
-                            if ($(showDebuggingLogsElem).prop('checked')) {
-                                $(deviceLogsTextElem).val(deviceLogs);
-                                deviceLogsTextElem.scrollTop(deviceLogsTextElem[0].scrollHeight - deviceLogsTextElem.height());    
-                            }
-                        }
-                    }
-                }, 1000);
+                showDeviceLogs();
 
                 const waitOnlineStepsElem = $(thisElem).find('.waitOnlineSteps');
     
@@ -1328,8 +1640,6 @@ $(document).ready(function() {
                 let networkReady = false;
     
                 $(thisElem).find('.waitOnlineStepNetwork > td > img').css('visibility', 'visible');
-
-                const doneUrl = '/assets/images/device-setup/ok-48.png';
                 
                 // Wait for online
                 await new Promise(function(resolve, reject) {
@@ -1352,7 +1662,13 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
-                if (!setupOptions.noClaim) {
+                if (troubleshootingMode) {                    
+                    // TODO: Check if device is claimed to my account and 
+                    setSetupStep('setupStepTroubleshootingSuccess');
+                    return;
+                }
+
+                if (!setupOptions.noClaim && !troubleshootingMode) {
                     // Claim device
                     const result = await new Promise(function(resolve, reject) {      
                         const requestObj = {
@@ -1398,8 +1714,8 @@ $(document).ready(function() {
                     }
                 }
 
-    
                 nameDevice();
+    
             }
             catch(e) {
                 setSetupStep('setupStepClaimFailed');

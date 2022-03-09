@@ -1,17 +1,64 @@
 <div class="apiHelper apiHelperSSO">
     <div class="apiHelperBox">
-        <div class="apiHelperLoggedIn apiHelperSmallText" style="display:none">
+        <div class="apiHelperLoggedIn apiHelperSmallText apiHelperManualOption" style="display:none">
             <p>Logged into Particle as <span class="apiHelperUser"></span> &nbsp;
                 <button class="apiHelperLogoutButton">Logout</button>
             </p>
         </div>
-        <div class="apiHelperCouldSSO apiHelperSmallText" style="display:none">
+        <div class="apiHelperCouldSSO apiHelperSmallText apiHelperManualOption" style="display:none">
             <p>Log in to your Particle account to interact with your devices</p>
             <p><button class="apiHelperLoginButton">Login</button></p>
         </div>
-        <div class="apiHelperFakeAuth apiHelperSmallText" style="display:none">
-            <p>Cannot use Particle Single Sign-On from outside the Particle domain.</p>
-            <button class="apiHelperFakeAuthButton">Enter authentication manually</button>
+        <div class="apiHelperManualLoginDiv" style="display:none">
+                <p><button class="apiHelperManualLoginButton">Manual login (not using single sign-on)</button></p>
+        </div>
+        <div class="apiHelperLocalLogIn" style="display: none;">
+            <div class="apiHelperLocalLoginPageLogin">
+                <p>Log in manually (not using single sign-on)</p>
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr class="apiHelperLocalLoginLogInUsingRow">
+                            <td class="apiHelperProductSelectorLabel">Log in using:</td>
+                            <td><label><input name="logInUsingRadio" value="userPass" type="radio" checked />Username and Password</label> &nbsp;&nbsp;<label><input name="logInUsingRadio" value="token" type="radio" />Access token</label></td>
+                        </tr>
+                        <tr class="apiHelperLocalLoginUsernameRow">
+                            <td class="apiHelperProductSelectorLabel">Username (Email):</td>
+                            <td><input class="apiHelperLocalLoginUsernameInput" type="text"/></td>
+                        </tr>
+                        <tr class="apiHelperLocalLoginPasswordRow">
+                            <td class="apiHelperProductSelectorLabel">Password:</td>
+                            <td><input class="apiHelperLocalLoginPasswordInput" type="password"/></td>
+                        </tr>
+                        <tr class="apiHelperLocalLoginAccessTokenRow">
+                            <td class="apiHelperProductSelectorLabel">Access token:</td>
+                            <td><input class="apiHelperLocalLoginAccessTokenInput" type="text" size="50" value=""/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="apiHelperButton apiHelperLocalLoginLoginButton">Login</button>
+                            </td>                
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="apiHelperLocalLoginPageOTP" style="display:none">
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr class="otpRow">
+                            <td class="apiHelperProductSelectorLabel">MFA OTP Token:</td>
+                            <td><input class="apiHelperLocalLoginOtpInput" type="text" size="10"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="apiHelperButton apiHelperLocalLoginContinueLoginButton">Continue Login</button>
+                            </td>                
+                        </tr>
+                    </tbody>
+                </table>        
+            </div>
+            <div class="apiHelperLocalLoginPageLoginFailed" style="display:none">
+                <p>Login failed. Try again.</p>
+            </div>
         </div>
     </div>
 </div>

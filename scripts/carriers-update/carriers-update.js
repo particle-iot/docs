@@ -481,7 +481,7 @@ const { option } = require('yargs');
 
         // options.columns is an array of objects that specify columns of the table left to right
         //   .title 
-        //   .justify left(default), center, right
+        //   .align left(default), center, right
 
         let md = '';
 

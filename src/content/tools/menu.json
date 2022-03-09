@@ -68,6 +68,11 @@
                 "href": "/tools/product-tools/cellular-usage"
             },
             {
+                "dir": "list-devices",
+                "title": "List devices",
+                "href": "/tools/product-tools/list-devices"
+            },
+            {
                 "dir": "integration-copy",
                 "title": "Copy integrations",
                 "href": "/tools/product-tools/integration-copy"

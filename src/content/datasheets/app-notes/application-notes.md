@@ -49,6 +49,7 @@ in mains power applications.
 - [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
 - [AN037 Ethernet](/datasheets/app-notes/an037-ethernet) includes tips for using Ethernet with Particle Gen 3 devices.
 - [AN038 Libraries](/datasheets/app-notes/an038-libraries) includes details on using libraries in Particle projects.
+- [AN040 Code Size Tip](/datasheets/app-notes/an040-code-size-tips) includes tips on optimizing code size
 
 ## Firmware examples
 
@@ -129,4 +130,4 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
 - [AN037 Ethernet](/datasheets/app-notes/an037-ethernet) includes tips for using Ethernet with Particle Gen 3 devices.
 - [AN038 Libraries](/datasheets/app-notes/an038-libraries) includes details on using libraries in Particle projects.
-
+- [AN040 Code Size Tip](/datasheets/app-notes/an040-code-size-tips) includes tips on optimizing code size
