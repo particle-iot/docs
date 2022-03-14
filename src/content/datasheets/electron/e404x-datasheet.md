@@ -9,6 +9,10 @@ description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass
 
 **Preliminary pre-release version 2022-01-25**
 
+{{box op="start" cssClass="boxed warningBox"}}
+This is an preliminary pre-release datasheet and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
+{{box op="end"}}
+
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e404x-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
