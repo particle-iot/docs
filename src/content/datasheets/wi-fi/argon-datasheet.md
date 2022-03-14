@@ -5,11 +5,17 @@ columns: two
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
-# Argon Datasheet <sup>(v008)</sup>
+# Argon Datasheet <sup>(v009)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+The Argon has been deprecated. The recommended replacement is the [Photon 2](/datasheets/wi-fi/photon-2-datasheet/).
+
+See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/argon/argon-top.png" ></div>
 
@@ -480,6 +486,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | v007     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
 | v008     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| v009     | 14-Mar-2022 | RK | Added deprecation notice |
 
 ## Known Errata
 

@@ -285,7 +285,7 @@ The P2 supports one I2C (two-wire serial interface) port.
 - The I2C port is 3.3V and must not be connected directly a 5V I2C bus
 - Maximum bus speed is 400 kHz
 - External pull-up resistors are required for I2C
-- If not using I2C, pins D0 and D1 can be used as GPIO
+- If not using I2C, pins D0 and D1 can be used as GPIO or analog input.
 
 
 ### PWM
@@ -696,3 +696,4 @@ https://support.particle.io
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-14 | RK | Pre-release |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |

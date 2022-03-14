@@ -7,9 +7,15 @@ description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 
 {{#unless pdf-generation}}
 
-# P1 Datasheet <sup>(v012)</sup>
+# P1 Datasheet <sup>(v013)</sup>
 
 {{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+The P1 has been deprecated. The recommend replacement is the [P2](/datasheets/wi-fi/p2-datasheet/).
+
+See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -668,6 +674,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v010 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
 | v011 | 09-Dec-2020 | RK | Remove paid tiers limit |
 | v012 | 15-Mar-2021 | RK | Updated ordering information |
+| v013 | 14-Mar-2023 | RK | Added deprecation notice |
 
 ## Known Errata
 

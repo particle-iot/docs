@@ -5,13 +5,17 @@ columns: two
 description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
-# E Series Module Datasheet <sup>(v003)</sup>
-
-**PRE-RELEASE DRAFT 2021-06-14**
+# E Series Module Datasheet <sup>(v004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+The E Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/datasheets/electron/e404x-datasheet/).
+
+See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-top.png" ></div>
 
@@ -856,6 +860,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002     | 31-Jul-2019   | RK     | Added LTE information |
 |          |               |        | Removed E201, E302, E303 models |
 | v003     | 11-Mar-2020   | RK     | Corrected FCC ID for 2G/3G model |
+| v004     | 14-Mar-2022   | RK     | Added deprecation notice |
 
 ## Known Errata
 

@@ -7,12 +7,17 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v020)</sup>
+# Photon Datasheet <sup>(v021)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
 {{downloadButton url="/assets/pdfs/datasheets/photon-datasheet.pdf"}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+The Photon has been deprecated. The recommended replacement is the [Photon 2](/datasheets/wi-fi/photon-2-datasheet/).
+
+See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
 
@@ -712,6 +717,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v018 | 15-Mar-2021 | RK | Updated ordering information |
 | v019 | 19-May-2021 | RK | Updated External Coexistence Interface section |
 | v020 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| v021 | 14-Mar-2023 | RK | Added deprecation notice |
 
 ## Known Errata
 

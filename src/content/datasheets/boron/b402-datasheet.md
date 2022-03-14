@@ -5,9 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404X/B404/B402 Datasheet <sup>(014)</sup>
-
-**PRE-RELEASE DRAFT 2021-10-27**
+# B404X/B404/B402 Datasheet <sup>(015)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -27,16 +25,6 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Features
 
-#### Features - B402, B404
-
- * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
-  * LTE Cat M1 module
-  * Support for United States, Canada, and Mexico only
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
-  * Embedded Particle EtherSIM (B404)
-  * Embedded Particle SIM (B402)
-
 #### Features - B404X
 
  * u-blox SARA-R510S-01B LTE modem (B404X)
@@ -46,6 +34,18 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
   * Embedded Particle EtherSIM (B404X)
   * Requires Device OS 2.3.0 LTS (or later) or 3.2.0 (or later)
+  
+#### Features - B402, B404
+
+ * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
+  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+  * LTE Cat M1 module
+  * Support for United States, Canada, and Mexico only
+  * 3GPP Release 13 LTE Cat M1 
+  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+  * Embedded Particle EtherSIM (B404)
+  * Embedded Particle SIM (B402)
+
 
 <sup>1</sup> Not all bands enabled in software by default
 
@@ -619,3 +619,4 @@ The bootloader allows you to easily update the user application via several diff
 | 012      | 19-May-2021 | RK | List Ethernet reserved pins |
 | 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | 014      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| 015      | 14-Mar-2022 | RK | Added B404X, deprecation notice |

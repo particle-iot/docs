@@ -7,8 +7,6 @@ description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 
 # Boron Datasheet <sup>(v009)</sup>
 
-**PRE-RELEASE DRAFT 2021-10-27**
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -25,16 +23,6 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
-#### Features - BRN402, BRN404 (Boron LTE)
-
- * u-blox SARA-R410M-02B or R410M-03 LTE modem
- * LTE Cat M1 module
- * Support for United States, Canada, and Mexico only
- * 3GPP Release 13 LTE Cat M1 
- * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
- * Embedded Particle EtherSIM (BRN404)
- * Embedded Particle SIM (BRN402)
-
 #### Features - BRN404X (Boron LTE)
 
  * u-blox SARA-R510S-01B LTE modem
@@ -46,8 +34,21 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 <sup>1</sup> Not all bands enabled in software by default
 
+#### Features - BRN402, BRN404 (Boron LTE)
+
+ * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+ * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * LTE Cat M1 module
+ * Support for United States, Canada, and Mexico only
+ * 3GPP Release 13 LTE Cat M1 
+ * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+ * Embedded Particle EtherSIM (BRN404)
+ * Embedded Particle SIM (BRN402)
+
+
 #### Features - BRN314, BRN310 (Boron 2G/3G)
 
+ * The BRN314 and BRN310 have been deprecated. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
  * u-blox SARA U201 2G/3G modem
  * HSPA/GSM with global hardware and SIM support 
  * Bands 800/850/900/1900/2100 MHz 

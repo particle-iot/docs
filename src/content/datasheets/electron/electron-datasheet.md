@@ -6,13 +6,15 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v009)</sup>
-
-**PRE-RELEASE DRAFT 2021-06-14**
+# Electron Datasheet <sup>(v010)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+The Electron has been deprecated. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -941,6 +943,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v007 | 16-Sep-2020 | RK | Added power consumption information |
 | v008 | 24-Feb-2021 | RK | Added ELC314 information |
 | v009 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| v010 | 14-Mar-2022 | RK | Added deprecation warning |
 
 ## Known Errata
 
