@@ -7,10 +7,10 @@ description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass
 
 # E404X Datasheet
 
-**Preliminary pre-release version 2022-01-25**
+**Preliminary pre-release version 2022-03-14**
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release datasheet and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
+This is an preliminary pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
 {{#unless pdf-generation}}
@@ -26,6 +26,10 @@ The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). I
 It is a SMD module designed to be reflowed to your own custom base board and is the same size and has a nearly identical pin-out to the E Series module.
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
+
+If you are migrating from the E402 or E404, there is a [migration guide](/datasheets/electron/e404x-migration-guide) available. 
+
+There will not be 2G/3G "X" version E Series; there will not be an E310X or E314X. 
 
 ### Features
 
@@ -155,30 +159,30 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 
 {{!-- BEGIN do not edit content below, it is automatically generated 4ccb8904-6d00-446d-9aa6-5786c66435d4 --}}
 
-| Pin | E404X Pin Name | Description | GPIO | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 16 | TX | Serial1 TX (transmitted data), GPIO, PWM. | &check; | P0.6 |
-| 17 | RX | Serial1 RX (received data), GPIO, PWM. | &check; | P0.08 |
-| 19 | A7 / WKP | A7 analog in, WKP (wakeup), GPIO. | &check; | P0.05 |
-| 20 | A6 | A6 analog in, GPIO. | &check; | P0.04 |
-| 21 | A5 | A5 Analog in, GPIO, SPI MOSI, PWM. | &check; | P0.31 |
-| 22 | A4 | A4 Analog in, GPIO, SPI MISO, PWM. | &check; | P0.30 |
-| 23 | A3 | A3 analog in, GPIO, SPI SCK, PWM | &check; | P0.29 |
-| 24 | A2 | A2 Analog in, GPIO, SPI SS, PWM | &check; | P0.28 |
-| 25 | A1 | A1 Analog in, GPIO | &check; | P0.02 |
-| 26 | A0 | A0 Analog in, GPIO | &check; | P0.03 |
-| 30 | B3 | B3, GPIO, PWM | &check; | P1.13 |
-| 31 | B2 | B2, GPIO, PWM | &check; | P1.12 |
-| 32 | B1 | B1, GPIO | &check; | P0.09 |
-| 33 | B0 | B0, GPIO | &check; | P0.10 |
-| 37 | D5 | D5 GPIO, SPI1 SS | &check; | P1.11 |
-| 40 | D2 | D2 GPIO, PWM | &check; | P1.10 |
-| 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | &check; | P1.02 |
-| 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | &check; | 1.01 |
-| 46 | C3 | SPI1 SCK, GPIO. | &check; | P0.12 |
-| 47 | C2 | SPI1 MISO, GPIO. | &check; | P0.11 |
-| 48 | C1 | SPI1 MOSI, GPIO. | &check; | P1.09 |
-| 49 | C0 | GPIO, PWM. | &check; | P1.08 |
+| Pin | E404X Pin Name | E404X GPIO |
+| :---: | :--- | :--- |
+| 16 | TX | &check; |
+| 17 | RX | &check; |
+| 19 | A7 / WKP | &check; |
+| 20 | A6 | &check; |
+| 21 | A5 | &check; |
+| 22 | A4 | &check; |
+| 23 | A3 | &check; |
+| 24 | A2 | &check; |
+| 25 | A1 | &check; |
+| 26 | A0 | &check; |
+| 30 | B3 | &check; |
+| 31 | B2 | &check; |
+| 32 | B1 | &check; |
+| 33 | B0 | &check; |
+| 37 | D5 | &check; |
+| 40 | D2 | &check; |
+| 41 | D1 | &check; |
+| 42 | D0 | &check; |
+| 46 | C3 | &check; |
+| 47 | C2 | &check; |
+| 48 | C1 | &check; |
+| 49 | C0 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated 4ccb8904-6d00-446d-9aa6-5786c66435d4 --}}
@@ -191,16 +195,16 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 
 {{!-- BEGIN do not edit content below, it is automatically generated ec8e0cf4-a9be-4964-ab24-5e9d8cd3670f --}}
 
-| Pin | E404X Pin Name | Description | ADC | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 19 | A7 / WKP | A7 analog in, WKP (wakeup), GPIO. | ADC7 | P0.05 |
-| 20 | A6 | A6 analog in, GPIO. | ADC6 | P0.04 |
-| 21 | A5 | A5 Analog in, GPIO, SPI MOSI, PWM. | ADC5 | P0.31 |
-| 22 | A4 | A4 Analog in, GPIO, SPI MISO, PWM. | ADC4 | P0.30 |
-| 23 | A3 | A3 analog in, GPIO, SPI SCK, PWM | ADC3 | P0.29 |
-| 24 | A2 | A2 Analog in, GPIO, SPI SS, PWM | ADC2 | P0.28 |
-| 25 | A1 | A1 Analog in, GPIO | ADC1 | P0.02 |
-| 26 | A0 | A0 Analog in, GPIO | ADC0 | P0.03 |
+| Pin | E404X Pin Name | E404X ADC |
+| :---: | :--- | :--- |
+| 19 | A7 / WKP | ADC7 |
+| 20 | A6 | ADC6 |
+| 21 | A5 | ADC5 |
+| 22 | A4 | ADC4 |
+| 23 | A3 | ADC3 |
+| 24 | A2 | ADC2 |
+| 25 | A1 | ADC1 |
+| 26 | A0 | ADC0 |
 
 
 {{!-- END do not edit content above, it is automatically generated ec8e0cf4-a9be-4964-ab24-5e9d8cd3670f --}}
@@ -227,12 +231,12 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 {{!-- BEGIN do not edit content below, it is automatically generated 68c19adf-d373-4061-8f71-0ebc756b68c0 --}}
 
-| Pin | E404X Pin Name | Description | UART | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 16 | TX | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 (TX) | P0.6 |
-| 17 | RX | Serial1 RX (received data), GPIO, PWM. | Serial1 (RX) | P0.08 |
-| 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | Serial1 (CTS) | P1.02 |
-| 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | Serial1 (RTS) | 1.01 |
+| Pin | E404X Pin Name | E404X UART |
+| :---: | :--- | :--- |
+| 16 | TX | Serial1 (TX) |
+| 17 | RX | Serial1 (RX) |
+| 41 | D1 | Serial1 (CTS) |
+| 42 | D0 | Serial1 (RTS) |
 
 
 {{!-- END do not edit content above, it is automatically generated 68c19adf-d373-4061-8f71-0ebc756b68c0 --}}
@@ -246,16 +250,16 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 {{!-- BEGIN do not edit content below, it is automatically generated 42be4ad3-031d-4718-bf69-fa9320d7eae5 --}}
 
-| Pin | E404X Pin Name | Description | SPI | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 21 | A5 | A5 Analog in, GPIO, SPI MOSI, PWM. | SPI (MOSI) | P0.31 |
-| 22 | A4 | A4 Analog in, GPIO, SPI MISO, PWM. | SPI (MISO) | P0.30 |
-| 23 | A3 | A3 analog in, GPIO, SPI SCK, PWM | SPI (SCK) | P0.29 |
-| 24 | A2 | A2 Analog in, GPIO, SPI SS, PWM | SPI (SS) | P0.28 |
-| 37 | D5 | D5 GPIO, SPI1 SS | SPI1 (SS) | P1.11 |
-| 46 | C3 | SPI1 SCK, GPIO. | SPI1 (SCK) | P0.12 |
-| 47 | C2 | SPI1 MISO, GPIO. | SPI1 (MISO) | P0.11 |
-| 48 | C1 | SPI1 MOSI, GPIO. | SPI1 (MOSI) | P1.09 |
+| Pin | E404X Pin Name | E404X SPI |
+| :---: | :--- | :--- |
+| 21 | A5 | SPI (MOSI) |
+| 22 | A4 | SPI (MISO) |
+| 23 | A3 | SPI (SCK) |
+| 24 | A2 | SPI (SS) |
+| 37 | D5 | SPI1 (SS) |
+| 46 | C3 | SPI1 (SCK) |
+| 47 | C2 | SPI1 (MISO) |
+| 48 | C1 | SPI1 (MOSI) |
 
 
 {{!-- END do not edit content above, it is automatically generated 42be4ad3-031d-4718-bf69-fa9320d7eae59 --}}
@@ -270,12 +274,12 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 {{!-- BEGIN do not edit content below, it is automatically generated bdf550a7-6a65-4cb3-9650-ec612986b349 --}}
 
-| Pin | E404X Pin Name | Description | I2C | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | Wire (SCL) | P1.02 |
-| 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | Wire (SDA) | 1.01 |
-| 44 | C5 | I2C Wire1 SCL, not GPIO | Wire1 (SCL) | P1.03 |
-| 45 | C4 | I2C Wire1 SDA, not GPIO | Wire1 (SDA) | P0.24 |
+| Pin | E404X Pin Name | E404X I2C |
+| :---: | :--- | :--- |
+| 41 | D1 | Wire (SCL) |
+| 42 | D0 | Wire (SDA) |
+| 44 | C5 | Wire1 (SCL) |
+| 45 | C4 | Wire1 (SDA) |
 
 
 {{!-- END do not edit content above, it is automatically generated bdf550a7-6a65-4cb3-9650-ec612986b349 --}}
@@ -287,20 +291,20 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 {{!-- BEGIN do not edit content below, it is automatically generated 7467d36c-a9d2-4629-be9f-2e76262f956e --}}
 
-| Pin | E404X Pin Name | Description | PWM | MCU |
-| :---: | :--- | :--- | :--- | :--- |
-| 16 | TX | Serial1 TX (transmitted data), GPIO, PWM. | PWM2 | P0.6 |
-| 17 | RX | Serial1 RX (received data), GPIO, PWM. | PWM2 | P0.08 |
-| 21 | A5 | A5 Analog in, GPIO, SPI MOSI, PWM. | PWM3 | P0.31 |
-| 22 | A4 | A4 Analog in, GPIO, SPI MISO, PWM. | PWM3 | P0.30 |
-| 23 | A3 | A3 analog in, GPIO, SPI SCK, PWM | PMW2 | P0.29 |
-| 24 | A2 | A2 Analog in, GPIO, SPI SS, PWM | PMW2 | P0.28 |
-| 30 | B3 | B3, GPIO, PWM | PWM1 | P1.13 |
-| 31 | B2 | B2, GPIO, PWM | PWM0 | P1.12 |
-| 40 | D2 | D2 GPIO, PWM | PWM1 | P1.10 |
-| 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | PWM3 | P1.02 |
-| 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | PWM3 | 1.01 |
-| 49 | C0 | GPIO, PWM. | PWM1 | P1.08 |
+| Pin | E404X Pin Name | E404X PWM |
+| :---: | :--- | :--- |
+| 16 | TX | &check; |
+| 17 | RX | &check; |
+| 21 | A5 | &check; |
+| 22 | A4 | &check; |
+| 23 | A3 | &check; |
+| 24 | A2 | &check; |
+| 30 | B3 | &check; |
+| 31 | B2 | &check; |
+| 40 | D2 | &check; |
+| 41 | D1 | &check; |
+| 42 | D0 | &check; |
+| 49 | C0 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated 7467d36c-a9d2-4629-be9f-2e76262f956e --}}
@@ -385,25 +389,25 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 {{!-- BEGIN do not edit content below, it is automatically generated 6591a5b8-3326-46c8-9133-de4d6dacbc77 --}}
 
 | Pin | Pin Name | Description | MCU |
-| :---: | :--- | :--- | :---: |
-| 1 | VIN | Power in 3.9V to 12 VDC. |  |
-| 2 | GND | Ground. Be sure to connect all GND pins. |  |
-| 3 | VBUS | Connect to VBUS power pin on the USB port |  |
-| 4 | GND | Ground. Be sure to connect all GND pins. |  |
-| 5 | LIPO | Connect to + pin on the LiPo battery, 3.6V maximum |  |
-| 6 | NC | Do not connect to anything |  |
-| 7 | GND | Ground. Be sure to connect all GND pins. |  |
-| 8 | PMID | Connected to the PMID pin of the PMIC (may change) |  |
-| 9 | 3V3 | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. |  |
-| 10 | NC | Do not connect to anything |  |
-| 11 | NC | Do not connect to anything |  |
-| 12 | GND | Ground. Be sure to connect all GND pins. |  |
+| :---: | :--- | :--- | :--- |
+| 1 | VIN | Power in 3.9V to 12 VDC. | &nbsp; |
+| 2 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
+| 3 | VBUS | Connect to VBUS power pin on the USB port | &nbsp; |
+| 4 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
+| 5 | LIPO | Connect to + pin on the LiPo battery, 3.6V maximum | &nbsp; |
+| 6 | NC | Do not connect to anything | &nbsp; |
+| 7 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
+| 8 | PMID | Connected to the PMID pin of the PMIC (may change) | &nbsp; |
+| 9 | 3V3 | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | &nbsp; |
+| 10 | NC | Do not connect to anything | &nbsp; |
+| 11 | NC | Do not connect to anything | &nbsp; |
+| 12 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 13 | USBDATA+ | USB Data+. Cannot be used as GPIO. | D+ |
 | 14 | USBDATA- | USB Data-. Cannot be used as GPIO. | D- |
-| 15 | GND | Ground. Be sure to connect all GND pins. |  |
+| 15 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 16 | TX | Serial1 TX (transmitted data), GPIO, PWM. | P0.6 |
 | 17 | RX | Serial1 RX (received data), GPIO, PWM. | P0.08 |
-| 18 | GND | Ground. Be sure to connect all GND pins. |  |
+| 18 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 19 | A7 / WKP | A7 analog in, WKP (wakeup), GPIO. | P0.05 |
 | 20 | A6 | A6 analog in, GPIO. | P0.04 |
 | 21 | A5 | A5 Analog in, GPIO, SPI MOSI, PWM. | P0.31 |
@@ -412,40 +416,40 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 | 24 | A2 | A2 Analog in, GPIO, SPI SS, PWM | P0.28 |
 | 25 | A1 | A1 Analog in, GPIO | P0.02 |
 | 26 | A0 | A0 Analog in, GPIO | P0.03 |
-| 27 | GND | Ground. Be sure to connect all GND pins. |  |
-| 28 | NC | Do not connect to anything |  |
-| 29 | NC | Do not connect to anything |  |
+| 27 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
+| 28 | NC | Do not connect to anything | &nbsp; |
+| 29 | NC | Do not connect to anything | &nbsp; |
 | 30 | B3 | B3, GPIO, PWM | P1.13 |
 | 31 | B2 | B2, GPIO, PWM | P1.12 |
 | 32 | B1 | B1, GPIO | P0.09 |
 | 33 | B0 | B0, GPIO | P0.10 |
-| 34 | GND | Ground. Be sure to connect all GND pins. |  |
+| 34 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 35 | SWDIO | SWDIO for JTAG/SWD debugger. Internal pull-up. Not GPIO. | SWDIO |
 | 36 | SWDCLK | SWCLK for JTAG/SWD debugger. Internal pull-down. Not GPIO. | SWCLK |
 | 37 | D5 | D5 GPIO, SPI1 SS | P1.11 |
 | 38 | SWO | SWO for JTAG/SWD debugger. Not GPIO. | SWO |
-| 39 | NC | Do not connect to anything |  |
+| 39 | NC | Do not connect to anything | &nbsp; |
 | 40 | D2 | D2 GPIO, PWM | P1.10 |
 | 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | P1.02 |
 | 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | 1.01 |
-| 43 | GND | Ground. Be sure to connect all GND pins. |  |
+| 43 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 44 | C5 | I2C Wire1 SCL, not GPIO | P1.03 |
 | 45 | C4 | I2C Wire1 SDA, not GPIO | P0.24 |
 | 46 | C3 | SPI1 SCK, GPIO. | P0.12 |
 | 47 | C2 | SPI1 MISO, GPIO. | P0.11 |
 | 48 | C1 | SPI1 MOSI, GPIO. | P1.09 |
 | 49 | C0 | GPIO, PWM. | P1.08 |
-| 50 | NC | Do not connect to anything |  |
-| 51 | GND | Ground. Be sure to connect all GND pins. |  |
+| 50 | NC | Do not connect to anything | &nbsp; |
+| 51 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 52 | RGBB | RGB LED Blue | P0.07 |
 | 53 | RGBG | RGB LED Green | P0.27 |
 | 54 | RGBR | RGB LED Red | P0.26 |
 | 55 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. | P0.25 |
 | 56 | RESET | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | P0.18 |
-| 57 | STAT | Charge status output from the PMIC. |  |
-| 58 | GND | Ground. Be sure to connect all GND pins. |  |
-| 59 | GND | Ground. Be sure to connect all GND pins. |  |
-| 60 | GND | Ground. Be sure to connect all GND pins. |  |
+| 57 | STAT | Charge status output from the PMIC. | &nbsp; |
+| 58 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
+| 59 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
+| 60 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 6591a5b8-3326-46c8-9133-de4d6dacbc77 --}}
@@ -623,6 +627,8 @@ These specifications are based on the nRF52840 datasheet.
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-dims.png"></div>
 
+*This diagram indicates only the dimensions; the components on the module will be different.*
+
 ### Dimensions and Weight
  * Width = 36 mm
  * Height = 43 mm
@@ -762,9 +768,10 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 ## Revision history
 
-| Revision | Date          | Author | Comments        |
-|:--------:|:-------------:|:------:|:----------------|
-| pre      | 2022-01-25    | RK     | Preliminaryu version |
+| Revision | Date | Author | Comments |
+|:---:|:---:|:---:|:----|
+| pre | 2022-01-25 | RK | Pre-release |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |
 
 
 ## Known Errata

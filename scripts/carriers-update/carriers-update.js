@@ -1296,6 +1296,20 @@ const { option } = require('yargs');
             }
         }
 
+        const portColumnValue = function(value) {
+            if (value) {
+                if (options.useShortName) {
+                    return getShortName(value);
+                }
+                else {
+                    return '&check;';
+                }
+            }
+            else {
+                return '&nbsp;';
+            }
+        } 
+
         const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
         if (!platformInfoNew) {
             return '';
@@ -1403,8 +1417,35 @@ const { option } = require('yargs');
                     return parseInt(a.num) - parseInt(b.num);
                 });
 
-            }
-                        
+            }                        
+        }
+        if (!mappedPins) {
+            // Map new pin by module pin
+            const newPinsExpanded = expandMorePins(platformInfoNew.pins);
+            
+            mappedPins = [];
+
+            for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                let newPin = getPinInfo(newPinsExpanded, pinNum);
+
+                if (!newPin[options.port]) {
+                    // This pin is not used
+                    continue;
+                }
+
+                let m = {
+                    num: pinNum,
+                    new: newPin,
+                };
+
+                m.title = 'Module Pin ' + pinNum + ' (' + newPin.name + ')\n';
+                mappedPins.push(m);                
+            }    
+
+            // Sort
+            mappedPins.sort(function(a, b) {
+                return parseInt(a.num) - parseInt(b.num);
+            });
         }
 
 
@@ -1661,27 +1702,28 @@ const { option } = require('yargs');
 
         if (options.style == 'port-comparison') {
             // options.port
+            const p1pins = expandMorePins(platformInfoOld.pins);
+            const p2pins = expandMorePins(platformInfoNew.pins);
+
+            md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
+            md += '| :---: | :--- | :--- | :--- | :--- |\n'
 
             for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let oldPin = getPinInfo(oldPins, pinNum);
-                let newPin = getPinInfo(newPins, pinNum);
+                let p1pin = getPinInfo(p1pins, pinNum);
+                let p2pin = getPinInfo(p2pins, pinNum);
 
-                if (!oldPin[options.port] && !newPin[options.port]) {
+                if (!p1pin[options.port] && !p2pin[options.port]) {
                     // Neither device supports this port on this pin
                     continue;
                 }
-                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(oldPin) + ' | ' + portColumnValue(oldPin) + ' | ';
-                md += getPinNameWithAlt(newPin) + ' | ' + portColumnValue(newPin) + ' | \n';
+                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
+                md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
             }            
         }
 
         if (options.style == 'portPins') {
             // options.port
             const newPins = expandMorePins(platformInfoNew.pins);
-
-            md += '| Pin | ' + options.platformNew + ' Pin Name | Description | ' + options.label  + ' | MCU |\n';
-            md += '| :---: | :--- | :--- | :--- | :--- |\n'
-
 
             let tableOptions = {
                 columns: [],
@@ -1694,14 +1736,17 @@ const { option } = require('yargs');
                     align: 'center',
                 });    
             }
-            tableOptions.columns.push({
-                key: 'oldPinName',
-                title: options.platformOld + ' Pin Name',
-            });
-            tableOptions.columns.push({
-                key: 'oldPort',
-                title: options.platformOld + ' ' + options.label,
-            });
+            if (platformInfoOld) {
+                tableOptions.columns.push({
+                    key: 'oldPinName',
+                    title: options.platformOld + ' Pin Name',
+                });
+                tableOptions.columns.push({
+                    key: 'oldPort',
+                    title: options.platformOld + ' ' + options.label,
+                });
+    
+            }
             tableOptions.columns.push({
                 key: 'newPinName',
                 title: options.platformNew + ' Pin Name',
@@ -1717,7 +1762,9 @@ const { option } = require('yargs');
             
             for(const m of mappedPins) {
                 if ((m.new && m.new[options.port]) || (m.old && m.old[options.port])) {
-                    let rowData = {};
+                    let rowData = {
+                        num: m.num
+                    };
                     if (m.old) {
                         rowData.oldPinName = getPinNameWithAlt(m.old);
                         rowData.oldPort = portColumnValue(m.old[options.port]);
@@ -1945,8 +1992,7 @@ const { option } = require('yargs');
                             style: 'portPins',
                             platformNew: 'E404X',
                             port: 'analogWritePWM',
-                            label: 'PWM',
-                            useShortName: true
+                            label: 'PWM'
                         }); 
                     } 
                 },                

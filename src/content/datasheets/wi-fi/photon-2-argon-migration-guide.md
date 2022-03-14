@@ -88,16 +88,16 @@ Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
-| Argon Pin Name | Argon SPI | Photon 2 Pin Name | Photon 2 SPI |
-| :--- | :--- | :--- | :--- |
-| A5 / D14 | SPI (SS) | A5 / D14 | SPI (SS) |
-| D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
-| D3 | SPI1 (MOSI) | D3 | SPI1 (MOSI) |
-| D4 | SPI1 (MISO) | D4 | SPI1 (MISO) |
-| D5 | &nbsp; | D5 / WKP | SPI1 (SS) |
-| MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
-| MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
-| SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) |
+| Pin | Argon Pin Name | Argon SPI | Photon 2 Pin Name | Photon 2 SPI |
+| :---: | :--- | :--- | :--- | :--- |
+| 10 | A5 / D14 | SPI (SS) | A5 / D14 | SPI (SS) | 
+| 11 | SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) | 
+| 12 | MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) | 
+| 13 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) | 
+| 18 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) | 
+| 19 | D3 | SPI1 (MOSI) | D3 | SPI1 (MOSI) | 
+| 20 | D4 | SPI1 (MISO) | D4 | SPI1 (MISO) | 
+| 21 | D5 | &nbsp; | D5 / WKP | SPI1 (SS) | 
 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
@@ -137,18 +137,18 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 
 {{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
 
-| Argon Pin Name | Argon Serial | Photon 2 Pin Name | Photon 2 Serial |
-| :--- | :--- | :--- | :--- |
-| A3 / D16 | &nbsp; | D16 | Serial3 (RX) |
-| D2 | Serial1 RTS | D2 | Serial2 (RTS) |
-| D3 | Serial1 CTS | D3 | Serial2 (TX) |
-| D4 | &nbsp; | D4 | Serial2 (RX) |
-| D5 | &nbsp; | D5 / WKP | Serial2 (CTS) |
-| MISO / D11 | &nbsp; | MISO / D11 | Serial3 (CTS) |
-| MOSI / D12 | &nbsp; | MOSI / D12 | Serial3 (RTS) |
-| RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
-| SCK / D13 | &nbsp; | SCK / D13 | Serial3 (TX) |
-| TX / D09 | Serial1 TX | TX / D9 | Serial1 (TX) |
+| Pin | Argon Pin Name | Argon Serial | Photon 2 Pin Name | Photon 2 Serial |
+| :---: | :--- | :--- | :--- | :--- |
+| 8 | A3 / D16 | &nbsp; | D16 | Serial3 (RX) | 
+| 11 | SCK / D13 | &nbsp; | SCK / D13 | Serial3 (TX) | 
+| 12 | MOSI / D12 | &nbsp; | MOSI / D12 | Serial3 (RTS) | 
+| 13 | MISO / D11 | &nbsp; | MISO / D11 | Serial3 (CTS) | 
+| 14 | RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  | 
+| 15 | TX / D09 | Serial1 TX | TX / D9 | Serial1 (TX) | 
+| 18 | D2 | Serial1 RTS | D2 | Serial2 (RTS) | 
+| 19 | D3 | Serial1 CTS | D3 | Serial2 (TX) | 
+| 20 | D4 | &nbsp; | D4 | Serial2 (RX) | 
+| 21 | D5 | &nbsp; | D5 / WKP | Serial2 (CTS) | 
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -179,16 +179,16 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 {{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
 
-| Argon Pin Name | Argon ADC | Photon 2 Pin Name | Photon 2 ADC |
-| :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D19 | &check; |
-| A1 / D18 | &check; | A1 / D18 | &check; |
-| A2 / D17 | &check; | A2 / D17 | &check; |
-| A3 / D16 | &check; | D16 | &nbsp; |
-| A4 / D15 | &check; | D15 | &nbsp; |
-| A5 / D14 | &check; | A5 / D14 | &check; |
-| D0 | &nbsp; | D0 / A3 | &check; |
-| D1 | &nbsp; | D1 / A4 | &check; |
+| Pin | Argon Pin Name | Argon ADC | Photon 2 Pin Name | Photon 2 ADC |
+| :---: | :--- | :--- | :--- | :--- |
+| 5 | A0 / D19 | &check; | A0 / D19 | &check; | 
+| 6 | A1 / D18 | &check; | A1 / D18 | &check; | 
+| 7 | A2 / D17 | &check; | A2 / D17 | &check; | 
+| 8 | A3 / D16 | &check; | D16 | &nbsp; | 
+| 9 | A4 / D15 | &check; | D15 | &nbsp; | 
+| 10 | A5 / D14 | &check; | A5 / D14 | &check; | 
+| 16 | D0 | &nbsp; | D0 / A3 | &check; | 
+| 17 | D1 | &nbsp; | D1 / A4 | &check; | 
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
@@ -201,23 +201,22 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
-| Argon Pin Name | Argon PWM | Photon 2 Pin Name | Photon 2 PWM |
-| :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D19 | &nbsp; |
-| A1 / D18 | &check; | A1 / D18 | &nbsp; |
-| A2 / D17 | &check; | A2 / D17 | &check; |
-| A3 / D16 | &check; | D16 | &nbsp; |
-| A4 / D15 | &check; | D15 | &nbsp; |
-| A5 / D14 | &check; | A5 / D14 | &check; |
-| D0 | &nbsp; | D0 / A3 | &check; |
-| D1 | &nbsp; | D1 / A4 | &check; |
-| D2 | &check; | D2 | &nbsp; |
-| D3 | &check; | D3 | &check; |
-| D4 | &check; | D4 | &check; |
-| D5 | &check; | D5 / WKP | &nbsp; |
-| D6 | &check; | D6 | &nbsp; |
-| D7 | &check; | D7 | &nbsp; |
-| D8 | &check; | D8 | &nbsp; |
+| Pin | Argon Pin Name | Argon PWM | Photon 2 Pin Name | Photon 2 PWM |
+| :---: | :--- | :--- | :--- | :--- |
+| 5 | A0 / D19 | &check; | A0 / D19 | &nbsp; | 
+| 6 | A1 / D18 | &check; | A1 / D18 | &nbsp; | 
+| 7 | A2 / D17 | &check; | A2 / D17 | &check; | 
+| 8 | A3 / D16 | &check; | D16 | &nbsp; | 
+| 9 | A4 / D15 | &check; | D15 | &nbsp; | 
+| 10 | A5 / D14 | &check; | A5 / D14 | &check; | 
+| 16 | D0 | &nbsp; | D0 / A3 | &check; | 
+| 17 | D1 | &nbsp; | D1 / A4 | &check; | 
+| 18 | D2 | &check; | D2 | &nbsp; | 
+| 19 | D3 | &check; | D3 | &check; | 
+| 20 | D4 | &check; | D4 | &check; | 
+| 21 | D5 | &check; | D5 / WKP | &nbsp; | 
+| 22 | D6 | &check; | D6 | &nbsp; | 
+| 23 | D7 | &check; | D7 | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}

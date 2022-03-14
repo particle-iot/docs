@@ -18736,6 +18736,33 @@
       ]
     },
     {
+      "model": "BG95-M1",
+      "manufacturer": "quectel",
+      "name": "LTE Cat M1",
+      "bands": [
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-27",
+        "M1-28",
+        "M1-66",
+        "M1-85"
+      ],
+      "technologies": [
+        "M1"
+      ]
+    },
+    {
       "model": "EG91-E",
       "manufacturer": "quectel",
       "name": "Europe LTE Cat 1",
@@ -25549,7 +25576,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Brazil",
@@ -26865,7 +26893,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "China",
@@ -31674,7 +31703,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "India",
@@ -38701,7 +38731,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Russia",
@@ -40121,7 +40152,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "Singapore",
@@ -42422,7 +42454,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Turkey",
@@ -42837,7 +42870,8 @@
       "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
     },
     {
       "country": "United Arab Emirates",

@@ -90,20 +90,22 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
-| Photon Pin Name | Photon SPI | Photon 2 Pin Name | Photon 2 SPI |
-| :--- | :--- | :--- | :--- |
-| A2 | SPI (SS) | A2 / D17 | &nbsp; |
-| A3 | SPI (SCK) | D0 / A3 | &nbsp; |
-| A4 | SPI (MISO) | D1 / A4 | &nbsp; |
-| A5 | SPI (MOSI) | A5 / D14 | SPI (SS) |
-| D2 | SPI1 (MOSI) | D2 | SPI1 (SCK) |
-| D3 | SPI1 (MISO) | D3 | SPI1 (MOSI) |
-| D4 | SPI1 (SCK) | D4 | SPI1 (MISO) |
-| D5 | SPI1 (SS) | D5 / WKP | SPI1 (SS) |
-| &nbsp; | &nbsp; | MISO / D11 | SPI (MISO) |
-| &nbsp; | &nbsp; | MOSI / D12 | SPI (MOSI) |
-| &nbsp; | &nbsp; | SCK / D13 | SPI (SCK) |
-| WKP / A7 | &nbsp; | D5 / WKP | SPI1 (SS) |
+| Pin | Photon Pin Name | Photon SPI | Photon 2 Pin Name | Photon 2 SPI |
+| :---: | :--- | :--- | :--- | :--- |
+| 7 | A5 | SPI (MOSI) | A2 / D17 | &nbsp; | 
+| 8 | A4 | SPI (MISO) | D16 | &nbsp; | 
+| 9 | A3 | SPI (SCK) | D15 | &nbsp; | 
+| 10 | A2 | SPI (SS) | A5 / D14 | SPI (SS) | 
+| 11 | A1 | &nbsp; | SCK / D13 | SPI (SCK) | 
+| 12 | A0 | &nbsp; | MOSI / D12 | SPI (MOSI) | 
+| 13 | D0 | &nbsp; | MISO / D11 | SPI (MISO) | 
+| 15 | D2 | SPI1 (MOSI) | TX / D9 | &nbsp; | 
+| 16 | D3 | SPI1 (MISO) | D0 / A3 | &nbsp; | 
+| 17 | D4 | SPI1 (SCK) | D1 / A4 | &nbsp; | 
+| 18 | D5 | SPI1 (SS) | D2 | SPI1 (SCK) | 
+| 19 | D6 | &nbsp; | D3 | SPI1 (MOSI) | 
+| 20 | D7 | &nbsp; | D4 | SPI1 (MISO) | 
+| 21 | GND | &nbsp; | D5 / WKP | SPI1 (SS) | 
 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
@@ -133,12 +135,12 @@ Both the Photon and Photon 2 have a single I2C port on the same pins, D0/D1.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1b998d6c-a383-11ec-b909-0242ac120002 --}}
 
-| Photon Pin Name | Photon I2C | Photon 2 Pin Name | Photon 2 I2C |
-| :--- | :--- | :--- | :--- |
-| A3 | &nbsp; | D0 / A3 | Wire (SDA) |
-| A4 | &nbsp; | D1 / A4 | Wire (SCL) |
-| D0 | Wire (SDA) | D0 / A3 | Wire (SDA) |
-| D1 | Wire (SCL) | D1 / A4 | Wire (SCL) |
+| Pin | Photon Pin Name | Photon I2C | Photon 2 Pin Name | Photon 2 I2C |
+| :---: | :--- | :--- | :--- | :--- |
+| 13 | D0 | Wire (SDA) | MISO / D11 | &nbsp; | 
+| 14 | D1 | Wire (SCL) | RX / D10 | &nbsp; | 
+| 16 | D3 | &nbsp; | D0 / A3 | Wire (SDA) | 
+| 17 | D4 | &nbsp; | D1 / A4 | Wire (SCL) | 
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -157,21 +159,22 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 {{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
 
-| Photon Pin Name | Photon Serial | Photon 2 Pin Name | Photon 2 Serial |
-| :--- | :--- | :--- | :--- |
-| &nbsp; | &nbsp; | D16 | Serial3 (RX) |
-| D2 | &nbsp; | D2 | Serial2 (RTS) |
-| D3 | &nbsp; | D3 | Serial2 (TX) |
-| D4 | &nbsp; | D4 | Serial2 (RX) |
-| D5 | &nbsp; | D5 / WKP | Serial2 (CTS) |
-| &nbsp; | &nbsp; | MISO / D11 | Serial3 (CTS) |
-| &nbsp; | &nbsp; | MOSI / D12 | Serial3 (RTS) |
-| RGBB | Serial2 (RX) | &nbsp; | &nbsp; |
-| RGBG | Serial2 (TX) | &nbsp; | &nbsp; |
-| RX | Serial1 (RX) | RX / D10 | Serial1 (RX)  |
-| &nbsp; | &nbsp; | SCK / D13 | Serial3 (TX) |
-| TX | Serial1 (TX) | TX / D9 | Serial1 (TX) |
-| WKP / A7 | &nbsp; | D5 / WKP | Serial2 (CTS) |
+| Pin | Photon Pin Name | Photon Serial | Photon 2 Pin Name | Photon 2 Serial |
+| :---: | :--- | :--- | :--- | :--- |
+| 3 | TX | Serial1 (TX) | MODE | &nbsp; | 
+| 4 | RX | Serial1 (RX) | GND | &nbsp; | 
+| 8 | A4 | &nbsp; | D16 | Serial3 (RX) | 
+| 11 | A1 | &nbsp; | SCK / D13 | Serial3 (TX) | 
+| 12 | A0 | &nbsp; | MOSI / D12 | Serial3 (RTS) | 
+| 13 | D0 | &nbsp; | MISO / D11 | Serial3 (CTS) | 
+| 14 | D1 | &nbsp; | RX / D10 | Serial1 (RX)  | 
+| 15 | D2 | &nbsp; | TX / D9 | Serial1 (TX) | 
+| 18 | D5 | &nbsp; | D2 | Serial2 (RTS) | 
+| 19 | D6 | &nbsp; | D3 | Serial2 (TX) | 
+| 20 | D7 | &nbsp; | D4 | Serial2 (RX) | 
+| 21 | GND | &nbsp; | D5 / WKP | Serial2 (CTS) | 
+| 28 | RGBG | Serial2 (TX) | NC | &nbsp; | 
+| 29 | RGBB | Serial2 (RX) | NC | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -200,18 +203,18 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 {{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
 
-| Photon Pin Name | Photon ADC | Photon 2 Pin Name | Photon 2 ADC |
-| :--- | :--- | :--- | :--- |
-| A0 | &check; | A0 / D19 | &check; |
-| A1 | &check; | A1 / D18 | &check; |
-| A2 | &check; | A2 / D17 | &check; |
-| A3 | &check; | D0 / A3 | &check; |
-| A4 | &check; | D1 / A4 | &check; |
-| A5 | &check; | A5 / D14 | &check; |
-| D0 | &nbsp; | D0 / A3 | &check; |
-| D1 | &nbsp; | D1 / A4 | &check; |
-| DAC / A6 | &check; | &nbsp; | &nbsp; |
-| WKP / A7 | &check; | D5 / WKP | &nbsp; |
+| Pin | Photon Pin Name | Photon ADC | Photon 2 Pin Name | Photon 2 ADC |
+| :---: | :--- | :--- | :--- | :--- |
+| 5 | WKP / A7 | &check; | A0 / D19 | &check; | 
+| 6 | DAC / A6 | &check; | A1 / D18 | &check; | 
+| 7 | A5 | &check; | A2 / D17 | &check; | 
+| 8 | A4 | &check; | D16 | &nbsp; | 
+| 9 | A3 | &check; | D15 | &nbsp; | 
+| 10 | A2 | &check; | A5 / D14 | &check; | 
+| 11 | A1 | &check; | SCK / D13 | &nbsp; | 
+| 12 | A0 | &check; | MOSI / D12 | &nbsp; | 
+| 16 | D3 | &nbsp; | D0 / A3 | &check; | 
+| 17 | D4 | &nbsp; | D1 / A4 | &check; | 
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
@@ -225,20 +228,21 @@ The pins that support PWM are different on the Photon and Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
-| Photon Pin Name | Photon PWM | Photon 2 Pin Name | Photon 2 PWM |
-| :--- | :--- | :--- | :--- |
-| A2 | &nbsp; | A2 / D17 | &check; |
-| A3 | &nbsp; | D0 / A3 | &check; |
-| A4 | &check; | D1 / A4 | &check; |
-| A5 | &check; | A5 / D14 | &check; |
-| D0 | &check; | D0 / A3 | &check; |
-| D1 | &check; | D1 / A4 | &check; |
-| D2 | &check; | D2 | &nbsp; |
-| D3 | &check; | D3 | &check; |
-| D4 | &nbsp; | D4 | &check; |
-| RX | &check; | RX / D10 | &nbsp; |
-| TX | &check; | TX / D9 | &nbsp; |
-| WKP / A7 | &check; | D5 / WKP | &nbsp; |
+| Pin | Photon Pin Name | Photon PWM | Photon 2 Pin Name | Photon 2 PWM |
+| :---: | :--- | :--- | :--- | :--- |
+| 3 | TX | &check; | MODE | &nbsp; | 
+| 4 | RX | &check; | GND | &nbsp; | 
+| 5 | WKP / A7 | &check; | A0 / D19 | &nbsp; | 
+| 7 | A5 | &check; | A2 / D17 | &check; | 
+| 8 | A4 | &check; | D16 | &nbsp; | 
+| 10 | A2 | &nbsp; | A5 / D14 | &check; | 
+| 13 | D0 | &check; | MISO / D11 | &nbsp; | 
+| 14 | D1 | &check; | RX / D10 | &nbsp; | 
+| 15 | D2 | &check; | TX / D9 | &nbsp; | 
+| 16 | D3 | &check; | D0 / A3 | &check; | 
+| 17 | D4 | &nbsp; | D1 / A4 | &check; | 
+| 19 | D6 | &nbsp; | D3 | &check; | 
+| 20 | D7 | &nbsp; | D4 | &check; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -256,10 +260,10 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
 
-| Photon Pin Name | Photon DAC | Photon 2 Pin Name | Photon 2 DAC |
-| :--- | :--- | :--- | :--- |
-| A3 | &check; | D0 / A3 | &nbsp; |
-| DAC / A6 | &check; | &nbsp; | &nbsp; |
+| Pin | Photon Pin Name | Photon DAC | Photon 2 Pin Name | Photon 2 DAC |
+| :---: | :--- | :--- | :--- | :--- |
+| 6 | DAC / A6 | &check; | A1 / D18 | &nbsp; | 
+| 9 | A3 | &check; | D15 | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
@@ -290,10 +294,10 @@ The Photon supports CAN on pins D1 and D2. There is no CAN on the Photon 2 or Ge
 
 {{!-- BEGIN do not edit content below, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
 
-| Photon Pin Name | Photon CAN | Photon 2 Pin Name | Photon 2 CAN |
-| :--- | :--- | :--- | :--- |
-| D1 | &check; | D1 / A4 | &nbsp; |
-| D2 | &check; | D2 | &nbsp; |
+| Pin | Photon Pin Name | Photon CAN | Photon 2 Pin Name | Photon 2 CAN |
+| :---: | :--- | :--- | :--- | :--- |
+| 14 | D1 | &check; | RX / D10 | &nbsp; | 
+| 15 | D2 | &check; | TX / D9 | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
@@ -308,12 +312,12 @@ There is no software support for I2S on the Photon 2 either, and while the RTL87
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
 
-| Photon Pin Name | Photon I2S | Photon 2 Pin Name | Photon 2 I2S |
-| :--- | :--- | :--- | :--- |
-| D2 | I2S3_SD | D2 | &nbsp; |
-| D4 | I2S3_SCK | D4 | &nbsp; |
-| D5 | I2S3_WS | D5 / WKP | &nbsp; |
-| SETUP | I2S3_MCK | &nbsp; | &nbsp; |
+| Pin | Photon Pin Name | Photon I2S | Photon 2 Pin Name | Photon 2 I2S |
+| :---: | :--- | :--- | :--- | :--- |
+| 15 | D2 | I2S3_SD | TX / D9 | &nbsp; | 
+| 17 | D4 | I2S3_SCK | D1 / A4 | &nbsp; | 
+| 18 | D5 | I2S3_WS | D2 | &nbsp; | 
+| 26 | SETUP | I2S3_MCK | LI+ | &nbsp; | 
 
 
 {{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}

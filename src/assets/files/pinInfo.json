@@ -2816,7 +2816,7 @@
 				{
 					"num":21,
 					"name":"A5",
-					"desc":"A5 Analog in, GPIO, SPI.",
+					"desc":"A5 Analog in, GPIO, SPI MOSI.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
@@ -2834,7 +2834,7 @@
 				{
 					"num":22,
 					"name":"A4",
-					"desc":"A4 Analog in, GPIO, SPI.",
+					"desc":"A4 Analog in, GPIO, SPI MISO.",
 					"isIO":true,
 					"is5VTolerant":true,
 					"digitalRead":true,
