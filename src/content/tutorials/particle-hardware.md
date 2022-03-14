@@ -63,14 +63,14 @@ If you are interested in measuring temperature and humidity, an [external sensor
 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
-| M8CONNEA| M8 Connector (Straight), [x1]| GA|
-| M8CONNTY| M8 Connector (Straight), [x40]| GA|
-| M8TEMPHUMIEA| M8 Sensor Temperature/Humidity (Straight), [x1]| GA|
-| M8TEMPHUMITY| M8 Sensor Temperature/Humidity (Straight), [x40]| GA|
-| ONEM8CABEA| M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1]| GA|
-| ONEM8CABRAEA| M8 Accessory Cable 5V Power 3.3V Logic Right Angle), [x1]| GA|
-| ONEM8CABRATY| M8 Accessory Cable 5V Power 3.3V Logic (Right Angle), [x40]| GA|
-| ONEM8CABTY| M8 Accessory Cable 5V Power 3.3V Logic Straight), [x40]| GA|
+| M8CONNEA | M8 Connector (Straight), [x1] | GA |
+| M8CONNTY | M8 Connector (Straight), [x40] | GA |
+| M8TEMPHUMIEA | M8 Sensor Temperature/Humidity (Straight), [x1] | GA |
+| M8TEMPHUMITY | M8 Sensor Temperature/Humidity (Straight), [x40] | GA |
+| ONEM8CABEA | M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1] | GA |
+| ONEM8CABRAEA | M8 Accessory Cable 5V Power 3.3V Logic Right Angle), [x1] | GA |
+| ONEM8CABRATY | M8 Accessory Cable 5V Power 3.3V Logic (Right Angle), [x40] | GA |
+| ONEM8CABTY | M8 Accessory Cable 5V Power 3.3V Logic Straight), [x40] | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated 6a02fd77-1222-4208-8da5-45c9290c5f6d --}}
@@ -98,12 +98,12 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 
 | SKU | Description | Region | Battery Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :--- |
-| ARG-STRTKT| Argon Starter Kit [x1]| Global| | GA|
-| ARGN-H| Argon [x1]| Global| | GA|
-| ARGNKIT| Argon, Starter Kit  [x1]| Global| | GA|
-| BRN404| Boron LTE CAT-M1 (NorAm), [x1]| NORAM| | GA|
-| BRN404KIT| Boron LTE CAT-M1 (NorAm), Starter Kit [x1]| NORAM| | GA|
-| BRN314KIT| Boron 2G/3G (Global) Starter Kit, [x1]| Global| &check;| NRND-US|
+| ARG-STRTKT | Argon Starter Kit [x1] | Global | &nbsp; | GA |
+| ARGN-H | Argon [x1] | Global | &nbsp; | GA |
+| ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | GA |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | GA |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
