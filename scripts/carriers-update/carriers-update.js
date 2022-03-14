@@ -1662,19 +1662,25 @@ const { option } = require('yargs');
         if (options.style == 'port-comparison') {
             // options.port
 
-            const portColumnValue = function(value) {
-                if (value) {
-                    if (options.useShortName) {
-                        return getShortName(value);
-                    }
-                    else {
-                        return '&check;';
-                    }
+            for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                let oldPin = getPinInfo(oldPins, pinNum);
+                let newPin = getPinInfo(newPins, pinNum);
+
+                if (!oldPin[options.port] && !newPin[options.port]) {
+                    // Neither device supports this port on this pin
+                    continue;
                 }
-                else {
-                    return '&nbsp;';
-                }
-            } 
+                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(oldPin) + ' | ' + portColumnValue(oldPin) + ' | ';
+                md += getPinNameWithAlt(newPin) + ' | ' + portColumnValue(newPin) + ' | \n';
+            }            
+        }
+
+        if (options.style == 'portPins') {
+            // options.port
+            const newPins = expandMorePins(platformInfoNew.pins);
+
+            md += '| Pin | ' + options.platformNew + ' Pin Name | Description | ' + options.label  + ' | MCU |\n';
+            md += '| :---: | :--- | :--- | :--- | :--- |\n'
 
 
             let tableOptions = {
@@ -1918,6 +1924,242 @@ const { option } = require('yargs');
                         }); 
                     } 
                 }
+            ]
+        },
+        {
+            path:'/datasheets/electron/e404x-datasheet.md', 
+            updates:[
+                {
+                    guid:'6591a5b8-3326-46c8-9133-de4d6dacbc77', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'modulePins',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'7467d36c-a9d2-4629-be9f-2e76262f956e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'portPins',
+                            platformNew: 'E404X',
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                            useShortName: true
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'bdf550a7-6a65-4cb3-9650-ec612986b349', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'portPins',
+                            platformNew: 'E404X',
+                            port: 'i2c',
+                            label: 'I2C',
+                            useShortName: true
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'ec8e0cf4-a9be-4964-ab24-5e9d8cd3670f', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'portPins',
+                            platformNew: 'E404X',
+                            port: 'hardwareADC',
+                            label: 'ADC',
+                            useShortName: true
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'68c19adf-d373-4061-8f71-0ebc756b68c0', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'portPins',
+                            platformNew: 'E404X',
+                            port: 'serial',
+                            label: 'UART',
+                            useShortName: true
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'42be4ad3-031d-4718-bf69-fa9320d7eae5', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'portPins',
+                            platformNew: 'E404X',
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    } 
+                },                
+                {
+                    guid:'4ccb8904-6d00-446d-9aa6-5786c66435d4', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'portPins',
+                            platformNew: 'E404X',
+                            port: 'digitalRead',
+                            label: 'GPIO'
+                        }); 
+                    } 
+                },                
+            ]
+        },
+        {
+            path:'/datasheets/electron/e404x-migration-guide.md', 
+            updates:[ 
+                {
+                    guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-removed',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },/*
+                {
+                    guid:'0f8940d5-5d0b-4f16-bfa2-1666616ba9ef', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-added',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },*/
+                {
+                    guid:'aa218eb3-5975-4ba6-b26d-2a5d43c5378e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'full-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0fc429e8-585e-4f36-9874-e3fa37a1136e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'a7091023-5382-4496-8bfc-727593f0d426', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'analogRead',
+                            label: 'ADC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'c7f59d46-dca3-4376-b885-0b4ca924a28b', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'i2c',
+                            label: 'I2C',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'9327b9b9-21fd-46fd-a406-8c249ade9688', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'2ee8f339-68a5-4d9c-b6b9-0f359038d704', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'analogWriteDAC',
+                            label: 'DAC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'aaf618d9-4053-490d-8b3b-2ef6118592d6', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'can',
+                            label: 'CAN',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'2767a61d-eba6-4720-8c91-869be322880f', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'jtag',
+                            label: 'JTAG',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'b90ca6ee-1877-4f05-a3bd-b073d768e54d', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformOld: 'E Series',
+                            platformNew: 'E404X',
+                            port: 'swd',
+                            label: 'SWD',
+                            useShortName: true
+                        }); 
+                    }
+                }    
+                
+                
             ]
         },
         {
