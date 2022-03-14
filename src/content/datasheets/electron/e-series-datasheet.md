@@ -7,6 +7,8 @@ description: Datasheet for the Particle E Series, Gen 2 cellular mass-production
 
 # E Series Module Datasheet <sup>(v003)</sup>
 
+**PRE-RELEASE DRAFT 2021-06-14**
+
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -23,7 +25,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U201 or SARA-R410M cellular module
+ * U-blox SARA-U201, SARA-R410M, or SARA-R510S cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -32,6 +34,8 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Open source software design
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
+ * Embedded Particle EtherSIM (E314, E404, E404X)
+ * Embedded Particle SIM (E310, E402)
 
 
 ## Interfaces
@@ -411,28 +415,36 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-#### LTE cellular characteristics E404 & E402
+#### u-blox SARA-R410M-02B or R410M-03
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
+| Power class | Class 3 (23 dBm) |
+
+#### u-blox SARA-R510S-01B
+
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 Half-Duplex |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 13 (750 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 4 (1700 MHz) |
+| | Band 2 (1900 MHz) |
 | | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 ---
@@ -541,9 +553,9 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 |:---|:------------------------------|:---------------------|:-------------|:-----------|
 |E314|3G with 2G fallback (EtherSIM) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
 |E310|3G with 2G fallback (pre-2021) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
-|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
-|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
-
+|E404X|LTE M1 only (EtherSIM) |US, Canada, Mexico   |R510S-01B        |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28|
+|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B or -03 |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39|
+|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B        |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39|
 
 ---
 

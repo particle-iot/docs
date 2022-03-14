@@ -3344,7 +3344,7 @@ SIM card, you can restore the use of the Particle SIM by using
 {{note op="start" type="gen2"}}
 On the Electron 2G, U260, U270, and ELC314, there is only a 4FF nano SIM card slot. There is no internal SIM so you must always have a SIM card in the SIM card holder on the bottom of the device for normal operation. 
 
-The Electron LTE (ELC402 and ELC404) and E Series (E310, E314, E402, and E404), have a built-in MFF2 SMD SIM. Since 
+The Electron LTE (ELC404X, ELC404, and ELC402) and E Series (E310, E314, E402, E404, and E404X), have a built-in MFF2 SMD SIM. Since 
 you cannot use a 3rd-party SIM card, you do not have to set the APN as the Particle SIM APN is built-in.
 
 - The APN must be set in all user firmware as it is only saved in the modem memory and the setting is erased when powered down.
@@ -3468,7 +3468,7 @@ A software implementation of Data Usage that pulls sent and received session and
 
 **Note**: The internal modem counters are typically reset when the modem is power cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactivated and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
 
-**Note**: LTE Cat M1 devices (SARA-R410M-02B), Quectel EG91-E (B Series SoM B523), Quectel EG-91EX (Tracker SoM T523), and Quectel BG96-MC (TrackerSoM T402) do not support data usage APIs.
+**Note**: LTE Cat M1 devices (SARA-R510S-01B, SARA-R410M-02B), Quectel EG91-E (B Series SoM B523), Quectel EG-91EX (Tracker SoM T523), and Quectel BG96-MC (TrackerSoM T402) do not support data usage APIs.
 
 To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
 

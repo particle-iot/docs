@@ -492,7 +492,7 @@ The Particle SIM supports many carriers around the world. The [list of mobile ca
 - Boron 2G/3G BRN310
 - B Series B524 EtherSIM (LTE Cat 1 Europe, Australia, and New Zealand)
 - B Series B523 (LTE Cat 1 Europe)
-- LTE Cat M1 EtherSIM (Boron LTE, B Series B404, E Series LTE E404, and Electron LTE ELC404)
+- LTE Cat M1 EtherSIM (Boron LTE, B Series B404X/B404, E Series LTE E404X/E404, and Electron LTE ELC404X/ELC404)
 - LTE Cat M1 (Boron LTE, B Series B402, E Series LTE, and Electron LTE)
 - Electron ELC314 and E Series E314 EtherSIM
 - Electron 2G (G350), Electron 3G (U260 and U270), and E Series 2G/3G E310
@@ -514,7 +514,7 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | --- | :--- | :---: | :---: | 
 | Boron 2G/3G | BRN314 BRN310 | &check; | &check; |
 | Boron LTE  | BRN404 BRN402 | &check; | &check; |
-| B Series B402 SoM (Cat M1) | B404 B402 | &nbsp; | &check; |
+| B Series B402 SoM (Cat M1) | B404X B404 B402 | &nbsp; | &check; |
 | B Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat M1) | T404 T402 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat 1 and 2G/3G) | T524 T523 | &nbsp; | &check; |
@@ -522,9 +522,9 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | Electron 3G | U260 | &check; | &nbsp; |
 | Electron 3G | U270 |  &check; | &nbsp; |
 | Electron Global | ELC314 | &check; | &nbsp; |
-| Electron LTE (Cat M1) | ELC404 ELC402 | &nbsp; | &check; |
+| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | &nbsp; | &check; |
 | E Series 2G/3G | E314 E310 | &nbsp; | &check; |
-| E Series LTE (Cat M1) | E404 E402 | &nbsp; | &check; |
+| E Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
 
 
 ### Roaming
@@ -535,7 +535,7 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 | --- | :--- |  --- | --- | --- | --- | --- |
 | Boron 2G/3G | BRN314 BRN310 | World | | &check; | &check; | 850, 900, 1800, 1900, 2100 |
 | Boron LTE (Cat M1) | BRN404 BRN402 | US, CA, MX<sup>1</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
-| B Series B402 SoM (LTE Cat M1) | B404 B402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
+| B Series B402 SoM (LTE Cat M1) | B404X B404 B402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 | B Series B524 SoM (LTE Cat 1) | B524 | Europe, AU, NZ | Cat 1 | &check; |&check; | 700, 800, 900, 1800, 2100, 2600<sup>7</sup> |
 | B Series B523 SoM (LTE Cat 1) | B523 | Europe | Cat 1 | &check; |&check; | 700, 800, 900, 1800, 2100, 2600<sup>7</sup> |
 | Tracker SoM (LTE Cat M1) | T404 T402 | US, CA, MX<sup>5</sup> | Cat M1 | &nbsp; | &nbsp; | LTE Cat M1<sup>6</sup> |
@@ -545,9 +545,9 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 | Electron 3G | U260 | Americas, AU, NZ<sup>3</sup> | | &check; | &check; | 850, 1900 |
 | Electron 3G | U270 | Europe, Asia, Africa<sup>4</sup> | | &check; | &check; | 900, 1800, 2100 |
 | Electron Global | ELC314 | World | | &check; | &check; | 850, 900, 1800, 1900, 2100 |
-| Electron LTE (Cat M1) | ELC404 ELC402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
+| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 | E Series 2G/3G | E314 E310 | World | | &check; | &check;| 850, 900, 1800, 1900, 2100 |
-| E Series LTE (Cat M1) | E404 E402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
+| E Series LTE (Cat M1) | E404X E404 E402 | US, CA, MX<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 
 
 <sup>1</sup>The Boron LTE can be used with a 3rd-party SIM card in areas outside of the United States, Canada, and Mexico at this time. This is not officially supported, but has been known to work.
@@ -638,7 +638,12 @@ The following long-discontinued SKU is 2G only and can no longer be used in area
 
 Some countries, primarily in Europe, decommissioned 3G first, keeping 2G and LTE active instead. T-Mobile in the United States decommissioned 3G before 2G as well.
 
-The United States will be one of the earlier countries to decommission both 2G and 3G. When this happens, devices that only support 2G/3G such as the Electron 2G/3G, E Series E310, and the Boron 2G/3G will no longer be able to connect.
+| Device | Model | 
+| --- | :--- | 
+| Boron LTE (Cat M1) | BRN404 BRN402 |
+| B Series B402 SoM (LTE Cat M1) | B404X B404 B402 |
+| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 |
+| E Series LTE (Cat M1) | E404X E404 E402 | 
 
 The following SKUs are 2G/3G only and should not be deployed in the United States.
 
@@ -942,9 +947,9 @@ If you are an individual developer or hobbyist, you may be able to use some devi
 
 The cellular modems all support a specific set of bands. The bands used vary by country, carrier, and technology (2G, 3G, LTE Cat 1, LTE Cat M1). There is currently no truly global SKU that supports all bands and all technologies. 
 
-While the Boron 2G/3G (BRN314 and BRN310) and E Series (E314 and E310) are global 2G/3G, they do not support LTE Cat M1. This can be an issue in the United States, where 2G and 3G service will end after 2022, at which point 2G/3G SKUs will no longer work in the United States. This is why the LTE Cat M1 variations (Boron BRN404 and BRN402, E Series E404 and E402) are recommended in the United States.
+While the Boron 2G/3G (BRN314 and BRN310) and E Series (E314 and E310) are global 2G/3G, they do not support LTE Cat M1. This can be an issue in the United States, where 2G and 3G service will end after 2022, at which point 2G/3G SKUs will no longer work in the United States. This is why the LTE Cat M1 variations (Boron BRN404X, BRN404 and BRN402, E Series E404X, E404 and E402) are recommended in the United States.
 
-The B Series SoM (B524, B523) and Tracker SoM (T524, T523, ONE524, ONE523) offer LTE Cat 1, 3G, and 2G, however the cellular modem (EG91-E or EG91-EX) only support the frequencies used in the EMEAA (Europe, Middle East, Africa, and Asia) region. These devices will not work at all in the United States, however there are different SKUs for the United States, Canada, and Mexico (B404, B402, T404, T402, ONE404, ONE402).
+The B Series SoM (B524, B523) and Tracker SoM (T524, T523, ONE524, ONE523) offer LTE Cat 1, 3G, and 2G, however the cellular modem (EG91-E or EG91-EX) only support the frequencies used in the EMEAA (Europe, Middle East, Africa, and Asia) region. These devices will not work at all in the United States, however there are different SKUs for the United States, Canada, and Mexico (B404X, B404, B402, T404, T402, ONE404, ONE402).
 
 Also note that the LTE Cat 1 EtherSIM models (B524, T524, ONE524) are only officially supported (for enterprise use) in Europe, Australia, and New Zealand. The earlier models (B523, T523, and ONE523) are only officially supported in Europe. However, for individual developers, you will likely be able to use these devices in much of the EMEAA region, subject to the remaining constraints below.
 
@@ -961,7 +966,7 @@ For comparison, using the [B524 in Brazil](/tutorials/cellular-connectivity/cell
 
 Likewise, even though Japan is part of the EMEAA region, the [B524 in Japan](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Japan&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended because so many of the bands used in Japan are not supported by the EG91-E.
 
-In the United States, LTE Cat M1 EtherSIM devices (Boron BRN404, B Series B404, Tracker T404 and ONE404, E Series E404, Electron ELC404) are a special case. The [country details for the United States](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=United%20States&device=Tracker%20T404%2FONE404%20LTE%20M1%20(NorAm%29%20EtherSIM) do not list T-Mobile as supported. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. EtherSIM LTE Cat M1 devices will connect to T-Mobile or AT&T, whichever has a stronger signal. (Pre-2021 LTE Cat M1 devices cannot connect to T-Mobile at all with the built-in Particle SIM on those devices.)
+In the United States, LTE Cat M1 EtherSIM devices (Boron BRNR404X/BRN404, B Series B404X/B404, Tracker T404 and ONE404, E Series E404X/E404, Electron ELC404X/ELC404) are a special case. The [country details for the United States](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=United%20States&device=Tracker%20T404%2FONE404%20LTE%20M1%20(NorAm%29%20EtherSIM) do not list T-Mobile as supported. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. EtherSIM LTE Cat M1 devices will connect to T-Mobile or AT&T, whichever has a stronger signal. (Pre-2021 LTE Cat M1 devices cannot connect to T-Mobile at all with the built-in Particle SIM on those devices.)
 
 
 ### Third-party SIMs
@@ -1013,7 +1018,7 @@ Some countries may have a requirement to register the IMEI of mobile devices, in
 
 In addition to the other requirements, LTE Cat M1 devices may require additional software configuration of the cellular modem.
 
-The SARA-R410M cellular modem in the Boron LTE (BRN404) is configured for North American frequencies only. When used outside of this region, you may need to set the mobile network operator profile (AT+UMNOPROF) and/or specific band support (particularly in Europe) in order to connect.
+The SARA-R410M cellular modem in the Boron LTE (BRN404) is configured for North American frequencies only. When used outside of this region, you may need to set the mobile network operator profile (AT+UMNOPROF) and/or specific band support (particularly in Europe) in order to connect. Same for the SARA-R510S in the BRN404X.
 
 ### 2G/3G Sunset 
 
@@ -1027,7 +1032,9 @@ The section [2G and 3G sunset](/tutorials/cellular-connectivity/introduction/#2g
 | Device | Model | Modem | Region | 2G | 3G | LTE | Generation | SIM | Form Factor | 
 | --- | :--- | :--- | --- | :---: | :---: | :---: | :---: | :---: | --- |
 | Boron 2G/3G | BRN314 BRN310 | U201 | World | &check; | &check; | &nbsp; | Gen3 | Both | Feather | 
+| Boron LTE (Cat M1) | BRN404X | R510 | US, CA, MX | &nbsp; | &nbsp; | Cat M1 | Gen3 |  Both | Feather | 
 | Boron LTE (Cat M1) | BRN404 BRN402 | R410 | US, CA, MX | &nbsp; | &nbsp; | Cat M1 | Gen3 |  Both | Feather | 
+| B Series SoM (LTE Cat M1) | B404X  | R510 | US, CA, MX | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
 | B Series SoM (LTE Cat M1) | B404 B402 | R410 | US, CA, MX | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
 | B Series SoM (LTE Cat 1) | B524 | EG91-E | Europe, AU, NZ | &nbsp; | &nbsp; | Cat 1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
 | B Series SoM (LTE Cat 1) | B523 | EG91-E | Europe | &nbsp; | &nbsp; | Cat 1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
@@ -1038,8 +1045,10 @@ The section [2G and 3G sunset](/tutorials/cellular-connectivity/introduction/#2g
 | Electron 3G | E260 | U260 | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
 | Electron 3G | E270 | U270 | Europe, Asia, Africa | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
 | Electron Global | ELC314 | U201 | World | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
+| Electron LTE (Cat M1) | ELC404X | R510 | US, CA, MX | &nbsp; | &nbsp; | Cat M1  | Gen2 | MFF2<sup>1</sup> | Pins  | 
 | Electron LTE (Cat M1) | ELC404 ELC402 | R410 | US, CA, MX | &nbsp; | &nbsp; | Cat M1  | Gen2 | MFF2<sup>1</sup> | Pins  | 
 | E Series 2G/3G | E310 | U201 | World | &check; | &check; | &nbsp; | Gen2 | MFF2<sup>1</sup> | SMD Module | 
-| E Series LTE (Cat M1) | E404 E402 | R410 | World |  &nbsp; | &nbsp; | Cat M1 | Gen2 | MFF2<sup>1</sup> | SMD Module | 
+| E Series LTE (Cat M1) | E404X | R510 | US, CA, MX |  &nbsp; | &nbsp; | Cat M1 | Gen2 | MFF2<sup>1</sup> | SMD Module | 
+| E Series LTE (Cat M1) | E404 E402 | R410 | US, CA, MX |  &nbsp; | &nbsp; | Cat M1 | Gen2 | MFF2<sup>1</sup> | SMD Module | 
 
 <sup>1</sup> MFF2 SMD Particle SIM card. It's soldered to the board and is not reprogrammable.

@@ -102,6 +102,21 @@
     },
     [
       {
+        "dir": "us-2g-3g-sunset",
+        "title": "US 2G/3G Sunset",
+        "href": "/reference/discontinued/us-2g-3g-sunset/"
+      },
+      {
+        "dir": "gen2-cellular-deprecation",
+        "title": "Gen 2 cellular deprecation",
+        "href": "/reference/discontinued/gen2-cellular-deprecation/"
+      },
+      {
+        "dir": "r410-modem-deprecation",
+        "title": "R410 modem deprecation",
+        "href": "/reference/discontinued/r410-modem-deprecation/"
+      },
+      {
         "dir": "mesh",
         "title": "Mesh Deprecation",
         "href": "/reference/discontinued/mesh/"

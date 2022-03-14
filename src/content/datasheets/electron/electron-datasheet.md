@@ -8,6 +8,8 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 
 # Electron Datasheet <sup>(v009)</sup>
 
+**PRE-RELEASE DRAFT 2021-06-14**
+
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -384,7 +386,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Radio specifications
 
-The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B).
+The Electron is available in different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B or R410M-03).
 
 Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
 
@@ -425,30 +427,21 @@ Please be sure to order a board that works in the country where you want to depl
 | Band 2 (1900 MHz) | &check; | &check; | &nbsp; |
 |Power Class | Class 3 (24 dBm) |Class 3 (24 dBm) | Class 3 (24 dBm) |
 
-
-
-#### LTE cellular characteristics for the SARA-R410M-02-B module
+#### u-blox SARA-R410M-02B or R410M-03
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 ---
