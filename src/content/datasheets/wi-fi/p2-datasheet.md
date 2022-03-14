@@ -7,7 +7,11 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 # P2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2022-02-25**
+**Pre-release version 2022-03-14**
+
+{{box op="start" cssClass="boxed warningBox"}}
+This is an pre-release datasheet and the contents are subject to change.
+{{box op="end"}}
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-datasheet.pdf"}}
@@ -38,7 +42,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 
 ### Block Diagram
 
-[To be provided at a later date.]
+{{imageOverlay src="/assets/images/p2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -282,6 +286,29 @@ The P2 supports one I2C (two-wire serial interface) port.
 - Maximum bus speed is 400 kHz
 - External pull-up resistors are required for I2C
 - If not using I2C, pins D0 and D1 can be used as GPIO
+
+
+### PWM
+
+The P2 supports PWM (pulse-width modulation) on the following pins:
+
+{{!-- BEGIN do not edit content below, it is automatically generated d68a9c54-a380-11ec-b909-0242ac120002 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
+| 35 | D1 / A4 | D1 GPIO, PWM, I2C, A4 Analog In | PB[5] |
+| 36 | D0 / A3 | D0 GPIO, PWM, I2C, A3 Analog In | PB[6] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | PA[13] |
+| 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+
 
 ### USB
 
@@ -663,3 +690,9 @@ https://community.particle.io
 **Email**
 
 https://support.particle.io
+
+## Version History
+
+| Revision | Date | Author | Comments |
+|:---:|:---:|:---:|:----|
+| pre | 2022-03-14 | RK | Pre-release |

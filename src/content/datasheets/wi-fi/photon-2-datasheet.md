@@ -7,7 +7,11 @@ description: Datasheet for the Particle Photon 2, Wi-Fi development module
 
 # Photon 2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2022-03-02**
+**Preliminary pre-release version 2022-03-14**
+
+{{box op="start" cssClass="boxed warningBox"}}
+This is an preliminary pre-release datasheet and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
+{{box op="end"}}
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/photon2-datasheet.pdf"}}
@@ -40,7 +44,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 ### Block Diagram
 
-[To be provided at a later date.]
+{{imageOverlay src="/assets/images/photon2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -258,7 +262,7 @@ The Photon 2 supports six ADC inputs.
 
 ### UART serial
 
-The Photon 2 supports two UART serial interfaces. 
+The Photon 2 supports three UART serial interfaces. 
 
 {{!-- BEGIN do not edit content below, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
 
@@ -390,6 +394,33 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 [To be provided at a later date.]
 
 ## Mechanical specifications
+
+### Dimensions and Weight
+
+[To be provided at a later date.]
+
+- The Photon 2 is designed to compliant with the Adafruit Feather form-factor (2.0" x 0.9")
+- It has male header pins on the bottom of the module
+- Unlike the Argon and Boron, the Photon 2 uses SMD pins on the bottom because the P2 module is too wide to fit between two rows of PTH pins 0.8" apart
+- It will not be available in a "no headers" version as there are components on the bottom side of the board
+
+### Mating connectors
+
+The Photon 2 uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Photon 2 and Argon:
+
+| Description | MFG | MFG Part Number |
+|:----------- |:----|:----------------|
+|16-pin 0.1" (2.54mm) Female Header|Sullins|PPTC161LFBN-RC|
+|16-pin 0.1" (2.54mm) Female Header|TE|6-535541-4|
+|12-pin 0.1" (2.54mm) Female Header|Sullins|PPTC121LFBN-RC|
+|12-pin 0.1" (2.54mm) Female Header|TE|6-534237-0|
+
+## Recommended PCB land pattern
+
+The Photon 2 can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
+
+<div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
+
 
 ### Overall dimensions
 
@@ -533,6 +564,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release initial version |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |
 
 
 ## Known Errata

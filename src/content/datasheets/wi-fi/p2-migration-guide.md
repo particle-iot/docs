@@ -7,7 +7,11 @@ description: Migration guide for transitioning from the P1 to P2
 
 # P2 Migration Guide
 
-**Preliminary pre-release version 2022-02-25**
+**Pre-release version 2022-03-14**
+
+{{box op="start" cssClass="boxed warningBox"}}
+This is an pre-release migration guide and the contents are subject to change.
+{{box op="end"}}
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-migration-guide.pdf"}}
@@ -126,7 +130,22 @@ The following are all SPI-related pins on the P1 and P2:
 | Maximum rate | 25 MHz | 50 MHz |
 | Hardware peripheral | RTL872x SPI1 | RTL872x SPI0 |
 
+### I2C
 
+The P2 supports one I2C (two-wire serial interface) port on the same pins as the P1:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 09bea7c2-a382-11ec-b909-0242ac120002 --}}
+
+| Pin | P1 Pin Name | P1 I2C | P2 Pin Name | P2 I2C |
+| :---: | :--- | :--- | :--- | :--- |
+| &nbsp; | D1 | Wire (SCL) | D1 / A4 | Wire (SCL) |
+| &nbsp; | D0 | Wire (SDA) | D0 / A3 | Wire (SDA) |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- The P2 I2C port is not 5V tolerant
+- The P1 includes internal 2.2K pull-up resistors on D0/D1, the P2 does not
 
 ### Serial (UART)
 
@@ -223,6 +242,8 @@ The pins that support PWM are different on the P1 and P2.
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+
+All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
 
 ### Digital to analog converter (DAC)
@@ -368,6 +389,12 @@ The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP a
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
 
+### Platform ID
+
+The Platform ID of the P2 will different from that of the P1 (8) because of the vastly different hardware. 
+
+If you have a product based on the P1, you will need to create a separate product for devices using the P2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
 ### Third-party libraries
 
 Most third-party libraries are believed to be compatible. The exceptions include:
@@ -384,3 +411,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | pre | 2021-11-04 | RK | Pre-release |
 |     | 2022-02-08 | RK | Corrected D pin aliases for A5 and S0-S6 |
 |     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |

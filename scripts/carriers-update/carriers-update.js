@@ -2150,6 +2150,17 @@ const { option } = require('yargs');
                     } 
                 },
                 {
+                    guid:'d68a9c54-a380-11ec-b909-0242ac120002',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'analogWritePWM',
+                            noInterface: true,
+                        }); 
+                    } 
+                },
+                {
                     guid:'51e324e1-6f8a-43d5-aad2-f7cbbb699804',
                     generatorFn:function(){
                         return updater.generatePinInfo({
@@ -2356,6 +2367,19 @@ const { option } = require('yargs');
                             platformOld: 'P1',
                             port: 'spi',
                             label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'09bea7c2-a382-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'P1',
+                            port: 'i2c',
+                            label: 'I2C',
                             useShortName: true
                         }); 
                     }
@@ -2622,6 +2646,21 @@ const { option } = require('yargs');
                             platformOld: 'Photon',
                             port: 'spi',
                             label: 'SPI',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'photonPin',
+                        }); 
+                    }
+                },
+                {
+                    guid:'1b998d6c-a383-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'Photon 2',
+                            platformOld: 'Photon',
+                            port: 'i2c',
+                            label: 'I2C',
                             useShortName: true,
                             noPinNumbers: true,
                             mapBy: 'photonPin',

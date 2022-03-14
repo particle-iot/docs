@@ -7,7 +7,11 @@ description: Migration guide for transitioning from the Photon to Photon 2
 
 # Photon 2 from Argon Migration Guide
 
-**Preliminary pre-release version 2022-03-02**
+**Preliminary pre-release version 2022-03-14**
+
+{{box op="start" cssClass="boxed warningBox"}}
+This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
+{{box op="end"}}
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/photon2-photon-migration-guide.pdf"}}
@@ -104,7 +108,6 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
-
 #### SPI - Gen 2 devices (including Photon)
 
 | | SPI | SPI1 |
@@ -122,6 +125,27 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 | Maximum rate | 25 MHz | 50 MHz |
 | Hardware peripheral | RTL872x SPI1 | RTL872x SPI0 |
 
+
+
+### I2C
+
+Both the Photon and Photon 2 have a single I2C port on the same pins, D0/D1.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 1b998d6c-a383-11ec-b909-0242ac120002 --}}
+
+| Photon Pin Name | Photon I2C | Photon 2 Pin Name | Photon 2 I2C |
+| :--- | :--- | :--- | :--- |
+| A3 | &nbsp; | D0 / A3 | Wire (SDA) |
+| A4 | &nbsp; | D1 / A4 | Wire (SCL) |
+| D0 | Wire (SDA) | D0 / A3 | Wire (SDA) |
+| D1 | Wire (SCL) | D1 / A4 | Wire (SCL) |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- The Photon 2 I2C port is not 5V tolerant
+- The Photon 2 A3/A4 pins are physically in the same location as D0/D1.
+- The Photon pins A3/A4 are D16/D15 on the Photon 2.
 
 
 ### Serial (UART)
@@ -218,6 +242,8 @@ The pins that support PWM are different on the Photon and Photon 2.
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+
+All available PWM pins on the Photon 2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
 
 ### Digital to analog converter (DAC)
@@ -769,6 +795,12 @@ The Photon 2 and Argon utilize BLE for configuration of Wi-Fi rather than the So
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
 
+### Platform ID
+
+The Platform ID of the Photon 2 will different from that of the Photon (6) because of the vastly different hardware. 
+
+If you have a product based on the Photon, you will need to create a separate product for devices using the Photon 2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
 ### Third-party libraries
 
 Most third-party libraries are believed to be compatible. The exceptions include:
@@ -783,3 +815,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |

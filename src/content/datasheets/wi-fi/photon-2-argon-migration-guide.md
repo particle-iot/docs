@@ -7,7 +7,11 @@ description: Migration guide for transitioning from the Argon to Photon 2
 
 # Photon 2 from Argon Migration Guide
 
-**Preliminary pre-release version 2022-03-02**
+**Preliminary pre-release version 2022-03-14**
+
+{{box op="start" cssClass="boxed warningBox"}}
+This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
+{{box op="end"}}
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/photon2-argon-migration-guide.pdf"}}
@@ -218,6 +222,8 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
+All available PWM pins on the Photon 2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+
 ### CAN (Controller Area Network)
 
 Neither the Argon nor the Photon 2 support CAN.
@@ -252,6 +258,9 @@ The Photon 2 has a USB C connector, like the Tracker One and Tracker Eval Board.
 
 The Argon has a Micro USB B connector.
 
+### NFC Tag
+
+The Photon 2 does not have NFC Tag support. The Argon does.
 
 ### Full module pin comparison
 
@@ -550,6 +559,16 @@ Neither the Photon 2 nor Argon use the Wi-Fi based setup (SoftAP) that is used o
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
 
+### BLE (Bluetooth LE)
+
+- BLE long-range (coded PHY) is not supported on the Photon 2. It is on the Argon with Device OS 3.1 or later.
+
+### Platform ID
+
+The Platform ID of the Photon 2 will different from that of the Argon (12) because of the vastly different hardware. 
+
+If you have a product based on the Argon, you will need to create a separate product for devices using the Photon 2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
 ### Third-party libraries
 
 Most third-party libraries are believed to be compatible. The exceptions include:
@@ -564,3 +583,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |
