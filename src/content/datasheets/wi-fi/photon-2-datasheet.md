@@ -17,6 +17,8 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 {{downloadButton url="/assets/pdfs/datasheets/photon2-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
+![Photon 2 Rendering](/assets/images/photon2-rendering.png)
+
 ## Functional description
 
 ### Overview

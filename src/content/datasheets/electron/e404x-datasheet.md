@@ -65,7 +65,9 @@ There will not be 2G/3G "X" version E Series; there will not be an E310X or E314
 
 ### Block diagram
 
-**To be provided at a later date**
+{{imageOverlay src="/assets/images/e-series/illustrations/e404x-block-diagram.png" alt="Block Diagram" class="full-width"}}
+
+*This diagram for illustration only and is subject to change*
 
 ### Power
 The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
