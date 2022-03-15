@@ -18690,6 +18690,30 @@
       ]
     },
     {
+      "model": "R510",
+      "manufacturer": "ublox",
+      "name": "LTE M1",
+      "bands": [
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-28"
+      ],
+      "technologies": [
+        "M1"
+      ]
+    },
+    {
       "model": "BG96-MC",
       "manufacturer": "quectel",
       "name": "North America LTE M1",
@@ -18706,6 +18730,33 @@
         "M1-19",
         "M1-20",
         "M1-28"
+      ],
+      "technologies": [
+        "M1"
+      ]
+    },
+    {
+      "model": "BG95-M1",
+      "manufacturer": "quectel",
+      "name": "LTE Cat M1",
+      "bands": [
+        "M1-1",
+        "M1-2",
+        "M1-3",
+        "M1-4",
+        "M1-5",
+        "M1-8",
+        "M1-12",
+        "M1-13",
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-25",
+        "M1-26",
+        "M1-27",
+        "M1-28",
+        "M1-66",
+        "M1-85"
       ],
       "technologies": [
         "M1"
@@ -19043,7 +19094,7 @@
     {
       "name": "ACC-DEBUG",
       "desc": "Particle Debugger, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -19051,7 +19102,7 @@
     {
       "name": "ACC-POE",
       "desc": "Power-over-Ethernet Module",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "skuRegion": "global"
     },
@@ -19087,7 +19138,7 @@
     {
       "name": "ARG-LDKT",
       "desc": "Argon Leak Detection Kit [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19196,7 +19247,7 @@
     {
       "name": "ARGNTRAY50",
       "desc": "Argon, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "3",
@@ -19224,7 +19275,7 @@
     {
       "name": "ASSET2GV2",
       "desc": "Asset Tracker 2G",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -19246,7 +19297,7 @@
     {
       "name": "ASSET3G260V2",
       "desc": "Asset Tracker 3G (Americas/Aus)",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -19268,7 +19319,7 @@
     {
       "name": "ASSET3G270V2",
       "desc": "Asset Tracker 3G (Eur/Asia/Afr)",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -19322,7 +19373,7 @@
     {
       "name": "B402MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B404MTY",
       "modem": "R410",
       "multiple": true,
@@ -19385,7 +19436,7 @@
     {
       "name": "B404MTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -19412,6 +19463,54 @@
       "leadTime": "56 weeks",
       "allocation": true,
       "batteryConn": true
+    },
+    {
+      "name": "B404XMEA",
+      "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
+      "lifecycle": "GA",
+      "modem": "R510",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "b series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": true,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false
+    },
+    {
+      "name": "B404XMTY",
+      "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "lifecycle": "GA",
+      "modem": "R510",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "b series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": false,
+      "bleAntInt": false,
+      "bleAntIntInc": false,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false
     },
     {
       "name": "B523MEA",
@@ -19449,7 +19548,7 @@
     {
       "name": "B523MTY",
       "desc": "B Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "B524MTY",
       "modem": "EG91-E",
       "multiple": true,
@@ -19544,7 +19643,7 @@
     {
       "name": "BAT1800",
       "desc": "Li-Po Battery, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -19552,7 +19651,7 @@
     {
       "name": "BATT18MOD50",
       "desc": "Li-Po Battery, [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": true,
       "skuRegion": "global"
@@ -19560,7 +19659,7 @@
     {
       "name": "BRN310KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "BRN314KIT",
       "modem": "U201",
       "sim": 2,
@@ -19589,7 +19688,7 @@
     {
       "name": "BRN310TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "replacement": "BRN314TRAY50",
       "modem": "U201",
       "multiple": true,
@@ -19657,7 +19756,7 @@
     {
       "name": "BRN314TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -19722,7 +19821,7 @@
     {
       "name": "BRN402-AQKT",
       "desc": "Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "R410",
       "sim": 3,
       "simPlans": [
@@ -19781,7 +19880,7 @@
     {
       "name": "BRN402TRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -19879,7 +19978,7 @@
     {
       "name": "BRN404TRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -19909,9 +20008,84 @@
       "batteryConn": true
     },
     {
+      "name": "BRN404X",
+      "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
+      "lifecycle": "GA",
+      "modem": "R510",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "sim4ff": true,
+      "simMff2": true,
+      "multiple": false,
+      "family": "boron",
+      "gen": "3",
+      "skuClass": "prototyping",
+      "skuRegion": "noram",
+      "cellAnt": "ANT-FLXU",
+      "cellAntInc": true,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false
+    },
+    {
+      "name": "BRN404XKIT",
+      "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
+      "lifecycle": "GA",
+      "modem": "R510",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "sim4ff": true,
+      "simMff2": true,
+      "multiple": false,
+      "family": "boron",
+      "gen": "3",
+      "skuClass": "kit",
+      "skuRegion": "noram",
+      "cellAnt": "ANT-FLXU",
+      "cellAntInc": true,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false
+    },
+    {
+      "name": "BRN404XTRAY50",
+      "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
+      "lifecycle": "GA",
+      "modem": "R510",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "sim4ff": true,
+      "simMff2": true,
+      "family": "boron",
+      "gen": "3",
+      "skuClass": "prototyping",
+      "skuRegion": "noram",
+      "cellAnt": "ANT-FLXU",
+      "cellAntInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false
+    },
+    {
       "name": "E260KIT",
       "desc": "Electron 2G/3G (Americas/Aus) Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U260",
       "sim": 1,
@@ -19932,7 +20106,7 @@
     {
       "name": "E260TRAY50",
       "desc": "Electron 2G/3G (Americas/Aus), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U260",
       "multiple": true,
@@ -19952,7 +20126,7 @@
     {
       "name": "E270KIT",
       "desc": "Electron 2G/3G (EMEA) Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U270",
       "sim": 1,
@@ -19973,7 +20147,7 @@
     {
       "name": "E270TRAY50",
       "desc": "Electron 2G/3G (EMEA), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "U270",
       "multiple": true,
@@ -19993,7 +20167,7 @@
     {
       "name": "E310KIT",
       "desc": "E Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E314KIT",
       "modem": "U201",
       "sim": 1,
@@ -20015,7 +20189,7 @@
     {
       "name": "E310MOD1",
       "desc": "E Series 2G/3G (Global - E310), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E314MOD1",
       "modem": "U201",
       "sim": 1,
@@ -20036,7 +20210,7 @@
     {
       "name": "E310TRAY50",
       "desc": "E Series 2G/3G (Global - E310), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 1,
@@ -20062,7 +20236,7 @@
     {
       "name": "E313EA",
       "desc": "E Series 2G/3G (Global - E313), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U201",
       "sim": 2,
       "simPlans": [
@@ -20082,7 +20256,7 @@
     {
       "name": "E313TRAY50",
       "desc": "E Series 2G/3G (Global - E313), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U201",
       "multiple": true,
       "sim": 2,
@@ -20157,7 +20331,7 @@
     {
       "name": "E314TRAY50",
       "desc": "E Series 2G/3G (Global - E314), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20184,7 +20358,7 @@
     {
       "name": "E350KIT",
       "desc": "Electron 2G Kit (Global)",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -20203,7 +20377,7 @@
     {
       "name": "E350TRAY50",
       "desc": "Electron 2G (Global), Tray [x50]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "ELC314TY",
       "modem": "G350",
       "multiple": true,
@@ -20223,7 +20397,7 @@
     {
       "name": "E402KIT",
       "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E404KIT",
       "modem": "R410",
       "sim": 3,
@@ -20245,7 +20419,7 @@
     {
       "name": "E402MOD1",
       "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "replacement": "E404MOD1",
       "modem": "R410",
       "sim": 3,
@@ -20266,7 +20440,7 @@
     {
       "name": "E402TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "replacement": "E404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -20346,7 +20520,7 @@
     {
       "name": "E404TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -20372,7 +20546,7 @@
     {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20397,7 +20571,7 @@
     {
       "name": "ELC402EA",
       "desc": "Electron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "Deprecated",
       "replacement": "ELC404EA",
       "modem": "R410",
       "sim": 3,
@@ -20418,7 +20592,7 @@
     {
       "name": "ELC402TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "replacement": "ELC404TY",
       "modem": "R410",
       "multiple": true,
@@ -20486,7 +20660,7 @@
     {
       "name": "FWNG-INA219",
       "desc": "Adafruit INA219 FeatherWing, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -20554,7 +20728,7 @@
     {
       "name": "M8CAB3VEA",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1]",
-      "lifecycle": "Beta",
+      "lifecycle": "Sampling",
       "accessory": true,
       "multiple": false,
       "moq": 1,
@@ -20569,7 +20743,7 @@
     {
       "name": "M8CAB3VTY",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40]",
-      "lifecycle": "Beta",
+      "lifecycle": "Sampling",
       "accessory": true,
       "multiple": true,
       "moq": 40,
@@ -20682,7 +20856,7 @@
     {
       "name": "ONE402MTY",
       "desc": "Tracker One LTE M1 (NorAm), Bulk [x40]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "ONE404MTY",
       "modem": "BG96-MC",
       "multiple": true,
@@ -20756,7 +20930,7 @@
     {
       "name": "ONE404MTY",
       "desc": "Tracker One LTE M1 (NorAm), Bulk [x40]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -20831,7 +21005,7 @@
     {
       "name": "ONE523MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "ONE524MTY",
       "modem": "EG91-EX",
       "sim": 2,
@@ -20907,7 +21081,7 @@
     {
       "name": "ONE524MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -21003,7 +21177,7 @@
     {
       "name": "P0MOD10",
       "desc": "P0 Wi-Fi Module, Cut tape [x10]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21018,7 +21192,7 @@
     {
       "name": "P0REEL",
       "desc": "P0 Wi-Fi Module, Reel [x2000]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21060,7 +21234,7 @@
     {
       "name": "P1REEL",
       "desc": "P1 Wi-Fi Module, Reel [x500]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21081,7 +21255,7 @@
     {
       "name": "PHNTRAYH",
       "desc": "Photon with Headers, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21102,7 +21276,7 @@
     {
       "name": "PHNTRAYNOH",
       "desc": "Photon without Headers, Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21144,7 +21318,7 @@
     {
       "name": "PHOTONKIT",
       "desc": "Photon with Headers Starter Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21159,7 +21333,7 @@
     {
       "name": "PHOTONNOH",
       "desc": "Photon without Headers, Dev board Kit [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21174,7 +21348,7 @@
     {
       "name": "PROGSHIELD",
       "desc": "Programmer Shield, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -21182,7 +21356,7 @@
     {
       "name": "PWRSHIELDH",
       "desc": "Power Shield with Headers, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -21190,7 +21364,7 @@
     {
       "name": "RLYSHIELD",
       "desc": "Relay Shield",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "skuRegion": "global"
     },
@@ -21272,7 +21446,7 @@
     {
       "name": "SNSRKIT3G260",
       "desc": "Electron 3G (Americas/Aus) Sensor Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -21291,7 +21465,7 @@
     {
       "name": "SNSRKIT3G270",
       "desc": "Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -21310,7 +21484,7 @@
     {
       "name": "SPKBTTN",
       "desc": "Internet Button, [x1]",
-      "lifecycle": "Discontinued",
+      "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -21394,7 +21568,7 @@
     {
       "name": "T402MTY",
       "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T404MTY",
       "modem": "BG96-MC",
       "multiple": true,
@@ -21506,7 +21680,7 @@
     {
       "name": "T404MTY",
       "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -21621,7 +21795,7 @@
     {
       "name": "T523MTY",
       "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T524MTY",
       "modem": "EG91-EX",
       "multiple": true,
@@ -21734,7 +21908,7 @@
     {
       "name": "T524MTY",
       "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -21851,12 +22025,23 @@
       "name": "B Series SoM",
       "group": [
         {
+          "name": "B Series B404X LTE M1 (NorAm) EtherSIM",
+          "short": [
+            "B404X"
+          ],
+          "region": "noram",
+          "lifecycle": "GA",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "R510"
+        },
+        {
           "name": "B Series B404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "B404"
           ],
           "region": "noram",
-          "lifecycle": "GA",
+          "lifecycle": "NRND",
           "sim": 4,
           "simPlan": 40,
           "modem": "R410"
@@ -21901,12 +22086,23 @@
       "name": "Boron",
       "group": [
         {
+          "name": "Boron BRN404X LTE M1 (NorAm) EtherSIM",
+          "short": [
+            "BRN404X"
+          ],
+          "region": "noram",
+          "lifecycle": "GA",
+          "sim": 4,
+          "simPlan": 40,
+          "modem": "R510"
+        },
+        {
           "name": "Boron BRN404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "BRN404"
           ],
           "region": "noram",
-          "lifecycle": "GA",
+          "lifecycle": "NRND",
           "sim": 4,
           "simPlan": 40,
           "modem": "R410"
@@ -22051,7 +22247,7 @@
             "U260"
           ],
           "region": "americas",
-          "lifecycle": "Discontinued",
+          "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
           "modem": "U260"
@@ -22062,7 +22258,7 @@
             "U270"
           ],
           "region": "emeaa",
-          "lifecycle": "Discontinued",
+          "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
           "modem": "U270"
@@ -22073,7 +22269,7 @@
             "G350"
           ],
           "region": "global",
-          "lifecycle": "Discontinued",
+          "lifecycle": "End of life",
           "sim": 1,
           "simPlan": 12,
           "modem": "G350"
@@ -22098,9 +22294,14 @@
   ],
   "skuLifecycle": [
     {
-      "name": "Beta",
-      "desc": "Beta (pre-release)",
+      "name": "In development",
+      "desc": "In development (pre-release)",
       "sortOrder": 1
+    },
+    {
+      "name": "Sampling",
+      "desc": "Pre-release samples in testing",
+      "sortOrder": 2
     },
     {
       "name": "GA",
@@ -22115,22 +22316,32 @@
     {
       "name": "NRND-US",
       "desc": "Not recommended for new designs in the United States",
-      "sortOrder": 2
-    },
-    {
-      "name": "EOS",
-      "desc": "End of support",
       "sortOrder": 4
     },
     {
-      "name": "Discontinued",
-      "desc": "Discontinued",
+      "name": "Deprecated",
+      "desc": "Deprecated",
       "sortOrder": 5
+    },
+    {
+      "name": "End of sale",
+      "desc": "Devices is no longer for sale",
+      "sortOrder": 6
+    },
+    {
+      "name": "End of support",
+      "desc": "Technical support no longer provided",
+      "sortOrder": 7
+    },
+    {
+      "name": "End of life",
+      "desc": "May not be supported in future software versions",
+      "sortOrder": 8
     },
     {
       "name": "Hidden",
       "desc": "Crossed out in SKU Master",
-      "sortOrder": 6
+      "sortOrder": 9
     }
   ],
   "bands": [
@@ -22394,10 +22605,24 @@
   ],
   "simModemFamily": [
     {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "BG96-MC",
+      "desc": "Tracker LTE M1 NorAm EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
       "sim": 3,
       "simPlan": 30,
       "modem": "BG96-MC",
       "desc": "Tracker LTE M1 NorAm",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "EG91-E",
+      "desc": "B Series LTE Cat1/3G/2G EMEAA EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -22416,6 +22641,13 @@
       "lifecycle": "GA"
     },
     {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "EG91-EX",
+      "desc": "Tracker LTE Cat1/3G/2G EMEAA EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
       "sim": 2,
       "simPlan": 21,
       "modem": "EG91-EX",
@@ -22431,10 +22663,31 @@
       "lifecycle": "GA"
     },
     {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "R410",
+      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
       "sim": 3,
       "simPlan": 30,
       "modem": "R410",
       "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "R510",
+      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
+      "lifecycle": "GA"
+    },
+    {
+      "sim": 4,
+      "simPlan": 40,
+      "modem": "U201",
+      "desc": "Boron, E Series, Electron 2G/3G Global EtherSIM",
       "lifecycle": "GA"
     },
     {
@@ -22462,58 +22715,30 @@
     {
       "sim": 4,
       "simPlan": 40,
-      "modem": "BG96-MC",
-      "desc": "Tracker LTE M1 NorAm EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "EG91-E",
-      "desc": "B Series LTE Cat1/3G/2G EMEAA EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "EG91-EX",
-      "desc": "Tracker LTE Cat1/3G/2G EMEAA EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
-      "modem": "R410",
-      "desc": "B Series, Boron, E Series, Electron LTE M1 NorAm EtherSIM",
-      "lifecycle": "Beta"
-    },
-    {
-      "sim": 4,
-      "simPlan": 40,
       "modem": "U201",
       "desc": "Boron, E Series, Electron 2G/3G Global EtherSIM",
-      "lifecycle": "Beta"
+      "lifecycle": "Deprecated"
     },
     {
       "sim": 1,
       "simPlan": 11,
       "modem": "U260",
       "desc": "Electron 3G Americas",
-      "lifecycle": "NRND"
+      "lifecycle": "Deprecated"
     },
     {
       "sim": 1,
       "simPlan": 11,
       "modem": "U270",
       "desc": "Electron 3G Europe/Asia/Africa",
-      "lifecycle": "NRND"
+      "lifecycle": "Deprecated"
     },
     {
       "sim": 1,
       "simPlan": 11,
       "modem": "G350",
       "desc": "Electron 2G",
-      "lifecycle": "Discontinued"
+      "lifecycle": "End of life"
     }
   ],
   "mapRegions": [
@@ -22619,6 +22844,13 @@
     },
     {
       "country": "Afghanistan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Afghanistan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -22703,6 +22935,13 @@
     {
       "country": "Albania",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Albania",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -22803,6 +23042,13 @@
     },
     {
       "country": "Algeria",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Algeria",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -22898,6 +23144,13 @@
     },
     {
       "country": "Andorra",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Andorra",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -22990,6 +23243,13 @@
     {
       "country": "Angola",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Angola",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -23094,6 +23354,13 @@
     },
     {
       "country": "Anguilla",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Anguilla",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -23182,6 +23449,13 @@
     {
       "country": "Antarctica",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Antarctica",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -23286,6 +23560,13 @@
     },
     {
       "country": "Antigua and Barbuda",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Antigua and Barbuda",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -23380,6 +23661,13 @@
     },
     {
       "country": "Argentina",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Argentina",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -23468,6 +23756,13 @@
     {
       "country": "Armenia",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Armenia",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -23564,6 +23859,13 @@
     {
       "country": "Aruba",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Aruba",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -23660,6 +23962,13 @@
     },
     {
       "country": "Australia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Australia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -23749,6 +24058,13 @@
     },
     {
       "country": "Austria",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Austria",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -23843,6 +24159,13 @@
     },
     {
       "country": "Azerbaijan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Azerbaijan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -23931,6 +24254,13 @@
     {
       "country": "Bahamas",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bahamas",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -24028,6 +24358,13 @@
     },
     {
       "country": "Bahrain",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bahrain",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -24112,6 +24449,13 @@
     {
       "country": "Bangladesh",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bangladesh",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -24212,6 +24556,13 @@
     },
     {
       "country": "Barbados",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Barbados",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -24304,6 +24655,13 @@
     },
     {
       "country": "Belarus",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belarus",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -24389,6 +24747,13 @@
     {
       "country": "Belgium",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belgium",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -24489,6 +24854,13 @@
     },
     {
       "country": "Belize",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Belize",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -24578,6 +24950,13 @@
     {
       "country": "Benin",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Benin",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -24675,6 +25054,13 @@
     {
       "country": "Bermuda",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -24776,6 +25162,13 @@
     },
     {
       "country": "Bolivia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bolivia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -24865,6 +25258,13 @@
     {
       "country": "Bonaire",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bonaire",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -24967,6 +25367,13 @@
     },
     {
       "country": "Bosnia and Herzegovina",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -25054,6 +25461,13 @@
     {
       "country": "Botswana",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Botswana",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25159,6 +25573,14 @@
     },
     {
       "country": "Brazil",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Brazil",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -25253,6 +25675,13 @@
     },
     {
       "country": "Brunei",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Brunei",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -25339,6 +25768,13 @@
     {
       "country": "Bulgaria",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bulgaria",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25437,6 +25873,13 @@
     },
     {
       "country": "Burkina Faso",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Burkina Faso",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -25534,6 +25977,13 @@
     },
     {
       "country": "Burundi",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Burundi",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -25624,6 +26074,13 @@
     {
       "country": "Cabo Verde",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cabo Verde",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25721,6 +26178,13 @@
     },
     {
       "country": "Cambodia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cambodia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -25811,6 +26275,13 @@
     {
       "country": "Cameroon",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cameroon",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -25904,6 +26375,12 @@
     {
       "country": "Canada",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Canada",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "YES"
     },
@@ -26006,6 +26483,13 @@
     },
     {
       "country": "Cayman Islands",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cayman Islands",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -26098,6 +26582,13 @@
     },
     {
       "country": "Central African Republic",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Central African Republic",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -26185,6 +26676,13 @@
     {
       "country": "Chad",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Chad",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26281,6 +26779,13 @@
     {
       "country": "Chile",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Chile",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26385,6 +26890,14 @@
     },
     {
       "country": "China",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "China",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -26481,6 +26994,13 @@
     },
     {
       "country": "Colombia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Colombia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -26571,6 +27091,13 @@
     },
     {
       "country": "Congo (Brazzaville)",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Congo (Brazzaville)",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -26655,6 +27182,13 @@
     {
       "country": "Congo (Kinshasa)",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Congo (Kinshasa)",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -26757,6 +27291,13 @@
     },
     {
       "country": "Costa Rica",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Costa Rica",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -26849,6 +27390,13 @@
     },
     {
       "country": "Côte d'Ivoire",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Côte d'Ivoire",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -26940,6 +27488,13 @@
     },
     {
       "country": "Croatia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Croatia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27034,6 +27589,13 @@
     },
     {
       "country": "Cuba",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cuba",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -27132,6 +27694,13 @@
     },
     {
       "country": "Curaçao",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Curaçao",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27223,6 +27792,13 @@
     },
     {
       "country": "Cyprus",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Cyprus",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27313,6 +27889,13 @@
     },
     {
       "country": "Czechia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Czechia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27397,6 +27980,13 @@
     {
       "country": "Denmark",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Denmark",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27497,6 +28087,13 @@
     },
     {
       "country": "Dominica",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Dominica",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27591,6 +28188,13 @@
     },
     {
       "country": "Dominican Republic",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Dominican Republic",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27679,6 +28283,13 @@
     {
       "country": "Ecuador",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ecuador",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -27777,6 +28388,13 @@
     },
     {
       "country": "Egypt",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Egypt",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27872,6 +28490,13 @@
     },
     {
       "country": "El Salvador",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "El Salvador",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -27960,6 +28585,13 @@
     {
       "country": "Equatorial Guinea",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28060,6 +28692,13 @@
     },
     {
       "country": "Estonia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Estonia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -28152,6 +28791,13 @@
     },
     {
       "country": "eSwatini",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "eSwatini",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -28245,6 +28891,13 @@
     },
     {
       "country": "Ethiopia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ethiopia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -28338,6 +28991,13 @@
     },
     {
       "country": "Faroe Islands",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Faroe Islands",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -28426,6 +29086,13 @@
     {
       "country": "Fiji",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Fiji",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28525,6 +29192,13 @@
     },
     {
       "country": "Finland",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Finland",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -28609,6 +29283,13 @@
     {
       "country": "France",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "France",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28709,6 +29390,13 @@
     },
     {
       "country": "French Guiana",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "French Guiana",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -28795,6 +29483,13 @@
     {
       "country": "Gabon",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gabon",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28889,6 +29584,13 @@
     {
       "country": "Gambia",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gambia",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -28993,6 +29695,13 @@
     },
     {
       "country": "Georgia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Georgia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -29077,6 +29786,13 @@
     {
       "country": "Germany",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Germany",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29173,6 +29889,13 @@
     },
     {
       "country": "Ghana",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ghana",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -29263,6 +29986,13 @@
     },
     {
       "country": "Gibraltar",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Gibraltar",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -29353,6 +30083,13 @@
     },
     {
       "country": "Greece",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Greece",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -29447,6 +30184,13 @@
     },
     {
       "country": "Greenland",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Greenland",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -29543,6 +30287,13 @@
     },
     {
       "country": "Grenada",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Grenada",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -29631,6 +30382,13 @@
     {
       "country": "Guadeloupe",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guadeloupe",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29732,6 +30490,13 @@
     },
     {
       "country": "Guam",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guam",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -29823,6 +30588,13 @@
     {
       "country": "Guatemala",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guatemala",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -29921,6 +30693,13 @@
     },
     {
       "country": "Guernsey",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guernsey",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -30010,6 +30789,13 @@
     {
       "country": "Guinea",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guinea",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30105,6 +30891,13 @@
     {
       "country": "Guinea-Bissau",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30206,6 +30999,13 @@
     },
     {
       "country": "Guyana",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Guyana",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -30300,6 +31100,13 @@
     },
     {
       "country": "Haiti",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Haiti",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -30386,6 +31193,13 @@
     {
       "country": "Holy See (Vatican City)",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Holy See (Vatican City)",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30483,6 +31297,13 @@
     {
       "country": "Honduras",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Honduras",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30581,6 +31402,13 @@
     },
     {
       "country": "Hong Kong",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Hong Kong",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -30672,6 +31500,13 @@
     },
     {
       "country": "Hungary",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Hungary",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -30756,6 +31591,13 @@
     {
       "country": "Iceland",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iceland",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -30858,6 +31700,14 @@
     },
     {
       "country": "India",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "India",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -30952,6 +31802,13 @@
     },
     {
       "country": "Indonesia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Indonesia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -31046,6 +31903,13 @@
     },
     {
       "country": "Iran",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iran",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -31138,6 +32002,13 @@
     {
       "country": "Iraq",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Iraq",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31238,6 +32109,13 @@
     },
     {
       "country": "Ireland",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ireland",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -31324,6 +32202,13 @@
     {
       "country": "Isle of Man",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Isle of Man",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31423,6 +32308,13 @@
     },
     {
       "country": "Israel",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Israel",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -31513,6 +32405,13 @@
     },
     {
       "country": "Italy",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Italy",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -31601,6 +32500,13 @@
     {
       "country": "Jamaica",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jamaica",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31701,6 +32607,13 @@
     },
     {
       "country": "Japan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Japan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -31791,6 +32704,13 @@
     },
     {
       "country": "Jersey",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jersey",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -31875,6 +32795,13 @@
     {
       "country": "Jordan",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Jordan",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -31975,6 +32902,13 @@
     },
     {
       "country": "Kazakhstan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kazakhstan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -32066,6 +33000,13 @@
     },
     {
       "country": "Kenya",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kenya",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -32160,6 +33101,13 @@
     },
     {
       "country": "Kiribati",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kiribati",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -32252,6 +33200,13 @@
     {
       "country": "Kosovo",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kosovo",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32346,6 +33301,13 @@
     {
       "country": "Kuwait",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kuwait",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32446,6 +33408,13 @@
     },
     {
       "country": "Kyrgyzstan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Kyrgyzstan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -32537,6 +33506,13 @@
     {
       "country": "Lao People's Democratic Republic",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lao People's Democratic Republic",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32637,6 +33613,13 @@
     },
     {
       "country": "Latvia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Latvia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -32725,6 +33708,13 @@
     {
       "country": "Lebanon",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lebanon",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -32827,6 +33817,13 @@
     },
     {
       "country": "Lesotho",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lesotho",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -32920,6 +33917,13 @@
     },
     {
       "country": "Liechtenstein",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Liechtenstein",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -32945,101 +33949,108 @@
     },
     {
       "country": "Liechtenstein",
-      "modem": "U270",
-      "sim": 1,
-      "recommendation": "NRND"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "BG96-MC",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "BG96-MC",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "EG91-EX",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "EG91-EX",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "G350",
-      "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "R410",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "R410",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "U201",
-      "sim": 1,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "U201",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "U201",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Lithuania",
-      "modem": "U260",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Lithuania",
       "modem": "U270",
       "sim": 1,
       "recommendation": "NRND"
     },
     {
+      "country": "Lithuania",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "EG91-E",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "G350",
+      "sim": 1,
+      "recommendation": "NRND",
+      "reason": "2G-only model discontinued"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "R410",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "U201",
+      "sim": 1,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "U201",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "U201",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "U260",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Lithuania",
+      "modem": "U270",
+      "sim": 1,
+      "recommendation": "NRND"
+    },
+    {
       "country": "Luxembourg",
       "modem": "BG96-MC",
       "sim": 3,
@@ -33094,6 +34105,13 @@
     {
       "country": "Luxembourg",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Luxembourg",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33192,6 +34210,13 @@
     },
     {
       "country": "Macao",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Macao",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -33279,6 +34304,13 @@
     {
       "country": "Madagascar",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Madagascar",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33375,6 +34407,13 @@
     },
     {
       "country": "Malawi",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malawi",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -33461,6 +34500,13 @@
     {
       "country": "Malaysia",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malaysia",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33561,6 +34607,13 @@
     },
     {
       "country": "Maldives",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Maldives",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -33653,6 +34706,13 @@
     {
       "country": "Mali",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mali",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33747,6 +34807,13 @@
     {
       "country": "Malta",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Malta",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -33847,6 +34914,13 @@
     },
     {
       "country": "Martinique",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Martinique",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -33944,6 +35018,13 @@
     },
     {
       "country": "Mauritania",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mauritania",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -34042,6 +35123,13 @@
     },
     {
       "country": "Mauritius",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mauritius",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -34134,6 +35222,13 @@
     {
       "country": "Mayotte",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mayotte",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -34229,6 +35324,12 @@
     {
       "country": "Mexico",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Mexico",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "YES"
     },
@@ -34329,6 +35430,13 @@
     },
     {
       "country": "Moldova",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Moldova",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -34424,6 +35532,13 @@
     },
     {
       "country": "Monaco",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Monaco",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -34518,6 +35633,13 @@
     },
     {
       "country": "Mongolia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mongolia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -34608,6 +35730,13 @@
     },
     {
       "country": "Montenegro",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Montenegro",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -34702,6 +35831,13 @@
     },
     {
       "country": "Montserrat",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Montserrat",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -34795,6 +35931,13 @@
     },
     {
       "country": "Morocco",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Morocco",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -34886,6 +36029,13 @@
     },
     {
       "country": "Mozambique",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Mozambique",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -34978,6 +36128,13 @@
     },
     {
       "country": "Myanmar",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Myanmar",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -35073,6 +36230,13 @@
     },
     {
       "country": "Namibia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Namibia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -35168,6 +36332,13 @@
     },
     {
       "country": "Nauru",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nauru",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -35259,6 +36430,13 @@
     {
       "country": "Nepal",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nepal",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35359,6 +36537,13 @@
     },
     {
       "country": "Netherlands",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Netherlands",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -35447,6 +36632,13 @@
     {
       "country": "Netherlands Antilles",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Netherlands Antilles",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35547,6 +36739,13 @@
     },
     {
       "country": "New Zealand",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "New Zealand",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -35634,6 +36833,13 @@
     {
       "country": "Nicaragua",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nicaragua",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -35732,6 +36938,13 @@
     },
     {
       "country": "Niger",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Niger",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -35823,6 +37036,13 @@
     },
     {
       "country": "Nigeria",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Nigeria",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -35913,6 +37133,13 @@
     },
     {
       "country": "North Macedonia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "North Macedonia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -35997,6 +37224,13 @@
     {
       "country": "Norway",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Norway",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36095,6 +37329,13 @@
     },
     {
       "country": "Oman",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Oman",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -36186,6 +37427,13 @@
     },
     {
       "country": "Pakistan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Pakistan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -36272,6 +37520,13 @@
     {
       "country": "Palestine",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Palestine",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36375,6 +37630,13 @@
     },
     {
       "country": "Panama",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Panama",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -36467,6 +37729,13 @@
     },
     {
       "country": "Papua New Guinea",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Papua New Guinea",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -36558,6 +37827,13 @@
     {
       "country": "Paraguay",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Paraguay",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36660,6 +37936,13 @@
     },
     {
       "country": "Peru",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Peru",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -36744,6 +38027,13 @@
     {
       "country": "Philippines",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Philippines",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -36840,6 +38130,13 @@
     },
     {
       "country": "Poland",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Poland",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -36930,6 +38227,13 @@
     },
     {
       "country": "Portugal",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Portugal",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37018,6 +38322,13 @@
     {
       "country": "Puerto Rico",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Puerto Rico",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37115,6 +38426,13 @@
     },
     {
       "country": "Qatar",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Qatar",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37207,6 +38525,13 @@
     },
     {
       "country": "Réunion",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Réunion",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37292,6 +38617,13 @@
     {
       "country": "Romania",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Romania",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37396,6 +38728,14 @@
     },
     {
       "country": "Russia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Russia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37488,6 +38828,13 @@
     },
     {
       "country": "Rwanda",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Rwanda",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37582,6 +38929,13 @@
     },
     {
       "country": "Saint Barthélemy",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Barthélemy",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -37679,6 +39033,13 @@
     },
     {
       "country": "Saint Kitts and Nevis",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37773,6 +39134,13 @@
     },
     {
       "country": "Saint Lucia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Lucia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -37861,6 +39229,13 @@
     {
       "country": "Saint Martin (French part)",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Martin (French part)",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -37964,6 +39339,13 @@
     },
     {
       "country": "Saint Vincent and the Grenadines",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -38058,6 +39440,13 @@
     },
     {
       "country": "Samoa",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Samoa",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -38148,6 +39537,13 @@
     {
       "country": "San Marino",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "San Marino",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38247,6 +39643,13 @@
     },
     {
       "country": "Saudi Arabia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Saudi Arabia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -38335,6 +39738,13 @@
     {
       "country": "Senegal",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38435,6 +39845,13 @@
     },
     {
       "country": "Serbia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Serbia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -38524,6 +39941,13 @@
     },
     {
       "country": "Seychelles",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Seychelles",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -38612,6 +40036,13 @@
     {
       "country": "Sierra Leone",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sierra Leone",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38718,6 +40149,14 @@
     },
     {
       "country": "Singapore",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "Singapore",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -38814,6 +40253,13 @@
     },
     {
       "country": "Sint Maarten",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Sint Maarten",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -38901,6 +40347,13 @@
     {
       "country": "Slovakia",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Slovakia",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -38997,6 +40450,13 @@
     },
     {
       "country": "Slovenia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Slovenia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -39089,6 +40549,13 @@
     },
     {
       "country": "Solomon Islands",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Solomon Islands",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -39180,6 +40647,13 @@
     {
       "country": "Somalia",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Somalia",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39274,6 +40748,13 @@
     {
       "country": "South Africa",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Africa",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39370,6 +40851,13 @@
     },
     {
       "country": "South Korea",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Korea",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -39454,6 +40942,13 @@
     {
       "country": "South Sudan",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "South Sudan",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39552,6 +41047,13 @@
     },
     {
       "country": "Spain",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Spain",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -39636,6 +41138,13 @@
     {
       "country": "Sri Lanka",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sri Lanka",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39736,6 +41245,13 @@
     },
     {
       "country": "Suriname",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Suriname",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -39822,6 +41338,13 @@
     {
       "country": "Svalbard and Jan Mayen",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Svalbard and Jan Mayen",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -39921,6 +41444,13 @@
     },
     {
       "country": "Sweden",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Sweden",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -40005,6 +41535,13 @@
     {
       "country": "Switzerland",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Switzerland",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40100,6 +41637,13 @@
     },
     {
       "country": "Taiwan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Taiwan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -40194,6 +41738,13 @@
     },
     {
       "country": "Tajikistan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tajikistan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -40281,6 +41832,13 @@
     {
       "country": "Tanzania",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tanzania",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40371,6 +41929,13 @@
     {
       "country": "Thailand",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Thailand",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40469,6 +42034,13 @@
     },
     {
       "country": "Togo",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Togo",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -40560,6 +42132,13 @@
     {
       "country": "Tonga",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tonga",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40658,6 +42237,13 @@
     {
       "country": "Trinidad and Tobago",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40750,6 +42336,13 @@
     {
       "country": "Tunisia",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Tunisia",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -40858,6 +42451,14 @@
     },
     {
       "country": "Turkey",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Turkey",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -40961,6 +42562,13 @@
     },
     {
       "country": "Turks and Caicos Islands",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Turks and Caicos Islands",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -41047,6 +42655,13 @@
     {
       "country": "Uganda",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uganda",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41141,6 +42756,13 @@
     {
       "country": "Ukraine",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Ukraine",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41245,6 +42867,14 @@
     },
     {
       "country": "United Arab Emirates",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "warn"
+    },
+    {
+      "country": "United Arab Emirates",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -41332,6 +42962,13 @@
     {
       "country": "United Kingdom",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "POSS",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "United Kingdom",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "POSS",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41427,6 +43064,12 @@
     },
     {
       "country": "United States",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "United States",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NRND",
@@ -41524,6 +43167,13 @@
     },
     {
       "country": "Uruguay",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uruguay",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -41618,6 +43268,13 @@
     },
     {
       "country": "Uzbekistan",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Uzbekistan",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -41708,6 +43365,13 @@
     {
       "country": "Vanuatu",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Vanuatu",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41806,6 +43470,13 @@
     {
       "country": "Venezuela",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Venezuela",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41898,6 +43569,13 @@
     {
       "country": "Vietnam",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Vietnam",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -41999,6 +43677,13 @@
     },
     {
       "country": "Virgin Islands (British)",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Virgin Islands (British)",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -42087,6 +43772,13 @@
     {
       "country": "Virgin Islands (U.S.)",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Virgin Islands (U.S.)",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
@@ -42191,6 +43883,13 @@
     },
     {
       "country": "Yemen",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Yemen",
       "modem": "U201",
       "sim": 1,
       "recommendation": "YES"
@@ -42283,6 +43982,13 @@
     },
     {
       "country": "Zambia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Zambia",
       "modem": "U201",
       "sim": 1,
       "recommendation": "NR",
@@ -42373,6 +44079,13 @@
     {
       "country": "Zimbabwe",
       "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Zimbabwe",
+      "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"

@@ -1,11 +1,11 @@
 ---
-title: B Series B404/B402 datasheet
+title: B Series B404/B404X/B402 datasheet
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
+description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404/B402 Datasheet <sup>(014)</sup>
+# B404X/B404/B402 Datasheet <sup>(015)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -25,11 +25,32 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Features
 
- * u-blox SARA-R410-02B LTE modem
+#### Features - B404X
+
+ * u-blox SARA-R510S-01B LTE modem (B404X)
+  * LTE Cat M1 module
+  * Support for United States, Canada, and Mexico only
+  * 3GPP Release 14 LTE Cat M1 
+  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+  * Embedded Particle EtherSIM (B404X)
+  * Requires Device OS 2.3.0 LTS (or later) or 3.2.0 (or later)
+  
+#### Features - B402, B404
+
+ * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
+  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+  * Embedded Particle EtherSIM (B404)
+  * Embedded Particle SIM (B402)
+
+
+<sup>1</sup> Not all bands enabled in software by default
+
+#### Features - All Models
+
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -61,7 +82,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 #### VCC
 
-VCC is used to supply power to the u-blox SARA-R410M cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. Make sure that the supply can handle currents of at least 2 A.
+VCC is used to supply power to the u-blox SARA-R410M/R410S cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. Make sure that the supply can handle currents of at least 2 A.
 
 #### 3V3
 
@@ -131,7 +152,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application
+  - User Application
    - 256KB @ 0xB4000 (Device OS 3.1 and later)
    - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
@@ -195,9 +216,9 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 41 | A4 | RESERVED<sup>3</sup> |IO | P0.30 | Analog input ADC4<sup>2</sup>, and digital GPIO. |
 | 42 | D2 | RESERVED<sup>3</sup> | IO | P1.2 | UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
-| 44 | u-blox USB D+ | SOM0 | IO | | Data+ pin of the R410M USB port.|
+| 44 | u-blox USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
-| 46 | u-blox USB D- | SOM1 | IO ||  Data- pin of the R410M USB port.|
+| 46 | u-blox USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
 | 47 | A7 | RESERVED<sup>3</sup> | IO | P0.2 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
 | 48 | D8 | CS | IO | P1.3 | SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| | System analog ground.|
@@ -218,14 +239,14 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 64 | D23 | GPIO1 | IO | P1.9 | GPIO1, digital only.|	
 | 65 | RGBB | BLUE | IO | P0.15 | Blue pin of the RGB LED.|
 | 66 | D4 | PWM0 | IO | P1.8 | SPI1 MISO, Digital only GPIO, and PWM0. |
-| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
+| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from cellular modem. |
 | 68 | D5 | PWM1 | IO | P1.10| Digital only GPIO, and PWM1. |
-| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. |
+| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
 | 70 | D6 | PWM2 | IO | P1.11 | Digital only GPIO, and PWM2.|
-| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
+| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 | 72 | D7 | PWM3 | IO | P1.12| Digital only GPIO, and PWM3.|
-| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up. |
-| 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for R410M. 5V on this pin enables the u-blox USB interface.|
+| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |
+| 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for cellular modem. 5V on this pin enables the u-blox USB interface.|
 | 75 | NC | SOM9<sup>3</sup> | NC ||  Leave unconnected. |
 
 <sup>1</sup>These pins are connected to the internal MFF2 SIM and should be left open. 
@@ -344,7 +365,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Radio specifications
 
-Boron has two radio modules.
+The B Series SoM has two radio modules.
 
 #### nRF52840
 - Bluetooth® 5, 2.4 GHz
@@ -352,29 +373,55 @@ Boron has two radio modules.
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps
 
-#### u-blox SARA-R410M-02-B
+#### u-blox SARA-R410M-02B or R410M-03
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
+
+- LTE Cat M1 for United States, Canada, and Mexico.
+- Not all bands are enabled in software by default. 
+- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+
+#### u-blox SARA-R510S-01B
+
+| Parameter | Value | FCC Certified | 
+| --- | --- | :---: | 
+| Protocol stack | 3GPP Release 14 | |
+| RAT | LTE Cat M1 Half-Duplex | |
+| LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
+| | Band 12 (700 MHz) | &check; |
+| | Band 28 (700 MHz)  | &check; |
+| | Band 85 (700 MHz)  | &nbsp; |
+| | Band 13 (750 MHz)  | &check; |
+| | Band 20 (800 MHz)  | &check; |
+| | Band 5 (850 MHz) | &check; |
+| | Band 18 (850 MHz) | &nbsp; |
+| | Band 19 (850 MHz) | &nbsp; |
+| | Band 26 (850 MHz)  | &nbsp; |
+| | Band 8 (900 MHz)  | &check; |
+| | Band 4 (1700 MHz) | &check; |
+| | Band 3 (1800 MHz)  | &check; |
+| | Band 2 (1900 MHz) | &check; |
+| | Band 25 (1900 MHz)  | &nbsp; |
+| | Band 1 (2100 MHz)  | &nbsp; |
+| Power class | Class 3 (23 dBm) | &nbsp; |
+
+- LTE Cat M1 for United States, Canada, and Mexico
+- Not all bands are enabled in software by default. 
+- FCC Certification in the United States only tests bands in use in the United States.
+- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
 
 ---
 
@@ -544,9 +591,11 @@ The bootloader allows you to easily update the user application via several diff
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
-| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404MTY|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
+| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
@@ -570,3 +619,4 @@ The bootloader allows you to easily update the user application via several diff
 | 012      | 19-May-2021 | RK | List Ethernet reserved pins |
 | 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | 014      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| 015      | 14-Mar-2022 | RK | Added B404X, deprecation notice |

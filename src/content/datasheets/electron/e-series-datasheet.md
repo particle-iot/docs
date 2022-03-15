@@ -5,11 +5,17 @@ columns: two
 description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
-# E Series Module Datasheet <sup>(v003)</sup>
+# E Series Module Datasheet <sup>(v004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+The E Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/datasheets/electron/e404x-datasheet/).
+
+See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-top.png" ></div>
 
@@ -23,7 +29,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U201 or SARA-R410M cellular module
+ * U-blox SARA-U201, SARA-R410M, or SARA-R510S cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -32,6 +38,8 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Open source software design
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
+ * Embedded Particle EtherSIM (E314, E404, E404X)
+ * Embedded Particle SIM (E310, E402)
 
 
 ## Interfaces
@@ -411,28 +419,36 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-#### LTE cellular characteristics E404 & E402
+#### u-blox SARA-R410M-02B or R410M-03
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
+| Power class | Class 3 (23 dBm) |
+
+#### u-blox SARA-R510S-01B
+
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 Half-Duplex |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 13 (750 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 4 (1700 MHz) |
+| | Band 2 (1900 MHz) |
 | | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 ---
@@ -541,9 +557,9 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 |:---|:------------------------------|:---------------------|:-------------|:-----------|
 |E314|3G with 2G fallback (EtherSIM) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
 |E310|3G with 2G fallback (pre-2021) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
-|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
-|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
-
+|E404X|LTE M1 only (EtherSIM) |US, Canada, Mexico   |R510S-01B        |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28|
+|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B or -03 |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39|
+|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B        |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39|
 
 ---
 
@@ -707,20 +723,20 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | NRND-US | |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND-US | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | NRND-US | |
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND-US | |
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND-US | E404TRAY50|
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND-US | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | NRND-US | |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | NRND-US | |
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | Discontinued | E314KIT|
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Discontinued | E314MOD1|
-| E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Discontinued | |
-| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | Discontinued | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | Discontinued | E404KIT|
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Discontinued | E404MOD1|
+| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
+| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | Deprecated | |
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | E404TRAY50|
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
+| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | End of life | E314KIT|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | End of life | E314MOD1|
+| E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | End of life | |
+| E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | End of life | |
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | End of life | E404KIT|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | End of life | E404MOD1|
 
 
 {{!-- END do not edit content above, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
@@ -844,6 +860,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002     | 31-Jul-2019   | RK     | Added LTE information |
 |          |               |        | Removed E201, E302, E303 models |
 | v003     | 11-Mar-2020   | RK     | Corrected FCC ID for 2G/3G model |
+| v004     | 14-Mar-2022   | RK     | Added deprecation notice |
 
 ## Known Errata
 

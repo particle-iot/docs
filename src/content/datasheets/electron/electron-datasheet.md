@@ -6,11 +6,15 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v009)</sup>
+# Electron Datasheet <sup>(v010)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
+
+{{box op="start" cssClass="boxed warningBox"}}
+The Electron has been deprecated. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+{{box op="end"}}
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -384,7 +388,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ### Radio specifications
 
-The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B).
+The Electron is available in different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B or R410M-03).
 
 Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
 
@@ -425,30 +429,21 @@ Please be sure to order a board that works in the country where you want to depl
 | Band 2 (1900 MHz) | &check; | &check; | &nbsp; |
 |Power Class | Class 3 (24 dBm) |Class 3 (24 dBm) | Class 3 (24 dBm) |
 
-
-
-#### LTE cellular characteristics for the SARA-R410M-02-B module
+#### u-blox SARA-R410M-02B or R410M-03
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 ---
@@ -792,13 +787,21 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | NRND-US | |
-| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND-US | ELC404TY|
 | ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | NRND-US | |
-| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | Discontinued | ELC314TY|
-| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | Discontinued | ELC314TY|
-| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | Discontinued | ELC314TY|
-| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Discontinued | ELC404EA|
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | Deprecated | |
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | ELC404EA|
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | ELC404TY|
+| ASSET2GV2 | Asset Tracker 2G | Global | G350 |  | End of life | |
+| ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Americas | U260 |  | End of life | |
+| ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | EMEAA | U270 |  | End of life | |
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 |  | End of life | ELC314TY|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 |  | End of life | ELC314TY|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 |  | End of life | ELC314TY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 |  | End of life | ELC314TY|
+| E350KIT | Electron 2G Kit (Global) | Global | G350 |  | End of life | |
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | End of life | ELC314TY|
+| SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 |  | End of life | |
+| SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | EMEAA | U270 |  | End of life | |
 
 
 {{!-- END do not edit content above, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
@@ -940,6 +943,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v007 | 16-Sep-2020 | RK | Added power consumption information |
 | v008 | 24-Feb-2021 | RK | Added ELC314 information |
 | v009 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| v010 | 14-Mar-2022 | RK | Added deprecation warning |
 
 ## Known Errata
 
