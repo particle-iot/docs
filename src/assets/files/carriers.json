@@ -22041,7 +22041,7 @@
             "B404"
           ],
           "region": "noram",
-          "lifecycle": "GA",
+          "lifecycle": "NRND",
           "sim": 4,
           "simPlan": 40,
           "modem": "R410"
@@ -22102,7 +22102,7 @@
             "BRN404"
           ],
           "region": "noram",
-          "lifecycle": "GA",
+          "lifecycle": "NRND",
           "sim": 4,
           "simPlan": 40,
           "modem": "R410"

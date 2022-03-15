@@ -25,11 +25,11 @@ The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). I
 
 It is a SMD module designed to be reflowed to your own custom base board and is the same size and has a nearly identical pin-out to the E Series module.
 
-It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
-
 If you are migrating from the E402 or E404, there is a [migration guide](/datasheets/electron/e404x-migration-guide) available. 
 
 There will not be 2G/3G "X" version E Series; there will not be an E310X or E314X. 
+
+New designs should use the B404X (B Series SoM) instead of the E404X.
 
 ### Features
 
@@ -383,7 +383,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
-{{imageOverlay src="/assets/images/e-series/illustrations/e404x-pinout-v004.png" alt="Pinout" class="full-width"}}
+{{imageOverlay src="/assets/images/e-series/illustrations/e404x-pinmap.png" alt="Pinout" class="full-width"}}
 
 
 ### Pin description
