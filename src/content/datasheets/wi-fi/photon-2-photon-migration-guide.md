@@ -14,7 +14,7 @@ This is an preliminary pre-release migration guide and the contents are subject 
 {{box op="end"}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/photon2-photon-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/photon-2-photon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 The Photon 2 is a development module with a microcontroller and Wi-Fi networking. The form-factor is similar to the Argon (Adafruit Feather), but
@@ -24,7 +24,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 | Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
-| User application size | 1024 KB (1 MB) | 128 KB | 256 KB |
+| User application size | 2048 KB (2 MB) | 128 KB | 256 KB |
 | Flash file system<sup>1</sup> |  2 MB | | 2 MB |
 | | | | |
 | MCU | RTL8721DM | STM32F205RGY6 | nRF52840 |
@@ -220,6 +220,8 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
 
 On the Photon 2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, Photon 2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for Photon 2 pin D1 (hardware pin 35), which has the alias A4.
+
+The `setADCSampleTime()` function is not supported on the Photon 2 or P2.
 
 ### PWM (Pulse-width modulation)
 

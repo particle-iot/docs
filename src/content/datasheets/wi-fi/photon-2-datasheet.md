@@ -14,7 +14,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 {{box op="end"}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/photon2-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/photon-2-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 ![Photon 2 Rendering](/assets/images/photon2-rendering.png)
@@ -37,7 +37,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
   - ARM Cortex M4F CPU, 200 MHz
-- 1024 KB (1 MB) user application maximum size
+- 2048 KB (2 MB) user application maximum size
 - 2 MB flash file system
 - FCC, IC, and CE certified
 

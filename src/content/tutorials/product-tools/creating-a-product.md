@@ -396,7 +396,7 @@ The device lists can be confusing because there are multiple device lists with s
 
 When you first open the console the sandbox device view is what you see. 
 
-{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac12000 --}}
 ![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
 When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your growth or enterprise organization. 

@@ -126,7 +126,7 @@ module.exports = function(options) {
                 console.log('blurb ' + blurbId + ' is changed in multiple files!');
                 for(const loc of blurbInfo[blurbId].locations) {
                     if (loc.isChanged) {
-                        console.log('  ' + loc.fileName + ' at ' + loc.start);
+                        console.log('  ' + loc.fileName + ' at ' + loc.start + ' hash=' + loc.hash);
                         loc.isChanged = false;
                     }
                 }

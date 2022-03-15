@@ -14,7 +14,7 @@ This is an preliminary pre-release migration guide and the contents are subject 
 {{box op="end"}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/photon2-argon-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/photon-2-argon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 The Photon 2 is a development module with a microcontroller and Wi-Fi networking. The form-factor is similar to the Argon (Adafruit Feather), but
@@ -24,7 +24,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 | Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
-| User application size | 1024 KB (1 MB) | 128 KB | 256 KB |
+| User application size | 2048 KB (2 MB) | 128 KB | 256 KB |
 | Flash file system<sup>1</sup> |  2 MB | | 2 MB |
 | | | | |
 | MCU | RTL8721DM | STM32F205RGY6 | nRF52840 |
@@ -176,6 +176,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 - Pin A0, A1, A2, and A5 are analog inputs on both the Argon and Photon 2.
 - Pins A3 and A4 are only analog inputs on the Argon.
 - Pins D0 and D1 can also be used as analog inputs on the Photon 2. 
+- The `setADCSampleTime()` function is not supported on the Photon 2 or P2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
 

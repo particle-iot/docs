@@ -36,7 +36,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
   - ARM Cortex M4F CPU, 200 MHz
-- 1024 KB (1 MB) user application maximum size
+- 2048 KB (2 MB) user application maximum size
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
