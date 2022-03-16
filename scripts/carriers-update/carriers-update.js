@@ -2341,6 +2341,24 @@ const { option } = require('yargs');
             ]
         },
         {
+            path: '/datasheets/boron/b-series-boron-migration-guide.md',
+            updates: [
+                {
+                    guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'b series';
+                            },
+                            includeSkus:['M2EVAL'],
+                        }); 
+                    } 
+                },
+            ]
+        },
+        {
             path:'/datasheets/wi-fi/argon-datasheet.md', 
             updates:[
                 {
