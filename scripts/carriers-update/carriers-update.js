@@ -1615,7 +1615,7 @@ const { option } = require('yargs');
         
         if (options.style == 'full-comparison') {
 
-            const comparisonTags = [
+            let comparisonTags = [
                 'name',
                 'altName',
                 'desc',
@@ -1636,13 +1636,8 @@ const { option } = require('yargs');
                 'swd'      
             ];
 
-            // TEMPORARY
-            if (mappedPins.length == 0) {
-                console.log('no pins old=' + options.platformOld + ' new=' + options.platformNew);
-            }
-            
-            if (options.platformNew == 'B4xx SoM') {
-                console.log('full-comparison', mappedPins);
+            if (options.showPinNum) {
+                comparisonTags.splice(0, 0, 'num');
             }
 
             for(const m of mappedPins) {
@@ -1678,18 +1673,69 @@ const { option } = require('yargs');
                    }
                 }
 
-                if (hasChanges) {
-                    md += '| | ' + options.platformOld + ' | ' + options.platformNew + ' |\n';
-                    md += '| :--- | :--- | :--- |\n';
-    
+                if (!m.old) {
+                    md += '| | Added to ' + options.platformNew + ' |\n';
+                    md += '| :--- | :--- |\n';
+
                     for(const tag of comparisonTags) {
                         if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
     
-                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + ' | ' + getPinUsage(newPin[tag]) + '|\n';
-    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(newPin[tag]) + '|\n';
                     }    
+
+                }
+                else
+                if (!m.new) {
+                    md += '| | Removed from ' + options.platformOld + ' |\n';
+                    md += '| :--- | :--- |\n';
+
+                    for(const tag of comparisonTags) {
+                        if (!oldPin[tag] && !newPin[tag]) {
+                            continue;
+                        }
+    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + '|\n';
+                    }    
+
+                }
+                else
+                if (hasChanges) {
+                    let tableOptions = {
+                        columns: [],
+                    };
+                    let tableData = [];
+    
+                    tableOptions.columns.push({
+                        key: 'label',
+                        title: ' ',
+                    });
+
+                    tableOptions.columns.push({
+                        key: 'oldFunction',
+                        title: options.platformOld,
+                    });
+
+                    tableOptions.columns.push({
+                        key: 'newFunction',
+                        title: options.platformNew,
+                    });
+    
+                    for(const tag of comparisonTags) {
+                        if (!oldPin[tag] && !newPin[tag]) {
+                            continue;
+                        }
+                        tableData.push({
+                            tag,
+                            label: detailsForTag[tag].label,
+                            oldFunction: getPinUsage(oldPin[tag]),
+                            newFunction: getPinUsage(newPin[tag]),
+                        });
+        
+                    }    
+
+                    md += updater.generateTable(tableOptions, tableData);
                 }
                 else {
                     md += '| | Unchanged between ' + options.platformOld + ' and ' + options.platformNew + ' |\n';
@@ -1704,14 +1750,67 @@ const { option } = require('yargs');
                     }    
 
                 }
- 
+
             }
 
         }
 
         if (options.style == 'port-comparison') {
             // options.port
-            const p1pins = expandMorePins(platformInfoOld.pins);
+
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'oldPinName',
+                title: options.platformOld + ' Pin Name'
+            });    
+            tableOptions.columns.push({
+                key: 'oldPort',
+                title: options.platformOld + ' ' + options.label
+            });    
+            tableOptions.columns.push({
+                key: 'newPinName',
+                title: options.platformNew + ' Pin Name'
+            });    
+            tableOptions.columns.push({
+                key: 'newPort',
+                title: options.platformNew + ' ' + options.label
+            });    
+
+            let tableData = [];
+
+            for(const m of mappedPins) {
+                if ((m.new && m.new[options.port]) || (m.old && m.old[options.port])) {
+                    let rowData = {
+                        num: m.num
+                    };
+                    if (m.old) {
+                        rowData.oldPinName = getPinNameWithAlt(m.old);
+                        rowData.oldPort = portColumnValue(m.old[options.port]);
+                    }
+                    if (m.new) {
+                        rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPort = portColumnValue(m.new[options.port]);
+                    }
+                    tableData.push(rowData);
+                }
+            }            
+
+
+
+            md += updater.generateTable(tableOptions, tableData);
+
+            /*
+                        const p1pins = expandMorePins(platformInfoOld.pins);
             const p2pins = expandMorePins(platformInfoNew.pins);
 
             md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
@@ -1728,6 +1827,7 @@ const { option } = require('yargs');
                 md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
                 md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
             }            
+            */
         }
 
         if (options.style == 'portPins') {
@@ -2388,9 +2488,85 @@ const { option } = require('yargs');
                             style: 'full-comparison',
                             platformNew: 'B4xx SoM',
                             platformOld: 'Boron',
+                            mapBy: 'name',
+                            showPinNum: true,
                         }); 
                     } 
                 },
+                {
+                    guid:'ce9644de-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'db4246c4-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'analogRead',
+                            label: 'ADC',
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                        }); 
+                    }
+                },
+                {
+                    guid:'ef25dc00-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                        }); 
+                    }
+                },
+                {
+                    guid:'49b31eea-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                        }); 
+                    }
+                },
+                {
+                    guid:'09bea7c2-a382-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'i2c',
+                            label: 'I2C',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                        }); 
+                    }
+                },
+
             ]
         },
         {
