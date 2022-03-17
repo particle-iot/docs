@@ -8,7 +8,7 @@ description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3
 # B404X/B404/B402 Datasheet <sup>(015)</sup>
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/b404x-b404-b402-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/b-series/b-series-top.png" ></div>

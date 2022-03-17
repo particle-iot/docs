@@ -589,7 +589,7 @@ In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the
 
 <sup>6</sup>For LTE Cat M1 bands, see [LTE Cat M1](#lte-cat-m1) below.
 
-<sup>7</sup>The Quectel EG91-E modem supports European LTE bands (700, 700, 900, 1800, 2100, and 2600), as well as HSPA/WCDMA 3G (900, 2100) and GSM 2G (900, 1800). See [the datasheet](/datasheets/boron/b523-datasheet/#4g-lte-cellular-characteristics-for-eg91-e) for more information.
+<sup>7</sup>The Quectel EG91-E modem supports European LTE bands (700, 700, 900, 1800, 2100, and 2600), as well as HSPA/WCDMA 3G (900, 2100) and GSM 2G (900, 1800). See [the datasheet](/datasheets/boron/b524-b523-datasheet/#4g-lte-cellular-characteristics-for-eg91-e) for more information.
 
 ### 3rd-party SIM cards
 

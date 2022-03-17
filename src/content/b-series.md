@@ -14,8 +14,8 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**
-- [B402 Datasheet](/datasheets/boron/b402-datasheet/)
-- [B523 Datasheet](/datasheets/boron/b523-datasheet/)
+- [B402 Datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
+- [B523 Datasheet](/datasheets/boron/b524-b523-datasheet/)
 - [Evaluation Board](/datasheets/boron/b-series-eval-board/)
 - [Certification](/datasheets/certifications/certification)
 {{box op="switch"}}

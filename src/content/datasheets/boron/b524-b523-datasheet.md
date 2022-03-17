@@ -8,7 +8,7 @@ description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellul
 # B524/B523 Datasheet <sup>011</sup>
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/b524-b523-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/b-series/b523-top.png" ></div>

@@ -311,8 +311,8 @@ The available models include:
 {{> carrier-family-map family="b series"}}
 
 
-- [B404 datasheet](/datasheets/boron/b402-datasheet/)
-- [B524 datasheet](/datasheets/boron/b523-datasheet/)
+- [B404 datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
+- [B524 datasheet](/datasheets/boron/b524-b523-datasheet/)
 - [B Series evaluation board](/datasheets/boron/b-series-eval-board/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}

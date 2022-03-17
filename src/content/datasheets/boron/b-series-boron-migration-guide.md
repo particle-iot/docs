@@ -51,8 +51,8 @@ The available models include:
 
 ### Datasheets
 
-- [B404X/B4404/B402 datasheet](/datasheets/boron/b402-datasheet/)
-- [B524/B523 datasheet](/datasheets/boron/b523-datasheet/)
+- [B404X/B4404/B402 datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
+- [B524/B523 datasheet](/datasheets/boron/b524-b523-datasheet/)
 - [B Series evaluation board](/datasheets/boron/b-series-eval-board/)
 
 If you want to migrate from the Electron or E Series to the B Series SoM, see [Gen 2 cellular migration](/tutorials/learn-more/gen2-cellular-migration/).

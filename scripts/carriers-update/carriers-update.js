@@ -2318,7 +2318,7 @@ const { option } = require('yargs');
             ]
         },
         {
-            path:'/datasheets/boron/b402-datasheet.md', 
+            path:'/datasheets/boron/b404x-b404-b402-datasheet.md', 
             updates:[
                 {
                     guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
@@ -2343,7 +2343,7 @@ const { option } = require('yargs');
             ]
         },
         {
-            path:'/datasheets/boron/b523-datasheet.md', 
+            path:'/datasheets/boron/b524-b523-datasheet.md', 
             updates:[
                 {
                     guid:'ea841986-76ce-11eb-9439-0242ac130002', 
