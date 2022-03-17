@@ -106,17 +106,17 @@ The following are all SPI-related pins on the E Series and E404X:
 
 | Pin | E Series Pin Name | E Series SPI | E404X Pin Name | E404X SPI |
 | :---: | :--- | :--- | :--- | :--- |
-| 21 | A5 | SPI (MOSI) | A5 | SPI (MOSI) | 
-| 22 | A4 | SPI (MISO) | A4 | SPI (MISO) | 
-| 23 | A3 | SPI (SCK) | A3 | SPI (SCK) | 
-| 24 | A2 | SPI (SS) | A2 | SPI (SS) | 
-| 37 | D5 | SPI1 (SS) | D5 | SPI1 (SS) | 
-| 38 | D4 | SPI1 (SCK) | SWO | &nbsp; | 
-| 39 | D3 | SPI1 (MISO) | NC | &nbsp; | 
-| 40 | D2 | SPI1 (MOSI) | D2 | &nbsp; | 
-| 46 | C3 | SPI2 (SCK) | C3 | SPI1 (SCK) | 
-| 47 | C2 | SPI2 (MISO) | C2 | SPI1 (MISO) | 
-| 48 | C1 | SPI2 (MOSI) | C1 | SPI1 (MOSI) | 
+| 21 | A5 | SPI (MOSI) | A5 | SPI (MOSI) |
+| 22 | A4 | SPI (MISO) | A4 | SPI (MISO) |
+| 23 | A3 | SPI (SCK) | A3 | SPI (SCK) |
+| 24 | A2 | SPI (SS) | A2 | SPI (SS) |
+| 37 | D5 | SPI1 (SS) | D5 | SPI1 (SS) |
+| 38 | D4 | SPI1 (SCK) | SWO | &nbsp; |
+| 39 | D3 | SPI1 (MISO) | NC | &nbsp; |
+| 40 | D2 | SPI1 (MOSI) | D2 | &nbsp; |
+| 46 | C3 | SPI2 (SCK) | C3 | SPI1 (SCK) |
+| 47 | C2 | SPI2 (MISO) | C2 | SPI1 (MISO) |
+| 48 | C1 | SPI2 (MOSI) | C1 | SPI1 (MOSI) |
 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
@@ -140,10 +140,10 @@ The following SPI data rates are available:
 
 | Pin | E Series Pin Name | E Series I2C | E404X Pin Name | E404X I2C |
 | :---: | :--- | :--- | :--- | :--- |
-| 41 | D1 | Wire (SCL) | D1 | Wire (SCL) | 
-| 42 | D0 | Wire (SDA) | D0 | Wire (SDA) | 
-| 44 | C5 | Wire1 (SCL) | C5 | Wire1 (SCL) | 
-| 45 | C4 | Wire1 (SDA) | C4 | Wire1 (SDA) | 
+| 41 | D1 | Wire (SCL) | D1 | Wire (SCL) |
+| 42 | D0 | Wire (SDA) | D0 | Wire (SDA) |
+| 44 | C5 | Wire1 (SCL) | C5 | Wire1 (SCL) |
+| 45 | C4 | Wire1 (SDA) | C4 | Wire1 (SDA) |
 
 
 {{!-- END do not edit content above, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
@@ -176,16 +176,16 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 
 | Pin | E Series Pin Name | E Series Serial | E404X Pin Name | E404X Serial |
 | :---: | :--- | :--- | :--- | :--- |
-| 16 | TX | Serial1 (TX) | TX | Serial1 (TX) | 
-| 17 | RX | Serial1 (RX) | RX | Serial1 (RX) | 
-| 41 | D1 | &nbsp; | D1 | Serial1 (CTS) | 
-| 42 | D0 | &nbsp; | D0 | Serial1 (RTS) | 
-| 46 | C3 | USART4_TX | C3 | &nbsp; | 
-| 47 | C2 | USART4_RX | C2 | &nbsp; | 
-| 48 | C1 | USART5_TX | C1 | &nbsp; | 
-| 49 | C0 | USART5_RX | C0 | &nbsp; | 
-| 52 | RGBB | Serial2 (RX) | RGBB | &nbsp; | 
-| 53 | RGBG | Serial2 (TX) | RGBG | &nbsp; | 
+| 16 | TX | Serial1 (TX) | TX | Serial1 (TX) |
+| 17 | RX | Serial1 (RX) | RX | Serial1 (RX) |
+| 41 | D1 | &nbsp; | D1 | Serial1 (CTS) |
+| 42 | D0 | &nbsp; | D0 | Serial1 (RTS) |
+| 46 | C3 | USART4_TX | C3 | &nbsp; |
+| 47 | C2 | USART4_RX | C2 | &nbsp; |
+| 48 | C1 | USART5_TX | C1 | &nbsp; |
+| 49 | C0 | USART5_RX | C0 | &nbsp; |
+| 52 | RGBB | Serial2 (RX) | RGBB | &nbsp; |
+| 53 | RGBG | Serial2 (TX) | RGBG | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -241,18 +241,18 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 | Pin | E Series Pin Name | E Series ADC | E404X Pin Name | E404X ADC |
 | :---: | :--- | :--- | :--- | :--- |
-| 19 | WKP / A7 | &check; | A7 / WKP | &check; | 
-| 20 | DAC / A6 | &check; | A6 | &check; | 
-| 21 | A5 | &check; | A5 | &check; | 
-| 22 | A4 | &check; | A4 | &check; | 
-| 23 | A3 | &check; | A3 | &check; | 
-| 24 | A2 | &check; | A2 | &check; | 
-| 25 | A1 | &check; | A1 | &check; | 
-| 26 | A0 | &check; | A0 | &check; | 
-| 28 | B5 | &check; | NC | &nbsp; | 
-| 29 | B4 | &check; | NC | &nbsp; | 
-| 30 | B3 | &check; | B3 | &nbsp; | 
-| 31 | B2 | &check; | B2 | &nbsp; | 
+| 19 | WKP / A7 | &check; | A7 / WKP | &check; |
+| 20 | DAC / A6 | &check; | A6 | &check; |
+| 21 | A5 | &check; | A5 | &check; |
+| 22 | A4 | &check; | A4 | &check; |
+| 23 | A3 | &check; | A3 | &check; |
+| 24 | A2 | &check; | A2 | &check; |
+| 25 | A1 | &check; | A1 | &check; |
+| 26 | A0 | &check; | A0 | &check; |
+| 28 | B5 | &check; | NC | &nbsp; |
+| 29 | B4 | &check; | NC | &nbsp; |
+| 30 | B3 | &check; | B3 | &nbsp; |
+| 31 | B2 | &check; | B2 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
@@ -268,24 +268,24 @@ The pins that support PWM are different on the E Series and E404X.
 
 | Pin | E Series Pin Name | E Series PWM | E404X Pin Name | E404X PWM |
 | :---: | :--- | :--- | :--- | :--- |
-| 16 | TX | &check; | TX | &check; | 
-| 17 | RX | &check; | RX | &check; | 
-| 19 | WKP / A7 | &check; | A7 / WKP | &nbsp; | 
-| 21 | A5 | &check; | A5 | &check; | 
-| 22 | A4 | &check; | A4 | &check; | 
-| 23 | A3 | &nbsp; | A3 | &check; | 
-| 24 | A2 | &nbsp; | A2 | &check; | 
-| 30 | B3 | &check; | B3 | &check; | 
-| 31 | B2 | &check; | B2 | &check; | 
-| 32 | B1 | &check; | B1 | &nbsp; | 
-| 33 | B0 | &check; | B0 | &nbsp; | 
-| 39 | D3 | &check; | NC | &nbsp; | 
-| 40 | D2 | &check; | D2 | &check; | 
-| 41 | D1 | &check; | D1 | &check; | 
-| 42 | D0 | &check; | D0 | &check; | 
-| 44 | C5 | &check; | C5 | &nbsp; | 
-| 45 | C4 | &check; | C4 | &nbsp; | 
-| 49 | C0 | &nbsp; | C0 | &check; | 
+| 16 | TX | &check; | TX | &check; |
+| 17 | RX | &check; | RX | &check; |
+| 19 | WKP / A7 | &check; | A7 / WKP | &nbsp; |
+| 21 | A5 | &check; | A5 | &check; |
+| 22 | A4 | &check; | A4 | &check; |
+| 23 | A3 | &nbsp; | A3 | &check; |
+| 24 | A2 | &nbsp; | A2 | &check; |
+| 30 | B3 | &check; | B3 | &check; |
+| 31 | B2 | &check; | B2 | &check; |
+| 32 | B1 | &check; | B1 | &nbsp; |
+| 33 | B0 | &check; | B0 | &nbsp; |
+| 39 | D3 | &check; | NC | &nbsp; |
+| 40 | D2 | &check; | D2 | &check; |
+| 41 | D1 | &check; | D1 | &check; |
+| 42 | D0 | &check; | D0 | &check; |
+| 44 | C5 | &check; | C5 | &nbsp; |
+| 45 | C4 | &check; | C4 | &nbsp; |
+| 49 | C0 | &nbsp; | C0 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -305,8 +305,8 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 | Pin | E Series Pin Name | E Series DAC | E404X Pin Name | E404X DAC |
 | :---: | :--- | :--- | :--- | :--- |
-| 20 | DAC / A6 | &check; | A6 | &nbsp; | 
-| 23 | A3 | &check; | A3 | &nbsp; | 
+| 20 | DAC / A6 | &check; | A6 | &nbsp; |
+| 23 | A3 | &check; | A3 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
@@ -339,10 +339,10 @@ The E series supported CAN on pins D1/D2 or C4/C5. There is no CAN on the E404X 
 
 | Pin | E Series Pin Name | E Series CAN | E404X Pin Name | E404X CAN |
 | :---: | :--- | :--- | :--- | :--- |
-| 40 | D2 | CAN2_RX | D2 | &nbsp; | 
-| 41 | D1 | CAN2_TX | D1 | &nbsp; | 
-| 44 | C5 | CAN1_RX | C5 | &nbsp; | 
-| 45 | C4 | CAN1_TX | C4 | &nbsp; | 
+| 40 | D2 | CAN2_RX | D2 | &nbsp; |
+| 41 | D1 | CAN2_TX | D1 | &nbsp; |
+| 44 | C5 | CAN1_RX | C5 | &nbsp; |
+| 45 | C4 | CAN1_TX | C4 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
@@ -366,9 +366,9 @@ Unlike the E Series module, the E404X SWD pins are dedicated and cannot be used 
 
 | Pin | E Series Pin Name | E Series SWD | E404X Pin Name | E404X SWD |
 | :---: | :--- | :--- | :--- | :--- |
-| 35 | D7 | SWDIO | SWDIO | SWDIO | 
-| 36 | D6 | SWCLK | SWDCLK | SWCLK | 
-| 38 | D4 | &nbsp; | SWO | SWO | 
+| 35 | D7 | SWDIO | SWDIO | SWDIO |
+| 36 | D6 | SWCLK | SWDCLK | SWCLK |
+| 38 | D4 | &nbsp; | SWO | SWO |
 
 
 {{!-- END do not edit content above, it is automatically generated b90ca6ee-1877-4f05-a3bd-b073d768e54d --}}
@@ -383,11 +383,11 @@ Pin D5 (module pin 37), however, is available for GPIO as it is not NC and not u
 
 | Pin | E Series Pin Name | E Series JTAG | E404X Pin Name | E404X JTAG |
 | :---: | :--- | :--- | :--- | :--- |
-| 35 | D7 | JTAG TMS | SWDIO | &nbsp; | 
-| 36 | D6 | JTAG TCK | SWDCLK | &nbsp; | 
-| 37 | D5 | JTAG TDI | D5 | &nbsp; | 
-| 38 | D4 | JTAG TDO | SWO | &nbsp; | 
-| 39 | D3 | JTAG RST | NC | &nbsp; | 
+| 35 | D7 | JTAG TMS | SWDIO | &nbsp; |
+| 36 | D6 | JTAG TCK | SWDCLK | &nbsp; |
+| 37 | D5 | JTAG TDI | D5 | &nbsp; |
+| 38 | D4 | JTAG TDO | SWO | &nbsp; |
+| 39 | D3 | JTAG RST | NC | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 2767a61d-eba6-4720-8c91-869be322880f --}}
@@ -473,10 +473,10 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 8 (PMID)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | PMID | PMID|
-| Description | Connected to the PMID pin of the PMIC | Connected to the PMID pin of the PMIC (may change)|
+| Pin Name | PMID | PMID |
+| Description | Connected to the PMID pin of the PMIC | Connected to the PMID pin of the PMIC (may change) |
 #### Module Pin 9 (3V3)
 
 | | Unchanged between E Series and E404X |
@@ -485,16 +485,16 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input.|
 #### Module Pin 10
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | VDDA | NC|
-| Description | Power input for ADC. Normally connected to 3V3. Must always be within 300 mV of 3V3. | Do not connect to anything|
+| Pin Name | VDDA | NC |
+| Description | Power input for ADC. Normally connected to 3V3. Must always be within 300 mV of 3V3. | Do not connect to anything |
 #### Module Pin 11
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | VBAT | NC|
-| Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. | Do not connect to anything|
+| Pin Name | VBAT | NC |
+| Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. | Do not connect to anything |
 #### Module Pin 12 (GND)
 
 | | Unchanged between E Series and E404X |
@@ -503,18 +503,18 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 13 (USBDATA+)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | USBDATA+ | USBDATA+|
-| Description | USB Data+ | USB Data+. Cannot be used as GPIO.|
-| Input is 5V Tolerant | Yes | Yes|
+| Pin Name | USBDATA+ | USBDATA+ |
+| Description | USB Data+ | USB Data+. Cannot be used as GPIO. |
+| Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 14 (USBDATA-)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | USBDATA- | USBDATA-|
-| Description | USB Data- | USB Data-. Cannot be used as GPIO.|
-| Input is 5V Tolerant | Yes | Yes|
+| Pin Name | USBDATA- | USBDATA- |
+| Description | USB Data- | USB Data-. Cannot be used as GPIO. |
+| Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 15 (GND)
 
 | | Unchanged between E Series and E404X |
@@ -523,30 +523,30 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 16 (TX)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | TX | TX|
-| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO, PWM.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | Yes|
-| Supports tone | Yes | Yes|
-| UART serial | TX. Use Serial1 object. | TX. Use Serial1 object.|
-| Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | TX | TX |
+| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO, PWM. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
+| UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
+| Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 17 (RX)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | RX | RX|
-| Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO, PWM.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | Yes|
-| Supports tone | Yes | Yes|
-| UART serial | RX. Use Serial1 object. | RX. Use Serial1 object.|
-| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | Yes|
+| Pin Name | RX | RX |
+| Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO, PWM. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
+| UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
+| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 18 (GND)
 
 | | Unchanged between E Series and E404X |
@@ -555,108 +555,108 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 19
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | WKP | A7|
-| Pin Alternate Name | A7 | WKP|
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 analog in, WKP (wakeup), GPIO.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | No|
-| Supports tone | Yes | No|
-| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | WKP | A7 |
+| Pin Alternate Name | A7 | WKP |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 analog in, WKP (wakeup), GPIO. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
+| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 20
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | DAC | A6|
-| Pin Alternate Name | A6 | n/a|
-| Description | DAC/A6 True analog out, analog in, GPIO. | A6 analog in, GPIO.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports analogWrite (DAC) | Yes | No|
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
+| Pin Name | DAC | A6 |
+| Pin Alternate Name | A6 | n/a |
+| Description | DAC/A6 True analog out, analog in, GPIO. | A6 analog in, GPIO. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (DAC) | Yes | No |
+| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 #### Module Pin 21 (A5)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | A5 | A5|
-| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, SPI MOSI, PWM.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes|
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes|
-| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object.|
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | A5 | A5 |
+| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, SPI MOSI, PWM. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
+| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
+| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 22 (A4)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | A4 | A4|
-| Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO, SPI MISO, PWM.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | Yes|
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | Yes|
-| SPI interface | MISO. Use SPI object. | MISO. Use SPI object.|
-| Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | A4 | A4 |
+| Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO, SPI MISO, PWM. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
+| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | Yes |
+| SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 23 (A3)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | A3 | A3|
-| Description | A3 True analog out, analog in, GPIO. | A3 analog in, GPIO, SPI SCK, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports analogWrite (DAC) | Yes | No|
-| Supports analogWrite (PWM) | No | Yes|
-| Supports tone | No | Yes|
-| SPI interface | SCK. Use SPI object. | SCK. Use SPI object.|
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
+| Pin Name | A3 | A3 |
+| Description | A3 True analog out, analog in, GPIO. | A3 analog in, GPIO, SPI SCK, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (DAC) | Yes | No |
+| Supports analogWrite (PWM) | No | Yes |
+| Supports tone | No | Yes |
+| SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 #### Module Pin 24 (A2)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | A2 | A2|
-| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO, SPI SS, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports analogWrite (PWM) | No | Yes|
-| Supports tone | No | Yes|
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.|
-| Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | A2 | A2 |
+| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO, SPI SS, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (PWM) | No | Yes |
+| Supports tone | No | Yes |
+| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
+| Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 25 (A1)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | A1 | A1|
-| Description | A1 Analog in, GPIO | A1 Analog in, GPIO|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | A1 | A1 |
+| Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 26 (A0)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | A0 | A0|
-| Description | A0 Analog in, GPIO | A0 Analog in, GPIO|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | Yes|
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | A0 | A0 |
+| Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | Yes |
+| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 27 (GND)
 
 | | Unchanged between E Series and E404X |
@@ -665,76 +665,76 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 28
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | B5 | NC|
-| Description | B5 Analog in, GPIO | Do not connect to anything|
-| Supports digitalRead | Yes | n/a|
-| Supports digitalWrite | Yes | n/a|
-| Supports analogRead | Yes | n/a|
-| Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | n/a|
-| Input is 5V Tolerant | Yes | n/a|
+| Pin Name | B5 | NC |
+| Description | B5 Analog in, GPIO | Do not connect to anything |
+| Supports digitalRead | Yes | n/a |
+| Supports digitalWrite | Yes | n/a |
+| Supports analogRead | Yes | n/a |
+| Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | n/a |
+| Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 29
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | B4 | NC|
-| Description | B4 Analog in, GPIO | Do not connect to anything|
-| Supports digitalRead | Yes | n/a|
-| Supports digitalWrite | Yes | n/a|
-| Supports analogRead | Yes | n/a|
-| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | n/a|
-| Input is 5V Tolerant | Yes | n/a|
+| Pin Name | B4 | NC |
+| Description | B4 Analog in, GPIO | Do not connect to anything |
+| Supports digitalRead | Yes | n/a |
+| Supports digitalWrite | Yes | n/a |
+| Supports analogRead | Yes | n/a |
+| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | n/a |
+| Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 30 (B3)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | B3 | B3|
-| Description | B3, analog in, GPIO, PWM | B3, GPIO, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | No|
-| Supports analogWrite (PWM) | Yes | Yes|
-| Supports tone | Yes | Yes|
-| Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | B3 | B3 |
+| Description | B3, analog in, GPIO, PWM | B3, GPIO, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | No |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
+| Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (B2)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | B2 | B2|
-| Description | B2, analog in, GPIO, PWM | B2, GPIO, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogRead | Yes | No|
-| Supports analogWrite (PWM) | Yes | Timer is shared with RGB LED; duty cycle can be set but not frequency.|
-| Supports tone | Yes | No|
-| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | B2 | B2 |
+| Description | B2, analog in, GPIO, PWM | B2, GPIO, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | No |
+| Supports analogWrite (PWM) | Yes | Timer is shared with RGB LED; duty cycle can be set but not frequency. |
+| Supports tone | Yes | No |
+| Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 32 (B1)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | B1 | B1|
-| Description | B1, GPIO, PWM | B1, GPIO|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | No|
-| Supports tone | Yes | No|
-| Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | B1 | B1 |
+| Description | B1, GPIO, PWM | B1, GPIO |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
+| Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 33 (B0)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | B0 | B0|
-| Description | B0, GPIO, PWM | B0, GPIO|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | No|
-| Supports tone | Yes | No|
-| Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | B0 | B0 |
+| Description | B0, GPIO, PWM | B0, GPIO |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
+| Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 34 (GND)
 
 | | Unchanged between E Series and E404X |
@@ -743,113 +743,113 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 35
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D7 | SWDIO|
-| Description | D7 GPIO | SWDIO for JTAG/SWD debugger. Internal pull-up. Not GPIO.|
-| Supports digitalRead | Yes | No|
-| Supports digitalWrite | Yes | No|
-| Supports attachInterrupt | No. Shared with BAT_INT_PC13 | No|
-| Input is 5V Tolerant | Yes | No|
-| JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a|
-| SWD interface | SWDIO. 40K pull-up at boot. | SWDIO|
+| Pin Name | D7 | SWDIO |
+| Description | D7 GPIO | SWDIO for JTAG/SWD debugger. Internal pull-up. Not GPIO. |
+| Supports digitalRead | Yes | No |
+| Supports digitalWrite | Yes | No |
+| Supports attachInterrupt | No. Shared with BAT_INT_PC13 | No |
+| Input is 5V Tolerant | Yes | No |
+| JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
+| SWD interface | SWDIO. 40K pull-up at boot. | SWDIO |
 #### Module Pin 36
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D6 | SWDCLK|
-| Description | D6 GPIO | SWCLK for JTAG/SWD debugger. Internal pull-down. Not GPIO.|
-| Supports digitalRead | Yes | No|
-| Supports digitalWrite | Yes | No|
-| Supports attachInterrupt | Yes | No|
-| Input is 5V Tolerant | Yes | No|
-| JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a|
-| SWD interface | SWCLK. 40K pull-down at boot. | SWCLK|
+| Pin Name | D6 | SWDCLK |
+| Description | D6 GPIO | SWCLK for JTAG/SWD debugger. Internal pull-down. Not GPIO. |
+| Supports digitalRead | Yes | No |
+| Supports digitalWrite | Yes | No |
+| Supports attachInterrupt | Yes | No |
+| Input is 5V Tolerant | Yes | No |
+| JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
+| SWD interface | SWCLK. 40K pull-down at boot. | SWCLK |
 #### Module Pin 37 (D5)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D5 | D5|
-| Description | D5 GPIO, SPI1 | D5 GPIO, SPI1 SS|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.|
-| Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins.|
-| I2S interface | I2S3_WS | n/a|
-| Input is 5V Tolerant | Yes | No|
-| JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a|
+| Pin Name | D5 | D5 |
+| Description | D5 GPIO, SPI1 | D5 GPIO, SPI1 SS |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
+| Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
+| I2S interface | I2S3_WS | n/a |
+| Input is 5V Tolerant | Yes | No |
+| JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 #### Module Pin 38
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D4 | SWO|
-| Description | D4 GPIO, SPI1 | SWO for JTAG/SWD debugger. Not GPIO.|
-| Supports digitalRead | Yes | No|
-| Supports digitalWrite | Yes | No|
-| SPI interface | SCK. Use SPI1 object. | n/a|
-| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | No|
-| I2S interface | I2S3_SD | n/a|
-| Input is 5V Tolerant | Yes | No|
-| JTAG interface | JTAG TDO. Floating at boot. | n/a|
-| SWD interface | n/a | SWO|
+| Pin Name | D4 | SWO |
+| Description | D4 GPIO, SPI1 | SWO for JTAG/SWD debugger. Not GPIO. |
+| Supports digitalRead | Yes | No |
+| Supports digitalWrite | Yes | No |
+| SPI interface | SCK. Use SPI1 object. | n/a |
+| Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | No |
+| I2S interface | I2S3_SD | n/a |
+| Input is 5V Tolerant | Yes | No |
+| JTAG interface | JTAG TDO. Floating at boot. | n/a |
+| SWD interface | n/a | SWO |
 #### Module Pin 39
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D3 | NC|
-| Description | D3 GPIO, SPI1 | Do not connect to anything|
-| Supports digitalRead | Yes | n/a|
-| Supports digitalWrite | Yes | n/a|
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | n/a|
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | n/a|
-| SPI interface | MISO. Use SPI1 object. | n/a|
-| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | n/a|
-| Input is 5V Tolerant | Yes | n/a|
-| JTAG interface | JTAG RST. 40K pull-up at boot. | n/a|
+| Pin Name | D3 | NC |
+| Description | D3 GPIO, SPI1 | Do not connect to anything |
+| Supports digitalRead | Yes | n/a |
+| Supports digitalWrite | Yes | n/a |
+| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | n/a |
+| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | n/a |
+| SPI interface | MISO. Use SPI1 object. | n/a |
+| Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | n/a |
+| Input is 5V Tolerant | Yes | n/a |
+| JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 40 (D2)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D2 | D2|
-| Description | D2 GPIO, SPI1, CAN | D2 GPIO, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes|
-| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes|
-| SPI interface | MOSI. Use SPI1 object. | n/a|
-| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| CAN interface | CAN2_RX | n/a|
-| I2S interface | I2S3_SD | n/a|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | D2 | D2 |
+| Description | D2 GPIO, SPI1, CAN | D2 GPIO, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
+| Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
+| SPI interface | MOSI. Use SPI1 object. | n/a |
+| Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| CAN interface | CAN2_RX | n/a |
+| I2S interface | I2S3_SD | n/a |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 41 (D1)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D1 | D1|
-| Description | D0 GPIO, I2C, CAN | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | Yes|
-| Supports tone | Yes | Yes|
-| UART serial | n/a | CTS flow control (optional). Use Serial1 object.|
-| I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.|
-| Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| CAN interface | CAN2_TX | n/a|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | D1 | D1 |
+| Description | D0 GPIO, I2C, CAN | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
+| UART serial | n/a | CTS flow control (optional). Use Serial1 object. |
+| I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| CAN interface | CAN2_TX | n/a |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 42 (D0)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | D0 | D0|
-| Description | D0 GPIO, I2C | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | Yes | Yes|
-| Supports tone | Yes | Yes|
-| UART serial | n/a | RTS flow control (optional). Use Serial1 object.|
-| I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.|
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | D0 | D0 |
+| Description | D0 GPIO, I2C | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
+| UART serial | n/a | RTS flow control (optional). Use Serial1 object. |
+| I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
+| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (GND)
 
 | | Unchanged between E Series and E404X |
@@ -858,81 +858,81 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 44 (C5)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | C5 | C5|
-| Description | I2C, CAN, GPIO. | I2C Wire1 SCL, not GPIO|
-| Supports digitalRead | Yes | No|
-| Supports digitalWrite | Yes | No|
-| Supports analogWrite (PWM) | Yes | No|
-| Supports tone | Yes | No|
-| I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both! | SCL. Use Wire1 object. Shared with PMIC and Fuel Gauge.|
-| Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | n/a|
-| CAN interface | CAN1_RX | n/a|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | C5 | C5 |
+| Description | I2C, CAN, GPIO. | I2C Wire1 SCL, not GPIO |
+| Supports digitalRead | Yes | No |
+| Supports digitalWrite | Yes | No |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
+| I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both! | SCL. Use Wire1 object. Shared with PMIC and Fuel Gauge. |
+| Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | n/a |
+| CAN interface | CAN1_RX | n/a |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (C4)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | C4 | C4|
-| Description | I2C, CAN, GPIO. | I2C Wire1 SDA, not GPIO|
-| Supports digitalRead | Yes | No|
-| Supports digitalWrite | Yes | No|
-| Supports analogWrite (PWM) | Yes | No|
-| Supports tone | Yes | No|
-| I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both! | SDA. Use Wire1 object. Shared with PMIC and Fuel Gauge.|
-| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | No|
-| CAN interface | CAN1_TX | n/a|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | C4 | C4 |
+| Description | I2C, CAN, GPIO. | I2C Wire1 SDA, not GPIO |
+| Supports digitalRead | Yes | No |
+| Supports digitalWrite | Yes | No |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
+| I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both! | SDA. Use Wire1 object. Shared with PMIC and Fuel Gauge. |
+| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | No |
+| CAN interface | CAN1_TX | n/a |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (C3)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | C3 | C3|
-| Description | Serial4 TX (transmitted data), SPI2, GPIO. | SPI1 SCK, GPIO.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | TX. Use Serial4 object. | n/a|
-| SPI interface | SCK. Use SPI2 object. | SCK. Use SPI1 object.|
-| Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | C3 | C3 |
+| Description | Serial4 TX (transmitted data), SPI2, GPIO. | SPI1 SCK, GPIO. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| UART serial | TX. Use Serial4 object. | n/a |
+| SPI interface | SCK. Use SPI2 object. | SCK. Use SPI1 object. |
+| Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 47 (C2)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | C2 | C2|
-| Description | Serial4 RX (received data), SPI2, GPIO. | SPI1 MISO, GPIO.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | RX. Use Serial4 object. | n/a|
-| SPI interface | MISO. Use SPI2 object. | MISO. Use SPI1 object.|
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | C2 | C2 |
+| Description | Serial4 RX (received data), SPI2, GPIO. | SPI1 MISO, GPIO. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| UART serial | RX. Use Serial4 object. | n/a |
+| SPI interface | MISO. Use SPI2 object. | MISO. Use SPI1 object. |
+| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (C1)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | C1 | C1|
-| Description | Serial5 TX (trasmitted data), SPI2, GPIO. | SPI1 MOSI, GPIO.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| UART serial | TX. Use Serial5 object. | n/a|
-| SPI interface | MOSI. Use SPI2 object. | MOSI. Use SPI1 object.|
-| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | C1 | C1 |
+| Description | Serial5 TX (trasmitted data), SPI2, GPIO. | SPI1 MOSI, GPIO. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| UART serial | TX. Use Serial5 object. | n/a |
+| SPI interface | MOSI. Use SPI2 object. | MOSI. Use SPI1 object. |
+| Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (C0)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | C0 | C0|
-| Description | Serial5 RX (received data), GPIO. | GPIO, PWM.|
-| Supports digitalRead | Yes | Yes|
-| Supports digitalWrite | Yes | Yes|
-| Supports analogWrite (PWM) | No | Yes|
-| Supports tone | No | Yes|
-| UART serial | RX. Use Serial5 object. | n/a|
-| Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins.|
-| Input is 5V Tolerant | Yes | No|
+| Pin Name | C0 | C0 |
+| Description | Serial5 RX (received data), GPIO. | GPIO, PWM. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | No | Yes |
+| Supports tone | No | Yes |
+| UART serial | RX. Use Serial5 object. | n/a |
+| Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (NC)
 
 | | Unchanged between E Series and E404X |
@@ -947,18 +947,18 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 52 (RGBB)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | RGBB | RGBB|
-| Description | RGB LED Blue | RGB LED Blue|
-| UART serial | RX. Use Serial2 object. | n/a|
+| Pin Name | RGBB | RGBB |
+| Description | RGB LED Blue | RGB LED Blue |
+| UART serial | RX. Use Serial2 object. | n/a |
 #### Module Pin 53 (RGBG)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | RGBG | RGBG|
-| Description | RGB LED Green | RGB LED Green|
-| UART serial | TX. Use Serial2 object. | n/a|
+| Pin Name | RGBG | RGBG |
+| Description | RGB LED Green | RGB LED Green |
+| UART serial | TX. Use Serial2 object. | n/a |
 #### Module Pin 54 (RGBR)
 
 | | Unchanged between E Series and E404X |
@@ -967,11 +967,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | RGB LED Red|
 #### Module Pin 55 (MODE)
 
-| | E Series | E404X |
+|   | E Series | E404X |
 | :--- | :--- | :--- |
-| Pin Name | MODE | MODE|
-| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN.|
-| I2S interface | I2S3_MCK | n/a|
+| Pin Name | MODE | MODE |
+| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
+| I2S interface | I2S3_MCK | n/a |
 #### Module Pin 56 (RESET)
 
 | | Unchanged between E Series and E404X |

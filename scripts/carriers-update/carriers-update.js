@@ -1449,6 +1449,9 @@ const { option } = require('yargs');
         }
 
 
+        const newTitle = options.platformNewTitle ? options.platformNewTitle : options.platformNew;
+        const oldTitle = options.platformOldTitle ? options.platformOldTitle : options.platformOld;
+
         let detailsForTag = {};
         for(const d of updater.pinInfo.details) {
             detailsForTag[d.tag] = d;
@@ -1615,7 +1618,7 @@ const { option } = require('yargs');
         
         if (options.style == 'full-comparison') {
 
-            const comparisonTags = [
+            let comparisonTags = [
                 'name',
                 'altName',
                 'desc',
@@ -1635,6 +1638,10 @@ const { option } = require('yargs');
                 'jtag',
                 'swd'      
             ];
+
+            if (options.showPinNum) {
+                comparisonTags.splice(0, 0, 'num');
+            }
 
             for(const m of mappedPins) {
                 let oldPin = m.old;
@@ -1669,21 +1676,22 @@ const { option } = require('yargs');
                    }
                 }
 
-                if (hasChanges) {
-                    md += '| | ' + options.platformOld + ' | ' + options.platformNew + ' |\n';
-                    md += '| :--- | :--- | :--- |\n';
-    
+                if (!m.old) {
+                    md += '| | Added to ' + newTitle + ' |\n';
+                    md += '| :--- | :--- |\n';
+
                     for(const tag of comparisonTags) {
                         if (!oldPin[tag] && !newPin[tag]) {
                             continue;
                         }
     
-                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + ' | ' + getPinUsage(newPin[tag]) + '|\n';
-    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(newPin[tag]) + '|\n';
                     }    
+
                 }
-                else {
-                    md += '| | Unchanged between ' + options.platformOld + ' and ' + options.platformNew + ' |\n';
+                else
+                if (!m.new) {
+                    md += '| | Removed from ' + oldTitle + ' |\n';
                     md += '| :--- | :--- |\n';
 
                     for(const tag of comparisonTags) {
@@ -1695,30 +1703,114 @@ const { option } = require('yargs');
                     }    
 
                 }
- 
+                else
+                if (hasChanges) {
+                    let tableOptions = {
+                        columns: [],
+                    };
+                    let tableData = [];
+    
+                    tableOptions.columns.push({
+                        key: 'label',
+                        title: ' ',
+                    });
+
+                    tableOptions.columns.push({
+                        key: 'oldFunction',
+                        title: oldTitle,
+                    });
+
+                    tableOptions.columns.push({
+                        key: 'newFunction',
+                        title: newTitle,
+                    });
+    
+                    for(const tag of comparisonTags) {
+                        if (!oldPin[tag] && !newPin[tag]) {
+                            continue;
+                        }
+                        tableData.push({
+                            tag,
+                            label: detailsForTag[tag].label,
+                            oldFunction: getPinUsage(oldPin[tag]),
+                            newFunction: getPinUsage(newPin[tag]),
+                        });
+        
+                    }    
+
+                    md += updater.generateTable(tableOptions, tableData);
+                }
+                else {
+                    md += '| | Unchanged between ' + oldTitle + ' and ' + newTitle + ' |\n';
+                    md += '| :--- | :--- |\n';
+
+                    for(const tag of comparisonTags) {
+                        if (!oldPin[tag] && !newPin[tag]) {
+                            continue;
+                        }
+    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(oldPin[tag]) + '|\n';
+                    }    
+
+                }
+
             }
 
         }
 
         if (options.style == 'port-comparison') {
             // options.port
-            const p1pins = expandMorePins(platformInfoOld.pins);
-            const p2pins = expandMorePins(platformInfoNew.pins);
 
-            md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
-            md += '| :---: | :--- | :--- | :--- | :--- |\n'
+            let tableOptions = {
+                columns: [],
+            };
 
-            for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let p1pin = getPinInfo(p1pins, pinNum);
-                let p2pin = getPinInfo(p2pins, pinNum);
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'oldPinName',
+                title: oldTitle + ' Pin Name'
+            });    
+            tableOptions.columns.push({
+                key: 'oldPort',
+                title: oldTitle + ' ' + options.label
+            });    
+            tableOptions.columns.push({
+                key: 'newPinName',
+                title: newTitle + ' Pin Name'
+            });    
+            tableOptions.columns.push({
+                key: 'newPort',
+                title: newTitle + ' ' + options.label
+            });    
 
-                if (!p1pin[options.port] && !p2pin[options.port]) {
-                    // Neither device supports this port on this pin
-                    continue;
+            let tableData = [];
+
+            for(const m of mappedPins) {
+                if ((m.new && m.new[options.port]) || (m.old && m.old[options.port])) {
+                    let rowData = {
+                        num: m.num
+                    };
+                    if (m.old) {
+                        rowData.oldPinName = getPinNameWithAlt(m.old);
+                        rowData.oldPort = portColumnValue(m.old[options.port]);
+                    }
+                    if (m.new) {
+                        rowData.newPinName = getPinNameWithAlt(m.new);
+                        rowData.newPort = portColumnValue(m.new[options.port]);
+                    }
+                    tableData.push(rowData);
                 }
-                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
-                md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
             }            
+
+
+
+            md += updater.generateTable(tableOptions, tableData);
         }
 
         if (options.style == 'portPins') {
@@ -2338,6 +2430,132 @@ const { option } = require('yargs');
                         }); 
                     } 
                 }
+            ]
+        },
+        {
+            path: '/datasheets/boron/b-series-boron-migration-guide.md',
+            updates: [
+                {
+                    guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',
+                    generatorFn:function() {
+                        return updater.generateSkuList({
+                            onlyGA: true,
+                            columns: ['name', 'desc', 'region', 'lifecycle'],
+                            filterFn: function(skuObj) {
+                                return skuObj.family != 'b series';
+                            },
+                            includeSkus:['M2EVAL'],
+                        }); 
+                    },
+                },
+                {
+                    guid:'945c4c4c-76d1-11eb-9439-0242ac130002',
+                    generatorFn:function() {
+                        return updater.generateCountryList('boron'); 
+                    } 
+                },
+                {
+                    guid:'c9241a2c-76e0-11eb-9439-0242ac130002',
+                    generatorFn:function() {
+                        return updater.generateCountryList('b series', {
+                            groupFn:function(groupObj) {
+                                return groupObj.modem != 'R410';
+                            }
+                        }); 
+                    } 
+                },
+                {
+                    guid:'09a7da10-a5d0-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'full-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            mapBy: 'name',
+                            showPinNum: true,
+                            platformNewTitle: 'B Series SoM',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'ce9644de-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'db4246c4-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'analogRead',
+                            label: 'ADC',
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
+                        }); 
+                    }
+                },
+                {
+                    guid:'ef25dc00-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
+                        }); 
+                    }
+                },
+                {
+                    guid:'49b31eea-a5de-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
+                        }); 
+                    }
+                },
+                {
+                    guid:'09bea7c2-a382-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
+                            port: 'i2c',
+                            label: 'I2C',
+                            useShortName: true,
+                            noPinNumbers: true,
+                            mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
+                        }); 
+                    }
+                },
+
             ]
         },
         {

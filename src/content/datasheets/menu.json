@@ -55,6 +55,11 @@
         "dir": "b-series-eval-board",
         "title": "B Series Evaluation Board",
         "href": "/datasheets/boron/b-series-eval-board/"
+      },
+      {
+        "dir": "b-series-boron-migration-guide",
+        "title": "B Series from Boron Migration Guide",
+        "href": "/datasheets/boron/b-series-boron-migration-guide/"
       }
     ],
     {
