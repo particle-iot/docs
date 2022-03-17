@@ -1391,8 +1391,8 @@ const { option } = require('yargs');
                 for(let pinNum = 1; pinNum <= 72; pinNum++) {
                     let oldPin = getPinInfo(oldPinsExpanded, pinNum);
                     let newPin = getPinInfo(newPinsExpanded, pinNum);
-    
-                    if (!oldPin[options.port] && !newPin[options.port]) {
+                    
+                    if (options.port && !oldPin[options.port] && !newPin[options.port]) {
                         // Neither device supports this port on this pin
                         continue;
                     }
