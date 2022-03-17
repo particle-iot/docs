@@ -1636,6 +1636,15 @@ const { option } = require('yargs');
                 'swd'      
             ];
 
+            // TEMPORARY
+            if (mappedPins.length == 0) {
+                console.log('no pins old=' + options.platformOld + ' new=' + options.platformNew);
+            }
+            
+            if (options.platformNew == 'B4xx SoM') {
+                console.log('full-comparison', mappedPins);
+            }
+
             for(const m of mappedPins) {
                 let oldPin = m.old;
                 let newPin = m.new;
@@ -2353,6 +2362,32 @@ const { option } = require('yargs');
                                 return skuObj.family != 'b series';
                             },
                             includeSkus:['M2EVAL'],
+                        }); 
+                    },
+                },
+                {
+                    guid:'945c4c4c-76d1-11eb-9439-0242ac130002',
+                    generatorFn:function() {
+                        return updater.generateCountryList('boron'); 
+                    } 
+                },
+                {
+                    guid:'c9241a2c-76e0-11eb-9439-0242ac130002',
+                    generatorFn:function() {
+                        return updater.generateCountryList('b series', {
+                            groupFn:function(groupObj) {
+                                return groupObj.modem != 'R410';
+                            }
+                        }); 
+                    } 
+                },
+                {
+                    guid:'09a7da10-a5d0-11ec-b909-0242ac120002', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'full-comparison',
+                            platformNew: 'B4xx SoM',
+                            platformOld: 'Boron',
                         }); 
                     } 
                 },

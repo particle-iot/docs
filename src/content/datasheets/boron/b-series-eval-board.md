@@ -21,7 +21,8 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 ## Description
 
-<div align=center><img src="/assets/images/b-series/b-series-eval-labeled.png"></div>
+{{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
+{{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
 
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
@@ -50,7 +51,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
-
+{{!-- END shared-blurb --}}
 
 ### Jumpers J12
 

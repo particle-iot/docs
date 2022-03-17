@@ -85,6 +85,7 @@ This table just shows the socket-specific pin mapping:
 
 ## Gen 3 SoM Shield
 
+{{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
 The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
@@ -113,6 +114,7 @@ The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) c
 | 68 | PWM1 | D5 | PWM1 | |
 | 70 | PWM2 | D6 | | PWM2 |
 | 72 | PWM3 | D7 | RST1 | |
+{{!-- END shared-blurb --}}
 
 This table just shows the socket-specific pin mapping:
 
