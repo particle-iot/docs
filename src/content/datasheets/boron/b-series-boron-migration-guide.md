@@ -265,7 +265,7 @@ SPI is mostly unchanged between the Boron and B Series SoM. The only difference 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 49b31eea-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron SPI | B4xx SoM Pin Name | B4xx SoM SPI |
+| Boron Pin Name | Boron SPI | B Series SoM Pin Name | B Series SoM SPI |
 | :--- | :--- | :--- | :--- |
 | A5 / D14 | SPI (SS) | A5 / D14 | &nbsp; |
 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
@@ -285,7 +285,7 @@ Hardware serial (UART) ports are unchanged between the Boron and B Series SoM.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ef25dc00-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron Serial | B4xx SoM Pin Name | B4xx SoM Serial |
+| Boron Pin Name | Boron Serial | B Series SoM Pin Name | B Series SoM Serial |
 | :--- | :--- | :--- | :--- |
 | D2 | Serial1 RTS | D2 | Serial1 RTS |
 | D3 | Serial1 CTS | D3 | Serial1 CTS |
@@ -301,7 +301,7 @@ There are two additional ADC inputs on the B Series SoM. These can also be used 
 
 {{!-- BEGIN do not edit content below, it is automatically generated db4246c4-a5de-11ec-b909-0242ac120002 --}}
 
-| Boron Pin Name | Boron ADC | B4xx SoM Pin Name | B4xx SoM ADC |
+| Boron Pin Name | Boron ADC | B Series SoM Pin Name | B Series SoM ADC |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -321,7 +321,7 @@ These are differences in pins that support PWM between the Boron and B Series So
 
 {{!-- BEGIN do not edit content below, it is automatically generated ce9644de-a5de-11ec-b909-0242ac120002' --}}
 
-| Boron Pin Name | Boron PWM | B4xx SoM Pin Name | B4xx SoM PWM |
+| Boron Pin Name | Boron PWM | B Series SoM Pin Name | B Series SoM PWM |
 | :--- | :--- | :--- | :--- |
 | A0 / D19 | &check; | A0 / D19 | &check; |
 | A1 / D18 | &check; | A1 / D18 | &check; |
@@ -372,13 +372,13 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 {{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002--}}
 
 #### 3V3
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 2 | 10 |
 | Pin Name | 3V3 | 3V3 |
 | Description | Regulated 3.3V DC output, maximum load 1000 mA | System power in, supply a fixed 3.0-3.6v power. |
 #### A0
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 5 | 23 |
 | Pin Name | A0 | A0 |
@@ -391,7 +391,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### A1
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 6 | 33 |
 | Pin Name | A1 | A1 |
@@ -404,7 +404,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### A2
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 7 | 35 |
 | Pin Name | A2 | A2 |
@@ -417,7 +417,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### A3
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 8 | 37 |
 | Pin Name | A3 | A3 |
@@ -430,7 +430,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### A4
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 9 | 41 |
 | Pin Name | A4 | A4 |
@@ -443,7 +443,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### A5
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 10 | 43 |
 | Pin Name | A5 | A5 |
@@ -457,7 +457,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### A6
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 45|
 | Pin Name | A6|
@@ -469,7 +469,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A0, A1, A6, and A7 must have the same frequency.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 #### A7
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 47|
 | Pin Name | A7|
@@ -481,34 +481,34 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A0, A1, A6, and A7 must have the same frequency.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 #### AGND
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 39|
 | Pin Name | AGND|
 | Description | Analog Ground.|
 #### Cellular Modem USBD-
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | Cellular Modem USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
 #### Cellular Modem USBD+
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 44|
 | Pin Name | Cellular Modem USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
 #### Cellular Modem VBUS
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 74|
 | Pin Name | Cellular Modem VBUS|
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 16 | 22 |
 | Pin Name | D0 | D0 |
@@ -518,7 +518,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D1
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 17 | 20 |
 | Pin Name | D1 | D1 |
@@ -528,7 +528,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D2
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 18 | 42 |
 | Pin Name | D2 | D2 |
@@ -542,7 +542,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | I2C interface | n/a | SDA. Use Wire1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D22
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 62|
 | Pin Name | D22|
@@ -551,7 +551,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 #### D23
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 64|
 | Pin Name | D23|
@@ -560,7 +560,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
 #### D3
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 19 | 40 |
 | Pin Name | D3 | D3 |
@@ -574,7 +574,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | I2C interface | n/a | SCL. Use Wire1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D4
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 20 | 66 |
 | Pin Name | D4 | D4 |
@@ -586,7 +586,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D5
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 21 | 68 |
 | Pin Name | D5 | D5 |
@@ -597,7 +597,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D6
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 22 | 70 |
 | Pin Name | D6 | D6 |
@@ -608,7 +608,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D7
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 23 | 72 |
 | Pin Name | D7 | D7 |
@@ -618,7 +618,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### D8
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 23 | 48 |
 | Pin Name | D8 | D8 |
@@ -636,7 +636,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 4 | 1 |
 | Pin Name | GND | GND |
@@ -648,7 +648,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 13 | 50 |
 | Pin Name | MISO | MISO |
@@ -659,14 +659,14 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### MODE
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 3 | 32 |
 | Pin Name | MODE | MODE |
 | Pin Alternate Name | D20 | D20 |
 | Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
 #### MOSI
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 12 | 52 |
 | Pin Name | MOSI | MOSI |
@@ -677,55 +677,55 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### NC
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 14|
 | Pin Name | NC|
 | Description | n/a|
 #### NC
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 75|
 | Pin Name | NC|
 | Description | n/a|
 #### NFC1
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 17|
 | Pin Name | NFC1|
 | Description | NFC Antenna 1|
 #### NFC2
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 19|
 | Pin Name | NFC2|
 | Description | NFC Antenna 2|
 #### RGBB
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 65|
 | Pin Name | RGBB|
 | Description | RGB LED Blue|
 #### RGBG
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 63|
 | Pin Name | RGBG|
 | Description | RGB LED Green|
 #### RGBR
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 61|
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### RST
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 1 | 34 |
 | Pin Name | RST | RST |
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset, active low. External pull-up required. |
 #### RX
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 14 | 38 |
 | Pin Name | RX | RX |
@@ -736,7 +736,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | UART serial | RX Use Serial1 object. | RX Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### SCK
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 11 | 54 |
 | Pin Name | SCK | SCK |
@@ -747,31 +747,31 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### SIM_CLK
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 71|
 | Pin Name | SIM_CLK|
 | Description | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
 #### SIM_DATA
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 73|
 | Pin Name | SIM_DATA|
 | Description | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up.|
 #### SIM_RST
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 69|
 | Pin Name | SIM_RST|
 | Description | Leave unconnected, 1.8V/3V SIM Reset Output from R410M.|
 #### SIM_VCC
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 67|
 | Pin Name | SIM_VCC|
 | Description | Leave unconnected, 1.8V/3V SIM Supply Output from R410M.|
 #### TX
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 15 | 36 |
 | Pin Name | TX | TX |
@@ -782,27 +782,27 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | UART serial | TX Use Serial1 object. | TX Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
 #### USBDATA-
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 13|
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### USBDATA+
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 11|
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### VCC
-| | Added to B4xx SoM |
+| | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 2|
 | Pin Name | VCC|
 | Description | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power.|
 #### VUSB
-|   | Boron | B4xx SoM |
+|   | Boron | B Series SoM |
 | :--- | :--- | :--- |
 | Pin Number | 24 | 16 |
 | Pin Name | VUSB | VUSB |
@@ -811,3 +811,29 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+## Software
+
+### Platform ID
+
+| Platform ID | Name | Description |
+| :--- | :--- | :--- |
+| 13 | boron | Boron (all models) |
+| 23 | bsom | B404X, B404, and B402 B Series SoM |
+| 25 | b5som | B524, B523 B Series SoM | 
+
+The platforms IDs of the B Series SoM models vary from the Boron. 
+
+If you have a product based on the Boron, you will need to create a separate product (or two) for devices using the B Series SoM. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
+The reason there are separate platforms for the B4xx and B5xx SoM is that they have different cellular modem manufacturers, u-blox and Quectel, respectively. All Boron models have u-blox cellular modems and thus can share a single platform.
+
+### Third-party libraries
+
+Most third-party libraries are believed to be compatible between the Boron and B Series SoM.
+
+## Version History
+
+| Revision | Date | Author | Comments |
+|:---:|:---:|:---:|:----|
+|   1 | 2022-03-17 | RK | Initial version |

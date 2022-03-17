@@ -1449,6 +1449,9 @@ const { option } = require('yargs');
         }
 
 
+        const newTitle = options.platformNewTitle ? options.platformNewTitle : options.platformNew;
+        const oldTitle = options.platformOldTitle ? options.platformOldTitle : options.platformOld;
+
         let detailsForTag = {};
         for(const d of updater.pinInfo.details) {
             detailsForTag[d.tag] = d;
@@ -1674,7 +1677,7 @@ const { option } = require('yargs');
                 }
 
                 if (!m.old) {
-                    md += '| | Added to ' + options.platformNew + ' |\n';
+                    md += '| | Added to ' + newTitle + ' |\n';
                     md += '| :--- | :--- |\n';
 
                     for(const tag of comparisonTags) {
@@ -1688,7 +1691,7 @@ const { option } = require('yargs');
                 }
                 else
                 if (!m.new) {
-                    md += '| | Removed from ' + options.platformOld + ' |\n';
+                    md += '| | Removed from ' + oldTitle + ' |\n';
                     md += '| :--- | :--- |\n';
 
                     for(const tag of comparisonTags) {
@@ -1714,12 +1717,12 @@ const { option } = require('yargs');
 
                     tableOptions.columns.push({
                         key: 'oldFunction',
-                        title: options.platformOld,
+                        title: oldTitle,
                     });
 
                     tableOptions.columns.push({
                         key: 'newFunction',
-                        title: options.platformNew,
+                        title: newTitle,
                     });
     
                     for(const tag of comparisonTags) {
@@ -1738,7 +1741,7 @@ const { option } = require('yargs');
                     md += updater.generateTable(tableOptions, tableData);
                 }
                 else {
-                    md += '| | Unchanged between ' + options.platformOld + ' and ' + options.platformNew + ' |\n';
+                    md += '| | Unchanged between ' + oldTitle + ' and ' + newTitle + ' |\n';
                     md += '| :--- | :--- |\n';
 
                     for(const tag of comparisonTags) {
@@ -1771,19 +1774,19 @@ const { option } = require('yargs');
             }
             tableOptions.columns.push({
                 key: 'oldPinName',
-                title: options.platformOld + ' Pin Name'
+                title: oldTitle + ' Pin Name'
             });    
             tableOptions.columns.push({
                 key: 'oldPort',
-                title: options.platformOld + ' ' + options.label
+                title: oldTitle + ' ' + options.label
             });    
             tableOptions.columns.push({
                 key: 'newPinName',
-                title: options.platformNew + ' Pin Name'
+                title: newTitle + ' Pin Name'
             });    
             tableOptions.columns.push({
                 key: 'newPort',
-                title: options.platformNew + ' ' + options.label
+                title: newTitle + ' ' + options.label
             });    
 
             let tableData = [];
@@ -1808,26 +1811,6 @@ const { option } = require('yargs');
 
 
             md += updater.generateTable(tableOptions, tableData);
-
-            /*
-                        const p1pins = expandMorePins(platformInfoOld.pins);
-            const p2pins = expandMorePins(platformInfoNew.pins);
-
-            md += '| Pin | ' + options.platformOld + ' Pin Name | ' + options.platformOld + ' ' + options.label + ' | ' + options.platformNew + ' Pin Name | ' + options.platformNew + ' ' + options.label  + ' |\n';
-            md += '| :---: | :--- | :--- | :--- | :--- |\n'
-
-            for(let pinNum = 1; pinNum <= 72; pinNum++) {
-                let p1pin = getPinInfo(p1pins, pinNum);
-                let p2pin = getPinInfo(p2pins, pinNum);
-
-                if (!p1pin[options.port] && !p2pin[options.port]) {
-                    // Neither device supports this port on this pin
-                    continue;
-                }
-                md += '| ' + pinNum + ' | ' + getPinNameWithAlt(p1pin) + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
-                md += getPinNameWithAlt(p2pin) + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
-            }            
-            */
         }
 
         if (options.style == 'portPins') {
@@ -2490,6 +2473,7 @@ const { option } = require('yargs');
                             platformOld: 'Boron',
                             mapBy: 'name',
                             showPinNum: true,
+                            platformNewTitle: 'B Series SoM',
                         }); 
                     } 
                 },
@@ -2504,6 +2488,7 @@ const { option } = require('yargs');
                             label: 'PWM',
                             noPinNumbers: true,
                             mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
                         }); 
                     } 
                 },
@@ -2518,6 +2503,7 @@ const { option } = require('yargs');
                             label: 'ADC',
                             noPinNumbers: true,
                             mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
                         }); 
                     }
                 },
@@ -2533,6 +2519,7 @@ const { option } = require('yargs');
                             useShortName: true,
                             noPinNumbers: true,
                             mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
                         }); 
                     }
                 },
@@ -2548,6 +2535,7 @@ const { option } = require('yargs');
                             useShortName: true,
                             noPinNumbers: true,
                             mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
                         }); 
                     }
                 },
@@ -2563,6 +2551,7 @@ const { option } = require('yargs');
                             useShortName: true,
                             noPinNumbers: true,
                             mapBy: 'name',
+                            platformNewTitle: 'B Series SoM',
                         }); 
                     }
                 },
