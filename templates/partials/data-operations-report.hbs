@@ -1,0 +1,48 @@
+<div class="apiHelperCloudApiDataOperationsReport">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tr class="sandboxOrgRow">
+                    <td class="apiHelperProductSelectorLabel">Sandbox or Organization</td>
+                    <td><select class="sandboxOrgSelect apiHelperSelect">
+                        <option value="0" selected>Sandbox</option>
+                    </select></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr><td colspan="3"><button class="checkAgreementButton">Check Service Agreements</button></td></tr>
+                <tr class="sandboxOrgRow">
+                    <td class="apiHelperProductSelectorLabel">Service agreement</td>
+                    <td><select class="agreementSelect apiHelperSelect"></select></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Start date</td>
+                    <td><input type="date" class="startDate" /></td>
+                    <td class="apiHelperProductSelectorLabel"></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">End date</td>
+                    <td><input type="date" class="endDate" /></td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="3"><button class="apiHelperActionButton" disabled>Request Report</button></td></tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Report ID</td>
+                    <td><input type="text" class="reportIdInput" /></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr><td colspan="3"><button class="checkStatusButton" disabled>Check Report Status</button></td></tr>
+                <tr><td colspan="3"><button class="downloadReportButton" disabled>Download Report</button></td></tr>
+            </table>
+
+            <div class="apiHelperStatus" style="padding-top: 5px;"></div>
+            <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
+            <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>
+        </div>
+    </div>
+    <div class="apiHelperCloudApiOutputJson" style="height:{{height}}px; overflow:scroll; display:none">
+        <pre class="codeboxPre"><code class="codebox lang-json">                
+        </code></pre>
+    </div>
+</div>
+
