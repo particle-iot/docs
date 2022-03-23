@@ -3936,6 +3936,96 @@ $(document).ready(function () {
 
     });    
 
+    $('.apiHelperDataReportNode').each(function() {
+        const thisElem = $(this);   
+
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
+        const openBrowserButtonElem = $(thisElem).find('.openBrowserCommand');
+        const downloadCommandElem = $(thisElem).find('.downloadCommand');
+
+        const projectName = 'node-data-report'
+        const zipUrl = '/assets/files/projects/' + projectName + '.zip';
+
+        let zipFs;
+
+        const getZip = async function() {
+            setStatus('Downloading files...');
+
+            let fileData = {};
+            let fileZE = {};
+
+            zipFs = new zip.fs.FS();
+        
+            try {
+                await zipFs.importHttpContent(zipUrl);
+            }
+            catch(e) {
+                console.log('exception', e);
+                return;
+            }    
+
+            // The top level is the node-data-report directory
+            for(const ze of zipFs.root.children[0].children) {
+                console.log('ze', ze);
+                if (!ze.directory) {
+                    fileData[ze.name] = await ze.getText();
+                    fileZE[ze.name] = ze;
+                }
+            }
+    
+        
+            {
+                // Update the config.js file
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+
+                let newConfig = '';
+                for(let line of fileData['config.js'].split('\n')) {
+                    if (line.includes('config.orgId') && orgId != 0) {
+                        line = '\tconfig.orgId = \'' + orgId + '\';';
+                    }
+                    newConfig += line + '\n';
+                }
+                fileData['config.js'] = newConfig;
+                fileZE['config.js'].replaceText(newConfig);
+            }
+            
+        };
+
+        $(openBrowserButtonElem).on('click', async function() {
+            await getZip();
+
+            setStatus('Opening node in a new browser tab...');
+
+            let project = {
+                files: fileData,
+                title: projectName,
+                description: 'sample script for downloading a data operations usage report',
+                template: 'node'
+            };
+
+            let options = {
+                openFile: 'app.js'
+            };
+
+            StackBlitzSDK.openProject(project, options);
+        });
+
+        $(downloadCommandElem).on('click', async function() {
+            await getZip();
+            const blob = await zipFs.exportBlob({
+                level:0
+            });
+        
+            const outputFile = projectName + '.zip';
+            setStatus('Saving ' + outputFile + ' to Downloads...');
+            saveAs(blob, outputFile);
+        });
+
+    });
+
 
     loadSettings();
 

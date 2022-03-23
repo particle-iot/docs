@@ -2,7 +2,7 @@
 title: Data operations reports
 layout: commonTwo.hbs
 description: Data operations report tutorial
-includeDefinitions: [api-helper, api-helper-extras, api-helper-cloud, chart]
+includeDefinitions: [api-helper, api-helper-extras, api-helper-cloud, chart, stackblitz, zip]
 ---
 
 # {{title}}
@@ -118,4 +118,10 @@ The URLs are not guessable or iterable, however you should keep the download URL
 
 ## Scripting using node.js
 
-It's also possible to 
+It's also possible to
+
+You can change whether to pull a sandbox or organization data operations report by editing the config.js file, but the initial state of the file will be set from this control:
+
+{{> sandbox-or-org}}
+
+{{> data-report-node}}
