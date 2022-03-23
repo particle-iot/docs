@@ -332,6 +332,19 @@ On Gen 2 and Gen 3 devices, retained memory is 3068 bytes.
 
 The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
+### Flash file system
+
+The P1 did not have a flash file system. 
+
+The P2 has a 2 MB flash file system using the same [POSIX API](/cards/firmware/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
+
+### EEPROM
+
+The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the P1 and P2.
+
+The P1 had 2047 bytes of emulated EEPROM.
+The P2 has 2048 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+
 ### Pin functions removed
 
 The following pins served P1-specific uses and are NC on the P2. You should not connect anything to these pins.
@@ -1046,3 +1059,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-02-08 | RK | Corrected D pin aliases for A5 and S0-S6 |
 |     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
+|     | 2022-03-23 | RK | Add notes about flash file system and EEPROM |

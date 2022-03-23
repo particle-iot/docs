@@ -463,7 +463,13 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 
 ### Recommended operating conditions
 
-[To be provided at a later date.]
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|:-|:-|:-:|:-:|:-:|:-:|
+| Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
+
+[Additional information to be provided at a later date.]
+
 
 ### Wi-Fi Specifications
 
@@ -535,8 +541,8 @@ P2 modules are available from [store.particle.io](https://store.particle.io/) as
 
 -	RoHS
 -	CE
--	FCC ID: [To be provided at a later date.]
--	IC: [To be provided at a later date.]
+-	FCC ID: 2AEMI-P2
+-	IC: 20127-P2
 
 ## Product handling
 
@@ -649,6 +655,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | pre | 2021-11-04 | RK | Pre-release |
 |     | 2022-02-08 | RK | Corrected D pin aliases for A5 and S0-S6 |
 |     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |
+|     | 2022-03-14 | RK | Minor edits; no functional changes |
+|     | 2022-03-23 | RK | Added FCC and IC IDs, operating temperature range |
 
 ### D Pin Change (2022-02-25)
 
@@ -693,10 +701,3 @@ https://community.particle.io
 **Email**
 
 https://support.particle.io
-
-## Version History
-
-| Revision | Date | Author | Comments |
-|:---:|:---:|:---:|:----|
-| pre | 2022-03-14 | RK | Pre-release |
-|     | 2022-03-14 | RK | Minor edits; no functional changes |
