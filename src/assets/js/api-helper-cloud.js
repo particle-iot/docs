@@ -3263,7 +3263,7 @@ $(document).ready(function () {
         const gaCategoryDownload = 'GetDataOperationsDownload';
 
         // const sandboxOrgRowElem = $(thisElem).find('.sandboxOrgRow');
-        const sandboxOrgSelectElem = $(thisElem).find('.sandboxOrgSelect');
+        const sandboxOrgSelectElem = $(thisElem).find('.apiHelperSandboxOrgSelect');
         const checkAgreementButtonElem = $(thisElem).find('.checkAgreementButton');
         const agreementSelectElem = $(thisElem).find('.agreementSelect');
         const startDateElem = $(thisElem).find('.startDate');
@@ -3319,6 +3319,12 @@ $(document).ready(function () {
                 $(downloadReportButtonElem).prop('disabled', true);
             }
         };
+
+        $(sandboxOrgSelectElem).on('change', function() {
+            // Copy this value to all sandbox org selects
+            const val = $(sandboxOrgSelectElem).val();
+            $('.apiHelperSandboxOrgSelect').val(val);
+        })
 
         $(reportIdInputElem).on('change', enableButtons);
 
@@ -3483,24 +3489,29 @@ $(document).ready(function () {
             location.href = downloadReportUrl;
         });
 
-
-        apiHelper.getOrgs().then(function(orgsData) {
-            // No orgs: orgsData.organizations empty array
-            // Object in array orgsData.organizations: id, slug, name
-
-            if (orgsData.organizations.length > 0) {
-                let html = '';
-                for (let org of orgsData.organizations) {
-                    const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', org.id);
-                    $(optionElem).text(org.name);
-                    $(sandboxOrgSelectElem).append(optionElem);
+        if (apiHelper && apiHelper.auth && apiHelper.auth.access_token) {
+            apiHelper.getOrgs().then(function(orgsData) {
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+    
+                if (orgsData.organizations.length > 0) {
+                    let html = '';
+                    for (let org of orgsData.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(sandboxOrgSelectElem).append(optionElem);
+                    }
                 }
-            }
-            else {
-                //$(sandboxOrgRowElem).hide();
-            }
-        });
+                else {
+                    //$(sandboxOrgRowElem).hide();
+                }
+            });
+        }
+        else {
+            $(thisElem).find('.logInRequired').show();
+            $(thisElem).find('table').hide();
+        }
 
         {
             let d = new Date();
@@ -3518,6 +3529,248 @@ $(document).ready(function () {
             $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(d.getDate()));
         }
     });
+
+    $('.apiHelperSandboxOrOrg').each(function() {
+        const thisElem = $(this);
+        const sandboxOrgSelectElem = $(thisElem).find('.apiHelperSandboxOrgSelect');
+
+        $(sandboxOrgSelectElem).on('change', function() {
+            // Copy this value to all sandbox org selects
+            const val = $(sandboxOrgSelectElem).val();
+            $('.apiHelperSandboxOrgSelect').val(val);
+        })
+
+        if (apiHelper && apiHelper.auth && apiHelper.auth.access_token) {
+            apiHelper.getOrgs().then(function(orgsData) {
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+    
+                if (orgsData.organizations.length > 0) {
+                    let html = '';
+                    for (let org of orgsData.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(sandboxOrgSelectElem).append(optionElem);
+                    }
+                }
+                else {
+                    //$(sandboxOrgRowElem).hide();
+                }
+            });
+        }
+
+    });
+
+    $('.apiHelperServiceAgreementsCurl').each(function() {
+        const thisElem = $(this);
+
+        const commandElem = $(thisElem).find('pre');
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const copyCommandButtonElem = $(thisElem).find('.copyCommand');
+        const respElem = $(thisElem).find('.apiHelperApiResponse');
+
+        let url;
+
+        const updateCommand = function() {
+            const orgId = $('.apiHelperSandboxOrgSelect').val();
+
+            if (orgId == 0) {
+                url = 'https://api.particle.io/v1/user/service_agreements/';
+            }
+            else {
+                url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+            }
+
+            $(commandElem).text('curl -X GET \'' + url + '\' -H \'Authorization: Bearer ' + apiHelper.auth.access_token + '\' -H \'Content-Type: application/json\'');
+            $(respElem).find('pre').text('');
+            $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+        };
+        updateCommand();
+
+        $('.apiHelperSandboxOrgSelect').on('change', updateCommand);
+
+        $(actionButtonElem).on('click', function() {
+            let request = {
+                contentType: 'application/json',
+                dataType: 'json',
+                error: function (jqXHR) {
+                    //ga('send', 'event', gaCategoryCheck, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    console.log('error', jqXHR);
+                    //setStatus('Error getting billing period');
+
+                    //$(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    //$(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    //setStatus('');
+                    //ga('send', 'event', gaCategoryCheck, 'Success');
+
+                    console.log('success', resp);
+
+                    $(respElem).find('pre').text(JSON.stringify(resp));
+                    $(respElem).show();
+
+                    if (resp.data && resp.data.length > 0) {
+                        const attr = resp.data[0].attributes;      
+
+                        $('.apiHelperDataReportDates').find('.startDate').val(attr.current_billing_period_start);
+                        $('.apiHelperDataReportDates').find('.endDate').val(attr.current_billing_period_end);
+
+                        $('.apiHelperServiceAgreementIdInput').val(resp.data[0].id);
+
+                        $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+                    }
+                },
+                url
+            }
+
+            $(respElem).find('pre').text('');
+
+            $.ajax(request);
+        });
+
+        $(copyCommandButtonElem).on('click', function() {
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text($(commandElem).text());
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+        });
+    });
+
+    $('.apiHelperServiceAgreementId').each(function() {
+        const thisElem = $(this);
+
+        const idInputElem = $(thisElem).find('.apiHelperServiceAgreementIdInput');
+        $(idInputElem).on('input', function() {
+            $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+        });
+
+    });
+
+    $('.apiHelperDataReportDates').each(function() {
+        const thisElem = $(this);
+
+        const startDateElem = $(thisElem).find('.startDate');
+        const endDateElem = $(thisElem).find('.endDate');
+
+        const updateField = function() {
+            $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+        }
+
+        $(startDateElem).on('input', updateField);
+        $(endDateElem).on('input', updateField);
+
+        {
+            let d = new Date();
+
+            const twoDigit = function(x) {
+                if (x < 10) {
+                    return '0' + x.toString();
+                }
+                else {
+                    return x.toString();
+                }
+            }
+
+            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(1));
+            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(d.getDate()));
+        } 
+    });
+
+    $('.apiHelperDataReportRequestCurl').each(function() {
+        const thisElem = $(this);   
+        const commandElem = $(thisElem).find('pre');
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const copyCommandButtonElem = $(thisElem).find('.copyCommand');
+        const respElem = $(thisElem).find('.apiHelperApiResponse');
+
+        let url;
+        let postData;
+
+        const updateCommand = function() {
+            const orgId = $('.apiHelperSandboxOrgSelect').val();
+
+            const agreementId = $('.apiHelperServiceAgreementIdInput').val();
+            const startDate = $('.apiHelperDataReportDates').find('.startDate').val();
+            const endDate = $('.apiHelperDataReportDates').find('.endDate').val();
+
+            if (orgId == 0) {
+                url = 'https://api.particle.io/v1/user/service_agreements/';
+            }
+            else {
+                url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+            }
+            url += agreementId + '/usage_reports'
+
+            postData = {
+                'report_type': 'devices',
+                'date_period_start': startDate,
+                'date_period_end': endDate
+            }
+
+            $(commandElem).text('curl -X POST \'' + url + '\' -H \'Authorization: Bearer ' + apiHelper.auth.access_token + 
+                '\' -H \'Content-Type: application/json\' -d \'' + JSON.stringify(postData) + '\'');
+            $(respElem).find('pre').text('');
+        };
+        updateCommand();
+
+        $(thisElem).on('updateReportRequestCommand', updateCommand);
+
+        $(actionButtonElem).on('click', function() {
+            let request = {
+                contentType: 'application/json',
+                data: JSON.stringify(postData),
+                dataType: 'json',
+                error: function (jqXHR) {
+                    //ga('send', 'event', gaCategoryCheck, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    console.log('error', jqXHR);
+                    //setStatus('Error getting billing period');
+
+                    //$(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    //$(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'POST',
+                success: function (resp, textStatus, jqXHR) {
+                    //setStatus('');
+                    //ga('send', 'event', gaCategoryCheck, 'Success');
+
+                    console.log('success', resp);
+
+                    $(respElem).find('pre').text(JSON.stringify(resp));
+                    $(respElem).show();
+                },
+                url
+            }
+
+            $(respElem).find('pre').text('');
+
+            $.ajax(request);
+        });
+        $(copyCommandButtonElem).on('click', function() {
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text($(commandElem).text());
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+        });
+
+    });
+
 
 
     loadSettings();

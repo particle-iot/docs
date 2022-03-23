@@ -4,13 +4,13 @@
             <table class="apiHelperTableNoMargin">
                 <tr class="sandboxOrgRow">
                     <td class="apiHelperProductSelectorLabel">Sandbox or Organization</td>
-                    <td><select class="sandboxOrgSelect apiHelperSelect">
+                    <td><select class="apiHelperSandboxOrgSelect apiHelperSelect">
                         <option value="0" selected>Sandbox</option>
                     </select></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr><td colspan="3"><button class="checkAgreementButton">Check Service Agreements</button></td></tr>
-                <tr class="sandboxOrgRow">
+                <tr>
                     <td class="apiHelperProductSelectorLabel">Service agreement</td>
                     <td><select class="agreementSelect apiHelperSelect"></select></td>
                     <td>&nbsp;</td>
@@ -38,6 +38,7 @@
             <div class="apiHelperStatus" style="padding-top: 5px;"></div>
             <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
             <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>
+            <div class="logInRequired" style="display:none">You must log into your Particle account to request a report.</div>
         </div>
     </div>
     <div class="apiHelperCloudApiOutputJson" style="height:{{height}}px; overflow:scroll; display:none">
