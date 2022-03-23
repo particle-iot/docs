@@ -108,6 +108,11 @@
         "href": "/tutorials/device-cloud/webhooks/"
       },
       {
+        "dir": "access-tokens",
+        "title": "Access Tokens",
+        "href": "/tutorials/device-cloud/access-tokens/"
+      },
+      {
         "dir": "cloud-api",
         "title": "Cloud API",
         "href": "/tutorials/device-cloud/cloud-api/"
