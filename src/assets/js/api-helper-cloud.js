@@ -3562,77 +3562,126 @@ $(document).ready(function () {
 
     });
 
-    $('.apiHelperServiceAgreementsCurl').each(function() {
-        const thisElem = $(this);
 
+    $('.apiHelperCurl').each(function() {
+        const thisElem = $(this);   
         const commandElem = $(thisElem).find('pre');
-        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const executeCommandElem = $(thisElem).find('.executeCommand');
         const copyCommandButtonElem = $(thisElem).find('.copyCommand');
         const respElem = $(thisElem).find('.apiHelperApiResponse');
 
-        let url;
-
         const updateCommand = function() {
-            const orgId = $('.apiHelperSandboxOrgSelect').val();
-
-            if (orgId == 0) {
-                url = 'https://api.particle.io/v1/user/service_agreements/';
+            let options = $(thisElem).data('options');
+            if (!options) {
+                return;
             }
-            else {
-                url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+            if (!options.method) {
+                options.method = 'GET';
+            }
+            if (!options.dataType) {
+                options.dataType = 'json';
+            }
+            if (!options.headers) {
+                options.headers = {};
+            }
+            if (!options.noToken) {
+                options.headers['Authorization'] = 'Bearer ' + apiHelper.auth.access_token;
+            }
+            if (!options.noAccept) {
+                options.headers['Accept'] = 'application/json';
+            }
+            if (options.postPutData && options.contentType) {
+                options.headers['Content-Type'] = options.contentType;
             }
 
-            $(commandElem).text('curl -X GET \'' + url + '\' -H \'Authorization: Bearer ' + apiHelper.auth.access_token + '\' -H \'Content-Type: application/json\'');
+            if (options.updateCommandCallback) {
+                options.updateCommandCallback(options);
+            }
+
+            options.command = 'curl -X ' + options.method + ' ';
+
+            options.command += '\'' + options.url + '\' '
+
+            // Add headers (-H)
+            for(const key in options.headers) {
+                options.command += '-H \'' + key + ': ' + options.headers[key] + '\' ';
+            }
+
+            if (options.postPutData) {
+                if (typeof options.postPutData === 'string')  {
+                    options.postPutString = options.postPutData;
+                }               
+                else {
+                    options.postPutString = JSON.stringify(options.postPutData);
+                }
+                // TODO: Escape single quotes here for curl command only (leave options.postString unescaped)
+                let escapedStr = options.postPutString;
+                options.command += '-d \'' + escapedStr + '\' ';
+            }
+
+            $(commandElem).text(options.command);
             $(respElem).find('pre').text('');
-            $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
         };
-        updateCommand();
+        $(thisElem).on('updateCommand', updateCommand);
 
-        $('.apiHelperSandboxOrgSelect').on('change', updateCommand);
+        $(executeCommandElem).on('click', function() {
+            let options = $(thisElem).data('options');
+            if (!options) {
+                return;
+            }
 
-        $(actionButtonElem).on('click', function() {
             let request = {
-                contentType: 'application/json',
-                dataType: 'json',
+                dataType: options.dataType,
                 error: function (jqXHR) {
-                    //ga('send', 'event', gaCategoryCheck, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    if (options.gaCategory) {
+                        ga('send', 'event', options.gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    }
 
                     console.log('error', jqXHR);
-                    //setStatus('Error getting billing period');
 
-                    //$(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
-                    //$(respElem).show();
+                    if (options.errorCallback) {
+                        options.errorCallback(jqXHR);
+                    }
                 },
-                headers: {
-                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
-                },
-                method: 'GET',
+                headers: options.headers,
+                method: options.method,
                 success: function (resp, textStatus, jqXHR) {
                     //setStatus('');
-                    //ga('send', 'event', gaCategoryCheck, 'Success');
+                    if (options.gaCategory) {
+                        ga('send', 'event', options.gaCategory, 'Success');
+                    }
 
                     console.log('success', resp);
 
-                    $(respElem).find('pre').text(JSON.stringify(resp));
+                    if (options.dataType == 'json') {
+                        $(respElem).find('pre').text(JSON.stringify(resp));
+
+                    }
+                    else {
+                        $(respElem).find('pre').text(resp);
+                    }
                     $(respElem).show();
 
-                    if (resp.data && resp.data.length > 0) {
-                        const attr = resp.data[0].attributes;      
-
-                        $('.apiHelperDataReportDates').find('.startDate').val(attr.current_billing_period_start);
-                        $('.apiHelperDataReportDates').find('.endDate').val(attr.current_billing_period_end);
-
-                        $('.apiHelperServiceAgreementIdInput').val(resp.data[0].id);
-
-                        $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+                    if (options.responseCallback) {
+                        options.responseCallback(resp);
                     }
+        
                 },
-                url
+                url: options.url
+            }
+            if (options.postPutData && options.contentType) {
+                request.contentType = options.contentType;
+            }
+            if (options.postPutString) {
+                request.data = options.postPutString;
+            }
+
+            if (options.requestCallback) {
+                options.requestCallback(request);
             }
 
             $(respElem).find('pre').text('');
-
+            $(respElem).show();
             $.ajax(request);
         });
 
@@ -3644,6 +3693,40 @@ $(document).ready(function () {
 			document.execCommand("copy");
 			document.body.removeChild(t);
         });
+
+    });
+
+
+    $('.apiHelperServiceAgreementsCurl').each(function() {
+        const thisElem = $(this);
+
+        let options = {
+            gaCategory: 'ServiceAgreementsCurl',
+            updateCommandCallback: function(options) {
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+
+                if (orgId == 0) {
+                    options.url = 'https://api.particle.io/v1/user/service_agreements/';
+                }
+                else {
+                    options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+                }
+            },
+            responseCallback: function(resp) {
+                if (resp.data && resp.data.length > 0) {
+                    const attr = resp.data[0].attributes;      
+
+                    $('.apiHelperDataReportDates').find('.startDate').val(attr.current_billing_period_start);
+                    $('.apiHelperDataReportDates').find('.endDate').val(attr.current_billing_period_end);
+
+                    $('.apiHelperServiceAgreementIdInput').val(resp.data[0].id);
+
+                    $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
+                }
+            }
+        };
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
     });
 
     $('.apiHelperServiceAgreementId').each(function() {
@@ -3651,7 +3734,7 @@ $(document).ready(function () {
 
         const idInputElem = $(thisElem).find('.apiHelperServiceAgreementIdInput');
         $(idInputElem).on('input', function() {
-            $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+            $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
         });
 
     });
@@ -3663,7 +3746,7 @@ $(document).ready(function () {
         const endDateElem = $(thisElem).find('.endDate');
 
         const updateField = function() {
-            $('.apiHelperDataReportRequestCurl').trigger('updateReportRequestCommand');
+            $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
         }
 
         $(startDateElem).on('input', updateField);
@@ -3688,89 +3771,110 @@ $(document).ready(function () {
 
     $('.apiHelperDataReportRequestCurl').each(function() {
         const thisElem = $(this);   
-        const commandElem = $(thisElem).find('pre');
-        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
-        const copyCommandButtonElem = $(thisElem).find('.copyCommand');
-        const respElem = $(thisElem).find('.apiHelperApiResponse');
 
-        let url;
-        let postData;
-
-        const updateCommand = function() {
-            const orgId = $('.apiHelperSandboxOrgSelect').val();
-
-            const agreementId = $('.apiHelperServiceAgreementIdInput').val();
-            const startDate = $('.apiHelperDataReportDates').find('.startDate').val();
-            const endDate = $('.apiHelperDataReportDates').find('.endDate').val();
-
-            if (orgId == 0) {
-                url = 'https://api.particle.io/v1/user/service_agreements/';
+        let options = {
+            gaCategory: 'ReportRequestCurl',
+            method: 'POST',
+            contentType: 'application/json',
+            updateCommandCallback: function(options) {
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+                const agreementId = $('.apiHelperServiceAgreementIdInput').val();
+                const startDate = $('.apiHelperDataReportDates').find('.startDate').val();
+                const endDate = $('.apiHelperDataReportDates').find('.endDate').val();
+    
+                if (orgId == 0) {
+                    options.url = 'https://api.particle.io/v1/user/service_agreements/';
+                }
+                else {
+                    options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+                }
+                options.postPutData = {
+                    'report_type': 'devices',
+                    'date_period_start': startDate,
+                    'date_period_end': endDate
+                }
+                options.url += agreementId + '/usage_reports'
+            },
+            responseCallback: function(resp) {
+                // resp.data.id
+                $('.apiHelperDataReportStatusCurl').find('.reportId').val(resp.data.id);
+                $('.apiHelperDataReportStatusCurl').trigger('updateCommand');
             }
-            else {
-                url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
-            }
-            url += agreementId + '/usage_reports'
-
-            postData = {
-                'report_type': 'devices',
-                'date_period_start': startDate,
-                'date_period_end': endDate
-            }
-
-            $(commandElem).text('curl -X POST \'' + url + '\' -H \'Authorization: Bearer ' + apiHelper.auth.access_token + 
-                '\' -H \'Content-Type: application/json\' -d \'' + JSON.stringify(postData) + '\'');
-            $(respElem).find('pre').text('');
         };
-        updateCommand();
-
-        $(thisElem).on('updateReportRequestCommand', updateCommand);
-
-        $(actionButtonElem).on('click', function() {
-            let request = {
-                contentType: 'application/json',
-                data: JSON.stringify(postData),
-                dataType: 'json',
-                error: function (jqXHR) {
-                    //ga('send', 'event', gaCategoryCheck, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
-
-                    console.log('error', jqXHR);
-                    //setStatus('Error getting billing period');
-
-                    //$(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
-                    //$(respElem).show();
-                },
-                headers: {
-                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                    'Accept': 'application/json'
-                },
-                method: 'POST',
-                success: function (resp, textStatus, jqXHR) {
-                    //setStatus('');
-                    //ga('send', 'event', gaCategoryCheck, 'Success');
-
-                    console.log('success', resp);
-
-                    $(respElem).find('pre').text(JSON.stringify(resp));
-                    $(respElem).show();
-                },
-                url
-            }
-
-            $(respElem).find('pre').text('');
-
-            $.ajax(request);
-        });
-        $(copyCommandButtonElem).on('click', function() {
-			var t = document.createElement('textarea');
-			document.body.appendChild(t);
-			$(t).text($(commandElem).text());
-			t.select();
-			document.execCommand("copy");
-			document.body.removeChild(t);
-        });
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
 
     });
 
+    $('.apiHelperDataReportStatusCurl').each(function() {
+        const thisElem = $(this);   
+        
+        const reportIdElem = $(this).find('.reportId');
+
+        let options = {
+            gaCategory: 'ReportStatusCurl',
+            method: 'GET',
+            updateCommandCallback: function(options) {
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+                const reportId = $('.apiHelperSandboxOrgSelect').val();
+    
+                if (orgId == 0) {
+                    options.url = 'https://api.particle.io/v1/user/usage_reports';
+                }
+                else {
+                    options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/usage_reports';
+                }
+                
+                options.url += '/' + $(reportIdElem).val();
+            },
+            responseCallback: function(resp) {
+                // resp.data.id
+                // resp.data.attributes.available == 'available'
+                // resp.data.attributes.download_url
+                console.log('attributes', resp.data.attributes);
+                if (resp.data.attributes.download_url) {
+                    $('.apiHelperDataReportDownloadCurl').find('.downloadUrl').val(resp.data.attributes.download_url);
+                    $('.apiHelperDataReportDownloadCurl').trigger('updateCommand');
+                }
+            }
+        };
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
+
+        $(reportIdElem).on('input', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+    });    
+
+    $('.apiHelperDataReportDownloadCurl').each(function() {
+        const thisElem = $(this);   
+
+        const downloadUrlElem = $(thisElem).find('.downloadUrl');
+        
+        let options = {
+            gaCategory: 'ReportDownloadCurl',
+            method: 'GET',
+            dataType: 'text',
+            noAccept: true,
+            headers: {
+                'Accept': 'text/csv'
+            },
+            updateCommandCallback: function(options) {
+                options.url = $(downloadUrlElem).val();
+            },
+            responseCallback: function(resp) {
+                console.log('resp', resp);
+            }
+        };
+
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
+
+        $(downloadUrlElem).on('input', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+
+    });    
 
 
     loadSettings();

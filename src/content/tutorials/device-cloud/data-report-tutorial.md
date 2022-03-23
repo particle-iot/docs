@@ -92,11 +92,21 @@ When you check your service agreement, you can also find the date range for the 
 
 {{> data-report-request-curl}}
 
+Once you've requested a report it can take several seconds to several minutes to generate the report. 
+
+- There is a limit of 3 outstanding report requests at a time
+- The owner of the access token used to make the request is sent an email when the report is complete with a download link
+
+If you want to check the report status with code (as opposed to waiting for an email), note the "id" (report ID) in the response as you'll need it in the next step.
+
 ### Check the report status
 
 Optionally, you can check the status of your report using an API. This is most common when scripting the operation. You will receive an email when the report is complete regardless of whether you query the status or not.
 
 The report status response also includes the URL to download the actual CSV report.
+
+{{> data-report-status-curl}}
+
 
 ### Download a report csv
 
@@ -104,6 +114,7 @@ Optionally, you can download your report CSV from curl or from a script. Of cour
 
 The URLs are not guessable or iterable, however you should keep the download URLs secret as having the URL will provide access to the report that includes all of the Device IDs in your account or organization.
 
+{{> data-report-download-curl}}
 
 ## Scripting using node.js
 
