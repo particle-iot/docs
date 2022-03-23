@@ -3633,12 +3633,15 @@ $(document).ready(function () {
             let request = {
                 dataType: options.dataType,
                 error: function (jqXHR) {
+                    const err = (jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
                     if (options.gaCategory) {
-                        ga('send', 'event', options.gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                        ga('send', 'event', options.gaCategory, 'Error', err);
                     }
 
-                    console.log('error', jqXHR);
-
+                    if (options.setStatus) {
+                        options.setStatus('Error: ' + err);
+                    }
+        
                     if (options.errorCallback) {
                         options.errorCallback(jqXHR);
                     }
@@ -3700,6 +3703,10 @@ $(document).ready(function () {
     $('.apiHelperServiceAgreementsCurl').each(function() {
         const thisElem = $(this);
 
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
         let options = {
             gaCategory: 'ServiceAgreementsCurl',
             updateCommandCallback: function(options) {
@@ -3723,7 +3730,8 @@ $(document).ready(function () {
 
                     $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
                 }
-            }
+            },
+            setStatus
         };
         $(thisElem).data('options', options);
         $(thisElem).trigger('updateCommand');
@@ -3772,6 +3780,10 @@ $(document).ready(function () {
     $('.apiHelperDataReportRequestCurl').each(function() {
         const thisElem = $(this);   
 
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
         let options = {
             gaCategory: 'ReportRequestCurl',
             method: 'POST',
@@ -3794,12 +3806,23 @@ $(document).ready(function () {
                     'date_period_end': endDate
                 }
                 options.url += agreementId + '/usage_reports'
+
+                if (!agreementId && startDate && endDate) {
+                    setStatus('Missing required parameters');
+                    $(thisElem).find('.executeCommand').prop('disabled', true);
+                }
+                else {
+                    setStatus('');
+                    $(thisElem).find('.executeCommand').prop('disabled', false);
+                }
+
             },
             responseCallback: function(resp) {
                 // resp.data.id
                 $('.apiHelperDataReportStatusCurl').find('.reportId').val(resp.data.id);
                 $('.apiHelperDataReportStatusCurl').trigger('updateCommand');
-            }
+            },
+            setStatus
         };
         $(thisElem).data('options', options);
         $(thisElem).trigger('updateCommand');
@@ -3811,12 +3834,16 @@ $(document).ready(function () {
         
         const reportIdElem = $(this).find('.reportId');
 
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
         let options = {
             gaCategory: 'ReportStatusCurl',
             method: 'GET',
             updateCommandCallback: function(options) {
                 const orgId = $('.apiHelperSandboxOrgSelect').val();
-                const reportId = $('.apiHelperSandboxOrgSelect').val();
+                const reportId = $(reportIdElem).val();
     
                 if (orgId == 0) {
                     options.url = 'https://api.particle.io/v1/user/usage_reports';
@@ -3825,7 +3852,15 @@ $(document).ready(function () {
                     options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/usage_reports';
                 }
                 
-                options.url += '/' + $(reportIdElem).val();
+                options.url += '/' + reportId;
+
+                if (!reportId) {
+                    setStatus('Report ID is required');
+                }
+                else {
+                    setStatus('');
+                }
+                $(thisElem).find('.executeCommand').prop('disabled', !reportId);
             },
             responseCallback: function(resp) {
                 // resp.data.id
@@ -3836,7 +3871,8 @@ $(document).ready(function () {
                     $('.apiHelperDataReportDownloadCurl').find('.downloadUrl').val(resp.data.attributes.download_url);
                     $('.apiHelperDataReportDownloadCurl').trigger('updateCommand');
                 }
-            }
+            },
+            setStatus,
         };
         $(thisElem).data('options', options);
         $(thisElem).trigger('updateCommand');
@@ -3850,7 +3886,12 @@ $(document).ready(function () {
         const thisElem = $(this);   
 
         const downloadUrlElem = $(thisElem).find('.downloadUrl');
+        const downloadCommandElem = $(thisElem).find('.downloadCommand');
         
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
         let options = {
             gaCategory: 'ReportDownloadCurl',
             method: 'GET',
@@ -3861,10 +3902,21 @@ $(document).ready(function () {
             },
             updateCommandCallback: function(options) {
                 options.url = $(downloadUrlElem).val();
+
+                if (!options.url) {
+                    setStatus('Download URL is required');
+                }
+                else {
+                    setStatus('');
+                }
+                $(thisElem).find('.executeCommand').prop('disabled', !options.url);
+                $(thisElem).find('.downloadCommand').prop('disabled', !options.url);
+
             },
             responseCallback: function(resp) {
                 console.log('resp', resp);
-            }
+            },
+            setStatus
         };
 
         $(thisElem).data('options', options);
@@ -3873,6 +3925,14 @@ $(document).ready(function () {
         $(downloadUrlElem).on('input', function() {
             $(thisElem).trigger('updateCommand');
         });
+
+        $(downloadCommandElem).on('click', function() {
+            const url = $(downloadUrlElem).val();
+            if (url) {
+                location.href = url;
+            }
+        });
+
 
     });    
 
