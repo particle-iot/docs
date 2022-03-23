@@ -21,7 +21,7 @@ In order to use the interactive features of this page we recommend logging into 
 
 {{> sso}}
 
-## Getting an access token
+## Getting a user access token
 
 ### Particle CLI
 
@@ -32,8 +32,19 @@ In order to use the interactive features of this page we recommend logging into 
 ### Prompting for login
 
 
+## Getting an API user token
+
+
+## Getting a product token
+
+
 ## Testing an access token
 
+
+## Using with servers
+
+- Environment variables
+- Configuration files
 
 
 ## What is an access token
