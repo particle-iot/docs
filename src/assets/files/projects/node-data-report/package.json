@@ -1,6 +1,6 @@
 {
-    "name": "node-list-devices",
-    "description": "Node.js tutorial list devices",
+    "name": "node-data-report",
+    "description": "Node.js data operations report tutorial",
     "private": true,
     "engines": {
         "node": ">=12"
@@ -9,8 +9,8 @@
         "start": "node app.js"
     },
     "dependencies": {
-        "@particle/node-example-helper": "0.0.2",
-        "particle-api-js": "^9.1.0"
+        "@particle/node-example-helper": "0.0.1",
+        "axios": "^0.26.1"
     },
     "devDependencies": {}
 }

@@ -3263,7 +3263,7 @@ $(document).ready(function () {
         const gaCategoryDownload = 'GetDataOperationsDownload';
 
         // const sandboxOrgRowElem = $(thisElem).find('.sandboxOrgRow');
-        const sandboxOrgSelectElem = $(thisElem).find('.sandboxOrgSelect');
+        const sandboxOrgSelectElem = $(thisElem).find('.apiHelperSandboxOrgSelect');
         const checkAgreementButtonElem = $(thisElem).find('.checkAgreementButton');
         const agreementSelectElem = $(thisElem).find('.agreementSelect');
         const startDateElem = $(thisElem).find('.startDate');
@@ -3319,6 +3319,12 @@ $(document).ready(function () {
                 $(downloadReportButtonElem).prop('disabled', true);
             }
         };
+
+        $(sandboxOrgSelectElem).on('change', function() {
+            // Copy this value to all sandbox org selects
+            const val = $(sandboxOrgSelectElem).val();
+            $('.apiHelperSandboxOrgSelect').val(val);
+        })
 
         $(reportIdInputElem).on('change', enableButtons);
 
@@ -3483,24 +3489,29 @@ $(document).ready(function () {
             location.href = downloadReportUrl;
         });
 
-
-        apiHelper.getOrgs().then(function(orgsData) {
-            // No orgs: orgsData.organizations empty array
-            // Object in array orgsData.organizations: id, slug, name
-
-            if (orgsData.organizations.length > 0) {
-                let html = '';
-                for (let org of orgsData.organizations) {
-                    const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', org.id);
-                    $(optionElem).text(org.name);
-                    $(sandboxOrgSelectElem).append(optionElem);
+        if (apiHelper && apiHelper.auth && apiHelper.auth.access_token) {
+            apiHelper.getOrgs().then(function(orgsData) {
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+    
+                if (orgsData.organizations.length > 0) {
+                    let html = '';
+                    for (let org of orgsData.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(sandboxOrgSelectElem).append(optionElem);
+                    }
                 }
-            }
-            else {
-                //$(sandboxOrgRowElem).hide();
-            }
-        });
+                else {
+                    //$(sandboxOrgRowElem).hide();
+                }
+            });
+        }
+        else {
+            $(thisElem).find('.logInRequired').show();
+            $(thisElem).find('table').hide();
+        }
 
         {
             let d = new Date();
@@ -3514,9 +3525,462 @@ $(document).ready(function () {
                 }
             }
 
-            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(1));
-            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(d.getDate()));
+            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(1));
+            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(d.getDate()));
         }
+    });
+
+    $('.apiHelperSandboxOrOrg').each(function() {
+        const thisElem = $(this);
+        const sandboxOrgSelectElem = $(thisElem).find('.apiHelperSandboxOrgSelect');
+
+        $(sandboxOrgSelectElem).on('change', function() {
+            // Copy this value to all sandbox org selects
+            const val = $(sandboxOrgSelectElem).val();
+            $('.apiHelperSandboxOrgSelect').val(val);
+        })
+
+        if (apiHelper && apiHelper.auth && apiHelper.auth.access_token) {
+            apiHelper.getOrgs().then(function(orgsData) {
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+    
+                if (orgsData.organizations.length > 0) {
+                    let html = '';
+                    for (let org of orgsData.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(sandboxOrgSelectElem).append(optionElem);
+                    }
+                }
+                else {
+                    //$(sandboxOrgRowElem).hide();
+                }
+            });
+        }
+
+    });
+
+
+    $('.apiHelperCurl').each(function() {
+        const thisElem = $(this);   
+        const commandElem = $(thisElem).find('pre');
+        const executeCommandElem = $(thisElem).find('.executeCommand');
+        const copyCommandButtonElem = $(thisElem).find('.copyCommand');
+        const respElem = $(thisElem).find('.apiHelperApiResponse');
+
+        const updateCommand = function() {
+            let options = $(thisElem).data('options');
+            if (!options) {
+                return;
+            }
+            if (!options.method) {
+                options.method = 'GET';
+            }
+            if (!options.dataType) {
+                options.dataType = 'json';
+            }
+            if (!options.headers) {
+                options.headers = {};
+            }
+            if (!options.noToken) {
+                options.headers['Authorization'] = 'Bearer ' + apiHelper.auth.access_token;
+            }
+            if (!options.noAccept) {
+                options.headers['Accept'] = 'application/json';
+            }
+            if (options.postPutData && options.contentType) {
+                options.headers['Content-Type'] = options.contentType;
+            }
+
+            if (options.updateCommandCallback) {
+                options.updateCommandCallback(options);
+            }
+
+            options.command = 'curl -X ' + options.method + ' ';
+
+            options.command += '\'' + options.url + '\' '
+
+            // Add headers (-H)
+            for(const key in options.headers) {
+                options.command += '-H \'' + key + ': ' + options.headers[key] + '\' ';
+            }
+
+            if (options.postPutData) {
+                if (typeof options.postPutData === 'string')  {
+                    options.postPutString = options.postPutData;
+                }               
+                else {
+                    options.postPutString = JSON.stringify(options.postPutData);
+                }
+                // TODO: Escape single quotes here for curl command only (leave options.postString unescaped)
+                let escapedStr = options.postPutString;
+                options.command += '-d \'' + escapedStr + '\' ';
+            }
+
+            $(commandElem).text(options.command);
+            $(respElem).find('pre').text('');
+        };
+        $(thisElem).on('updateCommand', updateCommand);
+
+        $(executeCommandElem).on('click', function() {
+            let options = $(thisElem).data('options');
+            if (!options) {
+                return;
+            }
+
+            let request = {
+                dataType: options.dataType,
+                error: function (jqXHR) {
+                    const err = (jqXHR.responseJSON ? jqXHR.responseJSON.error : '');
+                    if (options.gaCategory) {
+                        ga('send', 'event', options.gaCategory, 'Error', err);
+                    }
+
+                    if (options.setStatus) {
+                        options.setStatus('Error: ' + err);
+                    }
+        
+                    if (options.errorCallback) {
+                        options.errorCallback(jqXHR);
+                    }
+                },
+                headers: options.headers,
+                method: options.method,
+                success: function (resp, textStatus, jqXHR) {
+                    //setStatus('');
+                    if (options.gaCategory) {
+                        ga('send', 'event', options.gaCategory, 'Success');
+                    }
+
+                    console.log('success', resp);
+
+                    if (options.dataType == 'json') {
+                        $(respElem).find('pre').text(JSON.stringify(resp));
+
+                    }
+                    else {
+                        $(respElem).find('pre').text(resp);
+                    }
+                    $(respElem).show();
+
+                    if (options.responseCallback) {
+                        options.responseCallback(resp);
+                    }
+        
+                },
+                url: options.url
+            }
+            if (options.postPutData && options.contentType) {
+                request.contentType = options.contentType;
+            }
+            if (options.postPutString) {
+                request.data = options.postPutString;
+            }
+
+            if (options.requestCallback) {
+                options.requestCallback(request);
+            }
+
+            $(respElem).find('pre').text('');
+            $(respElem).show();
+            $.ajax(request);
+        });
+
+        $(copyCommandButtonElem).on('click', function() {
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text($(commandElem).text());
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+        });
+
+    });
+
+
+    $('.apiHelperServiceAgreementsCurl').each(function() {
+        const thisElem = $(this);
+
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
+        let options = {
+            gaCategory: 'ServiceAgreementsCurl',
+            updateCommandCallback: function(options) {
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+
+                if (orgId == 0) {
+                    options.url = 'https://api.particle.io/v1/user/service_agreements/';
+                }
+                else {
+                    options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+                }
+            },
+            responseCallback: function(resp) {
+                if (resp.data && resp.data.length > 0) {
+                    const attr = resp.data[0].attributes;      
+
+                    $('.apiHelperDataReportDates').find('.startDate').val(attr.current_billing_period_start);
+                    $('.apiHelperDataReportDates').find('.endDate').val(attr.current_billing_period_end);
+
+                    $('.apiHelperServiceAgreementIdInput').val(resp.data[0].id);
+
+                    $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
+                }
+            },
+            setStatus
+        };
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
+
+        $('.apiHelperSandboxOrgSelect').on('change', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+    });
+
+    $('.apiHelperServiceAgreementId').each(function() {
+        const thisElem = $(this);
+
+        const idInputElem = $(thisElem).find('.apiHelperServiceAgreementIdInput');
+        $(idInputElem).on('input', function() {
+            $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
+        });
+
+    });
+
+    $('.apiHelperDataReportDates').each(function() {
+        const thisElem = $(this);
+
+        const startDateElem = $(thisElem).find('.startDate');
+        const endDateElem = $(thisElem).find('.endDate');
+
+        const updateField = function() {
+            $('.apiHelperDataReportRequestCurl').trigger('updateCommand');
+        }
+
+        $(startDateElem).on('input', updateField);
+        $(endDateElem).on('input', updateField);
+
+        {
+            let d = new Date();
+
+            const twoDigit = function(x) {
+                if (x < 10) {
+                    return '0' + x.toString();
+                }
+                else {
+                    return x.toString();
+                }
+            }
+
+            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(1));
+            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(d.getDate()));
+        } 
+    });
+
+    $('.apiHelperDataReportRequestCurl').each(function() {
+        const thisElem = $(this);   
+
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
+        let options = {
+            gaCategory: 'ReportRequestCurl',
+            method: 'POST',
+            contentType: 'application/json',
+            updateCommandCallback: function(options) {
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+                const agreementId = $('.apiHelperServiceAgreementIdInput').val();
+                const startDate = $('.apiHelperDataReportDates').find('.startDate').val();
+                const endDate = $('.apiHelperDataReportDates').find('.endDate').val();
+    
+                if (orgId == 0) {
+                    options.url = 'https://api.particle.io/v1/user/service_agreements/';
+                }
+                else {
+                    options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/service_agreements/';
+                }
+                options.postPutData = {
+                    'report_type': 'devices',
+                    'date_period_start': startDate,
+                    'date_period_end': endDate
+                }
+                options.url += agreementId + '/usage_reports'
+
+                if (!agreementId && startDate && endDate) {
+                    setStatus('Missing required parameters');
+                    $(thisElem).find('.executeCommand').prop('disabled', true);
+                }
+                else {
+                    setStatus('');
+                    $(thisElem).find('.executeCommand').prop('disabled', false);
+                }
+
+            },
+            responseCallback: function(resp) {
+                // resp.data.id
+                $('.apiHelperDataReportStatusCurl').find('.reportId').val(resp.data.id);
+                $('.apiHelperDataReportStatusCurl').trigger('updateCommand');
+            },
+            setStatus
+        };
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
+
+        $('.apiHelperSandboxOrgSelect').on('change', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+
+    });
+
+    $('.apiHelperDataReportStatusCurl').each(function() {
+        const thisElem = $(this);   
+        
+        const reportIdElem = $(this).find('.reportId');
+
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
+        let options = {
+            gaCategory: 'ReportStatusCurl',
+            method: 'GET',
+            updateCommandCallback: function(options) {
+                const orgId = $('.apiHelperSandboxOrgSelect').val();
+                const reportId = $(reportIdElem).val();
+    
+                if (orgId == 0) {
+                    options.url = 'https://api.particle.io/v1/user/usage_reports';
+                }
+                else {
+                    options.url = 'https://api.particle.io/v1/orgs/' + orgId + '/usage_reports';
+                }
+                
+                options.url += '/' + reportId;
+
+                if (!reportId) {
+                    setStatus('Report ID is required');
+                }
+                else {
+                    setStatus('');
+                }
+                $(thisElem).find('.executeCommand').prop('disabled', !reportId);
+            },
+            responseCallback: function(resp) {
+                // resp.data.id
+                // resp.data.attributes.available == 'available'
+                // resp.data.attributes.download_url
+                console.log('attributes', resp.data.attributes);
+                if (resp.data.attributes.download_url) {
+                    $('.apiHelperDataReportDownloadCurl').find('.downloadUrl').val(resp.data.attributes.download_url);
+                    $('.apiHelperDataReportDownloadCurl').trigger('updateCommand');
+                }
+            },
+            setStatus,
+        };
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
+
+        $(reportIdElem).on('input', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+        $('.apiHelperSandboxOrgSelect').on('change', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+
+    });    
+
+    $('.apiHelperDataReportDownloadCurl').each(function() {
+        const thisElem = $(this);   
+
+        const downloadUrlElem = $(thisElem).find('.downloadUrl');
+        const downloadCommandElem = $(thisElem).find('.downloadCommand');
+        
+        let setStatus = function(s) {
+            $(thisElem).find('.statusDiv').text(s);
+        }
+
+        let options = {
+            gaCategory: 'ReportDownloadCurl',
+            method: 'GET',
+            dataType: 'text',
+            noAccept: true,
+            headers: {
+                'Accept': 'text/csv'
+            },
+            updateCommandCallback: function(options) {
+                options.url = $(downloadUrlElem).val();
+
+                if (!options.url) {
+                    setStatus('Download URL is required');
+                }
+                else {
+                    setStatus('');
+                }
+                $(thisElem).find('.executeCommand').prop('disabled', !options.url);
+                $(thisElem).find('.downloadCommand').prop('disabled', !options.url);
+
+            },
+            responseCallback: function(resp) {
+                console.log('resp', resp);
+            },
+            setStatus
+        };
+
+        $(thisElem).data('options', options);
+        $(thisElem).trigger('updateCommand');
+
+        $(downloadUrlElem).on('input', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+
+        $(downloadCommandElem).on('click', function() {
+            const url = $(downloadUrlElem).val();
+            if (url) {
+                location.href = url;
+            }
+        });
+
+
+    });    
+
+    $('.apiHelperProjectBrowser').each(function() {
+        const thisElem = $(this);   
+        
+        const project = $(thisElem).data('project');
+        if (project == 'node-data-report') {
+            let params = {     
+                preloadZip: true,
+                stackblitzProject: {
+                    description: 'sample script for downloading a data operations usage report',
+                },
+                stackblitzOptions: {
+                    openFile: 'app.js',
+                },
+                updateConfig: function() {
+                    let newConfigObject = {};
+
+                    const orgId = $('.apiHelperSandboxOrgSelect').val();
+                    if (orgId != 0) {
+                        newConfigObject.orgId = orgId;
+                    }
+
+                    return newConfigObject;
+                }
+            };
+    
+            $(thisElem).data('params', params);
+            $(thisElem).trigger('updateProject');
+
+            $('.apiHelperSandboxOrgSelect').on('change', function() {
+                $(thisElem).trigger('updateProject');                
+            });
+        }
+
     });
 
 
