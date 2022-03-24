@@ -47,22 +47,6 @@ The tool below makes it easy to request a data usage report:
 
 ## Using curl
 
-### Get an access token
-
-The most common create an access token is to use the Particle CLI [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command. 
-
-```
-particle token create
-```
-
-Be sure to keep this token secure, because it allows access to your account and all of your devices. By default, the token will expire in 90 days and will need to be issued again. You can make a non-expiring token by using:
-
-```
-particle token create --never-expires
-```
-
-You will not need to create a token to run the examples below in your browser as it will use your single-sign-on access token.
-
 ### Sandbox or organization
 
 You can request a report for your free tier developer sandbox. 
@@ -128,6 +112,33 @@ The URLs are not guessable or iterable, however you should keep the download URL
 {{> data-report-download-curl}}
 
 Note: The **Execute Command** button may not work from a browser. An upcoming change will fix the access controls to make this possible. **Download File** works fine from a browser.
+
+### Get an access token
+
+The examples above embed your single sign-on access token. If you want to create an access token 
+
+#### CLI particle token create
+
+The most common create an access token is to use the Particle CLI [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command. 
+
+```
+particle token create
+```
+
+Be sure to keep this token secure, because it allows access to your account and all of your devices. By default, the token will expire in 90 days and will need to be issued again. You can make a non-expiring token by using:
+
+```
+particle token create --never-expires
+```
+
+#### Create a token (browser-based)
+
+You can also create a token using this web-browser control. This creates a token for your account, which can access all devices in your sandbox as well as products and organizations you have access to. Be careful with this token! The username, password, and MFA OTP token (if required) are necessary to create a new token.
+
+{{> cloud-api-create-token-simple}}
+
+Copy and paste the token out of the Access Token field to use in locations where you need an access token. (The password is sent using a Particle Cloud API call using Javascript and TLS/SSL encryption.)
+
 
 ## Scripting using node.js
 

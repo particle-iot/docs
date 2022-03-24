@@ -33,6 +33,7 @@ $(document).ready(function() {
         $(optionElem).text(defaultFile);
         $(fileSelect).html(optionElem);
 
+        let configFileOrig;
         let projectZip;
 
         const getProjectZip = async function() {
@@ -185,9 +186,11 @@ $(document).ready(function() {
 
                 for(const ze of zipFs.root.children[0].children) {
                     if (ze.name == 'config.js') {
-                        const oldConfig = await ze.getText();
+                        if (!configFileOrig) {
+                            configFileOrig = await ze.getText();
+                        }
                         let newConfig = '';
-                        for(let line of oldConfig.split('\n')) {
+                        for(let line of configFileOrig.split('\n')) {
                             for(let key in newConfigOptions) {
                                 if (line.includes('config.' + key)) {
                                     line = '    config.' + key + ' = ';
