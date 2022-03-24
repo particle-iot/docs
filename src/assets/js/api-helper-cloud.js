@@ -3949,12 +3949,12 @@ $(document).ready(function () {
         const projectName = 'node-data-report'
         const zipUrl = '/assets/files/projects/' + projectName + '.zip';
 
+        let fileData = {};
         let zipFs;
 
         const getZip = async function() {
             setStatus('Downloading files...');
 
-            let fileData = {};
             let fileZE = {};
 
             zipFs = new zip.fs.FS();
@@ -3969,7 +3969,6 @@ $(document).ready(function () {
 
             // The top level is the node-data-report directory
             for(const ze of zipFs.root.children[0].children) {
-                console.log('ze', ze);
                 if (!ze.directory) {
                     fileData[ze.name] = await ze.getText();
                     fileZE[ze.name] = ze;
@@ -3984,7 +3983,7 @@ $(document).ready(function () {
                 let newConfig = '';
                 for(let line of fileData['config.js'].split('\n')) {
                     if (line.includes('config.orgId') && orgId != 0) {
-                        line = '\tconfig.orgId = \'' + orgId + '\';';
+                        line = '    config.orgId = \'' + orgId + '\';';
                     }
                     newConfig += line + '\n';
                 }
@@ -4024,6 +4023,11 @@ $(document).ready(function () {
             saveAs(blob, outputFile);
         });
 
+        setTimeout(function() {
+            if (!apiHelper.canUseStackblitz()) {
+                $(openBrowserButtonElem).prop('disabled', true);
+            }    
+        }, 1000);
     });
 
 

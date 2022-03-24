@@ -125,3 +125,5 @@ You can change whether to pull a sandbox or organization data operations report 
 {{> sandbox-or-org}}
 
 {{> data-report-node}}
+
+If you are using the Chrome browser on Windows, Mac, or Linux you can open the node.js project in your browser, edit, and run it with no software install required using the **Open in Browser** button.
