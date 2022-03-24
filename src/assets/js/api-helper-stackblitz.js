@@ -6,22 +6,26 @@ $(document).ready(function () {
         var winNav = window.navigator;
         var vendorName = winNav.vendor;
         var isOpera = typeof window.opr !== "undefined";
-        var isIEedge = winNav.userAgent.indexOf("Edg") > -1;
+        var isEdge = winNav.userAgent.indexOf("Edg") > -1;
         var isIOSChrome = winNav.userAgent.match("CriOS");
-    
-        if (isIOSChrome) {
-            // is Google Chrome on IOS
+        var isAndroid = /(android)/i.test(navigator.userAgent);
+        var isMobile = /(mobile)/i.test(navigator.userAgent);
+
+        if (isIOSChrome || isAndroid || isMobile) {
+            // Is a mobile browser
             return false;
         } else if(
             isChromium !== null &&
             typeof isChromium !== "undefined" &&
             vendorName === "Google Inc." &&
-            isOpera === false &&
-            isIEedge === false) {
+            isOpera === false) {
             // is Google Chrome
             return true;
-        } else { 
-            // not Google Chrome 
+        } else if (isEdge) {
+            // Edge is also supported
+            return true;
+        } else {
+            // not a supported browser
             return false;
         }
     };

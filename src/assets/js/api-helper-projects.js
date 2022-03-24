@@ -21,7 +21,7 @@ $(document).ready(function() {
         const outputDivElem = $(thisElem).find('.apiHelperProjectBrowserOutputDiv');
         const fileSelect = $(thisElem).find('.apiHelperProjectSelect');
         const targetVersionSelect = $(thisElem).find('.apiHelperProjectTarget');
-        const tryItButton = $(thisElem).find('.apiHelperTryItButton');
+        const tryItButtonElem = $(thisElem).find('.apiHelperTryItButton');
 
         const setStatus = function(str) {
             $('.apiHelperProjectBrowserStatus').text(str);
@@ -32,19 +32,6 @@ $(document).ready(function() {
         $(optionElem).prop('name', defaultFile);
         $(optionElem).text(defaultFile);
         $(fileSelect).html(optionElem);
-
-        if (tryItButton && tryItButton.length) {
-            $(tryItButton).on('click', function() {
-                var a = document.createElement('a');
-                a.href = 'https://stackblitz.com/edit/' + $(this).attr('data-project') + '?devtoolsheight=33&file=index.js&hideNavigation=1%3B';
-                a.target = '_blank';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-    
-                ga('send', 'event', gaCategory, 'Try It', $(tryItButton).attr('data-project'));    
-            });
-        }
 
         let projectZip;
 
@@ -83,7 +70,7 @@ $(document).ready(function() {
         }
 
         $(fileSelect).on('click', async function() {
-            // Load the zip on first click
+            // Load the zip on first click (async)
             getProjectZip();
         });
 
@@ -147,6 +134,7 @@ $(document).ready(function() {
             }
         };
 
+        
         $(fileSelect).on('change', async function() {
             const path = project + '/' + $(fileSelect).val();
 
@@ -162,6 +150,109 @@ $(document).ready(function() {
 			ga('send', 'event', gaCategory, 'View File', path);
             setStatus('');
         });
+
+        const updateProject = async function() {
+            const params = $(thisElem).data('params');
+            if (!params) {
+                return;
+            }    
+            console.log('updateProject', params);
+            
+            if (params.preloadZip) {
+                // async
+                await getProjectZip();
+            }
+
+            if (params.updateConfig) {
+                let zipFs = await getProjectZip();
+
+                let newConfigOptions = params.updateConfig();
+
+                for(const ze of zipFs.root.children[0].children) {
+                    if (ze.name == 'config.js') {
+                        const oldConfig = await ze.getText();
+                        let newConfig = '';
+                        for(let line of oldConfig.split('\n')) {
+                            for(let key in newConfigOptions) {
+                                if (line.includes('config.' + key)) {
+                                    line = '    config.' + key + ' = ';
+                                    if (typeof newConfigOptions[key] === 'string') {
+                                        line += '\'' + newConfigOptions[key] + '\'';
+                                    } 
+                                    else {
+                                        line += newConfigOptions[key];;
+                                    }                                
+                                }
+                            }
+
+                            newConfig += line + '\n';
+                        }
+                        ze.replaceText(newConfig);
+                    }
+                }    
+                if ($(fileSelect).val() == 'config.js') {
+                    $(fileSelect).trigger('change');
+                }
+            }
+
+            if (params.updateProject) {
+                params.updateProject(zipFs);
+            }
+
+            if (params.stackblitzProject) {
+                $(tryItButtonElem).parent('span').show();
+            }
+        };
+        $(thisElem).on('updateProject', updateProject);
+        updateProject();
+
+        
+        $(tryItButtonElem).on('click', async function() {
+            if ($(tryItButtonElem).data('project')) {
+                // Old way: launches project
+                var a = document.createElement('a');
+                a.href = 'https://stackblitz.com/edit/' + $(this).attr('data-project') + '?devtoolsheight=33&file=index.js&hideNavigation=1%3B';
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                ga('send', 'event', gaCategory, 'Try It', $(tryItButtonElem).attr('data-project'));    
+            }
+            else {
+                const params = $(thisElem).data('params');
+                if (!params || !params.stackblitzProject) {
+                    return;
+                }
+
+                let fileData = {};
+
+                let zipFs = await getProjectZip();
+
+                await updateProject();
+
+                for(const ze of zipFs.root.children[0].children) {
+                    if (!ze.directory) {
+                        fileData[ze.name] = await ze.getText();
+                    }
+                }
+    
+                let stackblitzProject = Object.assign({
+                    files: fileData,
+                    title: project,
+                    template: 'node'
+                }, params.stackblitzProject);
+    
+                let stackblitzOptions = Object.assign({
+                }, params.stackblitzOptions);
+    
+                StackBlitzSDK.openProject(stackblitzProject, stackblitzOptions);
+            }
+        });    
+
+        if ($(tryItButtonElem).data('project')) {
+            $(tryItButtonElem).parent('span').show();
+        }
+
 
 
 
@@ -187,13 +278,16 @@ $(document).ready(function() {
 			ga('send', 'event', gaCategory, 'File Copy', curPath);
 		});
 
-        $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', function() {
-			var a = document.createElement('a');
-			a.href = projectUrlBase + '.zip';
-			a.download = project + '.zip';
-			document.body.appendChild(a);
-			a.click();
-			document.body.removeChild(a);
+        $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {
+			const zipFs = await getProjectZip();
+
+            const blob = await zipFs.exportBlob({
+                level:0
+            });
+        
+            const outputFile = project + '.zip';
+            setStatus('Saving ' + outputFile + ' to Downloads...');
+            saveAs(blob, outputFile);
 
 			ga('send', 'event', gaCategory, 'Zip Download', project);
         });
