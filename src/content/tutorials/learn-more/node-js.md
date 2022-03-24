@@ -12,6 +12,12 @@ Node.js is a scripting language that can be used to write back-end servers and c
 
 This document is a brief introduction to node.js and using the Particle Cloud API, designed for beginners moving from using things like curl and bash or MSDOS batch scripts to a more powerful, and, ultimately easier to use, full programming language environment.
 
+## Log in
+
+To use the interactive examples in this page, you must be logged into your Particle account:
+
+{{> sso}}
+
 ## Hello world - browser
 
 The examples in this page can be used either locally, on your computer with node.js installed, or right from your browser. 
@@ -585,7 +591,7 @@ One of the advantages of node is the huge number of available packages or librar
 - You need a `package.json` file at the top level of the directory. The file is mostly boilerplate for private projects like this. It will be updated as we add libraries, however, so it's still important.
 - Your Javascript sources go in that directory as well. In this case, it's in `app.js`.
 
-{{> project-browser project="node-empty" default-file="package.json"}}
+{{> project-browser project="node-empty" default-file="package.json" options="stackblitz"}}
 
 To add a package, `cd` into the project directory (containing the package.json file), then:
 
@@ -609,7 +615,7 @@ npm install particle-api-js
 
 Now lets move on to something more useful, using the Particle cloud API to list the devices in our account.
 
-{{> project-browser project="node-list-devices" default-file="app.js" tryit="node-e4yhcg"}}
+{{> project-browser project="node-list-devices" default-file="app.js" options="stackblitz"}}
 
 If you download a full project .zip file as above, you'll need to install all of the dependencies. This is as easy as:
 
@@ -682,7 +688,7 @@ As was the case with the `setInterval` example earlier, remember that the inner 
 
 Sometimes it's useful to put the main code in a function, in this case `run()`. The function is declared, then it's called. It works the same as the previous example, it's just arranged differently.
 
-{{> project-browser project="node-list-devices2" default-file="app.js" tryit="node-xejnpa"}}
+{{> project-browser project="node-list-devices2" default-file="app.js" options="stackblitz"}}
 
 Also, in this example instead of printing out the whole object, we iterate the list of devices in code and only print out the device name and device ID.
 
@@ -702,7 +708,7 @@ If you are using the web-based **Try It!** button paste your access token in the
 
 There is a reason for this, and it's so you can write the code this way, instead:
 
-{{> project-browser project="node-list-devices3" default-file="app.js" tryit="node-qusk9m"}}
+{{> project-browser project="node-list-devices3" default-file="app.js" options="stackblitz"}}
 
 - In this example, instead of declaring `function run()` we declare `async function run()`. 
 - This looks more like a regular function call without all of that `then()` stuff, but there's an `await` statement in it: `const devices = await particle.ListDevices()`.
@@ -717,7 +723,7 @@ If you are using the web-based **Try It!** button paste your access token in the
 
 Of course if all you wanted to do was list devices you could just use the `particle list` CLI command. By doing it from Javascript we can do additional processing.
 
-{{> project-browser project="node-list-devices4" default-file="app.js" tryit="node-vwuyxf"}}
+{{> project-browser project="node-list-devices4" default-file="app.js" options="stackblitz"}}
 
 For example, we could check the online flag to only list devices that are online (though that's also available in the CLI).
 
@@ -746,7 +752,7 @@ If you are using the web-based **Try It!** button paste your access token in the
 
 This example generates csv (comma-separated value) data containing the device ID and the ICCID of the cellular devices in your account.
 
-{{> project-browser project="node-list-devices6" default-file="app.js" tryit="node-d4andq"}}
+{{> project-browser project="node-list-devices6" default-file="app.js" options="stackblitz"}}
 
 The code has a check for `dev.iccid`. If this field does not exist, then the body of the if won't be executed. That will cause it to not print Wi-Fi devices.
 
@@ -816,7 +822,7 @@ A more useful thing to do is process a file of Device IDs and act on each device
 
 Sometimes instead of encoding the name of the file to process in the script, you want to pass it as command line arguments. There are multiple command line processing options, but we'll use yargs here.
 
-{{> project-browser project="node-file-2" default-file="app.js" tryit="node-bev5an"}}
+{{> project-browser project="node-file-2" default-file="app.js" options="stackblitz"}}
 
 The yargs package is already added to this project's `package.json` file but to add it to a new project you'd just:
 
@@ -930,7 +936,7 @@ The same techniques can be used to pick out other common things like ICCIDs, IME
 
 Sometimes you'll have a comma-separated value file (csv). Resist the temptation to parse it by hand because there are good csv parsers available for node and dealing with escaped strings yourself is tedious and error-prone.
 
-{{> project-browser project="node-file-3" default-file="app.js" tryit="node-52bmyr"}}
+{{> project-browser project="node-file-3" default-file="app.js" options="stackblitz"}}
 
 Some of the code should be familiar from the last example. 
 
@@ -1008,7 +1014,7 @@ ffff50f908d5104debc4563f
 
 This is a starter script that you can tailor to your own purposes, but illustrates a bunch of techniques. It moves devices from one developer account to another account. 
 
-{{> project-browser project="node-device-change-owner" default-file="app.js" height="400" tryit="node-sncl8g"}}
+{{> project-browser project="node-device-change-owner" default-file="app.js" height="400"  options="stackblitz"}}
 
 Install the dependencies when using node.js on your computer:
 

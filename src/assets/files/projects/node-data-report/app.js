@@ -75,9 +75,9 @@ async function run() {
 
         console.log('options', options);
 
-        // Check the report status - repeat this every 10 seconds
+        // Check the report status
 
-        let delay = 7500; // 7.5 seconds
+        let delay = 15000; // 15 seconds
 
         for(let tries = 1; !options.downloadUrl && tries < 60; tries++) {
             console.log('Checking report status (attempt ' + tries + ')...');

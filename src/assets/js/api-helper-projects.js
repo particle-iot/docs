@@ -151,12 +151,27 @@ $(document).ready(function() {
             setStatus('');
         });
 
+
+        const dataOptions = $(thisElem).data('options');
+        if (dataOptions && dataOptions.includes('stackblitz')) {
+            let params = $(thisElem).data('params');
+            if (!params) {
+                params = {};
+            }   
+            if (!params.stackblitzProject) {
+                params.stackblitzProject = {};
+            }
+            if (!params.stackblitzOptions) {
+                params.stackblitzOptions = {};
+            }
+            $(thisElem).data('params', params);    
+        }
+
         const updateProject = async function() {
             const params = $(thisElem).data('params');
             if (!params) {
                 return;
             }    
-            console.log('updateProject', params);
             
             if (params.preloadZip) {
                 // async
@@ -200,12 +215,27 @@ $(document).ready(function() {
             }
 
             if (params.stackblitzProject) {
+                const checkFn = function() {
+                    if (apiHelper.canUseStackblitz) {
+                        if (!apiHelper.canUseStackblitz()) {
+                            $(tryItButtonElem).prop('disabled', true);
+                        }    
+                    } else {
+                        setTimeout(checkFn, 1000);
+                    }
+                }
+                checkFn();                
+
                 $(tryItButtonElem).parent('span').show();
             }
         };
         $(thisElem).on('updateProject', updateProject);
         updateProject();
 
+
+        if ($(tryItButtonElem).data('project')) {
+            $(tryItButtonElem).parent('span').show();
+        }
         
         $(tryItButtonElem).on('click', async function() {
             if ($(tryItButtonElem).data('project')) {
@@ -239,19 +269,17 @@ $(document).ready(function() {
                 let stackblitzProject = Object.assign({
                     files: fileData,
                     title: project,
+                    description: project + ' example script',
                     template: 'node'
                 }, params.stackblitzProject);
     
                 let stackblitzOptions = Object.assign({
+                    openFile: 'app.js',
                 }, params.stackblitzOptions);
     
                 StackBlitzSDK.openProject(stackblitzProject, stackblitzOptions);
             }
         });    
-
-        if ($(tryItButtonElem).data('project')) {
-            $(tryItButtonElem).parent('span').show();
-        }
 
 
 

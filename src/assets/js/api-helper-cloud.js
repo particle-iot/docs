@@ -3525,8 +3525,8 @@ $(document).ready(function () {
                 }
             }
 
-            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(1));
-            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(d.getDate()));
+            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(1));
+            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(d.getDate()));
         }
     });
 
@@ -3735,6 +3735,10 @@ $(document).ready(function () {
         };
         $(thisElem).data('options', options);
         $(thisElem).trigger('updateCommand');
+
+        $('.apiHelperSandboxOrgSelect').on('change', function() {
+            $(thisElem).trigger('updateCommand');
+        });
     });
 
     $('.apiHelperServiceAgreementId').each(function() {
@@ -3772,8 +3776,8 @@ $(document).ready(function () {
                 }
             }
 
-            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(1));
-            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth()) + '-' + twoDigit(d.getDate()));
+            $(startDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(1));
+            $(endDateElem).val(d.getFullYear() + '-' + twoDigit(d.getMonth() + 1) + '-' + twoDigit(d.getDate()));
         } 
     });
 
@@ -3826,6 +3830,10 @@ $(document).ready(function () {
         };
         $(thisElem).data('options', options);
         $(thisElem).trigger('updateCommand');
+
+        $('.apiHelperSandboxOrgSelect').on('change', function() {
+            $(thisElem).trigger('updateCommand');
+        });
 
     });
 
@@ -3880,6 +3888,10 @@ $(document).ready(function () {
         $(reportIdElem).on('input', function() {
             $(thisElem).trigger('updateCommand');
         });
+        $('.apiHelperSandboxOrgSelect').on('change', function() {
+            $(thisElem).trigger('updateCommand');
+        });
+
     });    
 
     $('.apiHelperDataReportDownloadCurl').each(function() {
@@ -3969,99 +3981,6 @@ $(document).ready(function () {
             });
         }
 
-        /*
-        let setStatus = function(s) {
-            $(thisElem).find('.statusDiv').text(s);
-        }
-
-
-        const openBrowserButtonElem = $(thisElem).find('.openBrowserCommand');
-        const downloadCommandElem = $(thisElem).find('.downloadCommand');
-
-        const projectName = 'node-data-report'
-        const zipUrl = '/assets/files/projects/' + projectName + '.zip';
-
-        let fileData = {};
-        let zipFs;
-
-        const getZip = async function() {
-            setStatus('Downloading files...');
-
-            let fileZE = {};
-
-            zipFs = new zip.fs.FS();
-        
-            try {
-                await zipFs.importHttpContent(zipUrl);
-            }
-            catch(e) {
-                console.log('exception', e);
-                return;
-            }    
-
-            // The top level is the node-data-report directory
-            for(const ze of zipFs.root.children[0].children) {
-                if (!ze.directory) {
-                    fileData[ze.name] = await ze.getText();
-                    fileZE[ze.name] = ze;
-                }
-            }
-    
-        
-            {
-                // Update the config.js file
-                const orgId = $('.apiHelperSandboxOrgSelect').val();
-
-                let newConfig = '';
-                for(let line of fileData['config.js'].split('\n')) {
-                    if (line.includes('config.orgId') && orgId != 0) {
-                        line = '    config.orgId = \'' + orgId + '\';';
-                    }
-                    newConfig += line + '\n';
-                }
-                fileData['config.js'] = newConfig;
-                fileZE['config.js'].replaceText(newConfig);
-            }
-            
-        };
-
-        $(openBrowserButtonElem).on('click', async function() {
-            await getZip();
-
-            setStatus('Opening node in a new browser tab...');
-
-            let project = {
-                files: fileData,
-                title: projectName,
-                description: 'sample script for downloading a data operations usage report',
-                template: 'node'
-            };
-
-            let options = {
-                openFile: 'app.js'
-            };
-
-            StackBlitzSDK.openProject(project, options);
-        });
-
-        $(downloadCommandElem).on('click', async function() {
-            await getZip();
-            const blob = await zipFs.exportBlob({
-                level:0
-            });
-        
-            const outputFile = projectName + '.zip';
-            setStatus('Saving ' + outputFile + ' to Downloads...');
-            saveAs(blob, outputFile);
-        });
-
-        setTimeout(function() {
-            if (!apiHelper.canUseStackblitz()) {
-                $(openBrowserButtonElem).prop('disabled', true);
-            }    
-        }, 1000);
-
-        */
     });
 
 

@@ -28,17 +28,22 @@ The following do **not** count against your Data Operations limit:
 <sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
+## Log in
+
+To use the interactive examples in this page, you must be logged into your Particle account:
+
+{{> sso}}
+
+
 ## Request a report tool
 
 The tool below makes it easy to request a data usage report:
 
-{{> sso}}
-
 {{> data-operations-report}}
 
-- You are limited to three outstanding report requests at a time
-- Generating the report can take several minutes
-- You will receive an email when the report is complete, along with a download link
+- You are limited to three outstanding report requests at a time.
+- Generating the report can take several minutes.
+- You will receive an email when the report is complete, along with a download link.
 
 ## Using curl
 
@@ -56,6 +61,8 @@ Be sure to keep this token secure, because it allows access to your account and 
 particle token create --never-expires
 ```
 
+You will not need to create a token to run the examples below in your browser as it will use your single-sign-on access token.
+
 ### Sandbox or organization
 
 You can request a report for your free tier developer sandbox. 
@@ -72,9 +79,10 @@ In order to request a report you will the service agreement ID. You can get this
 
 {{> service-agreements-curl}}
 
-Note that the URL is different for sandbox vs. organization, so make sure you've selected the value from the popup above.
+- The URL is different for sandbox vs. organization, so make sure you've selected the value from the popup above.
+- The command above contains your single-sign-on token, so keep this a secret!
 
-The result from the command is JSON formatted, but the curl command just returns it without formatting. The "id" parameter is easy to spot, however, and that's what you need to request a report.
+The curl command just returns JSON data without formatting. The "id" parameter is easy to spot, however, and that's what you need to request a report.
 
 {{> service-agreement-id}}
 
@@ -94,8 +102,8 @@ When you check your service agreement, you can also find the date range for the 
 
 Once you've requested a report it can take several seconds to several minutes to generate the report. 
 
-- There is a limit of 3 outstanding report requests at a time
-- The owner of the access token used to make the request is sent an email when the report is complete with a download link
+- There is a limit of 3 outstanding report requests at a time.
+- The owner of the access token used to make the request is sent an email when the report is complete with a download link.
 
 If you want to check the report status with code (as opposed to waiting for an email), note the "id" (report ID) in the response as you'll need it in the next step.
 
@@ -107,6 +115,9 @@ The report status response also includes the URL to download the actual CSV repo
 
 {{> data-report-status-curl}}
 
+- There will be `data.attributes.status` will be `pending` while the report is being generated.
+- The `data.attributes.download_url` will be `null` until the report is available, at which point it will be a string containing a full URL to the download.
+- Limit the rate of polling. For example, you might want to wait 15 seconds, then 30, then 60 seconds and then poll once a minute.
 
 ### Download a report csv
 
@@ -116,9 +127,11 @@ The URLs are not guessable or iterable, however you should keep the download URL
 
 {{> data-report-download-curl}}
 
+Note: The **Execute Command** button may not work from a browser. An upcoming change will fix the access controls to make this possible. **Download File** works fine from a browser.
+
 ## Scripting using node.js
 
-It's also possible to
+It's also possible to script the download process using node.js.
 
 You can change whether to pull a sandbox or organization data operations report by editing the config.js file, but the initial state of the file will be set from this control:
 
@@ -126,4 +139,4 @@ You can change whether to pull a sandbox or organization data operations report 
 
 {{> project-browser project="node-data-report" default-file="app.js"}}
 
-If you are using the Chrome browser on Windows, Mac, or Linux you can open the node.js project in your browser, edit, and run it with no software install required using the **Open in Browser** button.
+If you are using the Chrome or Edge browser on Windows, Mac, or Linux you can open the node.js project in your browser, edit, and run it with no software install required using the **Try It** button.
