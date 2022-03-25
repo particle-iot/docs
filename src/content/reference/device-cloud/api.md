@@ -409,19 +409,24 @@ If an API user attempts to perform an action that it is not permitted to, a stan
 
 The following API rate limits apply. Exceeding the rate limit will result in a 429 HTTP error response.
 
+
+{{!-- BEGIN shared-blurb 18c4e2a8-ac34-11ec-b909-0242ac120002 --}}
 #### All API functions - API rate limits
 
 - Maximum of 10,000 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - Can be increased for enterprise customers
 - All API Routes
+{{!-- END shared-blurb --}}
 
+{{!-- BEGIN shared-blurb 1ef79152-ac34-11ec-b909-0242ac120002 --}}
 #### Create an Access Token - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - Can be increased for enterprise customers
 - API Route: POST /oauth/token
+{{!-- END shared-blurb --}}
 
 #### Delete User Account - API rate limits
 
