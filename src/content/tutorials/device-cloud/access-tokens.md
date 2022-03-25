@@ -4,12 +4,13 @@ shared: true
 columns: two
 layout: commonTwo.hbs
 description: Using access tokens with the Particle Cloud API
-includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, api-helper-json, codemirror]
+includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, codemirror, api-helper-projects, stackblitz, zip]
+
 ---
 
 # {{title}}
 
-Access tokens control access to the Particle Cloud API. While you use a username and password, and optionally a multi-factor authentication (MFA) code to log into things like the [console](https://console.particle.io), behind the scenes this creates an access token that is used to access the cloud API on your behalf.
+Access tokens control access to the Particle Cloud API. While you can use a username and password, and optionally a multi-factor authentication (MFA) code to log into things like the [console](https://console.particle.io), behind the scenes this creates an access token that is used to access the cloud API on your behalf.
 
 Devices don't use access tokens; they use a different technique (RSA public-private key pairs) to securely access the cloud. This makes it difficult to spoof or impersonate a device, and also assures that even if you have physical access to a device you can't extract anything that would be able to access the owner's account information.
 
@@ -98,18 +99,56 @@ To delete an API user, list the users in the product or organization. If there a
 
 ## Creating a customer token (oAuth)
 
+Customer claiming and customer tokens are typically only used for Wi-Fi device with an associated mobile app, and are not required, even in that scenario.
+
+As this is a complex topic, see the [customer claiming tutorial](/tutorials/device-cloud/cloud-api/#customer-claiming) for more information.
 
 ## Creating a product bearer token (oAuth)
 
-Before the API User feature (above), the only way to access all devices in a product is with a product bearer token. It's generally better to use the API feature now, because it allows the token to be restricted to only the operations it needs to be able to perform.
+Before the API User feature (above), the only way to access all devices in a product is with a product bearer token. It's generally better to use the API user feature now, because it allows the token to be restricted to only the operations it needs to be able to perform.
 
+If you think you need to use a product bearer token, see the [product bearer token tutorial](/tutorials/device-cloud/cloud-api/#product-bearer-token-authentication-products-).
 
 ## Using with servers
 
+When you implementing a server, you may not want to use interactive login. You should instead have a pre-generated login token and store that in a secure location. This is typically:
 
 - Environment variables
 - Configuration files
 
+Most cloud-services should include the access token in an environment variable. They generally provide a secure way to store and pass these variables to your cloud server or cloud function.
+
+In some cases, it may be appropriate to store the access token in a configuration file, but make sure you never commit that file to a public source code repository!
+
+### Using an environment variable
+
+{{> project-browser project="node-list-devices2" default-file="app.js" options="stackblitz"}}
+
+The **Try It** button opened a new web browser which allows you to test the node.js application with no software install required on Windows, Mac, Linux, or Chromebook. The node.js Try It feature only works on Chrome browsers.
+
+To call the script, you just [get an access token](#getting-a-user-access-token) (above), and set the environment variable first. 
+
+For the Try It web-based example, enter the command in a single line in the terminal box at the bottom of the window.
+
+```
+PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259 node app.js
+```
+
+For Mac or Linux, enter as two separate commands:
+
+```
+export PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+node app.js
+```
+
+For Windows:
+
+```
+set PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+node app.js
+```
+
+Of course replace 27fdffffffffffffffffffffffffffffffff4259 with your access token. This must be a user access token, not an API user token.
 
 
 ## Prompting for login
@@ -123,35 +162,22 @@ Logging in this way requires a username, password, and, if enabled in the accoun
 
 ### From a web page
 
+This is a simple example project for prompting for Particle authentication from a web page. Once logged in it creates a popup menu with a list of devices just an an example.
+
+The **Try It** button will open up a separate web browser window where you can try the web page, as well as edit the code. This example, which only uses HTML and Javascript, should work with all major web browsers.
+
+
+{{> project-browser project="web-login-demo" default-file="script.js" tryit="web-platform-9hmp3r"}}
+
 
 For more information, see also application note [AN032 Calling API from a web page](/datasheets/app-notes/an032-calling-api-from-web-page/).
 
 ### From a node.js command line tool
 
 
-## Testing an access token
+{{> project-browser project="node-list-devices3" default-file="app.js" options="stackblitz"}}
 
+An explanation of how this project works can be found in the [node.js tutorial](/tutorials/learn-more/node-js/#list-devices-particle-api-). 
 
-{{!-- 
+The **Try It** button opened a new web browser which allows you to test the node.js application with no software install required on Windows, Mac, Linux, or Chromebook. The node.js Try It feature only works on Chrome browsers.
 
-## What is an access token
-
-A token is a series of 40 hexadecimal digits, like `67acf71ae39272f967d352bc190f415bd811c34d`.
-
-- A token can represent a user, which allows access to resources (developer devices, products, and organizations) that the user has access to
-  - A user may have different levels of access to products through [Team Access Controls](/tutorials/product-tools/team-access-controls/).
-- An [API user token](/tutorials/device-cloud/cloud-api/#api-users) allows fine-grained control to certain Particle Cloud API calls
-  - API user tokens are only used with products
-  - API user tokens cannot log into the console, Web IDE, etc.
-- A customer token provides access only to a single user's devices for making function, variable, publish, and subscribe operations.
-  - Customer tokens are only used with products
-  - Customer tokens do not allow flashing code.
-  - Customer tokens cannot log into the console, Web IDE, etc.
-- A product token provides access to all devices in a product.
-  - This is similar to an API user token, but does not offer the ability to restrict access to only certain APIs.
-  - Product tokens cannot log into the console, Web IDE, etc.
-  
-Tokens generally have a defined lifetime ranging from minutes, to days, months, or forever. 
-
---}}
-                        
