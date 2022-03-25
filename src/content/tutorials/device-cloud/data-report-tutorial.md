@@ -115,7 +115,7 @@ Note: The **Execute Command** button may not work from a browser. An upcoming ch
 
 ### Get an access token
 
-The examples above embed your single sign-on access token. If you want to create an access token 
+The examples below embed your single sign-on access token. If you want to create an access token, you can use the techniques below.
 
 #### CLI particle token create
 
