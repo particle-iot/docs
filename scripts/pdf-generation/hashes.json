@@ -6,7 +6,7 @@
   "asset-tracking/m8-temperature-humidity.md": "0b2b99825125d06c79e11436a3efc0fe",
   "asset-tracking/tracker-m8-accessories.md": "8e6d68ec82d6ee7f8d0efb1a7b007e4d",
   "asset-tracking/tracker-one.md": "1ff77b8a0d23ce8228ec22861127dbc1",
-  "asset-tracking/tracker-som-datasheet.md": "b0302bfcdb7b37e0c05d0630e033fd40",
+  "asset-tracking/tracker-som-datasheet.md": "a2bb5b51050e4d6a37206a98bbc0aa98",
   "asset-tracking/tracker-som-eval-board.md": "1873ff3f403c48af40439d5beb0fae6d",
   "boron/b-series-boron-migration-guide.md": "71bb3a6b7fc2e1ac138e3bc99019f946",
   "boron/b-series-eval-board.md": "4c227f250c98436e1b4fa46a7af6325c",
@@ -33,6 +33,6 @@
   "wi-fi/p2-migration-guide.md": "c3b5c031859decc75778e6850cce1e57",
   "wi-fi/photon-2-argon-migration-guide.md": "baf3dc00b7e0d5757e794521e82df830",
   "wi-fi/photon-2-datasheet.md": "dd3164e942acc91229728d2b5f4c6d8b",
-  "wi-fi/photon-2-photon-migration-guide.md": "8c362b3186de44d04b34676b3cb73430",
+  "wi-fi/photon-2-photon-migration-guide.md": "bceb0f71cb31fe6313248572edb2c11e",
   "wi-fi/photon-datasheet.md": "01a3131c8d8b2be4da960f65826733ee"
 }

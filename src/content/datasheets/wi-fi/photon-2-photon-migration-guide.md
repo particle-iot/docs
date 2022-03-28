@@ -5,7 +5,7 @@ columns: two
 description: Migration guide for transitioning from the Photon to Photon 2
 ---
 
-# Photon 2 from Argon Migration Guide
+# {{title}}
 
 **Preliminary pre-release version 2022-03-14**
 

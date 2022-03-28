@@ -1701,6 +1701,8 @@ If there are no credentials then the call does nothing other than turn on the Wi
 
 On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
+On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before connecting. The list of available networks is compared with the configured SSIDs. The access point with the strongest signal is connected to. Prior to 1.5.0, only the original access point BSSID that was configured would ever be connected to, even if there was a different access point on the same SSID and network with a stronger signal.
+
 ### disconnect()
 
 {{api name1="WiFi.disconnect"}}
@@ -4323,7 +4325,13 @@ When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for th
 By default, on the **B Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
 
 ```
-System.setPowerConfiguration(SystemPowerConfiguration());
+void disable()
+{
+    SystemPowerConfiguration conf;
+    conf.feature(SystemPowerFeature::DISABLE);
+    System.setPowerConfiguration(conf);
+}
+STARTUP(disable());
 ```
 
 | B Series SoM | Power Manager Usage  |
@@ -5468,7 +5476,9 @@ To reset all settings to the default values:
 
 void setup() {
     // To restore the default configuration
-    System.setPowerConfiguration(SystemPowerConfiguration());
+    SystemPowerConfiguration conf;
+    conf.feature(SystemPowerFeature::DISABLE);
+    System.setPowerConfiguration(conf);
 }
 ```
 
@@ -7716,7 +7726,7 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 {{since when="0.5.0"}}
 
-Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
+Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected). This function is called as an interrupt service routine (ISR) so you must be careful about what calls you make from it.
 
 On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
 
@@ -7776,6 +7786,22 @@ void loop() {
 ```
 
 On Gen 2 devices, this example can use `SPI` instead of `SPI1`. Makes sure you change all of the calls!
+
+---
+
+{{note op="start" type="gen3"}}
+You can call the DMA-based SPI.transfer from an onSelect handler. You should use a callback, because if you don't, it will busy wait.
+
+You must, however:
+
+- Always pass real buffers in RAM for txBuf and rxBuf.
+- Never pass NULL for a buffer pointer.
+- Never pass a buffer located in flash memory, such as constant arrays of bytes embedded in code.
+
+The problem is that in the prohibited cases, a temporary buffer is located in RAM, and heap allocation is now allowed from an ISR.
+{{note op="end"}}
+
+---
 
 ### available()
 
@@ -15672,6 +15698,11 @@ Note that when startup code performs digital I/O, there will still be a period o
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
 in mind, using pullup/pulldown resistors as appropriate. For Gen 2 devices, see note below about JTAG/SWD as well.
 
+Other acceptable calls to make from STARTUP include:
+
+- [`System.setPowerConfiguration()`](/cards/firmware/power-manager/systempowerfeature/)
+- `System.enableFeature()`
+
 ---
 
 {{note op="start" type="gen2"}}
@@ -18913,6 +18944,10 @@ message sent to the Device Cloud. This will result in a small amount of
 additional cellular data usage each time they are called, but do not 
 count as a data operation for billing purposes.
 
+Calling `System.disableUpdates()` should only be done after connecting to the Particle cloud (`Particle.connected()` return true). You 
+must never call it from `STARTUP()`. Because updates are not checked until around 8 seconds after cloud connected, you have a 
+sufficient window to disable updates before an update can start.
+
 ### System.disableUpdates()
 ```cpp
 // System.disableUpdates() example where updates are disabled
@@ -18960,12 +18995,11 @@ In addition, a cloud-side system event will be emitted when updates are disabled
 `particle/device/updates/enabled` with a data value of `false`. This event is sent
 only if updates were not already disabled.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
-| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support |
 
-**Enterprise Feature**
 
 When updates are disabled, an attempt to send a firmware update to a
 device that has called `System.disableUpdates()` will result in the
@@ -19029,10 +19063,10 @@ API](/reference/device-cloud/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
 Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
-| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support |
 
 ### System.updatesEnabled()
 
@@ -19055,10 +19089,10 @@ Determine if firmware updates are presently enabled or disabled for this device.
 
 Returns `true` on startup, and after `System.enableUpdates()` has been called. Returns `false` after `System.disableUpdates()` has been called.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS &lt; 1.2.0 | Supported | Supported | Supported |
-| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | Supported | Supported |
+| Device OS &gt;= 1.2.0 | Supported | Supported |
 
 ### System.updatesPending()
 
@@ -19085,7 +19119,7 @@ bool isSafeToUpdate() {
 }
 
 void loop() {
-  // NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
+  // NB: System.updatesPending() should only be used in a Product
   if (isSafeToUpdate() && System.updatesPending()) {
         System.enableUpdates();
 
@@ -19107,8 +19141,6 @@ void loop() {
 
 ```
 
-**Enterprise Feature, Since 1.2.0**
-
 `System.updatesPending()` indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`.
 
 When new product firmware is released with the `intelligent` option
@@ -19127,10 +19159,10 @@ In addition, a cloud-side system event will be emitted when a pending
 OTA update is queued,
 `particle/device/updates/pending` with a data value of `true`.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS < 1.2.0 | N/A | N/A | N/A |
-| Device OS >= 1.2.0 | N/A | N/A | Supported |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS < 1.2.0 | N/A | N/A |
+| Device OS >= 1.2.0 | N/A | Supported |
 
 ### System.updatesForced()
 
@@ -19170,10 +19202,10 @@ When updates are forced in the cloud, this function returns `true`.
 Forced updates may be used with Product firmware releases or single
 device OTA updates.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
---------- | ---------------------- | ---------------- | ------------------ |
-| Device OS &lt; 1.2.0 | N/A | N/A | N/A |
-| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+| Version | Developer Devices | Product |
+--------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | N/A | N/A |
+| Device OS &gt;= 1.2.0 | Supported | Supported |
 
 
 

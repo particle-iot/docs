@@ -133,6 +133,13 @@ This table just shows the socket-specific pin mapping:
 | CS2 | D4 |
 
 
+## Click boards
+
+### CAN
+
+If you wish to implement CAN (controller area network) with the Mikroe system, you should use the [MCP2515 CAN SPI click 3.3V](https://www.mikroe.com/can-spi-33v-click), not the MCP25625 click. The Particle library supports both, but the MCP25625 click defaults to 5V IO and you need to move a SMD resistor on the click board to change it. The MCP2515 has 3.3V IO which is required by nRF52 devices and works out of the box. The software is completely compatible so you can prototype with the MCP2515 and seamlessly transition to the MCP25625 on a custom board if desired.
+
+
 ## Example
 
 ### Gen 3 SoM Shield with TMP102 temperature sensor

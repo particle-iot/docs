@@ -4299,7 +4299,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -4342,7 +4343,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -5602,14 +5604,13 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -5789,7 +5790,8 @@
       },
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ],
       "supersim": {
         "allow2G": true,
@@ -6090,14 +6092,13 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.1
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -6139,14 +6140,13 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-20"
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       }
     },
     {
@@ -6554,22 +6554,23 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -6838,14 +6839,13 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-7"
       ]
     },
     {
@@ -6884,10 +6884,8 @@
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-7"
       ]
     },
     {
@@ -6908,14 +6906,13 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ],
       "koreAllNet": {
         "allow2G": true,
@@ -6928,10 +6925,8 @@
       "carrier": "Orange",
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-38"
       ],
       "koreAllNet": {
         "allow2G": true,
@@ -6945,10 +6940,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-42"
       ],
       "koreAllNet": {
         "allow2G": true,
@@ -8085,6 +8078,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.4
       },
       "telefonicaBundle2018": {
@@ -8099,10 +8093,8 @@
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -8530,6 +8522,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
@@ -8544,18 +8537,18 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-1"
       ]
     },
     {
@@ -8580,10 +8573,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -8591,10 +8582,8 @@
       "carrier": "Qcell",
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -8869,20 +8858,21 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
         "3G-1",
-        "3G-8"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-8",
+        "LTE-7",
+        "LTE-20"
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       }
     },
     {
@@ -8896,6 +8886,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -8911,18 +8902,18 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-20"
       ]
     },
     {
@@ -9373,15 +9364,14 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.4
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -9390,6 +9380,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
@@ -9405,10 +9396,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -11043,6 +11032,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
@@ -11057,14 +11047,13 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-20"
       ]
     },
     {
@@ -11396,6 +11385,7 @@
       "bands": [
         "2G-900",
         "3G-1",
+        "LTE-3",
         "LTE-20"
       ]
     },
@@ -11734,26 +11724,28 @@
       "telefonicaPPU2020": {
         "partnerZone": 5,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       }
     },
     {
@@ -11763,14 +11755,13 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -11781,22 +11772,23 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -11806,15 +11798,14 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-41"
       ]
     },
     {
@@ -11947,10 +11938,8 @@
       "carrier": "Malitel",
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -11958,7 +11947,8 @@
       "carrier": "Orange",
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -12142,11 +12132,13 @@
       "sunset3G": "?",
       "bands": [
         "2G-900",
-        "2G-1800"
+        "2G-1800",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
       "noBands": [
-        "3G",
-        "LTE"
+        "3G"
       ]
     },
     {
@@ -12575,7 +12567,9 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ],
       "supersim": {
         "allow2G": true,
@@ -12590,7 +12584,7 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-3",
+        "LTE-7",
         "LTE-20"
       ]
     },
@@ -12610,6 +12604,8 @@
         "2G-900",
         "2G-1800",
         "3G-1",
+        "LTE-3",
+        "LTE-7",
         "LTE-20"
       ],
       "supersim": {
@@ -12641,6 +12637,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.4
       },
       "telefonicaBundle2018": {
@@ -12655,19 +12652,20 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3",
+        "LTE-20"
       ]
     },
     {
@@ -12732,7 +12730,8 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "LTE-38"
       ]
     },
     {
@@ -13121,7 +13120,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -13132,20 +13132,20 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -13210,15 +13210,14 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.3
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-28"
       ]
     },
     {
@@ -13229,6 +13228,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.25
       },
       "telefonicaBundle2018": {
@@ -13244,15 +13244,15 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-7",
+        "LTE-20"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -14528,18 +14528,20 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3",
+        "LTE-7",
+        "LTE-20"
       ]
     },
     {
@@ -15440,14 +15442,14 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3",
+        "LTE-20"
       ]
     },
     {
@@ -16034,7 +16036,8 @@
         "2G-1800",
         "3G-1",
         "3G-8",
-        "LTE-1"
+        "LTE-1",
+        "LTE-3"
       ]
     },
     {
@@ -16062,7 +16065,8 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-3"
+        "LTE-3",
+        "LTE-8"
       ]
     },
     {
@@ -16095,7 +16099,10 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "LTE-3"
+        "LTE-1",
+        "LTE-3",
+        "LTE-8",
+        "LTE-46"
       ]
     },
     {
@@ -16934,6 +16941,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
@@ -16948,15 +16956,14 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-28"
       ]
     },
     {
@@ -16967,10 +16974,8 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-40"
       ]
     },
     {
@@ -16982,6 +16987,7 @@
         "2G-900",
         "2G-1800",
         "3G-1",
+        "LTE-3",
         "LTE-20"
       ]
     },
@@ -16997,19 +17003,19 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3"
       ]
     },
     {
@@ -17251,10 +17257,9 @@
         "2G-900",
         "2G-1800",
         "3G-1",
-        "3G-8"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-8",
+        "LTE-3",
+        "LTE-20"
       ]
     },
     {
@@ -17268,19 +17273,20 @@
       "telefonicaPPU2020": {
         "partnerZone": 5,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-3",
+        "LTE-20"
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       }
     },
     {
@@ -17294,7 +17300,9 @@
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-3",
+        "LTE-20"
       ],
       "supersim": {
         "allow2G": true,
@@ -17483,7 +17491,8 @@
       "bands": [
         "2G-900",
         "3G-1",
-        "LTE-7"
+        "LTE-7",
+        "LTE-38"
       ],
       "koreOneNet": {
         "allow2G": true,
@@ -18528,22 +18537,23 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.35
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-8"
       ]
     },
     {
@@ -18569,10 +18579,8 @@
       "sunset3G": "?",
       "bands": [
         "2G-900",
-        "3G-1"
-      ],
-      "noBands": [
-        "LTE"
+        "3G-1",
+        "LTE-40"
       ]
     },
     {
