@@ -16755,28 +16755,26 @@
       "country": "Switzerland",
       "carrier": "Swisscom",
       "sunset2G": "2021-12-31",
-      "sunset3G": "2022-12-31",
+      "sunset3G": "2025",
       "lteM1": true,
       "supersim": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
         "allowM1": true
       },
       "koreAllNet": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true
       },
       "koreOneNet": {
-        "allow2G": true,
+        "allow2G": false,
         "allow3G": true,
         "allowCat1": true
       },
       "bands": [
-        "2G-900",
-        "2G-1800",
         "3G-1",
         "3G-8",
         "LTE-3",

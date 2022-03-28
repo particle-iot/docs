@@ -756,7 +756,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Sri Lanka | ELC314 | 2G, 3G | Dialog, Mobitel |
 | Suriname | ELC314 | 2G, 3G | Telesur |
 | Sweden | ELC314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | ELC314 | 2G, 3G | Salt, Sunrise, Swisscom |
+| Switzerland | ELC314 | 3G | Salt, Sunrise, Swisscom |
 | Taiwan | ELC314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tajikistan | ELC314 | 2G, 3G | Beeline, Tcell |
 | Tanzania | ELC314 | 2G, 3G | Airtel |

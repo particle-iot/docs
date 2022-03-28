@@ -603,7 +603,7 @@ The bootloader allows you to easily update the user application via several diff
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | B524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | B524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | B524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Switzerland | B524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
 | United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 
 

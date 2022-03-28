@@ -1158,7 +1158,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | T524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | T524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | T524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Switzerland | T524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
 | United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | T404 | M1 | AT&T |
 

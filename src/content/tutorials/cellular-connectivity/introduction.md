@@ -573,7 +573,7 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 
 <sup>1</sup>The Boron LTE can be used with a 3rd-party SIM card in areas outside of the United States, Canada, and Mexico at this time. This is not officially supported, but has been known to work.
 
-<sup>2</sup>The Electron 2G cannot be used in locations that no longer have 2G service. Some countries include: Australia, Japan, Korea, Singapore, and Taiwan. In the United States, 2G services is only available on T-Mobile, and only through the end of 2020. In some other countries, including Switzerland and New Zealand, the Electron 2G can only be used with a 3rd-party SIM card, not with the included Particle SIM card. 
+<sup>2</sup>The Electron 2G cannot be used in locations that no longer have 2G service. Some countries include: Australia, Japan, Korea, Singapore, Switzerland, and Taiwan. In the United States, 2G services is only available on T-Mobile, and only through the end of 2020. In some other countries, including New Zealand, the Electron 2G can only be used with a 3rd-party SIM card, not with the included Particle SIM card. 
 
 <sup>3</sup>The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE). These are the frequencies typically used in the Americas, but there are exceptions. 
 
@@ -889,6 +889,7 @@ In some European countries, they're phasing out 3G and instead keeping 2G and LT
 
 For example, in Norway, Telenor shut down their 3G network at the end of 2020, but keeping their 2G network running until the end of 2025. In Germany, Telekom shut down their 3G network June 30, 2021 but will also keep 2G until end of 2025.
 
+Some countries, such as Switzerland, have shut down their 2G networks first leaving 3G. Swisscom intends to shut down their 3G network in 2025 and only provide LTE service with no 2G or 3G.
 
 ### Australia
 
