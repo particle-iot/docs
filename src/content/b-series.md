@@ -14,8 +14,8 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**
-- [B402 Datasheet](/datasheets/boron/b402-datasheet/)
-- [B523 Datasheet](/datasheets/boron/b523-datasheet/)
+- [B402 Datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
+- [B523 Datasheet](/datasheets/boron/b524-b523-datasheet/)
 - [Evaluation Board](/datasheets/boron/b-series-eval-board/)
 - [Certification](/datasheets/certifications/certification)
 {{box op="switch"}}
@@ -28,13 +28,14 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 
 ## Models
 
-| B402 | B523 |
-| :--- | :--- |
-| u-blox SARA R410M-02-B | Quectel EG91-E | 
-| LTE Cat M1 | LTE Cat 1 with 3G and 2G fallback |
-| 3GPP LTE Cat M1 Release 13 | 3GPP E-UTRA Release 13  |
-| LTE Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28 | LTE Cat 1 bands: 1, 3, 7, 8, 20, 28A |
-| Supported in the US, Canada, and Mexico only | Support for Europe only at this time |
+| Model | Modem | Technology | Supported Locations |
+| :---- | :--- | :--- | :--- | 
+| B404X | u-blox SARA R510S-01B | LTE Cat M1 | United States, Canada, Mexico | 
+| B404  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
+| B402  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
+| B524  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe, Australia, New Zealand |
+| B523  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe |
+
 
 <center>[Cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)</center>
 

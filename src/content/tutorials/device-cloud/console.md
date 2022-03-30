@@ -7,7 +7,6 @@ layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
 ---
 
-
 # Console
 
 The [Particle Console](https://console.particle.io) is your
@@ -33,7 +32,7 @@ including it's unique Device ID, it's name, the type of device, the last time it
 to the Particle cloud, and whether or not the device is currently
 online.
 
-{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac120002 --}}
+{{!-- BEGIN shared-blurb 164b5ce0-9baa-11ec-b909-0242ac12000 --}}
 ![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
 When **Sandbox** (1) is selected, you will see the devices in your personal sandbox, vs. your growth or enterprise organization. 
@@ -48,8 +47,6 @@ When checked, the list will only include non-product devices claimed to your acc
 - **Total claimed product devices** is the total number of devices claimed to your account that are in a product.
 
 The 100-device limit in the free tier is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free tier products that you are the owner of. 
-
-The [Device List Details](/tutorials/product-tools/creating-a-product/#device-list-details) tool can break down exactly which devices count against your free tier limits.
 {{!-- END shared-blurb --}}
 
 You can also take certain actions on devices from this view, such as

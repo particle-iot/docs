@@ -123,10 +123,10 @@ module.exports = function(options) {
                 }
             }
             if (changes > 1) {
-                console.log('blurb ' + blurbId + ' is changed in multiple files!');
+                console.log('blurb ' + blurbId + ' is changed in multiple files! config hash=' + blurbConfig.blurbs[blurbId].hash);
                 for(const loc of blurbInfo[blurbId].locations) {
                     if (loc.isChanged) {
-                        console.log('  ' + loc.fileName + ' at ' + loc.start);
+                        console.log('  ' + loc.fileName + ' at ' + loc.start + ' hash=' + loc.hash);
                         loc.isChanged = false;
                     }
                 }
@@ -173,6 +173,21 @@ module.exports = function(options) {
 
         // Process all files to update blurbs
         for(const loc of updates) {
+            const oldFileContents = fs.readFileSync(path.join(contentDir, loc.fileName), 'utf8');
+            let separatorCount = 0;
+            let frontMatter = '';
+            for(const line of oldFileContents.split(/\n/)) {
+                frontMatter += line + '\n';
+
+                if (line == '---') {
+                    separatorCount++;
+
+                    if (separatorCount == 2) {
+                        break;
+                    }
+                }
+            }
+            
             const oldText = files[loc.fileName].contents.toString('utf8');
 
             newText = oldText.substring(0, loc.startEnd) + loc.blurbText + oldText.substring(loc.end);
@@ -180,7 +195,7 @@ module.exports = function(options) {
             files[loc.fileName].contents = Buffer.from(newText, 'utf8');
 
             // Update file on disk
-            fs.writeFileSync(path.join(contentDir, loc.fileName), newText);
+            fs.writeFileSync(path.join(contentDir, loc.fileName), frontMatter + newText);
         }
 
         // Save config file if changed

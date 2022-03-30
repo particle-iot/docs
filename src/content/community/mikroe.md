@@ -85,6 +85,7 @@ This table just shows the socket-specific pin mapping:
 
 ## Gen 3 SoM Shield
 
+{{!-- BEGIN shared-blurb b644c2f2-a5ca-11ec-b909-0242ac120002 --}}
 ![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
 The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroBUS Click boards:
@@ -113,6 +114,7 @@ The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) c
 | 68 | PWM1 | D5 | PWM1 | |
 | 70 | PWM2 | D6 | | PWM2 |
 | 72 | PWM3 | D7 | RST1 | |
+{{!-- END shared-blurb --}}
 
 This table just shows the socket-specific pin mapping:
 
@@ -129,6 +131,13 @@ This table just shows the socket-specific pin mapping:
 | PWM2 | D6 |
 | INT2 | D23 |
 | CS2 | D4 |
+
+
+## Click boards
+
+### CAN
+
+If you wish to implement CAN (controller area network) with the Mikroe system, you should use the [MCP2515 CAN SPI click 3.3V](https://www.mikroe.com/can-spi-33v-click), not the MCP25625 click. The Particle library supports both, but the MCP25625 click defaults to 5V IO and you need to move a SMD resistor on the click board to change it. The MCP2515 has 3.3V IO which is required by nRF52 devices and works out of the box. The software is completely compatible so you can prototype with the MCP2515 and seamlessly transition to the MCP25625 on a custom board if desired.
 
 
 ## Example

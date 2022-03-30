@@ -3,9 +3,9 @@
         <div class="apiHelperBox">
             <p>
                 <button type="button" class="apiHelperProjectDownloadZipButton" >Download Full Project (.zip)</button> &nbsp;
-            {{#if tryit}}
-                <button type="button" class="apiHelperTryItButton" data-project="{{tryit}}">Try It!</button> &nbsp;
-            {{/if}}
+                <span style="display:none;">
+                    <button type="button" class="apiHelperTryItButton" data-project="{{tryit}}">Try It!</button> &nbsp;
+                </span>
             {{#if flash}}
                 <span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;
                     <select class="codeboxFlashDeviceSelect apiHelperCommonDevice" data-options="{{options}}"></select>

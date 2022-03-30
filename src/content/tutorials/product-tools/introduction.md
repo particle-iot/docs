@@ -55,7 +55,6 @@ Products allow a number of additional features over developer devices:
 
 Once you move beyond self-service to an enterprise plan, you get features such as:
 
-- [Intelligent OTA](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), allowing fine-grained control of the fleet OTA process.
 - Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
 - Data Operations and cellular data are pooled across all devices annually
 - Discounts for higher Enterprise tier commitments

@@ -12,6 +12,12 @@ Node.js is a scripting language that can be used to write back-end servers and c
 
 This document is a brief introduction to node.js and using the Particle Cloud API, designed for beginners moving from using things like curl and bash or MSDOS batch scripts to a more powerful, and, ultimately easier to use, full programming language environment.
 
+## Log in
+
+To use the interactive examples in this page, you must be logged into your Particle account:
+
+{{> sso}}
+
 ## Hello world - browser
 
 The examples in this page can be used either locally, on your computer with node.js installed, or right from your browser. 
@@ -532,51 +538,6 @@ Or you can do this with arrow functions:
 
 ## Simple techniques
 
-### Access tokens
-
-One common thing you'll need to do is authenticate Particle API calls from a node.js script. While you can do a whole authorization flow from the command line, you'll most likely just want to use tokens directly. There are four common ways of using access tokens in scripts:
-
-- Embed the token in the script as a variable.
-- Pass the token in a command line parameter. 
-- Store the token in a configuration file.
-- Pass the token in an environment variable.
-
-For security reasons, the last one is usually the most secure, and is also how you'll pass auth tokens to node scripts running on a cloud server, should you want to do that in the future. That is the method used in all of the examples below.
-
-You'll often put this boilerplate code at the top of your script:
-
-{{> codebox content="/assets/files/node-tutorial/auth1.js" format="js"}}
-
-When you want to use your accessToken, for example with a Particle cloud API call, you just the `accessToken` variable.
-
-To call the script, you just need to set the environment variable first. 
-
-For Mac and Linux:
-
-```
-export PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
-node auth1.js
-```
-
-For Windows:
-
-```
-set PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
-node auth1.js
-```
-
-For the browser-based examples 
-
-To get an access token, you will often use the [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command in the Particle CLI. Remember that the access token grants full access to your account, so make sure you keep it secure!
-
-### Create a token (browser-based)
-
-You can also create a token using this web-browser control. This creates a token for your account, which can access all devices in your sandbox as well as products and organizations you have access to. Be careful with this token! The username, password, and MFA OTP token (if required) are necessary to create a new token. You can't create another token from your single-sign-on login.
-
-{{> cloud-api-create-token-simple}}
-
-Copy and paste the token out of the Access Token field to use in locations where you need an access token. (The password is sent using a Particle Cloud API call using Javascript and TLS/SSL encryption.)
-
 ### Adding a package
 
 One of the advantages of node is the huge number of available packages or libraries. In order to use them, we'll change the structure of the projects we use in the examples.
@@ -585,7 +546,7 @@ One of the advantages of node is the huge number of available packages or librar
 - You need a `package.json` file at the top level of the directory. The file is mostly boilerplate for private projects like this. It will be updated as we add libraries, however, so it's still important.
 - Your Javascript sources go in that directory as well. In this case, it's in `app.js`.
 
-{{> project-browser project="node-empty" default-file="package.json"}}
+{{> project-browser project="node-empty" default-file="package.json" options="stackblitz"}}
 
 To add a package, `cd` into the project directory (containing the package.json file), then:
 
@@ -609,30 +570,8 @@ npm install particle-api-js
 
 Now lets move on to something more useful, using the Particle cloud API to list the devices in our account.
 
-{{> project-browser project="node-list-devices" default-file="app.js" tryit="node-e4yhcg"}}
+{{> project-browser project="node-list-devices3" default-file="app.js" options="stackblitz"}}
 
-If you download a full project .zip file as above, you'll need to install all of the dependencies. This is as easy as:
-
-```
-cd node-list-devices
-npm install
-```
-
-And then set your access token and run:
-
-```
-export PARTICLE_AUTH=fffffff344ede465db1ce541461e41eb5219749d                     
-node app.js
-```
-
-Or for Windows:
-
-```
-set PARTICLE_AUTH=fffffff344ede465db1ce541461e41eb5219749d
-node app.js
-```
-
-If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
 
 There are a bunch of new things in this code:
 
@@ -643,100 +582,58 @@ var Particle = require('particle-api-js');
 var particle = new Particle();
 ```
 
-There's the access token loading and checking code:
+This example also uses the node-example-helper package. This makes it easy to handle authentication tokens from the example script, either by logging in interactively, from an environment variable, or from a configuration file.
 
 ```
-const accessToken = process.env.PARTICLE_AUTH;
-if (!accessToken) {
-    console.log('You must specify the PARTICLE_AUTH environment variable');
-    process.exit(1);
+const helper = require('@particle/node-example-helper');
+```
+
+This example uses async/await, which is a somewhat new feature of Javascript which greatly simplifies writing asynchronous code. While you do not need to use it, it makes the examples easier to read so most of the examples will use it. The run() function is where all of the important stuff in this example lives.
+
+```
+async function run() {
+```
+
+This function handles getting the auth token. When complete, the variable `helper.auth` will contain this access token.
+
+```
+// Authenticate the user and obtain the access token
+await helper.authenticate();
+```
+
+One of the things about using async/await is that you need to catch the exceptions that can be thrown if an error occurs. This is done with a try/catch block.
+
+```
+try {
+    // Code was here...
+}
+catch(e) {
+    console.log('exception getting device list', e);
 }
 ```
 
-And finally the list devices code, which is another new code structure that requires closer examination.
+Finally, this is the code to get the list of devices. It requests a list of devices from the Particle Cloud API then prints it out.
 
 ```
-particle.listDevices({ auth: accessToken }).then(
-    function (devices) {
-        console.log('Devices', devices);
-    },
-    function (err) {
-        console.log('List devices call failed', err);
-    }
-);
-```
+const devices = await particle.listDevices({ auth: helper.auth });
 
-`particle.listDevices()` is a function call. This syntax means to call the `listDevices()` method in the `particle` object.
-
-The parameter is in both `()` and `{}`. The reason is this package uses named parameters. Instead of positional parameters where the first parameter means something, the second parameter something else, etc., this package names every parameter. In this case, there's only one parameter so it's not as important, but it's consistent across all of the functions and really becomes handy when there are optional parameters.
-
-The single parameter we pass in is called `auth` and it's initialized to our `accessToken` variable.
-
-Then there is the `then`. The listDevices API will do its work asynchronously, then it will either call the first function on success, or call the second function on error. That's a simplified explanation.
-
-It's also worth mentioning `console.log('Devices', devices)`. You'll notice there's a comma, not a `+` before `devices`. The `console.log()` function can either take a single string, or it can take a string and an object. The object will be pretty-printed in the output so you can see all of the contents!
-
-As was the case with the `setInterval` example earlier, remember that the inner functions are called later.
-
-#### Putting the main code in a function
-
-Sometimes it's useful to put the main code in a function, in this case `run()`. The function is declared, then it's called. It works the same as the previous example, it's just arranged differently.
-
-{{> project-browser project="node-list-devices2" default-file="app.js" tryit="node-xejnpa"}}
-
-Also, in this example instead of printing out the whole object, we iterate the list of devices in code and only print out the device name and device ID.
-
-```
 for(const dev of devices.body) {
     console.log('name=' + dev.name + ' id=' + dev.id);
-}
+}    
 ```
 
-- When the `devices` object is returned, it has a member named `body` that's the array of device objects.
-- Using a for - of loop we iterate that array, assigning `dev` to be the specific device we're looking at.
-- Then we print out the device name and device ID.
+Finally, this allows the helper to exit. If you leave off this line, the script will keep running forever and you'll need to Ctrl-C to exit it.
 
-If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
-
-#### List devices (await)
-
-There is a reason for this, and it's so you can write the code this way, instead:
-
-{{> project-browser project="node-list-devices3" default-file="app.js" tryit="node-qusk9m"}}
-
-- In this example, instead of declaring `function run()` we declare `async function run()`. 
-- This looks more like a regular function call without all of that `then()` stuff, but there's an `await` statement in it: `const devices = await particle.ListDevices()`.
-- The `await` means the code will (effectively) stop and wait until the asynchronous operation is complete, then continue to the next line of code.
-- This is often much more intuitive, especially for casual Javascript programmers.
-- You can only use `await` in an `async function` which is why we had to put the code inside a function. It can't be at the top level of a .js file.
-- Most of the remaining examples will use async/await.
-
-If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
-
-### Custom list devices
-
-Of course if all you wanted to do was list devices you could just use the `particle list` CLI command. By doing it from Javascript we can do additional processing.
-
-{{> project-browser project="node-list-devices4" default-file="app.js" tryit="node-vwuyxf"}}
-
-For example, we could check the online flag to only list devices that are online (though that's also available in the CLI).
-
+```    
+helper.close();
 ```
-for(const dev of devices.body) {
-    if (dev.online) {
-        console.log('name=' + dev.name + ' id=' + dev.id);
-    }
-}
-```
-
-If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
 
 
 #### Print devices that have not been heard from since a date
 
 This example uses the `last_heard` of the device object to list devices that we have not heard from since a specific date.
 
-{{> project-browser project="node-list-devices5" default-file="app.js"}}
+{{> project-browser project="node-list-devices5" default-file="app.js" options="stackblitz"}}
 
 The code uses `Date.parse()` which parses a date in various formats (including the ISO 8601 format used by the cloud) and return the time in milliseconds since January 1, 1970 UTC. This is sort of like Unix time, but Unix time is in seconds, not milliseconds.
 
@@ -746,7 +643,7 @@ If you are using the web-based **Try It!** button paste your access token in the
 
 This example generates csv (comma-separated value) data containing the device ID and the ICCID of the cellular devices in your account.
 
-{{> project-browser project="node-list-devices6" default-file="app.js" tryit="node-d4andq"}}
+{{> project-browser project="node-list-devices6" default-file="app.js" options="stackblitz"}}
 
 The code has a check for `dev.iccid`. If this field does not exist, then the body of the if won't be executed. That will cause it to not print Wi-Fi devices.
 
@@ -775,7 +672,7 @@ Node.js programs running on your computer have access to your computer's file sy
 
 This isn't a very useful program, as your operating system can already do this (`cat` on Mac and Linux, `type` on Windows), but it shows how the file system API works.
 
-{{> project-browser project="node-file-1" default-file="app.js" tryit="node-xeqaz1"}}
+{{> project-browser project="node-file-1" default-file="app.js" options="stackblitz"}}
 
 Lines like these are how you import libraries into your node.js project. Sometimes you'll see `var` used instead of `const`. 
 
@@ -816,7 +713,7 @@ A more useful thing to do is process a file of Device IDs and act on each device
 
 Sometimes instead of encoding the name of the file to process in the script, you want to pass it as command line arguments. There are multiple command line processing options, but we'll use yargs here.
 
-{{> project-browser project="node-file-2" default-file="app.js" tryit="node-bev5an"}}
+{{> project-browser project="node-file-2" default-file="app.js" options="stackblitz"}}
 
 The yargs package is already added to this project's `package.json` file but to add it to a new project you'd just:
 
@@ -930,7 +827,7 @@ The same techniques can be used to pick out other common things like ICCIDs, IME
 
 Sometimes you'll have a comma-separated value file (csv). Resist the temptation to parse it by hand because there are good csv parsers available for node and dealing with escaped strings yourself is tedious and error-prone.
 
-{{> project-browser project="node-file-3" default-file="app.js" tryit="node-52bmyr"}}
+{{> project-browser project="node-file-3" default-file="app.js" options="stackblitz"}}
 
 Some of the code should be familiar from the last example. 
 
@@ -1004,11 +901,57 @@ ffff10ab47bb9c98d42dd93b
 ffff50f908d5104debc4563f
 ```
 
+
+### Access tokens
+
+One common thing you'll need to do is authenticate Particle API calls from a node.js script. There are four common ways of using access tokens in scripts:
+
+- Interactive login from the script.
+- Embed the token in the script as a variable.
+- Pass the token in a command line parameter. 
+- Store the token in a configuration file.
+- Pass the token in an environment variable.
+
+For security reasons, the first and last ones are usually the most secure.
+
+If you use the boilerplate in the list devices examples above, interactive login and environment variable support are built in. Configuration files can also be used with a few additional lines of code.
+
+When you want to use your access token, for example with a Particle cloud API call, you just the `helper.auth` variable.
+
+To call the script, you just need to set the environment variable first. 
+
+For Mac and Linux:
+
+```
+export PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+node app.js
+```
+
+For Windows:
+
+```
+set PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+node app.js
+```
+
+For the browser-based examples, you can do this from the terminal box in the lower right.
+
+To get an access token, you will often use the [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command in the Particle CLI. Remember that the access token grants full access to your account, so make sure you keep it secure!
+
+### Create a token (browser-based)
+
+You can also create a token using this web-browser control. This creates a token for your account, which can access all devices in your sandbox as well as products and organizations you have access to. Be careful with this token! The username, password, and MFA OTP token (if required) are necessary to create a new token. You can't create another token from your single-sign-on login.
+
+{{> cloud-api-create-token-simple}}
+
+Copy and paste the token out of the Access Token field to use in locations where you need an access token. (The password is sent using a Particle Cloud API call using Javascript and TLS/SSL encryption.)
+
+
 ### Changing device ownership
 
 This is a starter script that you can tailor to your own purposes, but illustrates a bunch of techniques. It moves devices from one developer account to another account. 
 
-{{> project-browser project="node-device-change-owner" default-file="app.js" height="400" tryit="node-sncl8g"}}
+{{> project-browser project="node-device-change-owner" default-file="app.js" height="400"  options="stackblitz"}}
 
 Install the dependencies when using node.js on your computer:
 

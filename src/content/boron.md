@@ -10,7 +10,7 @@ description: Particle Boron, Gen 3 cellular and BLE
 
 The Boron is a powerful cellular enabled development kit.
 
-Equipped with the Nordic nRF52840 and u-blox SARA U201 (2G/3G) or R410M LTE Cat M1 module, the Boron has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
+Equipped with the Nordic nRF52840 and u-blox SARA U201 (2G/3G) or R410M/R510S LTE Cat M1 module, the Boron has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
 

@@ -42,19 +42,24 @@
         "href": "/datasheets/boron/boron-datasheet/"
       },
       {
-        "dir": "b402-datasheet",
-        "title": "B Series B404/B402 datasheet",
-        "href": "/datasheets/boron/b402-datasheet/"
+        "dir": "b404x-b404-b402-datasheet",
+        "title": "B Series B404X/B404/B402 datasheet",
+        "href": "/datasheets/boron/b404x-b404-b402-datasheet/"
       },
       {
-        "dir": "b523-datasheet",
+        "dir": "b524-b523-datasheet",
         "title": "B Series B524/B523 datasheet",
-        "href": "/datasheets/boron/b523-datasheet/"
+        "href": "/datasheets/boron/b524-b523-datasheet/"
       },
       {
         "dir": "b-series-eval-board",
         "title": "B Series Evaluation Board",
         "href": "/datasheets/boron/b-series-eval-board/"
+      },
+      {
+        "dir": "b-series-boron-migration-guide",
+        "title": "B Series from Boron Migration Guide",
+        "href": "/datasheets/boron/b-series-boron-migration-guide/"
       }
     ],
     {
@@ -81,6 +86,16 @@
         "dir": "e-series-system-integration-manual",
         "title": "E Series System Integration Manual",
         "href": "/datasheets/electron/e-series-system-integration-manual/"
+      },
+      {
+        "dir": "e404x-datasheet",
+        "title": "E404X datasheet",
+        "href": "/datasheets/electron/e404x-datasheet/"
+      },
+      {
+        "dir": "e404x-migration-guide",
+        "title": "E404X migration guide",
+        "href": "/datasheets/electron/e404x-migration-guide/"
       }
     ],
     {
@@ -97,6 +112,31 @@
         "dir": "photon-datasheet",
         "title": "Photon datasheet",
         "href": "/datasheets/wi-fi/photon-datasheet/"
+      },
+      {
+        "dir": "photon-2-datasheet",
+        "title": "Photon 2 datasheet",
+        "href": "/datasheets/wi-fi/photon-2-datasheet/"
+      },
+      {
+        "dir": "photon-2-argon-migration-guide",
+        "title": "Photon 2 from Argon migration guide",
+        "href": "/datasheets/wi-fi/photon-2-argon-migration-guide/"
+      },
+      {
+        "dir": "photon-2-photon-migration-guide",
+        "title": "Photon 2 from Photon migration guide",
+        "href": "/datasheets/wi-fi/photon-2-photon-migration-guide/"
+      },
+      {
+        "dir": "p2-datasheet",
+        "title": "P2 datasheet",
+        "href": "/datasheets/wi-fi/p2-datasheet/"
+      },
+      {
+        "dir": "p2-migration-guide",
+        "title": "P2 migration guide",
+        "href": "/datasheets/wi-fi/p2-migration-guide/"
       },
       {
         "dir": "p1-datasheet",

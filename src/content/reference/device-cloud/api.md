@@ -162,11 +162,6 @@ You can create an access token using [the Particle CLI](/reference/developer-too
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.
 
-If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](https://setup.particle.io).
-
-In the future, you will be able to provision access to your Particle device to other accounts
-and to third-party app developers; however, these features are not yet available.
-
 
 
 ### How to send your access token
@@ -409,19 +404,24 @@ If an API user attempts to perform an action that it is not permitted to, a stan
 
 The following API rate limits apply. Exceeding the rate limit will result in a 429 HTTP error response.
 
+
+{{!-- BEGIN shared-blurb 18c4e2a8-ac34-11ec-b909-0242ac120002 --}}
 #### All API functions - API rate limits
 
 - Maximum of 10,000 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - Can be increased for enterprise customers
 - All API Routes
+{{!-- END shared-blurb --}}
 
+{{!-- BEGIN shared-blurb 1ef79152-ac34-11ec-b909-0242ac120002 --}}
 #### Create an Access Token - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - Can be increased for enterprise customers
 - API Route: POST /oauth/token
+{{!-- END shared-blurb --}}
 
 #### Delete User Account - API rate limits
 

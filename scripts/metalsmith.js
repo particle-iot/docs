@@ -59,7 +59,7 @@ var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
- 
+
 var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);

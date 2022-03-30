@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div id="mainDiv" style="display: none">
+      <h3>Login Demo</h3>
+      <form>
+        <p>
+          Device:
+          <select id="deviceSelect"></select>
+        </p>
+        <p>&nbsp;</p>
+        <p><span id="statusSpan"></span></p>
+        <p>&nbsp;</p>
+        <p>
+          Logged in as <span id="userSpan"></span>
+          <button id="logoutButton">Log out</button>
+        </p>
+      </form>
+    </div>
+    <div id="loginDiv">
+      <h3>Login to Particle</h3>
+      <div id="loginFailedDiv" style="display: none">
+        <p>Login failed, please try again.</p>
+      </div>
+      <form id="loginForm">
+        <p>Username (Email): <input type="text" id="userInput" /></p>
+        <p>Password: <input type="password" id="passwordInput" /></p>
+        <p><input type="submit" value="Login" /></p>
+      </form>
+    </div>
+    <div id="otpDiv" style="display: none">
+      <form id="otpForm">
+        <p>
+          One-time password from your authenticator app:
+          <input type="text" id="otpInput" />
+        </p>
+        <p><input type="submit" value="Login" /></p>
+      </form>
+    </div>
+  </body>
+</html>
