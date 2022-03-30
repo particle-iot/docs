@@ -3968,15 +3968,15 @@ On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supp
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
 
-You can download the latest <a href="https://www.u-blox.com/en/product-resources/2432?f[0]=field_file_category%3A210" target="_blank">u-blox AT Commands Manual</a>.
+References:
 
-Another good resource is the <a href="https://www.u-blox.com/sites/default/files/AT-CommandsExamples_AppNote_%28UBX-13001820%29.pdf" target="_blank">u-blox AT Command Examples Application Note</a>.
+- [u-blox AT command reference](/assets/datasheets/u-blox-CEL_ATCommands_UBX-13002752.pdf) (BRN314, BRN310, E310, E270, E260, G350)
+- [u-blox R410 AT command reference](/assets/datasheets/SARA-R4_ATCommands_UBX-17003787.pdf) (B404, B402, BRN404, BRN402, E404, E402, ELC404, ELC402, LTE Cat M1)
+- [u-blox R510 AT command reference](/assets/datasheets/SARA-R5_ATCommands_UBX-19047455.pdf) (BRN404X, B404X LTE Cat M1)
+- [u-blox AT command examples application note](/assets/datasheets/AT-CommandsExamples_AppNote_UBX-13001820.pdf)
+- [Quectel EG91 AT command reference](/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf) (T524, T523)
+- [Quectel BG96 AT command reference](/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf) (T404, T402)
 
-LTE Cat M1 devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
-
-The B Series B523 SoM and Tracker T523 SoM (EMEA) have a Quectel EG91-E, the AT commands can be found in the <a href="/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf" target="_blank">Quectel EG9x AT Commands Manual (version 1.1).</a>.
-
-The Tracker T402 SoM (North America) has a Quectel BG96-MC, the AT commands cann be found in the <a href="/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf" target="_blank">Quectel BG96 AT Commands Manual (version 2.1).</a>.
 
 The prototype definition is as follows:
 
