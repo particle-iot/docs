@@ -231,6 +231,7 @@ async function run() {
         if (cmd == 'move') {
             let options = {};
 
+            
             console.log('Move a page: select source md file');
             options.srcMdPartialPath = await getFile('');
 
@@ -247,8 +248,37 @@ async function run() {
             await insertIntoMenu(options);
 
             // Create redirects
+            let redirectsObj = JSON.parse(fs.readFileSync(redirectsFile, 'utf8'));
 
-            // Fix links
+            const oldUrl = '/' + options.srcMdPartialPath.replace('.md', '');
+            const newUrl = '/' + options.dstDirPartialPath + '/' + options.urlName;
+
+            redirectsObj[oldUrl] = newUrl;
+
+            // Fix any old redirects
+            for(const key in redirectsObj) {
+                if (redirectsObj[key] == oldUrl) {
+                    redirectsObj[key] = newUrl;
+                }
+            }            
+
+            let redirectsArray = [];
+            for(const key in redirectsObj) {
+                redirectsArray.push({
+                    key,
+                    obj: redirectsObj[key]
+                })
+            };
+            redirectsArray.sort(function(a, b) {
+                return a.key.localeCompare(b.key);
+            })
+            let newRedirectsObj = {};
+            for(const obj of redirectsArray) {
+                newRedirectsObj[obj.key] = obj.obj;
+            }
+            fs.writeFileSync(redirectsFile, JSON.stringify(newRedirectsObj, null, 2));
+            
+            // Fix links? This takes a while to run, may be batch these up
             // fixLinks = true;
         }
 
