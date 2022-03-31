@@ -370,6 +370,17 @@
     },
     [
       {
+        "dir": "test-menu",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "test-page",
+          "title": "Test Page",
+          "href": "/tutorials/learn-more/test-menu/test-page/"
+        }
+      ],
+      {
         "dir": "about-i2c",
         "title": "About I2C",
         "href": "/tutorials/learn-more/about-i2c/"
