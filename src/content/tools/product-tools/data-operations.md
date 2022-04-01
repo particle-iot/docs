@@ -10,3 +10,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-cloud, chart]
 {{> sso}}
 
 {{> data-operations-report}}
+
+- You are limited to three outstanding report requests at a time.
+- Generating the report can take several minutes.
+- The logged in user will receive an email when the report is complete, along with a download link.
