@@ -89,23 +89,27 @@ The P2 is only available as a SMD (surface mount device) that is typically reflo
 
 This can be done in small quantities by hand using a reflow oven or soldering hot plate. In quantity, it would be done by your PCBA (PCB with assembly) contractor.
 
+The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases, but if you are planning on scaling, it may be advantageous to migrate from the Photon directly to the P2 as the Photon and Photon 2 are not pin-compatible and will require a redesign of your base board anyway.
+
 ### Status LED
 
-The P2 does not include a status LED on the module. We recommend adding one to your baseboard.
+The P2 does not include a status LED on the module. We recommend adding one to your base board.
 
-Alternatively, if you have a separate hardware control panel, it provides the ability to put the RGB LED there and not duplicate it on the module or baseboard.
+Alternatively, if you have a separate hardware control panel, it provides the ability to put the RGB LED there and not duplicate it on the module or base board.
 
 Device OS assumes a common anode RGB LED. One common LED that meets the requirements is the 
 [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
 which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
 These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
-If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
+If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue. 
+
+If you are using a different LED, you should limit current to 2mA per color.
 
 A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
 
 ### Reset and Mode buttons
 
-The P2 does not include buttons on module. We highly recommend including reset and mode buttons on your baseboard.
+The P2 does not include buttons on module. We highly recommend including reset and mode buttons on your base board.
 
 For example, you could use two-inexpensive SMD switches. The 4.5mm [E-Switch TL3305AF160QG](https://www.digikey.com/product-detail/en/e-switch/TL3305AF160QG/EG5350CT-ND/5816195) costs $0.20 in single quantities.
 
@@ -123,18 +127,28 @@ Since you choose the connector you have the option of using a right-angle USB co
 
 ### SWD/JTAG
 
-The P2 does not include a SWD/JTAG debugging connector on the board.
+The P2 does not include a SWD/JTAG debugging connector on the module. We recommend providing access to
 
+
+{{!-- BEGIN do not edit content below, it is automatically generated 84ab47ce-0497-437a-96cc-b56c854104b8 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; | &nbsp; |
+| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | &nbsp; | CHIP_EN |
+| 54 | D7 | D7 GPIO | SWDIO | PA[27] |
+| 55 | D6 | D6 GPIO | SWCLK | PB[3] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Troubleshooting connector
 
 In some cases, you may want to omit the reset and mode buttons, status LED, USB connector, and SWD/JTAG pins from your board board. If you do, we highly recommend adding a debug connector to make these features available for troubleshooting. The debug connector could be an actual connector, header pins, socket, card-edge connector, or SMD pads that allow an adapter or daughter card with these features.
 
-### LiPo Battery
+### Voltage regulator
 
-The P2 does not include a LiPo battery connector or charging circuit on the module. If you want these features you will need to include them on your baseboard.
-
-The Photon does not include these features, but the Argon does. However, the Argon does not include a full PMIC and fuel gauge like the Boron does. By including these features on your base board you can provide more full-featured operation on battery power.
+The P2 requires regulated 3.3VDC at 500 mA. An voltage regulator is required on your base board if powering by USB (5V), LiPo (3.7V), or an external power source.
 
 ### No 5V tolerance!
 
@@ -150,7 +164,7 @@ You will need to use different pins if you are currently using these pins.
 
 Both the Argon and P2 have two SPI ports, however the pins are different for primary SPI port.
 
-The following are all SPI-related pins on the P1 and P2:
+The following are all SPI-related pins on the Photon and P2:
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2edd3413-e159-4396-9a02-db963b4c8999 --}}
 
@@ -172,12 +186,251 @@ The following are all SPI-related pins on the P1 and P2:
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+#### SPI - Gen 2 devices (including Photon and P1)
+
+| | SPI | SPI1 |
+| :--- | :--- | :--- |
+| Maximum rate | 30 MHz | 15 MHz |
+| Default rate | 15 MHz | 15 MHz |
+| Clock | 60 MHz | 30 MHz |
+
+- Available clock divisors: 2, 4, 8, 16, 32, 64, 128, 256
+
+#### SPI - P2 
+
+| | SPI | SPI1 |
+| :--- | :--- | :--- |
+| Maximum rate | 25 MHz | 50 MHz |
+| Hardware peripheral | RTL872x SPI1 | RTL872x SPI0 |
+
+### I2C
+
+The P2 supports one I2C (two-wire serial interface) port on the same pins as the Photon:
+
+However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot use A3 and A4 at the same time as I2C.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 15242326-04aa-4cc8-b2fd-8621301c7bdd --}}
+
+| Photon Pin Name | Photon I2C | P2 Pin Name | P2 I2C |
+| :--- | :--- | :--- | :--- |
+| A3 | &nbsp; | D0 / A3 | Wire (SDA) |
+| A4 | &nbsp; | D1 / A4 | Wire (SCL) |
+| D0 | Wire (SDA) | D0 / A3 | Wire (SDA) |
+| D1 | Wire (SCL) | D1 / A4 | Wire (SCL) |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- The P2 I2C port is not 5V tolerant
+
+### Serial (UART)
+
+
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon and P2. There is no hardware flow control on this port on the Photon or P2.
+
+The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 21bcd7d9-474c-4d45-81e1-0cb1753fdb87 --}}
+
+| Photon Pin Name | Photon Serial | P2 Pin Name | P2 Serial |
+| :--- | :--- | :--- | :--- |
+| D2 | &nbsp; | D2 | Serial2 (RTS) |
+| D3 | &nbsp; | D3 | Serial2 (CTS) |
+| D4 | &nbsp; | D4 | Serial2 (TX) |
+| D5 | &nbsp; | D5 | Serial2 (RX) |
+| RGBB | Serial2 (RX) | RGBB | &nbsp; |
+| RGBG | Serial2 (TX) | RGBG | &nbsp; |
+| RX | Serial1 (RX) | RX / D9 | Serial1 (RX)  |
+| TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+|      | Photon    | P2 |
+| :--- | :---: | :---: |
+| Buffer size | 64 bytes | 2048 bytes |
+| 7-bit mode | &check; | &check; |
+| 8-bit mode | &check; | &check; |
+| 9-bit mode | &check; | |
+| 1 stop bit | &check; | &check; |
+| 2 stop bits | &check; | &check; |
+| No parity | &check; | &check; |
+| Even parity | &check; | &check; |
+| Odd parity | &check; | &check; |
+| Break detection | &check; | |
+| LIN bus support | &check; | |
+| Half duplex | &check; | |
+| CTS/RTS flow control |  | &check;<sup>1</sup> |
+
+<sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
+
+### Analog input (ADC)
+
+For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the P2:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 37d26734-83ca-42db-8dd6-701e3c411928 --}}
+
+| Photon Pin Name | Photon ADC | P2 Pin Name | P2 ADC |
+| :--- | :--- | :--- | :--- |
+| A0 | true | A0 / D11 | true |
+| A1 | true | A1 / D12 | true |
+| A2 | true | A2 / D13 | true |
+| A3 | true | D0 / A3 | true |
+| A4 | true | D1 / A4 | true |
+| A5 | true | A5 / D14 | true |
+| D0 | &nbsp; | D0 / A3 | true |
+| D1 | &nbsp; | D1 / A4 | true |
+| DAC / A6 | true | &nbsp; | &nbsp; |
+| WKP / A7 | true | D10 / WKP | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+On the P2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, P2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for P2 pin D1 (hardware pin 35), which has the alias A4.
+
+The `setADCSampleTime()` function is not supported on the P2.
+
+
+### PWM (Pulse-width modulation)
+
+The pins that support PWM are different on the Photon and P2.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated e27ab11e-d144-4fe0-bfcf-dc5a56809e22 --}}
+
+| Photon Pin Name | Photon PWM | P2 Pin Name | P2 PWM |
+| :--- | :--- | :--- | :--- |
+| A2 | &nbsp; | A2 / D13 | true |
+| A3 | &nbsp; | D0 / A3 | true |
+| A4 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D1 / A4 | true |
+| A5 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | A5 / D14 | true |
+| D0 | true | D0 / A3 | true |
+| D1 | true | D1 / A4 | true |
+| D2 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | D2 | &nbsp; |
+| D3 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D3 | &nbsp; |
+| RX | true | RX / D9 | &nbsp; |
+| &nbsp; | &nbsp; | S0 / D15 | true |
+| &nbsp; | &nbsp; | S1 / D16 | true |
+| TX | true | TX / D8 | &nbsp; |
+| WKP / A7 | true | D10 / WKP | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+
+### Digital to analog converter (DAC)
+
+The Photon supports DAC one A3 and A6 (DAC). There is no DAC on the P2 or Gen 3 devices.
+
+If you need a DAC, it's easy to add one via I2C or SPI on your base board.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+
+| Photon Pin Name | Photon DAC | P2 Pin Name | P2 DAC |
+| :--- | :--- | :--- | :--- |
+| A3 | true | D0 / A3 | &nbsp; |
+| DAC / A6 | true | &nbsp; | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
+### WKP (A7)
+
+|      | Photon    | P2 |
+| :--- | :---: | :---: |
+| Module Pin | 30 | 30 |
+| Pin Name | WKP | WKP |
+| | A7 | D11 |
+| Analog Input | &check; | |
+| PWM | &check; | |
+
+On Gen 2 devices (STM32), only the WKP pin can wake from HIBERNATE sleep mode. 
+
+This restriction does not exist on the P2 and Gen 3 devices; any pin can be used to wake from all sleep modes.
+
+### CAN (Controller Area Network)
+
+The Photon supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 devices (except the Tracker).
+
+- The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
+- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the P2.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2cf91e3c-e8d7-40a4-a637-6a69a4d08e59 --}}
+
+| Photon Pin Name | Photon CAN | P2 Pin Name | P2 CAN |
+| :--- | :--- | :--- | :--- |
+| D1 | CAN2_TX | D1 / A4 | &nbsp; |
+| D2 | CAN2_RX | D2 | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### I2S (Sound)
+
+The Photon theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
+
+There is no software support for I2S on the P2 either, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated b2ddf109-3a53-449e-a940-a3c9736b15fc --}}
+
+| Photon Pin Name | Photon I2S | P2 Pin Name | P2 I2S |
+| :--- | :--- | :--- | :--- |
+| D2 | I2S3_SD | D2 | &nbsp; |
+| D4 | I2S3_SCK | D4 | &nbsp; |
+| D5 | I2S3_WS | D5 | &nbsp; |
+| SETUP | I2S3_MCK | SETUP | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+### Interrupts
+
+There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the P2.
+
+### Retained memory
+
+Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the P2. This also prevents system usage of retained memory, including session resumption on reset.
+
+On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
+
+The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+
+### Flash file system
+
+The Photon did not have a flash file system. 
+
+The P2 has a 2 MB flash file system using the same [POSIX API](/cards/firmware/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
+
+### EEPROM
+
+The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the Photon and P2.
+
+The Photon had 2047 bytes of emulated EEPROM.
+The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+
 
 ### Pin functions removed
 
 The following pins served Photon-specific uses and are NC on the P2. You should not connect anything to these pins.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 3729b0b4-4058-454e-aef8-0ca5c2526bd5 --}}
+- Pins A3 and A4 on the P2 are shared with D0 and D1. You cannot use A3 and A4 at ths same time as I2C (`Wire`) on the P2.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3729b0b4-4058-454e-aef8-0ca5c2526bd52 --}}
+
+| Pin Name | Description |
+| :--- | :--- |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
+| VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
+| VIN | Power in 3.6V to 5.5 VDC. Or power out (when powered by USB) 4.8 VDC at 1A maximum. |
+
+
 {{!-- END do not edit content above, it is automatically generated --}}
 
 ### Pin functions added

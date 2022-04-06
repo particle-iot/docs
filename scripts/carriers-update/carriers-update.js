@@ -1326,7 +1326,6 @@ const { option } = require('yargs');
             if (options.mapBy) {
                 let foundNew = [];
 
-                // Pins in platformInfoNew
                 for(const pinOld of platformInfoOld.pins) {
                     let m = {
                         name: pinOld.name,
@@ -1917,6 +1916,11 @@ const { option } = require('yargs');
             for(const pin of platformInfoNew.pins) {
                 if (pin[options.interface]) {
                     pins.push(pin);
+                }    
+                if (options.otherNames) {
+                    if (options.otherNames.includes(pin.name)) {
+                        pins.push(pin);
+                    }
                 }
             }
 
@@ -2883,6 +2887,122 @@ const { option } = require('yargs');
                         }); 
                     }
                 },
+                {
+                    guid:'15242326-04aa-4cc8-b2fd-8621301c7bdd', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'i2c',
+                            label: 'I2C',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'21bcd7d9-474c-4d45-81e1-0cb1753fdb87', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'37d26734-83ca-42db-8dd6-701e3c411928', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'analogRead',
+                            label: 'ADC',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'e27ab11e-d144-4fe0-bfcf-dc5a56809e22', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'2ee8f339-68a5-4d9c-b6b9-0f359038d704', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'analogWriteDAC',
+                            label: 'DAC',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'2cf91e3c-e8d7-40a4-a637-6a69a4d08e59', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'can',
+                            label: 'CAN',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'b2ddf109-3a53-449e-a940-a3c9736b15fc', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'i2s',
+                            label: 'I2S',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'84ab47ce-0497-437a-96cc-b56c854104b8', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'swd',
+                            otherNames: ['RST', 'GND'],
+                        }); 
+                    } 
+                },                
             ]
         },
         {
@@ -2938,6 +3058,77 @@ const { option } = require('yargs');
                         }); 
                     }
                 },
+                {
+                    guid:'748b912b-44bf-41a9-84dc-ba3efb637b24', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'i2c',
+                            label: 'I2C',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'ae9002de-ec14-49d1-a748-5ae16dd5b2d2', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'5c24cf45-54bd-4636-b52f-1adb72b46b15', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'analogRead',
+                            label: 'ADC',
+                            useShortName: true
+                        }); 
+                    }
+                },            
+                {
+                    guid:'3cbcb367-cb90-4081-86d0-d7d0c07fc626', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                            useShortName: true
+                        }); 
+                    }
+                },   
+                {
+                    guid:'84ab47ce-0497-437a-96cc-b56c854104b8', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'swd',
+                            otherNames: ['RST', 'GND'],
+                        }); 
+                    } 
+                },                
             ]
         },
         {
@@ -3072,7 +3263,7 @@ const { option } = require('yargs');
                             useShortName: true
                         }); 
                     }
-                }                
+                },
             ]
         },
         {

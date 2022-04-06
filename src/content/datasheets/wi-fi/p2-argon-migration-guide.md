@@ -82,12 +82,102 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 The Photon 2 is the easiest upgrade from the Argon as it's mostly pin compatible with the Argon. However, if you are looking at mass-production, you may want to consider moving from the Argon directly to the P2. The Photon 2 module contains a P2 module.
 
+## Hardware
+
+### Module style
+
+The primary difference is that the Argon is a pin-based module that can be installed in solderless breadboard for prototyping, can be installed in a socket on your custom board, or soldered directly to your board.
+
+The P2 is only available as a SMD (surface mount device) that is typically reflow soldered to your base board. Your base board will need to be a custom printed circuit board, and cannot be a solderless breadboard or perforated prototyping board.
+
+This can be done in small quantities by hand using a reflow oven or soldering hot plate. In quantity, it would be done by your PCBA (PCB with assembly) contractor.
+
+The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases, but if you are planning on scaling, it may be advantageous to migrate from the Argon directly to the P2.
+
+### Status LED
+
+The P2 does not include a status LED on the module. We recommend adding one to your base board.
+
+Alternatively, if you have a separate hardware control panel, it provides the ability to put the RGB LED there and not duplicate it on the module or base board.
+
+Device OS assumes a common anode RGB LED. One common LED that meets the requirements is the 
+[Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
+which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
+These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
+If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue. 
+
+If you are using a different LED, you should limit current to 2mA per color.
+
+A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+
+### Reset and Mode buttons
+
+The P2 does not include buttons on module. We highly recommend including reset and mode buttons on your base board.
+
+For example, you could use two-inexpensive SMD switches. The 4.5mm [E-Switch TL3305AF160QG](https://www.digikey.com/product-detail/en/e-switch/TL3305AF160QG/EG5350CT-ND/5816195) costs $0.20 in single quantities.
+
+### USB Connector
+
+The P2 does not include a USB connector on the module. We recommend including one on your base board. This can be a USB Micro B, as on the Photon and Argon, or you could use USB C.
+
+Since you choose the connector you have the option of using a right-angle USB connector. This is handy if your board will be an enclosure where the board is recessed into the case under a removable cover. This can allow the USB connector to be accessed without removing the board from the enclosure.
+
+| Part | Example | Price |
+| :--- | :--- | ---: |
+| USB micro B connector | [Amphenol FCI 10118194-0001LF](https://www.digikey.com/products/en?keywords=609-4618-1-nd) | $0.42 | 
+| CONN RCPT USB2.0 MICRO B SMD R/A | [Amphenol FCI 10118194-0001LF](https://www.digikey.com/products/en?keywords=609-4618-1-nd) | $0.42 | 
+
+
+### SWD/JTAG
+
+The P2 does not include a SWD/JTAG debugging connector on the board. We recommend including the following pins available for debugging:
+
+The Argon has dedicated pins for SWDIO and SWCLK and SWD remains running after your user firmware starts. On the Gen 2 and the P2, the SWD pins are shared with GPIO and by default SWD is disabled once the bootloader exits.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 84ab47ce-0497-437a-96cc-b56c854104b8 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; | &nbsp; |
+| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | &nbsp; | CHIP_EN |
+| 54 | D7 | D7 GPIO | SWDIO | PA[27] |
+| 55 | D6 | D6 GPIO | SWCLK | PB[3] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+If you want to include the same 2x5 1.27mm connector as is on the Argon, this is one example of the connector:
+
+| Description | Example | Price |
+| :--- | :--- | ---: |
+| CONN HEADER SMD 10POS 1.27MM | [Samtec FTSH-105-01-F-DV-K](https://www.digikey.com/product-detail/en/FTSH-105-01-F-DV-K/SAM8796-ND/2649974) | $3.91 |
+
+
+### Troubleshooting connector
+
+In some cases, you may want to omit the reset and mode buttons, status LED, USB connector, and SWD/JTAG pins from your board board. If you do, we highly recommend adding a debug connector to make these features available for troubleshooting. The debug connector could be an actual connector, header pins, socket, card-edge connector, or SMD pads that allow an adapter or daughter card with these features.
+
+### Voltage regulator
+
+The P2 requires regulated 3.3VDC at 500 mA. An voltage regulator is required on your base board if powering by USB (5V), LiPo (3.7V), or an external power source.
+
+### LiPo Battery
+
+The P2 does not include a LiPo battery connector or charging circuit on the module. If you want these features you will need to include them on your base board.
+
+The Argon does not include a full PMIC and fuel gauge like the Boron does. By including these features on your base board you can provide more full-featured operation on battery power.
+
+### Pins A3, A4, and DAC (A6)
+
+Pins A3, A4, DAC/A6 do not exist on the P2 and are NC.
+
+You will need to use different pins if you are currently using these pins.
 
 ### SPI
 
 Both the Argon and P2 have two SPI ports, however the pins are different for both SPI ports. Also note that while pins D2 - D4 are used for SPI1 on both, the actual functions (SCK, MOSI, MISO) are on different pins!
 
-The following are all SPI-related pins on the P1 and P2:
+The following are all SPI-related pins on the Argon and P2:
 
 {{!-- BEGIN do not edit content below, it is automatically generated cf7eb295-1ecf-4d24-b2a1-dc8a654321362 --}}
 
@@ -110,14 +200,194 @@ The following are all SPI-related pins on the P1 and P2:
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
+#### SPI - Gen 3 devices (including Argon)
+
+| | SPI | SPI1 |
+| :--- | :--- | :--- |
+| Maximum rate | 32 MHz | 32 MHz |
+| Default rate | 16 MHz | 16 MHz |
+| Clock | 64 MHz | 64 MHz |
+
+- Available clock divisors: 2, 4, 8, 16, 32, 64, 128, 256
+- Default divisor is 4
+
+#### SPI - P2 
+
+| | SPI | SPI1 |
+| :--- | :--- | :--- |
+| Maximum rate | 25 MHz | 50 MHz |
+| Hardware peripheral | RTL872x SPI1 | RTL872x SPI0 |
+
+### I2C
+
+The P2 supports one I2C (two-wire serial interface) port on the same pins as the Argon. 
+
+However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot use A3 and A4 at the same time as I2C.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 748b912b-44bf-41a9-84dc-ba3efb637b24 --}}
+
+| Argon Pin Name | Argon I2C | P2 Pin Name | P2 I2C |
+| :--- | :--- | :--- | :--- |
+| A3 / D16 | &nbsp; | D0 / A3 | Wire (SDA) |
+| A4 / D15 | &nbsp; | D1 / A4 | Wire (SCL) |
+| D0 | Wire (SDA) | D0 / A3 | Wire (SDA) |
+| D1 | Wire (SCL) | D1 / A4 | Wire (SCL) |
+| D2 | Wire1 (SDA) | D2 | &nbsp; |
+| D3 | Wire1 (SCL) | D3 | &nbsp; |
 
 
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
+### Serial (UART)
+
+
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the Argon and P2. There is no hardware flow control on this port on the Argon or P2.
+
+There is no secondary UART on the Argon, but there is one on the P2.
+
+{{!-- BEGIN do not edit content below, it is automatically generated ae9002de-ec14-49d1-a748-5ae16dd5b2d2 --}}
+
+| Argon Pin Name | Argon Serial | P2 Pin Name | P2 Serial |
+| :--- | :--- | :--- | :--- |
+| D2 | Serial1 RTS | D2 | Serial2 (RTS) |
+| D3 | Serial1 CTS | D3 | Serial2 (CTS) |
+| D4 | &nbsp; | D4 | Serial2 (TX) |
+| D5 | &nbsp; | D5 | Serial2 (RX) |
+| D8 | &nbsp; | TX / D8 | Serial1 (TX) |
+| RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
+| TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+|      | Argon    | P2 |
+| :--- | :------: | :---: |
+| Buffer size | 64 bytes<sup>2</sup> | 2048 bytes |
+| 7-bit mode |  | &check; |
+| 8-bit mode | &check; | &check; |
+| 1 stop bit | &check; | &check; |
+| 2 stop bits |  | &check; |
+| No parity | &check; | &check; |
+| Even parity | &check; | &check; |
+| Odd parity |  | &check; |
+| CTS/RTS flow control |  | &check;<sup>1</sup> |
+
+<sup>1</sup>CTS/RTS flow control only on `Serial2` and `Serial3`. It is optional.
+
+<sup>2</sup>On the Argon, the buffer be resized larger in Device OS 3.2.0 and later.
+
+### Analog input (ADC)
+
+For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the P2:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5c24cf45-54bd-4636-b52f-1adb72b46b15 --}}
+
+| Argon Pin Name | Argon ADC | P2 Pin Name | P2 ADC |
+| :--- | :--- | :--- | :--- |
+| A0 / D19 | true | A0 / D11 | true |
+| A1 / D18 | true | A1 / D12 | true |
+| A2 / D17 | true | A2 / D13 | true |
+| A3 / D16 | true | D0 / A3 | true |
+| A4 / D15 | true | D1 / A4 | true |
+| A5 / D14 | true | A5 / D14 | true |
+| D0 | &nbsp; | D0 / A3 | true |
+| D1 | &nbsp; | D1 / A4 | true |
+| MISO / D11 | &nbsp; | A0 / D11 | true |
+| MOSI / D12 | &nbsp; | A1 / D12 | true |
+| SCK / D13 | &nbsp; | A2 / D13 | true |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+On the P2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, P2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for P2 pin D1 (hardware pin 35), which has the alias A4.
+
+The `setADCSampleTime()` function is not supported on the P2.
+
+
+### PWM (Pulse-width modulation)
+
+The pins that support PWM are different on the Argon and P2.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3cbcb367-cb90-4081-86d0-d7d0c07fc626 --}}
+
+| Argon Pin Name | Argon PWM | P2 Pin Name | P2 PWM |
+| :--- | :--- | :--- | :--- |
+| A0 / D19 | true | A0 / D11 | &nbsp; |
+| A1 / D18 | true | A1 / D12 | &nbsp; |
+| A2 / D17 | true | A2 / D13 | true |
+| A3 / D16 | true | D0 / A3 | true |
+| A4 / D15 | true | D1 / A4 | true |
+| A5 / D14 | true | A5 / D14 | true |
+| D0 | &nbsp; | D0 / A3 | true |
+| D1 | &nbsp; | D1 / A4 | true |
+| SCK / D13 | &nbsp; | A2 / D13 | true |
+| D2 | true | D2 | &nbsp; |
+| D3 | true | D3 | &nbsp; |
+| D4 | true | D4 | &nbsp; |
+| D5 | true | D5 | &nbsp; |
+| D6 | true | D6 | &nbsp; |
+| D7 | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | D7 | &nbsp; |
+| D8 | true | TX / D8 | &nbsp; |
+| &nbsp; | &nbsp; | S0 / D15 | true |
+| &nbsp; | &nbsp; | S1 / D16 | true |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
+
+### I2S (Sound)
+
+The Argon can use I2S via a 3rd-party library, however there has never been support for it in Device OS.
+
+There is no software support for I2S on the P2, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
+
+### Interrupts
+
+All pins can be used for interrupts on Gen 3 devices and the Photon 2.
+
+There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the Photon 2.
+
+### Retained memory
+
+Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the Photon 2. This also prevents system usage of retained memory, including session resumption on reset.
+
+On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
+
+The flash file system can be used for data storage on the Photon 2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+
+### Flash file system
+
+Both the Argon and P2 have a 2 MB flash file system using the same [POSIX API](/cards/firmware/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
+
+### EEPROM
+
+The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the Photon and P2.
+
+Both the Argon and P2 have 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+
+### NFC Tag
+
+The Photon 2 does not have NFC Tag support. The Argon does.
 
 ### Pin functions removed
 
 The following pins served Argon-specific uses and are NC on the P2. You should not connect anything to these pins.
 
-{{!-- BEGIN do not edit content below, it is automatically generated d524a654-8845-4d9c-b8c4-05b60dca363e --}}
+- Pins A3 and A4 on the P2 are shared with D0 and D1. You cannot use A3 and A4 at ths same time as I2C (`Wire`) on the P2.
+
+{{!-- BEGIN do not edit content below, it is automatically generated d524a654-8845-4d9c-b8c4-05b60dca363e2 --}}
+
+| Pin Name | Description |
+| :--- | :--- |
+| EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. |
+| LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. |
+| VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. |
+
+
 {{!-- END do not edit content above, it is automatically generated --}}
 
 ### Pin functions added

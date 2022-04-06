@@ -343,7 +343,7 @@ The P2 has a 2 MB flash file system using the same [POSIX API](/cards/firmware/f
 The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the P1 and P2.
 
 The P1 had 2047 bytes of emulated EEPROM.
-The P2 has 2048 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
 ### Pin functions removed
 
