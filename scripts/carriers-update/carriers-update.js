@@ -1813,7 +1813,8 @@ const { option } = require('yargs');
             });    
             tableOptions.columns.push({
                 key: 'oldPort',
-                title: oldTitle + ' ' + options.label
+                title: oldTitle + ' ' + options.label,
+                checkmark: !!options.checkmark,
             });    
             tableOptions.columns.push({
                 key: 'newPinName',
@@ -1821,7 +1822,8 @@ const { option } = require('yargs');
             });    
             tableOptions.columns.push({
                 key: 'newPort',
-                title: newTitle + ' ' + options.label
+                title: newTitle + ' ' + options.label,
+                checkmark: !!options.checkmark,
             });    
 
             let tableData = [];
@@ -1871,6 +1873,7 @@ const { option } = require('yargs');
                 tableOptions.columns.push({
                     key: 'oldPort',
                     title: options.platformOld + ' ' + options.label,
+                    checkmark: !!options.checkmark,
                 });
     
             }
@@ -1881,6 +1884,7 @@ const { option } = require('yargs');
             tableOptions.columns.push({
                 key: 'newPort',
                 title: options.platformNew + ' ' + options.label,
+                checkmark: !!options.checkmark,
             });
 
             
@@ -2928,7 +2932,8 @@ const { option } = require('yargs');
                             noPinNumbers: true,
                             port: 'analogRead',
                             label: 'ADC',
-                            useShortName: true
+                            useShortName: true,
+                            checkmark: true,
                         }); 
                     }
                 },            
@@ -2943,7 +2948,8 @@ const { option } = require('yargs');
                             noPinNumbers: true,
                             port: 'analogWritePWM',
                             label: 'PWM',
-                            useShortName: true
+                            useShortName: true,
+                            checkmark: true,
                         }); 
                     }
                 },            
@@ -2958,7 +2964,8 @@ const { option } = require('yargs');
                             noPinNumbers: true,
                             port: 'analogWriteDAC',
                             label: 'DAC',
-                            useShortName: true
+                            useShortName: true,
+                            checkmark: true,
                         }); 
                     }
                 },            
@@ -3099,7 +3106,8 @@ const { option } = require('yargs');
                             noPinNumbers: true,
                             port: 'analogRead',
                             label: 'ADC',
-                            useShortName: true
+                            useShortName: true,
+                            checkmark: true,
                         }); 
                     }
                 },            
@@ -3114,7 +3122,8 @@ const { option } = require('yargs');
                             noPinNumbers: true,
                             port: 'analogWritePWM',
                             label: 'PWM',
-                            useShortName: true
+                            useShortName: true,
+                            checkmark: true,
                         }); 
                     }
                 },   

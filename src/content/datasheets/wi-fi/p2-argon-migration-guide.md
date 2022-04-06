@@ -79,9 +79,6 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 <sup>6</sup> The second UART on the Photon shares pins with the status LED, and requires unsoldering it (or its current limiting resistors) and using pads on the bottom of the module, making it impractical to use.
 
-
-The Photon 2 is the easiest upgrade from the Argon as it's mostly pin compatible with the Argon. However, if you are looking at mass-production, you may want to consider moving from the Argon directly to the P2. The Photon 2 module contains a P2 module.
-
 ## Hardware
 
 ### Module style
@@ -92,7 +89,7 @@ The P2 is only available as a SMD (surface mount device) that is typically reflo
 
 This can be done in small quantities by hand using a reflow oven or soldering hot plate. In quantity, it would be done by your PCBA (PCB with assembly) contractor.
 
-The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases, but if you are planning on scaling, it may be advantageous to migrate from the Argon directly to the P2.
+The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases as it's the same form-factor and mostly pin compatible to the Argon, but if you are planning on scaling, it may be advantageous to migrate from the Argon directly to the P2.
 
 ### Status LED
 
@@ -161,11 +158,28 @@ In some cases, you may want to omit the reset and mode buttons, status LED, USB 
 
 The P2 requires regulated 3.3VDC at 500 mA. An voltage regulator is required on your base board if powering by USB (5V), LiPo (3.7V), or an external power source.
 
+As of the first half of 2022, supply chain constraints are affecting the availability of voltage regulator components. There is no Device OS software dependency on 
+the voltage regulator so you can choose any model as long as it meets the voltage and current requirements.
+
+- This is often a switching regulator to save space, but this is not required. 
+  - The Photon used a Richtek RT8008 (3.3V), which is hard to procure.
+  - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
+- If the voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
+
 ### LiPo Battery
 
 The P2 does not include a LiPo battery connector or charging circuit on the module. If you want these features you will need to include them on your base board.
 
-The Argon does not include a full PMIC and fuel gauge like the Boron does. By including these features on your base board you can provide more full-featured operation on battery power.
+This is the LiPo battery connector used on the Argon:
+
+| Description | Example | Price |
+| :--- | :--- | ---: |
+| JST-PH battery connector | [JST B2B-PH-K-S-LF-SN](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B2B-PH-K-S-LF-SN/455-1704-ND/926611) | $0.17 | 
+
+
+The Argon does not include a full PMIC (bq24195) and fuel gauge (MAX17043) like the Boron does. By including these features on your base board you can provide more full-featured operation on battery power than the Argon does.
+
+As of the first half of 2022, supply chain constraints are affecting the supply of PMICs and charge controllers. Because of this, we are not recommending a specific model to use with your board.
 
 ### Pins A3, A4, and DAC (A6)
 
@@ -220,9 +234,11 @@ The following are all SPI-related pins on the Argon and P2:
 
 ### I2C
 
-The P2 supports one I2C (two-wire serial interface) port on the same pins as the Argon. 
+The P2 supports one I2C (two-wire serial interface) port on the same pins as the Argon (D0 and D1). 
 
 However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot use A3 and A4 at the same time as I2C.
+
+Also, the Argon supports a secondary I2C interface on D2 and D3; this is not supported on the P2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 748b912b-44bf-41a9-84dc-ba3efb637b24 --}}
 
@@ -243,9 +259,9 @@ However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot 
 ### Serial (UART)
 
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both the Argon and P2. There is no hardware flow control on this port on the Argon or P2.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the Argon and P2. On the Argon, hardware flow control (RTS/CTS) is available for `Serial1` but this is not the case for the P2.
 
-There is no secondary UART on the Argon, but there is one on the P2.
+There is no secondary UART on the Argon, but there is one on the P2. The secondary UART `Serial2` on the P2 does support hardware flow control.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ae9002de-ec14-49d1-a748-5ae16dd5b2d2 --}}
 
@@ -286,17 +302,17 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 | Argon Pin Name | Argon ADC | P2 Pin Name | P2 ADC |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | true | A0 / D11 | true |
-| A1 / D18 | true | A1 / D12 | true |
-| A2 / D17 | true | A2 / D13 | true |
-| A3 / D16 | true | D0 / A3 | true |
-| A4 / D15 | true | D1 / A4 | true |
-| A5 / D14 | true | A5 / D14 | true |
-| D0 | &nbsp; | D0 / A3 | true |
-| D1 | &nbsp; | D1 / A4 | true |
-| MISO / D11 | &nbsp; | A0 / D11 | true |
-| MOSI / D12 | &nbsp; | A1 / D12 | true |
-| SCK / D13 | &nbsp; | A2 / D13 | true |
+| A0 / D19 | &check; | A0 / D11 | &check; |
+| A1 / D18 | &check; | A1 / D12 | &check; |
+| A2 / D17 | &check; | A2 / D13 | &check; |
+| A3 / D16 | &check; | D0 / A3 | &check; |
+| A4 / D15 | &check; | D1 / A4 | &check; |
+| A5 / D14 | &check; | A5 / D14 | &check; |
+| D0 | &check; | D0 / A3 | &check; |
+| D1 | &check; | D1 / A4 | &check; |
+| MISO / D11 | &check; | A0 / D11 | &check; |
+| MOSI / D12 | &check; | A1 / D12 | &check; |
+| SCK / D13 | &check; | A2 / D13 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -315,24 +331,24 @@ The pins that support PWM are different on the Argon and P2.
 
 | Argon Pin Name | Argon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | true | A0 / D11 | &nbsp; |
-| A1 / D18 | true | A1 / D12 | &nbsp; |
-| A2 / D17 | true | A2 / D13 | true |
-| A3 / D16 | true | D0 / A3 | true |
-| A4 / D15 | true | D1 / A4 | true |
-| A5 / D14 | true | A5 / D14 | true |
-| D0 | &nbsp; | D0 / A3 | true |
-| D1 | &nbsp; | D1 / A4 | true |
-| SCK / D13 | &nbsp; | A2 / D13 | true |
-| D2 | true | D2 | &nbsp; |
-| D3 | true | D3 | &nbsp; |
-| D4 | true | D4 | &nbsp; |
-| D5 | true | D5 | &nbsp; |
-| D6 | true | D6 | &nbsp; |
-| D7 | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | D7 | &nbsp; |
-| D8 | true | TX / D8 | &nbsp; |
-| &nbsp; | &nbsp; | S0 / D15 | true |
-| &nbsp; | &nbsp; | S1 / D16 | true |
+| A0 / D19 | &check; | A0 / D11 | &check; |
+| A1 / D18 | &check; | A1 / D12 | &check; |
+| A2 / D17 | &check; | A2 / D13 | &check; |
+| A3 / D16 | &check; | D0 / A3 | &check; |
+| A4 / D15 | &check; | D1 / A4 | &check; |
+| A5 / D14 | &check; | A5 / D14 | &check; |
+| D0 | &check; | D0 / A3 | &check; |
+| D1 | &check; | D1 / A4 | &check; |
+| SCK / D13 | &check; | A2 / D13 | &check; |
+| D2 | &check; | D2 | &check; |
+| D3 | &check; | D3 | &check; |
+| D4 | &check; | D4 | &check; |
+| D5 | &check; | D5 | &check; |
+| D6 | &check; | D6 | &check; |
+| D7 | &check; | D7 | &check; |
+| D8 | &check; | TX / D8 | &check; |
+| &nbsp; | &nbsp; | S0 / D15 | &check; |
+| &nbsp; | &nbsp; | S1 / D16 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -347,17 +363,17 @@ There is no software support for I2S on the P2, and while the RTL872x hardware s
 
 ### Interrupts
 
-All pins can be used for interrupts on Gen 3 devices and the Photon 2.
+All pins can be used for interrupts on Gen 3 devices and the P2.
 
-There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the Photon 2.
+There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the P2.
 
 ### Retained memory
 
-Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the Photon 2. This also prevents system usage of retained memory, including session resumption on reset.
+Retained memory, also referred to as Backup RAM or SRAM, that is preserved across device reset, is not available on the P2. This also prevents system usage of retained memory, including session resumption on reset.
 
 On Gen 2 and Gen 3 devices, retained memory is 3068 bytes. 
 
-The flash file system can be used for data storage on the Photon 2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
+The flash file system can be used for data storage on the P2, however care must be taken to avoid excessive wear of the flash for frequently changing data.
 
 ### Flash file system
 
@@ -875,3 +891,35 @@ The following pins did not exist on the Argon but are available on the P2.
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+
+## Software
+
+### Wi-Fi Configuration
+
+The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Wi-Fi setup for the P2 should be very similar to the Argon. 
+
+| Feature | P2 | P1 | Argon |
+| :--- | :---: | :---: | :---: |
+| Wi-Fi (SoftAP) | | &check; | |
+| BLE | &check; | | &check; |
+
+### Platform ID
+
+The Platform ID of the P2 (32, `PLATFORM_P2`) is different from that of the Argon (12) because of the vastly different hardware. 
+
+If you have a product based on the Argon, you will need to create a separate product for devices using the P2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
+### Third-party libraries
+
+Most third-party libraries are believed to be compatible. The exceptions include:
+
+- Libraries for MCU-specific features (such as ADC DMA)
+- Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+
+
+## Version History
+
+| Revision | Date | Author | Comments |
+|:---:|:---:|:---:|:----|
+| pre | 2022-04-06 | RK | Pre-release |

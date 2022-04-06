@@ -1029,7 +1029,7 @@ The following pins were NC on the P1 but are used on the P2.
 
 ### Wi-Fi Configuration
 
-The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
 | Feature | P2 | P1 | Argon |
 | :--- | :---: | :---: | :---: |
@@ -1038,7 +1038,7 @@ The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP a
 
 ### Platform ID
 
-The Platform ID of the P2 will different from that of the P1 (8) because of the vastly different hardware. 
+The Platform ID of the P2 (32, `PLATFORM_P2`) is different from that of the P1 (8) because of the vastly different hardware. 
 
 If you have a product based on the P1, you will need to create a separate product for devices using the P2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 

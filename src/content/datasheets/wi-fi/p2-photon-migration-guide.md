@@ -127,7 +127,7 @@ Since you choose the connector you have the option of using a right-angle USB co
 
 ### SWD/JTAG
 
-The P2 does not include a SWD/JTAG debugging connector on the module. We recommend providing access to
+The P2 does not include a SWD/JTAG debugging connector on the board. We recommend including the following pins available for debugging:
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 84ab47ce-0497-437a-96cc-b56c854104b8 --}}
@@ -150,6 +150,14 @@ In some cases, you may want to omit the reset and mode buttons, status LED, USB 
 
 The P2 requires regulated 3.3VDC at 500 mA. An voltage regulator is required on your base board if powering by USB (5V), LiPo (3.7V), or an external power source.
 
+As of the first half of 2022, supply chain constraints are affecting the availability of voltage regulator components. There is no Device OS software dependency on 
+the voltage regulator so you can choose any model as long as it meets the voltage and current requirements.
+
+- This is often a switching regulator to save space, but this is not required. 
+  - The Photon used a Richtek RT8008 (3.3V), which is hard to procure.
+  - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
+- If the voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
+
 ### No 5V tolerance!
 
 On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case for Gen 3 (nRF52840) and the P2 (RTL872x). You must not exceed 3.3V on any GPIO pin, including ports such as serial, I2C, and SPI.
@@ -162,7 +170,7 @@ You will need to use different pins if you are currently using these pins.
 
 ### SPI
 
-Both the Argon and P2 have two SPI ports, however the pins are different for primary SPI port.
+Both the Photon and P2 have two SPI ports, however the pins are different for primary SPI port.
 
 The following are all SPI-related pins on the Photon and P2:
 
@@ -205,7 +213,7 @@ The following are all SPI-related pins on the Photon and P2:
 
 ### I2C
 
-The P2 supports one I2C (two-wire serial interface) port on the same pins as the Photon:
+The P2 supports one I2C (two-wire serial interface) port on the same pins as the Photon.
 
 However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot use A3 and A4 at the same time as I2C.
 
@@ -228,7 +236,9 @@ However on the P2, D0 is shared with A3 and D1 is shared with D4, so you cannot 
 
 The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon and P2. There is no hardware flow control on this port on the Photon or P2.
 
-The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
+The secondary UART serial (`Serial2`) is on different pins and also supports CTS/RTS hardware flow control. 
+
+On the Photon, the Serial2 port is shared with the RGB LED, and the Photon must be modified to remove the LED or the current limiting resistors, so using Serial2 on the Photon is impractical.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 21bcd7d9-474c-4d45-81e1-0cb1753fdb87 --}}
 
@@ -272,16 +282,16 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 | Photon Pin Name | Photon ADC | P2 Pin Name | P2 ADC |
 | :--- | :--- | :--- | :--- |
-| A0 | true | A0 / D11 | true |
-| A1 | true | A1 / D12 | true |
-| A2 | true | A2 / D13 | true |
-| A3 | true | D0 / A3 | true |
-| A4 | true | D1 / A4 | true |
-| A5 | true | A5 / D14 | true |
-| D0 | &nbsp; | D0 / A3 | true |
-| D1 | &nbsp; | D1 / A4 | true |
-| DAC / A6 | true | &nbsp; | &nbsp; |
-| WKP / A7 | true | D10 / WKP | &nbsp; |
+| A0 | &check; | A0 / D11 | &check; |
+| A1 | &check; | A1 / D12 | &check; |
+| A2 | &check; | A2 / D13 | &check; |
+| A3 | &check; | D0 / A3 | &check; |
+| A4 | &check; | D1 / A4 | &check; |
+| A5 | &check; | A5 / D14 | &check; |
+| D0 | &check; | D0 / A3 | &check; |
+| D1 | &check; | D1 / A4 | &check; |
+| DAC / A6 | &check; | &nbsp; | &nbsp; |
+| WKP / A7 | &check; | D10 / WKP | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -300,19 +310,19 @@ The pins that support PWM are different on the Photon and P2.
 
 | Photon Pin Name | Photon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
-| A2 | &nbsp; | A2 / D13 | true |
-| A3 | &nbsp; | D0 / A3 | true |
-| A4 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D1 / A4 | true |
-| A5 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | A5 / D14 | true |
-| D0 | true | D0 / A3 | true |
-| D1 | true | D1 / A4 | true |
-| D2 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | D2 | &nbsp; |
-| D3 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D3 | &nbsp; |
-| RX | true | RX / D9 | &nbsp; |
-| &nbsp; | &nbsp; | S0 / D15 | true |
-| &nbsp; | &nbsp; | S1 / D16 | true |
-| TX | true | TX / D8 | &nbsp; |
-| WKP / A7 | true | D10 / WKP | &nbsp; |
+| A2 | &check; | A2 / D13 | &check; |
+| A3 | &check; | D0 / A3 | &check; |
+| A4 | &check; | D1 / A4 | &check; |
+| A5 | &check; | A5 / D14 | &check; |
+| D0 | &check; | D0 / A3 | &check; |
+| D1 | &check; | D1 / A4 | &check; |
+| D2 | &check; | D2 | &check; |
+| D3 | &check; | D3 | &check; |
+| RX | &check; | RX / D9 | &check; |
+| &nbsp; | &nbsp; | S0 / D15 | &check; |
+| &nbsp; | &nbsp; | S1 / D16 | &check; |
+| TX | &check; | TX / D8 | &check; |
+| WKP / A7 | &check; | D10 / WKP | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -330,8 +340,8 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 | Photon Pin Name | Photon DAC | P2 Pin Name | P2 DAC |
 | :--- | :--- | :--- | :--- |
-| A3 | true | D0 / A3 | &nbsp; |
-| DAC / A6 | true | &nbsp; | &nbsp; |
+| A3 | &check; | D0 / A3 | &check; |
+| DAC / A6 | &check; | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -892,3 +902,36 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+
+## Software
+
+### Wi-Fi Configuration
+
+The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+
+| Feature | P2 | P1 | Argon |
+| :--- | :---: | :---: | :---: |
+| Wi-Fi (SoftAP) | | &check; | |
+| BLE | &check; | | &check; |
+
+### Platform ID
+
+The Platform ID of the P2 (32, `PLATFORM_P2`) is different from that of the Photon (6) because of the vastly different hardware. 
+
+If you have a product based on the Photon, you will need to create a separate product for devices using the P2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
+
+### Third-party libraries
+
+Most third-party libraries are believed to be compatible. The exceptions include:
+
+- Libraries that use peripherals that are not present (such as DAC)
+- Libraries for MCU-specific features (such as ADC DMA)
+- Libraries that are hardcoded to support only certain platforms by their PLATFORM_ID
+
+
+## Version History
+
+| Revision | Date | Author | Comments |
+|:---:|:---:|:---:|:----|
+| pre | 2022-04-06 | RK | Pre-release |
