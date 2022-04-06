@@ -1570,49 +1570,85 @@ const { option } = require('yargs');
         }
 
         if (options.style == 'migration-removed') {
+            let tableOptions = {
+                columns: [],
+            };
 
-            let pins = [];
-            for(const pin of platformInfoOld.pins) {
-                if (pin.name != 'NC') {
-                    if (!platformInfoNew.pins.find(p => p.num == pin.num)) {
-                        pins.push(pin);
-                    }
-                }
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
             }
-
-            pins.sort(function(a, b) {
-                return a.num - b.num;
+            tableOptions.columns.push({
+                key: 'pinName',
+                title: 'Pin Name',
             });
+            tableOptions.columns.push({
+                key: 'desc',
+                title: 'Description'
+            });
+        
+            let tableData = [];
 
-            md += '| Pin | Pin Name | Description |\n';
-            md += '| :---: | :--- | :--- |\n'
-    
-            for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' |\n';
+            for(const m of mappedPins) {
+                let oldPin = m.old;
+                let newPin = m.new;
+                if (newPin && newPin.name != 'NC') {
+                    continue;
+                }
+                if (!oldPin || oldPin.name == 'NC') {
+                    continue;
+                }
+                let rowData = Object.assign({}, oldPin);
+                rowData.pinName = getPinNameWithAlt(oldPin);                
+                tableData.push(rowData);
             }
+
+            md += updater.generateTable(tableOptions, tableData);
 
         }
 
         if (options.style == 'migration-added') {
-            let pins = [];
-            for(const pin of platformInfoNew.pins) {
-                if (pin.name != 'NC') {
-                    if (!platformInfoOld.pins.find(p => p.num == pin.num)) {
-                        pins.push(pin);
-                    }
-                }
-            }
+            let tableOptions = {
+                columns: [],
+            };
 
-            pins.sort(function(a, b) {
-                return a.num - b.num;
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'pinName',
+                title: 'Pin Name',
             });
+            tableOptions.columns.push({
+                key: 'desc',
+                title: 'Description'
+            });
+        
+            let tableData = [];
 
-            md += '| Pin | Pin Name | Description |\n';
-            md += '| :---: | :--- | :--- |\n'
-    
-            for(const pin of pins) {
-                md += '| ' + pin.num + ' | ' + getPinNameWithAlt(pin) + ' | ' + pin.desc + ' |\n';
+            for(const m of mappedPins) {
+                let oldPin = m.old;
+                let newPin = m.new;
+                if (oldPin && oldPin.name != 'NC') {
+                    continue;
+                }
+                if (!newPin || newPin.name == 'NC') {
+                    continue;
+                }
+
+                let rowData = Object.assign({}, newPin);
+                rowData.pinName = getPinNameWithAlt(newPin);                
+                tableData.push(rowData);
             }
+
+            md += updater.generateTable(tableOptions, tableData);
 
         }
         
@@ -2795,7 +2831,117 @@ const { option } = require('yargs');
             ]            
         },        
         {
-            path:'/datasheets/wi-fi/p2-migration-guide.md', 
+            path:'/datasheets/wi-fi/p2-photon-migration-guide.md', 
+            updates:[ 
+                {
+                    guid:'3729b0b4-4058-454e-aef8-0ca5c2526bd52', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-removed',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                        }); 
+                    } 
+                },
+                {
+                    guid:'1de5c9cc-077e-45d1-bc1e-d5892742d68e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-added',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'46220dbb-60cf-40f4-8fd0-30a968622977', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'full-comparison',
+                            mapBy: 'name',
+                            showPinNum: true,
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'2edd3413-e159-4396-9a02-db963b4c8999', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Photon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+            ]
+        },
+        {
+            path:'/datasheets/wi-fi/p2-argon-migration-guide.md', 
+            updates:[ 
+                {
+                    guid:'d524a654-8845-4d9c-b8c4-05b60dca363e2', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-removed',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                        }); 
+                    } 
+                },
+                {
+                    guid:'fa0065f1-ba10-43af-9b5c-78338c2d02b8', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'migration-added',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'ee790982-5af6-44e2-aabf-89cd1ff1f392', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'full-comparison',
+                            mapBy: 'name',
+                            showPinNum: true,
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'cf7eb295-1ecf-4d24-b2a1-dc8a654321362', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'port-comparison',
+                            platformNew: 'P2',
+                            platformOld: 'Argon',
+                            mapBy: 'name',
+                            noPinNumbers: true,
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+            ]
+        },
+        {
+            path:'/datasheets/wi-fi/p2-p1-migration-guide.md', 
             updates:[ 
                 {
                     guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 

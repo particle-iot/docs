@@ -1,11 +1,11 @@
 ---
-title: P2 migration guide
+title: P2 from P1 migration guide
 layout: commonTwo.hbs
 columns: two
 description: Migration guide for transitioning from the P1 to P2
 ---
 
-# P2 Migration Guide
+# {{title}}
 
 **Pre-release version 2022-03-14**
 
@@ -14,7 +14,7 @@ This is an pre-release migration guide and the contents are subject to change.
 {{box op="end"}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/p2-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/p2-p1-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
@@ -353,6 +353,7 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
+| 7 | WL_REG_ON | BCM43362 Debugging Pin. |
 | 16 | WL_JTAG_TDI | BCM43362 Debugging Pin. |
 | 17 | WL_JTAG_TCK | BCM43362 Debugging Pin. |
 | 18 | WL_JTAG_TRSTN | BCM43362 Debugging Pin. |
@@ -362,7 +363,6 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 | 22 | A3 | A3 True analog out, analog in, GPIO. |
 | 24 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
 | 38 | VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
-| 38 | VBAT_MICRO | Battery for internal real-time clock. |
 | 56 | BTCX_STATUS | Coexistence signal: Bluetooth status and TX/RX direction. |
 | 57 | BTCX_RF_ACTIVE | Coexistence signal: Bluetooth is active. |
 | 58 | BTCX_TXCONF | Output giving Bluetooth permission to TX. |
