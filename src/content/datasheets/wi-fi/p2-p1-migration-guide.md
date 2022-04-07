@@ -1,11 +1,11 @@
 ---
-title: P2 migration guide
+title: P2 from P1 migration guide
 layout: commonTwo.hbs
 columns: two
 description: Migration guide for transitioning from the P1 to P2
 ---
 
-# P2 Migration Guide
+# {{title}}
 
 **Pre-release version 2022-03-14**
 
@@ -14,7 +14,7 @@ This is an pre-release migration guide and the contents are subject to change.
 {{box op="end"}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/p2-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/p2-p1-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
@@ -343,7 +343,7 @@ The P2 has a 2 MB flash file system using the same [POSIX API](/cards/firmware/f
 The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the P1 and P2.
 
 The P1 had 2047 bytes of emulated EEPROM.
-The P2 has 2048 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
 ### Pin functions removed
 
@@ -353,6 +353,7 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
+| 7 | WL_REG_ON | BCM43362 Debugging Pin. |
 | 16 | WL_JTAG_TDI | BCM43362 Debugging Pin. |
 | 17 | WL_JTAG_TCK | BCM43362 Debugging Pin. |
 | 18 | WL_JTAG_TRSTN | BCM43362 Debugging Pin. |
@@ -362,7 +363,6 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 | 22 | A3 | A3 True analog out, analog in, GPIO. |
 | 24 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
 | 38 | VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
-| 38 | VBAT_MICRO | Battery for internal real-time clock. |
 | 56 | BTCX_STATUS | Coexistence signal: Bluetooth status and TX/RX direction. |
 | 57 | BTCX_RF_ACTIVE | Coexistence signal: Bluetooth is active. |
 | 58 | BTCX_TXCONF | Output giving Bluetooth permission to TX. |
@@ -1029,7 +1029,7 @@ The following pins were NC on the P1 but are used on the P2.
 
 ### Wi-Fi Configuration
 
-The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
 | Feature | P2 | P1 | Argon |
 | :--- | :---: | :---: | :---: |
@@ -1038,7 +1038,7 @@ The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP a
 
 ### Platform ID
 
-The Platform ID of the P2 will different from that of the P1 (8) because of the vastly different hardware. 
+The Platform ID of the P2 (32, `PLATFORM_P2`) is different from that of the P1 (8) because of the vastly different hardware. 
 
 If you have a product based on the P1, you will need to create a separate product for devices using the P2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 

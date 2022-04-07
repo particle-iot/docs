@@ -134,9 +134,19 @@
         "href": "/datasheets/wi-fi/p2-datasheet/"
       },
       {
-        "dir": "p2-migration-guide",
-        "title": "P2 migration guide",
-        "href": "/datasheets/wi-fi/p2-migration-guide/"
+        "dir": "p2-p1-migration-guide",
+        "title": "P2 from P1 migration guide",
+        "href": "/datasheets/wi-fi/p2-p1-migration-guide/"
+      },
+      {
+        "dir": "p2-photon-migration-guide",
+        "title": "P2 from Photon migration guide",
+        "href": "/datasheets/wi-fi/p2-photon-migration-guide/"
+      },
+      {
+        "dir": "p2-argon-migration-guide",
+        "title": "P2 from Argon migration guide",
+        "href": "/datasheets/wi-fi/p2-argon-migration-guide/"
       },
       {
         "dir": "p1-datasheet",
