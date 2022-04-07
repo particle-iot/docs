@@ -144,4 +144,48 @@ There is no similar library for hardware timers on Gen 3, primarily because ther
 
 ## Real-time clock timing
 
-Sometimes you will want to schedule things to occur relative to clock time, not 
+Sometimes you will want to schedule things to occur relative to clock time. A few important caveats to this:
+
+- On cold boot, most devices will not have valid real-time clock settings until after their first cloud connection.
+- On Gen 3 devices (Argon, Boron, B Series SoM, but not the Tracker), after waking from HIBERNATE sleep mode there will not be valid real time until cloud connected.
+- The clock is always at UTC, not local time in your timezone.
+
+Real time is stored in a `time_t`, a signed 32-bit long number of seconds since January 1, 1970 at UTC ("Unix Time"). 
+
+The `time_t` will not roll over until 2038. Well before then, the size of the `time_t` will be expanded from 32-bit to 64-bit, preventing the rollover. This change has already occurred in desktop Linux environments, but has not yet been made in Device OS, due to incompatibilities that can occur with changing the size of the variable.
+
+Due to the lack of rollover, it's easy and quick to test real time like this:
+
+```cpp
+if (Time.isValid() && Time.now() >= nextPublishTime)
+```
+
+- Be sure to check that you have a valid time. It doesn't always have to be right before Time.now, as the time will never become un-valid except on cold boot, reset, or in some cases, right after wake.
+- You can compare against the last time + interval, or next time, since you don't have to worry about rollover.
+- `Time.now()` is fast as it just reads a variable and can be called frequently. Same for `Time.isValid()`.
+
+### Clock synchronization
+
+The real-time clock is synchronized 
+
+### Hardware RTC
+
+It is possible to use an external hardware real-time clock, typically connected by I2C, SPI, or UART serial. In the Tracker SoM and Tracker One, this is an AM1805 RTC and Watchdog chip, connected by I2C.
+
+The [xxx]() application note shows how you can use this chip in your own designs.
+
+### GNSS (GPS)
+
+GNSS (GPS) provides a precise time reference at UTC. The Particle Tracker does not use this as a time reference, but it is possible to do so. One caveat is that it generally takes longer to acquire a GNSS lock than it does to connect to the Particle cloud, so in the most common use cases, it is neither faster nor significantly more accurate.
+
+### NTP (Network Time Protocol)
+
+The network time protocol is used to set clocks on Internet connected computers. It can be used on Particle devices, however it requires a 3rd-party library, an external time server to use, and is not significantly more accurate than the Particle cloud time, so there is little reason to go through the effort, unless you have devices that are connected to the Internet but not the Particle cloud.
+
+## Time in local timezone
+
+While the `Time` object in Device OS has useful sounding functions like `Time.zone()` and `Time.isDST()` these functions are completely manual! You must manually set the zone to the correct zone, and turn DST on and off yourself. This severely limits their usefulness.
+
+There are various techniques for determining your local timezone, such as using Wi-Fi or cellular geolocation and an external time database or service. 
+
+
