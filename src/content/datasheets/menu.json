@@ -410,6 +410,11 @@
         "dir": "an040-code-size-tips",
         "title": "AN040 Code Size Tips",
         "href": "/datasheets/app-notes/an040-code-size-tips/"
+      },
+      {
+        "dir": "an041-scheduling",
+        "title": "AN041 Scheduling",
+        "href": "/datasheets/app-notes/an041-scheduling/"
       }
     ],
     {
