@@ -17,6 +17,8 @@ This is an pre-release migration guide and the contents are subject to change.
 {{downloadButton url="/assets/pdfs/datasheets/p2-photon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
+![P2 Rendering](/assets/images/p2-rendering.png)
+
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
 
 | Feature | P2 | P1 | Photon | Argon |
@@ -85,11 +87,20 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 The primary difference is that the Photon is a pin-based module that can be installed in solderless breadboard for prototyping, can be installed in a socket on your custom board, or soldered directly to your board.
 
+![Photon](/assets/images/photon_vector2_600.png)
+
 The P2 is only available as a SMD (surface mount device) that is typically reflow soldered to your base board. Your base board will need to be a custom printed circuit board, and cannot be a solderless breadboard or perforated prototyping board.
 
 This can be done in small quantities by hand using a reflow oven or soldering hot plate. In quantity, it would be done by your PCBA (PCB with assembly) contractor.
 
-The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases, but if you are planning on scaling, it may be advantageous to migrate from the Photon directly to the P2 as the Photon and Photon 2 are not pin-compatible and will require a redesign of your base board anyway.
+This is a P2 on a hand-assembled P1 tutorial board, not an actual product. It was reflow soldered in an inexpensive T960 reflow oven.
+
+![P2 Custom Board](/assets/images/p2-custom.png)
+
+The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases. If you are planning on scaling, it may be advantageous to migrate from the Photon directly to the P2 as the Photon and Photon 2 are not pin-compatible and will require a redesign of your base board anyway.
+
+![Photon 2 Rendering](/assets/images/photon2-rendering.png)
+
 
 ### Status LED
 
@@ -156,7 +167,13 @@ the voltage regulator so you can choose any model as long as it meets the voltag
 - This is often a switching regulator to save space, but this is not required. 
   - The Photon used a Richtek RT8008 (3.3V), which is hard to procure.
   - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
-- If the voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
+- If the input voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
+
+### VBAT
+
+On the Photon, a lithium coin cell or supercap can be attached to the VBAT pin to keep the real-time clock running, and keep the backup SRAM (retained memory). 
+
+This feature is not available on the P2 or Gen 3 devices.
 
 ### No 5V tolerance!
 
@@ -166,7 +183,7 @@ On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case fo
 
 Pins A3, A4, DAC/A6 do not exist on the P2 and are NC.
 
-You will need to use different pins if you are currently using these pins.
+You will need to use different pins if you are currently using these pins. There are a large number of additional pins (S0 - S6), however.
 
 ### SPI
 
@@ -288,10 +305,10 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | A3 | &check; | D0 / A3 | &check; |
 | A4 | &check; | D1 / A4 | &check; |
 | A5 | &check; | A5 / D14 | &check; |
-| D0 | &check; | D0 / A3 | &check; |
-| D1 | &check; | D1 / A4 | &check; |
+| D0 | &nbsp; | D0 / A3 | &check; |
+| D1 | &nbsp; | D1 / A4 | &check; |
 | DAC / A6 | &check; | &nbsp; | &nbsp; |
-| WKP / A7 | &check; | D10 / WKP | &check; |
+| WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -310,19 +327,19 @@ The pins that support PWM are different on the Photon and P2.
 
 | Photon Pin Name | Photon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
-| A2 | &check; | A2 / D13 | &check; |
-| A3 | &check; | D0 / A3 | &check; |
-| A4 | &check; | D1 / A4 | &check; |
-| A5 | &check; | A5 / D14 | &check; |
+| A2 | &nbsp; | A2 / D13 | &check; |
+| A3 | &nbsp; | D0 / A3 | &check; |
+| A4 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D1 / A4 | &check; |
+| A5 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | A5 / D14 | &check; |
 | D0 | &check; | D0 / A3 | &check; |
 | D1 | &check; | D1 / A4 | &check; |
-| D2 | &check; | D2 | &check; |
-| D3 | &check; | D3 | &check; |
-| RX | &check; | RX / D9 | &check; |
+| D2 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | D2 | &nbsp; |
+| D3 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D3 | &nbsp; |
+| RX | &check; | RX / D9 | &nbsp; |
 | &nbsp; | &nbsp; | S0 / D15 | &check; |
 | &nbsp; | &nbsp; | S1 / D16 | &check; |
-| TX | &check; | TX / D8 | &check; |
-| WKP / A7 | &check; | D10 / WKP | &check; |
+| TX | &check; | TX / D8 | &nbsp; |
+| WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -340,7 +357,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 | Photon Pin Name | Photon DAC | P2 Pin Name | P2 DAC |
 | :--- | :--- | :--- | :--- |
-| A3 | &check; | D0 / A3 | &check; |
+| A3 | &check; | D0 / A3 | &nbsp; |
 | DAC / A6 | &check; | &nbsp; | &nbsp; |
 
 

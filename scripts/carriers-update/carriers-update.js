@@ -522,8 +522,8 @@ const { option } = require('yargs');
         for(const d of data) {
             line = '';
             for(const c of options.columns) {
-                if (c.checkmark) {
-                    line += '| ' + (d[c.key] ? '&check;' : '&nbsp;') + ' ';
+                if (c.checkmark && d[c.key] === true ) {
+                    line += '| &check; ';
                 }
                 else
                 if (d[c.key]) {

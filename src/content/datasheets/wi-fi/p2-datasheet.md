@@ -18,7 +18,7 @@ This is an pre-release datasheet and the contents are subject to change.
 {{/unless}} {{!-- pdf-generation --}}
 
 
-![Photon 2 Rendering](/assets/images/p2-rendering.png)
+![P2 Rendering](/assets/images/p2-rendering.png)
 
 ## Functional description
 

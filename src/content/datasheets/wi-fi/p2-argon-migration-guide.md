@@ -17,6 +17,8 @@ This is an pre-release migration guide and the contents are subject to change.
 {{downloadButton url="/assets/pdfs/datasheets/p2-argon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
+![P2 Rendering](/assets/images/p2-rendering.png)
+
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
 
 | Feature | P2 | P1 | Photon | Argon |
@@ -85,11 +87,20 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 
 The primary difference is that the Argon is a pin-based module that can be installed in solderless breadboard for prototyping, can be installed in a socket on your custom board, or soldered directly to your board.
 
+![Argon](/assets/images/argon/argon-top.png)
+
 The P2 is only available as a SMD (surface mount device) that is typically reflow soldered to your base board. Your base board will need to be a custom printed circuit board, and cannot be a solderless breadboard or perforated prototyping board.
 
 This can be done in small quantities by hand using a reflow oven or soldering hot plate. In quantity, it would be done by your PCBA (PCB with assembly) contractor.
 
-The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases as it's the same form-factor and mostly pin compatible to the Argon, but if you are planning on scaling, it may be advantageous to migrate from the Argon directly to the P2.
+This is a P2 on a hand-assembled P1 tutorial board, not an actual product. It was reflow soldered in an inexpensive T960 reflow oven.
+
+![P2 Custom Board](/assets/images/p2-custom.png)
+
+The Photon 2 is a pin-based module that contains a P2, and may be appropriate in many cases. If you are planning on scaling, it may be advantageous to migrate from the Argon directly to the P2 as you may require base board changes as there are some differences between the Argon and Photon 2.
+
+![Photon 2 Rendering](/assets/images/photon2-rendering.png)
+
 
 ### Status LED
 
@@ -149,6 +160,8 @@ If you want to include the same 2x5 1.27mm connector as is on the Argon, this is
 | :--- | :--- | ---: |
 | CONN HEADER SMD 10POS 1.27MM | [Samtec FTSH-105-01-F-DV-K](https://www.digikey.com/product-detail/en/FTSH-105-01-F-DV-K/SAM8796-ND/2649974) | $3.91 |
 
+![Debug Connector](/assets/images/argon/swd-connector-pinout.png)
+
 
 ### Troubleshooting connector
 
@@ -166,7 +179,7 @@ the voltage regulator so you can choose any model as long as it meets the voltag
   - The Argon used a Torex XCL223, which is no longer available. The pin compatible XCL224 is also no longer available.
 - If the voltage is close to 3.3V, such as 5V USB, a linear regulator can be used.
 
-### LiPo Battery
+### LiPo Battery and LI+ pin
 
 The P2 does not include a LiPo battery connector or charging circuit on the module. If you want these features you will need to include them on your base board.
 
@@ -176,16 +189,24 @@ This is the LiPo battery connector used on the Argon:
 | :--- | :--- | ---: |
 | JST-PH battery connector | [JST B2B-PH-K-S-LF-SN](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B2B-PH-K-S-LF-SN/455-1704-ND/926611) | $0.17 | 
 
-
-The Argon does not include a full PMIC (bq24195) and fuel gauge (MAX17043) like the Boron does. By including these features on your base board you can provide more full-featured operation on battery power than the Argon does.
-
 As of the first half of 2022, supply chain constraints are affecting the supply of PMICs and charge controllers. Because of this, we are not recommending a specific model to use with your board.
+
+The Argon uses a Torex XC6208A42 LiPo charge controller, however there is no need use this part and it will be difficult to obtain.
+
+The Boron uses a full PMIC (bq24195) and fuel gauge (MAX17043). By including these features on your base board you can provide more full-featured operation on battery power than the Argon does.
+
+### EN pin
+
+The Argon has the EN pin which can shut down the Torex XC9258 3.3V regulator to power down the 3.3V supply to the Argon nRF52840 MCU and the ESP32 Wi-Fi coprocessor.
+
+This feature does not exist on the P2, however you could add equivalent circuitry on your base board. This could either be a regulator with power control like the Argon, or an external load switch like the Boron (Torex XC8107). The specific load switch is not important, as long as it meets the requirements of the nRF52840 MCU.
+
 
 ### Pins A3, A4, and DAC (A6)
 
 Pins A3, A4, DAC/A6 do not exist on the P2 and are NC.
 
-You will need to use different pins if you are currently using these pins.
+You will need to use different pins if you are currently using these pins. There are a large number of additional pins (S0 - S6), however.
 
 ### SPI
 
@@ -308,11 +329,11 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | A3 / D16 | &check; | D0 / A3 | &check; |
 | A4 / D15 | &check; | D1 / A4 | &check; |
 | A5 / D14 | &check; | A5 / D14 | &check; |
-| D0 | &check; | D0 / A3 | &check; |
-| D1 | &check; | D1 / A4 | &check; |
-| MISO / D11 | &check; | A0 / D11 | &check; |
-| MOSI / D12 | &check; | A1 / D12 | &check; |
-| SCK / D13 | &check; | A2 / D13 | &check; |
+| D0 | &nbsp; | D0 / A3 | &check; |
+| D1 | &nbsp; | D1 / A4 | &check; |
+| MISO / D11 | &nbsp; | A0 / D11 | &check; |
+| MOSI / D12 | &nbsp; | A1 / D12 | &check; |
+| SCK / D13 | &nbsp; | A2 / D13 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -331,22 +352,22 @@ The pins that support PWM are different on the Argon and P2.
 
 | Argon Pin Name | Argon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D11 | &check; |
-| A1 / D18 | &check; | A1 / D12 | &check; |
+| A0 / D19 | &check; | A0 / D11 | &nbsp; |
+| A1 / D18 | &check; | A1 / D12 | &nbsp; |
 | A2 / D17 | &check; | A2 / D13 | &check; |
 | A3 / D16 | &check; | D0 / A3 | &check; |
 | A4 / D15 | &check; | D1 / A4 | &check; |
 | A5 / D14 | &check; | A5 / D14 | &check; |
-| D0 | &check; | D0 / A3 | &check; |
-| D1 | &check; | D1 / A4 | &check; |
-| SCK / D13 | &check; | A2 / D13 | &check; |
-| D2 | &check; | D2 | &check; |
-| D3 | &check; | D3 | &check; |
-| D4 | &check; | D4 | &check; |
-| D5 | &check; | D5 | &check; |
-| D6 | &check; | D6 | &check; |
-| D7 | &check; | D7 | &check; |
-| D8 | &check; | TX / D8 | &check; |
+| D0 | &nbsp; | D0 / A3 | &check; |
+| D1 | &nbsp; | D1 / A4 | &check; |
+| SCK / D13 | &nbsp; | A2 / D13 | &check; |
+| D2 | &check; | D2 | &nbsp; |
+| D3 | &check; | D3 | &nbsp; |
+| D4 | &check; | D4 | &nbsp; |
+| D5 | &check; | D5 | &nbsp; |
+| D6 | &check; | D6 | &nbsp; |
+| D7 | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | D7 | &nbsp; |
+| D8 | &check; | TX / D8 | &nbsp; |
 | &nbsp; | &nbsp; | S0 / D15 | &check; |
 | &nbsp; | &nbsp; | S1 / D16 | &check; |
 
