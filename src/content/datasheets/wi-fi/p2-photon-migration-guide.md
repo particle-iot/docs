@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the Photon to P2
 
 # {{title}}
 
-**Pre-release version 2022-04-06**
+**Pre-release version 2022-04-08**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an pre-release migration guide and the contents are subject to change.
@@ -147,8 +147,8 @@ The P2 does not include a SWD/JTAG debugging connector on the board. We recommen
 | :---: | :--- | :--- | :--- | :--- |
 | 1 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; | &nbsp; |
 | 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | &nbsp; | CHIP_EN |
-| 54 | D7 | D7 GPIO | SWDIO | PA[27] |
-| 55 | D6 | D6 GPIO | SWCLK | PB[3] |
+| 54 | D7 | D7 GPIO, SWDIO | SWDIO | PA[27] |
+| 55 | D6 | D6 GPIO, SWCLK | SWCLK | PB[3] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -480,6 +480,66 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
+
+### Recommended pin mappings
+
+#### SPI prioritized
+
+In this mapping, the SPI pins are preserved from Photon to P2 at the expense of two ADCs. Note, however, that SS can be any pin, so you could a different pin for SS and preserve the use of A2 as an ADC. 
+
+{{!-- BEGIN do not edit content below, it is automatically generated 1e172c40-939f-4ff0-85b3-11bcb54a70b8 --}}
+
+| Photon Pin Name | Photon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A2 | A2 Analog in, GPIO, SPI SS | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
+| A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
+| D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
+| D4 | D4 GPIO, SPI1 SCK | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
+| D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
+| D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
+| D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+#### ADC prioritized
+
+In this mapping, there are two more ADC pins, but primary SPI on the A pins cannot be used.
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 276c4cb4-5683-49ce-b9f6-e0bb74dc6735 --}}
+
+| Photon Pin Name | Photon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A2 | A2 Analog in, GPIO, SPI SS | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| A3 | A3 True analog out, analog in, GPIO. | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| A5 | A5 Analog in, GPIO, SPI MOSI. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
+| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
+| D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
+| D4 | D4 GPIO, SPI1 SCK | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
+| D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
+| D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
+| D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
 ### Full module pin comparison
 
 {{!-- BEGIN do not edit content below, it is automatically generated 46220dbb-60cf-40f4-8fd0-30a968622977 --}}
@@ -547,7 +607,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Number | 9 | 36 |
 | Pin Name | A3 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, PWM, I2C, A3 Analog In |
+| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -563,7 +623,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Number | 8 | 35 |
 | Pin Name | A4 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | A4 Analog in, GPIO, SPI. | D1 GPIO, PWM, I2C, A4 Analog In |
+| Description | A4 Analog in, GPIO, SPI MISO. | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -579,7 +639,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Number | 7 | 23 |
 | Pin Name | A5 | A5 |
 | Pin Alternate Name | n/a | D14 |
-| Description | A5 Analog in, GPIO, SPI. | A5 Analog in, GPIO, PWM. |
+| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -594,7 +654,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Number | 13 | 36 |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C, A3 Analog In |
+| Description | D0 GPIO, I2C SDA | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -609,7 +669,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Number | 14 | 35 |
 | Pin Name | D1 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | D0 GPIO, I2C, CAN | D1 GPIO, PWM, I2C, A4 Analog In |
+| Description | D0 GPIO, I2C SCL, CAN TX | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -624,7 +684,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :--- | :--- | :--- |
 | Pin Number | 15 | 45 |
 | Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1, CAN | D2 GPIO, Serial2, SPI1 |
+| Description | D2 GPIO, SPI1 MOSI, CAN RX | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -640,7 +700,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :--- | :--- | :--- |
 | Pin Number | 16 | 51 |
 | Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 | D3 GPIO, Serial2, SPI1 |
+| Description | D3 GPIO, SPI1 MISO | D3 GPIO, Serial2 CTS, SPI1 MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -655,7 +715,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :--- | :--- | :--- |
 | Pin Number | 17 | 52 |
 | Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 | D4 GPIO, Serial2, SPI1 |
+| Description | D4 GPIO, SPI1 SCK | D4 GPIO, Serial2 TX, SPI1 SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | TX. Use Serial2 object. |
@@ -669,7 +729,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :--- | :--- | :--- |
 | Pin Number | 18 | 53 |
 | Pin Name | D5 | D5 |
-| Description | D5 GPIO, SPI1 | D5 GPIO, Serial2, SPI1 |
+| Description | D5 GPIO, SPI1 SS | D5 GPIO, Serial2 RX, SPI1 SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | RX. Use Serial2 object. |
@@ -683,7 +743,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :--- | :--- | :--- |
 | Pin Number | 19 | 55 |
 | Pin Name | D6 | D6 |
-| Description | D6 GPIO | D6 GPIO |
+| Description | D6 GPIO, SWCLK | D6 GPIO, SWCLK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
@@ -695,7 +755,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :--- | :--- | :--- |
 | Pin Number | 20 | 54 |
 | Pin Name | D7 | D7 |
-| Description | D7 GPIO, Blue LED | D7 GPIO |
+| Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO, SWDIO |
 | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes. |
 | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes. On the Photon this is the blue D7 LED. |
 | Supports attachInterrupt | Yes | Yes |
@@ -952,3 +1012,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
 | pre | 2022-04-06 | RK | Pre-release |
+|     | 2022-04-08 | RK | Added recommended pin mappings |

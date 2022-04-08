@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the Argon to P2
 
 # {{title}}
 
-**Pre-release version 2022-04-06**
+**Pre-release version 2022-04-08**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an pre-release migration guide and the contents are subject to change.
@@ -148,8 +148,8 @@ The Argon has dedicated pins for SWDIO and SWCLK and SWD remains running after y
 | :---: | :--- | :--- | :--- | :--- |
 | 1 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; | &nbsp; |
 | 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | &nbsp; | CHIP_EN |
-| 54 | D7 | D7 GPIO | SWDIO | PA[27] |
-| 55 | D6 | D6 GPIO | SWCLK | PB[3] |
+| 54 | D7 | D7 GPIO, SWDIO | SWDIO | PA[27] |
+| 55 | D6 | D6 GPIO, SWCLK | SWCLK | PB[3] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -283,6 +283,8 @@ Also, the Argon supports a secondary I2C interface on D2 and D3; this is not sup
 The primary UART serial (`Serial1`) is on the TX and RX pins on both the Argon and P2. On the Argon, hardware flow control (RTS/CTS) is available for `Serial1` but this is not the case for the P2.
 
 There is no secondary UART on the Argon, but there is one on the P2. The secondary UART `Serial2` on the P2 does support hardware flow control.
+
+If you are using Argon Serial1 with hardware flow control, you should switch to using `Serial2` on the P2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ae9002de-ec14-49d1-a748-5ae16dd5b2d2 --}}
 
@@ -456,6 +458,74 @@ The following pins did not exist on the Argon but are available on the P2.
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+
+### Recommended pin mappings
+
+#### All-purpose mapping
+
+This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I2C, SPI, and Serial are mapped.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 25914318-fc34-4f72-80f0-9ca6a3091e30 --}}
+
+| Argon Pin Name | Argon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A2 / D17 | A2 Analog in, GPIO, PWM | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
+| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
+| D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D1 | I2C SCL, GPIO | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
+| D2 | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| D3 | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
+| D4 | SPI1 MISO, PWM, GPIO | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
+| D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
+| D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
+| D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+#### SPI1 Preferred
+
+If you need to use SPI1 on the D pins, this mapping is required. The D pins are ordered differently between the Argon and P2, and this affects SPI1.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 7c78e07c-4e5a-43a6-8c61-d9a322871bd8 --}}
+
+| Argon Pin Name | Argon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO, PWM | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| A1 / D18 | A1 Analog in, GPIO, PWM | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A2 / D17 | A2 Analog in, GPIO, PWM | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
+| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
+| D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D1 | I2C SCL, GPIO | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
+| D2 | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
+| D3 | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| D4 | SPI1 MISO, PWM, GPIO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
+| D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
+| D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
+| D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
+
 ### Full module pin comparison
 
 {{!-- BEGIN do not edit content below, it is automatically generated ee790982-5af6-44e2-aabf-89cd1ff1f392 --}}
@@ -523,7 +593,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | Pin Number | 8 | 36 |
 | Pin Name | A3 | D0 |
 | Pin Alternate Name | D16 | A3 |
-| Description | A3 Analog in, GPIO, PWM | D0 GPIO, PWM, I2C, A3 Analog In |
+| Description | A3 Analog in, GPIO, PWM | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -537,7 +607,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | Pin Number | 9 | 35 |
 | Pin Name | A4 | D1 |
 | Pin Alternate Name | D15 | A4 |
-| Description | A4 Analog in, GPIO, PWM | D1 GPIO, PWM, I2C, A4 Analog In |
+| Description | A4 Analog in, GPIO, PWM | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -565,7 +635,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | Pin Number | 16 | 36 |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | I2C SDA, GPIO | D0 GPIO, PWM, I2C, A3 Analog In |
+| Description | I2C SDA, GPIO | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -579,7 +649,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | Pin Number | 17 | 35 |
 | Pin Name | D1 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | I2C SCL, GPIO | D1 GPIO, PWM, I2C, A4 Analog In |
+| Description | I2C SCL, GPIO | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -640,7 +710,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | :--- | :--- | :--- |
 | Pin Number | 18 | 45 |
 | Pin Name | D2 | D2 |
-| Description | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 GPIO, Serial2, SPI1 |
+| Description | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -663,7 +733,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | :--- | :--- | :--- |
 | Pin Number | 19 | 51 |
 | Pin Name | D3 | D3 |
-| Description | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial2, SPI1 |
+| Description | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial2 CTS, SPI1 MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -677,7 +747,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | :--- | :--- | :--- |
 | Pin Number | 20 | 52 |
 | Pin Name | D4 | D4 |
-| Description | SPI1 MISO, PWM, GPIO | D4 GPIO, Serial2, SPI1 |
+| Description | SPI1 MISO, PWM, GPIO | D4 GPIO, Serial2 TX, SPI1 SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -690,7 +760,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | :--- | :--- | :--- |
 | Pin Number | 21 | 53 |
 | Pin Name | D5 | D5 |
-| Description | PWM, GPIO | D5 GPIO, Serial2, SPI1 |
+| Description | PWM, GPIO | D5 GPIO, Serial2 RX, SPI1 SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -703,7 +773,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | :--- | :--- | :--- |
 | Pin Number | 22 | 55 |
 | Pin Name | D6 | D6 |
-| Description | PWM, GPIO | D6 GPIO |
+| Description | PWM, GPIO | D6 GPIO, SWCLK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -715,7 +785,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | :--- | :--- | :--- |
 | Pin Number | 23 | 54 |
 | Pin Name | D7 | D7 |
-| Description | PWM, GPIO | D7 GPIO |
+| Description | PWM, GPIO | D7 GPIO, SWDIO |
 | Supports digitalRead | Yes | Yes. |
 | Supports digitalWrite | Yes | Yes. On the Photon this is the blue D7 LED. |
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
@@ -944,3 +1014,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
 | pre | 2022-04-06 | RK | Pre-release |
+|     | 2022-04-08 | RK | Added recommended pin mappings |

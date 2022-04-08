@@ -650,7 +650,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | D1 GPIO, I2C, CAN | D1 GPIO, PWM, I2C, A4 Analog In |
+| Description | D1 GPIO, I2C, CAN | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -666,7 +666,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C, A3 Analog In |
+| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -766,7 +766,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1, CAN | D2 GPIO, Serial2, SPI1 |
+| Description | D2 GPIO, SPI1, CAN | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -840,7 +840,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 | D3 GPIO, Serial2, SPI1 |
+| Description | D3 GPIO, SPI1 | D3 GPIO, Serial2 CTS, SPI1 MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -855,7 +855,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 | D4 GPIO, Serial2, SPI1 |
+| Description | D4 GPIO, SPI1 | D4 GPIO, Serial2 TX, SPI1 SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | TX. Use Serial2 object. |
@@ -869,7 +869,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
-| Description | D5 GPIO, SPI1 | D5 GPIO, Serial2, SPI1 |
+| Description | D5 GPIO, SPI1 | D5 GPIO, Serial2 RX, SPI1 SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | RX. Use Serial2 object. |
@@ -883,7 +883,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
-| Description | D7 GPIO | D7 GPIO |
+| Description | D7 GPIO | D7 GPIO, SWDIO |
 | Supports digitalRead | Yes. | Yes. |
 | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes. On the Photon this is the blue D7 LED. |
 | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
@@ -894,7 +894,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D6 | D6 |
-| Description | D6 GPIO | D6 GPIO |
+| Description | D6 GPIO | D6 GPIO, SWCLK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |

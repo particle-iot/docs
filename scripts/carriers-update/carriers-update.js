@@ -1323,6 +1323,71 @@ const { option } = require('yargs');
 
             mappedPins = [];
 
+            if (options.mapping) {
+                let mapping = Object.assign({}, options.mapping);
+                
+                // Fill in default mapping of matching name if not otherwise mapped
+                for(const pinOld of platformInfoOld.pins) {
+                    if (!mapping[pinOld.name]) {
+                        if (!options.onlyIO || pinOld.isIO) {
+                            for(const pinNew of platformInfoNew.pins) {
+                                if (pinOld.name == pinNew.name) {
+                                    mapping[pinOld.name] = pinNew.name;
+                                }
+                            }                                
+                        }
+                    }
+                }
+
+                for(const pinOld of platformInfoOld.pins) {
+                    if (mapping[pinOld.name]) {
+                        for(const pinNew of platformInfoNew.pins) {
+                            if (pinNew.name == mapping[pinOld.name]) {
+                                let m = {
+                                    name: pinOld.name,
+                                    title: pinOld.name,
+                                    old: pinOld,
+                                    new: pinNew,
+                                };        
+                                mappedPins.push(m);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Sort
+                mappedPins.sort(function(a, b) {
+                    return a.name.localeCompare(b.name);
+                });
+            }
+            else
+            if (options.mapBy && options.mapBy == 'hardwarePin') {
+                for(const pinOld of platformInfoOld.pins) {
+                    if (pinOld.hardwarePin) {
+                        let m = {
+                            name: pinOld.name,
+                            title: pinOld.name,
+                            old: pinOld
+                        };
+                        for(const pinNew of platformInfoNew.pins) {
+                            if (pinNew.hardwarePin && pinNew.hardwarePin == pinOld.hardwarePin) {
+                                m.new = pinNew;
+                                if (pinOld.name != pinNew.name) {
+                                    m.title = pinOld.name + '/' + pinNew.name;
+                                }
+                                mappedPins.push(m);
+                                break;
+                            }
+                        }
+                    }
+                }
+                // Sort
+                mappedPins.sort(function(a, b) {
+                    return a.name.localeCompare(b.name);
+                });
+            }
+            else
             if (options.mapBy) {
                 let foundNew = [];
 
@@ -1644,6 +1709,68 @@ const { option } = require('yargs');
 
                 let rowData = Object.assign({}, newPin);
                 rowData.pinName = getPinNameWithAlt(newPin);                
+                tableData.push(rowData);
+            }
+
+            md += updater.generateTable(tableOptions, tableData);
+
+        }
+        
+        if (options.style == 'old-new-comparison') {
+            // Use with mapBy: 'hardwarePin' for best results
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (options.pinNumberOld) {
+                tableOptions.columns.push({
+                    key: 'oldPinNum',
+                    title: oldTitle + ' Pin Number'
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'oldPinName',
+                title: oldTitle + ' Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'oldDesc',
+                title: oldTitle + ' Description'
+            });
+            tableOptions.columns.push({
+                key: 'newPinName',
+                title: newTitle + ' Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'newDesc',
+                title: newTitle + ' Description'
+            });
+            if (options.pinNumberNew) {
+                tableOptions.columns.push({
+                    key: 'newPinNum',
+                    title: newTitle + ' Pin Number'
+                });    
+            }
+            if (options.hardwarePin) {
+                tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });
+            }
+
+            let tableData = [];
+
+            for(const m of mappedPins) {
+                let oldPin = m.old;
+                let newPin = m.new;
+            
+                let rowData = Object.assign({}, newPin);
+
+                rowData.oldPinName = getPinNameWithAlt(oldPin);
+                rowData.oldDesc = oldPin.desc;
+                rowData.oldPinNum = oldPin.num;
+                rowData.newPinName = getPinNameWithAlt(newPin);                
+                rowData.newDesc = newPin.desc;
+                rowData.newPinNum = newPin.num;
                 tableData.push(rowData);
             }
 
@@ -2833,7 +2960,20 @@ const { option } = require('yargs');
                             noPinNumbers: true,
                         }); 
                     } 
-                }
+                },
+                {
+                    guid:'7c78e07c-4e5a-43a6-8c61-d9a322871bd8',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'old-new-comparison',
+                            platformOld: 'Photon 2', // Left column
+                            platformNew: 'P2', // Right column
+                            pinNumberNew: true,
+                            mapBy: 'hardwarePin',
+                            hardwarePin: true,
+                        }); 
+                    } 
+                },
 
                 
             ]            
@@ -3009,7 +3149,46 @@ const { option } = require('yargs');
                             otherNames: ['RST', 'GND'],
                         }); 
                     } 
-                },                
+                },    
+                {
+                    guid:'1e172c40-939f-4ff0-85b3-11bcb54a70b8', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'old-new-comparison',
+                            platformOld: 'Photon', // Left column
+                            platformNew: 'P2', // Right column
+                            pinNumberNew: true,
+                            hardwarePin: true,
+                            mapping: {
+                                'A2': 'S3', 
+                                'A3': 'S2', 
+                                'A4': 'S1', 
+                                'A5': 'S0',
+                                'A6': 'S5', 
+                            },
+                            onlyIO: true
+                        }); 
+                    }
+                },  
+                {
+                    guid:'276c4cb4-5683-49ce-b9f6-e0bb74dc6735', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'old-new-comparison',
+                            platformOld: 'Photon', // Left column
+                            platformNew: 'P2', // Right column
+                            pinNumberNew: true,
+                            hardwarePin: true,
+                            mapping: {
+                                'A3': 'A2', 
+                                'A5': 'A5',
+                            },
+                            onlyIO: true
+                        }); 
+                    }
+                },  
+                
+            
             ]
         },
         {
@@ -3138,6 +3317,49 @@ const { option } = require('yargs');
                         }); 
                     } 
                 },                
+                {
+                    guid:'25914318-fc34-4f72-80f0-9ca6a3091e30', // General
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'old-new-comparison',
+                            platformOld: 'Argon', // Left column
+                            platformNew: 'P2', // Right column
+                            pinNumberNew: true,
+                            hardwarePin: true,
+                            mapping: {
+                                'A3':'S3',
+                                'A4':'S4',
+                                'SCK':'S2',
+                                'MISO':'S1',
+                                'MOSI':'S0',
+                            },
+                            onlyIO: true
+                        }); 
+                    }
+                },              
+                {
+                    guid:'7c78e07c-4e5a-43a6-8c61-d9a322871bd8', // SPI1
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'old-new-comparison',
+                            platformOld: 'Argon', // Left column
+                            platformNew: 'P2', // Right column
+                            pinNumberNew: true,
+                            hardwarePin: true,
+                            mapping: {
+                                'A3':'S3',
+                                'A4':'S4',
+                                'SCK':'S2',
+                                'MISO':'S1',
+                                'MOSI':'S0',
+                                'D2':'D4',
+                                'D3':'D2',
+                                'D4':'D3',
+                            },
+                            onlyIO: true
+                        }); 
+                    }
+                },              
             ]
         },
         {
