@@ -505,8 +505,10 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 | D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | 48 | PB[29] |
 | RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | 33 | PB[31] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -533,8 +535,10 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | 48 | PB[29] |
 | RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | 33 | PB[31] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}

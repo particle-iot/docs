@@ -3164,7 +3164,8 @@ const { option } = require('yargs');
                                 'A3': 'S2', 
                                 'A4': 'S1', 
                                 'A5': 'S0',
-                                'A6': 'S5', 
+                                'DAC': 'S5', 
+                                'WKP': 'S6'
                             },
                             onlyIO: true
                         }); 
@@ -3182,6 +3183,8 @@ const { option } = require('yargs');
                             mapping: {
                                 'A3': 'A2', 
                                 'A5': 'A5',
+                                'DAC': 'S5', 
+                                'WKP': 'S6'
                             },
                             onlyIO: true
                         }); 
