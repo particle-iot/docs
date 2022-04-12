@@ -1,11 +1,11 @@
 ---
-title: P2 migration guide
+title: P2 from P1 migration guide
 layout: commonTwo.hbs
 columns: two
 description: Migration guide for transitioning from the P1 to P2
 ---
 
-# P2 Migration Guide
+# {{title}}
 
 **Pre-release version 2022-03-14**
 
@@ -14,7 +14,7 @@ This is an pre-release migration guide and the contents are subject to change.
 {{box op="end"}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/p2-migration-guide.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/p2-p1-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
@@ -188,6 +188,47 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
+Supported Baud Rates:
+
+| Baud Rate | P1 | P2 |
+| ---: | :---: | :---|
+| 110     | | &check; |
+| 300     | | &check; |
+| 600     | | &check; |
+| 1200    | &check; | &check; |
+| 2400    | &check; | |
+| 4800    | &check; | |
+| 9600    | &check; | &check; |
+| 14400   | | &check; |
+| 19200   | &check; | &check; |
+| 28800   | | &check; |
+| 38400   | &check; | &check; |
+| 57600   | &check; | &check; |
+| 76800   | | &check; |
+| 115200  | &check; | &check; |
+| 128000  | | &check; |
+| 153600  | | &check; |
+| 230400  | &check; | &check; |
+| 500000  | | &check; |
+| 921600  | | &check; |
+| 1000000 | | &check; |
+| 1382400 | | &check; |
+| 1444400 | | &check; |
+| 1500000 | | &check; |
+| 1843200 | | &check; |
+| 2000000 | | &check; |
+| 2100000 | | &check; |
+| 2764800 | | &check; |
+| 3000000 | | &check; |
+| 3250000 | | &check; |
+| 3692300 | | &check; |
+| 3750000 | | &check; |
+| 4000000 | | &check; |
+| 6000000 | | &check; |
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 ### Analog input (ADC)
 
 For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the P2:
@@ -343,7 +384,7 @@ The P2 has a 2 MB flash file system using the same [POSIX API](/cards/firmware/f
 The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the P1 and P2.
 
 The P1 had 2047 bytes of emulated EEPROM.
-The P2 has 2048 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
+The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 
 ### Pin functions removed
 
@@ -353,6 +394,7 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
+| 7 | WL_REG_ON | BCM43362 Debugging Pin. |
 | 16 | WL_JTAG_TDI | BCM43362 Debugging Pin. |
 | 17 | WL_JTAG_TCK | BCM43362 Debugging Pin. |
 | 18 | WL_JTAG_TRSTN | BCM43362 Debugging Pin. |
@@ -362,7 +404,6 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 | 22 | A3 | A3 True analog out, analog in, GPIO. |
 | 24 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
 | 38 | VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
-| 38 | VBAT_MICRO | Battery for internal real-time clock. |
 | 56 | BTCX_STATUS | Coexistence signal: Bluetooth status and TX/RX direction. |
 | 57 | BTCX_RF_ACTIVE | Coexistence signal: Bluetooth is active. |
 | 58 | BTCX_TXCONF | Output giving Bluetooth permission to TX. |
@@ -650,7 +691,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | D1 GPIO, I2C, CAN | D1 GPIO, PWM, I2C, A4 Analog In |
+| Description | D1 GPIO, I2C, CAN | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -666,7 +707,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C, A3 Analog In |
+| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -766,7 +807,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1, CAN | D2 GPIO, Serial2, SPI1 |
+| Description | D2 GPIO, SPI1, CAN | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -840,7 +881,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 | D3 GPIO, Serial2, SPI1 |
+| Description | D3 GPIO, SPI1 | D3 GPIO, Serial2 CTS, SPI1 MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -855,7 +896,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 | D4 GPIO, Serial2, SPI1 |
+| Description | D4 GPIO, SPI1 | D4 GPIO, Serial2 TX, SPI1 SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | TX. Use Serial2 object. |
@@ -869,7 +910,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
-| Description | D5 GPIO, SPI1 | D5 GPIO, Serial2, SPI1 |
+| Description | D5 GPIO, SPI1 | D5 GPIO, Serial2 RX, SPI1 SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | RX. Use Serial2 object. |
@@ -883,7 +924,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
-| Description | D7 GPIO | D7 GPIO |
+| Description | D7 GPIO | D7 GPIO, SWDIO |
 | Supports digitalRead | Yes. | Yes. |
 | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes. On the Photon this is the blue D7 LED. |
 | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
@@ -894,7 +935,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D6 | D6 |
-| Description | D6 GPIO | D6 GPIO |
+| Description | D6 GPIO | D6 GPIO, SWCLK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
@@ -1029,7 +1070,7 @@ The following pins were NC on the P1 but are used on the P2.
 
 ### Wi-Fi Configuration
 
-The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
+The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the SoftAP approach taken with the P1. Using BLE allow mobile apps to more easily set up the device Wi-Fi without having to modify the mobile device's network configuration.
 
 | Feature | P2 | P1 | Argon |
 | :--- | :---: | :---: | :---: |
@@ -1038,7 +1079,7 @@ The P2 and Argon utilize BLE for configuration of Wi-Fi rather than the SoftAP a
 
 ### Platform ID
 
-The Platform ID of the P2 will different from that of the P1 (8) because of the vastly different hardware. 
+The Platform ID of the P2 (32, `PLATFORM_P2`) is different from that of the P1 (8) because of the vastly different hardware. 
 
 If you have a product based on the P1, you will need to create a separate product for devices using the P2. While you may be able to use the same source code to build your application, the firmware binaries uploaded to the console will be different, so they need to be separate products. This generally does not affect billing as only the number of devices, not the number of products, is counted toward your plan limits.
 
@@ -1060,3 +1101,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-03-23 | RK | Add notes about flash file system and EEPROM |
+|     | 2022-04-12 | RK | Added serial baud rates |

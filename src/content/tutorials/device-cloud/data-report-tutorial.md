@@ -43,7 +43,7 @@ The tool below makes it easy to request a data usage report:
 
 - You are limited to three outstanding report requests at a time.
 - Generating the report can take several minutes.
-- You will receive an email when the report is complete, along with a download link.
+- The logged in user will receive an email when the report is complete, along with a download link.
 
 ## Using curl
 
@@ -115,7 +115,7 @@ Note: The **Execute Command** button may not work from a browser. An upcoming ch
 
 ### Get an access token
 
-The examples above embed your single sign-on access token. If you want to create an access token 
+The examples below embed your single sign-on access token. If you want to create an access token, you can use the techniques below.
 
 #### CLI particle token create
 

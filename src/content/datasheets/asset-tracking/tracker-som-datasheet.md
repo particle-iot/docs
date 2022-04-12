@@ -152,7 +152,7 @@ There are a number of U.FL antenna connectors on the Tracker SoM:
 
 <sup>2</sup>There is a BLE chip antenna on the module, the external BLE antenna is optional.
 
-<sup>3</sup>DIV is the connector for the LTE cellular receive diversity antenna (T523 only). A second cellular antenna can be connected to this connector to improve performance when the device will be moving at high speeds. It is only used for LTE Cat 1 connections and is not supported when in 2G or 3G mode. This antenna is not necessary in most cases and is not included in evaluation kits. The T402 does not have this connector as receive diversity is not supported in LTE Cat M1 mode.
+<sup>3</sup>DIV is the connector for the LTE cellular receive diversity antenna (T523 only). A second cellular antenna can be connected to this connector to improve performance when the device will be moving at high speeds. It is only used for LTE Cat 1 connections and is not supported when in 2G or 3G mode. This antenna is not necessary in most cases and is not included in evaluation kits. The T404/T402 do not have this connector as receive diversity is not supported in LTE Cat M1 mode.
 
 There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'll need to add an antenna or antenna connector on your base board.
 
@@ -539,7 +539,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
-### Power consumption (T402)
+### Power consumption (T404/T402)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -581,7 +581,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-### Power consumption (T523)
+### Power consumption (T524/T523)
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -1158,7 +1158,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | T524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | T524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | T524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Switzerland | T524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
 | United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | T404 | M1 | AT&T |
 

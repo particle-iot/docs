@@ -390,7 +390,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Slovenia | ONE524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | ONE524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | ONE524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | ONE524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Switzerland | ONE524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
 | United Kingdom | ONE524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ONE404 | M1 | AT&T |
 

@@ -638,7 +638,7 @@ The complete schematic and board files are open source and available on Particle
 | Sri Lanka | BRN314 | 2G, 3G | Dialog, Mobitel |
 | Suriname | BRN314 | 2G, 3G | Telesur |
 | Sweden | BRN314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | BRN314 | 2G, 3G | Salt, Sunrise, Swisscom |
+| Switzerland | BRN314 | 3G | Salt, Sunrise, Swisscom |
 | Taiwan | BRN314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tajikistan | BRN314 | 2G, 3G | Beeline, Tcell |
 | Tanzania | BRN314 | 2G, 3G | Airtel |

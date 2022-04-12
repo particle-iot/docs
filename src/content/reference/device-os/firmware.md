@@ -1701,6 +1701,8 @@ If there are no credentials then the call does nothing other than turn on the Wi
 
 On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
+On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before connecting. The list of available networks is compared with the configured SSIDs. The access point with the strongest signal is connected to. Prior to 1.5.0, only the original access point BSSID that was configured would ever be connected to, even if there was a different access point on the same SSID and network with a stronger signal.
+
 ### disconnect()
 
 {{api name1="WiFi.disconnect"}}
@@ -3966,15 +3968,15 @@ On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supp
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
 
-You can download the latest <a href="https://www.u-blox.com/en/product-resources/2432?f[0]=field_file_category%3A210" target="_blank">u-blox AT Commands Manual</a>.
+References:
 
-Another good resource is the <a href="https://www.u-blox.com/sites/default/files/AT-CommandsExamples_AppNote_%28UBX-13001820%29.pdf" target="_blank">u-blox AT Command Examples Application Note</a>.
+- [u-blox AT command reference](/assets/datasheets/u-blox-CEL_ATCommands_UBX-13002752.pdf) (BRN314, BRN310, E310, E270, E260, G350)
+- [u-blox R410 AT command reference](/assets/datasheets/SARA-R4_ATCommands_UBX-17003787.pdf) (B404, B402, BRN404, BRN402, E404, E402, ELC404, ELC402, LTE Cat M1)
+- [u-blox R510 AT command reference](/assets/datasheets/SARA-R5_ATCommands_UBX-19047455.pdf) (BRN404X, B404X LTE Cat M1)
+- [u-blox AT command examples application note](/assets/datasheets/AT-CommandsExamples_AppNote_UBX-13001820.pdf)
+- [Quectel EG91 AT command reference](/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf) (T524, T523)
+- [Quectel BG96 AT command reference](/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf) (T404, T402)
 
-LTE Cat M1 devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
-
-The B Series B523 SoM and Tracker T523 SoM (EMEA) have a Quectel EG91-E, the AT commands can be found in the <a href="/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf" target="_blank">Quectel EG9x AT Commands Manual (version 1.1).</a>.
-
-The Tracker T402 SoM (North America) has a Quectel BG96-MC, the AT commands cann be found in the <a href="/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf" target="_blank">Quectel BG96 AT Commands Manual (version 2.1).</a>.
 
 The prototype definition is as follows:
 
@@ -4323,7 +4325,13 @@ When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for th
 By default, on the **B Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
 
 ```
-System.setPowerConfiguration(SystemPowerConfiguration());
+void disable()
+{
+    SystemPowerConfiguration conf;
+    conf.feature(SystemPowerFeature::DISABLE);
+    System.setPowerConfiguration(conf);
+}
+STARTUP(disable());
 ```
 
 | B Series SoM | Power Manager Usage  |
@@ -5468,7 +5476,9 @@ To reset all settings to the default values:
 
 void setup() {
     // To restore the default configuration
-    System.setPowerConfiguration(SystemPowerConfiguration());
+    SystemPowerConfiguration conf;
+    conf.feature(SystemPowerFeature::DISABLE);
+    System.setPowerConfiguration(conf);
 }
 ```
 
@@ -7716,7 +7726,7 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 {{since when="0.5.0"}}
 
-Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
+Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected). This function is called as an interrupt service routine (ISR) so you must be careful about what calls you make from it.
 
 On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
 
@@ -7776,6 +7786,22 @@ void loop() {
 ```
 
 On Gen 2 devices, this example can use `SPI` instead of `SPI1`. Makes sure you change all of the calls!
+
+---
+
+{{note op="start" type="gen3"}}
+You can call the DMA-based SPI.transfer from an onSelect handler. You should use a callback, because if you don't, it will busy wait.
+
+You must, however:
+
+- Always pass real buffers in RAM for txBuf and rxBuf.
+- Never pass NULL for a buffer pointer.
+- Never pass a buffer located in flash memory, such as constant arrays of bytes embedded in code.
+
+The problem is that in the prohibited cases, a temporary buffer is located in RAM, and heap allocation is now allowed from an ISR.
+{{note op="end"}}
+
+---
 
 ### available()
 
@@ -15672,6 +15698,11 @@ Note that when startup code performs digital I/O, there will still be a period o
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
 in mind, using pullup/pulldown resistors as appropriate. For Gen 2 devices, see note below about JTAG/SWD as well.
 
+Other acceptable calls to make from STARTUP include:
+
+- [`System.setPowerConfiguration()`](/cards/firmware/power-manager/systempowerfeature/)
+- `System.enableFeature()`
+
 ---
 
 {{note op="start" type="gen2"}}
@@ -18913,6 +18944,10 @@ message sent to the Device Cloud. This will result in a small amount of
 additional cellular data usage each time they are called, but do not 
 count as a data operation for billing purposes.
 
+Calling `System.disableUpdates()` should only be done after connecting to the Particle cloud (`Particle.connected()` return true). You 
+must never call it from `STARTUP()`. Because updates are not checked until around 8 seconds after cloud connected, you have a 
+sufficient window to disable updates before an update can start.
+
 ### System.disableUpdates()
 ```cpp
 // System.disableUpdates() example where updates are disabled
@@ -18960,12 +18995,11 @@ In addition, a cloud-side system event will be emitted when updates are disabled
 `particle/device/updates/enabled` with a data value of `false`. This event is sent
 only if updates were not already disabled.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
-| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support |
 
-**Enterprise Feature**
 
 When updates are disabled, an attempt to send a firmware update to a
 device that has called `System.disableUpdates()` will result in the
@@ -19029,10 +19063,10 @@ API](/reference/device-cloud/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
 Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
-| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support |
 
 ### System.updatesEnabled()
 
@@ -19055,10 +19089,10 @@ Determine if firmware updates are presently enabled or disabled for this device.
 
 Returns `true` on startup, and after `System.enableUpdates()` has been called. Returns `false` after `System.disableUpdates()` has been called.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS &lt; 1.2.0 | Supported | Supported | Supported |
-| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | Supported | Supported |
+| Device OS &gt;= 1.2.0 | Supported | Supported |
 
 ### System.updatesPending()
 
@@ -19085,7 +19119,7 @@ bool isSafeToUpdate() {
 }
 
 void loop() {
-  // NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
+  // NB: System.updatesPending() should only be used in a Product
   if (isSafeToUpdate() && System.updatesPending()) {
         System.enableUpdates();
 
@@ -19107,8 +19141,6 @@ void loop() {
 
 ```
 
-**Enterprise Feature, Since 1.2.0**
-
 `System.updatesPending()` indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`.
 
 When new product firmware is released with the `intelligent` option
@@ -19127,10 +19159,10 @@ In addition, a cloud-side system event will be emitted when a pending
 OTA update is queued,
 `particle/device/updates/pending` with a data value of `true`.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
-| ------- | ---------------------- | ---------------- |------------------- |
-| Device OS < 1.2.0 | N/A | N/A | N/A |
-| Device OS >= 1.2.0 | N/A | N/A | Supported |
+| Version | Developer Devices | Product |
+| ------- | ---------------------- | ---------------- |
+| Device OS < 1.2.0 | N/A | N/A |
+| Device OS >= 1.2.0 | N/A | Supported |
 
 ### System.updatesForced()
 
@@ -19170,10 +19202,10 @@ When updates are forced in the cloud, this function returns `true`.
 Forced updates may be used with Product firmware releases or single
 device OTA updates.
 
-| Version | Self service customers | Standard Product | Enterprise Product |
---------- | ---------------------- | ---------------- | ------------------ |
-| Device OS &lt; 1.2.0 | N/A | N/A | N/A |
-| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+| Version | Developer Devices | Product |
+--------- | ---------------------- | ---------------- |
+| Device OS &lt; 1.2.0 | N/A | N/A |
+| Device OS &gt;= 1.2.0 | Supported | Supported |
 
 
 
@@ -23556,6 +23588,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.3.x releases|[v3.3.0](https://github.com/particle-iot/device-os/releases/tag/v3.3.0)|-|-|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.3.0-rc.1)|-|-|-|-|-|-|
 |v3.2.x releases|[v3.2.0](https://github.com/particle-iot/device-os/releases/tag/v3.2.0)|-|-|-|-|-|-|
 |v3.2.x prereleases|[v3.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.2.0-rc.1)|-|-|-|-|-|-|
@@ -23599,6 +23632,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.3.x releases|[v3.3.0](/reference/device-os/firmware/?fw_ver=3.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](/reference/device-os/firmware/?fw_ver=3.3.0-rc.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.2.x releases|[v3.2.0](/reference/device-os/firmware/?fw_ver=3.2.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.2.x prereleases|[v3.2.0-rc.1](/reference/device-os/firmware/?fw_ver=3.2.0-rc.1&cli_ver=2.16.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
@@ -23639,7 +23673,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v3.1.0  = 2.3.0, 3.3.0-rc.1
+v3.1.0  = 2.3.0, 3.3.0-rc.1, 3.3.0
 v2.16.0 = 3.2.0-rc.1, 3.2.0
 v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
@@ -23757,6 +23791,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@3.1.0endif
 ##### @FW_VER@3.2.0if
 ##### @FW_VER@3.2.0endif
+##### @FW_VER@3.3.0if
+##### @FW_VER@3.3.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if

@@ -7,7 +7,7 @@ description: Datasheet for the Particle Photon 2, Wi-Fi development module
 
 # Photon 2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2022-03-14**
+**Preliminary pre-release version 2022-04-08**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
@@ -289,6 +289,7 @@ The Photon 2 supports three UART serial interfaces.
 - Serial1 uses the RTL872x UART_LOG peripheral
 - Serial2 uses the RTL872x LP_UART peripheral
 - Serial3 uses the RTL872x HS_UART0 peripheral
+- Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
 
 ### SPI
 
@@ -336,6 +337,41 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 - Maximum bus speed is 400 kHz
 - External pull-up resistors are required for I2C
 - If not using I2C, pins D0 and D1 can be used as GPIO
+
+
+### Pins Photon 2 vs. P2
+
+This table is mapped by the MCU pin number to compare the usage on the Photon 2 vs. P2.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 7c78e07c-4e5a-43a6-8c61-d9a322871bd8 --}}
+
+| Photon 2 Pin Name | Photon 2 Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| A1 / D18 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A2 / D17 | A2 Analog in, GPIO, PWM. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
+| A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
+| D15 | D15 GPIO, Was A4 on Argon. | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| D16 | D16 GPIO, Serial3 RX. Was A3 on Argon. | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 SCK. | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| D3 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| D4 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
+| D5 / WKP | GPIO D5, Serial2 CTS, SPI1 SS. | D10 / WKP | GPIO. (Was WKP/A7 on P1.) | 30 | PA[15] |
+| D6 | D6 GPIO, SWCLK. | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
+| D7 | D7 GPIO. Blue LED. | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
+| D8 | GPIO, PWM, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
+| MODE | MODE button, has internal pull-up | SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. | 46 | PA[4] |
+| MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | 34 | CHIP_EN |
+| RX / D10 | Serial1 RX (received data), GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
+| TX / D9 | Serial1 TX (transmitted data), GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
 
 
 ### Complete pin listing
@@ -567,7 +603,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release initial version |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
-
+|     | 2022-04-08 | RK | Added table comparing Photon 2 and P2 pins |
+|     | 2022-04-12 | RK | Added serial baud rates |
 
 ## Known Errata
 

@@ -8,7 +8,9 @@
         "raspberry-pi.md",
         "start.md",
         "towerinfo.md",
-        "troubleshooting2.md"
+        "troubleshooting2.md",
+        "tools/product-tools/data-operations.md",
+        "tutorials/device-cloud/data-report-tutorial.md"
     ],
     "priority":{
         "cards/firmware":0.7,

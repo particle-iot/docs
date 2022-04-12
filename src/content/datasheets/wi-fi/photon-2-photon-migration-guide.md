@@ -5,7 +5,7 @@ columns: two
 description: Migration guide for transitioning from the Photon to Photon 2
 ---
 
-# Photon 2 from Argon Migration Guide
+# {{title}}
 
 **Preliminary pre-release version 2022-03-14**
 
@@ -193,6 +193,46 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | CTS/RTS flow control |  | &check;<sup>1</sup> |
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
+Supported Baud Rates:
+
+| Baud Rate | P1 | P2 |
+| ---: | :---: | :---|
+| 110     | | &check; |
+| 300     | | &check; |
+| 600     | | &check; |
+| 1200    | &check; | &check; |
+| 2400    | &check; | |
+| 4800    | &check; | |
+| 9600    | &check; | &check; |
+| 14400   | | &check; |
+| 19200   | &check; | &check; |
+| 28800   | | &check; |
+| 38400   | &check; | &check; |
+| 57600   | &check; | &check; |
+| 76800   | | &check; |
+| 115200  | &check; | &check; |
+| 128000  | | &check; |
+| 153600  | | &check; |
+| 230400  | &check; | &check; |
+| 500000  | | &check; |
+| 921600  | | &check; |
+| 1000000 | | &check; |
+| 1382400 | | &check; |
+| 1444400 | | &check; |
+| 1500000 | | &check; |
+| 1843200 | | &check; |
+| 2000000 | | &check; |
+| 2100000 | | &check; |
+| 2764800 | | &check; |
+| 3000000 | | &check; |
+| 3250000 | | &check; |
+| 3692300 | | &check; |
+| 3750000 | | &check; |
+| 4000000 | | &check; |
+| 6000000 | | &check; |
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Analog input (ADC)
 
@@ -469,7 +509,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | A4 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | A4 Analog in, GPIO, SPI. | D1 GPIO, PWM, I2C SCL, A4 Analog In |
+| Description | A4 Analog in, GPIO, SPI MISO. | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -484,7 +524,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5 |
 | Pin Alternate Name | n/a | D14 |
-| Description | A5 Analog in, GPIO, SPI. | A5 Analog in, PWM, SPI SS, GPIO |
+| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, PWM, SPI SS, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -498,7 +538,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | D0 GPIO, I2C SDA | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -512,7 +552,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1 |
 | Pin Alternate Name | n/a | A4 |
-| Description | D0 GPIO, I2C, CAN | D1 GPIO, PWM, I2C SCL, A4 Analog In |
+| Description | D0 GPIO, I2C SCL, CAN TX | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
@@ -543,7 +583,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1, CAN | D2 GPIO, Serial2 RTS, SPI1 SCK. |
+| Description | D2 GPIO, SPI1 MOSI, CAN RX | D2 GPIO, Serial2 RTS, SPI1 SCK. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
@@ -558,7 +598,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. |
+| Description | D3 GPIO, SPI1 MISO | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
@@ -572,7 +612,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. |
+| Description | D4 GPIO, SPI1 SCK | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | No | Yes |
@@ -588,7 +628,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
 | Pin Alternate Name | n/a | WKP |
-| Description | D5 GPIO, SPI1 | GPIO D5, Serial2 CTS, SPI1 SS. |
+| Description | D5 GPIO, SPI1 SS | GPIO D5, Serial2 CTS, SPI1 SS. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
@@ -601,7 +641,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D6 | D6 |
-| Description | D6 GPIO | D6 GPIO, SWCLK. |
+| Description | D6 GPIO, SWCLK | D6 GPIO, SWCLK. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
@@ -612,7 +652,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
-| Description | D7 GPIO, Blue LED | D7 GPIO. Blue LED. |
+| Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO. Blue LED. |
 | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes |
 | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
 | Supports attachInterrupt | Yes | Yes |
@@ -818,3 +858,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
+|     | 2022-04-12 | RK | Added serial baud rates |

@@ -694,7 +694,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Sri Lanka | E314 | 2G, 3G | Dialog, Mobitel |
 | Suriname | E314 | 2G, 3G | Telesur |
 | Sweden | E314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | E314 | 2G, 3G | Salt, Sunrise, Swisscom |
+| Switzerland | E314 | 3G | Salt, Sunrise, Swisscom |
 | Taiwan | E314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tajikistan | E314 | 2G, 3G | Beeline, Tcell |
 | Tanzania | E314 | 2G, 3G | Airtel |
