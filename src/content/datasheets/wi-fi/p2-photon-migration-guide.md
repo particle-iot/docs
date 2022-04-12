@@ -291,6 +291,46 @@ On the Photon, the Serial2 port is shared with the RGB LED, and the Photon must 
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
+Supported Baud Rates:
+
+| Baud Rate | P1 | P2 |
+| ---: | :---: | :---|
+| 110     | | &check; |
+| 300     | | &check; |
+| 600     | | &check; |
+| 1200    | &check; | &check; |
+| 2400    | &check; | |
+| 4800    | &check; | |
+| 9600    | &check; | &check; |
+| 14400   | | &check; |
+| 19200   | &check; | &check; |
+| 28800   | | &check; |
+| 38400   | &check; | &check; |
+| 57600   | &check; | &check; |
+| 76800   | | &check; |
+| 115200  | &check; | &check; |
+| 128000  | | &check; |
+| 153600  | | &check; |
+| 230400  | &check; | &check; |
+| 500000  | | &check; |
+| 921600  | | &check; |
+| 1000000 | | &check; |
+| 1382400 | | &check; |
+| 1444400 | | &check; |
+| 1500000 | | &check; |
+| 1843200 | | &check; |
+| 2000000 | | &check; |
+| 2100000 | | &check; |
+| 2764800 | | &check; |
+| 3000000 | | &check; |
+| 3250000 | | &check; |
+| 3692300 | | &check; |
+| 3750000 | | &check; |
+| 4000000 | | &check; |
+| 6000000 | | &check; |
+{{!-- END do not edit content above, it is automatically generated --}}
+
 ### Analog input (ADC)
 
 For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the P2:
@@ -1017,3 +1057,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |:---:|:---:|:---:|:----|
 | pre | 2022-04-06 | RK | Pre-release |
 |     | 2022-04-08 | RK | Added recommended pin mappings |
+|     | 2022-04-12 | RK | Added serial baud rates |

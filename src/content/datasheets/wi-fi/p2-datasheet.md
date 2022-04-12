@@ -242,6 +242,9 @@ The P2 supports two UART serial interfaces.
 - Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
 - Serial1 uses the RTL872x UART_LOG peripheral
 - Serial2 uses the RTL872x HS_UART0 peripheral
+- Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
+
+
 
 ### SPI
 
@@ -657,6 +660,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-02-25 | RK | Changed D pin aliases for D9 - D22, A5 is not SPI MOSI, Serial2 TX and RX were reversed |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-03-23 | RK | Added FCC and IC IDs, operating temperature range |
+|     | 2022-04-12 | RK | Added serial baud rates |
 
 ### D Pin Change (2022-02-25)
 

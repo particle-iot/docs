@@ -169,6 +169,49 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 
 <sup>2</sup>On the Argon, the buffer be resized larger in Device OS 3.2.0 and later.
 
+{{!-- BEGIN do not edit content below, it is automatically generated c6b3f6a9-8b4c-4e97-aa7d-ded5eff1f56d --}}
+Supported Baud Rates:
+
+| Baud Rate | Argon | P2 |
+| ---: | :---: | :---|
+| 110     | | &check; |
+| 300     | | &check; |
+| 600     | | &check; |
+| 1200    | &check; | &check; |
+| 2400    | &check; | |
+| 4800    | &check; | |
+| 9600    | | &check; |
+| 14400   | | &check; |
+| 19200   | &check; | &check; |
+| 28800   | &check; | &check; |
+| 38400   | &check; | &check; |
+| 57600   | &check; | &check; |
+| 76800   | &check; | &check; |
+| 115200  | &check; | &check; |
+| 128000  | | &check; |
+| 153600  | | &check; |
+| 230400  | &check; | &check; |
+| 250000  | &check; | |
+| 460800  | &check; | |
+| 500000  | | &check; |
+| 921600  | &check; | &check; |
+| 1000000 | &check; | &check; |
+| 1382400 | | &check; |
+| 1444400 | | &check; |
+| 1500000 | | &check; |
+| 1843200 | | &check; |
+| 2000000 | | &check; |
+| 2100000 | | &check; |
+| 2764800 | | &check; |
+| 3000000 | | &check; |
+| 3250000 | | &check; |
+| 3692300 | | &check; |
+| 3750000 | | &check; |
+| 4000000 | | &check; |
+| 6000000 | | &check; |
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 ### Analog input (ADC)
 
 For analog to digital conversion (ADC) using `analogRead()`.
@@ -585,3 +628,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
+|     | 2022-04-12 | RK | Added serial baud rates |

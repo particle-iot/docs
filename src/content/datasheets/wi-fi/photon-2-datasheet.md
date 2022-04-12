@@ -289,6 +289,7 @@ The Photon 2 supports three UART serial interfaces.
 - Serial1 uses the RTL872x UART_LOG peripheral
 - Serial2 uses the RTL872x LP_UART peripheral
 - Serial3 uses the RTL872x HS_UART0 peripheral
+- Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
 
 ### SPI
 
@@ -603,6 +604,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | pre | 2022-03-02 | RK | Pre-release initial version |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-04-08 | RK | Added table comparing Photon 2 and P2 pins |
+|     | 2022-04-12 | RK | Added serial baud rates |
 
 ## Known Errata
 
