@@ -10,7 +10,7 @@ Due to the [global silicon chip shortage](https://blog.particle.io/how-we-are-su
 
 The STM32F2xx microcontroller (MCU) has become unavailable for purchase in the necessary quantities, thus certain SKUs will be deprecated.
 
-These devices will remain available for now, but will reach end-of-life when the MCU is no longer available.
+These devices will remain available for now, but will be deprecated when the MCU is no longer available.
 
 | Family | SKU |
 | :--- | | :--- |
@@ -19,7 +19,7 @@ These devices will remain available for now, but will reach end-of-life when the
 | E Series | E314 |
 | E Series | E404X |
 
-## Gen 2 end-of-life products
+## Gen 2 deprecated products
 
 These SKUs are no longer available, however there is a pin-compatible replacement that is still available:
 
