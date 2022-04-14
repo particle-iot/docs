@@ -92,18 +92,18 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 
 | Photon Pin Name | Photon SPI | Photon 2 Pin Name | Photon 2 SPI |
 | :--- | :--- | :--- | :--- |
-| A2 | SPI (SS) | A2 / D17 | &nbsp; |
+| A2 | SPI (SS) | A2 / D13 | &nbsp; |
 | A3 | SPI (SCK) | D0 / A3 | &nbsp; |
 | A4 | SPI (MISO) | D1 / A4 | &nbsp; |
-| A5 | SPI (MOSI) | A5 / D14 | SPI (SS) |
-| D2 | SPI1 (MOSI) | D2 | SPI1 (SCK) |
-| D3 | SPI1 (MISO) | D3 | SPI1 (MOSI) |
-| D4 | SPI1 (SCK) | D4 | SPI1 (MISO) |
-| D5 | SPI1 (SS) | D5 / WKP | SPI1 (SS) |
-| &nbsp; | &nbsp; | MISO / D11 | SPI (MISO) |
-| &nbsp; | &nbsp; | MOSI / D12 | SPI (MOSI) |
-| &nbsp; | &nbsp; | SCK / D13 | SPI (SCK) |
-| WKP / A7 | &nbsp; | D5 / WKP | SPI1 (SS) |
+| A5 | SPI (MOSI) | A5 / D14 | &nbsp; |
+| D2 | SPI1 (MOSI) | D2 | SPI1 (MOSI) |
+| D3 | SPI1 (MISO) | D3 | SPI1 (MISO) |
+| D4 | SPI1 (SCK) | D4 | SPI1 (SCK) |
+| D5 | SPI1 (SS) | D5 | SPI1 (SS) |
+| &nbsp; | &nbsp; | MISO / D16 | SPI (MISO) |
+| &nbsp; | &nbsp; | MOSI / D15 | SPI (MOSI) |
+| &nbsp; | &nbsp; | S3 / D18 | SPI (SS) |
+| &nbsp; | &nbsp; | SCK / D17 | SPI (SCK) |
 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
@@ -159,19 +159,14 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 | Photon Pin Name | Photon Serial | Photon 2 Pin Name | Photon 2 Serial |
 | :--- | :--- | :--- | :--- |
-| &nbsp; | &nbsp; | D16 | Serial3 (RX) |
 | D2 | &nbsp; | D2 | Serial2 (RTS) |
-| D3 | &nbsp; | D3 | Serial2 (TX) |
-| D4 | &nbsp; | D4 | Serial2 (RX) |
-| D5 | &nbsp; | D5 / WKP | Serial2 (CTS) |
-| &nbsp; | &nbsp; | MISO / D11 | Serial3 (CTS) |
-| &nbsp; | &nbsp; | MOSI / D12 | Serial3 (RTS) |
+| D3 | &nbsp; | D3 | Serial2 (CTS) |
+| D4 | &nbsp; | D4 | Serial2 (TX) |
+| D5 | &nbsp; | D5 | Serial2 (RX) |
 | RGBB | Serial2 (RX) | &nbsp; | &nbsp; |
 | RGBG | Serial2 (TX) | &nbsp; | &nbsp; |
 | RX | Serial1 (RX) | RX / D10 | Serial1 (RX)  |
-| &nbsp; | &nbsp; | SCK / D13 | Serial3 (TX) |
-| TX | Serial1 (TX) | TX / D9 | Serial1 (TX) |
-| WKP / A7 | &nbsp; | D5 / WKP | Serial2 (CTS) |
+| TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -242,16 +237,16 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 | Photon Pin Name | Photon ADC | Photon 2 Pin Name | Photon 2 ADC |
 | :--- | :--- | :--- | :--- |
-| A0 | &check; | A0 / D19 | &check; |
-| A1 | &check; | A1 / D18 | &check; |
-| A2 | &check; | A2 / D17 | &check; |
+| A0 | &check; | A0 / D11 | &check; |
+| A1 | &check; | A1 / D12 | &check; |
+| A2 | &check; | A2 / D13 | &check; |
 | A3 | &check; | D0 / A3 | &check; |
 | A4 | &check; | D1 / A4 | &check; |
 | A5 | &check; | A5 / D14 | &check; |
 | D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
 | DAC / A6 | &check; | &nbsp; | &nbsp; |
-| WKP / A7 | &check; | D5 / WKP | &nbsp; |
+| WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
@@ -269,18 +264,19 @@ The pins that support PWM are different on the Photon and Photon 2.
 
 | Photon Pin Name | Photon PWM | Photon 2 Pin Name | Photon 2 PWM |
 | :--- | :--- | :--- | :--- |
-| A2 | &nbsp; | A2 / D17 | &check; |
+| A2 | &nbsp; | A2 / D13 | &check; |
 | A3 | &nbsp; | D0 / A3 | &check; |
 | A4 | &check; | D1 / A4 | &check; |
 | A5 | &check; | A5 / D14 | &check; |
 | D0 | &check; | D0 / A3 | &check; |
 | D1 | &check; | D1 / A4 | &check; |
 | D2 | &check; | D2 | &nbsp; |
-| D3 | &check; | D3 | &check; |
-| D4 | &nbsp; | D4 | &check; |
+| D3 | &check; | D3 | &nbsp; |
+| &nbsp; | &nbsp; | MISO / D16 | &check; |
+| &nbsp; | &nbsp; | MOSI / D15 | &check; |
 | RX | &check; | RX / D10 | &nbsp; |
-| TX | &check; | TX / D9 | &nbsp; |
-| WKP / A7 | &check; | D5 / WKP | &nbsp; |
+| TX | &check; | TX / D8 | &nbsp; |
+| WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -354,7 +350,7 @@ There is no software support for I2S on the Photon 2 either, and while the RTL87
 | :--- | :--- | :--- | :--- |
 | D2 | I2S3_SD | D2 | &nbsp; |
 | D4 | I2S3_SCK | D4 | &nbsp; |
-| D5 | I2S3_WS | D5 / WKP | &nbsp; |
+| D5 | I2S3_WS | D5 | &nbsp; |
 | SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
@@ -399,43 +395,44 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Electron Pin Name | Electron Description | Photon 2 Pin Name | Photon 2 Description |
 | :--- | :--- | :--- | :--- |
 | 3V3 | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input. | 3V3 | Regulated 3.3V DC output, maximum load 500 mA |
-| A0 | A0 Analog in, GPIO | A0 / D19 | A0 Analog in, GPIO |
-| A1 | A1 Analog in, GPIO | A1 / D18 | A1 Analog in, GPIO |
-| A2 | A2 Analog in, GPIO, SPI SS | A2 / D17 | A2 Analog in, GPIO, PWM. |
-| A3 | A3 True analog out, analog in, GPIO. | D16 | D16 GPIO, Serial3 RX. Was A3 on Argon. |
-| A4 | A4 Analog in, GPIO, SPI MISO. | D15 | D15 GPIO, Was A4 on Argon. |
-| A5 | A5 Analog in, GPIO, SPI MOSI. | A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO |
+| A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO |
+| A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO |
+| A2 | A2 Analog in, GPIO, SPI SS | A2 / D13 | A2 Analog in, GPIO, PWM. |
+| A3 | A3 True analog out, analog in, GPIO. | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
+| A4 | A4 Analog in, GPIO, SPI MISO. | S4 / D19 | S4 GPIO, Was A4 on Gen 3. |
+| A5 | A5 Analog in, GPIO, SPI MOSI. | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
 | B0 | B0, GPIO, PWM | &nbsp; | Not Connected |
 | B1 | B1, GPIO, PWM | &nbsp; | Not Connected |
 | B2 | B2, analog in, GPIO, PWM | &nbsp; | Not Connected |
 | B3 | B3, analog in, GPIO, PWM | &nbsp; | Not Connected |
 | B4 | B4 Analog in, GPIO | &nbsp; | Not Connected |
-| B5 | B5 Analog in, GPIO | MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS |
+| B5 | B5 Analog in, GPIO | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO. |
 | C0 | Serial5 RX (received data), GPIO. | &nbsp; | Not Connected |
 | C1 | Serial5 TX (trasmitted data), SPI2 MOSI, GPIO. | &nbsp; | Not Connected |
 | C2 | Serial4 RX (received data), SPI2 MISO, GPIO. | &nbsp; | Not Connected |
 | C3 | Serial4 TX (transmitted data), SPI2 SCK, GPIO. | &nbsp; | Not Connected |
 | C4 | I2C, CAN TX, GPIO. | &nbsp; | Not Connected |
-| C5 | I2C, CAN RX, GPIO. | D8 | GPIO, PWM, SWDIO |
+| C5 | I2C, CAN RX, GPIO. | D10 / WKP | D10 GPIO. Was D8 on Gen 3. |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In |
-| D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 SCK. |
-| D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. |
-| D4 | D4 GPIO, SPI1 SCK | D4 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. |
-| D5 | D5 GPIO, SPI1 SS | D5 / WKP | GPIO D5, Serial2 CTS, SPI1 SS. |
+| D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI |
+| D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO |
+| D4 | D4 GPIO, SPI1 SCK | D4 | D4 GPIO, Serial2 TX, SPI1 SCK |
+| D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS |
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK. |
-| D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO. Blue LED. |
-| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX |
+| D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, Blue LED, SWDIO |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO |
 | &nbsp; | Not Connected | EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. |
 | GND | Ground. You only need to use one of the Photon ground pins. | GND | Ground. |
 | &nbsp; | Not Connected | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. |
 | &nbsp; | Not Connected | MODE | MODE button, has internal pull-up |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
 | RX | Serial1 RX (received data), GPIO, PWM. | RX / D10 | Serial1 RX (received data), GPIO |
-| TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D9 | Serial1 TX (transmitted data), GPIO |
+| &nbsp; | Not Connected | S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. |
+| TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO |
 | VBAT | Battery for internal real-time clock, jumpered to 3V3. | &nbsp; | Not Connected |
 | VIN | Power in 3.9V to 12 VDC. Or power out (when powered by USB) 4.8 VDC at 1A maximum. | VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. |
-| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS |
+| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -457,7 +454,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0 |
-| Pin Alternate Name | n/a | D19 |
+| Pin Alternate Name | n/a | D11 |
 | Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -468,7 +465,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1 |
-| Pin Alternate Name | n/a | D18 |
+| Pin Alternate Name | n/a | D12 |
 | Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -479,7 +476,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2 |
-| Pin Alternate Name | n/a | D17 |
+| Pin Alternate Name | n/a | D13 |
 | Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -524,13 +521,13 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5 |
 | Pin Alternate Name | n/a | D14 |
-| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, PWM, SPI SS, GPIO |
+| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
-| SPI interface | MOSI. Use SPI object. | SS. Use SPI object. Can use any GPIO for SS/CS. |
+| SPI interface | MOSI. Use SPI object. | n/a |
 | Supports attachInterrupt | No | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### D0
@@ -562,34 +559,17 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
 | CAN interface | CAN2_TX | n/a |
 | Input is 5V Tolerant | Yes | No |
-#### D15
-| | Added to Photon 2 |
-| :--- | :--- |
-| Pin Name | D15|
-| Description | D15 GPIO, Was A4 on Argon.|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports attachInterrupt | Yes|
-#### D16
-| | Added to Photon 2 |
-| :--- | :--- |
-| Pin Name | D16|
-| Description | D16 GPIO, Serial3 RX. Was A3 on Argon.|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| UART serial | RX. Use Serial3 object.|
-| Supports attachInterrupt | Yes|
 #### D2
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
-| Description | D2 GPIO, SPI1 MOSI, CAN RX | D2 GPIO, Serial2 RTS, SPI1 SCK. |
+| Description | D2 GPIO, SPI1 MOSI, CAN RX | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | No |
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | No |
 | UART serial | n/a | RTS. Use Serial2 object. Flow control optional. |
-| SPI interface | MOSI. Use SPI1 object. | SCK. Use SPI1 object. |
+| SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | CAN interface | CAN2_RX | n/a |
 | I2S interface | I2S3_SD | n/a |
@@ -598,13 +578,13 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
-| Description | D3 GPIO, SPI1 MISO | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. |
+| Description | D3 GPIO, SPI1 MISO | D3 GPIO, Serial2 CTS, SPI1 MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | Yes |
-| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | Yes |
-| UART serial | n/a | TX. Use Serial2 object. |
-| SPI interface | MISO. Use SPI1 object. | MOSI. Use SPI1 object. |
+| Supports analogWrite (PWM) | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | No |
+| Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | No |
+| UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
+| SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
@@ -612,13 +592,11 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
-| Description | D4 GPIO, SPI1 SCK | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. |
+| Description | D4 GPIO, SPI1 SCK | D4 GPIO, Serial2 TX, SPI1 SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
-| UART serial | n/a | RX. Use Serial2 object. |
-| SPI interface | SCK. Use SPI1 object. | MISO. Use SPI1 object. |
+| UART serial | n/a | TX. Use Serial2 object. |
+| SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
 | I2S interface | I2S3_SCK | n/a |
 | Input is 5V Tolerant | Yes | No |
@@ -627,12 +605,11 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
-| Pin Alternate Name | n/a | WKP |
-| Description | D5 GPIO, SPI1 SS | GPIO D5, Serial2 CTS, SPI1 SS. |
+| Description | D5 GPIO, SPI1 SS | D5 GPIO, Serial2 RX, SPI1 SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
-| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any GPIO for SPI SS/CS. |
+| UART serial | n/a | RX. Use Serial2 object. |
+| SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
 | Supports attachInterrupt | Yes | Yes |
 | I2S interface | I2S3_WS | n/a |
 | Input is 5V Tolerant | Yes | No |
@@ -652,7 +629,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
-| Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO. Blue LED. |
+| Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO, Blue LED, SWDIO |
 | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes |
 | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
 | Supports attachInterrupt | Yes | Yes |
@@ -688,11 +665,12 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | | Added to Photon 2 |
 | :--- | :--- |
 | Pin Name | MISO|
-| Pin Alternate Name | D11|
-| Description | SPI MISO, D11 GPIO, Serial3 CTS|
+| Pin Alternate Name | D16|
+| Description | D16 GPIO, S1 GPIO, PWM, SPI MISO.|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
-| UART serial | CTS. Use Serial3 object. Flow control optional.|
+| Supports analogWrite (PWM) | Yes|
+| Supports tone | Yes|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### MODE
@@ -704,11 +682,12 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | | Added to Photon 2 |
 | :--- | :--- |
 | Pin Name | MOSI|
-| Pin Alternate Name | D12|
-| Description | SPI MOSI, D12 GPIO, Serial3 RTS|
+| Pin Alternate Name | D15|
+| Description | D15 GPIO, S0 GPIO, PWM, SPI MOSI|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
-| UART serial | RTS. Use Serial3 object. Flow control optional.|
+| Supports analogWrite (PWM) | Yes|
+| Supports tone | Yes|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### RGBB
@@ -749,15 +728,33 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
+#### S3
+| | Added to Photon 2 |
+| :--- | :--- |
+| Pin Name | S3|
+| Pin Alternate Name | D18|
+| Description | S3 GPIO, SPI SS, Was A5 on Gen 3.|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| SPI interface | Default SS for SPI.|
+| Supports attachInterrupt | Yes|
+#### S4
+| | Added to Photon 2 |
+| :--- | :--- |
+| Pin Name | S4|
+| Pin Alternate Name | D19|
+| Description | S4 GPIO, Was A4 on Gen 3.|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| Supports attachInterrupt | Yes|
 #### SCK
 | | Added to Photon 2 |
 | :--- | :--- |
 | Pin Name | SCK|
-| Pin Alternate Name | D13|
-| Description | SPI SCK, D13 GPIO, Serial3 TX|
+| Pin Alternate Name | D17|
+| Description | SPI SCK, D13 GPIO, S3 GPIO|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
-| UART serial | TX. Use Serial3 object.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### SETUP
@@ -770,7 +767,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | TX | TX |
-| Pin Alternate Name | n/a | D9 |
+| Pin Alternate Name | n/a | D8 |
 | Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -810,16 +807,14 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 #### WKP
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
-| Pin Name | WKP | D5 |
+| Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | GPIO D5, Serial2 CTS, SPI1 SS. |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Was D8 on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
-| UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
-| SPI interface | n/a | SS. Use SPI1 object. Can use any GPIO for SPI SS/CS. |
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 
