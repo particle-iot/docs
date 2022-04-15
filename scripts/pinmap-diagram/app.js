@@ -222,6 +222,97 @@ async function generatePhoton() {
 }
 
 
+async function generateElectron() {
+    
+    let options = Object.assign(Object.assign({}, optionsCommon), {
+        platformName: 'Electron',
+        // height=110.16 width 76.8
+        deviceImage: path.join(topDir, 'src/assets/images/electron.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/electron-pinout.svg'),
+        // scale to make height 500px width 221
+        deviceImageTransform: 'translate(375,17) scale(3.477)',
+        width: 1000,
+        height: 600,
+        background: 'white',
+        pins: [
+            {   // Left side
+                num: 1,
+                x: 370,
+                y: 70,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: 24.6,
+                count: 18,
+                xBar: -305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi', 'dac'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+            {   // Right side
+                num: 19,
+                x: 580,
+                y: 488.2,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: -24.6,
+                count: 24,
+                xBar: 305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                    },
+                    {
+                        keys: ['jtag'],
+                    },
+                    {
+                        keys: ['spi', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+        ]
+    });
+
+    await pinmapDiagram.generate(options);
+}
+
 async function generatePhoton2() {
     
     let options = Object.assign(Object.assign({}, optionsCommon), {
@@ -395,6 +486,8 @@ async function generateArgonToPhoton2() {
 generateArgon();
 
 generatePhoton();
+
+generateElectron();
 
 generatePhoton2();
 
