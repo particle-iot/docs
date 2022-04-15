@@ -1,0 +1,16 @@
+{
+  "name": "pinmap-diagram",
+  "description": "Tool to generate pinmap diagram svg files",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "rick@particle.io",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
