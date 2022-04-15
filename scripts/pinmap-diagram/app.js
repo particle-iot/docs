@@ -25,14 +25,202 @@ let optionsCommon = {
         serial: '#9695CA',
         spi: '#CCCCCC',
         swd: '#7B8FAE',
+        jtag: '#7B8FAE',
+        compareName: '#00AEEF',
+        compareAltName: '#00AEEF',
     },
     featureTextWhite: ['isPower', 'name', 'altName'],
 
 };
 
 // argon.svg
-// height="194.98106" width="86.125328"
 // scale to make height 500px width 221
+
+
+async function generateArgon() {
+    
+    let options = Object.assign(Object.assign({}, optionsCommon), {
+        platformName: 'Argon',
+        // height="194.98106" width="86.125328"
+        deviceImage: path.join(topDir, 'src/assets/images/argon.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/argon-pinout.svg'),
+        // scale to make height 500px width 221
+        deviceImageTransform: 'translate(375,0) scale(2.564)',
+        width: 1000,
+        height: 510,
+        background: 'white',
+        pins: [
+            {   // Left side
+                num: 1,
+                x: 370,
+                y: 70,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: 24.6,
+                count: 15,
+                xBar: -305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+            {   // Right side
+                num: 16,
+                x: 598,
+                y: 439,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: -24.6,
+                count: 12,
+                xBar: 305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+        ]
+    });
+
+    await pinmapDiagram.generate(options);
+}
+
+
+
+async function generatePhoton() {
+    
+    let options = Object.assign(Object.assign({}, optionsCommon), {
+        platformName: 'Photon',
+        // height=110.16 width 76.8
+        deviceImage: path.join(topDir, 'src/assets/images/photon.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/photon-pinout.svg'),
+        // scale to make height 500px width 221
+        deviceImageTransform: 'translate(375,15) scale(2.55)',
+        width: 1000,
+        height: 510,
+        background: 'white',
+        pins: [
+            {   // Left side
+                num: 1,
+                x: 370,
+                y: 70,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: 24.6,
+                count: 12,
+                xBar: -305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi', 'dac'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+            {   // Right side
+                num: 13,
+                x: 575,
+                y: 340.6,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: -24.6,
+                count: 12,
+                xBar: 305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                    },
+                    {
+                        keys: ['jtag'],
+                    },
+                    {
+                        keys: ['spi', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+        ]
+    });
+
+    await pinmapDiagram.generate(options);
+}
+
 
 async function generatePhoton2() {
     
@@ -40,6 +228,7 @@ async function generatePhoton2() {
         platformName: 'Photon 2',
         // height="610" width="270"
         deviceImage: path.join(topDir, 'src/assets/images/photon2.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/photon-2-pinout.svg'),
         // scale to make height 500px width 221
         deviceImageTransform: 'translate(375,0) scale(0.8196)',
         width: 1000,
@@ -124,4 +313,89 @@ async function generatePhoton2() {
     await pinmapDiagram.generate(options);
 }
 
+
+async function generateArgonToPhoton2() {
+    
+    let options = Object.assign(Object.assign({}, optionsCommon), {
+        platformName: 'Photon 2',
+        deviceImage: path.join(topDir, 'src/assets/images/photon2.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/photon-2-argon-comparison.svg'),
+        deviceImageTransform: 'translate(375,0) scale(0.8196)',
+        width: 1000,
+        height: 510,
+        background: 'white',
+        comparePlatform: 'Argon',
+        compareKey: 'argonName',
+        pins: [
+            {   // Left side
+                num: 1,
+                x: 370,
+                y: 70,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: 24.6,
+                count: 15,
+                xBar: -305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['compareName'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['compareAltName'],
+                    },
+                ],
+            },
+            {   // Right side
+                num: 16,
+                x: 598,
+                y: 439,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: -24.6,
+                count: 12,
+                xBar: 305,
+                yBar: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['compareName'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['compareAltName'],
+                    },
+
+                ],
+            },
+        ]
+    });
+
+    await pinmapDiagram.generate(options);
+}
+
+generateArgon();
+
+generatePhoton();
+
 generatePhoton2();
+
+generateArgonToPhoton2();

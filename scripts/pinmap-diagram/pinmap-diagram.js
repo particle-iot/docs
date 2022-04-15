@@ -12,18 +12,20 @@ const svg = require('./svg');
 
         // Find platform object
         diagram.pinInfo = JSON.parse(fs.readFileSync(options.pinInfo, 'utf8'));
-        diagram.platformInfo = null;
-        for(const p of diagram.pinInfo.platforms) {
-            if (p.name == options.platformName) {
-                diagram.platformInfo = p;
-            }
-        }
+        diagram.platformInfo = diagram.pinInfo.platforms.find(e => e.name == options.platformName);
         if (!diagram.platformInfo) {
             console.log('unknown platformName ' + options.platformName);
             return;
         }
         // diagram.platformInfo contains array "pins" and object "diagram"
         // diagram.platformInfo.diagram objects contain array "columns"
+
+        if (options.comparePlatform) {
+            diagram.comparePlatformInfo = diagram.pinInfo.platforms.find(e => e.name == options.comparePlatform);            
+        }
+        else {
+            diagram.comparePlatformInfo = null;
+        }
 
         var draw = svg.svg({width:options.width, height:options.height});
 
@@ -49,7 +51,7 @@ const svg = require('./svg');
 
             for(let ii = 0; ii < p.count; ii++) {
                 // console.log('x=' + x + ' y=' + y);
-                const info = diagram.platformInfo.pins.find(e => e.num == num);
+                let info = diagram.platformInfo.pins.find(e => e.num == num);
                 if (info) {
                     draw.line({
                         x1: x, 
@@ -59,7 +61,16 @@ const svg = require('./svg');
                         stroke: 'black',
                         'stroke-width': 1,
                     });
-    
+                    if (options.comparePlatform) {
+                        let compareName = info[options.compareKey] || info.name;
+
+                        info.compareName = compareName;
+                        const comparisonInfo = diagram.comparePlatformInfo.pins.find(e => e.name == compareName);
+                        if (comparisonInfo) {
+                            info.compareAltName = comparisonInfo.altName;
+                        }
+                    }
+
                     let xBox = x;
                     let yBox = y;
                     let dirX = (p.xBar < 0) ? -1 : 1;
@@ -147,33 +158,7 @@ const svg = require('./svg');
             }    
         }
 
-/*
-                num: 1,
-                x: 298,
-                y: 68,
-                numDelta: 1,
-                xDelta: 0,
-                yDelta: 20,
-                count: 15
-                xBar: -200,
-                yBar: 0,
-
-        draw.line({
-            x1:20, y1: 68,
-            x2:298, y2: 68,
-            stroke: 'black',
-            'stroke-width': 1,
-        });
-
-        draw.line({
-            x1:20, y1: 88,
-            x2:298, y2: 88,
-            stroke: 'black',
-            'stroke-width': 1,
-        });
-*/
-
-        fs.writeFileSync(path.join(__dirname, 'test.svg'), draw.render());
+        fs.writeFileSync(options.outputPath, draw.render());
     };
 
     
