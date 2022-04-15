@@ -1750,9 +1750,9 @@
 					"analogWritePWM":true,
 					"tone":true,
 					"attachInterrupt":true,
-					"hardwarePin":"PB[4]",
-					"hardwareADC":"ADC_0",
-					"mcuPin":44,
+					"hardwarePin":"PB[7]",
+					"hardwareADC":"ADC_3",
+					"mcuPin":47,
 					"p2Pin": 49
 				},
 				{
@@ -1892,7 +1892,7 @@
 				{
 					"num":14,
 					"name":"RX",
-					"altName": "D10",
+					"altName": "D9",
 					"altNameBefore2022_04_14":"D10",
 					"classicAdapter":"RX",
 					"desc":"Serial1 RX (received data), GPIO",
@@ -2082,16 +2082,16 @@
 					"desc":"D7 GPIO, Blue LED, SWDIO",
 					"isIO":true,
 					"is5VTolerant":false,
-					"digitalRead":true,
-					"digitalWrite":true,
+					"digitalRead":"Yes.",
+					"digitalWrite":"Yes. On the Photon this is the blue D7 LED.",
 					"analogRead":false,
 					"analogWriteDAC":false,
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
 					"swd":"SWDIO|SWDIO. 40K pull-up at boot.",
-					"hardwarePin":"PA[0]",
-					"mcuPin":2,
+					"hardwarePin":"PA[27]",
+					"mcuPin":33,
 					"p2Pin": 54
 				},
 				{

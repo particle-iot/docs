@@ -84,7 +84,11 @@ The Photon 2 has a built-in trace antenna that is shared by Wi-Fi and BLE. It ca
 
 ### SPI
 
-Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
+Pins for `SPI` are unchanged between the Argon and Photon 2.
+
+The the pin functions for `SPI1` on the `D` pins are different between the Argon and Photon 2! While they both use D2 - D4, the order of SCK, MOSI, and MISO are different so you cannot plug a Photon 2 into an Argon base board that uses SPI1.
+
+Most boards, including Ethernet, use primary `SPI`, which works the same between the Argon and Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
@@ -151,7 +155,7 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
 | D8 | &nbsp; | TX / D8 | Serial1 (TX) |
-| RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
+| RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
 | &nbsp; | &nbsp; | SCK / D17 | Serial3 (RTS) |
 | TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
 
@@ -542,8 +546,8 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
 | Description | PWM, GPIO | D7 GPIO, Blue LED, SWDIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
+| Supports digitalRead | Yes | Yes. |
+| Supports digitalWrite | Yes | Yes. On the Photon this is the blue D7 LED. |
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
@@ -589,7 +593,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX |
-| Pin Alternate Name | D10 | D10 |
+| Pin Alternate Name | D10 | D9 |
 | Description | Serial RX, GPIO | Serial1 RX (received data), GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |

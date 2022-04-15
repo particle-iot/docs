@@ -27,27 +27,6 @@ const svg = require('./svg');
 
         var draw = svg.svg({width:options.width, height:options.height});
 
-        /*
-        draw.circle({
-            r: 40,
-            fill: 'none',
-            'stroke-width': 1,
-            stroke: '#CB3728',
-            cx: 42,
-            cy: 82
-        })  
-
-        draw.rect({
-            width: 300,
-            height: 400,
-            style: {
-                fill:'rgb(0,0,255)',
-                'stroke-width':3,
-                stroke:'rgb(0,0,0)'
-            }
-        });
-        */
-
         if (options.background) {
             draw.rect({
                 x: 0,
@@ -58,7 +37,6 @@ const svg = require('./svg');
             });    
         }
         
-
         draw.g({
             transform: options.deviceImageTransform,
         }).svg({}, options.deviceImage);

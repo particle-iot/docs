@@ -86,7 +86,9 @@ On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case fo
 
 ### SPI
 
-Both the Photon and Photon 2 have two SPI ports, however the pins are different for both `SPI` and `SPI1`.
+Both the Photon and Photon 2 have two SPI ports, however the pins are different for primary `SPI`, which is on the `S` pins on the Photon 2 instead of the `A` pins on the Photon.
+
+`SPI1` on the `D` pins is the same between the Photon and Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
@@ -167,7 +169,7 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | &nbsp; | &nbsp; | MOSI / D15 | Serial3 (TX) |
 | RGBB | Serial2 (RX) | &nbsp; | &nbsp; |
 | RGBG | Serial2 (TX) | &nbsp; | &nbsp; |
-| RX | Serial1 (RX) | RX / D10 | Serial1 (RX)  |
+| RX | Serial1 (RX) | RX / D9 | Serial1 (RX)  |
 | &nbsp; | &nbsp; | SCK / D17 | Serial3 (RTS) |
 | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
 | WKP / A7 | &nbsp; | D10 / WKP | Serial3 (CTS) |
@@ -278,7 +280,7 @@ The pins that support PWM are different on the Photon and Photon 2.
 | D3 | &check; | D3 | &nbsp; |
 | &nbsp; | &nbsp; | MISO / D16 | &check; |
 | &nbsp; | &nbsp; | MOSI / D15 | &check; |
-| RX | &check; | RX / D10 | &nbsp; |
+| RX | &check; | RX / D9 | &nbsp; |
 | TX | &check; | TX / D8 | &nbsp; |
 | WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
@@ -431,7 +433,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | &nbsp; | Not Connected | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. |
 | &nbsp; | Not Connected | MODE | MODE button, has internal pull-up |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
-| RX | Serial1 RX (received data), GPIO, PWM. | RX / D10 | Serial1 RX (received data), GPIO |
+| RX | Serial1 RX (received data), GPIO, PWM. | RX / D9 | Serial1 RX (received data), GPIO |
 | &nbsp; | Not Connected | S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. |
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO |
 | VBAT | Battery for internal real-time clock, jumpered to 3V3. | &nbsp; | Not Connected |
@@ -634,8 +636,8 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
 | Description | D7 GPIO, Blue LED, SWDIO | D7 GPIO, Blue LED, SWDIO |
-| Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes |
-| Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
+| Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes. |
+| Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes. On the Photon this is the blue D7 LED. |
 | Supports attachInterrupt | Yes | Yes |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
@@ -725,7 +727,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX |
-| Pin Alternate Name | n/a | D10 |
+| Pin Alternate Name | n/a | D9 |
 | Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
