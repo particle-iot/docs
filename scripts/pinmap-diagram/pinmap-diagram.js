@@ -73,24 +73,33 @@ const svg = require('./svg');
     
                     let xBox = x;
                     let yBox = y;
-                    let dirX = 1;
+                    let dirX = (p.xBar < 0) ? -1 : 1;
     
-                    if (p.xBar < 0) {
-                        dirX = -1;
-                        xBox -= (options.xBox + options.xPinToBox);
-                    }
-                    else {
-                        xBox += options.xPinToBox;
-                    }
     
                     for(let jj = 0; jj < p.columns.length; jj++) {
+                        let width = options.xBox;
+                        if (p.columns[jj].width) {
+                            width = p.columns[jj].width;
+                        }
+                        if (dirX < 0) {
+                            xBox -= width;
+                        }
                         let rectX = xBox;
                         let rectY = yBox - options.yBox / 2;
     
-                        for(let kk = 0; kk < p.columns[jj].length; kk++) {
-                            const key = p.columns[jj][kk];
+
+                        for(let kk = 0; kk < p.columns[jj].keys.length; kk++) {
+                            const key = p.columns[jj].keys[kk];
     
                             let text = info[key];
+                            if (key == 'analogWritePWM') {
+                                if (info['hardwareTimer']) {
+                                    text = info['hardwareTimer'];
+                                }
+                                else if (info[key]) {
+                                    text = 'PWM';
+                                }
+                            }
                             if (text === true) {
                                 text = info.name;
                             }
@@ -108,10 +117,11 @@ const svg = require('./svg');
                                 if (!bgColor) {
                                     bgColor = 'white';
                                 }
+                                
                                 draw.rect({
                                     x: rectX,
                                     y: rectY,
-                                    width: options.xBox,
+                                    width: width,
                                     height: options.yBox,
                                     stroke: 'black',
                                     fill: bgColor,
@@ -119,7 +129,7 @@ const svg = require('./svg');
             
     
                                 draw.text({
-                                    x: rectX + options.xBox / 2,
+                                    x: rectX + width / 2,
                                     y: rectY + options.yBox / 2,
                                     'text-anchor': 'middle',
                                     'dominant-baseline': 'middle',
@@ -130,11 +140,14 @@ const svg = require('./svg');
 
                                 break; 
                             }
+
                         }
-    
-    
-    
-                        xBox += dirX * (options.xBox + options.xBoxSpacing);
+                        if (dirX > 0) {
+                            xBox += width;
+                        }
+
+                        xBox += dirX * options.xBoxSpacing;
+
                     }
                 }                
 

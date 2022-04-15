@@ -8,7 +8,7 @@ let optionsCommon = {
     pinInfo: path.join(topDir, 'src', 'assets', 'files', 'pinInfo.json'),
     xBox: 50,
     yBox: 16,
-    xBoxSpacing: 10,
+    xBoxSpacing: 4,
     xPinToBox: 10,
     fontFamily: 'Arial, Helvetica, sans-serif',
     boxFontSize: '8px',
@@ -18,13 +18,14 @@ let optionsCommon = {
         gnd: '#040707',
         hardwareADC: '#98CD67',
         i2c: '#70C9F2',
-        uart: '#9695CA',
+        serial: '#9695CA',
         spi: '#CCCCCC',
-        pwn: '#FACBCD',
+        analogWritePWM: '#FACBCD',
         hardwarePin: '#ffffff',
+        name: '#6D6E71',
+        altName: '#6D6E71',
     },
-    featureTextWhite: ['isPower'],
-
+    featureTextWhite: ['isPower', 'name', 'altName'],
 
 };
 
@@ -50,11 +51,29 @@ async function generatePhoton2() {
                 xBar: -300,
                 yBar: 0,
                 columns: [
-                    ['isPower', 'isControl', 'hardwareADC'],
-                    ['uart'],
-                    ['spi'],
-                    ['pwm'],
-                    ['hardwarePin'],
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
                 ],
             },
             {   // Right side
@@ -68,11 +87,29 @@ async function generatePhoton2() {
                 xBar: 300,
                 yBar: 0,
                 columns: [
-                    ['isPower', 'isControl', 'i2c'],
-                    ['uart'],
-                    ['spi', 'hardwareADC'],
-                    ['pwm'],
-                    ['hardwarePin'],
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'i2c'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
                 ],
             },
         ]
