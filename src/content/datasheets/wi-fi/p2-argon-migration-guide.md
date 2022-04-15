@@ -290,12 +290,16 @@ If you are using Argon Serial1 with hardware flow control, you should switch to 
 
 | Argon Pin Name | Argon Serial | P2 Pin Name | P2 Serial |
 | :--- | :--- | :--- | :--- |
+| &nbsp; | &nbsp; | D10 / WKP | Serial3 (CTS) |
 | D2 | Serial1 RTS | D2 | Serial2 (RTS) |
 | D3 | Serial1 CTS | D3 | Serial2 (CTS) |
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
 | D8 | &nbsp; | TX / D8 | Serial1 (TX) |
 | RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
+| &nbsp; | &nbsp; | S0 / D15 | Serial3 (TX) |
+| &nbsp; | &nbsp; | S1 / D16 | Serial3 (RX) |
+| &nbsp; | &nbsp; | S2 / D17 | Serial3 (RTS) |
 | TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
 
 
@@ -486,13 +490,13 @@ The following pins did not exist on the Argon but are available on the P2.
 | :---: | :--- | :--- |
 | 5 | 3V3_IO | 3.3V power to MCU IO. |
 | 2 | 3V3_RF | 3.3V power to RF module |
-| 30 | D10 / WKP | GPIO. (Was WKP/A7 on P1.) |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
 | 31 | RGBB | RGB LED Blue |
 | 32 | RGBG | RGB LED Green |
 | 29 | RGBR | RGB LED Red |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) |
-| 42 | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
+| 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
 | 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) |
 | 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) |
@@ -529,10 +533,10 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 | D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
-| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
-| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
 
 
@@ -560,10 +564,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
-| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
-| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
 
 
@@ -709,9 +713,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 30|
 | Pin Name | D10|
 | Pin Alternate Name | WKP|
-| Description | GPIO. (Was WKP/A7 on P1.)|
+| Description | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | CTS. Use Serial3 object. Flow control optional.|
 | Supports attachInterrupt | Yes|
 #### D11
 |   | Argon | P2 |
@@ -918,11 +923,12 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 40|
 | Pin Name | S0|
 | Pin Alternate Name | D15|
-| Description | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.)|
+| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S1
@@ -931,11 +937,12 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 41|
 | Pin Name | S1|
 | Pin Alternate Name | D16|
-| Description | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.)|
+| Description | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S2
@@ -944,9 +951,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 42|
 | Pin Name | S2|
 | Pin Alternate Name | D17|
-| Description | S2 GPIO, SPI SCK. (Was P1S2 on P1.)|
+| Description | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | RTS. Use Serial3 object. Flow control optional.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S3

@@ -6,39 +6,45 @@ const topDir = path.normalize(path.join(__dirname, '..', '..'));
 
 let optionsCommon = {
     pinInfo: path.join(topDir, 'src', 'assets', 'files', 'pinInfo.json'),
-    xBox: 50,
+    xBox: 55,
     yBox: 16,
     xBoxSpacing: 4,
     xPinToBox: 10,
     fontFamily: 'Arial, Helvetica, sans-serif',
     boxFontSize: '8px',
     featureColors: {
+        altName: '#6D6E71',
+        analogWritePWM: '#FACBCD',
+        dac: '#F79868',
+        hardwareADC: '#98CD67',
+        hardwarePin: '#ffffff',
+        i2c: '#70C9F2',
         isPower: '#CE3234',
         isControl: '#F6F06B',
-        gnd: '#040707',
-        hardwareADC: '#98CD67',
-        i2c: '#70C9F2',
+        name: '#6D6E71',
         serial: '#9695CA',
         spi: '#CCCCCC',
-        analogWritePWM: '#FACBCD',
-        hardwarePin: '#ffffff',
-        name: '#6D6E71',
-        altName: '#6D6E71',
+        swd: '#7B8FAE',
     },
     featureTextWhite: ['isPower', 'name', 'altName'],
 
 };
 
+// argon.svg
+// height="194.98106" width="86.125328"
+// scale to make height 500px width 221
+
 async function generatePhoton2() {
     
     let options = Object.assign(Object.assign({}, optionsCommon), {
         platformName: 'Photon 2',
-        // height="194.98106" width="86.125328"
-        deviceImage: path.join(topDir, 'src/assets/images/argon.svg'),
+        // height="610" width="270"
+        deviceImage: path.join(topDir, 'src/assets/images/photon2.svg'),
         // scale to make height 500px width 221
-        deviceImageTransform: 'translate(375,0) scale(2.5643)',
+        deviceImageTransform: 'translate(375,0) scale(0.8196)',
         width: 1000,
-        height: 1000,
+        height: 510,
+        background: 'white',
         pins: [
             {   // Left side
                 num: 1,
@@ -48,7 +54,7 @@ async function generatePhoton2() {
                 xDelta: 0,
                 yDelta: 24.6,
                 count: 15,
-                xBar: -300,
+                xBar: -305,
                 yBar: 0,
                 columns: [
                     {
@@ -84,7 +90,7 @@ async function generatePhoton2() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 12,
-                xBar: 300,
+                xBar: 305,
                 yBar: 0,
                 columns: [
                     {
@@ -96,7 +102,7 @@ async function generatePhoton2() {
                         keys: ['altName'],
                     },
                     {
-                        keys: ['isPower', 'isControl', 'i2c'],
+                        keys: ['isPower', 'isControl', 'i2c', 'swd'],
                     },
                     {
                         keys: ['serial'],

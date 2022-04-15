@@ -48,7 +48,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | Digital GPIO | 22 | 24 | 20 |
 | Analog (ADC) | 6 | 13 | 6 |
 | Analog (DAC) |  | 2 |  |
-| UART | 1 | 2 | 1 |
+| UART | 3 | 2 | 1 |
 | SPI | 2 | 2 | 2 |
 | PWM | 6 | 12 | 8 |
 | I2C | 1 | 1 | 1 |
@@ -154,12 +154,18 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both the P1 and 
 
 The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
 
+There is also a third UART serial (`Serial3`).
+
 {{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
 
 | Pin | P1 Pin Name | P1 Serial | P2 Pin Name | P2 Serial |
 | :---: | :--- | :--- | :--- | :--- |
+| 30 | WKP / A7 | &nbsp; | D10 / WKP | Serial3 (CTS) |
 | 31 | RGBB | Serial2 (RX) | RGBB | &nbsp; |
 | 32 | RGBG | Serial2 (TX) | RGBG | &nbsp; |
+| 40 | P1S0 | &nbsp; | S0 / D15 | Serial3 (TX) |
+| 41 | P1S1 | &nbsp; | S1 / D16 | Serial3 (RX) |
+| 42 | P1S2 | &nbsp; | S2 / D17 | Serial3 (RTS) |
 | 45 | D2 | &nbsp; | D2 | Serial2 (RTS) |
 | 51 | D3 | &nbsp; | D3 | Serial2 (CTS) |
 | 52 | D4 | &nbsp; | D4 | Serial2 (TX) |
@@ -641,12 +647,13 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | GPIO. (Was WKP/A7 on P1.) |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
+| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (RGBB)
@@ -740,12 +747,13 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | P1S0 | S0 |
 | Pin Alternate Name | n/a | D15 |
-| Description | P1S0 Analog in, GPIO, PWM. | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) |
+| Description | P1S0 Analog in, GPIO, PWM. | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | Yes. | Yes |
+| UART serial | n/a | TX. Use Serial3 object. |
 | SPI interface | n/a | MOSI. Use SPI object. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
@@ -755,12 +763,13 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | P1S1 | S1 |
 | Pin Alternate Name | n/a | D16 |
-| Description | P1S1 Analog in, GPIO, PWM. | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) |
+| Description | P1S1 Analog in, GPIO, PWM. | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | Yes. | Yes |
+| UART serial | n/a | RX. Use Serial3 object. |
 | SPI interface | n/a | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
@@ -770,10 +779,11 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | P1S2 | S2 |
 | Pin Alternate Name | n/a | D17 |
-| Description | P1S2 Analog in, GPIO | S2 GPIO, SPI SCK. (Was P1S2 on P1.) |
+| Description | P1S2 Analog in, GPIO | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
+| UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
 | SPI interface | n/a | SCK. Use SPI object. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |

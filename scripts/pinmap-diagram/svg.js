@@ -58,7 +58,7 @@ const { result } = require('lodash');
             e.render = function(indent) {
                 let result = '';
                 for(const l of e.data.split('\n')) {
-                    if (!l.startsWith('<?xml')) {
+                    if (!l.startsWith('<?xml') && !l.startsWith('<!DOCTYPE')) {
                         result += svg.indent(indent + 2) + l.trim() + '\n';
                     }
                 }

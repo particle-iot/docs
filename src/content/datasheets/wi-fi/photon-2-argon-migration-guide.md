@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the Argon to Photon 2
 
 # Photon 2 from Argon Migration Guide
 
-**Preliminary pre-release version 2022-03-14**
+**Preliminary pre-release version 2022-04-18**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
@@ -143,12 +143,16 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 
 | Argon Pin Name | Argon Serial | Photon 2 Pin Name | Photon 2 Serial |
 | :--- | :--- | :--- | :--- |
+| &nbsp; | &nbsp; | D10 / WKP | Serial3 (CTS) |
+| A4 / D15 | &nbsp; | MOSI / D15 | Serial3 (TX) |
+| A3 / D16 | &nbsp; | MISO / D16 | Serial3 (RX) |
 | D2 | Serial1 RTS | D2 | Serial2 (RTS) |
 | D3 | Serial1 CTS | D3 | Serial2 (CTS) |
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
 | D8 | &nbsp; | TX / D8 | Serial1 (TX) |
 | RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
+| &nbsp; | &nbsp; | SCK / D17 | Serial3 (RTS) |
 | TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
 
 
@@ -399,6 +403,16 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports tone | No | Yes |
 | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### D10
+| | Added to Photon 2 |
+| :--- | :--- |
+| Pin Name | D10|
+| Pin Alternate Name | WKP|
+| Description | D10 GPIO. Serial3 CTS. Was D8 on Gen 3.|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| UART serial | CTS. Use Serial3 object. Flow control optional.|
+| Supports attachInterrupt | Yes|
 #### D11
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -439,12 +453,13 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- |
 | Pin Name | A4 | MOSI |
 | Pin Alternate Name | D15 | D15 |
-| Description | A4 Analog in, GPIO, PWM | D15 GPIO, S0 GPIO, PWM, SPI MOSI |
+| Description | A4 Analog in, GPIO, PWM | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
+| UART serial | n/a | TX. Use Serial3 object. |
 | SPI interface | n/a | MOSI. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D16
@@ -452,12 +467,13 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- |
 | Pin Name | A3 | MISO |
 | Pin Alternate Name | D16 | D16 |
-| Description | A3 Analog in, GPIO, PWM | D16 GPIO, S1 GPIO, PWM, SPI MISO. |
+| Description | A3 Analog in, GPIO, PWM | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
+| UART serial | n/a | RX. Use Serial3 object. |
 | SPI interface | n/a | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D2
@@ -530,6 +546,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+| SWD interface | n/a | SWDIO. 40K pull-up at boot. |
 #### D8
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -602,9 +619,10 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- |
 | Pin Name | SCK|
 | Pin Alternate Name | D17|
-| Description | SPI SCK, D13 GPIO, S3 GPIO|
+| Description | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | RTS. Use Serial3 object. Flow control optional.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### TX
@@ -666,3 +684,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | pre | 2022-03-02 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-04-12 | RK | Added serial baud rates |
+|     | 2022-04-18 | RK | Major changes to pinmap to align with P2 |

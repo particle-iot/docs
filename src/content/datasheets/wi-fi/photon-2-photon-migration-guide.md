@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the Photon to Photon 2
 
 # {{title}}
 
-**Preliminary pre-release version 2022-03-14**
+**Preliminary pre-release version 2022-04-16**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
@@ -163,10 +163,14 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | D3 | &nbsp; | D3 | Serial2 (CTS) |
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
+| &nbsp; | &nbsp; | MISO / D16 | Serial3 (RX) |
+| &nbsp; | &nbsp; | MOSI / D15 | Serial3 (TX) |
 | RGBB | Serial2 (RX) | &nbsp; | &nbsp; |
 | RGBG | Serial2 (TX) | &nbsp; | &nbsp; |
 | RX | Serial1 (RX) | RX / D10 | Serial1 (RX)  |
+| &nbsp; | &nbsp; | SCK / D17 | Serial3 (RTS) |
 | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
+| WKP / A7 | &nbsp; | D10 / WKP | Serial3 (CTS) |
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -406,13 +410,13 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | B2 | B2, analog in, GPIO, PWM | &nbsp; | Not Connected |
 | B3 | B3, analog in, GPIO, PWM | &nbsp; | Not Connected |
 | B4 | B4 Analog in, GPIO | &nbsp; | Not Connected |
-| B5 | B5 Analog in, GPIO | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO. |
+| B5 | B5 Analog in, GPIO | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. |
 | C0 | Serial5 RX (received data), GPIO. | &nbsp; | Not Connected |
 | C1 | Serial5 TX (trasmitted data), SPI2 MOSI, GPIO. | &nbsp; | Not Connected |
 | C2 | Serial4 RX (received data), SPI2 MISO, GPIO. | &nbsp; | Not Connected |
 | C3 | Serial4 TX (transmitted data), SPI2 SCK, GPIO. | &nbsp; | Not Connected |
 | C4 | I2C, CAN TX, GPIO. | &nbsp; | Not Connected |
-| C5 | I2C, CAN RX, GPIO. | D10 / WKP | D10 GPIO. Was D8 on Gen 3. |
+| C5 | I2C, CAN RX, GPIO. | D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI |
@@ -421,7 +425,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | D5 | D5 GPIO, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS |
 | D6 | D6 GPIO, SWCLK | D6 | D6 GPIO, SWCLK. |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, Blue LED, SWDIO |
-| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO |
+| DAC / A6 | DAC/A6 True analog out, analog in, GPIO. | SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS |
 | &nbsp; | Not Connected | EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. |
 | GND | Ground. You only need to use one of the Photon ground pins. | GND | Ground. |
 | &nbsp; | Not Connected | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. |
@@ -432,7 +436,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | TX | Serial1 TX (transmitted data), GPIO, PWM. | TX / D8 | Serial1 TX (transmitted data), GPIO |
 | VBAT | Battery for internal real-time clock, jumpered to 3V3. | &nbsp; | Not Connected |
 | VIN | Power in 3.9V to 12 VDC. Or power out (when powered by USB) 4.8 VDC at 1A maximum. | VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. |
-| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI |
+| WKP / A7 | WKP/A7 Wakeup (active high), analog in, GPIO. | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -634,7 +638,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes |
 | Supports attachInterrupt | Yes | Yes |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
-| SWD interface | SWDIO. 40K pull-up at boot. | n/a |
+| SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 #### DAC
 | | Removed from Photon |
 | :--- | :--- |
@@ -666,11 +670,12 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- |
 | Pin Name | MISO|
 | Pin Alternate Name | D16|
-| Description | D16 GPIO, S1 GPIO, PWM, SPI MISO.|
+| Description | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX.|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### MODE
@@ -683,11 +688,12 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- |
 | Pin Name | MOSI|
 | Pin Alternate Name | D15|
-| Description | D15 GPIO, S0 GPIO, PWM, SPI MOSI|
+| Description | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### RGBB
@@ -752,9 +758,10 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- |
 | Pin Name | SCK|
 | Pin Alternate Name | D17|
-| Description | SPI SCK, D13 GPIO, S3 GPIO|
+| Description | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | RTS. Use Serial3 object. Flow control optional.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### SETUP
@@ -809,12 +816,13 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Was D8 on Gen 3. |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
+| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 
@@ -854,3 +862,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | pre | 2022-03-02 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-04-12 | RK | Added serial baud rates |
+|     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |

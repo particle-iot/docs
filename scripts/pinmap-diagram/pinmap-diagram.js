@@ -48,6 +48,17 @@ const svg = require('./svg');
         });
         */
 
+        if (options.background) {
+            draw.rect({
+                x: 0,
+                y: 0,
+                width: options.width,
+                height: options.height,
+                fill: options.background,
+            });    
+        }
+        
+
         draw.g({
             transform: options.deviceImageTransform,
         }).svg({}, options.deviceImage);
