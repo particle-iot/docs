@@ -81,12 +81,21 @@ const svg = require('./svg');
                     }
 
                     let xBox = 0;
-                    let dir = p.xDir;
+                    let dir;
+                    let rotateTransform = '';
+                    
+                    if (p.xDir) {
+                        dir = p.xDir;
+                    }
+                    else {
+                        dir = p.yDir;
+                        rotateTransform = 'rotate(90) ';
+                    }
     
                     let xBar = 0;
     
                     let group = draw.g({
-                        transform: 'translate(' + x + ',' + y +')'
+                        transform: 'translate(' + x + ',' + y +') ' + rotateTransform
                     });
     
                     for(let jj = 0; jj < p.columns.length; jj++) {
