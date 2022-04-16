@@ -15,19 +15,20 @@ let optionsCommon = {
     featureColors: {
         altName: '#6D6E71',
         analogWritePWM: '#FACBCD',
+        compareAltName: '#00AEEF',
+        compareName: '#00AEEF',
         dac: '#F79868',
         hardwareADC: '#98CD67',
         hardwarePin: '#ffffff',
         i2c: '#70C9F2',
         isPower: '#CE3234',
         isControl: '#F6F06B',
+        jtag: '#7B8FAE',
         name: '#6D6E71',
+        num: '#E6AB00',
         serial: '#9695CA',
         spi: '#CCCCCC',
         swd: '#7B8FAE',
-        jtag: '#7B8FAE',
-        compareName: '#00AEEF',
-        compareAltName: '#00AEEF',
     },
     featureTextWhite: ['isPower', 'name', 'altName'],
 
@@ -58,8 +59,8 @@ async function generateArgon() {
                 xDelta: 0,
                 yDelta: 24.6,
                 count: 15,
-                xBar: -305,
-                yBar: 0,
+                xDir: -1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -94,8 +95,8 @@ async function generateArgon() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 12,
-                xBar: 305,
-                yBar: 0,
+                xDir: +1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -151,8 +152,8 @@ async function generatePhoton() {
                 xDelta: 0,
                 yDelta: 24.6,
                 count: 12,
-                xBar: -305,
-                yBar: 0,
+                xDir: -1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -187,8 +188,8 @@ async function generatePhoton() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 12,
-                xBar: 305,
-                yBar: 0,
+                xDir: +1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -243,8 +244,8 @@ async function generateElectron() {
                 xDelta: 0,
                 yDelta: 24.6,
                 count: 18,
-                xBar: -305,
-                yBar: 0,
+                xDir: -1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -279,8 +280,8 @@ async function generateElectron() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 24,
-                xBar: 305,
-                yBar: 0,
+                xDir: +1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -334,8 +335,8 @@ async function generatePhoton2() {
                 xDelta: 0,
                 yDelta: 24.6,
                 count: 15,
-                xBar: -305,
-                yBar: 0,
+                xDir: -1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -370,8 +371,8 @@ async function generatePhoton2() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 12,
-                xBar: 305,
-                yBar: 0,
+                xDir: 1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -405,6 +406,103 @@ async function generatePhoton2() {
 }
 
 
+async function generateP2(platformName) {
+    
+    let options = Object.assign(Object.assign({}, optionsCommon), {
+        platformName,
+        // height="610" width="270"
+        deviceImage: path.join(topDir, 'src/assets/images/p1-pin-blank.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/' + platformName.toLowerCase() + '-pinout.svg'),
+        // scale to make height 500px width 221
+        deviceImageTransform: 'translate(375,0) scale(0.8196)',
+        width: 1000,
+        height:1000,
+        background: 'white',
+        pins: [
+            {   // Left side
+                num: 1,
+                x: 370,
+                y: 370,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: 24.6,
+                count: 15,
+                xDir: -1,
+                yDir: 0,
+                columns: [
+                    {
+                        width: 20,
+                        keys: ['num'],
+                    },
+                    {
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+            /*
+            {   // Right side
+                num: 16,
+                x: 598,
+                y: 439,
+                numDelta: 1,
+                xDelta: 0,
+                yDelta: -24.6,
+                count: 12,
+                xDir: 1,
+                yDir: 0,
+                columns: [
+                    {
+                        width: 30,
+                        keys: ['name'],
+                    },
+                    {
+                        width: 30,
+                        keys: ['altName'],
+                    },
+                    {
+                        keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                    },
+                    {
+                        keys: ['serial'],
+                    },
+                    {
+                        keys: ['spi', 'hardwareADC'],
+                    },
+                    {
+                        keys: ['analogWritePWM'],
+                    },
+                    {
+                        keys: ['hardwarePin'],
+                    },
+                ],
+            },
+            */
+        ]
+    });
+
+    await pinmapDiagram.generate(options);
+}
+
+
 async function generateArgonToPhoton2() {
     
     let options = Object.assign(Object.assign({}, optionsCommon), {
@@ -426,8 +524,8 @@ async function generateArgonToPhoton2() {
                 xDelta: 0,
                 yDelta: 24.6,
                 count: 15,
-                xBar: -305,
-                yBar: 0,
+                xDir: -1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -455,8 +553,8 @@ async function generateArgonToPhoton2() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 12,
-                xBar: 305,
-                yBar: 0,
+                xDir: -1,
+                yDir: 0,
                 columns: [
                     {
                         width: 30,
@@ -483,12 +581,14 @@ async function generateArgonToPhoton2() {
     await pinmapDiagram.generate(options);
 }
 
-generateArgon();
+//generateArgon();
 
-generatePhoton();
+//generatePhoton();
 
-generateElectron();
+//generateElectron();
+
+generateP2('P2');
 
 generatePhoton2();
 
-generateArgonToPhoton2();
+//generateArgonToPhoton2();

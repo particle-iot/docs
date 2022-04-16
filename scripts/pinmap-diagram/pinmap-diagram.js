@@ -7,6 +7,19 @@ const svg = require('./svg');
 (function(diagram) {
     
     
+    diagram.expandMorePins = function(pins) {
+        for(const p of pins) {
+            if (p.morePins) {
+                for(const n of p.morePins) {
+                    const obj = Object.assign({}, p);
+                    delete obj.morePins;
+                    obj.num = n;
+                    pins.push(obj);
+                }
+            }
+        }
+    };
+
     diagram.generate = async function(options) {
         // console.log('generate', options);
 
@@ -20,8 +33,11 @@ const svg = require('./svg');
         // diagram.platformInfo contains array "pins" and object "diagram"
         // diagram.platformInfo.diagram objects contain array "columns"
 
+        diagram.expandMorePins(diagram.platformInfo.pins);
+
         if (options.comparePlatform) {
             diagram.comparePlatformInfo = diagram.pinInfo.platforms.find(e => e.name == options.comparePlatform);            
+            diagram.expandMorePins(diagram.comparePlatformInfo.pins);
         }
         else {
             diagram.comparePlatformInfo = null;
@@ -51,16 +67,9 @@ const svg = require('./svg');
 
             for(let ii = 0; ii < p.count; ii++) {
                 // console.log('x=' + x + ' y=' + y);
+
                 let info = diagram.platformInfo.pins.find(e => e.num == num);
                 if (info) {
-                    draw.line({
-                        x1: x, 
-                        y1: y,
-                        x2: x + p.xBar, 
-                        y2: y + p.yBar,
-                        stroke: 'black',
-                        'stroke-width': 1,
-                    });
                     if (options.comparePlatform) {
                         let compareName = info[options.compareKey] || info.name;
 
@@ -71,21 +80,25 @@ const svg = require('./svg');
                         }
                     }
 
-                    let xBox = x;
-                    let yBox = y;
-                    let dirX = (p.xBar < 0) ? -1 : 1;
+                    let xBox = 0;
+                    let dir = p.xDir;
     
+                    let xBar = 0;
+    
+                    let group = draw.g({
+                        transform: 'translate(' + x + ',' + y +')'
+                    });
     
                     for(let jj = 0; jj < p.columns.length; jj++) {
                         let width = options.xBox;
                         if (p.columns[jj].width) {
                             width = p.columns[jj].width;
                         }
-                        if (dirX < 0) {
+                        if (dir < 0) {
                             xBox -= width;
                         }
                         let rectX = xBox;
-                        let rectY = yBox - options.yBox / 2;
+                        let rectY = -options.yBox / 2;
     
 
                         for(let kk = 0; kk < p.columns[jj].keys.length; kk++) {
@@ -104,7 +117,7 @@ const svg = require('./svg');
                                 text = info.name;
                             }
                             
-                            if (text) {
+                            if (text && typeof text === 'string') {
                                 let offset = text.indexOf('|');
                                 if (offset >= 0) {
                                     text = text.substring(0, offset);
@@ -117,8 +130,32 @@ const svg = require('./svg');
                                 if (!bgColor) {
                                     bgColor = 'white';
                                 }
-                                
-                                draw.rect({
+                            
+                                if (dir < 0) {
+                                    group.line({
+                                        x1: xBar, 
+                                        y1: 0,
+                                        x2: rectX + width, 
+                                        y2: 0,
+                                        stroke: 'black',
+                                        'stroke-width': 1,
+                                    });        
+                                    xBar = rectX;
+                                }
+                                else {
+                                    group.line({
+                                        x1: xBar, 
+                                        y1: 0,
+                                        x2: rectX, 
+                                        y2: 0,
+                                        stroke: 'black',
+                                        'stroke-width': 1,
+                                    });        
+                                    xBar = rectX + width;
+                                }
+                                    
+
+                                group.rect({
                                     x: rectX,
                                     y: rectY,
                                     width: width,
@@ -128,7 +165,7 @@ const svg = require('./svg');
                                 });
             
     
-                                draw.text({
+                                group.text({
                                     x: rectX + width / 2,
                                     y: rectY + options.yBox / 2,
                                     'text-anchor': 'middle',
@@ -142,11 +179,11 @@ const svg = require('./svg');
                             }
 
                         }
-                        if (dirX > 0) {
+                        if (dir > 0) {
                             xBox += width;
                         }
 
-                        xBox += dirX * options.xBoxSpacing;
+                        xBox += dir * options.xBoxSpacing;
 
                     }
                 }                

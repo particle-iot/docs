@@ -1036,7 +1036,7 @@
 					"num":8,
 					"name":"NC",
 					"desc":"No connection. Do not connect anything to this pin.",
-					"isPower":true,
+					"isNC":true,
 					"morePins":[9,10,11,12,14,74,75],
 					"showInTable":false
 				},
@@ -1637,7 +1637,7 @@
 					"num":7,
 					"name":"NC",
 					"desc":"No connection. Do not connect anything to this pin.",
-					"isPower":true,
+					"isNC":true,
 					"morePins":[8,9,10,11,14,16,17,18,19,20,21,22,24,38,56,57,58,60,74,75],
 					"showInTable":false
 				},
@@ -2734,6 +2734,7 @@
 					"num":6,
 					"name":"NC",
 					"desc":"Do not connect to anything",
+					"isNC":true,
 					"morePins":[50],
 					"showInTable":false
 				},
@@ -3385,6 +3386,7 @@
 					"num":6,
 					"name":"NC",
 					"desc":"Do not connect to anything",
+					"isNC":true,
 					"morePins":[10,11,28,29,39,50],
 					"showInTable":false
 				},
@@ -5179,6 +5181,7 @@
 					"num":14,
 					"name":"NC",
 					"somPin":"RESERVED",
+					"isNC":true,
 					"morePins":[18,51,53,55,57,58,59,60]
 				},
 				{
@@ -5744,6 +5747,7 @@
 				{
 					"num":75,
 					"name":"NC",
+					"isNC":true,
 					"somPin":"SOM9"
 				}
 			],
@@ -5798,6 +5802,7 @@
 				{
 					"num":14,
 					"name":"NC",
+					"isNC":true,
 					"somPin":"RESERVED",
 					"morePins":[18,51,53,55,57,58,59,60]
 				},
@@ -6425,6 +6430,7 @@
 				{
 					"num":9,
 					"name":"NC",
+					"isNC":true,
 					"somPin":"RESERVED",
 					"morePins":[18, 19, 20, 21, 34, 35, 36, 37, 44, 59, 60, 61, 62, 76, 77, 78, 79, 80, 81, 82]
 				},
