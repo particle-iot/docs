@@ -314,7 +314,7 @@ const svg = require('./svg');
 
     diagram.generateArgon  = async function (generateOptions) {
         
-        let options = Object.assign(Object.assign(generateOptions, diagram.optionsCommon), {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Argon',
             // height="194.98106" width="86.125328"
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/argon.svg'),
@@ -407,7 +407,7 @@ const svg = require('./svg');
 
     diagram.generatePhoton = async function (generateOptions) {
         
-        let options = Object.assign(Object.assign(generateOptions, diagram.optionsCommon), {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Photon',
             // height=110.16 width 76.8
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon.svg'),
@@ -499,7 +499,7 @@ const svg = require('./svg');
 
     diagram.generateElectron = async function(generateOptions) {
         
-        let options = Object.assign(Object.assign(generateOptions, diagram.optionsCommon), {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Electron',
             // height=110.16 width 76.8
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/electron.svg'),
@@ -590,7 +590,7 @@ const svg = require('./svg');
 
     diagram.generatePhoton2 = async function(generateOptions) {
         
-        let options = Object.assign(Object.assign(generateOptions, diagram.optionsCommon), {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Photon 2',
             // height="610" width="270"
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon2.svg'),
@@ -682,7 +682,7 @@ const svg = require('./svg');
 
     diagram.generateP2 = async function (generateOptions) {
         
-        let options = Object.assign(Object.assign(generateOptions, diagram.optionsCommon), {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: generateOptions.platformName,
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/p1-pin-blank.svg'),
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/' + generateOptions.platformName.toLowerCase() + '-pinout.svg'),
@@ -855,7 +855,7 @@ const svg = require('./svg');
 
     diagram.generateArgonToPhoton2 = async function(generateOptions) {
         
-        let options = Object.assign(Object.assign(generateOptions, diagram.optionsCommon), {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Photon 2',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon2.svg'),
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/' + generateOptions.outputFile),
