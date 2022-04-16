@@ -2394,6 +2394,32 @@ P1.12    </text>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
     </rect>
     <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+D8    </text>
+    <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="34" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    </rect>
+    <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+WKP    </text>
+    <line x1="64" y1="0" x2="245" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="245" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    </rect>
+    <text x="272.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+PWM1    </text>
+    <line x1="300" y1="0" x2="304" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="304" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    </rect>
+    <text x="331.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+P1.03    </text>
+  </g>
+  <g transform="translate(598,217.59999999999985) " >
+    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    </rect>
+    <text x="15" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 VUSB    </text>
     <line x1="30" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
     </line>
@@ -2402,7 +2428,7 @@ VUSB    </text>
     <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 VUSB    </text>
   </g>
-  <g transform="translate(598,217.59999999999985) " >
+  <g transform="translate(598,192.99999999999986) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
@@ -2416,7 +2442,7 @@ EN    </text>
     <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 EN    </text>
   </g>
-  <g transform="translate(598,192.99999999999986) " >
+  <g transform="translate(598,168.39999999999986) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="0" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >

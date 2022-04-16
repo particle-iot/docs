@@ -845,7 +845,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### D8
 |   | Argon | P2 |
 | :--- | :--- | :--- |
-| Pin Number | 23 | 64 |
+| Pin Number | 24 | 64 |
 | Pin Name | D8 | TX |
 | Pin Alternate Name | WKP | D8 |
 | Description | GPIO, PWM | Serial1 TX (transmitted data), GPIO |
@@ -858,7 +858,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### EN
 | | Removed from Argon |
 | :--- | :--- |
-| Pin Number | 25|
+| Pin Number | 26|
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
@@ -870,7 +870,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### LI+
 | | Removed from Argon |
 | :--- | :--- |
-| Pin Number | 26|
+| Pin Number | 27|
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### NC
@@ -1029,7 +1029,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### VUSB
 | | Removed from Argon |
 | :--- | :--- |
-| Pin Number | 24|
+| Pin Number | 25|
 | Pin Name | VUSB|
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|

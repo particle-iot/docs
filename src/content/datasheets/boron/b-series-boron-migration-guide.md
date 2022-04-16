@@ -620,7 +620,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### D8
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
-| Pin Number | 23 | 48 |
+| Pin Number | 24 | 48 |
 | Pin Name | D8 | D8 |
 | Pin Alternate Name | WKP | n/a |
 | Description | GPIO, PWM | GPIO, SPI SS, Ethernet CS |
@@ -633,7 +633,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### EN
 | | Removed from Boron |
 | :--- | :--- |
-| Pin Number | 25|
+| Pin Number | 26|
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
@@ -645,7 +645,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### LI+
 | | Removed from Boron |
 | :--- | :--- |
-| Pin Number | 26|
+| Pin Number | 27|
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
@@ -805,7 +805,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### VUSB
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
-| Pin Number | 24 | 16 |
+| Pin Number | 25 | 16 |
 | Pin Name | VUSB | VUSB |
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | USB VUSB power pin |
 | Input is 5V Tolerant | Yes | Yes |

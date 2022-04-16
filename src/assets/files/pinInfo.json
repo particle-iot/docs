@@ -4279,7 +4279,7 @@
 					"hardwarePin":"P1.12"
 				},
 				{
-					"num":23,
+					"num":24,
 					"name":"D8",
 					"altName":"WKP",
 					"desc":"GPIO, PWM",
@@ -4296,21 +4296,21 @@
 					"hardwarePin":"P1.03"
 				},
 				{
-					"num":24,
+					"num":25,
 					"name":"VUSB",
 					"desc":"Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.",
 					"isPower":true,
 					"is5VTolerant":true
 				},
 				{
-					"num":25,
+					"num":26,
 					"name":"EN",
 					"desc":"Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.",
 					"isControl":true,
 					"is5VTolerant":false
 				},
 				{
-					"num":26,
+					"num":27,
 					"name":"LI+",
 					"desc":"Connected to JST PH LiPo battery connector. 3.7V in or out.",
 					"isPower":true,
@@ -4683,7 +4683,7 @@
 					"hardwarePin":"P1.12"
 				},
 				{
-					"num":23,
+					"num":24,
 					"name":"D8",
 					"altName":"WKP",
 					"desc":"GPIO, PWM",
@@ -4700,21 +4700,21 @@
 					"hardwarePin":"P1.03"
 				},
 				{
-					"num":24,
+					"num":25,
 					"name":"VUSB",
 					"desc":"Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.",
 					"isPower":true,
 					"is5VTolerant":true
 				},
 				{
-					"num":25,
+					"num":26,
 					"name":"EN",
 					"desc":"Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.",
 					"isControl":true,
 					"is5VTolerant":false
 				},
 				{
-					"num":26,
+					"num":27,
 					"name":"LI+",
 					"desc":"Connected to JST PH LiPo battery connector. 3.7V in or out.",
 					"isPower":true,
@@ -5092,7 +5092,7 @@
 					"hardwarePin":"P1.12"
 				},
 				{
-					"num":23,
+					"num":24,
 					"name":"D8",
 					"altName":"WKP",
 					"desc":"GPIO, PWM, UART2 RTS",
@@ -5110,21 +5110,21 @@
 					"hardwarePin":"P1.03"
 				},
 				{
-					"num":24,
+					"num":25,
 					"name":"VUSB",
 					"desc":"Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.",
 					"isPower":true,
 					"is5VTolerant":true
 				},
 				{
-					"num":25,
+					"num":26,
 					"name":"EN",
 					"desc":"Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.",
 					"isControl":true,
 					"is5VTolerant":false
 				},
 				{
-					"num":26,
+					"num":27,
 					"name":"LI+",
 					"desc":"Connected to JST PH LiPo battery connector. 3.7V in or out.",
 					"isPower":true,

@@ -437,127 +437,106 @@ The following pins were NC on the P1 but are used on the P2.
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
 #### Module Pin 1 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 2
-
+#### Module Pin 2 (VBAT_WL / 3V3_RF)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VBAT_WL | 3V3_RF |
 | Description | Battery for BCM43362. | 3.3V power to RF module |
-#### Module Pin 3
-
+#### Module Pin 3 (VBAT_WL / 3V3_RF)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VBAT_WL | 3V3_RF |
 | Description | Battery for BCM43362. | 3.3V power to RF module |
 #### Module Pin 4 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 5
-
+#### Module Pin 5 (VDDIO_3V3_WL / 3V3_IO)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VDDIO_3V3_WL | 3V3_IO |
 | Description | Regulated 3.3V DC power input for BCM43362. | 3.3V power to MCU IO. |
 #### Module Pin 6 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 7
-
+#### Module Pin 7 (WL_REG_ON / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_REG_ON | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
 #### Module Pin 8 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 9 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 10 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 11 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
-#### Module Pin 12
-
+#### Module Pin 12 (NC / VBAT_MEAS)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | NC | VBAT_MEAS |
 | Description | No connection. Do not connect anything to this pin. | Battery voltage measurement (optional). |
 #### Module Pin 13 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 14 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 15 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 16
-
+#### Module Pin 16 (WL_JTAG_TDI / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TDI | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 17
-
+#### Module Pin 17 (WL_JTAG_TCK / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TCK | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 18
-
+#### Module Pin 18 (WL_JTAG_TRSTN / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TRSTN | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 19
-
+#### Module Pin 19 (WL_JTAG_TMS / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TMS | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 20
-
+#### Module Pin 20 (WL_JTAG_TDO / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TDO | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 21
-
+#### Module Pin 21 (A4 / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A4 | NC |
@@ -570,8 +549,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | MISO. Use SPI object. | n/a |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | n/a |
 | Input is 5V Tolerant | Yes | n/a |
-#### Module Pin 22
-
+#### Module Pin 22 (A3 / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A3 | NC |
@@ -583,7 +561,6 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | SCK. Use SPI object. | n/a |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | n/a |
 #### Module Pin 23 (A5)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5 |
@@ -597,8 +574,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | MOSI. Use SPI object. | n/a |
 | Supports attachInterrupt | No | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 24
-
+#### Module Pin 24 (DAC / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | DAC | NC |
@@ -610,39 +586,33 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (DAC) | Yes | n/a |
 | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | n/a |
 #### Module Pin 25 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 26 (3V3)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | 3V3|
 | Description | 3.3V power to MCU|
 #### Module Pin 27 (3V3)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | 3V3|
 | Description | 3.3V power to MCU|
 #### Module Pin 28 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 29 (RGBR)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBR | RGBR |
 | Description | RGB LED Red | RGB LED Red |
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
-#### Module Pin 30
-
+#### Module Pin 30 (WKP / D10)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WKP | D10 |
@@ -657,7 +627,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (RGBB)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBB | RGBB |
@@ -666,7 +635,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
 #### Module Pin 32 (RGBG)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBG | RGBG |
@@ -674,8 +642,7 @@ The following pins were NC on the P1 but are used on the P2.
 | UART serial | TX. Use Serial2 object. | n/a |
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
-#### Module Pin 33
-
+#### Module Pin 33 (P1S6 / S6)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S6 | S6 |
@@ -687,13 +654,11 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes | Yes |
 #### Module Pin 34 (RST)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | RST|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### Module Pin 35 (D1)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1 |
@@ -709,7 +674,6 @@ The following pins were NC on the P1 but are used on the P2.
 | CAN interface | CAN2_TX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 36 (D0)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
@@ -724,25 +688,21 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | No | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 37 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 38
-
+#### Module Pin 38 (VBAT / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VBAT | NC |
 | Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. | No connection. Do not connect anything to this pin. |
 #### Module Pin 39 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 40
-
+#### Module Pin 40 (P1S0 / S0)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S0 | S0 |
@@ -757,8 +717,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | n/a | MOSI. Use SPI object. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 41
-
+#### Module Pin 41 (P1S1 / S1)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S1 | S1 |
@@ -773,8 +732,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | n/a | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 42
-
+#### Module Pin 42 (P1S2 / S2)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S2 | S2 |
@@ -788,7 +746,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (A1)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1 |
@@ -799,8 +756,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogRead | Yes | Yes |
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 44
-
+#### Module Pin 44 (P1S3 / S3)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S3 | S3 |
@@ -813,7 +769,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (D2)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
@@ -829,15 +784,13 @@ The following pins were NC on the P1 but are used on the P2.
 | I2S interface | I2S3_SD | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (SETUP)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | SETUP | SETUP |
 | Description | SETUP button, has internal pull-up. Pin number constant is BTN. | SETUP button, has internal pull-up. Pin number constant is BTN. |
 | Supports attachInterrupt | n/a | Yes |
 | I2S interface | I2S3_MCK | n/a |
-#### Module Pin 47
-
+#### Module Pin 47 (P1S4 / S4)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S4 | S4 |
@@ -847,8 +800,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 48
-
+#### Module Pin 48 (P1S5 / S5)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S5 | S5 |
@@ -860,7 +812,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (A2)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2 |
@@ -875,7 +826,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (A0)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0 |
@@ -887,7 +837,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 51 (D3)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
@@ -902,7 +851,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 52 (D4)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
@@ -916,7 +864,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 #### Module Pin 53 (D5)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
@@ -930,7 +877,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 #### Module Pin 54 (D7)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
@@ -941,7 +887,6 @@ The following pins were NC on the P1 but are used on the P2.
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 #### Module Pin 55 (D6)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D6 | D6 |
@@ -952,52 +897,44 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
-#### Module Pin 56
-
+#### Module Pin 56 (BTCX_STATUS / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | BTCX_STATUS | NC |
 | Description | Coexistence signal: Bluetooth status and TX/RX direction. | No connection. Do not connect anything to this pin. |
-#### Module Pin 57
-
+#### Module Pin 57 (BTCX_RF_ACTIVE / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | BTCX_RF_ACTIVE | NC |
 | Description | Coexistence signal: Bluetooth is active. | No connection. Do not connect anything to this pin. |
-#### Module Pin 58
-
+#### Module Pin 58 (BTCX_TXCONF / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | BTCX_TXCONF | NC |
 | Description | Output giving Bluetooth permission to TX. | No connection. Do not connect anything to this pin. |
 #### Module Pin 59 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 60
-
+#### Module Pin 60 (WL_SLEEP_CLK / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_SLEEP_CLK | NC |
 | Description | BCM43362 Debugging Pin | No connection. Do not connect anything to this pin. |
 #### Module Pin 61 (USBDATA+)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 62 (USBDATA-)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 63 (RX)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX |
@@ -1011,7 +948,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 64 (TX)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | TX | TX |
@@ -1025,49 +961,41 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 65 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 66 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 67 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 68 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 69 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 70 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 71 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 72 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
