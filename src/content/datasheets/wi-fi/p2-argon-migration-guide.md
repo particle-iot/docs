@@ -295,7 +295,7 @@ If you are using Argon Serial1 with hardware flow control, you should switch to 
 | D3 | Serial1 CTS | D3 | Serial2 (CTS) |
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
-| D8 | &nbsp; | TX / D8 | Serial1 (TX) |
+| D8 / WKP | &nbsp; | TX / D8 | Serial1 (TX) |
 | RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
 | &nbsp; | &nbsp; | S0 / D15 | Serial3 (TX) |
 | &nbsp; | &nbsp; | S1 / D16 | Serial3 (RX) |
@@ -419,7 +419,7 @@ The pins that support PWM are different on the Argon and P2.
 | D5 | &check; | D5 | &nbsp; |
 | D6 | &check; | D6 | &nbsp; |
 | D7 | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | D7 | &nbsp; |
-| D8 | &check; | TX / D8 | &nbsp; |
+| D8 / WKP | &check; | TX / D8 | &nbsp; |
 | &nbsp; | &nbsp; | S0 / D15 | &check; |
 | &nbsp; | &nbsp; | S1 / D16 | &check; |
 
@@ -847,7 +847,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | :--- | :--- | :--- |
 | Pin Number | 23 | 64 |
 | Pin Name | D8 | TX |
-| Pin Alternate Name | n/a | D8 |
+| Pin Alternate Name | WKP | D8 |
 | Description | GPIO, PWM | Serial1 TX (transmitted data), GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |

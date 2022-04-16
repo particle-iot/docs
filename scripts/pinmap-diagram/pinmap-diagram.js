@@ -76,9 +76,12 @@ const svg = require('./svg');
                         info.compareName = compareName;
                         const comparisonInfo = diagram.comparePlatformInfo.pins.find(e => e.name == compareName);
                         if (comparisonInfo) {
-                            info.compareAltName = comparisonInfo.altName;
+                            for(const key in comparisonInfo) {
+                                info['compare_' + key] = comparisonInfo[key];
+                            }
                         }
                     }
+                    // console.log('info', info);
 
                     let xBox = 0;
                     let dir;
@@ -99,6 +102,10 @@ const svg = require('./svg');
                     });
     
                     for(let jj = 0; jj < p.columns.length; jj++) {
+                        if (p.columns[jj].extraSpaceBefore) {
+                            xBox += dir * p.columns[jj].extraSpaceBefore;
+                        }
+
                         let width = options.xBox;
                         if (p.columns[jj].width) {
                             width = p.columns[jj].width;
@@ -108,91 +115,147 @@ const svg = require('./svg');
                         }
                         let rectX = xBox;
                         let rectY = -options.yBox / 2;
-    
-
-                        for(let kk = 0; kk < p.columns[jj].keys.length; kk++) {
-                            const key = p.columns[jj].keys[kk];
-    
-                            let text = info[key];
-                            if (key == 'analogWritePWM') {
-                                if (info['hardwareTimer']) {
-                                    text = info['hardwareTimer'];
+                        
+                        if (p.columns[jj].keys) {
+                            for(let kk = 0; kk < p.columns[jj].keys.length; kk++) {
+                                const key = p.columns[jj].keys[kk];
+        
+                                let text = info[key];
+                                if (key == 'analogWritePWM') {
+                                    if (info['hardwareTimer']) {
+                                        text = info['hardwareTimer'];
+                                    }
+                                    else if (info[key]) {
+                                        text = 'PWM';
+                                    }
                                 }
-                                else if (info[key]) {
-                                    text = 'PWM';
+                                if (key == 'compare_analogWritePWM') {
+                                    if (info['compare_hardwareTimer']) {
+                                        text = info['compare_hardwareTimer'];
+                                    }
+                                    else if (info[key]) {
+                                        text = 'PWM';
+                                    }
                                 }
-                            }
-                            if (text === true) {
-                                text = info.name;
-                            }
-                            
-                            if (text && typeof text === 'string') {
-                                let offset = text.indexOf('|');
-                                if (offset >= 0) {
-                                    text = text.substring(0, offset);
-                                }    
-                            }
-    
-    
-                            if (text) {
-                                let bgColor = options.featureColors[key];
-                                if (!bgColor) {
-                                    bgColor = 'white';
+                                if (text === true) {
+                                    text = info.name;
                                 }
-                            
-                                if (dir < 0) {
-                                    group.line({
-                                        x1: xBar, 
-                                        y1: 0,
-                                        x2: rectX + width, 
-                                        y2: 0,
+                                
+                                if (text && typeof text === 'string') {
+                                    let offset = text.indexOf('|');
+                                    if (offset >= 0) {
+                                        text = text.substring(0, offset);
+                                    }    
+                                }
+        
+        
+                                if (text) {
+                                    let bgColor = options.featureColors[key];
+                                    if (!bgColor) {
+                                        bgColor = 'white';
+                                    }
+                                
+                                    if (dir < 0) {
+                                        group.line({
+                                            x1: xBar, 
+                                            y1: 0,
+                                            x2: rectX + width, 
+                                            y2: 0,
+                                            stroke: 'black',
+                                            'stroke-width': 1,
+                                        });        
+                                        xBar = rectX;
+                                    }
+                                    else {
+                                        group.line({
+                                            x1: xBar, 
+                                            y1: 0,
+                                            x2: rectX, 
+                                            y2: 0,
+                                            stroke: 'black',
+                                            'stroke-width': 1,
+                                        });        
+                                        xBar = rectX + width;
+                                    }
+                                        
+    
+                                    group.rect({
+                                        x: rectX,
+                                        y: rectY,
+                                        width: width,
+                                        height: options.yBox,
                                         stroke: 'black',
-                                        'stroke-width': 1,
-                                    });        
-                                    xBar = rectX;
-                                }
-                                else {
-                                    group.line({
-                                        x1: xBar, 
-                                        y1: 0,
-                                        x2: rectX, 
-                                        y2: 0,
-                                        stroke: 'black',
-                                        'stroke-width': 1,
-                                    });        
-                                    xBar = rectX + width;
-                                }
-                                    
-
-                                group.rect({
-                                    x: rectX,
-                                    y: rectY,
-                                    width: width,
-                                    height: options.yBox,
-                                    stroke: 'black',
-                                    fill: bgColor,
-                                });
-            
+                                        fill: bgColor,
+                                    });
+                
+        
+                                    group.text({
+                                        x: rectX + width / 2,
+                                        y: rectY + options.yBox / 2,
+                                        'text-anchor': 'middle',
+                                        'dominant-baseline': 'middle',
+                                        'font-family': options.fontFamily,
+                                        'font-size': options.boxFontSize,
+                                        fill: options.featureTextWhite.includes(key) ? 'white' : 'black',
+                                    }, text);        
     
-                                group.text({
-                                    x: rectX + width / 2,
-                                    y: rectY + options.yBox / 2,
-                                    'text-anchor': 'middle',
-                                    'dominant-baseline': 'middle',
-                                    'font-family': options.fontFamily,
-                                    'font-size': options.boxFontSize,
-                                    fill: options.featureTextWhite.includes(key) ? 'white' : 'black',
-                                }, text);        
-
-                                break; 
+                                    break; 
+                                }
+    
                             }
-
                         }
+
                         if (dir > 0) {
                             xBox += width;
                         }
 
+                        if (p.columns[jj].titlePosition) {
+                            let showTitle = false;
+
+                            if (p.columns[jj].titlePosition == 'first') {
+                                if (ii == 0) {
+                                    showTitle = true;
+                                }
+                            }
+                            else 
+                            if (p.columns[jj].titlePosition == 'last') {
+                                if (ii == (p.count - 1)) {
+                                    showTitle = true;
+                                }
+                            }
+                            if (showTitle) {
+                                if (p.columns[jj].titleAbove) {
+                                    group.text({
+                                        x: xBox + width / 2,
+                                        y: -options.yBox,
+                                        'text-anchor': 'middle',
+                                        'dominant-baseline': 'bottom',
+                                        'font-family': options.fontFamily,
+                                        'font-size': options.titleFontSize,
+                                        fill: 'black',
+                                    }, p.columns[jj].titleAbove);            
+                                }
+                                
+                                if (p.columns[jj].titleAfter) {
+                                    group.text({
+                                        x: xBox,
+                                        y: -options.yBox,
+                                        'text-anchor': 'middle',
+                                        'dominant-baseline': 'bottom',
+                                        'font-family': options.fontFamily,
+                                        'font-size': options.titleFontSize,
+                                        fill: 'black',
+                                    }, p.columns[jj].titleAfter);            
+                                }
+                            }                        
+                        }
+
+
+
                         xBox += dir * options.xBoxSpacing;
+                        if (p.columns[jj].extraSpaceAfter) {
+                            xBox += dir * p.columns[jj].extraSpaceAfter;
+                        }
 
                     }
                 }                

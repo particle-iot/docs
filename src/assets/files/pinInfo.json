@@ -4281,6 +4281,7 @@
 				{
 					"num":23,
 					"name":"D8",
+					"altName":"WKP",
 					"desc":"GPIO, PWM",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -4684,6 +4685,7 @@
 				{
 					"num":23,
 					"name":"D8",
+					"altName":"WKP",
 					"desc":"GPIO, PWM",
 					"isIO":true,
 					"is5VTolerant":false,
@@ -5092,6 +5094,7 @@
 				{
 					"num":23,
 					"name":"D8",
+					"altName":"WKP",
 					"desc":"GPIO, PWM, UART2 RTS",
 					"isIO":true,
 					"is5VTolerant":false,

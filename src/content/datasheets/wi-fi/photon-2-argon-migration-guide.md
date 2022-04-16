@@ -82,7 +82,26 @@ The Argon requires an external Wi-Fi antenna, and has a built-in chip antenna fo
 
 The Photon 2 has a built-in trace antenna that is shared by Wi-Fi and BLE. It can optionally use an external 2.4 GHz antenna for both Wi-Fi and BLE.
 
+### Pin Names
+
+{{imageOverlay src="/assets/images/photon-2-argon-comparison.svg" alt="Pin name comparison" class="full-width"}}
+
+Some pins in the same positions are named differently between the Argon and Photon 2:
+
+| Argon Name | Photon 2 Name |
+| :---: | :---: |
+| A3 | A5 |
+| A4 | S4 |
+| A5 | S3 |
+| D8 | D10 |
+
+Additionally, `D` pin aliases `D8` and higher are different, however these names are rarely used.
+
+
+
 ### SPI
+
+{{imageOverlay src="/assets/images/photon-2-argon-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
 
 Pins for `SPI` are unchanged between the Argon and Photon 2.
 
@@ -114,6 +133,7 @@ Most boards, including Ethernet, use primary `SPI`, which works the same between
 - Each SPI device must have a unique CS pin.
 - The Argon supports SPI slave mode only on `SPI1` (D pins).
 
+
 #### SPI - Gen 3 devices (including Argon)
 
 | | SPI | SPI1 |
@@ -136,10 +156,11 @@ Most boards, including Ethernet, use primary `SPI`, which works the same between
 
 ### Serial (UART)
 
+{{imageOverlay src="/assets/images/photon-2-argon-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 2 and Argon. There is no hardware flow control on this port on the Photon 2 or Argon.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 2 and Argon. There is no hardware flow control on this port on the Photon 2, but there is on the Argon.
 
-The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
+The secondary UART serial (`Serial2`) exists on the Photon 2 but not the Argon, and also supports CTS/RTS hardware flow control. This is recommended if you need serial with hardware flow control on the Photon 2.
 
 There is a third UART serial (`Serial3`) on the Photon 2 that also supports optional CTS/RTS hardware flow control.
 
@@ -154,7 +175,7 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 | D3 | Serial1 CTS | D3 | Serial2 (CTS) |
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
-| D8 | &nbsp; | TX / D8 | Serial1 (TX) |
+| D8 / WKP | &nbsp; | TX / D8 | Serial1 (TX) |
 | RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
 | &nbsp; | &nbsp; | SCK / D17 | Serial3 (RTS) |
 | TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
@@ -223,6 +244,8 @@ Supported Baud Rates:
 
 ### Analog input (ADC)
 
+{{imageOverlay src="/assets/images/photon-2-argon-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
+
 For analog to digital conversion (ADC) using `analogRead()`.
 
 - Pin A0, A1, A2, and A5 are analog inputs on both the Argon and Photon 2.
@@ -252,6 +275,8 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 ### PWM (Pulse-width modulation)
 
+{{imageOverlay src="/assets/images/photon-2-argon-pwm-comparison.svg" alt="ADC comparison" class="full-width"}}
+
 The pins that support PWM are different on the Argon and Photon 2.
 
 
@@ -274,7 +299,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 | D5 | &check; | D5 | &nbsp; |
 | D6 | &check; | D6 | &nbsp; |
 | D7 | &check; | D7 | &nbsp; |
-| D8 | &check; | TX / D8 | &nbsp; |
+| D8 / WKP | &check; | TX / D8 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -321,9 +346,9 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 
 ### Full module pin comparison
 
-{{imageOverlay src="/assets/images/argon/argon-pinout.png" alt="Argon Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/argon-pinout.svg" alt="Argon Pinout Diagram" class="full-width"}}
 
-{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Photon 2 Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
@@ -555,7 +580,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D8 | TX |
-| Pin Alternate Name | n/a | D8 |
+| Pin Alternate Name | WKP | D8 |
 | Description | GPIO, PWM | Serial1 TX (transmitted data), GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |

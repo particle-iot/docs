@@ -12,14 +12,15 @@ let optionsCommon = {
     xPinToBox: 10,
     fontFamily: 'Arial, Helvetica, sans-serif',
     boxFontSize: '8px',
+    titleFontSize: '10px',
     featureColors: {
         altName: '#6D6E71',
         analogWritePWM: '#FACBCD',
-        compareAltName: '#00AEEF',
-        compareName: '#00AEEF',
+        compareAltName: '#FFFFFF',
+        compareName: '#FFFFFF',
         dac: '#F79868',
         hardwareADC: '#98CD67',
-        hardwarePin: '#ffffff',
+        hardwarePin: '#FFFFFF',
         i2c: '#70C9F2',
         isPower: '#CE3234',
         isControl: '#F6F06B',
@@ -167,10 +168,10 @@ async function generatePhoton() {
                         keys: ['isPower', 'isControl', 'hardwareADC'],
                     },
                     {
-                        keys: ['serial'],
+                        keys: ['serial', 'dac'],
                     },
                     {
-                        keys: ['spi', 'dac'],
+                        keys: ['spi'],
                     },
                     {
                         keys: ['analogWritePWM'],
@@ -259,10 +260,10 @@ async function generateElectron() {
                         keys: ['isPower', 'isControl', 'hardwareADC'],
                     },
                     {
-                        keys: ['serial'],
+                        keys: ['serial', 'dac'],
                     },
                     {
-                        keys: ['spi', 'dac'],
+                        keys: ['spi'],
                     },
                     {
                         keys: ['analogWritePWM'],
@@ -443,7 +444,7 @@ async function generateP2(platformName) {
                         keys: ['isPower', 'isControl', 'hardwareADC'],
                     },
                     {
-                        keys: ['serial'],
+                        keys: ['serial', 'dac'],
                     },
                     {
                         keys: ['spi'],
@@ -482,7 +483,7 @@ async function generateP2(platformName) {
                         keys: ['isPower', 'isControl', 'hardwareADC'],
                     },
                     {
-                        keys: ['serial'],
+                        keys: ['serial', 'dac'],
                     },
                     {
                         keys: ['spi'],
@@ -521,7 +522,7 @@ async function generateP2(platformName) {
                         keys: ['isPower', 'isControl', 'hardwareADC'],
                     },
                     {
-                        keys: ['serial'],
+                        keys: ['serial', 'dac'],
                     },
                     {
                         keys: ['spi'],
@@ -579,12 +580,12 @@ async function generateP2(platformName) {
 }
 
 
-async function generateArgonToPhoton2() {
+async function generateArgonToPhoton2(generateOptions) {
     
     let options = Object.assign(Object.assign({}, optionsCommon), {
         platformName: 'Photon 2',
         deviceImage: path.join(topDir, 'src/assets/images/photon2.svg'),
-        outputPath: path.join(topDir, 'src/assets/images/photon-2-argon-comparison.svg'),
+        outputPath: path.join(topDir, 'src/assets/images/' + generateOptions.outputFile),
         deviceImageTransform: 'translate(375,0) scale(0.8196)',
         width: 1000,
         height: 510,
@@ -602,24 +603,7 @@ async function generateArgonToPhoton2() {
                 count: 15,
                 xDir: -1,
                 yDir: 0,
-                columns: [
-                    {
-                        width: 30,
-                        keys: ['name'],
-                    },
-                    {
-                        width: 30,
-                        keys: ['altName'],
-                    },
-                    {
-                        width: 30,
-                        keys: ['compareName'],
-                    },
-                    {
-                        width: 30,
-                        keys: ['compareAltName'],
-                    },
-                ],
+                columns: [],
             },
             {   // Right side
                 num: 16,
@@ -629,42 +613,91 @@ async function generateArgonToPhoton2() {
                 xDelta: 0,
                 yDelta: -24.6,
                 count: 12,
-                xDir: -1,
+                xDir: 1,
                 yDir: 0,
-                columns: [
-                    {
-                        width: 30,
-                        keys: ['name'],
-                    },
-                    {
-                        width: 30,
-                        keys: ['altName'],
-                    },
-                    {
-                        width: 30,
-                        keys: ['compareName'],
-                    },
-                    {
-                        width: 30,
-                        keys: ['compareAltName'],
-                    },
-
-                ],
+                columns: [],
             },
         ]
     });
 
+    const titlePositions = ['first', 'last'];
+    for(let ii = 0; ii < options.pins.length; ii++) {
+        options.pins[ii].columns.push({
+            width: 30,
+            keys: ['name'],
+            titlePosition: titlePositions[ii],
+            titleAfter: 'Photon 2',
+        });
+        options.pins[ii].columns.push({
+            width: 30,
+            keys: ['altName'],
+        });
+        if (generateOptions.feature) {
+            options.pins[ii].columns.push({
+                keys: [generateOptions.feature],
+            });    
+        }
+
+        // Spacer
+        options.pins[ii].columns.push({
+            width: 20,
+        });
+
+        if (generateOptions.feature) {
+            options.pins[ii].columns.push({
+                keys: ['compare_' + generateOptions.feature],
+            });    
+        }
+
+        options.pins[ii].columns.push({
+            width: 30,
+            keys: ['compareName'],
+            titlePosition: titlePositions[ii],
+            titleAfter: 'Argon',
+        });
+        options.pins[ii].columns.push({
+            width: 30,
+            keys: ['compare_altName'],
+        });
+    
+    }
+
+
     await pinmapDiagram.generate(options);
 }
 
-//generateArgon();
+generateArgon();
 
-//generatePhoton();
+generatePhoton();
 
-//generateElectron();
+generateElectron();
+
+generateP2('P1');
 
 generateP2('P2');
 
 generatePhoton2();
 
-//generateArgonToPhoton2();
+generateArgonToPhoton2({
+    outputFile: 'photon-2-argon-comparison.svg'
+});
+
+generateArgonToPhoton2({
+    outputFile: 'photon-2-argon-spi-comparison.svg',
+    feature: 'spi',
+});
+
+generateArgonToPhoton2({
+    outputFile: 'photon-2-argon-serial-comparison.svg',
+    feature: 'serial',
+});
+
+generateArgonToPhoton2({
+    outputFile: 'photon-2-argon-adc-comparison.svg',
+    feature: 'hardwareADC',
+});
+
+generateArgonToPhoton2({
+    outputFile: 'photon-2-argon-pwm-comparison.svg',
+    feature: 'analogWritePWM',
+});

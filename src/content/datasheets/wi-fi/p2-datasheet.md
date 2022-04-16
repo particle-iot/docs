@@ -181,6 +181,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | D5 | 53 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
 | D6 | 55 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
 | D7 | 54 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| NC | 7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | RGBB | 31 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[22] |
 | RGBG | 32 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[23] |
 | RGBR | 29 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[30] |
@@ -378,6 +379,8 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 
 
 ### Complete module pin listing
+
+{{imageOverlay src="/assets/images/p2-pinout.svg" alt="P2 Pinout Diagram" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
 

@@ -271,7 +271,7 @@ SPI is mostly unchanged between the Boron and B Series SoM. The only difference 
 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
 | D3 | SPI1 (MOSI) | D3 | SPI1 (MOSI) |
 | D4 | SPI1 (MISO) | D4 | SPI1 (MISO) |
-| D8 | &nbsp; | D8 | SPI (SS) |
+| D8 / WKP | &nbsp; | D8 | SPI (SS) |
 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
 | SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) |
@@ -337,7 +337,7 @@ These are differences in pins that support PWM between the Boron and B Series So
 | D5 | &check; | D5 | &check; |
 | D6 | &check; | D6 | &check; |
 | D7 | &check; | D7 | &check; |
-| D8 | &check; | D8 | &nbsp; |
+| D8 / WKP | &check; | D8 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -622,6 +622,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | :--- | :--- | :--- |
 | Pin Number | 23 | 48 |
 | Pin Name | D8 | D8 |
+| Pin Alternate Name | WKP | n/a |
 | Description | GPIO, PWM | GPIO, SPI SS, Ethernet CS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |

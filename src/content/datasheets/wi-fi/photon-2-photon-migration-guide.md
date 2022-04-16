@@ -446,7 +446,9 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 
 ### Full module pin comparison
 
-{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Photon 2 Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
+
+{{imageOverlay src="/assets/images/photon-pinout.svg" alt="Photon Pinout Diagram" class="full-width"}}
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
