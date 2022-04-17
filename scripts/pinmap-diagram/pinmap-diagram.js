@@ -164,8 +164,11 @@ const svg = require('./svg');
                                         text = text.substring(0, offset);
                                     }    
                                 }
-        
-        
+                                else 
+                                if (typeof text === 'number') {
+                                    text = text.toString();
+                                }
+                                        
                                 if (text) {
                                     let bgColor = options.featureColors[key];
                                     if (!bgColor) {
@@ -336,6 +339,7 @@ const svg = require('./svg');
             name: '#6D6E71',
             num: '#E6AB00',
             p2pin: '#E6AB00',
+            p2Pin: '#E6AB00',
             serial: '#9695CA',
             spi: '#CCCCCC',
             swd: '#7B8FAE',
@@ -721,15 +725,15 @@ const svg = require('./svg');
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/feather.svg'),
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/photon-2-feather.svg'),
             // scale to make height 500px width 221
-            deviceImageTransform: 'translate(371,5) scale(1.71)',
-            width: 1000,
+            deviceImageTransform: 'translate(400,5) scale(1.71)',
+            width: 1100,
             height: 510,
             background: 'white',
             removeLiPin: true,
             pins: [
                 {   // Left side
                     num: 1,
-                    x: 370,
+                    x: 400,
                     y: 70,
                     numDelta: 1,
                     xDelta: 0,
@@ -738,6 +742,10 @@ const svg = require('./svg');
                     xDir: -1,
                     yDir: 0,
                     columns: [
+                        {
+                            width: 30,
+                            keys: ['p2Pin'],
+                        },
                         {
                             width: 30,
                             keys: ['name'],
@@ -765,7 +773,7 @@ const svg = require('./svg');
                 },
                 {   // Right side
                     num: 16,
-                    x: 598,
+                    x: 628,
                     y: 439,
                     numDelta: 1,
                     xDelta: 0,
@@ -774,6 +782,10 @@ const svg = require('./svg');
                     xDir: 1,
                     yDir: 0,
                     columns: [
+                        {
+                            width: 30,
+                            keys: ['p2Pin'],
+                        },
                         {
                             width: 30,
                             keys: ['name'],

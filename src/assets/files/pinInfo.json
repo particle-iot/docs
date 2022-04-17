@@ -29,7 +29,8 @@
           "isControl": true,
           "is5VTolerant": false,
           "hardwarePin": "PA[4]",
-          "mcuPin": 3
+          "mcuPin": 3,
+          "p2Pin": 46
         },
         {
           "num": 4,

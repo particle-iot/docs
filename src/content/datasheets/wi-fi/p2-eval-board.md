@@ -39,7 +39,10 @@ This is a simple breakout board for Particle's P2 Wi-Fi module. It breaks out al
 |    12 | MODE button|
 |    13 | SWD debugging connector |
 
+If powering by USB, 500 mA is required. This a compatible with most USB hubs, computers, laptops, and chargers, but will not work with some low-power USB ports on some keyboards.
  
+The P2 includes a built-in trace antenna that is used for both BLE and Wi-Fi. A U.FL connector is provided for an external antenna, if desired. The antenna selection must be made in software; the P2 will not automatically switch between built-in and external antennas. If using an external antenna, a dual-band (2.4 GHz and 5 GHz) antenna is required. The external antenna doesn't have to explicitly include BLE support, as the BLE frequencies are the same as 2.4 GHz Wi-Fi so all antennas are compatible.
+
 ## Expansion connectors
 
 ### Expansion header
@@ -63,6 +66,8 @@ This will work with most Feather boards, however:
 - Some pins have different names which may require minor source code modifications. This includes and code that used Argon or Boron pins A3, A4, A5, or D8.
 
 {{imageOverlay src="/assets/images/photon-2-feather.svg" alt="Feather" class="full-width"}}
+
+Additionally, the pinouts of the Feather accessory socket correspond to pinouts of the Photon 2. See the [Photon 2 Datasheet](/datasheets/wi-fi/photon-2-datasheet/) for more information.
 
 ### Qwiic connector
 
@@ -89,3 +94,5 @@ The P2 eval board has a 10 pin debug connector that exposes the SWD interface of
 Note that SWD is shared with GPIO pins D6 and D7, and by default SWD is only enabled while the bootloader is running, immediately at boot, and when in DFU mode (blinking yellow). Only Debug builds in Workbench have SWD enabled in when user firmware is running.
 
 <div align=center><img src="/assets/images/argon/swd-connector-pinout.png" ></div>
+
+The SWO pin is not used on the P2.
