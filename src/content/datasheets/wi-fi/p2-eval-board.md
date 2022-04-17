@@ -21,7 +21,7 @@ This is a simple breakout board for Particle's P2 Wi-Fi module. It breaks out al
 
 ## Description
 
-![P2 Eval Board Labeled](/assets/images/p2-eval-labeled.png)
+{{imageOverlay src="/assets/images/p2-eval-labeled.png" alt="P2 eval board" class="full-width"}}
 
 | Label | Description |
 | :---: | :--- |
@@ -55,6 +55,8 @@ See the [P2 Datasheet](/datasheets/wi-fi/p2-datasheet/) for details about the pi
 
 ### Feather expansion
 
+{{imageOverlay src="/assets/images/photon-2-feather.svg" alt="Feather" class="full-width"}}
+
 There are two socket for [Feather accessory boards](/community/feather/). These are only for use with displays, sensors, storage, etc.. 
 
 You must not plug a Particle device such as an Argon or Boron in this socket, as the device may be permanently damaged.
@@ -65,13 +67,28 @@ This will work with most Feather boards, however:
 - The P2 does not work with Feather accessories that use SPI1 on the Argon or Boron D pins.
 - Some pins have different names which may require minor source code modifications. This includes and code that used Argon or Boron pins A3, A4, A5, or D8.
 
-{{imageOverlay src="/assets/images/photon-2-feather.svg" alt="Feather" class="full-width"}}
+The pinouts of the Feather accessory socket correspond to pinouts of the Photon 2. See the [Photon 2 Datasheet](/datasheets/wi-fi/photon-2-datasheet/) and the [Argon to Photon 2 migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/) for more information.
 
-Additionally, the pinouts of the Feather accessory socket correspond to pinouts of the Photon 2. See the [Photon 2 Datasheet](/datasheets/wi-fi/photon-2-datasheet/) for more information.
+Some pins in the same positions are named differently between the Argon/Boron and the Feather accessory socket/Photon 2:
+
+| Argon Name | P2 Feather Socket Name |
+| :---: | :---: |
+| A3 | A5 |
+| A4 | S4 |
+| A5 | S3 |
+| D8 | D10 |
+
+Additionally, `D` pin aliases `D8` and higher are different, however these names are rarely used.
+
+{{imageOverlay src="/assets/images/photon-2-argon-comparison.svg" alt="Pin name comparison" class="full-width"}}
+
 
 ### Qwiic connector
 
 [Qwiic](/community/qwiic) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
+
+<div align="center"><img src="/assets/images/qwiic/qwiic-bme280.jpg" class="small" ></div>
+
 
 ### Grove connector
 
@@ -86,6 +103,8 @@ If you are not using I2C elsewhere (Feather, Qwiic), you can use these pins as d
 | D0/SDA | SDA | D0 | A3 |
 | D1/SCL | SCL | D1 | A4 |
 
+<div align="center"><img src="/assets/images/accessories/grove-mesh-starter-kit/temphumi.png" ></div>
+
 
 ## SWD debugging connector
 
@@ -93,6 +112,6 @@ The P2 eval board has a 10 pin debug connector that exposes the SWD interface of
 
 Note that SWD is shared with GPIO pins D6 and D7, and by default SWD is only enabled while the bootloader is running, immediately at boot, and when in DFU mode (blinking yellow). Only Debug builds in Workbench have SWD enabled in when user firmware is running.
 
-<div align=center><img src="/assets/images/argon/swd-connector-pinout.png" ></div>
+<div align="center"><img src="/assets/images/argon/swd-connector-pinout.png" class="small"></div>
 
 The SWO pin is not used on the P2.
