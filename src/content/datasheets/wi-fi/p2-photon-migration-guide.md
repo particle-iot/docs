@@ -457,7 +457,7 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 | D2 | I2S3_SD | D2 | &nbsp; |
 | D4 | I2S3_SCK | D4 | &nbsp; |
 | D5 | I2S3_WS | D5 | &nbsp; |
-| SETUP | I2S3_MCK | SETUP | &nbsp; |
+| SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -500,6 +500,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Name | Description |
 | :--- | :--- |
 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
+| SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. |
 | VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
 | VIN | Power in 3.6V to 5.5 VDC. Or power out (when powered by USB) 4.8 VDC at 1A maximum. |
 
@@ -515,6 +516,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :---: | :--- | :--- |
 | 5 | 3V3_IO | 3.3V power to MCU IO. |
 | 2 | 3V3_RF | 3.3V power to RF module |
+| 46 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
@@ -829,6 +831,13 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 2 | 1 |
 | Pin Name | GND | GND |
 | Description | Ground. You only need to use one of the Photon ground pins. | Ground. Be sure you connect all P1 ground pins. |
+#### MODE
+| | Added to P2 |
+| :--- | :--- |
+| Pin Number | 46|
+| Pin Name | MODE|
+| Description | MODE button, has internal pull-up. Pin number constant is BTN.|
+| Supports attachInterrupt | Yes|
 #### NC
 | | Added to P2 |
 | :--- | :--- |
@@ -962,13 +971,12 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
 #### SETUP
-|   | Photon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 26 | 46 |
-| Pin Name | SETUP | SETUP |
-| Description | SETUP button, has internal pull-up. Pin number constant is BTN. | SETUP button, has internal pull-up. Pin number constant is BTN. |
-| Supports attachInterrupt | n/a | Yes |
-| I2S interface | I2S3_MCK | n/a |
+| | Removed from Photon |
+| :--- | :--- |
+| Pin Number | 26|
+| Pin Name | SETUP|
+| Description | SETUP button, has internal pull-up. Pin number constant is BTN.|
+| I2S interface | I2S3_MCK|
 #### TX
 |   | Photon | P2 |
 | :--- | :--- | :--- |

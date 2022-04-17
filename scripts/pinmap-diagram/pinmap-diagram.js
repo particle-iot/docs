@@ -34,6 +34,24 @@ const svg = require('./svg');
 
         diagram.expandMorePins(diagram.platformInfo.pins);
 
+        if (options.removeLiPin) {
+            for(let p of diagram.platformInfo.pins) {
+                if (p.name == 'LI+') {
+                    p.name = 'NC';
+                    p.desc = 'Not connected';
+                    p.isPower = false;
+                }
+            }
+            /*
+            for(let ii = 0; ii < diagram.platformInfo.pins.length; ii++) {
+                if (diagram.platformInfo.pins[ii].name == 'LI+') {
+                    diagram.platformInfo.pins[ii].name = 'NC';
+                    diagram.platformInfo.pins[ii].desc = 'Not connected';
+                }
+            }
+            */
+        }
+
         if (options.comparePlatform) {
             diagram.comparePlatformInfo = diagram.pinInfo.platforms.find(e => e.name == options.comparePlatform);            
             diagram.expandMorePins(diagram.comparePlatformInfo.pins);
@@ -153,7 +171,14 @@ const svg = require('./svg');
                                     if (!bgColor) {
                                         bgColor = 'white';
                                     }
-                                
+                                    let textColor = options.featureTextWhite.includes(key) ? 'white' : 'black';
+                                    
+                                    if (key == 'isPower' && text == 'GND') {
+                                        // Marked as isPower in pinInfo, but override red color to black
+                                        bgColor = 'black';
+                                        textColor = 'white';
+                                    }
+
                                     if (dir < 0) {
                                         group.line({
                                             x1: xBar, 
@@ -195,7 +220,7 @@ const svg = require('./svg');
                                         'dominant-baseline': 'middle',
                                         'font-family': options.fontFamily,
                                         'font-size': options.boxFontSize,
-                                        fill: options.featureTextWhite.includes(key) ? 'white' : 'black',
+                                        fill: textColor,
                                     }, text);        
     
                                     break; 
@@ -267,14 +292,21 @@ const svg = require('./svg');
         }
 
         const newContents = draw.render();
-        
+        let saveFile = false;
+
         if (fs.existsSync(options.outputPath)) {
             const oldContents = fs.readFileSync(options.outputPath, 'utf8');
             if (oldContents != newContents) {
-                fs.writeFileSync(options.outputPath, newContents);
+                saveFile = true;
             }
         }
+        else {
+            saveFile = true;
+        }
 
+        if (saveFile) {
+            fs.writeFileSync(options.outputPath, newContents);
+        }
         
 
     };
@@ -303,6 +335,7 @@ const svg = require('./svg');
             jtag: '#7B8FAE',
             name: '#6D6E71',
             num: '#E6AB00',
+            p2pin: '#E6AB00',
             serial: '#9695CA',
             spi: '#CCCCCC',
             swd: '#7B8FAE',
@@ -673,12 +706,205 @@ const svg = require('./svg');
                         },
                     ],
                 },
+            ],
+        });
+
+        await diagram.generate(options);
+    }
+
+
+    diagram.generateFeatherPhoton2 = async function(generateOptions) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Photon 2',
+            // height="610" width="270"
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/feather.svg'),
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/photon-2-feather.svg'),
+            // scale to make height 500px width 221
+            deviceImageTransform: 'translate(371,5) scale(1.71)',
+            width: 1000,
+            height: 510,
+            background: 'white',
+            removeLiPin: true,
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 370,
+                    y: 70,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 15,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 16,
+                    x: 598,
+                    y: 439,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 12,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
             ]
         });
 
         await diagram.generate(options);
     }
 
+
+
+    diagram.generateP2Eval = async function(generateOptions) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'P2 Eval',
+            // 104 818 
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/header-40.svg'),
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/p2-eval.svg'),
+            // scale to make height 500px
+            deviceImageTransform: 'translate(420,12) scale(0.618)',
+            width: 1000,
+            height: 600,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 420,
+                    y: 30,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 20,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['p2pin'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 21,
+                    x: 482,
+                    y: 497.4,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 20,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['p2pin'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options);
+    }
 
     diagram.generateP2 = async function (generateOptions) {
         
@@ -939,6 +1165,7 @@ const svg = require('./svg');
         await diagram.generate(options);
     }
 
+    
     diagram.generateAll = async function (generateOptions) {
         // generateOptions:
         //      topDir - top of the docs directory (contains src directory)
@@ -949,7 +1176,7 @@ const svg = require('./svg');
         await diagram.generatePhoton(generateOptions);
         
         await diagram.generateElectron(generateOptions);
-        
+
         await diagram.generateP2(Object.assign({
             platformName: 'P1'
         }, generateOptions));
@@ -960,6 +1187,10 @@ const svg = require('./svg');
         
         await diagram.generatePhoton2(generateOptions);
         
+        await diagram.generateFeatherPhoton2(generateOptions);
+        
+        await diagram.generateP2Eval(generateOptions);
+
         await diagram.generateArgonToPhoton2(Object.assign({
             outputFile: 'photon-2-argon-comparison.svg'
         }, generateOptions));
@@ -985,8 +1216,86 @@ const svg = require('./svg');
         }, generateOptions));    
     }
 
+    diagram.buildP2Eval = function(pinInfo) {
+        let evalPlatform = pinInfo.platforms.find(p => p.name == 'P2 Eval');
+        let p2Platform = pinInfo.platforms.find(p => p.name == 'P2');
+
+        for(let pinObj of evalPlatform.pins) {
+            if (pinObj.p2pin) {
+                const p2pinObj = p2Platform.pins.find(p => p.num == pinObj.p2pin);
+                for(const key in p2pinObj) {
+                    if (key != 'num') {
+                        if (pinObj[key] != p2pinObj[key]) {
+                            pinObj[key] = p2pinObj[key];
+                            console.log('updated p2 eval key=' + key + ' value=' + p2pinObj[key]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    diagram.cleanPinInfo = function(options) {
+        const origText = fs.readFileSync(options.pinInfo, 'utf8');
+        let pinInfo = JSON.parse(origText);
+
+        diagram.buildP2Eval(pinInfo);
+
+        // Sort platforms by id (then by name)
+        pinInfo.platforms.sort(function(a, b) {
+            let cmp = a.id - b.id;
+            if (cmp) {
+                return cmp;
+            }
+            return a.name.localeCompare(b.name);
+        });
+
+        for(const platform of pinInfo.platforms) {
+            platform.pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+            /*
+            for(let pinObj of platform.pins) {
+                const pinObjOrig = Object.assign({}, pinObj);
+
+                // These keys are first in this order. The rest follow alphabetically
+                const firstKeys = ['num', 'name', 'altName', 'desc'];
+
+                const allKeys = Object.keys(pinObj);
+                let sortKeys = [];
+                for(const k of allKeys) {
+                    if (!firstKeys.includes(k)) {
+                        sortKeys.push(k);
+                    }
+                }
+                sortKeys.sort(function(a, b) {
+                    return a.localeCompare(b);
+                })
+
+                pinObj = {};
+                for(const k of firstKeys) {
+                    if (pinObjOrig[k]) {
+                        pinObj[k] = pinObjOrig[k];
+                    }
+                }
+                for(const k of sortKeys) {
+                    pinObj[k] = pinObjOrig[k];
+                }
+            }
+            */
+        }
+
+        const newText = JSON.stringify(pinInfo, null, 2);
+        if (origText != newText) {
+            fs.writeFileSync(options.pinInfo, newText);
+        }
+
+    };
+
+    
     diagram.metalsmith = async function(files, metalsmith, done, generateOptions) {
         await diagram.generateAll(generateOptions);
+        diagram.cleanPinInfo(generateOptions);
         done();
     }
     

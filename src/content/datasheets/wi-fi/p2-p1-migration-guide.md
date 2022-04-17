@@ -360,7 +360,7 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 | Pin | P1 Pin Name | P1 I2S | P2 Pin Name | P2 I2S |
 | :---: | :--- | :--- | :--- | :--- |
 | 45 | D2 | I2S3_SD | D2 | &nbsp; |
-| 46 | SETUP | I2S3_MCK | SETUP | &nbsp; |
+| 46 | MODE | I2S3_MCK | MODE | &nbsp; |
 | 52 | D4 | I2S3_SCK | D4 | &nbsp; |
 | 53 | D5 | I2S3_WS | D5 | &nbsp; |
 
@@ -783,11 +783,11 @@ The following pins were NC on the P1 but are used on the P2.
 | CAN interface | CAN2_RX | n/a |
 | I2S interface | I2S3_SD | n/a |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 46 (SETUP)
+#### Module Pin 46 (MODE)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
-| Pin Name | SETUP | SETUP |
-| Description | SETUP button, has internal pull-up. Pin number constant is BTN. | SETUP button, has internal pull-up. Pin number constant is BTN. |
+| Pin Name | MODE | MODE |
+| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
 | Supports attachInterrupt | n/a | Yes |
 | I2S interface | I2S3_MCK | n/a |
 #### Module Pin 47 (P1S4 / S4)

@@ -1,10 +1,14 @@
 const path = require('path');
 
-const pinmapDiagram = require('./pinmap-diagram.js');
+const diagram = require('./pinmap-diagram.js');
 
 const topDir = path.normalize(path.join(__dirname, '..', '..'));
 
-pinmapDiagram.generateAll({
+let options = {
     topDir,
     pinInfo: path.normalize(path.join(topDir, 'src', 'assets', 'files', 'pinInfo.json')),
-})
+};
+
+diagram.generateAll(options);
+
+diagram.cleanPinInfo(options);

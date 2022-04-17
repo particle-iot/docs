@@ -27,7 +27,7 @@ VIN    </text>
 GND    </text>
     <line x1="-30" y1="0" x2="-68" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-123" y="-8" width="55" height="16" stroke="black" fill="black" >
     </rect>
     <text x="-95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -533,7 +533,7 @@ PA13    </text>
 GND    </text>
     <line x1="30" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="black" >
     </rect>
     <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
