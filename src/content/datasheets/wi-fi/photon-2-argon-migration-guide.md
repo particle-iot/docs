@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the Argon to Photon 2
 
 # Photon 2 from Argon Migration Guide
 
-**Preliminary pre-release version 2022-03-14**
+**Preliminary pre-release version 2022-04-18**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release migration guide and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
@@ -82,22 +82,45 @@ The Argon requires an external Wi-Fi antenna, and has a built-in chip antenna fo
 
 The Photon 2 has a built-in trace antenna that is shared by Wi-Fi and BLE. It can optionally use an external 2.4 GHz antenna for both Wi-Fi and BLE.
 
+### Pin Names
+
+{{imageOverlay src="/assets/images/photon-2-argon-comparison.svg" alt="Pin name comparison" class="full-width"}}
+
+Some pins in the same positions are named differently between the Argon and Photon 2:
+
+| Argon Name | Photon 2 Name |
+| :---: | :---: |
+| A3 | A5 |
+| A4 | S4 |
+| A5 | S3 |
+| D8 | D10 |
+
+Additionally, `D` pin aliases `D8` and higher are different, however these names are rarely used.
+
+
+
 ### SPI
 
-Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
+{{imageOverlay src="/assets/images/photon-2-argon-spi-comparison.svg" alt="SPI comparison" class="full-width"}}
+
+Pins for `SPI` are unchanged between the Argon and Photon 2.
+
+The the pin functions for `SPI1` on the `D` pins are different between the Argon and Photon 2! While they both use D2 - D4, the order of SCK, MOSI, and MISO are different so you cannot plug a Photon 2 into an Argon base board that uses SPI1.
+
+Most boards, including Ethernet, use primary `SPI`, which works the same between the Argon and Photon 2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
 
 | Argon Pin Name | Argon SPI | Photon 2 Pin Name | Photon 2 SPI |
 | :--- | :--- | :--- | :--- |
-| A5 / D14 | SPI (SS) | A5 / D14 | SPI (SS) |
-| D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
-| D3 | SPI1 (MOSI) | D3 | SPI1 (MOSI) |
-| D4 | SPI1 (MISO) | D4 | SPI1 (MISO) |
-| D5 | &nbsp; | D5 / WKP | SPI1 (SS) |
-| MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
-| MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
-| SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) |
+| A5 / D14 | SPI (SS) | S3 / D18 | SPI (SS) |
+| SCK / D13 | SPI (SCK) | SCK / D17 | SPI (SCK) |
+| MOSI / D12 | SPI (MOSI) | MOSI / D15 | SPI (MOSI) |
+| MISO / D11 | SPI (MISO) | MISO / D16 | SPI (MISO) |
+| D2 | SPI1 (SCK) | D2 | SPI1 (MOSI) |
+| D3 | SPI1 (MOSI) | D3 | SPI1 (MISO) |
+| D4 | SPI1 (MISO) | D4 | SPI1 (SCK) |
+| D5 | &nbsp; | D5 | SPI1 (SS) |
 
 
 {{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
@@ -105,6 +128,7 @@ Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
 - Any available GPIO can be used for SS/CS (chip select) pins.
 - Each SPI device must have a unique CS pin.
 - The Argon supports SPI slave mode only on `SPI1` (D pins).
+
 
 #### SPI - Gen 3 devices (including Argon)
 
@@ -128,10 +152,11 @@ Pins for both `SPI` and `SPI1` are unchanged between the Argon and Photon 2.
 
 ### Serial (UART)
 
+{{imageOverlay src="/assets/images/photon-2-argon-serial-comparison.svg" alt="Serial comparison" class="full-width"}}
 
-The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 2 and Argon. There is no hardware flow control on this port on the Photon 2 or Argon.
+The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 2 and Argon. There is no hardware flow control on this port on the Photon 2, but there is on the Argon.
 
-The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
+The secondary UART serial (`Serial2`) exists on the Photon 2 but not the Argon, and also supports CTS/RTS hardware flow control. This is recommended if you need serial with hardware flow control on the Photon 2.
 
 There is a third UART serial (`Serial3`) on the Photon 2 that also supports optional CTS/RTS hardware flow control.
 
@@ -139,16 +164,16 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 
 | Argon Pin Name | Argon Serial | Photon 2 Pin Name | Photon 2 Serial |
 | :--- | :--- | :--- | :--- |
-| A3 / D16 | &nbsp; | D16 | Serial3 (RX) |
+| SCK / D13 | &nbsp; | SCK / D17 | Serial3 (RTS) |
+| MOSI / D12 | &nbsp; | MOSI / D15 | Serial3 (TX) |
+| MISO / D11 | &nbsp; | MISO / D16 | Serial3 (RX) |
+| RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
+| TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
 | D2 | Serial1 RTS | D2 | Serial2 (RTS) |
-| D3 | Serial1 CTS | D3 | Serial2 (TX) |
-| D4 | &nbsp; | D4 | Serial2 (RX) |
-| D5 | &nbsp; | D5 / WKP | Serial2 (CTS) |
-| MISO / D11 | &nbsp; | MISO / D11 | Serial3 (CTS) |
-| MOSI / D12 | &nbsp; | MOSI / D12 | Serial3 (RTS) |
-| RX / D10 | Serial1 RX | RX / D10 | Serial1 (RX)  |
-| SCK / D13 | &nbsp; | SCK / D13 | Serial3 (TX) |
-| TX / D09 | Serial1 TX | TX / D9 | Serial1 (TX) |
+| D3 | Serial1 CTS | D3 | Serial2 (CTS) |
+| D4 | &nbsp; | D4 | Serial2 (TX) |
+| D5 | &nbsp; | D5 | Serial2 (RX) |
+| D8 / WKP | &nbsp; | D10 / WKP | Serial3 (CTS) |
 
 
 {{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
@@ -169,7 +194,52 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 
 <sup>2</sup>On the Argon, the buffer be resized larger in Device OS 3.2.0 and later.
 
+{{!-- BEGIN do not edit content below, it is automatically generated c6b3f6a9-8b4c-4e97-aa7d-ded5eff1f56d --}}
+Supported Baud Rates:
+
+| Baud Rate | Argon | P2 |
+| ---: | :---: | :---|
+| 110     | | &check; |
+| 300     | | &check; |
+| 600     | | &check; |
+| 1200    | &check; | &check; |
+| 2400    | &check; | |
+| 4800    | &check; | |
+| 9600    | | &check; |
+| 14400   | | &check; |
+| 19200   | &check; | &check; |
+| 28800   | &check; | &check; |
+| 38400   | &check; | &check; |
+| 57600   | &check; | &check; |
+| 76800   | &check; | &check; |
+| 115200  | &check; | &check; |
+| 128000  | | &check; |
+| 153600  | | &check; |
+| 230400  | &check; | &check; |
+| 250000  | &check; | |
+| 460800  | &check; | |
+| 500000  | | &check; |
+| 921600  | &check; | &check; |
+| 1000000 | &check; | &check; |
+| 1382400 | | &check; |
+| 1444400 | | &check; |
+| 1500000 | | &check; |
+| 1843200 | | &check; |
+| 2000000 | | &check; |
+| 2100000 | | &check; |
+| 2764800 | | &check; |
+| 3000000 | | &check; |
+| 3250000 | | &check; |
+| 3692300 | | &check; |
+| 3750000 | | &check; |
+| 4000000 | | &check; |
+| 6000000 | | &check; |
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 ### Analog input (ADC)
+
+{{imageOverlay src="/assets/images/photon-2-argon-adc-comparison.svg" alt="ADC comparison" class="full-width"}}
 
 For analog to digital conversion (ADC) using `analogRead()`.
 
@@ -182,12 +252,12 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 | Argon Pin Name | Argon ADC | Photon 2 Pin Name | Photon 2 ADC |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D19 | &check; |
-| A1 / D18 | &check; | A1 / D18 | &check; |
-| A2 / D17 | &check; | A2 / D17 | &check; |
-| A3 / D16 | &check; | D16 | &nbsp; |
-| A4 / D15 | &check; | D15 | &nbsp; |
-| A5 / D14 | &check; | A5 / D14 | &check; |
+| A0 / D19 | &check; | A0 / D11 | &check; |
+| A1 / D18 | &check; | A1 / D12 | &check; |
+| A2 / D17 | &check; | A2 / D13 | &check; |
+| A3 / D16 | &check; | A5 / D14 | &check; |
+| A4 / D15 | &check; | S4 / D19 | &nbsp; |
+| A5 / D14 | &check; | S3 / D18 | &nbsp; |
 | D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
 
@@ -197,6 +267,8 @@ For analog to digital conversion (ADC) using `analogRead()`.
 
 ### PWM (Pulse-width modulation)
 
+{{imageOverlay src="/assets/images/photon-2-argon-pwm-comparison.svg" alt="ADC comparison" class="full-width"}}
+
 The pins that support PWM are different on the Argon and Photon 2.
 
 
@@ -204,21 +276,23 @@ The pins that support PWM are different on the Argon and Photon 2.
 
 | Argon Pin Name | Argon PWM | Photon 2 Pin Name | Photon 2 PWM |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D19 | &nbsp; |
-| A1 / D18 | &check; | A1 / D18 | &nbsp; |
-| A2 / D17 | &check; | A2 / D17 | &check; |
-| A3 / D16 | &check; | D16 | &nbsp; |
-| A4 / D15 | &check; | D15 | &nbsp; |
-| A5 / D14 | &check; | A5 / D14 | &check; |
+| A0 / D19 | &check; | A0 / D11 | &nbsp; |
+| A1 / D18 | &check; | A1 / D12 | &nbsp; |
+| A2 / D17 | &check; | A2 / D13 | &check; |
+| A3 / D16 | &check; | A5 / D14 | &check; |
+| A4 / D15 | &check; | S4 / D19 | &nbsp; |
+| A5 / D14 | &check; | S3 / D18 | &nbsp; |
+| MOSI / D12 | &nbsp; | MOSI / D15 | &check; |
+| MISO / D11 | &nbsp; | MISO / D16 | &check; |
 | D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
 | D2 | &check; | D2 | &nbsp; |
-| D3 | &check; | D3 | &check; |
-| D4 | &check; | D4 | &check; |
-| D5 | &check; | D5 / WKP | &nbsp; |
+| D3 | &check; | D3 | &nbsp; |
+| D4 | &check; | D4 | &nbsp; |
+| D5 | &check; | D5 | &nbsp; |
 | D6 | &check; | D6 | &nbsp; |
 | D7 | &check; | D7 | &nbsp; |
-| D8 | &check; | D8 | &nbsp; |
+| D8 / WKP | &check; | D10 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
@@ -265,22 +339,38 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 
 ### Full module pin comparison
 
-{{imageOverlay src="/assets/images/argon/argon-pinout.png" alt="Argon Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/argon-pinout.svg" alt="Argon Pinout Diagram" class="full-width"}}
 
-{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Photon 2 Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
+#### RST
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | RST|
+| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### 3V3
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | 3V3 | 3V3 |
 | Description | Regulated 3.3V DC output, maximum load 1000 mA | Regulated 3.3V DC output, maximum load 500 mA |
+#### MODE
+|   | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | MODE | MODE |
+| Pin Alternate Name | D20 | n/a |
+| Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
+#### GND
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | GND|
+| Description | Ground.|
 #### A0
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0 |
-| Pin Alternate Name | D19 | D19 |
+| Pin Alternate Name | D19 | D11 |
 | Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -292,7 +382,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1 |
-| Pin Alternate Name | D18 | D18 |
+| Pin Alternate Name | D18 | D12 |
 | Description | A1 Analog in, GPIO, PWM | A1 Analog in, GPIO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -304,7 +394,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2 |
-| Pin Alternate Name | D17 | D17 |
+| Pin Alternate Name | D17 | D13 |
 | Description | A2 Analog in, GPIO, PWM | A2 Analog in, GPIO, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -312,43 +402,99 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### A3
+#### A3 / A5
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
-| Pin Name | A3 | D16 |
-| Pin Alternate Name | D16 | n/a |
-| Description | A3 Analog in, GPIO, PWM | D16 GPIO, Serial3 RX. Was A3 on Argon. |
+| Pin Name | A3 | A5 |
+| Pin Alternate Name | D16 | D14 |
+| Description | A3 Analog in, GPIO, PWM | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | No |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| UART serial | n/a | RX. Use Serial3 object. |
+| Supports analogRead | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### A4
+#### A4 / S4
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
-| Pin Name | A4 | D15 |
-| Pin Alternate Name | D15 | n/a |
-| Description | A4 Analog in, GPIO, PWM | D15 GPIO, Was A4 on Argon. |
+| Pin Name | A4 | S4 |
+| Pin Alternate Name | D15 | D19 |
+| Description | A4 Analog in, GPIO, PWM | S4 GPIO, Was A4 on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### A5
+#### A5 / S3
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
-| Pin Name | A5 | A5 |
-| Pin Alternate Name | D14 | D14 |
-| Description | A5 Analog in, GPIO, PWM, SPI SS | A5 Analog in, PWM, SPI SS, GPIO |
+| Pin Name | A5 | S3 |
+| Pin Alternate Name | D14 | D18 |
+| Description | A5 Analog in, GPIO, PWM, SPI SS | S3 GPIO, SPI SS, Was A5 on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
-| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SS. Use SPI object. Can use any GPIO for SS/CS. |
+| Supports analogRead | Yes | No |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | Default SS for SPI. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### SCK
+|   | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | SCK | SCK |
+| Pin Alternate Name | D13 | D17 |
+| Description | SPI SCK, GPIO | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
+| SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### MOSI
+|   | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | MOSI | MOSI |
+| Pin Alternate Name | D12 | D15 |
+| Description | SPI MOSI, GPIO | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | No | Yes |
+| Supports tone | No | Yes |
+| UART serial | n/a | TX. Use Serial3 object. |
+| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### MISO
+|   | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | MISO | MISO |
+| Pin Alternate Name | D11 | D16 |
+| Description | SPI MISO, GPIO | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | No | Yes |
+| Supports tone | No | Yes |
+| UART serial | n/a | RX. Use Serial3 object. |
+| SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### RX
+|   | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | RX | RX |
+| Pin Alternate Name | D10 | D9 |
+| Description | Serial RX, GPIO | Serial1 RX (received data), GPIO |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| UART serial | RX Use Serial1 object. | RX. Use Serial1 object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### TX
+|   | Argon | Photon 2 |
+| :--- | :--- | :--- |
+| Pin Name | TX | TX |
+| Pin Alternate Name | D09 | D8 |
+| Description | Serial TX, GPIO | Serial1 TX (transmitted data), GPIO |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D0
 |   | Argon | Photon 2 |
@@ -380,52 +526,51 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
-| Description | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 GPIO, Serial2 RTS, SPI1 SCK. |
+| Description | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | UART serial | Options RTS hardware flow control for Serial1 | RTS. Use Serial2 object. Flow control optional. |
-| SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
+| SPI interface | SCK. Use SPI1 object. | MOSI. Use SPI1 object. |
 | I2C interface | SDA. Use Wire1 object. | n/a |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D3
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
-| Description | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. |
+| Description | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 GPIO, Serial2 CTS, SPI1 MISO |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A4, A5, D2, and D3 must have the same frequency. | Yes |
-| UART serial | Options CTS hardware flow control for Serial1 | TX. Use Serial2 object. |
-| SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
+| UART serial | Options CTS hardware flow control for Serial1 | CTS. Use Serial2 object. Flow control optional. |
+| SPI interface | MOSI. Use SPI1 object. | MISO. Use SPI1 object. |
 | I2C interface | SCL. Use Wire1 object. | n/a |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D4
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
-| Description | SPI1 MISO, PWM, GPIO | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. |
+| Description | SPI1 MISO, PWM, GPIO | D4 GPIO, Serial2 TX, SPI1 SCK |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | Yes |
-| UART serial | n/a | RX. Use Serial2 object. |
-| SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| UART serial | n/a | TX. Use Serial2 object. |
+| SPI interface | MISO. Use SPI1 object. | SCK. Use SPI1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D5
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
-| Pin Alternate Name | n/a | WKP |
-| Description | PWM, GPIO | GPIO D5, Serial2 CTS, SPI1 SS. |
+| Description | PWM, GPIO | D5 GPIO, Serial2 RX, SPI1 SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| UART serial | n/a | CTS. Use Serial2 object. Flow control optional. |
-| SPI interface | n/a | SS. Use SPI1 object. Can use any GPIO for SPI SS/CS. |
+| UART serial | n/a | RX. Use Serial2 object. |
+| SPI interface | n/a | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D6
 |   | Argon | Photon 2 |
@@ -442,100 +587,23 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
-| Description | PWM, GPIO | D7 GPIO. Blue LED. |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
+| Description | PWM, GPIO | D7 GPIO, Blue LED, SWDIO |
+| Supports digitalRead | Yes | Yes. |
+| Supports digitalWrite | Yes | Yes. On the Photon this is the blue D7 LED. |
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### D8
+| SWD interface | n/a | SWDIO. 40K pull-up at boot. |
+#### D8 / D10
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
-| Pin Name | D8 | D8 |
-| Description | GPIO, PWM | GPIO, PWM, SWDIO |
-| Supports digitalRead | Yes | Yes. |
-| Supports digitalWrite | Yes | Yes. |
+| Pin Name | D8 | D10 |
+| Pin Alternate Name | WKP | WKP |
+| Description | GPIO, PWM | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| SWD interface | n/a | SWDIO. 40K pull-up at boot. |
-#### EN
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | EN|
-| Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
-#### GND
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | GND|
-| Description | Ground.|
-#### LI+
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | LI+|
-| Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
-#### MISO
-|   | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | MISO | MISO |
-| Pin Alternate Name | D11 | D11 |
-| Description | SPI MISO, GPIO | SPI MISO, D11 GPIO, Serial3 CTS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
 | UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
-| SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### MODE
-|   | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | MODE | MODE |
-| Pin Alternate Name | D20 | n/a |
-| Description | MODE button, has internal pull-up | MODE button, has internal pull-up |
-#### MOSI
-|   | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | MOSI | MOSI |
-| Pin Alternate Name | D12 | D12 |
-| Description | SPI MOSI, GPIO | SPI MOSI, D12 GPIO, Serial3 RTS |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
-| SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### RST
-| | Unchanged between Argon and Photon 2 |
-| :--- | :--- |
-| Pin Name | RST|
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
-#### RX
-|   | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | RX | RX |
-| Pin Alternate Name | D10 | D10 |
-| Description | Serial RX, GPIO | Serial1 RX (received data), GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | RX Use Serial1 object. | RX. Use Serial1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### SCK
-|   | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | SCK | SCK |
-| Pin Alternate Name | D13 | D13 |
-| Description | SPI SCK, GPIO | SPI SCK, D13 GPIO, Serial3 TX |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | n/a | TX. Use Serial3 object. |
-| SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### TX
-|   | Argon | Photon 2 |
-| :--- | :--- | :--- |
-| Pin Name | TX | TX |
-| Pin Alternate Name | D09 | D9 |
-| Description | Serial TX, GPIO | Serial1 TX (transmitted data), GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### VUSB
 | | Unchanged between Argon and Photon 2 |
@@ -543,6 +611,16 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Pin Name | VUSB|
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
+#### EN
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | EN|
+| Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
+#### LI+
+| | Unchanged between Argon and Photon 2 |
+| :--- | :--- |
+| Pin Name | LI+|
+| Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 
 
 {{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
@@ -585,3 +663,5 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |:---:|:---:|:---:|:----|
 | pre | 2022-03-02 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
+|     | 2022-04-12 | RK | Added serial baud rates |
+|     | 2022-04-18 | RK | Major changes to pinmap to align with P2 |

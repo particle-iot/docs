@@ -51,6 +51,7 @@ var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
+var pinmapDiagram = require('./pinmap-diagram/pinmap-diagram.js');
 var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
@@ -137,6 +138,14 @@ exports.metalsmith = function () {
         carriersUpdate.doUpdate(__dirname, files);
         done();
       }))
+    .use(msIf(
+        environment === 'development',
+        function(files, metalsmith, done) {
+            pinmapDiagram.metalsmith(files, metalsmith, done, {
+              topDir: path.normalize(path.join(__dirname, '..')),
+              pinInfo: path.normalize(path.join(__dirname, '..', 'src', 'assets', 'files', 'pinInfo.json')),
+            });
+        }))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'

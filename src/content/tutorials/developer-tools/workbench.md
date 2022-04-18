@@ -18,6 +18,8 @@ description: Desktop IDE for programming Particle IoT devices for Windows, Mac O
 
 {{youtube "https://www.youtube.com/embed/w7xOmJR2HeE"}}
 
+If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, see [Tracker Edge Firmware](/tutorials/asset-tracking/tracker-edge-firmware/) for additional information.
+
 ## Workbench Features
 
 ### Welcome Screen

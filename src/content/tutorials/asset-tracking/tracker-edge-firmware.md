@@ -26,6 +26,52 @@ Instead of having to manually upload firmware that you write, by default new rel
 
 Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
 
+## Development device setup
+
+If you are going to develop firmware for the Tracker One or Tracker SoM, you have to perform a few additional steps.
+
+- Your firmware will typically be based on Tracker Edge, as outlined below. This is not a requirement and you can build your own firmware from the ground-up, however you will not have the cloud configuration, location event support, and the libraries for the GNSS (GPS), IMU (accelerometer), CAN bus, and other Tracker-specific peripherals.
+- All Tracker devices must be part of a product, as described in [setup](/tutorials/asset-tracking/setup/).
+- By default, Tracker devices are not claimed to your account. This may affect development.
+
+### Mark as development device
+
+- Go to the [console](https://console.particle.io).
+- Open the product containing your Tracker device.
+- In the Device List, click the **...** button and then **Mark development device**.
+
+For more information, see [Development devices](/tutorials/product-tools/development-devices/).
+
+<img src="/assets/images/development-devices/mark-development-device.png"
+alt="Mark development device" class="small"/>
+
+
+### Claiming the device
+
+By default, Tracker devices are not claimed to your account. This will affect the workflow in Workbench and there are two options:
+
+#### Leave unclaimed
+
+You can choose to leave your device unclaimed, however:
+
+- When prompted to select the Tracker device you want to work with, will need to specify it by Device ID (24 character hex) or hit Esc and manually put the Tracker in DFU mode (blinking yellow) using the buttons on the device.
+
+- You will not be able to subscribe to events from your custom firmware.
+
+#### Claim
+
+Or you can claim the device to your account. You can do so with the Particle CLI.
+
+- Get the device ID of the tracker. It will be displayed in the device list where you marked the device as a development device, above.
+
+- Use the Particle CLI command:
+
+```
+particle device add <device-id>
+```
+
+Replace &lt;device-id> with the 24-character hex device ID.
+
 ## Getting the Tracker Edge Firmware
 
 You can download a complete project for use with Particle Workbench as a zip file here:

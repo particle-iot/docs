@@ -159,6 +159,7 @@
   "/datasheets/photon-datasheet": "/datasheets/wi-fi/photon-datasheet",
   "/datasheets/photon-shields": "/datasheets/accessories/legacy-accessories",
   "/datasheets/raspberrypi-datasheet": "/raspberry-pi",
+  "/datasheets/wi-fi/p2-migration-guide": "/datasheets/wi-fi/p2-p1-migration-guide",
   "/dev": "/reference/discontinued/dev",
   "/device-restore": "/tools/device-programming/device-restore-jtag",
   "/device-restore-jtag": "/tools/device-programming/device-restore-jtag",
