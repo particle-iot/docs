@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the Photon to P2
 
 # {{title}}
 
-**Pre-release version 2022-04-08**
+**Pre-release version 2022-04-16**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an pre-release migration guide and the contents are subject to change.
@@ -57,7 +57,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | Digital GPIO | 22 | 24 | 18 | 20 |
 | Analog (ADC) | 6 | 13 | 8 | 6 |
 | Analog (DAC) |  | 2 | 2 |  |
-| UART | 1 | 2 | 2<sup>6</sup> | 1 |
+| UART | 3 | 2 | 2<sup>6</sup> | 1 |
 | SPI | 2 | 2 | 2 |  2 |
 | PWM | 6 | 12 | 9 | 8 |
 | I2C | 1 | 1 | 1 | 1 |
@@ -255,6 +255,8 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 
 
 The secondary UART serial (`Serial2`) is on different pins and also supports CTS/RTS hardware flow control. 
 
+There is also a third UART serial (`Serial3`).
+
 On the Photon, the Serial2 port is shared with the RGB LED, and the Photon must be modified to remove the LED or the current limiting resistors, so using Serial2 on the Photon is impractical.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 21bcd7d9-474c-4d45-81e1-0cb1753fdb87 --}}
@@ -268,7 +270,11 @@ On the Photon, the Serial2 port is shared with the RGB LED, and the Photon must 
 | RGBB | Serial2 (RX) | RGBB | &nbsp; |
 | RGBG | Serial2 (TX) | RGBG | &nbsp; |
 | RX | Serial1 (RX) | RX / D9 | Serial1 (RX)  |
+| &nbsp; | &nbsp; | S0 / D15 | Serial3 (TX) |
+| &nbsp; | &nbsp; | S1 / D16 | Serial3 (RX) |
+| &nbsp; | &nbsp; | S2 / D17 | Serial3 (RTS) |
 | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
+| WKP / A7 | &nbsp; | D10 / WKP | Serial3 (CTS) |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -451,7 +457,7 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 | D2 | I2S3_SD | D2 | &nbsp; |
 | D4 | I2S3_SCK | D4 | &nbsp; |
 | D5 | I2S3_WS | D5 | &nbsp; |
-| SETUP | I2S3_MCK | SETUP | &nbsp; |
+| SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -494,6 +500,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | Pin Name | Description |
 | :--- | :--- |
 | DAC / A6 | DAC/A6 True analog out, analog in, GPIO. |
+| SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. |
 | VBAT | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. |
 | VIN | Power in 3.6V to 5.5 VDC. Or power out (when powered by USB) 4.8 VDC at 1A maximum. |
 
@@ -509,9 +516,10 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :---: | :--- | :--- |
 | 5 | 3V3_IO | 3.3V power to MCU IO. |
 | 2 | 3V3_RF | 3.3V power to RF module |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) |
-| 42 | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) |
+| 46 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
+| 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
 | 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) |
 | 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) |
@@ -534,9 +542,9 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 | A0 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
 | A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
 | A2 | A2 Analog in, GPIO, SPI SS | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
-| A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
-| A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
-| A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
+| A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
@@ -823,6 +831,13 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 2 | 1 |
 | Pin Name | GND | GND |
 | Description | Ground. You only need to use one of the Photon ground pins. | Ground. Be sure you connect all P1 ground pins. |
+#### MODE
+| | Added to P2 |
+| :--- | :--- |
+| Pin Number | 46|
+| Pin Name | MODE|
+| Description | MODE button, has internal pull-up. Pin number constant is BTN.|
+| Supports attachInterrupt | Yes|
 #### NC
 | | Added to P2 |
 | :--- | :--- |
@@ -881,11 +896,12 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 40|
 | Pin Name | S0|
 | Pin Alternate Name | D15|
-| Description | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.)|
+| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S1
@@ -894,11 +910,12 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 41|
 | Pin Name | S1|
 | Pin Alternate Name | D16|
-| Description | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.)|
+| Description | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S2
@@ -907,9 +924,10 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 42|
 | Pin Name | S2|
 | Pin Alternate Name | D17|
-| Description | S2 GPIO, SPI SCK. (Was P1S2 on P1.)|
+| Description | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
+| UART serial | RTS. Use Serial3 object. Flow control optional.|
 | SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S3
@@ -953,13 +971,12 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
 #### SETUP
-|   | Photon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 26 | 46 |
-| Pin Name | SETUP | SETUP |
-| Description | SETUP button, has internal pull-up. Pin number constant is BTN. | SETUP button, has internal pull-up. Pin number constant is BTN. |
-| Supports attachInterrupt | n/a | Yes |
-| I2S interface | I2S3_MCK | n/a |
+| | Removed from Photon |
+| :--- | :--- |
+| Pin Number | 26|
+| Pin Name | SETUP|
+| Description | SETUP button, has internal pull-up. Pin number constant is BTN.|
+| I2S interface | I2S3_MCK|
 #### TX
 |   | Photon | P2 |
 | :--- | :--- | :--- |
@@ -1012,12 +1029,13 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 5 | 30 |
 | Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | GPIO. (Was WKP/A7 on P1.) |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
+| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 
@@ -1058,3 +1076,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 | pre | 2022-04-06 | RK | Pre-release |
 |     | 2022-04-08 | RK | Added recommended pin mappings |
 |     | 2022-04-12 | RK | Added serial baud rates |
+|     | 2022-04-16 | RK | Added Serial3 |

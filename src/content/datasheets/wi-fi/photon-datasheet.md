@@ -283,6 +283,10 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 
 
 ### Pinout diagrams
+
+{{imageOverlay src="/assets/images/photon-pinout.svg" alt="Photon Pinouts" class="full-width"}}
+
+
 <div align=left><a href="/assets/images/photon-pinout.pdf" target="_blank"><img src="/assets/images/photon-pinout1.png"></a></div>
 <div align=left><a href="/assets/images/photon-pinout.pdf" target="_blank"><img src="/assets/images/photon-pinout2.png"></a></div>
 <div align=left><a href="/assets/images/photon-pinout.pdf" target="_blank"><img src="/assets/images/photon-pinout3.png"></a></div>

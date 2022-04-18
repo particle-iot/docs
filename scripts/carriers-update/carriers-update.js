@@ -1265,7 +1265,8 @@ const { option } = require('yargs');
             return {
                 pin: pinNum,
                 name: 'NC',
-                desc: 'Leave unconnected'
+                desc: 'Leave unconnected',
+                isMissing: true,
             }
         };
 
@@ -1455,6 +1456,10 @@ const { option } = require('yargs');
                 for(let pinNum = 1; pinNum <= 72; pinNum++) {
                     let oldPin = getPinInfo(oldPinsExpanded, pinNum);
                     let newPin = getPinInfo(newPinsExpanded, pinNum);
+
+                    if (oldPin.isMissing && newPin.isMissing) {
+                        continue;
+                    }
                     
                     if (options.port && !oldPin[options.port] && !newPin[options.port]) {
                         // Neither device supports this port on this pin
@@ -1466,12 +1471,22 @@ const { option } = require('yargs');
                         old: oldPin,
                         new: newPin,
                     };
-
-                    if (oldPin.name == newPin.name) {
-                        m.title = 'Module Pin ' + pinNum + ' (' + oldPin.name + ')\n';
+                    
+                    if (options.noModulePin) {
+                        if (oldPin.name == newPin.name) {
+                            m.title = oldPin.name;
+                        }
+                        else {
+                            m.title = oldPin.name + ' / ' + newPin.name;
+                        }    
                     }
                     else {
-                        m.title = 'Module Pin ' + pinNum + '\n';
+                        if (oldPin.name == newPin.name) {
+                            m.title = 'Module Pin ' + pinNum + ' (' + oldPin.name + ')';
+                        }
+                        else {
+                            m.title = 'Module Pin ' + pinNum + ' (' + oldPin.name + ' / ' + newPin.name + ')';
+                        }    
                     }
                     mappedPins.push(m);                
                 }    
@@ -3530,7 +3545,7 @@ const { option } = require('yargs');
                             style: 'full-comparison',
                             platformNew: 'Photon 2',
                             platformOld: 'Argon',
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     } 
                 },
@@ -3544,7 +3559,7 @@ const { option } = require('yargs');
                             port: 'analogWritePWM',
                             label: 'PWM',
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     } 
                 },
@@ -3558,7 +3573,7 @@ const { option } = require('yargs');
                             port: 'analogRead',
                             label: 'ADC',
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     }
                 },
@@ -3573,7 +3588,7 @@ const { option } = require('yargs');
                             label: 'Serial',
                             useShortName: true,
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     }
                 },
@@ -3588,7 +3603,7 @@ const { option } = require('yargs');
                             label: 'SPI',
                             useShortName: true,
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     }
                 },
@@ -3602,7 +3617,7 @@ const { option } = require('yargs');
                             port: 'analogWriteDAC',
                             label: 'DAC',
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     }
                 },
@@ -3616,7 +3631,7 @@ const { option } = require('yargs');
                             port: 'can',
                             label: 'CAN',
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     }
                 },
@@ -3631,7 +3646,7 @@ const { option } = require('yargs');
                             label: 'I2S',
                             useShortName: true,
                             noPinNumbers: true,
-                            mapBy: 'argonPin',
+                            noModulePin: true,
                         }); 
                     }
                 }                

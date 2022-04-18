@@ -430,99 +430,83 @@ No pin functions have been added to previously unused (NC) pins.
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
 #### Module Pin 1 (VIN)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | VIN|
 | Description | Power in 3.9V to 12 VDC.|
 #### Module Pin 2 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 3 (VBUS)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | VBUS|
 | Description | Connect to VBUS power pin on the USB port|
 #### Module Pin 4 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 5 (LIPO)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | LIPO|
 | Description | Connect to + pin on the LiPo battery, 3.6V maximum|
 #### Module Pin 6 (NC)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | Do not connect to anything|
 #### Module Pin 7 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 8 (PMID)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | PMID | PMID |
 | Description | Connected to the PMID pin of the PMIC | Connected to the PMID pin of the PMIC (may change) |
 #### Module Pin 9 (3V3)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | 3V3|
 | Description | Regulated 3.3V DC output, maximum load 800 mA. Cannot be used as a power input.|
-#### Module Pin 10
-
+#### Module Pin 10 (VDDA / NC)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | VDDA | NC |
 | Description | Power input for ADC. Normally connected to 3V3. Must always be within 300 mV of 3V3. | Do not connect to anything |
-#### Module Pin 11
-
+#### Module Pin 11 (VBAT / NC)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | VBAT | NC |
 | Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. | Do not connect to anything |
 #### Module Pin 12 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 13 (USBDATA+)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | USBDATA+ | USBDATA+ |
 | Description | USB Data+ | USB Data+. Cannot be used as GPIO. |
 | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 14 (USBDATA-)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | USBDATA- | USBDATA- |
 | Description | USB Data- | USB Data-. Cannot be used as GPIO. |
 | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 15 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 16 (TX)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | TX | TX |
@@ -535,7 +519,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 17 (RX)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX |
@@ -548,13 +531,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 18 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
-#### Module Pin 19
-
+#### Module Pin 19 (WKP / A7)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | WKP | A7 |
@@ -567,8 +548,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 20
-
+#### Module Pin 20 (DAC / A6)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | DAC | A6 |
@@ -580,7 +560,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogWrite (DAC) | Yes | No |
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 #### Module Pin 21 (A5)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5 |
@@ -594,7 +573,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 22 (A4)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A4 | A4 |
@@ -608,7 +586,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 23 (A3)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A3 | A3 |
@@ -622,7 +599,6 @@ No pin functions have been added to previously unused (NC) pins.
 | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 #### Module Pin 24 (A2)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2 |
@@ -636,7 +612,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 25 (A1)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1 |
@@ -647,7 +622,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 26 (A0)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0 |
@@ -658,13 +632,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 27 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
-#### Module Pin 28
-
+#### Module Pin 28 (B5 / NC)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B5 | NC |
@@ -674,8 +646,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogRead | Yes | n/a |
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | n/a |
 | Input is 5V Tolerant | Yes | n/a |
-#### Module Pin 29
-
+#### Module Pin 29 (B4 / NC)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B4 | NC |
@@ -686,7 +657,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | n/a |
 | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 30 (B3)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B3 | B3 |
@@ -699,7 +669,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (B2)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B2 | B2 |
@@ -712,7 +681,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 32 (B1)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B1 | B1 |
@@ -724,7 +692,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 33 (B0)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B0 | B0 |
@@ -736,13 +703,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 34 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
-#### Module Pin 35
-
+#### Module Pin 35 (D7 / SWDIO)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D7 | SWDIO |
@@ -753,8 +718,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO |
-#### Module Pin 36
-
+#### Module Pin 36 (D6 / SWDCLK)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D6 | SWDCLK |
@@ -766,7 +730,6 @@ No pin functions have been added to previously unused (NC) pins.
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK |
 #### Module Pin 37 (D5)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
@@ -778,8 +741,7 @@ No pin functions have been added to previously unused (NC) pins.
 | I2S interface | I2S3_WS | n/a |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
-#### Module Pin 38
-
+#### Module Pin 38 (D4 / SWO)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D4 | SWO |
@@ -792,8 +754,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | SWD interface | n/a | SWO |
-#### Module Pin 39
-
+#### Module Pin 39 (D3 / NC)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D3 | NC |
@@ -807,7 +768,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Input is 5V Tolerant | Yes | n/a |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 40 (D2)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
@@ -822,7 +782,6 @@ No pin functions have been added to previously unused (NC) pins.
 | I2S interface | I2S3_SD | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 41 (D1)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1 |
@@ -837,7 +796,6 @@ No pin functions have been added to previously unused (NC) pins.
 | CAN interface | CAN2_TX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 42 (D0)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
@@ -851,13 +809,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 44 (C5)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C5 | C5 |
@@ -871,7 +827,6 @@ No pin functions have been added to previously unused (NC) pins.
 | CAN interface | CAN1_RX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (C4)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C4 | C4 |
@@ -885,7 +840,6 @@ No pin functions have been added to previously unused (NC) pins.
 | CAN interface | CAN1_TX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (C3)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C3 | C3 |
@@ -897,7 +851,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 47 (C2)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C2 | C2 |
@@ -909,7 +862,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (C1)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C1 | C1 |
@@ -921,7 +873,6 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (C0)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C0 | C0 |
@@ -934,146 +885,63 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (NC)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | Do not connect to anything|
 #### Module Pin 51 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 52 (RGBB)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | RGBB | RGBB |
 | Description | RGB LED Blue | RGB LED Blue |
 | UART serial | RX. Use Serial2 object. | n/a |
 #### Module Pin 53 (RGBG)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | RGBG | RGBG |
 | Description | RGB LED Green | RGB LED Green |
 | UART serial | TX. Use Serial2 object. | n/a |
 #### Module Pin 54 (RGBR)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | RGBR|
 | Description | RGB LED Red|
 #### Module Pin 55 (MODE)
-
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | MODE | MODE |
 | Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
 | I2S interface | I2S3_MCK | n/a |
 #### Module Pin 56 (RESET)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | RESET|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### Module Pin 57 (STAT)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | STAT|
 | Description | Charge status output from the PMIC.|
 #### Module Pin 58 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 59 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
 #### Module Pin 60 (GND)
-
 | | Unchanged between E Series and E404X |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure to connect all GND pins.|
-#### Module Pin 61 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 62 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 63 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 64 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 65 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 66 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 67 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 68 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 69 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 70 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 71 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
-#### Module Pin 72 (NC)
-
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | NC|
-| Description | Leave unconnected|
 
 
 {{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}

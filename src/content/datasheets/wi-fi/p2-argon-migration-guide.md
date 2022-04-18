@@ -222,13 +222,13 @@ The following are all SPI-related pins on the Argon and P2:
 | MISO / D11 | SPI (MISO) | A0 / D11 | &nbsp; |
 | MOSI / D12 | SPI (MOSI) | A1 / D12 | &nbsp; |
 | SCK / D13 | SPI (SCK) | A2 / D13 | &nbsp; |
+| A2 / D17 | &nbsp; | S2 / D17 | SPI (SCK) |
 | D2 | SPI1 (SCK) | D2 | SPI1 (MOSI) |
 | D3 | SPI1 (MOSI) | D3 | SPI1 (MISO) |
 | D4 | SPI1 (MISO) | D4 | SPI1 (SCK) |
 | D5 | &nbsp; | D5 | SPI1 (SS) |
 | &nbsp; | &nbsp; | S0 / D15 | SPI (MOSI) |
 | &nbsp; | &nbsp; | S1 / D16 | SPI (MISO) |
-| &nbsp; | &nbsp; | S2 / D17 | SPI (SCK) |
 | &nbsp; | &nbsp; | S3 / D18 | SPI (SS) |
 
 
@@ -290,13 +290,17 @@ If you are using Argon Serial1 with hardware flow control, you should switch to 
 
 | Argon Pin Name | Argon Serial | P2 Pin Name | P2 Serial |
 | :--- | :--- | :--- | :--- |
+| A2 / D17 | &nbsp; | S2 / D17 | Serial3 (RTS) |
 | D2 | Serial1 RTS | D2 | Serial2 (RTS) |
 | D3 | Serial1 CTS | D3 | Serial2 (CTS) |
 | D4 | &nbsp; | D4 | Serial2 (TX) |
 | D5 | &nbsp; | D5 | Serial2 (RX) |
-| D8 | &nbsp; | TX / D8 | Serial1 (TX) |
-| RX / D10 | Serial1 RX | RX / D9 | Serial1 (RX)  |
+| RX / D10 | Serial1 RX | D10 / WKP | Serial3 (CTS) |
+| &nbsp; | &nbsp; | RX / D9 | Serial1 (RX)  |
+| &nbsp; | &nbsp; | S0 / D15 | Serial3 (TX) |
+| &nbsp; | &nbsp; | S1 / D16 | Serial3 (RX) |
 | TX / D09 | Serial1 TX | TX / D8 | Serial1 (TX) |
+| D8 / WKP | &nbsp; | D10 / WKP | Serial3 (CTS) |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -371,9 +375,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 
 | Argon Pin Name | Argon ADC | P2 Pin Name | P2 ADC |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D11 | &check; |
 | A1 / D18 | &check; | A1 / D12 | &check; |
-| A2 / D17 | &check; | A2 / D13 | &check; |
 | A3 / D16 | &check; | D0 / A3 | &check; |
 | A4 / D15 | &check; | D1 / A4 | &check; |
 | A5 / D14 | &check; | A5 / D14 | &check; |
@@ -382,6 +384,8 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | MISO / D11 | &nbsp; | A0 / D11 | &check; |
 | MOSI / D12 | &nbsp; | A1 / D12 | &check; |
 | SCK / D13 | &nbsp; | A2 / D13 | &check; |
+| A2 / D17 | &check; | S2 / D17 | &nbsp; |
+| A0 / D19 | &check; | S4 / D19 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -400,24 +404,24 @@ The pins that support PWM are different on the Argon and P2.
 
 | Argon Pin Name | Argon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | &check; | A0 / D11 | &nbsp; |
 | A1 / D18 | &check; | A1 / D12 | &nbsp; |
-| A2 / D17 | &check; | A2 / D13 | &check; |
 | A3 / D16 | &check; | D0 / A3 | &check; |
 | A4 / D15 | &check; | D1 / A4 | &check; |
 | A5 / D14 | &check; | A5 / D14 | &check; |
 | D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
 | SCK / D13 | &nbsp; | A2 / D13 | &check; |
+| A2 / D17 | &check; | S2 / D17 | &nbsp; |
+| A0 / D19 | &check; | S4 / D19 | &nbsp; |
 | D2 | &check; | D2 | &nbsp; |
 | D3 | &check; | D3 | &nbsp; |
 | D4 | &check; | D4 | &nbsp; |
 | D5 | &check; | D5 | &nbsp; |
 | D6 | &check; | D6 | &nbsp; |
 | D7 | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | D7 | &nbsp; |
-| D8 | &check; | TX / D8 | &nbsp; |
 | &nbsp; | &nbsp; | S0 / D15 | &check; |
 | &nbsp; | &nbsp; | S1 / D16 | &check; |
+| D8 / WKP | &check; | D10 / WKP | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -486,17 +490,15 @@ The following pins did not exist on the Argon but are available on the P2.
 | :---: | :--- | :--- |
 | 5 | 3V3_IO | 3.3V power to MCU IO. |
 | 2 | 3V3_RF | 3.3V power to RF module |
-| 30 | D10 / WKP | GPIO. (Was WKP/A7 on P1.) |
 | 31 | RGBB | RGB LED Blue |
 | 32 | RGBG | RGB LED Green |
 | 29 | RGBR | RGB LED Red |
-| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) |
-| 42 | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) |
+| 63 | RX / D9 | Serial1 RX (received data), GPIO |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
-| 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) |
+| 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) |
 | 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) |
-| 46 | SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. |
 | 62 | USBDATA- | USB Data- |
 | 61 | USBDATA+ | USB Data+ |
 | 12 | VBAT_MEAS | Battery voltage measurement (optional). |
@@ -529,10 +531,10 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 | D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
-| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
-| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
 
 
@@ -560,10 +562,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
-| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
-| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
+| SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | TX / D09 | Serial TX, GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
 
 
@@ -594,19 +596,6 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 2|
 | Pin Name | 3V3_RF|
 | Description | 3.3V power to RF module|
-#### A0
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 5 | 50 |
-| Pin Name | A0 | A0 |
-| Pin Alternate Name | D19 | D11 |
-| Description | A0 Analog in, GPIO, PWM | A0 Analog in, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### A1
 |   | Argon | P2 |
 | :--- | :--- | :--- |
@@ -619,19 +608,6 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports analogRead | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### A2
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 7 | 49 |
-| Pin Name | A2 | A2 |
-| Pin Alternate Name | D17 | D13 |
-| Description | A2 Analog in, GPIO, PWM | A2 Analog in, PWM, GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### A3
 |   | Argon | P2 |
@@ -703,16 +679,6 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports tone | No | Yes |
 | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### D10
-| | Added to P2 |
-| :--- | :--- |
-| Pin Number | 30|
-| Pin Name | D10|
-| Pin Alternate Name | WKP|
-| Description | GPIO. (Was WKP/A7 on P1.)|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| Supports attachInterrupt | Yes|
 #### D11
 |   | Argon | P2 |
 | :--- | :--- | :--- |
@@ -751,6 +717,34 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports tone | No | Yes |
 | SPI interface | SCK. Use SPI object. | n/a |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### D17
+|   | Argon | P2 |
+| :--- | :--- | :--- |
+| Pin Number | 7 | 42 |
+| Pin Name | A2 | S2 |
+| Pin Alternate Name | D17 | D17 |
+| Description | A2 Analog in, GPIO, PWM | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | No |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
+| SPI interface | n/a | SCK. Use SPI object. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### D19
+|   | Argon | P2 |
+| :--- | :--- | :--- |
+| Pin Number | 5 | 47 |
+| Pin Name | A0 | S4 |
+| Pin Alternate Name | D19 | D19 |
+| Description | A0 Analog in, GPIO, PWM | S4 GPIO. (Was P1S4 on P1.) |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogRead | Yes | No |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### D2
 |   | Argon | P2 |
 | :--- | :--- | :--- |
@@ -765,15 +759,6 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | SPI interface | SCK. Use SPI1 object. | MOSI. Use SPI1 object. |
 | I2C interface | SDA. Use Wire1 object. | n/a |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-#### D20
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 3 | 48 |
-| Pin Name | MODE | S5 |
-| Pin Alternate Name | D20 | D20 |
-| Description | MODE button, has internal pull-up | S5 GPIO. (Was P1S5 on P1.) |
-| Supports digitalWrite | n/a | Yes |
-| Supports attachInterrupt | n/a | Yes |
 #### D3
 |   | Argon | P2 |
 | :--- | :--- | :--- |
@@ -837,23 +822,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
-#### D8
-|   | Argon | P2 |
-| :--- | :--- | :--- |
-| Pin Number | 23 | 64 |
-| Pin Name | D8 | TX |
-| Pin Alternate Name | n/a | D8 |
-| Description | GPIO, PWM | Serial1 TX (transmitted data), GPIO |
-| Supports digitalRead | Yes | Yes |
-| Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
-| UART serial | n/a | TX. Use Serial1 object. |
-| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 #### EN
 | | Removed from Argon |
 | :--- | :--- |
-| Pin Number | 25|
+| Pin Number | 26|
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
@@ -865,9 +837,17 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### LI+
 | | Removed from Argon |
 | :--- | :--- |
-| Pin Number | 26|
+| Pin Number | 27|
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
+#### MODE
+|   | Argon | P2 |
+| :--- | :--- | :--- |
+| Pin Number | 3 | 46 |
+| Pin Name | MODE | MODE |
+| Pin Alternate Name | D20 | n/a |
+| Description | MODE button, has internal pull-up | MODE button, has internal pull-up. Pin number constant is BTN. |
+| Supports attachInterrupt | n/a | Yes |
 #### NC
 | | Added to P2 |
 | :--- | :--- |
@@ -904,25 +884,37 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### RX
 |   | Argon | P2 |
 | :--- | :--- | :--- |
-| Pin Number | 14 | 63 |
-| Pin Name | RX | RX |
-| Pin Alternate Name | D10 | D9 |
-| Description | Serial RX, GPIO | Serial1 RX (received data), GPIO |
+| Pin Number | 14 | 30 |
+| Pin Name | RX | D10 |
+| Pin Alternate Name | D10 | WKP |
+| Description | Serial RX, GPIO | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| UART serial | RX Use Serial1 object. | RX. Use Serial1 object. |
+| UART serial | RX Use Serial1 object. | CTS. Use Serial3 object. Flow control optional. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
+#### RX
+| | Added to P2 |
+| :--- | :--- |
+| Pin Number | 63|
+| Pin Name | RX|
+| Pin Alternate Name | D9|
+| Description | Serial1 RX (received data), GPIO|
+| Supports digitalRead | Yes|
+| Supports digitalWrite | Yes|
+| UART serial | RX. Use Serial1 object.|
+| Supports attachInterrupt | Yes|
 #### S0
 | | Added to P2 |
 | :--- | :--- |
 | Pin Number | 40|
 | Pin Name | S0|
 | Pin Alternate Name | D15|
-| Description | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.)|
+| Description | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | TX. Use Serial3 object.|
 | SPI interface | MOSI. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S1
@@ -931,23 +923,13 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 41|
 | Pin Name | S1|
 | Pin Alternate Name | D16|
-| Description | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.)|
+| Description | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | Yes|
+| UART serial | RX. Use Serial3 object.|
 | SPI interface | MISO. Use SPI object.|
-| Supports attachInterrupt | Yes|
-#### S2
-| | Added to P2 |
-| :--- | :--- |
-| Pin Number | 42|
-| Pin Name | S2|
-| Pin Alternate Name | D17|
-| Description | S2 GPIO, SPI SCK. (Was P1S2 on P1.)|
-| Supports digitalRead | Yes|
-| Supports digitalWrite | Yes|
-| SPI interface | SCK. Use SPI object.|
 | Supports attachInterrupt | Yes|
 #### S3
 | | Added to P2 |
@@ -960,14 +942,13 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports digitalWrite | Yes|
 | SPI interface | Default SS for SPI.|
 | Supports attachInterrupt | Yes|
-#### S4
+#### S5
 | | Added to P2 |
 | :--- | :--- |
-| Pin Number | 47|
-| Pin Name | S4|
-| Pin Alternate Name | D19|
-| Description | S4 GPIO. (Was P1S4 on P1.)|
-| Supports digitalRead | Yes|
+| Pin Number | 48|
+| Pin Name | S5|
+| Pin Alternate Name | D20|
+| Description | S5 GPIO. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
 #### S6
@@ -979,13 +960,6 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Description | S6 GPIO. (Was P1S6/TESTMODE on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
-| Supports attachInterrupt | Yes|
-#### SETUP
-| | Added to P2 |
-| :--- | :--- |
-| Pin Number | 46|
-| Pin Name | SETUP|
-| Description | SETUP button, has internal pull-up. Pin number constant is BTN.|
 | Supports attachInterrupt | Yes|
 #### TX
 |   | Argon | P2 |
@@ -1021,10 +995,23 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 #### VUSB
 | | Removed from Argon |
 | :--- | :--- |
-| Pin Number | 24|
+| Pin Number | 25|
 | Pin Name | VUSB|
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations.|
 | Input is 5V Tolerant | Yes|
+#### WKP
+|   | Argon | P2 |
+| :--- | :--- | :--- |
+| Pin Number | 24 | 30 |
+| Pin Name | D8 | D10 |
+| Pin Alternate Name | WKP | WKP |
+| Description | GPIO, PWM | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
+| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
+| Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
