@@ -53,7 +53,7 @@ It is also available [as a single large document](/reference/device-os/firmware/
 
 - Limits are in bytes of UTF-8 encoded characters.
 - <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E Series), the limit is 864 characters,
-- <sup>3</sup>On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) the limit is 1024 characters.
+- <sup>3</sup>On the P2, Photon 2, and Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, and E404X) the limit is 1024 characters.
 - The 0.8.0 - 2.x column includes all 2.x LTS versions. Higher limits will not be back-ported to 2.x LTS.
 
 Instead of hardcoding these values, you should use these definitions:
@@ -545,7 +545,7 @@ float temperature = sensor.readTemperature();  // by way of example, not part of
 Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
 ```
 
-On Gen 2 cellular devices (Electron, E Series) and all Gen 3 devices (Argon, Boron, B Series SoM, Tracker):
+On Gen 2 cellular devices (Electron, E Series) and all Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, E404X):
 
 *`NO_ACK` flag*
 
@@ -731,7 +731,7 @@ Only devices that are claimed to an account can subscribe to events.
 
 ---
 
-{{note op="start" type="note"}}
+{{note op="start" type="gen3" deviceList="Tracker SoM and Tracker One"}}
 By default, Tracker One and Tracker SoM devices are unclaimed product devices. You can either:
 
 - Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
@@ -1375,11 +1375,11 @@ void setup() {
 
 {{api name1="Ethernet"}}
 
-{{note op="start" type="gen3"}}
+{{note op="start" type="note"}}
 
-Ethernet is available on the Argon, Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board.
+Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
 
-It is not available on Gen 2 devices (Photon, P1, Electron, and E Series).
+It is not available on Gen 2 devices (Photon, P1, Electron, and E Series except the E404X).
 
 For more information about Ethernet, see the application note [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/).
 
@@ -1640,7 +1640,7 @@ the IP address used by the device's network connection. This often will be 0.0.0
 
 {{api name1="WiFi"}}
 
-The `WiFi` class is available on the Argon (Gen 3), Photon, and P1 (Gen 2).
+The `WiFi` class is available on the P2, Photon 2, Argon, Photon, and P1.
 
 The `WiFi` class is not available on cellular devices such as the Boron and
 B Series SoM (Gen 3) or Electron and E Series (Gen 2).
@@ -1742,11 +1742,14 @@ WiFi.ready();
 
 {{note op="start" type="note"}}
 
-On the Photon and P1 (Gen 2), selectAntenna selects which antenna the device should connect to Wi-Fi with and remembers that
+On the P2 and Photon 2, selectAntenna selects which antenna the device should connect to Wi-Fi and BLE with and remembers that
 setting until it is changed. Resetting Wi-Fi credentials does not clear the antenna setting.
 
-The Argon (Gen 3) does not have an antenna switch; it can only use an external antenna.
+The Argon (Gen 3) does not have an antenna switch for Wi-Fi; it can only use an external antenna. There is a separate setting
+for the Argon BLE antenna (BLE.selectAntenna).
 
+On the Photon and P1 (Gen 2), selectAntenna selects which antenna the device should connect to Wi-Fi with and remembers that
+setting until it is changed. Resetting Wi-Fi credentials does not clear the antenna setting.
 {{note op="end"}}
 
 ---
@@ -1933,7 +1936,9 @@ The password is limited to 64 7-bit ASCII characters. If you pass in a longer pa
 {{since when="0.7.0"}}
 
 {{note op="start" type="note"}}
-WPA Enterprise is only supported on the Photon and P1 (Gen 2). It is not supported on the Argon (Gen 3).
+WPA Enterprise is only supported on the P2 and Photon 2, and also on the Photon and P1.
+
+It is not supported on the Argon.
 {{note op="end"}}
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
@@ -2223,9 +2228,15 @@ Returns: `float`
 
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
 
-{{note op="start" type="gen3"}}
-WiFi.ping() is not available on Gen 3 Wi-Fi devices (Argon).
+---
+
+{{note op="start" type="note"}}
+WiFi.ping() is only available on the Photon and P1. 
+
+It is not available on the P2, Photon 2, or Argon.
 {{note op="end"}}
+
+---
 
 ### scan()
 
@@ -2899,7 +2910,7 @@ This enum defines wireless security ciphers.
 {{note op="start" type="note"}}
 SoftAP is available only on the Photon and P1 (Gen 2). 
 
-It is not available on cellular devices or on the Argon (Gen 3 Wi-Fi).
+It is not available on cellular devices, the Argon (Gen 3 Wi-Fi), the Photon 2, or P2.
 {{note op="end"}}
 
 
@@ -3026,7 +3037,7 @@ Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credi
 The `Cellular` class is available on the the Boron, B Series SoM, and Tracker (Gen 3) 
 and Electron and E Series (Gen 2).
 
-It is not available on Wi-Fi devices including the Argon (Gen 3), Photon, and P1 (Gen 2).
+It is not available on Wi-Fi devices including the P2, Photon 2, Argon, Photon, and P1.
 {{note op="end"}}
 
 ---
@@ -3277,7 +3288,7 @@ Only a subset of Particle cellular devices are able to use a plastic 4FF nano SI
 
 ---
 
-{{note op="start" type="gen3"}}
+{{note op="start" type="gen3" deviceList="Boron"}}
 Gen 3 devices (Boron 2G/3G, Boron LTE) have both an internal (MFF2 SMD) SIM and an external 4FF nano SIM card slot that can be used for a plastic nano SIM card.
 
 - You must select which SIM to use in software, it does not automatically switch on Gen 3 devices.
@@ -4109,7 +4120,7 @@ FuelGauge fuel;
 {{note op="start" type="note"}}
 FuelGauge is available on all devices with a battery state-of-charge sensor, including the Boron, B Series SoM, Tracker SoM (Gen 3) as well as the Electron and E Series (Gen 2).
 
-The Argon (Gen 3), Photon, and P1 (Gen 2) do not have FuelGauge support.
+The Photon 2, P2, Argon, Photon, and P1 do not have FuelGauge support.
 {{note op="end"}}
 
 
@@ -4230,7 +4241,7 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
 
 ---
-{{note op="start" type="note"}}
+{{note op="start" type="gen3" deviceList="Tracker SoM, Tracker One"}}
 
 The Tracker SoM has shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
 
@@ -4250,6 +4261,21 @@ The Tracker SoM has shared A and D pins. In other words, pin A0 is the same phys
 On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 {{note op="end"}}
+
+---
+
+{{note op="start" type="P2"}}
+
+On the P2 and Photon 2 in addition to the standard analog inputs A0, A1, A2, and A5, there are two shared pins. If you are not using pins D0 and D1 for I2C or digital GPIO, they can be used as ADC inputs:
+
+| Pin     | M8 Pin | Function    | Function    | Analog In | GPIO    | 
+| :-----: | :----: | :---------  | :---------  | :-------: | :-----: | 
+| D0 / A3 |        | Wire SDA    |             | &check;   | &check; | 
+| D1 / A4 |        | Wire SCL    |             | &check;   | &check; |
+
+{{note op="end"}}
+
+---
 
 ### pinMode()
 
@@ -4341,6 +4367,27 @@ STARTUP(disable());
 | A6           | PM_INT (power manager interrupt) |
 
 {{note op="end"}}
+---
+
+
+{{note op="start" type="P2"}}
+- Make sure the signal does not exceed 3.3V. The P2 and Photon 2 are not 5V tolerant in any mode (digital or analog).
+
+If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
+
+| Photon 2, P2 | Ethernet FeatherWing Pin  |
+|:-----------: |:--------------------------|
+|MISO          | SPI MISO                  |
+|MOSI          | SPI MOSI                  |
+|SCK           | SPI SCK                   |
+|D3            | nRESET                    |
+|D4            | nINTERRUPT                |
+|D5            | nCHIP SELECT              |
+
+When using the Ethernet FeatherWing with the Photon 2, pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+{{note op="end"}}
+---
 
 {{note op="start" type="gen2"}}
 - When using `INPUT_PULLUP` or `INPUT_PULLDOWN` make sure a high level signal does not exceed 3.3V.
@@ -4365,6 +4412,7 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 {{note op="end"}}
 
 
+---
 
 ### getPinMode(pin)
 
@@ -4430,6 +4478,16 @@ void loop()
 - The default drive strength on Gen 3 devices is 2 mA per pin. This can be changed to 9 mA using [`pinSetDriveStrength()`](#pinsetdrivestrength-).
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+- All GPIO pins (`A0`, `A1`, `A2`, `A5`, `D0`..`D10`, `MOSI`, `MISO`, `SCK`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+- Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
+{{note op="end"}}
+
+---
+
 {{note op="start" type="gen2"}}
 - All GPIO pins (`A0`..`A7`, `D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). For the Electron and Series `B0`..`B5`, `C0`..`C5` can be used as well.
 
@@ -4484,6 +4542,17 @@ void loop()
 
 - GPIO are **not** 5V tolerant on Gen 3 devices. Be sure the input voltage does not exceed 3.3V (typical) or 3.6V (absolute maximum).
 {{note op="end"}}
+
+---
+
+{{note op="start" type="P2"}}
+- All GPIO pins (`A0`, `A1`, `A2`, `A5`, `D0`..`D10`, `MOSI`, `MISO`, `SCK`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+- GPIO are **not** 5V tolerant on the P2 and Photon 2. Be sure the input voltage does not exceed 3.3V (typical).
+
+{{note op="end"}}
+
+---
 
 {{note op="start" type="gen2"}}
 - All GPIO pins (`A0`..`A7`, `D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). On the Electron and E Series, there are additional GPIO `B0`..`B5`, `C0`..`C5` as well.
@@ -4619,6 +4688,29 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+
+On the P2 and Photon 2, all PWM pins and the RGB LED share the same PWM timer and must share the same PWM frequency, though each pin can have a separate duty cycle.
+
+{{!-- BEGIN do not edit content below, it is automatically generated d68a9c54-a380-11ec-b909-0242ac120002 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
+| 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
+| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | PA[13] |
+| 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+{{note op="end"}}
+
+---
 
 {{note op="start" type="gen2"}}
 On Gen 2 devices, the PWM frequency is from 1 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
@@ -4709,7 +4801,7 @@ analogWrite(DAC1, 1024);
 ---
 
 {{note op="start" type="gen3"}}
-DAC is not supported on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+DAC is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
 {{note op="end"}}
 
 ### analogRead() (ADC)
@@ -4760,6 +4852,32 @@ The Tracker SoM has 8 channels, A0 to A7, however these pins are the same physic
 The Tracker One only exposes one analog input, A3, on the external M8 connector. Pin A0 is connected to the NTC thermistor on the carrier board.
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+
+The P2 and Photon 2 have four dedicated ADC pins, and two shared pins. If you are not using pins D0 and D1 for I2C or digital GPIO, you can use these pins are ADC inputs by using `analogRead(A3)` and `analogRead(A4)`.
+
+{{!-- BEGIN do not edit content below, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | ADC_0 | PB[4] |
+| 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
+| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
+| 43 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
+| 49 | A2 / D13 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
+| 50 | A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- ADC inputs are single-ended and limited to 0 to 3.3V
+- Resolution is 12 bits
+
+{{note op="end"}}
+
+---
 
 {{note op="start" type="gen2"}}
 The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
@@ -4794,8 +4912,8 @@ Furthermore, 5 consecutive samples at the sample time are averaged in analogRead
 
 ---
 
-{{note op="start" type="gen3"}}
-setADCSampleTime is not supported on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+{{note op="start" type="note"}}
+setADCSampleTime is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
 {{note op="end"}}
 
 ## Low Level Input/Output
@@ -5032,6 +5150,13 @@ On the Tracker SoM:
 | D9 (RX)   | PWM2  | 
 
 {{note op="end"}}
+
+---
+
+{{note op="start" type="P2"}}
+All PWM compatible pins on the P2 and Photon 2 share a single timer. Thus only one frequency of tone can be generated at a time.
+{{note op="end"}}
+
 
 ---
 
@@ -5328,7 +5453,7 @@ To set the Power Manager configuration, create a `SystemPowerConfiguration` obje
 {{note op="start" type="note"}}
 Power Management is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
 
-It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
 
 ### powerSourceMaxCurrent
@@ -5514,7 +5639,7 @@ by the Device OS.
 {{note op="start" type="note"}}
 Power Management is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
 
-It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 {{note op="end"}}
 
 ### PMIC() constructor
@@ -5997,6 +6122,37 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 The Tracker SoM can use the TX and RX pins as either `Wire3` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire3.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings. This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+The P2 and Photon 2 support three serial interfaces, two with hardware flow control:
+
+{{!-- BEGIN do not edit content below, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | Serial3 (TX) | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
+| 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Serial3 (RTS) | PA[14] |
+| 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
+| 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Serial2 (TX) | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | Serial2 (RX) | PA[19] |
+| 63 | RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
+| 64 | TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+
+- The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
+- Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
+- Serial1 uses the RTL872x UART_LOG peripheral
+- Serial2 uses the RTL872x HS_UART0 peripheral
+- Serial3 uses the RTL872x LP_UART peripheral
+{{note op="end"}}
+
+---
 
 {{note op="start" type="gen2"}}
 
@@ -6018,6 +6174,7 @@ To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's ma
 
 {{note op="end"}}
 
+---
 
 To use the Serial1 or other hardware UART pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and ground.
 
@@ -6141,6 +6298,37 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+On the P2 and Photon 2:
+
+Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
+
+Configuration options include:
+
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+- `SERIAL_8E2` - 8 data bits, even parity, 2 stop bits
+- `SERIAL_8O1` - 8 data bits, odd parity, 1 stop bit
+- `SERIAL_8O2` - 8 data bits, odd parity, 2 stop bits
+- `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
+- `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
+- `SERIAL_7E1` - 7 data bits, even parity, 1 stop bit
+- `SERIAL_7E2` - 7 data bits, even parity, 1 stop bit
+
+
+Flow control is available on Serial2 and Serial3. If you are not using flow control (the default), then these pins can be used as regular GPIO.
+
+- `SERIAL_FLOW_CONTROL_NONE` - no flow control
+- `SERIAL_FLOW_CONTROL_RTS` - RTS flow control
+- `SERIAL_FLOW_CONTROL_CTS` - CTS flow control
+- `SERIAL_FLOW_CONTROL_RTS_CTS` - RTS/CTS flow control
+
+{{note op="end"}}
+
+---
 
 {{note op="start" type="gen2"}}
 On Gen 2 devices (Photon, P1, Electron, E Series):
@@ -6802,6 +6990,8 @@ Full capabilities include:
 
 {{note op="start" type="gen2"}}
 Mouse and Keyboard are available only on Gen 2 devices (Photon, P1, Electron, and E Series).
+
+These features are not available on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
 {{note op="end"}}
 
 ### begin()
@@ -7154,6 +7344,8 @@ This object allows your device to act as a native USB HID Keyboard.
 
 {{note op="start" type="gen2"}}
 Mouse and Keyboard are available only on Gen 2 devices (Photon, P1, Electron, and E Series).
+
+These features are not available on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
 {{note op="end"}}
 
 ### begin()
@@ -7439,6 +7631,38 @@ Note: On Gen 3 devices, the SPI1 pins different than 2nd-generation (Photon/Elec
 
 {{note op="end"}}
 
+---
+{{note op="start" type="P2"}}
+
+The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
+
+{{!-- BEGIN do not edit content below, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
+| 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
+| 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | SPI (SS) | PB[26] |
+| 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
+| 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | SPI1 (MISO) | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | SPI1 (SCK) | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | SPI1 (SS) | PA[19] |
+
+
+{{!-- END do not edit content above, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+
+- The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
+- If not using a SPI port, its pins can be used as GPIO
+- Any pins can be used as the SPI chip select
+- Multiple devices can generally share a single SPI port
+- SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
+- SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+
+{{note op="end"}}
+
+
+---
 {{note op="start" type="gen2"}}
 * `SS` => `A2` (default)
 * `SCK` => `A3`
@@ -7946,7 +8170,7 @@ These pins are used via the `Wire` object.
 {{note op="start" type="gen3"}}
 On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
 
-Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor (1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor (1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
 
 Note that unlike Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
 
@@ -7963,6 +8187,17 @@ Additionally, on the Argon and B Series SoM there is a second I2C port that can 
 * `SCL` => `D3`
 * `SDA` => `D2` 
 
+{{note op="end"}}
+
+---
+{{note op="start" type="P2"}}
+On the P2 and Photon there there is a single I2C port, D0 is SDA and D1 is SCL.
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor (1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor (1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+Note that unlike Gen 2 devices (Photon/P1/Electron), the P2 and Photon 2 are not 5V tolerant.
+
+The P2 does not contain internal strong pull-up resistors on D0 and D1, unlike the P1.
 {{note op="end"}}
 
 ---
@@ -8407,7 +8642,7 @@ This CAN API is supported only on Gen 2 devices (Photon, P1, Electron, and E Ser
 
 The Tracker SoM supports CAN, but uses an external library. See [Tracker CAN](/tutorials/asset-tracking/can-bus/).
 
-The Argon, Boron, and B Series SoM do not include CAN hardware, but it can be added with an external
+The Argon, Boron, B Series SoM, P2, and Photon 2 do not include CAN hardware, but it can be added with an external
 CAN interface chip and library, like the Tracker SoM.
 {{note op="end"}}
 
@@ -8761,7 +8996,7 @@ Serial.println(myIP);    // prints the device's IP address
 
 {{api name1="BLE"}}
 
-Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
+The P2, Photon 2, and Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
@@ -11489,7 +11724,7 @@ NFC is supported in Device OS 1.3.1 and later. NFC support was in beta test in D
 ---
 
 {{note op="start" type="gen2"}}
-Gen 2 devices (Photon, P1, Electron, E Series) do not support NFC.
+The P2, Photon 2, and Gen 2 devices (Photon, P1, Electron, E Series) do not support NFC.
 {{note op="end"}}
 
 ### Example app
@@ -15241,14 +15476,20 @@ EEPROM emulation allows small amounts of data to be stored and persisted even ac
 ---
 
 {{note op="start" type="gen3"}}
-On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) 
+On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM, and E404X) 
 the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
 {{note op="end"}}
 
 ---
 
+{{note op="start" type="P2"}}
+The P2 and Photon 2 also uses a file a file on the flash file system for EEPROM emulation.
+{{note op="end"}}
+
+---
+
 {{note op="start" type="gen2"}}
-On Gen 2 devices (Photon, P1, Electron, and E Series) 
+On Gen 2 devices (Photon, P1, Electron, and E Series except the E404X) 
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
@@ -15449,7 +15690,7 @@ pages.
 {{api name1="EEPROM.hasPendingErase" name2="performPendingErase"}}
 
 {{note op="start" type="gen2"}}
-Pending erase functions are only used on Gen 2 devices (Photon, P1, Electron, and E Series). 
+Pending erase functions are only used on Gen 2 devices (Photon, P1, Electron, and E Series, except the E404X). 
 {{note op="end"}}
 
 ---
@@ -15497,6 +15738,12 @@ pause any time `put()` or `write()` is called.
 A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
 
 On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), retained memory is only initialized in Device OS 1.5.0 and later. In prior versions, retained memory would always be uninitialized on first power-up.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="P2"}}
+The P2 and Photon 2 do not support backup RAM. In some cases, the flash file system can be used, or you can use an external chip such as an I2C or SPI FRAM.
 {{note op="end"}}
 
 ---
@@ -16016,9 +16263,13 @@ On the Argon, Boron, B Series SoM you cannot wake from HIBERNATE mode by time be
 On the Tracker SoM, even though it has an nRF52 processor, you can wake from HIBERNATE by time as it uses the AM1805 external watchdog/RTC to implement this feature.
 {{note op="end"}}
 
+---
+
 {{note op="start" type="gen2"}}
 On the Photon, P1, Electron, and E Series even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
 {{note op="end"}}
+
+---
 
 {{note op="start" type="cellular"}}
 On cellular devices, if you turn off the cellular modem, you should not wake with a period of less than 10 minutes on average. Your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour. You can wake your device frequently if you do not reconnect to cellular every time. For example, you can wake, sample a sensor and save the value, then go to sleep and only connect to cellular and upload the data every 10 minutes. Or you can use cellular standby so cellular stays connected through sleep cycles and then you can sleep for short durations.
@@ -17936,9 +18187,9 @@ if (powerSource == POWER_SOURCE_BATTERY) {
 ---
 
 {{note op="start" type="note"}}
-Power Management including power source detection is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+Power Management including power source detection is available on the Boron, B Series SoM, Tracker SoM, E404X (Gen 3), Electron, and E Series (Gen 2).
 
-It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
 
@@ -17977,7 +18228,7 @@ if (batteryState == BATTERY_STATE_CHARGING) {
 {{note op="start" type="note"}}
 Power Management including battery state is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
 
-It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
 ### batteryCharge()
@@ -18000,9 +18251,9 @@ Log.info("soc=%.1f", batterySoc);
 ---
 
 {{note op="start" type="note"}}
-Power Management including battery charge is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+Power Management including battery charge is available on the Boron, B Series SoM, Tracker SoM, E404X (Gen 3), Electron, and E Series (Gen 2).
 
-It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+It is not available on the P2, Photon 2, Argon, Photon, or P1.
 {{note op="end"}}
 
 
@@ -18407,7 +18658,7 @@ void loop() {
 
 ## File System
 
-Gen 3 devices implement a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
+The P2, Photon 2, and Gen 3 devices (B Series SoM, Tracker SoM, Boron, Argon, and E404X) implement a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
 
 | Device | Since Device OS | Size |
 | :--- | :--- | :--- |
@@ -18419,7 +18670,7 @@ For more detailed information about the file system, see the application note [A
 ---
 
 {{note op="start" type="gen2"}}
-The File System is not available on Gen 2 devices (Photon, P1, Electron, E Series).
+The File System is not available on Gen 2 devices (Photon, P1, Electron, E Series except the E404X).
 {{note op="end"}}
 
 ---
@@ -23555,7 +23806,9 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 ## Memory
 
-Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) have an nRF52840 MCU with 128K of flash for your user firmware.
+The P2 and Photon 2 have a RTL8721D MCU with 2048K of flash for your user firmware.
+
+Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM and E404X) have an nRF52840 MCU with 256K of flash for your user firmware. Prior to Device OS 3.1, it was 128K.
 
 Gen 2 devices (Photon, P1, Electron, and E Series) all have an STM32F205 processor with 128K of flash for your user firmware.
 

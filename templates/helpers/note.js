@@ -46,62 +46,84 @@ module.exports = function(context) {
 	if (op === 'start') {
         var cssClass = '';
         var message = '';
+        var deviceList = '';
 
         if (context.hash.type.indexOf("warning") >= 0) {
-            message = 'Warning:';
+            message = 'Warning';
             cssClass = 'note-warning';
         }
         else
         if (context.hash.type.indexOf("note") >= 0) {
-            message = 'Note:';
+            message = 'Note';
             cssClass = 'note-note';
         }
         else
         if (context.hash.type.indexOf("cellular") >= 0) {
             if (context.hash.type.indexOf("gen3") >= 0) {
-                message = 'Gen 3 Cellular Devices:';
+                message = 'Gen 3 Cellular Devices';
+                deviceList = 'B Series SoM, Tracker SoM, Tracker One, Boron, and E404X';
             }
             else if (context.hash.type.indexOf("gen2") >= 0) {
-                message = 'Gen 2 Cellular Devices:';
+                message = 'Gen 2 Cellular Devices';
+                deviceList = 'E Series and Electron; does not include E404X';
             }
             else {
-                message = 'Cellular Devices:';
+                message = 'Cellular Devices';
+                deviceList = 'B Series SoM, Tracker SoM, Tracker One, Boron, E404X, E Series, and Electron';
             }
             cssClass = 'note-cellular';
         }
         else
         if (context.hash.type.indexOf("wifi") >= 0) {
             if (context.hash.type.indexOf("gen3") >= 0) {
-                message = 'Gen 3 Wi-Fi Devices:';
+                message = 'Gen 3 Wi-Fi Devices';
+                deviceList = 'Argon';
             }
             else if (context.hash.type.indexOf("gen2") >= 0) {
-                message = 'Gen 2 Wi-Fi Devices:';
+                message = 'Gen 2 Wi-Fi Devices';
+                deviceList = 'P1 and Photon';
             }
             else {
-                message = 'Wi-Fi Devices:';
+                message = 'Wi-Fi Devices';
+                deviceList = 'P2, Photon 2, Argon, P1, Photon';
             }
             cssClass = 'note-wifi';
         }
         else
         if (context.hash.type.indexOf("gen3") >= 0) {
-            message = 'Gen 3 Devices:';
+            message = 'Gen 3 Devices';
+            deviceList = 'B Series SoM, Tracker SoM, Tracker One, Boron, Argon, and E404X';
             cssClass = 'note-gen3';
         }
         else
         if (context.hash.type.indexOf("gen2") >= 0) {
-            message = 'Gen 2 Devices:';
+            message = 'Gen 2 Devices';
+            deviceList = 'E Series, Electron, Photon, and P2; does not include E404X';
             cssClass = 'note-gen2';
         }
         else
+        if (context.hash.type.indexOf("P2") >= 0) {
+            message = 'P2 and Photon 2 Devices';
+            cssClass = 'note-p2';
+        }
+        else
         if (context.hash.type.indexOf("product") >= 0) {
-            message = 'Product Devices:';
+            message = 'Product Devices';
             cssClass = 'note-gen2';
         }
         else
         if (context.hash.type.indexOf("developer") >= 0) {
-            message = 'Developer Devices:';
+            message = 'Developer Devices';
             cssClass = 'note-gen3';
         }
+
+        if (context.hash.deviceList) {
+            deviceList = context.hash.deviceList;
+        }
+        if (deviceList) {
+            message += ' (' + deviceList  + ')';
+        }
+        message += ':';
 
         html += '<span class="note-prefix">' + message + '</span></p><div class="note-common ' + cssClass + ' content reference"><p>';
     }

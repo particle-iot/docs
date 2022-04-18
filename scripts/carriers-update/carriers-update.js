@@ -4314,15 +4314,56 @@ const { option } = require('yargs');
                         }); 
                     } 
                 },
-
-
-                
-
-    
-
             ]
-        }    
+        },
+        {
+            path: '/reference/device-os/firmware.md',
+            updates: [
+                {
+                    guid:'d68a9c54-a380-11ec-b909-0242ac120002',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'analogWritePWM',
+                            noInterface: true,
+                        }); 
+                    } 
+                },
+                {
+                    guid:'ed5c8a8d-6f7f-4253-be72-a45e7316421e',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'hardwareADC'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'cd89fea9-4917-4af5-bfd0-4bdaa400545c',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'serial'
+                        }); 
+                    }                     
+                },
+                {
+                    guid:'c48b830e-f222-4a5d-a34f-14973ce84e22',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platformNew: 'P2',
+                            interface: 'spi'
+                        }); 
+                    } 
+                },
+            ],
+        },
     ];
+
 
     updater.updateDocs = function(pathPrefix, docsPath, guid, md, files) {
         // path: path to md, relative to content. For example: /tutorials/cellular-connectivity/cellular-carriers.md
