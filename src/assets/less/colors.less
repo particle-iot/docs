@@ -1,29 +1,31 @@
 a,
 .menu a,
 .menu a:visited {
-  color: @NC_CYAN;
+  color: @NC_BODY;
+  font-family: @link-font;
+  text-decoration: underline;
 }
 
 a:hover,
 .menu a:hover {
-  color: @NC_CYAN_HOVER;
+  background-color: @NC_GRAY100;
 }
 
 .menu a.active:after {
-  background: @NC_CYAN;
+  background: @NC_BODY;
 }
 
 .button, .button:visited {
-  background: @NC_CYAN;
+  background: @NC_BODY;
   border:0;
   padding: 7px 25px;
 }
 
 .button:hover {
-  background: @NC_CYAN_HOVER;
+  background-color: @NC_GRAY100;
 }
 
-@dark-gray: @NC_SPACE_GRAY;
-@spark-blue: @NC_CYAN;
-@monokai-gray: @NC_SPACE_GRAY;
+@dark-gray: @NC_HEADER;
+@spark-blue: @NC_BODY;
+@monokai-gray: @NC_HEADER;
 @transparent-monokai: rgba(39,40,34,0);

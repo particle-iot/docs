@@ -85,7 +85,7 @@ td {
 }
 body {
   line-height: 1;
-  color: @NC_BLACK;
+  color: @NC_MIDNIGHT;
   background: @NC_WHITE;
 }
 ol,
@@ -122,9 +122,9 @@ body,
 td,
 textarea,
 input {
-  line-height: 1.6;
+  line-height: 20px; // body large regular
   font-size: 16px;
-  color: @NC_SPACE_GRAY;
+  color: @NC_HEADER;
 }
 pre code {
   color: @NC_WHITE;
@@ -138,8 +138,10 @@ pre code {
   }
 }
 a {
-  color: @NC_CYAN;
-  text-decoration: none;
+  font-family: @link-font;
+  font-size: 16px;
+  font-weight: 400px;
+  text-decoration: underline;
 }
 a:hover {
   color: @NC_CYAN_HOVER;
