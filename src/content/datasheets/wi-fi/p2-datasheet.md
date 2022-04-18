@@ -81,6 +81,8 @@ The P2 module supports programming and debugging use SWD (Serial Wire Debug) on 
 
 When the bootloader starts, for a brief period of time a weak pull-up is applied to pin D7 and pull-down to pin D6 to detect whether a SWD debugger is attached. After boot, you can use these pins for regular GPIO, but beware of a possible GPIO state change caused by the pull-up or pull-down when using these pins as output.
 
+Note that SWD is shared with GPIO pins D6 and D7, and by default SWD is only enabled while the bootloader is running, immediately at boot, and when in DFU mode (blinking yellow). Only Debug builds in Particle Workbench have SWD enabled in when user firmware is running.
+
 ---
 
 ## Memory Map
