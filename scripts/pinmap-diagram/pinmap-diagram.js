@@ -766,7 +766,7 @@ const svg = require('./svg');
     diagram.generateE404X = async function(generateOptions) {
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'E404X',
-            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/e-series.svg'),
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/e404x.svg'),
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/e404x-pinout.svg'),
             // scale to make height 500px width 221
             deviceImageTransform: 'translate(420,414) scale(1.04)',
