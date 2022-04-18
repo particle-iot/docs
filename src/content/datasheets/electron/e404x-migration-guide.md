@@ -34,6 +34,19 @@ On the E404X and Gen 3 devices, over-the-air (OTA) updates have two features tha
 - Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
 - Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
 
+### Increased API field limits
+
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the E404X vs. 864 bytes on other E Series models.
+
+| API Field | E Series | E404X |
+| :--- | :---: | :---: |
+| Variable Key | 64 | 64 |
+| Variable Data | 864 | 1024 |
+| Function Key | 64 | 64 |
+| Function Argument | 864 | 1024  |
+| Publish/Subscribe Event Name | 64 | 64 |
+| Publish/Subscribe Event Data | 864 | 1024 |
+
 
 ### Sleep Modes
 

@@ -844,6 +844,36 @@ The Photon 2 and Argon utilize BLE for configuration of Wi-Fi rather than the So
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
 
+
+### User firmware binary size
+
+One major advantage of the Photon 2 is that user firmware binaries can be up to 2048 Kbytes, instead of 128 Kbytes on Gen 2 devices including the Photon.
+
+### Flash file system
+
+On the Photon 2, P2, and Gen 3 devices, there is a flash file system (2 MB) for storing user data. This is not available on Gen 2 devices including the Photon.
+
+### Combined and resumable OTA
+
+On the Photon 2, P2, and Gen 3 devices, over-the-air (OTA) updates have two features that can improve the speed and reliability of OTA updates:
+
+- Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
+- Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### Increased API field limits
+
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the Photon 2 vs. 864 bytes on Photon.
+
+| API Field | Photon | Photon 2 |
+| :--- | :---: | :---: |
+| Variable Key | 64 | 64 |
+| Variable Data | 864 | 1024 |
+| Function Key | 64 | 64 |
+| Function Argument | 864 | 1024  |
+| Publish/Subscribe Event Name | 64 | 64 |
+| Publish/Subscribe Event Data | 864 | 1024 |
+
+
 ### Platform ID
 
 The Platform ID of the Photon 2 will different from that of the Photon (6) because of the vastly different hardware. 

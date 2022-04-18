@@ -1028,6 +1028,12 @@ The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the S
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
 
+### User firmware binary size
+
+One major advantage of the P2 is that user firmware binaries can be up to 2048 Kbytes.
+
+On the Argon (Device OS 3.1 and later), it's 256 Kbytes, or 128 Kbytes for older version of Device OS.
+
 ### Platform ID
 
 The Platform ID of the P2 (32, `PLATFORM_P2`) is different from that of the Argon (12) because of the vastly different hardware. 
