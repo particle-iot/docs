@@ -331,62 +331,10 @@ The nRF52840 MCU on the E404X can be programmed by:
 
 It cannot be programmed by the ST-LINK/V2.
 
+### Complete module and pin listing
 
-## Memory Map
+{{imageOverlay src="/assets/images/e404x-pinout.svg" alt="E404X Pinout Diagram" class="full-width"}}
 
-### nRF52840 Flash Layout Overview
-
- - Bootloader (48KB, @0xF4000)
-  - User Application
-   - 256KB @ 0xB4000 (Device OS 3.1 and later)
-   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
- - System (656KB, @0x30000)
- - SoftDevice (192KB)
-
-### External SPI Flash Layout Overview (DFU offset: 0x80000000)
-
- - OTA (1500KB, @0x00289000)
- - Reserved (420KB, @0x00220000)
- - FAC (128KB, @0x00200000)
- - LittleFS (2M, @0x00000000)
-
----
-
-## Pin and button definition
-
-### Pin markings:
-
-**To be provided later**
-
-### LED Status
-
-#### Charge status LED
-
-|State | Description |
-|:---|:---|
-|ON | Charging in progress |
-|OFF | Charging complete |
-|Blink at 1Hz| Fault condition<sup>[1]</sup> |
-|Rapid blinking | Battery disconnected<sup>[2]</sup> |
-
-**Notes:**
-
-<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
-
-<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
-
-#### System RGB LED
-
-Unlike the Electron, the E series module does not have an on-board RGB status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
-
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/electron/)
-
-### Pinout diagram
-
-{{imageOverlay src="/assets/images/e-series/illustrations/e404x-pinmap.png" alt="Pinout" class="full-width"}}
-
-
-### Pin description
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6591a5b8-3326-46c8-9133-de4d6dacbc77 --}}
 
@@ -456,6 +404,56 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 {{!-- END do not edit content above, it is automatically generated 6591a5b8-3326-46c8-9133-de4d6dacbc77 --}}
 
+
+
+## Memory Map
+
+### nRF52840 Flash Layout Overview
+
+ - Bootloader (48KB, @0xF4000)
+  - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
+ - System (656KB, @0x30000)
+ - SoftDevice (192KB)
+
+### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+
+ - OTA (1500KB, @0x00289000)
+ - Reserved (420KB, @0x00220000)
+ - FAC (128KB, @0x00200000)
+ - LittleFS (2M, @0x00000000)
+
+---
+
+## Pin and button definition
+
+### Pin markings:
+
+**To be provided later**
+
+### LED Status
+
+#### Charge status LED
+
+|State | Description |
+|:---|:---|
+|ON | Charging in progress |
+|OFF | Charging complete |
+|Blink at 1Hz| Fault condition<sup>[1]</sup> |
+|Rapid blinking | Battery disconnected<sup>[2]</sup> |
+
+**Notes:**
+
+<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
+
+<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
+
+#### System RGB LED
+
+Unlike the Electron, the E series module does not have an on-board RGB status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
+
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/electron/)
 
 ### LED status
 

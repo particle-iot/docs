@@ -2272,7 +2272,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. C3 and TX share the same interrupt handler.",
-          "serial": "USART4_TX|TX. Use Serial4 object.",
+          "serial": "Serial4 TX|TX. Use Serial4 object.",
           "spi": "SPI2 (SCK)|SCK. Use SPI2 object.",
           "hardwarePin": "PC10"
         },
@@ -2289,7 +2289,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": false,
-          "serial": "USART4_RX|RX. Use Serial4 object.",
+          "serial": "Serial4 RX|RX. Use Serial4 object.",
           "spi": "SPI2 (MISO)|MISO. Use SPI2 object.",
           "hardwarePin": "PC11"
         },
@@ -2306,7 +2306,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": false,
-          "serial": "USART5_TX|TX. Use Serial5 object.",
+          "serial": "Serial5_TX|TX. Use Serial5 object.",
           "spi": "SPI2 (MOSI)|MOSI. Use SPI2 object.",
           "hardwarePin": "PC12"
         },
@@ -2323,7 +2323,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. A2 and C0 share the same interrupt handler.",
-          "serial": "USART5_RX|RX. Use Serial5 object.",
+          "serial": "Serial5_RX|RX. Use Serial5 object.",
           "hardwarePin": "PD2"
         },
         {

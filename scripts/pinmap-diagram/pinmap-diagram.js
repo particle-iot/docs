@@ -625,6 +625,281 @@ const svg = require('./svg');
         await diagram.generate(options);
     }
 
+    diagram.generateESeries = async function(generateOptions) {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'E Series',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/e-series.svg'),
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/e-series-pinout.svg'),
+            // scale to make height 500px width 221
+            deviceImageTransform: 'translate(420,414) scale(1.04)',
+            width: 1300,
+            height: 1000,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 420,
+                    y: 930,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 20,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial', 'dac'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Top side
+                    num: 21,
+                    x: 453,
+                    y: 420,
+                    numDelta: 1,
+                    xDelta: 24.6,
+                    yDelta: 0,
+                    count: 17,
+                    xDir: 0,
+                    yDir: -1,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial', 'dac'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 38,
+                    x: 878,
+                    y: 463,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 20,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial', 'dac'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options);
+    };
+
+
+    diagram.generateE404X = async function(generateOptions) {
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'E404X',
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/e-series.svg'),
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/e404x-pinout.svg'),
+            // scale to make height 500px width 221
+            deviceImageTransform: 'translate(420,414) scale(1.04)',
+            width: 1300,
+            height: 1000,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 420,
+                    y: 930,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -24.6,
+                    count: 20,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial', 'dac'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Top side
+                    num: 21,
+                    x: 453,
+                    y: 420,
+                    numDelta: 1,
+                    xDelta: 24.6,
+                    yDelta: 0,
+                    count: 17,
+                    xDir: 0,
+                    yDir: -1,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial', 'dac'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 38,
+                    x: 878,
+                    y: 463,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 24.6,
+                    count: 20,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 30,
+                            keys: ['num'],
+                        },
+                        {
+                            width: 50,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 30,
+                            keys: ['altName'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial', 'dac'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                        {
+                            keys: ['hardwarePin'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options);
+    };
+
     diagram.generatePhoton2 = async function(generateOptions) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -1188,6 +1463,10 @@ const svg = require('./svg');
         await diagram.generatePhoton(generateOptions);
         
         await diagram.generateElectron(generateOptions);
+
+        await diagram.generateESeries(generateOptions);
+
+        await diagram.generateE404X(generateOptions);
 
         await diagram.generateP2(Object.assign({
             platformName: 'P1'

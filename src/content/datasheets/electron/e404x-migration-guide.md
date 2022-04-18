@@ -180,10 +180,10 @@ The E Series has additional serial ports `Serial2`, `Serial4`, and `Serial5`. Th
 | 17 | RX | Serial1 (RX) | RX | Serial1 (RX) |
 | 41 | D1 | &nbsp; | D1 | Serial1 (CTS) |
 | 42 | D0 | &nbsp; | D0 | Serial1 (RTS) |
-| 46 | C3 | USART4_TX | C3 | &nbsp; |
-| 47 | C2 | USART4_RX | C2 | &nbsp; |
-| 48 | C1 | USART5_TX | C1 | &nbsp; |
-| 49 | C0 | USART5_RX | C0 | &nbsp; |
+| 46 | C3 | Serial4 TX | C3 | &nbsp; |
+| 47 | C2 | Serial4 RX | C2 | &nbsp; |
+| 48 | C1 | Serial5_TX | C1 | &nbsp; |
+| 49 | C0 | Serial5_RX | C0 | &nbsp; |
 | 52 | RGBB | Serial2 (RX) | RGBB | &nbsp; |
 | 53 | RGBG | Serial2 (TX) | RGBG | &nbsp; |
 
@@ -426,6 +426,11 @@ No pin functions have been added to previously unused (NC) pins.
 
 
 ### Full module pin comparison
+
+{{imageOverlay src="/assets/images/e404x-pinout.svg" alt="E404X Pinout Diagram" class="full-width"}}
+
+{{imageOverlay src="/assets/images/e-series-pinout.svg" alt="E Series Pinout Diagram" class="full-width"}}
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
 
