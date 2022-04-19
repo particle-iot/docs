@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { update } = require('lodash');
 const path = require('path');
 
 const generatorConfig = require('./generator-config');
@@ -2301,7 +2302,109 @@ const generatorConfig = require('./generator-config');
             }
             */
         }
-    }
+    };
+
+    updater.generateMd = function(guid) {
+        for(const updateConfig of generatorConfig.updates) {
+            if (updateConfig && updateConfig.guid == guid) {
+                return updateConfig.generatorFn(updater);
+            }
+        }
+        // Error is flagged in the caller to generateMd
+        return '';
+    };
+
+    updater.updateFile = function(name, files) {
+        // name is the key into the files object
+        // it is the pathname to the md file in the src directory. For example:
+        // "content/tutorials/cellular-connectivity/introduction.md"
+
+        // updater.pathPrefix is the path to the src directory, so you can make a path
+        // to a file on disk by using path.join(updater.pathPrefix, name)
+
+        const file = files[name];
+        // file.contents: buffer of the file contents
+        // file.stats: file stat information
+
+        // {{!-- BEGIN do not edit content below, it is automatically generated 323fb696-76c4-11eb-9439-0242ac130002 --}}
+        // {{!-- END do not edit content above, it is automatically generated 323fb696-76c4-11eb-9439-0242ac130002 --}}
+        const replacePrefixBegin = '{{!-- BEGIN do not edit content below, it is automatically generated ';
+        const replacePrefixEnd = '{{!-- END do not edit content above, it is automatically generated';
+
+        const guidRE = /([-A-Fa-f0-9]+)/;
+
+        let contentsStr = file.contents.toString();
+        if (contentsStr.indexOf(replacePrefixBegin) < 0) {
+            // Nothing to update
+            return;
+        }
+
+        let blocks = [];
+        let guid;
+        let inGuid = false;
+        let currentBlock = '';
+        
+        contentsStr.split("\n").forEach(function(line, index) {
+            if (!inGuid) {
+                currentBlock += line + '\n';
+
+                if (line.startsWith(replacePrefixBegin)) {
+                    const m = line.substring(replacePrefixBegin.length).match(guidRE);
+                    if (m) {
+                        guid = m[1];
+                        // console.log('file=' + name + ' guid=' + guid);
+                        inGuid = true;
+                        if (currentBlock.length) {
+                            blocks.push(currentBlock);
+                            const md = updater.generateMd(guid);
+                            if (md) {
+                                blocks.push(md);
+                            }
+                            else {
+                                console.log('no update configuration for ' + guid + ' used in file=' + name);
+                            }
+                        }
+                        currentBlock = '';    
+                    }
+                    else {
+                        console.log('missing guid file=' + name + ' : ' + line);
+                    }
+                }
+            }
+            else {
+                if (line.startsWith(replacePrefixEnd)) {
+                    inGuid = false;
+                    currentBlock = line + '\n';
+                }
+            }            
+        });
+
+        if (currentBlock.length) {
+            blocks.push(currentBlock);
+        }
+
+        let newDocsData = '';
+
+        for(const b of blocks) {
+            if (b === null) {
+                newDocsData += '\n' + md + '\n\n';
+            }
+            else {
+                newDocsData += b;
+            }
+        }  
+
+        // Make newDocsData end with exactly one \n, otherwise it keeps getting one added on each run
+        let len = newDocsData.length;
+        while(len > 0 && newDocsData.charAt(len - 1) == '\n') {
+            len--;
+        }
+        if ((len + 1) < newDocsData.length) {
+            newDocsData = newDocsData.substring(0, len + 1);
+        }
+        
+        // console.log('file=' + name, newDocsData);
+    };
 
     //
     // Do the update
@@ -2309,12 +2412,48 @@ const generatorConfig = require('./generator-config');
     //
     updater.doUpdate = function(scriptsDir, files) {
 
-        const pathPrefix = path.resolve(scriptsDir, '../src/content');
+        updater.pathPrefix = path.resolve(scriptsDir, '../src/content');
 
         updater.pinInfo = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/pinInfo.json'), 'utf8'));
 
         updater.datastore.data = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/carriers.json'), 'utf8'));
 
+        /*
+        // Test code for finding duplicate GUIDs - erase before commit
+        {
+            let guids = {};
+
+            for(const updateConfig of generatorConfig.updatesOld) {
+                for(const up of updateConfig.updates) {
+                    if (!up) {
+                        continue;
+                    }
+                    if (!guids[up.guid]) {
+                        guids[up.guid] = {
+                            files: [],
+                            guid: up.guid
+                        }
+                    }        
+                    guids[up.guid].files.push(updateConfig.path);
+                }
+            }    
+            for(const guid in guids) {
+                if (guids[guid].files.length > 1) {
+                    console.log('multiple uses of ' + guid, guids[guid].files);
+                }
+            }
+            // console.log('guids', guids);
+
+        }
+        return;
+        */
+
+        for(let name in files) {
+            if (name.endsWith('.md')) {
+                updater.updateFile(name, files);
+            }
+        }
+        /*
         generatorConfig.updates.forEach(function(fileObj) {
             // fileObj.path
             fileObj.updates.forEach(function(updatesObj) {
@@ -2327,7 +2466,8 @@ const generatorConfig = require('./generator-config');
                     console.log('exception processing ' + updatesObj.guid, e);
                 }
             });
-        })
+        })  
+        */
 
         // console.log('carriers-update complete');
     };

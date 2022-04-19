@@ -109,7 +109,7 @@ The the pin functions for `SPI1` on the `D` pins are different between the Argon
 
 Most boards, including Ethernet, use primary `SPI`, which works the same between the Argon and Photon 2.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 021430dd-e4d9-434c-8a5a-9632168c57b5 --}}
 
 | Argon Pin Name | Argon SPI | Photon 2 Pin Name | Photon 2 SPI |
 | :--- | :--- | :--- | :--- |
@@ -123,7 +123,7 @@ Most boards, including Ethernet, use primary `SPI`, which works the same between
 | D5 | &nbsp; | D5 | SPI1 (SS) |
 
 
-{{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - Any available GPIO can be used for SS/CS (chip select) pins.
 - Each SPI device must have a unique CS pin.
@@ -160,7 +160,7 @@ The secondary UART serial (`Serial2`) exists on the Photon 2 but not the Argon, 
 
 There is a third UART serial (`Serial3`) on the Photon 2 that also supports optional CTS/RTS hardware flow control.
 
-{{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 6a0631e5-4c61-4617-997c-0b310d0d2574 --}}
 
 | Argon Pin Name | Argon Serial | Photon 2 Pin Name | Photon 2 Serial |
 | :--- | :--- | :--- | :--- |
@@ -176,7 +176,7 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 | D8 / WKP | &nbsp; | D10 / WKP | Serial3 (CTS) |
 
 
-{{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 |      | Argon    | Photon 2 |
 | :--- | :------: | :---: |
@@ -194,7 +194,6 @@ There is a third UART serial (`Serial3`) on the Photon 2 that also supports opti
 
 <sup>2</sup>On the Argon, the buffer be resized larger in Device OS 3.2.0 and later.
 
-{{!-- BEGIN do not edit content below, it is automatically generated c6b3f6a9-8b4c-4e97-aa7d-ded5eff1f56d --}}
 Supported Baud Rates:
 
 | Baud Rate | Argon | P2 |
@@ -235,7 +234,6 @@ Supported Baud Rates:
 | 4000000 | | &check; |
 | 6000000 | | &check; |
 
-{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Analog input (ADC)
 
@@ -248,7 +246,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 - Pins D0 and D1 can also be used as analog inputs on the Photon 2. 
 - The `setADCSampleTime()` function is not supported on the Photon 2 or P2.
 
-{{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 74be4a79-6a50-4688-a29e-f0ca660e7c49 --}}
 
 | Argon Pin Name | Argon ADC | Photon 2 Pin Name | Photon 2 ADC |
 | :--- | :--- | :--- | :--- |
@@ -262,7 +260,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 | D1 | &nbsp; | D1 / A4 | &check; |
 
 
-{{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### PWM (Pulse-width modulation)
@@ -272,7 +270,7 @@ For analog to digital conversion (ADC) using `analogRead()`.
 The pins that support PWM are different on the Argon and Photon 2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated bf93e2c1-5640-404d-a2f7-5150ade02743 --}}
 
 | Argon Pin Name | Argon PWM | Photon 2 Pin Name | Photon 2 PWM |
 | :--- | :--- | :--- | :--- |
@@ -295,7 +293,7 @@ The pins that support PWM are different on the Argon and Photon 2.
 | D8 / WKP | &check; | D10 / WKP | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 All available PWM pins on the Photon 2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
@@ -343,7 +341,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 
 {{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Photon 2 Pinout Diagram" class="full-width"}}
 
-{{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 971b8de5-cd16-4546-b554-8535ea744b71 --}}
 
 #### RST
 | | Unchanged between Argon and Photon 2 |
@@ -623,7 +621,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 
 
-{{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ## Software
 

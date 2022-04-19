@@ -318,7 +318,6 @@ If you are using Argon Serial1 with hardware flow control, you should switch to 
 | CTS/RTS flow control |  | &check;<sup>1</sup> |
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated c6b3f6a9-8b4c-4e97-aa7d-ded5eff1f56d --}}
 Supported Baud Rates:
 
 | Baud Rate | Argon | P2 |
@@ -358,8 +357,6 @@ Supported Baud Rates:
 | 3750000 | | &check; |
 | 4000000 | | &check; |
 | 6000000 | | &check; |
-
-{{!-- END do not edit content above, it is automatically generated --}}
 
 
 
@@ -544,7 +541,7 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 
 If you need to use SPI1 on the D pins, this mapping is required. The D pins are ordered differently between the Argon and P2, and this affects SPI1.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 7c78e07c-4e5a-43a6-8c61-d9a322871bd8 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 5f99e2b9-32a0-4378-a074-459ef068e96f --}}
 
 | Argon Pin Name | Argon Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |

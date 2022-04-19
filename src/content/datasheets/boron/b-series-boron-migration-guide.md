@@ -369,7 +369,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 
 ### Full module pin comparison
 
-{{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002--}}
+{{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002 --}}
 
 #### 3V3
 |   | Boron | B Series SoM |

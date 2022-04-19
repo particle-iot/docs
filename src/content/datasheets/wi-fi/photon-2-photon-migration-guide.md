@@ -90,7 +90,7 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 
 `SPI1` on the `D` pins is the same between the Photon and Photon 2.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e0b9fa70-6d55-4b97-97c3-59591785f6a3 --}}
 
 | Photon Pin Name | Photon SPI | Photon 2 Pin Name | Photon 2 SPI |
 | :--- | :--- | :--- | :--- |
@@ -108,7 +108,7 @@ Both the Photon and Photon 2 have two SPI ports, however the pins are different 
 | &nbsp; | &nbsp; | SCK / D17 | SPI (SCK) |
 
 
-{{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 #### SPI - Gen 2 devices (including Photon)
 
@@ -157,7 +157,7 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both the Photon 
 
 The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
 
-{{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- BEGIN do not edit content below, it is automatically generated b4bf5550-eadd-49f9-a462-e1cc867d9768 --}}
 
 | Photon Pin Name | Photon Serial | Photon 2 Pin Name | Photon 2 Serial |
 | :--- | :--- | :--- | :--- |
@@ -175,7 +175,7 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | WKP / A7 | &nbsp; | D10 / WKP | Serial3 (CTS) |
 
 
-{{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 |      | Photon    | Photon 2 |
 | :--- | :---: | :---: |
@@ -195,7 +195,6 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
 Supported Baud Rates:
 
 | Baud Rate | P1 | P2 |
@@ -233,13 +232,12 @@ Supported Baud Rates:
 | 3750000 | | &check; |
 | 4000000 | | &check; |
 | 6000000 | | &check; |
-{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Analog input (ADC)
 
 For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the Photon 2:
 
-{{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 7b8ec61a-2e3d-4569-9e37-a06d1a8926d0 --}}
 
 | Photon Pin Name | Photon ADC | Photon 2 Pin Name | Photon 2 ADC |
 | :--- | :--- | :--- | :--- |
@@ -255,7 +253,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 On the Photon 2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, Photon 2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for Photon 2 pin D1 (hardware pin 35), which has the alias A4.
 
@@ -266,7 +264,7 @@ The `setADCSampleTime()` function is not supported on the Photon 2 or P2.
 The pins that support PWM are different on the Photon and Photon 2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 5a2874df-488f-4879-93cf-b0c85dced7a9 --}}
 
 | Photon Pin Name | Photon PWM | Photon 2 Pin Name | Photon 2 PWM |
 | :--- | :--- | :--- | :--- |
@@ -285,7 +283,7 @@ The pins that support PWM are different on the Photon and Photon 2.
 | WKP / A7 | &check; | D10 / WKP | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 All available PWM pins on the Photon 2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
@@ -298,7 +296,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 25447b5c-994b-4406-8459-0a7d2d53b1c5 --}}
 
 | Photon Pin Name | Photon DAC | Photon 2 Pin Name | Photon 2 DAC |
 | :--- | :--- | :--- | :--- |
@@ -306,7 +304,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | DAC / A6 | &check; | &nbsp; | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 
@@ -332,7 +330,7 @@ The Photon supports CAN on pins D1 and D2. There is no CAN on the Photon 2 or Ge
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the Photon 2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 0509e2dc-3122-4ed1-905d-41330c531519 --}}
 
 | Photon Pin Name | Photon CAN | Photon 2 Pin Name | Photon 2 CAN |
 | :--- | :--- | :--- | :--- |
@@ -340,7 +338,7 @@ The Photon supports CAN on pins D1 and D2. There is no CAN on the Photon 2 or Ge
 | D2 | &check; | D2 | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### I2S (Sound)
@@ -350,7 +348,7 @@ The Photon theoretically had I2S sound available on pins D1 and D2, however ther
 There is no software support for I2S on the Photon 2 either, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 0d09bd5a-5858-41dd-a48a-82198eb7cb4a --}}
 
 | Photon Pin Name | Photon I2S | Photon 2 Pin Name | Photon 2 I2S |
 | :--- | :--- | :--- | :--- |
@@ -360,7 +358,7 @@ There is no software support for I2S on the Photon 2 either, and while the RTL87
 | SETUP | I2S3_MCK | &nbsp; | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Interrupts
 
@@ -451,7 +449,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 {{imageOverlay src="/assets/images/photon-pinout.svg" alt="Photon Pinout Diagram" class="full-width"}}
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 8fe037d3-67e1-429f-9865-014e4e5b50af --}}
 
 #### 3V3
 |   | Photon | Photon 2 |
@@ -831,7 +829,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Input is 5V Tolerant | Yes | No |
 
 
-{{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ## Software
 
