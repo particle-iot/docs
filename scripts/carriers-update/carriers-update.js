@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { update } = require('lodash');
 const path = require('path');
 
 const generatorConfig = require('./generator-config');
@@ -2203,107 +2202,6 @@ const generatorConfig = require('./generator-config');
         return md;
     };
 
-
-    updater.updateDocs = function(pathPrefix, docsPath, guid, md, files) {
-        // path: path to md, relative to content. For example: /tutorials/cellular-connectivity/cellular-carriers.md
-        // guid: the ID for the block to replace (typically a GUID)
-        // md: The md file data to use as the replacement
-        
-        // {{!-- BEGIN do not edit content below, it is automatically generated 323fb696-76c4-11eb-9439-0242ac130002 --}}
-        // {{!-- END do not edit content above, it is automatically generated 323fb696-76c4-11eb-9439-0242ac130002 --}}
-        const replacePrefixBegin = '{{!-- BEGIN do not edit content below, it is automatically generated ';
-        const replacePrefixEnd = '{{!-- END do not edit content above, it is automatically generated';
-
-        const filePath = pathPrefix + docsPath;
-
-        const docsData = fs.readFileSync(filePath, 'utf8');
-        
-        let blocks = [];
-        let inGuid = false;
-        let currentBlock = '';
-        
-        docsData.split("\n").forEach(function(line, index) {
-            if (!inGuid) {
-                currentBlock += line + '\n';
-
-                if (line.startsWith(replacePrefixBegin + guid)) {
-                    inGuid = true;
-                    if (currentBlock.length) {
-                        blocks.push(currentBlock);
-                        blocks.push(null);
-                    }
-                    currentBlock = '';
-                }
-            }
-            else {
-                if (line.startsWith(replacePrefixEnd)) {
-                    inGuid = false;
-                    currentBlock = line + '\n';
-                }
-            }            
-        });
-
-        if (currentBlock.length) {
-            blocks.push(currentBlock);
-        }
-
-        let newDocsData = '';
-
-        for(const b of blocks) {
-            if (b === null) {
-                newDocsData += '\n' + md + '\n\n';
-            }
-            else {
-                newDocsData += b;
-            }
-        }  
-
-        // Make newDocsData end with exactly one \n, otherwise it keeps getting one added on each run
-        let len = newDocsData.length;
-        while(len > 0 && newDocsData.charAt(len - 1) == '\n') {
-            len--;
-        }
-        if ((len + 1) < newDocsData.length) {
-            newDocsData = newDocsData.substring(0, len + 1);
-        }
-        
-        if (docsData != newDocsData) {
-
-            fs.writeFileSync(filePath, newDocsData);	    
-            console.log('updated ' + docsPath);
-
-            /*
-            let contentOnly = '';
-            let lineNum = 1;
-            let inHeader = true;
-            for(const line of newDocsData.split('\n')) {
-                if (!inHeader) {
-                    contentOnly += line + '\n';
-                }
-                if (line == '---' && lineNum > 1) {
-                    inHeader = false;
-                }
-                lineNum++;
-            }
-
-            if '(files') {
-                const key = docsPath.substr(1);
-                console.log('key=' + key, files[key]);
-
-                console.log('old', files[key].contents.toString());
-                console.log('new', contentOnly);
-
-                // Remove the leading slash for indexing into files
-                files[key] = {
-                    contents: Buffer.from(contentOnly, "utf-8"),
-                    mode: '0644',
-                    stats: fs.statSync(filePath)
-                };
-            }
-            */
-        }
-    };
-
     updater.generateMd = function(guid) {
         for(const updateConfig of generatorConfig.updates) {
             if (updateConfig && updateConfig.guid == guid) {
@@ -2319,8 +2217,8 @@ const generatorConfig = require('./generator-config');
         // it is the pathname to the md file in the src directory. For example:
         // "content/tutorials/cellular-connectivity/introduction.md"
 
-        // updater.pathPrefix is the path to the src directory, so you can make a path
-        // to a file on disk by using path.join(updater.pathPrefix, name)
+        // updater.srcPath is the path to the src directory, so you can make a path
+        // to a file on disk by using path.join(updater.srcPath, name)
 
         const file = files[name];
         // file.contents: buffer of the file contents
@@ -2358,7 +2256,8 @@ const generatorConfig = require('./generator-config');
                             blocks.push(currentBlock);
                             const md = updater.generateMd(guid);
                             if (md) {
-                                blocks.push(md);
+                                // I'm not sure the newlines are necessary here, but the old generator put them in
+                                blocks.push('\n' + md + '\n\n');
                             }
                             else {
                                 console.log('no update configuration for ' + guid + ' used in file=' + name);
@@ -2383,7 +2282,25 @@ const generatorConfig = require('./generator-config');
             blocks.push(currentBlock);
         }
 
-        let newDocsData = '';
+        // console.log('file', file);
+
+        // Read the original file to get the front matter
+        const mdPath = path.join(updater.srcPath, name);
+
+        const oldDocsData = fs.readFileSync(mdPath, 'utf8');
+        let frontMatter = '';
+        let dashCount = 0;
+        for(let line of oldDocsData.split('\n')) {
+            line = line.trim();
+            frontMatter += line + '\n';
+            if (line == '---') {
+                if (++dashCount == 2) {
+                    break;
+                }            
+            }
+        }
+
+        let newDocsData = frontMatter;
 
         for(const b of blocks) {
             if (b === null) {
@@ -2404,6 +2321,12 @@ const generatorConfig = require('./generator-config');
         }
         
         // console.log('file=' + name, newDocsData);
+        if (oldDocsData != newDocsData) {
+            console.log('updated ' + name);
+
+            file.contents = Buffer.from(newDocsData, 'utf8');
+            fs.writeFileSync(mdPath, newDocsData);
+        }
     };
 
     //
@@ -2412,62 +2335,19 @@ const generatorConfig = require('./generator-config');
     //
     updater.doUpdate = function(scriptsDir, files) {
 
-        updater.pathPrefix = path.resolve(scriptsDir, '../src/content');
+        //updater.pathPrefix = path.resolve(scriptsDir, '../src/content');
+        updater.srcPath = path.resolve(scriptsDir, '../src');
 
+    
         updater.pinInfo = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/pinInfo.json'), 'utf8'));
 
         updater.datastore.data = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/carriers.json'), 'utf8'));
-
-        /*
-        // Test code for finding duplicate GUIDs - erase before commit
-        {
-            let guids = {};
-
-            for(const updateConfig of generatorConfig.updatesOld) {
-                for(const up of updateConfig.updates) {
-                    if (!up) {
-                        continue;
-                    }
-                    if (!guids[up.guid]) {
-                        guids[up.guid] = {
-                            files: [],
-                            guid: up.guid
-                        }
-                    }        
-                    guids[up.guid].files.push(updateConfig.path);
-                }
-            }    
-            for(const guid in guids) {
-                if (guids[guid].files.length > 1) {
-                    console.log('multiple uses of ' + guid, guids[guid].files);
-                }
-            }
-            // console.log('guids', guids);
-
-        }
-        return;
-        */
 
         for(let name in files) {
             if (name.endsWith('.md')) {
                 updater.updateFile(name, files);
             }
         }
-        /*
-        generatorConfig.updates.forEach(function(fileObj) {
-            // fileObj.path
-            fileObj.updates.forEach(function(updatesObj) {
-                // updatesObj.guid
-                // updatesObj.generatorFn (generates Markdown)
-                try {
-                    updater.updateDocs(pathPrefix, fileObj.path, updatesObj.guid, updatesObj.generatorFn(updater), files);
-                }
-                catch(e) {
-                    console.log('exception processing ' + updatesObj.guid, e);
-                }
-            });
-        })  
-        */
 
         // console.log('carriers-update complete');
     };

@@ -1240,7 +1240,7 @@ const path = require('path');
             }
         },
         {
-            guid:'25447b5c-994b-4406-8459-0a7d2d53b1c5', 
+            guid:'25447b5c-994b-4406-8459-0a7d2d53b1c5', // not currently used
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',
@@ -1339,7 +1339,7 @@ const path = require('path');
             }
         },
         {
-            guid:'516f360b-9f6c-4eb0-b931-e095b24dcd02', // not currently used
+            guid:'516f360b-9f6c-4eb0-b931-e095b24dcd02', 
             generatorFn:function(updater){
                 return updater.generatePinInfo({
                     style: 'port-comparison',

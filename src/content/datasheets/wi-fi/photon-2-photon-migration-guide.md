@@ -296,7 +296,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 25447b5c-994b-4406-8459-0a7d2d53b1c5 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 516f360b-9f6c-4eb0-b931-e095b24dcd02 --}}
 
 | Photon Pin Name | Photon DAC | Photon 2 Pin Name | Photon 2 DAC |
 | :--- | :--- | :--- | :--- |
