@@ -5462,6 +5462,10 @@ It is not available on the P2, Photon 2, Argon (Gen 3), Photon, or P1 (Gen 2).
 
 Set maximum current the power source can provide. This applies only when powered through VIN. When powering by USB, the maximum current is negotiated with your computer or power adapter automatically.
 
+The valid values are: 100, 150, 500, 900, 1200 or 1500 (mA). While the bq24195 PMIC has settings for 2000 and 3000, these will still be limited to around 1590 mA because the input current is limited to the lower of the powerSourceMaxCurrent and the hardware ILIM resistors, which are set to around 1500 mA.
+
+When powering by a USB power adapter that implements DPDM (USB current limit discovery), the lower of that value, powerSourceMaxCurrent, and ILIM resistors will be used.
+
 The default is 900 mA.
 
 ### powerSourceMinVoltage
