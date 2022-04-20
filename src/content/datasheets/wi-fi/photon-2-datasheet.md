@@ -213,7 +213,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### GPIO and port listing
 
-{{!-- BEGIN do not edit content below, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated ed19d7a3-f59d-4eec-85ba-2f67859e87b2 --}}
 
 | Pin Name |   |   |   |   | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -239,13 +239,13 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | TX / D8 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
 
 
-{{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### ADC (Analog to Digital Converter)
 
 The Photon 2 supports six ADC inputs.
 
-{{!-- BEGIN do not edit content below, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 2e0292c9-3489-40dd-b411-1a1ad8e5bb81 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -257,7 +257,7 @@ The Photon 2 supports six ADC inputs.
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
 
 
-{{!-- END do not edit content above, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
@@ -266,7 +266,7 @@ The Photon 2 supports six ADC inputs.
 
 The Photon 2 supports three UART serial interfaces. 
 
-{{!-- BEGIN do not edit content below, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+{{!-- BEGIN do not edit content below, it is automatically generated f0b0b5df-84bf-400d-a833-1dd3276ca910 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -282,7 +282,7 @@ The Photon 2 supports three UART serial interfaces.
 | D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | Serial3 (CTS) | PA[15] |
 
 
-{{!-- END do not edit content above, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
 - Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
@@ -295,7 +295,7 @@ The Photon 2 supports three UART serial interfaces.
 
 The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
-{{!-- BEGIN do not edit content below, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 90d1c896-32b3-4211-9d62-24d356098f29 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -309,7 +309,7 @@ The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | SPI1 (SS) | PA[19] |
 
 
-{{!-- END do not edit content above, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+{{!-- END do not edit content above, it is automatically generated 90d1c896-32b3-4211-9d62-24d356098f29 --}}
 
 - The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
 - If not using a SPI port, its pins can be used as GPIO
@@ -323,7 +323,7 @@ The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
 The Photon 2 supports one I2C (two-wire serial interface) port.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 136ece09-1c16-422d-8078-8c5fc47cf23e --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -331,7 +331,7 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | Wire (SCL) | PB[5] |
 
 
-{{!-- END do not edit content above, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - The I2C port is 3.3V and must not be connected directly a 5V I2C bus
 - Maximum bus speed is 400 kHz
@@ -376,7 +376,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 ### Complete pin listing
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e9628714-d248-4806-897f-189eef8d4352 --}}
 
 | Pin Name | Description | MCU |
 | :--- | :--- | :--- |
@@ -409,7 +409,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Technical specification

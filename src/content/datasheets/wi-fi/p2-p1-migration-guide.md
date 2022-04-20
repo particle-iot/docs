@@ -92,7 +92,7 @@ Both the P1 and P2 have two SPI ports, however the pins are different for `SPI` 
 
 The following are all SPI-related pins on the P1 and P2:
 
-{{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 05f6184b-f88f-4737-82d7-647b489af469 --}}
 
 | Pin | P1 Pin Name | P1 SPI | P2 Pin Name | P2 SPI |
 | :---: | :--- | :--- | :--- | :--- |
@@ -110,7 +110,7 @@ The following are all SPI-related pins on the P1 and P2:
 | 53 | D5 | SPI1 (SS) | D5 | SPI1 (SS) |
 
 
-{{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 #### SPI - Gen 2 devices (including P1)
@@ -156,7 +156,7 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 There is also a third UART serial (`Serial3`).
 
-{{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 678b62a8-7981-406c-bd67-f7c1e607291f --}}
 
 | Pin | P1 Pin Name | P1 Serial | P2 Pin Name | P2 Serial |
 | :---: | :--- | :--- | :--- | :--- |
@@ -174,7 +174,7 @@ There is also a third UART serial (`Serial3`).
 | 64 | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
 
 
-{{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 |      | P1    | P2 |
 | :--- | :---: | :---: |
@@ -194,7 +194,6 @@ There is also a third UART serial (`Serial3`).
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
 Supported Baud Rates:
 
 | Baud Rate | P1 | P2 |
@@ -232,14 +231,13 @@ Supported Baud Rates:
 | 3750000 | | &check; |
 | 4000000 | | &check; |
 | 6000000 | | &check; |
-{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### Analog input (ADC)
 
 For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the P2:
 
-{{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated cb6c8957-8f01-4166-8dea-1d1d5c862618 --}}
 
 | Pin | P1 Pin Name | P1 ADC | P2 Pin Name | P2 ADC |
 | :---: | :--- | :--- | :--- | :--- |
@@ -260,7 +258,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | 50 | A0 | &check; | A0 / D11 | &check; |
 
 
-{{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 On the P2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, P2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for P2 pin D1 (hardware pin 35), which has the alias A4.
 
@@ -271,7 +269,7 @@ The `setADCSampleTime()` function is not supported on the P2.
 The pins that support PWM are different on the P1 and P2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 597f8364-70a6-4861-9bb6-6f1df20418e3 --}}
 
 | Pin | P1 Pin Name | P1 PWM | P2 Pin Name | P2 PWM |
 | :---: | :--- | :--- | :--- | :--- |
@@ -290,7 +288,7 @@ The pins that support PWM are different on the P1 and P2.
 | 64 | TX | &check; | TX / D8 | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
@@ -303,7 +301,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 129fac7d-5c50-46e3-82f6-6be5edaaccf1 --}}
 
 | Pin | P1 Pin Name | P1 DAC | P2 Pin Name | P2 DAC |
 | :---: | :--- | :--- | :--- | :--- |
@@ -311,7 +309,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | 24 | DAC / A6 | &check; | NC | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 
@@ -337,7 +335,7 @@ The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 device
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the P2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 75a00cb1-2521-442a-bd25-3b2071dcdf43 --}}
 
 | Pin | P1 Pin Name | P1 CAN | P2 Pin Name | P2 CAN |
 | :---: | :--- | :--- | :--- | :--- |
@@ -345,7 +343,7 @@ The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 device
 | 45 | D2 | &check; | D2 | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### I2S (Sound)
@@ -396,7 +394,7 @@ The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPRO
 
 The following pins served P1-specific uses and are NC on the P2. You should not connect anything to these pins.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 17989260-63ec-4ba4-96ce-71639b445d9d --}}
 
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
@@ -416,7 +414,7 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 | 60 | WL_SLEEP_CLK | BCM43362 Debugging Pin |
 
 
-{{!-- END do not edit content above, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Pin functions added
 
@@ -434,7 +432,7 @@ The following pins were NC on the P1 but are used on the P2.
 
 ### Full module pin comparison
 
-{{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 5626ebed-0fab-4d08-bdc9-092490e8c084 --}}
 
 #### Module Pin 1 (GND)
 | | Unchanged between P1 and P2 |
@@ -1002,7 +1000,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Description | Ground. Be sure you connect all P1 ground pins.|
 
 
-{{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ## Software
 
@@ -1014,6 +1012,35 @@ The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the S
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
+
+### User firmware binary size
+
+One major advantage of the P2 is that user firmware binaries can be up to 2048 Kbytes, instead of 128 Kbytes on Gen 2 devices including the P1.
+
+### Flash file system
+
+On the P2 there is a flash file system (2 MB) for storing user data. This is not available on Gen 2 devices including the P1.
+
+### Combined and resumable OTA
+
+On the P2, over-the-air (OTA) updates have two features that can improve the speed and reliability of OTA updates:
+
+- Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
+- Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### Increased API field limits
+
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the P2 vs. 864 bytes on P1.
+
+| API Field | P1 | P2 |
+| :--- | :---: | :---: |
+| Variable Key | 64 | 64 |
+| Variable Data | 864 | 1024 |
+| Function Key | 64 | 64 |
+| Function Argument | 864 | 1024  |
+| Publish/Subscribe Event Name | 64 | 64 |
+| Publish/Subscribe Event Data | 864 | 1024 |
+
 
 ### Platform ID
 

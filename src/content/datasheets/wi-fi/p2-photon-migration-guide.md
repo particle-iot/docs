@@ -297,7 +297,6 @@ On the Photon, the Serial2 port is shared with the RGB LED, and the Photon must 
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
 Supported Baud Rates:
 
 | Baud Rate | P1 | P2 |
@@ -335,7 +334,6 @@ Supported Baud Rates:
 | 3750000 | | &check; |
 | 4000000 | | &check; |
 | 6000000 | | &check; |
-{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Analog input (ADC)
 
@@ -399,7 +397,7 @@ The Photon supports DAC one A3 and A6 (DAC). There is no DAC on the P2 or Gen 3 
 If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 79d52214-7c64-4437-92e8-2ed059b3bbe3 --}}
 
 | Photon Pin Name | Photon DAC | P2 Pin Name | P2 DAC |
 | :--- | :--- | :--- | :--- |
@@ -1053,6 +1051,35 @@ The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the S
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
+
+### User firmware binary size
+
+One major advantage of the P2 is that user firmware binaries can be up to 2048 Kbytes, instead of 128 Kbytes on Gen 2 devices including the Photon.
+
+### Flash file system
+
+On the P2 there is a flash file system (2 MB) for storing user data. This is not available on Gen 2 devices including the Photon.
+
+### Combined and resumable OTA
+
+On the P2, over-the-air (OTA) updates have two features that can improve the speed and reliability of OTA updates:
+
+- Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
+- Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### Increased API field limits
+
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the P2 vs. 864 bytes on Photon.
+
+| API Field | Photon | P2 |
+| :--- | :---: | :---: |
+| Variable Key | 64 | 64 |
+| Variable Data | 864 | 1024 |
+| Function Key | 64 | 64 |
+| Function Argument | 864 | 1024  |
+| Publish/Subscribe Event Name | 64 | 64 |
+| Publish/Subscribe Event Data | 864 | 1024 |
+
 
 ### Platform ID
 

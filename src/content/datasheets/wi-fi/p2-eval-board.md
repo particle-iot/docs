@@ -10,7 +10,7 @@ description: Datasheet for the Particle P2 Evaluation Board
 **Preliminary pre-release version 2022-04-18**
 
 {{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release migration guide and the contents are subject to change.
+This is an preliminary pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
 {{#unless pdf-generation}}
@@ -41,7 +41,7 @@ This is a simple breakout board for Particle's P2 Wi-Fi module. It breaks out al
 
 If powering by USB, 500 mA is required. This a compatible with most USB hubs, computers, laptops, and chargers, but will not work with some low-power USB ports on some keyboards.
  
-The P2 includes a built-in trace antenna that is used for both BLE and Wi-Fi. A U.FL connector is provided for an external antenna, if desired. The antenna selection must be made in software; the P2 will not automatically switch between built-in and external antennas. If using an external antenna, a dual-band (2.4 GHz and 5 GHz) antenna is required. The external antenna doesn't have to explicitly include BLE support, as the BLE frequencies are the same as 2.4 GHz Wi-Fi so all antennas are compatible.
+The P2 includes a built-in trace antenna that is used for both BLE and Wi-Fi. A U.FL connector is provided for an external antenna, if desired. The antenna selection must be made in software; the P2 will not automatically switch between built-in and external antennas. If using an external antenna, a dual-band (2.4 GHz and 5 GHz) antenna is required. The external antenna doesn't have to explicitly include BLE support, as the BLE frequencies are the same as 2.4 GHz Wi-Fi so all dual-band Wi-Fi antennas are compatible.
 
 ## Expansion connectors
 
