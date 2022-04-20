@@ -115,7 +115,7 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | B524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | B524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | B524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Switzerland | B524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
 | United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 
 
@@ -369,7 +369,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 
 ### Full module pin comparison
 
-{{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002--}}
+{{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002 --}}
 
 #### 3V3
 |   | Boron | B Series SoM |

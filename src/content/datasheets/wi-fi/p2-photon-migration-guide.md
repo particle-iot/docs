@@ -297,7 +297,6 @@ On the Photon, the Serial2 port is shared with the RGB LED, and the Photon must 
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
 Supported Baud Rates:
 
 | Baud Rate | P1 | P2 |
@@ -335,7 +334,6 @@ Supported Baud Rates:
 | 3750000 | | &check; |
 | 4000000 | | &check; |
 | 6000000 | | &check; |
-{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Analog input (ADC)
 
@@ -399,7 +397,7 @@ The Photon supports DAC one A3 and A6 (DAC). There is no DAC on the P2 or Gen 3 
 If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 79d52214-7c64-4437-92e8-2ed059b3bbe3 --}}
 
 | Photon Pin Name | Photon DAC | P2 Pin Name | P2 DAC |
 | :--- | :--- | :--- | :--- |
