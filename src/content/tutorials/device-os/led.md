@@ -181,7 +181,7 @@ There are three different variants of the Electron, and they each work in differ
 
 The Boron LTE can be used in other locations with a 3rd-party SIM card on bands 2, 3, 4, 5, 8, 12, 13, 20, and 28.
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
+Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country see the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/).
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
