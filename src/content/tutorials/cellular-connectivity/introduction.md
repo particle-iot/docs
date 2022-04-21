@@ -58,7 +58,9 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+
+Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit on a Boron.
 
 | Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
@@ -79,13 +81,13 @@ One of the benefits is that many of the extra features on the Boron have been om
 {{!-- BEGIN shared-blurb 97fa98d2-9baa-11ec-b909-0242ac120002 --}}
 The available models include:
 
-| Model | Region | EtherSIM | Bands | Replacement |
-| :--- | :--- | :---: | :--- | :--- |
-| B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | |
-| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | |
-| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Use B404X instead |
-| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Use B404X instead |
-| B523 | Europe | | LTE Cat 1, 2G, 3G | Use B524 instead |
+| Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
+| :--- | :--- | :---: | :--- | :--- | :--- | 
+| B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
+| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | GA | |
+| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | Use B404X instead |
+| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Deprecated | Use B404X instead |
+| B523 | Europe | | LTE Cat 1, 2G, 3G | Deprecated | Use B524 instead |
 
 - The B404X, B404, and B402 cannot be used in Central or South America.
 - The B524 is only recommended for use in Europe, Australia, and New Zealand.
@@ -164,8 +166,11 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 {{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
 ![E Series](/assets/images/e-series/illustrations/e0-top.png)
 
-The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
+- The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
+- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/datasheets/electron/e404x-migration-guide/) for more information.
+- New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
 | --- | :---: | :---: | :---: |

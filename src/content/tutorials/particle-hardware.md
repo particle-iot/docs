@@ -80,19 +80,29 @@ If you are interested in measuring temperature and humidity, an [external sensor
 
 ### Prototyping
 
-For easy prototyping, devices with pins on the bottom can easily be installed in a solderless breadboard. The Argon and Boron (Gen 3) are the best choices for prototyping.
+For easy prototyping, devices with pins on the bottom can easily be installed in a solderless breadboard. 
 
 ![Breadboard](/assets/images/beyond-prototyping/bread1.jpg)
 
-Gen 3 devices use the Adafruit Feather form-factory so easily add accessories like sensors and displays, with no wiring required.
+The Photon 2, Argon, and Boron use the Adafruit Feather form-factory so easily add accessories like sensors and displays, with no wiring required.
 
 ![Boron GPS FeatherWing](/assets/images/gps-display-featherwing.jpg)
 
-Even though these devices are ideal for prototyping, you can also scale with the Argon and Boron. For example, you may mount the device in a socket in your own custom circuit board when you're ready to scale, instead of using solderless breadboards or off-the-shelf Feather adapters.
+Even though these devices are ideal for prototyping, you can also scale with the Photon 2 and Boron BRN404X. For example, you may mount the device in a socket in your own custom circuit board when you're ready to scale, instead of using solderless breadboards or off-the-shelf Feather adapters.
 
 There are also evaluation kits for the B Series SoM, Tracker SoM, and E Series modules that can be used for prototyping with those modules.
 
 If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
+
+- The Argon has been deprecated and will be replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/).
+- The Boron 2G/3G (BRN314KIT) has been deprecated (along with all other 2G/3G SKUs) as the u-blox SARA-U201 cellular modem module on it is end-of-life.
+- The Boron LTE Cat M1 (BRN404KIT or BRN404X) is the recommended model for the United States, Canada, and Mexico.
+- Can be powered by USB, rechargeable LiPo battery, or an external power supply.
+- All Boron devices include a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one photodiode.
+- ARG-STRTKT includes a variety of [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
+- A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
+
 
 {{!-- BEGIN do not edit content below, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
 
@@ -109,14 +119,6 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
-
-- The Boron 2G/3G (BRN314KIT) should not be deployed in the United States due to the [2G/3G shutdown](/tutorials/cellular-connectivity/introduction/#united-states).
-- The Boron LTE Cat M1 (BRN404KIT) is the recommended model for the United States.
-- Can be powered by USB, rechargeable LiPo battery, or an external power supply.
-- A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
-- All Boron devices include a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
-- Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one photodiode.
-- ARG-STRTKT includes a variety of [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
 
 There are numerous ways to expand Gen 3 devices:
 
@@ -137,13 +139,13 @@ Its also possible to prototype with these easy to use modules, then include the 
 
 The [Beyond Prototyping Tutorial](/tutorials/learn-more/beyond-prototyping/) shows examples of how you can move from prototyping to custom circuit boards, with example designs.
 
-For more information about the Boron, see [Cellular - Boron](#boron-prototyping-gen-3-cellular-) below.
+For more information about the Boron, see [Cellular](#boron-prototyping-gen-3-cellular-) below.
 
-For more information about the Argon, see [Wi-Fi - Argon](#argon-prototyping-gen-3-wi-fi-) below.
+For more information about the Photon 2 and Argon, see [Wi-Fi](#argon-prototyping-gen-3-wi-fi-) below.
 
 ### Production
 
-When producing at scale, you may prefer to use devices that you reflow solder to your own base board (E Series, P1, and Tracker SoM) or securely mount in a M.2 socket (B Series SoM).
+When producing at scale, you may prefer to use devices that you reflow solder to your own base board (E Series, P2, P1, and Tracker SoM) or securely mount in a M.2 socket (B Series SoM).
 
 If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
@@ -159,7 +161,9 @@ The software for prototyping and production devices is similar. It's often possi
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+
+Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit on a Boron.
 
 | Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
@@ -205,8 +209,11 @@ For more information about the Tracker SoM, see [Cellular - Tracker SoM](#tracke
 {{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
 ![E Series](/assets/images/e-series/illustrations/e0-top.png)
 
-The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
+- The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
+- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/datasheets/electron/e404x-migration-guide/) for more information.
+- New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
 | --- | :---: | :---: | :---: |
@@ -224,32 +231,41 @@ The E Series module is a 2nd-generation cellular device that is reflow soldered 
 
 For more information about the E Series module, see [Cellular - E Series](#e-series-production-gen-2-cellular-) below.
 
+#### P2 (Wi-Fi)
+
+<div align="center"><img src="/assets/images/p2-rendering.png" width="200"></div>
+
+The P2 module is a Wi-Fi module that you reflow solder to your own custom base board. It's smaller and less expensive than the Argon. 
+
+Both the P1 and Argon are deprecated, as designs should either use the Photon 2 (which includes the P2 module on it), or directly use the P2.
+
+{{!-- BEGIN shared-blurb 6383e77a-9baa-11ec-b909-0242ac120002 --}}
+| Feature | P1 | P2 | Argon | Photon 2 |
+| :--- | :---: | :---: | :---: | :---: |
+| | Production | Production | Prototyping | Prototyping |
+| Style | SMD module | SMD module | Bottom pins | Bottom pins |
+| Integrated Wi-Fi antenna | &check; | &check; | | &check; |
+| U.FL Antenna Connector | &check; | &check; | &check; | &check; |
+| Configuration via | Wi-Fi | BLE | BLE | BLE |
+| Enterprise Wi-Fi | &check; | &check; | | &check; |
+| USB Connector | Optional | Optional | &check; | &check; |
+| Status LED | Optional | Optional | &check; | &check; |
+| Reset and Mode Buttons | Optional | Optional | &check; | &check; |
+| LiPo Battery Connector | | | &check; | &check; | 
+| Size | 28mm x 20mm | 28mm x 20mm | 51mm x 23mm |51mm x 23mm |
+|      | 1.1" x 0.8" | 1.1" x 0.8" | 2.0" x 0.9" | 2.0" x 0.9" |
+{{!-- END shared-blurb --}}
+
+For more information about the Wi-Fi modules, see [Wi-Fi - P1](/#p1-production-gen-2-wi-fi-) below.
 
 #### P1 (Gen 2 Wi-Fi)
 
 <div align="center"><img src="/assets/images/p1-vector.png" width="200"></div>
 
-The P1 module is a Wi-Fi module that you reflow solder to your own custom base board. It's smaller and less expensive than the Argon.
+The P1 module has been deprecated and is replaced by the P2 module, which is mostly pin-compatible. See the [P2 from P1 migration guide](/datasheets/wi-fi/p2-p1-migration-guide/) for more information.
 
-{{!-- BEGIN shared-blurb 6383e77a-9baa-11ec-b909-0242ac120002 --}}
-| Feature | P1 | Argon |
-| :--- | :---: | :---: |
-| | Production | Prototyping |
-| | Gen 2 | Gen 3 |
-| Style | SMD module | Bottom pins |
-| Integrated Wi-Fi antenna | &check; | |
-| U.FL Antenna Connector | &check; | &check; |
-| Configuration via | Wi-Fi | BLE |
-| Enterprise Wi-Fi | &check; | |
-| USB Connector | Optional | &check; |
-| Status LED | Optional | &check; |
-| Reset and Mode Buttons | Optional | &check; |
-| LiPo Battery Connector | | &check; | 
-| Size | 28mm x 20mm | 51mm x 23mm |
-|      | 1.1" x 0.8" | 2.0" x 0.9" |
-{{!-- END shared-blurb --}}
+For more information about the Wi-Fi modules, see [Wi-Fi - P1](/#p1-production-gen-2-wi-fi-) below.
 
-For more information about the P1 module, see [Wi-Fi - P1](/#p1-production-gen-2-wi-fi-) below.
 
 
 ## Cellular or Wi-Fi
@@ -272,7 +288,9 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+
+Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit on a Boron.
 
 | Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
@@ -294,13 +312,13 @@ One of the benefits is that many of the extra features on the Boron have been om
 {{!-- BEGIN shared-blurb 97fa98d2-9baa-11ec-b909-0242ac120002 --}}
 The available models include:
 
-| Model | Region | EtherSIM | Bands | Replacement |
-| :--- | :--- | :---: | :--- | :--- |
-| B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | |
-| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | |
-| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Use B404X instead |
-| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Use B404X instead |
-| B523 | Europe | | LTE Cat 1, 2G, 3G | Use B524 instead |
+| Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
+| :--- | :--- | :---: | :--- | :--- | :--- | 
+| B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
+| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | GA | |
+| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | Use B404X instead |
+| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Deprecated | Use B404X instead |
+| B523 | Europe | | LTE Cat 1, 2G, 3G | Deprecated | Use B524 instead |
 
 - The B404X, B404, and B402 cannot be used in Central or South America.
 - The B524 is only recommended for use in Europe, Australia, and New Zealand.
@@ -344,18 +362,21 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 The available models include:
 
-| Model | Region | EtherSIM | Bands | Replacement |
-| :--- | :--- | :---: | :--- | :--- |
-| BRN404 | United States, Canada, Mexico | &check; | LTE Cat M1 | |
-| BRN314 | Global<sup>1</sup> | &check; | LTE Cat M1 | |
-| BRN402 | United States, Canada, Mexico | | 2G/3G | Use BRN404 instead |
-| BRN310 | Global<sup>1</sup> | | 2G/3G | Use BRN314 instead |
+| Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| BRN404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
+| BRN404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | |
+| BRN314 | Global<sup>1</sup> | &check; | LTE Cat M1 | Last buy | None|
+| BRN402 | United States, Canada, Mexico | | 2G/3G | Deprecated | Use BRN404X, BRN404 |
+| BRN310 | Global<sup>1</sup> | | 2G/3G | None |
 
 - <sup>1</sup>Global except in areas that have or will soon discontinue the use of 2G/3G, including the United States.
+- The BRN314 and BRN310 are now deprecated as the cellular modem on the module is no longer available.
 - Do not deploy the BRN314 or BRN310 in the United States, see [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
 
 {{> carrier-family-map family="boron"}}
+
 
 - [Boron datasheet](/datasheets/boron/boron-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
@@ -428,8 +449,11 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 {{!-- BEGIN shared-blurb 58d445bc-9bab-11ec-b909-0242ac120002 --}}
 ![E Series](/assets/images/e-series/illustrations/e0-top.png)
 
-The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
+- The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
+- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/datasheets/electron/e404x-migration-guide/) for more information.
+- New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
 | --- | :---: | :---: | :---: |
@@ -473,44 +497,106 @@ The E Series module is a 2nd-generation cellular device that is reflow soldered 
 
 ### Wi-Fi
 
-There are two currently available Wi-Fi devices, the P1 and the Argon:
+The following are the Wi-Fi compatible devices:
 
 {{!-- BEGIN shared-blurb 6383e77a-9baa-11ec-b909-0242ac120002 --}}
-| Feature | P1 | Argon |
-| :--- | :---: | :---: |
-| | Production | Prototyping |
-| | Gen 2 | Gen 3 |
-| Style | SMD module | Bottom pins |
-| Integrated Wi-Fi antenna | &check; | |
-| U.FL Antenna Connector | &check; | &check; |
-| Configuration via | Wi-Fi | BLE |
-| Enterprise Wi-Fi | &check; | |
-| USB Connector | Optional | &check; |
-| Status LED | Optional | &check; |
-| Reset and Mode Buttons | Optional | &check; |
-| LiPo Battery Connector | | &check; | 
-| Size | 28mm x 20mm | 51mm x 23mm |
-|      | 1.1" x 0.8" | 2.0" x 0.9" |
+| Feature | P1 | P2 | Argon | Photon 2 |
+| :--- | :---: | :---: | :---: | :---: |
+| | Production | Production | Prototyping | Prototyping |
+| Style | SMD module | SMD module | Bottom pins | Bottom pins |
+| Integrated Wi-Fi antenna | &check; | &check; | | &check; |
+| U.FL Antenna Connector | &check; | &check; | &check; | &check; |
+| Configuration via | Wi-Fi | BLE | BLE | BLE |
+| Enterprise Wi-Fi | &check; | &check; | | &check; |
+| USB Connector | Optional | Optional | &check; | &check; |
+| Status LED | Optional | Optional | &check; | &check; |
+| Reset and Mode Buttons | Optional | Optional | &check; | &check; |
+| LiPo Battery Connector | | | &check; | &check; | 
+| Size | 28mm x 20mm | 28mm x 20mm | 51mm x 23mm |51mm x 23mm |
+|      | 1.1" x 0.8" | 1.1" x 0.8" | 2.0" x 0.9" | 2.0" x 0.9" |
 {{!-- END shared-blurb --}}
 
-For product creators, Wi-Fi devices require a way to set the Wi-Fi credentials for the user's Wi-Fi network. This is typically done using a custom mobile app. The P1 has an available Device Setup SDK that makes it easy to create a custom white-label mobile app to set up the P1. This does not exist for the Argon at this time.
+For product creators, Wi-Fi devices require a way to set the Wi-Fi credentials for the user's Wi-Fi network. This is typically done using a custom mobile app. The P1 has an available Device Setup SDK that makes it easy to create a custom white-label mobile app to set up the P1.
 
-| | P1 | Argon |
-| :--- | :---: | :---: |
-| Configuration via | Wi-Fi | BLE |
-| Setup SDK for iOS and Android | &check; | |
-| Enterprise Wi-Fi | &check; | |
-| 2.4 GHz Wi-Fi b/g/n | &check; | &check; |
-| 5 GHz Wi-Fi b/g/n | | |
+For the P2 and Photon 2, a sample BLE setup app using React will be available.
+
+|  | P1 | P2 | Argon | Photon 2 |
+| :--- | :---: | :---: | :---: | :---: |
+| Configuration via | Wi-Fi | BLE | BLE | BLE |
+| Setup SDK for iOS and Android | &check; | | |  |
+| React mobile setup example | | &check; | &check; | &check; |
+| Enterprise Wi-Fi | &check; | &check; | | &check; |
+| 2.4 GHz Wi-Fi b/g/n | &check; | &check; | &check; | &check; |
+| 5 GHz Wi-Fi b/g/n | | &check; | | &check; |
+
+
+#### Photon 2 (Prototyping Wi-Fi)
+
+The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
+
+- [Photon 2 datasheet](/datasheets/wi-fi/photon-2-datasheet/)
+- [Ways to expand Gen 3 feather devices](#prototyping) (above)
+- [Photon 2 from Argon migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/)
+
+{{!-- BEGIN shared-blurb d3802fd5-24b9-433c-b2c9-3d994182751e --}}
+| Feature | Photon 2 | Photon | Argon |
+| :--- | :---: | :---: | :---: |
+| User application size | 2048 KB (2 MB) | 128 KB | 256 KB |
+| Flash file system<sup>1</sup> |  2 MB | | 2 MB |
+| | | | |
+| MCU | RTL8721DM | STM32F205RGY6 | nRF52840 |
+|  | Realtek Semiconductor | ST Microelectronics | Nordic Semiconductor |
+| CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
+| | Cortex M23 @ 20 MHz | | |
+| RAM<sup>2</sup> | 512 KB | 128 KB | 256 KB |
+| Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 
+| Hardware FPU | &check; | | &check; |
+| Secure Boot | &check; | | |
+| Trust Zone | &check; | | |
+| | | | |
+| Wi-Fi | 802.11 a/b/g/n | 802.11 b/g/n | 802.11 b/g/n |
+| &nbsp;&nbsp;2.4 GHz | &check; | &check; | &check; |
+| &nbsp;&nbsp;5 GHz | &check; | | |
+| Bluetooth | BLE 5.0 | | BLE 5.0 |
+| NFC Tag |  | | External antenna required |
+| Antenna | Shared for Wi-Fi and BLE | Wi-Fi only | Separate Wi-Fi and BLE antennas |
+| | Built-in PCB antenna (Wi-Fi & BLE) | Built-in PCB antenna (Wi-Fi) | Built-in chip antenna (BLE) |
+| | | | Required external antenna (Wi-Fi) |
+| | Optional external (Wi-Fi & BLE)<sup>4</sup> | Optional external (Wi-Fi)<sup>4</sup> | Optional external (BLE)<sup>4</sup> |
+| | | | |
+| Peripherals | USB 2.0 | USB 1.1 | USB 1.1 |
+| Digital GPIO | 20 | 24 | 20 |
+| Analog (ADC) | 6 | 13 | 6 |
+| Analog (DAC) |  | 2 |  |
+| UART | 3 | 2 | 1 |
+| SPI | 2 | 2 | 2 |
+| PWM | 6 | 12 | 8 |
+| I2C | 1 | 1 | 1 |
+| CAN |  | 1 |  |
+| I2S |  | 1 | 1 |
+| JTAG | | &check; | |
+| SWD | &check; | &check; | &check; |
+
+
+<sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
+
+<sup>2</sup> Total RAM; amount available to user applications is smaller.
+
+<sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
+
+<sup>4</sup> Onboard or external antenna is selectable in software.
+{{!-- END shared-blurb --}}
+
 
 #### Argon (Prototyping Gen 3 Wi-Fi)
 
 ![](/assets/images/argon/argon-top.png)
 
-The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom).
+The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom). It is deprecated and will be replaced by the Photon 2.
 
 - [Argon datasheet](/datasheets/wi-fi/argon-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
+- [Photon 2 from Argon migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
 
@@ -524,14 +610,85 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 
 {{!-- END do not edit content above, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10--}}
 
+#### P2 (Production Wi-Fi)
+
+<div align="center"><img src="/assets/images/p2-rendering.png" width="200"></div>
+
+- [P2 datasheet](/datasheets/wi-fi/p2-datasheet/)
+- [P2 from P1 migration guide](/datasheets/wi-fi/p2-p1-migration-guide/)
+- [P2 from Argon migration guide](/datasheets/wi-fi/p2-argon-migration-guide/)
+- [P2 from Photon migration guide](/datasheets/wi-fi/p2-photon-migration-guide/)
+
+{{!-- BEGIN shared-blurb 2403957d-c08c-4184-bbe9-0feb12a001e7 --}}
+| Feature | P2 | P1 | Photon | Argon |
+| :--- | :---: | :---: | :---: | :---: |
+| Style | SMD | SMD | Pin Module | Pin Module |
+| Status LEDs | &dagger; | &dagger; | &check; | &check; |
+| Reset and Mode Buttons | &dagger; | &dagger; | &check; | &check; |
+| USB Connector | &dagger; | &dagger; | Micro B | Micro B |
+| D7 Blue LED | | | &check; | &check; |
+| LiPo Connector | | | | &check; |
+| Battery Charger | | | | &check; |
+| User application size | 2048 KB (2 MB) | 128 KB | 128KB | 256 KB |
+| Flash file system<sup>1</sup> |  2 MB | | | 2 MB |
+| | | | | |
+| MCU | RTL8721DM | STM32F205RGY6 | STM32F205RGY6 | nRF52840 |
+|  | Realtek Semiconductor | ST Microelectronics | ST Microelectronics | Nordic Semiconductor |
+| CPU | Cortex M33 @ 200 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 120 MHz | Cortex M3 @ 64 MHz |
+| | Cortex M23 @ 20 MHz | | | |
+| RAM<sup>2</sup> | 512 KB | 128KB | 128 KB | 256 KB |
+| Flash<sup>3</sup> | 16 MB | 1 MB | 1 MB | 1 MB | 
+| Hardware FPU | &check; | | | &check; |
+| Secure Boot | &check; | | | |
+| Trust Zone | &check; | | | }
+| | | | | }
+| Wi-Fi | 802.11 a/b/g/n | 802.11 b/g/n | 802.11 b/g/n | 802.11 b/g/n |
+| &nbsp;&nbsp;2.4 GHz | &check; | &check; | &check; | &check; |
+| &nbsp;&nbsp;5 GHz | &check; | | | |
+| Bluetooth | BLE 5.0 | | | BLE 5.0 |
+| NFC Tag |  | | | External antenna required |
+| Antenna | Shared for Wi-Fi and BLE | Wi-Fi only | Wi-Fi only | Separate Wi-Fi and BLE antennas |
+| | Built-in PCB antenna (Wi-Fi & BLE) | Built-in PCB antenna (Wi-Fi) | Built-in chip antenna (Wi-Fi) | Built-in chip antenna (BLE) |
+| | | | | Required external antenna (Wi-Fi) |
+| | Optional external (Wi-Fi & BLE)<sup>4</sup> | Optional external (Wi-Fi)<sup>4</sup> | Optional external (Wi-Fi)<sup>4</sup> | Optional external (BLE)<sup>4</sup> |
+| | | | | |
+| Peripherals | USB 2.0 | USB 1.1 | USB 1.1 | USB 1.1 |
+| Digital GPIO | 22 | 24 | 18 | 20 |
+| Analog (ADC) | 6 | 13 | 8 | 6 |
+| Analog (DAC) |  | 2 | 2 |  |
+| UART | 1 | 2 | 2<sup>6</sup> | 1 |
+| SPI | 2 | 2 | 2 |  2 |
+| PWM | 6 | 12 | 9 | 8 |
+| I2C | 1 | 1 | 1 | 1 |
+| CAN |  | 1 | 1 | |
+| I2S |  | 1<sup>5</sup> | 1<sup>5</sup> | 1 |
+| JTAG | | &check; | &check; | |
+| SWD | &check; | &check; | &check; |&check; |
+
+
+&dagger; Optional but recommended. Add to your base board.
+
+<sup>1</sup>A small amount of the flash file system is used by Device OS, most is available for user data storage using the POSIX filesystem API. This is separate from the flash memory used for Device OS, user application, and OTA transfers.
+
+<sup>2</sup> Total RAM; amount available to user applications is smaller.
+
+<sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
+
+<sup>4</sup> Onboard or external antenna is selectable in software.
+
+<sup>5</sup> The STM32 hardware supports I2S but there is no software support in Device OS or 3rd-party libraries.
+
+<sup>6</sup> The second UART on the Photon shares pins with the status LED, and requires unsoldering it (or its current limiting resistors) and using pads on the bottom of the module, making it impractical to use.
+{{!-- END shared-blurb --}}
 
 #### P1 (Production Gen 2 Wi-Fi)
 
 <div align="center"><img src="/assets/images/p1-vector.png" width="200"></div>
 
-The P1 is intended for production use. Even though the P1 is an older Gen 2 design, it is still safe to design to the P1-form factor.
+The P1 is intended for production use. It is an older Gen 2 models as is deprecated. The P2 should be used instead. 
 
 - [P1 datasheet](/datasheets/wi-fi/p1-datasheet/)
+- [P2 from P1 migration guide](/datasheets/wi-fi/p2-p1-migration-guide/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b --}}
 
@@ -549,7 +706,7 @@ There are no Particle devices that include both cellular and Wi-Fi connectivity 
 
 If you want an option of cellular or Wi-Fi in your product, you'll need two or three different SKUs, however the best choice is:
 
-- Wi-Fi: Argon
+- Wi-Fi: Photon 2, Argon
 - Cellular: Boron LTE (North America), Boron 2G/3G (Global except NORAM)
 
 These modules are pin-compatible in the Feather form-factor, so you can make two versions of your hardware, one cellular and one Wi-Fi, which you can use depending on local connectivity, for example.
@@ -577,15 +734,28 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 ![](/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png)
 
 
-The Argon and Boron are compatible with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
+The Photon 2, Argon, Boron are compatible with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
 
 With the B Series SoM you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. The [B Series Eval Board](/datasheets/boron/b-series-eval-board/) includes this circuitry.
+
+With the P2 module, you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. There is no evaluation board for this combination, but the circuitry is straightforward and conceptually the same as the B Series, though the specific pins are different.
 
 You can also include Ethernet functionality on your Tracker SoM base board, but this is an unusual configuration and the [Tracker SoM Eval board](/datasheets/asset-tracking/tracker-som-eval-board/) does not include Ethernet. 
 
 It is not possible to use Ethernet with Gen 2 devices (Photon, P1, Electron, or E Series).
 
 Ethernet is only intended for use as a method of connecting to the Internet. It is not intended to connect to isolated Ethernet segments such as Ethernet control networks, and relay information over cellular, for example. See the [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/) application note for more information.
+
+The following pins are used by Ethernet. These cannot be reconfigured.
+
+| Ethernet Pin | Argon, Boron, P2, Photon 2 | B Series SoM | Tracker SoM |
+| :--- | :---: | :---: | :---: |
+| MISO | SPI MISO | SPI MISO | SPI MISO |
+| MOSI | SPI MOSI | SPI MOSI | SPI MOSI |
+| SCK  | SPI SCK  | SPI SCK  | SPI SCK  |
+| Chip Select | D5 |  D8 | D2 | 
+| Reset       | D3 |  A7 | D6 |
+| Interrupt   | D4 | D22 | D7 |
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}
 

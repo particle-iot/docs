@@ -21,6 +21,7 @@ This is an pre-release migration guide and the contents are subject to change.
 
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
 
+{{!-- BEGIN shared-blurb 2403957d-c08c-4184-bbe9-0feb12a001e7 --}}
 | Feature | P2 | P1 | Photon | Argon |
 | :--- | :---: | :---: | :---: | :---: |
 | Style | SMD | SMD | Pin Module | Pin Module |
@@ -80,6 +81,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 <sup>5</sup> The STM32 hardware supports I2S but there is no software support in Device OS or 3rd-party libraries.
 
 <sup>6</sup> The second UART on the Photon shares pins with the status LED, and requires unsoldering it (or its current limiting resistors) and using pads on the bottom of the module, making it impractical to use.
+{{!-- END shared-blurb --}}
 
 ## Hardware
 

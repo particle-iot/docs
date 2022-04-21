@@ -22,6 +22,7 @@ the Photon 2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and 
 
 It is intended to replace both the Photon and Argon modules. It contains the same module as the P2, making it easier to migrate from a pin-based development module to a SMD mass-production module if desired.
 
+{{!-- BEGIN shared-blurb d3802fd5-24b9-433c-b2c9-3d994182751e --}}
 | Feature | Photon 2 | Photon | Argon |
 | :--- | :---: | :---: | :---: |
 | User application size | 2048 KB (2 MB) | 128 KB | 256 KB |
@@ -68,6 +69,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 <sup>3</sup> Total built-in flash; amount available to user applications is smaller. The Argon also has a 4 MB external flash, a portion of which is available to user applications as a flash file system.
 
 <sup>4</sup> Onboard or external antenna is selectable in software.
+{{!-- END shared-blurb --}}
 
 There are two Photon 2 migration guides, depending on what you are migrating from:
 
