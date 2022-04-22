@@ -19199,9 +19199,7 @@ message sent to the Device Cloud. This will result in a small amount of
 additional cellular data usage each time they are called, but do not 
 count as a data operation for billing purposes.
 
-Calling `System.disableUpdates()` should only be done after connecting to the Particle cloud (`Particle.connected()` return true). You 
-must never call it from `STARTUP()`. Because updates are not checked until around 8 seconds after cloud connected, you have a 
-sufficient window to disable updates before an update can start.
+`System.disableUpdates()` should not be called from `STARTUP()`.
 
 ### System.disableUpdates()
 ```cpp
