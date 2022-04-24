@@ -4241,6 +4241,7 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
 
 ---
+
 {{note op="start" type="gen3" deviceList="Tracker SoM, Tracker One"}}
 
 The Tracker SoM has shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
@@ -4367,8 +4368,8 @@ STARTUP(disable());
 | A6           | PM_INT (power manager interrupt) |
 
 {{note op="end"}}
----
 
+---
 
 {{note op="start" type="P2"}}
 - Make sure the signal does not exceed 3.3V. The P2 and Photon 2 are not 5V tolerant in any mode (digital or analog).
@@ -4387,6 +4388,7 @@ If you are using the **Particle Ethernet FeatherWing** you cannot use the pins f
 When using the Ethernet FeatherWing with the Photon 2, pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
 
 {{note op="end"}}
+
 ---
 
 {{note op="start" type="gen2"}}
@@ -4410,7 +4412,6 @@ Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external de
 
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
 {{note op="end"}}
-
 
 ---
 
@@ -4915,6 +4916,8 @@ Furthermore, 5 consecutive samples at the sample time are averaged in analogRead
 {{note op="start" type="note"}}
 setADCSampleTime is not supported on the P2, Photon 2, or Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
 {{note op="end"}}
+
+---
 
 ## Low Level Input/Output
 
