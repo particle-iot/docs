@@ -3,12 +3,16 @@ a,
 .menu a:visited {
   color: @NC_BODY;
   font-family: @link-font;
+}
+
+a:hover {
+  background-color: @COLOR_Gray_200;
   text-decoration: underline;
 }
 
-a:hover,
-.menu a:hover {
-  background-color: @NC_GRAY100;
+a.menu {
+  background-color: @COLOR_Gray_200;
+  text-decoration: none;
 }
 
 .menu a.active:after {
@@ -22,7 +26,7 @@ a:hover,
 }
 
 .button:hover {
-  background-color: @NC_GRAY100;
+  background-color: @COLOR_Gray_200;
 }
 
 @dark-gray: @NC_HEADER;

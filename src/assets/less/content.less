@@ -71,7 +71,7 @@ i {
 .content h4,
 .content h5,
 .content h6 {
-  font-weight: bold;
+  // font-weight: bold;
   position: relative;
   &:hover {
     .header-permalinks {
@@ -283,30 +283,22 @@ h1 .header-permalinks {
   padding-top: 10px;
 }
 .content h1 {
-  font-size: 2em;
+  color: @dark-gray;
+  .STYLE_display_md();
 }
 
-.content h1,
 .content h2 {
   color: @dark-gray;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 56px;
+  .STYLE_display_sm();
 }
 .content h1:first-child,
 .content h1:first-child a,
 .content h1:first-child a:visited {
   color: @dark-gray;
-  font-weight: 400;
-  letter-spacing: 0;
-  font-size: 48px;
-  line-height: 64px;
-  font-family: @header-font;
+  .STYLE_display_md();
 }
 .content h3 {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 40px;
+  .STYLE_heading_xl_r();
 }
 .content h1,
 .content h2,
@@ -354,9 +346,7 @@ body.big-h3 .content h3:before {
   color: @gray;
   padding-top: 15px;
   padding-bottom: 10px;
-  font-family: @body-font;
-  font-size: 18px;
-  font-weight: 400px;
+  .STYLE_heading_lg();
 }
 .content.reference h4 {
   text-transform: none;
@@ -365,13 +355,11 @@ body.big-h3 .content h3:before {
 .content .small-heading,
 body:not(.big-h3) .content h3 {
   color: @dark-gray;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  font-family: @header-font;
+  .STYLE_heading_xl_r();
   padding-top: 30px;
   padding-bottom: 10px;
   position: relative;
+  /*
   &:after {
     content: '';
     height: 1px;
@@ -381,16 +369,16 @@ body:not(.big-h3) .content h3 {
     bottom: 5px;
     left: 40px;
   }
+  */
 }
 body:not(.big-h3) .content.reference h3 {
   text-transform: none;
-  font-family: @body-font;
-  font-size: 16px;
+  .STYLE_heading_xl_r();
 }
 .content.reference h2 {
   text-transform: none;
   font-family: @body-font;
-  font-size: 22px;
+  .STYLE_display_sm();
 }
 .content h1:first-child {
   padding: 0;
@@ -490,8 +478,8 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   display: inline-block;
   padding: 8px 20px;
   border: solid 2px @NC_TEAL_DARK;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
   margin-right: 4px;
 }
 .button,

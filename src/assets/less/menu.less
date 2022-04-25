@@ -69,15 +69,14 @@ div.navContainer {
 }
 
 div.navMenu1 {
-  font-size: 16px;
-  font-weight: bold;
+  .STYLE_left_nav();
   margin-top: 2px;
   margin-bottom: 5px;
   color: @NC_COOL_GRAY;
 }
 
 div.navMenu2 {
-  font-size: 16px;
+  .STYLE_left_nav();
   color: @NC_COOL_GRAY;
   padding-bottom: 3px;
   width: 245px;
@@ -86,7 +85,7 @@ div.navMenu2 {
 }
 
 div.navActive2 {
-  font-size: 16px;
+  .STYLE_left_nav();
   color: @NC_COOL_GRAY;
   font-weight: bold;
   padding-bottom: 3px;
@@ -96,7 +95,7 @@ div.navActive2 {
 };
 
 div.navMenu3 {
-  font-size: 14px;
+  .STYLE_left_nav();
   color: @NC_COOL_GRAY;
   padding-bottom: 2px;
   width: 245px;
@@ -105,7 +104,7 @@ div.navMenu3 {
 };
 
 div.navMenu4 {
-  font-size: 14px;
+  .STYLE_left_nav();
   color: @NC_COOL_GRAY;
   padding-bottom: 2px;
   width: 245px;
@@ -114,7 +113,7 @@ div.navMenu4 {
 };
 
 div.navMenu5 {
-  font-size: 14px;
+  .STYLE_left_nav();
   color: @NC_COOL_GRAY;
   padding-bottom: 2px;
   width: 245px;
@@ -173,16 +172,28 @@ div.navContent {
 };
 
 a.navLink {
+  .STYLE_left_nav();
+};
+
+a.navLink {
   &:link {
     color: @NC_COOL_GRAY !important;
+    text-decoration: none;
   }
   &:visited {
     color: @NC_COOL_GRAY !important;
+    text-decoration: none;
   }
   &:hover {
     color: @spark-blue !important;
+    text-decoration: underline;
   }  
 }
+
+a.navLinkActive {
+  .STYLE_left_nav();
+};
+
 a.navLinkActive {
   &:link {
     color: @NC_MIDNIGHT !important;
@@ -205,8 +216,10 @@ a.navLinkActive {
   font-weight: normal;
   color: @gray;
   margin: 2px 0;
+  text-decoration: none;
   &:hover {
     color: @spark-blue;
+    text-decoration: underline;
   }
 }
 .menubar li {
