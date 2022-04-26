@@ -80,7 +80,7 @@ To begin setting up your B Series SoM, click the button below and follow the ons
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR B SERIES SoM</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your B Series SoM</a>
 <br />
 </div>
 

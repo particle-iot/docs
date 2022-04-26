@@ -35,7 +35,7 @@ To begin this project you'll need to set up your new Argon and Xenons in a mesh 
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ARGON AND XENONS</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Argon AND XENONS</a>
 <br />
 </div>
 <br />

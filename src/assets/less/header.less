@@ -49,7 +49,6 @@ a.nav {
   font-size: 14px;
   font-weight: bold;
   letter-spacing: .7px;
-  color: @gray;
   display: inline-block;
   text-decoration: none;
   i {
@@ -67,29 +66,55 @@ a.nav-device {
   font-size: 14px;
 }
 
-a.nav.active {
-  color: @spark-blue;
-  border-bottom: 2px solid;
-}
-
-a.nav:hover {
-  color: @spark-blue;
-}
-
 a.nav-device {
   color: @spark-blue;
 }
 
 .header {
-  background: @almost-white;
   zoom: 1;
   height: @headerHeight;
-  border-bottom: solid 1px @NC_MORNING_MIST;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: @headerZindex;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: @COLOR_Midnight_600;
+    border-bottom: solid 1px @COLOR_Midnight_400;
+  }
+  a.nav {
+    color: @COLOR_Gray_200
+  }
+  a.nav.active {
+    border-bottom: 2px solid;
+  }
+  
+  a.nav:hover {
+    color: @spark-blue;
+  }
+  
+}
+
+@media (prefers-color-scheme: light) {
+  .header {
+    background: @COLOR_Gray_100; // @almost-white
+    border-bottom: solid 1px @NC_MORNING_MIST;
+  }
+  a.nav {
+    color: @COLOR_Midnight_400; // @gray;
+  }
+  a.nav.active {
+    color: @spark-blue;
+    border-bottom: 2px solid;
+  }
+  
+  a.nav:hover {
+    color: @spark-blue;
+  }
+  
 }
 
 .header .right {

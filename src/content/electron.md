@@ -16,7 +16,7 @@ The Electron is a tiny development kit for creating 3G cellular-connected electr
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Electron</a>
 </div>
 
 

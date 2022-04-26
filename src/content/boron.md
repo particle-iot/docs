@@ -16,7 +16,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Boron</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}

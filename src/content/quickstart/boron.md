@@ -13,7 +13,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">Set up your Boron</a>
 </div>
 
 ### The Boron Kit comes with the following things:
@@ -49,7 +49,7 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Boron</a>
 <br />
 </div>
 
