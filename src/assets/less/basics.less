@@ -83,11 +83,56 @@ td {
   font-size: 100%;
   vertical-align: baseline;
 }
-body {
-  line-height: 1;
-  color: @NC_MIDNIGHT;
-  background: @NC_WHITE;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    line-height: 1;
+    color: @COLOR_Gray_100;
+    background: @COLOR_Midnight_700;
+  }
+
+  a,
+  a:visited {
+    color: @COLOR_Gray_100;
+    font-family: @link-font;
+  }
+
+  a:hover {
+    background-color: @COLOR_Gray_200;
+    text-decoration: underline;
+  }
+
+  a.menu {
+    background-color: @COLOR_Gray_200;
+    text-decoration: none;
+  }
+
 }
+
+@media (prefers-color-scheme: light) {
+  body {
+    line-height: 1;
+    color: @COLOR_Midnight_500;
+    background: @COLOR_White_0;
+  }
+
+  a,
+  a:visited {
+    color: @COLOR_Gray_100;
+    font-family: @link-font;
+  }
+
+  a:hover {
+    background-color: @COLOR_Gray_200;
+    text-decoration: underline;
+  }
+
+  a.menu {
+    background-color: @COLOR_Gray_200;
+    text-decoration: none;
+  }
+}
+
 ol,
 ul {
   list-style: none;
@@ -124,7 +169,7 @@ textarea,
 input {
   line-height: 20px; // body large regular
   font-size: 16px;
-  color: @NC_HEADER;
+  //color: @NC_HEADER;
 }
 pre code {
   color: @NC_WHITE;

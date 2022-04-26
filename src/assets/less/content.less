@@ -5,7 +5,7 @@ i {
   line-height: 1;
 }
 
-.two-columns body:not(.no-literate) .content .inline-header-image {
+.two-columns .content .inline-header-image {
   display: inline-block;
   vertical-align: middle;
   width: 40px;
@@ -86,7 +86,7 @@ i {
 }
 .content p {
   line-height: 24px;
-  color: @dark-gray;
+  //color: @dark-gray;
   &.caption {
     font-style: italic;
     text-align: center;
@@ -96,12 +96,12 @@ i {
 }
 .content ul > li {
   list-style-type: disc;
-  color: @dark-gray;
+  //color: @dark-gray;
   // font-weight: 300;
 }
 .content ol > li {
   list-style-type: decimal;
-  color: @dark-gray;
+  //color: @dark-gray;
   // font-weight: 300;
   margin-bottom: 7px;
 }
@@ -140,7 +140,7 @@ i {
   display: none;
 }
 .content ul > ul > li {
-  color: @NC_NAVY;
+  //color: @NC_NAVY;
 }
 .content li > :first-child {
   padding-top: 0;
@@ -157,10 +157,11 @@ i {
   font-style: italic;
   // font-weight: 300;
 }
+// Inline code
 .content code {
   font-family: @monospace-font;
   font-weight: 500;
-  background: @almost-white;
+  // background: @almost-white;
   padding: 1px 3px;
   font-size: 11px;
   span {
@@ -283,18 +284,18 @@ h1 .header-permalinks {
   padding-top: 10px;
 }
 .content h1 {
-  color: @dark-gray;
+  //color: @dark-gray;
   .STYLE_display_md();
 }
 
 .content h2 {
-  color: @dark-gray;
+  //color: @dark-gray;
   .STYLE_display_sm();
 }
 .content h1:first-child,
 .content h1:first-child a,
 .content h1:first-child a:visited {
-  color: @dark-gray;
+  //color: @dark-gray;
   .STYLE_display_md();
 }
 .content h3 {
@@ -303,21 +304,15 @@ h1 .header-permalinks {
 .content h1,
 .content h2,
 .content .big-heading,
-body.big-h3 .content h3 {
+.content h3 {
   padding: 40px 0 10px;
 }
 .content h1:before,
 .content h2:before,
 .content .big-heading:before,
-body.big-h3 .content h3:before {
+.content h3:before {
   display: none;
   content: '';
-  /*background: -webkit-gradient(linear, left top, right top, color-stop(0.4, @NC_MORNING_MIST), color-stop(1, @transparent-monokai));
-  background: -webkit-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
-  background: -moz-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
-  background: -o-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
-  background: -ms-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
-  background: linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);*/
   background: @light-gray;
   height: 1px;
   position: relative;
@@ -329,13 +324,13 @@ body.big-h3 .content h3:before {
   .content h1,
   .content h2,
   .content .big-heading,
-  body.big-h3 .content h3 {
+  .content h3 {
     padding-top: 40px;
   }
   .content h1:before,
   .content h2:before,
   .content .big-heading:before,
-  body.big-h3 .content h3:before {
+  .content h3:before {
     background: @NC_MORNING_MIST;
     left: -40px;
     top: -20px;
@@ -343,7 +338,7 @@ body.big-h3 .content h3:before {
   }
 }
 .content h4 {
-  color: @gray;
+  //color: @gray;
   padding-top: 15px;
   padding-bottom: 10px;
   .STYLE_heading_lg();
@@ -353,25 +348,14 @@ body.big-h3 .content h3:before {
 }
 .content h5,
 .content .small-heading,
-body:not(.big-h3) .content h3 {
-  color: @dark-gray;
+.content h3 {
+  //color: @dark-gray;
   .STYLE_heading_xl_r();
   padding-top: 30px;
   padding-bottom: 10px;
   position: relative;
-  /*
-  &:after {
-    content: '';
-    height: 1px;
-    background: @light-gray;
-    position: absolute;
-    width: 85%;
-    bottom: 5px;
-    left: 40px;
-  }
-  */
 }
-body:not(.big-h3) .content.reference h3 {
+.content.reference h3 {
   text-transform: none;
   .STYLE_heading_xl_r();
 }
@@ -390,7 +374,7 @@ body:not(.big-h3) .content.reference h3 {
   .content h4,
   .content h5,
   .content .small-heading,
-  body:not(.big-h3) .content h3 {
+  .content h3 {
     padding-top: 20px;
   }
 }
@@ -402,10 +386,12 @@ body:not(.big-h3) .content.reference h3 {
   .content h4,
   .content h5,
   .content .small-heading,
-  body:not(.big-h3) .content h3 {
+  .content h3 {
     padding-top: 10px;
   }
 }
+
+/*
 body.no-literate .content pre > code {
   background: @monokai-gray;
   border: solid 1px @NC_ALMOST_WHITE;
@@ -435,10 +421,12 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
   box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
+*/
+
 @media (max-width: 1180px) {
   #docs .content table th,
   #docs .content table td {
-    color: @dark-gray;
+    //color: @dark-gray;
   }
   .content pre > code {
     background: @monokai-gray;
@@ -552,7 +540,7 @@ h1 small.beta {
     overflow-y: auto;
     -webkit-transform: translate3d(0, 0, 0);
     z-index: @pageBodyZindex;
-    background: @white;
+    //background: @white;
     left: @menubarWidth;
 
     // Start with menu hidden on mobile
@@ -738,7 +726,7 @@ code .comment {
   line-height: 1.428571429;
   vertical-align: top;
   font-size: 11px;
-  color: @dark-gray;
+  //color: @dark-gray;
 }
 
 .content table th {
@@ -818,7 +806,7 @@ hr {
   .content pre > code {
     margin-bottom: 10px;
   }
-  body:not(.no-literate) .content img {
+  .content img {
     margin: 40px auto;
     max-width: 95%;
     max-height: 500px;
@@ -844,7 +832,7 @@ hr {
   .content h4:after,
   .content h5:after,
   .content .small-heading:after,
-  body:not(.big-h3) .content h3:after {
+  .content h3:after {
     left: 0;
     width: 100%;
   }
@@ -861,7 +849,7 @@ hr {
   .content h4,
   .content h5,
   .content .small-heading,
-  body:not(.big-h3) .content h3 {
+  .content h3 {
     margin-bottom: 10px;
   }
 }
@@ -885,7 +873,7 @@ hr {
   .content pre > code {
     margin-bottom: 10px;
   }
-  body:not(.no-literate) .content img {
+  .content img {
     margin: 40px auto;
     max-width: 80%;
     max-height: 500px;
@@ -930,7 +918,7 @@ hr {
   .content h4:after,
   .content h5:after,
   .content .small-heading:after,
-  body:not(.big-h3) .content h3:after {
+  .content h3:after {
     left: 0;
     width: 100%;
   }
@@ -947,17 +935,11 @@ hr {
   .content h4,
   .content h5,
   .content .small-heading,
-  body:not(.big-h3) .content h3 {
+  .content h3 {
     margin-bottom: 10px;
   }
 }
-body:not(.no-literate) .content img[alt='Connection sequence'],
-.three-columns body:not(.no-literate) .content img[alt='Photon Reset Modes'] {
-  background: @dark-gray;
-  margin: 20px auto;
-  display: block;
-  padding: 10px;
-}
+
 
 .three-columns {
   @media (min-width: 1180px) {
@@ -966,16 +948,7 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       clear: both;
     }
 
-    body:not(.no-literate) .content img[alt='Connection sequence'],
-    body:not(.no-literate) .content img[alt='Photon Reset Modes'] {
-      background: transparent;
-      border: none;
-      width: 250px;
-      margin: 0;
-      padding: 0;
-    }
-
-    body:not(.no-literate) .content img {
+    .content img {
       max-width: 400px;
       display: block;
       margin: 0 0 50px;
@@ -984,7 +957,7 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       border: 1px solid @NC_ALMOST_WHITE;
     }
 
-    body:not(.no-literate) .content .iframe-wrapper {
+    .content .iframe-wrapper {
       width: 55%;
       float: right;
       clear: right;
@@ -992,13 +965,13 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       margin-bottom: 50px;
     }
 
-    body:not(.no-literate) .content iframe {
+    .content iframe {
       max-width: 400px;
       margin: 0;
       padding-left: 40px;
     }
 
-    body:not(.no-literate) .content p.img {
+    .content p.img {
       padding: 0 40px;
       margin-top: 10px;
       float: right;
@@ -1006,8 +979,8 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       clear: left;
     }
 
-    body:not(.no-literate) .content > table,
-    body:not(.no-literate) .content > .table-scrollable {
+    .content > table,
+    .content > .table-scrollable {
       box-sizing: border-box;
       width: 45%;
       padding-left: 40px;
@@ -1015,40 +988,40 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       margin: 20px 0;
       float: left;
       clear: left;
-      color: @NC_MIDNIGHT;
+      //color: @NC_MIDNIGHT;
     }
 
-    body:not(.no-literate) .content > p,
-    body:not(.no-literate) .content > ul,
-    body:not(.no-literate) .content > ol,
-    body:not(.no-literate) .content > h4,
-    body:not(.no-literate) .content > h5,
-    body:not(.no-literate) .content > h6 {
+    .content > p,
+    .content > ul,
+    .content > ol,
+    .content > h4,
+    .content > h5,
+    .content > h6 {
       float: left;
       clear: left;
     }
 
-    body:not(.no-literate) .content > pre + p,
-    body:not(.no-literate) .content > p.img + p,
-    body:not(.no-literate) .content > pre + ul,
-    body:not(.no-literate) .content > p.img + ul,
-    body:not(.no-literate) .content > pre + ol,
-    body:not(.no-literate) .content > p.img + ol,
-    body:not(.no-literate) .content > pre + h5,
-    body:not(.no-literate) .content > p.img + h5,
-    body:not(.no-literate) .content > pre + h6,
-    body:not(.no-literate) .content > p.img + h6 {
+    .content > pre + p,
+    .content > p.img + p,
+    .content > pre + ul,
+    .content > p.img + ul,
+    .content > pre + ol,
+    .content > p.img + ol,
+    .content > pre + h5,
+    .content > p.img + h5,
+    .content > pre + h6,
+    .content > p.img + h6 {
       clear: left;
     }
 
-    body:not(.no-literate) .content > ul,
-    body:not(.no-literate) .content > ol {
+    .content > ul,
+    .content > ol {
       width: 45%;
       margin-left: 0;
       padding-left: 75px;
     }
-    body:not(.no-literate) .content-root {
-      background-color: @NC_WHITE;
+    .content-root {
+      // background-color: @NC_WHITE;
     }
     .code-samples {
       background: @NC_CODE_BG;
@@ -1059,23 +1032,23 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       width: 55%;
       z-index: 0;
     }
-    body:not(.no-literate) .content {
+    .content {
       padding-left: 0;
       padding-right: 0;
       width: 100%;
       max-width: none;
     }
-    body:not(.no-literate) .content > p,
-    body:not(.no-literate) .content > ul,
-    body:not(.no-literate) .content > ol,
-    body:not(.no-literate) .content > h1,
-    body:not(.no-literate) .content > h2,
-    body:not(.no-literate) .content > h3,
-    body:not(.no-literate) .content > h4,
-    body:not(.no-literate) .content > h5,
-    body:not(.no-literate) .content > h6,
-    body:not(.no-literate) .content > pre,
-    body:not(.no-literate) .content > blockquote {
+    .content > p,
+    .content > ul,
+    .content > ol,
+    .content > h1,
+    .content > h2,
+    .content > h3,
+    .content > h4,
+    .content > h5,
+    .content > h6,
+    .content > pre,
+    .content > blockquote {
       width: 45%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -1083,41 +1056,41 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
       padding-right: 40px;
       padding-left: 40px;
     }
-    body:not(.no-literate) .content > h1,
-    body:not(.no-literate) .content > h2,
-    body:not(.no-literate) .content > h3 {
+    .content > h1,
+    .content > h2,
+    .content > h3 {
       clear: both;
     }
-    body:not(.no-literate) .content > pre {
+    .content > pre {
       width: 55%;
       padding: 10px 40px 0;
       float: right;
       clear: right;
     }
-    body:not(.no-literate) .content > pre + p,
-    body:not(.no-literate) .content > pre + ul,
-    body:not(.no-literate) .content > pre + ol,
-    body:not(.no-literate) .content > pre + h4,
-    body:not(.no-literate) .content > pre + h5,
-    body:not(.no-literate) .content > pre + h6 {
+    .content > pre + p,
+    .content > pre + ul,
+    .content > pre + ol,
+    .content > pre + h4,
+    .content > pre + h5,
+    .content > pre + h6 {
       clear: left;
     }
-    body:not(.no-literate) .content > h4 + pre,
-    body:not(.no-literate) .content > h3 + pre {
+    .content > h4 + pre,
+    .content > h3 + pre {
       clear: both;
     }
-    body:not(.no-literate) .content > p,
-    body:not(.no-literate) .content > ul,
-    body:not(.no-literate) .content > ol,
-    body:not(.no-literate) .content > h5,
-    body:not(.no-literate) .content > h6 {
+    .content > p,
+    .content > ul,
+    .content > ol,
+    .content > h5,
+    .content > h6 {
       float: left;
       clear: left;
     }
-    body:not(.no-literate) .content > h4,
-    body:not(.no-literate) .content > h5,
-    body:not(.no-literate) .content > .small-heading,
-    body:not(.big-h3) body:not(.no-literate) .content > h3 {
+    .content > h4,
+    .content > h5,
+    .content > .small-heading,
+    .content > h3 {
       margin-bottom: 10px;
       padding-left: 40px;
       padding-right: 40px;
@@ -1134,7 +1107,7 @@ body:not(.no-literate) .content img[alt='Connection sequence'],
 }
 
 @media (min-width: 1340px) {
-  body:not(.no-literate) .content img {
+  .content img {
     display: block;
     margin: 0 0 50px;
   }
