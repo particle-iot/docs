@@ -177,6 +177,23 @@ input {
 pre code {
   color: @NC_WHITE;
 }
+button {
+  .STYLE_button_md();
+  border-radius: 0px;
+  height: 32px;
+  color: @COLOR_Midnight_500;
+  &:enabled {
+      background-color: @COLOR_ParticleBlue_500;
+  }
+  &:hover {
+    background-color: @COLOR_ParticleBlue_700;
+  }
+  &:disabled {
+      background-color: @COLOR_Disabled;
+  }
+
+};
+
 @media (max-width: 480px) {
   body,
   td,

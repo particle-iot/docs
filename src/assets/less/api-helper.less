@@ -1,6 +1,3 @@
-div.apiHelper, div.codeboxBanner {
-    background-color: @NC_MORNING_MIST;
-}
 
 div.apiHelperBox, div.codeboxBannerBox {
     padding: 10px;
@@ -102,3 +99,17 @@ textarea.usbSerialConsoleTextArea:focus {
 	color: @NC_ALMOST_WHITE;
 	background-color: @super-dark-gray;
 };
+
+
+@media (prefers-color-scheme: dark) {
+    div.apiHelper, div.codeboxBanner {
+        background-color: @COLOR_Midnight_500;
+    }
+}
+
+
+@media (prefers-color-scheme: light) {
+    div.apiHelper, div.codeboxBanner {
+        background-color: @NC_MORNING_MIST;
+    }
+}

@@ -203,6 +203,15 @@ Created by Zach Supalla.
     return href;
   }
 
+  const logoElem = $('#logo');
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  if (prefersDarkScheme.matches) {  
+    $(logoElem).prop('src', $(logoElem).data('dark-src'));
+  } 
+  else {
+    $(logoElem).prop('src', $(logoElem).data('light-src'));
+  }
+
   var deviceLinks = {{{ json forkList }}};
   var redirects = {{{ json redirectList }}};
 

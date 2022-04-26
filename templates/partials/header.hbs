@@ -10,8 +10,15 @@
     </div>
 
     <a href="/">
-      <img src="/assets/images/particle-docs.png" id="logo" class="no-darken">
+      <img src="/assets/images/particle-docs.png" id="logo" class="no-darken" data-light-src="/assets/images/particle-docs.png" data-dark-src="/assets/images/particle-docs-dark.png">
     </a>
+
+<picture>
+  <!-- Use this image if the user's OS setting is light or unset -->
+  <source srcset="photo-light.png" media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)">
+  <!-- Use this image if the user's OS setting is dark -->
+  <source srcset="photo-dark.png" media="(prefers-color-scheme: dark)">
+</picture>
 
     <div class="sections">
       <a class="nav {{#is path.href '/'}}active{{/is}}" href="/">Home</a>
