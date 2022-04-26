@@ -47,8 +47,6 @@
     top: 35px;
     left: -35px;
     width: 400px;
-    background: @white;
-    border: 1px solid @light-gray;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -176,5 +174,25 @@
       border-width: 8px;
       margin-left: -8px;
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  input.st-default-search-input {
+    color: @COLOR_Gray_300;
+    background-color: @COLOR_Midnight_500;
+  }
+
+  .st-ui-overlay {
+    color: @COLOR_Gray_300;
+    background-color: @COLOR_Midnight_500;
+  }
+
+}
+
+@media (prefers-color-scheme: light) {
+  .search-results {
+    background: @white;
+    border: 1px solid @light-gray;
   }
 }

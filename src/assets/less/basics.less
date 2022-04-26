@@ -98,7 +98,7 @@ td {
   }
 
   a:hover {
-    background-color: @COLOR_Gray_200;
+    background-color: @COLOR_Midnight_500;
     text-decoration: underline;
   }
 
@@ -107,6 +107,9 @@ td {
     text-decoration: none;
   }
 
+  img:not(.no-darken) {
+    filter: brightness(0.8) contrast(1.2);
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -123,7 +126,7 @@ td {
   }
 
   a:hover {
-    background-color: @COLOR_Midnight_500;
+    background-color: @COLOR_Gray_200;
     text-decoration: underline;
   }
 
