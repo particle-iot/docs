@@ -472,45 +472,53 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 }
 .button {
   text-rendering: optimizeLegibility;
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 0.7px;
+  //font-weight: bold;
+  //font-size: 14px;
+  //letter-spacing: 0.7px;
+  //border: solid 2px @NC_TEAL_DARK;
   display: inline-block;
-  padding: 8px 20px;
-  border: solid 2px @NC_TEAL_DARK;
+  padding: 8px 12px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
   margin-right: 4px;
+  text-decoration: none;
 }
 .button,
 .button:visited {
-  background: @NC_TEAL_DARK;
-  color: @NC_WHITE;
-  text-shadow: none;
+  .STYLE_button_primary_regular();
+//  background: @NC_TEAL_DARK;
+//  color: @NC_WHITE;
+//  text-shadow: none;
 }
 .button:hover {
-  border-color: @NC_MIDNIGHT;
-  background: @NC_MIDNIGHT;
-  color: @NC_WHITE;
+  .STYLE_button_primary_hover();
+//  border-color: @NC_MIDNIGHT;
+//  background: @NC_MIDNIGHT;
+//  color: @NC_WHITE;
 }
 .button.light,
 .button.light:visited {
-  background: transparent;
-  color: @NC_PURPLE_GRAY;
-  border-color: @NC_PURPLE_GRAY;
-  text-shadow: none;
+  .STYLE_button_primary_regular();
+//  background: transparent;
+//  color: @NC_PURPLE_GRAY;
+//  border-color: @NC_PURPLE_GRAY;
+//  text-shadow: none;
 }
 .button.light:hover {
-  border-color: @NC_PURPLE_GRAY;
-  background: @NC_PURPLE_GRAY;
-  color: @NC_WHITE;
+  .STYLE_button_primary_hover();
+//  border-color: @NC_PURPLE_GRAY;
+//  background: @NC_PURPLE_GRAY;
+//  color: @NC_WHITE;
 }
 .content .button + em {
   color: @NC_PURPLE_GRAY;
 }
 
-.buttonRounded {
-  border-radius: 18px;
+.downloadButton {
+  .STYLE_button_primary_regular();
+  &:hover {
+    .STYLE_button_primary_hover();
+  };
 }
 
 // Don't actually position the upper right buttons in the upper right on mobile, since they'll
