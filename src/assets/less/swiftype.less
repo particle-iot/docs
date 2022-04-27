@@ -10,10 +10,7 @@ form input.st-search-input {
   padding: 5px 9px 5px 27px;
   height: 18px;
   width: 200px;
-  color: #666;
-  border: 1px solid #ccc;
   outline: none;
-  background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 7px 7px;
 }
 
 div.st-search-summary {
@@ -79,3 +76,18 @@ div.st-result .st-date {
   margin: 10px auto;
 }
 
+@media (prefers-color-scheme: dark) {
+  form input.st-search-input {
+    color: @COLOR_Gray_100;
+    border: 1px solid @COLOR_Gray_100;
+    background: @COLOR_Midnight_500;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  form input.st-search-input {
+    color: @COLOR_Midnight_500;
+    border: 1px solid @COLOR_Midnight_500;
+    background: @COLOR_Gray_100;
+  }
+}
