@@ -123,6 +123,11 @@
         "href": "/tutorials/device-cloud/device-claiming/"
       },
       {
+        "dir": "data-report-tutorial",
+        "title": "Data report tutorial",
+        "href": "/tutorials/device-cloud/data-report-tutorial/"
+      },
+      {
         "dir": "authentication",
         "title": "Authentication",
         "href": "/tutorials/device-cloud/authentication/"
