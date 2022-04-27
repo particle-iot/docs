@@ -14,17 +14,14 @@ div.apiHelperSmallText {
 
 select.apiHelperSelect {
     height: 27px;
-    background-color:#EFEFEF;
 }
 
 select.apiHelperSelect24 {
     height: 24px;
-    background-color:#EFEFEF;
 }
 
 select.codeboxFlashDeviceSelect, select.apiHelperConfigSchemaProductSelect {
     height: 24px;
-    background-color:#EFEFEF;
 }
 
 pre.codeboxPre {
@@ -105,11 +102,23 @@ textarea.usbSerialConsoleTextArea:focus {
     div.apiHelper, div.codeboxBanner {
         background-color: @COLOR_Midnight_500;
     }
+    select.apiHelperSelect,
+    select.apiHelperSelect24,
+    select.codeboxFlashDeviceSelect, 
+    select.apiHelperConfigSchemaProductSelect {
+        background-color: @COLOR_Midnight_500;
+    }
 }
 
 
 @media (prefers-color-scheme: light) {
     div.apiHelper, div.codeboxBanner {
         background-color: @NC_MORNING_MIST;
+    }
+    select.apiHelperSelect,
+    select.apiHelperSelect24,
+    select.codeboxFlashDeviceSelect, 
+    select.apiHelperConfigSchemaProductSelect {
+        background-color:#EFEFEF;
     }
 }
