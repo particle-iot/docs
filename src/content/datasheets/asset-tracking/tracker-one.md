@@ -350,49 +350,111 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | ONE524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Algeria | ONE524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
+| Aruba | ONE524 | 2G, 3G, Cat1 | Setar |
 | Australia | ONE524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Bahrain | ONE524 | 2G, 3G, Cat1 | Zain |
+| Bangladesh | ONE524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | ONE524 | 2G, 3G | BH Telecom, HT Eronet |
+| Botswana | ONE524 | 2G, 3G, Cat1 | BeMobile |
+| Brunei | ONE524 | 2G, 3G, Cat1 | DST |
 | Bulgaria | ONE524 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | ONE524 | 2G, 3G, Cat1 | Orange |
+| Cabo Verde | ONE524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Cambodia | ONE524 | 2G, 3G | Metfone |
 | Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Chad | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Chile | ONE524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Congo (Brazzaville) | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Congo (Kinshasa) | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Côte d'Ivoire | ONE524 | 2G, 3G, Cat1 | MTN |
 | Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Cyprus | ONE524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | ONE524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | ONE524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | ONE524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| eSwatini | ONE524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | ONE524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | ONE524 | 2G, 3G | Digicel |
+| Gabon | ONE524 | 2G, 3G, Cat1 | Airtel |
 | Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | ONE524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ONE524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | ONE524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Guinea | ONE524 | 2G, 3G, Cat1 | MTN |
+| Guinea-Bissau | ONE524 | 2G, 3G, Cat1 | MTN |
+| Guyana | ONE524 | 2G | Digicel |
+| Hong Kong | ONE524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
 | Hungary | ONE524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
 | Iceland | ONE524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Indonesia | ONE524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
 | Ireland | ONE524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | ONE524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
 | Italy | ONE524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Jordan | ONE524 | 2G, 3G, Cat1 | Zain |
+| Kazakhstan | ONE524 | 2G, 3G, Cat1 | Beeline, K-Cell |
+| Kenya | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Kuwait | ONE524 | 2G, 3G, Cat1 | Viva, Zain |
 | Latvia | ONE524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
 | Liechtenstein | ONE524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | ONE524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | ONE524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Macao | ONE524 | 2G, 3G, Cat1 | CTM |
+| Madagascar | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Malawi | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Malaysia | ONE524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
 | Malta | ONE524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Mexico | ONE404 | M1 | AT&T |
 | Moldova | ONE524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Mongolia | ONE524 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Morocco | ONE524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
+| Mozambique | ONE524 | 2G, 3G, Cat1 | Vodacom |
+| Myanmar | ONE524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Namibia | ONE524 | 2G, 3G, Cat1 | Telecom Namibia |
 | Netherlands | ONE524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Nigeria | ONE524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | ONE524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Oman | ONE524 | 2G, 3G, Cat1 | Ooredoo |
+| Pakistan | ONE524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Palestine | ONE524 | 2G, 3G | Jawwal |
+| Papua New Guinea | ONE524 | 2G, 3G | bmobile |
 | Poland | ONE524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | ONE524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Qatar | ONE524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | ONE524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Rwanda | ONE524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Saudi Arabia | ONE524 | 2G, 3G, Cat1 | Mobily, STC, Zain |
 | Serbia | ONE524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Seychelles | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Sint Maarten | ONE524 | 2G, 3G, Cat1 | TelCell |
 | Slovakia | ONE524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | ONE524 | 2G, 3G, Cat1 | A1, Mobitel |
+| South Africa | ONE524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
+| South Korea | ONE524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| South Sudan | ONE524 | 2G, 3G, Cat1 | MTN |
 | Spain | ONE524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | ONE524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Suriname | ONE524 | 2G, 3G | Telesur |
 | Sweden | ONE524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | ONE524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Taiwan | ONE524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | ONE524 | 2G, 3G, Cat1 | Airtel |
+| Thailand | ONE524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
+| Tunisia | ONE524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
+| Uganda | ONE524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | ONE524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ONE404 | M1 | AT&T |
+| Vietnam | ONE524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Zambia | ONE524 | 2G, 3G, Cat1 | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}

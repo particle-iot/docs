@@ -585,6 +585,7 @@ const familyMapCreate = function() {
 
     familyMap.drawMap = function() {
         let family;
+
         if (familyMap.options.familySelect) {
             family = $(familyMap.options.familySelect).val();
         }
@@ -664,6 +665,67 @@ const familyMapCreate = function() {
 
     }
 
+    familyMap.drawMapCat1Expansion = function() {
+        let countryDataArray = [['Country', 'Coverage']];
+
+        const labelValues = ['Original Coverage', 'Expanded Coverage'];
+
+        datastore.data.countries.forEach(function(countryObj) {
+
+            let foundValue = 0;
+
+            datastore.data.countryModemSim.forEach(function(cmsObj) {
+                if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
+                    return;
+                }
+                if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
+                    return;
+                }
+
+                if (cmsObj.expansion) {
+                    foundValue = 2;
+                }
+                else {
+                    if (foundValue == 0) {
+                        foundValue = 1;
+                    }
+                }
+            });    
+
+            if (foundValue) {
+                countryDataArray.push([countryObj.isoCode, foundValue]);
+            }
+        });
+
+        var data = google.visualization.arrayToDataTable(countryDataArray);
+
+        var options = {
+            colorAxis: {colors: ['AFE4EE', '2BB1CA']}, // Sky 600 to Sky 900
+            legend: 'none',
+            tooltip: {trigger: 'none'}
+        };
+
+
+        var chart = new google.visualization.GeoChart(familyMap.options.mapDiv[0]);
+
+        chart.draw(data, options);
+
+        // 
+        {
+            let html = '<div><table><tbody>';
+
+            for(let ii = 0; ii < labelValues.length; ii++) {
+                const style = 'background-color:#' + options.colorAxis.colors[ii];
+
+                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + labelValues[ii] + '</td></tr>';
+            }
+
+            html += '</tbody></table></div>';
+
+            $(familyMap.options.skusDiv).html(html);
+        }
+    }
+    
     familyMap.initMap = function() {
         familyMap.initMapStarted = true;
 
@@ -691,6 +753,13 @@ const familyMapCreate = function() {
         // family - the device family if familySelect is not present
         // noHistory - don't update page history
         familyMap.options = options;
+
+        if (familyMap.options.family == 'cat1expansion') {
+            // Not really a family
+            familyMap.options.clickToShow = false;
+            familyMap.drawMap = familyMap.drawMapCat1Expansion;
+        }
+
 
         if (familyMap.options.clickToShow) {
             $(familyMap.options.mapDiv).find('.clickToShow').show();

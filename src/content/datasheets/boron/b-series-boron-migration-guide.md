@@ -79,46 +79,110 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | B524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Algeria | B524 | 2G, 3G, Cat1 | Mobilis, Ooredoo |
+| Aruba | B524 | 2G, 3G, Cat1 | Setar |
 | Australia | B524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Bahrain | B524 | 2G, 3G, Cat1 | Zain |
+| Bangladesh | B524 | 2G, 3G, Cat1 | Bangalink, GrameenPhone |
 | Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
+| Botswana | B524 | 2G, 3G, Cat1 | BeMobile |
+| Brunei | B524 | 2G, 3G, Cat1 | DST |
 | Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | B524 | 2G, 3G, Cat1 | Orange |
+| Cabo Verde | B524 | 2G, 3G, Cat1 | CVMóvel, Unitel T+ |
+| Cambodia | B524 | 2G, 3G | Metfone |
+| Chad | B524 | 2G, 3G, Cat1 | Airtel |
+| Chile | B524 | 2G, 3G, Cat1 | Claro, Entel, Movistar |
+| Congo (Brazzaville) | B524 | 2G, 3G, Cat1 | Airtel |
+| Congo (Kinshasa) | B524 | 2G, 3G, Cat1 | Airtel |
+| Côte d'Ivoire | B524 | 2G, 3G, Cat1 | MTN |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Cyprus | B524 | 2G, 3G, Cat1 | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Egypt | B524 | 2G, 3G, Cat1 | Etisalat, Orange |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| eSwatini | B524 | 2G, 3G, Cat1 | MTN |
+| Ethiopia | B524 | 2G, 3G, Cat1 | Ethio Telecom |
 | Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | B524 | 2G, 3G | Digicel |
+| Gabon | B524 | 2G, 3G, Cat1 | Airtel |
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Ghana | B524 | 2G, 3G, Cat1 | AirtelTigo, MTN, Vodafone |
 | Gibraltar | B524 | 2G, 3G, Cat1 | Gibtel |
 | Greece | B524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Guadeloupe | B524 | 2G, 3G | Orange |
+| Guinea | B524 | 2G, 3G, Cat1 | MTN |
+| Guinea-Bissau | B524 | 2G, 3G, Cat1 | MTN |
+| Guyana | B524 | 2G | Digicel |
+| Haiti | B524 | 2G, 3G | Digicel |
+| Hong Kong | B524 | 2G, 3G, Cat1 | CMHK, CSL, SmarTone |
 | Hungary | B524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
 | Iceland | B524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Indonesia | B524 | 2G, 3G, Cat1 | Indosat, Telkomsel, XL Axiata |
 | Ireland | B524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | B524 | 2G, 3G, Cat1 | Hot Mobile, Orange, Pelephone |
 | Italy | B524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Jordan | B524 | 2G, 3G, Cat1 | Zain |
+| Kazakhstan | B524 | 2G, 3G, Cat1 | Beeline, K-Cell |
+| Kenya | B524 | 2G, 3G, Cat1 | Airtel |
+| Kuwait | B524 | 2G, 3G, Cat1 | Viva, Zain |
 | Latvia | B524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
 | Liechtenstein | B524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | B524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | B524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Macao | B524 | 2G, 3G, Cat1 | CTM |
+| Madagascar | B524 | 2G, 3G, Cat1 | Airtel |
+| Malawi | B524 | 2G, 3G, Cat1 | Airtel |
+| Malaysia | B524 | 2G, 3G, Cat1 | Celcom, DiGi, Maxis |
 | Malta | B524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Moldova | B524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Mongolia | B524 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | B524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Morocco | B524 | 2G, 3G, Cat1 | Inwi, Medi Telecom |
+| Mozambique | B524 | 2G, 3G, Cat1 | Vodacom |
+| Myanmar | B524 | 2G, 3G, Cat1 | MPT, Telenor |
+| Namibia | B524 | 2G, 3G, Cat1 | Telecom Namibia |
 | Netherlands | B524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | B524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Nigeria | B524 | 2G, 3G, Cat1 | 9mobile, Airtel, Glo, MTN |
 | Norway | B524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Oman | B524 | 2G, 3G, Cat1 | Ooredoo |
+| Pakistan | B524 | 2G, 3G, Cat1 | Mobilink, Telenor, Ufone, Warid |
+| Palestine | B524 | 2G, 3G | Jawwal |
+| Papua New Guinea | B524 | 2G, 3G | bmobile |
 | Poland | B524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Qatar | B524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | B524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Rwanda | B524 | 2G, 3G, Cat1 | Airtel, MTN |
+| Saudi Arabia | B524 | 2G, 3G, Cat1 | Mobily, STC, Zain |
 | Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Seychelles | B524 | 2G, 3G, Cat1 | Airtel |
+| Sint Maarten | B524 | 2G, 3G, Cat1 | TelCell |
 | Slovakia | B524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
+| South Africa | B524 | 2G, 3G, Cat1 | Cell C, MTN, Vodacom |
+| South Korea | B524 | 3G, Cat1 | KT, LG U+, SK Telecom |
+| South Sudan | B524 | 2G, 3G, Cat1 | MTN |
 | Spain | B524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | B524 | 2G, 3G, Cat1 | Dialog, Mobitel |
+| Suriname | B524 | 2G, 3G | Telesur |
 | Sweden | B524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | B524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Taiwan | B524 | 3G, Cat1 | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tanzania | B524 | 2G, 3G, Cat1 | Airtel |
+| Thailand | B524 | 2G, 3G, Cat1 | AIS, DTAC, True Move |
+| Tunisia | B524 | 2G, 3G, Cat1 | Orange Tunisie, Tunisie Telecom |
+| Uganda | B524 | 2G, 3G, Cat1 | Africell, Airtel, MTN |
 | United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| Vietnam | B524 | 2G, 3G, Cat1 | MobiFone, Viettel, Vinaphone |
+| Zambia | B524 | 2G, 3G, Cat1 | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 99975710-76e0-11eb-9439-0242ac130002 --}}

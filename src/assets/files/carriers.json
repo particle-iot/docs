@@ -23010,7 +23010,8 @@
       "country": "Algeria",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Algeria",
@@ -23023,7 +23024,8 @@
       "country": "Algeria",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Algeria",
@@ -23831,8 +23833,8 @@
       "country": "Aruba",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Aruba",
@@ -23845,8 +23847,8 @@
       "country": "Aruba",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Aruba",
@@ -24327,7 +24329,8 @@
       "country": "Bahrain",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bahrain",
@@ -24339,7 +24342,8 @@
       "country": "Bahrain",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bahrain",
@@ -24424,7 +24428,8 @@
       "country": "Bangladesh",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bangladesh",
@@ -24436,7 +24441,8 @@
       "country": "Bangladesh",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bangladesh",
@@ -25435,7 +25441,8 @@
       "country": "Botswana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Botswana",
@@ -25448,7 +25455,8 @@
       "country": "Botswana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Botswana",
@@ -25644,7 +25652,8 @@
       "country": "Brunei",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Brunei",
@@ -25656,7 +25665,8 @@
       "country": "Brunei",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Brunei",
@@ -25841,7 +25851,8 @@
       "country": "Burkina Faso",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Burkina Faso",
@@ -25854,7 +25865,8 @@
       "country": "Burkina Faso",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Burkina Faso",
@@ -26048,7 +26060,8 @@
       "country": "Cabo Verde",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cabo Verde",
@@ -26061,7 +26074,8 @@
       "country": "Cabo Verde",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cabo Verde",
@@ -26147,7 +26161,8 @@
       "country": "Cambodia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cambodia",
@@ -26159,7 +26174,8 @@
       "country": "Cambodia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cambodia",
@@ -26651,7 +26667,8 @@
       "country": "Chad",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chad",
@@ -26663,7 +26680,8 @@
       "country": "Chad",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chad",
@@ -26751,8 +26769,8 @@
       "country": "Chile",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work with partial band support"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chile",
@@ -26765,8 +26783,8 @@
       "country": "Chile",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work with partial band support"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chile",
@@ -27060,7 +27078,8 @@
       "country": "Congo (Brazzaville)",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Brazzaville)",
@@ -27072,7 +27091,8 @@
       "country": "Congo (Brazzaville)",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Brazzaville)",
@@ -27157,7 +27177,8 @@
       "country": "Congo (Kinshasa)",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -27169,7 +27190,8 @@
       "country": "Congo (Kinshasa)",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -27358,7 +27380,8 @@
       "country": "Côte d'Ivoire",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Côte d'Ivoire",
@@ -27371,7 +27394,8 @@
       "country": "Côte d'Ivoire",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Côte d'Ivoire",
@@ -27761,7 +27785,8 @@
       "country": "Cyprus",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cyprus",
@@ -27773,7 +27798,8 @@
       "country": "Cyprus",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cyprus",
@@ -28356,7 +28382,8 @@
       "country": "Egypt",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Egypt",
@@ -28369,7 +28396,8 @@
       "country": "Egypt",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Egypt",
@@ -28759,7 +28787,8 @@
       "country": "eSwatini",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "eSwatini",
@@ -28772,7 +28801,8 @@
       "country": "eSwatini",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "eSwatini",
@@ -28859,7 +28889,8 @@
       "country": "Ethiopia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ethiopia",
@@ -28872,7 +28903,8 @@
       "country": "Ethiopia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ethiopia",
@@ -29356,8 +29388,8 @@
       "country": "French Guiana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "French Guiana",
@@ -29370,8 +29402,8 @@
       "country": "French Guiana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "French Guiana",
@@ -29458,7 +29490,8 @@
       "country": "Gabon",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Gabon",
@@ -29470,7 +29503,8 @@
       "country": "Gabon",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Gabon",
@@ -29858,7 +29892,8 @@
       "country": "Ghana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ghana",
@@ -29870,7 +29905,8 @@
       "country": "Ghana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ghana",
@@ -30354,8 +30390,8 @@
       "country": "Guadeloupe",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guadeloupe",
@@ -30763,7 +30799,8 @@
       "country": "Guinea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea",
@@ -30776,7 +30813,8 @@
       "country": "Guinea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea",
@@ -30865,7 +30903,8 @@
       "country": "Guinea-Bissau",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea-Bissau",
@@ -30878,7 +30917,8 @@
       "country": "Guinea-Bissau",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea-Bissau",
@@ -30965,8 +31005,8 @@
       "country": "Guyana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guyana",
@@ -30979,8 +31019,8 @@
       "country": "Guyana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guyana",
@@ -31066,8 +31106,8 @@
       "country": "Haiti",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Haiti",
@@ -31370,7 +31410,8 @@
       "country": "Hong Kong",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Hong Kong",
@@ -31383,7 +31424,8 @@
       "country": "Hong Kong",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Hong Kong",
@@ -31771,7 +31813,8 @@
       "country": "Indonesia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Indonesia",
@@ -31783,7 +31826,8 @@
       "country": "Indonesia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Indonesia",
@@ -32277,7 +32321,8 @@
       "country": "Israel",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Israel",
@@ -32289,7 +32334,8 @@
       "country": "Israel",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Israel",
@@ -32770,7 +32816,8 @@
       "country": "Jordan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Jordan",
@@ -32782,7 +32829,8 @@
       "country": "Jordan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Jordan",
@@ -32870,7 +32918,8 @@
       "country": "Kazakhstan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kazakhstan",
@@ -32883,7 +32932,8 @@
       "country": "Kazakhstan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kazakhstan",
@@ -32969,7 +33019,8 @@
       "country": "Kenya",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kenya",
@@ -32981,7 +33032,8 @@
       "country": "Kenya",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kenya",
@@ -33276,7 +33328,8 @@
       "country": "Kuwait",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kuwait",
@@ -33288,7 +33341,8 @@
       "country": "Kuwait",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kuwait",
@@ -34178,7 +34232,8 @@
       "country": "Macao",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Macao",
@@ -34191,7 +34246,8 @@
       "country": "Macao",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Macao",
@@ -34279,7 +34335,8 @@
       "country": "Madagascar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Madagascar",
@@ -34291,7 +34348,8 @@
       "country": "Madagascar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Madagascar",
@@ -34376,7 +34434,8 @@
       "country": "Malawi",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malawi",
@@ -34388,7 +34447,8 @@
       "country": "Malawi",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malawi",
@@ -34475,7 +34535,8 @@
       "country": "Malaysia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malaysia",
@@ -34487,7 +34548,8 @@
       "country": "Malaysia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malaysia",
@@ -35602,7 +35664,8 @@
       "country": "Mongolia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mongolia",
@@ -35614,7 +35677,8 @@
       "country": "Mongolia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mongolia",
@@ -35899,7 +35963,8 @@
       "country": "Morocco",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Morocco",
@@ -35912,7 +35977,8 @@
       "country": "Morocco",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Morocco",
@@ -35998,7 +36064,8 @@
       "country": "Mozambique",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mozambique",
@@ -36010,7 +36077,8 @@
       "country": "Mozambique",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mozambique",
@@ -36096,7 +36164,8 @@
       "country": "Myanmar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Myanmar",
@@ -36109,7 +36178,8 @@
       "country": "Myanmar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Myanmar",
@@ -36198,7 +36268,8 @@
       "country": "Namibia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Namibia",
@@ -36211,7 +36282,8 @@
       "country": "Namibia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Namibia",
@@ -37005,7 +37077,8 @@
       "country": "Nigeria",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Nigeria",
@@ -37017,7 +37090,8 @@
       "country": "Nigeria",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Nigeria",
@@ -37297,7 +37371,8 @@
       "country": "Oman",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Oman",
@@ -37310,7 +37385,8 @@
       "country": "Oman",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Oman",
@@ -37396,7 +37472,8 @@
       "country": "Pakistan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Pakistan",
@@ -37408,7 +37485,8 @@
       "country": "Pakistan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Pakistan",
@@ -37494,7 +37572,8 @@
       "country": "Palestine",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Palestine",
@@ -37507,7 +37586,8 @@
       "country": "Palestine",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Palestine",
@@ -37697,7 +37777,8 @@
       "country": "Papua New Guinea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Papua New Guinea",
@@ -37710,7 +37791,8 @@
       "country": "Papua New Guinea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Papua New Guinea",
@@ -38395,7 +38477,8 @@
       "country": "Qatar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Qatar",
@@ -38407,7 +38490,8 @@
       "country": "Qatar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Qatar",
@@ -38797,7 +38881,8 @@
       "country": "Rwanda",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Rwanda",
@@ -38809,7 +38894,8 @@
       "country": "Rwanda",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Rwanda",
@@ -39612,7 +39698,8 @@
       "country": "Saudi Arabia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Saudi Arabia",
@@ -39624,7 +39711,8 @@
       "country": "Saudi Arabia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Saudi Arabia",
@@ -39911,7 +39999,8 @@
       "country": "Seychelles",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Seychelles",
@@ -39923,7 +40012,8 @@
       "country": "Seychelles",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Seychelles",
@@ -40219,8 +40309,8 @@
       "country": "Sint Maarten",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on TelCell"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sint Maarten",
@@ -40233,8 +40323,8 @@
       "country": "Sint Maarten",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on TelCell"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sint Maarten",
@@ -40723,7 +40813,8 @@
       "country": "South Africa",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Africa",
@@ -40735,7 +40826,8 @@
       "country": "South Africa",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Africa",
@@ -40820,7 +40912,8 @@
       "country": "South Korea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Korea",
@@ -40832,7 +40925,8 @@
       "country": "South Korea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Korea",
@@ -40917,7 +41011,8 @@
       "country": "South Sudan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Sudan",
@@ -40929,7 +41024,8 @@
       "country": "South Sudan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Sudan",
@@ -41113,7 +41209,8 @@
       "country": "Sri Lanka",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sri Lanka",
@@ -41125,7 +41222,8 @@
       "country": "Sri Lanka",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sri Lanka",
@@ -41211,8 +41309,8 @@
       "country": "Suriname",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Telesur"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Suriname",
@@ -41225,8 +41323,8 @@
       "country": "Suriname",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Telesur"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Suriname",
@@ -41607,7 +41705,8 @@
       "country": "Taiwan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Taiwan",
@@ -41619,7 +41718,8 @@
       "country": "Taiwan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Taiwan",
@@ -41807,7 +41907,8 @@
       "country": "Tanzania",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tanzania",
@@ -41819,7 +41920,8 @@
       "country": "Tanzania",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tanzania",
@@ -41904,7 +42006,8 @@
       "country": "Thailand",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Thailand",
@@ -41916,7 +42019,8 @@
       "country": "Thailand",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Thailand",
@@ -42310,7 +42414,8 @@
       "country": "Tunisia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tunisia",
@@ -42323,7 +42428,8 @@
       "country": "Tunisia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tunisia",
@@ -42630,7 +42736,8 @@
       "country": "Uganda",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Uganda",
@@ -42642,7 +42749,8 @@
       "country": "Uganda",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Uganda",
@@ -43543,7 +43651,8 @@
       "country": "Vietnam",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Vietnam",
@@ -43556,7 +43665,8 @@
       "country": "Vietnam",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Vietnam",
@@ -43951,7 +44061,8 @@
       "country": "Zambia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Zambia",
@@ -43963,7 +44074,8 @@
       "country": "Zambia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Zambia",

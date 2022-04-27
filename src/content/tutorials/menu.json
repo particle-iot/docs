@@ -144,6 +144,11 @@
         "href": "/tutorials/cellular-connectivity/data/"
       },
       {
+        "dir": "lte-cat-1-expansion",
+        "title": "LTE Cat 1 Expansion",
+        "href": "/tutorials/cellular-connectivity/lte-cat-1-expansion/"
+      },
+      {
         "dir": "cellular-carriers",
         "title": "Cellular Carriers",
         "href": "/tutorials/cellular-connectivity/cellular-carriers/"
