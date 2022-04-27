@@ -229,6 +229,11 @@ Created by Zach Supalla.
     applyLightMode();
   }
 
+  $('#st-search-input').swiftypeSearch({
+    resultContainingElement: '#st-results-container',
+    engineKey: 'CKUexuMbPvLg4SZiPvGM'
+  });
+
   var deviceLinks = {{{ json forkList }}};
   var redirects = {{{ json redirectList }}};
 
