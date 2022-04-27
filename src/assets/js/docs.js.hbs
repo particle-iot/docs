@@ -203,13 +203,30 @@ Created by Zach Supalla.
     return href;
   }
 
+  function applyDarkMode() {
+    $(logoElem).prop('src', $(logoElem).data('dark-src'));
+  }
+
+  function applyLightMode() {
+    $(logoElem).prop('src', $(logoElem).data('light-src'));
+  }
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    if (event.matches) {
+      applyDarkMode();
+    } 
+    else {
+      applyLightMode();
+    }
+  });
+
   const logoElem = $('#logo');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   if (prefersDarkScheme.matches) {  
-    $(logoElem).prop('src', $(logoElem).data('dark-src'));
+    applyDarkMode();
   } 
   else {
-    $(logoElem).prop('src', $(logoElem).data('light-src'));
+    applyLightMode();
   }
 
   var deviceLinks = {{{ json forkList }}};
