@@ -873,6 +873,7 @@ $(document).ready(function() {
             const tableBodyElem = $(thisElem).find('.usbSerialToolsOutput > table > tbody');
             const outputElem = $(thisElem).find('.usbSerialToolsOutput');
             const outputJsonElem = $(thisElem).find('.apiHelperEventViewerOutputJson');
+            const rawJsonElem = $(thisElem).find('.rawJsonData');
 
             const setStatus = function(s) {
                 $(thisElem).find('.usbSerialToolsStatus').text(s);
@@ -1137,6 +1138,20 @@ $(document).ready(function() {
                 return;
             }
     
+            $(rawJsonElem).on('input', function() {
+                $(outputElem).html('');
+                setStatus('');
+
+                try {
+                    const parsedJson = JSON.parse($(rawJsonElem).val());
+                    outputModuleInfo(parsedJson);
+                }
+                catch(e) {
+                    setStatus('JSON data does not appear to be valid, be sure to copy the raw data from the event log');
+                }
+            });
+            
+
             $(actionButtonElem).on('click', function() {
                 const listening = usbSerial.listeningCommand();
                 $(actionButtonElem).prop('disabled', true);

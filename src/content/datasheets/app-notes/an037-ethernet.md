@@ -22,6 +22,8 @@ The pins used for reset, interrupt, and chip select are hardcoded into Device OS
 
 ### FeatherWing Pinouts
 
+These pinouts are using for the Ethernet FeatherWing, Argon, Boron, P2, and Photon 2.
+
 |Particle Pin|Ethernet FeatherWing Pin   |
 |:-------|:--------------------------|
 |MISO    | SPI MISO                  |
@@ -40,10 +42,22 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 | Particle Pin | M.2 Pin | Ethernet Pin |
 | :---: | :---: | :--- |
 | D8 | CS | ETH\_CS |
+| A7 | RESERVED | ETH\_RESET |
 | SCK | SCK | ETH\_CLK |
 | MISO | MISO | ETH\_MISO |
 | MOSI | MOSI | ETH\_MOSI |
 | D22 | GPIO0 | ETH\_INT |
+
+# Tracker Pinouts
+
+|Particle Pin|Ethernet Pin   |
+|:-------|:--------------------------|
+|MISO    | SPI MISO                  |
+|MOSI    | SPI MOSI                  |
+|SCK     | SPI SCK                   |
+|D6      | nRESET     |
+|D7      | nINTERRUPT  |
+|D2      | nCHIP SELECT|
 
 
 ## Device OS Support

@@ -117,11 +117,29 @@ module.exports = function(options) {
         // Check for multiple changes in files
         for(const blurbId of Object.keys(blurbInfo)) {
             let changes = 0;
+            let hashCounts = {};
             for(const loc of blurbInfo[blurbId].locations) {
                 if (loc.isChanged) {
                     changes++;
+                    if (hashCounts[loc.hash]) {
+                        hashCounts[loc.hash]++;
+                    }
+                    else {
+                        hashCounts[loc.hash] = 1;
+                    }
                 }
             }
+
+            if (Object.keys(hashCounts).length == 1) {
+                console.log('blurb ' + blurbId + ' is changed in multiple files but all to the same hash, keeping all changes');
+                for(const loc of blurbInfo[blurbId].locations) {
+                    if (loc.isChanged) {
+                        blurbConfig.blurbs[blurbId].hash = loc.hash;
+                        loc.isChanged = false;
+                    }
+                }
+            }
+            else 
             if (changes > 1) {
                 console.log('blurb ' + blurbId + ' is changed in multiple files! config hash=' + blurbConfig.blurbs[blurbId].hash);
                 for(const loc of blurbInfo[blurbId].locations) {
