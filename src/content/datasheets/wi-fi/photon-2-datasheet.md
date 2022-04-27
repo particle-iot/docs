@@ -7,7 +7,7 @@ description: Datasheet for the Particle Photon 2, Wi-Fi development module
 
 # Photon 2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2022-04-08**
+**Preliminary pre-release version 2022-04-16**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
@@ -24,7 +24,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 ### Overview
 
 The Photon 2 is a development module with a microcontroller and Wi-Fi networking. The form-factor is similar to the Argon (Adafruit Feather), but
-the Photon 2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash that can support larger applications. 
+the Photon 2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash that can support larger applications.
 
 It is intended to replace both the Photon and Argon modules. It contains the same module as the P2, making it easier to migrate from a pin-based development module to a SMD mass-production module if desired.
 
@@ -209,55 +209,55 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### Pin markings
 
-{{imageOverlay src="/assets/images/photon-2-pinout.png" alt="Pinout Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/photon-2-pinout.svg" alt="Pinout Diagram" class="full-width"}}
 
 ### GPIO and port listing
 
-{{!-- BEGIN do not edit content below, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated ed19d7a3-f59d-4eec-85ba-2f67859e87b2 --}}
 
 | Pin Name |   |   |   |   | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
-| A1 / D18 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
-| A2 / D17 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
-| A5 / D14 | ADC_3 | &nbsp; | SPI (SS) | &nbsp; | PB[7] |
+| A0 / D11 | ADC_4 | &nbsp; | &nbsp; | &nbsp; | PB[1] |
+| A1 / D12 | ADC_5 | &nbsp; | &nbsp; | &nbsp; | PB[2] |
+| A2 / D13 | ADC_3 | &nbsp; | &nbsp; | &nbsp; | PB[7] |
+| A5 / D14 | ADC_0 | &nbsp; | &nbsp; | &nbsp; | PB[4] |
 | D0 / A3 | ADC_2 | Wire (SDA) | &nbsp; | &nbsp; | PB[6] |
 | D1 / A4 | ADC_1 | Wire (SCL) | &nbsp; | &nbsp; | PB[5] |
-| D15 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PB[26] |
-| D16 | &nbsp; | &nbsp; | &nbsp; | Serial3 (RX) | PA[19] |
-| D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (RTS) | PA[14] |
-| D3 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (TX) | PA[12] |
-| D4 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (RX) | PA[13] |
-| D5 / WKP | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (CTS) | PA[15] |
+| D10 / WKP | &nbsp; | &nbsp; | &nbsp; | Serial3 (CTS) | PA[15] |
+| D2 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
+| D3 | &nbsp; | &nbsp; | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
+| D4 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial2 (TX) | PA[18] |
+| D5 | &nbsp; | &nbsp; | SPI1 (SS) | Serial2 (RX) | PA[19] |
 | D6 | &nbsp; | SWCLK | &nbsp; | &nbsp; | PB[3] |
-| D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
-| D8 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
-| MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (CTS) | PA[17] |
-| MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (RTS) | PA[16] |
-| RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
-| SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | Serial3 (TX) | PA[18] |
-| TX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
+| D7 | &nbsp; | SWDIO | &nbsp; | &nbsp; | PA[27] |
+| MISO / D16 | &nbsp; | &nbsp; | SPI (MISO) | Serial3 (RX) | PA[13] |
+| MOSI / D15 | &nbsp; | &nbsp; | SPI (MOSI) | Serial3 (TX) | PA[12] |
+| RX / D9 | &nbsp; | &nbsp; | &nbsp; | Serial1 (RX)  | PA[8] |
+| S3 / D18 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | PB[26] |
+| S4 / D19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | PA[0] |
+| SCK / D17 | &nbsp; | &nbsp; | SPI (SCK) | Serial3 (RTS) | PA[14] |
+| TX / D8 | &nbsp; | &nbsp; | &nbsp; | Serial1 (TX) | PA[7] |
 
 
-{{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### ADC (Analog to Digital Converter)
 
 The Photon 2 supports six ADC inputs.
 
-{{!-- BEGIN do not edit content below, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 2e0292c9-3489-40dd-b411-1a1ad8e5bb81 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | A0 Analog in, GPIO | ADC_4 | PB[1] |
-| A1 / D18 | A1 Analog in, GPIO | ADC_5 | PB[2] |
-| A2 / D17 | A2 Analog in, GPIO, PWM. | ADC_0 | PB[4] |
-| A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO | ADC_3 | PB[7] |
+| A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
+| A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
+| A2 / D13 | A2 Analog in, GPIO, PWM. | ADC_3 | PB[7] |
+| A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | ADC_0 | PB[4] |
 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
 
 
-{{!-- END do not edit content above, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
@@ -266,50 +266,50 @@ The Photon 2 supports six ADC inputs.
 
 The Photon 2 supports three UART serial interfaces. 
 
-{{!-- BEGIN do not edit content below, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+{{!-- BEGIN do not edit content below, it is automatically generated f0b0b5df-84bf-400d-a833-1dd3276ca910 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D16 | D16 GPIO, Serial3 RX. Was A3 on Argon. | Serial3 (RX) | PA[19] |
-| SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX | Serial3 (TX) | PA[18] |
-| MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS | Serial3 (RTS) | PA[16] |
-| MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS | Serial3 (CTS) | PA[17] |
-| RX / D10 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
-| TX / D9 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
-| D2 | D2 GPIO, Serial2 RTS, SPI1 SCK. | Serial2 (RTS) | PA[14] |
-| D3 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. | Serial2 (TX) | PA[12] |
-| D4 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. | Serial2 (RX) | PA[13] |
-| D5 / WKP | GPIO D5, Serial2 CTS, SPI1 SS. | Serial2 (CTS) | PA[15] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | Serial3 (RTS) | PA[14] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | Serial3 (TX) | PA[12] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | Serial3 (RX) | PA[13] |
+| RX / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
+| TX / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
+| D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
+| D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Serial2 (TX) | PA[18] |
+| D5 | D5 GPIO, Serial2 RX, SPI1 SS | Serial2 (RX) | PA[19] |
+| D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | Serial3 (CTS) | PA[15] |
 
 
-{{!-- END do not edit content above, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
 - Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
 - Serial1 uses the RTL872x UART_LOG peripheral
-- Serial2 uses the RTL872x LP_UART peripheral
-- Serial3 uses the RTL872x HS_UART0 peripheral
+- Serial2 uses the RTL872x HS_UART0 peripheral
+- Serial3 uses the RTL872x LP_UART peripheral
 - Supported baud rates: 110, 300, 600, 1200, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 128000, 153600, 230400, 500000, 921600, 1000000, 1382400, 1444400, 1500000, 1843200, 2000000, 2100000, 2764800, 3000000, 3250000, 3692300, 3750000, 4000000, 6000000
 
 ### SPI
 
 The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
-{{!-- BEGIN do not edit content below, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 90d1c896-32b3-4211-9d62-24d356098f29 --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO | SPI (SS) | PB[7] |
-| SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX | SPI (SCK) | PA[18] |
-| MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS | SPI (MOSI) | PA[16] |
-| MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS | SPI (MISO) | PA[17] |
-| D2 | D2 GPIO, Serial2 RTS, SPI1 SCK. | SPI1 (SCK) | PA[14] |
-| D3 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. | SPI1 (MOSI) | PA[12] |
-| D4 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. | SPI1 (MISO) | PA[13] |
-| D5 / WKP | GPIO D5, Serial2 CTS, SPI1 SS. | SPI1 (SS) | PA[15] |
+| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | SPI (SS) | PB[26] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | SPI (SCK) | PA[14] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | SPI (MOSI) | PA[12] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | SPI (MISO) | PA[13] |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
+| D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | SPI1 (MISO) | PA[17] |
+| D4 | D4 GPIO, Serial2 TX, SPI1 SCK | SPI1 (SCK) | PA[18] |
+| D5 | D5 GPIO, Serial2 RX, SPI1 SS | SPI1 (SS) | PA[19] |
 
 
-{{!-- END do not edit content above, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+{{!-- END do not edit content above, it is automatically generated 90d1c896-32b3-4211-9d62-24d356098f29 --}}
 
 - The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
 - If not using a SPI port, its pins can be used as GPIO
@@ -323,7 +323,7 @@ The Photon 2 supports two SPI (serial peripheral interconnect) ports.
 
 The Photon 2 supports one I2C (two-wire serial interface) port.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 136ece09-1c16-422d-8078-8c5fc47cf23e --}}
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
@@ -331,7 +331,7 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | Wire (SCL) | PB[5] |
 
 
-{{!-- END do not edit content above, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 - The I2C port is 3.3V and must not be connected directly a 5V I2C bus
 - Maximum bus speed is 400 kHz
@@ -341,34 +341,34 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 
 ### Pins Photon 2 vs. P2
 
-This table is mapped by the MCU pin number to compare the usage on the Photon 2 vs. P2.
+The pins on the Photon 2 map directly the pins with the same name on the P2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 7c78e07c-4e5a-43a6-8c61-d9a322871bd8 --}}
 
 | Photon 2 Pin Name | Photon 2 Description | P2 Pin Name | P2 Description | P2 Pin Number | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
-| A1 / D18 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
-| A2 / D17 | A2 Analog in, GPIO, PWM. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
-| A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| A0 / D11 | A0 Analog in, GPIO | A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| A1 / D12 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| A2 / D13 | A2 Analog in, GPIO, PWM. | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
-| D15 | D15 GPIO, Was A4 on Argon. | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
-| D16 | D16 GPIO, Serial3 RX. Was A3 on Argon. | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
-| D2 | D2 GPIO, Serial2 RTS, SPI1 SCK. | S2 / D17 | S2 GPIO, SPI SCK. (Was P1S2 on P1.) | 42 | PA[14] |
-| D3 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) | 40 | PA[12] |
-| D4 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) | 41 | PA[13] |
-| D5 / WKP | GPIO D5, Serial2 CTS, SPI1 SS. | D10 / WKP | GPIO. (Was WKP/A7 on P1.) | 30 | PA[15] |
+| D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) | 30 | PA[15] |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
+| D4 | D4 GPIO, Serial2 TX, SPI1 SCK | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
+| D5 | D5 GPIO, Serial2 RX, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | D6 GPIO, SWCLK. | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
-| D7 | D7 GPIO. Blue LED. | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
-| D8 | GPIO, PWM, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
-| MODE | MODE button, has internal pull-up | SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. | 46 | PA[4] |
-| MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
+| D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MODE | MODE button, has internal pull-up | MODE | MODE button, has internal pull-up. Pin number constant is BTN. | 46 | PA[4] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | 34 | CHIP_EN |
-| RX / D10 | Serial1 RX (received data), GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
-| SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
-| TX / D9 | Serial1 TX (transmitted data), GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+| RX / D9 | Serial1 RX (received data), GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
+| TX / D8 | Serial1 TX (transmitted data), GPIO | TX / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -376,7 +376,7 @@ This table is mapped by the MCU pin number to compare the usage on the Photon 2 
 
 ### Complete pin listing
 
-{{!-- BEGIN do not edit content below, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e9628714-d248-4806-897f-189eef8d4352 --}}
 
 | Pin Name | Description | MCU |
 | :--- | :--- | :--- |
@@ -384,32 +384,32 @@ This table is mapped by the MCU pin number to compare the usage on the Photon 2 
 | 3V3 | Regulated 3.3V DC output, maximum load 500 mA | &nbsp; |
 | MODE | MODE button, has internal pull-up | PA[4] |
 | GND | Ground. | &nbsp; |
-| A0 / D19 | A0 Analog in, GPIO | PB[1] |
-| A1 / D18 | A1 Analog in, GPIO | PB[2] |
-| A2 / D17 | A2 Analog in, GPIO, PWM. | PB[4] |
-| D16 | D16 GPIO, Serial3 RX. Was A3 on Argon. | PA[19] |
-| D15 | D15 GPIO, Was A4 on Argon. | PB[26] |
-| A5 / D14 | A5 Analog in, PWM, SPI SS, GPIO | PB[7] |
-| SCK / D13 | SPI SCK, D13 GPIO, Serial3 TX | PA[18] |
-| MOSI / D12 | SPI MOSI, D12 GPIO, Serial3 RTS | PA[16] |
-| MISO / D11 | SPI MISO, D11 GPIO, Serial3 CTS | PA[17] |
-| RX / D10 | Serial1 RX (received data), GPIO | PA[8] |
-| TX / D9 | Serial1 TX (transmitted data), GPIO | PA[7] |
+| A0 / D11 | A0 Analog in, GPIO | PB[1] |
+| A1 / D12 | A1 Analog in, GPIO | PB[2] |
+| A2 / D13 | A2 Analog in, GPIO, PWM. | PB[7] |
+| A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | PB[4] |
+| S4 / D19 | S4 GPIO, Was A4 on Gen 3. | PA[0] |
+| S3 / D18 | S3 GPIO, SPI SS, Was A5 on Gen 3. | PB[26] |
+| SCK / D17 | SPI SCK, D13 GPIO, S3 GPIO, Serial3 RTS | PA[14] |
+| MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | PA[12] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | PA[13] |
+| RX / D9 | Serial1 RX (received data), GPIO | PA[8] |
+| TX / D8 | Serial1 TX (transmitted data), GPIO | PA[7] |
 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
-| D2 | D2 GPIO, Serial2 RTS, SPI1 SCK. | PA[14] |
-| D3 | D3 GPIO, PWM, Serial2 TX, SPI1 MOSI. | PA[12] |
-| D4 | D4 GPIO, PWM, Serial2 RX, SPI1 MISO. | PA[13] |
-| D5 / WKP | GPIO D5, Serial2 CTS, SPI1 SS. | PA[15] |
+| D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | PA[16] |
+| D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | PA[17] |
+| D4 | D4 GPIO, Serial2 TX, SPI1 SCK | PA[18] |
+| D5 | D5 GPIO, Serial2 RX, SPI1 SS | PA[19] |
 | D6 | D6 GPIO, SWCLK. | PB[3] |
-| D7 | D7 GPIO. Blue LED. | PA[0] |
-| D8 | GPIO, PWM, SWDIO | PA[27] |
+| D7 | D7 GPIO, Blue LED, SWDIO | PA[27] |
+| D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | PA[15] |
 | VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | &nbsp; |
 | EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. | &nbsp; |
 | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Technical specification
@@ -605,6 +605,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-04-08 | RK | Added table comparing Photon 2 and P2 pins |
 |     | 2022-04-12 | RK | Added serial baud rates |
+|     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |
 
 ## Known Errata
 

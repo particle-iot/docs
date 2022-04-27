@@ -629,6 +629,8 @@ const familyMapCreate = function() {
 
         var data = google.visualization.arrayToDataTable(countryModelArray);
 
+        // Light fuscia 'FF8CE1' replaces teal (86E2D5)
+        // Light pink 'FFB8D3' replaces cyan (00AEEF)
         var options = {
             colorAxis: {colors: ['86E2D5', '00AEEF']}, // teal to cyan
             legend: 'none',
@@ -642,7 +644,7 @@ const familyMapCreate = function() {
 
         // 
         {
-            let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th></tr></thead><tbody>';
+            let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th><th>Lifecycle</th></tr></thead><tbody>';
 
             models.forEach(function(skuFamilyObj, modelIndex) {
                 const style = 'background-color:#' + options.colorAxis.colors[modelIndex];
@@ -652,7 +654,7 @@ const familyMapCreate = function() {
                         return;
                     }
                     
-                    html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + skuObj.name + '</td><td>' + skuObj.desc + '</td></tr>';
+                    html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + skuObj.name + '</td><td>' + skuObj.desc + '</td><td>' + skuObj.lifecycle + '</td></tr>';
                 });
             });
             html += '</tbody></table></div>';

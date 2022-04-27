@@ -13,31 +13,6 @@ The [Particle forum](https://community.particle.io) is a place to ask questions,
 Stop by and join on of the best places online meet other people using Particle to power their connected creations.
 
 
-<!--
-<p align="center">
-  <br>
-  <img width="300" src="./media/awesome-particle.svg" alt="logo of awesome-particle repository">
-  <br>
-  <br>
-</p>
--->
-
-##  Awesome List [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
-
-> A curated list of awesome things related to [Particle](https://particle.io)
-
-- [Resources](#resources)
-  - [Official Resources](#official-resources)
-  - [Tools and SDKs](#tools-and-sdks)
-  - [External Resources](#external-resources)
-  - [Podcasts](#podcasts)
-  - [Useful Tools, Docs & FAQs](#useful-tools-docs-amp-faqs)
-  - [Tutorials](#tutorials)
-  - [Hardware Datasheets](#hardware-datasheets)
-- [Popular Libraries](#community-libraries)
-  - [Particle Libraries](#particle-libraries)
-  - [Community Libraries](#community-libraries)
-
 # Resources
 
 ## Official Resources

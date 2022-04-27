@@ -12,7 +12,9 @@ description: Learn about migrating from the Boron to the B Series
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
+
+Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit on a Boron.
 
 | Feature | Boron | B Series SoM | SoM Base Board | Tracker SoM |
 | --- | :---: | :---: | :---: | :---: |
@@ -35,13 +37,13 @@ One of the benefits is that many of the extra features on the Boron have been om
 {{!-- BEGIN shared-blurb 97fa98d2-9baa-11ec-b909-0242ac120002 --}}
 The available models include:
 
-| Model | Region | EtherSIM | Bands | Replacement |
-| :--- | :--- | :---: | :--- | :--- |
-| B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | |
-| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | |
-| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Use B404X instead |
-| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Use B404X instead |
-| B523 | Europe | | LTE Cat 1, 2G, 3G | Use B524 instead |
+| Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
+| :--- | :--- | :---: | :--- | :--- | :--- | 
+| B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
+| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | GA | |
+| B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | Use B404X instead |
+| B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Deprecated | Use B404X instead |
+| B523 | Europe | | LTE Cat 1, 2G, 3G | Deprecated | Use B524 instead |
 
 - The B404X, B404, and B402 cannot be used in Central or South America.
 - The B524 is only recommended for use in Europe, Australia, and New Zealand.
@@ -115,7 +117,7 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | B524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | B524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | B524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| Switzerland | B524 | 3G, Cat1 | Salt, Sunrise, Swisscom |
 | United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 
 
@@ -271,7 +273,7 @@ SPI is mostly unchanged between the Boron and B Series SoM. The only difference 
 | D2 | SPI1 (SCK) | D2 | SPI1 (SCK) |
 | D3 | SPI1 (MOSI) | D3 | SPI1 (MOSI) |
 | D4 | SPI1 (MISO) | D4 | SPI1 (MISO) |
-| D8 | &nbsp; | D8 | SPI (SS) |
+| D8 / WKP | &nbsp; | D8 | SPI (SS) |
 | MISO / D11 | SPI (MISO) | MISO / D11 | SPI (MISO) |
 | MOSI / D12 | SPI (MOSI) | MOSI / D12 | SPI (MOSI) |
 | SCK / D13 | SPI (SCK) | SCK / D13 | SPI (SCK) |
@@ -337,7 +339,7 @@ These are differences in pins that support PWM between the Boron and B Series So
 | D5 | &check; | D5 | &check; |
 | D6 | &check; | D6 | &check; |
 | D7 | &check; | D7 | &check; |
-| D8 | &check; | D8 | &nbsp; |
+| D8 / WKP | &check; | D8 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -369,7 +371,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 
 ### Full module pin comparison
 
-{{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002--}}
+{{!-- BEGIN do not edit content below, it is automatically generated 09a7da10-a5d0-11ec-b909-0242ac120002 --}}
 
 #### 3V3
 |   | Boron | B Series SoM |
@@ -620,8 +622,9 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### D8
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
-| Pin Number | 23 | 48 |
+| Pin Number | 24 | 48 |
 | Pin Name | D8 | D8 |
+| Pin Alternate Name | WKP | n/a |
 | Description | GPIO, PWM | GPIO, SPI SS, Ethernet CS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
@@ -632,7 +635,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### EN
 | | Removed from Boron |
 | :--- | :--- |
-| Pin Number | 25|
+| Pin Number | 26|
 | Pin Name | EN|
 | Description | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up.|
 #### GND
@@ -644,7 +647,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### LI+
 | | Removed from Boron |
 | :--- | :--- |
-| Pin Number | 26|
+| Pin Number | 27|
 | Pin Name | LI+|
 | Description | Connected to JST PH LiPo battery connector. 3.7V in or out.|
 #### MISO
@@ -804,7 +807,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 #### VUSB
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
-| Pin Number | 24 | 16 |
+| Pin Number | 25 | 16 |
 | Pin Name | VUSB | VUSB |
 | Description | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | USB VUSB power pin |
 | Input is 5V Tolerant | Yes | Yes |

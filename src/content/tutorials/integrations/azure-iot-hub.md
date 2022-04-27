@@ -185,8 +185,7 @@ alt="Create an IoT Hub"/>
 
 A new IoT Hub blade will appear. Fill out all
 required fields of the form. For detailed information on how to
-configure an IoT Hub for your specific needs, please visit <a href="https://azure.microsoft.com/en-us/documentation/articles/iot-hub-csharp-csharp-getstarted/#create-an-iot-hub"
-target="_blank">IoT Hub's Developer Documentation</a>.
+configure an IoT Hub for your specific needs, please visit the IoT Hub Developer Documentation.
 
 <strong>Want to get started quickly?</strong>
 If you are looking to test out the Azure IoT Hub integration with a

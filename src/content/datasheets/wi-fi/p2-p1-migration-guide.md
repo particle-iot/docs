@@ -48,7 +48,7 @@ The Particle P2 module is the next generation Wi-Fi module from Particle. It is 
 | Digital GPIO | 22 | 24 | 20 |
 | Analog (ADC) | 6 | 13 | 6 |
 | Analog (DAC) |  | 2 |  |
-| UART | 1 | 2 | 1 |
+| UART | 3 | 2 | 1 |
 | SPI | 2 | 2 | 2 |
 | PWM | 6 | 12 | 8 |
 | I2C | 1 | 1 | 1 |
@@ -92,7 +92,7 @@ Both the P1 and P2 have two SPI ports, however the pins are different for `SPI` 
 
 The following are all SPI-related pins on the P1 and P2:
 
-{{!-- BEGIN do not edit content below, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 05f6184b-f88f-4737-82d7-647b489af469 --}}
 
 | Pin | P1 Pin Name | P1 SPI | P2 Pin Name | P2 SPI |
 | :---: | :--- | :--- | :--- | :--- |
@@ -110,7 +110,7 @@ The following are all SPI-related pins on the P1 and P2:
 | 53 | D5 | SPI1 (SS) | D5 | SPI1 (SS) |
 
 
-{{!-- END do not edit content above, it is automatically generated 9327b9b9-21fd-46fd-a406-8c249ade9688 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 #### SPI - Gen 2 devices (including P1)
@@ -154,12 +154,18 @@ The primary UART serial (`Serial1`) is on the TX and RX pins on both the P1 and 
 
 The secondary UART serial (`Serial2`) is on different pins, however it does not conflict with the RGB LED, and also supports CTS/RTS hardware flow control.
 
-{{!-- BEGIN do not edit content below, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+There is also a third UART serial (`Serial3`).
+
+{{!-- BEGIN do not edit content below, it is automatically generated 678b62a8-7981-406c-bd67-f7c1e607291f --}}
 
 | Pin | P1 Pin Name | P1 Serial | P2 Pin Name | P2 Serial |
 | :---: | :--- | :--- | :--- | :--- |
+| 30 | WKP / A7 | &nbsp; | D10 / WKP | Serial3 (CTS) |
 | 31 | RGBB | Serial2 (RX) | RGBB | &nbsp; |
 | 32 | RGBG | Serial2 (TX) | RGBG | &nbsp; |
+| 40 | P1S0 | &nbsp; | S0 / D15 | Serial3 (TX) |
+| 41 | P1S1 | &nbsp; | S1 / D16 | Serial3 (RX) |
+| 42 | P1S2 | &nbsp; | S2 / D17 | Serial3 (RTS) |
 | 45 | D2 | &nbsp; | D2 | Serial2 (RTS) |
 | 51 | D3 | &nbsp; | D3 | Serial2 (CTS) |
 | 52 | D4 | &nbsp; | D4 | Serial2 (TX) |
@@ -168,7 +174,7 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 | 64 | TX | Serial1 (TX) | TX / D8 | Serial1 (TX) |
 
 
-{{!-- END do not edit content above, it is automatically generated c7f59d46-dca3-4376-b885-0b4ca924a28b --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 |      | P1    | P2 |
 | :--- | :---: | :---: |
@@ -188,7 +194,6 @@ The secondary UART serial (`Serial2`) is on different pins, however it does not 
 
 <sup>1</sup>CTS/RTS flow control only on Serial2. It is optional.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 3191a7a0-2d4e-4e43-90e3-69fc33dbbbb0 --}}
 Supported Baud Rates:
 
 | Baud Rate | P1 | P2 |
@@ -226,14 +231,13 @@ Supported Baud Rates:
 | 3750000 | | &check; |
 | 4000000 | | &check; |
 | 6000000 | | &check; |
-{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### Analog input (ADC)
 
 For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC inputs on the P2:
 
-{{!-- BEGIN do not edit content below, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated cb6c8957-8f01-4166-8dea-1d1d5c862618 --}}
 
 | Pin | P1 Pin Name | P1 ADC | P2 Pin Name | P2 ADC |
 | :---: | :--- | :--- | :--- | :--- |
@@ -254,7 +258,7 @@ For analog to digital conversion (ADC) using `analogRead()`, there are fewer ADC
 | 50 | A0 | &check; | A0 / D11 | &check; |
 
 
-{{!-- END do not edit content above, it is automatically generated a7091023-5382-4496-8bfc-727593f0d426 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 On the P2, there are no pins A3 (hardware pin 21) and A4 (hardware pin 22); these are NC (no connection). However, P2 pin D0 (hardware pin 36) can be used as an analog input and has the alias A3. The same is true for P2 pin D1 (hardware pin 35), which has the alias A4.
 
@@ -265,7 +269,7 @@ The `setADCSampleTime()` function is not supported on the P2.
 The pins that support PWM are different on the P1 and P2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 597f8364-70a6-4861-9bb6-6f1df20418e3 --}}
 
 | Pin | P1 Pin Name | P1 PWM | P2 Pin Name | P2 PWM |
 | :---: | :--- | :--- | :--- | :--- |
@@ -284,7 +288,7 @@ The pins that support PWM are different on the P1 and P2.
 | 64 | TX | &check; | TX / D8 | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 All available PWM pins on the P2 share a single timer. This means that they must all share a single frequency, but can have different duty cycles.
 
@@ -297,7 +301,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 129fac7d-5c50-46e3-82f6-6be5edaaccf1 --}}
 
 | Pin | P1 Pin Name | P1 DAC | P2 Pin Name | P2 DAC |
 | :---: | :--- | :--- | :--- | :--- |
@@ -305,7 +309,7 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 | 24 | DAC / A6 | &check; | NC | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated 2ee8f339-68a5-4d9c-b6b9-0f359038d704 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 
@@ -331,7 +335,7 @@ The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 device
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to the P2.
 
 
-{{!-- BEGIN do not edit content below, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 75a00cb1-2521-442a-bd25-3b2071dcdf43 --}}
 
 | Pin | P1 Pin Name | P1 CAN | P2 Pin Name | P2 CAN |
 | :---: | :--- | :--- | :--- | :--- |
@@ -339,7 +343,7 @@ The P1 supports CAN on pins D1 and D2. There is no CAN on the P2 or Gen 3 device
 | 45 | D2 | &check; | D2 | &nbsp; |
 
 
-{{!-- END do not edit content above, it is automatically generated aaf618d9-4053-490d-8b3b-2ef6118592d6 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### I2S (Sound)
@@ -354,7 +358,7 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 | Pin | P1 Pin Name | P1 I2S | P2 Pin Name | P2 I2S |
 | :---: | :--- | :--- | :--- | :--- |
 | 45 | D2 | I2S3_SD | D2 | &nbsp; |
-| 46 | SETUP | I2S3_MCK | SETUP | &nbsp; |
+| 46 | MODE | I2S3_MCK | MODE | &nbsp; |
 | 52 | D4 | I2S3_SCK | D4 | &nbsp; |
 | 53 | D5 | I2S3_WS | D5 | &nbsp; |
 
@@ -390,7 +394,7 @@ The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPRO
 
 The following pins served P1-specific uses and are NC on the P2. You should not connect anything to these pins.
 
-{{!-- BEGIN do not edit content below, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 17989260-63ec-4ba4-96ce-71639b445d9d --}}
 
 | Pin | Pin Name | Description |
 | :---: | :--- | :--- |
@@ -410,7 +414,7 @@ The following pins served P1-specific uses and are NC on the P2. You should not 
 | 60 | WL_SLEEP_CLK | BCM43362 Debugging Pin |
 
 
-{{!-- END do not edit content above, it is automatically generated 6c533551-bce6-4c2e-b248-c7274f4b1b22 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Pin functions added
 
@@ -428,130 +432,109 @@ The following pins were NC on the P1 but are used on the P2.
 
 ### Full module pin comparison
 
-{{!-- BEGIN do not edit content below, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 5626ebed-0fab-4d08-bdc9-092490e8c084 --}}
 
 #### Module Pin 1 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 2
-
+#### Module Pin 2 (VBAT_WL / 3V3_RF)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VBAT_WL | 3V3_RF |
 | Description | Battery for BCM43362. | 3.3V power to RF module |
-#### Module Pin 3
-
+#### Module Pin 3 (VBAT_WL / 3V3_RF)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VBAT_WL | 3V3_RF |
 | Description | Battery for BCM43362. | 3.3V power to RF module |
 #### Module Pin 4 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 5
-
+#### Module Pin 5 (VDDIO_3V3_WL / 3V3_IO)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VDDIO_3V3_WL | 3V3_IO |
 | Description | Regulated 3.3V DC power input for BCM43362. | 3.3V power to MCU IO. |
 #### Module Pin 6 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 7
-
+#### Module Pin 7 (WL_REG_ON / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_REG_ON | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
 #### Module Pin 8 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 9 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 10 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 11 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
-#### Module Pin 12
-
+#### Module Pin 12 (NC / VBAT_MEAS)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | NC | VBAT_MEAS |
 | Description | No connection. Do not connect anything to this pin. | Battery voltage measurement (optional). |
 #### Module Pin 13 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 14 (NC)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | NC|
 | Description | No connection. Do not connect anything to this pin.|
 #### Module Pin 15 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 16
-
+#### Module Pin 16 (WL_JTAG_TDI / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TDI | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 17
-
+#### Module Pin 17 (WL_JTAG_TCK / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TCK | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 18
-
+#### Module Pin 18 (WL_JTAG_TRSTN / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TRSTN | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 19
-
+#### Module Pin 19 (WL_JTAG_TMS / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TMS | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 20
-
+#### Module Pin 20 (WL_JTAG_TDO / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_JTAG_TDO | NC |
 | Description | BCM43362 Debugging Pin. | No connection. Do not connect anything to this pin. |
-#### Module Pin 21
-
+#### Module Pin 21 (A4 / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A4 | NC |
@@ -564,8 +547,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | MISO. Use SPI object. | n/a |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | n/a |
 | Input is 5V Tolerant | Yes | n/a |
-#### Module Pin 22
-
+#### Module Pin 22 (A3 / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A3 | NC |
@@ -577,7 +559,6 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | SCK. Use SPI object. | n/a |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | n/a |
 #### Module Pin 23 (A5)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5 |
@@ -591,8 +572,7 @@ The following pins were NC on the P1 but are used on the P2.
 | SPI interface | MOSI. Use SPI object. | n/a |
 | Supports attachInterrupt | No | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 24
-
+#### Module Pin 24 (DAC / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | DAC | NC |
@@ -604,53 +584,47 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (DAC) | Yes | n/a |
 | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | n/a |
 #### Module Pin 25 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 26 (3V3)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | 3V3|
 | Description | 3.3V power to MCU|
 #### Module Pin 27 (3V3)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | 3V3|
 | Description | 3.3V power to MCU|
 #### Module Pin 28 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 29 (RGBR)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBR | RGBR |
 | Description | RGB LED Red | RGB LED Red |
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
-#### Module Pin 30
-
+#### Module Pin 30 (WKP / D10)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | GPIO. (Was WKP/A7 on P1.) |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
+| UART serial | n/a | CTS. Use Serial3 object. Flow control optional. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (RGBB)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBB | RGBB |
@@ -659,7 +633,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
 #### Module Pin 32 (RGBG)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBG | RGBG |
@@ -667,8 +640,7 @@ The following pins were NC on the P1 but are used on the P2.
 | UART serial | TX. Use Serial2 object. | n/a |
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
-#### Module Pin 33
-
+#### Module Pin 33 (P1S6 / S6)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S6 | S6 |
@@ -680,13 +652,11 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes | Yes |
 #### Module Pin 34 (RST)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | RST|
 | Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
 #### Module Pin 35 (D1)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D1 | D1 |
@@ -702,7 +672,6 @@ The following pins were NC on the P1 but are used on the P2.
 | CAN interface | CAN2_TX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 36 (D0)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
@@ -717,68 +686,64 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | No | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 37 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 38
-
+#### Module Pin 38 (VBAT / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | VBAT | NC |
 | Description | Battery for internal real-time clock, backup registers, and SRAM. Supply 1.65VDC to 3.6 VDC at 19 μA.. | No connection. Do not connect anything to this pin. |
 #### Module Pin 39 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 40
-
+#### Module Pin 40 (P1S0 / S0)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S0 | S0 |
 | Pin Alternate Name | n/a | D15 |
-| Description | P1S0 Analog in, GPIO, PWM. | S0 GPIO, PWM, SPI MOSI. (Was P1S0 on P1.) |
+| Description | P1S0 Analog in, GPIO, PWM. | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | Yes. | Yes |
+| UART serial | n/a | TX. Use Serial3 object. |
 | SPI interface | n/a | MOSI. Use SPI object. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 41
-
+#### Module Pin 41 (P1S1 / S1)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S1 | S1 |
 | Pin Alternate Name | n/a | D16 |
-| Description | P1S1 Analog in, GPIO, PWM. | S1 GPIO, PWM, SPI MISO. (Was P1S1 on P1.) |
+| Description | P1S1 Analog in, GPIO, PWM. | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | Yes. | Yes |
+| UART serial | n/a | RX. Use Serial3 object. |
 | SPI interface | n/a | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 42
-
+#### Module Pin 42 (P1S2 / S2)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S2 | S2 |
 | Pin Alternate Name | n/a | D17 |
-| Description | P1S2 Analog in, GPIO | S2 GPIO, SPI SCK. (Was P1S2 on P1.) |
+| Description | P1S2 Analog in, GPIO | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
+| UART serial | n/a | RTS. Use Serial3 object. Flow control optional. |
 | SPI interface | n/a | SCK. Use SPI object. |
 | Supports attachInterrupt | Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (A1)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1 |
@@ -789,8 +754,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogRead | Yes | Yes |
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 44
-
+#### Module Pin 44 (P1S3 / S3)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S3 | S3 |
@@ -803,7 +767,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. D3, DAC/A6, and P1S3 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (D2)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D2 | D2 |
@@ -818,16 +781,14 @@ The following pins were NC on the P1 but are used on the P2.
 | CAN interface | CAN2_RX | n/a |
 | I2S interface | I2S3_SD | n/a |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 46 (SETUP)
-
+#### Module Pin 46 (MODE)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
-| Pin Name | SETUP | SETUP |
-| Description | SETUP button, has internal pull-up. Pin number constant is BTN. | SETUP button, has internal pull-up. Pin number constant is BTN. |
+| Pin Name | MODE | MODE |
+| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
 | Supports attachInterrupt | n/a | Yes |
 | I2S interface | I2S3_MCK | n/a |
-#### Module Pin 47
-
+#### Module Pin 47 (P1S4 / S4)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S4 | S4 |
@@ -837,8 +798,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
-#### Module Pin 48
-
+#### Module Pin 48 (P1S5 / S5)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | P1S5 | S5 |
@@ -850,7 +810,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (A2)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2 |
@@ -865,7 +824,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (A0)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0 |
@@ -877,7 +835,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 51 (D3)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D3 | D3 |
@@ -892,7 +849,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 52 (D4)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D4 | D4 |
@@ -906,7 +862,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 #### Module Pin 53 (D5)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D5 | D5 |
@@ -920,7 +875,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 #### Module Pin 54 (D7)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D7 | D7 |
@@ -931,7 +885,6 @@ The following pins were NC on the P1 but are used on the P2.
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 #### Module Pin 55 (D6)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | D6 | D6 |
@@ -942,52 +895,44 @@ The following pins were NC on the P1 but are used on the P2.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
-#### Module Pin 56
-
+#### Module Pin 56 (BTCX_STATUS / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | BTCX_STATUS | NC |
 | Description | Coexistence signal: Bluetooth status and TX/RX direction. | No connection. Do not connect anything to this pin. |
-#### Module Pin 57
-
+#### Module Pin 57 (BTCX_RF_ACTIVE / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | BTCX_RF_ACTIVE | NC |
 | Description | Coexistence signal: Bluetooth is active. | No connection. Do not connect anything to this pin. |
-#### Module Pin 58
-
+#### Module Pin 58 (BTCX_TXCONF / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | BTCX_TXCONF | NC |
 | Description | Output giving Bluetooth permission to TX. | No connection. Do not connect anything to this pin. |
 #### Module Pin 59 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
-#### Module Pin 60
-
+#### Module Pin 60 (WL_SLEEP_CLK / NC)
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | WL_SLEEP_CLK | NC |
 | Description | BCM43362 Debugging Pin | No connection. Do not connect anything to this pin. |
 #### Module Pin 61 (USBDATA+)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | USBDATA+|
 | Description | USB Data+|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 62 (USBDATA-)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | USBDATA-|
 | Description | USB Data-|
 | Input is 5V Tolerant | Yes|
 #### Module Pin 63 (RX)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX |
@@ -1001,7 +946,6 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 64 (TX)
-
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | TX | TX |
@@ -1015,56 +959,48 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports attachInterrupt | Yes | Yes |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 65 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 66 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 67 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 68 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 69 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 70 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 71 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 #### Module Pin 72 (GND)
-
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
 | Pin Name | GND|
 | Description | Ground. Be sure you connect all P1 ground pins.|
 
 
-{{!-- END do not edit content above, it is automatically generated aa218eb3-5975-4ba6-b26d-2a5d43c5378e --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ## Software
 
@@ -1076,6 +1012,35 @@ The P2 and Argon utilize BLE or USB for configuration of Wi-Fi rather than the S
 | :--- | :---: | :---: | :---: |
 | Wi-Fi (SoftAP) | | &check; | |
 | BLE | &check; | | &check; |
+
+### User firmware binary size
+
+One major advantage of the P2 is that user firmware binaries can be up to 2048 Kbytes, instead of 128 Kbytes on Gen 2 devices including the P1.
+
+### Flash file system
+
+On the P2 there is a flash file system (2 MB) for storing user data. This is not available on Gen 2 devices including the P1.
+
+### Combined and resumable OTA
+
+On the P2, over-the-air (OTA) updates have two features that can improve the speed and reliability of OTA updates:
+
+- Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
+- Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+
+### Increased API field limits
+
+The maximum size of a variable, function parameter, or publish is 1024 bytes on the P2 vs. 864 bytes on P1.
+
+| API Field | P1 | P2 |
+| :--- | :---: | :---: |
+| Variable Key | 64 | 64 |
+| Variable Data | 864 | 1024 |
+| Function Key | 64 | 64 |
+| Function Argument | 864 | 1024  |
+| Publish/Subscribe Event Name | 64 | 64 |
+| Publish/Subscribe Event Data | 864 | 1024 |
+
 
 ### Platform ID
 

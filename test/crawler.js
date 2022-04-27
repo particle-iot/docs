@@ -35,6 +35,7 @@ var ignoreHosts = [
   'support.particle.io', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
   'www.digikey.com', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
   'media.digikey.com',
+  'www.fcc.gov', // tends to time out
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';

@@ -2,7 +2,7 @@
 title: E Series Evaluation Board
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle E Series Evaluation Board, Gen 2 cellular 
+description: Datasheet for the Particle E Series Evaluation Board, Gen 2 cellular
 ---
 # E Series Evaluation Board
 
