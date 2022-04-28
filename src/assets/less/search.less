@@ -6,7 +6,12 @@
 }
 
 .search {
-  display: none;
+  @media (min-width: 1200px) {
+    display: inline-block;
+  } 
+  @media (max-width: 1200px) {
+    display: none;
+  } 
   width: 232px;
   position: relative;
   border-right: 1px solid @light-gray;

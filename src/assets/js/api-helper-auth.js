@@ -142,6 +142,8 @@ $(document).ready(function() {
         
         }
         else {
+            $('#userMenuLabel').text('User');
+
             $('.apiHelperNotLoggedIn').show();
             if (window.location.hostname.endsWith('particle.io')) {
                 $('.apiHelperCouldSSO').show();
