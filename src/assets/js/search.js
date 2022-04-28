@@ -3,18 +3,19 @@ $(document).ready(function() {
 
     const resultTemplate = Handlebars.compile('<div class="st-result"><h3 class="title"><a href="{{url}}" class="st-search-result-link">{{title}}</a></h3><div class="st-metadata"><span class="st-snippet">{{{body}}}</span></div></div>');
         
-
-    const customRenderer = function(documentType, item) {
-        let url = item['url'];
+    const filterUrl = function(url) {
         const defaultDocsUrl = 'https://docs.particle.io/';
         if (url.startsWith(defaultDocsUrl)) {
             // Leave the leading slash
             url = url.substring(defaultDocsUrl.length - 1);
-        }
+        }   
+        return url;
+    }
 
+    const customRenderer = function(documentType, item) {
         var data = {
           title: item['title'],
-          url,
+          url: filterUrl(item['url']),
           body: item.highlight['body']
         };
         return resultTemplate(data);
@@ -33,8 +34,16 @@ $(document).ready(function() {
         }
     });
 
+    var autocompleteRenderFunction = function(document_type, item) {
+        const url = filterUrl(item['url']);
+        
+        var out = '<p class="title"><a href="' + Swiftype.htmlEscape(url) + '" class="st-search-result-link">' + Swiftype.htmlEscape(item['title']) + '</a></p>';
+        return out;
+    };
+
     $('#st-search-input').swiftype({
         // Autocomplete
+        renderFunction: autocompleteRenderFunction,
         engineKey
     });
     $('#st-search-input-page').swiftypeSearch({
