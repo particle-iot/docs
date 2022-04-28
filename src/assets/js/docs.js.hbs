@@ -229,11 +229,6 @@ Created by Zach Supalla.
     applyLightMode();
   }
 
-  $('#st-search-input').swiftypeSearch({
-    resultContainingElement: '#st-results-container',
-    engineKey: 'xqs6ySrzs42txxzuWP_A'
-  });
-  
   var deviceLinks = {{{ json forkList }}};
   var redirects = {{{ json redirectList }}};
 
@@ -252,6 +247,8 @@ Created by Zach Supalla.
 
   {{#if development}}
   // Make sure to scroll the element after live reload
-  Docs.scrollToElement(window.location.hash);
+  if (window.location.hash && !window.location.hash.startsWith("#stq")) {
+    Docs.scrollToElement(window.location.hash);
+  }
   {{/if}}
 })(jQuery);

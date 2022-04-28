@@ -5,12 +5,16 @@
 </head>
 <body>
   <div id="docs" data-level>
-    {{> header}}
+    {{> header noSearch="1"}}
 
     <div class='content-root'>
         <div class='content-inner'>
           <div class="content" >
             {{{contents}}}
+            <form>
+                <input type="text" placeholder="Search" id="st-search-input-page" class="st-search-input-page" />
+                </form>
+            <div id="st-results-container"></div>
           </div>
         </div>
     </div>

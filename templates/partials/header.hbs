@@ -44,15 +44,21 @@
   </div>
 
   <div class='right'>
+
+    {{#unless noSearch}}
     <div class="search">
       <div class="search-input-wrapper">
         <form>
-          <input id="st-search-input" type="text" placeholder='Search' value=''/>
+          <input id="st-search-input" type="text" placeholder='Search' value='' class="st-search-input"/>
         </form>
       </div>
       <div id="st-results-container">
       </div>      
     </div>
+    <div class="searchIcon">
+      <a href="/search/"><i class="ion-search"></i></a>
+    </div>
+    {{/unless}}
 
     <div class="dropdown narrow">
       <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon ion-person"></i><span id="userMenuLabel">User</span></a>
