@@ -5,9 +5,16 @@ $(document).ready(function() {
         
 
     const customRenderer = function(documentType, item) {
+        let url = item['url'];
+        const defaultDocsUrl = 'https://docs.particle.io/';
+        if (url.startsWith(defaultDocsUrl)) {
+            // Leave the leading slash
+            url = url.substring(defaultDocsUrl.length - 1);
+        }
+
         var data = {
           title: item['title'],
-          url: item['url'],
+          url,
           body: item.highlight['body']
         };
         return resultTemplate(data);
