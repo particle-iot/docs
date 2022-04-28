@@ -229,6 +229,57 @@ Created by Zach Supalla.
     applyLightMode();
   }
 
+  const windowResizeHandler = function() {
+
+    if (window.innerWidth < 1200) {
+      $('.sections').css('display', 'none');
+      $('.narrow-top-nav').css('display', 'inline-block');
+      $('.search').css('display', 'none');
+      $('.searchIcon').css('display', 'inline-block');
+    } 
+    else {
+      $('.sections').css('display', 'block');
+      $('.narrow-top-nav').css('display', 'none');
+      
+      $('.search').css('display', 'none');
+      $('.searchIcon').css('display', 'none');
+
+      // left includes the logo and top nav bar    
+      const leftRect = $('.left')[0].getBoundingClientRect();
+
+      // right includes search and user bar
+      // const rightRect = $('.right')[0].getBoundingClientRect();
+
+      // const sectionsRect = $('.sections')[0].getBoundingClientRect();
+
+      // Returned rects are x, y, width, height, top, button (DOMRect)
+
+      // console.log('leftRect.width=' + leftRect.width + ' rightRect.x=' + rightRect.x + ' rightRect.x-margin=' + (rightRect.x - 270));
+
+      // Is there enough room for the search box?
+      // The constant leaves enough room for a full search box and the "Logged In" banner. Should calculate this.
+      if (leftRect.width > (window.innerWidth - 370)) {
+        // Show icon
+        $('.searchIcon').css('display', 'inline-block');
+      }
+      else {
+        // Show search box
+        $('.search').css('display', 'inline-block');
+
+      }
+    }
+
+    // narrow-top-nav
+    // none or inline-block
+
+    // sections: none or display: block;
+
+    // search or searchIcon: none or inline-block    
+  };
+  window.addEventListener('resize', windowResizeHandler);
+  windowResizeHandler();
+
+
   var deviceLinks = {{{ json forkList }}};
   var redirects = {{{ json redirectList }}};
 

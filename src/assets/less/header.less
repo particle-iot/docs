@@ -16,11 +16,8 @@
 }
 
 .sections {
-  display: block;
+  display: none;
   float: right;
-  @media(max-width: @xlarge-size) {
-    display: none;
-  }
 }
 
 .toggle-nav {
@@ -160,11 +157,8 @@ a.nav-device {
   a {
     margin-right: 12px !important;
   }
-  &.mobile-only {
+  &.narrow-top-nav {
     display: none;
-    @media(max-width: @xlarge-size) {
-      display: inline-block;
-    }
   }
 }
 .dropdown-toggle:focus {

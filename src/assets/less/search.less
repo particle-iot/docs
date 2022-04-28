@@ -1,18 +1,12 @@
 @width-for-search-box: @large-size;
 
 .searchIcon {
-  display: inline-block;
+  display: none;
   width: 20px;
-  @media(max-width: @width-for-search-box) {
-    display: inline-block;
-  }
-  @media(min-width: @width-for-search-box) {
-    display: none;
-  }
 }
 
 .search {
-  display: inline-block;
+  display: none;
   width: 232px;
   position: relative;
   border-right: 1px solid @light-gray;
@@ -20,9 +14,6 @@
   margin-top: 10px;
   vertical-align: top;
   padding-right: 22px;
-  @media(max-width: @width-for-search-box) {
-    display: none;
-  }
   .search-input-wrapper {
     position: relative;
   }
