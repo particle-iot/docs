@@ -108,6 +108,17 @@ td {
     }
   }
 
+  input[type=text],input[type=password] {
+    .STYLE_body_md_r();
+    color: @COLOR_Gray_100;
+    background-color: @COLOR_Midnight_600;
+    border: 0px;
+    &:focus {
+      color: @COLOR_Gray_100;
+      background-color: @COLOR_Midnight_600;  
+    }
+  }
+
   img:not(.no-darken) {
     filter: brightness(0.8) contrast(1.2);
   }
@@ -137,6 +148,17 @@ td {
     &.menu {
       background-color: @COLOR_Midnight_500;
       text-decoration: none;
+    }
+  }
+
+  input[type=text],input[type=password] {
+    .STYLE_body_md_r();
+    color: @COLOR_Midnight_500;
+    background-color: @COLOR_Gray_200;
+    border: 0px;
+    &:focus {
+      color: @COLOR_Midnight_500;
+      background-color: @COLOR_Gray_200;  
     }
   }
 }
