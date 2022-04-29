@@ -19586,7 +19586,7 @@
     },
     {
       "name": "B524MEA",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe) [x1]",
+      "desc": "B Series LTE CAT-1/3G/2G (EMEAA) [x1]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "sim": 4,
@@ -19617,7 +19617,7 @@
     },
     {
       "name": "B524MTY",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
+      "desc": "B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "multiple": true,
@@ -21049,7 +21049,7 @@
     },
     {
       "name": "ONE524MEA",
-      "desc": "Tracker One LTE CAT1/3G/2G (Europe), [x1]",
+      "desc": "Tracker One LTE CAT1/3G/2G (EMEAA), [x1]",
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "sim": 4,
@@ -21086,7 +21086,7 @@
     },
     {
       "name": "ONE524MTY",
-      "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
+      "desc": "Tracker One CAT1/3G/2G (EMEAA), Bulk [x40]",
       "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "multiple": true,
@@ -21839,7 +21839,7 @@
     },
     {
       "name": "T524MEA",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), [x1]",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1]",
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "sim": 4,
@@ -21876,7 +21876,7 @@
     },
     {
       "name": "T524MKIT",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1]",
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "sim": 4,
@@ -21913,7 +21913,7 @@
     },
     {
       "name": "T524MTY",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "multiple": true,

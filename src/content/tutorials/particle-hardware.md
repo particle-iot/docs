@@ -29,7 +29,7 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | GA |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | GA |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
@@ -46,6 +46,8 @@ Included inside the fully assembled, sealed enclosure:
 - GNSS (GPS) antenna.
 - NFC tag antenna.
 - Power by USB-C or an external power supply.
+- NorAm: North America including the United States, Canada, and Mexico.
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
 
 #### Country compatibility - Tracker
 
@@ -315,13 +317,13 @@ The available models include:
 | Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
 | :--- | :--- | :---: | :--- | :--- | :--- | 
 | B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
-| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | GA | |
+| B524 | EMEAA | &check; | LTE Cat M1 | GA | |
 | B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | Use B404X instead |
 | B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Deprecated | Use B404X instead |
 | B523 | Europe | | LTE Cat 1, 2G, 3G | Deprecated | Use B524 instead |
 
 - The B404X, B404, and B402 cannot be used in Central or South America.
-- The B524 is only recommended for use in Europe, Australia, and New Zealand.
+- The B524 can be used in selected countries in Europe, Middle East, Africa, and Asia (EMEAA), including Australia and New Zealand.
 - The B524 and B523 do not work out of the EMEAA region.
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries
 {{!-- END shared-blurb --}}
@@ -340,8 +342,8 @@ The available models include:
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | GA |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | GA |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
@@ -429,17 +431,17 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &check; | &check; | GA |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &check; | &check; | GA |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &check; | &check; | GA |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | &check; | GA |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
 
 - The T404, T402, ONE404, ONE402 cannot be used in Central or South America.
-- The T524 and ONE524 are only recommended for use in Europe, Australia, and New Zealand.
+- The T524 and ONE524 can be used in selected countries in Europe, Middle East, Africa, and Asia (EMEAA), including Australia and New Zealand.
 - The T524, T523, ONE524, ONE523 do not work out of the EMEAA region.
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
 - For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
@@ -767,8 +769,8 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | &check; | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | &nbsp; | GA |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | &nbsp; | &check; | GA |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | &nbsp; | &nbsp; | GA |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
@@ -778,8 +780,8 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | &check; | GA |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &nbsp; | &check; | GA |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | &check; | NRND-US |
 
 

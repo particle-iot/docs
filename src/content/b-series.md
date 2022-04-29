@@ -33,9 +33,10 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 | B404X | u-blox SARA R510S-01B | LTE Cat M1 | United States, Canada, Mexico | 
 | B404  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
 | B402  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
-| B524  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe, Australia, New Zealand |
+| B524  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | EMEAA&dagger; |
 | B523  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe |
 
+&dagger; Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand.
 
 <center>[Cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)</center>
 

@@ -40,13 +40,13 @@ The available models include:
 | Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
 | :--- | :--- | :---: | :--- | :--- | :--- | 
 | B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
-| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | GA | |
+| B524 | EMEAA | &check; | LTE Cat M1 | GA | |
 | B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | Use B404X instead |
 | B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Deprecated | Use B404X instead |
 | B523 | Europe | | LTE Cat 1, 2G, 3G | Deprecated | Use B524 instead |
 
 - The B404X, B404, and B402 cannot be used in Central or South America.
-- The B524 is only recommended for use in Europe, Australia, and New Zealand.
+- The B524 can be used in selected countries in Europe, Middle East, Africa, and Asia (EMEAA), including Australia and New Zealand.
 - The B524 and B523 do not work out of the EMEAA region.
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries
 {{!-- END shared-blurb --}}
@@ -197,12 +197,14 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | GA |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | GA |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
+
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
 
 ## Prototyping
 

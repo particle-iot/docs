@@ -30,7 +30,9 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 | Model | Region |
 | :---- | :---   | 
 | T402 / T404 | North America |
-| T523 / T524 | Europe/Middle East/Africa/Asia (not all countries supported at this time) |
+| T523 / T524 | EMEAA&dagger; |
+
+&dagger;EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
 
 ---
 
@@ -49,7 +51,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
   * 2G and 3G fallback (900, 1800, and 2100 MHz)
   * Support for Europe only (T523)
-  * Support for Europe, Australia, and New Zealand (T524) at this time
+  * Support for selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand (T524)
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM in SoC
@@ -1237,16 +1239,18 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | &check; | GA | |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | NRND | T404MEA|
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | T524MEA|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | Deprecated | T404MTY|
 | T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | &check; | Deprecated | |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | Deprecated | T524MTY|
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | &check; | Deprecated | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-EX | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
+
+&dagger;EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
 
 ---
 

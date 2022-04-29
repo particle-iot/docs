@@ -16,13 +16,13 @@ This document describes the expansion of available countries for LTE Cat 1, made
 
 | SKU | Description | Modem |
 | :--- | :--- | :--- |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EG91-E |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EG91-E |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EG91-EX |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EG91-EX |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EG91-EX |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EG91-EX |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EG91-E |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EG91-E |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EG91-EX |
+| ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | EG91-EX |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EG91-EX |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EG91-EX |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EG91-EX |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
