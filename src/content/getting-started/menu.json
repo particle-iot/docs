@@ -232,7 +232,37 @@
         "dir": "google-maps",
         "title": "Google maps",
         "href": "/getting-started/integrations/google-maps/"
-      }
+      },
+      {
+        "dir": "community-integrations",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "azure-iot-hub",
+          "title": "Azure IoT Hub",
+          "href": "/getting-started/integrations/community-integrations/azure-iot-hub/"
+        },
+        {
+          "dir": "influxdata",
+          "title": "InfluxData",
+          "href": "/getting-started/integrations/community-integrations/influxdata/"
+        },
+        {
+          "dir": "questdb",
+          "title": "QuestDB",
+          "href": "/getting-started/integrations/community-integrations/questdb/"
+        },
+        {
+          "title": "Publish to Google sheets",
+          "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
+        },
+        {
+          "dir": "weather",
+          "title": "Weather API",
+          "href": "/getting-started/integrations/community-integrations/weather/"
+        }
+      ]
     ]
   ]
 }

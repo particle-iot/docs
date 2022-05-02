@@ -147,21 +147,6 @@
     },
     [
       {
-        "dir": "azure-iot-hub",
-        "title": "Azure IoT Hub",
-        "href": "/tutorials/integrations/azure-iot-hub/"
-      },
-      {
-        "dir": "influxdata",
-        "title": "InfluxData",
-        "href": "/tutorials/integrations/influxdata/"
-      },
-      {
-        "dir": "questdb",
-        "title": "QuestDB",
-        "href": "/tutorials/integrations/questdb/"
-      },
-      {
         "dir": "ifttt",
         "title": "IFTTT",
         "href": "/tutorials/integrations/ifttt/"
@@ -253,11 +238,6 @@
         "dir": "batteries",
         "title": "Batteries",
         "href": "/tutorials/learn-more/batteries/"
-      },
-      {
-        "dir": "weather",
-        "title": "Weather API",
-        "href": "/tutorials/learn-more/weather/"
       },
       {
         "dir": "real-time-clocks",

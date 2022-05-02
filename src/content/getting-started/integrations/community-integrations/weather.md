@@ -7,7 +7,7 @@ description: Using a Weather API on Particle IoT devices
 includeDefinitions: [api-helper, api-helper-json, api-helper-mustache, api-helper-primitives, codemirror, api-helper-weather]
 ---
 
-# Using the OpenWeather API
+# {{title}}
 
 The [OpenWeather API](https://openweathermap.org/api) provides a convenient way to get current weather and forecast information including current conditions and forecast information. In many cases, you can use the API for free. This tutorial shows how to use this specific API, however, the techniques for using webhooks and parsing the JSON data are useful for other REST APIs as well.
 
