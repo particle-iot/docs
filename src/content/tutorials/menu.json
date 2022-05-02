@@ -21,11 +21,6 @@
         "href": "/tutorials/device-os/usb-serial/"
       },
       {
-        "dir": "libraries",
-        "title": "Firmware Libraries",
-        "href": "/tutorials/device-os/libraries/"
-      },
-      {
         "dir": "bluetooth-le",
         "title": "Bluetooth LE",
         "href": "/tutorials/device-os/bluetooth-le/"
