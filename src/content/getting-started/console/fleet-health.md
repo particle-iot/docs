@@ -1,6 +1,5 @@
 ---
-word: Fleet Health
-title: Fleet Health
+title: Fleet health
 shared: true
 columns: two
 layout: commonTwo.hbs

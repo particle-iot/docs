@@ -134,6 +134,31 @@
         "dir": "device-vitals",
         "title": "Device Vitals",
         "href": "/getting-started/console/device-vitals/"
+      },
+      {
+        "dir": "device-groups",
+        "title": "Device Groups",
+        "href": "/getting-started/console/device-groups/"
+      },
+      {
+        "dir": "development-devices",
+        "title": "Development Devices",
+        "href": "/getting-started/console/development-devices/"
+      },
+      {
+        "dir": "team-access-controls",
+        "title": "Team Access Controls",
+        "href": "/getting-started/console/team-access-controls/"
+      },
+      {
+        "dir": "sim-management",
+        "title": "SIM Management",
+        "href": "/getting-started/console/sim-management/"
+      },
+      {
+        "dir": "two-step-authentication",
+        "title": "Two-Step Authentication",
+        "href": "/getting-started/console/two-step-authentication/"
       }
     ]
   ]

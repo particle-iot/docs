@@ -1,12 +1,12 @@
 ---
 word: 2FA
-title: Two-Step Authentication
+title: Two-step authentication
 columns: two
 layout: commonTwo.hbs
 description: Using two-step (2FA, MFA) authentication with your Particle account
 ---
 
-# Two-step Authentication
+# {{title}}
 
 Two-step authentication (also known as two-factor, 2FA, multi-factor authentication, or MFA) adds security to your account because it requires two things:
 

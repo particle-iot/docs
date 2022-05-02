@@ -40,11 +40,6 @@
         "dir": "tinker",
         "title": "Tinker & Mobile App",
         "href": "/tutorials/developer-tools/tinker/"
-      },
-      {
-        "dir": "two-step-authentication",
-        "title": "Two-Step Authentication",
-        "href": "/tutorials/developer-tools/two-step-authentication/"
       }
     ],
     {
@@ -169,26 +164,6 @@
         "dir": "security",
         "title": "Security",
         "href": "/tutorials/product-tools/security/"
-      },
-      {
-        "dir": "device-groups",
-        "title": "Device Groups",
-        "href": "/tutorials/product-tools/device-groups/"
-      },
-      {
-        "dir": "development-devices",
-        "title": "Development Devices",
-        "href": "/tutorials/product-tools/development-devices/"
-      },
-      {
-        "dir": "team-access-controls",
-        "title": "Team Access Controls",
-        "href": "/tutorials/product-tools/team-access-controls/"
-      },
-      {
-        "dir": "sim-management",
-        "title": "SIM Management",
-        "href": "/tutorials/product-tools/sim-management/"
       },
       {
         "dir": "organizations",

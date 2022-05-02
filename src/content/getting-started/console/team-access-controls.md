@@ -1,11 +1,11 @@
 ---
-title: Team Access Controls
+title: Team access controls
 columns: two
 layout: commonTwo.hbs
 description: Learn about team access controls, managing access different members of your product team
 ---
 
-# Team Access Controls
+# {{title}}
 
 Particle offers functionality to help you manage levels of access for
 your team members. This is helpful when overseeing a team of

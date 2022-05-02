@@ -1,5 +1,5 @@
 ---
-title: SIM Management
+title: SIM management
 columns: two
 layout: commonTwo.hbs
 description: Managing your cellular SIMs from the Particle console

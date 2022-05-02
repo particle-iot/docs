@@ -1,5 +1,4 @@
 ---
-word: Console
 title: Console
 shared: true
 columns: two
@@ -7,7 +6,7 @@ layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
 ---
 
-# Console
+# {{title}}
 
 The [Particle Console](https://console.particle.io) is your
 centralized IoT command center. It provides interfaces to make

@@ -1,5 +1,5 @@
 ---
-title: Development Devices
+title: Development devices
 columns: two
 layout: commonTwo.hbs
 description: Using Development Devices to rapidly iterate device firmware for Particle products

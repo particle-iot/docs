@@ -1,13 +1,12 @@
 ---
-word: Device Vitals
-title: Device Vitals
+title: Device vitals
 shared: true
 columns: two
 layout: commonTwo.hbs
 redirects: true
 ---
 
-# Device Vitals
+# {{title}}
 
 Device Vitals are indicators that impact the overall health of a
 device. This is useful when troubleshooting connectivity issues for
