@@ -216,7 +216,71 @@
           "title": "M8 Temperature/Humidity",
           "href": "/reference/datasheets/tracker/m8-temperature-humidity/"
         }
-      ]
+      ],
+      {
+        "dir": "b-series",
+        "title": "B Series/Boron",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "b404x-b404-b402-datasheet",
+          "title": "B Series B404X/B404/B402 datasheet",
+          "href": "/reference/datasheets/b-series/b404x-b404-b402-datasheet/"
+        },
+        {
+          "dir": "b524-b523-datasheet",
+          "title": "B Series B524/B523 datasheet",
+          "href": "/reference/datasheets/b-series/b524-b523-datasheet/"
+        },
+        {
+          "dir": "b-series-eval-board",
+          "title": "B Series Evaluation Board",
+          "href": "/reference/datasheets/b-series/b-series-eval-board/"
+        },
+        {
+          "dir": "boron-datasheet",
+          "title": "Boron datasheet",
+          "href": "/reference/datasheets/b-series/boron-datasheet/"
+        }
+      ],
+      {
+        "dir": "e-series",
+        "title": "E Series/Electron",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "e404x-datasheet",
+          "title": "E404X datasheet",
+          "href": "/reference/datasheets/e-series/e404x-datasheet/"
+        },
+        {
+          "dir": "e-series-datasheet",
+          "title": "E Series datasheet",
+          "href": "/reference/datasheets/e-series/e-series-datasheet/"
+        },
+        {
+          "dir": "e-series-eval-board",
+          "title": "E Series Evaluation Board",
+          "href": "/reference/datasheets/e-series/e-series-eval-board/"
+        },
+        {
+          "dir": "e-series-system-integration-manual",
+          "title": "E Series System Integration Manual",
+          "href": "/reference/datasheets/e-series/e-series-system-integration-manual/"
+        },
+        {
+          "dir": "electron-datasheet",
+          "title": "Electron datasheet",
+          "href": "/reference/datasheets/e-series/electron-datasheet/"
+        }
+      ],
+      {
+        "dir": "wi-fi",
+        "isSection": true
+      },
+      []
     ],
     {
       "dir": "asset-tracking",
