@@ -53,6 +53,45 @@
       "isSection": true
     },
     [
+      {
+        "dir": "api",
+        "title": "Cloud API reference",
+        "href": "/reference/cloud-apis/api/"
+      },
+      {
+        "dir": "javascript",
+        "title": "Particle API JS (Javascript SDK)",
+        "href": "/reference/cloud-apis/javascript/"
+      },
+      {
+        "dir": "access-tokens",
+        "title": "Access tokens",
+        "href": "/reference/cloud-apis/access-tokens/"
+      },
+      {
+        "dir": "authentication",
+        "title": "Authentication",
+        "href": "/reference/cloud-apis/authentication/"
+      },
+      {
+        "dir": "webhooks",
+        "title": "Webhook reference",
+        "href": "/reference/cloud-apis/webhooks/"
+      },
+      {
+        "title": "Calling API from a web page",
+        "href": "/datasheets/app-notes/an032-calling-api-from-web-page/"
+      },
+      {
+        "dir": "node-js",
+        "title": "node.js getting started",
+        "href": "/reference/cloud-apis/node-js/"
+      },
+      {
+        "dir": "node-red",
+        "title": "Node-RED",
+        "href": "/reference/cloud-apis/node-red/"
+      }
     ],
     {
       "dir": "developer-tools",
@@ -79,28 +118,12 @@
       "dir": "device-cloud",
       "isSection": true
     },
-    [
-      {
-        "dir": "api",
-        "title": "Cloud API",
-        "href": "/reference/device-cloud/api/"
-      },
-      {
-        "dir": "webhooks",
-        "title": "Webhooks",
-        "href": "/reference/device-cloud/webhooks/"
-      }
-    ],
+    [],
     {
       "dir": "SDKs",
       "isSection": true
     },
     [
-      {
-        "dir": "javascript",
-        "title": "Particle API JS (Javascript SDK)",
-        "href": "/reference/SDKs/javascript/"
-      },
       {
         "dir": "ios",
         "title": "iOS SDK",

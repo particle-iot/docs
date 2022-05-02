@@ -1,5 +1,5 @@
 ---
-title: Cloud API
+title: Cloud API reference
 layout: api.hbs
 columns: three
 description: Control and manage Particle IoT devices from the Internet with a REST API
@@ -11,7 +11,7 @@ description: Control and manage Particle IoT devices from the Internet with a RE
   someone from Particle will be happy to merge it in for you!
 --}}
 
-# Particle Device Cloud API
+# {{title}}
 
 The Particle Device Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:

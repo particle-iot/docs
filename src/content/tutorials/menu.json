@@ -46,16 +46,6 @@
         "dir": "introduction",
         "title": "Introduction",
         "href": "/tutorials/device-cloud/introduction/"
-      },
-      {
-        "dir": "access-tokens",
-        "title": "Access Tokens",
-        "href": "/tutorials/device-cloud/access-tokens/"
-      },
-      {
-        "dir": "authentication",
-        "title": "Authentication",
-        "href": "/tutorials/device-cloud/authentication/"
       }
     ],
     {
@@ -193,11 +183,6 @@
         "dir": "about-apps",
         "title": "About Apps",
         "href": "/tutorials/learn-more/about-apps/"
-      },
-      {
-        "dir": "node-js",
-        "title": "node.js getting started",
-        "href": "/tutorials/learn-more/node-js/"
       },
       {
         "dir": "gen2-cellular-migration",

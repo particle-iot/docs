@@ -1,5 +1,5 @@
 ---
-title: Webhooks
+title: Webhook reference
 layout: commonTwo.hbs
 columns: three
 description: Control external web services from your Particle IoT device using the Particle cloud

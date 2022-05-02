@@ -4,7 +4,7 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-# Node-RED
+# {{title}}
 
 ## Introduction
 

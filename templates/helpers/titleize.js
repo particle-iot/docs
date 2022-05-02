@@ -20,6 +20,10 @@ module.exports = function(string) {
 		txt = 'OS';
 		break;
 		
+	case 'Apis':
+		txt = 'APIs';
+		break;
+
 	case 'Sdks':
 		txt = 'SDKs';
 		break;

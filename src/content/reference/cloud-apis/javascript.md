@@ -5,7 +5,7 @@ columns: three
 description: Manage your Particle IoT device your IoT device from a web browser or server (node.js) using Javascript
 ---
 
-# Particle API JS
+# {{title}}
 
 ParticleJS is JavaScript library for the Particle Device Cloud API for Node.js and the browser.
 It's [open source](https://github.com/particle-iot/particle-api-js) so you can edit, change or even send in pull requests if you want to share!

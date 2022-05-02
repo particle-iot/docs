@@ -26,11 +26,6 @@
       "href": "/community/community/"
     },
     {
-      "dir": "node-red",
-      "title": "Node-RED",
-      "href": "/community/node-red/"
-    },
-    {
       "dir": "community-tools",
       "title": "Community Supported Tools",
       "href": "/community/community-tools/"
@@ -141,5 +136,6 @@
         "title": "From Cloud to Device",
         "href": "/workshops/photon-maker-kit-workshop/ch5/"
       }
-    ]  ]
+    ]
+  ]
 }

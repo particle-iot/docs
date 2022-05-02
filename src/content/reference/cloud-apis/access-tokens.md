@@ -1,5 +1,5 @@
 ---
-title: Access Tokens
+title: Access tokens
 shared: true
 columns: two
 layout: commonTwo.hbs
