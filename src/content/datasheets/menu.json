@@ -33,21 +33,6 @@
     },
     [
       {
-        "dir": "argon-datasheet",
-        "title": "Argon datasheet",
-        "href": "/datasheets/wi-fi/argon-datasheet/"
-      },
-      {
-        "dir": "photon-datasheet",
-        "title": "Photon datasheet",
-        "href": "/datasheets/wi-fi/photon-datasheet/"
-      },
-      {
-        "dir": "photon-2-datasheet",
-        "title": "Photon 2 datasheet",
-        "href": "/datasheets/wi-fi/photon-2-datasheet/"
-      },
-      {
         "dir": "photon-2-argon-migration-guide",
         "title": "Photon 2 from Argon migration guide",
         "href": "/datasheets/wi-fi/photon-2-argon-migration-guide/"
@@ -56,11 +41,6 @@
         "dir": "photon-2-photon-migration-guide",
         "title": "Photon 2 from Photon migration guide",
         "href": "/datasheets/wi-fi/photon-2-photon-migration-guide/"
-      },
-      {
-        "dir": "p2-datasheet",
-        "title": "P2 datasheet",
-        "href": "/datasheets/wi-fi/p2-datasheet/"
       },
       {
         "dir": "p2-p1-migration-guide",
@@ -76,11 +56,6 @@
         "dir": "p2-argon-migration-guide",
         "title": "P2 from Argon migration guide",
         "href": "/datasheets/wi-fi/p2-argon-migration-guide/"
-      },
-      {
-        "dir": "p1-datasheet",
-        "title": "P1 datasheet",
-        "href": "/datasheets/wi-fi/p1-datasheet/"
       }
     ],
     {

@@ -280,7 +280,39 @@
         "dir": "wi-fi",
         "isSection": true
       },
-      []
+      [
+        {
+          "dir": "p2-datasheet",
+          "title": "P2 datasheet",
+          "href": "/reference/datasheets/wi-fi/p2-datasheet/"
+        },
+        {
+          "dir": "photon-2-datasheet",
+          "title": "Photon 2 datasheet",
+          "href": "/reference/datasheets/wi-fi/photon-2-datasheet/"
+        },
+        {
+          "dir": "argon-datasheet",
+          "title": "Argon datasheet",
+          "href": "/reference/datasheets/wi-fi/argon-datasheet/"
+        },
+        {
+          "dir": "photon-datasheet",
+          "title": "Photon datasheet",
+          "href": "/reference/datasheets/wi-fi/photon-datasheet/"
+        },
+        {
+          "dir": "p1-datasheet",
+          "title": "P1 datasheet",
+          "href": "/reference/datasheets/wi-fi/p1-datasheet/"
+        }
+      ],
+      {
+        "dir": "accessories",
+        "isSection": true
+      },
+      [        
+      ]
     ],
     {
       "dir": "asset-tracking",
