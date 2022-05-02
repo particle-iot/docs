@@ -64,26 +64,6 @@
         "href": "/tutorials/asset-tracking/tracker-edge-firmware/"
       },
       {
-        "dir": "tracker-configuration",
-        "title": "Tracker Configuration",
-        "href": "/tutorials/asset-tracking/tracker-configuration/"
-      },
-      {
-        "dir": "location-fusion",
-        "title": "Location Fusion",
-        "href": "/tutorials/asset-tracking/location-fusion/"
-      },
-      {
-        "dir": "tracker-sleep",
-        "title": "Tracker Sleep",
-        "href": "/tutorials/asset-tracking/tracker-sleep/"
-      },
-      {
-        "dir": "geofencing",
-        "title": "Geofencing",
-        "href": "/tutorials/asset-tracking/geofencing/"
-      },
-      {
         "dir": "tracker-one-expansion",
         "title": "Tracker One Expansion",
         "href": "/tutorials/asset-tracking/tracker-one-expansion/"
@@ -92,11 +72,6 @@
         "dir": "m8-temperature-humidity",
         "title": "M8 Temperature/Humidity",
         "href": "/tutorials/asset-tracking/m8-temperature-humidity/"
-      },
-      {
-        "dir": "can-bus",
-        "title": "CAN Bus",
-        "href": "/tutorials/asset-tracking/can-bus/"
       },
       {
         "dir": "tracker-som-first-board",

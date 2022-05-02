@@ -1,12 +1,12 @@
 ---
-title: Tracker Configuration
+title: Tracker configuration
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Configuration
 includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
-# Tracker Configuration
+# {{title}}
 
 The Tracker provides a customizable configuration system:
 

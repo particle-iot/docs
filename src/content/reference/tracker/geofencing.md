@@ -6,7 +6,7 @@ description: Geofencing
 includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
-# Geofencing
+# {{title}}
 
 Particle Edge Geofencing is an Asset Tracker feature that enables customers to create virtual geographic boundaries and evaluate entries and exits from the zone.
 

@@ -1,11 +1,11 @@
 ---
-title: CAN Bus
+title: CAN bus
 columns: two
 layout: commonTwo.hbs
 description: Integrating CAN Bus data with your Tracker One
 ---
 
-# CAN Bus
+# {{title}}
 
  [CAN Bus](https://en.wikipedia.org/wiki/CAN_bus) ("Controller Area Network") is a standard to allow many microcontrollers to communicate with each other over a two-wire serial bus without requiring a single host controller. It's used in vehicles to allow various systems to communicate, but is also used in some industrial equipment (such as elevator control) and can be used in proprietary designs for many purposes. It typically runs at 250, 500, or 1000 Kbits/second and uses differential signaling so it can be used over vehicle-sized distances. A priority-based system allows higher priority messages onto the shared serial bus before low-priority messages.
 

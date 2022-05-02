@@ -110,6 +110,37 @@
       }
     ],
     {
+      "dir": "tracker",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-configuration",
+        "title": "Tracker configuration",
+        "href": "/reference/tracker/tracker-configuration/"
+      },
+      {
+        "dir": "location-fusion",
+        "title": "Location fusion",
+        "href": "/reference/tracker/location-fusion/"
+      },
+      {
+        "dir": "tracker-sleep",
+        "title": "Tracker sleep",
+        "href": "/reference/tracker/tracker-sleep/"
+      },
+      {
+        "dir": "geofencing",
+        "title": "Geofencing",
+        "href": "/reference/tracker/geofencing/"
+      },
+      {
+        "dir": "can-bus",
+        "title": "CAN bus",
+        "href": "/reference/tracker/can-bus/"
+      }
+    ],
+    {
       "dir": "developer-tools",
       "isSection": true
     },
@@ -131,24 +162,19 @@
       }
     ],
     {
-      "dir": "device-cloud",
-      "isSection": true
-    },
-    [],
-    {
-      "dir": "SDKs",
+      "dir": "mobile-sdks",
       "isSection": true
     },
     [
       {
         "dir": "ios",
         "title": "iOS SDK",
-        "href": "/reference/SDKs/ios/"
+        "href": "/reference/mobile-sdks/ios/"
       },
       {
         "dir": "android",
         "title": "Android SDK",
-        "href": "/reference/SDKs/android/"
+        "href": "/reference/mobile-sdks/android/"
       }
     ],
     {
@@ -162,11 +188,6 @@
         "href": "/reference/asset-tracking/tracker-edge-firmware/"
       }
     ],
-    {
-      "dir": "hardware",
-      "isSection": true
-    },
-    [],
     {
       "dir": "discontinued",
       "isSection": true

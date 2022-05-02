@@ -1,11 +1,11 @@
 ---
-title: Location Fusion
+title: Location fusion
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Wi-Fi and Cellular Geolocation
 ---
 
-# Location Fusion
+# {{title}}
 
 The Particle Tracker provides three methods of geolocation:
 

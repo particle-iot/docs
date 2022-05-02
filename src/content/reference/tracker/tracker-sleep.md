@@ -1,11 +1,11 @@
 ---
-title: Tracker Sleep
+title: Tracker sleep
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Sleep Support
 ---
 
-# Tracker Sleep
+# {{title}}
 
 Sleep modes made it possible to extend battery life by putting the device into a low-power state. 
 
