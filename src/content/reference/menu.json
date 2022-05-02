@@ -182,6 +182,43 @@
       }
     ],
     {
+      "dir": "datasheets",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "tracker-som-datasheet",
+          "title": "Tracker SoM datasheet",
+          "href": "/reference/datasheets/tracker/tracker-som-datasheet/"
+        },
+        {
+          "dir": "tracker-som-eval-board",
+          "title": "Tracker SoM Evaluation Board",
+          "href": "/reference/datasheets/tracker/tracker-som-eval-board/"
+        },
+        {
+          "dir": "tracker-one",
+          "title": "Tracker One",
+          "href": "/reference/datasheets/tracker/tracker-one/"
+        },
+        {
+          "dir": "tracker-m8-accessories",
+          "title": "M8 Accessories",
+          "href": "/reference/datasheets/tracker/tracker-m8-accessories/"
+        },
+        {
+          "dir": "m8-temperature-humidity",
+          "title": "M8 Temperature/Humidity",
+          "href": "/reference/datasheets/tracker/m8-temperature-humidity/"
+        }
+      ]
+    ],
+    {
       "dir": "asset-tracking",
       "isSection": true
     },

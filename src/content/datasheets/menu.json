@@ -4,33 +4,7 @@
       "dir": "asset-tracking",
       "isSection": true
     },
-    [
-      {
-        "dir": "tracker-som-datasheet",
-        "title": "Tracker SoM datasheet",
-        "href": "/datasheets/asset-tracking/tracker-som-datasheet/"
-      },
-      {
-        "dir": "tracker-som-eval-board",
-        "title": "Tracker SoM Evaluation Board",
-        "href": "/datasheets/asset-tracking/tracker-som-eval-board/"
-      },
-      {
-        "dir": "tracker-one",
-        "title": "Tracker One",
-        "href": "/datasheets/asset-tracking/tracker-one/"
-      },
-      {
-        "dir": "tracker-m8-accessories",
-        "title": "M8 Accessories",
-        "href": "/datasheets/asset-tracking/tracker-m8-accessories/"
-      },
-      {
-        "dir": "m8-temperature-humidity",
-        "title": "M8 Temperature/Humidity",
-        "href": "/datasheets/asset-tracking/m8-temperature-humidity/"
-      }
-    ],
+    [],
     {
       "dir": "boron",
       "isSection": true
