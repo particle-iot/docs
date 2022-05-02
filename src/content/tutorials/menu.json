@@ -1,11 +1,6 @@
 {
   "items": [
     {
-      "dir": "particle-hardware",
-      "title": "Particle Hardware",
-      "href": "/tutorials/particle-hardware/"
-    },
-    {
       "dir": "device-os",
       "isSection": true
     },

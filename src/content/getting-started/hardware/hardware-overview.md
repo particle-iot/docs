@@ -1,5 +1,5 @@
 ---
-title: Particle Hardware
+title: Hardware overview
 columns: two
 layout: commonTwo.hbs
 description: Learn about selecting the right hardware for your project

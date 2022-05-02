@@ -146,15 +146,20 @@ async function insertIntoMenu(options) {
     //console.log('menuJson', menuJson);
 
     const href = '/' + options.dstDirPartialPath + '/';
-    console.log('href', href);
+    // console.log('href', href);
 
     let items = [];
 
     const processArray = function(array) {
+        let lastDir;
+
         for(let ii = 0; ii < array.length; ii++) {
             const item = array[ii];
 
             if (!Array.isArray(item)) {
+                if (item.dir) {
+                    lastDir = item.dir;
+                }
                 if (item.href && item.href.startsWith(href)) {
                     if (item.title) {
                         items.push({
@@ -167,6 +172,11 @@ async function insertIntoMenu(options) {
             }
             else {
                 processArray(item);
+                items.push({
+                    title: 'Bottom of ' + lastDir,
+                    index: item.length,
+                    array: item,
+                });
             }
         }    
     }

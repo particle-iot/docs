@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "dir": "hardware",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "hardware-overview",
+        "title": "Hardware overview",
+        "href": "/getting-started/hardware-overview/"
+      }
+    ]
+  ]
+}
