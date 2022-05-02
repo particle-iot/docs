@@ -42,16 +42,6 @@
     },
     [
       {
-        "dir": "workbench",
-        "title": "Workbench",
-        "href": "/tutorials/developer-tools/workbench/"
-      },
-      {
-        "dir": "cli",
-        "title": "Command Line",
-        "href": "/tutorials/developer-tools/cli/"
-      },
-      {
         "dir": "tinker",
         "title": "Tinker & Mobile App",
         "href": "/tutorials/developer-tools/tinker/"
@@ -60,11 +50,6 @@
         "dir": "two-step-authentication",
         "title": "Two-Step Authentication",
         "href": "/tutorials/developer-tools/two-step-authentication/"
-      },
-      {
-        "dir": "build",
-        "title": "Web IDE",
-        "href": "/tutorials/developer-tools/build/"
       }
     ],
     {

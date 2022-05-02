@@ -53,10 +53,25 @@
       }
     ],
     {
-        "dir": "developer-tools",
-        "isSection": true
+      "dir": "developer-tools",
+      "isSection": true
     },
     [
+      {
+        "dir": "workbench",
+        "title": "Workbench",
+        "href": "/getting-started/developer-tools/workbench/"
+      },
+      {
+        "dir": "cli",
+        "title": "Command Line",
+        "href": "/getting-started/developer-tools/cli/"
+      },
+      {
+        "dir": "build",
+        "title": "Web IDE",
+        "href": "/getting-started/developer-tools/build/"
+      }
     ]
   ]
 }
