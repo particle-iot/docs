@@ -74,11 +74,6 @@
     },
     [
       {
-        "dir": "data",
-        "title": "Cellular Data Guide",
-        "href": "/tutorials/cellular-connectivity/data/"
-      },
-      {
         "dir": "cellular-carriers",
         "title": "Cellular Carriers",
         "href": "/tutorials/cellular-connectivity/cellular-carriers/"
@@ -145,11 +140,6 @@
       "isSection": true
     },
     [
-      {
-        "dir": "migrating-to-growth",
-        "title": "Migrating to Growth Plan",
-        "href": "/tutorials/product-tools/migrating-to-growth/"
-      },
       {
         "dir": "manufacturing-cellular",
         "title": "Manufacturing - Cellular",

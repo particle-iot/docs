@@ -5,6 +5,8 @@ columns: two
 description: Optimizing data using with Particle cellular devices
 ---
 
+# {{title}}
+
 ## Cellular Data Service with Particle
 
 Particle provides a number of devices with cellular connectivity including the Tracker, Boron, B Series SoM, E Series, and Electron. These can provide access in areas without Wi-Fi and provide a more seamless solution that does not depend on being able to connect to your customer's Wi-Fi network, which may involve unexpected challenges. 
