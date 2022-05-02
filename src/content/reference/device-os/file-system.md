@@ -1,10 +1,10 @@
 ---
-title: AN035 File System
+title: File system
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN035 File System
+# {{title}}
 
 Gen 3 devices, including the Boron, Argon, B Series SoM, Tracker SoM, and Tracker One all include a flash memory file system available for user use.
 

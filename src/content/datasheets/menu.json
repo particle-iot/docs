@@ -192,6 +192,11 @@
       }
     ],
     {
+      "dir": "technical-advisory-notices",
+      "isSection": true
+    },
+    [],
+    {
       "dir": "app-notes",
       "isSection": true
     },
@@ -352,34 +357,14 @@
         "href": "/datasheets/app-notes/an029-wake-publish-sleep-cellular/"
       },
       {
-        "dir": "an030-eeprom-samples",
-        "title": "AN030 EEPROM samples example",
-        "href": "/datasheets/app-notes/an030-eeprom-samples/"
-      },
-      {
         "dir": "an031-enabling-wifi-rf-test-for-esp32",
         "title": "AN031 Enabling Wi-Fi RF Test for ESP32",
         "href": "/datasheets/app-notes/an031-enabling-wifi-rf-test-for-esp32/"
       },
       {
-        "dir": "an032-calling-api-from-web-page",
-        "title": "AN032 Calling API from Web Page",
-        "href": "/datasheets/app-notes/an032-calling-api-from-web-page/"
-      },
-      {
-        "dir": "an033-256K-user-binaries",
-        "title": "AN033 256K user binaries",
-        "href": "/datasheets/app-notes/an033-256K-user-binaries/"
-      },
-      {
         "dir": "an034-singleton",
         "title": "AN034 Singleton",
         "href": "/datasheets/app-notes/an034-singleton/"
-      },
-      {
-        "dir": "an035-file-system",
-        "title": "AN035 File System",
-        "href": "/datasheets/app-notes/an035-file-system/"
       },
       {
         "dir": "an036-lcc-module-smt",

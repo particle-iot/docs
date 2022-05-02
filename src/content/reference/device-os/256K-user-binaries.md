@@ -1,10 +1,10 @@
 ---
-title: AN033 256K User Binaries
+title: 256K User Binaries
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN033 256K User Binaries
+# {{title}}
 
 On Gen 3 devices with Device OS 3.1 and later, user firmware binaries have a maximum size of 256KB. On all other versions and devices, the maximum size is 128KB.
 

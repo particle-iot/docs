@@ -31,16 +31,19 @@
         "href": "/reference/device-os/pin-info/"
       },
       {
+        "dir": "256K-user-binaries",
         "title": "256K user binaries",
-        "href": "/datasheets/app-notes/an033-256K-user-binaries/"
+        "href": "/reference/device-os/256K-user-binaries/"
       },
       {
-        "title": "Filesystem",
-        "href": "/datasheets/app-notes/an035-file-system/"
+        "dir": "file-system",
+        "title": "File System",
+        "href": "/reference/device-os/file-system/"
       },
       {
+        "dir": "eeprom",
         "title": "EEPROM",
-        "href": "/datasheets/app-notes/an030-eeprom-samples/"
+        "href": "/reference/device-os/eeprom/"
       },
       {
         "dir": "real-time-clocks",
@@ -79,8 +82,9 @@
         "href": "/reference/cloud-apis/webhooks/"
       },
       {
-        "title": "Calling API from a web page",
-        "href": "/datasheets/app-notes/an032-calling-api-from-web-page/"
+        "dir": "calling-api-from-web-page",
+        "title": "Calling API from Web Page",
+        "href": "/reference/cloud-apis/calling-api-from-web-page/"
       },
       {
         "dir": "node-js",

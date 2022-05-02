@@ -1,9 +1,13 @@
 ---
-title: AN030 EEPROM samples example
+title: EEPROM
 layout: commonTwo.hbs
 columns: two
 ---
-# AN030 EEPROM samples example
+# EEPROM
+
+TODO: Additional information about the EEPROM will go here.
+
+## Example
 
 This example illustrates several useful techniques:
 
