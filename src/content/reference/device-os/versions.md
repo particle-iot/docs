@@ -1,12 +1,11 @@
 ---
-title: Device OS Versions
+title: Versions and upgrades
 layout: commonTwo.hbs
 columns: two
 description: Device OS versions, upgrades, and downgrades
 ---
 
-Device OS Versions, Upgrades, and Downgrades
-==========
+# {{title}}
 
 ## Introduction
 

@@ -1,11 +1,11 @@
 ---
-title: About Sleep
+title: Sleep
 layout: commonTwo.hbs
 columns: two
 description: Learn more conserving power by using sleep with Particle IoT devices
 ---
 
-# About Sleep
+# {{title}}
 
 Sleep modes provide a way to power down all or parts of a Particle device. This is mainly done to conserve power when running off a battery. There are a large number of options because there are many ways you can use sleep. You don't necessarily want to go for the lowest idle power consumption, because that involves tradeoffs in the ways you can wake the device, the time to reconnect, and the amount of power used during reconnection.
 

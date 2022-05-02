@@ -1,5 +1,5 @@
 ---
-title: Pin Info
+title: Pin info
 layout: pinInfo.hbs
 columns: two
 ---

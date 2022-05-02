@@ -1,5 +1,5 @@
 ---
-title: E Series Eval Kit Tutorials
+title: E Series eval kit tutorials
 layout: commonTwo.hbs
 columns: two
 description: Tutorials for the E Series evaluation board (Gen 2 cellular)

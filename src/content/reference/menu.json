@@ -11,10 +11,48 @@
         "href": "/reference/device-os/firmware/"
       },
       {
+        "dir": "bluetooth-le",
+        "title": "Bluetooth LE",
+        "href": "/reference/device-os/bluetooth-le/"
+      },
+      {
+        "dir": "sleep",
+        "title": "Sleep",
+        "href": "/reference/device-os/sleep/"
+      },
+      {
         "dir": "versions",
-        "title": "Device OS Versions",
+        "title": "Versions and upgrades",
         "href": "/reference/device-os/versions/"
+      },
+      {
+        "dir": "pin-info",
+        "title": "Pin Info",
+        "href": "/reference/device-os/pin-info/"
+      },
+      {
+        "title": "256K user binaries",
+        "href": "/datasheets/app-notes/an033-256K-user-binaries/"
+      },
+      {
+        "title": "Filesystem",
+        "href": "/datasheets/app-notes/an035-file-system/"
+      },
+      {
+        "title": "EEPROM",
+        "href": "/datasheets/app-notes/an030-eeprom-samples/"
+      },
+      {
+        "dir": "real-time-clocks",
+        "title": "Real-time clocks",
+        "href": "/reference/device-os/real-time-clocks/"
       }
+    ],
+    {
+      "dir": "cloud-apis",
+      "isSection": true
+    },
+    [
     ],
     {
       "dir": "developer-tools",
@@ -89,13 +127,7 @@
       "dir": "hardware",
       "isSection": true
     },
-    [
-      {
-        "dir": "pin-info",
-        "title": "Pin Info",
-        "href": "/reference/hardware/pin-info/"
-      }
-    ],
+    [],
     {
       "dir": "discontinued",
       "isSection": true

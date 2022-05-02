@@ -16,11 +16,6 @@
         "href": "/tutorials/device-os/usb-serial/"
       },
       {
-        "dir": "bluetooth-le",
-        "title": "Bluetooth LE",
-        "href": "/tutorials/device-os/bluetooth-le/"
-      },
-      {
         "dir": "development-tips",
         "title": "Development tips",
         "href": "/tutorials/device-os/development-tips/"
@@ -158,21 +153,6 @@
     },
     [
       {
-        "dir": "hardware-examples",
-        "title": "Hardware Examples",
-        "href": "/tutorials/hardware-projects/hardware-examples/"
-      },
-      {
-        "dir": "maker-kit",
-        "title": "Maker Kit Tutorials",
-        "href": "/tutorials/hardware-projects/maker-kit/"
-      },
-      {
-        "dir": "e-series-eval-kit",
-        "title": "E Series Eval Kit Tutorials",
-        "href": "/tutorials/hardware-projects/e-series-eval-kit/"
-      },
-      {
         "dir": "som-first-board",
         "title": "B Series SoM First Board",
         "href": "/tutorials/hardware-projects/som-first-board/"
@@ -210,11 +190,6 @@
         "href": "/tutorials/learn-more/about-serial/"
       },
       {
-        "dir": "about-sleep",
-        "title": "About Sleep",
-        "href": "/tutorials/learn-more/about-sleep/"
-      },
-      {
         "dir": "about-apps",
         "title": "About Apps",
         "href": "/tutorials/learn-more/about-apps/"
@@ -238,11 +213,6 @@
         "dir": "batteries",
         "title": "Batteries",
         "href": "/tutorials/learn-more/batteries/"
-      },
-      {
-        "dir": "real-time-clocks",
-        "title": "Real-time clocks",
-        "href": "/tutorials/learn-more/real-time-clocks/"
       },
       {
         "dir": "prototyping",

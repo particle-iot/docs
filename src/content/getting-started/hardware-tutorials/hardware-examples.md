@@ -1,12 +1,12 @@
 ---
-title: Hardware Examples
+title: Blink an LED hardware examples
 layout: commonTwo.hbs
 columns: two
 redirects: true
 includeDefinitions: [api-helper, api-helper-extras]
 ---
 
-# Hardware Examples
+# {{title}}
 
 Here you will find a bunch of examples to get you started with your new Particle device! 
 
