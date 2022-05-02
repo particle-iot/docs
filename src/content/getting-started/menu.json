@@ -160,6 +160,32 @@
         "title": "Two-Step Authentication",
         "href": "/getting-started/console/two-step-authentication/"
       }
+    ],
+    {
+      "dir": "products",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction-to-products",
+        "title": "Introduction to products",
+        "href": "/getting-started/products/introduction-to-products/"
+      },
+      {
+        "dir": "creating-a-product",
+        "title": "Creating a Product",
+        "href": "/getting-started/products/creating-a-product/"
+      },
+      {
+        "dir": "security",
+        "title": "Security",
+        "href": "/getting-started/products/security/"
+      },
+      {
+        "dir": "organizations",
+        "title": "Organizations",
+        "href": "/getting-started/products/organizations/"
+      }
     ]
   ]
 }

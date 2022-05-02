@@ -1,5 +1,5 @@
 ---
-title: Creating a Product
+title: Creating a product
 columns: two
 layout: commonTwo.hbs
 description: Creating your first Particle product

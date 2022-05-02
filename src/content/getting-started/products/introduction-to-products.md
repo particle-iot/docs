@@ -1,11 +1,11 @@
 ---
-title: Introduction
+title: Introduction to products
 columns: two
 layout: commonTwo.hbs
 description: Learn about products on the Particle platform
 ---
 
-# Products Introduction
+# {{title}}
 
 
 ## Introduction

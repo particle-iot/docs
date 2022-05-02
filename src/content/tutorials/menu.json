@@ -146,29 +146,9 @@
     },
     [
       {
-        "dir": "introduction",
-        "title": "Introduction",
-        "href": "/tutorials/product-tools/introduction/"
-      },
-      {
-        "dir": "creating-a-product",
-        "title": "Creating a Product",
-        "href": "/tutorials/product-tools/creating-a-product/"
-      },
-      {
         "dir": "migrating-to-growth",
         "title": "Migrating to Growth Plan",
         "href": "/tutorials/product-tools/migrating-to-growth/"
-      },
-      {
-        "dir": "security",
-        "title": "Security",
-        "href": "/tutorials/product-tools/security/"
-      },
-      {
-        "dir": "organizations",
-        "title": "Organizations",
-        "href": "/tutorials/product-tools/organizations/"
       },
       {
         "dir": "manufacturing-cellular",

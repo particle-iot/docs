@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Learn about security on the Particle platform
 ---
 
-# Security
+# {{title}}
 
 When it comes to IoT devices, there is no shortage of security concerns. This
 part of the guide will be a discussion of security-related topics that arise
