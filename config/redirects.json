@@ -364,6 +364,7 @@
   "/tutorials/asset-tracking/": "/hardware/tracking-system",
   "/tutorials/asset-tracking/introduction": "/hardware/tracking-system",
   "/tutorials/cellular-connectivity/billing/": "/tutorials/cellular-connectivity/data",
+  "/tutorials/cellular-connectivity/introduction": "/getting-started/hardware/cellular-overview",
   "/tutorials/cellular-connectivity/sim-management/": "/tutorials/product-tools/sim-management",
   "/tutorials/developer-tools/dev/": "/reference/discontinued/dev",
   "/tutorials/device-cloud/remote-diagnostics/": "/tutorials/diagnostics/introduction",

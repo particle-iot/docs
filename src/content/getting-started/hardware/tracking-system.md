@@ -1,11 +1,11 @@
 ---
-title: Tracking System
+title: Tracking system
 columns: two
 layout: commonTwo.hbs
 description: Introduction to Particle Asset Tracking Solutions
 ---
 
-# Tracking System
+# {{title}}
 
 ## Introduction
 

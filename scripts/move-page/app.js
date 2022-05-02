@@ -248,14 +248,14 @@ async function run() {
             console.log('Select destination directory');
             options.dstDirPartialPath = await getDirectory('');
 
+            // Insert into new location
+            await insertIntoMenu(options);
+
             // Remove from old menu
             removeFromMenu(options);
 
             // Move file
             fs.renameSync(path.join(contentDir, options.srcMdPartialPath), path.join(contentDir, options.dstDirPartialPath, path.basename(options.srcMdPartialPath)));
-
-            // Insert into new location
-            await insertIntoMenu(options);
 
             // Create redirects
             let redirectsObj = JSON.parse(fs.readFileSync(redirectsFile, 'utf8'));

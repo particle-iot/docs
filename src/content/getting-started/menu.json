@@ -1,8 +1,8 @@
 {
   "items": [
     {
-        "dir": "hardware",
-        "isSection": true
+      "dir": "hardware",
+      "isSection": true
     },
     [
       {
@@ -12,8 +12,13 @@
       },
       {
         "dir": "tracking-system",
-        "title": "Tracking System",
+        "title": "Tracking system",
         "href": "/getting-started/hardware/tracking-system"
+      },
+      {
+        "dir": "cellular-overview",
+        "title": "Cellular overview",
+        "href": "/getting-started/hardware/cellular-overview/"
       }
     ]
   ]

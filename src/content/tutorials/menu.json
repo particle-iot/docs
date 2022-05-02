@@ -129,11 +129,6 @@
     },
     [
       {
-        "dir": "introduction",
-        "title": "Introduction",
-        "href": "/tutorials/cellular-connectivity/introduction/"
-      },
-      {
         "dir": "data",
         "title": "Cellular Data Guide",
         "href": "/tutorials/cellular-connectivity/data/"

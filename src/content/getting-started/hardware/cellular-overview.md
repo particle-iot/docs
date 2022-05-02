@@ -1,11 +1,11 @@
 ---
-title: Introduction
+title: Cellular overview
 columns: two
 layout: commonTwo.hbs
 description: Introduction to Particle cellular devices and cellular standards
 ---
 
-# Introduction to Cellular Devices
+# {{title}}
 
 Particle has a wide variety of cellular devices to suit many applications. There's a handy table at the end to help you device what's the best device for your application, but some explanation is in order first as there are a number of decisions to make!
 
