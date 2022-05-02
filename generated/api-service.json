@@ -1972,6 +1972,11 @@
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=1234\"",
         "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=1234\"",
         "type": "bash"
+      },
+      {
+        "title": "List devices in a group",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?groups=beta&access_token=1234\"",
+        "type": "bash"
       }
     ],
     "success": {
