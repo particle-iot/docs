@@ -204,8 +204,34 @@
       },
       {
         "dir": "migrating-to-growth",
-        "title": "Migrating to Growth Plan",
+        "title": "Migrating to growth plan",
         "href": "/getting-started/billing/migrating-to-growth/"
+      }
+    ],
+    {
+      "dir": "integrations",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "integrations",
+        "title": "Integrations",
+        "href": "/getting-started/integrations/integrations/"
+      },
+      {
+        "dir": "webhooks",
+        "title": "Webhooks",
+        "href": "/getting-started/integrations/webhooks/"
+      },
+      {
+        "dir": "google-cloud-platform",
+        "title": "Google cloud platform",
+        "href": "/getting-started/integrations/google-cloud-platform/"
+      },
+      {
+        "dir": "google-maps",
+        "title": "Google maps",
+        "href": "/getting-started/integrations/google-maps/"
       }
     ]
   ]

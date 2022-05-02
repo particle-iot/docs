@@ -53,11 +53,6 @@
         "href": "/tutorials/device-cloud/introduction/"
       },
       {
-        "dir": "webhooks",
-        "title": "Webhooks",
-        "href": "/tutorials/device-cloud/webhooks/"
-      },
-      {
         "dir": "access-tokens",
         "title": "Access Tokens",
         "href": "/tutorials/device-cloud/access-tokens/"
@@ -151,21 +146,6 @@
       "isSection": true
     },
     [
-      {
-        "dir": "introduction",
-        "title": "Introduction",
-        "href": "/tutorials/integrations/introduction/"
-      },
-      {
-        "dir": "google-cloud-platform",
-        "title": "Google Cloud Platform",
-        "href": "/tutorials/integrations/google-cloud-platform/"
-      },
-      {
-        "dir": "google-maps",
-        "title": "Google Maps",
-        "href": "/tutorials/integrations/google-maps/"
-      },
       {
         "dir": "azure-iot-hub",
         "title": "Azure IoT Hub",

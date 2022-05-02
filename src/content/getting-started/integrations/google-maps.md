@@ -1,5 +1,5 @@
 ---
-title: Google Maps
+title: Google maps
 layout: commonTwo.hbs
 columns: two
 description: Cellular and Wi-Fi geolocation for your Particle IoT device

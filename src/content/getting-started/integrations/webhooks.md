@@ -1,5 +1,4 @@
 ---
-word: Webhooks
 title: Webhooks
 shared: true
 columns: two
@@ -8,7 +7,7 @@ description: Controlling external services on the Internet from Particle IoT dev
 ---
 
 
-# Webhooks
+# {{title}}
 
 Webhooks are a simple and flexible way to send data from your Particle devices to other apps and services around the Internet. Webhooks bridge the gap between the physical and the digital world, helping you get your data where you need it to be.
 

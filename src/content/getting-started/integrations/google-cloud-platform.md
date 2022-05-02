@@ -1,11 +1,11 @@
 ---
-title: Google Cloud Platform
+title: Google cloud platform
 layout: commonTwo.hbs
 columns: two
 description: Connecting the Google Cloud platform to your Particle IoT device using the Particle Cloud
 ---
 
-# {{title}} Integration
+# {{title}}
 
 Particle has teamed up with Google to create a 1st-class integration
 with <a href="https://cloud.google.com/" target="_blank">Google Cloud

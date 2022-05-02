@@ -1,10 +1,11 @@
 ---
-title: Introduction
+title: Integrations
 layout: commonTwo.hbs
 columns: two
 description: Using Integrations to access external services
 ---
 
+# {{title}}
 
 ### Integrations
 
