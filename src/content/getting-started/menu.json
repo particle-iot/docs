@@ -114,6 +114,27 @@
         "title": "Tracker Eval Board Tutorials",
         "href": "/getting-started/tracker/tracker-eval-tutorials/"
       }
+    ],
+    {
+      "dir": "console",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "console",
+        "title": "Console",
+        "href": "/getting-started/console/console/"
+      },
+      {
+        "dir": "fleet-health",
+        "title": "Fleet Health",
+        "href": "/getting-started/console/fleet-health/"
+      },
+      {
+        "dir": "device-vitals",
+        "title": "Device Vitals",
+        "href": "/getting-started/console/device-vitals/"
+      }
     ]
   ]
 }

@@ -58,11 +58,6 @@
         "href": "/tutorials/device-cloud/introduction/"
       },
       {
-        "dir": "console",
-        "title": "Console",
-        "href": "/tutorials/device-cloud/console/"
-      },
-      {
         "dir": "webhooks",
         "title": "Webhooks",
         "href": "/tutorials/device-cloud/webhooks/"
@@ -149,23 +144,7 @@
       "dir": "diagnostics",
       "isSection": true
     },
-    [
-      {
-        "dir": "introduction",
-        "title": "Introduction",
-        "href": "/tutorials/diagnostics/introduction/"
-      },
-      {
-        "dir": "device-vitals",
-        "title": "Device Vitals",
-        "href": "/tutorials/diagnostics/device-vitals/"
-      },
-      {
-        "dir": "fleet-health",
-        "title": "Fleet Health",
-        "href": "/tutorials/diagnostics/fleet-health/"
-      }
-    ],
+    [],
     {
       "dir": "product-tools",
       "isSection": true
