@@ -20,6 +20,28 @@
         "title": "Cellular overview",
         "href": "/getting-started/hardware/cellular-overview/"
       }
+    ],
+    {
+      "dir": "setup",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "setup-options",
+        "title": "Setup options",
+        "href": "/getting-started/setup/setup-options/"
+      }
+    ],
+    {
+      "dir": "device-os",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction-to-device-os",
+        "title": "Introduction to Device OS",
+        "href": "/getting-started/device-os/introduction-to-device-os/"
+      }
     ]
   ]
 }

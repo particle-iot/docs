@@ -1,6 +1,5 @@
 ---
-word: Device OS
-title: Device OS
+title: Introduction to Device OS
 columns: two
 layout: commonTwo.hbs
 description: Introduction to Particle Device OS API for Particle IoT devices

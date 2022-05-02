@@ -6,11 +6,6 @@
     },
     [
       {
-        "dir": "device-os",
-        "title": "Device OS",
-        "href": "/tutorials/device-os/device-os/"
-      },
-      {
         "dir": "cloud-communication",
         "title": "Cloud Communication",
         "href": "/tutorials/device-os/cloud-communication/"
