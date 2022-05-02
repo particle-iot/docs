@@ -311,7 +311,22 @@
         "dir": "accessories",
         "isSection": true
       },
-      [        
+      [
+        {
+          "dir": "gen3-accessories",
+          "title": "Gen 3 Accessories",
+          "href": "/reference/datasheets/accessories/gen3-accessories/"
+        },
+        {
+          "dir": "legacy-accessories",
+          "title": "Legacy Accessories",
+          "href": "/reference/datasheets/accessories/legacy-accessories/"
+        },
+        {
+          "dir": "debugger",
+          "title": "Debugger",
+          "href": "/reference/datasheets/accessories/debugger/"
+        }
       ]
     ],
     {

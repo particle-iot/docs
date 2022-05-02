@@ -78,23 +78,7 @@
       "dir": "accessories",
       "isSection": true
     },
-    [
-      {
-        "dir": "debugger",
-        "title": "Debugger",
-        "href": "/datasheets/accessories/debugger/"
-      },
-      {
-        "dir": "gen3-accessories",
-        "title": "Gen 3 Accessories",
-        "href": "/datasheets/accessories/gen3-accessories/"
-      },
-      {
-        "dir": "legacy-accessories",
-        "title": "Legacy Accessories",
-        "href": "/datasheets/accessories/legacy-accessories/"
-      }
-    ],
+    [],
     {
       "dir": "technical-advisory-notices",
       "isSection": true
