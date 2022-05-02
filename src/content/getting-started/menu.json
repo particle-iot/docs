@@ -1,14 +1,19 @@
 {
   "items": [
     {
-      "dir": "hardware",
-      "isSection": true
+        "dir": "hardware",
+        "isSection": true
     },
     [
       {
         "dir": "hardware-overview",
         "title": "Hardware overview",
-        "href": "/getting-started/hardware-overview/"
+        "href": "/getting-started/hardware/hardware-overview/"
+      },
+      {
+        "dir": "tracking-system",
+        "title": "Tracking System",
+        "href": "/getting-started/hardware/tracking-system"
       }
     ]
   ]

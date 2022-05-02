@@ -1,13 +1,13 @@
 ---
-title: Introduction
+title: Tracking System
 columns: two
 layout: commonTwo.hbs
 description: Introduction to Particle Asset Tracking Solutions
 ---
 
-# Introduction to Asset Tracking
+# Tracking System
 
-## Tracking System
+## Introduction
 
 The Particle Asset Tracking System is an integrated, customizable, hardware, firmware, and cloud-based system with GNSS (GPS) and cellular connectivity.
 

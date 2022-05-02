@@ -150,11 +150,6 @@
     },
     [
       {
-        "dir": "introduction",
-        "title": "Introduction",
-        "href": "/tutorials/asset-tracking/introduction/"
-      },
-      {
         "dir": "setup",
         "title": "Setup",
         "href": "/tutorials/asset-tracking/setup/"
