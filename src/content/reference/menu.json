@@ -94,6 +94,22 @@
       }
     ],
     {
+      "dir": "cellular",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "cellular-carriers",
+        "title": "Cellular carriers",
+        "href": "/reference/cellular/cellular-carriers/"
+      },
+      {
+        "dir": "sim-cards",
+        "title": "Particle SIM cards",
+        "href": "/reference/cellular/sim-cards/"
+      }
+    ],
+    {
       "dir": "developer-tools",
       "isSection": true
     },

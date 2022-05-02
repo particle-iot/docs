@@ -186,11 +186,6 @@
         "href": "/datasheets/accessories/gen3-accessories/"
       },
       {
-        "dir": "sim-cards",
-        "title": "Particle SIM cards",
-        "href": "/datasheets/accessories/sim-cards/"
-      },
-      {
         "dir": "legacy-accessories",
         "title": "Legacy Accessories",
         "href": "/datasheets/accessories/legacy-accessories/"

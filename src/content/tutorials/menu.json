@@ -52,13 +52,7 @@
       "dir": "cellular-connectivity",
       "isSection": true
     },
-    [
-      {
-        "dir": "cellular-carriers",
-        "title": "Cellular Carriers",
-        "href": "/tutorials/cellular-connectivity/cellular-carriers/"
-      }
-    ],
+    [],
     {
       "dir": "asset-tracking",
       "isSection": true
