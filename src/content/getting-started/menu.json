@@ -72,6 +72,32 @@
         "title": "Web IDE",
         "href": "/getting-started/developer-tools/build/"
       }
+    ],
+    {
+      "dir": "cloud",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "cloud-communication",
+        "title": "Cloud Communication",
+        "href": "/getting-started/cloud/cloud-communication/"
+      },
+      {
+        "dir": "ota-updates",
+        "title": "OTA Firmware Updates",
+        "href": "/getting-started/cloud/ota-updates/"
+      },
+      {
+        "dir": "cloud-api",
+        "title": "Cloud API",
+        "href": "/getting-started/cloud/cloud-api/"
+      },
+      {
+        "dir": "device-claiming",
+        "title": "Device Claiming",
+        "href": "/getting-started/cloud/device-claiming/"
+      }
     ]
   ]
 }

@@ -6,11 +6,6 @@
     },
     [
       {
-        "dir": "cloud-communication",
-        "title": "Cloud Communication",
-        "href": "/tutorials/device-os/cloud-communication/"
-      },
-      {
         "dir": "led",
         "title": "Status LED and Device Modes",
         "href": "/tutorials/device-os/led/"
@@ -63,11 +58,6 @@
         "href": "/tutorials/device-cloud/introduction/"
       },
       {
-        "dir": "ota-updates",
-        "title": "OTA Firmware Updates",
-        "href": "/tutorials/device-cloud/ota-updates/"
-      },
-      {
         "dir": "console",
         "title": "Console",
         "href": "/tutorials/device-cloud/console/"
@@ -81,16 +71,6 @@
         "dir": "access-tokens",
         "title": "Access Tokens",
         "href": "/tutorials/device-cloud/access-tokens/"
-      },
-      {
-        "dir": "cloud-api",
-        "title": "Cloud API",
-        "href": "/tutorials/device-cloud/cloud-api/"
-      },
-      {
-        "dir": "device-claiming",
-        "title": "Device Claiming",
-        "href": "/tutorials/device-cloud/device-claiming/"
       },
       {
         "dir": "authentication",
