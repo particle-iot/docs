@@ -100,11 +100,6 @@
     },
     [
       {
-        "dir": "setup",
-        "title": "Setup",
-        "href": "/tutorials/asset-tracking/setup/"
-      },
-      {
         "dir": "tracker-edge-firmware",
         "title": "Tracker Edge Firmware",
         "href": "/tutorials/asset-tracking/tracker-edge-firmware/"
@@ -143,11 +138,6 @@
         "dir": "can-bus",
         "title": "CAN Bus",
         "href": "/tutorials/asset-tracking/can-bus/"
-      },
-      {
-        "dir": "tracker-eval-tutorials",
-        "title": "Tracker Eval Board Tutorials",
-        "href": "/tutorials/asset-tracking/tracker-eval-tutorials/"
       },
       {
         "dir": "tracker-som-first-board",

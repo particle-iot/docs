@@ -13,5 +13,6 @@ A page will go here to list the setup options:
 - Mobile
 - Particle CLI
 - Links to device-specific quickstart pages
+- Link to Tracker setup
 - This is for individual developer device setup, not fleet-wide setup
 

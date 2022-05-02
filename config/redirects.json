@@ -366,6 +366,8 @@
   "/tutorials": "/getting-started/hardware/hardware-overview",
   "/tutorials/asset-tracking/": "/hardware/tracking-system",
   "/tutorials/asset-tracking/introduction": "/hardware/tracking-system",
+  "/tutorials/asset-tracking/setup": "/getting-started/tracker/tracker-setup",
+  "/tutorials/asset-tracking/tracker-eval-tutorials": "/getting-started/tracker/tracker-eval-tutorials",
   "/tutorials/cellular-connectivity/billing/": "/tutorials/cellular-connectivity/data",
   "/tutorials/cellular-connectivity/introduction": "/getting-started/hardware/cellular-overview",
   "/tutorials/cellular-connectivity/sim-management/": "/tutorials/product-tools/sim-management",

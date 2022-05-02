@@ -1,11 +1,11 @@
 ---
-title: Setup
+title: Tracker setup
 columns: two
 layout: commonTwo.hbs
 description: Setting up your Particle Asset Tracer
 ---
 
-# Asset Tracker Setup
+# {{title}}
 
 ## Hardware Setup
 

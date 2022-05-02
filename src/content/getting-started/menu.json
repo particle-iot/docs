@@ -98,6 +98,22 @@
         "title": "Device Claiming",
         "href": "/getting-started/cloud/device-claiming/"
       }
+    ],
+    {
+      "dir": "tracker",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-setup",
+        "title": "Tracker setup",
+        "href": "/getting-started/tracker/tracker-setup/"
+      },
+      {
+        "dir": "tracker-eval-tutorials",
+        "title": "Tracker Eval Board Tutorials",
+        "href": "/getting-started/tracker/tracker-eval-tutorials/"
+      }
     ]
   ]
 }
