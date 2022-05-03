@@ -1,10 +1,16 @@
 ---
-title: Application Notes
+title: Application notes
 layout: commonTwo.hbs
 columns: two
 ---
 
 # Application Notes
+
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
+Most of the application notes are now integrated into other topics within the documentation.
 
 ## Hardware Designs
 

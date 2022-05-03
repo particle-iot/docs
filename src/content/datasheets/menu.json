@@ -41,29 +41,9 @@
     },
     [
       {
-        "dir": "application-notes",
-        "title": "Application Notes",
-        "href": "/datasheets/app-notes/application-notes/"
-      },
-      {
         "dir": "technical-advisory-notices",
         "title": "Technical Advisory Notices",
         "href": "/datasheets/app-notes/technical-advisory-notices/"
-      },
-      {
-        "dir": "an007-tower-info",
-        "title": "AN007 Tower Info",
-        "href": "/datasheets/app-notes/an007-tower-info/"
-      },
-      {
-        "dir": "an009-firmware-examples",
-        "title": "AN009 Firmware Examples",
-        "href": "/datasheets/app-notes/an009-firmware-examples/"
-      },
-      {
-        "dir": "an041-scheduling",
-        "title": "AN041 Scheduling",
-        "href": "/datasheets/app-notes/an041-scheduling/"
       }
     ],
     {

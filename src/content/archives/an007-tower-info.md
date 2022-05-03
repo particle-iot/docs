@@ -5,6 +5,12 @@ columns: two
 ---
 # AN007 Tower Info
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
+The Tower Info tool is not being maintained because it is not compatible with the most recently cellular modems.
+
 Tower Info is a tool to show the location of nearby cellular towers on a mobile device, tablet, or laptop. This can be helpful it siting devices in the field, and troubleshooting connectivity issues.
 
 It uses a Boron 2G/3G to scan for towers and communicates with the device using Web BLE (Bluetooth).

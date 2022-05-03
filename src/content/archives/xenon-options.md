@@ -7,6 +7,10 @@ description: Options for using Particle Xenon devices without Particle Mesh
 
 # Using a Particle Xenon without Particle Mesh
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 In January of 2020, Particle announced that Mesh networking support in Gen3 devices would be deprecated. While this change does not affect the ability of customers to use the Argon and Boron as standalone devices, because the Particle Xenon is a Mesh-only device, it is not possible to use this device with the Particle Device Cloud in a production-supported context.
 
 It is possible to continue to use your Particle Xenon, either as a standalone device, or in unsupported Particle Mesh networks. This document provides information regarding the various contexts in which the Xenon can be used, as well as instructions for provisioning your Xenon for another use, if needed.

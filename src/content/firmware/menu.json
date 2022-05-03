@@ -34,6 +34,11 @@
         "dir": "code-size-tips",
         "title": "Code size tips",
         "href": "/firmware/best-practices/code-size-tips/"
+      },
+      {
+        "dir": "scheduling",
+        "title": "Scheduling",
+        "href": "/firmware/best-practices/scheduling/"
       }
     ],
     {

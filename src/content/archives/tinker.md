@@ -7,6 +7,10 @@ devices: [ photon,electron,argon,boron,xenon]
 
 # Tinkering with "Tinker" - {{device}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 You are viewing the Tinker documentation the **{{device}}**. To view the documentation for other 
 devices, use the blue device selector below the Particle logo on the left side of the page.
 

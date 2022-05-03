@@ -5,6 +5,10 @@ columns: two
 ---
 # AN009 Firmware Examples
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 This application note has been split out into separate application notes.
 
 

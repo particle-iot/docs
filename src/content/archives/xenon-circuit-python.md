@@ -7,6 +7,10 @@ description: How to use CircuitPython on the Particle Xenon
 
 # Using CircuitPython with a Particle Xenon
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 This document details steps for using a Particle Xenon as a standalone dev kit running CircuitPython. The steps below will completely remove the Particle Device OS from the Xenon, completely disconnecting the device from the Particle Cloud and device ecosystem.
 
 To complete the steps below, you'll need the following tools:

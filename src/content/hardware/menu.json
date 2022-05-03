@@ -151,9 +151,9 @@
     },
     [
       {
-        "dir": "tracker-som-first-board",
-        "title": "Tracker SoM First Board",
-        "href": "/hardware/b-series-som/tracker-som-first-board/"
+        "dir": "som-first-board",
+        "title": "B Series SoM First Board",
+        "href": "/hardware/b-series-som/som-first-board/"
       },
       {
         "dir": "basic-som-design",

@@ -9,6 +9,10 @@ description: Connecting the IFTTT (if this then that) to your Particle IoT devic
 
 # Particle Channel on IFTTT
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 ## Introduction
 
 Anything you build with Particle is now easily available on IFTTT! IFTTT is a service that lets you create powerful connections with one simple statement: "If this then that."  There is a great introduction to their ecosystem [on IFTTT's website](https://ifttt.com/wtf). Go check it out if you haven't already, it's super helpful.

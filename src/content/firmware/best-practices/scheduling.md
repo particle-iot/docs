@@ -1,5 +1,5 @@
 ---
-title: AN041 Scheduling
+title: Scheduling
 layout: commonTwo.hbs
 columns: two
 ---

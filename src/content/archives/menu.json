@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "dir": "tinker",
+      "title": "Tinker & Mobile App",
+      "href": "/archives/tinker/"
+    },
+    {
+      "dir": "ifttt",
+      "title": "IFTTT",
+      "href": "/archives/ifttt/"
+    },
+    {
+      "dir": "an007-tower-info",
+      "title": "AN007 Tower Info",
+      "href": "/archives/an007-tower-info/"
+    },
+    {
+      "dir": "an009-firmware-examples",
+      "title": "AN009 Firmware Examples",
+      "href": "/archives/an009-firmware-examples/"
+    },
+    {
+      "dir": "application-notes",
+      "title": "Application Notes",
+      "href": "/archives/application-notes/"
+    },
+    {
+      "dir": "xenon-options",
+      "title": "Using a Xenon without Mesh",
+      "href": "/archives/xenon-options/"
+    },
+    {
+      "dir": "xenon-circuit-python",
+      "title": "CircuitPython on Xenon",
+      "href": "/archives/xenon-circuit-python/"
+    }
+  ]
+}

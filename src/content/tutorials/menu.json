@@ -9,13 +9,7 @@
       "dir": "developer-tools",
       "isSection": true
     },
-    [
-      {
-        "dir": "tinker",
-        "title": "Tinker & Mobile App",
-        "href": "/tutorials/developer-tools/tinker/"
-      }
-    ],
+    [],
     {
       "dir": "device-cloud",
       "isSection": true
@@ -51,50 +45,11 @@
       "dir": "integrations",
       "isSection": true
     },
-    [
-      {
-        "dir": "ifttt",
-        "title": "IFTTT",
-        "href": "/tutorials/integrations/ifttt/"
-      }
-    ],
+    [],
     {
       "dir": "hardware-projects",
       "isSection": true
     },
-    [
-      {
-        "dir": "som-first-board",
-        "title": "B Series SoM First Board",
-        "href": "/tutorials/hardware-projects/som-first-board/"
-      }
-    ],
-    {
-      "dir": "learn-more",
-      "isSection": true
-    },
-    [
-      {
-        "dir": "test-menu",
-        "isSection": true
-      },
-      [
-        {
-          "dir": "test-page",
-          "title": "Test Page",
-          "href": "/tutorials/learn-more/test-menu/test-page/"
-        }
-      ],
-      {
-        "dir": "xenon-options",
-        "title": "Using a Xenon without Mesh",
-        "href": "/tutorials/learn-more/xenon-options/"
-      },
-      {
-        "dir": "xenon-circuit-python",
-        "title": "CircuitPython on Xenon",
-        "href": "/tutorials/learn-more/xenon-circuit-python/"
-      }
-    ]
+    []
   ]
 }
