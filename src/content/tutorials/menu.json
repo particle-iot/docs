@@ -129,16 +129,6 @@
         }
       ],
       {
-        "dir": "about-i2c",
-        "title": "About I2C",
-        "href": "/tutorials/learn-more/about-i2c/"
-      },
-      {
-        "dir": "about-serial",
-        "title": "About Serial",
-        "href": "/tutorials/learn-more/about-serial/"
-      },
-      {
         "dir": "about-apps",
         "title": "About Apps",
         "href": "/tutorials/learn-more/about-apps/"
@@ -157,16 +147,6 @@
         "dir": "batteries",
         "title": "Batteries",
         "href": "/tutorials/learn-more/batteries/"
-      },
-      {
-        "dir": "prototyping",
-        "title": "Prototyping",
-        "href": "/tutorials/learn-more/prototyping/"
-      },
-      {
-        "dir": "beyond-prototyping",
-        "title": "Beyond Prototyping",
-        "href": "/tutorials/learn-more/beyond-prototyping/"
       },
       {
         "dir": "xenon-options",

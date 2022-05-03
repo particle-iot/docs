@@ -103,6 +103,47 @@
           "href": "/hardware/tracker/tracker-som/tracker-som-first-board/"
         }
       ]
+    ],
+    {
+      "dir": "expansion",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "feather",
+        "title": "Feather",
+        "href": "/hardware/expansion/feather/"
+      },
+      {
+        "dir": "qwiic",
+        "title": "Qwiic (I2C)",
+        "href": "/hardware/expansion/qwiic/"
+      },
+      {
+        "dir": "mikroe",
+        "title": "Mikroe",
+        "href": "/hardware/expansion/mikroe/"
+      },
+      {
+        "dir": "about-i2c",
+        "title": "About I2C",
+        "href": "/hardware/expansion/about-i2c/"
+      },
+      {
+        "dir": "about-serial",
+        "title": "About Serial",
+        "href": "/hardware/expansion/about-serial/"
+      },
+      {
+        "dir": "prototyping",
+        "title": "Prototyping",
+        "href": "/hardware/expansion/prototyping/"
+      },
+      {
+        "dir": "beyond-prototyping",
+        "title": "Beyond Prototyping",
+        "href": "/hardware/expansion/beyond-prototyping/"
+      }
     ]
   ]
 }
