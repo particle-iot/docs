@@ -18,7 +18,7 @@ You could use a webhook to save valuable information in a database, visualize da
 
 In this guide, we'll provide an overview of how you can use webhooks in your connected products, and walk you through a few examples to get you started.
 
-**If you are looking for all the juicy details, head over to the <a href="/reference/device-cloud/webhooks/">webhook reference page</a>.**
+**If you are looking for all the juicy details, head over to the <a href="/reference/cloud-apis/webhooks/">webhook reference page</a>.**
 
 ## How webhooks work
 
@@ -206,7 +206,7 @@ In this example, the event that triggered the webhook, `get_temp`, would result 
 
 It is worth mentioning that you can override the default response event name if you'd like. This is useful for product webhooks when you'd like to ensure that only the device that triggered the webhook receives its response. [More on that here](#product-webhook-responses).
 
-See [special webhook events](/reference/device-cloud/api/#special-webhook-events) for more details about handling multipart responses.
+See [special webhook events](/reference/cloud-apis/api/#special-webhook-events) for more details about handling multipart responses.
 
 ## What data gets sent?
 
@@ -221,11 +221,11 @@ When a webhook gets triggered, some data will be sent to the third-party web ser
 }
 ```
 
-This is same data you'd see if you subscribed to your [event stream](/reference/device-cloud/api/#events).
+This is same data you'd see if you subscribed to your [event stream](/reference/cloud-apis/api/#events).
 
 These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
-You can customize the format of the data sent with the webhook by changing the "Request Format". When the "Request Type" is `POST`, `PUT` or `DELETE`, the data will be in the request body. You can select "Web Form" (similar to submitting a form from a browser), JSON (common for API requests) or write your own "Custom Body" using the [webhook template language](/reference/device-cloud/webhooks/#variable-substitution). When the "Request Type" is `GET`, the data can only be sent in the "Query Parameters".
+You can customize the format of the data sent with the webhook by changing the "Request Format". When the "Request Type" is `POST`, `PUT` or `DELETE`, the data will be in the request body. You can select "Web Form" (similar to submitting a form from a browser), JSON (common for API requests) or write your own "Custom Body" using the [webhook template language](/reference/cloud-apis/webhooks/#variable-substitution). When the "Request Type" is `GET`, the data can only be sent in the "Query Parameters".
 
 You can also customize the structure of the data that gets sent. In the "Advanced Settings" of the Webhook Builder, either keep the "Default" data and add some more fields, or switch to "Custom" and define your own mapping.
 
@@ -244,7 +244,7 @@ Note that this will only appears in the Events page for the device owner. The ho
 
 ## Custom Template
 
-The "Custom Template" tab of the webhook editor shows the raw configuration for the webhook. The syntax is described in the [webhook reference page](/reference/device-cloud/webhooks/).
+The "Custom Template" tab of the webhook editor shows the raw configuration for the webhook. The syntax is described in the [webhook reference page](/reference/cloud-apis/webhooks/).
 
 ![Webhook Custom Template](/assets/images/webhook-custom-template.png)
 
@@ -267,7 +267,7 @@ As devices in your product's fleet will be running the same firmware, product we
 
 ### Create a product webhook
 
-If you don't have one already, you'll need to [define a product](/tutorials/device-cloud/console/#defining-a-product) before you will be able to create product webhooks. 
+If you don't have one already, you'll need to [define a product](/getting-started/console/console/#defining-a-product) before you will be able to create product webhooks. 
 
 Product webhook management can also be done from the [Particle Console](https://console.particle.io). To create a webhook, navigate to your product's hub on the console and click on the Integrations tab (<i class="im-integrations-icon"></i>). You'll see a very similar view to the Integrations hub as a developer.
 
@@ -309,7 +309,7 @@ At any time, you can see some sample firmware for both triggering and getting re
 
 ## Advanced Topics
 
-See [the webhook reference](/reference/device-cloud/webhooks/) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.
+See [the webhook reference](/reference/cloud-apis/webhooks/) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.
 
 As a quick reference, these are the pre-defined webhook variables available for you to use (use triple braces to avoid HTML escaping of the values):
 

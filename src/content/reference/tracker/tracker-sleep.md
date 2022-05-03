@@ -27,7 +27,7 @@ The Tracker One with cellular connected but idle uses an average of 60.2 mA. Wit
 
 You can also see that the BMI160 IMU (inertial measurement unit) is quite power-efficient, requiring only 30 uA more to wake by time or movement, vs. time alone (194 uA vs. 164 uA).
 
-You can find more information about TrackerSleep API calls in the Tracker Edge firmware in the [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep).
+You can find more information about TrackerSleep API calls in the Tracker Edge firmware in the [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep).
 
 ## Cloud Settings
 
@@ -73,7 +73,7 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 
 - **Minimize Data**. If checked, only only latitude and longitude data is sent on each location publish. If unchecked (the default), additional information such as speed and heading are sent.
 
-The other settings are described in [cloud configuration](/tutorials/device-cloud/console/#location-settings).
+The other settings are described in [cloud configuration](/getting-started/console/console/#location-settings).
 
 #### Motion Settings
 
@@ -147,7 +147,7 @@ This example illustrates using a short wake cycle.
 | Movement | Disabled | | 
 | Sleep Mode | Enable | |
 
-Normally the wake time is determined by the minimum and maximum location update frequency in the [cloud configuration](/tutorials/device-cloud/console/#location-settings). This is the full wake period, where a connection to the cloud is made and the location published.
+Normally the wake time is determined by the minimum and maximum location update frequency in the [cloud configuration](/getting-started/console/console/#location-settings). This is the full wake period, where a connection to the cloud is made and the location published.
 
 It's also possible do a short wake between these times. This example illustrates waking up every 5 minutes to read the temperature and go back to sleep. This short wake does not turn on the cellular modem and takes only a few seconds and uses little battery power.
 
@@ -249,5 +249,5 @@ In the console event view you can see these additional temperature values:
 
 ![Temperature Array](/assets/images/tracker/temps-array.png)
 
-You can find more information about TrackerSleep calls in the [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep).
+You can find more information about TrackerSleep calls in the [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep).
 

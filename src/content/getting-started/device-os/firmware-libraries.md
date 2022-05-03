@@ -29,7 +29,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ### Public Libraries
 
-The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/device-cloud/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
+The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/cloud-apis/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
@@ -159,9 +159,9 @@ An extended project can be created by using the CLI `particle project create` co
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
 - [Library Search](/cards/libraries/search/)
-- [Using libraries with the Web IDE](/tutorials/developer-tools/build/)
-- [Using libraries with the Particle Workbench](/tutorials/developer-tools/workbench/#particle-install-library)
-- [Using libraries with the Command Line Interface (CLI)](/tutorials/developer-tools/cli/)
+- [Using libraries with the Web IDE](/getting-started/developer-tools/build/)
+- [Using libraries with the Particle Workbench](/getting-started/developer-tools/workbench/#particle-install-library)
+- [Using libraries with the Command Line Interface (CLI)](/getting-started/developer-tools/cli/)
 
 ## Contributing libraries
 
@@ -192,7 +192,7 @@ The main sources of the library go into `src/lib_name.cpp` and `src/lib_name.h`.
 
 Create at least one example `.ino` file inside a subfolder of `examples` to show people how to use the library.
 
-If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/accessories/legacy-accessories/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
+If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/reference/datasheets/accessories/legacy-accessories/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
 List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
@@ -254,7 +254,7 @@ Instructions for migrating v1 libraries to the new library format using the Part
 Follow these steps to migrate a v1 Particle library to the new v2 structure using the Particle CLI:
 
 - Install the Particle CLI version 1.19 or later.
-  - If you do not have the Particle CLI installed on your machine, you can download and install it using our OS-specific instructions, [here](/tutorials/developer-tools/cli/)
+  - If you do not have the Particle CLI installed on your machine, you can download and install it using our OS-specific instructions, [here](/getting-started/developer-tools/cli/)
   - If you already have the Particle CLI installed, you can update it to the latest version by running `npm update -g particle-cli`
 
 - Run `particle library migrate` in your library directory

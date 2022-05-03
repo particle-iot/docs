@@ -44,7 +44,7 @@ The [Particle sht3x-i2c library](https://github.com/particle-iot/sht3x-i2c) can 
 - I2C maximum speed: 400 MHz
 - Tracker One interface: `Wire3`
 
-The [M8 Temperature/Humidity Sensor Tutorial](/tutorials/asset-tracking/m8-temperature-humidity) includes additional information for using the library and this sensor.
+The [M8 Temperature/Humidity Sensor Tutorial](/hardware/tracker/m8-temperature-humidity/) includes additional information for using the library and this sensor.
 
 ### Ordering Information
 

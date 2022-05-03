@@ -28,7 +28,7 @@ If you need even more GPIO you can add an MCP23017 (16 GPIO), and even add more 
 
 ![Board Image](/assets/images/app-notes/AN013/5v.jpg)
 
-[AN027 Tracker Button and LEDs](/datasheets/app-notes/an027-tracker-buttons-leds) shows how to connect add a push button, two LEDs, a buzzer, and a 5V I2C port for the SHT30 temperature and humidity sensor to the Tracker One using the M8 connector.
+[AN027 Tracker Button and LEDs](/hardware/tracker/projects/tracker-buttons-leds/) shows how to connect add a push button, two LEDs, a buzzer, and a 5V I2C port for the SHT30 temperature and humidity sensor to the Tracker One using the M8 connector.
 
 ## Connecting
 
@@ -157,7 +157,7 @@ The MCP23008 is the I2C to GPIO interface chip. It can be run at 3.3V or 5V. The
 
 ![MCP23008](/assets/images/app-notes/AN013/mcp23008.png)
 
-While this design uses the 18-SOIC version of the MCP23008, the [AN018 Tracker Level](/datasheets/app-notes/an018-tracker-level) uses the 20-QFN-EP package which is smaller. The capabilities and software are the same for both chips.
+While this design uses the 18-SOIC version of the MCP23008, the [AN018 Tracker Level](/hardware/tracker/projects/tracker-level/) uses the 20-QFN-EP package which is smaller. The capabilities and software are the same for both chips.
 
 
 

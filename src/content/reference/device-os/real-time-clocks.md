@@ -47,7 +47,7 @@ with the Photon, however the pin works differently.
 
 On the Electron, VBAT is connected to 3V3. Since 3V3 is powered when the device is powered by USB, VIN, or the LiPo battery, it is a good choice for keeping the Electron RTC powered. The Photon does not have built-in support for a LiPo battery, so using an external coin cell makes more sense. The Electron 3V3 output is always on, even when in sleep modes.
 
-The exception is if you power off the Electron using the [BATFET](/datasheets/app-notes/an002-device-powerdown/). The LiPo battery will be completely disconnected in this mode, and thus the RTC will not be powered. 
+The exception is if you power off the Electron using the [BATFET](/firmware/low-power/device-powerdown/). The LiPo battery will be completely disconnected in this mode, and thus the RTC will not be powered. 
 
 The connection between VBAT is a 0-ohm resistor, R7. It's on the bottom of the board, next to the SIM card connector. If you remove this resistor, you can use the Electron like the Photon, with an external lithium coin cell. It's impractical to do this at scale and it is not recommended. 
 
@@ -95,7 +95,7 @@ Another option is to use an external hardware RTC. Two that are well-tested with
 
 ### AB1805
 
-A good choice is the [AB1850](https://github.com/rickkas7/AB1805_RK). Its major advantage is that it implements both an RTC and a hardware watchdog timer in a single device. Particle application note [AN023](/datasheets/app-notes/an023-watchdog-timers/#advanced-watchdog-ab1805) shows how to use this chip. It is also included in the Tracker SoM module.
+A good choice is the [AB1850](https://github.com/rickkas7/AB1805_RK). Its major advantage is that it implements both an RTC and a hardware watchdog timer in a single device. Particle application note [AN023](/hardware/best-practices/watchdog-timers/#advanced-watchdog-ab1805) shows how to use this chip. It is also included in the Tracker SoM module.
 
 The application note includes designs for powering it either from the LiPo battery, or from a supercap. It's also possible to use a lithium coin cell battery.
 

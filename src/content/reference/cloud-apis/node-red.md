@@ -44,7 +44,7 @@ an action in the _physical world_.
 Some of the specific ways you could use the Node-RED in this way include:
 
 - Send an over-the-air firmware update to a device when it has been
-added to a [device group](/tutorials/product-tools/device-groups/)
+added to a [device group](/getting-started/console/device-groups/)
 - Activate certain features of your product when customer payment
 information is collected
 - Disable access to using a broken device when a service-person is

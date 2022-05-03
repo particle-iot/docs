@@ -96,13 +96,13 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
-<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). 
+<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/reference/datasheets/tracker/tracker-som-datasheet/#can-specifications). 
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector. 6.0 - 90 VDC at 2A when connecting directly to the board.
 
 <sup>4</sup>5V, 370 mA maximum. Controlled by the CAN_PWR GPIO.
 
-Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
+Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/reference/datasheets/tracker/tracker-m8-accessories/).
 
 You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
@@ -217,7 +217,7 @@ The Tracker Carrier Board contains a 100K NTC thermistor, connected to A0. It is
 
 ![Thermistor](/assets/images/at-som/thermistor.png)
 
-It can be read using the [getTemperature()](/reference/asset-tracking/tracker-edge-firmware/#gettemperature-) API. Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
+It can be read using the [getTemperature()](/firmware/tracker-edge/tracker-edge-api-reference/#gettemperature-) API. Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
 ## Design Files
 

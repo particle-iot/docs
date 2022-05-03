@@ -6,7 +6,7 @@ columns: two
 
 # Xenon Datasheet <sup>(v002)</sup>
 
-**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 
@@ -170,7 +170,7 @@ You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1
 ### LED status
 
 #### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
 
 #### Charge status LED
 

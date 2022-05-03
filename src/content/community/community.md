@@ -20,7 +20,7 @@ like to add to this page, please submit a pull request.
 
 ## JavaScript
 
-See [the official JavaScript client](/reference/SDKs/javascript/).
+See [the official JavaScript client](/reference/cloud-apis/javascript/).
 
 * [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/particle/)
 * [ember-particle - Ember service for the Particle API](https://github.com/mileszim/ember-particle)

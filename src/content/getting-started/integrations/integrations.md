@@ -27,7 +27,7 @@ While webhooks can access many external services, there are special integrations
 - Google Maps (Cellular or Wi-Fi geolocation service)
 - Azure IoT Hub
 
-For a webhook, when the triggering event is received, it makes an outgoing connection to a web server. Typically this is encrypted using TLS/SSL (https). Standard REST API calls (GET, POST, PUT, etc.) can be made. Additionally, you can do simple manipulation of the data using [Mustache Templates](/reference/device-cloud/webhooks/#variable-substitution). This can modify the request URL, request data, and response data. The webhook can also add HTTP headers, query arguments, and form data, if desired. 
+For a webhook, when the triggering event is received, it makes an outgoing connection to a web server. Typically this is encrypted using TLS/SSL (https). Standard REST API calls (GET, POST, PUT, etc.) can be made. Additionally, you can do simple manipulation of the data using [Mustache Templates](/reference/cloud-apis/webhooks/#variable-substitution). This can modify the request URL, request data, and response data. The webhook can also add HTTP headers, query arguments, and form data, if desired. 
 
 
 ### Server-Sent-Events (SSE)
@@ -44,7 +44,7 @@ It's also possible to use the Server-Sent-Events (SSE) stream. Your server makes
 
 The disadvantage is that there is no way to distribute SSE traffic across multiple servers. This can cause issues when there is a very large number of events from a large number of devices, and also is a single point of failure.
 
-Your server can be implemented in any language that supports the SSE protocol, however one popular solution is to use node.js and the [particle-api-js](/reference/SDKs/javascript/#geteventstream). It could be running on your own computer, or could be cloud-hosted using Google App Engine, Amazon, Azure, or other cloud services.
+Your server can be implemented in any language that supports the SSE protocol, however one popular solution is to use node.js and the [particle-api-js](/reference/cloud-apis/javascript/#geteventstream). It could be running on your own computer, or could be cloud-hosted using Google App Engine, Amazon, Azure, or other cloud services.
 
 ### Direct Connection
 

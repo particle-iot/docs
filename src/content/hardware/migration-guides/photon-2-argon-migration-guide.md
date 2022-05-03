@@ -73,8 +73,8 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 There are two Photon 2 migration guides, depending on what you are migrating from:
 
-- [From Photon](/datasheets/wi-fi/photon-2-photon-migration-guide/)
-- [From Argon](/datasheets/wi-fi/photon-2-argon-migration-guide/)
+- [From Photon](/hardware/migration-guides/photon-2-photon-migration-guide/)
+- [From Argon](/hardware/migration-guides/photon-2-argon-migration-guide/)
 
 ## Hardware 
 

@@ -12,7 +12,7 @@ description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 {{/unless}} {{!-- pdf-generation --}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The Argon has been deprecated. The recommended replacement is the [Photon 2](/datasheets/wi-fi/photon-2-datasheet/).
+The Argon has been deprecated. The recommended replacement is the [Photon 2](/reference/datasheets/wi-fi/photon-2-datasheet/).
 
 See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
 {{box op="end"}}
@@ -196,7 +196,7 @@ You can download a high resolution <a href="/assets/images/argon/argon-pinout-v1
 ### LED status
 
 #### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
 
 #### Charge status LED
 

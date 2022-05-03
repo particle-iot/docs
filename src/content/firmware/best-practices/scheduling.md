@@ -183,7 +183,7 @@ It is also possible to [force a clock resynchronization](/cards/firmware/cloud-f
 
 It is possible to use an external hardware real-time clock, typically connected by I2C, SPI, or UART serial. In the Tracker SoM and Tracker One, this is an AM1805 RTC and hardware watchdog chip, connected by I2C.
 
-The [Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers/) application note shows how you can use this chip in your own designs.
+The [Watchdog Timers](/hardware/best-practices/watchdog-timers/) application note shows how you can use this chip in your own designs.
 
 ### GNSS (GPS)
 

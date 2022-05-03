@@ -90,13 +90,13 @@ Billing is measured in blocks.
 
 If you exceed any limit, you will need another block. You can't just buy more data operations, or more cellular data, for example. For example, if you have 150 cellular devices, you will need a minimum of two blocks.
 
-You can find out your fleet usage in the [Billing & Usage](/tutorials/device-cloud/console/#billing-amp-usage) panel in the console if you are an organization administrator. 
+You can find out your fleet usage in the [Billing & Usage](/getting-started/console/console/#billing-amp-usage) panel in the console if you are an organization administrator. 
 
 You can get a rough estimate of the number of data operations if you publish data periodically by using this calculator:
 
 {{> dataoperationscalc}}
 
-If you want to try to reduce the number of data operations you are using, see [minimizing data operations](/tutorials/device-cloud/introduction/#minimizing-data-operations).
+If you want to try to reduce the number of data operations you are using, see [minimizing data operations](/getting-started/cloud/introduction/#minimizing-data-operations).
 
 {{top}}
 
@@ -145,12 +145,12 @@ The free plan is a place for prototyping products. It is free of charge, but the
 
 A product groups together related devices that generally run the same firmware. It has many advantages:
 
-- [Fleet deployment](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
+- [Fleet deployment](/getting-started/cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
 - Upgrade firmware on offline devices, so devices can receive updates when they reconnect to the cloud.
-- [Teams](/tutorials/product-tools/team-access-controls/), so multiple users can work with the product devices.
-- [API users](/reference/device-cloud/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
+- [Teams](/getting-started/console/team-access-controls/), so multiple users can work with the product devices.
+- [API users](/reference/cloud-apis/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
 
-If you need to create a product, see the [creating a product](/tutorials/product-tools/creating-a-product/) tutorial.
+If you need to create a product, see the [creating a product](/getting-started/products/creating-a-product/) tutorial.
 
 {{top}}
 
@@ -196,9 +196,9 @@ Device claiming is not affected by moving products into an organization.
 
 - If the devices were claimed to the original product owner that will remain unchanged. 
 - Even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! 
-- You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
+- You can use the [device list details tool](/getting-started/products/creating-a-product/#device-list-details) to see which devices count against the limits.
 - Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
-- See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide for more information.
+- See [device claiming](/getting-started/products/creating-a-product/#device-claiming) in the creating a product guide for more information.
 
 {{top}}
 
@@ -210,21 +210,21 @@ You can configure team members at both the product and organization level from t
 - You may prefer to create team members in your organization so they'll have access to all current and future products by default.
 - You may still want to use product team members to grant access to one product only. For example, you might do this for a contractor who is hired to help with one specific project.
 
-Learn more in the [teams documentation](/tutorials/product-tools/team-access-controls/).
+Learn more in the [teams documentation](/getting-started/console/team-access-controls/).
 
 {{top}}
 
 ### What if I don't have a product yet?
 
-If all of your devices are still in the developer sandbox, there are a few steps you will need to do before migration. The [creating a product guide](/tutorials/product-tools/creating-a-product/) can help with this.
+If all of your devices are still in the developer sandbox, there are a few steps you will need to do before migration. The [creating a product guide](/getting-started/products/creating-a-product/) can help with this.
 
 - You will need to adjust your workflow to include uploading product firmware releases and releasing them to your fleet. In the unusual situation where each device in your product has its own unique firmware, you can use the **Mark as Development Device** to allow each device to have its own firmware that you flash manually instead of using fleet firmware.
 
 - You will need to add devices to your product. For cellular devices, also their SIM cards. The [Move devices into a product](https://github.com/particle-iot/node-example-device-move) script can simplify this process.
 
-- You may or may not want to change device claiming. See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide.
+- You may or may not want to change device claiming. See [device claiming](/getting-started/products/creating-a-product/#device-claiming) in the creating a product guide.
 
-- If you are using integrations such as webhooks, you may want to move your integrations into your product, see [integrations](/tutorials/product-tools/creating-a-product/#integrations), in the creating a product guide.
+- If you are using integrations such as webhooks, you may want to move your integrations into your product, see [integrations](/getting-started/products/creating-a-product/#integrations), in the creating a product guide.
 
 - Cloud API endpoints are different for developer devices vs. product devices. If you are using the cloud API to access devices, changes will be necessary.
 
@@ -283,7 +283,7 @@ The sandbox device list is confusing because it includes items that don't count 
 - If you select the **Show sandbox devices only checkbox** (3) it will show only developer devices claimed to your account.
 - However if you are the product owner for a free sandbox tier product, all devices in that product count toward the device limit, even if they are not claimed to your account.
 
-The [device list tool](/tutorials/product-tools/creating-a-product/#device-list-details) can make it easier to understand the devices that do and do not count toward the 100 device limit.
+The [device list tool](/getting-started/products/creating-a-product/#device-list-details) can make it easier to understand the devices that do and do not count toward the 100 device limit.
 
 {{top}}
 

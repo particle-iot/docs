@@ -70,8 +70,8 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 There are two Photon 2 migration guides, depending on what you are migrating from:
 
-- [From Photon](/datasheets/wi-fi/photon-2-photon-migration-guide/)
-- [From Argon](/datasheets/wi-fi/photon-2-argon-migration-guide/)
+- [From Photon](/hardware/migration-guides/photon-2-photon-migration-guide/)
+- [From Argon](/hardware/migration-guides/photon-2-argon-migration-guide/)
 
 
 ## Hardware 
@@ -388,7 +388,7 @@ The Photon 2 does not have the solder pads for the RGB LED and SETUP/MODE button
 
 ![Classic Adapter](/assets/images/accessories/classic-adapter.png)
 
-The [Particle classic adapter](/datasheets/accessories/gen3-accessories/#classic-adapter) can be used to plug a Photon 2 into a socket that is intended to support an Electron. It can also fit in a Photon socket, however pins will hang past the socket, so there must not be anything in the way, or anything that would short the overhanging pins. 
+The [Particle classic adapter](/reference/datasheets/accessories/gen3-accessories/#classic-adapter) can be used to plug a Photon 2 into a socket that is intended to support an Electron. It can also fit in a Photon socket, however pins will hang past the socket, so there must not be anything in the way, or anything that would short the overhanging pins. 
 
 There are many pin limitations, and in particular the classic adapter does not work if you need to use SPI.
 

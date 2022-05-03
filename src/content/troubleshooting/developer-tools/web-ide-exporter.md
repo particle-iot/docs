@@ -8,7 +8,7 @@ includeDefinitions: [api-helper,api-helper-webide, zip]
 # {{title}}
 
 This tool makes it easy to export projects from the [Particle Web IDE](https://build.particle.io) for use in 
-[Particle Workbench](/tutorials/developer-tools/workbench/).
+[Particle Workbench](/getting-started/developer-tools/workbench/).
 
 {{> sso}}
 
@@ -42,7 +42,7 @@ This tool makes it easy to export projects from the [Particle Web IDE](https://b
 ## Learn More
 
 - To install Workbench and get a brief overview of the features, see the [Workbench Quickstart](/quickstart/workbench/).
-- For a more in-depth explanation of the features, see the [Workbench Tutorial](/tutorials/developer-tools/workbench/).
+- For a more in-depth explanation of the features, see the [Workbench Tutorial](/getting-started/developer-tools/workbench/).
 - See also [FAQ and Tips](https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench).
 - And [Troubleshooting](https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench).
 

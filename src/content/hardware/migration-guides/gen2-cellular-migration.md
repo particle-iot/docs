@@ -167,9 +167,9 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-- [B Series SoM First Board](/tutorials/hardware-projects/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
+- [B Series SoM First Board](/hardware/b-series-som/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
 
-- [AN001 Basic SoM Design](/datasheets/app-notes/an001-basic-som-design) is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
+- [AN001 Basic SoM Design](/hardware/b-series-som/basic-som-design/) is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 
 Even though the B Series SoM is more difficult to prototype with than the Boron, the B Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
 
@@ -221,7 +221,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 In addition to using the Tracker One assembled module, the following application note can help with creating your first board that uses the bare Tracker SoM module.
 
-- [AN025 Tracker SoM First Board](/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
+- [AN025 Tracker SoM First Board](/hardware/tracker/tracker-som/tracker-som-first-board/) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 
 #### Country Compatibility - Tracker SoM
 
@@ -345,7 +345,7 @@ There are fewer available GPIO pins on Gen 3 devices. If you need a large number
 
 The [MCP23008](https://github.com/rickkas7/MCP23008-RK) is an 8-port GPIO expander that connects to I2C and works well with Gen 3 devices. You can connect up to 8 of them to a single I2C interface. the [MCP23017](https://github.com/rickkas7/MCP23017-RK) has 16-ports, and you can also connect 8 of them, for a total of 128 GPIO ports.
 
-The application note [AN013 Tracker GPIO](/datasheets/app-notes/an013-tracker-gpio) shows how you can add additional GPIO to your Tracker One using the external M8 connector. It includes both 3.3V and 5V design options, as well. The techniques work on other Gen 3 devices as well.
+The application note [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector. It includes both 3.3V and 5V design options, as well. The techniques work on other Gen 3 devices as well.
 
 ### 5V tolerance
 

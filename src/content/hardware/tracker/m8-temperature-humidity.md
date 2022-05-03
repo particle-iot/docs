@@ -30,7 +30,7 @@ While the Tracker One board contains a precision thermistor, the sensor shown he
 
 The M8 Temperature/Humidity sensor connects to the M8 connector on the outside of the Tracker One enclosure. The Tracker One maintains its IP67 waterproof rating with the M8 connector in use.
 
-The [M8 Temperature/Humidity Sensor Datasheet](/datasheets/asset-tracking/m8-temperature-humidity) includes additional information about the sensor cable.
+The [M8 Temperature/Humidity Sensor Datasheet](/reference/datasheets/tracker/m8-temperature-humidity/) includes additional information about the sensor cable.
 
 
 ## Firmware
@@ -71,7 +71,7 @@ git submodule update --init --recursive
 - Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
-Make sure you've used the [**Mark As Development Device**](/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 #### Add the sht3x-i2c library
 

@@ -18,7 +18,7 @@ description: Desktop IDE for programming Particle IoT devices for Windows, Mac O
 
 {{youtube "https://www.youtube.com/embed/w7xOmJR2HeE"}}
 
-If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, see [Tracker Edge Firmware](/tutorials/asset-tracking/tracker-edge-firmware/) for additional information.
+If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, see [Tracker Edge Firmware](/firmware/tracker-edge/tracker-edge-firmware/) for additional information.
 
 ## Workbench Features
 
@@ -125,7 +125,7 @@ To compile and flash locally, use the Command Palette and select one of the loca
 
 ![Flash Local](/assets/images/workbench/local-3.png)
 
-For devices that are in a product make sure you've used the [**Mark As Development Device**](/tutorials/product-tools/development-devices/) option for your device in your product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed. All Tracker (Tracker SoM, evaluation board, and Tracker One) devices are in a product, even single devices.
+For devices that are in a product make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your device in your product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed. All Tracker (Tracker SoM, evaluation board, and Tracker One) devices are in a product, even single devices.
 
 In order to use the Flash options, the device must be connected by USB. The device will be placed into DFU mode (blinking yellow) automatically. If for some reason you need to enter DFU manually, you can do so by holding down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
 
@@ -306,7 +306,7 @@ _Note: There are a handful of limitations around debugging 3rd-generation hardwa
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](https://support.particle.io/hc/en-us/articles/360039741253/). As you'll see, this is way easier in Workbench! 
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/datasheets/accessories/gen3-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 ![Debugger](/assets/images/debugger3.jpg)
 
@@ -406,7 +406,7 @@ That is just a brief introduction to debugging. For more information, see the [V
 
 ### Debugging (2nd-generation with Particle Debugger)
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/datasheets/accessories/gen3-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 - Create a new project using the Command Palette and **Particle: Create New Project**. If you already created a project for the 3rd-generation device, you can just reuse that one.
 - Rename TinkerBreak.ino to TinkerBreak.cpp. Paste in the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp) into TinkerBreak.cpp.
@@ -677,7 +677,7 @@ Shows who you are logged in as. A small popup window will display in the lower r
 
 ### From the Particle Web IDE
 
-If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/troubleshooting/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 One big change from the Web IDE is the lack of the icon bar on the left. Most replacements are available from the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows).
 
@@ -734,9 +734,9 @@ If you are used to the editing keyboard shortcuts, you can install the Atom keym
 When you are working on a product there are any number of possible scenarios, but this one is common and works well:
 
 - Each developer has their own Particle account and device on their desk for use with the product. This makes it easy to access the USB debug serial port, buttons, etc.. 
-- These developers are [team members](/tutorials/device-cloud/console/#adding-team-members) for the product, so they can access the product test fleet.
+- These developers are [team members](/getting-started/console/console/#adding-team-members) for the product, so they can access the product test fleet.
 - The developer's desktop device is claimed to the developer's account. 
-- This device uses the [Mark As Development Device](/tutorials/product-tools/development-devices/) feature. This allows it to be part of the product, but combined with being claimed to the developer's account, allows it to be flashed directly from Particle Workbench.
+- This device uses the [Mark As Development Device](/getting-started/console/development-devices/) feature. This allows it to be part of the product, but combined with being claimed to the developer's account, allows it to be flashed directly from Particle Workbench.
 
 The normal workflow is to use Particle Workbench to develop firmware. You can use any of the local or cloud compile options, and flash over USB or OTA as desired.
 
@@ -744,7 +744,7 @@ Once the firmware is ready for larger testing:
 
 - The `PRODUCT_VERSION` is updated, if it has not already been updated.
 - A version of the firmware is built and downloaded, using the **Particle: Cloud Compile** or **Particle: Compile application (local)** option to create a firmware binary. The Particle CLI cloud compiler is another option.
-- This version is uploaded to the console as [product firmware](/tutorials/device-cloud/console/#rollout-firmware).
+- This version is uploaded to the console as [product firmware](/getting-started/console/console/#rollout-firmware).
 
 You can then:
 
@@ -891,7 +891,7 @@ If you prefer, you can merge to a specific release instead of develop.
 
 ## Developing Particle Libraries
 
-There is limited support for developing [Particle Libraries](/tutorials/device-os/libraries/) in Workbench. 
+There is limited support for developing [Particle Libraries](/getting-started/device-os/firmware-libraries/) in Workbench. 
 
 ### Create a project.properties file
 
@@ -956,7 +956,7 @@ This publishes the library, making it public and visible to all other users.
 
 If you are making a brand new library from scratch, you may want to use **Particle: Create New Project**. This will create the project.properties and src directories. Then you will want to:
 
-- Create the [**library.properties**](/tutorials/device-os/libraries/#library-properties-fields) file.
+- Create the [**library.properties**](/getting-started/device-os/firmware-libraries/#library-properties-fields) file.
 - In the **src** directory, remove the *YourLibraryName*.ino file and instead create *YourLibraryName*.cpp and *YourLibraryName*.h.
 - Create the **examples** directory.
 - Create subdirectories in **examples** for each of your examples, with a main source file in each.

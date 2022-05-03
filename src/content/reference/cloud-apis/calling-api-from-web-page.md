@@ -8,7 +8,7 @@ includeDefinitions: [api-helper]
 
 This example illustrates a few techniques for calling the Particle API from a web page.
 
-The first few examples use the [Blink an LED from the cloud firmware](/tutorials/hardware-projects/hardware-examples/).
+The first few examples use the [Blink an LED from the cloud firmware](/getting-started/hardware-tutorials/hardware-examples/).
 
 {{> codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
 
@@ -41,7 +41,7 @@ the Particle cloud.
 
 This example:
 
-- Uses [Particle API JS](/reference/SDKs/javascript/) to interact with the Device from Javascript.
+- Uses [Particle API JS](/reference/cloud-apis/javascript/) to interact with the Device from Javascript.
 - Uses [jQuery](https://jquery.com/) to handle some AJAX (asynchronous HTTP requests) and web page manipulation.
 - Prompt for login to a Particle developer account.
 - Handles MFA (multi-factor authentication) if is is enabled on the account.

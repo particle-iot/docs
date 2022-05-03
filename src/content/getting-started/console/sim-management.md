@@ -128,5 +128,5 @@ Particle cloud until the SIM is added to an account and activated.
 ### Data plans
 
 For more information about the free and paid product plans for cellular products, see the 
-[cellular data guide](/tutorials/cellular-connectivity/data/).
+[cellular data guide](/getting-started/billing/cellular-data/).
 

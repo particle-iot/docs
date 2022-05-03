@@ -134,9 +134,9 @@ To compile your program and download the binary, open the Command Palette and se
 
 ## Migrate from the Web IDE
 
-For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
+For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/troubleshooting/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 
 ## Learn More
 
-You can learn more about Workbench features in the [Particle Workbench Tutorial](/tutorials/developer-tools/workbench).
+You can learn more about Workbench features in the [Particle Workbench Tutorial](/getting-started/developer-tools/workbench/).

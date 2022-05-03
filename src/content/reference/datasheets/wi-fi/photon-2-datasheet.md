@@ -120,7 +120,7 @@ When the bootloader starts, for a brief period of time a weak pull-up is applied
 ### LED status
 
 #### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
 
 #### Charge status LED
 
@@ -515,7 +515,7 @@ The P2 module comes pre-programmed with a bootloader and a user application call
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
+You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 

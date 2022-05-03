@@ -25,7 +25,7 @@ The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). I
 
 It is a SMD module designed to be reflowed to your own custom base board and is the same size and has a nearly identical pin-out to the E Series module.
 
-If you are migrating from the E402 or E404, there is a [migration guide](/datasheets/electron/e404x-migration-guide) available. 
+If you are migrating from the E402 or E404, there is a [migration guide](/hardware/migration-guides/e404x-migration-guide/) available. 
 
 There will not be 2G/3G "X" version E Series; there will not be an E310X or E314X. 
 
@@ -461,7 +461,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 Unlike the Boron or Electron, the E404X module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
-A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 
 ## Technical Specifications
@@ -678,7 +678,7 @@ The E series comes pre-programmed with a bootloader and a user application calle
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
+You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 |Term|Definition |
@@ -764,7 +764,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 >
-> For an in-depth review on certifications, please click [here.](/datasheets/certifications/certification/)
+> For an in-depth review on certifications, please click [here.](/hardware/certification/certification/)
 
 ## Revision history
 

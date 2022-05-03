@@ -27,8 +27,8 @@ The Air Quality Kit includes a Particle Argon and three specialized sensors to m
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)
-- [Datasheet](/datasheets/wi-fi/argon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
+- [Certification](/hardware/certification/certification/)
   {{box op="end"}}
 
 ## Kit technical specifications:
@@ -38,11 +38,11 @@ For technical documentation on each of the included components, please see the l
 - **[Particle Argon](/argon/)**  
 - **[Particle Xenon](/xenon/)** (2)
 - **LiPo battery** (3)
-- **[2.4GHz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)**
+- **[2.4GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)**
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - **[Button](/datasheets/accessories/gen3-accessories/#button)** 
+  - **[Button](/reference/datasheets/accessories/gen3-accessories/#button)** 
 - **Grove wires** (3)
 {{box op="end"}}

@@ -60,7 +60,7 @@ Incoming Quality Control or IQC is the step of validating that each part in the 
 
 - Manufacturing firmware should exercise the electronics on your production board, testing all analog connections and peripherals. This firmware should be compatible with your target production Device OS version. 
 
-- It is recommended that [Particle Workbench](/tutorials/developer-tools/workbench/) be used to develop this manufacturing firmware (and your application firmware as well).
+- It is recommended that [Particle Workbench](/getting-started/developer-tools/workbench/) be used to develop this manufacturing firmware (and your application firmware as well).
 
 Particle does not have an example of manufacturing test firmware, given the variety of forms it may take.
 
@@ -246,7 +246,7 @@ In addition to adding your device to a Product, we further recommend adding your
 
 Many customers choose to apply a Group name of YYYYMMDD_XXXX denoting the year month day and quantity of devices in the shipment.  Some customers will include a hardware version number Group name, or one describing which number of sensors are included with the assembly.  
 
-Follow the guidelines on [group naming](/tutorials/product-tools/device-groups/).
+Follow the guidelines on [group naming](/getting-started/console/device-groups/).
 
 - Create the group name, and if it exists take no actions:
 
@@ -304,7 +304,7 @@ After the Device ID has been retrieved, the provisioning process as outlined abo
 
 These steps can be automated using a script which can greatly speed up the process of performing the steps on multiple devices.
 
-Be aware of the [Particle API rate limits](/reference/device-cloud/api/#api-rate-limits) when designing your scripts to do batch processing of many devices.
+Be aware of the [Particle API rate limits](/reference/cloud-apis/api/#api-rate-limits) when designing your scripts to do batch processing of many devices.
 
 The following script is intended as an example for the batch provisioning of a list of devices. It is written in Bash and the first line has a -x that will produce a verbose output for debugging purposes.  In the manufacturing flow it may be necessary to remove this -x in order to capture only the responses from each API endpoint call.
 

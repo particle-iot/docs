@@ -293,7 +293,7 @@ If you are using Ethernet with the B Series SoM, the following pins are used by 
 
 Unlike the Boron, the B523 module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
-A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 ## Technical specifications
 
@@ -497,7 +497,7 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 ![Bottom](/assets/images/b-series/b-series-screw-bottom.jpg)
 
-- An [alternative design](/tutorials/hardware-projects/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
+- An [alternative design](/hardware/b-series-som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
 
 - Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 

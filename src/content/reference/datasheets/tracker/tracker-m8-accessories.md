@@ -45,7 +45,7 @@ The 8-pin connector has these signals:
     
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
-<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). 
+<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/reference/datasheets/tracker/tracker-som-datasheet/#can-specifications). 
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector.
 
@@ -57,7 +57,7 @@ You typically connect the cable to your custom external interface device by rout
 - Terminate with screw terminals on your board
 - Terminate by soldering the wires to your board
 
-For more information on expanding your Tracker One using the M8 connector, see the [Tracker One Expansion Tutorials](/tutorials/asset-tracking/tracker-one-expansion/).
+For more information on expanding your Tracker One using the M8 connector, see the [Tracker One Expansion Tutorials](/hardware/tracker/tracker-one-expansion/).
 
 You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
@@ -145,8 +145,8 @@ This connector has the same pinouts as the cable above, but without the cable, s
 
 ![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
 
-- [M8 Temperature/Humidity Datasheet](/datasheets/asset-tracking/m8-temperature-humidity/)
-- [M8 Temperature/Humidity Tutorial](/tutorials/asset-tracking/m8-temperature-humidity/)
+- [M8 Temperature/Humidity Datasheet](/reference/datasheets/tracker/m8-temperature-humidity/)
+- [M8 Temperature/Humidity Tutorial](/hardware/tracker/m8-temperature-humidity/)
 
 
 

@@ -9,7 +9,7 @@ includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 
 This experimental tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required) and it can upgrade or downgrade to different versions of Device OS. It works with both Gen 2 and Gen 3 devices. 
 
-There is also a version that implements [Device Restore over JTAG](/tools/device-programming/device-restore-jtag/) that works with the Particle debugger. It can restore devices that do not have a working bootloader (Dim D7 on Gen 2 devices) or have been completely erased.
+There is also a version that implements [Device Restore over JTAG](/troubleshooting/device-restore/device-restore-jtag/) that works with the Particle debugger. It can restore devices that do not have a working bootloader (Dim D7 on Gen 2 devices) or have been completely erased.
 
 **Important caveats:**
 

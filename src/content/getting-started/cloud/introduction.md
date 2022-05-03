@@ -33,19 +33,19 @@ In order to conserve cellular data, the Particle Cloud DTLS connections can be r
 
 Using CoAP over DTLS with session resume allows the cloud connection to be resumed very efficiently, unlike some other protocols like MQTT over TLS/SSL that require a full 5K TLS handshake on reconnection.
 
-Using feature like Particle Publish allows data to be sent to external servers using as little as 150 to 200 bytes of data. Establishing a TLS/SSL connection to an external server directly from a device could use 5000 bytes of data for each piece of data sent when including the TLS/SSL handshake. This is possible because the TLS/SSL authentication is done off-device using [webhooks](/reference/device-cloud/webhooks/) or the [server-sent-events stream](/reference/device-cloud/api/#product-event-stream).
+Using feature like Particle Publish allows data to be sent to external servers using as little as 150 to 200 bytes of data. Establishing a TLS/SSL connection to an external server directly from a device could use 5000 bytes of data for each piece of data sent when including the TLS/SSL handshake. This is possible because the TLS/SSL authentication is done off-device using [webhooks](/reference/cloud-apis/webhooks/) or the [server-sent-events stream](/reference/cloud-apis/api/#product-event-stream).
 
 ### Communication Features
 
-- [Publish and Subscribe](/tutorials/device-os/device-os/#particle-publish).
-- [Functions and Variables](/tutorials/device-os/device-os/#particle-function).
-- [Over-the-air (OTA) firmware updates](/tutorials/device-cloud/ota-updates/).
+- [Publish and Subscribe](/getting-started/device-os/introduction-to-device-os/#particle-publish).
+- [Functions and Variables](/getting-started/device-os/introduction-to-device-os/#particle-function).
+- [Over-the-air (OTA) firmware updates](/getting-started/cloud/ota-updates/).
 
 #### Particle.publish
 
 [Particle.publish](/cards/firmware/cloud-functions/particle-publish/) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
 
-When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/device-cloud/webhooks/) that makes a connection to an external service or web server efficiently.
+When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/cloud-apis/webhooks/) that makes a connection to an external service or web server efficiently.
 
 <img src="/assets/images/PublishFlow.png" class="full-width"/>
 
@@ -60,7 +60,7 @@ When sent from the device to the cloud, publish can be used to send things like 
 
 Depending on your situation, one or the other may be more efficient. Also note:
 
-- If you are querying a value from a large number of devices, it's almost always more efficient to use publish as you can hit the [API rate limits](/reference/device-cloud/api/#api-rate-limits) if you need to make a variable retrieval to hundreds or thousands of devices.
+- If you are querying a value from a large number of devices, it's almost always more efficient to use publish as you can hit the [API rate limits](/reference/cloud-apis/api/#api-rate-limits) if you need to make a variable retrieval to hundreds or thousands of devices.
 - Variables cannot be queried if the device is offline, including in sleep mode. For those applications, you'll want to publish a value before sleep instead.
 
 #### Particle.subscribe
@@ -206,11 +206,11 @@ When subscribing to events on-device, every event that's delivered to the device
 
 ### Beware of webhook response subscription
 
-Similarly, in most cases you want only the device that triggered the webhook to get its response. To do this, prefix the hook-response and hook-error responses with the device ID as described [here](/reference/device-cloud/webhooks/#responsetopic). 
+Similarly, in most cases you want only the device that triggered the webhook to get its response. To do this, prefix the hook-response and hook-error responses with the device ID as described [here](/reference/cloud-apis/webhooks/#responsetopic). 
 
 Also each 512 byte response chunk counts as a data operation, so minimizing the size of the response can save data operations.
 
-If the data being returned in JSON, sometimes you can filter out only the information you need using [mustache templates](/tutorials/device-os/json/#mustache-variables).
+If the data being returned in JSON, sometimes you can filter out only the information you need using [mustache templates](/firmware/best-practices/json/#mustache-variables).
 
 ## Limits
 
@@ -252,18 +252,18 @@ In the Enterprise tier, the amount of cellular data is pooled annually across al
 
 [Publishes from a device](/cards/firmware/cloud-functions/particle-publish/) a limited to 1 per second, at the maximum publish payload size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
-There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](/reference/device-cloud/webhooks/#limits).
+There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](/reference/cloud-apis/webhooks/#limits).
 
-While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/device-cloud/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
+While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/cloud-apis/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
 
 
 ## Wi-Fi Support
 
 | Feature | Gen 2 | Gen 3 |
 | :------ | :---: | :---: |
-| Devices | [Photon](/datasheets/wi-fi/photon-datasheet/) & [P1](/datasheets/wi-fi/p1-datasheet/) | [Argon](/datasheets/wi-fi/argon-datasheet/) |
+| Devices | [Photon](/reference/datasheets/wi-fi/photon-datasheet/) & [P1](/reference/datasheets/wi-fi/p1-datasheet/) | [Argon](/reference/datasheets/wi-fi/argon-datasheet/) |
 | Particle mobile app supported | &check; | &check; |
-| [Mobile SDK](/reference/SDKs/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
+| [Mobile SDK](/reference/mobile-sdks/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
 | USB configuration | &check; | &check; |
 | BLE configuration | &nbsp; | &check; |
 | [Soft AP](/cards/firmware/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; |
@@ -276,7 +276,7 @@ WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educatio
 
 To configure a Photon or P1 using WPA2 Enterprise, follow the [WPA2 Enterprise Setup Instructions](https://support.particle.io/hc/en-us/articles/360039741153). Of note:
 
-- Setup can only be done over USB using the [Particle CLI](/tutorials/developer-tools/cli/) (no mobile app support).
+- Setup can only be done over USB using the [Particle CLI](/getting-started/developer-tools/cli/) (no mobile app support).
 - Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
 - Device OS 1.5.4-rc.1 or 2.0.x or later is required if concatenated certificates (intermediate certificates) are required.
 - Only one set of WPA2 Enterprise Wi-Fi credentials can be stored.

@@ -32,12 +32,12 @@ See the [local build tools FAQ](https://support.particle.io/hc/en-us/articles/36
 
 ### CLI
 
-The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/tutorials/developer-tools/cli/).
+The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/getting-started/developer-tools/cli/).
 
 
 ### Particle API JS
 
-The [`particle-api-js`](https://github.com/particle-iot/particle-api-js) repo contains the code used to run [Particle API JS](/reference/SDKs/javascript/), the official Particle JavaScript wrapper.
+The [`particle-api-js`](https://github.com/particle-iot/particle-api-js) repo contains the code used to run [Particle API JS](/reference/cloud-apis/javascript/), the official Particle JavaScript wrapper.
 
 
 ### Mobile
@@ -57,7 +57,7 @@ There are several mobile repos, for both iOS and Android.
 
 ### Particle Dev
 
-The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/reference/discontinued/dev/), our professional, open source, hackable IDE, designed for use with Particle devices.
+The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/reference/discontinued/software/dev/), our professional, open source, hackable IDE, designed for use with Particle devices.
 
 
 ### Documentation
@@ -69,9 +69,9 @@ The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open
 
 Particle maintains several open source libraries to be used with official Particle shields. They include:
 
-- [`InternetButton`](https://github.com/particle-iot/InternetButton): the library intended for use with the [Internet Button](/datasheets/accessories/legacy-accessories/#internet-button).
-- [`RelayShield`](https://github.com/particle-iot/RelayShield): the library intended for use with the [Photon Relay Shield](/datasheets/accessories/legacy-accessories/#relay-shield)
-- [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/datasheets/accessories/legacy-accessories/#power-shield)
+- [`InternetButton`](https://github.com/particle-iot/InternetButton): the library intended for use with the [Internet Button](/reference/datasheets/accessories/legacy-accessories/#internet-button).
+- [`RelayShield`](https://github.com/particle-iot/RelayShield): the library intended for use with the [Photon Relay Shield](/reference/datasheets/accessories/legacy-accessories/#relay-shield)
+- [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/reference/datasheets/accessories/legacy-accessories/#power-shield)
 
 
 ### Local Cloud

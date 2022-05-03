@@ -160,7 +160,7 @@ There are two complementary cloud features:
 - Functions request the device to do something, allowing the cloud to pass a command string to the device to specify exactly what it wants done.
 - Variables get data from the device, allowing the cloud to request a value. This is often used with sensor data.
 
-(There are also publish and subscribe, which you can learn more about in the [cloud introduction](/tutorials/device-cloud/introduction/#communication-features).)
+(There are also publish and subscribe, which you can learn more about in the [cloud introduction](/getting-started/cloud/introduction/#communication-features).)
 
 In the code above, if the command is "on" we turn the LED on, and if it's "off" we turn the LED off.
 
@@ -177,7 +177,7 @@ You can also test your new function is from [the console](https://console.partic
 
 On the right-hand side of the screen is a box for functions. There should be one labeled "led". If you type **on** in the box and click the Call button the LED should turn on. To turn it off use **off**.
 
-Or you can also do this from the [Particle CLI](/tutorials/developer-tools/cli/).
+Or you can also do this from the [Particle CLI](/getting-started/developer-tools/cli/).
 
 ```
 particle call my-test-device led on
@@ -188,7 +188,7 @@ Replace `my-test-device` with the name of your device. If you get an "The access
 
 ### From HTML
 
-It's also possible to call the function from your own HTML page. That's a more complicated scenario and there are a few options, so that's discussed in a [separate application note](/datasheets/app-notes/an032-calling-api-from-web-page/).
+It's also possible to call the function from your own HTML page. That's a more complicated scenario and there are a few options, so that's discussed in a [separate application note](/reference/cloud-apis/calling-api-from-web-page/).
 
 
 <div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
@@ -464,7 +464,7 @@ when your Particle device is connected by USB to your computer. This line in the
 SerialLogHandler logHandler;
 ```
 
-To view the output, the easiest way is to use the [Particle CLI](/tutorials/developer-tools/cli/) and use
+To view the output, the easiest way is to use the [Particle CLI](/getting-started/developer-tools/cli/) and use
 
 ```
 particle serial monitor
@@ -562,7 +562,7 @@ You can check out the results on your console at [console.particle.io](https://c
 
 ![Console](/assets/images/console-beamstatus.png)
 
-You can also hook up publishes to IFTTT! More info [here](/tutorials/integrations/ifttt/).
+You can also hook up publishes to IFTTT! More info [here](/archives/ifttt/).
 
 ### Setup
 

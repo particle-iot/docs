@@ -24,11 +24,11 @@ The web-based library search tool is often the best option:
 
 However, you can also use:
 
-- The [Web IDE](/tutorials/developer-tools/build/#using-libraries) libraries icon.
+- The [Web IDE](/getting-started/developer-tools/build/#using-libraries) libraries icon.
 
-- The [Particle CLI library search](/tutorials/developer-tools/cli/#using-libraries).
+- The [Particle CLI library search](/getting-started/developer-tools/cli/#using-libraries).
 
-- If you are using a Sparkfun Qwiic sensor (I2C), there is a list of sensors and their libraries in the [Qwiic reference](/community/qwiic/).
+- If you are using a Sparkfun Qwiic sensor (I2C), there is a list of sensors and their libraries in the [Qwiic reference](/hardware/expansion/qwiic/).
 
 - If you have the source to a library, see [Using non-libraries](#using-non-libraries) and Using GitHub libraries, below, for using it with Particle Workbench.
 
@@ -137,7 +137,7 @@ This technique is great for working on shared code across teams and projects. Yo
 
 Submodules can also be used with a fork of a repository. This allows you to easily modify an existing GitHub-based library in a fork and merge an updated original version with your changes.
 
-See also [Working with GitHub](/tutorials/developer-tools/workbench/#working-with-github) for more tips for using it with Workbench.
+See also [Working with GitHub](/getting-started/developer-tools/workbench/#working-with-github) for more tips for using it with Workbench.
 
 ### Upgrading libraries
 
@@ -151,10 +151,10 @@ git submodule update --remote
 
 ## Creating public libraries
 
-To create a new library, see [contributing libraries](/tutorials/device-os/libraries/#contributing-libraries).
+To create a new library, see [contributing libraries](/getting-started/device-os/firmware-libraries/#contributing-libraries).
 
 If you are using Workbench, there are a few special technique that are required. See
-[Developing libraries in Workbench](/tutorials/developer-tools/workbench/#developing-particle-libraries) for more information.
+[Developing libraries in Workbench](/getting-started/developer-tools/workbench/#developing-particle-libraries) for more information.
 
 ### Library naming
 

@@ -118,7 +118,7 @@ If you want maximum brightness you should use the calculated values - 33 ohm on 
 
 If you are using a different LED, you should limit current to 2mA per color.
 
-A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 ### Reset and Mode buttons
 

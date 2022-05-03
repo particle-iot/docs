@@ -35,7 +35,7 @@ Configuration is scoped so you can have:
 - **Per-device configuration** for certain settings, like geofence settings, that are always specific to a single device. 
 It is also possible override settings for a specific device in your product, when marked as a development device.
 
-In addition to setting values directly from [the console](https://console.particle.io), you can get and set values from the [Particle Cloud API](/reference/device-cloud/api/#configuration).
+In addition to setting values directly from [the console](https://console.particle.io), you can get and set values from the [Particle Cloud API](/reference/cloud-apis/api/#configuration).
 
 The configuration is hierarchical. The top level items (location, sleep, geofence) are known as "modules."
 
@@ -166,7 +166,7 @@ There is a limit to the size of the data, as it needs to fit in a publish. You s
 
 ### Adding to the schema
 
-Here's an example from the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can/) application note. This is the new schema fragment we'll add to the console:
+Here's an example from the [AN017 Tracker CAN](/hardware/tracker/projects/tracker-can/) application note. This is the new schema fragment we'll add to the console:
 
 {{> codebox content="/assets/files/tracker/engine-schema-fragment.json" format="json" height="400"}}
 
@@ -331,7 +331,7 @@ In setup(), associate the variables with the location in the configuration schem
 - When the device comes online, getting any updates that occurred while offline.
 - If the device is already online and the settings are changed, they are pushed to the device automatically.
 
-For the full example, see the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can), the CAN bus application note.
+For the full example, see the [AN017 Tracker CAN](/hardware/tracker/projects/tracker-can/), the CAN bus application note.
 
 ## Example
 

@@ -223,8 +223,8 @@ In this tutorial thus far, we've encoded the location in the webhook. But what i
 You could use sources such as:
 
 - GNSS (GPS) with additional hardware
-- Cellular tower location using [Google Maps Device Locator](/tutorials/integrations/google-maps/)
-- Wi-Fi geolocation using [Google Maps Device Locator](/tutorials/integrations/google-maps/)
+- Cellular tower location using [Google Maps Device Locator](/getting-started/integrations/google-maps/)
+- Wi-Fi geolocation using [Google Maps Device Locator](/getting-started/integrations/google-maps/)
 
 ### Sending the location in a request
 

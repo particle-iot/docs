@@ -69,7 +69,7 @@ The left side of the page contains a real-time log of events passing through the
 
 Publishing events can be achieved in multiple ways:
 - Using `particle.publish` in firmware ([docs](/cards/firmware/cloud-functions/particle-publish/))
-- Using Particle API JS's `publishEvent` ([docs](/reference/SDKs/javascript/#publishevent))
+- Using Particle API JS's `publishEvent` ([docs](/reference/cloud-apis/javascript/#publishevent))
 - Using the Publish event button in the Event Logs page:
 
 <img src="/assets/images/eventlogs/publish.png" class="full-width" />
@@ -138,13 +138,13 @@ For more information on how to start using integrations, you should
 check out:
 
 - [Webhooks
-guide](/tutorials/device-cloud/webhooks/)
+guide](/getting-started/integrations/webhooks/)
 - [Webhooks
-tutorial](/tutorials/device-cloud/webhooks/)
+tutorial](/getting-started/integrations/webhooks/)
 - [Azure IoT Hub
-tutorial](/tutorials/integrations/azure-iot-hub/)
+tutorial](/getting-started/integrations/community-integrations/azure-iot-hub/)
 - [Google Cloud Platform
-tutorial](/tutorials/integrations/google-cloud-platform/)
+tutorial](/getting-started/integrations/google-cloud-platform/)
 
 ## Billing & Usage
 
@@ -283,7 +283,7 @@ Clicking this button will open up a modal where you can invite a team member by 
 
 Once your team member is successfully invited, they will receive an email notifying them of their invitation. The next time they log into their Console, they will have the option of accepting or declining the invitation. Remember that you can have up to 5 team members in the free Prototype tier, so go send some invites!
 
-[API Users](/reference/device-cloud/api/#api-users) are also displayed in the team members tab.
+[API Users](/reference/cloud-apis/api/#api-users) are also displayed in the team members tab.
 
 Nice! Now you have a Product with a team.
 
@@ -310,7 +310,7 @@ To import devices, click on the Devices icon in your product sidebar, then click
 
 ![Your product's devices](/assets/images/devices-page.png)
 
-To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](/tutorials/developer-tools/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
+To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](/getting-started/developer-tools/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
 
 ```
 55ff6d04498b49XXXXXXXXXX
@@ -347,13 +347,13 @@ risk when deploying new firmware to devices:
 <p class="caption">The recommended flow for releasing firmware</p>
 
 1. The first step of the release flow is using [**development
-devices**](/tutorials/product-tools/development-devices/) to rapidly develop and iterate on product firmware. These are special
+devices**](/getting-started/console/development-devices/) to rapidly develop and iterate on product firmware. These are special
 product devices marked specifically for internal testing.
 This gives you the flexibility to experiment with
 new firmwares while still simulating behaviors of deployed devices in
 the production fleet. For information on marking a device as a
 development devices, check out [the
-guide](/tutorials/product-tools/development-devices/#marking-a-development-device).
+guide](/getting-started/console/development-devices/#marking-a-development-device).
 
 2. When you have finalized a firmware that you feel confident in releasing
 to your fleet, [**prepare the binary and upload it to your
@@ -372,7 +372,7 @@ to a product device.
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
-delivered to a given device. You can also use [device groups](/tutorials/product-tools/device-groups/),
+delivered to a given device. You can also use [device groups](/getting-started/console/device-groups/),
 to more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
@@ -382,7 +382,7 @@ process.
 #### Development devices
 
 Please visit the [guide on development
-devices](/tutorials/product-tools/development-devices/) for
+devices](/getting-started/console/development-devices/) for
 information on this feature.
 
 #### Preparing a binary
@@ -392,7 +392,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 <img src="/assets/images/firmware-page.png" class="full-width"
 alt="Firmware page"/>
 
-If you have been using the [Web IDE](/tutorials/developer-tools/build/) to
+If you have been using the [Web IDE](/getting-started/developer-tools/build/) to
 develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
@@ -428,7 +428,7 @@ void loop() {
 
 #### Compiling Binaries
 
-If you are using Particle Workbench, follow the instructions to use the [**Particle: Cloud Compile**](/tutorials/developer-tools/workbench/#particle-cloud-compile) or [**Particle: Compile Application (local)**](/tutorials/developer-tools/workbench/#particle-compile-application-local-) to create a firmware binary.
+If you are using Particle Workbench, follow the instructions to use the [**Particle: Cloud Compile**](/getting-started/developer-tools/workbench/#particle-cloud-compile) or [**Particle: Compile Application (local)**](/getting-started/developer-tools/workbench/#particle-compile-application-local-) to create a firmware binary.
 
 
 If you are in the Web IDE, you can easily download a compiled binary by
@@ -515,9 +515,9 @@ they start a new secure session with the cloud (this is called a
 
 It is also possible to release firmware to a subset of your product
 fleet, using [device
-groups](/tutorials/product-tools/device-groups/). For more
+groups](/getting-started/console/device-groups/). For more
 information on fine-grained firmware management, please check out
-[the guide](/tutorials/product-tools/device-groups/) on device
+[the guide](/getting-started/console/device-groups/) on device
 groups.
 
 #### Locking firmware
@@ -613,7 +613,7 @@ Unclaimed product devices eliminate the claiming step entirely. This simplifies 
 
 ### Monitoring Event Logs
 
-The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/tutorials/device-cloud/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
+The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/getting-started/console/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
 
 ### Managing your billing
 
@@ -629,7 +629,7 @@ To see all billing related information, you can click on the billing icon in the
 - No credit card required
 - Device communication is paused<sup>1</sup> when the monthly limit is reached
 
-For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
+For more information see [Device Cloud - Introduction - Pricing](/getting-started/cloud/introduction/#pricing).
 
 <sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
@@ -709,7 +709,7 @@ You can show a subset of your devices on the map by searching:
 
 - By Device ID
 - By Device Name
-- By [Device Groups](/tutorials/product-tools/device-groups/)
+- By [Device Groups](/getting-started/console/device-groups/)
 
 You can also search by the last known location, or within a certain time range.
 
@@ -825,7 +825,7 @@ The **Type** popup menu has the following options:
 
 ![Sleep Settings](/assets/images/tracker/settings-5.png)
 
-Sleep mode allows the device to enter a low-power state when idle, conserving battery power. Sleep requires Tracker Edge v10 and Device OS 2.0.0-rc.3 or later. There are additional details in the [Tracker Sleep](/tutorials/asset-tracking/tracker-sleep/) page.
+Sleep mode allows the device to enter a low-power state when idle, conserving battery power. Sleep requires Tracker Edge v10 and Device OS 2.0.0-rc.3 or later. There are additional details in the [Tracker Sleep](/reference/tracker/tracker-sleep/) page.
 
 **Sleep Mode** can be set to **enable** or **disable**. 
 
@@ -833,7 +833,7 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 
 **Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing. If connecting takes too long, then the device will go back to sleep instead of continuously attempting to connect. The default is 90 seconds.
 
-You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/).
+You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/).
 
 
 ### Device Settings
@@ -923,7 +923,7 @@ Typical settings in common scenarios:
   - Minimum location update frequency: 28800 seconds (8 hours)
   - Sleep: enabled
   
-  If the item is moving, the location will be published every 15 minutes, otherwise the device will be in sleep mode to conserve battery power. It will also update location every 8 hours even when not moving. More sleep-related examples can be found in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/#common-scenarios).
+  If the item is moving, the location will be published every 15 minutes, otherwise the device will be in sleep mode to conserve battery power. It will also update location every 8 hours even when not moving. More sleep-related examples can be found in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/#common-scenarios).
 
 **Periodically sending information**
 
@@ -938,7 +938,7 @@ Typical settings in common scenarios:
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
-You can estimate the number of data operations you will consume using this calculator. For more information on the free tier, growth tier, blocks, and data operations, see [Pricing Tiers](/tutorials/device-cloud/introduction/#pricing).
+You can estimate the number of data operations you will consume using this calculator. For more information on the free tier, growth tier, blocks, and data operations, see [Pricing Tiers](/getting-started/cloud/introduction/#pricing).
 
 {{> dataoperationscalc}}
 
@@ -1000,7 +1000,7 @@ Some commands you can enter into the box:
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 
-It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
@@ -1031,7 +1031,7 @@ The exception is free tier products owned by you, in which case all devices, whe
 In the developer sandbox, non-product, there is no add devices button. The intended paths to add a device are:
 
 - Using the Particle mobile apps for iOS and Android
-- Using the [Particle CLI](/tutorials/developer-tools/cli/)
+- Using the [Particle CLI](/getting-started/developer-tools/cli/)
 - Using [setup.particle.io](https://setup.particle.io) 
 
 ![Devices - sandbox](/assets/images/console/sandbox-devices2.png)

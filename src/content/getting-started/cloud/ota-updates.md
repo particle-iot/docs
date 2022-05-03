@@ -97,7 +97,7 @@ development team to rapidly prototype and innovate. OTA updates can be
 sent with a click of a button in our IDEs (available both in
 [Workbench](https://www.particle.io/workbench/) and our [Web
 IDE](https://build.particle.io)), or via our developer-approved [REST
-API](/reference/device-cloud/api/).
+API](/reference/cloud-apis/api/).
 
 #### Moving to Production
 
@@ -118,7 +118,7 @@ an update responsibly and monitor fleet health for changes.
 
 #### Device OS
 
-The Particle [Device OS](/tutorials/device-os/device-os/) provides the foundation for your application. It provides many features including:
+The Particle [Device OS](/getting-started/device-os/introduction-to-device-os/) provides the foundation for your application. It provides many features including:
 
 - Core networking and communication [APIs](/reference/device-os/firmware/)
 - Standard C and C++ libraries
@@ -147,7 +147,7 @@ iteration.
 
 ### OTA in the IDEs
 
-From Particle [Workbench](https://www.particle.io/workbench/) you select the device using [Particle: Configure Workspace for Device](/tutorials/developer-tools/workbench/#cloud-build-and-flash) and compile and flash using ** Particle: Cloud Flash**.
+From Particle [Workbench](https://www.particle.io/workbench/) you select the device using [Particle: Configure Workspace for Device](/getting-started/developer-tools/workbench/#cloud-build-and-flash) and compile and flash using ** Particle: Cloud Flash**.
 
 ![Workbench OTA](/assets/images/workbench-flash.png)
 
@@ -166,7 +166,7 @@ When used with products, the device must not only be marked as a development dev
 
 It is also possible to flash devices using the REST API. 
 
-For example, you can use the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API to program a device.
+For example, you can use the [flash a device with a pre-compiled binary](/reference/cloud-apis/api/#flash-a-device-with-a-pre-compiled-binary) API to program a device.
 
 ```
 $ curl -X PUT "https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234" \
@@ -182,7 +182,7 @@ In order to use the product REST API you'll need a product bearer token. To get 
 
 Note that this token is short-lived and will be invalided when you log out of the console, so for permanent use you may want to create one using the API directly but this is useful for testing.
 
-You'll use the product variation of the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API.
+You'll use the product variation of the [flash a device with a pre-compiled binary](/reference/cloud-apis/api/#flash-a-device-with-a-pre-compiled-binary) API.
 
 ```
 $ curl -X PUT "https://api.particle.io/v1/products/:productIdOrSlug/devices/0123456789abcdef01234567?access_token=1234" \
@@ -194,9 +194,9 @@ The device must still be marked as a development device, otherwise the cloud wil
 
 ### Flash via SDKs
 
-In addition to just the cloud REST API directly or using curl, you can also use the [particle-api-js](/reference/SDKs/javascript/) Javascript API from node.js. This can make automating complex tasks much easier.
+In addition to just the cloud REST API directly or using curl, you can also use the [particle-api-js](/reference/cloud-apis/javascript/) Javascript API from node.js. This can make automating complex tasks much easier.
 
-The [flashDevice](/reference/SDKs/javascript/#flash) method makes it easy to compile and flash or flash a pre-built binary:
+The [flashDevice](/reference/cloud-apis/javascript/#flash) method makes it easy to compile and flash or flash a pre-built binary:
 
 ```
 particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, auth: token }).then(function(data) {
@@ -261,34 +261,34 @@ your fleet:
 <p class="caption">The recommended flow for releasing firmware</p>
 
 1. The first step of the release flow is using [**development
-devices**](/tutorials/product-tools/development-devices/) to rapidly develop and iterate on product firmware. These are special
+devices**](/getting-started/console/development-devices/) to rapidly develop and iterate on product firmware. These are special
 product devices marked specifically for internal testing.
 This gives you the flexibility to experiment with
 new firmwares while still simulating behaviors of deployed devices in
 the production fleet. For information on marking a device as a
 development devices, check out [the
-guide](/tutorials/product-tools/development-devices/#marking-a-development-device).
+guide](/getting-started/console/development-devices/#marking-a-development-device).
 
 2. When you have finalized a firmware that you feel confident in releasing to your fleet, [**prepare the binary and upload it to your
-product**](/tutorials/device-cloud/console/#preparing-a-binary).
+product**](/getting-started/console/console/#preparing-a-binary).
 
 3. Before releasing, you will need to ensure that the uploaded product
 firmware is running on at least one device in your product fleet.
 Your development device(s) may already be running the firmware,
-but we also recommend [**locking one or more devices**](/tutorials/device-cloud/console/#locking-firmware)
+but we also recommend [**locking one or more devices**](/getting-started/console/console/#locking-firmware)
 to the newly updated firmware and ensure that it re-connects
 successfully to the cloud. This is because locking more closely
 represents a release action, with the specific firmware being delivered
 to a product device. If you find a problem at this step, [delete the
-firmware version, recompile it and reupload it](/tutorials/device-cloud/console/#uploading-firmware).
+firmware version, recompile it and reupload it](/getting-started/console/console/#uploading-firmware).
 It is only possible to delete a firmware version before marking it as
 released.
 
-4. [**Mark the firmware as released**](/tutorials/device-cloud/console/#releasing-firmware). This will
+4. [**Mark the firmware as released**](/getting-started/console/console/#releasing-firmware). This will
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
-delivered to a given device. [Device groups](/tutorials/product-tools/device-groups/),
+delivered to a given device. [Device groups](/getting-started/console/device-groups/),
 allow you to more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
@@ -302,7 +302,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 <img src="/assets/images/firmware-page.png" class="full-width"
 alt="Firmware page"/>
 
-If you have been using the [Web IDE](/tutorials/developer-tools/build/) to
+If you have been using the [Web IDE](/getting-started/developer-tools/build/) to
 develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
@@ -311,7 +311,7 @@ Unlike compiling a binary for a single device, it is critical that the **product
 
 Add these two *macros* near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember
-that your [product ID](/tutorials/device-cloud/console/#your-product-id) can be found in the navigation
+that your [product ID](/getting-started/console/console/#your-product-id) can be found in the navigation
 of your Console. The firmware version must be an integer that increments
 each time a new binary is uploaded to the Console. This allows the
 Particle Device Cloud to determine which devices should be running which firmwares.
@@ -340,7 +340,7 @@ void loop() {
 
 **Development devices** are special class of product devices marked specifically for internal testing, separate from the production fleet. Development devices are prevented from receiving any automatic product firmware updates from the Particle Device Cloud. These devices will ignore both released product firmware as well as any firmware version it has been locked to run.
 
-The [Product Tools Development Devices Guide](/tutorials/product-tools/development-devices/) explains how to set devices as development devices.
+The [Product Tools Development Devices Guide](/getting-started/console/development-devices/) explains how to set devices as development devices.
 
 #### Upload firmware binary
 
@@ -423,17 +423,17 @@ In this example, I've selected the `beta_test` group of devices to deploy a rele
 
 ![Release To Group](/assets/images/product-release-group.png)
 
-The [Product Tools Device Groups Guide](/tutorials/product-tools/device-groups/) shows how to use groups.
+The [Product Tools Device Groups Guide](/getting-started/console/device-groups/) shows how to use groups.
 
 #### Releases via the REST API
 
 All of the operations that can be performed from the Console can also be automated using the REST API. You might do this to automate your build and release process, for example.
 
-You can build firmware using the [Particle CLI](/reference/developer-tools/cli/#particle-compile) or directly using the [compile source code API](/reference/device-cloud/api/#compile-source-code).
+You can build firmware using the [Particle CLI](/reference/developer-tools/cli/#particle-compile) or directly using the [compile source code API](/reference/cloud-apis/api/#compile-source-code).
 
-Using the [upload product firmware API](/reference/device-cloud/api/#upload-product-firmware) you can upload your firmware binary.
+Using the [upload product firmware API](/reference/cloud-apis/api/#upload-product-firmware) you can upload your firmware binary.
 
-Finally, the [release product firmware API](/reference/device-cloud/api/#release-product-firmware) can be used to release the firmware to devices.
+Finally, the [release product firmware API](/reference/cloud-apis/api/#release-product-firmware) can be used to release the firmware to devices.
 
 By using the APIs, you can script solutions that leverage other techniques like source code control (such as GitHub) and continuous integration tests.
 
@@ -630,7 +630,7 @@ an event `particle/device/updates/enabled` with a body of `false` appear
 in the event stream when `System.disableUpdates()` is called by the
 device.
 
-You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/tutorials/device-os/device-os/#managing-device-os).
+You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/getting-started/device-os/introduction-to-device-os/#managing-device-os).
 
 ### Re-enabling OTA updates
 
@@ -675,7 +675,7 @@ This feature requires a firmware binary built for Device OS 1.2.0 or later. If a
 
 ![Device OS 1.2.0 required](/assets/images/ota-updates/update-device-os.png)
 
-You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/tutorials/device-os/device-os/#managing-device-os).
+You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/getting-started/device-os/introduction-to-device-os/#managing-device-os).
 
 ### Force Enable OTA updates
 

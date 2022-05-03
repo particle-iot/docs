@@ -20,7 +20,7 @@ includeDefinitions: [api-helper, carrier-family-map]
 
 ### Tracker One
 
-If you want an off-the-shelf device can requires little or no hardware design, the [Tracker One](/datasheets/asset-tracking/tracker-one/) is a complete system with a waterproof IP67-rated enclosure. In includes cellular connectivity, GNSS (GPS) and Wi-Fi geolocation, and motion detection.
+If you want an off-the-shelf device can requires little or no hardware design, the [Tracker One](/reference/datasheets/tracker/tracker-one/) is a complete system with a waterproof IP67-rated enclosure. In includes cellular connectivity, GNSS (GPS) and Wi-Fi geolocation, and motion detection.
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
@@ -38,7 +38,7 @@ The Tracker One is fully assembled and sealed; all you need to do is plug it in 
 
 Included inside the fully assembled, sealed enclosure:
 
-- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - 2000 mAh LiPo battery.
 - Cellular antenna.
 - Wi-Fi antenna (for geolocation only, not for connectivity).
@@ -55,9 +55,9 @@ Included inside the fully assembled, sealed enclosure:
 
 ![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
 
-If you are interested in measuring temperature and humidity, an [external sensor](/tutorials/asset-tracking/m8-temperature-humidity/) can be connected to the M8 connector. The connector maintains the waterproof rating when in use.
+If you are interested in measuring temperature and humidity, an [external sensor](/hardware/tracker/m8-temperature-humidity/) can be connected to the M8 connector. The connector maintains the waterproof rating when in use.
 
-[Custom solutions](/tutorials/asset-tracking/tracker-one-expansion/) can be implemented via an M8 connector as well. 
+[Custom solutions](/hardware/tracker/tracker-one-expansion/) can be implemented via an M8 connector as well. 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6a02fd77-1222-4208-8da5-45c9290c5f6d --}}
 
@@ -94,13 +94,13 @@ There are also evaluation kits for the B Series SoM, Tracker SoM, and E Series m
 
 If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#cellular-or-wi-fi) below.
 
-- The Argon has been deprecated and will be replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/).
+- The Argon has been deprecated and will be replaced by the Photon 2. For the differences, see the [Argon to Photon 2 migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/).
 - The Boron 2G/3G (BRN314KIT) has been deprecated (along with all other 2G/3G SKUs) as the u-blox SARA-U201 cellular modem module on it is end-of-life.
 - The Boron LTE Cat M1 (BRN404KIT or BRN404X) is the recommended model for the United States, Canada, and Mexico.
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply.
-- All Boron devices include a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- All Boron devices include a built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - Starter kits include a mini-breadboard, USB cable, two resistors (220 ohm), one red LED, and one photodiode.
-- ARG-STRTKT includes a variety of [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
+- ARG-STRTKT includes a variety of [Grove](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and a display.
 - A battery is included with the Boron 2G/3G (BRN314) as the cellular modem uses more power for brief periods of time than a standard laptop USB port will supply.
 
 
@@ -122,8 +122,8 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 
 There are numerous ways to expand Gen 3 devices:
 
-- [Adafruit FeatherWing](/community/feather/) compatible modules can add things like displays, sensors, relays, with no wiring necessary.
-- [SparkFun Qwiic](/community/qwiic/) and Adafruit Stemma-QT modules provide a way to add features connected by a small I2C cable. Multiple modules can be chained together, as well.
+- [Adafruit FeatherWing](/hardware/expansion/feather/) compatible modules can add things like displays, sensors, relays, with no wiring necessary.
+- [SparkFun Qwiic](/hardware/expansion/qwiic/) and Adafruit Stemma-QT modules provide a way to add features connected by a small I2C cable. Multiple modules can be chained together, as well.
   - Environment sensors (pressure, temperature, humidity) like the BME280
   - Buttons and indicator buttons
   - Load cell adapter (weight sensor)
@@ -132,12 +132,12 @@ There are numerous ways to expand Gen 3 devices:
   - Relays
   - Keypads
   - Small displays
-- [Grove](/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and displays connect to digital, analog, I2C, and serial devices with a simple 4-pin cable.
+- [Grove](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) sensors and displays connect to digital, analog, I2C, and serial devices with a simple 4-pin cable.
 
 
 Its also possible to prototype with these easy to use modules, then include the same functionality on a custom board later. The Adafruit and SparkFun designs are all open-source and include hardware design files for EagleCAD.
 
-The [Beyond Prototyping Tutorial](/tutorials/learn-more/beyond-prototyping/) shows examples of how you can move from prototyping to custom circuit boards, with example designs.
+The [Beyond Prototyping Tutorial](/hardware/expansion/beyond-prototyping/) shows examples of how you can move from prototyping to custom circuit boards, with example designs.
 
 For more information about the Boron, see [Cellular](#boron-prototyping-gen-3-cellular-) below.
 
@@ -178,7 +178,7 @@ Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes
 
 <sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
 
-<sup>2</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>2</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 For more information about the B Series SoM, see [Cellular - B Series SoM](#b-series-som-production-gen-3-cellular-) below.
@@ -196,7 +196,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - GNSS (GPS)
 - IMU (accelerometer)
 - Real-time clock
-- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - PMIC and fuel gauge chips (charger and battery level sensor)
 - Hardware watchdog
 {{!-- END shared-blurb --}}
@@ -212,7 +212,7 @@ For more information about the Tracker SoM, see [Cellular - Tracker SoM](#tracke
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/datasheets/electron/e404x-migration-guide/) for more information.
+- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -226,7 +226,7 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | Battery Connector | &check; | &nbsp; | Optional |
 | PMIC and Fuel Gauge| &check; | &check; | |
 
-<sup>1</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>1</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 For more information about the E Series module, see [Cellular - E Series](#e-series-production-gen-2-cellular-) below.
@@ -262,7 +262,7 @@ For more information about the Wi-Fi modules, see [Wi-Fi - P1](/#p1-production-g
 
 <div align="center"><img src="/assets/images/p1-vector.png" width="200"></div>
 
-The P1 module has been deprecated and is replaced by the P2 module, which is mostly pin-compatible. See the [P2 from P1 migration guide](/datasheets/wi-fi/p2-p1-migration-guide/) for more information.
+The P1 module has been deprecated and is replaced by the P2 module, which is mostly pin-compatible. See the [P2 from P1 migration guide](/hardware/migration-guides/p2-p1-migration-guide/) for more information.
 
 For more information about the Wi-Fi modules, see [Wi-Fi - P1](/#p1-production-gen-2-wi-fi-) below.
 
@@ -305,7 +305,7 @@ Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes
 
 <sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
 
-<sup>2</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>2</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 
@@ -329,9 +329,9 @@ The available models include:
 {{> carrier-family-map family="b series"}}
 
 
-- [B404 datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
-- [B524 datasheet](/datasheets/boron/b524-b523-datasheet/)
-- [B Series evaluation board](/datasheets/boron/b-series-eval-board/)
+- [B404 datasheet](/reference/datasheets/b-series/b404x-b404-b402-datasheet/)
+- [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
+- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
@@ -347,7 +347,7 @@ The available models include:
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
 
-- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
+- For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
 #### Boron (Prototyping Gen 3 Cellular)
 
@@ -356,7 +356,7 @@ The available models include:
 
 The Boron is the 3rd-generation cellular device in a prototyping form factor. It has pins on the bottom that can plug into a solderless breadboard, and is compatible with the Adafruit Feather form-factor to easily add accessories like sensors and displays. You can also plug it into a socket on a custom circuit board.
 
-- Includes a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Includes a built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply (3.9 - 12 VDC).
 {{!-- END shared-blurb --}}
 
@@ -372,13 +372,13 @@ The available models include:
 
 - <sup>1</sup>Global except in areas that have or will soon discontinue the use of 2G/3G, including the United States.
 - The BRN314 and BRN310 are now deprecated as the cellular modem on the module is no longer available.
-- Do not deploy the BRN314 or BRN310 in the United States, see [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
+- Do not deploy the BRN314 or BRN310 in the United States, see [2G/3G sunset](/getting-started/hardware/cellular-overview/#united-states).
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
 
 {{> carrier-family-map family="boron"}}
 
 
-- [Boron datasheet](/datasheets/boron/boron-datasheet/)
+- [Boron datasheet](/reference/datasheets/b-series/boron-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
 
 
@@ -396,7 +396,7 @@ The available models include:
 
 {{!-- END do not edit content above, it is automatically generated 518869dc-61de-43db-add1-f0d57956c4e0 --}}
 
-- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
+- For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
 
 #### Tracker (Gen 3 Cellular)
@@ -413,16 +413,16 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - GNSS (GPS)
 - IMU (accelerometer)
 - Real-time clock
-- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - PMIC and fuel gauge chips (charger and battery level sensor)
 - Hardware watchdog
 {{!-- END shared-blurb --}}
 
 {{> carrier-family-map family="tracker"}}
 
-- [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/)
-- [Tracker SoM evaluation board](/datasheets/asset-tracking/tracker-som-eval-board/)
-- [Tracker One datasheet](/datasheets/asset-tracking/tracker-one/)
+- [Tracker SoM datasheet](/reference/datasheets/tracker/tracker-som-datasheet/)
+- [Tracker SoM evaluation board](/reference/datasheets/tracker/tracker-som-eval-board/)
+- [Tracker One datasheet](/reference/datasheets/tracker/tracker-one/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
 
@@ -442,7 +442,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - The T524 and ONE524 are only recommended for use in Europe, Australia, and New Zealand.
 - The T524, T523, ONE524, ONE523 do not work out of the EMEAA region.
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
-- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
+- For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
 
 #### E Series (Production Gen 2 Cellular)
 
@@ -452,7 +452,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/datasheets/electron/e404x-migration-guide/) for more information.
+- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -466,15 +466,15 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | Battery Connector | &check; | &nbsp; | Optional |
 | PMIC and Fuel Gauge| &check; | &check; | |
 
-<sup>1</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>1</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 
 {{> carrier-family-map family="e series"}}
 
-- [E Series datasheet](/datasheets/electron/e-series-datasheet/)
-- [E Series evaluation board](/datasheets/electron/e-series-eval-board/)
-- [E Series integration guide](/datasheets/electron/e-series-system-integration-manual/)
+- [E Series datasheet](/reference/datasheets/e-series/e-series-datasheet/)
+- [E Series evaluation board](/reference/datasheets/e-series/e-series-eval-board/)
+- [E Series integration guide](/reference/datasheets/e-series/e-series-system-integration-manual/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
 
@@ -489,10 +489,10 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 {{!-- END do not edit content above, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
 
 - Global models except in areas that have or will soon discontinue the use of 2G/3G, including the United States.
-- Do not deploy the E314 or E310 in the United States, see [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
+- Do not deploy the E314 or E310 in the United States, see [2G/3G sunset](/getting-started/hardware/cellular-overview/#united-states).
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
-- For more in-depth information on cellular devices see the [cellular introduction](/tutorials/cellular-connectivity/introduction/) page.
-- If you are currently using a Gen 2 cellular device (Electron or E Series) and are interested in migrating to a Gen 3 device (Boron or B Series SoM), see [Gen 2 Cellular Migration](/tutorials/learn-more/gen2-cellular-migration/).
+- For more in-depth information on cellular devices see the [cellular introduction](/getting-started/hardware/cellular-overview/) page.
+- If you are currently using a Gen 2 cellular device (Electron or E Series) and are interested in migrating to a Gen 3 device (Boron or B Series SoM), see [Gen 2 Cellular Migration](/hardware/migration-guides/gen2-cellular-migration/).
 
 
 ### Wi-Fi
@@ -534,9 +534,9 @@ For the P2 and Photon 2, a sample BLE setup app using React will be available.
 
 The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
 
-- [Photon 2 datasheet](/datasheets/wi-fi/photon-2-datasheet/)
+- [Photon 2 datasheet](/reference/datasheets/wi-fi/photon-2-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
-- [Photon 2 from Argon migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/)
+- [Photon 2 from Argon migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/)
 
 {{!-- BEGIN shared-blurb d3802fd5-24b9-433c-b2c9-3d994182751e --}}
 | Feature | Photon 2 | Photon | Argon |
@@ -594,9 +594,9 @@ The Photon 2 will replace the Argon as the prototyping Wi-Fi device.
 
 The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bottom). It is deprecated and will be replaced by the Photon 2.
 
-- [Argon datasheet](/datasheets/wi-fi/argon-datasheet/)
+- [Argon datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
 - [Ways to expand Gen 3 feather devices](#prototyping) (above)
-- [Photon 2 from Argon migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/)
+- [Photon 2 from Argon migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10 --}}
 
@@ -614,10 +614,10 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 
 <div align="center"><img src="/assets/images/p2-rendering.png" width="200"></div>
 
-- [P2 datasheet](/datasheets/wi-fi/p2-datasheet/)
-- [P2 from P1 migration guide](/datasheets/wi-fi/p2-p1-migration-guide/)
-- [P2 from Argon migration guide](/datasheets/wi-fi/p2-argon-migration-guide/)
-- [P2 from Photon migration guide](/datasheets/wi-fi/p2-photon-migration-guide/)
+- [P2 datasheet](/reference/datasheets/wi-fi/p2-datasheet/)
+- [P2 from P1 migration guide](/hardware/migration-guides/p2-p1-migration-guide/)
+- [P2 from Argon migration guide](/hardware/migration-guides/p2-argon-migration-guide/)
+- [P2 from Photon migration guide](/hardware/migration-guides/p2-photon-migration-guide/)
 
 {{!-- BEGIN shared-blurb 2403957d-c08c-4184-bbe9-0feb12a001e7 --}}
 | Feature | P2 | P1 | Photon | Argon |
@@ -687,8 +687,8 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 
 The P1 is intended for production use. It is an older Gen 2 models as is deprecated. The P2 should be used instead. 
 
-- [P1 datasheet](/datasheets/wi-fi/p1-datasheet/)
-- [P2 from P1 migration guide](/datasheets/wi-fi/p2-p1-migration-guide/)
+- [P1 datasheet](/reference/datasheets/wi-fi/p1-datasheet/)
+- [P2 from P1 migration guide](/hardware/migration-guides/p2-p1-migration-guide/)
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b --}}
 
@@ -734,17 +734,17 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 ![](/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png)
 
 
-The Photon 2, Argon, Boron are compatible with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
+The Photon 2, Argon, Boron are compatible with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing). 
 
-With the B Series SoM you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. The [B Series Eval Board](/datasheets/boron/b-series-eval-board/) includes this circuitry.
+With the B Series SoM you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. The [B Series Eval Board](/reference/datasheets/b-series/b-series-eval-board/) includes this circuitry.
 
 With the P2 module, you can implement Ethernet on your custom base board fairly simply using the WIZnet W5500 chipset. There is no evaluation board for this combination, but the circuitry is straightforward and conceptually the same as the B Series, though the specific pins are different.
 
-You can also include Ethernet functionality on your Tracker SoM base board, but this is an unusual configuration and the [Tracker SoM Eval board](/datasheets/asset-tracking/tracker-som-eval-board/) does not include Ethernet. 
+You can also include Ethernet functionality on your Tracker SoM base board, but this is an unusual configuration and the [Tracker SoM Eval board](/reference/datasheets/tracker/tracker-som-eval-board/) does not include Ethernet. 
 
 It is not possible to use Ethernet with Gen 2 devices (Photon, P1, Electron, or E Series).
 
-Ethernet is only intended for use as a method of connecting to the Internet. It is not intended to connect to isolated Ethernet segments such as Ethernet control networks, and relay information over cellular, for example. See the [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/) application note for more information.
+Ethernet is only intended for use as a method of connecting to the Internet. It is not intended to connect to isolated Ethernet segments such as Ethernet control networks, and relay information over cellular, for example. See the [AN037 Ethernet](/hardware/ethernet/ethernet/) application note for more information.
 
 The following pins are used by Ethernet. These cannot be reconfigured.
 

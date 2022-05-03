@@ -8,11 +8,11 @@ columns: two
 
 Particle Gen 3 devices including the Argon, Boron, and B Series SoM have the ability to use Ethernet.
 
-For the Feather form-factor devices (Argon, Boron) this is typically done using the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing).
+For the Feather form-factor devices (Argon, Boron) this is typically done using the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing).
 
-For the B Series SoM devices (B404, B402, B524, B523), the [B Series Evaluation Board](/datasheets/boron/b-series-eval-board/) includes Ethernet. You can also use the same Wiznet W5500 chip on your own custom base board for the B Series SoM.
+For the B Series SoM devices (B404, B402, B524, B523), the [B Series Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/) includes Ethernet. You can also use the same Wiznet W5500 chip on your own custom base board for the B Series SoM.
 
-Both the Ethernet FeatherWing and B Series Evaluation Board have a socket to enable Power-over-Ethernet (PoE), however the [PoE Adapter](/datasheets/accessories/gen3-accessories/#poe-power-over-ethernet-) is discontinued and no longer available from Particle. You could still include the Silvertel Ag9905M on your custom B Series SoM base board.
+Both the Ethernet FeatherWing and B Series Evaluation Board have a socket to enable Power-over-Ethernet (PoE), however the [PoE Adapter](/reference/datasheets/accessories/gen3-accessories/#poe-power-over-ethernet-) is discontinued and no longer available from Particle. You could still include the Silvertel Ag9905M on your custom B Series SoM base board.
 
 Note that the Wiznet W5500 does not support Auto MDI-X so you may need a crossover cable when connecting directly to a computer or laptop instead of an Ethernet switch.
 

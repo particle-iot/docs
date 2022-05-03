@@ -14,7 +14,7 @@ One difference between the Tracker One and other Particle devices is that the Tr
 - Semi-custom. The Tracker One firmware is customizable on-device making it possible to add new sensors and customize behavior while still making it easy to upgrade the base firmware.
 - Custom. The Tracker One firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications. Or build your own completely from scratch.
 
-The [Tracker Edge Firmware API Reference](/reference/asset-tracking/tracker-edge-firmware/) is also available.
+The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) is also available.
 
 ## Using off-the-shelf releases
 
@@ -31,7 +31,7 @@ Once you've uploaded custom firmware to your product, the off-the-shelf releases
 If you are going to develop firmware for the Tracker One or Tracker SoM, you have to perform a few additional steps.
 
 - Your firmware will typically be based on Tracker Edge, as outlined below. This is not a requirement and you can build your own firmware from the ground-up, however you will not have the cloud configuration, location event support, and the libraries for the GNSS (GPS), IMU (accelerometer), CAN bus, and other Tracker-specific peripherals.
-- All Tracker devices must be part of a product, as described in [setup](/tutorials/asset-tracking/setup/).
+- All Tracker devices must be part of a product, as described in [setup](/getting-started/tracker/tracker-setup/).
 - By default, Tracker devices are not claimed to your account. This may affect development.
 
 ### Mark as development device
@@ -40,7 +40,7 @@ If you are going to develop firmware for the Tracker One or Tracker SoM, you hav
 - Open the product containing your Tracker device.
 - In the Device List, click the **...** button and then **Mark development device**.
 
-For more information, see [Development devices](/tutorials/product-tools/development-devices/).
+For more information, see [Development devices](/getting-started/console/development-devices/).
 
 <img src="/assets/images/development-devices/mark-development-device.png"
 alt="Mark development device" class="small"/>
@@ -102,7 +102,7 @@ git submodule update --init --recursive
 - Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
-Make sure you've used the [**Mark As Development Device**](/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 ## Overview
 
@@ -207,7 +207,7 @@ void loop()
 }
 ```
 
-For more information about the reason for using `Tracker::instance()` and the singleton pattern, see application note [AN034 singleton pattern](/datasheets/app-notes/an034-singleton/).
+For more information about the reason for using `Tracker::instance()` and the singleton pattern, see application note [AN034 singleton pattern](/firmware/software-design/singleton/).
 
 ## Adding to the location event
 
@@ -299,7 +299,7 @@ One easy way to get a temporary access token is to:
 - Copy and paste the access token from the end of the command that is displayed.
 - This token is invalidated when your close the console.
 
-To estimate the data usage when adding additional fields, see [this page](/tutorials/device-cloud/console/#data-usage).
+To estimate the data usage when adding additional fields, see [this page](/getting-started/console/console/#data-usage).
 
 ## Multi-function pins
 
@@ -340,7 +340,7 @@ By default, Tracker One and Tracker SoM devices are unclaimed product devices. O
 
 - Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
 
-For more information, see [Device claiming](/tutorials/device-cloud/device-claiming/).
+For more information, see [Device claiming](/getting-started/cloud/device-claiming/).
 
 ## Using GitHub with Tracker Edge
 
@@ -458,7 +458,7 @@ Some commands you can enter into the box:
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 
-It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/tracker-edge-api-reference/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
@@ -466,6 +466,6 @@ On a successful cmd request, the result is 0. A result of -22 indicates the JSON
 
 ## Learn More 
 
-- The [Tracker Edge Firmware API Reference](/reference/asset-tracking/tracker-edge-firmware/) has more information on the available APIs.
-- The [Tracker Eval Board I2C Example](/tutorials/asset-tracking/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.
+- The [Tracker Edge Firmware API Reference](/firmware/tracker-edge/tracker-edge-api-reference/) has more information on the available APIs.
+- The [Tracker Eval Board I2C Example](/getting-started/tracker/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.
 

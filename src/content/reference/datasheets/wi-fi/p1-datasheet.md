@@ -12,7 +12,7 @@ description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 {{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The P1 has been deprecated. The recommend replacement is the [P2](/datasheets/wi-fi/p2-datasheet/).
+The P1 has been deprecated. The recommend replacement is the [P2](/reference/datasheets/wi-fi/p2-datasheet/).
 
 See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
 {{box op="end"}}
@@ -126,7 +126,7 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 ### RGB LED, SETUP and RESET button
 
-When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/tutorials/device-os/led/). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
+When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/troubleshooting/led/). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
 
 ---
 
@@ -576,7 +576,7 @@ The P1 module comes pre-programmed with a bootloader and a user application call
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
+You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 

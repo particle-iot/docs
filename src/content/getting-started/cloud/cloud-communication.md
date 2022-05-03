@@ -9,7 +9,7 @@ includeDefinitions: [api-helper, api-helper-events, api-helper-extras, api-helpe
 
 # {{title}}
 
-There are [a number of different ways](/tutorials/device-os/device-os/#communication) for Particle devices to 
+There are [a number of different ways](/getting-started/device-os/introduction-to-device-os/#communication) for Particle devices to 
 communicate with each other, the Particle cloud, and external services, but this page will focus on the 
 big four: Publish, Function, Variable, and Subscribe.
 
@@ -30,7 +30,7 @@ Publishing events is a common thing to do:
 - Events are relatively small (622 to 1024 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/))
 - Events have a maximum publish rate (typically 1 second per event per device)
 - Events can trigger webhooks for communicating with external services
-- Each event typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)
+- Each event typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
 
 You can learn more Particle publish in the [Device OS Firmware API reference](/cards/firmware/cloud-functions/particle-publish/). 
 
@@ -241,7 +241,7 @@ And in the console:
 - You can have up to 20 functions per device, but you can also use the data parameter to handle many more variations
 - Functions can only return a 32-bit integer value. They cannot return strings, double width floating point, etc.
 - Functions only work when the device is online and breathing cyan
-- Each function typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)
+- Each function typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
 - Functions and variables can be used on unclaimed product devices, but subscribe cannot
 
 Maybe a table will help:
@@ -254,7 +254,7 @@ Maybe a table will help:
 | | Works with unclaimed product devices |
 
 You can learn more Particle functions in the [Device OS Firmware API reference](/cards/firmware/cloud-functions/particle-function/). 
-There is also another tutorial in [Blink an LED over the net](/tutorials/hardware-projects/hardware-examples/#control-leds-over-the-39-net).
+There is also another tutorial in [Blink an LED over the net](/getting-started/hardware-tutorials/hardware-examples/#control-leds-over-the-39-net).
 
 And a few notable limits:
 
@@ -362,7 +362,7 @@ What happens if:
 - You can have up to 20 variables per device
 - A variable can contain multiple values if encoded (comma separated values, JSON, etc.)
 - Variables only work when the device is online and breathing cyan
-- Each variable retrieval typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)
+- Each variable retrieval typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
 - Functions and variables can be used on unclaimed product devices, but subscribe cannot
 
 | Publish from Device | Variable |
@@ -454,7 +454,7 @@ The function must return one of the allowed types: `int`, `bool`, `double`, or `
 - Publish data is limited to 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
 - You can have up to four subscriptions per device, but it's a prefix so you can accept many events with one subscription
 - Subscribe only works when the device is online and breathing cyan
-- Each event received typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)
+- Each event received typically uses one Particle cloud [data operation](/getting-started/cloud/introduction/#pricing-tiers)
 - There is no confirmation built-in: the publisher of an event won't know if a specified device receives it
 - Subscribe cannot be used on unclaimed product devices
 - Product events are unidirectional from the device to the cloud. Devices cannot subscribe to product events.

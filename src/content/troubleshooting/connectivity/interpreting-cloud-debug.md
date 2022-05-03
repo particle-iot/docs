@@ -15,7 +15,7 @@ The pages above include instructions for installing and removing the cloud debug
 
 This guide mostly concentrates on cellular issues (Electron, E Series, and Boron).
 
-This application note is continued in [AN004 Interpreting Cloud Debug-2](/datasheets/app-notes/an004-interpreting-cloud-debug-2/) which is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
+This application note is continued in [AN004 Interpreting Cloud Debug-2](/troubleshooting/connectivity/interpreting-cloud-debug-2/) which is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
 
 
 

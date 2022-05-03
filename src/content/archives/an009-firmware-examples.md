@@ -28,7 +28,7 @@ This example illustrates:
 - This example is best for long sleep times, 15 minutes or more.
 - Use SEMI_AUTOMATIC mode.
 - Stay awake for firmware updates (optional).
-- [AN029 Wake, publish, then sleep for cellular devices](/datasheets/app-notes/an029-wake-publish-sleep-cellular)  provides an annotated code example for doing wake, publish, then sleep cycles with cellular devices.
+- [AN029 Wake, publish, then sleep for cellular devices](/firmware/low-power/wake-publish-sleep-cellular/)  provides an annotated code example for doing wake, publish, then sleep cycles with cellular devices.
 
 #### Stop Sleep Cellular
 
@@ -40,7 +40,7 @@ This example illustrates:
 - This example is best with short sleep times, under 15 minutes or if you want to be able to publish very quickly after waking up.
 - Customizable sending of device diagnostics.
 - Customizable software update behavior.
-- [AN028 Stop mode sleep for cellular devices](/datasheets/app-notes/an028-stop-sleep-cellular) provides an annotated code example for using stop mode sleep with cellular devices.
+- [AN028 Stop mode sleep for cellular devices](/firmware/low-power/stop-sleep-cellular/) provides an annotated code example for using stop mode sleep with cellular devices.
 
 #### EEPROM Samples
 
@@ -52,7 +52,7 @@ This is the most complicated example. It illustrates:
 - Customizable software update behavior.
 - Stores samples in EEPROM so they are preserved even if the connection fails.
 - Periodic sampling with minimal drift, even with connection failures.
-- [AN030 Saving samples in EEPROM](/datasheets/app-notes/an030-eeprom-samples) provides an annotated code example for using saving samples in EEPROM and publishing them when connected.
+- [AN030 Saving samples in EEPROM](/reference/device-os/eeprom/) provides an annotated code example for using saving samples in EEPROM and publishing them when connected.
 
 
 

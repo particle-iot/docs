@@ -187,7 +187,7 @@ management and irreversible destructive actions.
 
 For a comprehensive discussion of roles and permissions, please check
 out the [tutorial on Team Access
-Controls](/tutorials/product-tools/team-access-controls/).
+Controls](/getting-started/console/team-access-controls/).
 
 To give a specific example,
 if you are invited to an Organization team with the Administrator role,

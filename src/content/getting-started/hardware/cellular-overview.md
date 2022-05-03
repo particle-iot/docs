@@ -19,7 +19,7 @@ Particle has a wide variety of cellular devices to suit many applications. There
 
 The Boron is the 3rd-generation cellular device in a prototyping form factor. It has pins on the bottom that can plug into a solderless breadboard, and is compatible with the Adafruit Feather form-factor to easily add accessories like sensors and displays. You can also plug it into a socket on a custom circuit board.
 
-- Includes a built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Includes a built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - Can be powered by USB, rechargeable LiPo battery, or an external power supply (3.9 - 12 VDC).
 {{!-- END shared-blurb --}}
 
@@ -75,7 +75,7 @@ Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes
 
 <sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
 
-<sup>2</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>2</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 {{!-- BEGIN shared-blurb 97fa98d2-9baa-11ec-b909-0242ac120002 --}}
@@ -127,7 +127,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - GNSS (GPS)
 - IMU (accelerometer)
 - Real-time clock
-- Built-in Particle SIM card ([free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required).
+- Built-in Particle SIM card ([free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required).
 - PMIC and fuel gauge chips (charger and battery level sensor)
 - Hardware watchdog
 {{!-- END shared-blurb --}}
@@ -169,7 +169,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 The E Series modules are generally 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
 
 - The E310, E313, and E314 are deprecated due to the end-of-life of the u-blox SARA-U201 cellular modem module.
-- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/datasheets/electron/e404x-migration-guide/) for more information.
+- The E402 and E404 will be replaced by the E404X. Note, however, that this is not a drop-in replacement as there are significant differences between these two modules. See the [E404X migration guide](/hardware/migration-guides/e404x-migration-guide/) for more information.
 - New designs should use the B Series M.2 SoM instead of the E Series form-factor.
 
 | Feature | Electron | E Series Module | Base Board |
@@ -183,7 +183,7 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | Battery Connector | &check; | &nbsp; | Optional |
 | PMIC and Fuel Gauge| &check; | &check; | |
 
-<sup>1</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>1</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 
@@ -331,7 +331,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 {{!-- END do not edit content above, it is automatically generated 921d1b74-0130-49e9-9322-3da75e405e4e --}}
 
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries.
-- Global 2G/3G devices should not be used in the United States because of the [2G/3G sunset](/tutorials/cellular-connectivity/introduction/#united-states).
+- Global 2G/3G devices should not be used in the United States because of the [2G/3G sunset](/getting-started/hardware/cellular-overview/#united-states).
 
 
 ## By Modem
@@ -512,7 +512,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 
 ## Cellular Carriers
 
-The Particle SIM supports many carriers around the world. The [list of mobile carriers](/tutorials/cellular-connectivity/cellular-carriers/) is the complete list, however it's important to note that different Particle SIM cards that support a different set of carriers, which may also vary depending on the device.
+The Particle SIM supports many carriers around the world. The [list of mobile carriers](/reference/cellular/cellular-carriers/) is the complete list, however it's important to note that different Particle SIM cards that support a different set of carriers, which may also vary depending on the device.
 
 - Boron 2G/3G EtherSIM BRN314 
 - Boron 2G/3G BRN310
@@ -594,7 +594,7 @@ In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the
 
 <sup>6</sup>For LTE Cat M1 bands, see [LTE Cat M1](#lte-cat-m1) below.
 
-<sup>7</sup>The Quectel EG91-E modem supports European LTE bands (700, 700, 900, 1800, 2100, and 2600), as well as HSPA/WCDMA 3G (900, 2100) and GSM 2G (900, 1800). See [the datasheet](/datasheets/boron/b524-b523-datasheet/#4g-lte-cellular-characteristics-for-eg91-e) for more information.
+<sup>7</sup>The Quectel EG91-E modem supports European LTE bands (700, 700, 900, 1800, 2100, and 2600), as well as HSPA/WCDMA 3G (900, 2100) and GSM 2G (900, 1800). See [the datasheet](/reference/datasheets/b-series/b524-b523-datasheet/#4g-lte-cellular-characteristics-for-eg91-e) for more information.
 
 ### 3rd-party SIM cards
 
@@ -1008,7 +1008,7 @@ In the United States, LTE Cat M1 EtherSIM devices (Boron BRNR404X/BRN404, B Seri
 
 ### Third-party SIMs
 
-Some devices, most notably the Boron, allow the use of a third-party SIM card. See [3rd-party SIM cards](/tutorials/cellular-connectivity/introduction/#3rd-party-sim-cards) for a full list. Third-party SIM cards are not recommended for enterprise use. Additionally, once you exceed the limits of the free plan, the price based on devices and data operations is the same whether you are using the Particle SIM or a 3rd-party SIM, so it's often not cost-effective.
+Some devices, most notably the Boron, allow the use of a third-party SIM card. See [3rd-party SIM cards](/getting-started/hardware/cellular-overview/#3rd-party-sim-cards) for a full list. Third-party SIM cards are not recommended for enterprise use. Additionally, once you exceed the limits of the free plan, the price based on devices and data operations is the same whether you are using the Particle SIM or a 3rd-party SIM, so it's often not cost-effective.
 
 There may also be issues with certification and carrier approval as described below.
 
@@ -1021,7 +1021,7 @@ For example, since the LTE Cat M1 devices are intended for use in North America 
 
 The B524, T524, ONE524, etc. have all undergone EU certification as they are intended for use in Europe, however they are not certified for the US and Canada. Also they will not work, because of band compatibility.
 
-There may also be country-specific certifications that may not have been completed, for example SK in South Korea and MIC in Japan. There are others. A full list of certifications is available on the [certifications page](/datasheets/certifications/certification/).
+There may also be country-specific certifications that may not have been completed, for example SK in South Korea and MIC in Japan. There are others. A full list of certifications is available on the [certifications page](/hardware/certification/certification/).
 
 In addition to the Particle device being certified, the cellular modem may not be certified in some countries. For example, the EG91-E and EG91-EX were not certified by Quetel for use in China, because other modem models are recommended for use in China, as there are also band compatibility issues with the EG91.
 
@@ -1061,7 +1061,7 @@ The SARA-R410M cellular modem in the Boron LTE (BRN404) is configured for North 
 
 Certain countries and carriers are phasing out 2G and 3G service. This is a particularly immediate concern in the United States, which will no longer have any 2G or 3G service after 2022. 
 
-The section [2G and 3G sunset](/tutorials/cellular-connectivity/introduction/#2g-and-3g-sunset), above, has more details.
+The section [2G and 3G sunset](/getting-started/hardware/cellular-overview/#2g-and-3g-sunset), above, has more details.
 
 ## Summary
 

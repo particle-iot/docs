@@ -20,13 +20,13 @@ Some common use cases:
 - Theft detection, by triggering if a tracked item leaves a geofenced location
 - Destination tracking, by triggering when a tracked item arrives the geofenced location of its destination
 
-Geofencing requires Tracker Edge firmware v17. To upgrade your Tracker firmware, see [Tracker Edge Firmware](/tutorials/asset-tracking/tracker-edge-firmware/).
+Geofencing requires Tracker Edge firmware v17. To upgrade your Tracker firmware, see [Tracker Edge Firmware](/firmware/tracker-edge/tracker-edge-firmware/).
 
 {{> sso}}
 
 ## Processing location data
 
-Geofencing events are provided as part of the [Tracker location event](/reference/device-cloud/api/#tracker-location-events). 
+Geofencing events are provided as part of the [Tracker location event](/reference/cloud-apis/api/#tracker-location-events). 
 
 There are additional values that can be included in the `trig` array that indicate the reason geofence status:
 
@@ -40,19 +40,19 @@ There are additional values that can be included in the `trig` array that indica
 
 Thus geofence data can be processed by any methods used to handle location events, including:
 
-- [Webhooks](/tutorials/device-cloud/webhooks/)
-- Other integrations such as [Google Cloud Platform](/tutorials/integrations/google-cloud-platform/)
-- The [Server Sent Events Stream](/reference/device-cloud/api/#product-event-stream)
-- [Querying historical location data](/reference/device-cloud/api/#location)
+- [Webhooks](/getting-started/integrations/webhooks/)
+- Other integrations such as [Google Cloud Platform](/getting-started/integrations/google-cloud-platform/)
+- The [Server Sent Events Stream](/reference/cloud-apis/api/#product-event-stream)
+- [Querying historical location data](/reference/cloud-apis/api/#location)
 
 
 ## Console configuration
 
-Configuration of Geofence settings can be done from the console on a per-device basis, [as described in the console documentation](/tutorials/device-cloud/console/#geofence-settings).
+Configuration of Geofence settings can be done from the console on a per-device basis, [as described in the console documentation](/getting-started/console/console/#geofence-settings).
 
 {{imageOverlay src="/assets/images/tracker/geofence-settings.png" alt="Geofence Settings" }}
 
-Geofence support is part of the [Tracker configuration schema](/tutorials/asset-tracking/tracker-configuration/). If you are using the default schema, it will automatically be enabled for you, however if you are using a custom schema, the feature will not be available in the console until you merge the geofence options into your custom schema. You must do this manually and update your product schema; schema changes are never automatically merged.
+Geofence support is part of the [Tracker configuration schema](/reference/tracker/tracker-configuration/). If you are using the default schema, it will automatically be enabled for you, however if you are using a custom schema, the feature will not be available in the console until you merge the geofence options into your custom schema. You must do this manually and update your product schema; schema changes are never automatically merged.
 
 ## API configuration
 
@@ -60,8 +60,8 @@ In many cases, you will want to programmatically update geofence settings. The g
 
 You will likely need to:
 
-- [Get device configuration](/reference/device-cloud/api/#get-device-configuration)
-- [Set device configuration](/reference/device-cloud/api/#set-device-configuration)
+- [Get device configuration](/reference/cloud-apis/api/#get-device-configuration)
+- [Set device configuration](/reference/cloud-apis/api/#set-device-configuration)
 
 
 The geofence settings are at the same level as the other settings such as location, imu_trig, and sleep, and include:

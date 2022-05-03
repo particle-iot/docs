@@ -15,7 +15,7 @@ devices, use the blue device selector below the Particle logo on the left side o
 {{#if tracker-som}}
 ## Tracker SoM Mode
 
-The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Device Fleet Settings](/tutorials/device-cloud/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
+The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Device Fleet Settings](/getting-started/console/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
 
 {{!--
 {{device-animation device "pattern"
@@ -181,7 +181,7 @@ There are three different variants of the Electron, and they each work in differ
 
 The Boron LTE can be used in other locations with a 3rd-party SIM card on bands 2, 3, 4, 5, 8, 12, 13, 20, and 28.
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country see the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/).
+Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country see the [Carrier List](/reference/cellular/cellular-carriers/).
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
@@ -212,7 +212,7 @@ If you are using the Boron, you should follow [the Boron 3rd-party SIM instructi
 #### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
-- Find the carrier from the [carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+- Find the carrier from the [carrier list](/reference/cellular/cellular-carriers/)
 - Use a tool such as the OpenSignal mobile app to find coverage. The OpenSignal apps for iOS and Android can provide coverage information world-wide.
 - If you are using an E Series E402 (LTE) or Boron LTE, the built-in Particle SIM card can only be used in the United States, on AT&T. It will only work in areas with LTE coverage; it cannot fall back to 3G.
 
@@ -428,7 +428,7 @@ You can also use the [`particle usb safe-mode`](/reference/developer-tools/cli/#
 
 If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
 
-Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
+Installation tutorial can be found [here.](/getting-started/developer-tools/cli/)
 
 And a usage guide [here.](/reference/developer-tools/cli/)
 
@@ -454,7 +454,7 @@ You can also use the [`particle usb dfu`](/reference/developer-tools/cli/#partic
 
 Firmware reset is not available on the device, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-The [Particle CLI](/tutorials/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
+The [Particle CLI](/getting-started/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
 particle flash --usb tinker
@@ -467,9 +467,9 @@ _Since 0.6.0_
 
 {{device-animation device "blink" "lime" }}
 
-The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
+The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
 
-A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
+A CLI installation tutorial can be found [here.](/getting-started/developer-tools/cli/)
 
 And a usage guide [here.](/reference/developer-tools/cli/)
 
@@ -488,7 +488,7 @@ To enter Firmware Reset Mode:
 
 Gen 3 devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
 
-To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
+To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
 
 Argon:
 ```
@@ -696,7 +696,7 @@ While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
 
 {{collapse op="start" label="Repair instructions"}}
 
-Most keys related issues can be resolved using the [Particle CLI](/tutorials/developer-tools/cli/).
+Most keys related issues can be resolved using the [Particle CLI](/getting-started/developer-tools/cli/).
 
 Put the device into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 
@@ -781,7 +781,7 @@ This occurs if the standard C function abort() is called. In a Unix program, thi
 
 {{device-animation device "sos" 8 }}
 
-If your device crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/tutorials/device-os/led/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
+If your device crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/troubleshooting/led/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
 
 ```
 particle flash <mydevice> tinker

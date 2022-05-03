@@ -26,8 +26,8 @@ The IoT Starter Kit comes with seven different Grove modules that work out-of-th
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)
-- [Datasheet](/datasheets/wi-fi/argon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
+- [Certification](/hardware/certification/certification/)
   {{box op="end"}}
 
 ## Kit technical specifications:
@@ -37,18 +37,18 @@ For technical documentation on each of the included components, please see the l
 
 {{box op="start"}}
 * [Particle Argon](/argon/)
-  * [2.4 GHz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
+  * [2.4 GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)
   * Micro-USB cable
-  * [LiPo battery](/tutorials/learn-more/batteries/)
+  * [LiPo battery](/hardware/power/batteries/)
 * Grove FeatherWing Adapter
 * Grove modules:
-  * [Button](/datasheets/accessories/gen3-accessories/#button) 
-  * [Rotary encoder](/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
-  * [Ultrasonic range finder](/datasheets/accessories/gen3-accessories/#ultrasonic-ranger) 
-  * [Temperature and humidity sensor](/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
-  * [Light sensor](/datasheets/accessories/gen3-accessories/#light-sensor-v1-2) 
-  * [RGB LED (chainable)](/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
-  * [Buzzer](/datasheets/accessories/gen3-accessories/#buzzer) 
-  * [4-Digit display](/datasheets/accessories/gen3-accessories/#4-digit-display)
+  * [Button](/reference/datasheets/accessories/gen3-accessories/#button) 
+  * [Rotary encoder](/reference/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
+  * [Ultrasonic range finder](/reference/datasheets/accessories/gen3-accessories/#ultrasonic-ranger) 
+  * [Temperature and humidity sensor](/reference/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
+  * [Light sensor](/reference/datasheets/accessories/gen3-accessories/#light-sensor-v1-2) 
+  * [RGB LED (chainable)](/reference/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
+  * [Buzzer](/reference/datasheets/accessories/gen3-accessories/#buzzer) 
+  * [4-Digit display](/reference/datasheets/accessories/gen3-accessories/#4-digit-display)
 * Grove wire (8) 
 {{box op="end"}}

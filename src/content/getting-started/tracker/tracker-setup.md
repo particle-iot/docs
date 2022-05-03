@@ -223,7 +223,7 @@ Previously, product firmware needed to have the product ID embedded in the binar
 
 ## Map View
 
-One good place to get started is [the map view in the console](/tutorials/device-cloud/console/#map).
+One good place to get started is [the map view in the console](/getting-started/console/console/#map).
 
 ![Map View](/assets/images/tracker/map-view.png)
 

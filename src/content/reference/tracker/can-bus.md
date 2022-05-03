@@ -26,7 +26,7 @@ If you are directly connecting another CAN module to the Tracker you will have t
 
 ## Tracker One CAN Application Notes
 
-The [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can) application note is a good place to start.
+The [AN017 Tracker CAN](/hardware/tracker/projects/tracker-can/) application note is a good place to start.
 
 This application note shows how to use the CAN bus for OBD-II to retrieve engine RPM:
 

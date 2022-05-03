@@ -7,7 +7,7 @@ description: Control external web services from your Particle IoT device using t
 
 # {{title}}
 
-Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/tutorials/device-cloud/webhooks/) before continuing on here.
+Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/getting-started/integrations/webhooks/) before continuing on here.
 
 You can create and administer webhooks with the [Console](https://console.particle.io) and the [Command Line Interface (CLI)](https://particle.io/cli).
 
@@ -310,7 +310,7 @@ Customize the webhook response event name that your devices can subscribe to.
 
 This is most commonly use to have the response contains to the device ID so the device that triggered an event will be the only one to get the response.
 
-[See the product webhook guide](/tutorials/device-cloud/webhooks/#product-webhook-responses) for more details.
+[See the product webhook guide](/getting-started/integrations/webhooks/#product-webhook-responses) for more details.
 
 ### errorResponseTopic
 
@@ -500,7 +500,7 @@ The event name will use the triggering event, not the webhook hook name filter.
 
 If your hook captures everything starting with `my-hooks`, but you published `my-hooks/get_weather`, then your response event name would be `hook-response/my-hooks/get_weather`.  Each packet event name includes the index of the packet in the response.
 
-The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
+The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
 ### Multipart responses
 
@@ -535,7 +535,7 @@ Error responses from the target url will also be sent back in the response event
 Too many errors from a receiving server can result in [webhook
 throttling](#limits).
 
-The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
+The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
 ### Ordering and Duplicates
 
@@ -581,7 +581,7 @@ response from the webhook server.
 
 ## Using the CLI
 
-Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](/tutorials/developer-tools/cli/).
+Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](/getting-started/developer-tools/cli/).
 
 Product webhooks cannot currently be created through the CLI.
 
@@ -654,7 +654,7 @@ Successfully deleted webhook!
 POST /v1/webhooks
 ```
 
-See the [API reference](/reference/device-cloud/api/#webhooks) for details on the webhook endpoints.
+See the [API reference](/reference/cloud-apis/api/#webhooks) for details on the webhook endpoints.
 
 ## Data Operations
 
@@ -662,9 +662,9 @@ When a device sends an event that triggers a webhook or other integration, that 
 
 If the webhook response is not subscribed to by the device, that will be the only Data Operation.
 
-If the webhook response is subscribed to by the device, it will use one Data Operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described [here](/tutorials/cellular-connectivity/data/#retransmissions).
+If the webhook response is subscribed to by the device, it will use one Data Operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described [here](/getting-started/billing/cellular-data/#retransmissions).
 
-If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
+If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/cloud-apis/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
 
 ## Limits
 

@@ -635,7 +635,7 @@ This is a simple pair of applications that allow for simple testing of signal st
 
 The fixed point is the transmitter, and you'll be measuring the strength of the signal that it is transmitting. It's the BLE peripheral and it is constantly advertising a private service.
 
-The measuring device is the BLE central, and it looks for the peripheral every 500 milliseconds (twice per second) and measures the signal strength (RSSI). It displays this via the USB serial and also on an [Adafruit OLED display FeatherWing](/community/feather/#adafruit-featherwing-oled-display-128x32) (SSD1306).
+The measuring device is the BLE central, and it looks for the peripheral every 500 milliseconds (twice per second) and measures the signal strength (RSSI). It displays this via the USB serial and also on an [Adafruit OLED display FeatherWing](/hardware/expansion/feather/#adafruit-featherwing-oled-display-128x32) (SSD1306).
 
 {{> project-browser project="ble-rssi-central" default-file="src/ble-rssi-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
 
@@ -669,7 +669,7 @@ The actual display devices and buttons are not that important, and you can easil
 | :--- | :---: | :---: |
 | Display | &check; | &check; |
 | Yes-No buttons | &nbsp; | &check; |
-| Model | [Joystick Color Display](/community/feather/#adafruit-color-tft-joystick-featherwing) | [128x32 OLED](/community/feather/#adafruit-featherwing-oled-display-128x32) |
+| Model | [Joystick Color Display](/hardware/expansion/feather/#adafruit-color-tft-joystick-featherwing) | [128x32 OLED](/hardware/expansion/feather/#adafruit-featherwing-oled-display-128x32) |
 
 {{> project-browser project="ble-yesno-central" default-file="src/ble-yesno-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
 

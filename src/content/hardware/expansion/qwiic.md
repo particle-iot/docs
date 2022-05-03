@@ -74,7 +74,7 @@ While this is ideal for hobbyists and prototyping, the Sparkfun boards are open-
 
 https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary
 
-You can learn more about I2C in the [I2C Tutorial](/tutorials/learn-more/about-i2c/).
+You can learn more about I2C in the [I2C Tutorial](/hardware/expansion/about-i2c/).
 
 ## Connecting
 
@@ -515,5 +515,5 @@ dependencies.SparkFun_Qwiic_Button_Arduino_Library=2.0.4
 
 ### I2C Scanner
 
-If you are having troubles, you may want to try the [I2C scanner](/tutorials/learn-more/about-i2c/#i2c-scanner) to see if the device is visible on the I2C bus.
+If you are having troubles, you may want to try the [I2C scanner](/hardware/expansion/about-i2c/#i2c-scanner) to see if the device is visible on the I2C bus.
 

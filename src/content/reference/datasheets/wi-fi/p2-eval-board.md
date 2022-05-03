@@ -51,13 +51,13 @@ If you are prototyping your own custom design you may want to use the 40-pin exp
     
 {{imageOverlay src="/assets/images/p2-eval.svg" alt="Feather" class="full-width"}}
 
-See the [P2 Datasheet](/datasheets/wi-fi/p2-datasheet/) for details about the pins. The gold boxes indicate the P2 pin numbers.
+See the [P2 Datasheet](/reference/datasheets/wi-fi/p2-datasheet/) for details about the pins. The gold boxes indicate the P2 pin numbers.
 
 ### Feather expansion
 
 {{imageOverlay src="/assets/images/photon-2-feather.svg" alt="Feather" class="full-width"}}
 
-There are two socket for [Feather accessory boards](/community/feather/). These are only for use with displays, sensors, storage, etc.. 
+There are two socket for [Feather accessory boards](/hardware/expansion/feather/). These are only for use with displays, sensors, storage, etc.. 
 
 You must not plug a Particle device such as an Argon or Boron in this socket, as the device may be permanently damaged.
 
@@ -67,7 +67,7 @@ This will work with most Feather boards, however:
 - The P2 does not work with Feather accessories that use SPI1 on the Argon or Boron D pins.
 - Some pins have different names which may require minor source code modifications. This includes and code that used Argon or Boron pins A3, A4, A5, or D8.
 
-The pinouts of the Feather accessory socket correspond to pinouts of the Photon 2. See the [Photon 2 Datasheet](/datasheets/wi-fi/photon-2-datasheet/) and the [Argon to Photon 2 migration guide](/datasheets/wi-fi/photon-2-argon-migration-guide/) for more information.
+The pinouts of the Feather accessory socket correspond to pinouts of the Photon 2. See the [Photon 2 Datasheet](/reference/datasheets/wi-fi/photon-2-datasheet/) and the [Argon to Photon 2 migration guide](/hardware/migration-guides/photon-2-argon-migration-guide/) for more information.
 
 Some pins in the same positions are named differently between the Argon/Boron and the Feather accessory socket/Photon 2:
 
@@ -85,14 +85,14 @@ Additionally, `D` pin aliases `D8` and higher are different, however these names
 
 ### Qwiic connector
 
-[Qwiic](/community/qwiic) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
+[Qwiic](/hardware/expansion/qwiic/) is a 3.3V I2C standard developed by SparkFun and adopted by other manufacturers. It's also compatible with Adafruit Stemma Qt expansion devices. You can use this to add displays, sensors, etc. and multiple devices can be connected to a single Qwiic port, as accessory boards have two connectors for chaining multiple sensors.
 
 <div align="center"><img src="/assets/images/qwiic/qwiic-bme280.jpg" class="small" ></div>
 
 
 ### Grove connector
 
-The Grove connector allows [Grove accessories](/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins D0 and D1 are present on the connector. This allows the use of Grove I2C sensors.
+The Grove connector allows [Grove accessories](/reference/datasheets/accessories/gen3-accessories/#grove-starter-kit) to be added. Pins D0 and D1 are present on the connector. This allows the use of Grove I2C sensors.
 
 If you are not using I2C elsewhere (Feather, Qwiic), you can use these pins as digital GPIO, or as analog inputs.
 

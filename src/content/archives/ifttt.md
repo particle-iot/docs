@@ -414,7 +414,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   - I don't see my function in the list on IFTTT?
 
-  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [the console](https://console.particle.io) or the [Particle-CLI](/tutorials/developer-tools/cli/) by running `particle list`.
+  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [the console](https://console.particle.io) or the [Particle-CLI](/getting-started/developer-tools/cli/) by running `particle list`.
 
   - Why can I log in on build.particle.io, but I can't log in on IFTTT?
 

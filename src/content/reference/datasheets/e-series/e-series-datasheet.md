@@ -12,7 +12,7 @@ description: Datasheet for the Particle E Series, Gen 2 cellular mass-production
 {{/unless}} {{!-- pdf-generation --}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The E Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/datasheets/electron/e404x-datasheet/).
+The E Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/reference/datasheets/e-series/e404x-datasheet/).
 
 See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
 {{box op="end"}}
@@ -392,7 +392,7 @@ The E series is available in two different versions: A 2G/3G global model (SARA-
 
 Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices. It can only be used in the United States, Canada. and Mexico at this time.
 
-For a complete list of carriers and supported countries, see the [carrier guide](/tutorials/cellular-connectivity/cellular-carriers/).
+For a complete list of carriers and supported countries, see the [carrier guide](/reference/cellular/cellular-carriers/).
 
 #### 2G cellular characteristics E314 & E310:
 |Parameter | SARA-U201 | 
@@ -763,7 +763,7 @@ The E series comes pre-programmed with a bootloader and a user application calle
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
+You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 |Term|Definition |
@@ -850,7 +850,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 >
-> For an in-depth review on certifications, please click [here.](/datasheets/certifications/certification/)
+> For an in-depth review on certifications, please click [here.](/hardware/certification/certification/)
 
 ## Revision history
 

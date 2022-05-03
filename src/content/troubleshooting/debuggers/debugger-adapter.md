@@ -7,7 +7,7 @@ description: Adapter for using the NanoDAP debugger with Particle Gen 3 devices
 
 # {{title}}
 
-The [Particle Debugger](/datasheets/accessories/debugger/) is no longer available, however there are are number of inexpensive CMSIS-DAP debuggers available. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available, for example [this one](https://www.aliexpress.com/item/1005001274653678.html). Most DAPLink or CMSIS-DAP debuggers should work similarly.
+The [Particle Debugger](/reference/datasheets/accessories/debugger/) is no longer available, however there are are number of inexpensive CMSIS-DAP debuggers available. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available, for example [this one](https://www.aliexpress.com/item/1005001274653678.html). Most DAPLink or CMSIS-DAP debuggers should work similarly.
 
 The CMSIS-DAP debuggers work with both Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and Gen 2 (Photon, P1, Electron, E Series) devices. The ST-LINK/V2 adapter only works with Gen 2 devices.
 
@@ -35,7 +35,7 @@ The pinouts are:
 | U_TX | 3V3 |
 | U_RX | 5V |
 
-If you are using Mac or Linux you can probably use it without a device driver. If you are using the [Web-based JTAG programmer](/tools/device-programming/device-restore-jtag/) you may also be able to avoid using a device driver, even on Windows. The web-based programmer also works on Chromebooks.
+If you are using Mac or Linux you can probably use it without a device driver. If you are using the [Web-based JTAG programmer](/troubleshooting/device-restore/device-restore-jtag/) you may also be able to avoid using a device driver, even on Windows. The web-based programmer also works on Chromebooks.
 
 If you are using Windows and want to use the source-level debugger or OpenOCD, you will likely need to install a device driver; the manufacturer of your debugger should provide a link to download a compatible one. 
 

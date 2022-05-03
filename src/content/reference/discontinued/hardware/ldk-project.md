@@ -5,7 +5,7 @@ columns: two
 ---
 ## Getting started with leak detection
 
-**Note:** The leak detection kit has been discontinued. Additionally, it is no longer possible to set up the mesh network to use the Xenon, see [mesh deprecation](/reference/discontinued/mesh/) for more information. The Argon can still be used as a single-sensor leak detector.
+**Note:** The leak detection kit has been discontinued. Additionally, it is no longer possible to set up the mesh network to use the Xenon, see [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information. The Argon can still be used as a single-sensor leak detector.
 
 Water might be the source of all life, but it can also be the source of a lot of discomfort if it gets to places it shouldn’t. A flooded basement, mold growth, damaged floors and ceilings, are all expensive problems that can result from leaks.
 
@@ -20,12 +20,12 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 - **[Particle Argon](/argon/)**  
 - **[Particle Xenon](/xenon/)** (2)
 - **LiPo battery** (3)
-- **[2.4 GHz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
+- **[2.4 GHz antenna](/reference/datasheets/wi-fi/argon-datasheet/#antenna)
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - * [Button](/datasheets/accessories/gen3-accessories/#button) 
+  - * [Button](/reference/datasheets/accessories/gen3-accessories/#button) 
 - **Grove wires** (3)
 ---
 

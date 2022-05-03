@@ -29,7 +29,7 @@ Additionally, the extra width vs. the Boron (Adafruit Feather) form-factor makes
 
 <sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
 
-<sup>2</sup>The built-in Particle SIM card is [free for use](/tutorials/device-cloud/introduction/#free-tier) up to certain limits, no credit card required.
+<sup>2</sup>The built-in Particle SIM card is [free for use](/getting-started/cloud/introduction/#free-tier) up to certain limits, no credit card required.
 {{!-- END shared-blurb --}}
 
 
@@ -53,11 +53,11 @@ The available models include:
 
 ### Datasheets
 
-- [B404X/B4404/B402 datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
-- [B524/B523 datasheet](/datasheets/boron/b524-b523-datasheet/)
-- [B Series evaluation board](/datasheets/boron/b-series-eval-board/)
+- [B404X/B4404/B402 datasheet](/reference/datasheets/b-series/b404x-b404-b402-datasheet/)
+- [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
+- [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 
-If you want to migrate from the Electron or E Series to the B Series SoM, see [Gen 2 cellular migration](/tutorials/learn-more/gen2-cellular-migration/).
+If you want to migrate from the Electron or E Series to the B Series SoM, see [Gen 2 cellular migration](/hardware/migration-guides/gen2-cellular-migration/).
 
 ### Countries - B404X, B404
 
@@ -148,7 +148,7 @@ The B Series SoM cannot be used without a base board. Typically you will create 
 
 ![B Series Eval](/assets/images/b-series/b-series-eval.png)
 
-The [B Series evaluation board](/datasheets/boron/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
+The [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/) provides a variety of interfaces and access to all ports and pins on the B Series SoM. You can use the expansion connector to connect the evaluation board to a breadboard for prototyping. You can also add sensors and accessories using the Grove expansion connectors.
 
 {{!-- BEGIN shared-blurb 19f889d4-a5c9-11ec-b909-0242ac120002 --}}
 {{imageOverlay src="/assets/images/b-series/b-series-eval-labeled.png" alt="Ports Diagram" class="full-width"}}
@@ -220,13 +220,13 @@ The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) c
 
 There is a huge library of mikroBUS Click expansion boards, however the caveat is that most of them do not already have a Particle software library. If the board is for a common sensor or chip, however, existing Particle libraries for the chip will typically work, even if not designed work with the Click.
 
-For more information, see the [Mikroe community page](/community/mikroe/).
+For more information, see the [Mikroe community page](/hardware/expansion/mikroe/).
 
 ## Creating a board
 
 ### First SoM board tutorial
 
-The [SoM first board tutorial](/tutorials/hardware-projects/som-first-board) shows how to get started with the M.2 SoM boards by making the simplest possible design. It's an introduction to working with surface mount components you will need in order to make your own SoM base board.
+The [SoM first board tutorial](/hardware/b-series-som/som-first-board/) shows how to get started with the M.2 SoM boards by making the simplest possible design. It's an introduction to working with surface mount components you will need in order to make your own SoM base board.
 
 ![Board Image](/assets/images/som-first-board/main.png)
 

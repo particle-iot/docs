@@ -349,7 +349,7 @@ which is inexpensive and easily procured. You need to add three current limiting
 These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
 If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
 
-A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 The use of the RGB LED is optional, however it is highly recommended as troubleshooting the device without the LED is very difficult.
 
@@ -579,7 +579,7 @@ The P2 module comes pre-programmed with a bootloader and a user application call
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
+You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 

@@ -483,7 +483,7 @@ which is inexpensive and easily procured. You need to add three current limiting
 These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
 If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
 
-A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
 ## Technical specifications
 
@@ -1040,7 +1040,7 @@ Dimensions are in millimeters.
 
 ### Layout Considerations
 
-For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt).
+For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/scaling/manufacturing/lcc-module-smt/).
 
 ---
 

@@ -14,7 +14,7 @@ description: Older desktop IDE for programming Particle devices for Windows and 
 {{box op="start"}}
 Particle Dev cannot be used to program 3rd-generation devices (Argon, Boron, B Series SoM, or the Tracker products).
 
-You should instead use [**Particle Workbench**](/tutorials/developer-tools/workbench) powered by VS Code. Workbench provides an integrated development environment as well as cloud compiling, local compiling, and source-level debugging.
+You should instead use [**Particle Workbench**](/getting-started/developer-tools/workbench/) powered by VS Code. Workbench provides an integrated development environment as well as cloud compiling, local compiling, and source-level debugging.
 {{box op="end"}}
 
 
@@ -64,7 +64,7 @@ To access most of features you need to log in using your Particle account (which
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: When using [Command Line](/tutorials/developer-tools/cli/) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
+**NOTE**: When using [Command Line](/getting-started/developer-tools/cli/) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
 ### Selecting Device
 
@@ -158,7 +158,7 @@ To include a firmware library in your Particle project, open the library drawer 
 
 Read on for detailed instructions to include a firmware library in your Particle application with the Web IDE.
 
-We have [a detailed reference guide about libraries](/tutorials/device-os/libraries/) but for now here's a step by step guide on how to include a library in our Desktop IDE.
+We have [a detailed reference guide about libraries](/getting-started/device-os/firmware-libraries/) but for now here's a step by step guide on how to include a library in our Desktop IDE.
 
 ##### Step 1 - Open the libraries tab
 
@@ -170,7 +170,7 @@ Once you have opened your Particle project in the Desktop IDE, open the librarie
 
 ![Library list](/assets/images/libraries/libraries-list-dev.png)
 
-Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/tutorials/device-os/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/getting-started/device-os/firmware-libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
 To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing buttons at the bottom of the library list.
 
@@ -192,9 +192,9 @@ The information included with each library search result includes:
 
 - `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
 - `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
-- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/tutorials/device-os/libraries/#contributing-libraries).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/getting-started/device-os/firmware-libraries/#contributing-libraries).
 - `Library description`: Detailed information about the library
-- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/tutorials/device-os/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
+- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/getting-started/device-os/firmware-libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
 
 ![View source](/assets/images/libraries/libraries-dev-source.png)
 
@@ -231,11 +231,11 @@ For example, if we were using the library "UberSensor", it would be included lik
 
 ## Contribute a library
 
-See the [detailed library guide](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
+See the [detailed library guide](/getting-started/device-os/firmware-libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
 
 ## Targeting different platforms and firmware versions
 
-Similarly to the [Web IDE](/tutorials/developer-tools/build/) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
+Similarly to the [Web IDE](/getting-started/developer-tools/build/) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
 
 **Note:** By default all projects are compiled for latest version of firmware for a Photon.
 
@@ -257,7 +257,7 @@ The last item is the firmware version aka the build target. This allows you to s
 
 When you use a version newer than's on your device (which can be checked
 using `particle serial inspect` [CLI
-command](/tutorials/developer-tools/cli/)) it will enter **safe mode**
+command](/getting-started/developer-tools/cli/)) it will enter **safe mode**
 which should be automatically fixed with multiple consecutive flashes.
 The exception here is the Electron where updating Device OS versions would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
 

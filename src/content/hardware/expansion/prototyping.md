@@ -15,7 +15,7 @@ One convenient way to connect sensors and small displays is using I2C, the Inter
 
 Sparkfun created a standard for using I2C at 3.3V with a small, standardized connector, and created dozens of boards to this standard called Qwiic. Adafruit has joined them making compatible boards and connectors under the STEMMA QT name.
  
-The [Qwiic](/community/qwiic/) page in the documentation has more information on various options available.
+The [Qwiic](/hardware/expansion/qwiic/) page in the documentation has more information on various options available.
 
 ![Qwiic BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 
@@ -58,7 +58,7 @@ This is an Adafruit BME280 breakout board, the same sensor as in the Sparkfun Qw
 
 The mikroBUS includes I2C, SPI, serial, analog input (ADC), GPIO, PWM, and interrupts. A click shield available for Particle Gen 3 Feather (Argon, Boron) devices, as well as one for the B Series SoM. 
 
-The [Mikroe community page](/community/mikroe/) has more information.
+The [Mikroe community page](/hardware/expansion/mikroe/) has more information.
 
 ![Mikroe Feather](/assets/images/prototyping/mikroe-feather.png)
 

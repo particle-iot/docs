@@ -212,7 +212,7 @@ The code generator also creates lock methods:
     void unlock() { os_mutex_unlock(mutex); };
 ```
 
-These are compatible with [`WITH_LOCK()`](/datasheets/app-notes/an005-threading-explainer/#synchronized-access). 
+These are compatible with [`WITH_LOCK()`](/firmware/software-design/threading-explainer/#synchronized-access). 
 
 For example, you might have code like this to make sure only one thread can access your peripheral device at a time.
 

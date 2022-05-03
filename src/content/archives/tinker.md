@@ -71,7 +71,7 @@ The app consists of 15 pins in vertical rows - 6 analog pins on the left, 9 digi
 
 ![](/assets/images/tinker.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/tutorials/device-os/device-os/)."}}}:
+To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/getting-started/device-os/introduction-to-device-os/)."}}}:
 
 - **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
 - **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. {{#if photon}}The Photon has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).{{/if}}
@@ -168,7 +168,7 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build/)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/getting-started/developer-tools/build/)
 {{/if}}
 
 {{#if photon}}
@@ -222,7 +222,7 @@ The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digi
 
 ![](/assets/images/photon-tinker.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/tutorials/device-os/device-os/)."}}}:
+To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/getting-started/device-os/introduction-to-device-os/)."}}}:
 
 - **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
 - **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. {{#if photon}}The Photon has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).{{/if}}
@@ -331,7 +331,7 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build/)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/getting-started/developer-tools/build/)
 {{/if}}
 
 {{#if electron}}
@@ -385,7 +385,7 @@ The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digi
 
 ![](/assets/images/tinker.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/tutorials/device-os/device-os/)."}}}:
+To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/getting-started/device-os/introduction-to-device-os/)."}}}:
 
 - **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
 - **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. {{#if photon}}The Photon has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).{{/if}}
@@ -494,7 +494,7 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build/)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/getting-started/developer-tools/build/)
 {{/if}}
 
 {{#if core}}
@@ -548,7 +548,7 @@ The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digi
 
 ![](/assets/images/tinker.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/tutorials/device-os/device-os/)."}}}:
+To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/getting-started/device-os/introduction-to-device-os/)."}}}:
 
 - **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
 - **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. {{#if photon}}The Photon has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).{{/if}}
@@ -657,5 +657,5 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build/)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/getting-started/developer-tools/build/)
 {{/if}}

@@ -35,7 +35,7 @@ devices do not support USB OTG.
 
 ### Particle CLI 
 
-A common way to view debug serial messages is the [Particle CLI](/tutorials/developer-tools/cli/). Note that the CLI only reads serial messages, it is strictly a serial monitor, and you can't type things to the Photon/Electron. Still, it's quick and easy, and very handy.
+A common way to view debug serial messages is the [Particle CLI](/getting-started/developer-tools/cli/). Note that the CLI only reads serial messages, it is strictly a serial monitor, and you can't type things to the Photon/Electron. Still, it's quick and easy, and very handy.
 
 ```
 $ particle serial monitor
@@ -131,7 +131,7 @@ things like the Web IDE and documentation at the same time.
 
 <div align="center">
 <br />
-<a href="/tools/troubleshooting/usb-serial/" target="_blank" class="button">Open Web Serial</a>
+<a href="/troubleshooting/developer-tools/usb-serial/" target="_blank" class="button">Open Web Serial</a>
 </div>
 
 
@@ -514,4 +514,4 @@ Serial1LogHandler uartLogHandler(115200, LOG_LEVEL_TRACE);
 
 - Device OS [Serial Reference](/cards/firmware/serial/serial/)
 - Device OS [Logging Reference](/cards/firmware/logging/logging/)
-- [More about serial](/tutorials/learn-more/about-serial/) including hardware UART ports
+- [More about serial](/hardware/expansion/about-serial/) including hardware UART ports

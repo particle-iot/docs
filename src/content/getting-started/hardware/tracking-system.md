@@ -13,11 +13,11 @@ The Particle Asset Tracking System is an integrated, customizable, hardware, fir
 
 ### Hardware
 
-The [Tracker One](/datasheets/asset-tracking/tracker-one/) is a complete system with a waterproof IP67-rated enclosure.
+The [Tracker One](/reference/datasheets/tracker/tracker-one/) is a complete system with a waterproof IP67-rated enclosure.
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
-The [Tracker SoM](/datasheets/asset-tracking/tracker-som-datasheet/) system-on-a-module is inside the Tracker One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
+The [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/) system-on-a-module is inside the Tracker One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
 
 ![SoM](/assets/images/t523-som.svg)
 
@@ -55,12 +55,12 @@ One difference from other Particle devices is that the Tracker One firmware can 
 ### Fully off-the-shelf
 
 - Tracker One hardware is designed to be used without modification. It's fully assembled and ready to go.
-- Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and [customize it from the Particle console](/tutorials/device-cloud/console/#product-settings), with no writing of device firmware necessary at all.
-- Easily upgrade to new versions of Tracker Edge firmware from the console and release it to your fleet with [just a few clicks](/tutorials/device-cloud/console/#using-off-the-shelf-releases).
+- Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and [customize it from the Particle console](/getting-started/console/console/#product-settings), with no writing of device firmware necessary at all.
+- Easily upgrade to new versions of Tracker Edge firmware from the console and release it to your fleet with [just a few clicks](/getting-started/console/console/#using-off-the-shelf-releases).
 
 ### Semi-custom Firmware
 
-- You can use the [Particle Edge reference firmware](/tutorials/asset-tracking/tracker-edge-firmware/) as a base and add your own code to extend it quickly and easily.
+- You can use the [Particle Edge reference firmware](/firmware/tracker-edge/tracker-edge-firmware/) as a base and add your own code to extend it quickly and easily.
 - Designed to make it easy to upgrade the base firmware while keeping your customizations in place.
 - Add external sensors via the Tracker One M8 connector without opening the case.
 
@@ -80,40 +80,40 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 ![Docs Menu](/assets/images/tracker/docs-menu.png)
 
-Most of the documentation can be found in the [Tutorials](/tutorials/asset-tracking/introduction/), [Reference](/reference/asset-tracking/tracker-edge-firmware/), and [Datasheets](/datasheets/asset-tracking/tracker-som-datasheet/) sections.
+Most of the documentation can be found in the [Tutorials](/hardware/tracking-system/), [Reference](/firmware/tracker-edge/tracker-edge-api-reference/), and [Datasheets](/reference/datasheets/tracker/tracker-som-datasheet/) sections.
 
 ### Tutorials
 
 In the **Asset Tracking** section in Tutorials:
 
-- [Setup guide](/tutorials/asset-tracking/setup/) 
-- [Introduction to Tracker Edge firmware](/tutorials/asset-tracking/tracker-edge-firmware/)
-- [Evaluation Board Tutorials](/tutorials/asset-tracking/tracker-eval-tutorials/) 
-- [Expanding the Tracker One](/tutorials/asset-tracking/tracker-one-expansion/) using the external M8 connector
-- [Introduction to CAN Bus](/tutorials/asset-tracking/can-bus/)
+- [Setup guide](/getting-started/tracker/tracker-setup/) 
+- [Introduction to Tracker Edge firmware](/firmware/tracker-edge/tracker-edge-firmware/)
+- [Evaluation Board Tutorials](/getting-started/tracker/tracker-eval-tutorials/) 
+- [Expanding the Tracker One](/hardware/tracker/tracker-one-expansion/) using the external M8 connector
+- [Introduction to CAN Bus](/reference/tracker/can-bus/)
 
-Want to add temperature, pressure, and humidity data to your location publishes using the Tracker Evaluation Board? Check out this example of using a BME280 temperature, pressure, and humidity sensor connected by I2C to [add data to location publishes](/tutorials/asset-tracking/tracker-eval-tutorials/#i2c-expansion-example).
+Want to add temperature, pressure, and humidity data to your location publishes using the Tracker Evaluation Board? Check out this example of using a BME280 temperature, pressure, and humidity sensor connected by I2C to [add data to location publishes](/getting-started/tracker/tracker-eval-tutorials/#i2c-expansion-example).
 
 
 And other tutorial resources:
 
-- The map view and settings are described in the [Console Documentation](/tutorials/device-cloud/console/#asset-tracker-features).
-- Cellular carriers for the Tracker SoM can be found in the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/).
+- The map view and settings are described in the [Console Documentation](/getting-started/console/console/#asset-tracker-features).
+- Cellular carriers for the Tracker SoM can be found in the [Carrier List](/reference/cellular/cellular-carriers/).
 
 ### Reference
 
 - The [Device OS Firmware API](/reference/device-os/firmware/) reference includes information specific to the Tracker SoM, such as the difference in [GPIO](/cards/firmware/input-output/input-output/). The new [POSIX Filesystem](/cards/firmware/file-system/file-system/) is documented there as well.
-- The [Particle Cloud API Reference](/reference/device-cloud/api/) includes information about [Tracking events](/reference/device-cloud/api/#asset-tracking-events) as well as a reference for the [Tracker Cloud API](/reference/device-cloud/api/#asset-tracking).
-- The [Tracker Edge Firmware Reference](/reference/asset-tracking/tracker-edge-firmware/) describes the Tracker Edge reference firmware API used to write device firmware. It allows for customizing the on-device code to access custom sensors and run your own code on the device.
+- The [Particle Cloud API Reference](/reference/cloud-apis/api/) includes information about [Tracking events](/reference/cloud-apis/api/#asset-tracking-events) as well as a reference for the [Tracker Cloud API](/reference/cloud-apis/api/#asset-tracking).
+- The [Tracker Edge Firmware Reference](/firmware/tracker-edge/tracker-edge-api-reference/) describes the Tracker Edge reference firmware API used to write device firmware. It allows for customizing the on-device code to access custom sensors and run your own code on the device.
 - The [Pin Info](/reference/hardware/pin-info/?m=table&sort=num) page includes more information on the available pins on the Tracker SoM.
 
 ### Datasheets
 
 Here you'll find detailed technical specifications for the:
 
-- [Tracker SoM](/datasheets/asset-tracking/tracker-som-datasheet/)
-- [Tracker SoM Evaluation Board](/datasheets/asset-tracking/tracker-som-eval-board/), for getting started with the Tracker SoM
-- [Tracker One](/datasheets/asset-tracking/tracker-one/), ready-to-go and fully assembled with an IP67-rated enclosure
+- [Tracker SoM](/reference/datasheets/tracker/tracker-som-datasheet/)
+- [Tracker SoM Evaluation Board](/reference/datasheets/tracker/tracker-som-eval-board/), for getting started with the Tracker SoM
+- [Tracker One](/reference/datasheets/tracker/tracker-one/), ready-to-go and fully assembled with an IP67-rated enclosure
 
 If you're building a carrier board you'll probably want to use the Eagle CAD Tracker SoM footprint in the [Hardware Libraries](https://github.com/particle-iot/hardware-libraries). You can also import this into other CAD programs.
 

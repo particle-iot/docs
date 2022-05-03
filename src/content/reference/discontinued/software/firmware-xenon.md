@@ -545,7 +545,7 @@ Unlike functions and variables, you typically call Particle.publish from loop() 
 
 ---
 
-For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
 
 ### Particle.publishVitals()
@@ -1122,7 +1122,7 @@ void setup() {
 
 **The mesh networking features described in this section will be supported only through Device OS 1.5.x (March 2020).**
 
-After that version, all of the features in the Mesh object will be removed from the Device OS API. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+After that version, all of the features in the Mesh object will be removed from the Device OS API. See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 ### publish()
 
@@ -1352,7 +1352,7 @@ void selectExternalMeshAntenna() {
 {{#if has-ethernet}}
 ## Ethernet
 
-Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/).
+Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/).
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
@@ -3105,7 +3105,7 @@ You may set credentials in 3 different ways:
 - USERNAME & PASSWORD only
 - APN, USERNAME & PASSWORD
 
-The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -3163,7 +3163,7 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -3896,7 +3896,7 @@ In some cases you can [increase the charge voltage](#setchargevoltage-) to get a
 
 ## Input/Output
 
-Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for which functions is available on the [pin information page](/reference/device-os/pin-info/).
 
 ### pinMode()
 
@@ -4171,7 +4171,7 @@ frequency and resolution, but individual pins in the group can have a different 
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
 
-Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/device-os/pin-info/).
 
 {{/if}} {{!-- has-pwm --}}
 
@@ -4589,7 +4589,7 @@ On the B Series SoM:
 {{/if}}
 
 
-Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for tone() is available on the [pin information page](/reference/device-os/pin-info/).
 
 
 ```cpp
@@ -5217,7 +5217,7 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 {{#if has-serial2}}
 
 {{#if photon}}
-`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/reference/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/if}}
@@ -7919,7 +7919,7 @@ Serial.println(myIP);    // prints the device's IP address
 {{#if has-ble}}
 ## Bluetooth LE (BLE)
 
-Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
+Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/reference/device-os/bluetooth-le/).
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
@@ -8714,7 +8714,7 @@ The health thermometer only has a single characteristic, however if your service
 
 You can also create custom services by using a long UUID. You define what characteristic data to include for a custom service. [UUIDs](/cards/firmware/bluetooth-le-ble/bleuuid/) are described below.
 
-For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#services) and  [`BleCharacteristicProperty`](/cards/firmware/bluetooth-le-ble/blecharacteristicproperty/).
+For more information about characteristics, see [the BLE tutorial](/reference/device-os/bluetooth-le/#services) and  [`BleCharacteristicProperty`](/cards/firmware/bluetooth-le-ble/blecharacteristicproperty/).
 
 
 ### BleCharacteristic
@@ -8725,11 +8725,11 @@ In a BLE central role, you typically have a receive handler to be notified when 
 
 For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). 
 
-For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#characteristics).
+For more information about characteristics, see [the BLE tutorial](/reference/device-os/bluetooth-le/#characteristics).
 
 #### BleCharacteristic()
 
-You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/tutorials/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
+You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/reference/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
 
 ```cpp
 // PROTOTYPE
@@ -9120,7 +9120,7 @@ The BleAdvertisingData is used in two ways:
 - In the central role, as a container to hold what the other side has sent during a scan.
 
 
-For more information about advertising, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#advertising).
+For more information about advertising, see [the BLE tutorial](/reference/device-os/bluetooth-le/#advertising).
 
 #### BleAdvertisingData()
 
@@ -10260,7 +10260,7 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10575,7 +10575,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -11282,7 +11282,7 @@ Parameters:
 This library allows applications to share control over the on-device RGB
 LED with the Device OS in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
 
-The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/tutorials/device-os/led/) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
+The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/troubleshooting/led/) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
 
 **Note:** Consider using this library instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
 
@@ -12512,7 +12512,7 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 
 {{/if}} {{!-- has-stm32 --}}
 
-Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/device-os/pin-info/).
 
 ```
 // SYNTAX
@@ -12860,7 +12860,7 @@ void loop() {
 // AWDT count reset automatically after loop() ends
 ```
 
-A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
+A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/troubleshooting/led/#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
 
@@ -13597,7 +13597,7 @@ PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
-You can find more details about the product ID and how to get yours in the [_Console_ guide.](/tutorials/device-cloud/console#your-product-id)
+You can find more details about the product ID and how to get yours in the [_Console_ guide.](/getting-started/console/console/#your-product-id)
 
 ## System Events
 
@@ -15589,7 +15589,7 @@ _single device OTA updates_ (flashing a single device) and _fleet-wide OTA updat
 Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`.
 
 When the firmware update is the result of an [Intelligent
-Firmware Release](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases),
+Firmware Release](/getting-started/cloud/ota-updates/#intelligent-firmware-releases),
 the update is delivered immediately after `System.enableUpdates()` is called.
 
 Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
@@ -15628,7 +15628,7 @@ void setup() {
 ```
 Disables OTA updates on this device. An attempt to begin an OTA update
 from the cloud will be prevented by the device. When updates are disabled, firmware updates are not
-delivered to the device [unless forced](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates).
+delivered to the device [unless forced](/getting-started/cloud/ota-updates/#force-enable-ota-updates).
 
 **Since 1.2.0**
 
@@ -15636,11 +15636,11 @@ Device OS version 1.2.0 introduced enhanced support of
 `System.disableUpdates()` and `System.enableUpdates()`. When running Device OS version 1.2.0
 or higher, the device will notify the Device Cloud of its OTA
 availability, which is [visible in the
-Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+Console](/getting-started/cloud/ota-updates/#ota-availability-in-the-console)
 as well as [queryable via the REST
-API](/reference/device-cloud/api/#get-device-information). The cloud
+API](/reference/cloud-apis/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
-Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+Releases](/getting-started/cloud/ota-updates/#intelligent-firmware-releases).
 
 In addition, a cloud-side system event will be emitted when updates are disabled,
 `particle/device/updates/enabled` with a data value of `false`. This event is sent
@@ -15706,11 +15706,11 @@ Device OS version 1.2.0 introduced enhanced support of
 `System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
 or higher, the device will notify the Device Cloud of its OTA update
 availability, which is [visible in the
-Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+Console](/getting-started/cloud/ota-updates/#ota-availability-in-the-console)
 as well as [queryable via the REST
-API](/reference/device-cloud/api/#get-device-information). The cloud
+API](/reference/cloud-apis/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
-Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+Releases](/getting-started/cloud/ota-updates/#intelligent-firmware-releases).
 
 | Version | Self service customers | Standard Product | Enterprise Product |
 | ------- | ---------------------- | ---------------- |------------------- |
@@ -15827,7 +15827,7 @@ void loop() {
 
 When the device is not available for updates, the pending firmware
 update is not normally delivered to the device. Updates can be forced in
-the cloud [either via the Console or the REST API](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates) to override the local
+the cloud [either via the Console or the REST API](/getting-started/cloud/ota-updates/#force-enable-ota-updates) to override the local
 setting on the device. This means that firmware updates are delivered
 even when `System.disableUpdates()` has been called by the device application.
 
@@ -18799,9 +18799,9 @@ The easiest way to upgrade to Device OS Version @FW_VER@ is to use the
 Particle CLI with a single command.  You will first upgrade the Device
 OS, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/getting-started/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
+To upgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -18989,9 +18989,9 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/getting-started/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -19040,7 +19040,7 @@ particle flash --usb tinker (optional)
 
 **The local DFU-UTIL method**
 can be applied to offline devices locally over USB using `dfu-util`
-- Put the device in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED)
+- Put the device in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED)
 - open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
@@ -19104,9 +19104,9 @@ Current default Device OS would be the latest non-rc.x firmware version.  E.g. i
 ##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a Device OS Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the Device OS. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/getting-started/developer-tools/cli/) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
+To downgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware

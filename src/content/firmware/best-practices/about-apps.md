@@ -18,7 +18,7 @@ This is actually one of the most important differentiators, because there Wi-Fi 
 With cellular devices, you generally don't have to directly communicate with the device to set it up, so there are many more options available.
 
 {{note op="start" type="product"}}
-The most common way to configure Wi-Fi for a product using Wi-Fi on using the Gen 2 P1 module is to use the [Photon Device Setup SDK for iOS](/reference/SDKs/ios/) and [Android](/reference/SDKs/android/). It can handle setting up the Wi-Fi network, as well as claiming the device to an account (described in more detail below). There are other possibilities, including the use of SoftAP, which are also discussed below.
+The most common way to configure Wi-Fi for a product using Wi-Fi on using the Gen 2 P1 module is to use the [Photon Device Setup SDK for iOS](/reference/mobile-sdks/ios/) and [Android](/reference/mobile-sdks/android/). It can handle setting up the Wi-Fi network, as well as claiming the device to an account (described in more detail below). There are other possibilities, including the use of SoftAP, which are also discussed below.
 
 There is currently no setup SDK for use with the Argon. It is not recommended for products.
 {{note op="end"}}
@@ -96,7 +96,7 @@ If you are making the Particle API calls from your back-end there is no need to 
 Instead of using Particle's authentication system, or your own proprietary system, it may make sense to use one of the many single sign-on options. For example, allowing you to use your existing login to Facebook, Google, GitHub, etc.. There are many libraries to assist with this, and most web developers will be familiar with doing this if you want to create a web app with single sign-on.
 
 {{note op="start" type="developer"}}
-For personal home automation tasks you can hardcode an authentication token for your account directly into your mobile app. For better security, you should use a product (even if it's just for you) and use an [API user](/reference/device-cloud/api/#api-users) that only has limited functionality, such as get variable and call function. 
+For personal home automation tasks you can hardcode an authentication token for your account directly into your mobile app. For better security, you should use a product (even if it's just for you) and use an [API user](/reference/cloud-apis/api/#api-users) that only has limited functionality, such as get variable and call function. 
 
 **You should never hardcode access tokens in commercial products!**
 {{note op="end"}}
@@ -106,9 +106,9 @@ For personal home automation tasks you can hardcode an authentication token for 
 
 ### P1 and Photon SoftAP
 
-The P1 and Photon support SoftAP (software access point) mode for Wi-Fi configuration. This is what the [Photon Device Setup SDK for iOS](/reference/SDKs/ios/) and [Android](/reference/SDKs/android/) use. 
+The P1 and Photon support SoftAP (software access point) mode for Wi-Fi configuration. This is what the [Photon Device Setup SDK for iOS](/reference/mobile-sdks/ios/) and [Android](/reference/mobile-sdks/android/) use. 
 
-However, it's also possible to use SoftAP directly in less common scenarios. This can be done from a computer or mobile web browser and directly connecting to the Photon or P1 in setup mode. You can customize the user interface using [SoftAP Pages](/reference/device-os/firmware/#softap-http-pages).
+However, it's also possible to use SoftAP directly in less common scenarios. This can be done from a computer or mobile web browser and directly connecting to the Photon or P1 in setup mode. You can customize the user interface using [SoftAP Pages](/cards/firmware/softap-http-pages/softap-http-pages/).
 
 ### Argon
 

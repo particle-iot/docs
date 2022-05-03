@@ -892,4 +892,4 @@ The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and othe
 - [IEC62133](/assets/pdfs/new-certs/battery/zn-103450-iec621331.pdf)
 - [Material Safety Data Sheet, MSDS](/assets/pdfs/ZN-103450-MSDS.pdf)
 
-You can find more battery information in the [battery tutorial](/tutorials/learn-more/batteries/).
+You can find more battery information in the [battery tutorial](/hardware/power/batteries/).

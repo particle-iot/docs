@@ -12,10 +12,10 @@ Even if you're not ready to scale your product yet, it's worthwhile to start by 
 
 But even if you won't be scaling, you will almost certainly want one for other reasons:
 
-- [Fleet deployment](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
+- [Fleet deployment](/getting-started/cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
 - Upgrade firmware on offline devices, so devices can receive updates when they reconnect to the cloud.
-- [Teams](/tutorials/product-tools/team-access-controls/), so multiple users can work with the product devices.
-- [API users](/reference/device-cloud/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
+- [Teams](/getting-started/console/team-access-controls/), so multiple users can work with the product devices.
+- [API users](/reference/cloud-apis/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
 
 Starting out by creating a product first will simplify things later, and also prevent having to reconfigure things, especially if you plan on using webhooks or external servers. For example, if you are using the Particle cloud API from an external server, the API endpoints are different for products than developer devices. However, once you start with product endpoints (even for a product with a single device), you can scale through the free and growth tiers, all the way up to enterprise, without having to change your code.
 
@@ -58,7 +58,7 @@ The owner is the user who initially created the product. To transfer a product t
 
 ### Team setup
 
-Each team member will have their own email and Particle account. You can add their Particle accounts to the product from the product [Team Configuration](/tutorials/device-cloud/console/#adding-team-members).
+Each team member will have their own email and Particle account. You can add their Particle accounts to the product from the product [Team Configuration](/getting-started/console/console/#adding-team-members).
 
 It works best if each developer has at least one device on their desk, separate from the product device fleet. This allows easy access to the buttons on the device and the USB serial debug log. It also makes flashing the device easier. 
 
@@ -85,12 +85,12 @@ If you are using integrations, the choices made here affect where to put your in
 It is recommended that you add, in advance, the device IDs of all devices you want to add to your product. This is desirable for several reasons, including:
 
 - If the device is a cellular device, this is necessary to associate the SIM ICCID with your account for billing purposes. If this is not done, the device cannot connect to cellular.
-- If you do not pre-add device IDs, the device will be stopped from joining your product and go into [quarantine](/tutorials/device-cloud/device-claiming/#quarantine) when it first connects to the cloud. This is usually a bad user experience as it requires the product creator to manually approve each device as it comes online.
-- If [auto-approve devices](/tutorials/device-cloud/device-claiming/#auto-approve) is used to prevent quarantine, this allows any device to join your product, including any random developer devices that knows your product ID. This is not recommended.
+- If you do not pre-add device IDs, the device will be stopped from joining your product and go into [quarantine](/getting-started/cloud/device-claiming/#quarantine) when it first connects to the cloud. This is usually a bad user experience as it requires the product creator to manually approve each device as it comes online.
+- If [auto-approve devices](/getting-started/cloud/device-claiming/#auto-approve) is used to prevent quarantine, this allows any device to join your product, including any random developer devices that knows your product ID. This is not recommended.
 - If you do not pre-add the device IDs, you cannot pre-claim devices if you are claiming to a single account.
 - If you are using wildcard product IDs, you must pre-add device IDs 
 
-Fortunately, it's easy to pre-add device IDs when you order in tray or reel quantities from the Particle wholesale store. You will be emailed a file containing the device IDs of all of the devices in your order. You can upload the file [in the console](/tutorials/device-cloud/console/#adding-devices) with just a few clicks.
+Fortunately, it's easy to pre-add device IDs when you order in tray or reel quantities from the Particle wholesale store. You will be emailed a file containing the device IDs of all of the devices in your order. You can upload the file [in the console](/getting-started/console/console/#adding-devices) with just a few clicks.
 
 For all devices with built-in Particle SIMs, importing the device ID also imports the SIMs, so you only have to do one step. The exception are the older Electron 2G/3G devices (E260, E270, E350, ELC314) that use a separate plastic 4FF SIM card. In this case, when you order 50 packs of Particle SIM cards, you will also be mailed a file of ICCIDs that you can import as well.
 
@@ -144,7 +144,7 @@ Another option is to use a test account during initial device testing. This make
 
 Only after successfully completing the tests do you flash the final user firmware and associate the device with the product.
 
-This method is more complicated and must be done with care to prevent long activation times when the SIM is activated later. See [SIM activation speed](/tutorials/device-cloud/device-claiming/#sim-activation-speed).
+This method is more complicated and must be done with care to prevent long activation times when the SIM is activated later. See [SIM activation speed](/getting-started/cloud/device-claiming/#sim-activation-speed).
 
 
 ### Connecting by end-user
@@ -162,7 +162,7 @@ We recommend flashing the desired version of Device OS and your product firmware
 
 ### Workbench
 
-[Particle Workbench](/tutorials/developer-tools/workbench/) is the recommended tool for creating and building product firmware. Using a source code control system like git with Workbench has a number of benefits:
+[Particle Workbench](/getting-started/developer-tools/workbench/) is the recommended tool for creating and building product firmware. Using a source code control system like git with Workbench has a number of benefits:
 
 - Full log of every code change that has been made.
 - Great support for teams, including merging changes made by multiple team members.
@@ -189,7 +189,7 @@ The local compiler may be necessary for very large projects, but otherwise you c
 
 The Particle Web IDE can be used to create product firmware, but it's recommended that you use Particle Workbench. It's difficult to share code between multiple users in the Web IDE, and there is no version control.
 
-If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/troubleshooting/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 ### Particle CLI
 
@@ -322,7 +322,7 @@ Also all team members can access product integrations with their own login. They
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
-To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/product-tools/integration-copy/).
+To copy or move a device owner integration into a product, you can use the [integration copy tool](/troubleshooting/cloud-tools/integration-copy/).
 
 ### Server Sent Events (SSE)
 
@@ -363,7 +363,7 @@ The product owner is the account that owns a product. It can either be a user ac
 - Exceeding the data operation or cellular data limits will add additional blocks instead of pausing the account.
 - Device connectivity will continue uninterrupted.
 
-Device claiming is not affected by the move. If the devices were claimed to the original product owner that will remain unchanged. However even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
+Device claiming is not affected by the move. If the devices were claimed to the original product owner that will remain unchanged. However even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! You can use the [device list details tool](/getting-started/products/creating-a-product/#device-list-details) to see which devices count against the limits.
 
 Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
 
@@ -446,4 +446,4 @@ This tool can help you decode what's being displayed in the sandbox device list 
 
 ## Next steps
 
-When you're ready to expand beyond prototyping, see [scaling your product](/tutorials/product-tools/scaling-your-product/) for tips of growing your product.
+When you're ready to expand beyond prototyping, see [scaling your product](/getting-started/billing/migrating-to-growth/) for tips of growing your product.

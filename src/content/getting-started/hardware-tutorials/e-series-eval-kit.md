@@ -9,7 +9,7 @@ description: Tutorials for the E Series evaluation board (Gen 2 cellular)
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-evalkit.jpg" ></div>
 
-For an in-depth information on the E series evaluation board please take a look at the datasheet <a href="/datasheets/electron/e-series-eval-board/">here.</a>
+For an in-depth information on the E series evaluation board please take a look at the datasheet <a href="/reference/datasheets/e-series/e-series-eval-board/">here.</a>
 
 ## Tutorial #1: Temperature Monitoring
 
@@ -104,7 +104,7 @@ You can use any serial terminal on your computer to then monitor the results. In
 
 ### Watching results using Particle CLI
 
-You can also use [Particle CLI](/tutorials/developer-tools/cli/) tool to subscribe to your's device's events using the command : `particle subscribe mine YOUR_DEVICE_NAME`
+You can also use [Particle CLI](/getting-started/developer-tools/cli/) tool to subscribe to your's device's events using the command : `particle subscribe mine YOUR_DEVICE_NAME`
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-cli-console.png" ></div>
 

@@ -9,7 +9,7 @@ description: Particle Debugger
 
 <div align=center><img src="/assets/images/accessories/debugger.png" ></div>
 
-**The Particle Debugger is no longer available for sale** however you can follow the instructions [here](/tutorials/hardware-projects/debugger-adapter/) for using other low-cost CMSIS-DAP debuggers that are compatible with it.
+**The Particle Debugger is no longer available for sale** however you can follow the instructions [here](/troubleshooting/debuggers/debugger-adapter/) for using other low-cost CMSIS-DAP debuggers that are compatible with it.
 
 The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle Gen 3 hardware over common interfaces like JTAG and SWD, using open source tools like GDB and openocd. It can also be used with Gen 2 devices, with the addition of some jumper wires.
 

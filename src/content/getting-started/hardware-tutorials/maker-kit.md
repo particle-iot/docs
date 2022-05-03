@@ -223,7 +223,7 @@ If it works, congrats! You've created your bus prediction URL.
 
 ### Create a webhook to retrieve prediction times
 
-Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/tutorials/device-cloud/webhooks/).
+Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/getting-started/integrations/webhooks/).
 
 To create a webhook:
 * Go to the **[Particle Console](https://console.particle.io)**
@@ -578,7 +578,7 @@ Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
 The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the [Publish](/cards/firmware/cloud-functions/particle-publish/),  [Subscribe](/cards/firmware/cloud-functions/particle-subscribe/), and [Webhooks](/tutorials/device-cloud/webhooks/) documentation for more information.
+Check out the [Publish](/cards/firmware/cloud-functions/particle-publish/),  [Subscribe](/cards/firmware/cloud-functions/particle-subscribe/), and [Webhooks](/getting-started/integrations/webhooks/) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.
@@ -886,7 +886,7 @@ Your device should start publishing temperature readings to the **[Particle Cons
 
 ![Temperatures displayed in the Particle Console](/assets/images/temp-logger-dashboard.png)
 
-For more information about the Console, read our [Console guide](/tutorials/device-cloud/console/).
+For more information about the Console, read our [Console guide](/getting-started/console/console/).
 
 ### IFTTT
 [IFTTT](https://ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.

@@ -14,7 +14,7 @@ Device OS API - Mesh
 
 It is discontinued in 2.0.0 and later but the API for compatible versions is included below.
 
-See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 ### publish()
 

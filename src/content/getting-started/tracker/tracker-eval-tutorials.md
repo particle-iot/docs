@@ -199,7 +199,7 @@ One of the best ways to expand the Tracker One is using I2C, since that interfac
 
 For this example we'll add temperature, pressure, and humidity information to location publishes using the Tracker SoM Evaluation Board.
 
-We'll also use the [SparkFun Qwiic](/community/qwiic/) line of products for easy prototyping. For production you'd probably make your own custom board with the sensor on it, instead.
+We'll also use the [SparkFun Qwiic](/hardware/expansion/qwiic/) line of products for easy prototyping. For production you'd probably make your own custom board with the sensor on it, instead.
 
 With the Evaluation board you'll need the [Qwiic connector to prototyping wires](https://www.sparkfun.com/products/14425) or the [cable assortment](https://www.sparkfun.com/products/15081) that includes it.
 

@@ -453,7 +453,7 @@ Here's a BME280 temperature, humidity, and atmospheric pressure [sensor board](h
 
 ![BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 
-You can find more on the [Qwiic community page](/community/qwiic/).
+You can find more on the [Qwiic community page](/hardware/expansion/qwiic/).
 
 ## NCD/Control Everything
 

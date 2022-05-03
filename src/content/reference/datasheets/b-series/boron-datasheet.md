@@ -229,7 +229,7 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 ### LED status
 
 #### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/troubleshooting/led/)
 
 #### Charge status LED
 

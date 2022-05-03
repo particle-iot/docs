@@ -5,7 +5,7 @@ columns: two
 ---
 # {{title}}
 
-The Cloud Debug tool is helpful for diagnosing connectivity issues. This application note begins with [AN003 Interpreting Cloud Debug](/datasheets/app-notes/an003-interpreting-cloud-debug/) which shows the basic patterns you'll see.
+The Cloud Debug tool is helpful for diagnosing connectivity issues. This application note begins with [AN003 Interpreting Cloud Debug](/troubleshooting/connectivity/interpreting-cloud-debug/) which shows the basic patterns you'll see.
 
 This application note is a deep dive into interpreting a complete successful log.
 

@@ -82,7 +82,7 @@ Most developers setting up a small number of development kits will use the Parti
 
 #### Particle CLI claiming
 
-You can claim the device using the [Particle CLI](/tutorials/developer-tools/cli/):
+You can claim the device using the [Particle CLI](/getting-started/developer-tools/cli/):
 
 ```
 particle device add <device-id>
@@ -132,7 +132,7 @@ You can claim a device from the Web IDE. Open the **Devices** tab and at the bot
 
 #### Particle cloud API claiming
 
-You can claim a device using the Particle cloud API [claim a device endpoint](/reference/device-cloud/api/#claim-a-device).
+You can claim a device using the Particle cloud API [claim a device endpoint](/reference/cloud-apis/api/#claim-a-device).
 
 An example of doing this from node.js (Javascript) is [node-example-device-cloud-setup](https://github.com/particle-iot/node-example-device-cloud-setup). The example can be run locally on your computer, or in your web browser (even if you don't have node installed).
 
@@ -143,7 +143,7 @@ If you are using [customers](#customers) you will most likely use [claim codes](
 #### Product claiming
 
 {{note op="start" type="product"}}
-For product devices, you can claim the devices while offline by using the Particle cloud API [claim a device endpoint](/reference/device-cloud/api/#claim-a-device). You would typically do this as part of your [manufacturing flow](/tutorials/product-tools/manufacturing-cellular/).
+For product devices, you can claim the devices while offline by using the Particle cloud API [claim a device endpoint](/reference/cloud-apis/api/#claim-a-device). You would typically do this as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
 {{note op="end"}}
 
 ### Unclaiming a device
@@ -172,7 +172,7 @@ Additionally:
 
 #### Particle CLI unclaiming
 
-You can unclaim the device using the [Particle CLI](/tutorials/developer-tools/cli/):
+You can unclaim the device using the [Particle CLI](/getting-started/developer-tools/cli/):
 
 ```
 particle device remove <device-id>
@@ -190,7 +190,7 @@ You can unclaim developer devices from the Web IDE. Click on the **Devices** tab
 
 #### Particle cloud API unclaiming
 
-The Particle cloud API [unclaim device](/reference/device-cloud/api/#unclaim-device) endpoint is used to unclaim a device. There are two different endpoints, one for developer devices and one for product devices.
+The Particle cloud API [unclaim device](/reference/cloud-apis/api/#unclaim-device) endpoint is used to unclaim a device. There are two different endpoints, one for developer devices and one for product devices.
 
 #### Note about Photon unclaiming
 
@@ -275,11 +275,11 @@ This is handy if you have multiple products running the same firmware. However, 
 
 By far the most common, and recommended, way to handle adding devices to products is to add the devices during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of device IDs in the order. You can import the file into the Particle console.
 
-You could also do this on a per-device basis as part of your [manufacturing flow](/tutorials/product-tools/manufacturing-cellular/).
+You could also do this on a per-device basis as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
 
 This is required if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro.
 
-For information about how this affects billing, see [Billing for added devices](/tutorials/product-tools/creating-a-product/#billing-for-added-devices).
+For information about how this affects billing, see [Billing for added devices](/getting-started/products/creating-a-product/#billing-for-added-devices).
 
 ### Quarantine
 
@@ -335,8 +335,8 @@ You can also activate a single SIM card this way, whether a 4FF plastic SIM card
 
 You can activate SIMs using the Particle cloud API:
 
-- [Developer SIMs](/reference/device-cloud/api/#activate-sim)
-- [Product SIMs](/reference/device-cloud/api/#import-and-activate-product-sims)
+- [Developer SIMs](/reference/cloud-apis/api/#activate-sim)
+- [Product SIMs](/reference/cloud-apis/api/#import-and-activate-product-sims)
 
 ### SIM activation speed
 

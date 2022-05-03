@@ -535,7 +535,7 @@ of your software keys could be added or removed.
 The other common place where JSON is used is with webhooks, both for sending data 
 to external servers, as well as parsing responses from servers. 
 
-In the [Webhook Tutorial](/tutorials/device-cloud/webhooks/) there's a brief mention 
+In the [Webhook Tutorial](/getting-started/integrations/webhooks/) there's a brief mention 
 of `\{{{PARTICLE_EVENT_VALUE}}}` but what is really going on there?
 
 The answer is that the webhook server uses a template language known as Mustache.

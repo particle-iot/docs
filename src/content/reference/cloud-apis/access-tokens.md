@@ -14,7 +14,7 @@ Access tokens control access to the Particle Cloud API. While you can use a user
 
 Devices don't use access tokens; they use a different technique (RSA public-private key pairs) to securely access the cloud. This makes it difficult to spoof or impersonate a device, and also assures that even if you have physical access to a device you can't extract anything that would be able to access the owner's account information.
 
-There are many different types of access tokens and ways of handling them. This document details access the cloud by a developer, product owner, or server. There is also a separate document on [oAuth authorization](/tutorials/device-cloud/authentication/) that describes less-common scenarios for interacting with customer devices from a mobile app or server, sometimes used with Wi-Fi devices.
+There are many different types of access tokens and ways of handling them. This document details access the cloud by a developer, product owner, or server. There is also a separate document on [oAuth authorization](/reference/cloud-apis/authentication/) that describes less-common scenarios for interacting with customer devices from a mobile app or server, sometimes used with Wi-Fi devices.
 
 ## Log in
 
@@ -80,7 +80,7 @@ You should not create a new access token for each API operation! You should inst
 
 Both of the techniques above create a user-based access token, which is appropriate for experimenting and some other use cases.
 
-The [API user](/reference/device-cloud/api/#api-users) feature makes it possible to create a non-expiring access token that only allows access to certain Particle cloud APIs. If you have a back-end that only uses a small number of APIs, using an API user can be more secure than using a user token.
+The [API user](/reference/cloud-apis/api/#api-users) feature makes it possible to create a non-expiring access token that only allows access to certain Particle cloud APIs. If you have a back-end that only uses a small number of APIs, using an API user can be more secure than using a user token.
 
 It's only available for products (not developer devices). 
 
@@ -88,7 +88,7 @@ It's only available for products (not developer devices).
 
 {{> cloud-api-user-create}}
 
-You can also create, list, update, and delete [API user tokens using the Particle Cloud API](/reference/device-cloud/api/#creating-an-api-user).
+You can also create, list, update, and delete [API user tokens using the Particle Cloud API](/reference/cloud-apis/api/#creating-an-api-user).
 
 ### List or Delete API Users
 
@@ -101,13 +101,13 @@ To delete an API user, list the users in the product or organization. If there a
 
 Customer claiming and customer tokens are typically only used for Wi-Fi device with an associated mobile app, and are not required, even in that scenario.
 
-As this is a complex topic, see the [customer claiming tutorial](/tutorials/device-cloud/cloud-api/#customer-claiming) for more information.
+As this is a complex topic, see the [customer claiming tutorial](/getting-started/cloud/cloud-api/#customer-claiming) for more information.
 
 ## Creating a product bearer token (oAuth)
 
 Before the API User feature (above), the only way to access all devices in a product is with a product bearer token. It's generally better to use the API user feature now, because it allows the token to be restricted to only the operations it needs to be able to perform.
 
-If you think you need to use a product bearer token, see the [product bearer token tutorial](/tutorials/device-cloud/cloud-api/#product-bearer-token-authentication-products-).
+If you think you need to use a product bearer token, see the [product bearer token tutorial](/getting-started/cloud/cloud-api/#product-bearer-token-authentication-products-).
 
 ## Using with servers
 
@@ -170,14 +170,14 @@ The **Try It** button will open up a separate web browser window where you can t
 {{> project-browser project="web-login-demo" default-file="script.js" tryit="web-platform-9hmp3r"}}
 
 
-For more information, see also application note [AN032 Calling API from a web page](/datasheets/app-notes/an032-calling-api-from-web-page/).
+For more information, see also application note [AN032 Calling API from a web page](/reference/cloud-apis/calling-api-from-web-page/).
 
 ### From a node.js command line tool
 
 
 {{> project-browser project="node-list-devices3" default-file="app.js" options="stackblitz"}}
 
-An explanation of how this project works can be found in the [node.js tutorial](/tutorials/learn-more/node-js/#list-devices-particle-api-). 
+An explanation of how this project works can be found in the [node.js tutorial](/reference/cloud-apis/node-js/#list-devices-particle-api-). 
 
 The **Try It** button opened a new web browser which allows you to test the node.js application with no software install required on Windows, Mac, Linux, or Chromebook. The node.js Try It feature only works on Chrome browsers.
 

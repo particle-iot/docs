@@ -102,7 +102,7 @@ server.
 An elevated failure rate would suggest that events are being published
 successfully, but one or more Integrations are not accepting requests
 from the Particle Device Cloud. If you experience high error rates, you
-should examine each Integration's [history and logs](/reference/device-cloud/webhooks/#using-the-console) to
+should examine each Integration's [history and logs](/reference/cloud-apis/webhooks/#using-the-console) to
 identify which one is having an issue.
 
 ### Cloud Function Calls
@@ -184,7 +184,7 @@ connectivity health insights</p>
 
 #### By Device Group
 Each metric can be filtered to display data from devices belonging to a
-specific [group](/tutorials/product-tools/device-groups/). This can help you, for instance, understand that a
+specific [group](/getting-started/console/device-groups/). This can help you, for instance, understand that a
 decrease in online devices is because of a localized cellular outage for
 units deployed in a certain geographic area, grouped by location in the
 Console.
@@ -200,7 +200,7 @@ fail.
 
 #### By Device OS Version
 Lastly, it may be that devices running different versions of [Device
-OS](/tutorials/device-os/device-os/) are exhibiting different behaviors.
+OS](/getting-started/device-os/introduction-to-device-os/) are exhibiting different behaviors.
 Filtering by Device OS version can help you identify patterns in
 connectivity health across Device OS versions running on devices in the
 fleet.

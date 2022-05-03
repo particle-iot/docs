@@ -59,7 +59,7 @@ If you are a growth or enterprise organization administrator, you can also reque
 
 ### Check service agreements
 
-In order to request a report you will the service agreement ID. You can get this from the [service agreements API](/reference/device-cloud/api/#service-agreements-and-usage). You really only need to do this once as your service agreement ID will generally not change. However, the API also returns the billing period dates, so you may want to make the API call to get that information.
+In order to request a report you will the service agreement ID. You can get this from the [service agreements API](/reference/cloud-apis/api/#service-agreements-and-usage). You really only need to do this once as your service agreement ID will generally not change. However, the API also returns the billing period dates, so you may want to make the API call to get that information.
 
 {{> service-agreements-curl}}
 

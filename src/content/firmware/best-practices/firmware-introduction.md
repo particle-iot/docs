@@ -11,9 +11,9 @@ description: Tips for writing Particle device software
 
 ## Getting started
 
-- If you are using the [Tracker One](/tutorials/asset-tracking/introduction/) you may be able to use your device with no programming at all, as many features can be managed from the console.
+- If you are using the [Tracker One](/hardware/tracking-system/) you may be able to use your device with no programming at all, as many features can be managed from the console.
 
-- Install [Particle Workbench](/tutorials/developer-tools/workbench/). This is the preferred development environment for Particle device programming.
+- Install [Particle Workbench](/getting-started/developer-tools/workbench/). This is the preferred development environment for Particle device programming.
 
 Particle devices are programming using C/C++, specifically gcc C++11, C++14, or C++17 depending on the version of Device OS you are targeting. If it's been a while since you've programmed in C/C++, there is a [language syntax overview](/cards/firmware/language-syntax/language-syntax/). Of course there are countless books and tutorials on the Internet as well.
 
@@ -32,9 +32,9 @@ Unlike a regular computer, Particle devices only run a single user application a
 
 Devices are intended to boot quickly, often within a second or two. On some devices the cellular network connection can remain active across a reboot, which allows the device to be reprogrammed or just rebooted with minimal disruption.
 
-Tracker One and Tracker SoM devices typically include the [Tracker Edge](/tutorials/asset-tracking/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
+Tracker One and Tracker SoM devices typically include the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
 
-When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (SoftDevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-programming/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
+When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (SoftDevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/troubleshooting/device-restore/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
 
 ---
 
@@ -114,7 +114,7 @@ When using `SEMI_AUTOMATIC` mode you need to add a call to [`Particle.connect()`
 
 - If you need to perform operations before connecting, you can put them before `Particle.connect()`. This is safer than using [`STARTUP`](/cards/firmware/macros/startup/#startup-) blocks.
 
-- On battery-powered cellular devices, you may want to check the [battery charge and skip connecting when the battery is low](/datasheets/app-notes/an029-wake-publish-sleep-cellular/). This is particularly useful for devices that also have a solar charger, to avoid completely discharging the battery or failing to connect due to insufficient power.
+- On battery-powered cellular devices, you may want to check the [battery charge and skip connecting when the battery is low](/firmware/low-power/wake-publish-sleep-cellular/). This is particularly useful for devices that also have a solar charger, to avoid completely discharging the battery or failing to connect due to insufficient power.
  
 
 ```cpp
@@ -148,7 +148,7 @@ See [Logging](/cards/firmware/logging/logging/) for more information.
 
 Be careful when allocating large memory blocks on the heap using `new`, `malloc`, `strdup`, etc.. It's safe if you allocate the blocks once from setup(), but of you periodically allocate large blocks, especially of varying size, with varying lifetimes, as this can lead to heap fragmentation.
 
-See [Fragmentation](/datasheets/app-notes/an040-code-size-tips/#fragmentation) in Code Size Tips for more information.
+See [Fragmentation](/firmware/best-practices/code-size-tips/#fragmentation) in Code Size Tips for more information.
 
 ### Code size
 
@@ -160,9 +160,9 @@ Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte 
 - C++ template expansions
 - Some overhead
 
-Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/datasheets/app-notes/an033-256K-user-binaries/).
+Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/reference/device-os/256K-user-binaries/).
 
-See [Code Size Tips](/datasheets/app-notes/an040-code-size-tips/#out-of-memory-handler) for a great deal of information about code size.
+See [Code Size Tips](/firmware/best-practices/code-size-tips/#out-of-memory-handler) for a great deal of information about code size.
 
 ### Stack size
 
@@ -209,13 +209,13 @@ void loop() {
 
 This is a global memory allocation, done statically at compile time. This is the recommended way to handle buffers that are used periodically during execution.
 
-See [Stack](/datasheets/app-notes/an040-code-size-tips/#stack) in Code Size Tips for more information.
+See [Stack](/firmware/best-practices/code-size-tips/#stack) in Code Size Tips for more information.
 
 ### Avoid blocking loop
 
 You should avoid blocking loop. It's best to return from loop as often as possible instead of looping within `loop()` or using long `delay` calls.
 
-See [Finite State Machines](/datasheets/app-notes/an010-finite-state-machines/) for one technique to make this more manageable.
+See [Finite State Machines](/firmware/software-design/finite-state-machines/) for one technique to make this more manageable.
 
 
 ## Watch out for
@@ -306,7 +306,7 @@ void loop() {
 
 In this example, complex parts of setup are deferred until `setup()` instead of being done at object construction time.
 
-Another better alternative to global objects is often to use the [singleton pattern](/datasheets/app-notes/an034-singleton/).
+Another better alternative to global objects is often to use the [singleton pattern](/firmware/software-design/singleton/).
 
 For more information see, [Global object constructors](/cards/firmware/global-object-constructors/global-object-constructors/).
 
@@ -320,7 +320,7 @@ If you attempt to acquire a lock on a resource from inside a `SINGLE_THREADED_BL
 
 In old versions of Device OS, some resources like SPI were not protected. This caused failures when the system thread and user thread attempted to access SPI at the same time. The solution is use a mutex, but if you have code that previously used SPI from a `SINGLE_THREADED_BLOCK`, which does not actually solve the simultaneous access issue, it would fail with newer versions of Device OS by deadlocking.
 
-For more information about mutexes, see the [threading explainer](/datasheets/app-notes/an005-threading-explainer/#using-a-mutex-with-an-oled-display).
+For more information about mutexes, see the [threading explainer](/firmware/software-design/threading-explainer/#using-a-mutex-with-an-oled-display).
 
 ### SPI transactions
 
@@ -363,7 +363,7 @@ Interrupt service routines (ISR) are bits of code that run in an interrupt conte
 - No Particle primitives like `Particle.publish`.
 - No `Cellular`, `Wifi`, `TCPClient`, `TCPServer`, `UDP`, etc..
 - No mutex locks, including things that also lock like SPI transactions.
-- No queue calls except [`os_queue_put`](/datasheets/app-notes/an005-threading-explainer/#queue-functions) which is ISR safe
+- No queue calls except [`os_queue_put`](/firmware/software-design/threading-explainer/#queue-functions) which is ISR safe
 - Basically assume that all Device OS functions are unsafe, unless specifically listed as safe.
 
 A few of the locations that are interrupt service routines:
@@ -393,7 +393,7 @@ When a heap allocation such as `new`, `malloc`, `strdup`, etc. fails, the out of
 
 Using an out of memory handler, you can flag this situation, then from loop, you can reset the device. This is not the default behavior in Device OS, because in some cases you may want to continue execution, free some memory in an application-specific manner, or use other techniques to resolve the situation.
 
-See [out of memory handler](/datasheets/app-notes/an040-code-size-tips/#out-of-memory-handler) in Code Size Tips for more information.
+See [out of memory handler](/firmware/best-practices/code-size-tips/#out-of-memory-handler) in Code Size Tips for more information.
 
 
 

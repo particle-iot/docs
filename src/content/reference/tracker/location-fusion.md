@@ -17,11 +17,11 @@ The last two are used in the location fusion feature, new in Device OS 3.0 and T
 
 Wi-Fi geolocation does not connect to the Wi-Fi access points. Most access points are configured to periodically broadcast their presence to make it easy for Wi-Fi devices to connect. This public broadcast is used in combination with the geolocation service to provide an approximate location. Not all Wi-Fi access points are in the database.
 
-- The settings are in the [location tab](/tutorials/device-cloud/console/#location-settings) of the fleet settings or device settings.
+- The settings are in the [location tab](/getting-started/console/console/#location-settings) of the fleet settings or device settings.
 
-- Enhanced location events are described in the [asset tracking events references](/reference/device-cloud/api/#enhanced-location-events).
+- Enhanced location events are described in the [asset tracking events references](/reference/cloud-apis/api/#enhanced-location-events).
 
-- Handing enhanced location events from device firmware is in the [Tracker Edge reference](/reference/asset-tracking/tracker-edge-firmware/#regenhancedloccallback-trackerlocation).
+- Handing enhanced location events from device firmware is in the [Tracker Edge reference](/firmware/tracker-edge/tracker-edge-api-reference/#regenhancedloccallback-trackerlocation).
 
 The approximate resolution of the various technologies is:
 

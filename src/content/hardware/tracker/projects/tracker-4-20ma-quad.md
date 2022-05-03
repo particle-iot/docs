@@ -12,7 +12,7 @@ This application note includes hardware and software for connecting up to four 4
 
 The quad port design requires an external 12V power supply, but this power supply can also power the Tracker One. It includes a boost converter to 24VDC for the 4-20mA current loop and separate current limiters for each current loop. It uses an external I2C ADC connected to the M8 connector.
 
-There is also a simple [single current loop design](/datasheets/app-notes/an020-tracker-4-20ma) that can be powered off the built-in LiPo battery.
+There is also a simple [single current loop design](/hardware/tracker/projects/tracker-4-20ma/) that can be powered off the built-in LiPo battery.
 
 ![Quad](/assets/images/app-notes/AN021/quad.jpg)
 

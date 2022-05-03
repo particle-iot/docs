@@ -24,7 +24,7 @@ This allows you to freely flash new firmware to these devices from the
 development tool of your choice (i.e. the <a href="https://build.particle.io" target="_blank">Web IDE</a>, <a href="https://www.particle.io/products/development-tools/particle-desktop-ide" target="_blank">Local IDE</a>, or the <a href="https://github.com/particle-iot/particle-cli">CLI</a>),
 without having it immediately overwritten by the Particle cloud. These
 devices will continue to maintain [product
-privileges](/tutorials/product-tools/security/#product-privileges),
+privileges](/getting-started/products/security/#product-privileges),
 allowing you the flexibility to experiment with new firmwares while
 still simulating behaviors of deployed devices in the production fleet.
 
@@ -58,7 +58,7 @@ find all of your development devices. When sorting in descending order,
 development devices will appear at the top of your device list.
 
 *Quick tip*: If you prefer, you can also [call the Particle
-API](/reference/device-cloud/api/#mark-product-development-device) directly to mark a device as a
+API](/reference/cloud-apis/api/#mark-product-development-device) directly to mark a device as a
 development device.
 
 
@@ -87,5 +87,5 @@ immediate over-the-air update**. This happens to return the
 device to its targeted version of product firmware.
 
 *Quick tip*: If you prefer, you can also [call the Particle
-API](/reference/device-cloud/api/#unmark-product-development-device) directly to unmark a device as a
+API](/reference/cloud-apis/api/#unmark-product-development-device) directly to unmark a device as a
 development device.

@@ -19,7 +19,7 @@ The single port design can be powered by the built-in LiPo battery or USB and us
 - 30 mA current limiter
 - TVS protection
 
-There is also an application note with support for [4 current loops](/datasheets/app-notes/an021-tracker-4-20ma-quad).
+There is also an application note with support for [4 current loops](/hardware/tracker/projects/tracker-4-20ma-quad/).
 
 
 

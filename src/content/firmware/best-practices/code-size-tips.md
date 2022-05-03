@@ -20,7 +20,7 @@ Gen 2 devices including the Photon, P1, Electron, and E Series have a 128 Kbyte 
 - C++ template expansions
 - Some overhead
 
-Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/datasheets/app-notes/an033-256K-user-binaries/).
+Gen 3 devices (including the Argon, Boron, B Series SoM, and Tracker) running Device OS 3.1 or later have 256 Kbyte user binaries (262,144 byte), double the space. Earlier versions of Device OS only supported 128K binaries like Gen 2. For more information, see [256K user binaries](/reference/device-os/256K-user-binaries/).
 
 ## Your compiled code
 

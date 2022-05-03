@@ -27,7 +27,7 @@ Dashboard as well as the last recorded vitals. This information can also
 be queried via Particle's Device Cloud API.
 
 Device Vitals can be used in-tandem with [Fleet
-Health](/tutorials/diagnostics/fleet-health/) metrics for a bird's eye
+Health](/getting-started/console/fleet-health/) metrics for a bird's eye
 view of your IoT system's health.
 
 You can see a device's vitals in the <a
@@ -57,12 +57,12 @@ capabilities. The Vitals Dashboard visualizes the following metrics:
 There are many other vitals collected by the device and sent to the
 Device Cloud. For a comprehensive list of which vitals are collected, check out the
 Device Vitals [reference
-docs](/reference/device-cloud/api/#device-vitals-event). To access
+docs](/reference/cloud-apis/api/#device-vitals-event). To access
 to the full collection of vitals, see [this
 section](#last-recorded-vitals).
 
 For information on upgrading Device OS versions for your devices to get
-the most out of Device Vitals, check out the [Device OS guide](/tutorials/device-os/device-os/#managing-device-os).
+the most out of Device Vitals, check out the [Device OS guide](/getting-started/device-os/introduction-to-device-os/#managing-device-os).
 
 ### Signal Strength
 The strength of the device’s connection to the
@@ -144,7 +144,7 @@ containing the full list of vitals collected by the device over the last
 30 days. This CSV will contain additional advanced vitals that are not rendered
 in the Console UI. For a comprehensive list of available vitals, check
 out the [reference
-docs](/reference/device-cloud/api/#device-vitals-event).
+docs](/reference/cloud-apis/api/#device-vitals-event).
 
 You can also click on the **Health Check** link to execute a real-time diagnostics
 test for the device. For more info on this, check out the [Health
@@ -203,7 +203,7 @@ application firmware.
 send its vitals ad hoc via the Console or the Device Cloud API.
 
 The device delivers the diagnostics data to the Particle Device Cloud
-via the [`spark/device/diagnostics/update`](/reference/device-cloud/api/#device-vitals-event)
+via the [`spark/device/diagnostics/update`](/reference/cloud-apis/api/#device-vitals-event)
 system event. The device vitals event will include a data payload of the
 most recent readings the device collected.
 
@@ -270,10 +270,10 @@ useful if you'd like to automate devices in your fleet reporting
 diagnostic information on a regular cadence**.
 
 You will need to make a `POST` request to the [refresh device
-vitals](/reference/device-cloud/api/#refresh-device-vitals) API endpoint, then listen for the
+vitals](/reference/cloud-apis/api/#refresh-device-vitals) API endpoint, then listen for the
 published event from the device either using the [server-sent event
-stream](/reference/device-cloud/api/#product-event-streamh) or by
-[setting up a webhook](/tutorials/device-cloud/webhooks/) that
+stream](/reference/cloud-apis/api/#product-event-streamh) or by
+[setting up a webhook](/getting-started/integrations/webhooks/) that
 triggers off of the `spark/device/diagnostics/update` event.
 
 
@@ -362,9 +362,9 @@ shuttling of messages to and from a Particle device.
 
 The API provides a REST interface to allow remote interactions with
 Particle devices and the cloud. This includes calling a [
-function](/reference/device-cloud/api/#call-a-function),
-checking a [variable](/reference/device-cloud/api/#get-a-variable-value),
-or publishing an [event](/reference/device-cloud/api/#publish-an-event)
+function](/reference/cloud-apis/api/#call-a-function),
+checking a [variable](/reference/cloud-apis/api/#get-a-variable-value),
+or publishing an [event](/reference/cloud-apis/api/#publish-an-event)
 that devices subscribe to.
 
 #### Webhooks
