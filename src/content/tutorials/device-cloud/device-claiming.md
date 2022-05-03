@@ -353,8 +353,8 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | Generally fast<sup>2</sup> | End of life | |
 | ASSET3G260V2 | Asset Tracker 3G (Americas/Aus) | Generally fast<sup>2</sup> | End of life | |
 | ASSET2GV2 | Asset Tracker 2G | Generally fast<sup>2</sup> | End of life | |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Fast<sup>1</sup> | GA | |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Fast<sup>1</sup> | GA | |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | Fast<sup>1</sup> | GA | |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | Fast<sup>1</sup> | GA | |
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | B524MTY|
 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | Sometimes slow<sup>3</sup> | NRND | B524MEA|
 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | GA | |
@@ -409,8 +409,8 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | Fast<sup>1</sup> | Deprecated | |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | NRND | ONE524MEA|
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Sometimes slow<sup>3</sup> | Deprecated | ONE524MTY|
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Fast<sup>1</sup> | GA | |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | Fast<sup>1</sup> | Deprecated | |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | Fast<sup>1</sup> | GA | |
+| ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | Fast<sup>1</sup> | Deprecated | |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | Sometimes slow<sup>3</sup> | NRND | T404MEA|
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | T404MKIT|
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | T404MTY|
@@ -420,9 +420,9 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Sometimes slow<sup>3</sup> | NRND | T524MEA|
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Sometimes slow<sup>3</sup> | NRND | T524MKIT|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | T524MTY|
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Fast<sup>1</sup> | GA | |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | Fast<sup>1</sup> | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | Fast<sup>1</sup> | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated fabf0754-7838-11ec-90d6-0242ac120003 --}}

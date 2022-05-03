@@ -84,13 +84,13 @@ The available models include:
 | Model | Region | EtherSIM | Bands | Lifecycle | Replacement |
 | :--- | :--- | :---: | :--- | :--- | :--- | 
 | B404X | United States, Canada, Mexico | &check; | LTE Cat M1 | Coming soon | |
-| B524 | Europe, Australia, New Zealand | &check; | LTE Cat M1 | GA | |
+| B524 | EMEAA | &check; | LTE Cat M1 | GA | |
 | B404 | United States, Canada, Mexico | &check; | LTE Cat M1 | Last buy | Use B404X instead |
 | B402 | United States, Canada, Mexico | | LTE Cat 1, 2G, 3G | Deprecated | Use B404X instead |
 | B523 | Europe | | LTE Cat 1, 2G, 3G | Deprecated | Use B524 instead |
 
 - The B404X, B404, and B402 cannot be used in Central or South America.
-- The B524 is only recommended for use in Europe, Australia, and New Zealand.
+- The B524 can be used in selected countries in Europe, Middle East, Africa, and Asia (EMEAA), including Australia and New Zealand.
 - The B524 and B523 do not work out of the EMEAA region.
 - See the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails) for compatibility in specific countries
 {{!-- END shared-blurb --}}
@@ -102,8 +102,8 @@ The available models include:
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | &check; | GA | |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | EG91-E | &check; | GA | |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | NRND | B524MEA|
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
@@ -137,11 +137,11 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | &check; | GA | |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | EG91-EX | &check; | GA | |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | &check; | GA | |
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC | &check; | GA | |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | &check; | GA | |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | EG91-EX | &check; | GA | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | NRND | ONE404MEA|
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | NRND | T404MEA|
@@ -151,11 +151,11 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC |  | Deprecated | ONE404MTY|
 | ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | &check; | Deprecated | |
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | Deprecated | ONE524MTY|
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | Deprecated | |
+| ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | EMEAA | EG91-EX | &check; | Deprecated | |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | Deprecated | T404MTY|
 | T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | &check; | Deprecated | |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | Deprecated | T524MTY|
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | &check; | Deprecated | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-EX | &check; | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated d833e557-5289-450c-92cf-a6eedec30bd8 --}}
@@ -260,21 +260,21 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | EMEAA | ASSET3G270V2 | Asset Tracker 3G (Eur/Asia/Afr) | U270 | &nbsp; | 2 | End of life | &nbsp; |
 | EMEAA | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EG91-E | &nbsp; | 3 | NRND | B524MEA |
 | EMEAA | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EG91-E | &nbsp; | 3 | Deprecated | B524MTY |
-| EMEAA | B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EG91-E | &check; | 3 | GA | &nbsp; |
-| EMEAA | B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EG91-E | &check; | 3 | GA | &nbsp; |
+| EMEAA | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EG91-E | &check; | 3 | GA | &nbsp; |
+| EMEAA | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EG91-E | &check; | 3 | GA | &nbsp; |
 | EMEAA | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | U270 | &nbsp; | 2 | End of life | ELC314TY |
 | EMEAA | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | U270 | &nbsp; | 2 | End of life | ELC314TY |
 | EMEAA | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &nbsp; | 3 | NRND | ONE524MEA |
 | EMEAA | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX | &nbsp; | 3 | Deprecated | ONE524MTY |
-| EMEAA | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
-| EMEAA | ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EG91-EX | &check; | 3 | Deprecated | &nbsp; |
+| EMEAA | ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
+| EMEAA | ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | EG91-EX | &check; | 3 | Deprecated | &nbsp; |
 | EMEAA | SNSRKIT3G270 | Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | U270 | &nbsp; | 2 | End of life | &nbsp; |
 | EMEAA | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &nbsp; | 3 | NRND | T524MEA |
 | EMEAA | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EG91-EX | &nbsp; | 3 | NRND | T524MKIT |
 | EMEAA | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EG91-EX | &nbsp; | 3 | Deprecated | T524MTY |
-| EMEAA | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
-| EMEAA | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
-| EMEAA | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EG91-EX | &check; | 3 | Deprecated | &nbsp; |
+| EMEAA | T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
+| EMEAA | T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EG91-EX | &check; | 3 | GA | &nbsp; |
+| EMEAA | T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EG91-EX | &check; | 3 | Deprecated | &nbsp; |
 | Global | ASSET2GV2 | Asset Tracker 2G | G350 | &nbsp; | 2 | End of life | &nbsp; |
 | Global | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | U201 | &nbsp; | 3 | End of life | BRN314KIT |
 | Global | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | U201 | &nbsp; | 3 | Deprecated | BRN314TRAY50 |
@@ -354,18 +354,18 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | BG96-MC | T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | &check; | 3 | Deprecated | &nbsp; |
 | EG91-E | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | 3 | NRND | B524MEA |
 | EG91-E | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | Deprecated | B524MTY |
-| EG91-E | B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
-| EG91-E | B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-E | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-E | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | &check; | 3 | GA | &nbsp; |
 | EG91-EX | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | 3 | NRND | ONE524MEA |
 | EG91-EX | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &nbsp; | 3 | Deprecated | ONE524MTY |
-| EG91-EX | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
-| EG91-EX | ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | 3 | Deprecated | &nbsp; |
+| EG91-EX | ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | EMEAA | &check; | 3 | Deprecated | &nbsp; |
 | EG91-EX | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | 3 | NRND | T524MEA |
 | EG91-EX | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | 3 | NRND | T524MKIT |
 | EG91-EX | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | 3 | Deprecated | T524MTY |
-| EG91-EX | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
-| EG91-EX | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
-| EG91-EX | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &check; | 3 | Deprecated | &nbsp; |
+| EG91-EX | T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &check; | 3 | GA | &nbsp; |
+| EG91-EX | T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EMEAA | &check; | 3 | Deprecated | &nbsp; |
 | G350 | ASSET2GV2 | Asset Tracker 2G | Global | &nbsp; | 2 | End of life | &nbsp; |
 | G350 | E350KIT | Electron 2G Kit (Global) | Global | &nbsp; | 2 | End of life | &nbsp; |
 | G350 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | &nbsp; | 2 | End of life | ELC314TY |
@@ -437,8 +437,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | Deprecated | &nbsp; |
 | EtherSIM | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
-| EtherSIM | B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | 3 | GA | &nbsp; |
-| EtherSIM | B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | 3 | GA | &nbsp; |
+| EtherSIM | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | EG91-E | 3 | GA | &nbsp; |
+| EtherSIM | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-E | 3 | GA | &nbsp; |
 | EtherSIM | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | NRND-US | &nbsp; |
 | EtherSIM | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | 3 | Deprecated | &nbsp; |
 | EtherSIM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | GA | &nbsp; |
@@ -457,14 +457,14 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 2 | NRND-US | &nbsp; |
 | EtherSIM | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | 3 | Deprecated | &nbsp; |
-| EtherSIM | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
-| EtherSIM | ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
+| EtherSIM | ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| EtherSIM | ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
 | EtherSIM | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC | 3 | GA | &nbsp; |
 | EtherSIM | T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | 3 | Deprecated | &nbsp; |
-| EtherSIM | T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
-| EtherSIM | T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
-| EtherSIM | T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
+| EtherSIM | T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| EtherSIM | T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | EG91-EX | 3 | GA | &nbsp; |
+| EtherSIM | T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-EX | 3 | Deprecated | &nbsp; |
 | Type KA | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | NRND | B404MEA |
 | Type KA | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | Deprecated | B404MTY |
 | Type KA | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | NRND | BRN404 |
@@ -825,20 +825,20 @@ The following SKU have LTE Cat 1 cellular modems:
 
 | SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
+| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | &check; | EG91-E | 3 | GA | &nbsp; |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
+| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &check; | EG91-EX | 3 | GA | &nbsp; |
 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | &nbsp; | EG91-E | 3 | NRND | B524MEA |
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | ONE524MEA |
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | T524MEA |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | &nbsp; | EG91-EX | 3 | NRND | T524MKIT |
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-E | 3 | Deprecated | B524MTY |
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &nbsp; | EG91-EX | 3 | Deprecated | ONE524MTY |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | EG91-EX | 3 | Deprecated | &nbsp; |
+| ONE524MTY | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | EMEAA | &check; | EG91-EX | 3 | Deprecated | &nbsp; |
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &nbsp; | EG91-EX | 3 | Deprecated | T524MTY |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | Deprecated | &nbsp; |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | EMEAA | &check; | EG91-EX | 3 | Deprecated | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

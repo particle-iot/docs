@@ -1659,6 +1659,29 @@ const path = require('path');
                 }); 
             }                 
         },
+        // tutorials/cellular-connectivity/lte-cat-1-expansion.md
+        {
+            guid:'2bc27d9d-f9fc-419e-8239-a4533c6cf4c6', 
+            generatorFn:function(updater) {
+                return updater.generateSpecialSkuList({
+                    filterFn: function(skuObj) {
+                        if (skuObj.modem == 'EG91-E' || skuObj.modem == 'EG91-EX') {
+                            if (skuObj.sim == 4) {
+                                return false; // Keep
+                            }
+                        }
+                        return true; // Filter (remove)
+                    }
+                }); 
+            } 
+        },
+        {
+            guid:'574fffef-d296-4b39-a38f-9dc8bba013c8', 
+            generatorFn:function(updater) {
+                return updater.generateExpansionCarrierList({
+                }); 
+            } 
+        },
         // tutorials/learn-more/gen2-cellular-migration.md
         {
             guid:'0c8fb8e4-0420-11ec-9a03-0242ac130003',

@@ -476,6 +476,7 @@ const generatorConfig = require('./generator-config');
         return md;
     }
 
+
     updater.generateTable = function(options, data) {
         // options includes options, table headers, etc.
         // data contains the data as an array of objects. The elements of the array are rows in the table.
@@ -1194,6 +1195,131 @@ const generatorConfig = require('./generator-config');
         });
 
         return md;    
+    };
+
+
+    updater.generateSpecialSkuList = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        let tableData = [];
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (skuObj.lifecycle == 'Discontinued' && skuObj.skuClass == 'kit') {
+                // Hide discontinued kits
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden, whether a kit or not
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            tableData.push(skuObj);
+        });
+
+        // Sort
+        skus.sort(function(a, b) {
+            const lifecycleA = updater.datastore.findSkuLifecycle(a.lifecycle);
+            const lifecycleB = updater.datastore.findSkuLifecycle(b.lifecycle);
+
+            let cmp = lifecycleA.sortOrder - lifecycleB.sortOrder;
+            if (cmp) {
+                return cmp;
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU'
+                },
+                {
+                    key: 'desc',
+                    title: 'Description'
+                },
+                {
+                    key: 'modem',
+                    title: 'Modem'
+                },
+                /*
+                {
+                    key: 'lifecycle',
+                    title: 'Lifecycle'
+                },
+                {
+                    key: 'replacement',
+                    title: 'Replacement'
+                }
+                */
+            ],
+        };
+
+        return updater.generateTable(tableOptions, tableData);
+    }
+
+    updater.generateExpansionCarrierList = function(options) {
+        let tableData = [];
+
+        // Build list of LTE Cat 1 countries
+        let cmsList = [];
+        for(const cmsObj of updater.datastore.data.countryModemSim) {
+            if (cmsObj.modem != 'EG91-E' || cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
+                continue;
+            }
+            cmsList.push(cmsObj);
+        }
+
+        for(const cmsObj of cmsList) {
+            for(const ccObj of updater.datastore.data.countryCarrier) {
+                if (ccObj.country != cmsObj.country) {
+                    continue;
+                }
+                if (!ccObj.supersim) {
+                    continue;
+                }
+                
+                tableData.push({
+                    country: ccObj.country,
+                    carrier: ccObj.carrier,
+                    expansion: (cmsObj.expansion == '2022-05-18')
+                });
+            }
+        }
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'country',
+                    title: 'Country'
+                },
+                {
+                    key: 'carrier',
+                    title: 'Carrier'
+                },
+                {
+                    key: 'expansion',
+                    title: 'Expansion',
+                    checkmark: true,
+                    align: 'center'    
+                },
+            ]
+        };
+
+        return updater.generateTable(tableOptions, tableData);
     };
 
     updater.generatePinInfo = function(options) {
