@@ -408,30 +408,36 @@
         }
       ],
       {
-        "dir": "firmware-mesh",
-        "title": "Device OS API - Mesh",
-        "href": "/reference/discontinued/firmware-mesh/"
+        "dir": "software",
+        "isSection": true
       },
-      {
-        "dir": "firmware-xenon",
-        "title": "Device OS API - Xenon",
-        "href": "/reference/discontinued/firmware-xenon/"
-      },
-      {
-        "dir": "firmware-core",
-        "title": "Device OS API - Core",
-        "href": "/reference/discontinued/firmware-core/"
-      },
-      {
-        "dir": "dev",
-        "title": "Desktop IDE (Dev)",
-        "href": "/reference/discontinued/dev/"
-      },
-      {
-        "dir": "windows",
-        "title": "Windows SDK",
-        "href": "/reference/discontinued/windows/"
-      }
+      [
+        {
+          "dir": "dev",
+          "title": "Desktop IDE (Dev)",
+          "href": "/reference/discontinued/software/dev/"
+        },
+        {
+          "dir": "windows",
+          "title": "Windows SDK",
+          "href": "/reference/discontinued/software/windows/"
+        },
+        {
+          "dir": "firmware-mesh",
+          "title": "Device OS API - Mesh",
+          "href": "/reference/discontinued/software/firmware-mesh/"
+        },
+        {
+          "dir": "firmware-xenon",
+          "title": "Device OS API - Xenon",
+          "href": "/reference/discontinued/software/firmware-xenon/"
+        },
+        {
+          "dir": "firmware-core",
+          "title": "Device OS API - Core",
+          "href": "/reference/discontinued/software/firmware-core/"
+        }
+      ]
     ]
   ]
 }
