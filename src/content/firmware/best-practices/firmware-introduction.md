@@ -1,5 +1,5 @@
 ---
-title: Development tips
+title: Firmware introduction
 columns: two
 layout: commonTwo.hbs
 description: Tips for writing Particle device software

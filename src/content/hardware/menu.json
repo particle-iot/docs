@@ -259,6 +259,17 @@
         "title": "Enabling Wi-Fi RF Test for ESP32",
         "href": "/hardware/certification/enabling-wifi-rf-test-for-esp32/"
       }
+    ],
+    {
+      "dir": "best-practices",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "watchdog-timers",
+        "title": "Watchdog timers",
+        "href": "/hardware/best-practices/watchdog-timers/"
+      }
     ]
   ]
 }

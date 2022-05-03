@@ -1,11 +1,15 @@
 {
-    "items": [
+  "items": [
+    {
+      "dir": "best-practices",
+      "isSection": true
+    },
+    [
       {
-        "dir": "best-practices",
-        "isSection": true
-      },
-      [
-      ]
+        "dir": "firmware-introduction",
+        "title": "Firmware introduction",
+        "href": "/firmware/best-practices/firmware-introduction/"
+      }
     ]
-  }
-  
+  ]
+}

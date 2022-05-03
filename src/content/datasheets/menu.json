@@ -91,11 +91,6 @@
         "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
       },
       {
-        "dir": "an023-watchdog-timers",
-        "title": "AN023 Watchdog Timers",
-        "href": "/datasheets/app-notes/an023-watchdog-timers/"
-      },
-      {
         "dir": "an028-stop-sleep-cellular",
         "title": "AN028 Stop sleep cellular example",
         "href": "/datasheets/app-notes/an028-stop-sleep-cellular/"

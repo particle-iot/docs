@@ -1,9 +1,9 @@
 ---
-title: AN023 Watchdog Timers
+title: Watchdog timers
 layout: commonTwo.hbs
 columns: two
 ---
-# AN023 Watchdog Timers
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN023.zip).
 
