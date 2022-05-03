@@ -330,11 +330,6 @@
       ]
     ],
     {
-      "dir": "asset-tracking",
-      "isSection": true
-    },
-    [],
-    {
       "dir": "discontinued",
       "isSection": true
     },

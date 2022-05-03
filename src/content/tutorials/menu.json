@@ -52,13 +52,7 @@
       "dir": "product-tools",
       "isSection": true
     },
-    [
-      {
-        "dir": "manufacturing-cellular",
-        "title": "Manufacturing - Cellular",
-        "href": "/tutorials/product-tools/manufacturing-cellular/"
-      }
-    ],
+    [],
     {
       "dir": "integrations",
       "isSection": true
