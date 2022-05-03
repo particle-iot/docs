@@ -1,9 +1,9 @@
 ---
-title: AN027 Tracker Button and LEDs
+title: Tracker button and LEDs
 layout: commonTwo.hbs
 columns: two
 ---
-# AN027 Tracker Button and LEDs
+# {{title}}
 
 This application note shows how to connect add a push button, two LEDs, a buzzer, and a 5V I2C port for the SHT30 temperature and humidity sensor to the Tracker One using the M8 connector.
 

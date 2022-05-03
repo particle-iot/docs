@@ -1,10 +1,10 @@
 ---
-title: AN022 Tracker SHT3x Temperature/Humidity
+title:  racker SHT3x temperature/humidity
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN022 Tracker SHT3x Temperature/Humidity
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN022.zip).
 

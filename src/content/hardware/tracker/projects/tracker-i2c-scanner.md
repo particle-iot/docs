@@ -1,9 +1,9 @@
 ---
-title: AN014 Tracker I2C Scanner
+title: Tracker I2C Scanner
 layout: commonTwo.hbs
 columns: two
 ---
-# AN014 Tracker I2C Scanner
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN014.zip).
 

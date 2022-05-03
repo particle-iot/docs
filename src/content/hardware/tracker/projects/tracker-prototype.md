@@ -1,10 +1,10 @@
 ---
-title: AN019 Tracker Prototype to Board
+title: Tracker prototype to board
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN019 Tracker Prototype to Board
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN019.zip).
 

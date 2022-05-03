@@ -1,10 +1,10 @@
 ---
-title: AN012 Tracker 1-Wire
+title: Tracker 1-Wire
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN012 Tracker 1-Wire
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN012.zip).
 

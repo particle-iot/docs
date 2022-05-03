@@ -1,10 +1,10 @@
 ---
-title: AN020 Tracker 4-20mA Sensor
+title: Tracker 4-20mA sensor
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN020 Tracker 4-20mA Sensor
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN020.zip).
 

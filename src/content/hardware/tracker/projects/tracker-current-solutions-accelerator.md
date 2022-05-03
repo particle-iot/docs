@@ -1,11 +1,10 @@
 ---
-title: AN026 Tracker Current Solutions Accelerator
+title: Tracker current solutions accelerator
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN026 Tracker Current Solutions Accelerator
-
+# {{title}}
 This tutorial shows how to measure AC current using the Tracker One and a few external components. 
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN026.zip).

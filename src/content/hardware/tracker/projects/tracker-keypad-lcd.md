@@ -1,10 +1,10 @@
 ---
-title: AN016 Tracker Keypad LCD
+title: Tracker keypad LCD
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN016 Tracker Keypad LCD
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN016.zip).
 

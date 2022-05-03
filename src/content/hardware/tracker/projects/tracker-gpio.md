@@ -1,10 +1,10 @@
 ---
-title: AN013 Tracker GPIO
+title: Tracker GPIO
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN013 Tracker GPIO
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN013.zip).
 

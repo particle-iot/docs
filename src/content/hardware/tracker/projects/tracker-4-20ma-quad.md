@@ -1,10 +1,10 @@
 ---
-title: AN021 Tracker 4-20mA Sensor Quad
+title: Tracker 4-20mA sensor quad
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN021 Tracker 4-20mA Sensor Quad
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN021.zip).
 

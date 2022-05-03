@@ -1,10 +1,10 @@
 ---
-title: AN018 Tracker Tank Level Sensor
+title: Tracker tank level sensor
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN018 Tracker Tank Level Sensor
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN018.zip).
 

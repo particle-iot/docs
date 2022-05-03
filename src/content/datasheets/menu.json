@@ -150,84 +150,14 @@
         "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
       },
       {
-        "dir": "an012-tracker-1wire",
-        "title": "AN012 Tracker 1-Wire",
-        "href": "/datasheets/app-notes/an012-tracker-1wire/"
-      },
-      {
-        "dir": "an013-tracker-gpio",
-        "title": "AN013 Tracker GPIO",
-        "href": "/datasheets/app-notes/an013-tracker-gpio/"
-      },
-      {
-        "dir": "an014-tracker-i2c-scanner",
-        "title": "AN014 Tracker I2C Scanner",
-        "href": "/datasheets/app-notes/an014-tracker-i2c-scanner/"
-      },
-      {
-        "dir": "an015-tracker-breakout",
-        "title": "AN015 Tracker Breakout",
-        "href": "/datasheets/app-notes/an015-tracker-breakout/"
-      },
-      {
-        "dir": "an016-tracker-keypad-lcd",
-        "title": "AN016 Tracker Keypad LCD",
-        "href": "/datasheets/app-notes/an016-tracker-keypad-lcd/"
-      },
-      {
-        "dir": "an017-tracker-can",
-        "title": "AN017 Tracker CAN",
-        "href": "/datasheets/app-notes/an017-tracker-can/"
-      },
-      {
-        "dir": "an018-tracker-level",
-        "title": "AN018 Tracker Tank Level Sensor",
-        "href": "/datasheets/app-notes/an018-tracker-level/"
-      },
-      {
-        "dir": "an019-tracker-prototype",
-        "title": "AN019 Tracker Prototype to Board",
-        "href": "/datasheets/app-notes/an019-tracker-prototype/"
-      },
-      {
-        "dir": "an020-tracker-4-20ma",
-        "title": "AN020 Tracker 4-20mA Sensor",
-        "href": "/datasheets/app-notes/an020-tracker-4-20ma/"
-      },
-      {
-        "dir": "an021-tracker-4-20ma-quad",
-        "title": "AN021 Tracker 4-20mA Sensor Quad",
-        "href": "/datasheets/app-notes/an021-tracker-4-20ma-quad/"
-      },
-      {
-        "dir": "an022-tracker-sht3x-temperature-humidity",
-        "title": "AN022 Tracker SHT3x Temperature/Humidity",
-        "href": "/datasheets/app-notes/an022-tracker-sht3x-temperature-humidity/"
-      },
-      {
         "dir": "an023-watchdog-timers",
         "title": "AN023 Watchdog Timers",
         "href": "/datasheets/app-notes/an023-watchdog-timers/"
       },
       {
-        "dir": "an024-tracker-relay",
-        "title": "AN024 Tracker Relay",
-        "href": "/datasheets/app-notes/an024-tracker-relay/"
-      },
-      {
         "dir": "an025-tracker-som-first-board",
         "title": "AN025 Tracker SoM First Board",
         "href": "/datasheets/app-notes/an025-tracker-som-first-board/"
-      },
-      {
-        "dir": "an026-tracker-current-solutions-accelerator",
-        "title": "AN026 Tracker Current Solutions Accelerator",
-        "href": "/datasheets/app-notes/an026-tracker-current-solutions-accelerator/"
-      },
-      {
-        "dir": "an027-tracker-buttons-leds",
-        "title": "AN027 Tracker Button and LEDs",
-        "href": "/datasheets/app-notes/an027-tracker-buttons-leds/"
       },
       {
         "dir": "an028-stop-sleep-cellular",

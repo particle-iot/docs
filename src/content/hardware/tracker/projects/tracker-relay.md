@@ -1,10 +1,10 @@
 ---
-title: AN024 Tracker Relay
+title: Tracker relay
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
-# AN024 Tracker Relay
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN024.zip).
 

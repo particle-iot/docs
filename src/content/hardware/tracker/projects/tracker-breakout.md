@@ -1,9 +1,9 @@
 ---
-title: AN015 Tracker Breakout
+title: Tracker breakout
 layout: commonTwo.hbs
 columns: two
 ---
-# AN015 Tracker Breakout
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN015.zip).
 

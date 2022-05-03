@@ -1,10 +1,10 @@
 ---
-title: AN017 Tracker CAN
+title: Tracker CAN
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-config, api-helper-tracker, zip]
 ---
-# AN017 Tracker CAN
+# {{title}}
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN017.zip).
 
