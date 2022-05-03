@@ -1,11 +1,28 @@
 {
-    "items": [
+  "items": [
+    {
+      "dir": "tracker",
+      "isSection": true
+    },
+    [
       {
-        "dir": "tracker",
+        "dir": "tracker-one-expansion",
+        "title": "Tracker One Expansion",
+        "href": "/hardware/tracker/tracker-one-expansion/"
+      },
+      {
+        "dir": "m8-temperature-humidity",
+        "title": "M8 Temperature/Humidity",
+        "href": "/hardware/tracker/m8-temperature-humidity/"
+      },
+      {
+        "dir": "projects",
+        "title": "Tracker One Projects",
         "isSection": true
       },
       [
+
       ]
     ]
-  }
-  
+  ]
+}

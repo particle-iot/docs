@@ -64,16 +64,6 @@
         "href": "/tutorials/asset-tracking/tracker-edge-firmware/"
       },
       {
-        "dir": "tracker-one-expansion",
-        "title": "Tracker One Expansion",
-        "href": "/tutorials/asset-tracking/tracker-one-expansion/"
-      },
-      {
-        "dir": "m8-temperature-humidity",
-        "title": "M8 Temperature/Humidity",
-        "href": "/tutorials/asset-tracking/m8-temperature-humidity/"
-      },
-      {
         "dir": "tracker-som-first-board",
         "title": "Tracker SoM First Board",
         "href": "/tutorials/asset-tracking/tracker-som-first-board/"
