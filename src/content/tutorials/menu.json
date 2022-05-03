@@ -62,11 +62,6 @@
         "dir": "tracker-edge-firmware",
         "title": "Tracker Edge Firmware",
         "href": "/tutorials/asset-tracking/tracker-edge-firmware/"
-      },
-      {
-        "dir": "tracker-som-first-board",
-        "title": "Tracker SoM First Board",
-        "href": "/tutorials/asset-tracking/tracker-som-first-board/"
       }
     ],
     {

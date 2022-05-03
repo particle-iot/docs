@@ -100,11 +100,6 @@
         "href": "/datasheets/app-notes/technical-advisory-notices/"
       },
       {
-        "dir": "an001-basic-som-design",
-        "title": "AN001 Basic SoM Design",
-        "href": "/datasheets/app-notes/an001-basic-som-design/"
-      },
-      {
         "dir": "an002-device-powerdown",
         "title": "AN002 Device Powerdown",
         "href": "/datasheets/app-notes/an002-device-powerdown/"

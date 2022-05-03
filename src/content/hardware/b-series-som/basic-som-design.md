@@ -1,9 +1,9 @@
 ---
-title: AN001 Basic SoM Design
+title: Basic SoM design
 layout: commonTwo.hbs
 columns: two
 ---
-# AN001 - Basic SoM Design
+# {{title}}
 
 This application note is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes:
 

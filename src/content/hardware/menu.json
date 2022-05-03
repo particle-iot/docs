@@ -144,6 +144,22 @@
         "title": "Beyond Prototyping",
         "href": "/hardware/expansion/beyond-prototyping/"
       }
+    ],
+    {
+      "dir": "b-series-som",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-som-first-board",
+        "title": "Tracker SoM First Board",
+        "href": "/hardware/b-series-som/tracker-som-first-board/"
+      },
+      {
+        "dir": "basic-som-design",
+        "title": "Basic SoM design",
+        "href": "/hardware/b-series-som/basic-som-design/"
+      }
     ]
   ]
 }
