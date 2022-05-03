@@ -67,11 +67,6 @@
         "dir": "som-first-board",
         "title": "B Series SoM First Board",
         "href": "/tutorials/hardware-projects/som-first-board/"
-      },
-      {
-        "dir": "debugger-adapter",
-        "title": "Debugger Adapter",
-        "href": "/tutorials/hardware-projects/debugger-adapter/"
       }
     ],
     {

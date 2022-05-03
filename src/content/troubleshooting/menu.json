@@ -101,6 +101,21 @@
         "dir": "integration-copy",
         "href": "/troubleshooting/cloud-tools/integration-copy/"
       }
-    ]
+    ],
+    {
+      "dir": "debuggers",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "debugger-adapter",
+        "title": "Debugger Adapter",
+        "href": "/troubleshooting/debuggers/debugger-adapter/"
+      }
+    ],
+    {
+      "title": "Support",
+      "href": "https://support.particle.io/hc/"
+    }
   ]
 }

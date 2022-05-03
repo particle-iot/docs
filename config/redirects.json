@@ -554,6 +554,7 @@
   "/tutorials/diagnostics/fleet-health": "/getting-started/console/fleet-health",
   "/tutorials/diagnostics/introduction": "/getting-started/console/fleet-health",
   "/tutorials/hardware-projects": "/getting-started/hardware-tutorials/hardware-examples",
+  "/tutorials/hardware-projects/debugger-adapter": "/troubleshooting/debuggers/debugger-adapter",
   "/tutorials/hardware-projects/e-series-eval-kit": "/getting-started/hardware-tutorials/e-series-eval-kit",
   "/tutorials/hardware-projects/hardware-examples": "/getting-started/hardware-tutorials/hardware-examples",
   "/tutorials/hardware-projects/hardware-examples/raspberry-pi": "/raspberry-pi",
