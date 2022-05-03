@@ -1,11 +1,11 @@
 ---
-title: About Apps
+title: About apps
 layout: commonTwo.hbs
 columns: two
 description: Learn more mobile and web apps for Particle IoT devices
 ---
 
-# About Apps
+# {{title}}
 
 There are many ways to you can build mobile or web apps for your Particle device. This guide is intended to help you narrow down which option will work best for your specific scenario.
 

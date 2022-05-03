@@ -9,6 +9,31 @@
         "dir": "firmware-introduction",
         "title": "Firmware introduction",
         "href": "/firmware/best-practices/firmware-introduction/"
+      },
+      {
+        "dir": "about-apps",
+        "title": "About apps",
+        "href": "/firmware/best-practices/about-apps/"
+      },
+      {
+        "dir": "json",
+        "title": "JSON",
+        "href": "/firmware/best-practices/json/"
+      },
+      {
+        "dir": "usb-serial",
+        "title": "USB serial debugging",
+        "href": "/firmware/best-practices/usb-serial/"
+      },
+      {
+        "dir": "libraries",
+        "title": "Libraries",
+        "href": "/firmware/best-practices/libraries/"
+      },
+      {
+        "dir": "code-size-tips",
+        "title": "Code size tips",
+        "href": "/firmware/best-practices/code-size-tips/"
       }
     ]
   ]

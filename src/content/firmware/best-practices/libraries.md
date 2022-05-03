@@ -1,10 +1,10 @@
 ---
-title: AN038 Libraries
+title: Libraries
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN038 Libraries
+# {{title}}
 
 This application note includes information on using libraries effectively in Particle projects.
 

@@ -1,12 +1,12 @@
 ---
-title: USB Serial Debugging
+title: USB serial debugging
 layout: commonTwo.hbs
 columns: two
 description: USB Serial Debugging for Particle IoT devices
 includeDefinitions: [api-helper, api-helper-extras]
 ---
 
-# USB Serial Debugging
+# {{title}}
 
 While Particle Devices typically communicate using the Particle Cloud and the Internet,
 for debugging code and troubleshooting, it's often common to use a USB connection to your 

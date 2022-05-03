@@ -111,19 +111,9 @@
         "href": "/datasheets/app-notes/an036-lcc-module-smt/"
       },
       {
-        "dir": "an038-libraries",
-        "title": "AN038 Libraries",
-        "href": "/datasheets/app-notes/an038-libraries/"
-      },
-      {
         "dir": "an039-remote-logging",
         "title": "AN039 Remote Logging",
         "href": "/datasheets/app-notes/an039-remote-logging/"
-      },
-      {
-        "dir": "an040-code-size-tips",
-        "title": "AN040 Code Size Tips",
-        "href": "/datasheets/app-notes/an040-code-size-tips/"
       },
       {
         "dir": "an041-scheduling",

@@ -1,5 +1,5 @@
 ---
-title: AN040 Code Size Tips
+title: Code size tips
 layout: commonTwo.hbs
 columns: two
 ---
