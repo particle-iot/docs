@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "dir": "scaling",
+      "title": "Scaling",
+      "href": "/scaling/",
+      "tiles": [
+        {
+          "title": "Manufacturing",
+          "detail": "Process for manufacturing cellular products at scale",
+          "href": "/scaling/manufacturing/manufacturing-cellular/"
+        }
+      ]
+    },        
+    {
+      "dir": "manufacturing",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "manufacturing-cellular",
+        "title": "Manufacturing - Cellular",
+        "href": "/scaling/manufacturing/manufacturing-cellular/"
+      },
+      {
+        "dir": "an036-lcc-module-smt",
+        "title": "AN036 LCC Module SMT",
+        "href": "/scaling/manufacturing/an036-lcc-module-smt/"
+      }
+    ]
+  ]
+}

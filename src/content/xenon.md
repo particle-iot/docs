@@ -8,7 +8,7 @@ description: Particle Xenon, Gen 3 Particle Mesh (discontinued)
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
 
-**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 The Xenon is a low cost mesh-enabled development kit that can act as either an endpoint or repeater within a Particle Mesh network.
 
@@ -26,8 +26,8 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/xenon)
-- [Datasheet](/datasheets/discontinued/xenon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/discontinued/hardware/xenon-datasheet/)
+- [Certification](/hardware/certification/certification/)
   {{box op="end"}}
 
 ## Hardware specifications:

@@ -10,9 +10,9 @@ description: Getting started with your Particle Photon, Gen 2 Wi-Fi device
 ![](/assets/images/photon-kit-new.jpg)
 <p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit.</p>
 
-Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](/datasheets/accessories/legacy-accessories/) and check out the [Photon datasheet](/datasheets/wi-fi/photon-datasheet/) if you like!
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](/reference/datasheets/accessories/legacy-accessories/) and check out the [Photon datasheet](/reference/datasheets/wi-fi/photon-datasheet/) if you like!
 
-If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button tutorial](/reference/discontinued/button/) for more detailed info.
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button tutorial](/reference/discontinued/hardware/button/) for more detailed info.
 
 Let's quickly go over what you see.
 
@@ -107,7 +107,7 @@ This may take a little while - but don't worry.
 
 Once you have connected your device, it has learned that network. Your device can store up to  five networks. To add a new network after your initial setup, you&apos;d put your device into listening mode again and proceed as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device&apos;s memory of any Wi-Fi networks it has learned. You can do so by continuing to hold the <code>SETUP</code> button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
-<h3 id="step-3-blink-an-led-">Step 3: Blink an LED!<a href="#step-3-blink-an-led-" class="header-permalinks"><i class="ion-link"></i></a></h3><p>The Particle App should now be on the <span class="footnoteLink">Tinker<span class="footnote">We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available <a href="/tutorials/developer-tools/tinker/photon">here</a>.</span></span> screen, as shown below.</p>
+<h3 id="step-3-blink-an-led-">Step 3: Blink an LED!<a href="#step-3-blink-an-led-" class="header-permalinks"><i class="ion-link"></i></a></h3><p>The Particle App should now be on the <span class="footnoteLink">Tinker<span class="footnote">We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available <a href="/archives/tinker/photon">here</a>.</span></span> screen, as shown below.</p>
 <p><img src="/assets/images/tinker.png" alt="Tinker on your Phone!"></p>
 <p>As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.</p>
 <p>We could use Tinker and the smartphone app to talk to any pin on your device. If you had a buzzer, an LED, a sensor, etc., you could interact with it using Tinker on your phone. But since I know you&apos;re very eager to get started, let&apos;s use an LED already provided on your device.</p>
@@ -116,4 +116,4 @@ Once you have connected your device, it has learned that network. Your device ca
 <p><strong>Congratulations, you just blinked an LED over the internet, using your Particle device!</strong></p>
 
 
-For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/).
+For more hardware examples to try, visit the [hardware examples](/getting-started/hardware-tutorials/hardware-examples/).

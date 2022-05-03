@@ -1,0 +1,143 @@
+{
+  "items": [
+    {
+      "dir": "troubleshooting",
+      "title": "Troubleshooting",
+      "href": "/troubleshooting/",
+      "tiles": [
+        {
+          "title": "Status LED",
+          "detail": "What the blinking status LED is telling you",
+          "href": "/troubleshooting/led/"
+        },
+        {
+          "title": "Cloud debug",
+          "detail": "Firmware to debug difficult connectivity issues",
+          "href": "/troubleshooting/connectivity/cloud-debug/"
+        },
+        {
+          "title": "Device restore",
+          "detail": "Restore your device firmware to a known good state",
+          "href": "/troubleshooting/device-restore/device-restore-usb/"
+        }
+      ]
+    },  
+    {
+      "dir": "led",
+      "title": "Status LED and Device Modes",
+      "href": "/troubleshooting/led/"
+    },
+    {
+      "dir": "connectivity",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "cloud-debug",
+        "href": "/troubleshooting/connectivity/cloud-debug/"
+      },
+      {
+        "dir": "interpreting-cloud-debug",
+        "title": "Interpreting Cloud Debug Logs",
+        "href": "/troubleshooting/connectivity/interpreting-cloud-debug/"
+      },
+      {
+        "dir": "interpreting-cloud-debug-2",
+        "title": "Interpreting Cloud Debug Logs 2",
+        "href": "/troubleshooting/connectivity/interpreting-cloud-debug-2/"
+      },
+      {
+        "dir": "cellular-usage",
+        "href": "/troubleshooting/connectivity/cellular-usage/"
+      }
+    ],
+    {
+      "dir": "device-restore",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "device-restore-usb",
+        "href": "/troubleshooting/device-restore/device-restore-usb/"
+      },
+      {
+        "dir": "device-restore-jtag",
+        "href": "/troubleshooting/device-restore/device-restore-jtag/"
+      }
+    ],
+    {
+      "dir": "developer-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "lookup",
+        "href": "/troubleshooting/developer-tools/lookup/"
+      },
+      {
+        "dir": "device-inspect",
+        "href": "/troubleshooting/developer-tools/device-inspect/"
+      },
+      {
+        "dir": "usb-serial",
+        "href": "/troubleshooting/developer-tools/usb-serial/"
+      },
+      {
+        "dir": "ble-serial",
+        "href": "/troubleshooting/developer-tools/ble-serial/"
+      },
+      {
+        "dir": "web-ide-exporter",
+        "href": "/troubleshooting/developer-tools/web-ide-exporter/"
+      },
+      {
+        "dir": "hex-generator",
+        "href": "/troubleshooting/developer-tools/hex-generator/"
+      }
+    ],
+    {
+      "dir": "firmware",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "remote-logging",
+        "title": "Remote logging",
+        "href": "/troubleshooting/firmware/remote-logging/"
+      },
+      {
+        "title": "USB serial debugging",
+        "href": "/firmware/best-practices/usb-serial"
+      }
+    ],
+    {
+      "dir": "cloud-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "list-devices",
+        "href": "/troubleshooting/cloud-tools/list-devices/"
+      },
+      {
+        "dir": "integration-copy",
+        "href": "/troubleshooting/cloud-tools/integration-copy/"
+      }
+    ],
+    {
+      "dir": "debuggers",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "debugger-adapter",
+        "title": "Debugger Adapter",
+        "href": "/troubleshooting/debuggers/debugger-adapter/"
+      }
+    ],
+    {
+      "title": "Support",
+      "href": "https://support.particle.io/hc/"
+    }
+  ]
+}

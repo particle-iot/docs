@@ -29,8 +29,8 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/boron)
-- [Datasheet](/datasheets/boron/boron-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/b-series/boron-datasheet/)
+- [Certification](/hardware/certification/certification/)
 
 {{box op="end"}}
 
@@ -57,7 +57,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 - LTE Cat M1 module with global hardware support (MVNO support for US, Canada, and Mexico only)
 - 2G/3G support world-wide
-- For availability in specific countries, see the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+- For availability in specific countries, see the [cellular carrier list](/reference/cellular/cellular-carriers/)
 
 ### General specifications:
 

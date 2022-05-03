@@ -6,6 +6,10 @@ columns: two
 
 # Community Supported Clients
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 These client libraries can help you interact with Particle devices
 and the Particle cloud using your favorite programming language or
 framework.
@@ -16,7 +20,7 @@ like to add to this page, please submit a pull request.
 
 ## JavaScript
 
-See [the official JavaScript client](/reference/SDKs/javascript/).
+See [the official JavaScript client](/reference/cloud-apis/javascript/).
 
 * [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/particle/)
 * [ember-particle - Ember service for the Particle API](https://github.com/mileszim/ember-particle)
