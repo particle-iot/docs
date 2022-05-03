@@ -22,7 +22,7 @@ There is also a simple [single current loop design](/datasheets/app-notes/an020-
 - I2C Quad ADC (ADS1015)
 - 3.3V power supply for the ADC (from CAN_5V)
 
-Author: Rick
+
 
 ## Connecting
 

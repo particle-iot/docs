@@ -21,7 +21,7 @@ The single port design can be powered by the built-in LiPo battery or USB and us
 
 There is also an application note with support for [4 current loops](/datasheets/app-notes/an021-tracker-4-20ma-quad).
 
-Author: Rick
+
 
 ## Connecting
 

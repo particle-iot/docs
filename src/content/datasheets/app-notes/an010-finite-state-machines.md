@@ -20,7 +20,7 @@ While this example only has a single state machine, where they really shine is w
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN010.zip).
 
-Author: Rick
+
 
 ## 01-Simple
 

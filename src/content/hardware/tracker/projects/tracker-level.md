@@ -17,7 +17,7 @@ This application note demonstrates several ways you can expand the Tracker One u
 
 ![Main Image](/assets/images/app-notes/AN018/top.jpg)
 
-Author: Rick
+
 
 ## Connecting
 

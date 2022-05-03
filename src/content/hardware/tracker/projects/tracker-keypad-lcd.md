@@ -20,7 +20,7 @@ This project demonstrates adding a keypad, LCD character display, DAC, and cloud
 
 ![Main](/assets/images/app-notes/AN016/top.jpg)
 
-Author: Rick
+
 
 ## Connecting
 

@@ -51,11 +51,6 @@
         "href": "/datasheets/app-notes/technical-advisory-notices/"
       },
       {
-        "dir": "an002-device-powerdown",
-        "title": "AN002 Device Powerdown",
-        "href": "/datasheets/app-notes/an002-device-powerdown/"
-      },
-      {
         "dir": "an003-interpreting-cloud-debug",
         "title": "AN003 Interpreting Cloud Debug Logs",
         "href": "/datasheets/app-notes/an003-interpreting-cloud-debug/"
@@ -89,16 +84,6 @@
         "dir": "an011-publish-to-google-sheets",
         "title": "AN011 Publish to Google Sheets",
         "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
-      },
-      {
-        "dir": "an028-stop-sleep-cellular",
-        "title": "AN028 Stop sleep cellular example",
-        "href": "/datasheets/app-notes/an028-stop-sleep-cellular/"
-      },
-      {
-        "dir": "an029-wake-publish-sleep-cellular",
-        "title": "AN029 Wake publish sleep example",
-        "href": "/datasheets/app-notes/an029-wake-publish-sleep-cellular/"
       },
       {
         "dir": "an034-singleton",

@@ -13,7 +13,7 @@ It can also be used with a Boron LTE to find information about the LTE Cat M1 to
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN007.zip).
 
-Author: Rick
+
 
 ### The Tower Scanner
 

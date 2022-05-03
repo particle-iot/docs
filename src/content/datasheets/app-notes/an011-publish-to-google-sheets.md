@@ -16,7 +16,7 @@ If you're like to learn more about Google Apps Script, these two resources are a
 - [Overview of Apps Script](https://developers.google.com/apps-script/overview)
 - [Codelab Tutorial](https://codelabs.developers.google.com/codelabs/apps-script-fundamentals-1/index.html)
 
-Author: Rick
+
 
 ## Getting Started
 

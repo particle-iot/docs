@@ -51,6 +51,27 @@
         "title": "Tracker Edge API reference",
         "href": "/firmware/tracker-edge/tracker-edge-api-reference/"
       }
+    ],
+    {
+      "dir": "low-power",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "wake-publish-sleep-cellular",
+        "title": "Wake publish sleep example",
+        "href": "/firmware/low-power/wake-publish-sleep-cellular/"
+      },
+      {
+        "dir": "stop-sleep-cellular",
+        "title": "Stop sleep cellular example",
+        "href": "/firmware/low-power/stop-sleep-cellular/"
+      },
+      {
+        "dir": "device-powerdown",
+        "title": "Device Powerdown",
+        "href": "/firmware/low-power/device-powerdown/"
+      }
     ]
   ]
 }

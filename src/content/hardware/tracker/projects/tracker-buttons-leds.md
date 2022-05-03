@@ -9,7 +9,7 @@ This application note shows how to connect add a push button, two LEDs, a buzzer
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN027.zip).
 
-Author: Rick
+
 
 ## Introduction
 

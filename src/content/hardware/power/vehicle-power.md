@@ -17,7 +17,7 @@ This shows the unregulated 12V (top), 5V regulated (middle), and 3V3 from a Boro
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN006.zip).
 
-Author: Rick
+
 
 ## Design 1
 

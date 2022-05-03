@@ -107,7 +107,7 @@ void loop()
 
 ```
 
-Author: Rick
+
 
 
 

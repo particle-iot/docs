@@ -7,7 +7,7 @@ columns: two
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN023.zip).
 
-Author: Rick
+
 
 ## Introduction
 

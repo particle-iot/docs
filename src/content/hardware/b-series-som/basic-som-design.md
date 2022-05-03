@@ -26,7 +26,7 @@ There is another design in the [SoM first board tutorial](https://docs.particle.
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN001.zip).
 
-Author: Rick
+
 
 ## Board
 

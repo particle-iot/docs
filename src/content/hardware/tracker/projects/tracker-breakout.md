@@ -9,7 +9,7 @@ You can download the files associated with this app note [as a zip file](/assets
 
 ![Both Boards](/assets/images/app-notes/AN015/both.jpg)
 
-Author: Rick
+
 
 ## Expanding the Tracker One
 

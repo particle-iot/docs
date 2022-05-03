@@ -15,7 +15,7 @@ This application note shows how you can use relays with the Tracker One M8 conne
 
 The designs are similar.
 
-Author: Rick
+
 
 ## Connecting
 

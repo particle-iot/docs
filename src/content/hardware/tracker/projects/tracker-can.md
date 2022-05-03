@@ -27,7 +27,7 @@ It is also possible to use [MCP_CAN_RK](https://github.com/rickkas7/MCP_CAN_RK) 
 
 Since it's a pain to sit in your car with a laptop to experiment with this, there's a design for a simulator in the **Simulator** directory. 
 
-Author: Rick
+
 
 ## Connecting
 

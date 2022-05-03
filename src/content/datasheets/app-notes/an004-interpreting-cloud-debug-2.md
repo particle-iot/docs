@@ -11,7 +11,7 @@ This application note is a deep dive into interpreting a complete successful log
 
 This guide mostly concentrates on cellular issues (Electron, E Series, and Boron).
 
-Author: Rick
+
 
 ## Decoding u-blox AT Commands
 

@@ -38,7 +38,7 @@ Other features:
 - Fits in an off-the-shelf IP67 weather-resistant enclosure
 - Simple two-layer board is inexpensive to fabricate and can be developed in the free version of Eagle CAD
 
-Author: Rick
+
 
 ## Board Diagram
 

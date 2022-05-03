@@ -1,9 +1,9 @@
 ---
-title: AN002 Device Powerdown
+title: Device powerdown
 layout: commonTwo.hbs
 columns: two
 ---
-# AN002 Device Powerdown
+# {{title}}
 
 This application note shows how to have an Electron, E Series, or Boron gracefully power down under battery power when the power supply is disconnected then automatically power up when restored. This can be useful in automotive applications or devices powered by a switch in mains power applications.
 
@@ -22,4 +22,3 @@ Full Code:
 {{> codebox content="/assets/files/app-notes/AN002/firmware/powerdown.cpp" format="cpp" height="500"}}
 
 
-Author: Rick

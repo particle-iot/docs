@@ -8,7 +8,7 @@ columns: two
 This application note has been split out into separate application notes.
 
 
-Author: Rick
+
 
 ## Publishing Examples, Sleeping Cellular Devices
 

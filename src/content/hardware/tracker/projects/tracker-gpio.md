@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, api-helper-tracker, zip]
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN013.zip).
 
-Author: Rick
+
 
 ## Introduction
 

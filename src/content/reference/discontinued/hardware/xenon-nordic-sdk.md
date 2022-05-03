@@ -23,7 +23,7 @@ If you need to have the ability to create and use mesh networking features after
 
 Still on board with this plan? Let's get started!
 
-Author: Rick
+
 
 ## Segger J-Link
 

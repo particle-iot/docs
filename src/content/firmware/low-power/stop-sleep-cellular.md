@@ -1,9 +1,9 @@
 ---
-title: AN028 Stop sleep cellular example
+title: Stop sleep cellular example
 layout: commonTwo.hbs
 columns: two
 ---
-# AN028 Stop sleep cellular example
+# {{title}}
 
 This example illustrates:
 

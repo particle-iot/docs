@@ -1,9 +1,9 @@
 ---
-title: AN029 Wake publish sleep example
+title: Wake publish sleep example
 layout: commonTwo.hbs
 columns: two
 ---
-# AN029 Wake publish sleep firmware example
+# {{title}}
 
 This example illustrates:
 
