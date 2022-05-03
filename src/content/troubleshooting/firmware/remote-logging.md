@@ -1,10 +1,10 @@
 ---
-title: AN039 Remote Logging
+title: Remote logging
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN039 Remote Logging
+# {{title}}
 
 We recommend using the [Logging system](/cards/firmware/logging/logging/) built into Device OS. For example:
 

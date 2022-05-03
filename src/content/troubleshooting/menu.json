@@ -72,6 +72,35 @@
         "dir": "hex-generator",
         "href": "/troubleshooting/developer-tools/hex-generator/"
       }
+    ],
+    {
+      "dir": "firmware",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "remote-logging",
+        "title": "Remote logging",
+        "href": "/troubleshooting/firmware/remote-logging/"
+      },
+      {
+        "title": "USB serial debugging",
+        "href": "/firmware/best-practices/usb-serial"
+      }
+    ],
+    {
+      "dir": "cloud-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "list-devices",
+        "href": "/troubleshooting/cloud-tools/list-devices/"
+      },
+      {
+        "dir": "integration-copy",
+        "href": "/troubleshooting/cloud-tools/integration-copy/"
+      }
     ]
   ]
 }
