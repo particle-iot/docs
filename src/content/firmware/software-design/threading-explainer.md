@@ -1,9 +1,9 @@
 ---
-title: AN005 Threading Explainer
+title: Threading explainer
 layout: commonTwo.hbs
 columns: two
 ---
-# AN005 Threading Explainer
+# {{title}}
 
 Threads allow concurrent execution of multiple bits of code. They're popular in desktop operating systems like Windows and in languages like Java. Threads have limited support in the Particle platform, but exist.
 

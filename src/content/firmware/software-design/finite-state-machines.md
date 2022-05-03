@@ -1,9 +1,9 @@
 ---
-title: AN010 Finite State Machines
+title: Finite State Machines
 layout: commonTwo.hbs
 columns: two
 ---
-# AN010 Finite State Machines
+# {{title}}
 
 Finite State Machines (FSM) are a great way to organize your code on embedded devices. The basic concepts are:
 

@@ -61,11 +61,6 @@
         "href": "/datasheets/app-notes/an004-interpreting-cloud-debug-2/"
       },
       {
-        "dir": "an005-threading-explainer",
-        "title": "AN005 Threading Explainer",
-        "href": "/datasheets/app-notes/an005-threading-explainer/"
-      },
-      {
         "dir": "an007-tower-info",
         "title": "AN007 Tower Info",
         "href": "/datasheets/app-notes/an007-tower-info/"
@@ -76,19 +71,9 @@
         "href": "/datasheets/app-notes/an009-firmware-examples/"
       },
       {
-        "dir": "an010-finite-state-machines",
-        "title": "AN010 Finite State Machines",
-        "href": "/datasheets/app-notes/an010-finite-state-machines/"
-      },
-      {
         "dir": "an011-publish-to-google-sheets",
         "title": "AN011 Publish to Google Sheets",
         "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
-      },
-      {
-        "dir": "an034-singleton",
-        "title": "AN034 Singleton",
-        "href": "/datasheets/app-notes/an034-singleton/"
       },
       {
         "dir": "an036-lcc-module-smt",

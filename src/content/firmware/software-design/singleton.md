@@ -1,11 +1,11 @@
 ---
-title: AN034 Singleton
+title: Singleton
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper,code-generator,zip]
 ---
 
-# AN034 Singleton
+# {{title}}
 
 On Particle devices, using the singleton pattern is often handy. A singleton class only has a single instance per application, and is protected against creating more. This is common when interacting with a hardware peripheral where there can only be one of them, or other code where you only want one class instance.
 

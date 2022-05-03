@@ -72,6 +72,27 @@
         "title": "Device Powerdown",
         "href": "/firmware/low-power/device-powerdown/"
       }
+    ],
+    {
+      "dir": "software-design",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "finite-state-machines",
+        "title": "Finite State Machines",
+        "href": "/firmware/software-design/finite-state-machines/"
+      },
+      {
+        "dir": "threading-explainer",
+        "title": "Threading explainer",
+        "href": "/firmware/software-design/threading-explainer/"
+      },
+      {
+        "dir": "singleton",
+        "title": "Singleton",
+        "href": "/firmware/software-design/singleton/"
+      }
     ]
   ]
 }
