@@ -129,11 +129,6 @@
         "href": "/tutorials/learn-more/about-apps/"
       },
       {
-        "dir": "ethernet-featherwing",
-        "title": "Ethernet FeatherWing",
-        "href": "/tutorials/learn-more/ethernet-featherwing/"
-      },
-      {
         "dir": "xenon-options",
         "title": "Using a Xenon without Mesh",
         "href": "/tutorials/learn-more/xenon-options/"

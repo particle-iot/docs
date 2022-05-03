@@ -1,10 +1,10 @@
 ---
-title: AN037 Ethernet
+title: Ethernet
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN037 Ethernet
+# {{title}}
 
 Particle Gen 3 devices including the Argon, Boron, and B Series SoM have the ability to use Ethernet.
 

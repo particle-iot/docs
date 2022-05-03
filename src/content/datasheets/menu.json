@@ -132,11 +132,6 @@
         "href": "/datasheets/app-notes/an036-lcc-module-smt/"
       },
       {
-        "dir": "an037-ethernet",
-        "title": "AN037 Ethernet",
-        "href": "/datasheets/app-notes/an037-ethernet/"
-      },
-      {
         "dir": "an038-libraries",
         "title": "AN038 Libraries",
         "href": "/datasheets/app-notes/an038-libraries/"

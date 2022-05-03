@@ -222,6 +222,22 @@
         "title": "Vehicle power",
         "href": "/hardware/power/vehicle-power/"
       }
+    ],
+    {
+      "dir": "ethernet",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "ethernet",
+        "title": "Ethernet",
+        "href": "/hardware/ethernet/ethernet/"
+      },
+      {
+        "dir": "ethernet-featherwing",
+        "title": "Ethernet FeatherWing",
+        "href": "/hardware/ethernet/ethernet-featherwing/"
+      }
     ]
   ]
 }
