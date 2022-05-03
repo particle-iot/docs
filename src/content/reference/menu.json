@@ -166,22 +166,6 @@
       }
     ],
     {
-      "dir": "mobile-sdks",
-      "isSection": true
-    },
-    [
-      {
-        "dir": "ios",
-        "title": "iOS SDK",
-        "href": "/reference/mobile-sdks/ios/"
-      },
-      {
-        "dir": "android",
-        "title": "Android SDK",
-        "href": "/reference/mobile-sdks/android/"
-      }
-    ],
-    {
       "dir": "datasheets",
       "isSection": true
     },
@@ -328,6 +312,33 @@
           "href": "/reference/datasheets/accessories/debugger/"
         }
       ]
+    ],
+    {
+      "dir": "technical-advisory-notices",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "technical-advisory-notices",
+        "title": "Technical advisory notices",
+        "href": "/reference/technical-advisory-notices/technical-advisory-notices/"
+      }  
+    ],
+    {
+      "dir": "mobile-sdks",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "ios",
+        "title": "iOS SDK",
+        "href": "/reference/mobile-sdks/ios/"
+      },
+      {
+        "dir": "android",
+        "title": "Android SDK",
+        "href": "/reference/mobile-sdks/android/"
+      }
     ],
     {
       "dir": "discontinued",

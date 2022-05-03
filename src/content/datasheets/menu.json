@@ -39,13 +39,7 @@
       "dir": "app-notes",
       "isSection": true
     },
-    [
-      {
-        "dir": "technical-advisory-notices",
-        "title": "Technical Advisory Notices",
-        "href": "/datasheets/app-notes/technical-advisory-notices/"
-      }
-    ],
+    [],
     {
       "dir": "discontinued",
       "isSection": true
