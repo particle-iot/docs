@@ -66,7 +66,32 @@ function generateNavMenu(fileObj, contentDir) {
     };
     processArray(menuJson.items);
 
+    if (menuJson.items.length > 0 && menuJson.items[0].href == fileObj.path.href) {
+        // Handle top level items (Getting Started, Reference, Hardware, etc.) with tiles
+        if (menuJson.items[0].tiles) {
 
+            let html = '';
+
+            html += '<div class="mainGrid">\n';
+
+            for(const tile of menuJson.items[0].tiles) {
+                html += '   <div class="mainNoPicRect">\n';
+                html += '       <a href="' + tile.href + '" class="mainGridButton">\n';
+                html += '           <div class="mainContent">\n';
+                html += '               <div class="mainNoPicTopBottom">\n';
+                html += '                   <div class="mainNoPicTop">' + tile.title + '</div>\n';
+                html += '                   <div class="mainNoPicBottom">' + tile.detail + '</div>\n';
+                html += '               </div>\n';
+                html += '           </div>\n';
+                html += '       </a>\n';
+                html += '   </div>\n';
+            }
+
+            html += '</div>\n';
+
+            fileObj.tiles = html;
+        }
+    }
 
     // The navigation data is inserted using {{{navigation}}} in all layouts to generate the
     // navigation menu. It's passed verbatim, with no additional processing in the layout template.

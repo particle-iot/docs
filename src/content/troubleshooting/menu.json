@@ -1,6 +1,28 @@
 {
   "items": [
     {
+      "dir": "troubleshooting",
+      "title": "Troubleshooting",
+      "href": "/troubleshooting/",
+      "tiles": [
+        {
+          "title": "Status LED",
+          "detail": "What the blinking status LED is telling you",
+          "href": "/troubleshooting/led/"
+        },
+        {
+          "title": "Cloud debug",
+          "detail": "Firmware to debug difficult connectivity issues",
+          "href": "/troubleshooting/connectivity/cloud-debug/"
+        },
+        {
+          "title": "Device restore",
+          "detail": "Restore your device firmware to a known good state",
+          "href": "/troubleshooting/device-restore/device-restore-usb/"
+        }
+      ]
+    },  
+    {
       "dir": "led",
       "title": "Status LED and Device Modes",
       "href": "/troubleshooting/led/"

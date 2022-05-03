@@ -1,6 +1,43 @@
 {
   "items": [
     {
+      "dir": "getting-started",
+      "title": "Getting Started",
+      "href": "/getting-started/",
+      "tiles": [
+        {
+          "title": "Hardware overview",
+          "detail": "Learn about Particle hardware",
+          "href": "/getting-started/hardware/hardware-overview/"
+        },
+        {
+          "title": "Device OS",
+          "detail": "Learn about the operating system on Particle devices",
+          "href": "/getting-started/device-os/introduction-to-device-os/"
+        },
+        {
+          "title": "Workbench",
+          "detail": "Development environment for Particle devices",
+          "href": "/getting-started/developer-tools/workbench/"
+        },
+        {
+          "title": "Cloud",
+          "detail": "Learn how to use the Particle cloud to communicate with devices",
+          "href": "/getting-started/cloud/introduction/"
+        },
+        {
+          "title": "Console",
+          "detail": "Manage devices from the Particle console",
+          "href": "/getting-started/console/console/"
+        },
+        {
+          "title": "Products",
+          "detail": "Learn about products and device fleets",
+          "href": "/getting-started/products/introduction-to-products/"
+        }
+      ]
+    },
+    {
       "dir": "hardware",
       "isSection": true
     },

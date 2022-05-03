@@ -1,5 +1,5 @@
 ---
-title: Hardware
+title: Firmware
 layout: commonTwo.hbs
 columns: two
 ---

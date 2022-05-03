@@ -3,7 +3,29 @@
     {
       "dir": "hardware",
       "title": "Hardware",
-      "href": "/hardware/"
+      "href": "/hardware/",
+      "tiles": [
+        {
+          "title": "Expansion",
+          "detail": "Adding features to your Particle device",
+          "href":"/hardware/expansion/feather/"
+        },
+        {
+          "title": "First board examples",
+          "detail": "Creating a simple production module design",
+          "href":"/hardware/b-series-som/som-first-board/"
+        },
+        {
+          "title": "Migration guides",
+          "detail": "Moving a design to new Particle devices",
+          "href":"/hardware/migration-guides/b-series-boron-migration-guide/"
+        },
+        {
+          "title": "Certification",
+          "detail": "FCC, IC, CE, and other certifications",
+          "href": "/hardware/certification/certification/"
+        }
+      ]
     },
     {
       "dir": "expansion",

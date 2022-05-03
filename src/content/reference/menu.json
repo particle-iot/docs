@@ -3,7 +3,24 @@
     {
       "dir": "reference",
       "title": "Reference",
-      "href": "/reference/"
+      "href": "/reference/",
+      "tiles": [
+        {
+          "title": "Device OS API",
+          "detail": "How you program your Particle device firmware",
+          "href": "/reference/device-os/firmware/"
+        },
+        {
+          "title": "Cloud API",
+          "detail": "Interact with your device from the Internet",
+          "href": "/reference/cloud-apis/api/"
+        },
+        {
+          "title": "Datasheets",
+          "detail": "Technical documentation for Particle hardware",
+          "href": "/reference/datasheets/tracker/tracker-som-datasheet/"
+        }
+      ]
     },
     {
       "dir": "device-os",

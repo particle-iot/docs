@@ -1,6 +1,28 @@
 {
   "items": [
     {
+      "dir": "firmware",
+      "title": "Firmware",
+      "href": "/firmware/",
+      "tiles": [
+        {
+          "title": "Best practices",
+          "detail": "Writing good device firmware",
+          "href": "/firmware/best-practices/firmware-introduction/"
+        },
+        {
+          "title": "Tracker Edge",
+          "detail": "Writing code for the Tracker One and Tracker SoM",
+          "href": "/firmware/tracker-edge/tracker-edge-firmware/"
+        },
+        {
+          "title": "Low power",
+          "detail": "Designing for battery-powered applications",
+          "href": "/firmware/low-power/wake-publish-sleep-cellular/"
+        }
+      ]
+    },    
+    {
       "dir": "best-practices",
       "isSection": true
     },

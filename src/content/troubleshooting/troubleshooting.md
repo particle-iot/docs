@@ -1,5 +1,5 @@
 ---
-title: Hardware
+title: Troubleshooting
 layout: commonTwo.hbs
 columns: two
 ---

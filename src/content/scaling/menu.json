@@ -1,6 +1,18 @@
 {
   "items": [
     {
+      "dir": "scaling",
+      "title": "Scaling",
+      "href": "/scaling/",
+      "tiles": [
+        {
+          "title": "Manufacturing",
+          "detail": "Process for manufacturing cellular products at scale",
+          "href": "/scaling/manufacturing/manufacturing-cellular/"
+        }
+      ]
+    },        
+    {
       "dir": "manufacturing",
       "isSection": true
     },
