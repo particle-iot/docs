@@ -1,11 +1,47 @@
 {
-    "items": [
+  "items": [
+    {
+      "dir": "led",
+      "title": "Status LED and Device Modes",
+      "href": "/troubleshooting/led/"
+    },
+    {
+      "dir": "connectivity",
+      "isSection": true
+    },
+    [
       {
-        "dir": "connectivity",
-        "isSection": true
+        "dir": "cloud-debug",
+        "href": "/troubleshooting/connectivity/cloud-debug/"
       },
-      [
-      ]
+      {
+        "dir": "interpreting-cloud-debug",
+        "title": "Interpreting Cloud Debug Logs",
+        "href": "/troubleshooting/connectivity/interpreting-cloud-debug/"
+      },
+      {
+        "dir": "interpreting-cloud-debug-2",
+        "title": "Interpreting Cloud Debug Logs 2",
+        "href": "/troubleshooting/connectivity/interpreting-cloud-debug-2/"
+      },
+      {
+        "dir": "cellular-usage",
+        "href": "/troubleshooting/connectivity/cellular-usage/"
+      }
+    ],
+    {
+      "dir": "device-restore",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "device-restore-usb",
+        "href": "/troubleshooting/device-restore/device-restore-usb/"
+      },
+      {
+        "dir": "device-restore-jtag",
+        "href": "/troubleshooting/device-restore/device-restore-jtag/"
+      }
     ]
-  }
-  
+  ]
+}

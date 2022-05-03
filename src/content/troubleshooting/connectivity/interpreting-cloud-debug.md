@@ -1,9 +1,9 @@
 ---
-title: AN003 Interpreting Cloud Debug Logs
+title: Interpreting cloud debug logs
 layout: commonTwo.hbs
 columns: two
 ---
-# AN003 Interpreting Cloud Debug Logs
+# {{title}}
 
 The Cloud Debug tool is helpful for diagnosing connectivity issues. There are a few different versions, depending on the device:
 

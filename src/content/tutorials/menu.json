@@ -4,13 +4,7 @@
       "dir": "device-os",
       "isSection": true
     },
-    [
-      {
-        "dir": "led",
-        "title": "Status LED and Device Modes",
-        "href": "/tutorials/device-os/led/"
-      }
-    ],
+    [],
     {
       "dir": "developer-tools",
       "isSection": true

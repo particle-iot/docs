@@ -51,16 +51,6 @@
         "href": "/datasheets/app-notes/technical-advisory-notices/"
       },
       {
-        "dir": "an003-interpreting-cloud-debug",
-        "title": "AN003 Interpreting Cloud Debug Logs",
-        "href": "/datasheets/app-notes/an003-interpreting-cloud-debug/"
-      },
-      {
-        "dir": "an004-interpreting-cloud-debug-2",
-        "title": "AN004 Interpreting Cloud Debug Logs 2",
-        "href": "/datasheets/app-notes/an004-interpreting-cloud-debug-2/"
-      },
-      {
         "dir": "an007-tower-info",
         "title": "AN007 Tower Info",
         "href": "/datasheets/app-notes/an007-tower-info/"
