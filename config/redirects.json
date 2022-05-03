@@ -132,6 +132,7 @@
   "/datasheets/app-notes/an006-vehicle-power": "/hardware/power/vehicle-power",
   "/datasheets/app-notes/an008-xenon-nordic-sdk": "/reference/discontinued/hardware/xenon-nordic-sdk",
   "/datasheets/app-notes/an010-finite-state-machines": "/firmware/software-design/finite-state-machines",
+  "/datasheets/app-notes/an011-publish-to-google-sheets": "/getting-started/integrations/community-integrations/publish-to-google-sheets",
   "/datasheets/app-notes/an012-tracker-1wire": "/hardware/tracker/projects/tracker-1wire",
   "/datasheets/app-notes/an013-tracker-gpio": "/hardware/tracker/projects/tracker-gpio",
   "/datasheets/app-notes/an014-tracker-i2c-scanner": "/hardware/tracker/projects/tracker-i2c-scanner",

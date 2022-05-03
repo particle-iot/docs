@@ -254,8 +254,9 @@
           "href": "/getting-started/integrations/community-integrations/questdb/"
         },
         {
+          "dir": "publish-to-google-sheets",
           "title": "Publish to Google sheets",
-          "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
+          "href": "/getting-started/integrations/community-integrations/publish-to-google-sheets/"
         },
         {
           "dir": "weather",

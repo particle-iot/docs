@@ -71,11 +71,6 @@
         "href": "/datasheets/app-notes/an009-firmware-examples/"
       },
       {
-        "dir": "an011-publish-to-google-sheets",
-        "title": "AN011 Publish to Google Sheets",
-        "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
-      },
-      {
         "dir": "an039-remote-logging",
         "title": "AN039 Remote Logging",
         "href": "/datasheets/app-notes/an039-remote-logging/"
