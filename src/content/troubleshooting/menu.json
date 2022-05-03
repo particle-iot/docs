@@ -42,6 +42,36 @@
         "dir": "device-restore-jtag",
         "href": "/troubleshooting/device-restore/device-restore-jtag/"
       }
+    ],
+    {
+      "dir": "developer-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "lookup",
+        "href": "/troubleshooting/developer-tools/lookup/"
+      },
+      {
+        "dir": "device-inspect",
+        "href": "/troubleshooting/developer-tools/device-inspect/"
+      },
+      {
+        "dir": "usb-serial",
+        "href": "/troubleshooting/developer-tools/usb-serial/"
+      },
+      {
+        "dir": "ble-serial",
+        "href": "/troubleshooting/developer-tools/ble-serial/"
+      },
+      {
+        "dir": "web-ide-exporter",
+        "href": "/troubleshooting/developer-tools/web-ide-exporter/"
+      },
+      {
+        "dir": "hex-generator",
+        "href": "/troubleshooting/developer-tools/hex-generator/"
+      }
     ]
   ]
 }

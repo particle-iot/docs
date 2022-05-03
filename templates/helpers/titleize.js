@@ -31,6 +31,14 @@ module.exports = function(string) {
 	case 'Som':
 		txt = 'SoM';
 		break;
+
+	case 'Usb':
+		txt = 'USB';
+		break;
+
+	case 'Jtag':
+		txt = 'JTAG';
+		break;
 		
 	case 'And':
 		txt = 'and';
