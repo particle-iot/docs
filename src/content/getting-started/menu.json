@@ -66,7 +66,24 @@
       {
         "dir": "setup-options",
         "title": "Setup options",
-        "href": "/getting-started/setup/setup-options/"
+        "href": "/getting-started/setup/setup-options/",
+        "tiles": [
+          {
+            "title": "setup.particle.io",
+            "detail": "Set up your Particle device from a web browser or mobile app",
+            "href": "https://setup.particle.io/"  
+          },
+          {
+            "title": "Command Line",
+            "detail": "Command line interface setup",
+            "href": "/getting-started/developer-tools/cli/"  
+          },
+          {
+            "title": "Tracker",
+            "detail": "Set up a Tracker One of Tracker SoM eval board",
+            "href": "/getting-started/tracker/tracker-setup/"  
+          }
+        ]
       }
     ],
     {

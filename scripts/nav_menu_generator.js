@@ -46,6 +46,8 @@ function generateNavMenu(fileObj, contentDir) {
 
     let menuJson = JSON.parse(fs.readFileSync(menuPath), 'utf8');
 
+    let tileItem;
+
     const processArray = function(array) {
         for (let item of array) {
             if (Array.isArray(item)) {
@@ -56,6 +58,9 @@ function generateNavMenu(fileObj, contentDir) {
                 // Item in this level
                 if (item.href == (fileObj.path.href + fileObj.path.base.replace('.md', '/'))) {
                     item.activeItem = true;
+                    if (item.tiles) {
+                        tileItem = item;
+                    }
                 }
 
                 if (item.isSection) {
@@ -66,31 +71,32 @@ function generateNavMenu(fileObj, contentDir) {
     };
     processArray(menuJson.items);
 
-    if (menuJson.items.length > 0 && menuJson.items[0].href == fileObj.path.href) {
+    if (menuJson.items.length > 0 && menuJson.items[0].href == fileObj.path.href && menuJson.items[0].tiles) {
         // Handle top level items (Getting Started, Reference, Hardware, etc.) with tiles
-        if (menuJson.items[0].tiles) {
+        tileItem = menuJson.items[0];
+    }
 
-            let html = '';
+    if (tileItem) {
+        let html = '';
 
-            html += '<div class="mainGrid">\n';
+        html += '<div class="mainGrid">\n';
 
-            for(const tile of menuJson.items[0].tiles) {
-                html += '   <div class="mainNoPicRect">\n';
-                html += '       <a href="' + tile.href + '" class="mainGridButton">\n';
-                html += '           <div class="mainContent">\n';
-                html += '               <div class="mainNoPicTopBottom">\n';
-                html += '                   <div class="mainNoPicTop">' + tile.title + '</div>\n';
-                html += '                   <div class="mainNoPicBottom">' + tile.detail + '</div>\n';
-                html += '               </div>\n';
-                html += '           </div>\n';
-                html += '       </a>\n';
-                html += '   </div>\n';
-            }
-
-            html += '</div>\n';
-
-            fileObj.tiles = html;
+        for(const tile of tileItem.tiles) {
+            html += '   <div class="mainNoPicRect">\n';
+            html += '       <a href="' + tile.href + '" class="mainGridButton">\n';
+            html += '           <div class="mainContent">\n';
+            html += '               <div class="mainNoPicTopBottom">\n';
+            html += '                   <div class="mainNoPicTop">' + tile.title + '</div>\n';
+            html += '                   <div class="mainNoPicBottom">' + tile.detail + '</div>\n';
+            html += '               </div>\n';
+            html += '           </div>\n';
+            html += '       </a>\n';
+            html += '   </div>\n';
         }
+
+        html += '</div>\n';
+
+        fileObj.tiles = html;
     }
 
     // The navigation data is inserted using {{{navigation}}} in all layouts to generate the

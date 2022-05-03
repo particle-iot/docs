@@ -16,9 +16,24 @@
           "href": "/reference/cloud-apis/api/"
         },
         {
+          "title": "Cellular carriers",
+          "detail": "Carriers and country coverage for different Particledevices",
+          "href": "/reference/cellular/cellular-carriers/"
+        },
+        {
+          "title": "Programming devices",
+          "detail": "Programming your Particle device",
+          "href": "/reference/developer-tools/programming-devices/"
+        },
+        {
           "title": "Datasheets",
           "detail": "Technical documentation for Particle hardware",
           "href": "/reference/datasheets/tracker/tracker-som-datasheet/"
+        },
+        {
+          "title": "Tracker configuration",
+          "detail": "Extensive web-based configuration for Tracker devices",
+          "href": "/reference/tracker/tracker-configuration/"
         }
       ]
     },

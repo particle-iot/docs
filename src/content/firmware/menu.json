@@ -11,6 +11,16 @@
           "href": "/firmware/best-practices/firmware-introduction/"
         },
         {
+          "title": "USB serial debugging",
+          "detail": "Using logging and serial debugging to debug code",
+          "href": "/firmware/best-practices/usb-serial/"
+        },
+        {
+          "title": "Libraries",
+          "detail": "Using libraries to add new software features",
+          "href": "/firmware/best-practices/libraries/"
+        },
+        {
           "title": "Tracker Edge",
           "detail": "Writing code for the Tracker One and Tracker SoM",
           "href": "/firmware/tracker-edge/tracker-edge-firmware/"
@@ -19,6 +29,11 @@
           "title": "Low power",
           "detail": "Designing for battery-powered applications",
           "href": "/firmware/low-power/wake-publish-sleep-cellular/"
+        },
+        {
+          "title": "Finite state machines",
+          "detail": "Software design concepts for easier to maintain firmware",
+          "href": "/firmware/software-design/finite-state-machines/"
         }
       ]
     },    
