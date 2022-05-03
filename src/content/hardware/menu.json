@@ -238,6 +238,27 @@
         "title": "Ethernet FeatherWing",
         "href": "/hardware/ethernet/ethernet-featherwing/"
       }
+    ],
+    {
+      "dir": "certification",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "certification",
+        "title": "Certifications",
+        "href": "/hardware/certification/certification/"
+      },
+      {
+        "dir": "antenna",
+        "title": "Antennas",
+        "href": "/hardware/certification/antenna/"
+      },
+      {
+        "dir": "enabling-wifi-rf-test-for-esp32",
+        "title": "Enabling Wi-Fi RF Test for ESP32",
+        "href": "/hardware/certification/enabling-wifi-rf-test-for-esp32/"
+      }
     ]
   ]
 }

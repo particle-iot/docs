@@ -24,18 +24,7 @@
       "dir": "certifications",
       "isSection": true
     },
-    [
-      {
-        "dir": "certification",
-        "title": "Certifications",
-        "href": "/datasheets/certifications/certification/"
-      },
-      {
-        "dir": "antenna",
-        "title": "Antennas",
-        "href": "/datasheets/certifications/antenna/"
-      }
-    ],
+    [],
     {
       "dir": "accessories",
       "isSection": true
@@ -115,11 +104,6 @@
         "dir": "an029-wake-publish-sleep-cellular",
         "title": "AN029 Wake publish sleep example",
         "href": "/datasheets/app-notes/an029-wake-publish-sleep-cellular/"
-      },
-      {
-        "dir": "an031-enabling-wifi-rf-test-for-esp32",
-        "title": "AN031 Enabling Wi-Fi RF Test for ESP32",
-        "href": "/datasheets/app-notes/an031-enabling-wifi-rf-test-for-esp32/"
       },
       {
         "dir": "an034-singleton",

@@ -1,10 +1,10 @@
 ---
-title: AN031 Enabling Wi-Fi RF Test for ESP32
+title: Enabling Wi-Fi RF test for ESP32
 layout: commonTwo.hbs
 columns: two
 ---
 
-# AN031 Enabling Wi-Fi RF Test for ESP32
+# {{title}}
 
 This document contains instructions for conducting RF tests with the ESP32 Wi-Fi chip on the Argon development kit.
 
