@@ -153,7 +153,7 @@ exports.metalsmith = function () {
     // Auto-generate documentation from the API using comments formatted in the apidoc format
     .use(
       apidoc({
-        destFile: 'content/reference/device-cloud/api.md',
+        destFile: 'content/reference/cloud-apis/api.md',
         apis: [
           {
             src: '../../api-service/',
@@ -174,7 +174,7 @@ exports.metalsmith = function () {
     }))
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
-      destFile: 'content/reference/SDKs/javascript.md',
+      destFile: 'content/reference/cloud-apis/javascript.md',
       srcFile: '../../particle-api-js/docs/api.md',
       fragment: 'GENERATED_JAVASCRIPT_DOCS',
       preprocess: javascriptDocsPreprocess,
@@ -195,7 +195,7 @@ exports.metalsmith = function () {
     ]))
     // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
     .use(fileMetadata([
-      { pattern: 'content/tutorials/device-cloud/introduction.md', metadata: { dnsTable: dnsTable } }
+      { pattern: 'content/getting-started/cloud/introduction.md', metadata: { dnsTable: dnsTable } }
     ]))
     .use(msIf(
       environment === 'development',
@@ -379,7 +379,7 @@ exports.server = function (callback) {
           '${source}/assets/files/**/*': true,
           '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
-          '../api-service/src/**/*.js': 'content/reference/device-cloud/api.md',
+          '../api-service/src/**/*.js': 'content/reference/cloud-apis/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true

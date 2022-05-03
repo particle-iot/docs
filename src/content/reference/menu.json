@@ -1,6 +1,11 @@
 {
   "items": [
     {
+      "dir": "reference",
+      "title": "Reference",
+      "href": "/reference/"
+    },
+    {
       "dir": "device-os",
       "isSection": true
     },
