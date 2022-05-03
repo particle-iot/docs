@@ -6,6 +6,10 @@ columns: two
 
 # How to Contribute to Particle's Open Source Repositories
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 Particle is an open-source platform. You might find something you'd like changed, a feature you'd like implemented, or a bug you see a fix for. If so, you can create a pull request or an issue on one of our open-source GitHub repos. Here's a quick run-down of some repos you might want to know about, as well as some information on how to contribute.
 
 ## Open-Source Repos

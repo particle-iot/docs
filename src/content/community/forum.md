@@ -4,6 +4,9 @@ layout: commonTwo.hbs
 columns: two
 ---
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
 
 ## Particle Forum
 The [Particle forum](https://community.particle.io) is a place to ask questions, get help from other community members, and share your Particle project and product stories.

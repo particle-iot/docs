@@ -6,6 +6,10 @@ columns: two
 
 # Community Supported Clients
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 These client libraries can help you interact with Particle devices
 and the Particle cloud using your favorite programming language or
 framework.

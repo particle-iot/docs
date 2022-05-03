@@ -6,6 +6,10 @@ columns: two
 
 # Getting Started with Particle Workshops
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 ---
 
 Particle workshops are hands on explorations of the Particle ecosystem, from hardware, to the Particle Device OS, Cloud, basics of writing firmware, and more!
