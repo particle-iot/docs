@@ -1,12 +1,12 @@
 ---
-title: Tracker Edge Firmware
+title: Tracker Edge firmware
 columns: two
 layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 
-# Tracker Edge Firmware
+# {{title}}
 
 One difference between the Tracker One and other Particle devices is that the Tracker One firmware can be used in three different ways:
 

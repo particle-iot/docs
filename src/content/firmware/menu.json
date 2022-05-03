@@ -35,6 +35,22 @@
         "title": "Code size tips",
         "href": "/firmware/best-practices/code-size-tips/"
       }
+    ],
+    {
+      "dir": "tracker-edge",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-edge-firmware",
+        "title": "Tracker Edge Firmware",
+        "href": "/firmware/tracker-edge/tracker-edge-firmware/"
+      },
+      {
+        "dir": "tracker-edge-api-reference",
+        "title": "Tracker Edge API reference",
+        "href": "/firmware/tracker-edge/tracker-edge-api-reference/"
+      }
     ]
   ]
 }

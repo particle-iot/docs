@@ -42,13 +42,7 @@
       "dir": "asset-tracking",
       "isSection": true
     },
-    [
-      {
-        "dir": "tracker-edge-firmware",
-        "title": "Tracker Edge Firmware",
-        "href": "/tutorials/asset-tracking/tracker-edge-firmware/"
-      }
-    ],
+    [],
     {
       "dir": "diagnostics",
       "isSection": true
