@@ -95,6 +95,10 @@
         "dir": "node-red",
         "title": "Node-RED",
         "href": "/reference/cloud-apis/node-red/"
+      },
+      {
+        "dir": "data-report-tutorial",
+        "href": "/reference/cloud-apis/data-report-tutorial/"
       }
     ],
     {
@@ -322,7 +326,7 @@
         "dir": "technical-advisory-notices",
         "title": "Technical advisory notices",
         "href": "/reference/technical-advisory-notices/technical-advisory-notices/"
-      }  
+      }
     ],
     {
       "dir": "mobile-sdks",

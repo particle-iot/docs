@@ -79,6 +79,11 @@
     },
     [
       {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/getting-started/cloud/introduction/"
+      },
+      {
         "dir": "cloud-communication",
         "title": "Cloud communication",
         "href": "/getting-started/cloud/cloud-communication/"
