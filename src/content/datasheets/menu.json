@@ -9,55 +9,17 @@
       "dir": "boron",
       "isSection": true
     },
-    [
-      {
-        "dir": "b-series-boron-migration-guide",
-        "title": "B Series from Boron Migration Guide",
-        "href": "/datasheets/boron/b-series-boron-migration-guide/"
-      }
-    ],
+    [],
     {
       "dir": "electron",
       "isSection": true
     },
-    [
-      {
-        "dir": "e404x-migration-guide",
-        "title": "E404X migration guide",
-        "href": "/datasheets/electron/e404x-migration-guide/"
-      }
-    ],
+    [],
     {
       "dir": "wi-fi",
       "isSection": true
     },
-    [
-      {
-        "dir": "photon-2-argon-migration-guide",
-        "title": "Photon 2 from Argon migration guide",
-        "href": "/datasheets/wi-fi/photon-2-argon-migration-guide/"
-      },
-      {
-        "dir": "photon-2-photon-migration-guide",
-        "title": "Photon 2 from Photon migration guide",
-        "href": "/datasheets/wi-fi/photon-2-photon-migration-guide/"
-      },
-      {
-        "dir": "p2-p1-migration-guide",
-        "title": "P2 from P1 migration guide",
-        "href": "/datasheets/wi-fi/p2-p1-migration-guide/"
-      },
-      {
-        "dir": "p2-photon-migration-guide",
-        "title": "P2 from Photon migration guide",
-        "href": "/datasheets/wi-fi/p2-photon-migration-guide/"
-      },
-      {
-        "dir": "p2-argon-migration-guide",
-        "title": "P2 from Argon migration guide",
-        "href": "/datasheets/wi-fi/p2-argon-migration-guide/"
-      }
-    ],
+    [],
     {
       "dir": "certifications",
       "isSection": true
@@ -118,11 +80,6 @@
         "dir": "an005-threading-explainer",
         "title": "AN005 Threading Explainer",
         "href": "/datasheets/app-notes/an005-threading-explainer/"
-      },
-      {
-        "dir": "an006-vehicle-power",
-        "title": "AN006 Vehicle Power",
-        "href": "/datasheets/app-notes/an006-vehicle-power/"
       },
       {
         "dir": "an007-tower-info",

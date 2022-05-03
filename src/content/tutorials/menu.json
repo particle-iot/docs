@@ -129,19 +129,9 @@
         "href": "/tutorials/learn-more/about-apps/"
       },
       {
-        "dir": "gen2-cellular-migration",
-        "title": "Gen 2 cellular migration",
-        "href": "/tutorials/learn-more/gen2-cellular-migration/"
-      },
-      {
         "dir": "ethernet-featherwing",
         "title": "Ethernet FeatherWing",
         "href": "/tutorials/learn-more/ethernet-featherwing/"
-      },
-      {
-        "dir": "batteries",
-        "title": "Batteries",
-        "href": "/tutorials/learn-more/batteries/"
       },
       {
         "dir": "xenon-options",

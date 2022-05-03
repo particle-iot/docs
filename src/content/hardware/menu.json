@@ -160,6 +160,68 @@
         "title": "Basic SoM design",
         "href": "/hardware/b-series-som/basic-som-design/"
       }
+    ],
+    {
+      "dir": "migration-guides",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "b-series-boron-migration-guide",
+        "title": "B Series from Boron Migration Guide",
+        "href": "/hardware/migration-guides/b-series-boron-migration-guide/"
+      },
+      {
+        "dir": "e404x-migration-guide",
+        "title": "E404X migration guide",
+        "href": "/hardware/migration-guides/e404x-migration-guide/"
+      },
+      {
+        "dir": "p2-argon-migration-guide",
+        "title": "P2 from Argon migration guide",
+        "href": "/hardware/migration-guides/p2-argon-migration-guide/"
+      },
+      {
+        "dir": "p2-p1-migration-guide",
+        "title": "P2 from P1 migration guide",
+        "href": "/hardware/migration-guides/p2-p1-migration-guide/"
+      },
+      {
+        "dir": "p2-photon-migration-guide",
+        "title": "P2 from Photon migration guide",
+        "href": "/hardware/migration-guides/p2-photon-migration-guide/"
+      },
+      {
+        "dir": "photon-2-argon-migration-guide",
+        "title": "Photon 2 from Argon migration guide",
+        "href": "/hardware/migration-guides/photon-2-argon-migration-guide/"
+      },
+      {
+        "dir": "photon-2-photon-migration-guide",
+        "title": "Photon 2 from Photon migration guide",
+        "href": "/hardware/migration-guides/photon-2-photon-migration-guide/"
+      },
+      {
+        "dir": "gen2-cellular-migration",
+        "title": "Gen 2 cellular migration",
+        "href": "/hardware/migration-guides/gen2-cellular-migration/"
+      }
+    ],
+    {
+      "dir": "power",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "batteries",
+        "title": "Batteries",
+        "href": "/hardware/power/batteries/"
+      },
+      {
+        "dir": "vehicle-power",
+        "title": "Vehicle power",
+        "href": "/hardware/power/vehicle-power/"
+      }
     ]
   ]
 }
