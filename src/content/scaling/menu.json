@@ -9,6 +9,16 @@
           "title": "Manufacturing",
           "detail": "Process for manufacturing cellular products at scale",
           "href": "/scaling/manufacturing/manufacturing-cellular/"
+        },
+        {
+          "title": "USB Flashing",
+          "detail": "Automating device flashing over USB using node.js",
+          "href": "https://github.com/particle-iot/node-example-device-flash-setup/"
+        },
+        {
+          "title": "Device onboarding",
+          "detail": "Bulk configuration of devices using node.js",
+          "href": "https://github.com/particle-iot/node-example-device-cloud-setup/"
         }
       ]
     },        
@@ -23,9 +33,23 @@
         "href": "/scaling/manufacturing/manufacturing-cellular/"
       },
       {
-        "dir": "an036-lcc-module-smt",
-        "title": "AN036 LCC Module SMT",
-        "href": "/scaling/manufacturing/an036-lcc-module-smt/"
+        "dir": "lcc-module-smt",
+        "title": "LCC Module SMT",
+        "href": "/scaling/manufacturing/lcc-module-smt/"
+      }
+    ],
+    {
+      "dir": "scripting",
+      "isSection": true
+    },
+    [
+      {
+        "title": "Device flashing tool over USB",
+        "href": "https://github.com/particle-iot/node-example-device-flash-setup"
+      },
+      {
+        "title": "Automating device onboarding",
+        "href": "https://github.com/particle-iot/node-example-device-cloud-setup"
       }
     ]
   ]
