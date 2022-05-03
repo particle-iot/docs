@@ -1,9 +1,9 @@
 ---
-title: AN025 Tracker SoM First Board
+title: Tracker SoM first board
 layout: commonTwo.hbs
 columns: two
 ---
-# AN025 Tracker SoM First Board
+# {{title}}
 
 This tutorial shows how to make a simple base board for the Tracker SoM that has a number of features from the Tracker Carrier Board (used in the Tracker One), however can easily be modified to fit your needs. 
 

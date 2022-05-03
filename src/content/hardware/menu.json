@@ -91,6 +91,17 @@
           "title": "Tracker button and LEDs",
           "href": "/hardware/tracker/projects/tracker-buttons-leds/"
         }
+      ],
+      {
+        "dir": "tracker-som",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "tracker-som-first-board",
+          "title": "Tracker SoM first board",
+          "href": "/hardware/tracker/tracker-som/tracker-som-first-board/"
+        }
       ]
     ]
   ]
