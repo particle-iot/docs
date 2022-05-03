@@ -33,9 +33,9 @@
         "href": "/scaling/manufacturing/manufacturing-cellular/"
       },
       {
-        "dir": "an036-lcc-module-smt",
-        "title": "AN036 LCC Module SMT",
-        "href": "/scaling/manufacturing/an036-lcc-module-smt/"
+        "dir": "lcc-module-smt",
+        "title": "LCC Module SMT",
+        "href": "/scaling/manufacturing/lcc-module-smt/"
       }
     ],
     {
