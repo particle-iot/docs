@@ -135,11 +135,6 @@
         "href": "/datasheets/app-notes/an007-tower-info/"
       },
       {
-        "dir": "an008-xenon-nordic-sdk",
-        "title": "AN008 Xenon with the Nordic SDK",
-        "href": "/datasheets/app-notes/an008-xenon-nordic-sdk/"
-      },
-      {
         "dir": "an009-firmware-examples",
         "title": "AN009 Firmware Examples",
         "href": "/datasheets/app-notes/an009-firmware-examples/"
@@ -289,22 +284,6 @@
       "dir": "discontinued",
       "isSection": true
     },
-    [
-      {
-        "dir": "xenon-datasheet",
-        "title": "Xenon datasheet",
-        "href": "/datasheets/discontinued/xenon-datasheet/"
-      },
-      {
-        "dir": "core-datasheet",
-        "title": "Core datasheet",
-        "href": "/datasheets/discontinued/core-datasheet/"
-      },
-      {
-        "dir": "core-shields",
-        "title": "Core shields and kits",
-        "href": "/datasheets/discontinued/core-shields/"
-      }
-    ]
+    []
   ]
 }

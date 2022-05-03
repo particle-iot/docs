@@ -1,9 +1,9 @@
 ---
-title: AN008 Xenon with the Nordic SDK
+title: Xenon with the Nordic SDK
 layout: commonTwo.hbs
 columns: two
 ---
-# AN008 Xenon with the Nordic SDK
+# {{title}}
 
 With the [deprecation of Thread Mesh](https://docs.particle.io/reference/discontinued/mesh/), some options for Xenons include:
 

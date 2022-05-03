@@ -346,25 +346,67 @@
     },
     [
       {
-        "dir": "us-2g-3g-sunset",
-        "title": "US 2G/3G Sunset",
-        "href": "/reference/discontinued/us-2g-3g-sunset/"
+        "dir": "cellular",
+        "isSection": true
       },
+      [
+        {
+          "dir": "us-2g-3g-sunset",
+          "title": "US 2G/3G Sunset",
+          "href": "/reference/discontinued/cellular/us-2g-3g-sunset/"
+        },
+        {
+          "dir": "gen2-cellular-deprecation",
+          "title": "Gen 2 cellular deprecation",
+          "href": "/reference/discontinued/cellular/gen2-cellular-deprecation/"
+        },
+        {
+          "dir": "r410-modem-deprecation",
+          "title": "R410 modem deprecation",
+          "href": "/reference/discontinued/cellular/r410-modem-deprecation/"
+        }
+      ],
       {
-        "dir": "gen2-cellular-deprecation",
-        "title": "Gen 2 cellular deprecation",
-        "href": "/reference/discontinued/gen2-cellular-deprecation/"
+        "dir": "hardware",
+        "isSection": true
       },
-      {
-        "dir": "r410-modem-deprecation",
-        "title": "R410 modem deprecation",
-        "href": "/reference/discontinued/r410-modem-deprecation/"
-      },
-      {
-        "dir": "mesh",
-        "title": "Mesh Deprecation",
-        "href": "/reference/discontinued/mesh/"
-      },
+      [
+        {
+          "dir": "mesh",
+          "title": "Mesh Deprecation",
+          "href": "/reference/discontinued/hardware/mesh/"
+        },
+        {
+          "dir": "xenon-datasheet",
+          "title": "Xenon datasheet",
+          "href": "/reference/discontinued/hardware/xenon-datasheet/"
+        },
+        {
+          "dir": "xenon-nordic-sdk",
+          "title": "Xenon with the Nordic SDK",
+          "href": "/reference/discontinued/hardware/xenon-nordic-sdk/"
+        },
+        {
+          "dir": "core-datasheet",
+          "title": "Core datasheet",
+          "href": "/reference/discontinued/hardware/core-datasheet/"
+        },
+        {
+          "dir": "core-shields",
+          "title": "Core shields and kits",
+          "href": "/reference/discontinued/hardware/core-shields/"
+        },
+        {
+          "dir": "ldk-project",
+          "title": "Leak Detection Kit",
+          "href": "/reference/discontinued/hardware/ldk-project/"
+        },
+        {
+          "dir": "button",
+          "title": "Internet Button",
+          "href": "/reference/discontinued/hardware/button/"
+        }
+      ],
       {
         "dir": "firmware-mesh",
         "title": "Device OS API - Mesh",
@@ -389,16 +431,6 @@
         "dir": "windows",
         "title": "Windows SDK",
         "href": "/reference/discontinued/windows/"
-      },
-      {
-        "dir": "ldk-project",
-        "title": "Leak Detection Kit",
-        "href": "/reference/discontinued/ldk-project/"
-      },
-      {
-        "dir": "button",
-        "title": "Internet Button",
-        "href": "/reference/discontinued/button/"
       }
     ]
   ]
