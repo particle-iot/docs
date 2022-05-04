@@ -28,22 +28,13 @@ The following do **not** count against your Data Operations limit:
 <sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.
 {{!-- END shared-blurb --}}
 
+You can request a [data operations report](/tutorials/device-cloud/console/#historical-data) from the **Billing & Usage** tab in your sandbox or in your organization (if you are an organization administrator). That is the easiest way to get a report, but if you want to script the report generation using curl, node.js, or see how to make the API calls, this document may help.
+
 ## Log in
 
 To use the interactive examples in this page, you must be logged into your Particle account:
 
 {{> sso}}
-
-
-## Request a report tool
-
-The tool below makes it easy to request a data usage report:
-
-{{> data-operations-report}}
-
-- You are limited to three outstanding report requests at a time.
-- Generating the report can take several minutes.
-- The logged in user will receive an email when the report is complete, along with a download link.
 
 ## Using curl
 
@@ -151,3 +142,14 @@ You can change whether to pull a sandbox or organization data operations report 
 {{> project-browser project="node-data-report" default-file="app.js"}}
 
 If you are using the Chrome or Edge browser on Windows, Mac, or Linux you can open the node.js project in your browser, edit, and run it with no software install required using the **Try It** button.
+
+
+## Request a report tool
+
+The tool below makes it easy to request a data usage report:
+
+{{> data-operations-report}}
+
+- You are limited to three outstanding report requests at a time.
+- Generating the report can take several minutes.
+- The logged in user will receive an email when the report is complete, along with a download link.
