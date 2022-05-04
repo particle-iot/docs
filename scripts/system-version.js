@@ -5,16 +5,24 @@ const https = require('https');
 async function generateSystemVersionInfo(options, done) {
     const versionInfoPath = path.join(__dirname, '..', 'src', 'assets', 'files', 'versionInfo.json');
 
+    const versionUpdatePath = path.join(__dirname, '..', 'config', 'versionUpdate.json');
+
+
     let oldVersionInfoStr = '';
     let oldVersionInfo = {};
+    let oldVersionUpdate = {};
     if (fs.existsSync(versionInfoPath)) {
         oldVersionInfoStr = fs.readFileSync(versionInfoPath, 'utf8');
         oldVersionInfo = JSON.parse(oldVersionInfoStr);
     }
+    if (fs.existsSync(versionUpdatePath)) {
+        oldVersionUpdate = JSON.parse(fs.readFileSync(versionUpdatePath, 'utf8'));
+    }
+
 
     // Check current data to see if the file should be downloaded again
     let now = Math.floor(Date.now() / 1000);
-    if (!oldVersionInfo || !oldVersionInfo.updated || oldVersionInfo.updated < (now - 86400)) {
+    if (!oldVersionInfo || !oldVersionUpdate.updated || oldVersionUpdate.updated < (now - 86400)) {
 
         // Download from GitHub
         const url = 'https://raw.githubusercontent.com/particle-iot/device-os/develop/system/system-versions.md';
@@ -33,15 +41,18 @@ async function generateSystemVersionInfo(options, done) {
             });
         });
 
+        oldVersionUpdate.updated = Math.floor(Date.now() / 1000);
+        fs.writeFileSync(versionUpdatePath, JSON.stringify(oldVersionUpdate, null, 2));
+        
         // Parse md files
         // const mdFile = fs.readFileSync(path.join(__dirname, '..', 'tmp', 'system-versions.md'), 'utf8');
         // console.log('mdFile', mdFile);
 
         let lastBootLoaderVer = 0;
         let versionInfo = {
-            versions: [],
-            updated: Math.floor(Date.now() / 1000)
+            versions: []
         }
+
 
         for (let line of mdFile.split('\n')) {
             const parts = line.split('|');
