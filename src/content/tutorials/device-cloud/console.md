@@ -179,6 +179,19 @@ You can also quickly view your usage from the popup under your email address in 
 
 The numbers of devices and data operations will be updated within a half hour. Cellular data usage may be delayed for up to a week.
 
+### Historical data
+
+At the bottom of the Billing & Usage panel you can request a data usage report:
+
+![](/assets/images/console/historical-data.png)
+
+- Time Range: Past week, Past month, Past 3 months, Past year
+- Data Requested: Data usage by device, Data usage by product
+
+It will take several minutes to generate the data, and you will be emailed a csv file when done. 
+
+This option is also available for organization administrators in the organization Billing & Usage panel.
+
 ### Billing limits
 
 You will receive warnings by email, and as a pop-up, and in the **Billing & Usage** tab in the console at 70%, 90%, and 100% of the allowable data operations. 

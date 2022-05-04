@@ -1972,6 +1972,11 @@
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=1234\"",
         "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=1234\"",
         "type": "bash"
+      },
+      {
+        "title": "List devices in a group",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?groups=beta&access_token=1234\"",
+        "type": "bash"
       }
     ],
     "success": {
@@ -2167,6 +2172,13 @@
             "optional": false,
             "field": "name",
             "description": "<p>Device name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "owner",
+            "description": "<p>Particle username for the user who claimed this device</p>"
           },
           {
             "group": "Success 200",
@@ -2390,7 +2402,7 @@
       "examples": [
         {
           "title": "GET /v1/devices/0123456789abcdef01234567",
-          "content": "GET /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"name\": \"gongbot\",\n  \"last_ip_address\": \"176.83.211.237\",\n  \"last_heard\": \"2015-07-17T22:28:40.907Z\",\n  \"last_handshake_at\": \"2015-07-15T20:08:00.456Z\",\n  \"product_id\": 13,\n  \"online\": true,\n  \"platform_id\": 13,\n  \"cellular\": true,\n  \"notes\": null,\n  \"functions\": [\n    \"gong\",\n    \"goto\"\n  ],\n  \"variables\": {\n    \"Gongs\": \"int32\"\n  },\n  \"status\": \"normal\",\n  \"serial_number\": \"AAAAAA111111111\",\n  \"iccid\": \"89314404000111111111\",\n  \"imei\": \"357520000000000\",\n  \"mobile_secret\": \"NVYM5RK6AHCBELA\",\n  \"system_firmware_version\": \"1.5.0\",\n  \"firmware_updates_enabled\": true,\n  \"firmware_updates_forced\": false\n}",
+          "content": "GET /v1/devices/0123456789abcdef01234567\nHTTP/1.1 200 OK\n{\n  \"id\": \"0123456789abcdef01234567\",\n  \"name\": \"gongbot\",\n  \"owner\": \"someone@particle.io\",\n  \"last_ip_address\": \"176.83.211.237\",\n  \"last_heard\": \"2015-07-17T22:28:40.907Z\",\n  \"last_handshake_at\": \"2015-07-15T20:08:00.456Z\",\n  \"product_id\": 13,\n  \"online\": true,\n  \"platform_id\": 13,\n  \"cellular\": true,\n  \"notes\": null,\n  \"functions\": [\n    \"gong\",\n    \"goto\"\n  ],\n  \"variables\": {\n    \"Gongs\": \"int32\"\n  },\n  \"status\": \"normal\",\n  \"serial_number\": \"AAAAAA111111111\",\n  \"iccid\": \"89314404000111111111\",\n  \"imei\": \"357520000000000\",\n  \"mobile_secret\": \"NVYM5RK6AHCBELA\",\n  \"system_firmware_version\": \"1.5.0\",\n  \"firmware_updates_enabled\": true,\n  \"firmware_updates_forced\": false\n}",
           "type": "js"
         }
       ]
@@ -9002,6 +9014,893 @@
     "groupTitle": "ServiceAgreements_2"
   },
   {
+    "type": "get",
+    "url": "/v1/user/usage_reports/:usageReportId",
+    "title": "Get a User Usage Report",
+    "name": "getUserUsageReport",
+    "description": "<p>Get a single usage report related to the user. Expect &quot;download_url&quot; to be present only when the usage report has an &quot;available&quot; state.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "usageReportId",
+            "description": "<p>The usage report ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example Request",
+        "content": "$ curl \"https://api.particle.io/v1/user/usage_reports/:userReportId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "group": "ServiceAgreements_3",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/user/usage_reports/:usageReportId",
+          "content": " GET /v1/user/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "type": "json"
+        }
+      ],
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Usage Report Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Object type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes",
+            "description": "<p>Usage Report attributes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.state",
+            "description": "<p>Usage Report current state</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.service_agreement_id",
+            "description": "<p>Service Agreement Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_start",
+            "description": "<p>The start of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_end",
+            "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.created_at",
+            "description": "<p>UTC timestamp of when the Usage Report request was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.expires_at",
+            "description": "<p>UTC timestamp of when the Usage Report file expires</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.report_type",
+            "description": "<p>Usage Report type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes.report_params",
+            "description": "<p>Usage Report parameters</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.devices",
+            "description": "<p>List of Device Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.products",
+            "description": "<p>List of Product Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.recipient_list",
+            "description": "<p>List of emails to send the report via email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.download_url",
+            "description": "<p>Usage Report file expirable download URL</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/usageReport.js",
+    "groupTitle": "ServiceAgreements_3"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgSlugOrId/usage_reports/:usageReportId",
+    "title": "Get an Org Usage Report",
+    "name": "getOrgUsageReport",
+    "description": "<p>Get a single usage report related to an organization. Expect &quot;download_url&quot; to be present only when the usage report has an &quot;available&quot; state.</p> <p>The user must be an active member of the organization.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "usageReportId",
+            "description": "<p>The usage report ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "service_agreements.usage_reports:get"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example Request",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgSlugOrId/usage_reports/:usageReportId\" \\\n       -H \"Authorization: Bearer <access_token>\"",
+        "type": "bash"
+      }
+    ],
+    "group": "ServiceAgreements_4",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "GET /v1/org/:orgSlugOrId/usage_reports/:usageReportId",
+          "content": " GET /v1/org/:orgSlugOrId/usage_reports/:usageReportId\n HTTP/1.1 200 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-02-01\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "type": "json"
+        }
+      ],
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Usage Report Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Object type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes",
+            "description": "<p>Usage Report attributes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.state",
+            "description": "<p>Usage Report current state</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.service_agreement_id",
+            "description": "<p>Service Agreement Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_start",
+            "description": "<p>The start of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_end",
+            "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.created_at",
+            "description": "<p>UTC timestamp of when the Usage Report request was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.expires_at",
+            "description": "<p>UTC timestamp of when the Usage Report file expires</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.report_type",
+            "description": "<p>Usage Report type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes.report_params",
+            "description": "<p>Usage Report parameters</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.devices",
+            "description": "<p>List of Device Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.products",
+            "description": "<p>List of Product Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.recipient_list",
+            "description": "<p>List of emails to send the report via email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.download_url",
+            "description": "<p>Usage Report file expirable download URL</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/usageReport.js",
+    "groupTitle": "ServiceAgreements_4"
+  },
+  {
+    "type": "post",
+    "url": "/v1/user/service_agreements/:serviceAgreementId/usage_reports",
+    "title": "Create a User Usage Report",
+    "name": "createUserUsageReport",
+    "description": "<p>Request a new usage report related to the user service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "service_agreement_id",
+            "description": "<p>Service Agreement ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "report_type",
+            "description": "<p>One of the supported report types, &quot;devices&quot; or &quot;products&quot;</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date_period_start",
+            "description": "<p>The start of the date period to query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date_period_end",
+            "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "devices",
+            "description": "<p>An optional array of Device IDs</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "products",
+            "description": "<p>An optional array of Product IDs</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "service_agreements.usage_reports:create"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example Request",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/user/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"devices\",\n         \"date_period_start\": \"2022-01-01\",\n         \"date_period_end\": \"2022-01-31\",\n         \"devices\": [\"device1\", \"device2\"]\n       }'",
+        "type": "bash"
+      }
+    ],
+    "group": "ServiceAgreements_5",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/",
+          "content": " POST /v1/user/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-01-31\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "type": "json"
+        }
+      ],
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Usage Report Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Object type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes",
+            "description": "<p>Usage Report attributes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.state",
+            "description": "<p>Usage Report current state</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.service_agreement_id",
+            "description": "<p>Service Agreement Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_start",
+            "description": "<p>The start of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_end",
+            "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.created_at",
+            "description": "<p>UTC timestamp of when the Usage Report request was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.expires_at",
+            "description": "<p>UTC timestamp of when the Usage Report file expires</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.report_type",
+            "description": "<p>Usage Report type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes.report_params",
+            "description": "<p>Usage Report parameters</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.devices",
+            "description": "<p>List of Device Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.products",
+            "description": "<p>List of Product Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.recipient_list",
+            "description": "<p>List of emails to send the report via email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.download_url",
+            "description": "<p>Usage Report file expirable download URL</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/usageReport.js",
+    "groupTitle": "ServiceAgreements_5"
+  },
+  {
+    "type": "post",
+    "url": "/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports",
+    "title": "Create an Org Usage Report",
+    "name": "createOrgUsageReport",
+    "description": "<p>Request a new usage report related to the organization service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p> <p>The user must be an active member of the organization.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgSlugOrId",
+            "description": "<p>Organization Slug or ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "service_agreement_id",
+            "description": "<p>Service Agreement ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "report_type",
+            "description": "<p>One of the supported report types, &quot;devices&quot; or &quot;products&quot;</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date_period_start",
+            "description": "<p>The start of the date period to query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date_period_end",
+            "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "devices",
+            "description": "<p>An optional array of Device IDs</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "products",
+            "description": "<p>An optional array of Product IDs</p>"
+          }
+        ]
+      }
+    },
+    "group": "ServiceAgreements_6",
+    "examples": [
+      {
+        "title": "Example Request",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports\" \\\n       -H \"Authorization: Bearer <access_token>\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n         \"report_type\": \"devices\",\n         \"date_period_start\": \"2022-01-01\",\n         \"date_period_end\": \"2022-01-31\",\n         \"devices\": [\"device1\", \"device2\"]\n       }'",
+        "type": "bash"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/",
+          "content": " POST /v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports/\n HTTP/1.1 202 OK\n{\n\"data\": {\n  \"id\": \"1\",\n  \"type\": \"usage_report\",\n  \"attributes\": {\n    \"state\": \"pending\",\n    \"service_agreement_id\": 1,\n    \"date_period_start\": \"2022-01-01\",\n    \"date_period_end\": \"2022-01-31\",\n    \"created_at\": \"2022-01-18 13:43:23 -0800\",\n    \"expires_at\": null,\n    \"report_type\": \"devices\",\n    \"report_params\": {\n      \"devices\": [\n        \"device1\",\n        \"device2\"\n      ],\n      \"products\": [],\n      \"recipient_list\": [\n        \"your@email.com\"\n      ]\n    },\n    \"download_url\": null\n  }\n}",
+          "type": "json"
+        }
+      ],
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Usage Report Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Object type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes",
+            "description": "<p>Usage Report attributes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.state",
+            "description": "<p>Usage Report current state</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.service_agreement_id",
+            "description": "<p>Service Agreement Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_start",
+            "description": "<p>The start of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.date_period_end",
+            "description": "<p>The end of the date period to query</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.created_at",
+            "description": "<p>UTC timestamp of when the Usage Report request was created</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.expires_at",
+            "description": "<p>UTC timestamp of when the Usage Report file expires</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.report_type",
+            "description": "<p>Usage Report type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes.report_params",
+            "description": "<p>Usage Report parameters</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.devices",
+            "description": "<p>List of Device Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.products",
+            "description": "<p>List of Product Unique IDs</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "attributes.report_params.recipient_list",
+            "description": "<p>List of emails to send the report via email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.download_url",
+            "description": "<p>Usage Report file expirable download URL</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/usageReport.js",
+    "groupTitle": "ServiceAgreements_6"
+  },
+  {
+    "type": "get",
+    "url": "/v1/user/service_agreements/:serviceAgreementId/notifications",
+    "title": "Get notifications for current usage period",
+    "name": "GetServiceAgreementNotifications",
+    "description": "<p>Get user notifications related to a specific service agreement</p> <ul> <li>Usage reached a certain threshold (70%, 90%, 100%)</li> <li>Service was paused</li> <li>Service was unpaused</li> </ul>",
+    "group": "ServiceAgreements_7",
+    "permission": [
+      {
+        "name": "service_agreements.notifications:list"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 555551111AWESOME\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/user/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
+        "content": "$ curl \"https://api.particle.io/v1/user/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
+        "type": "bash"
+      },
+      {
+        "title": "List notifications associated with an organization",
+        "content": "$ curl \"https://api.particle.io/v1/organizations/service_agreements/:serviceAgreementId/notifications?access_token=123abc\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Notification Unique ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>Object type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes.",
+            "description": "<p>Notification attributes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.state",
+            "description": "<p>indicates the state of the notification</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.event_name",
+            "description": "<p>Notification event name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.time_period",
+            "description": "<p>Notification time period</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.created_at",
+            "description": "<p>Notification created datetime</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.updated_at",
+            "description": "<p>Notification updated datetime</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.resource_id",
+            "description": "<p>Service agreement Id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "attributes.resource_type",
+            "description": "<p>Notification resource type</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "attributes.details",
+            "description": "<p>Notification details</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/user/service_agreements/1234/notifications",
+          "content": "GET /v1/user/service_agreements/1234/notifications\n HTTP/1.1 200 OK\n{\n\"data\":[\n{\n\t\t\"id\": \"fff25e4e-7457-4c3c-8f6e-c9d6dfc01110\",\n\t\t\"type\": \"notification\",\n\t\t\"attributes\": {\n\t\t\t\t\"state\": \"completed\",\n\t\t\t\t\"event_name\": \"developer:usage_activity:automatic_unpause\",\n\t\t\t\t\"time_period\": \"2022-01-22\",\n\t\t\t\t\"created_at\": \"2022-01-22 00:01:00 -0800\",\n\t\t\t\t\"resource_id\": \"59\",\n\t\t\t\t\"resource_type\": \"ServiceAgreement\",\n\t\t\t\t\"details\": {\n\t\t\t\t\t\t\t\"event_type\": \"automatic_unpause\",\n\t\t\t\t\t\t\t\"hierarchy_info\": {\n\t\t\t\t\t\t\t\t\t\"name\": \"automatic_unpause\",\n\t\t\t\t\t\t\t\t\t\"priority\": 7\n\t\t\t\t\t\t\t},\n\t\t\t\t\"device_pause_date\": \"2022-01-22T00:01:00.567-08:00\",\n\t\t\t\t\"next_billing_period_start\": \"2022-02-22\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/serviceAgreement.js",
+    "groupTitle": "ServiceAgreements_7"
+  },
+  {
     "type": "put",
     "url": "/v1/sims/:iccid",
     "title": "Update SIM data limit (deprecated)",
@@ -9573,13 +10472,20 @@
             "optional": false,
             "field": "sim.last_device_name",
             "description": "<p>The device name of the SIM card's last associated device</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "sim.owner",
+            "description": "<p>Particle username for the user who claimed this SIM card</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "GET /v1/sims/8934076500002589174",
-          "content": "GET /v1/sims/8934076500002589174\nHTTP/1.1 200 OK\n{\n  {\n    \"_id\":\"8934076500002589174\",\n    \"activations_count\":1,\n    \"base_country_code\":\"US\",\n    \"base_monthly_rate\":299,\n    \"deactivations_count\":0,\n    \"first_activated_on\":\"2017-01-27T23:10:16.994Z\",\n    \"last_activated_on\":\"2017-01-27T23:10:16.994Z\",\n    \"last_activated_via\":\"user_setup\",\n    \"last_status_change_action\":\"activate\",\n    \"last_status_change_action_error\":\"no\",\n    \"mb_limit\":5,\n    \"msisdn\":\"345901000485300\",\n    \"overage_monthly_rate\":99,\n    \"status\":\"active\",\n    \"stripe_plan_slug\":\"KickstarterElectronPlan\",\n    \"updated_at\":\"2017-01-27T23:10:22.622Z\",\n    \"user_id\":\"5580999caf8bad191600019b\",\n    \"carrier\":\"telefonica\",\n    \"last_device_id\":\"123abc\",\n    \"last_device_name\":\"foo_bar_baz\"\n  }\n}",
+          "content": "GET /v1/sims/8934076500002589174\nHTTP/1.1 200 OK\n{\n  {\n    \"_id\":\"8934076500002589174\",\n    \"activations_count\":1,\n    \"base_country_code\":\"US\",\n    \"base_monthly_rate\":299,\n    \"deactivations_count\":0,\n    \"first_activated_on\":\"2017-01-27T23:10:16.994Z\",\n    \"last_activated_on\":\"2017-01-27T23:10:16.994Z\",\n    \"last_activated_via\":\"user_setup\",\n    \"last_status_change_action\":\"activate\",\n    \"last_status_change_action_error\":\"no\",\n    \"mb_limit\":5,\n    \"msisdn\":\"345901000485300\",\n    \"overage_monthly_rate\":99,\n    \"status\":\"active\",\n    \"stripe_plan_slug\":\"KickstarterElectronPlan\",\n    \"updated_at\":\"2017-01-27T23:10:22.622Z\",\n    \"user_id\":\"5580999caf8bad191600019b\",\n    \"carrier\":\"telefonica\",\n    \"last_device_id\":\"123abc\",\n    \"last_device_name\":\"foo_bar_baz\",\n    \"owner\": \"someone@particle.io\"\n  }\n}",
           "type": "json"
         }
       ]

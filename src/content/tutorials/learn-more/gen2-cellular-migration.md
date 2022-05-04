@@ -535,6 +535,8 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 This is not an issue with Gen 3 devices that have dedicated SWD pins.
 
+If you are relying on this behavior for external circuits, you should instead use a hardware pull-up or pull-down on Gen 3 devices. The pins default to high-impedance state, and this means they will stay in this state when in the bootloader, DFU mode, and safe mode.
+
 ### PMIC and Fuel Gauge
 
 The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.

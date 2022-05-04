@@ -36,6 +36,8 @@ var ignoreHosts = [
   'www.digikey.com', // Returns 403 when the crawler attempts to fetch page due to CloudFlare
   'media.digikey.com',
   'www.fcc.gov', // tends to time out
+  'help.github.com', // 403
+  'guides.github.com', // 403
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
