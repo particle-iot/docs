@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const titleize = require('../templates/helpers/titleize');
 
+let topMenuJson;
+
 function generateNavMenu(fileObj, contentDir) {
     // console.log('fileObj', fileObj);
     if (!fileObj.path || fileObj.path.ext !== '.md') {
@@ -97,6 +99,19 @@ function generateNavMenu(fileObj, contentDir) {
         html += '</div>\n';
 
         fileObj.tiles = html;
+    }
+
+    if (topMenuJson) {
+        fileObj.topMenu = '';
+        fileObj.topMenuDropdown = '';
+
+        for(const item of topMenuJson.items) {
+            let hrefParts = item.href.split('/');
+            const isTopLevel = hrefParts.length > 2 && (hrefParts[1] == topLevelName);
+
+            fileObj.topMenu += '<a class="nav ' + (isTopLevel ? "active" : "") + '" href="' + item.href + '">' + item.title + '</a>\n';
+            fileObj.topMenuDropdown += '<li><a href="' + item.href + '">' + item.title + '</a></li>\n';
+        }
     }
 
     // The navigation data is inserted using {{{navigation}}} in all layouts to generate the
@@ -275,8 +290,15 @@ fileObj {
 
 function metalsmith(options) {
     return function (files, metalsmith, done) {
+        const contentDir = metalsmith.path(options.contentDir);
+
+        const menuPath = path.join(contentDir, 'menu.json');
+        if (fs.existsSync(menuPath)) {
+            topMenuJson = JSON.parse(fs.readFileSync(menuPath), 'utf8');
+        }    
+
         Object.keys(files).forEach(function (fileName) {
-            generateNavMenu(files[fileName], metalsmith.path(options.contentDir));
+            generateNavMenu(files[fileName], contentDir);
         });
 
         done();
