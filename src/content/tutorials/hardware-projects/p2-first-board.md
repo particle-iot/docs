@@ -164,6 +164,10 @@ dfu-util -l
 
 Celebrate making your first working P2 base board!
 
+#### 2022-05-02 (v2)
+
+- Expanded the tRestrict and bRestrict around the antenna area. For best results remove as much copper GND plane from this area as well, and avoid GND loops around the antenna if at all possible.
+
 #### 2021-05-04
 
 - Initial version

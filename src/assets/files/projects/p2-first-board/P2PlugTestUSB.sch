@@ -1515,7 +1515,6 @@ https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC161LFB
 <part name="U$4" library="rickk2" deviceset="SWITCH-PTS645" device=""/>
 <part name="U$5" library="rickk2" deviceset="SWITCH-PTS645" device=""/>
 <part name="GND11" library="rickk2" deviceset="GND" device=""/>
-<part name="SUPPLY4" library="rickk2" deviceset="3V3" device=""/>
 <part name="SUPPLY1" library="rickk2" deviceset="3V3" device=""/>
 <part name="SUPPLY2" library="rickk2" deviceset="3V3" device=""/>
 <part name="SUPPLY6" library="rickk2" deviceset="3V3" device=""/>
@@ -1629,9 +1628,6 @@ https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC161LFB
 <instance part="U$5" gate="G$1" x="215.9" y="43.18" smashed="yes"/>
 <instance part="GND11" gate="1" x="172.72" y="-76.2" smashed="yes">
 <attribute name="VALUE" x="170.18" y="-78.74" size="1.778" layer="96"/>
-</instance>
-<instance part="SUPPLY4" gate="G$1" x="104.14" y="147.32" smashed="yes">
-<attribute name="VALUE" x="103.124" y="150.876" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY1" gate="G$1" x="66.04" y="144.78" smashed="yes">
 <attribute name="VALUE" x="65.024" y="148.336" size="1.778" layer="96"/>

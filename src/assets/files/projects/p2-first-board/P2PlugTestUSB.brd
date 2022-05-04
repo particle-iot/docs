@@ -214,7 +214,7 @@
 <text x="15.875" y="39.37" size="1.016" layer="21" rot="R270">RST</text>
 <text x="13.335" y="39.37" size="1.016" layer="21" rot="R270">A5</text>
 <text x="49.53" y="33.02" size="1.016" layer="22" rot="MR0">P2TestUSB
-v1</text>
+v2</text>
 <hole x="49.53" y="40.64" drill="3.175"/>
 <hole x="49.53" y="2.54" drill="3.175"/>
 <hole x="2.54" y="2.54" drill="3.175"/>
@@ -224,6 +224,8 @@ v1</text>
 <text x="42.545" y="3.81" size="1.016" layer="21" rot="R90">A0</text>
 <text x="24.765" y="31.75" size="0.6096" layer="51" rot="R90">BLUE</text>
 <text x="12.065" y="33.655" size="0.4064" layer="51" rot="R90">10uH</text>
+<rectangle x1="39.37" y1="0" x2="53.34" y2="44.45" layer="41"/>
+<rectangle x1="39.37" y1="0" x2="53.34" y2="44.45" layer="42"/>
 </plain>
 <libraries>
 <library name="rickk2">
