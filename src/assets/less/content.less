@@ -301,17 +301,16 @@ h1 .header-permalinks {
 }
 */
 .content h3 {
-  .STYLE_heading_xl_r();
+  .STYLE_heading_lg_e();
 }
 .content h1,
 .content h2,
-.content .big-heading,
 .content h3 {
   padding: 40px 0 10px;
 }
+
 .content h1:before,
 .content h2:before,
-.content .big-heading:before,
 .content h3:before {
   display: none;
   content: '';
@@ -325,13 +324,11 @@ h1 .header-permalinks {
 @media (max-width: 768px) {
   .content h1,
   .content h2,
-  .content .big-heading,
   .content h3 {
     padding-top: 40px;
   }
   .content h1:before,
   .content h2:before,
-  .content .big-heading:before,
   .content h3:before {
     background: @NC_MORNING_MIST;
     left: -40px;
@@ -343,29 +340,51 @@ h1 .header-permalinks {
   //color: @gray;
   padding-top: 15px;
   padding-bottom: 10px;
-  .STYLE_heading_lg();
+  .STYLE_heading_lg_r();
 }
 .content.reference h4 {
   text-transform: none;
 }
 .content h5,
-.content .small-heading,
-.content h3 {
-  //color: @dark-gray;
-  .STYLE_heading_xl_r();
+.content .small-heading {
+  .STYLE_heading_lg_e();
   padding-top: 30px;
-  padding-bottom: 10px;
   position: relative;
 }
+
+.content h3 {
+  .STYLE_heading_lg_e();
+  padding-top: 40px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+.content h2 + h3 {
+  padding-top: 16px;
+}
+
+/*
+// This is not working in the .content h3
+  &:first-child {
+    padding-top: 16px;
+  }
+
+*/
+
+
+/*
+// These used to have a text-transform, but now there's the same as the non-reference h2 and h3
 .content.reference h3 {
   text-transform: none;
-  .STYLE_heading_xl_r();
+  .STYLE_heading_lg_e();
 }
 .content.reference h2 {
   text-transform: none;
   font-family: @body-font;
   .STYLE_display_sm();
 }
+*/
+
 .content h1:first-child {
   padding: 0;
 }
@@ -375,9 +394,11 @@ h1 .header-permalinks {
 @media (max-width: 768px) {
   .content h4,
   .content h5,
-  .content .small-heading,
-  .content h3 {
+  .content .small-heading {
     padding-top: 20px;
+  }
+  .content h3 {
+    padding-top: 40px;
   }
 }
 @media (max-width: 480px) {
@@ -393,37 +414,6 @@ h1 .header-permalinks {
   }
 }
 
-/*
-body.no-literate .content pre > code {
-  background: @monokai-gray;
-  border: solid 1px @NC_ALMOST_WHITE;
-  border-top: solid 1px @NC_MORNING_MIST;
-  border-left: solid 1px @NC_MORNING_MIST;
-  display: block;
-  padding: 10px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  overflow: auto;
-}
-body.no-literate .content pre > code {
-  -webkit-overflow-scrolling: touch;
-}
-body.no-literate .content pre > code::-webkit-scrollbar {
-  width: 15px;
-  height: 15px;
-}
-body.no-literate .content pre > code::-webkit-scrollbar-thumb {
-  background: @NC_MORNING_MIST;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  border: solid 4px @NC_ALMOST_WHITE;
-}
-body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
-  background: @NC_HAZE;
-  -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
-}
-*/
 
 @media (max-width: 1180px) {
   #docs .content table th,
@@ -851,13 +841,14 @@ hr {
     }
   }
 
-
+  /*
   .content h4,
   .content h5,
   .content .small-heading,
   .content h3 {
     margin-bottom: 10px;
   }
+  */
 }
 
 .two-columns {
@@ -940,12 +931,14 @@ hr {
     }
   }
   
+  /*
   .content h4,
   .content h5,
   .content .small-heading,
   .content h3 {
     margin-bottom: 10px;
   }
+  */
 }
 
 
@@ -1099,14 +1092,14 @@ hr {
     .content > h5,
     .content > .small-heading,
     .content > h3 {
-      margin-bottom: 10px;
+      //margin-bottom: 10px;
       padding-left: 40px;
       padding-right: 40px;
       clear: both;
     }
-    body:not(.no-literate):not(.big-h3) .content > h3 {
+    .content > h3 {
       width: 45%;
-      margin-bottom: 10px;
+      //margin-bottom: 10px;
       padding-left: 40px;
       padding-right: 40px;
       clear: both;

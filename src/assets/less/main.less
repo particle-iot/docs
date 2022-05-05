@@ -5,18 +5,19 @@ img.mainGridImg {
 }
 
 h1.mainTitle {
-	text-align: center;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 h2.mainHeader {
-	// This is normally the style for h3 as the h2 header looks funny in this page
-	.STYLE_heading_xl_r(); 
+	.STYLE_body_xl_r(); 
 }
 
 div.mainGrid {
   float:left;
   position: relative;
   width: 100%;
+  margin-top: 40px;
 }
 
 
@@ -26,7 +27,8 @@ div.mainGrid {
 	  position: relative;
 	  width: 90%;
 	  padding-bottom: 90%;
-	  margin:1.66%;
+	  margin-right: 1.66%;
+	  margin-bottom: 1.66%;
 	  overflow:hidden;
 	}
 }
@@ -37,7 +39,8 @@ div.mainGrid {
 	  position: relative;
 	  width: 28%;
 	  padding-bottom: 30%;
-	  margin:1.66%;
+	  margin-right:1.66%;
+	  margin-bottom: 1.66%;
 	  overflow:hidden;
 	}
 }
@@ -77,10 +80,14 @@ div.mainBottom {
 
 div.mainBoxTitle {
 	.STYLE_body_md_r();
+	font-weight: 500; // Default in body_md_r is 400, override this
+	// Color is set below based on light/dark mode
 }
 
 div.mainBoxDescription {
 	.STYLE_body_sm_r();
+	font-weight: 500; // Default in body_sm_r is 400, override this
+	// Color is set below based on light/dark mode
 }
 
 @media all and (max-width: 599px) {
@@ -89,7 +96,8 @@ div.mainBoxDescription {
 	  position: relative;
 	  width: 90%;
 	  padding-bottom: 45%;
-	  margin:1.66%;
+	  margin-right:1.66%;
+	  margin-bottom: 1.66%;
 	  overflow:hidden;
 	}
 }
@@ -99,7 +107,8 @@ div.mainBoxDescription {
 	  position: relative;
 	  width: 28%;
 	  padding-bottom: 20%;
-	  margin:1.66%;
+	  margin-right:1.66%;
+	  margin-bottom: 1.66%;
 	  overflow:hidden;
 	}
 }
@@ -114,7 +123,9 @@ div.mainNoPicRect:hover {
 
 div.mainNoPicTop {
 	.STYLE_body_md_r();
+	font-weight: 500; // Default in body_md_r is 400, override this
     position:absolute;
+	text-align:left;
     vertical-align:center;
     padding: 15% 0%;
     top:0;
@@ -124,6 +135,7 @@ div.mainNoPicTop {
 div.mainNoPicBottom {
 	.STYLE_body_sm_r();
     position:absolute;
+	text-align:left;
     vertical-align:center;
     top:40%;
     height:60%;
@@ -138,7 +150,15 @@ a.mainMiniLink {
 	a.mainGridButton {
 		color: @COLOR_Gray_200;
 	}
-	
+
+	div.mainBoxTitle {
+		color: @COLOR_Gray_200;
+	}
+
+	div.mainBoxDescription {
+		color: @COLOR_Gray_200;
+	}
+
 	div.mainBottom {
 		color :@COLOR_Gray_200;
 	}
@@ -166,24 +186,32 @@ a.mainMiniLink {
 		color: @COLOR_Midnight_500;
 	}
 
+	div.mainBoxTitle {
+		color: @COLOR_Midnight_500;
+	}
+
+	div.mainBoxDescription {
+		color: @COLOR_Midnight_500;
+	}
+
 	div.mainBottom {
-		color :@NC_COOL_GRAY;
+		color :@COLOR_Midnight_500;
 	}
 
 	div.mainNoPicBottom {
-		color:@NC_COOL_GRAY;
+		color:@COLOR_Midnight_500;
 	}
 
 	a.mainMiniLink {
-		color:@NC_COOL_GRAY;
+		color:@COLOR_Midnight_500;
 	}
 
 	div.mainSquare {
-		border: solid 1px @NC_MIDNIGHT;
+		border: solid 1px @COLOR_Midnight_500;
 	}
 
 	div.mainNoPicRect {
-		border: solid 1px @NC_MIDNIGHT;
+		border: solid 1px @COLOR_Midnight_500;
 	}
 	
 }
