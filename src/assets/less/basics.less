@@ -92,19 +92,18 @@ td {
   }
 
   a {
-    .STYLE_link_md_r();
+    .STYLE_link_inline_md_r(); // Use bold Grafik
+    // .STYLE_link_md_r(); // Use MDIO
     color: @COLOR_Gray_100;
 
     &:visited {
       color: @COLOR_Gray_100;
     }
     &:hover {
-      background-color: @COLOR_Midnight_500;
       text-decoration: underline;
     }
     &.menu {
-      background-color: @COLOR_Gray_200;
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 
@@ -133,7 +132,8 @@ td {
 
   a {
     color: @COLOR_Midnight_500;
-    .STYLE_link_md_r();
+    .STYLE_link_inline_md_r(); // Use bold Grafik
+    // .STYLE_link_md_r(); // Use MDIO
 
     &:visited {
       color: @COLOR_Midnight_500;
@@ -141,13 +141,11 @@ td {
     }
 
     &:hover {
-      background-color: @COLOR_Gray_200;
       text-decoration: underline;
     }
 
     &.menu {
-      background-color: @COLOR_Midnight_500;
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 
@@ -215,7 +213,7 @@ button {
       background-color: @COLOR_ParticleBlue_500;
   }
   &:hover {
-    background-color: @COLOR_ParticleBlue_700;
+      text-decoration: underline;
   }
   &:disabled {
       background-color: @COLOR_Disabled;

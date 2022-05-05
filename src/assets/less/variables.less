@@ -1,7 +1,7 @@
 @body-font: 'Grafik', sans-serif;
 @header-font: 'Grafik', sans-serif;
 @monospace-font: 'Fira Mono', monospace;
-@link-font: 'MDIO', sans-serif;
+@link-font: 'Grafik', sans-serif;
 
 //
 // New font, size, spacing
@@ -128,7 +128,7 @@
   line-height: @LINEHEIGHT_7xl;
 };
 
-.STYLE_heading_xl_r() { // h3
+.STYLE_heading_xl_r() { 
   font-family: @FONT_Grafik;
   font-weight: 400;
   font-size: @FONTSIZE_2xl;
@@ -142,9 +142,16 @@
   line-height: @LINEHEIGHT_5xl;
 };
 
-.STYLE_heading_lg() { // h4
+.STYLE_heading_lg_r() { // h4
   font-family: @FONT_Grafik;
   font-weight: 400;
+  font-size: @FONTSIZE_xl;
+  line-height: @LINEHEIGHT_2xl;
+};
+
+.STYLE_heading_lg_e() { // h3 (new style)
+  font-family: @FONT_Grafik;
+  font-weight: 500;
   font-size: @FONTSIZE_xl;
   line-height: @LINEHEIGHT_2xl;
 };
@@ -302,22 +309,22 @@
 };
 
 .STYLE_link_inline_lg_r() {
-  font-family: @FONT_MDIO;
-  font-weight: 400;
+  font-family: @FONT_Grafik;
+  font-weight: 600;
+  font-size: @FONTSIZE_lg;
+  line-height: @LINEHEIGHT_lg;
+};
+
+.STYLE_link_inline_md_r() {
+  font-family: @FONT_Grafik;
+  font-weight: 600;
   font-size: @FONTSIZE_md;
   line-height: @LINEHEIGHT_md;
 };
 
-.STYLE_link_inline_md_r() {
-  font-family: @FONT_MDIO;
-  font-weight: 400;
-  font-size: @FONTSIZE_sm;
-  line-height: @LINEHEIGHT_sm;
-};
-
 .STYLE_link_inline_sm_r() {
-  font-family: @FONT_MDIO;
-  font-weight: 400;
+  font-family: @FONT_Grafik;
+  font-weight: 600;
   font-size: @FONTSIZE_xs;
   line-height: @LINEHEIGHT_sm;
 };
@@ -358,13 +365,13 @@
 };
 
 .STYLE_top_nav() {
-    // .STYLE_body_md_e(); // Use bold Grafik
-    .STYLE_link_md_r(); // Use MDIO
+    .STYLE_link_inline_md_r(); // Use bold Grafik
+    // .STYLE_link_md_r(); // Use MDIO
 };
 
 .STYLE_left_nav() {
-    // .STYLE_body_md_e(); // Use bold Grafik
-    .STYLE_link_sm_r(); // Use MDIO
+    .STYLE_link_inline_md_r(); // Use bold Grafik
+    // .STYLE_link_sm_r(); // Use MDIO
 };
 
 
@@ -478,7 +485,7 @@
 // @pomegranate: #C0392B;
 // @champaign: #E9DDCC;
 
-@headerHeight: 52px;
+@headerHeight: 56px;
 
 @consoleHeight: 300px;
 @hiddenConsoleHeight: 250px;
