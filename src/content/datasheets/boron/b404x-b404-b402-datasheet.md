@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404X/B404/B402 Datasheet <sup>(015)</sup>
+# B404X/B404/B402 Datasheet <sup>(016)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b404x-b404-b402-datasheet.pdf"}}
@@ -60,7 +60,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
  * On-module additional 4MB SPI flash
- * 24 mixed signal GPIO (8 x Analog, 4 x PWM), UART, I2C, SPI
+ * 24 mixed signal GPIO (8 x Analog, 8 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
  * RGB status pins for LED
@@ -132,7 +132,7 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
 | SPI  | 2 | I/O |
 | I2C  | 2 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 7 (max) | O |
+| PWM  | 8 (max) | O |
 | NFC  | 1 | O |
 
 There are some optional B402 module specific I/O:
@@ -620,3 +620,4 @@ The bootloader allows you to easily update the user application via several diff
 | 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | 014      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | 015      | 14-Mar-2022 | RK | Added B404X, deprecation notice |
+| 016      | 05-May-2022 | RK | Corrected number of PWM outputs (8) |
