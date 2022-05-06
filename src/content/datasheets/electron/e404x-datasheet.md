@@ -46,7 +46,6 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
-  * NFC-A tag
  * On-module additional 4MB SPI flash
  * 24 mixed signal GPIO (8 x Analog, 4 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
@@ -475,8 +474,6 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 | **I/O pin voltage** | | | | | | 
 | VI/O, VDD ≤ 3.6 V| IO | -0.3 |  | VDD + 0.3 | V |
 | VI/O, VDD > 3.6 V | IO | -0.3 |  | +3.9 | V |
-| **NFC antenna pin current** | | | | | |
-| I<sub>NFC1/2</sub> | NFC1/NFC2 | | | 80 | mA |
 | **Radio**| | | | | |
 | BT RF input level (52840)| | | | 10 | dBm |
 | **Environmental**| | | | | |
@@ -613,8 +610,6 @@ These specifications are based on the nRF52840 datasheet.
 | RPU | Pull-up resistance | 11 | 13 | 16 | kΩ | 
 | RPD | Pull-down resistance | 11 | 13 | 16 | kΩ | 
 | CPAD | Pad capacitance |  | 3 |  | pF | 
-| CPAD_NFC | Pad capacitance on NFC pads  |  | 4 |  | pF | 
-| INFC_LEAK | Leakage current between NFC pads when driven to different states |  | 1 | 10 | μA |  
 
 - Rise and fall times based on simulations
 
