@@ -7,7 +7,7 @@ description: Migration guide for transitioning from the E Series E402/E404 to E4
 
 # E404X Migration Guide
 
-**Preliminary pre-release version 2022-03-14**
+**Preliminary pre-release version 2022-05-06**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release migration guide and the contents are subject to change.
@@ -147,7 +147,7 @@ The following SPI data rates are available:
 
 ### I2C
 
-- On the E Series, only one of `Wire` and `Wire1` can be used at the same time. Both I2C ports be used at the same time on the E404X.
+- There is one available I2C port on the E404X.
 
 {{!-- BEGIN do not edit content below, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
 
@@ -155,11 +155,13 @@ The following SPI data rates are available:
 | :---: | :--- | :--- | :--- | :--- |
 | 41 | D1 | Wire (SCL) | D1 | Wire (SCL) |
 | 42 | D0 | Wire (SDA) | D0 | Wire (SDA) |
-| 44 | C5 | Wire1 (SCL) | C5 | Wire1 (SCL) |
-| 45 | C4 | Wire1 (SDA) | C4 | Wire1 (SDA) |
+| 44 | C5 | Wire1 (SCL) | C5 | &nbsp; |
+| 45 | C4 | Wire1 (SDA) | C4 | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
+
+One the E Series (other than the E404X), Wire and Wire1 are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
 
 
 ### Serial (UART)
@@ -835,26 +837,26 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C5 | C5 |
-| Description | I2C, CAN, GPIO. | I2C Wire1 SCL, not GPIO |
-| Supports digitalRead | Yes | No |
-| Supports digitalWrite | Yes | No |
+| Description | I2C, CAN, GPIO. | GPIO C5 |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
-| I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both! | SCL. Use Wire1 object. Shared with PMIC and Fuel Gauge. |
-| Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | n/a |
+| I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both! | n/a |
+| Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN1_RX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (C4)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C4 | C4 |
-| Description | I2C, CAN, GPIO. | I2C Wire1 SDA, not GPIO |
-| Supports digitalRead | Yes | No |
-| Supports digitalWrite | Yes | No |
+| Description | I2C, CAN, GPIO. | GPIO C4 |
+| Supports digitalRead | Yes | Yes |
+| Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
-| I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both! | SDA. Use Wire1 object. Shared with PMIC and Fuel Gauge. |
-| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | No |
+| I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both! | n/a |
+| Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN1_TX | n/a |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (C3)
@@ -984,3 +986,4 @@ Since the E404X uses the same MCU as Gen 3 devices (Boron, B Series SoM, Tracker
 |:---:|:---:|:---:|:----|
 | pre | 2022-01-25 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
+|     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
