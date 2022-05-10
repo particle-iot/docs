@@ -149,6 +149,11 @@
         "href": "/reference/cellular/cellular-carriers/"
       },
       {
+        "dir": "lte-cat-1-expansion",
+        "title": "LTE Cat 1 Expansion",
+        "href": "/reference/cellular/lte-cat-1-expansion/"
+      },
+      {
         "dir": "sim-cards",
         "title": "Particle SIM cards",
         "href": "/reference/cellular/sim-cards/"
