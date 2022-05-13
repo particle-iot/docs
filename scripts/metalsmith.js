@@ -79,8 +79,6 @@ var generateSearch = process.env.SEARCH_INDEX !== '0';
 
 var noScripts = false;
 
-var dnsTable = JSON.parse(fs.readFileSync(path.join(__dirname, '../config', 'dnsTable.json')));
-
 exports.metalsmith = function () {
   function removeEmptyTokens(token) {
     if (token.length > 0) {
@@ -192,10 +190,6 @@ exports.metalsmith = function () {
           noIndex: (gitBranch == 'staging' || gitBranch == 'prerelease'), 
           noScripts: noScripts,
           srcLocal: path.join(__dirname, '../src') } }
-    ]))
-    // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
-    .use(fileMetadata([
-      { pattern: 'content/tutorials/device-cloud/introduction.md', metadata: { dnsTable: dnsTable } }
     ]))
     .use(msIf(
       environment === 'development',
