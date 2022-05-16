@@ -264,7 +264,12 @@ Created by Zach Supalla.
       // Show search box
       $('.search').css('display', 'inline-block');
       $('.searchIcon').css('display', 'none');
-  }
+    }
+
+    if ($('.menubar').length == 0) {
+      // On pages without a left nav, hide the hamburger icon
+      $('.toggle-nav').hide();
+    }
   
 
     // narrow-top-nav
