@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B524/B523 Datasheet <sup>011</sup>
+# B524/B523 Datasheet <sup>012</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b524-b523-datasheet.pdf"}}
@@ -52,7 +52,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
  * On-module additional 8MB SPI flash
- * 24 mixed signal GPIO (8 x Analog, 4 x PWM), UART, I2C, SPI
+ * 24 mixed signal GPIO (8 x Analog, 8 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
  * RGB status pins for LED
@@ -140,7 +140,7 @@ The third connector is the LTE cellular receive diversity antenna. A second cell
 | SPI  | 2 | I/O |
 | I2C  | 2 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 7 (max) | O |
+| PWM  | 8 (max) | O |
 | NFC  | 1 | O |
 
 There are some optional B523 module specific I/O:
@@ -707,3 +707,4 @@ The bootloader allows you to easily update the user application via several diff
 | 009      | 19-May-2021 | RK | List Ethernet reserved pins |
 | 010      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | 011      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
+| 012      | 05-May-2022 | RK | Corrected number of PWM outputs (8) |

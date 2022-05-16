@@ -7,7 +7,7 @@ description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass
 
 # E404X Datasheet
 
-**Preliminary pre-release version 2022-03-14**
+**Preliminary pre-release version 2022-05-06**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change.
@@ -46,7 +46,6 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
-  * NFC-A tag
  * On-module additional 4MB SPI flash
  * 24 mixed signal GPIO (8 x Analog, 4 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
@@ -148,11 +147,9 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | Analog (ADC) | 8 (max) | I |
 | UART | 1 | I/O |
 | SPI  | 2 | I/O |
-| I2C  | 2<sup>1</sup> | I/O |
+| I2C  | 1 | I/O |
 | USB  | 1 | I/O |
 | PWM  | 12 (max) | O |
-
-<sup>1</sup> One I2C port is shared with the PMIC and fuel gauge chips.
 
 #### GPIO
 
@@ -181,6 +178,8 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | 40 | D2 | &check; |
 | 41 | D1 | &check; |
 | 42 | D0 | &check; |
+| 44 | C5 | &check; |
+| 45 | C4 | &check; |
 | 46 | C3 | &check; |
 | 47 | C2 | &check; |
 | 48 | C1 | &check; |
@@ -271,8 +270,7 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 
 #### I2C
 
-- `Wire1` (C4/C5) is shared with the PMIC and fuel gauge and cannot be used as GPIO.
-- Both `Wire1` and `Wire1` can be used at the same time on the E404X. (On the E Series, only one I2C interface can be used at the same time.)
+There is one available I2C interface on the E404X.
 
 {{!-- BEGIN do not edit content below, it is automatically generated bdf550a7-6a65-4cb3-9650-ec612986b349 --}}
 
@@ -280,8 +278,6 @@ Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using f
 | :---: | :--- | :--- |
 | 41 | D1 | Wire (SCL) |
 | 42 | D0 | Wire (SDA) |
-| 44 | C5 | Wire1 (SCL) |
-| 45 | C4 | Wire1 (SDA) |
 
 
 {{!-- END do not edit content above, it is automatically generated bdf550a7-6a65-4cb3-9650-ec612986b349 --}}
@@ -383,8 +379,8 @@ It cannot be programmed by the ST-LINK/V2.
 | 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | P1.02 |
 | 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | 1.01 |
 | 43 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 44 | C5 | I2C Wire1 SCL, not GPIO | P1.03 |
-| 45 | C4 | I2C Wire1 SDA, not GPIO | P0.24 |
+| 44 | C5 | GPIO C5 | P1.03 |
+| 45 | C4 | GPIO C4 | P0.24 |
 | 46 | C3 | SPI1 SCK, GPIO. | P0.12 |
 | 47 | C2 | SPI1 MISO, GPIO. | P0.11 |
 | 48 | C1 | SPI1 MOSI, GPIO. | P1.09 |
@@ -478,8 +474,6 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 | **I/O pin voltage** | | | | | | 
 | VI/O, VDD ≤ 3.6 V| IO | -0.3 |  | VDD + 0.3 | V |
 | VI/O, VDD > 3.6 V | IO | -0.3 |  | +3.9 | V |
-| **NFC antenna pin current** | | | | | |
-| I<sub>NFC1/2</sub> | NFC1/NFC2 | | | 80 | mA |
 | **Radio**| | | | | |
 | BT RF input level (52840)| | | | 10 | dBm |
 | **Environmental**| | | | | |
@@ -616,8 +610,6 @@ These specifications are based on the nRF52840 datasheet.
 | RPU | Pull-up resistance | 11 | 13 | 16 | kΩ | 
 | RPD | Pull-down resistance | 11 | 13 | 16 | kΩ | 
 | CPAD | Pad capacitance |  | 3 |  | pF | 
-| CPAD_NFC | Pad capacitance on NFC pads  |  | 4 |  | pF | 
-| INFC_LEAK | Leakage current between NFC pads when driven to different states |  | 1 | 10 | μA |  
 
 - Rise and fall times based on simulations
 
@@ -772,7 +764,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:---:|:---:|:---:|:----|
 | pre | 2022-01-25 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
-
+|     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
 
 ## Known Errata
 

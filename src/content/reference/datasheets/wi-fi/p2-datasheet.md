@@ -7,7 +7,7 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 # P2 Datasheet <sup>(pre)</sup>
 
-**Pre-release version 2022-04-16**
+**Pre-release version 2022-05-07**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an pre-release datasheet and the contents are subject to change.
@@ -478,7 +478,7 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
-| Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
+| Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
 [Additional information to be provided at a later date.]
@@ -672,6 +672,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-03-23 | RK | Added FCC and IC IDs, operating temperature range |
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Added Serial3 |
+|     | 2022-05-07 | RK | Temperature range is -20°C to +70°C |
 
 ### D Pin Change (2022-02-25)
 
