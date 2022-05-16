@@ -158,6 +158,17 @@
       }
     ],
     {
+      "dir": "Wi-Fi",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "p2-first-board",
+        "title": "P2 First Board",
+        "href": "/hardware/wi-fi/p2-first-board/"
+      }
+    ],
+    {
       "dir": "migration-guides",
       "isSection": true
     },
