@@ -7,7 +7,7 @@ description: Datasheet for the Particle Photon 2, Wi-Fi development module
 
 # Photon 2 Datasheet <sup>(pre)</sup>
 
-**Preliminary pre-release version 2022-04-16**
+**Preliminary pre-release version 2022-05-04**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change. The Photon 2 design has not been finalized so changes are likely.
@@ -50,8 +50,8 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 
 ### Power
 
-#### USB C
-The USB C port is the easiest way to power up the Photon 2. Please make sure that the USB port is able to provide at least 500mA. 
+#### USB
+The USB port is the easiest way to power up the Photon 2. Please make sure that the USB port is able to provide at least 500mA. The Photon 2 has a micro B connector, same as the Photon.
 
 #### VUSB Pin
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.  This pin is also protected with an internal fuse rated at 1000mA.
@@ -606,6 +606,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-04-08 | RK | Added table comparing Photon 2 and P2 pins |
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |
+|     | 2022-05-04 | RK | USB connector is micro B, not USB C |
 
 ## Known Errata
 

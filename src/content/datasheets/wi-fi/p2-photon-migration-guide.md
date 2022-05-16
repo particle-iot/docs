@@ -93,7 +93,7 @@ The P2 is only available as a SMD (surface mount device) that is typically reflo
 
 This can be done in small quantities by hand using a reflow oven or soldering hot plate. In quantity, it would be done by your PCBA (PCB with assembly) contractor.
 
-This is a P2 on a hand-assembled P1 tutorial board, not an actual product. It was reflow soldered in an inexpensive T960 reflow oven.
+This is a P2 custom board, not an actual product. Full instructions on how to build this board are included in the [P2 First Board Tutorial](/tutorials/hardware-projects/p2-first-board/).
 
 ![P2 Custom Board](/assets/images/p2-custom.png)
 

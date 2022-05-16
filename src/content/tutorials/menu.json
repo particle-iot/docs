@@ -364,6 +364,11 @@
         "href": "/tutorials/hardware-projects/som-first-board/"
       },
       {
+        "dir": "p2-first-board",
+        "title": "P2 First Board",
+        "href": "/tutorials/hardware-projects/p2-first-board/"
+      },
+      {
         "dir": "debugger-adapter",
         "title": "Debugger Adapter",
         "href": "/tutorials/hardware-projects/debugger-adapter/"

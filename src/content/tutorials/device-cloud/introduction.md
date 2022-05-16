@@ -320,15 +320,17 @@ Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (
 
 While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/cards/firmware/cloud-functions/particle-keepalive/) to keep the cloud connection active.
 
-{{dnsTable key="udp"}}
-
 ### Gen 2 and Gen 1 Wi-Fi
 
 The Photon, P1, and Spark Core connect to TCP Port 5683 (CoAP), outbound.
 
 If you are connecting from a restrictive network that does not allow outbound TCP access on Port 5683, you may need to allow-list these IP addresses or allow access based on the device's MAC address.
 
-{{dnsTable key="tcp"}}
+### Cloud IP Addresses
+
+The list of servers devices connect to is subject to change and you should avoid relying on a static list of IP addresses if possible.
+
+The current list is stored [here](https://infra.particle.io/v1/data/ips/device-service.json).
 
 ### Cloud API
 
