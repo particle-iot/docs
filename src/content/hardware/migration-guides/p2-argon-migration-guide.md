@@ -465,7 +465,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 
 The following pins served Argon-specific uses and are NC on the P2. You should not connect anything to these pins.
 
-- Pins A3 and A4 on the P2 are shared with D0 and D1. You cannot use A3 and A4 at ths same time as I2C (`Wire`) on the P2.
+- Pins A3 and A4 on the P2 are shared with D0 and D1. You cannot use A3 and A4 at the same time as I2C (`Wire`) on the P2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated d524a654-8845-4d9c-b8c4-05b60dca363e2 --}}
 
@@ -494,7 +494,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | 29 | RGBR | RGB LED Red |
 | 63 | RX / D9 | Serial1 RX (received data), GPIO |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
 | 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) |
 | 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) |
@@ -530,7 +530,7 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 | D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
 | MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
@@ -561,7 +561,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | D5 | PWM, GPIO | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | PWM, GPIO | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | PWM, GPIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MISO / D11 | SPI MISO, GPIO | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
 | MOSI / D12 | SPI MOSI, GPIO | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RX / D10 | Serial RX, GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | SCK / D13 | SPI SCK, GPIO | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
@@ -922,7 +922,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 41|
 | Pin Name | S1|
 | Pin Alternate Name | D16|
-| Description | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)|
+| Description | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|

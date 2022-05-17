@@ -720,7 +720,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | P1S1 | S1 |
 | Pin Alternate Name | n/a | D16 |
-| Description | P1S1 Analog in, GPIO, PWM. | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
+| Description | P1S1 Analog in, GPIO, PWM. | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |

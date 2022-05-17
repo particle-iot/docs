@@ -491,7 +491,7 @@ The P2 has 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPRO
 
 The following pins served Photon-specific uses and are NC on the P2. You should not connect anything to these pins.
 
-- Pins A3 and A4 on the P2 are shared with D0 and D1. You cannot use A3 and A4 at ths same time as I2C (`Wire`) on the P2.
+- Pins A3 and A4 on the P2 are shared with D0 and D1. You cannot use A3 and A4 at the same time as I2C (`Wire`) on the P2.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 3729b0b4-4058-454e-aef8-0ca5c2526bd52 --}}
 
@@ -516,7 +516,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | 2 | 3V3_RF | 3.3V power to RF module |
 | 46 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS |
 | 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) |
@@ -541,7 +541,7 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 | A1 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
 | A2 | A2 Analog in, GPIO, SPI SS | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
-| A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
 | A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
@@ -908,7 +908,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 41|
 | Pin Name | S1|
 | Pin Alternate Name | D16|
-| Description | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)|
+| Description | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.)|
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports analogWrite (PWM) | Yes|

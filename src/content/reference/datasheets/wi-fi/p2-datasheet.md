@@ -233,7 +233,7 @@ The P2 supports three UART serial interfaces.
 | :---: | :--- | :--- | :--- | :--- |
 | 30 | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | Serial3 (TX) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Serial3 (RTS) | PA[14] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
 | 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
@@ -263,7 +263,7 @@ The P2 supports two SPI (serial peripheral interconnect) ports.
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | SPI (SS) | PB[26] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
@@ -314,7 +314,7 @@ The P2 supports PWM (pulse-width modulation) on the following pins:
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
 | 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
 
 
@@ -428,7 +428,7 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 38 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
 | 39 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | PA[14] |
 | 43 | A1 / D12 | A1 Analog in, GPIO | PB[2] |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | PB[26] |
@@ -690,7 +690,7 @@ The names of pins D9 - D22 have been changed do D8 - D21, eliminating the odd si
 | 49 | D14|A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
 | 23 | D15|A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
 | 40 | D16|S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
-| 41 | D17|S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | PA[13] |
+| 41 | D17|S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 42 | D18|S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | PA[14] |
 | 44 | D19|S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | PB[26] |
 | 47 | D20|S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | PA[0] |

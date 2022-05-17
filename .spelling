@@ -3604,7 +3604,17 @@ Time.isValid
 ]commercial
 M2EVAL
 AN040
- - src/content/tutorials/learn-more/ethernet-featherwing.md
+hardcode
+Chromebook
+oAuth
+jQuery
+ICMP
+Realtek
+unsoldering
+pinmap
+jumpered
+AWG
+ - src/content/hardware/ethernet/ethernet-featherwing.md
 GS305P
 TP-LINK
 TL-PoE150S
@@ -3730,15 +3740,17 @@ Tnf
 setType
 setId
 setPayload
- - src/content/tutorials/developer-tools/workbench.md
+ - src/content/getting-started/developer-tools/workbench.md
 boron_firmware_1598526579205.bin
 MyProject
 MyProject.bin
 Controll
 Intellisense
 YourLibraryName
- - src/content/tutorials/device-cloud/ota-updates.md
- - src/content/reference/SDKs/javascript.md
+tracker-test1
+ - src/content/getting-started/cloud/ota-updates.md
+reupload
+ - src/content/reference/cloud-apis/javascript.md
 listDevices
 getDevice
 getEventStream
@@ -3747,7 +3759,7 @@ compileCode
 createUser
 listAccessTokens
 deleteAccessToken
- - src/content/tutorials/device-os/bluetooth-le.md
+ - src/content/reference/device-os/bluetooth-le.md
 0xff
 0x1809
 0x180f
@@ -3792,7 +3804,8 @@ Kontakt.io
 S18-3
 iBeacons
 Eddystones
- - src/content/datasheets/accessories/legacy-accessories.md
+Kbits
+ - src/content/reference/datasheets/accessories/legacy-accessories.md
 AN2689
 OpenXC
  - src/content/datasheets/cellular/b-series-datasheet.md
@@ -3803,13 +3816,18 @@ SLAs
 lifecycle
 roadmap
 timeframe
- - src/content/tutorials/diagnostics/device-vitals.md
+ - src/content/getting-started/console/device-vitals.md
 Particle.publishVitals
 actionis
 hoc
+MCC
+MNC
  - src/content/b-series.md
 28A
 67-pin
+B404X
+R510S-01B
+R410M-02B
  - src/content/blurbs/argon-p1-table.md
 51mm
 23mm
@@ -3817,7 +3835,7 @@ hoc
 20-second
  - src/content/community/community-tools.md
 Neopo
- - src/content/community/mikroe.md
+ - src/content/hardware/expansion/mikroe.md
 CS1
 CS2
 RST1
@@ -3831,7 +3849,9 @@ Thermo-3-click
 0x48
 0x49
 SparkFunTMP102
- - src/content/community/node-red.md
+MCP2515
+MCP25625
+ - src/content/reference/cloud-apis/node-red.md
 DevOps
 ctrl-p
 ctrl-q
@@ -3856,7 +3876,7 @@ TCEnvVals
 ProcessTCSensorData
 vals
 DataViz
- - src/content/community/qwiic.md
+ - src/content/hardware/expansion/qwiic.md
 IIC
 1mm-pitch
 1mm
@@ -3927,20 +3947,20 @@ SparkFun_VEML6075_Arduino_Library
 VR
 BNO080
 SparkFun_BNO080_Arduino_Library
- - src/content/datasheets/accessories/debugger.md
+ - src/content/reference/datasheets/accessories/debugger.md
 v0254.2
 debugger_v02542.hex
 DAPLINK
- - src/content/datasheets/accessories/gen3-accessories.md
+ - src/content/reference/datasheets/accessories/gen3-accessories.md
 AN037
- - src/content/datasheets/accessories/sim-cards.md
+ - src/content/reference/cellular/sim-cards.md
 SIMBLANKV2
 x50
 BRN314TRAY50
 BRN310KIT
 x1
 NORAM
- - src/content/datasheets/app-notes/an001-basic-som-design.md
+ - src/content/hardware/b-series-som/basic-som-design.md
 XCL223
 Quan
 ERJ-3EKF1500V
@@ -3987,10 +4007,10 @@ SomTest1.lbr
 SomTest1-brd
 pdf
 SomTest1-sch
- - src/content/datasheets/app-notes/an002-device-powerdown.md
+ - src/content/firmware/low-power/device-powerdown.md
 Powerdown
 BATFET
- - src/content/datasheets/app-notes/an003-interpreting-cloud-debug.md
+ - src/content/troubleshooting/connectivity/interpreting-cloud-debug.md
 CEREG
 CREG
 CGREG
@@ -3999,7 +4019,7 @@ CGREG
 MCC
 MNC
 DeviceKeyHelperRK
- - src/content/datasheets/app-notes/an004-interpreting-cloud-debug-2.md
+ - src/content/troubleshooting/connectivity/interpreting-cloud-debug-2.md
 URC
 8A5A782
 UTRAN
@@ -4011,7 +4031,9 @@ device.spark.io
 EPS
 D0B
 C45C010
- - src/content/datasheets/app-notes/an005-threading-explainer.md
+CREG
+2CF7
+ - src/content/firmware/software-design/threading-explainer.md
 3K
 6K
 threadFunction
@@ -4026,7 +4048,7 @@ RecursiveMutex
 thread.h
 hal.h
 hal.cpp
- - src/content/datasheets/app-notes/an006-vehicle-power.md
+ - src/content/hardware/power/vehicle-power.md
 SZ1SMB16CAT3G
 TVS
 LM340
@@ -4057,9 +4079,10 @@ NRVHP220SFT3G
 Wurth
 TS30042-M050QFNR
 3.5mm
- - src/content/datasheets/app-notes/an007-tower-info.md
+OpenXC
+ - src/content/archives/an007-tower-info.md
 Chromebooks
- - src/content/datasheets/app-notes/an008-xenon-nordic-sdk.md
+ - src/content/reference/discontinued/hardware/xenon-nordic-sdk.md
 CircuitPython
 nRF
 SES
@@ -4081,7 +4104,7 @@ COM6
 wpantund
 RaspPIoT
 3B
- - src/content/datasheets/app-notes/an010-finite-state-machines.md
+ - src/content/firmware/software-design/finite-state-machines.md
 02-Linear
 01-Simple
 FT232
@@ -4095,7 +4118,7 @@ stateHandler
 MainStateMachine.cpp
 MainStateHander.cpp
 sprintf-style
- - src/content/datasheets/app-notes/an011-publish-to-google-sheets.md
+ - src/content/getting-started/integrations/community-integrations/publish-to-google-sheets.md
 Codelab
 Code.gs
 24-character
@@ -4108,7 +4131,7 @@ webapp
 1h
 publishTest
 CodeLab
- - src/content/datasheets/app-notes/an012-tracker-1wire.md
+ - src/content/hardware/tracker/projects/tracker-1wire.md
 DS2482-100
 8mm
 M12
@@ -4135,7 +4158,7 @@ CAN_5V
 PCA9306
 DS2482
 tracker-an012
- - src/content/datasheets/app-notes/an013-tracker-gpio.md
+ - src/content/hardware/tracker/projects/tracker-gpio.md
 ERJ-3GEY0R00V
 8B
 18SOIC
@@ -4149,9 +4172,9 @@ GP0-GP6
 18-SOIC
 20-QFN-EP
 tracker-an013
- - src/content/datasheets/app-notes/an014-tracker-i2c-scanner.md
+ - src/content/hardware/tracker/projects/tracker-i2c-scanner.md
 tracker-i2cscanner
- - src/content/datasheets/app-notes/an015-tracker-breakout.md
+ - src/content/hardware/tracker/projects/tracker-breakout.md
 CAN_P
 CAN_N
 TX_SCL_D8
@@ -4176,7 +4199,8 @@ PTH
 OSTVN08A150
 2x1
 Hirose
- - src/content/datasheets/app-notes/an016-tracker-keypad-lcd.md
+DNP
+ - src/content/hardware/tracker/projects/tracker-keypad-lcd.md
 MAX7360
 Dupont
 CAN_PWR
@@ -4204,7 +4228,7 @@ MAX47x6-RK
 AMCLCD-RK
 MAX4706
 AMCLCD
- - src/content/datasheets/app-notes/an017-tracker-can.md
+ - src/content/hardware/tracker/projects/tracker-can.md
 OBD-II
 can-mcp25x
 MCP_CAN_RK
@@ -4240,7 +4264,7 @@ MCP_LISTENONLY
 MCP_MODE_LISTENONLY
 0x60
 readMsgBuf
- - src/content/datasheets/app-notes/an018-tracker-level.md
+ - src/content/hardware/tracker/projects/tracker-level.md
 GP0
 GP1
 GP2
@@ -4287,14 +4311,14 @@ TSOT23-5
 10-VSSOP
 ADS1015IDGSR
 tracker-an018
- - src/content/datasheets/app-notes/an019-tracker-prototype.md
+ - src/content/hardware/tracker/projects/tracker-prototype.md
 MCU_RX
 MCU_TX
 tracker-an019
 20MQFN
 MX
 PCC-SMP-K
- - src/content/datasheets/app-notes/an020-tracker-4-20ma.md
+ - src/content/hardware/tracker/projects/tracker-4-20ma.md
 24VDC
 MIC2288
 SMAJ26A
@@ -4316,7 +4340,9 @@ MAX14626ETT
 tracker-an020
 Sensor_4_20mA_RK
 RTD
- - src/content/datasheets/app-notes/an021-tracker-4-20ma-quad.md
+2.2UF
+GRM188R61E225KA12D
+ - src/content/hardware/tracker/projects/tracker-4-20ma-quad.md
 ADC1015
 AP3012
 PGA16
@@ -4335,13 +4361,43 @@ YO0821500000G
 tracker-an021
 sen1
 OSTTJ0831530
- - src/content/datasheets/app-notes/an022-tracker-sht3x-temperature-humidity.md
+24VDC
+8x0.1
+MIC2288
+PGA1
+4.7UF
+X5R
+42.1V
+DO214AC
+SMAJ26A
+POWERMITE
+MBRM140T3G
+2POS
+ENT
+10UH
+MOHM
+SRN3015-100M
+18.2K
+5W
+ERJ-PB3B1822V
+CURR
+4-20MA
+6TDFN
+MAX14626ETT
+10-VSSOP
+ADS1015IDGSR
+J7
+OSTVN08A150
+8POS
+Sensor_4_20mA_RK
+RTD
+ - src/content/hardware/tracker/projects/tracker-sht3x-temperature-humidity.md
 SHT3x
 SHT31
 4POS
 tracker-an022
 sht3x-i2c
- - src/content/datasheets/app-notes/an023-watchdog-timers.md
+ - src/content/hardware/best-practices/watchdog-timers.md
 Abracon
 AB1805
 FeatherTPL5010
@@ -4416,7 +4472,14 @@ WDT
 AB1805_RK
 01-typical
 outOfMemory
- - src/content/datasheets/app-notes/an024-tracker-relay.md
+2N7002
+CER
+1UF
+X7R
+Q1
+SOT-23
+2N7002LT1G
+ - src/content/hardware/tracker/projects/tracker-relay.md
 4x
 16A
 Q4
@@ -4447,12 +4510,12 @@ G5RL-K1-E-DC5
 tracker-an024-dual
 S1
 S2
- - src/content/datasheets/app-notes/an025-tracker-som-first-board.md
+ - src/content/hardware/tracker/tracker-som/tracker-som-first-board.md
 LCC
 Leadless
- - src/content/datasheets/app-notes/an026-tracker-current-solutions-accelerator.md
+ - src/content/hardware/tracker/projects/tracker-current-solutions-accelerator.md
 tracker-an026
- - src/content/datasheets/app-notes/an027-tracker-buttons-leds.md
+ - src/content/hardware/tracker/projects/tracker-buttons-leds.md
 ERJ-3GEYJ271V
 SPST-NO
 50MA
@@ -4460,7 +4523,16 @@ QFN-20
 CUI
 CPI-1375-80T
 DebounceSwitchRK
- - src/content/datasheets/app-notes/an028-stop-sleep-cellular.md
+LTST-C193KGKT-5A
+MCP23008T-E
+4POS
+GP0
+GP1
+GP2
+GP3
+20-QFN-EP
+18-SOIC
+ - src/content/firmware/low-power/stop-sleep-cellular.md
 mWh
 Particle.publish.
 publishFuture
@@ -4468,16 +4540,18 @@ uncomment
 Serial1LogHandler
 SerialLogHandler
 474mA
- - src/content/datasheets/app-notes/an029-wake-publish-sleep-cellular.md
+FT232
+ - src/content/firmware/low-power/wake-publish-sleep-cellular.md
 cloudMinTime
 PRE
- - src/content/datasheets/app-notes/an031-enabling-wifi-rf-test-for-esp32.md
+ - src/content/hardware/certification/enabling-wifi-rf-test-for-esp32.md
 espRFTool.exe.
 ChipType
 ESP32_RF_TEST_BIN_V1.3.3_20180403.bin
 SUCC
 ESP8266_RF_Performance_Test_Demonstration__EN.pdf
- - src/content/datasheets/app-notes/an032-calling-api-from-web-page.md
+ESP32-S2
+ - src/content/reference/cloud-apis/calling-api-from-web-page.md
 jQuery
 localStorage
 mainDiv
@@ -4487,17 +4561,19 @@ sensorPage
 htm
 eventData
 sensorTable
- - src/content/datasheets/app-notes/an033-256K-user-binaries.md
+ - src/content/reference/device-os/256K-user-binaries.md
 256K
 0xd4000
 0xb4000
 1.5.x
 4K
- - src/content/datasheets/app-notes/an034-singleton.md
+ - src/content/firmware/software-design/singleton.md
 MyClass
 _instance
 dereferenced
- - src/content/datasheets/app-notes/an035-file-system.md
+3K
+threadFunction
+ - src/content/reference/device-os/file-system.md
 MX25L1606
 QSPI
 FOUR_MB_BLANK.bin
@@ -4506,7 +4582,7 @@ d017
 B5xx
 d019
 d01a
- - src/content/datasheets/app-notes/an036-lcc-module-smt.md
+ - src/content/scaling/manufacturing/lcc-module-smt.md
 leadless
 MBB
 ×
@@ -4528,12 +4604,12 @@ BGA
 pre-heating
 Pre-apply
 resoldering
- - src/content/datasheets/app-notes/an037-ethernet.md
+ - src/content/hardware/ethernet/ethernet.md
 Wiznet
 MDI-X
 hardcoded
 EthernetCellularRK
- - src/content/datasheets/app-notes/an038-libraries.md
+ - src/content/firmware/best-practices/libraries.md
 CellularHelper
 proprietization
 CC0
@@ -4542,24 +4618,24 @@ AFPL
 Sensortec
 BSEC
 BME680
- - src/content/datasheets/app-notes/an039-remote-logging.md
+ - src/content/troubleshooting/firmware/remote-logging.md
 syslog
 SolarWinds
 logs999.papertrailapp.com
 DeviceNameHelperRK
 RemoteLogRK
- - src/content/datasheets/app-notes/technical-advisory-notices.md
+ - src/content/reference/technical-advisory-notices/technical-advisory-notices.md
 124-day
 mis-populated
 SARA-R410-02B-03
- - src/content/datasheets/asset-tracking/m8-temperature-humidity.md
+ - src/content/reference/datasheets/tracker/m8-temperature-humidity.md
 Sensiron
 SHT-31D
 0x44
 M8TEMPHUMIEA
 M8TEMPHUMITY
 x40
- - src/content/datasheets/asset-tracking/tracker-m8-accessories.md
+ - src/content/reference/datasheets/tracker/tracker-m8-accessories.md
 Wire3
 UL2464
 ONEM8CABEA
@@ -4570,7 +4646,7 @@ ONEM8CONN
 ONEM8CAB
 ONEM8CONNEA
 ONEM8CONNTY
- - src/content/datasheets/asset-tracking/tracker-one.md
+ - src/content/reference/datasheets/tracker/tracker-one.md
 90V
 Samtec
 FTSH-105-01-F-DV-K
@@ -4647,7 +4723,7 @@ utilisé
 rayonnement
 pre1
 pre2
- - src/content/datasheets/asset-tracking/tracker-som-datasheet.md
+ - src/content/reference/datasheets/tracker/tracker-som-datasheet.md
 1.8m
 dBi
 1.0mm
@@ -4788,7 +4864,8 @@ Istop_usart
 17V
 BG96
 CAN_RST
- - src/content/datasheets/asset-tracking/tracker-som-eval-board.md
+QSPI
+ - src/content/reference/datasheets/tracker/tracker-som-eval-board.md
 J9
 S4
 S6
@@ -4797,7 +4874,7 @@ S5
 CAN_H
 CAN_L
 CAN_VCC
- - src/content/datasheets/boron/b-series-eval-board.md
+ - src/content/reference/datasheets/b-series/b-series-eval-board.md
 SD_MI
 SD_CK
 SD_MO
@@ -4816,7 +4893,8 @@ P1.12
 P1.1
 P1.10
 P1.11
- - src/content/datasheets/boron/b402-datasheet.md
+P0.05
+ - src/content/reference/datasheets/b-series/b404x-b404-b402-datasheet.md
 VIH
 xVDD
 VOH
@@ -4850,16 +4928,42 @@ B402MTY
 28-Jun-2021
 10-Sep-2021
 25pF
- - src/content/datasheets/boron/b523-datasheet.md
+SARA-R510S-01B
+R410M-03
+R410S
+cell_idle
+cell_conn_twr
+cell_conn_cloud
+cell_cloud_idle
+cell_cloud_tx
+stop_gpio
+stop_analog
+stop_intrtc
+stop_ble_adv
+stop_ble_conn
+stop_usart
+stop_cell
+ulp_gpio
+ulp_analog
+ulp_intrtc
+ulp_ble_adv
+ulp_ble_conn
+ulp_usart
+ulp_cell
+hib_gpio
+hib_analog
+14-Mar-2022
+05-May-2022
+ - src/content/reference/datasheets/b-series/b524-b523-datasheet.md
 8MB
 4.3V
- - src/content/datasheets/boron/boron-datasheet.md
+ - src/content/reference/datasheets/b-series/boron-datasheet.md
 se
 XC8107
 PMIC_SYS
 09-Jul-2021
 28-Jul-2021
- - src/content/datasheets/certifications/antenna.md
+ - src/content/hardware/certification/antenna.md
 4.7dBi
 5dBi
 2.4dBi
@@ -4875,7 +4979,11 @@ x500
 T0004
 35x35mm
 GLOSNASS
- - src/content/datasheets/certifications/certification.md
+ANT-ELEC
+ARG-LDKT
+PHOTONKIT
+dBi
+ - src/content/hardware/certification/certification.md
 2AEMI-BRN310
 2AEMI-BRN402
 2AEMI-BR402
@@ -4900,7 +5008,12 @@ EN-50663
 EN-55032
 EN-60950-1
 EN-62638-1
- - src/content/datasheets/electron/e-series-datasheet.md
+2AEMI-T40X
+RSS-Gen
+20127-T40X
+Guangdong
+Zhaoeng
+ - src/content/reference/datasheets/e-series/e-series-datasheet.md
 LIPO
 pre-2021
 R410M-02B
@@ -4914,7 +5027,7 @@ E201
 E302
 E303
 11-Mar-2020
- - src/content/datasheets/electron/electron-datasheet.md
+ - src/content/reference/datasheets/e-series/electron-datasheet.md
 GPP
 DSC
 ALBtelecom
@@ -4981,13 +5094,15 @@ Viettel
 Vinaphone
 CCT
 24-Feb-2021
- - src/content/datasheets/wi-fi/p1-datasheet.md
+ - src/content/reference/datasheets/wi-fi/p1-datasheet.md
 09-Dec-2020
- - src/content/datasheets/wi-fi/photon-datasheet.md
+14-Mar-2023
+ - src/content/reference/datasheets/wi-fi/photon-datasheet.md
 v020
 v017
 v018
 v019
+v021
  - src/content/quickstart/aqmk-project.md
 0.96in
 Shinyei
@@ -5004,6 +5119,7 @@ Adafruit_BME280
 OLED_Display_128X64
 JsonParserGeneratorRK
 JsonWriterStatic
+un-tether
  - src/content/quickstart/isk-project.md
 Ctrl
  - src/content/reference/developer-tools/cli.md
@@ -5022,10 +5138,13 @@ UICR
 5x2
 adhoc6ea4372.0
 Chromebook
+nrfjprog
+IDC
+150mm
  - src/content/reference/developer-tools/programming-devices.md
 3.x
 v2.6.0.
- - src/content/reference/device-cloud/api.md
+ - src/content/reference/cloud-apis/api.md
 postman.zip
 API.postman_collection.json
 Environment.postman_environment.json
@@ -5072,7 +5191,8 @@ wps.ch
 geofence
 req_id
 loc.src
- - src/content/reference/device-cloud/webhooks.md
+20-second
+ - src/content/reference/cloud-apis/webhooks.md
 Multipart
 512-byte
 jaredwolff
@@ -5085,20 +5205,20 @@ beta.1
 2.x.x.
 1.4.x
 electron7
- - src/content/reference/discontinued/ldk-project.md
+ - src/content/reference/discontinued/hardware/ldk-project.md
 x2
 pre-setup
- - src/content/reference/discontinued/mesh.md
+ - src/content/reference/discontinued/hardware/mesh.md
 1.5.x.
 nRD52
 1.6.x
- - src/content/reference/SDKs/android.md
+ - src/content/reference/mobile-sdks/android.md
 AndroidX
 Jetpack
 param
 productId
 AOSP
- - src/content/reference/SDKs/ios.md
+ - src/content/reference/mobile-sdks/ios.md
 v1.5.0
 Cocoapod
 1Password
@@ -5106,20 +5226,20 @@ v0.9
 20px
 64px
 44px
- - src/content/tools/device-programming/device-restore-usb.md
+ - src/content/troubleshooting/device-restore/device-restore-usb.md
 99-particle
- - src/content/tools/device-programming/web-ide-exporter.md
+ - src/content/troubleshooting/developer-tools/web-ide-exporter.md
 export.zip
- - src/content/tools/troubleshooting/lookup.md
+ - src/content/troubleshooting/developer-tools/lookup.md
 2D
- - src/content/tools/troubleshooting/usb-serial.md
+ - src/content/troubleshooting/developer-tools/usb-serial.md
 WebSerial
- - src/content/tutorials/asset-tracking/can-bus.md
+ - src/content/reference/tracker/can-bus.md
 Kbits
 OBD-2
 CANopen
 DeviceNet
- - src/content/tutorials/asset-tracking/geofencing.md
+ - src/content/reference/tracker/geofencing.md
 v17
 imu_trig
 zone1
@@ -5128,10 +5248,18 @@ verif
 zone2
 zone3
 zone4
- - src/content/tutorials/asset-tracking/setup.md
+ - src/content/getting-started/tracker/tracker-setup.md
 Neo
 MCU_USB
- - src/content/tutorials/asset-tracking/tracker-configuration.md
+J8
+J9
+S4
+S6
+J11
+S5
+J4
+J5
+ - src/content/reference/tracker/tracker-configuration.md
 interval_min
 interval_max
 min_publish
@@ -5148,21 +5276,27 @@ ConfigStringEnum
 lowTemp
 ConfigString
 pre-allocated
- - src/content/tutorials/asset-tracking/tracker-edge-firmware.md
+ - src/content/firmware/tracker-edge/tracker-edge-firmware.md
 loc
 tracker-test1
- - src/content/tutorials/asset-tracking/tracker-eval-tutorials.md
+ - src/content/getting-started/tracker/tracker-eval-tutorials.md
 DHT11
 TemperatureHumidityValidatorRK
 tracker-bme280
 Adafruit_BME280_RK
- - src/content/tutorials/asset-tracking/tracker-one-expansion.md
+J10
+MCU_RX
+MCU_TX
+Wire3
+ - src/content/hardware/tracker/tracker-one-expansion.md
 16-port
 SC16IS740
- - src/content/tutorials/asset-tracking/tracker-sleep.md
+ONEM8CONNEA
+ONEM8CONNTY
+ - src/content/reference/tracker/tracker-sleep.md
 BMI160
 TrackerSleep
- - src/content/tutorials/asset-tracking/tracker-som-first-board.md
+ - src/content/hardware/tracker/tracker-som/tracker-som-first-board.md
 TrackerBase2.brd
 TrackerBase2.sch
 TrackerBase2v2.zip
@@ -5211,24 +5345,47 @@ Ag1
 0603-sized
 T962
 reflowed
- - src/content/tutorials/cellular-connectivity/introduction.md
+ - src/content/getting-started/hardware/cellular-overview.md
 KV
 B32
 B38
 UAE
 UMNOPROF
 E350
- - src/content/tutorials/developer-tools/cli.md
+NORAM
+R510
+BG96-MC
+E404X
+ELC404X
+MX
+Antel
+WCDMA
+BG96
+B8
+BRNR404X
+Pre-2021
+ - src/content/getting-started/developer-tools/cli.md
 README#Development
- - src/content/tutorials/device-cloud/cloud-api.md
+ - src/content/getting-started/cloud/cloud-api.md
 Kotlin
 platform_id
 Photon-XXXXXX
 XXXXXX
 product_id
- - src/content/tutorials/device-cloud/console.md
+arg
+productId
+ - src/content/getting-started/console/console.md
 reupload
- - src/content/tutorials/device-cloud/device-claiming.md
+pre-checkbox
+100-device
+csv
+Geofence
+4g
+2.5ms.
+v10
+geofence
+v13
+ - src/content/getting-started/cloud/device-claiming.md
 b5som
 T4xx
 T5xx
@@ -5244,7 +5401,43 @@ E350KIT
 SNSRKIT3G270
 SNSRKIT3G260
 hardcode
- - src/content/tutorials/device-cloud/introduction.md
+24-character
+B4xx
+bsom
+B5xx
+x50
+x1
+B404XMTY
+B404XMEA
+B404MTY
+B404MEA
+B402MTY
+B402MEA
+BRN404XTRAY50
+BRN404XKIT
+BRN404X
+BRN314TRAY50
+BRN310KIT
+ONE402MEA
+ONE404MEA
+ONE402MTY
+x40
+ONE404MTY
+ONE523MEA
+CAT1
+ONE524MEA
+ONE523MTY
+ONE524MTY
+T402MEA
+T404MEA
+T402MTY
+T404MTY
+T523MEA
+T524MEA
+T523MTY
+T524MTY
+2D
+ - src/content/getting-started/cloud/introduction.md
 KRACK
 eduroam
 SHA-256
@@ -5259,13 +5452,16 @@ ISE
 FreeRADIUS
 Ubiquiti
 docs.particle.io
- - src/content/tutorials/device-cloud/webhooks.md
+5K
+2.0.x
+ - src/content/getting-started/integrations/webhooks.md
 multipart
- - src/content/tutorials/device-os/cloud-communication.md
+ - src/content/getting-started/cloud/cloud-communication.md
 testEvent
- - src/content/tutorials/device-os/device-os.md
+30s
+ - src/content/getting-started/device-os/introduction-to-device-os.md
 AppEngine
- - src/content/tutorials/device-os/json.md
+ - src/content/firmware/best-practices/json.md
 ECMA
 UTF-16
 0x08
@@ -5287,7 +5483,7 @@ JSONWriter
 defaultTemplate
 pre-formatted
 pre-encode
- - src/content/tutorials/device-os/led.md
+ - src/content/troubleshooting/led.md
 10000ms
 OpenSignal
 _exit
@@ -5296,7 +5492,7 @@ AssertionFailure
 SparkIntervalTimer
 strdup
 Log.error
- - src/content/tutorials/device-os/usb-serial.md
+ - src/content/firmware/best-practices/usb-serial.md
 Solarwinds
 64-bits
 app.gps.nmea
@@ -5304,12 +5500,16 @@ chipsets
 CH340
 Otii
 Qoitech
- - src/content/tutorials/diagnostics/fleet-health.md
+Ctrl-C
+Ctrl-M
+Ctrl-A
+syslog
+ - src/content/getting-started/console/fleet-health.md
 relatedly
 CRMs
 ERPs
 tickmark
- - src/content/tutorials/hardware-projects/debugger-adapter.md
+ - src/content/troubleshooting/debuggers/debugger-adapter.md
 NanoDAP
 U_TX
 U_RX
@@ -5320,9 +5520,9 @@ NanoDapAdapter.brd
 NanoDapAdapterV1.zip
 THR
 FR20205VBDN
- - src/content/tutorials/hardware-projects/hardware-examples.md
+ - src/content/getting-started/hardware-tutorials/hardware-examples.md
 device_name
- - src/content/tutorials/hardware-projects/som-first-board.md
+ - src/content/hardware/b-series-som/som-first-board.md
 PMICs
 LiSOCL2
 MP2122
@@ -5345,27 +5545,42 @@ multimeters
 3.875V.
 158K
 3V7
- - src/content/tutorials/integrations/influxdata.md
+2mm
+GRM219R61A226MEA0D
+PRPC040SAAN-RC
+OshPark
+Osh
+Sn42
+Bi57
+Ag1
+0603-sized
+T962
+PTH
+ - src/content/getting-started/integrations/community-integrations/influxdata.md
 InfluxDB-IOT
- - src/content/tutorials/integrations/questdb.md
+ - src/content/getting-started/integrations/community-integrations/questdb.md
 QuestDB
 dust-lpo
 _un_
 questdb.io
- - src/content/tutorials/learn-more/about-apps.md
+ - src/content/firmware/best-practices/about-apps.md
 Cordova
 PhoneGap
- - src/content/tutorials/learn-more/about-i2c.md
+ - src/content/hardware/expansion/about-i2c.md
 2K
 2.1K
- - src/content/tutorials/learn-more/about-serial.md
+Kbit
+13K
+1mm-pitch
+ - src/content/hardware/expansion/about-serial.md
 UARTs
 SC16IS750
 SC16IS740RK
 AliExpress
- - src/content/tutorials/learn-more/about-sleep.md
+SC16IS740
+ - src/content/reference/device-os/sleep.md
 tradeoffs
- - src/content/tutorials/learn-more/batteries.md
+ - src/content/hardware/power/batteries.md
 455-1165-ND
 5L
 455-2148-1-ND
@@ -5375,7 +5590,10 @@ XH2.54mm
 XH3.96mm
 SN-01BM
 0.5mm2
- - src/content/tutorials/learn-more/beyond-prototyping.md
+2.00mm
+SPH-002T-P0
+Dupont
+ - src/content/hardware/expansion/beyond-prototyping.md
 pre-formed
 Perma-Proto
 quadrupler
@@ -5387,7 +5605,7 @@ SAM8796-ND
 PTS645SH50SMTR92
 B2B-PH-K-S-LF-SN
 LedSwitchRK
- - src/content/tutorials/learn-more/gen2-cellular-migration.md
+ - src/content/hardware/migration-guides/gen2-cellular-migration.md
 M4F
 16-ports
 LIN_MASTER_13B
@@ -5410,7 +5628,22 @@ Inwi
 Omantel
 Réunion
 SingTel
- - src/content/tutorials/learn-more/node-js.md
+tradeoffs
+2x5
+Ucom
+Azercell
+Bakcell
+Aliv
+BTC
+NuevaTel
+Altice
+Geocell
+Softbank
+Vox
+Tcell
+TSTT
+CCT
+ - src/content/reference/cloud-apis/node-js.md
 npmjs.com
 MSDOS
 nodejs.org
@@ -5430,14 +5663,15 @@ IMEIs
 status.json
 minimatch
 wildcards
- - src/content/tutorials/learn-more/prototyping.md
+ - src/content/hardware/expansion/prototyping.md
 ncd
 nodeLynk
- - src/content/tutorials/learn-more/real-time-clocks.md
+IIC
+ - src/content/reference/device-os/real-time-clocks.md
 AB1850
 MCP79410
 NTP
- - src/content/tutorials/learn-more/weather.md
+ - src/content/getting-started/integrations/community-integrations/weather.md
 OpenWeather
 appid
 temp.day
@@ -5446,23 +5680,41 @@ LocalTimeRK
 inHg
 01d
 10d
- - src/content/tutorials/learn-more/xenon-options.md
+lon
+JsonParserGeneratorRK
+ - src/content/archives/xenon-options.md
 MicroPython
- - src/content/tutorials/particle-hardware.md
+1.5.x
+ - src/content/getting-started/hardware/hardware-overview.md
 M8CONNEA
 M8CONNTY
 chipset
 FWNG-ETH
- - src/content/tutorials/product-tools/creating-a-product.md
+M8TEMPHUMIEA
+M8TEMPHUMITY
+ONEM8CABEA
+ONEM8CABRAEA
+ONEM8CABRATY
+ONEM8CABTY
+photodiode
+P2
+51mm
+23mm
+reflowed
+RTL8721DM
+M33
+M23
+x10
+ - src/content/getting-started/products/creating-a-product.md
 pre-add
 pre-claim
 submodule
 pubsub
- - src/content/tutorials/product-tools/device-groups.md
+ - src/content/getting-started/console/device-groups.md
 DeviceGroupHelperRK
- - src/content/tutorials/product-tools/introduction.md
+ - src/content/getting-started/products/introduction-to-products.md
 SLA
- - src/content/tutorials/product-tools/manufacturing-cellular.md
+ - src/content/scaling/manufacturing/manufacturing-cellular.md
 IQC
 ZIF
 pre-activation
@@ -5471,19 +5723,229 @@ DEVICE_ID_OR_SERIAL_NUMBER
 YYYYMMDD_XXXX
 WSL
 XXXX
- - src/content/tutorials/product-tools/migrating-to-growth.md
+ - src/content/getting-started/billing/migrating-to-growth.md
 Borons
- - src/content/tutorials/product-tools/organizations.md
+ - src/content/getting-started/products/organizations.md
 RBAC
 amongst
 auto-inheret
- - src/content/datasheets/app-notes/an040-code-size-tips.md
+ - src/content/firmware/best-practices/code-size-tips.md
 bss
 XIP
  - src/content/flash-dump.md
 Chromebook
 99-particle
- - src/content/tutorials/device-os/development-tips.md
+ - src/contentfirmware/best-practices/firmware-introduction.md
 Solarwinds
 Wire.lock
 SparkIntervalTimer
+ - src/content/archives/application-notes.md
+24V
+ADC1015
+SHT3x
+SHT31
+AB1805
+LCC
+Leadless
+AN002-Device-Powerdown
+OBD-II
+256K
+AN037
+Powerdown
+ - src/content/archives/xenon-circuit-python.md
+CircuitPython
+nRF
+ - src/content/boron.md
+R510S
+ - src/content/firmware/best-practices/firmware-introduction.md
+Solarwinds
+Wire.lock
+SparkIntervalTimer
+ - src/content/firmware/best-practices/scheduling.md
+lastPublish
+chrono
+0xffffffff
+0x00000000
+System.millis
+Time.now
+un-valid
+AM1805
+NTP
+EST5EDT
+M3.2.0
+M11.1.0
+CST6CDT
+MST7MDT
+MST7
+PST8PDT
+BST0GMT
+M3.5.0
+M10.5.0
+AEST-10AEDT
+M10.1.0
+M4.1.0
+ACST-9
+30ACDT
+ - src/content/getting-started/billing/cellular-data.md
+512-byte
+ - src/content/getting-started/hardware/tracking-system.md
+1.8m
+ - src/content/hardware/migration-guides/b-series-boron-migration-guide.md
+Cat1
+ALBtelecom
+Mobilis
+Ooredoo
+Setar
+Drei
+Bangalink
+GrameenPhone
+BH
+Eronet
+Cabo
+CVMóvel
+Metfone
+Côte
+d'Ivoire
+Hrvatski
+PrimeTel
+Czechia
+Tre
+TDC
+Telia
+Etisalat
+Ethio
+Faroese
+AirtelTigo
+Cosmote
+CMHK
+Axiata
+LMT
+Omnitel
+CTM
+DiGi
+Moldcell
+Mobicom
+Inwi
+Medi
+MPT
+2degrees
+9mobile
+Glo
+Ufone
+bmobile
+DigiMobil
+Mobily
+Maarten
+TelCell
+Yoigo
+Telesur
+Chunghwa
+FarEasTone
+DTAC
+Tunisie
+EE
+MobiFone
+Viettel
+Vinaphone
+D09
+D19
+D18
+D17
+3.6v
+AGND
+USBD
+D20
+NFC1
+NFC2
+1.8V
+R410m
+USBDATA
+4.3v
+ - src/content/hardware/migration-guides/e404x-migration-guide.md
+unpowered
+M4F
+SWDCLK
+SWO
+Serial5_TX
+Serial5_RX
+LIN_MASTER_13B
+LIN_SLAVE_10B
+LIN_SLAVE_11B
+TIM3
+PMM3
+P404X
+1.65VDC
+LIPO
+BAT_INT_PC13
+I2S3_WS
+I2S3_SD
+trasmitted
+BTN
+I2S3_MCK
+pre
+ - src/content/hardware/migration-guides/p2-argon-migration-guide.md
+200MHz
+2mA
+CHIP_EN
+10POS
+Samtec
+FTSH-105-01-F-DV-K
+RT8008
+XCL224
+XC6208A42
+XC9258
+XC8107
+S0
+S2
+S1
+S3
+RTL872x
+SPI0
+Serial3
+resized
+3V3_IO
+3V3_RF
+D21
+VBAT_MEAS
+ - src/content/hardware/migration-guides/p2-p1-migration-guide.md
+I2S3_SCK
+WL_REG_ON
+WL_JTAG_TDI
+WL_JTAG_TCK
+WL_JTAG_TRSTN
+WL_JTAG_TMS
+WL_JTAG_TDO
+WL_SLEEP_CLK
+ - src/content/hardware/migration-guides/p2-photon-migration-guide.md
+3.6V.
+ - src/content/hardware/migration-guides/photon-2-argon-migration-guide.md
+PHY
+ - src/content/hardware/tracker/m8-temperature-humidity.md
+sht3x-i2c
+ - src/content/hardware/wi-fi/p2-first-board.md
+P2PlugTestUSB.sch
+P2PlugTestUSB.brd
+P2PlugTestUSBV1.zip
+P2PlugTestUSB.lbr
+P2PlugTestUSB.cam
+6.0mm
+TPS62026DGQR
+600MA
+10MSOP
+tRestrict
+bRestrict
+ - src/content/reference/cloud-apis/access-tokens.md
+oauth
+27fdffffffffffffffffffffffffffffffff4259
+ - src/content/reference/cloud-apis/data-report-tutorial.md
+YYYY-MM-DD
+iterable
+config.js
+ - src/content/reference/datasheets/e-series/e404x-datasheet.md
+E310X
+E314X
+ - src/content/reference/datasheets/wi-fi/p2-datasheet.md
+802.11a
+ - src/content/reference/datasheets/wi-fi/p2-eval-board.md
+40-pin
+20x2

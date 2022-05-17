@@ -84,7 +84,7 @@ If using the EN pin to deeply reset the device, you must be careful not to allow
 
 However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a nRF52 GPIO high when EN is low can provide enough current to keep the nRF52 from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the nRF52 when 3V3 is de-powered.
 
-### Antennna
+### Antenna
 
 - The Photon 2 includes an on-module PCB trace antenna and a U.FL connector that allows the user to connect an external antenna.
 - The antenna is selected in software. The default is the PCB trace antenna.
@@ -360,7 +360,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | D5 | D5 GPIO, Serial2 RX, SPI1 SS | 53 | PA[19] |
 | D6 | D6 GPIO, SWCLK. | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
-| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
+| MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
 | MODE | MODE button, has internal pull-up | MODE | MODE button, has internal pull-up. Pin number constant is BTN. | 46 | PA[4] |
 | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | 34 | CHIP_EN |

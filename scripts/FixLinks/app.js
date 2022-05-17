@@ -20,6 +20,36 @@ for(const old in redirects) {
     }
 }
 
+{
+    const spellingOrig = fs.readFileSync(path.join(__dirname, '../../.spelling'), 'utf8');
+    let spellingNew = '';
+
+    for(let line of spellingOrig.split('\n')) {
+        // Note that lines begin with space dash space
+        //  - src/content/tutorials/learn-more/ethernet-featherwing.md
+        if (line.startsWith(' - ')) {
+            const oldPath = line.substring(3);
+
+            // Example entry in redirects object:
+            // "/datasheets/accessories/debugger": "/reference/datasheets/accessories/debugger",
+            for(const key in redirects) {
+                if (oldPath == 'src/content' + key + '.md' && !redirects[key].startsWith('http')) {
+                    // console.log('old=' + oldPath + ' new=' + redirects[key]);
+                    line = ' - src/content' + redirects[key] + '.md';
+                }
+            }
+        }
+        spellingNew += line + '\n';
+    }
+    // Remove blank lines at the end of the file
+    spellingNew = spellingNew.replace(/[\n]*\n$/, '\n');
+
+    if (spellingOrig != spellingNew) {
+        fs.writeFileSync(path.join(__dirname, '../../.spelling'), spellingNew);
+    }    
+}
+
+
 // This is the mapping from the single-page firmware API reference to new card URLs
 // "/reference/device-os/firmware/#cloud-functions": "/cards/firmware/cloud-functions/cloud-functions",
 const cardMapping = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/card_mapping.json')));
