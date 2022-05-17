@@ -204,7 +204,7 @@ Even though the B Series SoM is more difficult to prototype with than the Boron,
 
 {{!-- END do not edit content above, it is automatically generated 295a969b-7ffa-4f84-8234-7e4cb38d1f10 --}}
 
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
 ### Tracker SoM
@@ -228,7 +228,7 @@ In addition to using the Tracker One assembled module, the following application
 #### Country Compatibility - Tracker SoM
 
 - The Tracker SoM LTE Cat M1 (T404) is only recommended for use in the United States, Canada, and Mexico. 
-- The Tracker LTE Cat 1 with 2G/3G fallback (T524) is only recommended in selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+- The Tracker LTE Cat 1 with 2G/3G fallback (T524) is only recommended in selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 - The Tracker SoM T524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States.
 
 #### Peripherals and GPIO - Tracker SoM
@@ -268,7 +268,7 @@ In addition to using the Tracker One assembled module, the following application
 
 {{!-- END do not edit content above, it is automatically generated d833e557-5289-450c-92cf-a6eedec30bd8 --}}
 
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 ### Feature comparison - Gen 3
 

@@ -47,7 +47,7 @@ Included inside the fully assembled, sealed enclosure:
 - NFC tag antenna.
 - Power by USB-C or an external power supply.
 - NorAm: North America including the United States, Canada, and Mexico.
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 #### Country compatibility - Tracker
 

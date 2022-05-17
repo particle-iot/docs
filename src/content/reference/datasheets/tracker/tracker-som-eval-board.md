@@ -229,7 +229,7 @@ Weight will be provided at a later date.
 
 {{!-- END do not edit content above, it is automatically generated 698155b6-76d7-11eb-9439-0242ac130002 --}}
 
-&dagger;EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+&dagger;EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
 ---

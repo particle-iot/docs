@@ -31,7 +31,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
  * 2G and 3G fallback (900, 1800, and 2100 MHz)
  * Embedded Particle EtherSIM (B524)
- * Support for selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+ * Support for selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 #### Features - B523
  * Quectel EG91-E modem
@@ -689,7 +689,7 @@ The bootloader allows you to easily update the user application via several diff
 
 {{!-- END do not edit content above, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 
-- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/) for more information.
+- EMEAA: Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand. See the [cellular carrier list](/reference/cellular/cellular-carriers/) for more information.
 
 
 ## Revision history
