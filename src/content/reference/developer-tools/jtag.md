@@ -11,7 +11,7 @@ description: Using SWD/JTAG to program Particle Devices
 
 JTAG ("Joint Test Action Group") is a standard for testing and verifying electronic circuit boards. It can be used with Particle devices and this document will describe using it for tasks like programming the device flash.
 
-JTAG can also be used with a source-level debugger, which is a feature of [Particle Workbench](/tutorials/developer-tools/workbench/#debugging-3rd-generation-).
+JTAG can also be used with a source-level debugger, which is a feature of [Particle Workbench](/getting-started/developer-tools/workbench/#debugging-3rd-generation-).
 
 There is a variation known as Serial Wire Debug (SWD). This is an option for Gen 2 devices (STM32, Photon, P1, Electron, and E Series), and the normal method of connection for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It uses only two signal wires plus ground.
 
@@ -55,14 +55,14 @@ If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 
 
 ## Custom hex files
 
-Using the [Hex File Generator](/tools/device-programming/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
+Using the [Hex File Generator](/troubleshooting/developer-tools/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
 
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
 
 ## Particle Debugger with OpenOCD (via Particle Workbench)
 
-Installing [Particle Workbench](/tutorials/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-Debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle Debugger firmware.
+Installing [Particle Workbench](/getting-started/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-Debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle Debugger firmware.
 
 The only catch is that it's command line, and the commands are very long and somewhat complicated.
 
@@ -201,7 +201,7 @@ With the Particle Debugger (CMSIS-DAP), it can expose what looks like a USB thum
 
 The caveats are: 
 
-- You must first [upgrade the Particle Debugger firmware](/datasheets/accessories/debugger/#upgrading-the-debugger) .
+- You must first [upgrade the Particle Debugger firmware](/reference/datasheets/accessories/debugger/#upgrading-the-debugger) .
 - You should only use it with Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) as drag-and-drop does not operate reliably with Gen 2 devices.
 - It takes about 1 minute to restore a device.
 
@@ -219,10 +219,10 @@ All you need to do is:
 
 ![Particle Debugger](/assets/images/accessories/debugger.png)
 
-You can try the [experimental web browser based Particle Debugger interface](/tools/device-programming/device-restore-jtag/). This experimental feature has numerous caveats, but it's pretty neat.
+You can try the [experimental web browser based Particle Debugger interface](/troubleshooting/device-restore/device-restore-jtag/). This experimental feature has numerous caveats, but it's pretty neat.
 
 - This tool is experimental, and may not work properly. It could leave your device in a bad state (but you can fix it with one of the other techniques if it happens).
-- You must [upgrade the firmware on your Particle Debugger](/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
+- You must [upgrade the firmware on your Particle Debugger](/reference/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
 - There is limited browser support on desktop: Chrome, Edge, and Opera. It does not work with Firefox or Safari. 
 - It should work on Mac, Windows, Linux, and Chromebook on supported browsers that support WebUSB.
 - It should work on some Android phones that support USB OTG when using Chrome or Opera browsers that support WebUSB.
@@ -230,7 +230,7 @@ You can try the [experimental web browser based Particle Debugger interface](/to
 - It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on Gen 2.
 - It takes about 3 minutes to restore a device.
 
-<a href="/tools/device-programming/device-restore-jtag/" class="button">Web Browser Device Restore</a>
+<a href="/troubleshooting/device-restore/device-restore-jtag/" class="button">Web Browser Device Restore</a>
 
 
 ## Particle Debugger with OpenOCD (standalone)

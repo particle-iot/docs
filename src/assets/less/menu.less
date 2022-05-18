@@ -1,9 +1,8 @@
 .menubar {
+  .STYLE_left_nav();
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background: @white;
-  font-size: 16px;
-  padding-top: 10px;
+  padding-top: 40px;
   padding-bottom: 75px;
   overflow-y: auto;
   position: absolute;
@@ -12,7 +11,6 @@
   bottom: 0;
   width: @menubarWidth;
   box-sizing: border-box;
-  border-right: solid 1px @NC_MORNING_MIST;
   z-index: @menuZindex;
 
   // Start with menu hidden on mobile
@@ -26,13 +24,28 @@
 
     p {
       font-weight: bold;
-      text-transform: uppercase;
       margin-top: 10px;
     }
 
     > li > ul > li {
       padding-left: 10px;
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .menubar {
+    color: @COLOR_Gray_100;
+    background: @COLOR_Midnight_600;
+    // border-right: solid 1px @COLOR_Midnight_400;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .menubar {
+    color: @COLOR_Midnight_300;
+    background: @COLOR_Gray_100; // @almost-white
+    // border-right: solid 1px @NC_MORNING_MIST;
   }
 }
 
@@ -69,16 +82,13 @@ div.navContainer {
 }
 
 div.navMenu1 {
-  font-size: 16px;
-  font-weight: bold;
+  .STYLE_left_nav();
   margin-top: 2px;
   margin-bottom: 5px;
-  color: @NC_COOL_GRAY;
 }
 
 div.navMenu2 {
-  font-size: 16px;
-  color: @NC_COOL_GRAY;
+  .STYLE_left_nav();
   padding-bottom: 3px;
   width: 245px;
   overflow: hidden;
@@ -86,9 +96,9 @@ div.navMenu2 {
 }
 
 div.navActive2 {
-  font-size: 16px;
-  color: @NC_COOL_GRAY;
-  font-weight: bold;
+  .STYLE_left_nav();
+  //font-weight: bold;
+  text-decoration: underline;
   padding-bottom: 3px;
   width: 230px;
   overflow: hidden;
@@ -96,8 +106,7 @@ div.navActive2 {
 };
 
 div.navMenu3 {
-  font-size: 14px;
-  color: @NC_COOL_GRAY;
+  .STYLE_left_nav();
   padding-bottom: 2px;
   width: 245px;
   overflow: hidden;
@@ -105,8 +114,7 @@ div.navMenu3 {
 };
 
 div.navMenu4 {
-  font-size: 14px;
-  color: @NC_COOL_GRAY;
+  .STYLE_left_nav();
   padding-bottom: 2px;
   width: 245px;
   overflow: hidden;
@@ -114,8 +122,7 @@ div.navMenu4 {
 };
 
 div.navMenu5 {
-  font-size: 14px;
-  color: @NC_COOL_GRAY;
+  .STYLE_left_nav();
   padding-bottom: 2px;
   width: 245px;
   overflow: hidden;
@@ -173,40 +180,48 @@ div.navContent {
 };
 
 a.navLink {
+  .STYLE_left_nav();
+};
+
+a.navLink {
   &:link {
-    color: @NC_COOL_GRAY !important;
+    text-decoration: none;
   }
   &:visited {
-    color: @NC_COOL_GRAY !important;
+    text-decoration: none;
   }
   &:hover {
-    color: @spark-blue !important;
+    text-decoration: underline;
   }  
 }
+
+a.navLinkActive {
+  .STYLE_left_nav();
+};
+
 a.navLinkActive {
   &:link {
-    color: @NC_CYAN !important;
-    font-weight: bold;
+    text-decoration: underline;
   }
   &:visited {
-    color: @NC_CYAN !important;
-    font-weight: bold;
+    text-decoration: none;
   }
   &:hover {
-    color: @NC_CYAN !important;
-    font-weight: bold;
+    text-decoration: underline;
   }  
 }
 
 
 .menubar li a,
 .menubar li a:visited {
-  font-size: 16px;
-  font-weight: normal;
-  color: @gray;
+  //font-size: 16px;
+  //font-weight: normal;
+  //color: @gray;
   margin: 2px 0;
+  text-decoration: none;
   &:hover {
-    color: @spark-blue;
+    //color: @spark-blue;
+    text-decoration: underline;
   }
 }
 .menubar li {

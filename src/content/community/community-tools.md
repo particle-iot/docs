@@ -6,6 +6,10 @@ columns: two
 
 # Community Supported Tools
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 These tools can provide additional utility or alternative workflows for Particle development.
 
 Note that these tools have not been tested by Particle. If you develop an open-source tool that you would like to add to this page, please submit a pull request.

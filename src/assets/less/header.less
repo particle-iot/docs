@@ -1,7 +1,7 @@
 #logo {
-  height: 34px;
+  height: 28px;
   display: block;
-  padding: 10px 40px 8px 10px;
+  padding: 14px 40px 13px 20px;
 }
 
 .header .left {
@@ -16,11 +16,8 @@
 }
 
 .sections {
-  display: block;
+  display: none;
   float: right;
-  @media(max-width: @xlarge-size) {
-    display: none;
-  }
 }
 
 .toggle-nav {
@@ -42,15 +39,13 @@
   }
 }
 
+// This is the top navigation
 a.nav {
+  .STYLE_top_nav();
   margin-right: 20px;
-  margin-top: 16px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: .7px;
-  color: @gray;
+  margin-top: 14px;
   display: inline-block;
+  text-decoration: none;
   i {
     margin-right: 5px;
     display: inline-block;
@@ -66,24 +61,13 @@ a.nav-device {
   font-size: 14px;
 }
 
-a.nav.active {
-  color: @spark-blue;
-  border-bottom: 2px solid;
-}
-
-a.nav:hover {
-  color: @spark-blue;
-}
-
 a.nav-device {
   color: @spark-blue;
 }
 
 .header {
-  background: @almost-white;
   zoom: 1;
   height: @headerHeight;
-  border-bottom: solid 1px @NC_MORNING_MIST;
   position: absolute;
   top: 0;
   left: 0;
@@ -91,12 +75,50 @@ a.nav-device {
   z-index: @headerZindex;
 }
 
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: @COLOR_Midnight_600;
+  }
+  a.nav {
+    color: @COLOR_Gray_200
+  }
+  a.nav.active {
+    border-bottom: 2px solid;
+  }
+  
+  a.nav:hover {
+    text-decoration: underline;
+  }
+  
+}
+
+@media (prefers-color-scheme: light) {
+  .header {
+    background: @COLOR_Gray_100; // @almost-white
+  }
+  a.nav {
+    color: @COLOR_Midnight_500; //
+  }
+  a.nav.active {
+    color: @spark-blue;
+    border-bottom: 2px solid;
+  }
+  
+  a.nav:hover {
+    text-decoration: underline;
+  }
+  
+}
+
 .header .right {
   float: right;
+  margin-top: 3px;
+  /*
   @media (max-width: @medium-size) {
     padding-right: 8px;
     display: none;
   }
+  */
 }
 
 .header a.button {
@@ -129,12 +151,6 @@ a.nav-device {
   padding-top: 0px;
   a {
     margin-right: 12px !important;
-  }
-  &.mobile-only {
-    display: none;
-    @media(max-width: @xlarge-size) {
-      display: inline-block;
-    }
   }
 }
 .dropdown-toggle:focus {
@@ -190,7 +206,7 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: @NC_SPACE_GRAY;
+  color: @NC_HEADER;
   white-space: nowrap;
   width: 100%;
 }
@@ -201,7 +217,7 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: @NC_SPACE_GRAY;
+  color: @NC_HEADER;
   white-space: nowrap;
   width: 100%;
 }
@@ -213,13 +229,13 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: @NC_SPACE_GRAY;
+  color: @NC_HEADER;
   white-space: nowrap;
   width: 100%;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  color: @NC_BLACK;
+  color: @NC_MIDNIGHT;
   text-decoration: none;
   background-color: @NC_ALMOST_WHITE;
 }

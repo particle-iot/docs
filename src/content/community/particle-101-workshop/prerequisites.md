@@ -9,7 +9,7 @@ layout: commonTwo.hbs
 
 To save time at the actual workshop, the following steps should ideally be completed beforehand.
 
-1. Install the [Particle CLI](/tutorials/developer-tools/cli/) (Command Line Interface)
+1. Install the [Particle CLI](/getting-started/developer-tools/cli/) (Command Line Interface)
 <br /><br />
 2. Create a [Particle account](https://login.particle.io/signup) if you do not already have one.
 <br /><br />

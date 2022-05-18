@@ -904,11 +904,10 @@ const svg = require('./svg');
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
             platformName: 'Photon 2',
-            // height="610" width="270"
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon2.svg'),
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/photon-2-pinout.svg'),
             // scale to make height 500px width 221
-            deviceImageTransform: 'translate(375,0) scale(0.8196)',
+            deviceImageTransform: 'translate(375,0) scale(3.42)',
             width: 1000,
             height: 510,
             background: 'white',
@@ -1372,7 +1371,7 @@ const svg = require('./svg');
             platformName: 'Photon 2',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon2.svg'),
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/' + generateOptions.outputFile),
-            deviceImageTransform: 'translate(375,0) scale(0.8196)',
+            deviceImageTransform: 'translate(375,0) scale(3.42)',
             width: 1000,
             height: 510,
             background: 'white',

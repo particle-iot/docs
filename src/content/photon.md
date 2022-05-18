@@ -12,7 +12,7 @@ The Photon is a $19 tiny Wi-Fi IoT device for creating connected projects and pr
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR PHOTON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Photon</a>
 </div>
 
 
@@ -24,8 +24,8 @@ The Photon is a $19 tiny Wi-Fi IoT device for creating connected projects and pr
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/photon/tree/master/eagle)
-- [Datasheet](/datasheets/wi-fi/photon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/wi-fi/photon-datasheet/)
+- [Certification](/hardware/certification/certification/)
 {{box op="end"}}
 
 ## Hardware specifications

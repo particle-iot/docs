@@ -14,7 +14,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ARGON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Argon</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -27,8 +27,8 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/argon)
-- [Datasheet](/datasheets/wi-fi/argon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
+- [Certification](/hardware/certification/certification/)
   {{box op="end"}}
 
 ## Hardware specifications:

@@ -9,7 +9,7 @@ description: Command line interface for managing your devices for Windows, Mac O
 
 # CLI Command Reference
 
-For information on how to install the Particle CLI, see the [CLI guide](/tutorials/developer-tools/cli/).
+For information on how to install the Particle CLI, see the [CLI guide](/getting-started/developer-tools/cli/).
 
 
 ## particle setup
@@ -244,7 +244,7 @@ $ particle cloud flash 0123456789abcdef01234567 --product 12345
 
 ### Compiling remotely and flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
@@ -486,7 +486,7 @@ Remember that it's necessary to publish every new version after uploading it bef
 
 Create a webhook that will trigger an HTTP request when a Particle event is published to the cloud. You can pass in an `eventName`, `url`, and `deviceID`
 as arguments to the CLI command. Optionally, you can create your own custom JSON file that includes webhook params. For a full list of available
-webhook parameters, see the [REST API documentation](/reference/device-cloud/api/#create-a-webhook). This command is only available for user webhooks.
+webhook parameters, see the [REST API documentation](/reference/cloud-apis/api/#create-a-webhook). This command is only available for user webhooks.
 
 ```sh
 $ particle webhook create temperature https://mysite.com
@@ -797,7 +797,7 @@ The version numbers in the output can be mapped to common version numbers using 
 
 Various commands to interact with a device connected through USB.
 
-_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/getting-started/developer-tools/cli/#using-windows) for details._
 
 The Particle USB commands are only available in Device OS 0.9.0 (Gen 3, including Argon and Boron), and 1.0.0 (Gen 2, including Photon, P1, Electron, and E Series). These commands are not available on the Gen 1 (Spark Core).
 
@@ -914,7 +914,7 @@ $ particle update
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
-Connect your device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
+Connect your device in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
 
 ```sh
 # helps repair key issues on a device
@@ -947,7 +947,7 @@ New Key Created!
 
 ### particle keys load
 
-Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
+Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
 ```sh
 # loads a key to your device via USB
@@ -961,7 +961,7 @@ Saved!
 
 ### particle keys save
 
-Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
+Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
 ```sh
 # creates a backup of the private key from your device to a file

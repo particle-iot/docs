@@ -13,7 +13,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">Set up your Boron</a>
 </div>
 
 ### The Boron Kit comes with the following things:
@@ -49,14 +49,14 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Boron</a>
 <br />
 </div>
 
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Boron, skip to Step #2.<br /><br />
-2.) We recommend setting up the Boron as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+2.) We recommend setting up the Boron as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 {{box op="end"}}
 
@@ -73,7 +73,7 @@ To program your Boron, open a new browser tab and go to the <a target="_blank" h
 
 The Web IDE is one of the ways you can write, compile, and deploy code to your Particle devices.
 
-If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](/tutorials/developer-tools/workbench/), a full toolchain integration with Microsoft Visual Studio Code.
+If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](/getting-started/developer-tools/workbench/), a full toolchain integration with Microsoft Visual Studio Code.
 {{box op="end"}}
 
 ---
