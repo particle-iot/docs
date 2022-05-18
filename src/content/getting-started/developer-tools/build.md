@@ -186,7 +186,7 @@ Unclaiming a cellular device removes it from your account, but does not stop bil
 Using Libraries
 ---
 
-![Include the library](/assets/images/libraries/libraries.png)
+![Include the library](/assets/images/ide-libraries.png)
 
 Firmware libraries are an important part of how you connect your Photon or Electron to sensors and actuators. They make it easy to reuse code across multiple Particle projects, or to leverage code written by other people in the Particle community. As an example, firmware libraries make it easy to get data out of your DS18B20 temperature sensor without writing any of the code yourself.
 
