@@ -19,15 +19,11 @@ Flash Apps with the Particle Web IDE
 Logging In
 ---
 
-![Particle Web IDE](/assets/images/ide-new-account.png)
-
 When you're ready to reprogram your device, head over to our IDE:
 
 [Particle Web IDE >](https://build.particle.io)
 
 Creating an account is a simple one-step process.  When presented with the login screen, click the "create account" text and fill out the form including your email address (careful!) and desired account password. That's it!
-
-![Particle Web IDE](/assets/images/ide-login.png)
 
 If you haven't logged into the Particle Web IDE before, click the "create account" text beneath the Log In button, and you'll be presented with a signup for existing users.  
 
@@ -186,7 +182,7 @@ Unclaiming a cellular device removes it from your account, but does not stop bil
 Using Libraries
 ---
 
-![Include the library](/assets/images/libraries/libraries.png)
+![Include the library](/assets/images/ide-libraries.png)
 
 Firmware libraries are an important part of how you connect your Photon or Electron to sensors and actuators. They make it easy to reuse code across multiple Particle projects, or to leverage code written by other people in the Particle community. As an example, firmware libraries make it easy to get data out of your DS18B20 temperature sensor without writing any of the code yourself.
 
