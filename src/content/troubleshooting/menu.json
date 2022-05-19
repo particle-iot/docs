@@ -18,7 +18,7 @@
         {
           "title": "Device restore",
           "detail": "Restore your device firmware to a known good state",
-          "href": "/troubleshooting/device-restore/device-restore-usb/"
+          "href": "/tools/device-restore/device-restore-usb/"
         }
       ]
     },  
@@ -57,42 +57,12 @@
     },
     [
       {
-        "dir": "device-restore-usb",
-        "href": "/troubleshooting/device-restore/device-restore-usb/"
+        "title": "Device Restore USB",
+        "href": "/tools/device-restore/device-restore-usb/"
       },
       {
-        "dir": "device-restore-jtag",
-        "href": "/troubleshooting/device-restore/device-restore-jtag/"
-      }
-    ],
-    {
-      "dir": "developer-tools",
-      "isSection": true
-    },
-    [
-      {
-        "dir": "lookup",
-        "href": "/troubleshooting/developer-tools/lookup/"
-      },
-      {
-        "dir": "device-inspect",
-        "href": "/troubleshooting/developer-tools/device-inspect/"
-      },
-      {
-        "dir": "usb-serial",
-        "href": "/troubleshooting/developer-tools/usb-serial/"
-      },
-      {
-        "dir": "ble-serial",
-        "href": "/troubleshooting/developer-tools/ble-serial/"
-      },
-      {
-        "dir": "web-ide-exporter",
-        "href": "/troubleshooting/developer-tools/web-ide-exporter/"
-      },
-      {
-        "dir": "hex-generator",
-        "href": "/troubleshooting/developer-tools/hex-generator/"
+        "title": "Device Restore JTAG",
+        "href": "/tools/device-restore/device-restore-jtag/"
       }
     ],
     {
@@ -108,20 +78,6 @@
       {
         "title": "USB serial debugging",
         "href": "/firmware/best-practices/usb-serial"
-      }
-    ],
-    {
-      "dir": "cloud-tools",
-      "isSection": true
-    },
-    [
-      {
-        "dir": "list-devices",
-        "href": "/troubleshooting/cloud-tools/list-devices/"
-      },
-      {
-        "dir": "integration-copy",
-        "href": "/troubleshooting/cloud-tools/integration-copy/"
       }
     ],
     {

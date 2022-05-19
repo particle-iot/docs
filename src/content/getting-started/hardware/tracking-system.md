@@ -80,7 +80,7 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 ![Docs Menu](/assets/images/tracker/docs-menu.png)
 
-Most of the documentation can be found in the [Tutorials](/hardware/tracking-system/), [Reference](/firmware/tracker-edge/tracker-edge-api-reference/), and [Datasheets](/reference/datasheets/tracker/tracker-som-datasheet/) sections.
+Most of the documentation can be found in [Getting started](/getting-started/hardware/tracking-system/), [Reference](/firmware/tracker-edge/tracker-edge-api-reference/), and [Datasheets](/reference/datasheets/tracker/tracker-som-datasheet/) sections.
 
 ### Tutorials
 

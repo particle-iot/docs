@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "dir": "tools",
+      "title": "Tools",
+      "href": "/tools/tools/",
+      "tiles": [
+        {
+          "title": "Look up",
+          "detail": "Find devices and SIMs",
+          "href": "/tools/developer-tools/lookup/"
+        },
+        {
+          "title": "List devices",
+          "detail": "Get lists of devices and SIMs in your products",
+          "href": "/tools/cloud-tools/list-devices/"
+        },
+        {
+          "title": "Device restore",
+          "detail": "Restore your device firmware to a known good state",
+          "href": "/tools/device-restore/device-restore-usb/"
+        }
+      ]
+    }, 
+    {
+      "dir": "developer-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "lookup",
+        "href": "/tools/developer-tools/lookup/"
+      },
+      {
+        "dir": "device-inspect",
+        "href": "/tools/developer-tools/device-inspect/"
+      },
+      {
+        "dir": "usb-serial",
+        "href": "/tools/developer-tools/usb-serial/"
+      },
+      {
+        "dir": "ble-serial",
+        "href": "/tools/developer-tools/ble-serial/"
+      },
+      {
+        "dir": "web-ide-exporter",
+        "href": "/tools/developer-tools/web-ide-exporter/"
+      },
+      {
+        "dir": "hex-generator",
+        "href": "/tools/developer-tools/hex-generator/"
+      }
+    ],
+    {
+      "dir": "cloud-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "list-devices",
+        "href": "/tools/cloud-tools/list-devices/"
+      },
+      {
+        "dir": "integration-copy",
+        "href": "/tools/cloud-tools/integration-copy/"
+      }
+    ],
+    {
+      "dir": "device-restore",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "device-restore-usb",
+        "href": "/tools/device-restore/device-restore-usb/"
+      },
+      {
+        "dir": "device-restore-jtag",
+        "href": "/tools/device-restore/device-restore-jtag/"
+      }
+    ]
+  ]
+}

@@ -189,7 +189,7 @@ The local compiler may be necessary for very large projects, but otherwise you c
 
 The Particle Web IDE can be used to create product firmware, but it's recommended that you use Particle Workbench. It's difficult to share code between multiple users in the Web IDE, and there is no version control.
 
-If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/troubleshooting/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 ### Particle CLI
 
@@ -322,7 +322,7 @@ Also all team members can access product integrations with their own login. They
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
-To copy or move a device owner integration into a product, you can use the [integration copy tool](/troubleshooting/cloud-tools/integration-copy/).
+To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/cloud-tools/integration-copy/).
 
 ### Server Sent Events (SSE)
 

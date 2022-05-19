@@ -11,7 +11,7 @@ description: Tips for writing Particle device software
 
 ## Getting started
 
-- If you are using the [Tracker One](/hardware/tracking-system/) you may be able to use your device with no programming at all, as many features can be managed from the console.
+- If you are using the [Tracker One](/getting-started/hardware/tracking-system/) you may be able to use your device with no programming at all, as many features can be managed from the console.
 
 - Install [Particle Workbench](/getting-started/developer-tools/workbench/). This is the preferred development environment for Particle device programming.
 
@@ -34,7 +34,7 @@ Devices are intended to boot quickly, often within a second or two. On some devi
 
 Tracker One and Tracker SoM devices typically include the [Tracker Edge](/firmware/tracker-edge/tracker-edge-firmware/) user firmware reference application which supports the additional peripherals on this device. You can expand this to include your own functionality.
 
-When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (SoftDevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/troubleshooting/device-restore/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
+When you flash User application and Device OS in Particle Workbench, the bootloader and any other dependencies (SoftDevice, for example) are not flashed. You may need to upgrade these components OTA after flashing. A better option is to use [Device Restore over USB](/tools/device-restore/device-restore-usb/) to program the version you want first, to make sure all dependencies will be met.
 
 ---
 
