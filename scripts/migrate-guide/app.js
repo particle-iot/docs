@@ -44,7 +44,8 @@ let options = {
     getSections: false,
     getCategories: false,
     getArticles: false,
-    getAttachments: true,
+    getAttachmentMeta: false,
+    getAttachmentData: false,
 };
 
 const nhm = new NodeHtmlMarkdown(
@@ -111,6 +112,11 @@ async function run() {
         if (!fs.existsSync(jsonDir)) {
             fs.mkdirSync(jsonDir);
         }
+        const attachmentsDir = path.join('data', 'attachments');
+        if (!fs.existsSync(attachmentsDir)) {
+            fs.mkdirSync(attachmentsDir);
+        }
+
         const outputDir = path.join('data', 'output');
         if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir);
@@ -137,17 +143,20 @@ async function run() {
         }
 
         const forEachSection = async function(cb) {
-            let param = {};
 
             for(const category of data.categories) {
                 // console.log('category ' + category.name + ' ' + convertName(category.name));
-                param.category = category;
-                param.catDirName = convertName(category.name);
-                param.catDirPath = path.join(jsonDir, param.catDirName);
+                const catDirName = convertName(category.name);
+                const catDirPath = path.join(jsonDir, catDirName);
                 for(const section of data.sections) {
                     if (section.category_id != category.id) {
                         continue;
                     }
+                    let param = {
+                        category,
+                        catDirName,
+                        catDirPath,
+                    };
                     param.section = section;
 
                     param.sectionDirName = convertName(section.name);
@@ -158,6 +167,25 @@ async function run() {
             }
         };
 
+        const forEachArticle = async function(cb) {
+            forEachSection(async function(param) {
+                const articles = JSON.parse(fs.readFileSync(path.join(param.sectionDirPath, 'articles.json'), 'utf8'));
+                // console.log('articles', articles);
+
+                for(const article of articles) {
+                    param.article = article;
+
+                    const savePath = path.join(param.sectionDirPath, article.id + '.attachments.json');
+                    if (fs.existsSync(savePath)) {
+                        param.attachments = JSON.parse(fs.readFileSync(savePath, 'utf8'));
+                    }
+
+                    cb(param);
+                }
+
+            });
+        }
+
         if (options.getArticles) {
             forEachSection(async function(param) {
                 res = await axiosInstance.get('/api/v2/help_center/sections/' + param.section.id + '/articles');
@@ -165,7 +193,7 @@ async function run() {
             });            
         }
 
-        if (options.getAttachments) {
+        if (options.getAttachmentMeta) {
             forEachSection(async function(param) {
                 const articles = JSON.parse(fs.readFileSync(path.join(param.sectionDirPath, 'articles.json'), 'utf8'));
                 // console.log('articles', articles);
@@ -182,8 +210,34 @@ async function run() {
 
 
             });
+        }
 
+        if (options.getAttachmentData) {
+            forEachArticle(async function(param) {
+                if (!param.attachments) {
+                    return;
+                }
             
+                for(const attachment of param.attachments) {
+                    // res = await axios.get(attachment.content_url);
+
+                    console.log('attachment', attachment);
+
+                    res = await axios.get(attachment.content_url, {
+                        responseType: 'arraybuffer'
+                    });
+                    
+                    const savePath = path.join(attachmentsDir, attachment.relative_path.replace('/hc/article_attachments/', ''));
+
+                    const saveDir = path.dirname(savePath);
+
+                    if (!fs.existsSync(saveDir)) {
+                        fs.mkdirSync(saveDir);
+                    }
+
+                    fs.writeFileSync(savePath, res.data);
+                }
+            });
         }
 
         //convertArticle(data.articlesInSection[0]);
