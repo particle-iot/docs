@@ -489,7 +489,7 @@ Flash this code to a Gen 3 device:
 
 ### Heart rate central
 
-This example reads a BLE heart rate sensor (chest band). There are many of these, but I tested with [this one from Amazon](https://www.amazon.com/Wireless-Monitor-Fitness-Tracker-Bluetooth/dp/B07MC8FRLG/ref=sr_1_2), which cost around US$44.
+This example reads a BLE heart rate sensor (chest band). The model I tested with is no longer available, however it's similar to [this one from Amazon](https://www.amazon.com/CooSpo-H6-Monitor-Bluetooth4-0-Peloton/dp/B07BS6B4PD/ref=sr_1_4), which typically sells for US$30 to $50.
 
 I also used and Adafruit FeatherWing OLED Display 128x32. You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
 
