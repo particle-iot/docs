@@ -653,8 +653,8 @@ async function dfuDeviceRestore(usbDevice, options) {
                 }
                 else
                 if (partName == 'tinker' || partName == 'tracker-edge') {
-                    if (dfuseDevice.startAddress == 0xb4000 && options.userFirmwareBinary.byteLength < (129 * 1024)) {
-                        // Gen 3 256K binary. Erase the 128K binary slot because the new binary is < 128K
+                    if (dfuseDevice.startAddress == 0xb4000) {
+                        // Gen 3 256K binary. Erase the 128K binary slot in case the new binary is < 128K
                         // the 128K binary will still be there and have precedence, ignoring the new binary.
                         const savedStart = dfuseDevice.startAddress;
     
