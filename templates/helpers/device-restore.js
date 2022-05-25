@@ -29,9 +29,22 @@ module.exports = function(context) {
 
     html += '<table id="' + tableId + '"><thead></thead><tbody>';
 
+    const platformFilter = function(platformObj) {
+        if (platformObj.id == 32) { // P2
+            if (mode == 'flash') {
+                return true; // Web JTAG does not currently work with the P2
+            }
+        }
+        return false; // Do not filter (include platform)
+    }
+    
     // console.log('versionNames', versionNames);
     html += '<tr><th>&nbsp;</th>';
     info.platforms.forEach(function(platformObj) {
+        if (platformFilter(platformObj)) {
+            return;
+        }
+
         html += '<th>' + platformObj.title + '</th>';
     });
     html += '<tr>';
@@ -42,6 +55,10 @@ module.exports = function(context) {
 
         row += '<tr><td>' + version + '</td>';
         info.platforms.forEach(function(platformObj) {
+            if (platformFilter(platformObj)) {
+                return;
+            }
+    
             row += '<td>';
 
             if (mode == 'zip') {
