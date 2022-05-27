@@ -5,13 +5,7 @@ columns: two
 description: Datasheet for the Particle P2, Wi-Fi mass-production module
 ---
 
-# P2 Datasheet <sup>(pre)</sup>
-
-**Pre-release version 2022-05-07**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an pre-release datasheet and the contents are subject to change.
-{{box op="end"}}
+# P2 Datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/p2-datasheet.pdf"}}
@@ -47,23 +41,21 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 
 {{imageOverlay src="/assets/images/p2-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
-### Power
-
-[To be provided at a later date.]
+{{!-- ### Power --}}
 
 ### RF
 
 - The P2 includes an on-module PCB trace antenna and a U.FL connector that allows the user to connect an external antenna.
 - The antenna is selected in software. The default is the PCB trace antenna.
 - The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance when using the trace antenna.
-
+- Device operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
 ### FCC Approved Antennas
 
 | Antenna Type | Manufacturer | MFG. Part # | Gain |
 |-|-|-|-|
-| Dipole antenna | LumenRadio | 104-1001 | 2.15dBi |
-| PCB Antenna | Included | - | - |
+| External antenna | Wistron NeWeb Corporation | 95XEAK15.G53| 1.55dBi |
+| Internal PCB Antenna | Included | - | 2.41dBi |
 
 ---
 
@@ -87,9 +79,7 @@ Note that SWD is shared with GPIO pins D6 and D7, and by default SWD is only ena
 
 ## Memory Map
 
-### Flash Layout Overview
-
-[To be provided at a later date.]
+{{!-- ### Flash Layout Overview --}}
 
 ### DCT Layout
 
@@ -141,11 +131,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ```
 
-### Memory Map
-
-[To be provided at a later date.]
-
----
+{{!-- ### Memory Map --}}
 
 ## Pin and button definition
 
@@ -470,9 +456,7 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 
 ## Technical specification
 
-### Absolute maximum ratings
-
-[To be provided at a later date.]
+{{!-- ### Absolute maximum ratings --}}
 
 ### Recommended operating conditions
 
@@ -481,23 +465,15 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | Operating Temperature | T<sub>op</sub> | -20 |  | +70 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-[Additional information to be provided at a later date.]
+
+{{!-- ### Wi-Fi Specifications --}}
 
 
-### Wi-Fi Specifications
-
-[To be provided at a later date.]
-
-
-### I/O Characteristics
-
-[To be provided at a later date.]
+{{!-- ### I/O Characteristics --}}
 
 ## Mechanical specifications
 
-### Overall dimensions
-
-[To be provided at a later date.]
+{{!-- ### Overall dimensions --}}
 
 ### Module Dimensions
 
@@ -515,9 +491,7 @@ The P2 can be mounted directly on a carrier PCB with following PCB land pattern:
 A P1/P2 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern).
 
 
-## Reference Design Schematic
-
-[To be provided at a later date.]
+{{!-- ## Reference Design Schematic --}}
 
 ## Recommended solder reflow profile
 
@@ -534,8 +508,6 @@ A P1/P2 part for EAGLE can be found in the [Particle EAGLE library](https://gith
 | D-E. | 245~220°C, Cooling rate: < 1°C/s |
 
 ## Ordering information
-
-[To be provided at a later date.]
 
 P2 modules are available from [store.particle.io](https://store.particle.io/) as cut tape in quantities of 10 each.
 
@@ -559,9 +531,7 @@ P2 modules are available from [store.particle.io](https://store.particle.io/) as
 
 ## Product handling
 
-### Tape and Reel Info
-
-[To be provided at a later date.]
+{{!-- ### Tape and Reel Info --}}
 
 ### Moisture sensitivity levels
 
@@ -628,7 +598,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: [To be provided at a later date]
+> Contains FCC ID: 2AEMI-P2
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -654,7 +624,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: [To be provided at a later date]
+> Contains transmitter module IC: 20127-P2
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -673,10 +643,11 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Added Serial3 |
 |     | 2022-05-07 | RK | Temperature range is -20°C to +70°C |
+|     | 2022-05-27 | RK | Updated antenna information |
 
 ### D Pin Change (2022-02-25)
 
-The names of pins D9 - D22 have been changed do D8 - D21, eliminating the odd situation where there was previously no pin D8. This prevented being able to use a loop to initialize pins. This should not affect the hardware in any way, but software that used the D pin names instead of their more common names like TX (was D9, now D8) would need to be updated.
+The names of pins D9 - D22 have been changed to D8 - D21, eliminating the odd situation where there was previously no pin D8. This prevented being able to use a loop to initialize pins. This should not affect the hardware in any way, but software that used the D pin names instead of their more common names like TX (was D9, now D8) would need to be updated.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 3b7b8712-9617-11ec-b909-0242ac120002 --}}
 
