@@ -77,7 +77,7 @@ var gitBranch;
 
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
-var noScripts = false;
+var noScripts = false; 
 
 exports.metalsmith = function () {
   function removeEmptyTokens(token) {
