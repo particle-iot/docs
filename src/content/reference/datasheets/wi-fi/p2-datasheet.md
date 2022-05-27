@@ -643,7 +643,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Added Serial3 |
 |     | 2022-05-07 | RK | Temperature range is -20°C to +70°C |
-|     | 2022-05-27 | RK | Updated antenna information |
+|     | 2022-05-27 | RK | Updated antenna information, rendering |
 
 ### D Pin Change (2022-02-25)
 
