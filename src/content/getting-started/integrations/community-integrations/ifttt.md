@@ -12,12 +12,16 @@ The [IFTTT](https://ifttt.com/) (If This Then That) to Particle service is plann
 
 ## New event published
 
-If you are using an IFTTT Applet triggered by a Particle event, you can replace it as follows:
+If you are using an IFTTT Applet triggered by a Particle event, you can replace it as follows or use the same steps to setup a new Applet:
 
-### Create IFTTT applet
+{{youtube "https://www.youtube.com/embed/woe6z8OqZmQ"}} 
 
-- Create a new applet in IFTTT
-- Choose the **Webhooks** service:
+### Select your applet
+
+- Open your applet and delete the Particle integration in the IF THIS setion
+- OR Create a new applet in IFTTT
+- Select "Add" in the IF THIS
+- Search the integrations for the **Webhooks** service:
 
 ![](/assets/images/ifttt/Screen_Shot_2022-04-13_at_5.46.34_AM.png)
 
