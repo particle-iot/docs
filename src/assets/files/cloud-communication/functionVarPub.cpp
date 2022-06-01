@@ -7,7 +7,10 @@ SYSTEM_THREAD(ENABLED);
 // This allows for USB serial debug logs
 SerialLogHandler logHandler;
 
+
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 
 // Forward declarations (functions used before they're implemented)

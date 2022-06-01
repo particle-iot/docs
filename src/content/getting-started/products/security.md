@@ -32,6 +32,15 @@ Before making this decision, it is important to get a grasp of the role of the P
 
 A Product ID is used to group devices together and treat them as a cohesive unit. A group of devices that all share a Product ID are able to do things like download product-specific firmware, publish events that will appear in a product's event stream, and trigger product webhooks.
 
+Each product can only have a single type of device, however some devices are grouped together:
+
+- The B Series SoM B404X/B404/B402 is a separate product from the B524/B523
+- All Tracker Ones ONE404/ONE402, ONE524/ONE523, Tracker SoM T404/T402, and T524/T523 can share a single product
+- The E Series E404/E402/E201 and Electron models can share a single product
+- Except for the E Series E404X, which must be in its own product
+- The P2 and Photon 2 must be in separate products
+- The P1 and Photon must be in separate products
+
 When you created your product, a unique numeric ID was assigned to it. This ID
 will be used countless times during the development and manufacturing process for your product. When a device is [added to a product](/getting-started/console/console/#adding-devices), the _Product ID_ of the device changes from a development kit to a member of a product.
 
@@ -44,6 +53,8 @@ ID is marked with a key icon</p>
 You should store your Product ID in a safe place where you won't forget it. It
 may be helpful to memorize your Product ID if possible.
 
+{{collapse op="start" label="Information for Device OS 3.x and earlier"}}
+
 ### Definitions of Product ID
 
 There are **2** places where a Product ID is defined for a given device.
@@ -51,7 +62,8 @@ There are **2** places where a Product ID is defined for a given device.
 - <i class="ion-cloud"></i> **Cloud**: The Particle cloud keeps a record
   of devices and their associated Product IDs
 - <i class="im-devices-icon"></i> **Device**: The device itself will
-  report a Product ID when coming online based on the firmware running on the device
+  report a Product ID when coming online based on the firmware running on the device,
+  but only with Device OS 3.x and earlier.
 
 Your goal as a product creator is to **ensure that both of these Product
 ID definitions match** for the devices that should behave as your product. When both of these IDs
@@ -90,7 +102,7 @@ ID reported by the device in firmware.
 
 There is the possibility that the Product ID saved in the Particle cloud for a
 given device does not match the self-identified Product ID reported by the
-device in firmware.
+device in firmware. This is only applicable for Device OS 3.x and earlier.
 
 These mismatches can occur from a multitude of reasons, including:
 - Your team forgot to add the device to the product before directly flashing it with product firmware either during development or during manufacturing
@@ -107,6 +119,8 @@ binary.
 
 ## Quarantining Devices
 
+With Device OS 4.0 and later, quarantine is not supported. You must pre-add all devices to your product, which is more secure than quarantine mode.
+ 
 This is the most secure and recommended option for handling unrecognized
 devices. By default, unrecognized devices will be quarantined unless you
 override the setting in your product's config page. This is done to protect
@@ -131,6 +145,8 @@ Note that each quarantined device has two potential actions you can take:
 
 ### Approving a Quarantined Device
 
+With Device OS 4.0 and later, quarantine is not supported. You must pre-add all devices to your product.
+
 Approving a quarantined device effectively adds it to your product and gives it
 full [product privileges](#product-privileges). You should approve a quarantined
 device if you recognize it as belonging to a member of your team or a customer
@@ -140,6 +156,8 @@ It is important to note that if your product has a released firmware version for
 this product, the device may immediately update if necessary.
 
 ### Denying a Quarantined Device
+
+With Device OS 4.0 and later, quarantine is not supported. You must pre-add all devices to your product.
 
 Denying a quarantined device will ensure that the Particle cloud will continue
 blocking it from [product privileges](#product-privileges). You should deny a
@@ -152,6 +170,8 @@ fact want to add the device to your product.
 If you remove a Device ID from your product and it subsequently tries to reconnect using product firmware, it will reappear in the Denied devices list, not the quarantine list.
 
 ## Auto Approving Devices
+
+With Device OS 4.0 and later, auto-approve is not supported. You must pre-add all devices to your product.
 
 The other option for handing unrecognized devices is to automatically approve
 them into your product. This is a *less secure* option, but may be necessary if
@@ -175,4 +195,5 @@ is why we recommend that you use [quarantining](#quarantining-devices) as the
 mechanism for handling unrecognized devices, unless you have a compelling reason to
 use auto-approval.
 
+{{collapse op="end"}}
 

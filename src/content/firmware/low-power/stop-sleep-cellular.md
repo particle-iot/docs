@@ -131,10 +131,11 @@ SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 ```
 
-If you are testing with a developer device you should leave these lines commented out. But if you are testing product firmware updates, you'll need to uncomment these and set your own product ID and version.
+If you are testing with a developer device you should leave these lines commented out. But if you are testing product firmware updates, you'll need to uncomment these and set your own product ID and version. The PRODUCT_ID must only be added prior to Device OS 4.0.0; this example will compile correctly targeting all versions of Device OS because of the `#ifndef`.
 
 ```
 // PRODUCT_ID(8761);
+// #endif
 // PRODUCT_VERSION(4);
 ```
 

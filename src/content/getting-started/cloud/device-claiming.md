@@ -256,16 +256,22 @@ However, since target system version is a minimum, it is never downgraded. Your 
 
 ### Wildcard product firmware
 
-Typically, the Product ID is also embedded in the firmware binary:
+With Device OS 4.0 and later, you must omit the `PRODUCT_ID`. Essentially all devices behave as if the wildcard product ID was used, and you must pre-add all Device IDs to your product prior to their connecting. It is not possible to use quarantine mode or auto-add with Device OS 4.0 and later.
+
+With Device OS 3.x and earlier, the Product ID is also embedded in the firmware binary:
 
 ```
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(1234);
+#endif
 ```
 
-With Device OS 2.0 and later, it is also possible to use a wildcard product ID:
+With Device OS 1.5.x, 2.x, and 3.x, it is also possible to use a wildcard product ID:
 
 ```
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 ```
 
 This is handy if you have multiple products running the same firmware. However, it requires that you add all device IDs to the product ahead of time,
@@ -273,15 +279,17 @@ This is handy if you have multiple products running the same firmware. However, 
 
 ### Adding device IDs to a product in advance
 
-By far the most common, and recommended, way to handle adding devices to products is to add the devices during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of device IDs in the order. You can import the file into the Particle console.
+You should add Device IDs to products during manufacture. When you order devices in tray or reel quantities from the Particle wholesale store, you get a list of device IDs in the order. You can import the file into the Particle console.
 
 You could also do this on a per-device basis as part of your [manufacturing flow](/scaling/manufacturing/manufacturing-cellular/).
 
-This is required if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro.
+This is required when using Device OS 4.0 or later, or if using the [wildcard PRODUCT_ID](#wildcard-product-firmware) macro. Since it is required for later versions, you should plan to switch to pre-adding Device IDs if you have not already done so.
 
 For information about how this affects billing, see [Billing for added devices](/getting-started/products/creating-a-product/#billing-for-added-devices).
 
 ### Quarantine
+
+**Quarantine is only supported for devices running Device OS 3.x and earlier.** It is not supported in Device OS 4.0 and later and you should move to pre-adding your Device IDs instead of using quarantine.
 
 If a device has product firmware flashed to it with an explicit PRODUCT_ID defined, but the Device ID has not been added, it will be put into Quarantine by default.
 
@@ -297,12 +305,12 @@ If a device appears in Denied Devices and you do not want to approve it, make su
 
 #### Auto-approve
 
-Instead of entering quarantine, you can also enable auto-approve so any device with firmware that specifies your product ID will be added to your product automatically. This is not recommended. 
+**Auto-approve is only supported for devices running Device OS 3.x and earlier.** It is not supported in Device OS 4.0 and later and you should move to pre-adding your Device IDs instead of using auto-approve or quarantine.
 
 ![Quarantine Settings](/assets/images/console/quarantine-settings.png)
 
 - Select a product, then **Settings** (1).
-- Select **Auto-Approve** (2). This is not recommended.
+- Select **Auto-Approve** (2). This is not recommended and not supported in Device OS 4.0 and later.
 
 ## SIM activation
 
@@ -500,7 +508,9 @@ particle serial wifi
 
 ## Setup Done
 
-On Gen 3 devices, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
+On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
+
+**If you are using Device OS 4.0 and later, there is no setup done bit so you must skip this step.**
 
 ### Mobile app - setup done
 

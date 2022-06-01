@@ -77,7 +77,7 @@ It is also possible to use the Particle CLI to manually program the device, whic
 - Flash the SoftDevice (Gen 3 only) using `particle flash --usb`.
 - Program system-parts in numerical order using `particle flash --usb`
 - Program the user firmware using `particle flash --usb`
-- Mark setup done (Gen 3) using `particle usb setup-done`
+- Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`
 
 You can download the necessary files for several common Device OS releases as a zip file for several common Device OS releases here:
 

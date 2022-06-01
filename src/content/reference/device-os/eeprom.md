@@ -44,7 +44,9 @@ If you are testing with a developer device you should leave these lines commente
 ```
 // If you are using a product, uncomment these lines and set the correct product ID and version
 // for your product
+// #ifndef SYSTEM_VERSION_v400ALPHA1
 // PRODUCT_ID(8761);
+// #endif
 // PRODUCT_VERSION(4);
 ```
 

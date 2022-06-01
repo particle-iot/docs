@@ -165,7 +165,9 @@ On the full wake cycle (every 15 minutes), the previously saved temperature valu
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(TRACKER_PRODUCT_ID);
+#endif
 PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {

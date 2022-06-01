@@ -15976,30 +15976,72 @@ On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controllin
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
 {{note op="end"}}
 
-### PRODUCT_ID()
 
-{{api name1="PRODUCT_ID" name2="PRODUCT_VERSION"}}
+### PRODUCT_VERSION()
 
-When preparing software for your product, it is essential to include your product ID and version at the top of the firmware source code.
+{{api name1="PRODUCT_VERSION"}}
+
+When preparing software for your product, you must include product version at the top of the firmware source code. This must also match the version specified when uploading the firmware as product firmware.
 
 ```cpp
 // EXAMPLE
+PRODUCT_VERSION(1); // increment each time you upload to the console
+```
+
+Devices that are marked as development devices do not need a valid `PRODUCT_VERSION`.
+
+With Device OS 4.0 and later, you only need the `PRODUCT_VERSION` and not the `PRODUCT_ID`.  
+
+### PRODUCT_ID()
+
+{{api name1="PRODUCT_ID"}}
+
+#### Device OS 4.0 and later
+
+In Device OS 4.0 and later, the `PRODUCT_ID` macro is no longer used. If you attempt to use it, you will get an error during compilation targeting 4.0.0 and later.
+
+```
+The PRODUCT_ID macro must be removed from your firmware source code. The same compiled firmware binary may be used in multiple products that share the same platform and functionality.
+```
+
+You must also pre-add all Device IDs that will be using your product when using Device OS 4.0 and later. There is no support for quarantine mode or auto-approve modes. The only way to add a device to a product is to do it using the console or cloud API before the device first connects to the cloud.
+
+You still need to include `PRODUCT_VERSION`.
+
+#### Device OS before 3.x and earlier
+
+When preparing software for versions of Device OS before 4.0 it is essential to include your product ID and version at the top of the firmware source code.
+
+```cpp
+// EXAMPLE 3.x and earlier
 PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
 You can find more details about the product ID and how to get yours in the [_Console_ guide.](/getting-started/console/console/#your-product-id)
 
-In Device OS 1.5.3 and later, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
+#### Device OS 1.5.3 to 3.x Wildcard
+
+In Device OS 1.5.3 and later, but before 4.0, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
 
 ```cpp
+// EXAMPLE 1.5.3 to 3.x with wildcard product ID
 PRODUCT_ID(PLATFORM_ID);
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
 This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
 
+The behavior with 4.0 and later is similar to using a wildcard product ID, but you simply omit the `PRODUCT_ID`.
 
+If you want to make your product firmware compile both before and after 4.0, you could use something like:
+
+```cpp
+#ifndef SYSTEM_VERSION_v400ALPHA1
+// Include this only for versions prior to 4.0.0-alpha.1
+PRODUCT_ID(PLATFORM_ID)
+#endif
+```
 
 ## sleep() [ Sleep ]
 
