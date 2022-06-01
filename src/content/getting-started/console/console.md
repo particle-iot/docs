@@ -410,18 +410,54 @@ develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
 
-Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/particle-iot/device-os/blob/develop/docs/build.md#product-id).
 
-Add these two "macros" near the top of your main application `.ino`
+#### Preparing firmware (4.x and later)
+
+Unlike compiling a binary for a single device, it is critical that the **firmware version** is included in the compiled binary when targeting Device OS 4.0 or later. 
+
+Add the PRODUCT_VERSION macro to your main application `.ino`
+file, below `#include "Particle.h"` if it includes that line. For more information, see [PRODUCT_VERSION](cards/firmware/macros/product_version/).
+
+The firmware version must be an integer that increments
+each time a new binary is uploaded to the Console. This allows the
+Particle Device Cloud to determine which devices should be running which firmware versions.
+
+Here is an example of Blinky with the correct product version details:
+
+```cpp
+#include "Particle.h"
+
+PRODUCT_VERSION(1);
+
+int led = D0;  // You'll need to wire an LED to this one to see it blink.
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(led, HIGH);   // Turn ON the LED pins
+  delay(300);               // Wait for 1000mS = 1 second
+  digitalWrite(led, LOW);    // Turn OFF the LED pins
+  delay(300);               // Wait for 1 second in off mode
+}
+```
+
+
+#### Preparing firmware (3.x and earlier)
+
+Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. For more information, see [PRODUCT_VERSION](cards/firmware/macros/product_version/).
+
+Add these two *macros* near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember
-that your [product ID](#your-product-id) can be found in the navigation
+that your [product ID](/getting-started/console/console/#your-product-id) can be found in the navigation
 of your Console. The firmware version must be an integer that increments
 each time a new binary is uploaded to the Console. This allows the
 Particle Device Cloud to determine which devices should be running which firmwares.
 
 Here is an example of Blinky with the correct product and version details:
 
-```
+```cpp
 PRODUCT_ID(94);
 PRODUCT_VERSION(1);
 
@@ -438,6 +474,7 @@ void loop() {
   delay(300);               // Wait for 1 second in off mode
 }
 ```
+
 
 #### Compiling Binaries
 

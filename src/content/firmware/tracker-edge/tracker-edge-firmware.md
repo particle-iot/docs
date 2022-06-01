@@ -117,7 +117,9 @@ A typical main source file looks like this:
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -168,7 +170,9 @@ SYSTEM_MODE(SEMI_AUTOMATIC);
 Since all Tracker devices must belong to a product, you should set the product ID and version. You can either set the product ID to `PLATFORM_ID` which means use the product that the device has been added to, or you can set the product ID to your actual product ID value. The version is arbitrary, though it should be sequential and can only have value from 1 to 65535.
 
 ```cpp
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 ```
 

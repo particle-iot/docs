@@ -35,7 +35,9 @@ The `Tracker` object is a singleton that you access using `Tracker::instance()`.
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
