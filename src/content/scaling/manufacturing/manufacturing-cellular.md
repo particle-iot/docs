@@ -159,14 +159,17 @@ As stated above, programming is best done using JTAG, if possible.
 
 - Particle offers a Hex Generator Tool, allowing you to easily assemble images for target devices and Device OS versions.
 
-- For Gen 3 devices (Boron, B Series), you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
+- For Gen 3 devices (Boron, B Series) running Device OS 3.x and earlier, you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
 
 ```
+// Only necessary for Device OS 3.0 and earlier. Skip this for 4.0.0-alpha.1 and later.
+#ifndef SYSTEM_VERSION_v400ALPHA1
 uint8_t val = 0;
 if(!dct_read_app_data_copy(DCT_SETUP_DONE_OFFSET, &val, DCT_SETUP_DONE_SIZE) && val != 1){
   val = 1;
   dct_write_app_data(&val, DCT_SETUP_DONE_OFFSET, DCT_SETUP_DONE_SIZE);
 }
+#endif
 ```
 
 It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow. If you skip this step, Gen 3 devices (Boron, B Series SoM, and Tracker SoM) will start in listening mode (blinking dark blue). See [Programming devices](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) for more information.

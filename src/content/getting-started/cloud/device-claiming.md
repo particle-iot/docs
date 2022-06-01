@@ -508,7 +508,9 @@ particle serial wifi
 
 ## Setup Done
 
-On Gen 3 devices, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
+On Gen 3 devices running Device OS 3.x and earlier, the setup done bit determines if setup has been completed. Until the setup done bit is set, the device will boot into listening mode (blinking dark blue), even if it has valid Wi-Fi credentials (Argon) or SIM activation (Boron, B Series SoM, Tracker).
+
+**If you are using Device OS 4.0 and later, there is no setup done bit so you must skip this step.**
 
 ### Mobile app - setup done
 
