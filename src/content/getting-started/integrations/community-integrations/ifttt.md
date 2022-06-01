@@ -176,7 +176,7 @@ https://api.particle.io/v1/devices/1f003fffffffffffffff3033/TestFunction
 Authorization: Bearer 4e130XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX45cc
 ```
 
-- For the **Body** enter something like this. “name” is the name of the Particle event to publish. “arg” is the data you want to send as the function argument. This field is JSON formatted, so you’ll need to escape any special JSON characters in the field.
+- For the **Body** enter something like this. “arg” is the data you want to send as the function argument. This field is JSON formatted, so you’ll need to escape any special JSON characters in the field.
 
 ```
 {"arg":"function args go here"}
