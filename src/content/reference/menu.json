@@ -368,6 +368,36 @@
         "dir": "technical-advisory-notices",
         "title": "Technical advisory notices",
         "href": "/reference/technical-advisory-notices/technical-advisory-notices/"
+      },
+      {
+        "dir": "tan001-sara-r410m-124-day",
+        "title": "TAN001 - SARA-R410M \"124-day\"",
+        "href": "/reference/technical-advisory-notices/tan001-sara-r410m-124-day/"
+      },      
+      {
+        "dir": "tan002-tracker-one-v10-shipping-mode",
+        "title": "TAN002 - Tracker One v1.0 Shipping Mode",
+        "href": "/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/"
+      },
+      {
+        "dir": "tan003-b402-rf-circuit-component",
+        "title": "TAN003 - B402 RF Circuit Component",
+        "href": "/reference/technical-advisory-notices/tan003-b402-rf-circuit-component/"
+      },
+      {
+        "dir": "tan004-power-off-recommendations-for-sara-r410m-equipped-devices",
+        "title": "TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices",
+        "href": "/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/"
+      },
+      {
+        "dir": "tan005-sara-r410-02b-03",
+        "title": "TAN005 - SARA-R410-02B-03",
+        "href": "/reference/technical-advisory-notices/tan005-sara-r410-02b-03/"
+      },
+      {
+        "dir": "tan006-tracker-som-gnss-interface",
+        "title": "TAN006 - Tracker SoM GNSS Interface",
+        "href": "/reference/technical-advisory-notices/tan006-tracker-som-gnss-interface/"
       }
     ],
     {

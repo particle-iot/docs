@@ -38,6 +38,7 @@ var ignoreHosts = [
   'www.fcc.gov', // tends to time out
   'help.github.com', // 403
   'guides.github.com', // 403
+  'maker.ifttt.com', // Error caused by the automatic link generator
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';

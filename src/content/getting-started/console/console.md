@@ -416,7 +416,7 @@ here, but altered slightly to work with a fleet of devices. The first thing you'
 Unlike compiling a binary for a single device, it is critical that the **firmware version** is included in the compiled binary when targeting Device OS 4.0 or later. 
 
 Add the PRODUCT_VERSION macro to your main application `.ino`
-file, below `#include "Particle.h"` if it includes that line. For more information, see [PRODUCT_VERSION](cards/firmware/macros/product_version/).
+file, below `#include "Particle.h"` if it includes that line. For more information, see [PRODUCT_VERSION](/cards/firmware/macros/product_version/).
 
 The firmware version must be an integer that increments
 each time a new binary is uploaded to the Console. This allows the
@@ -446,7 +446,7 @@ void loop() {
 
 #### Preparing firmware (3.x and earlier)
 
-Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. For more information, see [PRODUCT_VERSION](cards/firmware/macros/product_version/).
+Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. For more information, see [PRODUCT_VERSION](/cards/firmware/macros/product_version/).
 
 Add these two *macros* near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember
