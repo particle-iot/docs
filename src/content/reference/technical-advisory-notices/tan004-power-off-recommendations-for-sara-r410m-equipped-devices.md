@@ -14,7 +14,7 @@ Particle has produced the following power-off procedure recommendations for Part
 
 Abrupt (“ungraceful” - unhandled by firmware protocols) power removal from the above modem component may induce memory corruption that permanently disrupts normal function of the modem and prevents it from booting or connecting to the network. This issue primarily affects devices in low-power use cases (allowing their power sources to drain fully) and in use cases that abruptly remove power from the device. _Devices that do not fully deplete their batteries in an unhandled fashion or routinely ungracefully power off the modem have little to no risk of occurrence_. 
 
-The recommendations detailed here are not bound to the same conditions (firmware version, manufacturing timeline) as the issue detailed in [TAN001 - SARA-R410M “124-Day](https://support.particle.io/hc/en-us/articles/360052556854-Errata-SARA-R410M-124-day-)”.
+The recommendations detailed here are not bound to the same conditions (firmware version, manufacturing timeline) as the issue detailed in [TAN001 - SARA-R410M “124-Day](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/)”.
 
 ## Power-off Procedure Recommendations
 
@@ -26,8 +26,10 @@ Device OS branches 2.1.0+ and 3.0.0+ implement safety checks to ensure the grace
 
 These Device OS versions further introduce an API that queries the modem state (`bool Cellular.isOff()`), with which one can introduce application logic to facilitate safe removal from power. An example implementation of this particular API is strongly recommended prior to power removal:
 
+```cpp
 Cellular.off();  
 waitFor(Cellular.isOff, 30000); 
+```
 
 System firmware can be updated on affected devices using a standard OTA firmware update to Device OS [v.2.1.0, v3.0.0 or later](https://github.com/particle-iot/device-os/releases) using the following guidelines:
 
@@ -48,19 +50,25 @@ Using a backup battery or a supercapacitor that allows the device at least 30 se
 
 Particle devices with u-blox memory corruption resulting from ungraceful modem power-off will fail to connect and can exhibit characteristic LED status signals and trace logs.
 
- A Particle E-Series LTE device in this state will blink its LED dark blue and will report:  
+A Particle E-Series LTE device in this state will blink its LED dark blue and will report:  
 
+```
 INFO: SIM/modem not responsive or SIM not inserted/requires a PIN.
+```
 
 when producing trace logs (e.g. from [Cloud Debug](https://github.com/particle-iot/cloud-debug/releases)).
 
   
 A Particle Boron LTE device in this state will blink its LED green and will report:
 
+```
 ERROR: No response from NCP
+```
 
 and/or
 
+```
 modem is not yet responding
+```
 
 _repeatedly (multiple times)_ when producing trace logs (e.g. from [Cloud Debug](https://github.com/particle-iot/cloud-debug/releases)). Please note that blinking green on a Particle Boron is a generic signal inclusive to all cellular connectivity problems - by no means should it be assumed that blinking green Borons have entered this state without the above trace log information.
