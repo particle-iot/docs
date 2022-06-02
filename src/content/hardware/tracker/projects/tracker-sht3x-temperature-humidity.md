@@ -1,5 +1,5 @@
 ---
-title:  racker SHT3x temperature/humidity
+title:  Tracker SHT3x temperature/humidity
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-tracker, zip]
