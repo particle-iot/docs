@@ -31,7 +31,7 @@ process.chdir('../..'); // go back to repo dir
 const paths = {
     build: '_pdf-datasheets-build',
     distrib: 'src/assets/pdfs/datasheets',
-    md: 'src/content/reference/datasheets/**/*.md',
+    md: ['src/content/reference/datasheets/**/*.md', 'src/content/reference/technical-advisory-notices/*.md'],
     assets: 'src/assets/**/*',
     css: 'scripts/pdf-generation/styles/**/*.{css,less}',
     cssEntry: 'scripts/pdf-generation/styles/datasheets.less',
