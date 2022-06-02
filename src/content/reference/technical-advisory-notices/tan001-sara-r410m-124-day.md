@@ -5,7 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
- _U-blox memory issue impacting LTE devices (E-series LTE, Electron LTE, and Boron LTE) manufactured before October 2019._
+ _U-blox memory issue impacting LTE devices (E Series LTE, Electron LTE, and Boron LTE) manufactured before October 2019._
 
 Published: May 17, 2021
 
@@ -64,7 +64,7 @@ _Mitigation Practice_ \- hard resets in user firmware by writing to the modem re
 
 Particle devices with active u-blox memory corruption will fail to connect and can exhibit characteristic LED status signals and trace logs.
 
-A Particle E-Series LTE device in this state will blink its LED dark blue and will report:
+A Particle E Series LTE device in this state will blink its LED dark blue and will report:
 
 INFO: SIM/modem not responsive or SIM not inserted/requires a PIN.
 
