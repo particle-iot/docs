@@ -575,6 +575,8 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
+The FCC, IC, and CE certifications are radio module certifications only. Additional certification will be required for your completed system.
+
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
 
@@ -631,6 +633,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 
+
+
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -644,6 +648,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-04-16 | RK | Added Serial3 |
 |     | 2022-05-07 | RK | Temperature range is -20°C to +70°C |
 |     | 2022-05-27 | RK | Updated antenna information, rendering |
+|     | 2022-06-03 | RK | Added note about module certification |
 
 ### D Pin Change (2022-02-25)
 
