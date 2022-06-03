@@ -4259,7 +4259,7 @@ The Tracker SoM has shared A and D pins. In other words, pin A0 is the same phys
 | TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
 | RX / D9 | 4      | Serial1 RX  | Wire3 SDA   |           | &check; |
 
-On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 {{note op="end"}}
 

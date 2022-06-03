@@ -104,7 +104,7 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/reference/datasheets/tracker/tracker-m8-accessories/).
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 ---
 

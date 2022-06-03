@@ -50,7 +50,7 @@ Using a backup battery or a supercapacitor that allows the device at least 30 se
 
 Particle devices with u-blox memory corruption resulting from ungraceful modem power-off will fail to connect and can exhibit characteristic LED status signals and trace logs.
 
-A Particle E-Series LTE device in this state will blink its LED dark blue and will report:  
+A Particle E Series LTE device in this state will blink its LED dark blue and will report:  
 
 ```
 INFO: SIM/modem not responsive or SIM not inserted/requires a PIN.
