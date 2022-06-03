@@ -32,7 +32,6 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN001 - SARA-R410M "124-day"](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/) Power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
-- [TAN007 - SARA-R410M-02B-03 OTA Upgrade Issue](/reference/technical-advisory-notices/tan007/)
 
 ## Numerical List
 
@@ -42,4 +41,3 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
 - [TAN006 - Tracker SoM GNSS Interface](/reference/technical-advisory-notices/tan006-tracker-som-gnss-interface/)
-- [TAN007 - SARA-R410M-02B-03 OTA Upgrade Issue](/reference/technical-advisory-notices/tan007/)
