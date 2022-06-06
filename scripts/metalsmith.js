@@ -258,6 +258,7 @@ exports.metalsmith = function () {
       config: '../config/device_features.json'
     }))
     .use(sitemap({
+      contentDir: '../src/content',
       config: '../config/sitemap.json',
       output: '../build/sitemap.xml',
       baseUrl: 'https://docs.particle.io/'

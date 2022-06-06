@@ -193,8 +193,8 @@ function generateNavHtml(menuJson) {
                 nav += '<div class="navSectionSpacer"></div>';
                 
             }
-            else {
-                // Single level deep (like quickstart or community)
+            else 
+            if (item.activeItem || !item.hidden) {
                 nav += makeNavMenu2(item, indent);
                 itemsFlat.push(item);
             }

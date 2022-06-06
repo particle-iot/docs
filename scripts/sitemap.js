@@ -8,6 +8,46 @@ module.exports = function plugin(options) {
     // console.log("sitemapConfig", sitemapConfig);
 
 	return function(files, metalsmith, done) {
+        // Find menu.json files
+        const contentDir = metalsmith.path(options.contentDir);
+
+        let hiddenPages = {};
+        
+        for(const dirEnt of fs.readdirSync(contentDir, {withFileTypes:true})) {
+            if (dirEnt.isDirectory()) {
+                const subdirPath = path.join(contentDir, dirEnt.name);
+                const menuJsonPath = path.join(subdirPath, 'menu.json');
+                if (fs.existsSync(menuJsonPath)) {
+                    // console.log('menu.json', menuJsonPath);
+                    const menuJson = JSON.parse(fs.readFileSync(menuJsonPath, 'utf8'));
+                    
+                    const processMenuArray = function(a) {
+                        for(const e of a) {
+                            if (Array.isArray(e)) {
+                                processMenuArray(e);
+                            }
+                            else {
+                                if (e.hidden && !e.searchable) {
+                                    // Example e.href: /reference/technical-advisory-notices/tan007/
+
+                                    // Remove the leading slash
+                                    let page = e.href.substring(1);
+
+                                    // Remove the trailing slash
+                                    page = page.substring(0, page.length - 1);
+
+                                    page += '.md';
+
+                                    hiddenPages[page] = e;
+                                }
+                            }
+                        }
+                    }
+                    processMenuArray(menuJson.items);
+                }
+            }
+        }
+
         // Create the sitemap file
         var sitemap = '';
 
@@ -31,6 +71,10 @@ module.exports = function plugin(options) {
             });
             
             if (ignoreFile) {
+                return;
+            }
+
+            if (hiddenPages[fileName]) {
                 return;
             }
             
