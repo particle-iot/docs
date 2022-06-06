@@ -26,12 +26,17 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN003 - B402 RF Circuit Component](/reference/technical-advisory-notices/tan003-b402-rf-circuit-component/) A manufacturing run of B402 SOMs in week 28 of 2020 mis-populated 10K resistors in place of 15pF capacitors in the RF matching circuit. This can lead to weakened connectivity and component heating.
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
+- [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
 
 ### Electron/E Series
 
 - [TAN001 - SARA-R410M "124-day"](/reference/technical-advisory-notices/tan001-sara-r410m-124-day/) Power-off procedure recommendations for Particle devices running u-blox SARA-R410M-02B modules
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
+
+## Manufacturing Firmware Updates
+
+- [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
 
 ## Numerical List
 
@@ -41,3 +46,4 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
 - [TAN006 - Tracker SoM GNSS Interface](/reference/technical-advisory-notices/tan006-tracker-som-gnss-interface/)
+- [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)

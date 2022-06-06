@@ -404,6 +404,11 @@
         "title": "TAN007 - SARA-R410M-02B-03 OTA Upgrade Issue",
         "href": "/reference/technical-advisory-notices/tan007/",
         "hidden": true
+      },
+      {
+        "dir": "tan008",
+        "title": "TAN008 - B404 Manufacturing Firmware 2.3.0",
+        "href": "/reference/technical-advisory-notices/tan008/"
       }
     ],
     {

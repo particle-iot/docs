@@ -21,7 +21,7 @@
           "href": "https://github.com/particle-iot/node-example-device-cloud-setup/"
         }
       ]
-    },        
+    },
     {
       "dir": "manufacturing",
       "isSection": true
@@ -36,6 +36,11 @@
         "dir": "lcc-module-smt",
         "title": "LCC Module SMT",
         "href": "/scaling/manufacturing/lcc-module-smt/"
+      },
+      {
+        "dir": "manufacturing-firmware-versions",
+        "title": "Manufacturing Firmware Versions",
+        "href": "/scaling/manufacturing/manufacturing-firmware-versions/"
       }
     ],
     {
