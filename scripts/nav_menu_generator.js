@@ -173,6 +173,9 @@ function generateNavHtml(menuJson) {
         for (const item of array) {
             if (item.isCardSection) {
                 nav += '<div class="navContainer">';
+                if (indent) {
+                    nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
+                }
                 nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
                 nav += '</div>'; // navContainer
                 cardSections.push(item);

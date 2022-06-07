@@ -371,7 +371,7 @@ A few of the locations that are interrupt service routines:
 - [attachInterrupt()](/cards/firmware/interrupts/attachinterrupt/) handlers.
 - [SPI onSelect()](/cards/firmware/spi/onselect/) handlers.
 - [system button](/cards/firmware/system-events/system-events-overview/) handlers.
-- [SparkIntervalTimer](/cards/libraries/s/SparkIntervalTimer/) library timer callbacks.
+- [SparkIntervalTimer](/reference/device-os/libraries/s/SparkIntervalTimer/) library timer callbacks.
 
 A few of the locations that are **not** ISRs:
 

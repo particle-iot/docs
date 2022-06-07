@@ -205,7 +205,7 @@ It is possible to use libraries as you have with development devices. In the Web
 
 One thing to beware of: If you have a project.properties file containing a library in the dependencies section of the file, and you also installed a copy using **Particle: Install Library** or `particle library copy` you will end up with both the source code in the lib directory, and a definition in project.properties. When you build locally, the version in the lib directory is used. When you cloud build, the lib directory is uploaded, but the official version in project.properties is used. If you are locally modifying libraries in the lib directory, be sure the remove the library from project.properties to avoid building the wrong version.
 
-You can search popular public libraries from the [library search tool](/cards/libraries/search/).
+You can search popular public libraries from the [library search tool](/reference/device-os/libraries/search/).
 
 ### GitHub (single project)
 

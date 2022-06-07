@@ -268,7 +268,7 @@ Add one of the 3,000+ Device OS libraries with the **Particle: Install Library**
 
 ![Libraries](/assets/images/workbench/libraries.png)
 
-You can search for libraries using the [library search page](/cards/libraries/search/). You can also use **Particle: Find Libraries** in the command palette.
+You can search for libraries using the [library search page](/reference/device-os/libraries/search/). You can also use **Particle: Find Libraries** in the command palette.
 
 For example, I used the **Particle: Install Library** to install the **AssetTrackerRK** library. In the file navigation, you can see the two libraries that it included automatically, AssetTrackerRK and LIS3DH.
 

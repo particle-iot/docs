@@ -63,6 +63,16 @@
         "href": "/reference/device-os/versions/"
       },
       {
+        "dir": "libraries",
+        "isSection": true
+      },
+      [        
+        {
+          "title": "Search",
+          "href": "/reference/device-os/libraries/search/"
+        }
+      ],
+      {
         "dir": "pin-info",
         "title": "Pin Info",
         "href": "/reference/device-os/pin-info/"

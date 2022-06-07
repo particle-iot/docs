@@ -33,13 +33,13 @@ Back on the Zapier page, click the Test and Continue button and you should recei
 
 ## Calling a Particle API endpoint from a Zap
 
-There are many [Particle API endpoints](/reference/device-cloud/api/) that might be useful to call from a Zap, for example, automatically renaming a device when a line in a spreadsheet changes.
+There are many [Particle API endpoints](/reference/cloud-apis/api/) that might be useful to call from a Zap, for example, automatically renaming a device when a line in a spreadsheet changes.
 
-We’ll use the example to [call a function on your device](/reference/device-cloud/api/#call-a-function).
+We’ll use the example to [call a function on your device](/reference/cloud-apis/api/#call-a-function).
 
-To call any of the API endpoints, you’ll need an API access token. Install the [Particle Command Line Interface](/cli/) if you have not already done so, then run `particle login` and `particle token create --never-expires`. It’s important to create a non-expiring token so that your integration doesn’t stop working after a few months.
+To call any of the API endpoints, you’ll need an API access token. Install the [Particle Command Line Interface](/getting-started/developer-tools/cli/) if you have not already done so, then run `particle login` and `particle token create --never-expires`. It’s important to create a non-expiring token so that your integration doesn’t stop working after a few months.
 
-Back in Zapier, start by adding a Webhook action. Pick the Action Event that corresponds to the HTTP method of the API endpoint you want to call. The [call function endpoint](/reference/device-cloud/api/#call-a-function) uses POST.
+Back in Zapier, start by adding a Webhook action. Pick the Action Event that corresponds to the HTTP method of the API endpoint you want to call. The [call function endpoint](/reference/cloud-apis/api/#call-a-function) uses POST.
 
 ![](/assets/images/zapier/Untitled%205.png)
 

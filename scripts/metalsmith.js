@@ -232,6 +232,7 @@ exports.metalsmith = function () {
     .use(libraries({
       sourceDir: '../src/assets/files/libraries',
       searchIndex: '../build/assets/files/librarySearch.json',
+      contentDir: '../src/content',
       redirects: '../config/redirects.json'
     }))
     .use(navMenuGenerator({      

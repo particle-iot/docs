@@ -118,5 +118,5 @@ In theory, cellular devices can get their time from the cellular network. Howeve
 
 ### NTP (Network Time Protocol)
 
-It is also possible to use the NTP protocol to an Internet time server. There is [a community library](/cards/libraries/n/NtpTime/) available. NTP uses the UDP protocol and works over both cellular and Wi-Fi, but there is generally little advantage to using this over Particle cloud time synchronization.
+It is also possible to use the NTP protocol to an Internet time server. There is [a community library](/reference/device-os/libraries/n/NtpTime/) available. NTP uses the UDP protocol and works over both cellular and Wi-Fi, but there is generally little advantage to using this over Particle cloud time synchronization.
 

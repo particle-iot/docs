@@ -6,11 +6,14 @@ const { hide } = require('yargs');
 const lunr = require('lunr');
 const generateNavHtml = require('./nav_menu_generator.js').generateNavHtml;
 
-function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath) {
+function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath, contentDir) {
     // console.log('processing libraries');    
 
-    const thisCardsDir = 'cards/libraries';
+    // destDir does not begin or end with a slash
+    const destDir = 'reference/device-os/libraries';
 
+    const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
+    
     let searchDocuments = [];
 
     const topSpecial = ['Search'];
@@ -92,7 +95,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
     const generateSpecialNavigation = function(menuJson, curSpecial) {
         for(const tempSpecial of topSpecial) {
             let obj = {
-                href: '/cards/libraries/' + topSpecialFilename(tempSpecial) + '/',
+                href: '/' + destDir + '/' + topSpecialFilename(tempSpecial) + '/',
                 title: tempSpecial
             };
 
@@ -110,7 +113,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
             let obj = {
                 title:letterUC,
-                href:'/cards/libraries/' + curLetter + '/',
+                href: '/' + destDir + '/' + curLetter + '/',
                 isCardSection: true
             };
             menuJson.items.push(obj);
@@ -121,7 +124,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
                 for (let tempName of letterLibraries[lib.letter]) {
                     let obj2 = {
                         title: tempName,
-                        href: '/cards/libraries/' + curLetter + '/' + tempName + '/'    
+                        href: '/' + destDir + '/' + curLetter + '/' + tempName + '/'    
                     };
 
                     if (tempName == lib.id) {
@@ -134,6 +137,39 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             }
         }
     };
+
+    const insertIntoMenu = function(menuJson) {
+        let resultMenuJson = {
+            items: []
+        };
+        let useNextArray = false;
+
+        const processArray = function(a, dest) {
+            for(const e of a) {
+                if (Array.isArray(e)) {
+                    if (useNextArray) {
+                        useNextArray = false;
+                        dest.push(menuJson);
+                    }
+                    else {
+                        let a2 = [];
+                        processArray(e, a2);
+                        dest.push(a2);
+                    }
+                }
+                else {
+                    dest.push(e);
+                    if (e.dir == 'libraries') {
+                        useNextArray = true;
+                    }
+                }
+            }
+        }
+        processArray(outerMenuJson.items, resultMenuJson.items);
+
+        return resultMenuJson;
+    };
+
     // Build the content
     for (const name of libraryNames) {
         const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, name + '.json')));
@@ -249,7 +285,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         let newFile = {};
 
         newFile.title = lib.id;
-        newFile.layout = 'cards.hbs';
+        newFile.layout = 'commonTwo.hbs';
         newFile.columns = 'two';
         newFile.collection = [];
         newFile.description = lib.id + ' (' + lib.kind + ')';
@@ -264,10 +300,10 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
         generateLetterNavigation(menuJson, lib);
 
-        newFile.navigation = generateNavHtml(menuJson);
+        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items));
 
         // Save in metalsmith files so it the generated file will be converted to html
-        const newPath = thisCardsDir + '/' + letter + '/' + lib.id + '.md';
+        const newPath = destDir + '/' + letter + '/' + lib.id + '.md';
         files[newPath] = newFile;
 
     }
@@ -285,7 +321,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
 
         newFile.title = curSpecial;
-        newFile.layout = 'cards.hbs';
+        newFile.layout = 'commonTwo.hbs';
         newFile.columns = 'two';
         newFile.collection = [];
         newFile.description = 'Library search';
@@ -298,10 +334,10 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         generateSpecialNavigation(menuJson, curSpecial);
         generateLetterNavigation(menuJson)
 
-        newFile.navigation = generateNavHtml(menuJson);
+        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items));
 
         // Save in metalsmith files so it the generated file will be converted to html
-        const newPath = thisCardsDir + '/' + topSpecialFilename(curSpecial) + '.md';
+        const newPath = destDir + '/' + topSpecialFilename(curSpecial) + '.md';
         files[newPath] = newFile;
     }
 
@@ -313,11 +349,37 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         let redirects = JSON.parse(origFile);
 
         // Top level - will go to the introduction/search page
-        // redirects['/' + thisCardsDir] = allL2[0].url;
+        // redirects['/' + destDir] = allL2[0].url;
+
+        // One time use - generate backward compatible URLs for all current pages
+        /*
+        {
+            const oldBase = '/cards/libraries';
+            const newBase = '/' + destDir;
+
+            for (const name of libraryNames) {
+                const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, name + '.json')));
+        
+                let letter = lib.id.substr(0, 1).toLowerCase();
+                if (letter < 'a' || letter > 'z') {
+                    letter = 'other';
+                }
+                redirects[oldBase + '/' + letter] = newBase + '/' + letter;
+        
+                const oldUrl = oldBase + '/' + letter + '/' + lib.id;
+                const newUrl = newBase + '/' + letter + '/' + lib.id;
+
+                redirects[oldUrl] = newUrl;
+            }        
+            redirects[oldBase + '/search'] = newBase + '/search';
+            redirects[oldBase] = newBase;            
+        }
+        */
+        
 
         // All letters
         for (const letter of letters) {
-            const letterPath = '/' + thisCardsDir + '/' + letter;
+            const letterPath = '/' + destDir + '/' + letter;
             redirects[letterPath] = letterPath + '/' + letterLibraries[letter][0];
         }
 
@@ -377,8 +439,9 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 module.exports = function (options) {
 
     return function (files, metalsmith, done) {
-        createLibraries(options, files, metalsmith.path(options.sourceDir), metalsmith.path(options.redirects), metalsmith.path(options.searchIndex));
+        createLibraries(options, files, metalsmith.path(options.sourceDir), metalsmith.path(options.redirects), metalsmith.path(options.searchIndex), metalsmith.path(options.contentDir));
 
         done();
     };
 };
+

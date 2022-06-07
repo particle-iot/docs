@@ -141,7 +141,7 @@ Because of all of the limitations, in most cases you're better off using `millis
 
 One limitation of both `millis()` and software timers is that you can't schedule anything to occur more than once a millisecond. This should generally be avoided because that's also the interval of the FreeRTOS thread scheduler, which eliminates threads as a possible solution.
 
-On Gen 2 devices (E Series, Electron, P1, Photon), it's possible to use the [SparkIntervalTimer](/cards/libraries/s/SparkIntervalTimer/) 3rd-party library that uses a STM32 hardware timer. This library does not work on Gen 3 devices.
+On Gen 2 devices (E Series, Electron, P1, Photon), it's possible to use the [SparkIntervalTimer](/reference/device-os/libraries/s/SparkIntervalTimer/) 3rd-party library that uses a STM32 hardware timer. This library does not work on Gen 3 devices.
 
 There is no similar library for hardware timers on Gen 3, primarily because there are very few hardware timers, and the interrupt latency on the nRF52 makes it hard to get stable timing of interrupts.
 
@@ -193,7 +193,7 @@ GNSS (GPS) provides a precise time reference at UTC. The Particle Tracker does n
 
 The network time protocol is used to set clocks on Internet connected computers. It can be used on Particle devices, however it requires a 3rd-party library, an external time server to use, and is not significantly more accurate than the Particle cloud time, so there is little reason to go through the effort, unless you have devices that are connected to the Internet but not the Particle cloud.
 
-There are several options if your search for "NTP" in [library search](/cards/libraries/search/).
+There are several options if your search for "NTP" in [library search](/reference/device-os/libraries/search/).
 
 ## Time in local timezone
 
