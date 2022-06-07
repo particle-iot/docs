@@ -219,13 +219,14 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         
 
         newFile.title = section.title;
-        newFile.layout = 'commonTwo.hbs';
+        newFile.layout = 'firmwareReference.hbs';
         newFile.columns = 'two';
         newFile.collection = [];
         newFile.path.dir = destDir + '/' + section.folder;
         newFile.path.base = section.file + '.md';
         newFile.path.name = section.file;
         newFile.path.href = section.url;
+        newFile.includeDefinitions = '[firmware-reference]';
         newFile.noEditButton = true;
 
         newFile.description = 'Reference manual for the C++ API used by user firmware running on Particle IoT devices';

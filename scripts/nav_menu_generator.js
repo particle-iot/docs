@@ -304,7 +304,7 @@ function generateNavHtml(menuJson) {
         navigationInfo.nextGroup = cardSections[1].href;
     }
 
-    nav += '<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>';
+    nav += '\n<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>\n';
     
 
     return nav;
