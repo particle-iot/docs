@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { hide } = require('yargs');
 const lunr = require('lunr');
-const generateNavHtml = require('./nav_menu_generator.js').generateNavHtml;
+const { generateNavHtml, insertIntoMenu } = require('./nav_menu_generator.js');
 
 function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath, contentDir) {
     // console.log('processing libraries');    
@@ -138,37 +138,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         }
     };
 
-    const insertIntoMenu = function(menuJson) {
-        let resultMenuJson = {
-            items: []
-        };
-        let useNextArray = false;
-
-        const processArray = function(a, dest) {
-            for(const e of a) {
-                if (Array.isArray(e)) {
-                    if (useNextArray) {
-                        useNextArray = false;
-                        dest.push(menuJson);
-                    }
-                    else {
-                        let a2 = [];
-                        processArray(e, a2);
-                        dest.push(a2);
-                    }
-                }
-                else {
-                    dest.push(e);
-                    if (e.dir == 'libraries') {
-                        useNextArray = true;
-                    }
-                }
-            }
-        }
-        processArray(outerMenuJson.items, resultMenuJson.items);
-
-        return resultMenuJson;
-    };
 
     // Build the content
     for (const name of libraryNames) {
@@ -300,7 +269,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
         generateLetterNavigation(menuJson, lib);
 
-        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items));
+        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'libraries'));
 
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = destDir + '/' + letter + '/' + lib.id + '.md';
@@ -334,7 +303,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         generateSpecialNavigation(menuJson, curSpecial);
         generateLetterNavigation(menuJson)
 
-        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items));
+        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'libraries'));
 
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = destDir + '/' + topSpecialFilename(curSpecial) + '.md';

@@ -3,15 +3,15 @@
 const fs = require('fs');
 const path = require('path');
 var cloneDeep = require('lodash').cloneDeep;
-const generateNavHtml = require('./nav_menu_generator.js').generateNavHtml;
+const { generateNavHtml, insertIntoMenu } = require('./nav_menu_generator.js');
 
 
-function createRefCards(options, files, fileName, cardMappingPath, redirectsPath) {
+function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath, redirectsPath, contentDir) {
     // console.log('processing refCards for ' + fileName);
     
-    const cardsGroup = path.basename(fileName, '.md');
+    const outerMenuJson = JSON.parse(fs.readFileSync(path.join(contentDir, 'reference', 'menu.json')));
 
-    const thisCardsDir = options.outputDir + '/' + cardsGroup;
+    const destDir = options.outputDir;
 
     const mdFile = files[fileName].contents.toString();
 
@@ -52,7 +52,7 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
                     origTitle: origTitle,
                     l3: [],
                     title: origTitle,
-                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFolder + '/'
+                    url: '/' + options.outputDir + '/' + curFolder + '/' + curFolder + '/'
                 };
                 allL2.push(curL2);
             }
@@ -75,7 +75,7 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
                 folder: curFolder,
                 file: curFile,
                 anchor: origAnchor,
-                url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile + '/'
+                url: '/' + options.outputDir + '/' + curFolder + '/' + curFile + '/'
             };
             
             if (line.startsWith('####')) {
@@ -91,7 +91,7 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
                     content: '',
                     origTitle: origTitle,
                     title: origTitle,
-                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile + '/'
+                    url: '/' + options.outputDir + '/' + curFolder + '/' + curFile + '/'
                 };
 
 
@@ -177,42 +177,16 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
     }
 
     // Generate redirects for all directories to the first page in that group
-    if (redirectsPath) {
-        const origFile = fs.readFileSync(redirectsPath, 'utf8');
+    const origFile = fs.readFileSync(redirectsPath, 'utf8');
 
-        let redirects = JSON.parse(origFile);
-     
-        // Top level
-        redirects['/' + thisCardsDir] = allL2[0].url;
+    let redirects = JSON.parse(origFile);
 
-        // All L2s
-        for(const curL2 of allL2) {
-            redirects['/' + thisCardsDir + '/' + curL2.folder] = curL2.url;
-        }
+    // Top level
+    redirects['/' + destDir] = allL2[0].url;
 
-        // Sort the output file
-        let redirectsArray = [];
-        for(const key in redirects) {
-            redirectsArray.push({key:key,value:redirects[key]});
-        }
-        // Remove the trailing slash on all internal pages
-        for(let ii = 0; ii < redirectsArray.length; ii++) {
-            if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
-                redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
-            }
-        }
-        redirectsArray.sort(function(a, b) {
-            return a.key.localeCompare(b.key);
-        });
-        let redirectsSorted = {};
-        for(const obj of redirectsArray) {
-            redirectsSorted[obj.key] = obj.value;
-        }
-
-        const newFile = JSON.stringify(redirectsSorted, null, 2);
-        if (origFile != newFile) {
-            fs.writeFileSync(redirectsPath, newFile);
-        }
+    // All L2s
+    for(const curL2 of allL2) {
+        redirects['/' + destDir + '/' + curL2.folder] = curL2.url;
     }
 
     // Remove Device OS Versions so we don't need to load the Javascript
@@ -235,7 +209,7 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
                 return replacement;
             }
             else {
-                const url = '/' + options.outputDir + '/' + cardsGroup + '/' + anchors[anchor].folder + '/' + anchors[anchor].file + '/#' + anchors[anchor].anchor;
+                const url = '/' + options.outputDir + '/' + anchors[anchor].folder + '/' + anchors[anchor].file + '/#' + anchors[anchor].anchor;
                 return '](' + url + ')';
             }
         });
@@ -245,10 +219,10 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
         
 
         newFile.title = section.title;
-        newFile.layout = 'cards.hbs';
+        newFile.layout = 'commonTwo.hbs';
         newFile.columns = 'two';
         newFile.collection = [];
-        newFile.path.dir = thisCardsDir + '/' + section.folder;
+        newFile.path.dir = destDir + '/' + section.folder;
         newFile.path.base = section.file + '.md';
         newFile.path.name = section.file;
         newFile.path.href = section.url;
@@ -289,12 +263,51 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
             }
         }
 
-        newFile.navigation = generateNavHtml(menuJson);
+        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'device-os-api'));
 
         // Save in metalsmith files so it the generated file will be converted to html
-        const newPath = thisCardsDir + '/' + section.folder + '/' + section.file + '.md';
+        const newPath = destDir + '/' + section.folder + '/' + section.file + '.md';
         files[newPath] = newFile;
+
+        // Only do this once to map the old cards/firmware URLs.
+        redirects['/cards/firmware/' + section.folder + '/' + section.file] = '/' + newPath.replace('.md', '');
+
     }
+
+    // One time - fix old cards links
+    for(const oldLink in redirects) {
+        // "/cards/firmware/system-events": "/cards/firmware/system-events/system-events"
+        const newLink = redirects[oldLink];
+        if (newLink.startsWith('/cards/firmware')) {
+            redirects[oldLink] = newLink.replace('/cards/firmware', '/' + destDir);
+        }
+    }
+    
+    // Sort the output file
+    let redirectsArray = [];
+    for(const key in redirects) {
+        redirectsArray.push({key:key,value:redirects[key]});
+    }
+    // Remove the trailing slash on all internal pages
+    for(let ii = 0; ii < redirectsArray.length; ii++) {
+        if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
+            redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
+        }
+    }
+
+    redirectsArray.sort(function(a, b) {
+        return a.key.localeCompare(b.key);
+    });
+    let redirectsSorted = {};
+    for(const obj of redirectsArray) {
+        redirectsSorted[obj.key] = obj.value;
+    }
+
+    const newFile = JSON.stringify(redirectsSorted, null, 2);
+    if (origFile != newFile) {
+        fs.writeFileSync(redirectsPath, newFile);
+    }
+
 }
 
 
@@ -303,7 +316,7 @@ module.exports = function(options) {
 	return function(files, metalsmith, done) {
         Object.keys(files).forEach(function(fileName) {
             if (options.sources.includes(fileName)) {
-                createRefCards(options, files, fileName, metalsmith.path(options.cardMapping), metalsmith.path(options.redirects));
+                generateDeviceOsApiMultiPage(options, files, fileName, metalsmith.path(options.cardMapping), metalsmith.path(options.redirects), metalsmith.path(options.contentDir));
             }
         });
 

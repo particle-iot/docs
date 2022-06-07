@@ -43,8 +43,18 @@
     },
     [
       {
-        "dir": "firmware",
+        "dir": "api",
         "title": "Device OS API",
+        "isSection": true,
+        "insertLoc": "device-os-api",
+        "href": "/reference/device-os/api/introduction/introduction/",
+        "noSeparator": true
+      },
+      [        
+      ],
+      {
+        "dir": "firmware",
+        "title": "Device OS API (Single Page)",
         "href": "/reference/device-os/firmware/"
       },
       {
@@ -64,7 +74,10 @@
       },
       {
         "dir": "libraries",
-        "isSection": true
+        "isSection": true,
+        "insertLoc": "libraries",
+        "href": "/reference/device-os/libraries/search/",
+        "noSeparator": true
       },
       [        
         {
