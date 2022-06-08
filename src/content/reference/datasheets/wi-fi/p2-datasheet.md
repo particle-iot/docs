@@ -29,7 +29,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
   - Integrated RF switch
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
-  - ARM Cortex M4F CPU, 200 MHz
+  - ARM Cortex M23 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 2 MB flash file system
 - FCC, IC, and CE certified
@@ -551,6 +551,12 @@ The bootloader allows you to easily update the user application via several diff
 
 You may use the [Particle Web IDE](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/getting-started/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
+## Intended applications
+
+The P2 module is intended to be used for Wi-Fi based Internet-of-Things (IoT) applications such as environment, weather, HVAC, equipment, and security monitoring. 
+
+The P2 is not certified for use as a wearable device.
+
 ## Glossary
 
 <div class="dictionary-wrapper">
@@ -649,6 +655,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-05-07 | RK | Temperature range is -20°C to +70°C |
 |     | 2022-05-27 | RK | Updated antenna information, rendering |
 |     | 2022-06-03 | RK | Added note about module certification |
+|     | 2022-06-08 | RK | Added intended applications section, changed reference to ARM M4F to M33 | 
 
 ### D Pin Change (2022-02-25)
 
