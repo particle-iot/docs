@@ -94,11 +94,20 @@ $(document).ready(function() {
         }
     });
     
+    const scrollableContent = $('div.content-inner');
+
     // Save URL
     const thisUrl = new URL(location.href);
     $('.originalContent').attr('data-href', thisUrl.pathname);
 
-    const loadPage = function(link, toEnd) {
+    if (navigationInfo.prevLink) {
+        $(scrollableContent).data('nextLink', navigationInfo.prevLink);
+    }
+    if (navigationInfo.nextLink) {
+        $(scrollableContent).data('nextLink', navigationInfo.nextLink);
+    }
+
+    const loadPage = function(link, options) {
         // Load previous page
         fetch(link)
             .then(response => response.text())
@@ -134,54 +143,94 @@ $(document).ready(function() {
                     }
                 }
 
-                // console.log('prevLink', newContent);
                 let divElem = document.createElement('div');
                 $(divElem).attr('data-href', link);
                 $(divElem).append(newContent);
 
-                if (toEnd) {
-                    if (navigationInfo.nextLink) {
-                        $(divElem).attr('data-nextLink', navigationInfo.nextLink);                    
-                    }
-                    $('.content').append(divElem);
+                let params = {};
+                params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
+                params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');
+
+
+                if (options.toEnd) {
+                    console.log('updating nextLink to ' + navigationInfo.nextLink);
+                    $(scrollableContent).data('nextLink', navigationInfo.nextLink);
+
+                    $('.content').last().append(divElem);
+
+                    params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
+                    params.height = $(scrollableContent).height();
+
+                    console.log('atEnd', params);
+
+                    // Add more if necessary
+                    if (params.scrollHeightAfter < params.height && navigationInfo.nextLink) {
+                        // Add more
+                        console.log('load nextLink ' + navigationInfo.nextLink, params);
+                        loadPage(navigationInfo.nextLink, options);
+                    }              
+                    else 
+                    if (options.doBefore && navigationInfo.prevLink) {
+                        console.log('load prevLink ' + navigationInfo.prevLink, params);
+                        loadPage(navigationInfo.prevLink, {toEnd: false});
+                    }      
                 }
                 else {
-                    if (navigationInfo.prevLink) {
-                        $(divElem).attr('data-prevLink', navigationInfo.prevLink);                    
-                    }
-                    $('.content').prepend(divElem);
+                    console.log('updating prevLink to ' + navigationInfo.prevLink);
+                    $(scrollableContent).data('prevLink', navigationInfo.prevLink);
+
+                    $('.content').first().prepend(divElem);
+
+                    params.divHeight = Math.floor($(divElem).height());
+                    params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
+
+                    $(scrollableContent).scrollTop(params.scrollTopAfter);
+                    console.log('insert before params', params);
                 }
+
             })
             .catch(function(err) {
                 console.log('err', err);
             });
 
     }
-
-    if (navigationInfo.prevLink) {
-        loadPage(navigationInfo.prevLink, false);
-    }
     if (navigationInfo.nextLink) {
-        loadPage(navigationInfo.nextLink, true);
+        loadPage(navigationInfo.nextLink, {toEnd:true, doBefore:true});
     }
 
-    const scrollableContent = $('div.content-inner');
+
+
+
     $(scrollableContent).on('scroll', function(e) {
         // console.log('scrolled ', e);
         // e.originalEvent
         let params = {};
 
-        params.scrollTop = $(scrollableContent).scrollTop();
+        params.scrollTop = Math.round($(scrollableContent).scrollTop());
         params.scrollHeight = $(scrollableContent).prop('scrollHeight');
         params.height = $(scrollableContent).height();
         
         params.atTop = (params.scrollTop == 0);
-        params.atBottom = (params.scrollTop == (params.scrollHeight - params.height));
+        params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
 
         // $(scrollableContent).height() is the height of the view
 
-        console.log('params', params);
+        // console.log('params', params);
 
+        if (params.atTop) {
+            const prevLink = $(scrollableContent).data('prevLink');
+            if (prevLink) {
+                console.log('adding page above from scrolling ' + prevLink, params);
+                loadPage(prevLink, {toEnd:false});
+            }
+        }
+        if (params.atBottom) {
+            const nextLink = $(scrollableContent).data('nextLink');
+            if (nextLink) {
+                console.log('adding page below from scrolling ' + nextLink, params);
+                loadPage(nextLink, {toEnd:true});
+            }
+        }
     });
 
 
