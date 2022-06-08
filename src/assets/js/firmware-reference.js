@@ -96,6 +96,7 @@ $(document).ready(function() {
     
     const scrollableContent = $('div.content-inner');
 
+
     // Save URL
     const thisUrl = new URL(location.href);
     $('.originalContent').attr('data-href', thisUrl.pathname);
@@ -107,16 +108,27 @@ $(document).ready(function() {
         $(scrollableContent).data('nextLink', navigationInfo.nextLink);
     }
 
-    const loadPage = function(link, options) {
-        // Load previous page
-        fetch(link)
+    let pageQueue = [];
+    let pageLoading = false;
+
+
+    const loadPage = function() {
+        if (pageQueue.length == 0 || pageLoading) {
+            return;
+        }
+        let options = pageQueue.splice(0, 1)[0];
+        pageLoading = true;
+
+        fetch(options.link)
             .then(response => response.text())
             .then(function(res) {
+                pageLoading = false;
+
                 // <!-- start 841427f3-9f46-4361-ab97-7afda1e082f9 -->
                 // <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
                 let newContent = '';
                 let inNewContent = false;
-                let navigationInfo = '';
+                let navigationInfo;
                 const navigationInfoString = 'navigationInfo=';
 
                 for(const line of res.split('\n')) {
@@ -143,8 +155,12 @@ $(document).ready(function() {
                     }
                 }
 
+                if (!navigationInfo) {
+                    console.log('no navigationInfo');
+                }
+
                 let divElem = document.createElement('div');
-                $(divElem).attr('data-href', link);
+                $(divElem).attr('data-href', options.link);
                 $(divElem).append(newContent);
 
                 let params = {};
@@ -167,12 +183,15 @@ $(document).ready(function() {
                     if (params.scrollHeightAfter < params.height && navigationInfo.nextLink) {
                         // Add more
                         console.log('load nextLink ' + navigationInfo.nextLink, params);
-                        loadPage(navigationInfo.nextLink, options);
+                        options.link = navigationInfo.nextLink;
+                        pageQueue.push(options);
+                        loadPage();
                     }              
                     else 
-                    if (options.doBefore && navigationInfo.prevLink) {
-                        console.log('load prevLink ' + navigationInfo.prevLink, params);
-                        loadPage(navigationInfo.prevLink, {toEnd: false});
+                    if (options.doBefore) {
+                        console.log('loading doBefore link  ' + options.doBefore, params);
+                        pageQueue.push({link: options.doBefore, toEnd: false});
+                        loadPage();
                     }      
                 }
                 else {
@@ -194,11 +213,17 @@ $(document).ready(function() {
             });
 
     }
-    if (navigationInfo.nextLink) {
-        loadPage(navigationInfo.nextLink, {toEnd:true, doBefore:true});
+    const queuePage = function(options) {
+        pageQueue.push(options);
+        loadPage();
     }
 
-
+    if (navigationInfo.nextLink) {
+        queuePage({link: navigationInfo.nextLink, toEnd:true, doBefore:navigationInfo.prevLink});
+    }
+    else if (navigationInfo.prevLink) {
+        queuePage({link: navigationInfo.prevLink, toEnd:true});
+    }
 
 
     $(scrollableContent).on('scroll', function(e) {
@@ -221,14 +246,14 @@ $(document).ready(function() {
             const prevLink = $(scrollableContent).data('prevLink');
             if (prevLink) {
                 console.log('adding page above from scrolling ' + prevLink, params);
-                loadPage(prevLink, {toEnd:false});
+                queuePage({link: prevLink, toEnd:false});
             }
         }
         if (params.atBottom) {
             const nextLink = $(scrollableContent).data('nextLink');
             if (nextLink) {
                 console.log('adding page below from scrolling ' + nextLink, params);
-                loadPage(nextLink, {toEnd:true});
+                queuePage({link: nextLink, toEnd:true});
             }
         }
     });
