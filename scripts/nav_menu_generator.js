@@ -217,7 +217,7 @@ function generateNavHtml(menuJson) {
                 nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
                 nav += '</div>'; // navContainer
                 cardSections.push(item);
-                itemsFlat.push(item);
+                //itemsFlat.push(item);
             }
             else if (item.isSection) {
                 // Multi-level section title

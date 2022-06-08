@@ -169,42 +169,50 @@ $(document).ready(function() {
 
 
                 if (options.toEnd) {
-                    console.log('updating nextLink to ' + navigationInfo.nextLink);
-                    $(scrollableContent).data('nextLink', navigationInfo.nextLink);
+                    let doBefore = options.doBefore;
 
-                    $('.content').last().append(divElem);
-
-                    params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
-                    params.height = $(scrollableContent).height();
-
-                    console.log('atEnd', params);
-
-                    // Add more if necessary
-                    if (params.scrollHeightAfter < params.height && navigationInfo.nextLink) {
-                        // Add more
-                        console.log('load nextLink ' + navigationInfo.nextLink, params);
-                        options.link = navigationInfo.nextLink;
-                        pageQueue.push(options);
-                        loadPage();
-                    }              
-                    else 
-                    if (options.doBefore) {
+                    if (navigationInfo && navigationInfo.nextLink) {
+                        console.log('updating nextLink to ' + navigationInfo.nextLink);
+                        $(scrollableContent).data('nextLink', navigationInfo.nextLink);
+    
+                        $('div.content').last().append(divElem);
+    
+                        params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
+                        params.height = $(scrollableContent).height();
+    
+                        console.log('atEnd', params);
+    
+                        // Add more if necessary
+                        if (params.scrollHeightAfter < params.height && navigationInfo.nextLink) {
+                            // Add more
+                            console.log('load nextLink ' + navigationInfo.nextLink, params);
+                            options.link = navigationInfo.nextLink;
+                            pageQueue.push(options);
+                            loadPage();
+                            doBefore = false;
+                        }                  
+                    }
+                    
+                    if (doBefore) {
                         console.log('loading doBefore link  ' + options.doBefore, params);
                         pageQueue.push({link: options.doBefore, toEnd: false});
                         loadPage();
                     }      
                 }
                 else {
-                    console.log('updating prevLink to ' + navigationInfo.prevLink);
-                    $(scrollableContent).data('prevLink', navigationInfo.prevLink);
-
-                    $('.content').first().prepend(divElem);
-
-                    params.divHeight = Math.floor($(divElem).height());
-                    params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
-
-                    $(scrollableContent).scrollTop(params.scrollTopAfter);
-                    console.log('insert before params', params);
+                    // Insert before
+                    if (navigationInfo && navigationInfo.prevLink) {
+                        console.log('updating prevLink to ' + navigationInfo.prevLink);
+                        $(scrollableContent).data('prevLink', navigationInfo.prevLink);
+    
+                        $('div.content').first().prepend(divElem);
+    
+                        params.divHeight = Math.floor($(divElem).height());
+                        params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
+    
+                        $(scrollableContent).scrollTop(params.scrollTopAfter);
+                        console.log('insert before params', params);    
+                    }
                 }
 
             })

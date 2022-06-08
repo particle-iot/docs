@@ -125,7 +125,7 @@ module.exports = function(context) {
         }
         message += ':';
 
-        html += '<span class="note-prefix">' + message + '</span></p><div class="note-common ' + cssClass + ' content reference"><p>';
+        html += '<span class="note-prefix">' + message + '</span></p><div class="note-common ' + cssClass + '"><p>';
     }
     else
     if (op === 'end') {
