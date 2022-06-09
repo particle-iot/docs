@@ -25,6 +25,11 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     let curL3 = null;
     let allL2 = [];
     
+    let apiIndexJson = {
+        sections: []
+    };
+
+
     for(const line of mdFile.split('\n')) {
         if (line.startsWith('##')) {
             // Any L2 or higher is an an anchor
@@ -258,13 +263,18 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
                     if (tempSection.url == newFile.path.href) {
                         obj.activeItem = true;
                     }
-                    a.push(obj);                                
+                    a.push(obj);
                 }
                 menuJson.items.push(a);                                
             }
         }
 
         newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'device-os-api'));
+
+        apiIndexJson.sections.push({
+            folder: section.folder,
+            file: section.file,
+        });
 
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = destDir + '/' + section.folder + '/' + section.file + '.md';
@@ -275,7 +285,14 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
     }
 
+    // Store the data file with the index. We might not need this, and maybe can remove apiIndex later
+    const apiIndexJsonInfo = {
+        contents: Buffer.from(JSON.stringify(apiIndexJson), 'utf8')
+    };
+    files['assets/files/apiIndex.json'] = apiIndexJsonInfo;
+
     // One time - fix old cards links
+    /*
     for(const oldLink in redirects) {
         // "/cards/firmware/system-events": "/cards/firmware/system-events/system-events"
         const newLink = redirects[oldLink];
@@ -283,6 +300,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             redirects[oldLink] = newLink.replace('/cards/firmware', '/' + destDir);
         }
     }
+    */
     
     // Sort the output file
     let redirectsArray = [];

@@ -93,20 +93,43 @@ $(document).ready(function() {
 
         }
     });
-    
+
+    let apiIndex;
+
+    const apiIndexFind = function(pathname) {
+        const pathParts = pathname.split('/');
+        // console.log('pathParts', pathParts);
+        const folder = pathParts[4];
+        const file = pathParts[5];
+        
+        const base = pathParts.su
+
+        for(let index = 0; index < apiIndex.sections.length; index++) {
+            const section = apiIndex.sections[index];
+            if (section.folder == folder && section.file == file) {
+                let obj = {};
+
+                obj.index = index;
+                if (index > 0) {
+                    obj.prev = pathParts.slice(0, 4).concat([apiIndex.sections[index - 1].folder, apiIndex.sections[index - 1].file]).join('/');
+                }
+                if ((index + 1) < apiIndex.sections.length) {
+                    obj.next = pathParts.slice(0, 4).concat([apiIndex.sections[index + 1].folder, apiIndex.sections[index + 1].file]).join('/');
+                }
+
+                return obj;
+            }
+        }
+        return null;
+    }
+
+
     const scrollableContent = $('div.content-inner');
 
 
     // Save URL
     const thisUrl = new URL(location.href);
     $('.originalContent').attr('data-href', thisUrl.pathname);
-
-    if (navigationInfo.prevLink) {
-        $(scrollableContent).data('nextLink', navigationInfo.prevLink);
-    }
-    if (navigationInfo.nextLink) {
-        $(scrollableContent).data('nextLink', navigationInfo.nextLink);
-    }
 
     let pageQueue = [];
     let pageLoading = false;
@@ -128,8 +151,6 @@ $(document).ready(function() {
                 // <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
                 let newContent = '';
                 let inNewContent = false;
-                let navigationInfo;
-                const navigationInfoString = 'navigationInfo=';
 
                 for(const line of res.split('\n')) {
                     if (inNewContent) {
@@ -146,18 +167,9 @@ $(document).ready(function() {
                         }
                     }
 
-                    // navigationInfo={"prevLink":"/reference/device-os/api/softap-http-pages/the-default-page/","nextLink":"/reference/device-os/api/softap-http-pages/complete-example/","prevGroup":"/reference/device-os/api/wifi/wifi/","nextGroup":"/reference/device-os/api/cellular/cellular/"}
-                    const navigationInfoOffset = line.indexOf(navigationInfoString);
-                    if (navigationInfoOffset >= 0) {
-                        const startOffset = navigationInfoOffset + navigationInfoString.length;
-                        const endOffset = line.indexOf('</script');
-                        navigationInfo = JSON.parse(line.substring(startOffset, endOffset));
-                    }
                 }
 
-                if (!navigationInfo) {
-                    console.log('no navigationInfo');
-                }
+                const nav = apiIndexFind(options.link);
 
                 let divElem = document.createElement('div');
                 $(divElem).attr('data-href', options.link);
@@ -171,28 +183,26 @@ $(document).ready(function() {
                 if (options.toEnd) {
                     let doBefore = options.doBefore;
 
-                    if (navigationInfo && navigationInfo.nextLink) {
-                        console.log('updating nextLink to ' + navigationInfo.nextLink);
-                        $(scrollableContent).data('nextLink', navigationInfo.nextLink);
-    
-                        $('div.content').last().append(divElem);
-    
-                        params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
-                        params.height = $(scrollableContent).height();
-    
-                        console.log('atEnd', params);
-    
-                        // Add more if necessary
-                        if (params.scrollHeightAfter < params.height && navigationInfo.nextLink) {
-                            // Add more
-                            console.log('load nextLink ' + navigationInfo.nextLink, params);
-                            options.link = navigationInfo.nextLink;
-                            pageQueue.push(options);
-                            loadPage();
-                            doBefore = false;
-                        }                  
-                    }
-                    
+                    console.log('updating nextLink to ' + nav.next);
+                    $(scrollableContent).data('nextLink', nav.next);
+
+                    $('div.content').not('.note-common').last().append(divElem);
+
+                    params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
+                    params.height = $(scrollableContent).height();
+
+                    console.log('atEnd', params);
+
+                    // Add more if necessary
+                    if (params.scrollHeightAfter < params.height && nav.next) {
+                        // Add more
+                        console.log('load nextLink ' + nav.next, params);
+                        options.link = nav.next;
+                        pageQueue.push(options);
+                        loadPage();
+                        doBefore = false;
+                    }                  
+                
                     if (doBefore) {
                         console.log('loading doBefore link  ' + options.doBefore, params);
                         pageQueue.push({link: options.doBefore, toEnd: false});
@@ -201,18 +211,16 @@ $(document).ready(function() {
                 }
                 else {
                     // Insert before
-                    if (navigationInfo && navigationInfo.prevLink) {
-                        console.log('updating prevLink to ' + navigationInfo.prevLink);
-                        $(scrollableContent).data('prevLink', navigationInfo.prevLink);
-    
-                        $('div.content').first().prepend(divElem);
-    
-                        params.divHeight = Math.floor($(divElem).height());
-                        params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
-    
-                        $(scrollableContent).scrollTop(params.scrollTopAfter);
-                        console.log('insert before params', params);    
-                    }
+                    console.log('updating prevLink to ' + nav.prev);
+                    $(scrollableContent).data('prevLink', nav.prev);
+
+                    $('div.content').not('.note-common').first().prepend(divElem);
+
+                    params.divHeight = Math.floor($(divElem).height());
+                    params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
+
+                    $(scrollableContent).scrollTop(params.scrollTopAfter);
+                    console.log('insert before params', params);    
                 }
 
             })
@@ -226,12 +234,25 @@ $(document).ready(function() {
         loadPage();
     }
 
-    if (navigationInfo.nextLink) {
-        queuePage({link: navigationInfo.nextLink, toEnd:true, doBefore:navigationInfo.prevLink});
-    }
-    else if (navigationInfo.prevLink) {
-        queuePage({link: navigationInfo.prevLink, toEnd:true});
-    }
+    // Load the page index
+    fetch('/assets/files/apiIndex.json')
+    .then(response => response.json())
+    .then(function(res) {
+        apiIndex = res;
+        console.log('apiIndex', apiIndex);
+
+        const nav = apiIndexFind(thisUrl.pathname);
+        console.log('nav', nav);
+
+        if (nav.next) {
+            queuePage({link: nav.next, toEnd:true, doBefore:nav.prev});
+        }
+        else if (nav.prev) {
+            queuePage({link: nav.prev, toEnd:true});
+        }    
+    });
+    
+    
 
 
     $(scrollableContent).on('scroll', function(e) {

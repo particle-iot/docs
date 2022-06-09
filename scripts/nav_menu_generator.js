@@ -6,7 +6,8 @@ const titleize = require('../templates/helpers/titleize');
 
 let topMenuJson;
 
-function generateNavMenu(fileObj, contentDir) {
+function generateNavMenu(files, fileName, contentDir) {
+    let fileObj = files[fileName];
     // console.log('fileObj', fileObj);
     if (!fileObj.path || fileObj.path.ext !== '.md') {
         // Only md files could possibly get a nav menu
@@ -352,8 +353,19 @@ function metalsmith(options) {
         }    
 
         Object.keys(files).forEach(function (fileName) {
-            generateNavMenu(files[fileName], contentDir);
+            generateNavMenu(files, fileName, contentDir);
         });
+
+        /*
+        // This doesn't quite work as planned because the active items are hardcoded in it, though
+        // it might be possible to fix from Javascript
+        Object.keys(files).forEach(function (fileName) {
+            if (fileName.startsWith('reference/device-os/api/')) {
+                // Replace this navigation with the full navigation
+                files[fileName].navigation = files['reference/device-os/firmware.md'].navigation;
+            }
+        });
+        */
 
         done();
     };
