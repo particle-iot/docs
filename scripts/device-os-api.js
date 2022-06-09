@@ -274,6 +274,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         apiIndexJson.sections.push({
             folder: section.folder,
             file: section.file,
+            title: section.title,
         });
 
         // Save in metalsmith files so it the generated file will be converted to html
@@ -285,7 +286,16 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
 
     }
 
-    // Store the data file with the index. We might not need this, and maybe can remove apiIndex later
+    // Note the first file in every section so we know whether to show or hide the L2 header
+    {
+        let lastFolder;
+        for(let section of apiIndexJson.sections) {
+            if (lastFolder != section.folder) {
+                section.startSection = true;
+            }
+            lastFolder = section.folder;
+        }
+    }
     const apiIndexJsonInfo = {
         contents: Buffer.from(JSON.stringify(apiIndexJson), 'utf8')
     };

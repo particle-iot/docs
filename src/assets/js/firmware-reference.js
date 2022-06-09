@@ -175,6 +175,11 @@ $(document).ready(function() {
                 $(divElem).attr('data-href', options.link);
                 $(divElem).append(newContent);
 
+                if (!nav.startSection) {
+                    // Remove the h2 when not at the start of a section
+                    $(divElem).find('h2').remove();
+                }
+
                 let params = {};
                 params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
                 params.scrollHeightBefore = $(scrollableContent).prop('scrollHeight');

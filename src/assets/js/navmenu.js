@@ -11,7 +11,7 @@ navMenu.scanHeaders = function () {
     let headerLevels = 'h2,h3,h4';
     let levelAdjust = 0;
 
-    if (location.href.includes('cards/firmware')) {
+    if (location.href.includes('reference/device-os/api')) {
         headerLevels = 'h4,h5';
         levelAdjust = -2;
     }
