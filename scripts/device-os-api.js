@@ -26,7 +26,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     let allL2 = [];
     
     let apiIndexJson = {
-        sections: []
+        sections: [],
+        folderTitles: {},
     };
 
 
@@ -192,6 +193,8 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
     // All L2s
     for(const curL2 of allL2) {
         redirects['/' + destDir + '/' + curL2.folder] = curL2.url;
+
+        apiIndexJson.folderTitles[curL2.folder] = curL2.origTitle;
     }
 
     // Remove Device OS Versions so we don't need to load the Javascript
@@ -269,13 +272,20 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
             }
         }
 
-        newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'device-os-api'));
+        // newFile.navigation = generateNavHtml(insertIntoMenu(menuJson.items, outerMenuJson, 'device-os-api'));
 
-        apiIndexJson.sections.push({
+        // TESTING: Don't generate nav for pages
+        newFile.navigation = generateNavHtml(outerMenuJson);
+
+        let sectionObj = {
             folder: section.folder,
             file: section.file,
             title: section.title,
-        });
+            href: '/' + destDir + '/' + section.folder + '/' + section.file + '/'
+        };
+        // TODO: Add a flag to indicate that this section does not have subsections
+
+        apiIndexJson.sections.push(sectionObj);
 
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = destDir + '/' + section.folder + '/' + section.file + '.md';

@@ -48,7 +48,8 @@
         "isSection": true,
         "insertLoc": "device-os-api",
         "href": "/reference/device-os/api/introduction/introduction/",
-        "noSeparator": true
+        "noSeparator": true,
+        "addClass": "deviceOsApiNavMenu"
       },
       [        
       ],

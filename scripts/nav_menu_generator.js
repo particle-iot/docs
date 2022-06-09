@@ -176,7 +176,7 @@ function generateNavHtml(menuJson) {
     const makeNavMenu2 = function (item, indent) {
         let html = '';
 
-        html += '<div class="navContainer">';
+        html += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
 
         if (indent) {
             html += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
@@ -211,7 +211,7 @@ function generateNavHtml(menuJson) {
 
         for (const item of array) {
             if (item.isCardSection) {
-                nav += '<div class="navContainer">';
+                nav += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
                 if (indent) {
                     nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
                 }
@@ -222,7 +222,7 @@ function generateNavHtml(menuJson) {
             }
             else if (item.isSection) {
                 // Multi-level section title
-                nav += '<div class="navContainer">';
+                nav += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
                 if (indent) {
                     nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
                 }
@@ -305,6 +305,7 @@ function generateNavHtml(menuJson) {
         navigationInfo.nextGroup = cardSections[1].href;
     }
 
+    // This can be removed after fully migrated to using the new apiIndexJson
     nav += '\n<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>\n';
     
 

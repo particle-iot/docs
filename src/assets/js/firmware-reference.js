@@ -123,6 +123,10 @@ $(document).ready(function() {
         return null;
     }
 
+    const syncNavigation = function() {
+        // Synchronize the left navigation to the currently 
+    };
+
 
     const scrollableContent = $('div.content-inner');
 
@@ -179,6 +183,8 @@ $(document).ready(function() {
                     // Remove the h2 when not at the start of a section
                     $(divElem).find('h2').remove();
                 }
+
+                syncNavigation();
 
                 let params = {};
                 params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
@@ -249,6 +255,81 @@ $(document).ready(function() {
         const nav = apiIndexFind(thisUrl.pathname);
         console.log('nav', nav);
 
+        // Build out the rest of the navigation menu. Insert all content after this:
+        // div.navContainer .deviceOsApiNavMenu        
+        // Insert div #navActiveContent containing the generated menus
+        // Insert navContainers, one per item in the section
+        // Most will contain a spacer div, and a navMenu2 
+
+        const divActiveContent = document.createElement('div');
+        $(divActiveContent).attr('id', 'activeContent');
+
+        let lastFolder;
+
+        for(const section of apiIndex.sections) {
+            let divNavContainer = document.createElement('div');
+            $(divNavContainer).addClass('navContainer');
+
+            if (section.folder != lastFolder) {
+                // New section
+                $(divNavContainer).addClass('navMenu3');
+
+                let d = document.createElement('div');
+                $(d).addClass('navIndent3');
+                $(divNavContainer).append(d);
+
+                // TODO: Skip disclosure if only a single item
+                d = document.createElement('div');
+                $(d).addClass('navDisclosure');
+                {
+                    const iElem = document.createElement('i');
+                    $(iElem).addClass('ion-arrow-right-b');
+                    $(d).append(iElem);
+                }
+                $(divNavContainer).append(d);
+
+                d = document.createElement('div');
+                $(d).addClass('navContent3');
+                {
+                    const aElem = document.createElement('a');
+                    $(aElem).text(apiIndex.folderTitles[section.folder]);
+                    $(aElem).attr('href', section.href);
+                    $(aElem).addClass('navLink');
+                    $(d).append(aElem);
+                }
+                $(divNavContainer).append(d);
+
+                lastFolder = section.folder;
+            }
+            else {
+                $(divNavContainer).addClass('navMenu4');
+    
+                let d = document.createElement('div');
+                $(d).addClass('navIndent4');
+                $(divNavContainer).append(d);
+    
+                d = document.createElement('div');
+                $(d).addClass('navContent4');
+                {
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', section.href);
+                    $(aElem).addClass('navLink');
+                    $(aElem).text(section.title);
+                    $(d).append(aElem);
+                }
+                $(divNavContainer).append(d);
+    
+                $(divActiveContent).append(divNavContainer);
+
+            }
+
+            $(divActiveContent).append(divNavContainer);
+
+
+        }
+
+        $('.deviceOsApiNavMenu').after(divActiveContent);
+
         if (nav.next) {
             queuePage({link: nav.next, toEnd:true, doBefore:nav.prev});
         }
@@ -257,8 +338,6 @@ $(document).ready(function() {
         }    
     });
     
-    
-
 
     $(scrollableContent).on('scroll', function(e) {
         // console.log('scrolled ', e);
@@ -273,6 +352,8 @@ $(document).ready(function() {
         params.atBottom = (params.scrollTop >= (params.scrollHeight - params.height));
 
         // $(scrollableContent).height() is the height of the view
+
+        syncNavigation();
 
         // console.log('params', params);
 
