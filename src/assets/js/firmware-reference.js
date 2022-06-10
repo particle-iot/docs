@@ -176,6 +176,20 @@ $(document).ready(function() {
         apiIndex.folders[folder].folderItems = folderItems;
     }
 
+    const closeFolder = function(folder) {
+        for(const section of apiIndex.sections) {
+            if (section.folder == folder && apiIndex.folders[section.folder].folderItems) {
+                $(apiIndex.folders[section.folder].elem).find('i').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+
+                for(const elem of apiIndex.folders[section.folder].folderItems) {
+                    $(elem).remove();
+                }
+
+                apiIndex.folders[section.folder].folderItems = null;
+            }
+        }
+    }
+
     const syncNavigation = function() {
         // Synchronize the left navigation to the currently 
 
@@ -185,13 +199,9 @@ $(document).ready(function() {
             const offset = $(this).offset();
 
             if (!href && offset.top > 0) {
-                console.log('found elem offset.top=' + offset.top + ' href=' + href, this);
                 href = $(this).attr('data-href');
             }
         });
-
-        // console.log('visible first', $('.referencePage:visible:first'));
-        // href = $('.referencePage:visible:first').attr('data-href');
 
         if (!href) {            
             return;
@@ -212,14 +222,8 @@ $(document).ready(function() {
 
         // Close other folders        
         for(const section of apiIndex.sections) {
-            if (section.folder != folder && apiIndex.folders[section.folder].folderItems) {
-                $(apiIndex.folders[section.folder].elem).find('i').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-
-                for(const elem of apiIndex.folders[section.folder].folderItems) {
-                    $(elem).remove();
-                }
-
-                apiIndex.folders[section.folder].folderItems = null;
+            if (section.folder != folder) {
+                closeFolder(section.folder);
             }
         }
 
@@ -302,7 +306,6 @@ $(document).ready(function() {
                 if (options.toEnd) {
                     let doBefore = options.doBefore;
 
-                    console.log('updating nextLink to ' + nav.next);
                     $(scrollableContent).data('nextLink', nav.next);
 
                     $('div.content').not('.note-common').last().append(divElem);
@@ -310,12 +313,9 @@ $(document).ready(function() {
                     params.scrollHeightAfter = $(scrollableContent).prop('scrollHeight');
                     params.height = $(scrollableContent).height();
 
-                    console.log('atEnd', params);
-
                     // Add more if necessary
                     if (params.scrollHeightAfter < params.height && nav.next) {
                         // Add more
-                        console.log('load nextLink ' + nav.next, params);
                         options.link = nav.next;
                         pageQueue.push(options);
                         loadPage();
@@ -323,14 +323,12 @@ $(document).ready(function() {
                     }                  
                 
                     if (doBefore) {
-                        console.log('loading doBefore link  ' + options.doBefore, params);
                         pageQueue.push({link: options.doBefore, toEnd: false});
                         loadPage();
                     }      
                 }
                 else {
                     // Insert before
-                    console.log('updating prevLink to ' + nav.prev);
                     $(scrollableContent).data('prevLink', nav.prev);
 
                     $('div.content').not('.note-common').first().prepend(divElem);
@@ -339,7 +337,6 @@ $(document).ready(function() {
                     params.scrollTopAfter = params.scrollTopBefore + params.divHeight;
 
                     $(scrollableContent).scrollTop(params.scrollTopAfter);
-                    console.log('insert before params', params);    
                 }
 
                 syncNavigation();
@@ -360,10 +357,8 @@ $(document).ready(function() {
     .then(response => response.json())
     .then(function(res) {
         apiIndex = res;
-        console.log('apiIndex', apiIndex);
 
         const nav = apiIndexFind(thisUrl.pathname);
-        console.log('nav', nav);
 
         // Build out the rest of the navigation menu. Insert all content after this:
         // div.navContainer .deviceOsApiNavMenu        
@@ -393,12 +388,22 @@ $(document).ready(function() {
 
                 // TODO: Skip disclosure if only a single item
                 d = document.createElement('div');
+                $(d).attr('data-folder', section.folder);
                 $(d).addClass('navDisclosure');
                 {
                     const iElem = document.createElement('i');
                     $(iElem).addClass('ion-arrow-right-b');
                     $(d).append(iElem);
                 }
+                $(d).on('click', function() {
+                    const folder = $(this).attr('data-folder');
+                    if ($(this).find('i').hasClass('ion-arrow-right-b')) {
+                        populateFolder(folder);
+                    }
+                    else {
+                        closeFolder(folder);
+                    }  
+                });
                 $(divNavContainer).append(d);
 
                 d = document.createElement('div');
@@ -456,14 +461,12 @@ $(document).ready(function() {
         if (params.atTop) {
             const prevLink = $(scrollableContent).data('prevLink');
             if (prevLink) {
-                console.log('adding page above from scrolling ' + prevLink, params);
                 queuePage({link: prevLink, toEnd:false});
             }
         }
         if (params.atBottom) {
             const nextLink = $(scrollableContent).data('nextLink');
             if (nextLink) {
-                console.log('adding page below from scrolling ' + nextLink, params);
                 queuePage({link: nextLink, toEnd:true});
             }
         }
