@@ -269,6 +269,8 @@ function generateNavHtml(menuJson) {
     nav += '</div>'; // navMenuOuter
 
     // Generate keyboard and swipe navigation directions for this page
+    // This can be removed after fully migrated to using the new apiIndexJson
+    /*
     let navigationInfo = {};
     let itemFound = false;
 
@@ -305,9 +307,8 @@ function generateNavHtml(menuJson) {
         navigationInfo.nextGroup = cardSections[1].href;
     }
 
-    // This can be removed after fully migrated to using the new apiIndexJson
     nav += '\n<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>\n';
-    
+    */
 
     return nav;
 }

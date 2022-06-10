@@ -280,7 +280,7 @@ function generateDeviceOsApiMultiPage(options, files, fileName, cardMappingPath,
         let sectionObj = {
             folder: section.folder,
             file: section.file,
-            title: section.title,
+            title: section.origTitle,
             href: '/' + destDir + '/' + section.folder + '/' + section.file + '/'
         };
         // TODO: Add a flag to indicate that this section does not have subsections

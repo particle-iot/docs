@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    let navigationInfo;
+
     const navigate = function(next, group) {
 
         if (!navigationInfo) {
@@ -93,28 +95,37 @@ $(document).ready(function() {
 
         }
     });
+    const scrollableContent = $('div.content-inner');
 
     let apiIndex;
 
-    const apiIndexFind = function(pathname) {
+    const parsePath = function(pathname) {
+        let result = {};
+
         const pathParts = pathname.split('/');
         // console.log('pathParts', pathParts);
-        const folder = pathParts[4];
-        const file = pathParts[5];
-        
-        const base = pathParts.su
 
+        result.href = pathname;
+        result.folder = pathParts[4];
+        result.file = pathParts[5];
+
+        return result;
+    };
+
+    const apiIndexFind = function(pathname) {
+        const pathParts = parsePath(pathname);
+        
         for(let index = 0; index < apiIndex.sections.length; index++) {
             const section = apiIndex.sections[index];
-            if (section.folder == folder && section.file == file) {
-                let obj = {};
+            if (section.folder == pathParts.folder && section.file == pathParts.file) {
+                let obj = Object.assign({}, section);
 
                 obj.index = index;
                 if (index > 0) {
-                    obj.prev = pathParts.slice(0, 4).concat([apiIndex.sections[index - 1].folder, apiIndex.sections[index - 1].file]).join('/');
+                    obj.prev = apiIndex.sections[index - 1].href;
                 }
                 if ((index + 1) < apiIndex.sections.length) {
-                    obj.next = pathParts.slice(0, 4).concat([apiIndex.sections[index + 1].folder, apiIndex.sections[index + 1].file]).join('/');
+                    obj.next = apiIndex.sections[index + 1].href;
                 }
 
                 return obj;
@@ -123,16 +134,113 @@ $(document).ready(function() {
         return null;
     }
 
+    const populateFolder = function(folder) {
+
+        if (apiIndex.folders[folder].folderItems) {
+            return;
+        }
+
+        let folderItems = [];
+        let afterItem = apiIndex.folders[folder].elem;
+
+        $(afterItem).find('i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+
+        for(const section of apiIndex.sections) {
+            if (section.folder == folder) {
+                let divNavContainer = document.createElement('div');
+                $(divNavContainer).addClass('navContainer');
+
+                $(divNavContainer).addClass('navMenu4');
+    
+                let d = document.createElement('div');
+                $(d).addClass('navIndent4');
+                $(divNavContainer).append(d);
+    
+                d = document.createElement('div');
+                $(d).addClass('navContent4');
+                {
+                    const aElem = document.createElement('a');
+                    $(aElem).attr('href', section.href);
+                    $(aElem).addClass('navLink');
+                    $(aElem).text(section.title);
+                    $(d).append(aElem);
+                }
+                $(divNavContainer).append(d);
+                section.elem = divNavContainer;
+    
+                $(afterItem).after(divNavContainer);                
+                folderItems.push(divNavContainer);
+                afterItem = divNavContainer;
+            }
+        }
+        apiIndex.folders[folder].folderItems = folderItems;
+    }
+
     const syncNavigation = function() {
         // Synchronize the left navigation to the currently 
+
+        let href;
+
+        $('.referencePage').each(function() {
+            const offset = $(this).offset();
+
+            if (!href && offset.top > 0) {
+                console.log('found elem offset.top=' + offset.top + ' href=' + href, this);
+                href = $(this).attr('data-href');
+            }
+        });
+
+        // console.log('visible first', $('.referencePage:visible:first'));
+        // href = $('.referencePage:visible:first').attr('data-href');
+
+        if (!href) {            
+            return;
+        }
+
+        const pathParts = parsePath(href);
+        const folder = pathParts.folder;
+        populateFolder(folder);
+
+        // Mark current page as active - TODO: This is not working all the time, need to investigate
+        $('.navContainer').find('.navLinkActive').removeClass('navLinkActive');
+        for(const section of apiIndex.sections) {
+            if (section.href == href) {
+                $(section.elem).find('a').addClass('navLinkActive');
+                break;
+            }
+        }
+
+        // Close other folders        
+        for(const section of apiIndex.sections) {
+            if (section.folder != folder && apiIndex.folders[section.folder].folderItems) {
+                $(apiIndex.folders[section.folder].elem).find('i').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+
+                for(const elem of apiIndex.folders[section.folder].folderItems) {
+                    $(elem).remove();
+                }
+
+                apiIndex.folders[section.folder].folderItems = null;
+            }
+        }
+
+
+
+        /*
+*/
+        // a for current page gets .navLinkActive
+        // Also the containing folder
+        // Opened folders get i ion-arrow-down-b
+        // Closed folders get i ion-arrow-right-b
+
+
     };
 
 
-    const scrollableContent = $('div.content-inner');
 
 
     // Save URL
     const thisUrl = new URL(location.href);
+    $('.originalContent').addClass('referencePage');
     $('.originalContent').attr('data-href', thisUrl.pathname);
 
     let pageQueue = [];
@@ -176,6 +284,7 @@ $(document).ready(function() {
                 const nav = apiIndexFind(options.link);
 
                 let divElem = document.createElement('div');
+                $(divElem).addClass('referencePage');
                 $(divElem).attr('data-href', options.link);
                 $(divElem).append(newContent);
 
@@ -184,7 +293,6 @@ $(document).ready(function() {
                     $(divElem).find('h2').remove();
                 }
 
-                syncNavigation();
 
                 let params = {};
                 params.scrollTopBefore = Math.round($(scrollableContent).scrollTop());
@@ -234,6 +342,8 @@ $(document).ready(function() {
                     console.log('insert before params', params);    
                 }
 
+                syncNavigation();
+
             })
             .catch(function(err) {
                 console.log('err', err);
@@ -266,12 +376,15 @@ $(document).ready(function() {
 
         let lastFolder;
 
-        for(const section of apiIndex.sections) {
-            let divNavContainer = document.createElement('div');
-            $(divNavContainer).addClass('navContainer');
+        apiIndex.folders = {};
+
+        // Populate only the top level sections here because there are so many subsections
+        for(let section of apiIndex.sections) {
 
             if (section.folder != lastFolder) {
                 // New section
+                let divNavContainer = document.createElement('div');
+                $(divNavContainer).addClass('navContainer');
                 $(divNavContainer).addClass('navMenu3');
 
                 let d = document.createElement('div');
@@ -299,36 +412,19 @@ $(document).ready(function() {
                 }
                 $(divNavContainer).append(d);
 
-                lastFolder = section.folder;
-            }
-            else {
-                $(divNavContainer).addClass('navMenu4');
-    
-                let d = document.createElement('div');
-                $(d).addClass('navIndent4');
-                $(divNavContainer).append(d);
-    
-                d = document.createElement('div');
-                $(d).addClass('navContent4');
-                {
-                    const aElem = document.createElement('a');
-                    $(aElem).attr('href', section.href);
-                    $(aElem).addClass('navLink');
-                    $(aElem).text(section.title);
-                    $(d).append(aElem);
-                }
-                $(divNavContainer).append(d);
-    
+                apiIndex.folders[section.folder] = {
+                    elem: divNavContainer
+                };
                 $(divActiveContent).append(divNavContainer);
 
+                lastFolder = section.folder;
             }
-
-            $(divActiveContent).append(divNavContainer);
-
 
         }
 
         $('.deviceOsApiNavMenu').after(divActiveContent);
+
+        populateFolder(parsePath(thisUrl.pathname).folder);
 
         if (nav.next) {
             queuePage({link: nav.next, toEnd:true, doBefore:nav.prev});
