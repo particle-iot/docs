@@ -1,100 +1,6 @@
 $(document).ready(function() {
     let navigationInfo;
 
-    const navigate = function(next, group) {
-
-        if (!navigationInfo) {
-            return;
-        }
-
-        if (!group) {
-            if (next) {
-                if (navigationInfo.nextLink) {
-                    location.href = navigationInfo.nextLink;
-                }
-            }
-            else {
-                if (navigationInfo.prevLink) {
-                    location.href = navigationInfo.prevLink;
-                }
-            }
-        }
-
-        if (group) {
-            if (next) {
-                if (navigationInfo.nextGroup) {
-                    location.href = navigationInfo.nextGroup;
-                }
-            }
-            else {
-                if (navigationInfo.prevGroup) {
-                    location.href = navigationInfo.prevGroup;
-                }
-            }
-        }
-    };
-
-
-    let startX, startY, startTime;
-
-    $('div.page-body').on('touchstart', function(e) {
-        startX = e.changedTouches[0].pageX;
-        startY = e.changedTouches[0].pageY;
-        startTime = Date.now();
-    });
-
-    $('div.page-body').on('touchend', function(e) {
-        const deltaX = e.changedTouches[0].pageX - startX;
-        const deltaY = e.changedTouches[0].pageY - startY;
-        const deltaTime = Date.now() - startTime;
-
-        if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30 && deltaTime < 200) {
-            // Tap
-            if (startX < 150) {
-                navigate(false, false);
-            }
-            else
-            if (startX > (screen.width - 150)) {
-                navigate(true, false);
-            }
-        }
-
-        if (Math.abs(deltaX) > 150 && Math.abs(deltaY) < 150 && deltaTime < 400) {
-            // Swipe
-            if (deltaX < 0) {
-                // Right (next)
-                navigate(true, false);
-            }  
-            else {
-                // Left (previous)
-                navigate(false, false);
-            }
-        }    
-    });    
-
-    
-    $('body').on('keydown', function(ev) {
-        if (ev.shiftKey) {
-            switch(ev.key) {
-                case 'ArrowLeft':
-                    navigate(false, false);
-                    break;
-
-                case 'ArrowRight':
-                    navigate(true, false);
-                    break;
-
-                case 'ArrowUp':
-                    navigate(false, true);
-                    break;
-
-                case 'ArrowDown':
-                    navigate(true, true);
-                    break;
-            }
-
-        }
-    });
     const scrollableContent = $('div.content-inner');
 
     let apiIndex;
@@ -179,7 +85,6 @@ $(document).ready(function() {
     const closeFolder = function(folder) {
         for(const section of apiIndex.sections) {
             if (section.folder == folder && apiIndex.folders[section.folder].folderItems) {
-                console.log('closeFolder ' + folder);
                 $(apiIndex.folders[section.folder].elem).find('i').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
 
                 for(const elem of apiIndex.folders[section.folder].folderItems) {
@@ -191,7 +96,7 @@ $(document).ready(function() {
         }
     }
 
-    const syncNavigation = function() {
+    const syncNavigation = function(linkOptional) {
         // Synchronize the left navigation to the currently 
 
         let href;
@@ -205,14 +110,19 @@ $(document).ready(function() {
             })
         });
 
-        // If the 0 <= offset.top <= 100 then the referencePage is at the top of the screen and is definitely the
-        // one to display.
-        // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
-        // because it's been scrolled up.
-        for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
-            if (pageOffsets[ii].top < 100) {
-                href = pageOffsets[ii].href;
-                break;
+        if (linkOptional) {
+            href = linkOptional;
+        }
+        else {
+            // If the 0 <= offset.top <= 100 then the referencePage is at the top of the screen and is definitely the
+            // one to display.
+            // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
+            // because it's been scrolled up.
+            for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+                if (pageOffsets[ii].top < 100) {
+                    href = pageOffsets[ii].href;
+                    break;
+                }
             }
         }
 
@@ -220,20 +130,31 @@ $(document).ready(function() {
             return;
         }
 
+        /*
+        if (linkOptional) {
+            console.log('syncNavigation to link ' + href);
+        }
+        else {
+            console.log('syncNavigation from position ' + href);
+        }
+        */
+
         const pathParts = parsePath(href);
         const folder = pathParts.folder;
         populateFolder(folder);
 
         // Mark current page as active
         $('.navContainer').find('.navLinkActive').removeClass('navLinkActive');
-        for(let section of apiIndex.sections) {
+        for(let ii = 0; ii < apiIndex.sections.length; ii++) {
+            let section = apiIndex.sections[ii];
             if (section.href == href) {
                 $(section.elem).find('a').addClass('navLinkActive');
+
 
                 // Add items for this page
                 if (!section.fileItems) {
                     let fileItems = [];
-                    
+
                     let afterItem = section.elem;
 
                     $(section.contentElem).find('h4').each(function() {
@@ -267,7 +188,29 @@ $(document).ready(function() {
                             h4Elem
                         });
                     });
+                    window.history.replaceState(null, null, section.href);
     
+                    // Update page/group navigation
+                    navigationInfo = {};
+                    if (ii > 0) {
+                        navigationInfo.prevLink = apiIndex.sections[ii - 1].href;
+                    }
+                    if ((ii + 1) < apiIndex.sections.length) {
+                        navigationInfo.nextLink = apiIndex.sections[ii + 1].href;
+                    }
+                    for(let jj = ii - 1; jj >= 0; jj--) {
+                        if (apiIndex.sections[jj].folder != section.folder) {
+                            navigationInfo.prevGroup = apiIndex.sections[jj].href;
+                            break;
+                        }
+                    }
+                    for(let jj = ii + 1; jj < apiIndex.sections.length; jj++) {
+                        if (apiIndex.sections[jj].folder != section.folder) {
+                            navigationInfo.nextGroup = apiIndex.sections[jj].href;
+                            break;
+                        }
+                    }
+
                     section.fileItems = fileItems;    
                 }
 
@@ -278,7 +221,7 @@ $(document).ready(function() {
                     sectionOffsets.push({
                         top: offset.top,
                         aElem: item.aElem,
-                        h4Elem: item.h4Elem // TODO: Remove this
+                        id: $(item.h4Elem).prop('id')
                     });                    
                 }
                 // console.log('sectionOffsets', sectionOffsets);
@@ -286,7 +229,8 @@ $(document).ready(function() {
                 for(let ii = 0; ii < sectionOffsets.length; ii++) {
                     if (sectionOffsets[ii].top > 0) {
                         $(sectionOffsets[ii].aElem).addClass('navLinkActive');
-                        // Should I update the window href here?
+                        const url = section.href + '#' + sectionOffsets[ii].id;
+                        window.history.replaceState(null, null, url);
                         break;
                     }
                 }
@@ -331,6 +275,7 @@ $(document).ready(function() {
 
     let pageQueue = [];
     let pageLoading = false;
+    let ignoreScroll;
 
 
     const loadPage = function() {
@@ -421,10 +366,16 @@ $(document).ready(function() {
                     $(scrollableContent).scrollTop(params.scrollTopAfter);
                 }
 
-                console.log('saving contentElem nav.index=' + nav.index)
                 apiIndex.sections[nav.index].contentElem = divElem;
 
-                syncNavigation();
+                if (options.scrollIntoView) {
+                    $(divElem)[0].scrollIntoView({block: "start", behavior: "smooth"}); // align to top 
+                    ignoreScroll = Date.now() + 1000;
+                }
+
+                if (options.syncNavigation) {
+                    syncNavigation(options.link);
+                }
 
             })
             .catch(function(err) {
@@ -515,10 +466,11 @@ $(document).ready(function() {
 
         $('.deviceOsApiNavMenu').after(divActiveContent);
 
-        console.log('saving original contentElem');
         apiIndex.sections[nav.index].contentElem = $('.originalContent');
 
         populateFolder(parsePath(thisUrl.pathname).folder);
+
+        syncNavigation(thisUrl.pathname);
 
         if (nav.next) {
             queuePage({link: nav.next, toEnd:true, doBefore:nav.prev});
@@ -543,9 +495,13 @@ $(document).ready(function() {
 
         // $(scrollableContent).height() is the height of the view
 
-        syncNavigation();
-
         // console.log('params', params);
+        if (!ignoreScroll || Date.now() > ignoreScroll) {
+            ignoreScroll = null;
+            syncNavigation();
+        }
+        else {
+        }
 
         if (params.atTop) {
             const prevLink = $(scrollableContent).data('prevLink');
@@ -562,5 +518,99 @@ $(document).ready(function() {
     });
 
 
+
+    const navigate = function(next, group) {
+        if (!navigationInfo) {
+            return;
+        }
+
+        if (!group) {
+            if (next) {
+                if (navigationInfo.nextLink) {
+                    queuePage({link: navigationInfo.nextLink, toEnd:true, scrollIntoView:true, syncNavigation:true});
+                }
+            }
+            else {
+                if (navigationInfo.prevLink) {
+                    queuePage({link: navigationInfo.prevLink, toEnd:false, scrollIntoView:true, syncNavigation:true});
+                }
+            }
+        }
+
+        if (group) {
+            if (next) {
+                if (navigationInfo.nextGroup) {
+                    location.href = navigationInfo.nextGroup;
+                }
+            }
+            else {
+                if (navigationInfo.prevGroup) {
+                    location.href = navigationInfo.prevGroup;
+                }
+            }
+        }
+    };
+
+
+    let startX, startY, startTime;
+
+    $('div.page-body').on('touchstart', function(e) {
+        startX = e.changedTouches[0].pageX;
+        startY = e.changedTouches[0].pageY;
+        startTime = Date.now();
+    });
+
+    $('div.page-body').on('touchend', function(e) {
+        const deltaX = e.changedTouches[0].pageX - startX;
+        const deltaY = e.changedTouches[0].pageY - startY;
+        const deltaTime = Date.now() - startTime;
+
+        if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30 && deltaTime < 200) {
+            // Tap
+            if (startX < 150) {
+                navigate(false, false);
+            }
+            else
+            if (startX > (screen.width - 150)) {
+                navigate(true, false);
+            }
+        }
+
+        if (Math.abs(deltaX) > 150 && Math.abs(deltaY) < 150 && deltaTime < 400) {
+            // Swipe
+            if (deltaX < 0) {
+                // Right (next)
+                navigate(true, false);
+            }  
+            else {
+                // Left (previous)
+                navigate(false, false);
+            }
+        }    
+    });    
+
+    
+    $('body').on('keydown', function(ev) {
+        if (ev.shiftKey) {
+            switch(ev.key) {
+                case 'ArrowLeft':
+                    navigate(false, false);
+                    break;
+
+                case 'ArrowRight':
+                    navigate(true, false);
+                    break;
+
+                case 'ArrowUp':
+                    navigate(false, true);
+                    break;
+
+                case 'ArrowDown':
+                    navigate(true, true);
+                    break;
+            }
+
+        }
+    });
 });
 
