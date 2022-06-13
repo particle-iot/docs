@@ -179,6 +179,7 @@ $(document).ready(function() {
     const closeFolder = function(folder) {
         for(const section of apiIndex.sections) {
             if (section.folder == folder && apiIndex.folders[section.folder].folderItems) {
+                console.log('closeFolder ' + folder);
                 $(apiIndex.folders[section.folder].elem).find('i').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
 
                 for(const elem of apiIndex.folders[section.folder].folderItems) {
@@ -195,13 +196,25 @@ $(document).ready(function() {
 
         let href;
 
+        let pageOffsets = [];
         $('.referencePage').each(function() {
             const offset = $(this).offset();
-
-            if (!href && offset.top > 0) {
-                href = $(this).attr('data-href');
-            }
+            pageOffsets.push({
+                top: offset.top,
+                href: $(this).attr('data-href')
+            })
         });
+
+        // If the 0 <= offset.top <= 100 then the referencePage is at the top of the screen and is definitely the
+        // one to display.
+        // However, if there isn't one in that range, then look up (negative offset) to find the closest href,
+        // because it's been scrolled up.
+        for(let ii = pageOffsets.length - 1; ii >= 0; ii--) {
+            if (pageOffsets[ii].top < 100) {
+                href = pageOffsets[ii].href;
+                break;
+            }
+        }
 
         if (!href) {            
             return;
@@ -211,12 +224,82 @@ $(document).ready(function() {
         const folder = pathParts.folder;
         populateFolder(folder);
 
-        // Mark current page as active - TODO: This is not working all the time, need to investigate
+        // Mark current page as active
         $('.navContainer').find('.navLinkActive').removeClass('navLinkActive');
-        for(const section of apiIndex.sections) {
+        for(let section of apiIndex.sections) {
             if (section.href == href) {
                 $(section.elem).find('a').addClass('navLinkActive');
-                break;
+
+                // Add items for this page
+                if (!section.fileItems) {
+                    let fileItems = [];
+                    
+                    let afterItem = section.elem;
+
+                    $(section.contentElem).find('h4').each(function() {
+                        const h4Elem = this;
+                        let aElem;
+
+                        let divNavContainer = document.createElement('div');
+                        $(divNavContainer).addClass('navContainer');
+                        $(divNavContainer).addClass('navMenu5');
+        
+                        let d = document.createElement('div');
+                        $(d).addClass('navIndent5');
+                        $(divNavContainer).append(d);
+                
+                        d = document.createElement('div');
+                        $(d).addClass('navContent5');
+                        {
+                            aElem = document.createElement('a');
+                            $(aElem).text($(h4Elem).text());
+                            $(aElem).attr('href', '#' + $(h4Elem).attr('id'));
+                            $(aElem).addClass('navLink');
+                            $(d).append(aElem);
+                        }
+                        $(divNavContainer).append(d);              
+                        $(afterItem).after(divNavContainer);
+                        afterItem = divNavContainer;
+                        
+                        fileItems.push({
+                            elem: divNavContainer,
+                            aElem,
+                            h4Elem
+                        });
+                    });
+    
+                    section.fileItems = fileItems;    
+                }
+
+                // Add a navLinkActive to the current fileItem
+                let sectionOffsets = [];
+                for(const item of section.fileItems) {
+                    const offset = $(item.h4Elem).offset();
+                    sectionOffsets.push({
+                        top: offset.top,
+                        aElem: item.aElem,
+                        h4Elem: item.h4Elem // TODO: Remove this
+                    });                    
+                }
+                // console.log('sectionOffsets', sectionOffsets);
+
+                for(let ii = 0; ii < sectionOffsets.length; ii++) {
+                    if (sectionOffsets[ii].top > 0) {
+                        $(sectionOffsets[ii].aElem).addClass('navLinkActive');
+                        // Should I update the window href here?
+                        break;
+                    }
+                }
+    
+            }
+            else
+            if (section.fileItems) {
+                // Remove the items for this page
+                for(const item of section.fileItems) {
+                    $(item.elem).remove();
+                }
+
+                section.fileItems = null;
             }
         }
 
@@ -226,7 +309,6 @@ $(document).ready(function() {
                 closeFolder(section.folder);
             }
         }
-
 
 
         /*
@@ -339,6 +421,9 @@ $(document).ready(function() {
                     $(scrollableContent).scrollTop(params.scrollTopAfter);
                 }
 
+                console.log('saving contentElem nav.index=' + nav.index)
+                apiIndex.sections[nav.index].contentElem = divElem;
+
                 syncNavigation();
 
             })
@@ -401,6 +486,7 @@ $(document).ready(function() {
                         populateFolder(folder);
                     }
                     else {
+                        console.log('close folder from click');
                         closeFolder(folder);
                     }  
                 });
@@ -428,6 +514,9 @@ $(document).ready(function() {
         }
 
         $('.deviceOsApiNavMenu').after(divActiveContent);
+
+        console.log('saving original contentElem');
+        apiIndex.sections[nav.index].contentElem = $('.originalContent');
 
         populateFolder(parsePath(thisUrl.pathname).folder);
 
