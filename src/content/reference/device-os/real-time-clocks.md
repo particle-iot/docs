@@ -20,12 +20,12 @@ The RTC is generally accurate within a few seconds of the actual time.
 
 Gen 2 devices (E Series, Electron, and Photon) have a STM32F205 MCU and Gen 3 devices (Tracker, B Series SoM, Boron, and Argon) have an nRF52840 MCU. These different processors handle the RTC differently, especially with regards to sleep modes.
 
-The most important distinction is that on Gen 3 devices, the RTC does not run in [`HIBERNATE`](/cards/firmware/sleep-sleep/hibernate-systemsleepmode/) sleep mode (formerly `SLEEP_MODE_DEEP`). This has two important effects:
+The most important distinction is that on Gen 3 devices, the RTC does not run in [`HIBERNATE`](/reference/device-os/api/sleep-sleep/hibernate-systemsleepmode/) sleep mode (formerly `SLEEP_MODE_DEEP`). This has two important effects:
 
 - The RTC will not be valid after waking up from `HIBERNATE` sleep mode until the time is synchronized with the cloud again on Gen 3 devices.
 - You cannot wake based on a time duration from `HIBERNATE` on Gen 3 devices.
 
-One important mitigating factor is that Gen 3 [`ULTRA_LOW_POWER`](/cards/firmware/sleep-sleep/ultra_low_power-systemsleepmode/) uses only slightly more power than `HIBERNATE` and the RTC continues to operate in `ULTRA_LOW_POWER` mode. This is typically the best solution for Gen 3 devices.
+One important mitigating factor is that Gen 3 [`ULTRA_LOW_POWER`](/reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode/) uses only slightly more power than `HIBERNATE` and the RTC continues to operate in `ULTRA_LOW_POWER` mode. This is typically the best solution for Gen 3 devices.
 
 ## Gen 2 VBAT
 
@@ -36,7 +36,7 @@ Another important difference is that some Gen 2 devices support the VBAT input. 
 - Connect VBAT to a lithium coin cell battery to always power the RTC.
 - Connect VBAT to GND to not power the RTC at all when the MCU is not powered.
 
-It's somewhat counter-intuitive that you connect VBAT to GND on the Photon, however if you leave it floating it's possible that when you power up a Photon from a completely discharged state, [retained memory](/cards/firmware/backup-ram-sram/backup-ram-sram/) will not be initialized. If you connect VBAT to GND the MCU is able to detect a completely cold boot and initialize retained memory.
+It's somewhat counter-intuitive that you connect VBAT to GND on the Photon, however if you leave it floating it's possible that when you power up a Photon from a completely discharged state, [retained memory](/reference/device-os/api/backup-ram-sram/backup-ram-sram/) will not be initialized. If you connect VBAT to GND the MCU is able to detect a completely cold boot and initialize retained memory.
 
 The same is true for the P0 and P1.
 
@@ -67,15 +67,15 @@ The E Series module has a VBAT pad, and you can connect it as you wish:
 ## Particle.connected vs. Time.isValid
 
 The RTC is synchronized with the cloud shortly after cloud handshake (within a second or two). Because they are two separate events, 
-[`Particle.connected()`](/cards/firmware/cloud-functions/particle-connected/) will become true before [`Time.isValid()`](/cards/firmware/time/isvalid/) becomes true.
+[`Particle.connected()`](/reference/device-os/api/cloud-functions/particle-connected/) will become true before [`Time.isValid()`](/reference/device-os/api/time/isvalid/) becomes true.
 
-If you wake from [STOP](/cards/firmware/sleep-sleep/stop-systemsleepmode/) or [`ULTRA_LOW_POWER`](/cards/firmware/sleep-sleep/ultra_low_power-systemsleepmode/) sleep modes, the RTC will continue to be set from before sleep, and `Time.isValid()` will be true immediately.
+If you wake from [STOP](/reference/device-os/api/sleep-sleep/stop-systemsleepmode/) or [`ULTRA_LOW_POWER`](/reference/device-os/api/sleep-sleep/ultra_low_power-systemsleepmode/) sleep modes, the RTC will continue to be set from before sleep, and `Time.isValid()` will be true immediately.
 
-If you wake from [`HIBERNATE`](/cards/firmware/sleep-sleep/hibernate-systemsleepmode/) sleep mode, the device will go through `setup()` again. On Gen 2 devices, the RTC will already be set at boot. On Gen 3 devices, the RTC will not be valid until after the cloud time synchronization.
+If you wake from [`HIBERNATE`](/reference/device-os/api/sleep-sleep/hibernate-systemsleepmode/) sleep mode, the device will go through `setup()` again. On Gen 2 devices, the RTC will already be set at boot. On Gen 3 devices, the RTC will not be valid until after the cloud time synchronization.
 
 Of course this assumes that the time was set before going to sleep. If you go to sleep before the time is synchronized, it obviously will not be set on wake, either. You can still sleep by time duration without the RTC being set, but if you want accurate time, you may want to make sure `Time.isValid()` is true before going to sleep.
 
-The [`Particle.timeSyncedLast()`](/cards/firmware/cloud-functions/particle-timesyncedlast/#particle-timesyncedlast-) function can be used to determine when the RTC was last synchronized with the Particle cloud. This is different than `Time.isValid()` in that after a restart with the RTC set, the time will be valid, but will not have been synchronized yet. You typically won't care about this scenario, but if you need to know, use that function.
+The [`Particle.timeSyncedLast()`](/reference/device-os/api/cloud-functions/particle-timesyncedlast/#particle-timesyncedlast-) function can be used to determine when the RTC was last synchronized with the Particle cloud. This is different than `Time.isValid()` in that after a restart with the RTC set, the time will be valid, but will not have been synchronized yet. You typically won't care about this scenario, but if you need to know, use that function.
 
 ## Refreshing time synchronization
 
@@ -85,9 +85,9 @@ On the Photon and P1, if the device does not use sleep mode and is always runnin
 
 On all other devices, even if the device never sleeps and has perfect connectivity, a cloud handshake will still occur every 3 days, so the clock drift will be minimal.
 
-When waking up from sleep, time is generally synchronized on wake except in one case: If you are using [sleep with network active](/cards/firmware/sleep-sleep/network-systemsleepconfiguration/) with STOP mode sleep (or ULTRA_LOW_POWER on Gen 3), and are not using `INACTIVE_STANDBY`, time synchronization will not occur on wake, but the RTC will be valid if it was set prior to sleep. The RTC will still be synchronized every 3 days, however.
+When waking up from sleep, time is generally synchronized on wake except in one case: If you are using [sleep with network active](/reference/device-os/api/sleep-sleep/network-systemsleepconfiguration/) with STOP mode sleep (or ULTRA_LOW_POWER on Gen 3), and are not using `INACTIVE_STANDBY`, time synchronization will not occur on wake, but the RTC will be valid if it was set prior to sleep. The RTC will still be synchronized every 3 days, however.
 
-To manually request synchronizing time, use [`Particle.syncTime()`](/cards/firmware/cloud-functions/particle-synctime/).
+To manually request synchronizing time, use [`Particle.syncTime()`](/reference/device-os/api/cloud-functions/particle-synctime/).
 
 ## Using an external RTC
 

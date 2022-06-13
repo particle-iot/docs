@@ -6,7 +6,7 @@ columns: two
 
 # {{title}}
 
-We recommend using the [Logging system](/cards/firmware/logging/logging/) built into Device OS. For example:
+We recommend using the [Logging system](/reference/device-os/api/logging/logging/) built into Device OS. For example:
 
 ```cpp
 // Use primary serial over USB interface for logging output

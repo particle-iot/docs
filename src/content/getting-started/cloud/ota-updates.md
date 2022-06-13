@@ -312,7 +312,7 @@ here, but altered slightly to work with a fleet of devices. The first thing you'
 Unlike compiling a binary for a single device, it is critical that the **firmware version** is included in the compiled binary when targeting Device OS 4.0 or later. 
 
 Add the PRODUCT_VERSION macro to your main application `.ino`
-file, below `#include "Particle.h"` if it includes that line. For more information, see [PRODUCT_VERSION](/cards/firmware/macros/product_version/).
+file, below `#include "Particle.h"` if it includes that line. For more information, see [PRODUCT_VERSION](/reference/device-os/api/macros/product_version/).
 
 The firmware version must be an integer that increments
 each time a new binary is uploaded to the Console. This allows the
@@ -342,7 +342,7 @@ void loop() {
 
 #### Preparing firmware (3.x and earlier)
 
-Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. For more information, see [PRODUCT_VERSION](/cards/firmware/macros/product_version/).
+Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. For more information, see [PRODUCT_VERSION](/reference/device-os/api/macros/product_version/).
 
 Add these two *macros* near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember
@@ -589,7 +589,7 @@ to receive the new version of firmware will be OTA updated the next time
 they come online.
 - A target device _must also have OTA updates enabled_ at the time of release
 to receive the OTA update immediately. Specifically, this means that
-[`System.updatesEnabled()`](/cards/firmware/ota-updates/system-updatesenabled/)
+[`System.updatesEnabled()`](/reference/device-os/api/ota-updates/system-updatesenabled/)
 returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
@@ -629,7 +629,7 @@ Intelligent Release:
 ## Controlling OTA availability
 
 Sending an OTA update to a device comes with the risk of interrupting it
-during critical activities. Particle's Device OS includes [helpful APIs](/cards/firmware/ota-updates/system-enableupdates/)
+during critical activities. Particle's Device OS includes [helpful APIs](/reference/device-os/api/ota-updates/system-enableupdates/)
 to allow a device to coordinate with the Device Cloud to ensure OTAs are
 delivered at the appropriate time.
 
@@ -643,12 +643,12 @@ The sections below discuss methods to control when and how an OTA is
 delivered to a device in your fleet.
 
 Reference documentation is also available for [controlling OTA
-availability](/cards/firmware/ota-updates/ota-updates/).
+availability](/reference/device-os/api/ota-updates/ota-updates/).
 
 
 ### Disabling OTA updates
 
-[`System.disableUpdates()`](/cards/firmware/ota-updates/system-disableupdates/) can be added in application firmware to
+[`System.disableUpdates()`](/reference/device-os/api/ota-updates/system-disableupdates/) can be added in application firmware to
 disable OTA updates for an individual device. This is done to prevent
 OTA attempts from the Device Cloud when the device is not available for
 an update.
@@ -669,7 +669,7 @@ You can upgrade the Device OS in several ways, including both by USB and OTA fol
 
 ### Re-enabling OTA updates
 
-[`System.enableUpdates()`](/cards/firmware/ota-updates/system-enableupdates/) enables OTA updates for an individual device,
+[`System.enableUpdates()`](/reference/device-os/api/ota-updates/system-enableupdates/) enables OTA updates for an individual device,
 **allowing all over-the-air firmware requests from the Device Cloud**.
 By default, OTA updates are enabled for a device. This method would only
 need to be called if updates had been previously disabled using
@@ -682,7 +682,7 @@ device.
 
 ### Notifications of pending OTA updates
 
-[`System.updatesPending()`](/cards/firmware/ota-updates/system-updatespending/) is a boolean flag that will return whether a
+[`System.updatesPending()`](/reference/device-os/api/ota-updates/system-updatespending/) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
 helpful in the case when updates have been disabled for a device (by
 calling `System.disableUpdates()` in firmware), and the device needs
@@ -739,7 +739,7 @@ logic to conditionally enable updates at the appropriate time
 
 #### Disabling OTA only when necessary
 
-The calls [`System.enableUpdates()`](/cards/firmware/ota-updates/system-enableupdates/) and [`System.disableUpdates()`](/cards/firmware/ota-updates/system-disableupdates/) can be used to control whether updates are allowed.
+The calls [`System.enableUpdates()`](/reference/device-os/api/ota-updates/system-enableupdates/) and [`System.disableUpdates()`](/reference/device-os/api/ota-updates/system-disableupdates/) can be used to control whether updates are allowed.
 
 When not using `SYSTEM_THREAD(ENABLED)`, updates are only checked between your calls to your loop() function.
 
@@ -830,7 +830,7 @@ The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the
 default mode, `setup()` is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
 
 If you want to manage firmware updates in this way, you can check
-[`System.updatesPending()`](/cards/firmware/ota-updates/system-updatespending/)
+[`System.updatesPending()`](/reference/device-os/api/ota-updates/system-updatespending/)
 when you are in a situation where updates would be acceptable. If true,
 you can then enable updates again using `System.enableUpdates()`. This
 method would result in a minimal amount of cellular data consumption.
@@ -877,9 +877,9 @@ void loop() {
 
 When using `SYSTEM_THREAD(ENABLED)` your code will continue to run during the download process for the new user firmware, however performance will be affected. Normally, the device will reset immediately after the download completes, and after reset the device will be running the new firmware.
 
-Using [`System.disableReset()`](/cards/firmware/system-calls/disablereset/) will prevent this reset from occurring. You might do this if you want to do additional cleanup, or delay it until a more appropriate time.
+Using [`System.disableReset()`](/reference/device-os/api/system-calls/disablereset/) will prevent this reset from occurring. You might do this if you want to do additional cleanup, or delay it until a more appropriate time.
 
-You can use the [`on_reset_pending`](/cards/firmware/system-events/system-events/) event to be notified when a reset is required. You can also call [`System.resetPending()`](/cards/firmware/system-calls/resetpending/) to find out if the system needs a reset to complete an OTA update. 
+You can use the [`on_reset_pending`](/reference/device-os/api/system-events/system-events/) event to be notified when a reset is required. You can also call [`System.resetPending()`](/reference/device-os/api/system-calls/resetpending/) to find out if the system needs a reset to complete an OTA update. 
 
 Once you've performed any additional operations and it's a good time to reset, you can call `System.reset()`.
 
@@ -906,7 +906,7 @@ bool isSafeToReset() {
 }
 ```
 
-It is also possible to use the [`reset` System Event](/cards/firmware/system-events/system-events/). This is ideal if you only want to do quick clean-up operations before resetting.
+It is also possible to use the [`reset` System Event](/reference/device-os/api/system-events/system-events/). This is ideal if you only want to do quick clean-up operations before resetting.
 
 ```
 void setup() {

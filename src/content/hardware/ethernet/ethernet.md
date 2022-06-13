@@ -62,7 +62,7 @@ If you are using the Adafruit Ethernet FeatherWing, be sure to connect the nRESE
 
 ## Device OS Support
 
-- The Device OS API for Ethernet is [available here](/cards/firmware/ethernet/ethernet/).
+- The Device OS API for Ethernet is [available here](/reference/device-os/api/ethernet/ethernet/).
 
 - Ethernet must be enabled. This is done using `System.enableFeature(FEATURE_ETHERNET_DETECTION);` from code, or from the mobile app. The reason is that probing for the Ethernet controller will use SPI and the GPIO pins above, which would adversely affect code that does not use Ethernet but does use those pins for other purposes.
 
@@ -100,7 +100,7 @@ Note that this only provides cellular Internet to the Boron or B Series SoM. It 
 
 ### Keep-alive
 
-The [Particle.keepAlive](/cards/firmware/cloud-functions/particle-keepalive/) is necessary to maintain the cloud connection. For cellular devices, this defaults to 23 minutes for the Particle SIM. (For 3rd-party SIM cards, it could be as low as 30 seconds.)
+The [Particle.keepAlive](/reference/device-os/api/cloud-functions/particle-keepalive/) is necessary to maintain the cloud connection. For cellular devices, this defaults to 23 minutes for the Particle SIM. (For 3rd-party SIM cards, it could be as low as 30 seconds.)
 
 For Ethernet, the period will dependent on the local LAN connection. If you using the Argon and 2.1.0 or later, the default is 25 seconds.
 

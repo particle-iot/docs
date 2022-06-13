@@ -70,7 +70,7 @@ In the growth and enterprise tiers the organization also has a team. You can hav
 
 One major difference between developer devices and products is with device claiming. There are several options:
 
-- Leave product devices unclaimed. This is a good option if the device does not need to subscribe to Particle events using [`Particle.subscribe()`](/cards/firmware/cloud-functions/particle-subscribe/). This include subscribing to the replies from a webhook. If you need to receive events, then you cannot use this option.
+- Leave product devices unclaimed. This is a good option if the device does not need to subscribe to Particle events using [`Particle.subscribe()`](/reference/device-os/api/cloud-functions/particle-subscribe/). This include subscribing to the replies from a webhook. If you need to receive events, then you cannot use this option.
 
 - Claim all devices to a single account. This is a common option for cellular products. The single owner account, which could also be the product owner account, claims all devices. There's full support for receiving events with this option.
 
@@ -265,7 +265,7 @@ Finally, once you've tested the binary and upgrade process, you can then flash t
 
 ## Events
 
-Events, using [`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/), from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
+Events, using [`Particle.publish()`](/reference/device-os/api/cloud-functions/particle-publish/), from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
 
 Since unclaimed product devices don't have a device owner, they cannot receive private events. This includes events sent from other devices, the cloud API, or webhook responses.
 

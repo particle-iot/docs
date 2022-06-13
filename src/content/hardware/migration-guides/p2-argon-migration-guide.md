@@ -449,11 +449,11 @@ The flash file system can be used for data storage on the P2, however care must 
 
 ### Flash file system
 
-Both the Argon and P2 have a 2 MB flash file system using the same [POSIX API](/cards/firmware/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
+Both the Argon and P2 have a 2 MB flash file system using the same [POSIX API](/reference/device-os/api/file-system/file-system/) as Gen 3 devices. A small amount of space is reserved for system use including configuration data. Most of the space is available for user application use.
 
 ### EEPROM
 
-The [EEPROM emulation API](/cards/firmware/eeprom/eeprom/) is the same across the Photon and P2.
+The [EEPROM emulation API](/reference/device-os/api/eeprom/eeprom/) is the same across the Photon and P2.
 
 Both the Argon and P2 have 4096 bytes of emulated EEPROM. On the P2 and Gen 3 devices, the EEPROM is actually just a file on the flash file system.
 

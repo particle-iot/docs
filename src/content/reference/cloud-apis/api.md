@@ -481,7 +481,7 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 
 One situation that can cause problems is continuously monitoring variables for change. If you're polling every few seconds it's not a problem for a single device and variable. But if you are trying to monitor many devices, or have a classroom of students each polling their own device, you can easily exceed the API rate limit.
 
-Having the device call [Particle.publish](/cards/firmware/cloud-functions/particle-publish/) when the value changes may be more efficient.
+Having the device call [Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) when the value changes may be more efficient.
 
 #### Make sure you handle error conditions properly
 

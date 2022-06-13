@@ -79,7 +79,7 @@ Particle.publish("Boiling!", "212", 60, PRIVATE);
 
 #### Firmware requirements
 
-To use this Trigger, firmware must include Particle.publish(). Complete documentation on using [Particle.publish() is here.](/cards/firmware/cloud-functions/particle-publish/)
+To use this Trigger, firmware must include Particle.publish(). Complete documentation on using [Particle.publish() is here.](/reference/device-os/api/cloud-functions/particle-publish/)
 
 A word of caution - firmware loops quickly, so it's very easy to run
 publish() too frequently. You'll trigger your IFTTT recipe 100 times in
@@ -129,7 +129,7 @@ January 12, 2015 at 6:59pm
 #### Firmware requirements
 Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Particle.variable() using the format to the right in the setup() function, and then you're good to go.
 
-Complete documentation on using [Particle.variable() is here.](/cards/firmware/cloud-functions/particle-variable/)
+Complete documentation on using [Particle.variable() is here.](/reference/device-os/api/cloud-functions/particle-variable/)
 
 ```C++
 // EXAMPLE SHOWING THREE DATA TYPES
@@ -248,7 +248,7 @@ Your Particle.function()s can be used in several ways with IFTTT. You can send a
 #### Firmware requirements
 All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Particle.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Particle.function()s that you register will show up in IFTTT.
 
-Complete documentation on using [Particle.function() is here.](/cards/firmware/cloud-functions/particle-function/)
+Complete documentation on using [Particle.function() is here.](/reference/device-os/api/cloud-functions/particle-function/)
 
 
 #### Trigger fields
@@ -365,7 +365,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   ---
   
-  Complete documentation on using [Particle.subscribe() is here.](/cards/firmware/cloud-functions/particle-subscribe/)
+  Complete documentation on using [Particle.subscribe() is here.](/reference/device-os/api/cloud-functions/particle-subscribe/)
 
 #### Action fields
 
@@ -389,7 +389,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   This is very similar to using a Particle.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Particle.function() as trigger, will work for this as well.
 
-  Complete documentation on using [Particle.function() is here.](/cards/firmware/cloud-functions/particle-function/)
+  Complete documentation on using [Particle.function() is here.](/reference/device-os/api/cloud-functions/particle-function/)
 
 #### Action fields
 

@@ -16,7 +16,7 @@ Gen 3 devices, including the Boron, Argon, B Series SoM, Tracker SoM, and Tracke
 | Tracker SoM | 4 MB |
 | Tracker One | 4 MB |
 
-It's accessible from user firmware using the [POSIX file system API](/cards/firmware/file-system/file-system/).
+It's accessible from user firmware using the [POSIX file system API](/reference/device-os/api/file-system/file-system/).
 
 ## Quick Facts
 

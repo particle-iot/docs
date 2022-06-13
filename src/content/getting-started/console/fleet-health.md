@@ -58,7 +58,7 @@ different points in time.
 
 One of the 4 main device communication primitives is **publishing
 events**, which is done by adding
-[`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/)
+[`Particle.publish()`](/reference/device-os/api/cloud-functions/particle-publish/)
 to application firmware. Publishing events allows devices to send a
 message to the Device Cloud (i.e. the current location of an
 asset), which can be subscribed to by downstream systems.
@@ -109,7 +109,7 @@ identify which one is having an issue.
 
 Another device communication primitive is **Cloud Functions**, which are
 exposed using
-[`Particle.function()`](/cards/firmware/cloud-functions/particle-function/)
+[`Particle.function()`](/reference/device-os/api/cloud-functions/particle-function/)
 in application firmware. Cloud Functions allow you to instruct devices
 to take an action remotely.
 
@@ -130,7 +130,7 @@ with the [Online Devices](#online-devices) data.
 **Cloud Variables** is another device communication primitive that
 allows you to query devices for information locally. Variables are
 exposed using
-[`Particle.variable()`](/cards/firmware/cloud-functions/particle-variable/)
+[`Particle.variable()`](/reference/device-os/api/cloud-functions/particle-variable/)
 in application firmware.
 
 The Cloud Variable Requests metric measures _How many cloud variable

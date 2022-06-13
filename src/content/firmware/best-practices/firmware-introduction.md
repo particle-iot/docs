@@ -15,9 +15,9 @@ description: Tips for writing Particle device software
 
 - Install [Particle Workbench](/getting-started/developer-tools/workbench/). This is the preferred development environment for Particle device programming.
 
-Particle devices are programming using C/C++, specifically gcc C++11, C++14, or C++17 depending on the version of Device OS you are targeting. If it's been a while since you've programmed in C/C++, there is a [language syntax overview](/cards/firmware/language-syntax/language-syntax/). Of course there are countless books and tutorials on the Internet as well.
+Particle devices are programming using C/C++, specifically gcc C++11, C++14, or C++17 depending on the version of Device OS you are targeting. If it's been a while since you've programmed in C/C++, there is a [language syntax overview](/reference/device-os/api/language-syntax/language-syntax/). Of course there are countless books and tutorials on the Internet as well.
 
-The collection of calls to manage the features of the device including cloud features, hardware interfaces (serial, I2C, SPI), networking features, etc. are in the [Device OS API](/cards/firmware/introduction/introduction/).
+The collection of calls to manage the features of the device including cloud features, hardware interfaces (serial, I2C, SPI), networking features, etc. are in the [Device OS API](/reference/device-os/api/introduction/introduction/).
 
 ### Device firmware
 
@@ -83,25 +83,25 @@ Breaking this down:
 #include "Particle.h"
 ```
 
-This is necessary for all .cpp files, but optional for .ino files. We recommend always using .cpp files, even for the main application source file. See [preprocessor](/cards/firmware/preprocessor/preprocessor/) for the specific differences between standard .cpp file and .ino files.
+This is necessary for all .cpp files, but optional for .ino files. We recommend always using .cpp files, even for the main application source file. See [preprocessor](/reference/device-os/api/preprocessor/preprocessor/) for the specific differences between standard .cpp file and .ino files.
 
 ```cpp
 SYSTEM_THREAD(ENABLED);
 ```
 
-[Threaded mode](/cards/firmware/system-thread/system-thread/) should be used for all user applications. It tends to provide the most consistent behavior and all products created by Particle Studios use this mode.
+[Threaded mode](/reference/device-os/api/system-thread/system-thread/) should be used for all user applications. It tends to provide the most consistent behavior and all products created by Particle Studios use this mode.
 
 ```cpp
 SYSTEM_MODE(SEMI_AUTOMATIC);
 ```
 
-You can a [system mode](/cards/firmware/system-modes/system-modes/) of `SEMI_AUTOMATIC` or `AUTOMATIC`, but by using the combination of `SEMI_AUTOMATIC` and a call `Particle.connect()` in `setup()` you have a great deal of flexibility for managing the cloud connection.
+You can a [system mode](/reference/device-os/api/system-modes/system-modes/) of `SEMI_AUTOMATIC` or `AUTOMATIC`, but by using the combination of `SEMI_AUTOMATIC` and a call `Particle.connect()` in `setup()` you have a great deal of flexibility for managing the cloud connection.
 
 ```cpp
 SerialLogHandler logHandler;
 ```
 
-Using the [log handler](/cards/firmware/logging/logging/) is the recommended way of creating debugging output. 
+Using the [log handler](/reference/device-os/api/logging/logging/) is the recommended way of creating debugging output. 
 
 ```cpp
 void setup() 
@@ -110,9 +110,9 @@ void setup()
 }
 ```
 
-When using `SEMI_AUTOMATIC` mode you need to add a call to [`Particle.connect()`](/cards/firmware/cloud-functions/particle-connect/), typically in `setup()`. This provides flexibility:
+When using `SEMI_AUTOMATIC` mode you need to add a call to [`Particle.connect()`](/reference/device-os/api/cloud-functions/particle-connect/), typically in `setup()`. This provides flexibility:
 
-- If you need to perform operations before connecting, you can put them before `Particle.connect()`. This is safer than using [`STARTUP`](/cards/firmware/macros/startup/#startup-) blocks.
+- If you need to perform operations before connecting, you can put them before `Particle.connect()`. This is safer than using [`STARTUP`](/reference/device-os/api/macros/startup/#startup-) blocks.
 
 - On battery-powered cellular devices, you may want to check the [battery charge and skip connecting when the battery is low](/firmware/low-power/wake-publish-sleep-cellular/). This is particularly useful for devices that also have a solar charger, to avoid completely discharging the battery or failing to connect due to insufficient power.
  
@@ -130,7 +130,7 @@ The loop() function is where you put your code. You should try to return as quic
 
 ### Use Log calls instead of Serial.print
 
-In many older and Arduino examples, you you may see `Serial.print()`. It's better practice to use [`Log.info()`](/cards/firmware/logging/logger-class/) instead.
+In many older and Arduino examples, you you may see `Serial.print()`. It's better practice to use [`Log.info()`](/reference/device-os/api/logging/logger-class/) instead.
 
 ```cpp
 Log.info("analogvalue=%d", analogvalue);
@@ -141,7 +141,7 @@ Log.info("analogvalue=%d", analogvalue);
 - Allows redirection to other ports (such as a hardware UART), remote logging services (like Solarwinds Papertrail), SD cards, and many others. 
 - Thread-safe, allowing logging safely from multiple threads.
 
-See [Logging](/cards/firmware/logging/logging/) for more information.
+See [Logging](/reference/device-os/api/logging/logging/) for more information.
 
 
 ### Memory fragmentation
@@ -308,11 +308,11 @@ In this example, complex parts of setup are deferred until `setup()` instead of 
 
 Another better alternative to global objects is often to use the [singleton pattern](/firmware/software-design/singleton/).
 
-For more information see, [Global object constructors](/cards/firmware/global-object-constructors/global-object-constructors/).
+For more information see, [Global object constructors](/reference/device-os/api/global-object-constructors/global-object-constructors/).
 
 ### Mutex deadlock
 
-You must be very careful when using [SINGLE_THREADED_BLOCK](/cards/firmware/system-thread/single_threaded_block/) and you should avoid using it except to surround very small blocks of code that use only simple operations such as manipulating variables (such as queues), `digitalWrite()`, and `delayMicroseconds()`. 
+You must be very careful when using [SINGLE_THREADED_BLOCK](/reference/device-os/api/system-thread/single_threaded_block/) and you should avoid using it except to surround very small blocks of code that use only simple operations such as manipulating variables (such as queues), `digitalWrite()`, and `delayMicroseconds()`. 
 
 The reason is that many resources in the system are protected by mutexes. This includes things like SPI, I2C, the cellular modem, and logging. This is necessary so only a single thread can access the resource at time, but code that does not need that resource can continue to execute normally, and threads can swap as needed.
 
@@ -334,7 +334,7 @@ Note that not all libraries that interact with SPI peripherals use transactions,
 
 Prior to Ethernet on Gen 3 devices (Argon, Boron), the system thread never accessed `SPI`, so the lack of locking was less noticeable. You should still use locking, even if you are not using Ethernet.
 
-For more information, see [beginTransaction](/cards/firmware/spi/begintransaction/) in the Device OS firmware API reference.
+For more information, see [beginTransaction](/reference/device-os/api/spi/begintransaction/) in the Device OS firmware API reference.
 
 ### I2C locking
 
@@ -342,11 +342,11 @@ Similar to SPI locking, you should use `Wire.lock` and `Wire.unlock` around grou
 
 This is especially important on the B Series SoM if the PMIC and fuel gauge are on `Wire` as these can be read by the system thread.
 
-For more information, see [Wire.lock](/cards/firmware/wire-i2c/lock/) in the Device OS firmware API reference.
+For more information, see [Wire.lock](/reference/device-os/api/wire-i2c/lock/) in the Device OS firmware API reference.
 
 ### Software timers
 
-Beware when using [Software Timers](/cards/firmware/software-timers/software-timers/). You should:
+Beware when using [Software Timers](/reference/device-os/api/software-timers/software-timers/). You should:
 
 - Avoid performing lengthy operations from a timer callback as all timers execute from a single thread and other timers will not fire while one is already executing.
 - When possible set a flag and perform complex operations from `loop()` instead.
@@ -368,23 +368,23 @@ Interrupt service routines (ISR) are bits of code that run in an interrupt conte
 
 A few of the locations that are interrupt service routines:
 
-- [attachInterrupt()](/cards/firmware/interrupts/attachinterrupt/) handlers.
-- [SPI onSelect()](/cards/firmware/spi/onselect/) handlers.
-- [system button](/cards/firmware/system-events/system-events-overview/) handlers.
+- [attachInterrupt()](/reference/device-os/api/interrupts/attachinterrupt/) handlers.
+- [SPI onSelect()](/reference/device-os/api/spi/onselect/) handlers.
+- [system button](/reference/device-os/api/system-events/system-events-overview/) handlers.
 - [SparkIntervalTimer](/reference/device-os/libraries/s/SparkIntervalTimer/) library timer callbacks.
 
 A few of the locations that are **not** ISRs:
 
-- [Software timers](/cards/firmware/software-timers/software-timers/) but they run with a small stack (1024 bytes).
-- [Function handlers](/cards/firmware/cloud-functions/particle-function/) are called from the loop thread.
-- [Calculated variable handlers](/cards/firmware/cloud-functions/particle-variable-calculated/) are called from the loop thread.
-- [Subscription handlers](/cards/firmware/cloud-functions/particle-subscribe/) are called from the loop thread, however you cannot `Particle.publish` from a subscription handler.
-- [Serial events](/cards/firmware/serial/serialevent/) are called from the loop thread.
-- [Application watchdog callback](/cards/firmware/application-watchdog/application-watchdog/) but the system is probably unstable when it is called.
+- [Software timers](/reference/device-os/api/software-timers/software-timers/) but they run with a small stack (1024 bytes).
+- [Function handlers](/reference/device-os/api/cloud-functions/particle-function/) are called from the loop thread.
+- [Calculated variable handlers](/reference/device-os/api/cloud-functions/particle-variable-calculated/) are called from the loop thread.
+- [Subscription handlers](/reference/device-os/api/cloud-functions/particle-subscribe/) are called from the loop thread, however you cannot `Particle.publish` from a subscription handler.
+- [Serial events](/reference/device-os/api/serial/serialevent/) are called from the loop thread.
+- [Application watchdog callback](/reference/device-os/api/application-watchdog/application-watchdog/) but the system is probably unstable when it is called.
 
 In old versions of Device OS, allocating memory from an ISR would proceed, except randomly corrupt memory, often causing the device to crash later for completely unrelated reasons. Newer versions of Device OS will panic immediately, which makes it seem like code that previously worked no longer works on newer versions of Device OS, but really this is an improvement over randomly failing later.
 
-For more information, see [Interrupts](/cards/firmware/interrupts/interrupts/) in the Device OS firmware API reference.
+For more information, see [Interrupts](/reference/device-os/api/interrupts/interrupts/) in the Device OS firmware API reference.
 
 
 ### Out of memory handler
