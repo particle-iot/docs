@@ -190,7 +190,7 @@ String defaultBuildString = myDevice.getDefaultBuild();
 ---
 
 #### Read Variables
-Accessing variables of [all the standard Particle Device Cloud types](/cards/firmware/cloud-functions/particle-variable/) (integers, strings, doubles, and booleans):
+Accessing variables of [all the standard Particle Device Cloud types](/reference/device-os/api/cloud-functions/particle-variable/) (integers, strings, doubles, and booleans):
 
 ```java
 // 'myDevice' here is a ParticleDevice instance

@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="two-columns">
+<head>
+  {{> head }}
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+	      {{> deviceselector}}
+        <div class="navMenu" data-swiftype-index="false">
+          {{{navigation}}}
+        </div>
+      </div>
+      <div class="page-body">
+        <div class='content-inner'>
+          <div class="content" >
+            <div class="originalContent">
+                <!-- start 841427f3-9f46-4361-ab97-7afda1e082f9 -->
+                {{{contents}}}
+                <!-- end 841427f3-9f46-4361-ab97-7afda1e082f9 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="imageOverlay"></div>
+    {{> scripts}}
+
+</body>
+</html>

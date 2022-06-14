@@ -6,7 +6,8 @@ const titleize = require('../templates/helpers/titleize');
 
 let topMenuJson;
 
-function generateNavMenu(fileObj, contentDir) {
+function generateNavMenu(files, fileName, contentDir) {
+    let fileObj = files[fileName];
     // console.log('fileObj', fileObj);
     if (!fileObj.path || fileObj.path.ext !== '.md') {
         // Only md files could possibly get a nav menu
@@ -114,13 +115,50 @@ function generateNavMenu(fileObj, contentDir) {
         }
     }
 
-    // The navigation data is inserted using {{{navigation}}} in all layouts to generate the
-    // navigation menu. It's passed verbatim, with no additional processing in the layout template.
-    fileObj.navigation = generateNavHtml(menuJson);
+    // Firmware API (multiple page) and libraries generate their own navigation block, so don't override that 
+    if (!fileObj.navigation) {
+        // The navigation data is inserted using {{{navigation}}} in all layouts to generate the
+        // navigation menu. It's passed verbatim, with no additional processing in the layout template.
+        fileObj.navigation = generateNavHtml(menuJson);
+    }
 
     // sectionTitle is used for the page titles in the HTML <head> generated from head.hbs
     fileObj.sectionTitle = titleize(topLevelName);
 }
+
+
+function insertIntoMenu(menuJson, outerMenuJson, insertLoc) {
+    let resultMenuJson = {
+        items: []
+    };
+    let useNextArray = false;
+
+    const processArray = function(a, dest) {
+        for(const e of a) {
+            if (Array.isArray(e)) {
+                if (useNextArray) {
+                    useNextArray = false;
+                    dest.push(menuJson);
+                }
+                else {
+                    let a2 = [];
+                    processArray(e, a2);
+                    dest.push(a2);
+                }
+            }
+            else {
+                dest.push(e);
+                if (e.insertLoc == insertLoc) {
+                    useNextArray = true;
+                }
+            }
+        }
+    }
+    processArray(outerMenuJson.items, resultMenuJson.items);
+
+    return resultMenuJson;
+};
+
 
 function generateNavHtml(menuJson) {
     // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
@@ -138,7 +176,7 @@ function generateNavHtml(menuJson) {
     const makeNavMenu2 = function (item, indent) {
         let html = '';
 
-        html += '<div class="navContainer">';
+        html += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
 
         if (indent) {
             html += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
@@ -165,6 +203,7 @@ function generateNavHtml(menuJson) {
 
     let itemsFlat = [];
     let cardSections = [];
+    let noSeparator = false;
 
     const processArray = function(array, indent) {
         let hasActiveItem = false;
@@ -172,25 +211,41 @@ function generateNavHtml(menuJson) {
 
         for (const item of array) {
             if (item.isCardSection) {
-                nav += '<div class="navContainer">';
-                nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
-                nav += '</div>'; // navContainer
-                cardSections.push(item);
-                itemsFlat.push(item);
-            }
-            else if (item.isSection) {
-                // Multi-level section title
-                nav += '<div class="navContainer">';
+                nav += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
                 if (indent) {
                     nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
                 }
-                nav += '<div class="navMenu1">' + makeTitle(item) + '</div></div>';
+                nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
+                nav += '</div>'; // navContainer
+                cardSections.push(item);
+                //itemsFlat.push(item);
+            }
+            else if (item.isSection) {
+                // Multi-level section title
+                nav += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
+                if (indent) {
+                    nav += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
+                }
+                if (item.href) {
+                    nav += '<div class="navMenu1"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div></div>';
+                }
+                else {
+                    nav += '<div class="navMenu1">' + makeTitle(item) + '</div></div>';
+                }
+                if (item.noSeparator) {
+                    noSeparator = true;
+                }
             }
             else if (Array.isArray(item)) {
                 // Multi-level (like tutorials, reference, datasheets)
                 processArray(item, indent + 1);
 
-                nav += '<div class="navSectionSpacer"></div>';
+                if (noSeparator) {
+                    noSeparator = false;
+                }
+                else {
+                    nav += '<div class="navSectionSpacer"></div>';
+                }
                 
             }
             else 
@@ -214,6 +269,8 @@ function generateNavHtml(menuJson) {
     nav += '</div>'; // navMenuOuter
 
     // Generate keyboard and swipe navigation directions for this page
+    // This can be removed after fully migrated to using the new apiIndexJson
+    /*
     let navigationInfo = {};
     let itemFound = false;
 
@@ -250,8 +307,8 @@ function generateNavHtml(menuJson) {
         navigationInfo.nextGroup = cardSections[1].href;
     }
 
-    nav += '<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>';
-    
+    nav += '\n<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>\n';
+    */
 
     return nav;
 }
@@ -298,8 +355,19 @@ function metalsmith(options) {
         }    
 
         Object.keys(files).forEach(function (fileName) {
-            generateNavMenu(files[fileName], contentDir);
+            generateNavMenu(files, fileName, contentDir);
         });
+
+        /*
+        // This doesn't quite work as planned because the active items are hardcoded in it, though
+        // it might be possible to fix from Javascript
+        Object.keys(files).forEach(function (fileName) {
+            if (fileName.startsWith('reference/device-os/api/')) {
+                // Replace this navigation with the full navigation
+                files[fileName].navigation = files['reference/device-os/firmware.md'].navigation;
+            }
+        });
+        */
 
         done();
     };
@@ -307,5 +375,6 @@ function metalsmith(options) {
 
 module.exports = {
     metalsmith,
-    generateNavHtml
+    generateNavHtml,
+    insertIntoMenu
 };

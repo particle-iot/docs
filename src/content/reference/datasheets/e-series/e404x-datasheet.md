@@ -613,7 +613,7 @@ These specifications are based on the nRF52840 datasheet.
 
 - Rise and fall times based on simulations
 
-- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/cards/firmware/input-output/pinsetdrivestrength/) function.
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/api/input-output/pinsetdrivestrength/) function.
 
 ## Mechanical Specifications
 

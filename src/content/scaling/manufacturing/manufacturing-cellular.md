@@ -194,7 +194,7 @@ In some cases, you will not want to enable cellular at manufacturing time:
   - Your CM is located out of the area of service for the device (for example, LTE Cat M1 when your CM is in China)
   - You do not want to start the billing on the device until later.
 
-In this case, your manufacturing test firmware can use [manual mode](/cards/firmware/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the U.FL connector and/or using an RF meter to test the viability of this connection.
+In this case, your manufacturing test firmware can use [manual mode](/reference/device-os/api/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the U.FL connector and/or using an RF meter to test the viability of this connection.
 
 If you do activate the SIM and use normal connectivity mode, the device will go through the sequence of blinking green, blinking cyan, fast blinking cyan, and finally breathing cyan. This provides the greatest confidence in the correct operation of the device, however it could also take up to 20 minutes.
 

@@ -719,13 +719,13 @@ Disables wake-on-network mode.
 int wakeFor(SystemSleepFlag flag);
 ```
 
-Adds a [SystemSleepFlag](/cards/firmware/sleep-sleep/flag-systemsleepconfiguration/) to the sleep settings.
+Adds a [SystemSleepFlag](/reference/device-os/api/sleep-sleep/flag-systemsleepconfiguration/) to the sleep settings.
 
 The only supported flag is:
 
 - `SystemSleepFlag::WAIT_CLOUD`
 
-You do not need to specify this as [graceful disconnect mode](/cards/firmware/cloud-functions/particle-setdisconnectoptions/) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
+You do not need to specify this as [graceful disconnect mode](/reference/device-os/api/cloud-functions/particle-setdisconnectoptions/) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
 
 ### pauseSleep() - TrackerSleep
 

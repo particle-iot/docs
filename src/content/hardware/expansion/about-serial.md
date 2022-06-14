@@ -33,7 +33,7 @@ can just omit the baud rate entirely and use `Serial.begin()`.
 
 The `Serial.printlnf` prints a formatted string to the debugging USB serial.
 
-The [documentation for Serial is here](/cards/firmware/serial/serial/).
+The [documentation for Serial is here](/reference/device-os/api/serial/serial/).
 
 ### Particle CLI 
 
@@ -183,7 +183,7 @@ When you connect a Photon another device, say an Arduino, the RX pin on the Phot
 
 ### Additional ports on the Electron
 
-The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/cards/firmware/serial/serial/). 
+The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/reference/device-os/api/serial/serial/). 
 
 - C0 Serial5 RX
 - C1 Serial5 TX
@@ -285,7 +285,7 @@ The available values are:
 - SERIAL_9N1
 - SERIAL_9N2
 
-You use these with the [Serial.begin](/cards/firmware/pmic-power-management-ic/begin/) call, for example:
+You use these with the [Serial.begin](/reference/device-os/api/pmic-power-management-ic/begin/) call, for example:
 
 ```
 Serial1.begin(9600, SERIAL_9N1);
@@ -300,7 +300,7 @@ They also only support 8 bits, 1 stop bit, and either none or even parity. No ot
 - SERIAL_8N1 - 8 data bits, no parity, 1 stop bit (default)
 - SERIAL_8E1 - 8 data bits, even parity, 1 stop bit
 
-You use these with the [Serial.begin](/cards/firmware/pmic-power-management-ic/begin/) call, for example:
+You use these with the [Serial.begin](/reference/device-os/api/pmic-power-management-ic/begin/) call, for example:
 
 ```
 Serial1.begin(9600);

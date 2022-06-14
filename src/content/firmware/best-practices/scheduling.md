@@ -28,7 +28,7 @@ Also, is certain modes this can affect OTA transfers, and it's generally bad pra
 
 ### Using millis
 
-The recommended way is to calculate intervals is using the [`millis()`](/cards/firmware/time/millis/) counter, which increments 1000 times per second (millis = milliseconds).
+The recommended way is to calculate intervals is using the [`millis()`](/reference/device-os/api/time/millis/) counter, which increments 1000 times per second (millis = milliseconds).
 
 Here's a full code example that also publishes once a minute, but using millis:
 
@@ -60,7 +60,7 @@ The lastPublish variable holds the millis counter of the last publish. It has to
 system_tick_t lastPublish = 0;
 ```
 
-The interval to publish is declared here. This uses [chrono literals](/cards/firmware/chrono-literals/chrono-literals/), so you can enter `60s` for 60 seconds instead of 60000 (milliseconds). Or you could use `15min` for every 15 minutes, or `2h` for every 2 hours.
+The interval to publish is declared here. This uses [chrono literals](/reference/device-os/api/chrono-literals/chrono-literals/), so you can enter `60s` for 60 seconds instead of 60000 (milliseconds). Or you could use `15min` for every 15 minutes, or `2h` for every 2 hours.
 
 ```cpp
 std::chrono::milliseconds publishInterval = 60s;
@@ -91,7 +91,7 @@ If you use a "next" value instead of "last" when the next crosses the rollover, 
 
 ### System.millis()
 
-There is also the similarly named but different `System.millis()`. This is also a millisecond counter with the same rules, except it returns a `uint64_t`, an unsigned 64-bit integer. This is handy because it will never roll over to 0. However, because of the larger size of the variable and the difficulty in printing it in log messages (see [sprintf](/cards/firmware/other-functions/sprintf/#sprintf)) it's often easier to use the 32-bit and use the technique to avoid issues with rollover.
+There is also the similarly named but different `System.millis()`. This is also a millisecond counter with the same rules, except it returns a `uint64_t`, an unsigned 64-bit integer. This is handy because it will never roll over to 0. However, because of the larger size of the variable and the difficulty in printing it in log messages (see [sprintf](/reference/device-os/api/other-functions/sprintf/#sprintf)) it's often easier to use the 32-bit and use the technique to avoid issues with rollover.
 
 ### More than one interval
 
@@ -125,7 +125,7 @@ void loop() {
 
 ## Software Timers
 
-Another option is to use [software timers](/cards/firmware/software-timers/software-timers/). At first they might seem like a good option, however:
+Another option is to use [software timers](/reference/device-os/api/software-timers/software-timers/). At first they might seem like a good option, however:
 
 - You can only have 10 of them.
 - They're called sequentially, so if one blocks, the other timers stop running.
@@ -141,7 +141,7 @@ Because of all of the limitations, in most cases you're better off using `millis
 
 One limitation of both `millis()` and software timers is that you can't schedule anything to occur more than once a millisecond. This should generally be avoided because that's also the interval of the FreeRTOS thread scheduler, which eliminates threads as a possible solution.
 
-On Gen 2 devices (E Series, Electron, P1, Photon), it's possible to use the [SparkIntervalTimer](/cards/libraries/s/SparkIntervalTimer/) 3rd-party library that uses a STM32 hardware timer. This library does not work on Gen 3 devices.
+On Gen 2 devices (E Series, Electron, P1, Photon), it's possible to use the [SparkIntervalTimer](/reference/device-os/libraries/s/SparkIntervalTimer/) 3rd-party library that uses a STM32 hardware timer. This library does not work on Gen 3 devices.
 
 There is no similar library for hardware timers on Gen 3, primarily because there are very few hardware timers, and the interrupt latency on the nRF52 makes it hard to get stable timing of interrupts.
 
@@ -165,7 +165,7 @@ if (Time.isValid() && Time.now() >= nextPublishTime)
 
 - Be sure to check that you have a valid time. It doesn't always have to be right before Time.now, as the time will never become un-valid except on cold boot, reset, or in some cases, right after wake.
 - You can compare against the last time + interval, or next time, since you don't have to worry about rollover.
-- [`Time.now()`](/cards/firmware/time/now/) is fast as it just reads a variable and can be called frequently. Same for [`Time.isValid()`](/cards/firmware/time/now/).
+- [`Time.now()`](/reference/device-os/api/time/now/) is fast as it just reads a variable and can be called frequently. Same for [`Time.isValid()`](/reference/device-os/api/time/now/).
 
 ### Clock synchronization
 
@@ -177,7 +177,7 @@ The real-time clock is synchronized on any Particle cloud session negotiation. T
 - Every 3 days for most devices. 
 - Exception is Photon and P1, which technically could go forever, but in practice will reconnect their TCP connection periodically.
 
-It is also possible to [force a clock resynchronization](/cards/firmware/cloud-functions/particle-synctime/). This does not use data operations, but on cellular devices it does use cellular data, so you should not do it too frequently. You should not do it more than once a day.
+It is also possible to [force a clock resynchronization](/reference/device-os/api/cloud-functions/particle-synctime/). This does not use data operations, but on cellular devices it does use cellular data, so you should not do it too frequently. You should not do it more than once a day.
 
 ### Hardware RTC
 
@@ -193,11 +193,11 @@ GNSS (GPS) provides a precise time reference at UTC. The Particle Tracker does n
 
 The network time protocol is used to set clocks on Internet connected computers. It can be used on Particle devices, however it requires a 3rd-party library, an external time server to use, and is not significantly more accurate than the Particle cloud time, so there is little reason to go through the effort, unless you have devices that are connected to the Internet but not the Particle cloud.
 
-There are several options if your search for "NTP" in [library search](/cards/libraries/search/).
+There are several options if your search for "NTP" in [library search](/reference/device-os/libraries/search/).
 
 ## Time in local timezone
 
-While the `Time` object in Device OS has useful sounding functions like [`Time.zone()`](/cards/firmware/time/zone/) and [`Time.isDST()`](/cards/firmware/time/isdst/) these functions are completely manual! You must manually set the zone to the correct zone, and turn DST on and off yourself. This severely limits their usefulness.
+While the `Time` object in Device OS has useful sounding functions like [`Time.zone()`](/reference/device-os/api/time/zone/) and [`Time.isDST()`](/reference/device-os/api/time/isdst/) these functions are completely manual! You must manually set the zone to the correct zone, and turn DST on and off yourself. This severely limits their usefulness.
 
 There are various techniques for determining your local timezone, such as using Wi-Fi or cellular geolocation and an external time database or service.
 

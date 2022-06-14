@@ -57,7 +57,7 @@ The three sleep modes are:
 - `ULTRA_LOW_POWER` (ULP)
 - `HIBERNATE` (fewest wake options, lowest power)
 
-You'll probably want to choose the lowest power option that has the options you need to wake. These are described in the [sleep modes documentation](/cards/firmware/sleep-sleep/stop-systemsleepmode/).
+You'll probably want to choose the lowest power option that has the options you need to wake. These are described in the [sleep modes documentation](/reference/device-os/api/sleep-sleep/stop-systemsleepmode/).
 
 Additionally, in `HIBERNATE` mode, the device wakes as if it has been reset. It goes through `setup()` again and starts with all non-retained variables cleared. In `ULTRA_LOW_POWER` and `STOP` modes, execution continues after the line of code that put the device to sleep, with all variables preserved.
 
@@ -69,7 +69,7 @@ Additionally, in `HIBERNATE` mode, the device wakes as if it has been reset. It 
 - If your devices are 2G/3G and are in areas with poor cellular connectivity you may want to consider using network standby because of the lengthy time to connect, and the amount of power this requires.
 - Gen 2 Wi-Fi devices (Photon/P1) do not support Wi-Fi network standby. The Argon (Gen 3 Wi-Fi) does support network standby.
 
-The [network sleep configuration](/cards/firmware/sleep-sleep/network-systemsleepconfiguration/) options are how you configure network standby.
+The [network sleep configuration](/reference/device-os/api/sleep-sleep/network-systemsleepconfiguration/) options are how you configure network standby.
 
 ### Do I want to stay cloud connected?
 
@@ -77,12 +77,12 @@ The [network sleep configuration](/cards/firmware/sleep-sleep/network-systemslee
 - If your sleep duration is short, staying cloud connected will save some data. Disconnecting and reconnecting to the cloud doesn't affect your data operations quota, but it does count toward your cellular data limit and adds a few seconds to the sleep/wake cycle.
 - If you do not want to wake the device for cloud requests, you should disconnect from the cloud.
 
-Setting `SystemSleepNetworkFlag::INACTIVE_STANDBY` in [network sleep configuration](/cards/firmware/sleep-sleep/network-systemsleepconfiguration/) is how you disable the cloud connection while in sleep.
+Setting `SystemSleepNetworkFlag::INACTIVE_STANDBY` in [network sleep configuration](/reference/device-os/api/sleep-sleep/network-systemsleepconfiguration/) is how you disable the cloud connection while in sleep.
 
 
 ## Connected state
 
-Using [SYSTEM_MODE(SEMI_AUTOMATIC)](/cards/firmware/system-modes/semi-automatic-mode/) provides a lot of flexibility with regards to network connectivity and sleep. For example, it's possible to wake the device, then decide whether to publish data or not. You might want to do this to control the number of data operations you use. Or you might wake, take a sensor reading and save it, and only connect to cellular after a number of samples have been taken, to save power.
+Using [SYSTEM_MODE(SEMI_AUTOMATIC)](/reference/device-os/api/system-modes/semi-automatic-mode/) provides a lot of flexibility with regards to network connectivity and sleep. For example, it's possible to wake the device, then decide whether to publish data or not. You might want to do this to control the number of data operations you use. Or you might wake, take a sensor reading and save it, and only connect to cellular after a number of samples have been taken, to save power.
 
 The general rules are:
 

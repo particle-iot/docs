@@ -637,7 +637,7 @@ In general it's better to structure your code so it always returns from loop(), 
 
 #### Solution 2: Enable SYSTEM_THREAD
 
-The other solution is to use [SYSTEM_THREAD](/cards/firmware/system-thread/system-thread/) mode.
+The other solution is to use [SYSTEM_THREAD](/reference/device-os/api/system-thread/system-thread/) mode.
 
 ```
 SYSTEM_THREAD(ENABLED);
@@ -662,7 +662,7 @@ if (Particle.connected()) {
 {{#if has-wifi}}
 #### Side note: Wi-Fi only mode
 
-While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](/cards/firmware/system-modes/semi-automatic-mode/) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
+While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](/reference/device-os/api/system-modes/semi-automatic-mode/) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
 {{/if}}
 
 {{collapse op="end"}}

@@ -43,7 +43,7 @@ Using feature like Particle Publish allows data to be sent to external servers u
 
 #### Particle.publish
 
-[Particle.publish](/cards/firmware/cloud-functions/particle-publish/) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
+[Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
 
 When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/cloud-apis/webhooks/) that makes a connection to an external service or web server efficiently.
 
@@ -51,7 +51,7 @@ When sent from the device to the cloud, publish can be used to send things like 
 
 #### Particle.variable
 
-[Particle.variable](/cards/firmware/cloud-functions/particle-subscribe/) allows the cloud to query a value from the device.
+[Particle.variable](/reference/device-os/api/cloud-functions/particle-subscribe/) allows the cloud to query a value from the device.
 
 - For a publish, every time you publish, the data is sent up to the cloud.
 - For a variable, the current value is stored on the device, and is only sent when requested.
@@ -65,13 +65,13 @@ Depending on your situation, one or the other may be more efficient. Also note:
 
 #### Particle.subscribe
 
-[Particle.subscribe](/cards/firmware/cloud-functions/particle-subscribe/) allows a device to listen for an event from another device or the cloud.
+[Particle.subscribe](/reference/device-os/api/cloud-functions/particle-subscribe/) allows a device to listen for an event from another device or the cloud.
 
 Subscribing to private events is secure, as only devices in your account can send these events. Also, subscribe works across all connection types such as Wi-Fi and cellular, and does not require any firewall modifications for Wi-Fi networks in most cases.
 
 #### Particle.function
 
-[Particle.function](/cards/firmware/cloud-functions/particle-subscribe/) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
+[Particle.function](/reference/device-os/api/cloud-functions/particle-subscribe/) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
 
 There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
 
@@ -124,7 +124,7 @@ Updating your device firmware and Device OS can be done securely over the Partic
 The central billing element for both cellular and Wi-Fi is the Data Operation:
 
 - Each publish, subscribe, function, or variable consumes one Data Operation regardless of size
-- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
+- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/api/cloud-functions/overview-of-api-field-limits/)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
 
@@ -152,7 +152,7 @@ You can find more information in the [Data Operations](/getting-started/billing/
 | [Mobile SDK](/reference/mobile-sdks/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
 | USB configuration | &check; | &check; |
 | BLE configuration | &nbsp; | &check; |
-| [Soft AP](/cards/firmware/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; |
+| [Soft AP](/reference/device-os/api/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; |
 | Static IP address support | &check; | &nbsp; |
 | WPA2 Enterprise support | &check; | &nbsp; |
 
@@ -204,7 +204,7 @@ The IP addresses used by the Particle cloud are subject to change without notice
 
 Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
 
-While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/cards/firmware/cloud-functions/particle-keepalive/) to keep the cloud connection active.
+While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/api/cloud-functions/particle-keepalive/) to keep the cloud connection active.
 
 ### Gen 2 and Gen 1 Wi-Fi
 
