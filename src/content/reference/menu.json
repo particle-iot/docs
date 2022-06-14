@@ -8,7 +8,7 @@
         {
           "title": "Device OS API",
           "detail": "How you program your Particle device firmware",
-          "href": "/reference/device-os/firmware/"
+          "href": "/reference/device-os/api/"
         },
         {
           "title": "Cloud API",

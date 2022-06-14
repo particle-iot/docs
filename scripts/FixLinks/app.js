@@ -51,7 +51,7 @@ for(const old in redirects) {
 
 
 // This is the mapping from the single-page firmware API reference to new card URLs
-// "/reference/device-os/firmware/#cloud-functions": "/cards/firmware/cloud-functions/cloud-functions",
+// "/reference/device-os/firmware/#cloud-functions": "/reference/device-os/api/cloud-functions/cloud-functions",
 const cardMapping = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/card_mapping.json')));
 
 let mdFiles = [];
