@@ -2,7 +2,8 @@
 let navMenu = {};
 
 navMenu.scanHeaders = function () {
-    if ($('.deviceOsApiNavMenu').length) {
+    const thisUrl = new URL(location.href);
+    if (thisUrl.pathname.startsWith('/reference/device-os/api')) {
         return;
     }
 
