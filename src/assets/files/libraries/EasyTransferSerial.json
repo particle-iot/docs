@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EasyTransferSerial",
     "version": "2.1.3",
-    "installs": 2303,
+    "installs": 2319,
     "license": "GNU General Public License 3+",
     "author": "Bill Porter/Paul Kourany",
     "sentence": "Inter-device Serial communications adapted for Particle devices",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "hsv",
     "version": "1.0.3",
-    "installs": 2660,
+    "installs": 2900,
     "license": "MIT",
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Convert color values between RGB and HSV",

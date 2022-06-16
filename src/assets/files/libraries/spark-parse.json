@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-parse",
     "version": "0.0.3",
-    "installs": 295,
+    "installs": 321,
     "author": "Ian Wells <ijw@cack.org.uk>",
     "url": "https://github.com/iawells/spark-parse",
     "repository": "https://github.com/iawells/spark-parse.git",

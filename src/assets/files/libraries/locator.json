@@ -7,7 +7,7 @@
   "attributes": {
     "name": "locator",
     "version": "0.0.1",
-    "installs": 974,
+    "installs": 991,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google geolocation API",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VCNL4040_Arduino_Library",
     "version": "1.0.2",
-    "installs": 380,
+    "installs": 415,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Library for the SparkFun Qwiic Proximity Sensor 20cm - VCNL4040",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TlsTcpClient",
     "version": "0.2.16",
-    "installs": 10859,
+    "installs": 11054,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/TlsTcpClient",

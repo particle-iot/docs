@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkCorePolledTimer",
     "version": "1.0.0",
-    "installs": 27297,
+    "installs": 28308,
     "license": "Open",
     "author": "David Fowler <david.fowler@gmail.com>",
     "sentence": "Simple Timer Library for the Spark Core which enables time based events.",

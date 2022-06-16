@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PulseSensor_Spark",
     "version": "1.5.4",
-    "installs": 13858,
+    "installs": 14111,
     "license": "CreativeCommons",
     "author": "Joel Murphy, Yury Gitman, ported by Paul Kourany",
     "sentence": "PulseSensor Amped library v1.4 for Particle devices",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JsonParserGeneratorRK",
     "version": "0.1.5",
-    "installs": 106730,
+    "installs": 116146,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "JSON parser and generator for Particle devices",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Temboo",
     "version": "1.2.8",
-    "installs": 492,
+    "installs": 497,
     "license": "Apache License, Version 2.0",
     "author": "Temboo, Spark port by Karl Kaiser <karl@bentuino.com>",
     "sentence": "Temboo Library for Spark, for details about Temboo service visit temboo.com",

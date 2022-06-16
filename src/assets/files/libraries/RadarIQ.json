@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "RadarIQ",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RadarIQ/archive/1.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "RadarIQ",
+    "version": "1.0.5",
+    "installs": 243,
+    "author": "RadarIQ Ltd (support@radariq.io)",
+    "maintainer": "RadarIQ Ltd (support@radariq.io)",
+    "sentence": "Adds support for the RadarIQ sensors.",
+    "paragraph": "RadarIQ sensors are ideal for object tracking, and detecting movement. RadarIQ sensors use FMCW radar, are designed for ease of use, have a 110 degree field of view, and a 10m range. This library brings RadarIQ support to Arduino.",
+    "category": "Sensors",
+    "url": "http://radariq.io",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RadarIQ",
+  "versions": {
+    "1.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "RadarIQDemo": false
+          },
+          "electron": {
+            "RadarIQDemo": false
+          },
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "RadarIQDemo": false
+          },
+          "electron": {
+            "RadarIQDemo": false
+          },
+          "argon": {
+            "RadarIQDemo": false
+          },
+          "boron": {
+            "RadarIQDemo": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Arduino Library\n\nThe RadarIQ sensor integration with Arduino is available via an Arduino library.\n\nThe RadarIQ-M1 sensor is an easy-to-use radar sensor for detecting objects and measuring distance and speed.\nAll the difficult parts of working with radar are done by the sensor and a simple API and SDK provide an easy\npath to integration.\n\n## Installation\n1. Open The Arduino library manager Sketch >> Include Library >> Manage Libraries\n2. Search for \"RadarIQ\"\n3. Click \"Install\"\n\n## Example Application\nAn example application which demonstrates the capabilities of the RadarIQ SDK\nby implementing a simple proximity sensor.\n\nTo access this example:\n1. Open File >> Examples\n2. Scroll down to \"RadarIQ\" then choose \"RadarIQ Demo\"\n\n## Documentation\nDocumentation is available at [docs.radariq.io](https://docs.radariq.io)\n\n## Other pages\n\n- [GitHub](https://github.com/radariq)\n- [Home Page](https://radariq.io)\n- [Downloads](https://radariq.io)\n- [Forum](https://forum.radariq.io)\n- [Youtube channel](https://youtube.com/radariq)\n- [Facebook page](https://facebook.com/radarIQsensing)\n- [RadarIQ-M1](https://radariq.io/products/radariq-m1)\n\n",
+  "allVersions": [
+    "1.0.5"
+  ]
+}

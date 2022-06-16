@@ -7,7 +7,7 @@
   "attributes": {
     "name": "New_Ping",
     "version": "1.8.1",
-    "installs": 4784,
+    "installs": 5441,
     "author": "Tim Eckel",
     "maintainer": "eliteio",
     "sentence": "A library that makes working with ultrasonic sensors easy.",

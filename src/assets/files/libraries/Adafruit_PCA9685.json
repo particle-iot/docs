@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PCA9685",
     "version": "2.0.0",
-    "installs": 17880,
+    "installs": 18446,
     "license": "BSD License",
     "author": "Limor Fried/Paul Kourany/Chad Bean/Louis DeScioli",
     "sentence": "Library for Adafruit's PCA9685, a 16-channel PWM & Servo driver,  adapted for Spark",

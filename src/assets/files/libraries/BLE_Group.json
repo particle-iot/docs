@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BLE_Group",
     "version": "0.4.0",
-    "installs": 5449,
+    "installs": 5684,
     "license": "LGPL",
     "author": "Mariano Goluboff <mariano@particle.io>",
     "sentence": "Create a group of Gen3 Particle devices that can communicate locally over BLE publish/subscribe.",

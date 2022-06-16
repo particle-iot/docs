@@ -7,7 +7,7 @@
   "attributes": {
     "name": "rosserial",
     "version": "1.0.1",
-    "installs": 266,
+    "installs": 300,
     "author": "Gadget",
     "architectures": [],
     "visibility": "public",

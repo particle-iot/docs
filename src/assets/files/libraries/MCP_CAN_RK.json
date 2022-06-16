@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP_CAN_RK",
     "version": "1.5.1",
-    "installs": 1534,
+    "installs": 1999,
     "license": "LGPL2.1",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "https://github.com/coryjfowler/MCP_CAN_lib port for Particle",

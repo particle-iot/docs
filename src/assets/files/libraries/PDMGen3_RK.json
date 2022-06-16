@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PDMGen3_RK",
     "version": "0.0.1",
-    "installs": 392,
+    "installs": 633,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "PDM (pulse density modulation) library for Particle Gen 3 devices (Argon, Boron, Xenon)",

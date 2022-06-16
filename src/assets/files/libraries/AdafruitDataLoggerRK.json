@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitDataLoggerRK",
     "version": "0.0.1",
-    "installs": 4221,
+    "installs": 4573,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for the Adafruit SD card and RTC FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",

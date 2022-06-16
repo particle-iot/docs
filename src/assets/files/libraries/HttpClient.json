@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HttpClient",
     "version": "0.0.5",
-    "installs": 301093,
+    "installs": 311346,
     "license": "MIT",
     "author": "Nils Mattisson <nils.mattisson@gmail.com>",
     "sentence": "A work in progress Http Client Library for the Spark Core and Arduino.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "camera_VC0706",
     "version": "1.0.0",
-    "installs": 225,
+    "installs": 282,
     "sentence": "Make's the camera_VC0706 work on photon",
     "architectures": [],
     "visibility": "public",

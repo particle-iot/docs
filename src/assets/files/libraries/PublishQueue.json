@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueue",
     "version": "0.0.11",
-    "installs": 6389,
+    "installs": 6400,
     "license": "MIT",
     "author": "Tiago Andrade e Silva <tiagonmas@hotmail.com>",
     "sentence": "Delays the calling of cloud events (Particle.publish) so it does not pass the limits defined by Particle",

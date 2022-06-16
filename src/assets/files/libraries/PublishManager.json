@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishManager",
     "version": "1.0.0",
-    "installs": 2287,
+    "installs": 2340,
     "license": "MIT",
     "author": "Ben Veenema <bveenema@gmail.com>",
     "sentence": "Caches Particle.publish events until the Cloud is available and limits to 1 publish/sec.",

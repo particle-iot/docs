@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Ublox_Arduino_Library_183",
     "version": "1.8.3",
-    "installs": 1501,
+    "installs": 1611,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for I2C and Serial Communication with Ublox modules",

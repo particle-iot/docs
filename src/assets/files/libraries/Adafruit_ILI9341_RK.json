@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ILI9341_RK",
     "version": "1.2.3",
-    "installs": 10110,
+    "installs": 10323,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit ILI9341 displays. Port of version 1.2.0 by rickkas7.",

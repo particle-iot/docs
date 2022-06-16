@@ -7,7 +7,7 @@
   "attributes": {
     "name": "VL53L0X",
     "version": "0.0.4",
-    "installs": 19870,
+    "installs": 20224,
     "license": "GNU-LGPL",
     "author": "Pololu <inbox@pololu.com>",
     "sentence": "This is a library for VL53L0X distance sensor",

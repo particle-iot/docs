@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PN532",
     "version": "0.0.1",
-    "installs": 11070,
+    "installs": 11847,
     "license": "MIT (whichever is stated in README file)",
     "author": "Adafruit ons",
     "sentence": "Adafruit's NFC library modded for Particle Photon",

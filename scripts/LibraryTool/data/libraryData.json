@@ -248,6 +248,54 @@
             }
           }
         }
+      },
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01_Particle": true,
+              "02_Particle_Electron": false,
+              "03_Bluz_Direct": false
+            },
+            "electron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "argon": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "boron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "01_Particle": true,
+              "02_Particle_Electron": false,
+              "03_Bluz_Direct": false
+            },
+            "electron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "argon": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "boron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            }
+          }
+        }
       }
     }
   },
@@ -798,6 +846,110 @@
         }
       },
       "6.19.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          }
+        }
+      },
+      "6.19.4": {
         "builds": {
           "2.0.1": {
             "photon": {
@@ -3072,6 +3224,46 @@
             "boron": {
               "a1-example": true,
               "a2-example": true
+            }
+          }
+        }
+      },
+      "0.2.25": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "electron": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "argon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "boron": {
+              "a1-example": false,
+              "a2-example": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "electron": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "argon": {
+              "a1-example": false,
+              "a2-example": false
+            },
+            "boron": {
+              "a1-example": false,
+              "a2-example": false
             }
           }
         }
@@ -14941,6 +15133,46 @@
             }
           }
         }
+      },
+      "1.1.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "esp": false,
+              "particle": false
+            },
+            "electron": {
+              "esp": false,
+              "particle": false
+            },
+            "argon": {
+              "esp": false,
+              "particle": false
+            },
+            "boron": {
+              "esp": false,
+              "particle": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "esp": false,
+              "particle": false
+            },
+            "electron": {
+              "esp": false,
+              "particle": false
+            },
+            "argon": {
+              "esp": false,
+              "particle": false
+            },
+            "boron": {
+              "esp": false,
+              "particle": false
+            }
+          }
+        }
       }
     }
   },
@@ -26341,6 +26573,38 @@
             }
           }
         }
+      },
+      "0.6.14": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
       }
     }
   },
@@ -36685,6 +36949,46 @@
             }
           }
         }
+      },
+      "0.0.9": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true,
+              "2-schedule": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-schedule": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-schedule": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-schedule": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-simple": true,
+              "2-schedule": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-schedule": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-schedule": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-schedule": true
+            }
+          }
+        }
       }
     }
   },
@@ -36971,6 +37275,38 @@
         }
       },
       "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "2-test-suite": false
+            },
+            "electron": {
+              "2-test-suite": false
+            },
+            "argon": {
+              "2-test-suite": true
+            },
+            "boron": {
+              "2-test-suite": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "2-test-suite": false
+            },
+            "electron": {
+              "2-test-suite": false
+            },
+            "argon": {
+              "2-test-suite": true
+            },
+            "boron": {
+              "2-test-suite": true
+            }
+          }
+        }
+      },
+      "0.0.3": {
         "builds": {
           "2.0.1": {
             "photon": {
@@ -37623,6 +37959,38 @@
             },
             "argon": {
               "1-simple": false
+            },
+            "boron": {
+              "1-simple": true
+            }
+          }
+        }
+      },
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": false
+            },
+            "electron": {
+              "1-simple": false
+            },
+            "argon": {
+              "1-simple": true
+            },
+            "boron": {
+              "1-simple": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-simple": false
+            },
+            "electron": {
+              "1-simple": false
+            },
+            "argon": {
+              "1-simple": true
             },
             "boron": {
               "1-simple": true
@@ -38510,6 +38878,618 @@
             "boron": {
               "audomatic_mode": false,
               "manual_mode": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_BusIO_Register": {
+    "versions": {
+      "1.9.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "electron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "argon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "boron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "electron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "argon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "boron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_INA219_": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "get-current": false
+            },
+            "electron": {
+              "get-current": false
+            },
+            "argon": {
+              "get-current": false
+            },
+            "boron": {
+              "get-current": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "get-current": false
+            },
+            "electron": {
+              "get-current": false
+            },
+            "argon": {
+              "get-current": false
+            },
+            "boron": {
+              "get-current": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "CloudConfigRK": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": false,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            },
+            "electron": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": false,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            },
+            "argon": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": true,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            },
+            "boron": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": true,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": false,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            },
+            "electron": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": false,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            },
+            "argon": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": true,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            },
+            "boron": {
+              "01-function": true,
+              "02-function-eeprom": true,
+              "03-function-file": true,
+              "04-static": true,
+              "06-subscribe": true,
+              "07-devicenotes": true,
+              "08-googlesheets": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Checkweigher": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Preferences": {
+    "versions": {
+      "2.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "electron": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "argon": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "boron": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "electron": {
+              "Prefs2Struct": false,
+              "StartCounter": false
+            },
+            "argon": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            },
+            "boron": {
+              "Prefs2Struct": true,
+              "StartCounter": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ard-stdlib": {
+    "versions": {
+      "1.0.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "hackerpet_plus": {
+    "versions": {
+      "0.1.109": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "main": true
+            },
+            "electron": {
+              "main": false
+            },
+            "argon": {
+              "main": false
+            },
+            "boron": {
+              "main": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "main": true
+            },
+            "electron": {
+              "main": false
+            },
+            "argon": {
+              "main": false
+            },
+            "boron": {
+              "main": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_AW9523_latest": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            },
+            "electron": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            },
+            "argon": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            },
+            "boron": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            },
+            "electron": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            },
+            "argon": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            },
+            "boron": {
+              "blink_demo": false,
+              "constcurrent_demo": false,
+              "ledbutton_demo": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Print64": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true
+            },
+            "electron": {
+              "1-simple": true
+            },
+            "argon": {
+              "1-simple": true
+            },
+            "boron": {
+              "1-simple": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-simple": true
+            },
+            "electron": {
+              "1-simple": true
+            },
+            "argon": {
+              "1-simple": true
+            },
+            "boron": {
+              "1-simple": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_MMA8452Q_Arduino_Library": {
+    "versions": {
+      "1.4.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": false,
+              "Example9_TwoSensors": true
+            },
+            "electron": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": true,
+              "Example9_TwoSensors": true
+            },
+            "argon": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": true,
+              "Example9_TwoSensors": true
+            },
+            "boron": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": true,
+              "Example9_TwoSensors": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": false,
+              "Example9_TwoSensors": true
+            },
+            "electron": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": true,
+              "Example9_TwoSensors": true
+            },
+            "argon": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": true,
+              "Example9_TwoSensors": true
+            },
+            "boron": {
+              "Example1_BasicReading": true,
+              "Example2_RawDataReading": true,
+              "Example3_Orientation": true,
+              "Example4_ChangeScale": true,
+              "Example5_ChangeDataRate": true,
+              "Example6_ReadTaps": true,
+              "Example7_OriginalDeprecated": true,
+              "Example8_AdvancedI2C": true,
+              "Example9_TwoSensors": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "LedSwitchRK": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            },
+            "electron": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            },
+            "argon": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            },
+            "boron": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            },
+            "electron": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            },
+            "argon": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            },
+            "boron": {
+              "1-single-LedSwitchRK": true,
+              "2-multiple-LedSwitchRK": true,
+              "3-multi-tap-LedSwitchRK": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "RadarIQ": {
+    "versions": {
+      "1.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "RadarIQDemo": false
+            },
+            "electron": {
+              "RadarIQDemo": false
+            },
+            "argon": {
+              "RadarIQDemo": false
+            },
+            "boron": {
+              "RadarIQDemo": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "RadarIQDemo": false
+            },
+            "electron": {
+              "RadarIQDemo": false
+            },
+            "argon": {
+              "RadarIQDemo": false
+            },
+            "boron": {
+              "RadarIQDemo": false
             }
           }
         }

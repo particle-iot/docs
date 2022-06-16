@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonS3Client",
     "version": "0.0.1",
-    "installs": 1385,
+    "installs": 1430,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon S3 Client for Spark Core.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MPU9250_I2C",
     "version": "0.0.3",
-    "installs": 2298,
+    "installs": 2658,
     "author": "Juan David Velasquez Rosero <jdvr1994@hotmail.com>",
     "sentence": "An Implementation of Mpu9250 Library for the Particle Photon",
     "url": "https://github.com/jdvr1994/MPU9250PhotonLibrary",

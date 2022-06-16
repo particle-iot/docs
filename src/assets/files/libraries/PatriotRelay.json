@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotRelay",
     "version": "3.0.0",
-    "installs": 528,
+    "installs": 542,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support a relay connected to a GPIO.",

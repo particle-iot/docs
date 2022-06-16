@@ -1,0 +1,67 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_INA219_",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_INA219_/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_INA219_",
+    "version": "1.0.1",
+    "installs": 1603,
+    "license": "MIT License",
+    "author": "Nathan Matos<than.matos@gmail.com>",
+    "sentence": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle(2021)",
+    "url": "https://github.com/adafruit/Adafruit_INA219",
+    "repository": "https://github.com/adafruit/Adafruit_INA219.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron",
+      "particle-xenon",
+      "particle-argon",
+      "particle-boron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_INA219_",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "get-current": false
+          },
+          "electron": {
+            "get-current": false
+          },
+          "argon": {
+            "get-current": false
+          },
+          "boron": {
+            "get-current": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "get-current": false
+          },
+          "electron": {
+            "get-current": false
+          },
+          "argon": {
+            "get-current": false
+          },
+          "boron": {
+            "get-current": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit Bus IO Library [![Build Status](https://github.com/adafruit/Adafruit_BusIO/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_BusIO/actions)\n\n\nThis is a helper library to abstract away I2C & SPI transactions and registers\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nMIT license, all text above must be included in any redistribution\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}
