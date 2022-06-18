@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MFRC522",
     "version": "0.1.4",
-    "installs": 48549,
+    "installs": 48554,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "MFRC522 RFID library for Particle devices",
@@ -66,8 +66,31 @@
             "MifareClassicValueBlock": true,
             "ReadAndWrite": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "electron": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "argon": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "boron": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.682Z"
     }
   },
   "readme": "RFID\n====\n\nUpdate for Libraries 2.0 by Paul Kourany, Jan 2017 - v1.0.3\nAdapted for Spark Core by Paul Kourany, May 2014\n\nv0.1.2 - SOS bug fixed, now compatible with all Particle devices\n\nRead a card using a mfrc522 reader on your SPI interface on your Arduino\n* Pin layout should be as follows (on Spark Core):\n* MOSI: Pin A5\n* MISO: Pin A4\n* SCK : Pin A3\n* SS  : Pin A2\t(Configurable)\n* RST : Pin D2\t(Configurable)\n* \n\nArduino RFID Library for MFRC522\n\nRead a card using a mfrc522 reader on your SPI interface on your Arduino\n* Pin layout should be as follows (on Arduino Uno):\n* MOSI: Pin 11 / ICSP-4\n* MISO: Pin 12 / ICSP-1\n* SCK : Pin 13 / ISCP-3\n* SS  : Pin 10 (Configurable)\n* RST : Pin 9  (Configurable)\n* \n\n* Pin layout should be as follows (on Arduino Mega):\n* MOSI: Pin 51 / ICSP-4\n* MISO: Pin 50 / ICSP-1\n* SCK : Pin 52 / ISCP-3\n* SS  : Pin 53 (Configurable)\n* RST : Pin 5  (Configurable)\n",

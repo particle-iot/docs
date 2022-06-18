@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1306",
     "version": "0.0.2",
-    "installs": 285352,
+    "installs": 285545,
     "license": "SOME",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "A Port of the ADAFruit SSD1306 libary",
@@ -66,8 +66,31 @@
             "ssd1306_128x64_spi": false,
             "surfsoon-oled": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "electron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "argon": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "boron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.643Z"
     }
   },
   "readme": "Adafruit_SSD1306\n================\n\nAdafruit_SSD1306 library ported for Spark by Paul Kourany, Mar 18, 2014\nUntested as of Mar 18, 2018\n\n",

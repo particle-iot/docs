@@ -112,8 +112,55 @@
             "test_other_functions": false,
             "video_get_rgb": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "electron": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "argon": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "boron": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.066Z"
     }
   },
   "readme": "",

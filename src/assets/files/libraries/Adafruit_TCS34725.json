@@ -50,8 +50,23 @@
           "boron": {
             "TCS34725": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "TCS34725": true
+          },
+          "electron": {
+            "TCS34725": true
+          },
+          "argon": {
+            "TCS34725": true
+          },
+          "boron": {
+            "TCS34725": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.717Z"
     }
   },
   "readme": "#Adafruit TCS34725 Color Sensor Driver #\n\n*** Adapted by Krishnaraj Varma for Spark Core ***\n\nThis driver is for the Adafruit TCS34725 Breakout.\n    ------> http://www.adafruit.com/products/1334\n\n## About this Driver ##\n\nThese modules use I2C to communicate, 2 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Kevin (KTOWN) Townsend for Adafruit Industries.\nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo download. click the ZIP button in the top bar, and check this tutorial\nfor instructions on how to install: \nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use",

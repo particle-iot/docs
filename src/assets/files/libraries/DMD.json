@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DMD",
     "version": "0.0.3",
-    "installs": 1141,
+    "installs": 1142,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "Freetronics Dot Matrix Display library for Particle",
@@ -58,8 +58,27 @@
             "dmd_clock_readout": false,
             "dmd_demo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "dmd_clock_readout": true,
+            "dmd_demo": true
+          },
+          "electron": {
+            "dmd_clock_readout": true,
+            "dmd_demo": true
+          },
+          "argon": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "boron": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.942Z"
     }
   },
   "readme": "DMD_Library\n===========\n\nDMD (dot matrix display) library for Particle devices adapted from Arduino library\n\nVersion 1 of Dot Matrix Library Copyright (C) 2011 Marc Alexander (info@freetronics.com)\nAdapted for Particle devices by Paul Kourany, May 22, 2014\nUpdated to Libraries 2.0, Jan 29, 2017\n\n\n**IMPORTANT: This library requires Particle firmware v4.5 or later**\n\n```\nDefault pin configuration:\n\nDMD\t\t PARTICLE\n-----------------\nnOE\t\t  A0\nA\t\t  D4\nB\t\t  D3\nCLK\t\t  A3\nSCLK\t  D2\nR_DATA    A5\n```\n\nParticle SPI CS pin A2 is set to HIGH and assumed to be used by another SPI device.  This pin MUST read as HIGH for DMD\nto function correctly.\n\n**********************************************\nDMD library\n--------------\nMarc Alexander, Freetronics\nEmail: info (at) freetronics.com\nURL:   http://www.freetronics.com/dmd-library\n\nA library for driving the Freetronics 512 pixel dot matrix LED display \"DMD\", a 32 x 16 layout.\n\nIncludes:\n- High speed display connection straight to SPI port and pins.\n- A full 5 x 7 pixel font set and character routines for display.\n- A numerical and symbol 6 x 16 font set with a colon especially for clocks and other fun large displays.\n- Special graphics modes: Normal, Inverse, Toggle, OR and NOR!\n- Clear screen with all pixels off or on.\n- Point to point line drawing.\n- Circle drawing.\n- Box (rectangle) drawing, border and filled versions.\n- Test pattern generation.\n\nFor the DMD panel see: http://www.freetronics.com/dmd\n\nUSAGE NOTES\n-----------\n\n- Place the DMD library folder into the \"arduino/libraries/\" folder of your Arduino installation.\n- Get the TimerOne library from here: http://code.google.com/p/arduino-timerone/downloads/list\n  or download the local copy from the DMD library page (which may be older but was used for this creation)\n  and place the TimerOne library folder into the \"arduino/libraries/\" folder of your Arduino installation.\n- Restart the IDE.\n- In the Arduino IDE, you can open File > Examples > DMD > dmd_demo, or dmd_clock_readout, and get it\n  running straight away!\n\n* The DMD comes with a pre-made data cable and DMDCON connector board so you can plug-and-play straight\n  into any regular size Arduino Board (Uno, Freetronics Eleven, EtherTen, USBDroid, etc)\n  \n* Please note that the Mega boards have SPI on different pins, so this library does not currently support\n  the DMDCON connector board for direct connection to Mega's, please jumper the DMDCON pins to the\n  matching SPI pins on the other header on the Mega boards.\n\nPROJECT HOME\n------------\n\nhttp://www.freetronics.com/dmd-library\n",

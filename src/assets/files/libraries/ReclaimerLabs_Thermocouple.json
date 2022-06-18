@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ReclaimerLabs_Thermocouple",
     "version": "0.9.7",
-    "installs": 832,
+    "installs": 833,
     "license": "MIT",
     "author": "Jason Cerundolo",
     "maintainer": "Jason Cerundolo",
@@ -33,7 +33,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.978Z"
     }
   },
   "readme": "# Introduction\r\n\r\nThis library provides a function that takes in a differential thermocouple voltage, thermocouple type, and cold junction temperature to calculate a hot junction temperature. It uses a lookup table generated from the [**NIST standards**](https://srdata.nist.gov/its90/download/download.html). The calculation method is done as described in section 3 of [**App Note SBAA189**](http://www.ti.com/lit/an/sbaa189/sbaa189.pdf) from TI. \r\n\r\nCheck out the other github repos for more information on a library to talk to the [**ADS1118 ADC**](https://github.com/ReclaimerLabs/ReclaimerLabs_ADS1118) and a [**board**](https://github.com/ReclaimerLabs/Remote-Thermal-Monitor) that connects it to a Particle Photon. \r\n\r\n# Example Usage\r\n\r\nThe function is implemented a static method, so you do not need to create a ReclaimerLabs_Thermocouple object. You can simply call ReclaimerLabs_Thermocouple::calc_temp(). \r\n\r\nFor example, TYPE_K is the thermocouple type. diff_volt_mV is the differential voltage in millivolts. cold_junc_C is a float holding the cold junction temperature in degrees Celsius. If return_val is 0, then hot_junc_C will hold the hot junction temperature in degrees Celsius. \r\n\r\n```\r\n    float hot_junc_C;\r\n    int32_t return_val;\r\n    return_val = ReclaimerLabs_Thermocouple::calc_temp(TYPE_K, diff_volt_mV, cold_junc_C, &hot_junc_C);\r\n```\r\n\r\n# Questions and Comments\r\n\r\nIf you have questions or comments, you can email me directly at jason@reclaimerlabs.com. \r\n",

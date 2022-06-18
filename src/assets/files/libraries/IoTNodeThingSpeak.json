@@ -23,7 +23,8 @@
   "versions": {
     "0.0.3": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.082Z"
     }
   },
   "readme": "# IoTNodeThingSpeak\r\nSentient Things ThingSpeak library for the IoT Node.  Uses Fram to queue messages send via the Bulk-Write CSV Data API\r\n",

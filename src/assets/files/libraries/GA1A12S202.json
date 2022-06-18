@@ -50,8 +50,23 @@
           "boron": {
             "example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.090Z"
     }
   },
   "readme": "GA1A12S202-sensor\n=================\n\nSimple library for GA1A12S202 light/lux sensor\n",

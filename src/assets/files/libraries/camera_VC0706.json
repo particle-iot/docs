@@ -62,8 +62,31 @@
             "Snapshot": false,
             "take_picture": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "electron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.109Z"
     }
   },
   "readme": "ColorArduino\n============\n\nThis is a library to work with the camera VC0706 on photon imported from a library of Arduino",

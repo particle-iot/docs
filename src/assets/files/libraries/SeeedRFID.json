@@ -50,8 +50,23 @@
           "boron": {
             "RFID_UART": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "RFID_UART": true
+          },
+          "electron": {
+            "RFID_UART": true
+          },
+          "argon": {
+            "RFID_UART": false
+          },
+          "boron": {
+            "RFID_UART": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.918Z"
     }
   },
   "readme": "RFID Library\n============\n\n125Khz RFID library for Arduino. \n\nThis library only support TTL RS232 serial port.\n\n![125Khz RFID Reader][RFID Image]\n\n\nParticle Devices\n----------\nAdapted for Spark Core by Paul Kourany, Jan 2015\nUpdated for Libraries 2.0, Feb 2017\n\n### Usage\nConnecting RFID Reader RX, TX to Particle device Core pins.\n\n`Seed    Spark (Serial1 or 2)`\n`RX <--> TX`\n`TX <--> RX`\n\nArduino\n-------\n\nWhen read the data from some RFID card, you will get data like `00 91 6f 0b f5`.\n\nExample:\n```\nyour card number: 0009531147\nthat your data  : 00 91 6f 0b f5\n```\n**Notice, f5 is the check bit**\n\n`f5 = 00^91^6f^0b`\n\n\n#### Pins \n\n1. VCC support 3.3 ~ 5V\n2. TX, RX connect to Arduino or Seeeduino\n3. T1, T2 is the Signal port for RFID antenna\n4. W0, W1 is for wiegand protocol, but this library not support yet.\n\n```\n     \t\t+-----------+\n++++++++----|VCC\t  T1|----\n|  +++++----|GND\t  T2|----\n|  | |++----|TX\t\t SER|----\n|  | |\t----|RX\t\t LED|----\t\n|  | |\t----|W0\t\tBEEP|----\n|  | |\t----|W1\t\t GND|----\n|  | |\t\t+-----------+\n|  | \\_________________________________________\n|  | \t\t\t\t\t\t\t\t\t\t  |\n|  |                             \t\t\t  |\n|  |                           + + + + + + + + + + + + \n|  |                           | | | | | | | | | | | | \n|  |          \t\t\t\t  /|-|-|-|-|-|-|-|-|-|-|-|-|\n|  |                         | A A A A A A D W R T G V |\n|  |                         | 0 1 2 3 4 5 A K X X N I |      \n|  |               PARTICLE  |             C P     D N |\n|  |                PHOTON   |                \t\t   |\n|  |                         |                \t V\t   |\n|  |                         |                 G B R 3 |\n|  |                         | D D D D D D D D N A S V |\n|  |       \t\t\t\t\t | 0 1 2 3 4 5 6 7 D T T 3 |\n|  |          \t\t\t\t  \\|-|-|-|-|-|-|-|-|-|-|-|-|\n|  |                           | | | | | | | | | | | | \n|  |                           + + + + + + + + + + + + \n|  |___________________________________________|     |\n|____________________________________________________|\n\t\n```\n\n### Usage\nConnecting RFID Reader RX, TX to Arduino pin headers.\n\n`RX <--> 10`\n`TX <--> 11`\n\n```c\n// RFID_UART.ino\n\n#include <SoftwareSerial.h>\n#include <SeeedRFID.h>\n\n#define RFID_RX_PIN 10\n#define RFID_TX_PIN 11\n\n#define TEST\n\nSeeedRFID RFID(RFID_RX_PIN, RFID_TX_PIN);\nRFIDdata tag;\n\nvoid setup() {\n\tSerial.begin(57600);\n\tSerial.println(\"Hello, double bk!\");\n}\n\nvoid loop() { \n\tif(RFID.isAvailable()){\n\t\ttag = RFID.data();\n\t\tSerial.print(\"RFID card number: \");\n\t\tSerial.println(RFID.cardNumber());\n#ifdef TEST\n\tSerial.print(\"RFID raw data: \");\n\tfor(int i=0; i<tag.dataLen; i++){\n\t    Serial.print(tag.raw[i], HEX);\n\t    Serial.print('\\t');\n\t\t}\n#endif\n\t}\n}\n\n```\n\n\n----\n\nThis library is written by [Ye Xiaobo][Github Homepage] for seeed studio<br>\nand is licensed under [The MIT License](https://github.com/yexiaobo-seeedstudio/RFID_Library/blob/master/LICENSE). <br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n\n[RFID Image]: http://www.seeedstudio.com/wiki/images/6/6a/RFID.jpg\n[Github Homepage]: https://github.com/yexiaobo-seeedstudio\n\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/RFID_Library)](https://github.com/igrigorik/ga-beacon)\n",

@@ -62,8 +62,27 @@
             "IRrecvDemo": true,
             "IRsendDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "electron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "argon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "boron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.840Z"
     }
   },
   "readme": "# IRremoteLearn\nIR Remote Control for Learner IR receivers with Particle devices\n\nModified from IRremote for Particle Photon/P1/Electron:\nhttps://github.com/babean/IRRemote\n\nWhich was modified from PJRC IRremote for teensy:\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n",

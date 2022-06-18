@@ -50,8 +50,23 @@
           "boron": {
             "mqtttest": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "mqtttest": false
+          },
+          "electron": {
+            "mqtttest": false
+          },
+          "argon": {
+            "mqtttest": false
+          },
+          "boron": {
+            "mqtttest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.100Z"
     }
   },
   "readme": "MQTT for Spark\n============\n\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> library for Spark core version 0.1.0.\n\nExample mqtttest.ino is dependent on:\n\n        MQTT_1.h\n        MQTT_2.cpp\n",

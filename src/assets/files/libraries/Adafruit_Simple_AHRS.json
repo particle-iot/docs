@@ -23,7 +23,8 @@
   "versions": {
     "0.0.3": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.075Z"
     }
   },
   "readme": "TODO: Describe your library and how to run the examples\n",

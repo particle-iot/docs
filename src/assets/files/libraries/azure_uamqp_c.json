@@ -50,8 +50,23 @@
           "boron": {
             "main": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.996Z"
     }
   },
   "readme": "# uAMQP\n\nuAMQP is a general purpose C library for AMQP.\n\nThe goal is to be as compliant with the standard as possible while optimizing for low RAM footprint and also being portable.\n\nIt is currently a client side implementation only. Although much of the standard is symmetrical, there are parts that are asymmetrical, like the SASL handshake.\nCurrently uAMQP does not provide the server side for these asymmetrical protions of the ISO.\n\n## Dependencies\n\nuAMQP uses azure-c-shared-utility, which is a C library provising common functionality for basic tasks (like string, list manipulation, IO, etc.).\nazure-c-shared-utility is available here: https://github.com/Azure/azure-c-shared-utility and it is used as a submodule.\n\nThis is a port of the original that can be found at https://www.github.com/Azure/azure-uamqp-c.git\n",

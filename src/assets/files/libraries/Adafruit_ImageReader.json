@@ -117,8 +117,55 @@
             "ShieldST7735": false,
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "electron": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "argon": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "boron": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.841Z"
     }
   },
   "readme": "# Adafruit_ImageReader [![Build Status](https://travis-ci.org/adafruit/Adafruit_ImageReader.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_ImageReader)\n\nCompanion library for Adafruit_GFX to load images from SD card.\n\nRequires Adafruit_GFX library and one of the SPI color graphic display libraries, e.g. Adafruit_ILI9341.\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceNameHelperRK",
     "version": "0.0.1",
-    "installs": 6281,
+    "installs": 6292,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for accessing the Particle device name easily",
@@ -84,8 +84,39 @@
             "04-recheck": true,
             "05-file": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": false
+          },
+          "electron": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": false
+          },
+          "argon": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "boron": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.794Z"
     }
   },
   "readme": "# DeviceNameHelperRK\n\n*Library for accessing the Particle device name easily*\n\nThe device name for a Particle device is stored in the cloud, not locally on the device. While you can retrieve the name from code running on the device, the process can necessarily only be done while connected to the cloud, and it requires time and data. \n\nThis library provides an easy-to-use wrapper and also provides a way to store the data locally:\n\n- `DeviceNameHelperEEPROM` stores the name in the EEPROM emulation. It is preserved across power-down, sleep, reboot, user code flash, and Device OS flash. The EEPROM is typically around 3K. The library requires 44 bytes of retained memory for the name and some other data.\n- `DeviceNameHelperRetained` stores the name in retained memory. It is preserved across sleep modes and reboot. The retained memory is around 3K on most devices. The library requires 44 bytes of retained memory for the name and some other data.\n- `DeviceNameHelperFile` stores the name in a file on the flash file system. This requires a Gen 3 device (Argon, Boron, B Series SoM, or Tracker SoM) and Device OS 2.0.0 or later. The flash file system is 2MB (4 MB on the Tracker).\n- `DeviceNameHelperNoStorage` stores the name in RAM so it will be fetched on every restart and also after HIBERNATE sleep.\n\nAlso:\n\n- The full browsable API documentation can be found in the docs/html folder and [here](https://rickkas7.github.io/DeviceNameHelperRK/index.html).\n- The Github repository for this project is: [https://github.com/rickkas7/DeviceNameHelperRK](https://github.com/rickkas7/DeviceNameHelperRK).\n- The license is MIT. Can be used in commercial, open-source, and closed-source products. Attribution not required.\n\n\n## Examples\n\n### Overview\n\nAll of the classes use a singleton pattern. You use the `instance()` method of your class to allocate it, if it doesn't exist, or retrieve the existing instance. For example: `DeviceNameHelperEEPROM::instance()`. There is also `DeviceNameHelperRetained::instance()`, etc.\n\nThere is one method you must call from setup(), and one from your app's loop(). \n\nFor example:\n\n```\nvoid setup() {\n    // You must call this from setup!\n    DeviceNameHelperEEPROM::instance().setup(EEPROM_OFFSET);\n}\n\nvoid loop() {\n    // You must call this from loop!\n    DeviceNameHelperEEPROM::instance().loop();\n}\n```\n\nReplace `DeviceNameHelperEEPROM` with whatever storage method you are using such as `DeviceNameHelperRetained` or `DeviceNameHelperFile`.\n\nTo use the name, call `DeviceNameHelperEEPROM::instance().getName()`. This returns a c-string containing the name. The name is limited to `DEVICENAMEHELPER_MAX_NAME_LEN` characters (31). \n\nTo find out if the name has been retrieved, use `DeviceNameHelperEEPROM::instance().hasName()`.\n\n\n\n### EEPROM\n\n`DeviceNameHelperEEPROM` stores the name in the EEPROM emulation. It is preserved across power-down, sleep, reboot, user code flash, and Device OS flash. The EEPROM is typically around 3K. The library requires 44 bytes of retained memory for the name and some other data.\n\nTo store the data in EEPROM emulation you must select a starting offset (0 or greater) with unused space of 44 bytes, `sizeof(DeviceNameHelperData)`.\n\n```cpp\n#include \"DeviceNameHelperRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\nint EEPROM_OFFSET = 100;\n\nvoid setup() {\n    // You must call this from setup!\n    DeviceNameHelperEEPROM::instance().setup(EEPROM_OFFSET);\n}\n\nvoid loop() {\n    // You must call this from loop!\n    DeviceNameHelperEEPROM::instance().loop();\n}\n```\n\n### Retained\n\n`DeviceNameHelperRetained` stores the name in retained memory. It is preserved across sleep modes and reboot. The retained memory is around 3K on most devices. The library requires 44 bytes of retained memory for the name and some other data.\n\n```cpp\n#include \"DeviceNameHelperRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\nretained DeviceNameHelperData deviceNameHelperRetained;\n\nvoid setup() {\n    // You must call this from setup!\n    DeviceNameHelperRetained::instance().setup(&deviceNameHelperRetained);\n}\n\nvoid loop() {\n    // You must call this from loop!\n    DeviceNameHelperRetained::instance().loop();\n}\n```\n\n### File\n\n`DeviceNameHelperFile` stores the name in a file on the flash file system. This requires a Gen 3 device (Argon, Boron, B Series SoM, or Tracker SoM) and Device OS 2.0.0 or later. The flash file system is 2MB (4 MB on the Tracker).\n\nOn Gen 3 devices, EEPROM is implemented as a file on the flash file system, so there is no real advantage of using EEPROM over File on Gen 3 devices running Device OS 2.0.0 or later.\n\n```cpp\n#include \"DeviceNameHelperRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\nvoid setup() {\n    // You must call this from setup!\n    DeviceNameHelperFile::instance().setup();\n}\n\nvoid loop() {\n    // You must call this from loop!\n    DeviceNameHelperFile::instance().loop();\n}\n```\n\nYou can optionally pass a filename to setup(). The default filename is /usr/devicename.\n\n```cpp\nvoid setup() {\n    // You must call this from setup!\n    DeviceNameHelperFile::instance().setup(\"/usr/mydevicename.txt\");\n}\n```\n\n### No storage\n\n`DeviceNameHelperNoStorage` stores the name in RAM so it will be fetched on every restart. \n\nHIBERNATE sleep mode also clears RAM, so if you use HIBERNATE, the device name will have to be fetched from the cloud on every wake, which is not particularly efficient. You will probably want to use a different method in this scenario.\n\n```cpp\n#include \"DeviceNameHelperRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\nvoid setup() {\n    // You must call this from setup!\n    DeviceNameHelperNoStorage::instance().setup();\n}\n\nvoid loop() {\n    // You must call this from loop!\n    DeviceNameHelperNoStorage::instance().loop();\n}\n```\n\n### Name Callback\n\nSometimes you may want to know when the name is available. The name callback can be used for this purpose. If the name was stored (EEPROM, retained, or file) then the name will be called during setup(). Otherwise, the name callback will be called after the name has been retrieved from the cloud.\n\n```cpp\n#include \"DeviceNameHelperRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\nretained DeviceNameHelperData deviceNameHelperRetained;\n\nvoid nameCallback(const char *name) {\n    Log.info(\"name=%s\", name);\n}\n\nvoid setup() {\n    DeviceNameHelperRetained::instance().withNameCallback(nameCallback);\n    DeviceNameHelperRetained::instance().setup(&deviceNameHelperRetained);\n}\n\nvoid loop() {\n    DeviceNameHelperRetained::instance().loop();\n}\n\n```\n\nThe name callback can also be a C++11 lambda. A lambda can also be used to call a C++ member function. Note the body of the lambda is called later, when the name is known; the withNameCallback() function does not block.\n\n```cpp\nvoid setup() {\n    DeviceNameHelperRetained::instance().withNameCallback([](const char *name) {\n        Log.info(\"name=%s\", name);\n    });\n\n    DeviceNameHelperRetained::instance().setup(&deviceNameHelperRetained);\n}\n```\n\n### Check Period\n\nBy default, the name is only checked once. If you later change the name, the name will not be retrieved again unless the name is no longer available from the storage method, such as after powering down completely while using retained memory.\n\nTo periodically fetch the name, use the `withCheckPeriod()` method. For example:\n\n```cpp\nvoid setup() {\n    // This causes the name to be fetched once per day\n    DeviceNameHelperNoStorage::instance().withCheckPeriod(24h);\n\n    // You must call this from setup!\n    DeviceNameHelperNoStorage::instance().setup();\n}\n```\n\nThe parameter is a chrono literal. Common units include `h` for hours and `min` for minutes.\n\n## Version History\n\n### 0.0.1 (2021-02-15)\n\n- Initial version\n",

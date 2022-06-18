@@ -50,8 +50,23 @@
           "boron": {
             "example_logger": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example_logger": true
+          },
+          "electron": {
+            "example_logger": false
+          },
+          "argon": {
+            "example_logger": true
+          },
+          "boron": {
+            "example_logger": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.958Z"
     }
   },
   "readme": "# psyslog\n\n## About\n\nThis library provides a UDP syslog client for logging data from Particle apps.\n\nIt has been tested on the Photon in combination with rsyslog. Other devices and syslog daemons may work! Feel free to contact me via email (hans@stackallocated.com) if you have issues with untested devices.\n\n## Usage\n\nAdd the following to the top of your application:\n```c\n#define SYSLOG_DEBUG\n#include \"psyslog/psyslog.h\"\n```\n\nThen, set up the remote log endpoint:\n```c\nsyslog_initialize(\"logs.example.com\", 514);\n```\n\nTo actually log data, use the following macros:\n```c\nLOGE(\"This is an error message!\");\nLOGI(\"Informational messages are less important);\n```\n\nBy default, the library will log using the device's MAC address as its hostname. If you want to use the Particle device ID, add `#define SYSLOG_USE_DEVICEID` before the include.\n\n## syslog servers\n\nAn example [rsyslog](http://www.rsyslog.com/) [configuration file](doc/rsyslog.conf) is included. It will automatically separate logs by hostname and store them in `/var/log/particle/`.\n",

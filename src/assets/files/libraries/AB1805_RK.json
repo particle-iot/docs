@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AB1805_RK",
     "version": "0.0.1",
-    "installs": 517,
+    "installs": 519,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for AB1805/AM1805 RTC/Watchdog for Particle devices",
@@ -100,8 +100,47 @@
             "06-supercap": true,
             "07-deep-power": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": true,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "electron": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": false,
+            "04-selftest": false,
+            "05-hwtest": true,
+            "06-supercap": false,
+            "07-deep-power": false
+          },
+          "argon": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          },
+          "boron": {
+            "01-minimal": true,
+            "02-typical": true,
+            "03-periodic-wake": true,
+            "04-selftest": true,
+            "05-hwtest": true,
+            "06-supercap": true,
+            "07-deep-power": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.032Z"
     }
   },
   "readme": "# AB1805_RK\n\n*Library for AB1805/AM1805 RTC/Watchdog for Particle devices*\n\nYou can [browse the generated API documentation](https://rickkas7.github.io/AB1805_RK/index.html).\n\nThe examples and AB1805_RK.h header file should be mostly self-explanatory. There will be a Particle application note that shows the hardware design used with this library shortly.\n\n## Examples\n\n### 01-minimal\n\nThis is just the minimal implement of using the RTC and Watchdog Timer (WDT). Here's the complete code:\n\n```cpp\n#include \"AB1805_RK.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nSerialLogHandler logHandler;\n\nAB1805 ab1805(Wire);\n\nvoid setup() {\n    // The sample board has D8 connected to FOUT for wake interrupts, though this\n    // example does not use this feature.\n    ab1805.withFOUT(D8).setup();\n\n    // Reset the AB1805 configuration to default values\n    ab1805.resetConfig();\n\n    // Enable watchdog\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n\n    // Connect to the Particle cloud\n    Particle.connect();\n}\n\n\nvoid loop() {\n    // Be sure to call ab1805.loop() on every call to loop()\n    ab1805.loop();\n}\n\n```\n\nThings to note in this code:\n\nDeclare an `AB1805` object in your code as a global variable. Only do this once in your main source file. The parameter is the I2C interface the AB1805 is connected to, typically `Wire` (D0/D1).\n\n```cpp\nAB1805 ab1805(Wire);\n```\n\nIn setup(), call the `ab1805.setup()` method.\n\n```cpp\n    ab1805.setup();\n```\n\nReset the settings on the AB1805. This isn't strictly necessary since it resets the chip to power-on defaults, but it's not a bad idea to be safe:\n\n```cpp\n    ab1805.resetConfig();\n```\n\nIf you want to use the hardware watchdog, enable it:\n\n```cpp\n    ab1805.setWDT(AB1805::WATCHDOG_MAX_SECONDS);\n```\n\nAnd from loop(), make sure you call the loop method:\n\n```cpp\n    ab1805.loop();\n```\n\nThe `ab1805.loop()` method takes care of:\n\n- Serving the watchdog timer.\n- Synchronizing the hardware RTC with the cloud time.\n- Turning off the watchdog before System.reset() in case an OTA firmware update is in progress.\n\n\n### 02-typical\n\nThe \"typical\" example adds in a few helpful features:\n\n- An out of memory handler, which will reset the device if a RAM allocation fails.\n- A failure to connect detector, so if it takes longer than 11 minutes to connect to the cloud, a deep power down for 30 seconds is done to hopefully reset things complete.\n\n\n### 03-periodic-wake\n\nThis example has the device wake up once per hour and publish a value. It illustrates:\n\n- Using the RTC to wake up the device periodically.\n- Using the 256-byte non-volatile RAM in the RTC.\n- An out of memory handler, which will reset the device if a RAM allocation fails.\n- A failure to connect detector, so if it takes longer than 11 minutes to connect to the cloud, a deep power down for 30 seconds is done to hopefully reset things complete.\n \n### 04-selftest\n\nThe self-test code is used to do a quick check of the hardware to make sure it's visible by I2C. It's helpful when you've soldered up a new board to make sure the AB1805 at least has working I2C communications.\n\n### 05-hwtest\n\nThis is the hardware test suite that allows various modes to be tested via commands from the cloud.\n\n### 06-supercap\n\nThis is an example of using a board with a super capacitor.\n\n- It enables the supercap trickle charger\n- When the MODE button is tapped, the device goes into 30 second deep power down (with the RTC powered by supercap)\n\n### 07-deep-power\n\nThis is the deep power down example that uses a LiPo powered RTC to a deep power down, not using a supercap.\n\n- When the MODE button is tapped, the device goes into 30 second deep power down (with the RTC powered by the LiPo)\n",

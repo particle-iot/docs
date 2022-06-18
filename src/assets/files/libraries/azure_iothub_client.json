@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.927Z"
     }
   },
   "readme": "# Microsoft Azure IoT SDKs\n\n*Warning: experimental port*\n\nThis repository contains the IoT device SDK for IoTHub from https://www.github.com/Azure/azure-iot-sdks ported to particle.io.\nSome limitations exist for the port:\n- only AMQP is supported\n- only the LL layer is supported (no threading and locking).\n",

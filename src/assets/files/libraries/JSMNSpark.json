@@ -50,8 +50,23 @@
           "boron": {
             "JSMNDemo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "JSMNDemo": false
+          },
+          "electron": {
+            "JSMNDemo": false
+          },
+          "argon": {
+            "JSMNDemo": false
+          },
+          "boron": {
+            "JSMNDemo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.997Z"
     }
   },
   "readme": "JSMNSpark\n=========\n\nJSMN is a small JSON parser ported to the Spark from https://bitbucket.org/zserge/jsmn/wiki/Home.\n\nThis software is distributed under MIT license, so feel free to integrate it in your commercial products.\n\nCode metrics - TBD\nflash used:\nram used:",

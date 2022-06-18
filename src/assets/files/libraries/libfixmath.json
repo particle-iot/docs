@@ -7,7 +7,7 @@
   "attributes": {
     "name": "libfixmath",
     "version": "0.0.2",
-    "installs": 7643,
+    "installs": 7644,
     "license": "MIT",
     "author": "nrobinson2000",
     "sentence": "An Implementation of libfixmath for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",
@@ -50,8 +50,23 @@
           "boron": {
             "unittests": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "unittests": true
+          },
+          "electron": {
+            "unittests": true
+          },
+          "argon": {
+            "unittests": true
+          },
+          "boron": {
+            "unittests": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.780Z"
     }
   },
   "readme": "# libfixmath\n\nThe start of a libfixmath Particle library\n\nPorted from: https://github.com/PetteriAimonen/libfixmath\n\n## Unit testing\n\nSee src/demo.cpp for the unit tests.\n\n## Results\n\nOn a photon:\n\n```\n=== libfixmath Test ===\nTesting basic multiplication\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nTesting multiplication rounding corner cases\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nRunning testcases for multiplication\nOK: (1)\nTesting basic division\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nTesting division rounding corner cases\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nRunning testcases for division\nOK: (1)\nRunning testcases for addition\nOK: (1)\nRunning testcases for subtraction\nOK: (1)\nTesting basic square roots\nOK: (1)\nOK: (1)\nOK: (1)\nTesting square root rounding corner cases\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nRunning test cases for square root\nOK: (1)\n=== Finished tests ===\n```",

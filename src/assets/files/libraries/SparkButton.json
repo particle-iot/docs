@@ -98,8 +98,47 @@
             "6_Orientation": false,
             "7_Internet": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_Blink_An_LED": true,
+            "2_Blink_ALL_the_LEDs": true,
+            "3_Buttons_and_LEDs": true,
+            "4_Good_Combination": true,
+            "5_Motion": true,
+            "6_Orientation": true,
+            "7_Internet": false
+          },
+          "electron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.894Z"
     }
   },
   "readme": "_The Spark Button has a lot of features, but some of these aren't as straightforward to use as simple LEDs and sensors. NOTE that this library has been superseded by InternetButton!_\n\n## Examples\n\n1. __Blink an LED__ - How to control the smart LEDs on this board\n2. __Blink all the LEDs__ - An extension on the simplest case\n3. __LEDs and Buttons__ - How to read the buttons on the Button, and make LEDs blink with them\n4. __Good Combination__ - A set of button and LED conditionals that I happen to like and use frequently\n5. __Motion__ - The Spark Button also has an accelerometer on it to measure motion- this shows how the related functions work\n6. __Orientation__ - How to use the accelerometer functions to determine the orientation\n7. __Internet__ - Send that data out to the world!\n\n\n_Watch for gauge and other display additions to this library!_\n",

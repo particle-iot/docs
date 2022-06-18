@@ -77,8 +77,35 @@
             "stepper_oneStepAtATime": true,
             "stepper_speedControl": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "electron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "argon": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "boron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.692Z"
     }
   },
   "allVersions": [

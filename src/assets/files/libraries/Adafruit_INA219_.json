@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_INA219_",
     "version": "1.0.1",
-    "installs": 1603,
+    "installs": 1615,
     "license": "MIT License",
     "author": "Nathan Matos<than.matos@gmail.com>",
     "sentence": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle(2021)",
@@ -56,8 +56,23 @@
           "boron": {
             "get-current": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "get-current": false
+          },
+          "electron": {
+            "get-current": false
+          },
+          "argon": {
+            "get-current": false
+          },
+          "boron": {
+            "get-current": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.909Z"
     }
   },
   "readme": "# Adafruit Bus IO Library [![Build Status](https://github.com/adafruit/Adafruit_BusIO/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_BusIO/actions)\n\n\nThis is a helper library to abstract away I2C & SPI transactions and registers\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nMIT license, all text above must be included in any redistribution\n",

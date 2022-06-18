@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-vbat",
     "version": "0.0.3",
-    "installs": 7633,
+    "installs": 7637,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Utility to read the VBAT and temperature values from a STM32F2xx processor",
@@ -52,8 +52,23 @@
           "boron": {
             "1-example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-example": true
+          },
+          "electron": {
+            "1-example": true
+          },
+          "argon": {
+            "1-example": false
+          },
+          "boron": {
+            "1-example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.780Z"
     }
   },
   "readme": "# photon-vbat\n\nClass the read the value of the VBAT and the temperature sensor on the Photon or P1.\n\nAlso works on the Electron, however VBAT is generally connected to 3V3 so it's always 3.3V.\n\nThis only works on the STM32F2xx devices including the Photon, Electron, and E Series.\n\nIt does not work on the Spark Core or Mesh devices as it directly accesses the hardware.\n\n## Usage\n\nInclude the photon-vbat library and include the header file (if not already included):\n\n```\n#include \"photon-vbat.h\"\n```\n\nDeclare a global object:\n\n```\nPhotonVBAT photonVBAT(A7, 6.54, 943);\n```\n\nParameters are:\n\n- A7 = An unused pin that you are not normally analogReading from that's safe to pass to analogRead\n- 6.54 = VBAT calibration constant (optional)\n- 943 = temperature calibration constant (optional)\n\nUse it. For example:\n\n```\nvoid loop() {\n\t// Read battery voltage (in volts)\n\tfloat vbat = photonVBAT.readVBAT();\n\n\t// Read processor temperature (in degrees C)\n\tfloat tempC = photonVBAT.readTempC();\n\n\tfloat tempF = tempC * 9.0 / 5.0 + 32.0;\n\n\tSerial.printlnf(\"vbat=%f tempC=%f tempF=%f A0=%d\", vbat, tempC, tempF, analogRead(A0));\n\tdelay(1000);\n}\n```\n\nThe unused pin must be a pin that you can pass to analogRead, and should not be a pin you're actually analogReading from. In the example above it tests reading A0, so you should not pass A0 as sparePin, and you'll get invalid readings.\n",

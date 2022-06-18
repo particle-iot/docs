@@ -53,8 +53,23 @@
           "boron": {
             "example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.100Z"
     }
   },
   "readme": "# HPMA115S0\nLibrary for Honeywell's Particle Sensor (HPMA115S0-XXX)\n\nThis fork provides some debugging functionality (printing more information to the Serial Monitor). Additional minor changes were added.\n\n## Instructions\n* Place this repository in Documents\\Arduino (or your default library location).\n* Include this library: `#include <hpma115S0.h>`\n* **OR** place `hpma115S0.h` and `hpma115S0.cpp` in same folder as your Arduino sketch and include using `#include \"hpma115S0.h\"`\n* The debugging can be turned off by commenting out the line in src/hpma115s0.g\n`// #define DEBUG`\n\nAn additional example with a hardware serial for the Arduino Mega will be provided.\n",

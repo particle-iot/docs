@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMAX17043",
     "version": "1.1.2",
-    "installs": 69670,
+    "installs": 69677,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the MAX17043 LiPo fuel gauge.",
@@ -50,8 +50,23 @@
           "boron": {
             "MAX17043_Simple": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MAX17043_Simple": true
+          },
+          "electron": {
+            "MAX17043_Simple": true
+          },
+          "argon": {
+            "MAX17043_Simple": true
+          },
+          "boron": {
+            "MAX17043_Simple": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.674Z"
     }
   },
   "readme": "## SparkFun MAX17043 Particle Library\n\nFirmware library SparkFun's Photon Battery Shield and the MAX17043 Breakout.\n\nAbout\n-------------------\n\nThis is a firmware library for [SparkFun's Photon Battery Shield](https://www.sparkfun.com/products/13626).\n\n[![Photon Battery Shield](https://cdn.sparkfun.com//assets/parts/1/1/0/0/9/13626-01.jpg)](https://www.sparkfun.com/products/13626).\n\nThe MAX17043 interfaces between a LiPo battery and a microcontroller. The MAX17043 can read a battery's voltage and, using a sophisticated battery-modelling algorithm, estimate the state of charge (SOC).\n\nRepository Contents\n-------------------\n\n* **/doc** - Additional documentation for the user. These files are ignored by the IDE. \n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particel library manager. \n\nExample Usage\n-------------------\n\nInclude the MAX17043 library:\n\n\t#include \"SparkFunMAX17043.h\" // Include the SparkFun MAX17043 library\n\t\nThen use the `lipo` object to interact with it. Begin by initializing the IC:\n\n\tvoid setup()\n\t{\n\t\t// Set up the MAX17043 LiPo fuel gauge:\n\t\tlipo.begin(); // Initialize the MAX17043 LiPo fuel gauge\n\n\t\t// Quick start restarts the MAX17043 in hopes of getting a more accurate\n\t\t// guess for the SOC.\n\t\tlipo.quickStart();\n\n\t\t// We can set an interrupt to alert when the battery SoC gets too low.\n\t\t// We can alert at anywhere between 1% - 32%:\n\t\tlipo.setThreshold(10); // Set alert threshold to 10%.\n\t}\n\nThen you can read the voltage and state-of-charge (SOC) values like this:\n\n\t// lipo.getVoltage() returns a voltage value (e.g. 3.93)\n\tvoltage = lipo.getVoltage();\n\t// lipo.getSOC() returns the estimated state of charge (e.g. 79%)\n\tsoc = lipo.getSOC();\n\t\nCheck out the example files in the [examples directory](https://github.com/sparkfun/SparkFun_MAX17043_Particle_Library/tree/master/firmware/examples) for more guidance.\n\nRecommended Components\n-------------------\n\n* [Particle Photon](https://www.sparkfun.com/products/13345)\n* [SparkFun Photon Battery Shield](https://www.sparkfun.com/products/13626)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

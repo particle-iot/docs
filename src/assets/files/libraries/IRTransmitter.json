@@ -50,8 +50,23 @@
           "boron": {
             "BasicUsageExample": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BasicUsageExample": false
+          },
+          "electron": {
+            "BasicUsageExample": false
+          },
+          "argon": {
+            "BasicUsageExample": false
+          },
+          "boron": {
+            "BasicUsageExample": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.798Z"
     }
   },
   "readme": "Photon IR Transmitter\n========\n\nSimple IR Transmitter library for the Particle Photon. Full credit goes to [AnalysIR](http://www.analysir.com/blog/2015/06/10/simple-infrared-pwm-on-arduino-part-2-raw-ir-signals/).\n\n### Example usage\n```\n#include <IRTransmitter/IRTransmitter.h>\n\n#define IR_PIN D6\n#define LED_PIN D7\n\nvoid setup() {\n}\n\n// Raw data can be sniffed using an IR-receiver and e.g. https://github.com/z3t0/Arduino-IRremote/blob/master/examples/IRrecvDumpV2/IRrecvDumpV2.ino\nunsigned int data[67] = {9000, 4450, 550, 550, 600, 500, 600, 550, 550, 1650, 600, 550, 550, 550, 600, 500, 600, 550,\n                            600, 1600, 600, 1650, 600, 1650, 600, 500, 600, 1650, 600, 1600, 600, 1650, 600, 1650, 600,\n                            500, 600, 1650, 600, 1650, 550, 550, 600, 1650, 550, 550, 600, 500, 600, 550, 550, 1650,\n                            600, 550, 550, 550, 600, 1650, 550, 550, 600, 1650, 550, 1650, 650, 1600,\n                            600};  // NEC 10EF6897\n\nIRTransmitter transmitter(IR_PIN, LED_PIN);\nvoid loop() {\n    transmitter.Transmit(data, sizeof(data) / sizeof(data[0]));\n}\n```\n",

@@ -37,7 +37,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.806Z"
     }
   },
   "readme": "About\n===\n\nLibrary that calculates the running median for uint16_t numbers.  Based on the\nwork by Rob Tillaart.\n",

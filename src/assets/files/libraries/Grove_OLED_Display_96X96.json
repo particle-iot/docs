@@ -106,8 +106,51 @@
             "OLED_Scroll_Right": true,
             "OLED_Z_Display_Driver_Test_Suite": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "electron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "argon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "boron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.914Z"
     }
   },
   "readme": "Modify source code and support Particle library from Seeed Studio.\n\n##OLED_Display_96X96\n![image](http://www.seeedstudio.com/wiki/images/9/90/Oled1281281.jpg)\n\nIt is a 16 color grayscale 96×96 dot matrix OLED display module with Grove compatible 4pin I2C interface. Grove - OLED 96x96 is constructed with 96 x 96 dot matrix OLED module LY120 and SSD1327 driver IC. Comparing to LCD, OLED screens are more competitive, which has a number of advantages such as high brightness, self-emission, high contrast ratio, slim / thin outline, wide viewing angle, wide temperature range, and low power consumption.\n\nFor more information, please refer to [Grove_OLED_Display_96X96][1]\n\n----\nThis software is written by Visweswara R for seeed studio and is licensed under The GPL v2 License.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed is a hardware innovation platform for makers to grow inspirations into differentiating products. By working closely with technology providers of all scale, Seeed provides accessible technologies with quality, speed and supply chain knowledge. When prototypes are ready to iterate, Seeed helps productize 1 to 1,000 pcs using in-house engineering, supply chain management and agile manufacture forces. Seeed also team up with incubators, Chinese tech ecosystem, investors and distribution channels to portal Maker startups beyond.\n\n\n[1]:http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_1.12%22\n\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/OLED_Display_96X96)](https://github.com/igrigorik/ga-beacon)\n",

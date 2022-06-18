@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LightProtocol",
     "version": "1.0.3",
-    "installs": 264,
+    "installs": 265,
     "license": "MIT",
     "author": "Kevron Rees <tripzero.kev@gmail.com>",
     "sentence": "Fast binary light protocol for controlling lights and light strips over a network socket",
@@ -26,7 +26,8 @@
   "versions": {
     "1.0.3": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.115Z"
     }
   },
   "readme": "# LightProtocol\nFast light protocol parser for controlling light strips (but can be used for single rgb lights).\n",

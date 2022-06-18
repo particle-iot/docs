@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LSM6",
     "version": "1.0.0",
-    "installs": 951,
+    "installs": 952,
     "author": "Pololu",
     "maintainer": "Pololu <inbox@pololu.com>",
     "sentence": "LSM6 accelerometer and gyro library",
@@ -53,8 +53,23 @@
           "boron": {
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.965Z"
     }
   },
   "readme": "# LSM6 library for Arduino\n\nVersion: 1.0.0<br>\nRelease date: 2016 January 19<br>\n[![Build Status](https://travis-ci.org/pololu/lsm6-arduino.svg?branch=master)](https://travis-ci.org/pololu/lsm6-arduino)<br/>\n[www.pololu.com](https://www.pololu.com/)\n\n## Summary\n\nThis is a library for the Arduino IDE that helps interface with ST's [LSM6DS33 3D accelerometer and gyro](https://www.pololu.com/product/2736). The library makes it simple to configure the LSM6DS33 and read the raw accelerometer and gyro data through I&sup2;C.\n\n## Supported platforms\n\nThis library is designed to work with the Arduino IDE versions 1.6.x or later; we have not tested it with earlier versions.  This library should support any Arduino-compatible board, including the [Pololu A-Star 32U4 controllers](https://www.pololu.com/category/149/a-star-programmable-controllers).\n\n## Getting started\n\n### Hardware\n\nAn [LSM6DS33 carrier](https://www.pololu.com/product/2736) can be purchased from Pololu's website.  Before continuing, careful reading of the [product page](https://www.pololu.com/product/2736) as well as the LSM6 datasheet and application note is recommended.\n\nMake the following connections between the Arduino and the LSM6 board:\n\n#### 5V Arduino boards\n\n(including Arduino Uno, Leonardo, Mega; Pololu A-Star 32U4)\n\n    Arduino   LSM6 board\n    -------   ----------\n         5V - VIN\n        GND - GND\n        SDA - SDA\n        SCL - SCL\n\n#### 3.3V Arduino boards\n\n(including Arduino Due)\n\n    Arduino   LSM6 board\n    -------   ----------\n        3V3 - VIN\n        GND - GND\n        SDA - SDA\n        SCL - SCL\n\n### Software\n\nIf you are using version 1.6.2 or later of the [Arduino software (IDE)](http://www.arduino.cc/en/Main/Software), you can use the Library Manager to install this library:\n\n1. In the Arduino IDE, open the \"Sketch\" menu, select \"Include Library\", then \"Manage Libraries...\".\n2. Search for \"LSM6\".\n3. Click the LSM6 entry in the list.\n4. Click \"Install\".\n\nIf this does not work, you can manually install the library:\n\n1. Download the [latest release archive from GitHub](https://github.com/pololu/lsm6-arduino/releases) and decompress it.\n2. Rename the folder \"lsm6-arduino-master\" to \"LSM6\".\n3. Move the \"LSM6\" folder into the \"libraries\" directory inside your Arduino sketchbook directory.  You can view your sketchbook location by opening the \"File\" menu and selecting \"Preferences\" in the Arduino IDE.  If there is not already a \"libraries\" folder in that location, you should make the folder yourself.\n4. After installing the library, restart the Arduino IDE.\n\n## Examples\n\nAn example sketch is available that shows how to use the library. You can access it from the Arduino IDE by opening the \"File\" menu, selecting \"Examples\", and then selecting \"LSM6\". If you cannot find the example, the library was probably installed incorrectly and you should retry the installation instructions above.\n\n## Library reference\n\n* `vector<int16_t> a`<br>\n  The last values read from the accelerometer.\n\n* `vector<int16_t> g`<br>\n  The last values read from the gyro.\n\n* `uint8_t last_status`<br>\n  The status of the last I&sup2;C write transmission. See the [`Wire.endTransmission()` documentation](http://arduino.cc/en/Reference/WireEndTransmission) for return values.\n\n* `LSM6(void)`<br>\n  Constructor.\n\n* `bool init(deviceType device, sa0State sa0)`<br>\n  Initializes the library with the device being used (`device_DS33` or `device_auto`) and the state of the SA0 pin (`sa0_low`, `sa0_high`, or `sa0_auto`), which determines the least significant bit of the I&sup2;C slave address. Constants for these arguments are defined in LSM6.h. Both of these arguments are optional; if they are not specified, the library will try to automatically detect the device address. A boolean is returned indicating whether the type of LSM6 device was successfully determined (if necessary).\n\n* `void getDeviceType(void)`<br>\n  Returns the device type specified to or detected by `init()`.\n\n* `void enableDefault(void)`<br>\n  Turns on the accelerometer and gyro and enables a consistent set of default settings.\n\n  This function will reset the accelerometer to &plusmn;2&nbsp;g full scale and the gyro to &plusmn;245&nbsp;dps. See the comments in LSM6.cpp for a full explanation of the settings.\n\n* `void writeReg(uint8_t reg, uint8_t value)`<br>\n  Writes a sensor register with the given value.\n\n  Register address constants are defined by the regAddr enumeration type in LSM6.h.<br>\n  Example use: `imu.writeReg(LSM6::CTRL1_XL, 0x80);`\n\n* `uint8_t readReg(uint8_t reg)`<br>\n  Reads a sensor register and returns the value read.\n\n* `void readAcc(void)`<br>\n  Takes a reading from the accelerometer and stores the values in the vector `a`. Conversion of the readings to units of g depends on the accelerometer's selected gain (full scale setting).\n\n* `void readGyro(void)`<br>\n  Takes a reading from the gyro and stores the values in the vector `g`. Conversion of the readings to units of dps (degrees per second) depends on the gyro's selected gain (full scale setting).\n\n* `void read(void)`<br>\n  Takes a reading from both the accelerometer and gyro and stores the values in the vectors `a` and `g`.\n\n* `void setTimeout(uint16_t timeout)`<br>\n  Sets a timeout period in milliseconds after which the read functions will abort if the sensor is not ready. A value of 0 disables the timeout.\n\n* `uint16_t getTimeout(void)`<br>\n  Returns the current timeout period setting.\n\n* `bool timeoutOccurred(void)`<br>\n  Indicates whether a read timeout has occurred since the last call to `timeoutOccurred()`.\n\n## Version history\n\n* 1.0.0 (2016 Jan 19): Original release.\n",

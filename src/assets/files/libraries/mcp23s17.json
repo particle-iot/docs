@@ -51,8 +51,23 @@
           "boron": {
             "Blink": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Blink": true
+          },
+          "electron": {
+            "Blink": true
+          },
+          "argon": {
+            "Blink": true
+          },
+          "boron": {
+            "Blink": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.991Z"
     }
   },
   "readme": "# A C++ wrapper for the Microchip MCP23S17.\n\n## SAMPLES:\n```\n  /****************/\n /* Hello Blinky */\n/****************/\n#include \"mcp23s17/mcp23s17.h\"\n\nconst int LED_PIN = 7;\nmcp23s17 gpio_x(mcp23s17::HardwareAddress::HW_ADDR_0); // All addressing pins set to GND\n\nvoid setup (void) {\n    gpio_x.pinMode(LED_PIN, mcp23s17::PinMode::OUTPUT);\n}\n\nvoid loop (void) {\n    gpio_x.digitalWrite(LED_PIN, mcp23s17::PinLatchValue::HIGH);\n    delay(500);\n    gpio_x.digitalWrite(LED_PIN, mcp23s17::PinLatchValue::LOW);\n    delay(500);\n}\n```\n\n## TODO:\nImplement interrupts\n\n## ATTRIBUTION:\n- The makefiles used for compiling the Google Unit Test where taken from Google.\n\n## LICENSE:\n- The MIT License (MIT). Refer to the LICENSE file for more details.\n",

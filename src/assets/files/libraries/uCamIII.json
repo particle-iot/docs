@@ -53,8 +53,23 @@
           "boron": {
             "uCamTestSingleFile": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "uCamTestSingleFile": false
+          },
+          "electron": {
+            "uCamTestSingleFile": false
+          },
+          "argon": {
+            "uCamTestSingleFile": false
+          },
+          "boron": {
+            "uCamTestSingleFile": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.883Z"
     }
   },
   "readme": "# Library for 4D Systems uCam-III TTL Camera \r\n(also works with uCam-II - where features are supported)\r\n\r\n - http://4dsystems.com.au/product/uCAM_III/\r\n - http://www.4dsystems.com.au/productpages/uCAM-III/downloads/uCAM-III_datasheet_R_1_0.pdf\r\n\r\n## Overview:\r\nThe library implements most functions the uCamIII provides according to datasheet, \r\nonly baudrate selection is omitted due to the fact that up to 115200 the autodetection \r\nworks fine and higher baudrates available for the camera are usually not supported by \r\nthe microcontrollers using this library.\r\n\r\nIt also supports hardware and software serial ports (e.g. `ParticleSoftSerial` on the \r\nParticle side or `SoftwareSerial` and `NewSoftSerial` for Arduino) by use of \r\nC++ templates.\r\n\r\nLike this:\r\n```\r\nuCamIII<USARTSerial>        ucamHW(Serial1);\r\nuCamIII<ParticleSoftSerial> ucamSW(new ParticleSoftSerial(D0, D1));\r\n// or\r\nParticleSoftSerial          pss(D0, D1);\r\nuCamIII<ParticleSoftSerial> ucamSW(pss);\r\n```\r\n\r\n## Example Firmware uCamTest:\r\n## Example Firmware uCamTest:\r\nThis sketch demonstrates how to use the uCamIII library.\r\nIt will provide a `Particle.function(\"snap\")` that can be triggered with parameters\r\n`GRAY8` (default for wrong parameters too), `RGB16`, `UYVY16` and `JPG` to take a pic and \r\nsend it via `Serial` or `TCP` (provided via `Particle.function(\"setTarget\")`) where it \r\ncan be dumped into a file.\r\nFor the TCP data sink you need to be running a server like the provided ['imageReceiver.js'](/server/imageReceiver.js)\r\n(run the server from its file location via `node ./imageReceiver.js`) and inform the \r\ndevice of the IP and port for the server. This is done via `Particle.function(\"setServer\")`\r\nin the form `###.###.###.###:port`.\r\n\r\nFor WiFi devices it also provides a Webserver which lets you select image format and\r\nresolution and displays the image. \r\nFor non-JPG formats a BMP header is prepended to allow use in <img> tag.\r\n\r\nThe server address can be retrieved via Particle.variale(\"IP\")\r\n\r\n![WebView](/img/uCamTest.png)\r\n\r\n",

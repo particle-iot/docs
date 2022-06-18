@@ -50,8 +50,23 @@
           "boron": {
             "1_RGBPongClock": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_RGBPongClock": true
+          },
+          "electron": {
+            "1_RGBPongClock": true
+          },
+          "argon": {
+            "1_RGBPongClock": false
+          },
+          "boron": {
+            "1_RGBPongClock": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.922Z"
     }
   },
   "readme": "#RGB Pixel Clock (RGBPongClock) app for use with RGB Pixel Clock Kit\n\n**Adapted for Particle Core by Paul Kourany, April 2015**\n- Updated for Particle Photon/Electron and v4 RGB Matrix Panel Shield, May 2016\n- Add rainbow clock face, Aug 24/2016\n\nAndrew Holmes @pongclock\n\nInspired by, and shamelessly derived from [Nick's LED Projects](https://123led.wordpress.com/about/)\n\nVideos of the clock in action:\n\nhttps://vine.co/v/hwML6OJrBPw\n\nhttps://vine.co/v/hgKWh1KzEU0\n\nhttps://vine.co/v/hgKz5V0jrFn\n\n\nParticle devices found here:\nhttps://www.particle.io/\n\nUses an Adafruit 16x32 or 32x32 RGB matrix panel\n\nCan optionally use [this microphone](http://www.adafruit.com/products/1063)\n\nRGBPongClock\n------------\nThis is an adaptation of Andrew Holmes (mostly complete) RGBPongClock for Arduino\nusing the Particle Core, Photon or Electron.  \n\nThe adaptation uses a Cloud Webhook to request a 7-day forecast from api.openweathermap.org\nand, using the webhook's JSON parsing feature, receives a temperature and a weather condition\nID for each of the 7 days.  Without parsing, the return payload is typically about 2KB but\nwith parsing done by the webhook, the return payload is less than 100 bytes!\n\nSome functions such as birthday, Halloween and Christmas display were removed in order for the\ncode to fit in the original Core flash.  The clock setting code was also removed since Particle devices can sync time to\nthe Particle cloud.  The Spectrum clock was modified to use fix_fft(*) an 8-bit \"lite\" fft library with\nless RAM and code requirements.  Finally, a Particle.function() was created to allow setting of\nspecific clock modes since the mode will rotate at 5 minute intervals (primarily for demo purposes)\n\n(*) Google \"fix_fft\" to get more details on this library \n\nWebhook\n-------\nIn order for RGBPongClock to get weather from api.openweathermap.org without doing all the\ndata parsing in code, a JSON parsing webhook is used:\n\n```\n{\n\"event\": \"uniqueHookName\",\n\"url\": \"http://api.openweathermap.org/data/2.5/forecast/daily\",\n\"requestType\": \"POST\",\n\"headers\": null,\n\"query\": {\n\t\"q\": \"{{mycity}}\",\n\t\"mode\": \"json\",\n\t\"units\": \"{{units}}\",\n\t\"cnt\": 7,\n\t\"appid\": \"{{apikey}}\"\n\t},\n\"responseTemplate\": \"{{#list}}{{temp.day}}{{#weather}}~{{id}}~{{/weather}}{{/list}}\",\n\"json\": null,\n\"auth\": null,\n\"noDefaults\": true,\n\"devideid\": null,\n\"mydevices\": true\n}\n```\n\nThe webhook file is provided (weather.json)\n\nCONFIGURING THE WEBHOOK\n--------------\nThe RGBPongClock.ino file contains a some #defines to configure the webhook and other details necessary\nfor using openweathermap:\n\n`#define HOOK_RESP` defines the \"event\" name of the webhook.  It must match the \"event\" field in the\nwebhook JSON file.\n\n`#define HOOK_PUB` defines the webhook subscription details.  The name after the `hook-response/` part be\nthe same as the one defined in `#define HOOK_RESP`.\n\n`#define DEFAULT_CITY` define the default city to get weather for.  The \"Ottawa,ON\" part may be changed\nas required (city, state)\n\n`#define API_KEY' defines your openweathermap.org API key\n\n`#define UNITS`\tdefine metric or imperial (US) units\n\nSample defines:\n```\n #define HOOK_RESP\t\t\"hook-response/uniqueHookName\"\n #define HOOK_PUB\t\t\"uniqueHookName\"\n #define DEFAULT_CITY\t\"\\\"mycity\\\":\\\"Ottawa,ON\\\"\"\t// Change to desired default city,state\n #define API_KEY\t\t\"\\\"apikey\\\":\\\"xxxxxxxxxxxxxxxxxxxxxxxxxxx\\\"\"  //your key instead of x's\n #define UNITS\t\t\t\"\\\"units\\\":\\\"metric\\\"\"\t\t// Change to \"imperial\" for farenheit units\n```\n**NOTE**: openWeatherMap now requires an API KEY to be specified.  This key is available on\ntheir site and is free depending on usage.\n\nThe JSON parsing template is defined by `responseTemplate` following the Mustache\nstateless query format.\n\n\nDON'T FORGET to create the webhook using Particle CLI or the Particle Dashboard webhook interface:\n\n```  particle webhook create weather.json```  (or whatever you named your webhook file)\n\n  \nOTHER LIBRARIES\n---------------\n\nRGBPongClock makes use of the following libraries:\n```\n  RGBMatrixPanel (including SparkIntervalTimer)\n  Adafruit_GFX library\n  fix_fft\n```\n",

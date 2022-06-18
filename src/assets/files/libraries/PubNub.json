@@ -50,8 +50,23 @@
           "boron": {
             "placeholder": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "placeholder": false
+          },
+          "electron": {
+            "placeholder": false
+          },
+          "argon": {
+            "placeholder": false
+          },
+          "boron": {
+            "placeholder": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.843Z"
     }
   },
   "readme": "#PubNub Particle Library\n\n##Getting Started with Particle and PubNub Tutorial: https://www.pubnub.com/blog/2016-07-12-getting-started-with-pubnub-and-particle-devices/\n\nThis library allows your sketches to communicate with the PubNub cloud message passing system using your board from Particlio.io. Your application can receive and send messages. It's largely the same as the Arduino library (found here: https://github.com/pubnub/arduino), with just a few changes for compatibility. Take a look at the original documentation if you want to learn more about using PubNub with embedded devices.\n\n\n",

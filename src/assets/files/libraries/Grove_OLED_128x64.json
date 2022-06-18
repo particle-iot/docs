@@ -123,8 +123,59 @@
             "ScrollLeft": true,
             "ScrollRight": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "electron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "argon": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "boron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.712Z"
     }
   },
   "readme": "# Particle-Grove-OLED\nParticle IDE library for the Grove 0.96\" 128x64 OLED Display. The display is controlled over I2C and is a black-and-white unit.\n\nThis library is Evan Simkowitz's Particle IDE port of Visweswara R's SeeedOLED library, adapted specifically for the Grove 0.96\" 128x64 unit. The original library was written in 2011 for Seeed Technology Inc.\n\nAll changes Copyright (c) 2017, Evan Simkowitz\n\nThe original library was protected under the LGPLv2.1 license. I have changed the license to the GPLv3, as I am allowed to do based on\narticle 2 of the LGPL license.\n",

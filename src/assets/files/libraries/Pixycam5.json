@@ -58,8 +58,27 @@
             "a01-pixy-d7": true,
             "a02-pixy-serial": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "electron": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "argon": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          },
+          "boron": {
+            "a01-pixy-d7": false,
+            "a02-pixy-serial": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.929Z"
     }
   },
   "readme": "Title: particle-photon-pixy-camera\n====\n\nAdapted for Particle devices by Jeremy Ellis Mar 6, 2016\n\ndetails and example sketch: https://github.com/hpssjellis/particle-photon-pixy-camera\n\nBrought to you by: Jeremy Ellis       http://www.rocksetta.com   Twitter @rocksetta\n\n\nInstructions\n----\n\nUsing the particle.io IDE at http://build/particle.io\n\nsearch for this library, \"Use This Example\"\n\nWEIRD BUG. MAKE SURE YOU CHANGE THE FILE SLIGHTLY AND SAVE IT BEFORE IT WILL COMPILE. (I add a blank line)\n\nflash to your Photon one of the two examples in the example folder.\n\na01-pixy-d7.ino\n\na02-pixy-serial.ino\n\nNote: you need to teach the Pixy about a color to identify. See this website.\n\nhttp://cmucam.org/projects/cmucam5/wiki/Teach_Pixy_an_object\n\nLearn more about colors codes here\n\nhttp://cmucam.org/projects/cmucam5/wiki/Hooking_up_Pixy_to_a_Microcontroller_(like_an_Arduino)\n\n\nHow to instal pixymon on windows\n\nhttp://cmucam.org/projects/cmucam5/wiki/Installing_PixyMon_on_Windows_Vista_7_or_8\n\n\n\nHook up Pixy as per diagram (Cable that comes with the Pixy)\n\n![](pixy-serial-spark-core.png)\n",

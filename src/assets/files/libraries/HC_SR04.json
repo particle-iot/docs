@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HC_SR04",
     "version": "0.0.12",
-    "installs": 59895,
+    "installs": 59962,
     "license": "MIT",
     "author": "Simon Monk <simon@monkmakes.com>",
     "sentence": "A library for the HC-SR04 ultrasonic rangefinder",
@@ -50,8 +50,23 @@
           "boron": {
             "HC_SR04_Variables": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "HC_SR04_Variables": true
+          },
+          "electron": {
+            "HC_SR04_Variables": true
+          },
+          "argon": {
+            "HC_SR04_Variables": true
+          },
+          "boron": {
+            "HC_SR04_Variables": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.677Z"
     }
   },
   "readme": "# Spark_HC_SR04\nA Spark Photon/Core library for the HC-SR04 Ultrasonic Rangefinder\n",

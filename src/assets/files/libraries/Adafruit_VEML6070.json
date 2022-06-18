@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.705Z"
     }
   },
   "readme": "VEML6070 port for Particle devices\n\nCredits go to:\nAdafruit (adafruit.com) for creating the Arduino library\n***********************************************",

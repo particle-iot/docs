@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialBufferRK",
     "version": "0.0.2",
-    "installs": 37874,
+    "installs": 37918,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "SerialBuffer for Particle platform",
@@ -68,8 +68,31 @@
             "2-test-receiver-SerialBufferRK": true,
             "3-test-sender-SerialBufferRK": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "electron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "argon": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "boron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.690Z"
     }
   },
   "readme": "# SerialBufferRK\n\n*Serial buffer for the Particle Photon, P1, and Electron to make dealing with receiving data, especially at higher data rates, more reliable by implementing a larger buffer.*\n\n[Full browsable API documentation](http://rickkas7.github.io/SerialBufferRK/) is available.\n\nSerialBufferRK creates a thread to continuously read from the hardware serial port and copy the data into a thread-safe ring buffer. You can choose the size of the ring buffer.\n\nYou could then read the data at your leisure out of loop. The USART serial buffer is only 64 bytes, but by using a much larger buffer (say, 4096 bytes or even larger) you can greatly reduce the likelihood of lost data.\n\n## Using it\n\nIf you are using Particle Build (Web IDE), search for the library `SerialBufferRK` and add it.\n\nFrom the Particle CLI you can add the library to your project (CLI or Particle Dev Atom IDE) by using:\n\n```\nparticle library add SerialBufferRK\n```\n\nAdd the header file if necessary:\n\n```\n#include \"SerialBufferRK.h\"\n```\n\nIn many cases you will use it with system thread enabled mode. It's not required, however. While the serial buffer uses threads, it does not require the system thread.\n\n```\nSYSTEM_THREAD(ENABLED);\n```\n\nYou need to allocate a SerialBuffer object, typically as a global variable.\n\n```\nSerialBuffer<4096> serBuf(Serial1);\n```\n\nThis allocates a 4096 byte serial buffer connected to Serial1.\n\nMake sure you add a call to serBuf.setup() from setup()!\n\n```\n\t// You must call serBuf.setup() from setup!\n\tserBuf.setup();\n```\n\nWhenever you would read from Serial1, you should instead read from serBuf. This includes using things like available() and read() as well as the Wiring/Aruduino functions like find(), readStringUntil(), etc.\n\n```\n\tint c = serBuf.read();\n```\n\nYou should read all of the bytes available, calling until read() return -1 or use available() to determine if there are available bytes to read.\n\nYou do not need to use serBuf for writing, though you can if you want.\n\nMake sure you never mix reads from serBuf and the actual serial port (Serial1, etc.) as the data will be corrupted.\n\nYou still need to initialize the serial port, you should do that from setup():\n\n```\n\tSerial1.begin(230400);\n```\n\n## Full Example\n\n```\n#include \"Particle.h\"\n\n#include \"SerialBufferRK.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\n// Allocate a serial buffer of 256 bytes attached to Serial1\n// call serBuf.read() instead of Serial1.read()\nSerialBuffer<4096> serBuf(Serial1);\n\nunsigned long lastDisplay = 0;\nint totalReceived = 0;\n\nvoid setup() {\n\tSerial.begin();\n\tSerial1.begin(230400);\n\t\n\t// You must call serBuf.setup() from setup!\n\tserBuf.setup();\n}\n\nvoid loop() {\n\twhile(true) {\n\t\tint c = serBuf.read();\n\t\tif (c < 0) {\n\t\t\tbreak;\n\t\t}\n\n\t\ttotalReceived++;\n\t}\n\n\tif (millis() - lastDisplay >= 5000) {\n\t\tlastDisplay = millis();\n\n\t\tLog.info(\"totalReceived=%u\", totalReceived);\n\t}\n}\n\n```\n\n## Test Code\n\nIn the examples directory, there are two examples for testing:\n\n- 2-test-receiver-SerialBufferRK\n- 3-test-sender-SerialBufferRK\n\nYou can test the library by connecting two devices RX -> TX and TX -> RX and running one sender and one receiver.\n\nThe sender and receiver use the same linear congruential generator pseudo-random number generator with the same seed, so the data can be verified by lots of different bit change sequences are tested.\n\nMonitor the serial output on the receiver.\n\nThe left column is the runtime in milliseconds. numReceived is the number of bytes received in a 5 second period. That's constant so I know the sender is keeping the serial pumping at full speed. maxInBuffer is the maximum number of bytes buffered on a call to loop. In this test, the receiver is just sitting there idle (but cloud connected) so the max isn't high. However with only a 64-byte buffer you have so little margin for error before losing data that buffering is basically a necessity at 230400.\n\n```\n0050334900 [app] INFO: numReceived=115385 maxInBuffer=27 totalReceived=1161326111\n0050339900 [app] INFO: numReceived=115385 maxInBuffer=24 totalReceived=1161441496\n0050344900 [app] INFO: numReceived=115385 maxInBuffer=31 totalReceived=1161556881\n0050349900 [app] INFO: numReceived=115385 maxInBuffer=27 totalReceived=1161672266\n```\n\nThis test ran overnight and 1,161,672,266 bytes (1 GB) of data was received without errors or missing bytes at 230400 baud.\n\n## Version History\n\n#### 0.0.2\n\n- Fixed a thread initalization problem that mostly affected Gen 3 devices with newer Device OS versions.\n\n\n",

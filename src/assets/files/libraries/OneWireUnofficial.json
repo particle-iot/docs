@@ -58,8 +58,27 @@
             "Address_Scanner": false,
             "DS18x20_Temperature": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "electron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "argon": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "boron": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.771Z"
     }
   },
   "readme": "\nNow supporting ALL Particle devices and the Redbear Duo.\n\n\nOneWireSpark\n============\n\nProvides support for the Dallas One Wire (1-wire) protocol on Particle (and other) devices.\n\nSimply click the libs button in the web build tool at spark.io\nand add this lib to your project.\n\nNote that you need to remove the lib then re-add it to update to the latest version!\n\nRefer to the example code for basic use of the lib.\n",

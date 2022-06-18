@@ -50,8 +50,23 @@
           "boron": {
             "light-wave": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "light-wave": true
+          },
+          "electron": {
+            "light-wave": true
+          },
+          "argon": {
+            "light-wave": true
+          },
+          "boron": {
+            "light-wave": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.722Z"
     }
   },
   "readme": "## Adafruit 16-channel PWM & Servo driver\n\nThis library is for the [Adafruit 16-channel PWM & Servo board](http://www.adafruit.com/products/815) when being used with a Spark Core, and only Spark Core (sorry Arduino)\n\n\n### Connections\n\nThese boards use I2C to communicate. 2 pins are required for the interface:\n\n    SCL -> D1\n    SDA -> D0\n\n### Things to Note\n\n### Default I2C Slave Address \nWith no address jumpers, the default I2C slave address of the board is `100 0000` or `0x40`. This default is set in the header file. If you are altering the address with jumpers, make sure to set it in the software to match.\n\n### setVal vs setPWM\n`setVal()` provides a some abstractions and is recommended over using `setPWM()`.\n\n### Examples\nThe examples included in this library are outdated, they don't work with the renaming that has occurred\n\n## Credits\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried (Ladyada) for Adafruit Industries.  \nAdapted by Paul Kourany to work with Spark Core  \nExtended by Chad Bean & Louis DeScioli for Grove Labs  \n\n## License\nBSD license, check LICENSE for more information\nAll text above must be included in any redistribution\n",

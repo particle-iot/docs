@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sht3x-i2c",
     "version": "1.0.0",
-    "installs": 2213,
+    "installs": 2214,
     "license": "Apache License, Version 2.0",
     "author": "Mariano Goluboff",
     "sentence": "Library for SHT31 I2C sensor",
@@ -67,8 +67,31 @@
             "single-shot": true,
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "electron": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "argon": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "boron": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.877Z"
     }
   },
   "readme": "# sht3x-i2c Library\n\nA library to interface a Particle device to an SHT31 temperature and humidity sensor using I2C\n\n## Usage\n\nThe SHT31 has two modes that can be used for reading temperature and humidity:\n* Single Shot: the Particle device will send a command to the sensor, wait for the measurement to complete, and then read the values.\n* Periodic: the Particle device will set the sensor to continuously measure temperature and humidity, which will be available to read at any time.\n\n### Which one should you use?\n\nThe Single Shot uses less power, as the sensor goes into idle mode while not measuring. However, the disadvantage is that getting a measurement takes longer since there is a wait time that is required between the command and the time the data is available to be retrieved.\n\nIn Periodic mode, data is available to be read immediately. However, this mode uses more power as the sensor is continuously making measurements.\n\n\n## Tracker\n\nConnect the TX/RX of the Asset Tracker SOM or the M8 connector on TrackerOne. Note that these pins are multiplexed between the UART and the Wire3 I2C port.\n\nSome SHT31 boards already include pull-up resistors on SCL and SDA. If your board doesn't include them, make sure to connect 4.7k pull-up resostors on both I2C lines to 3.3V.\n\nIf using TrackerOne, the available power is 5V on CAN_5V pin. Since the I/O is not 3.3V compliant, you will need to use a DC to DC converter to connect the power of the SHT31 sensor to 3.3V.\n\nSee the example in `periodic/main.cpp` for how to retrieve the temperature and humidity and insert it into the location publish object. This will result in the values being stored in the database along with the location of the Tracker.\n\n```\n#include \"Particle.h\"\n\n#include \"tracker_config.h\"\n#include \"tracker.h\"\n#include \"sht3x-i2c.h\"\n\nSYSTEM_THREAD(ENABLED);\nSYSTEM_MODE(SEMI_AUTOMATIC);\n\nPRODUCT_ID(TRACKER_PRODUCT_ID);\nPRODUCT_VERSION(TRACKER_PRODUCT_VERSION);\n\nSerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {\n    { \"app.gps.nmea\", LOG_LEVEL_INFO },\n    { \"app.gps.ubx\",  LOG_LEVEL_INFO },\n    { \"ncp.at\", LOG_LEVEL_INFO },\n    { \"net.ppp.client\", LOG_LEVEL_INFO },\n});\n\nSht3xi2c sensor(Wire3);\n\nvoid loc_gen_cb(JSONWriter &writer, LocationPoint &point, const void *context)\n{\n    double temp, humid;\n\n    if (sensor.get_reading(&temp, &humid) == 0)\n    {\n        writer.name(\"sh31_temp\").value(temp);\n        writer.name(\"sh31_humid\").value(humid);\n    }\n}\n\nvoid setup()\n{\n    Tracker::instance().init();\n    Tracker::instance().location.regLocGenCallback(loc_gen_cb);\n    \n    pinMode(CAN_PWR, OUTPUT);       // Turn on 5V output on M8 connector\n    digitalWrite(CAN_PWR, HIGH);    // Turn on 5V output on M8 connector\n    delay(500);\n\n    sensor.begin(CLOCK_SPEED_400KHZ);\n    sensor.start_periodic();\n\n    Particle.connect();\n}\n\nvoid loop()\n{\n    Tracker::instance().loop();\n}\n```\n\n## Boron/Argon\n\nConnect the I2C bus of both devices (SCL and SDA), as well as 3.3V and GND. Some SHT31 boards already include pull-up resistors on SCL and SDA. If your board doesn't include them, make sure to connect 4.7k pull-up resistors on both I2C lines to 3.3V.\n\nSee the example in `single-shot.ino` for how to retrieve the temperature and humidity and print it to the serial port.\n\n```\n#include \"Particle.h\"\n#include \"sht3x-i2c.h\"\n\nSerialLogHandler logHandler(LOG_LEVEL_INFO);\n\nSht3xi2c sensor(Wire); \n\nvoid setup()\n{\n    sensor.begin(CLOCK_SPEED_400KHZ);\n}\n\nvoid loop()\n{\n    static uint32_t timer = System.uptime();\n    double temp, humid;\n\n    if (System.uptime() - timer > 5)\n    {\n        timer = System.uptime();\n        if (sensor.single_shot(&temp, &humid) == 0)\n        {\n            Log.info(\"Temperature: %.2f, Humidity: %.2f\", temp, humid);\n        }\n    }\n}\n```",

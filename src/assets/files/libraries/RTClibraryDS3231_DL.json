@@ -157,8 +157,75 @@
             "softrtc": false,
             "timestamp": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DS3231_alarm": false,
+            "customWire_DS3231onSAMD21": false,
+            "datecalc": false,
+            "ds1307": false,
+            "ds1307SqwPin": false,
+            "ds1307nvram": false,
+            "ds3231": false,
+            "interrupts1Hz": false,
+            "pcf8523": false,
+            "pcf8523Countdown": false,
+            "pcf8563": false,
+            "pcf8563_interrupt": false,
+            "softrtc": false,
+            "timestamp": false
+          },
+          "electron": {
+            "DS3231_alarm": false,
+            "customWire_DS3231onSAMD21": false,
+            "datecalc": false,
+            "ds1307": false,
+            "ds1307SqwPin": false,
+            "ds1307nvram": false,
+            "ds3231": false,
+            "interrupts1Hz": false,
+            "pcf8523": false,
+            "pcf8523Countdown": false,
+            "pcf8563": false,
+            "pcf8563_interrupt": false,
+            "softrtc": false,
+            "timestamp": false
+          },
+          "argon": {
+            "DS3231_alarm": false,
+            "customWire_DS3231onSAMD21": false,
+            "datecalc": false,
+            "ds1307": false,
+            "ds1307SqwPin": false,
+            "ds1307nvram": false,
+            "ds3231": false,
+            "interrupts1Hz": false,
+            "pcf8523": false,
+            "pcf8523Countdown": false,
+            "pcf8563": false,
+            "pcf8563_interrupt": false,
+            "softrtc": false,
+            "timestamp": false
+          },
+          "boron": {
+            "DS3231_alarm": false,
+            "customWire_DS3231onSAMD21": false,
+            "datecalc": false,
+            "ds1307": false,
+            "ds1307SqwPin": false,
+            "ds1307nvram": false,
+            "ds3231": false,
+            "interrupts1Hz": false,
+            "pcf8523": false,
+            "pcf8523Countdown": false,
+            "pcf8563": false,
+            "pcf8563_interrupt": false,
+            "softrtc": false,
+            "timestamp": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.068Z"
     }
   },
   "readme": "# RTClibraryDS3231_DL [![Build Status](https://github.com/adafruit/RTClib/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/RTClib/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/RTClib/html/index.html)\n\nThis is a fork of JeeLab's fantastic real time clock library for Arduino.\n\nWorks great with Adafruit RTC breakouts:\n\n- [DS3231 Precision RTC](https://www.adafruit.com/product/3013)\n- [PCF8523 RTC](https://www.adafruit.com/product/3295)\n- [DS1307 RTC](https://www.adafruit.com/product/3296)\n\nPlease note that dayOfTheWeek() ranges from 0 to 6 inclusive with 0 being 'Sunday'.\n\n<!-- START COMPATIBILITY TABLE -->\n\n## Compatibility\n\nMCU                | Tested Works | Doesn't Work | Not Tested  | Notes\n------------------ | :----------: | :----------: | :---------: | -----\nAtmega328 @ 16MHz  |      X       |             |            |\nAtmega328 @ 12MHz  |      X       |             |            |\nAtmega32u4 @ 16MHz |      X       |             |            | Use SDA/SCL on pins D3 &amp; D2\nAtmega32u4 @ 8MHz  |      X       |             |            | Use SDA/SCL on pins D3 &amp; D2\nESP8266            |      X       |             |            | SDA/SCL default to pins 4 &amp; 5 but any two pins can be assigned as SDA/SCL using Wire.begin(SDA,SCL)\nAtmega2560 @ 16MHz |      X       |             |            | Use SDA/SCL on Pins 20 &amp; 21\nATSAM3X8E          |      X       |             |            | Use SDA1 and SCL1\nATSAM21D           |      X       |             |            |\nATtiny85 @ 16MHz   |      X       |             |            |\nATtiny85 @ 8MHz    |      X       |             |            |\nIntel Curie @ 32MHz |             |             |     X       |\nSTM32F2            |             |             |     X       |\n\n  * ATmega328 @ 16MHz : Arduino UNO, Adafruit Pro Trinket 5V, Adafruit Metro 328, Adafruit Metro Mini\n  * ATmega328 @ 12MHz : Adafruit Pro Trinket 3V\n  * ATmega32u4 @ 16MHz : Arduino Leonardo, Arduino Micro, Arduino Yun, Teensy 2.0\n  * ATmega32u4 @ 8MHz : Adafruit Flora, Bluefruit Micro\n  * ESP8266 : Adafruit Huzzah\n  * ATmega2560 @ 16MHz : Arduino Mega\n  * ATSAM3X8E : Arduino Due\n  * ATSAM21D : Arduino Zero, M0 Pro\n  * ATtiny85 @ 16MHz : Adafruit Trinket 5V\n  * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V\n\n<!-- END COMPATIBILITY TABLE -->\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\n# Dependencies\n * [TinyWireM](https://github.com/adafruit/TinyWireM)\n\n# Contributing\n\nContributions are welcome! Please read our [Code of Conduct](https://github.com/adafruit/RTClib/blob/master/code-of-conduct.md)\nbefore contributing to help this project stay welcoming.\n\n## Documentation and doxygen\nFor the detailed API documentation, see https://adafruit.github.io/RTClib/html/index.html\nDocumentation is produced by doxygen. Contributions should include documentation for any new code added.\n\nSome examples of how to use doxygen can be found in these guide pages:\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen\n\nhttps://learn.adafruit.com/the-well-automated-arduino-library/doxygen-tips\n\n## Code formatting and clang-format\nThe code should be formatted according to the [LLVM Coding Standards](https://llvm.org/docs/CodingStandards.html), which is the default of the clang-format tool.  The easiest way to ensure conformance is to [install clang-format](https://llvm.org/builds/) and run\n\n```shell\nclang-format -i <source_file>\n```\n\nSee [Formatting with clang-format](https://learn.adafruit.com/the-well-automated-arduino-library/formatting-with-clang-format) for details.\n\nWritten by JeeLabs\nMIT license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo install, use the Arduino Library Manager and search for \"RTClib\" and install the library.\n",

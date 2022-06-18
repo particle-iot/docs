@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InLoopPeriodicCallback",
     "version": "1.0.2",
-    "installs": 1186,
+    "installs": 1187,
     "license": "GPL3",
     "author": "rvnash",
     "sentence": "Class to periodic callbacks from within the loop() function.",
@@ -49,8 +49,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.938Z"
     }
   },
   "readme": "# InLoopPeriodicCallback\n\nClass to periodic callbacks from within the loop() function.\n\nThis library defines a class which is to be used in the loop() function of your Arduino like project which periodically calls a function of your choosing.\n\nBecause there are many ways to accomplish this simple and frequently function, you\nmay be wondering why this library is useful. The reason is this.\n\nThis class provides a synchronous periodic callback to a function. Often in Microcontroller programming a function needs to be called periodically, for example to sample a sensor, take an action, or write results. Particle, and other MCU environments, provide Software Timers, however they are fired from separate threads and so take on additional complication of being asynchronous from the normal loop() cycle. Another option is to simply use delay() in loop(), but that becomes complicated if there is the desire to have more than one periodic cycle going at a time. Also, the exact timing can get thrown off if the functions themselves take a variable amount of time, like writing to the internet does.\n\nThis class takes care of that and simplifies the exact timing of the callbacks.\n\n## Usage\n\nConnect Particle hardware, add the InLoopPeriodicCallback library to your project and follow this simple example: ExampleInLoopPeriodicCallback.ino\n\n## LICENSE\n\nSee LICENSE\n",

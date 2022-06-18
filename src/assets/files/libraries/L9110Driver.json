@@ -50,8 +50,23 @@
           "boron": {
             "test_L9110": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "test_L9110": false
+          },
+          "electron": {
+            "test_L9110": false
+          },
+          "argon": {
+            "test_L9110": false
+          },
+          "boron": {
+            "test_L9110": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.999Z"
     }
   },
   "readme": "# L9110Driver_Particle\nL9110 motor driver for Particle boards\n*\n",

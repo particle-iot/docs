@@ -60,8 +60,27 @@
             "1-master-simple": true,
             "1-slave-simple": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "electron": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "argon": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "boron": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.863Z"
     }
   },
   "readme": "# I2CSlaveRK\n\n*Class to make using a Particle Photon, Electron, etc. as an I2C slave device easier*\n\n## Overview\n\nThese classes make it easy to make a Photon/Electron be an I2C slave. Normally the Photon/Electron is the master, communicating with sensors, displays, etc.. Using the Photon as an I2C slave allows it to be the \"sensor\" for another Photon or Electron, or something like a Raspberry Pi.\n\nThe model is similar to how many sensor chips work. The slave Photon is configured to have any number of 32-bit registers. Either the master or the slave can set or get these register values, but the values are stored on the I2C slave.\n\nIf the master wants to read the register value, it asks the slave for the value. If it writes a register, it sends the new value over I2C.\n\nAdditionally, the slave has a feature where it can query if a register has been set by the master. You can use this from loop when you want to use I2C to trigger something in the I2C slave, instead of merely sending values back and forth.\n\nSince I2C is a bus, you can connect multiple I2C slave devices to the I2C master.\n\n\n## I2C Master\n\nThe I2C master typically includes this header and global variable:\n\n```\n#include \"I2CSlaveMasterRK.h\"\n\nI2CSlaveMaster device(Wire, 0x10);\n```\n\nYou typically do something like this for setup():\n\n```\nvoid setup() {\n\tSerial.begin(9600);\n\tdevice.begin();\n}\n```\n\nTo read a register you might do something like this:\n\n```\n\t\tuint32_t reg0;\n\t\tif (!device.readRegister(0, reg0)) {\n\t\t\tSerial.println(\"read register 0 failed\");\n\t\t\treturn;\n\t\t}\n```\n\nTo write a register you might use something like this:\n\n```\n\t\tint r = analogRead(A0);\n\t\tSerial.printlnf(\"setting 2 to %u\", r);\n\t\tif (!device.writeRegister(2, r)) {\n\t\t\tSerial.println(\"write register 2 failed\");\n\t\t\treturn;\n\t\t}\n```\n\n## Slave\n\nThe I2C slave Photon/Electron typically\n\n```\n\n#include \"I2CSlaveRK.h\"\n\nI2CSlave device(Wire, 0x10, 10);\n```\n\nYou typically do something like this for setup():\n\n```\nvoid setup() {\n\tSerial.begin(9600);\n\tdevice.begin();\n}\n```\n\nTo set a register to be read by the I2C master you do:\n\n```\n\t\tSerial.printlnf(\"register 0 set to %u\", counter);\n\t\tdevice.setRegister(0, counter++);\n```\n\nAnd from loop you can find out if the master has recently set a value (even if it set the value to the same value as before) by doing:\n\n```\n\tuint16_t regAddr;\n\twhile(device.getRegisterSet(regAddr)) {\n\t\t// regAddr was updated from the I2C master\n\t\tSerial.printlnf(\"master updated %u to %u\", regAddr, device.getRegister(regAddr));\n\t}\n```\n\n\n",

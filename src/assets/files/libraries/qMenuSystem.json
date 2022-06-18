@@ -51,8 +51,23 @@
           "boron": {
             "TestMenu": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "TestMenu": false
+          },
+          "electron": {
+            "TestMenu": false
+          },
+          "argon": {
+            "TestMenu": false
+          },
+          "boron": {
+            "TestMenu": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.058Z"
     }
   },
   "readme": "# qMenuSystem\n\nSimple menu system for Particle projects that leverage the Adafruit SSD1306 OLED Display.\n\n# Installation\n\nSearch for `qMenuSystem` in the Particle Web IDE, Desktop IDE or CLI to install.\n",

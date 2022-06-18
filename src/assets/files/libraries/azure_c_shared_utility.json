@@ -50,8 +50,23 @@
           "boron": {
             "main": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.987Z"
     }
   },
   "readme": "# Azure C Shared Utility\n\n*Warning: experimental port*\n\nazure-c-shared-utility is a C library providing common functionality for basic tasks (like string, list manipulation, IO, etc.).\n\nThis is a port of the library available at https://www.github.com/Azure/azure-c-shared-utility.git.",

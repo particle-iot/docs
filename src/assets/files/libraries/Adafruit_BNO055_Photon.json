@@ -78,8 +78,39 @@
             "restore_offsets": true,
             "sensorapi": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "electron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "argon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.789Z"
     }
   },
   "readme": "/***************************************************************************\n  This is a library for the BNO055 orientation sensor\n  Designed specifically to work with the Adafruit BNO055 Breakout.\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products\n  These sensors use I2C to communicate, 2 pins are required to interface.\n  Adafruit invests time and resources providing this open source code,\n  please support Adafruit and open-source hardware by purchasing products\n  from Adafruit!\n  Written by KTOWN for Adafruit Industries.\n  MIT license, all text above must be included in any redistribution\n  Ported to Particle devices by Nathan Robinson\n  https://github.com/nrobinson2000\n  On 2017-1-21\n****************************************************************************/\n",

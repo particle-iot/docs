@@ -50,8 +50,23 @@
           "boron": {
             "basic-example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "basic-example": true
+          },
+          "electron": {
+            "basic-example": true
+          },
+          "argon": {
+            "basic-example": true
+          },
+          "boron": {
+            "basic-example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.813Z"
     }
   },
   "readme": "# GP20U7 GPS Library\nA very simple library for interfacing with the [GP-20U7 GPS unit](https://www.sparkfun.com/products/13740).\n\n## Installation\n\n## Usage\n\n## Example\n```c\n\n```\n",

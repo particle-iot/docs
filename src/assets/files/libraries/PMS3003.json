@@ -26,7 +26,8 @@
   "versions": {
     "0.1.2": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.065Z"
     }
   },
   "readme": "# PMS3003 air quality sensor library for Arduino & Particle modules\n\nA simple library, based on [neojou's test code](https://github.com/neojou/arduino-ameba/blob/master/example/pms3003-test/pms3003-test.ino).\n\n## Installation\n\n### Particle ecosystem\n\n#### CLI\n\n```\n$ particle library add PMS3003\n```\n\n#### Web & Desktop IDE's\n\nLook for `PMS3003` library and add it to your project.\n\n## Examples\n\nPlease take a look at the [`examples` directory](examples).\n\n## Contributing\n\n[All contributions (no matter if small or big) are always welcome!](https://contributionswelcome.org/). Please create an Issue or PR if needed!",

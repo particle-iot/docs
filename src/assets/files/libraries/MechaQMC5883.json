@@ -58,8 +58,27 @@
             "azimuth": true,
             "raw": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "azimuth": true,
+            "raw": true
+          },
+          "electron": {
+            "azimuth": true,
+            "raw": true
+          },
+          "argon": {
+            "azimuth": true,
+            "raw": true
+          },
+          "boron": {
+            "azimuth": true,
+            "raw": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.086Z"
     }
   },
   "readme": "# Mechasolution QMC5883L Library\n\n[한글 설명 바로가기](https://github.com/keepworking/Mecha_QMC5883/blob/master/README_KO.md)\n\n\n## Arduino Code\n\nThere are a few simple rules for using that library. Please read the following summary and apply it to your project\n\n### Basic Elements\n\nRequired header files (#include ...) and Setup side code.\n\n```cpp\n#include <Wire.h>\n#include <MechaQMC5883.h>\n\nvoid setup(){\n  Wire.begin();\n}\n```\n\n### Object Declaration\n\nThe object declaration method. It is used outside the setup statement, and a name such as qmc can be changed to any other name you want.\n\n```cpp\n#include <Wire.h>\n#include <MechaQMC5883.h>\n\nMechaQMC5883 qmc;\n```\n\n### initialization\n\nQMC5883 Sensor's setting function.\n\nThe init function allows you to take advantage of the features of the QMC5883 sensor by default.\n\n```cpp\nvoid setup(){\n    Wire.begin();\n    qmc.init();\n}\n```\n\nIf you want more detailed settings, you can use it as follows.\n\n```cpp\nvoid setup(){\n  Wire.begin();\n  qmc.init();\n  qmc.setMode(Mode_Standby,ODR_200Hz,RNG_8G,OSR_512);\n}\n```\n\nThe values ​​used for setMode can take the following values:\n\n```\nMode : Mode_Standby / Mode_Continuous\n\nODR : ODR_10Hz / ODR_50Hz / ODR_100Hz / ODR_200Hz\nouput data update rate\n\nRNG : RNG_2G / RNG_8G\nmagneticfield measurement range\n\nOSR : OSR_512 / OSR_256 / OSR_128 / OSR_64\nover sampling rate\n```\n\n### Read values\n\nHow to read the measured sensor value is as follows.\n\n```cpp\nvoid loop(){\n  int x,y,z;\n\n  qmc.read(&x,&y,&z);\n}\n```\n\nand we can get azimuth too.\n\n```cpp\nvoid loop(){\n  int x,y,z;\n  int a;\n  //float a; //can get float value\n\n  qmc.read(&x,&y,&z,&a);\n}\n```\n\nalso can claculate azimuth you want\n\n```cpp\nvoid loop(){\n  int x,y,z;\n  int a;\n\n  qmc.read(&x,&y,&z);\n  a = qmc.azimuth(&y,&x);\n}\n```\n\n## Basic example\n\nIt can be seen as a collection of the contents mentioned above.\n\n```cpp\n#include <Wire.h>\n#include <MechaQMC5883.h>\n\nMechaQMC5883 qmc;\n\nvoid setup() {\n  Wire.begin();\n  Serial.begin(9600);\n  qmc.init();\n  //qmc.setMode(Mode_Continuous,ODR_200Hz,RNG_2G,OSR_256);\n}\n\nvoid loop() {\n  int x,y,z;\n  qmc.read(&x,&y,&z);\n\n  Serial.print(\"x: \");\n  Serial.print(x);\n  Serial.print(\" y: \");\n  Serial.print(y);\n  Serial.print(\" z: \");\n  Serial.print(z);\n  Serial.println();\n  delay(100);\n}\n```\n",

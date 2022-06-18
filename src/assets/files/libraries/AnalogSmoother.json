@@ -55,8 +55,23 @@
           "boron": {
             "graph": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "graph": true
+          },
+          "electron": {
+            "graph": true
+          },
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.011Z"
     }
   },
   "readme": "# AnalogSmoother\n\nThis library employs a running average to smooth analog input readings.\n\n```cpp\n#include \"AnalogSmoother.h\"\n\nAnalogSmoother sensor(A0, 10); // Buffer size of 10 readings\n\nvoid setup() {\n\tSerial.begin(115200);\n\n\t// Optional, fill the buffer with actual readings from the sensor\n\tsensor.fill();\n}\n\nvoid loop() {\n\t// Draw 2 lines in the serial plotter\n\tSerial.print(analogRead(A0));\n\tSerial.print(\" \");\n\tSerial.println(sensor.read());\n\n\t// Slow down the serial output\n\tdelay(10);\n}\n```\n",

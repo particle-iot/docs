@@ -58,8 +58,27 @@
             "lcd-thermocouple": false,
             "serial-thermocouple": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "electron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.822Z"
     }
   },
   "readme": "This is the Adafruit MAX31885 Arduino Library ported to Spark Core\n---\n\n### Added hardware SPI and calibration\nFor hardware SPI only need to specify chip select pin. Otherwise specify 3 pins (as below)\n\nCan calibrate to internal temp sensor, or an arbitrary calibration (note that the function is fed the _calibration_ value, not the current temperature value.  See the example for a possible method)\n\nUses a 4-sample moving average, via multiplication and bitshifting. Can adjust by changing a couple of lines in the source file (see comments in the read Celsius function)\n\n---\n\nTested and works great with the Adafruit Thermocouple Breakout w/MAX31885K http://www.adafruit.com/products/269\n\nThese modules use SPI to communicate, 3 pins are required to\ninterface. Technically this is a software SPI implementation, so these pins can be defined anywhere on the Spark Core. For simplicity, the pins used below are the same pins used for the Hardware SPI.\n\n```\nMAX31885 Breakout    Spark Core\nVin                  3V3*\n3Vo                  (No Connection)\nGND                  GND\nDO (Data Out)        A4 (MISO)\nCS (Chip Select)     A2 (SS)\nCLK (Clock)          A3 (SCK)\n```\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries. Ported to Spark Core by Technobly. Hardware and calibration added by Mumblepins.\nBSD license, check LICENSE for more information All text above must be included in any redistribution\n",

@@ -86,8 +86,39 @@
             "Example4-ProcessingHeatCam": true,
             "Example5-HotPixel": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "electron": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "argon": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "boron": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.984Z"
     }
   },
   "readme": "SparkFun_GridEYE_Arduino_Library\n========================================\n\n![SparkFun Grid-EYE Infrared Array Breakout - AMG8833 (Qwiic)](https://cdn.sparkfun.com//assets/parts/1/2/7/7/5/14607-SparkFun_GridEYE_Infrared_Array_-_AMG8833__Qwiic_-01.jpg)\n\n[*SparkFun Grid-EYE Infrared Array Breakout - AMG8833 (Qwiic) (SEN-14607)*](https://www.sparkfun.com/products/14607)\n\n  This is a library written for the Panasonic Grid-EYE AMG88\n  SparkFun sells these at its website: www.sparkfun.com\n  \n  Do you like this library? Help support SparkFun. Buy a board!\n  * [SEN-14607](https://www.sparkfun.com/products/14607)\n  * [SPX-14568](https://www.sparkfun.com/products/14568)\n\n  Written by Nick Poole @ SparkFun Electronics, January 11th, 2018\n\n  The GridEYE from Panasonic is an 8 by 8 thermopile array capable\n  of detecting temperature remotely at 64 discrete points.\n  \n  This library handles communication with the GridEYE and provides\n  methods for manipulating temperature registers in Celsius,\n  Fahrenheit and raw values.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_GRIDEye)** - Main repository (including hardware files) for the GridEye.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-grid-eye-infrared-array-amg88xx-hookup-guide)** - Basic hookup guide for the Qwiic GRID-Eye Infrared Array.\n\nProducts that use this Library \n---------------------------------\n\n* [SEN-14607](https://www.sparkfun.com/products/14607) - SparkFun breakout board for Grid-EYE AMG8833\n* [SPX-14568](https://www.sparkfun.com/products/14568) - SparkX breakout board for Grid-EYE AMG8833\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

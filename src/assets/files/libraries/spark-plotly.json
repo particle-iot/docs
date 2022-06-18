@@ -50,8 +50,23 @@
           "boron": {
             "spark-plotly": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "spark-plotly": false
+          },
+          "electron": {
+            "spark-plotly": false
+          },
+          "argon": {
+            "spark-plotly": false
+          },
+          "boron": {
+            "spark-plotly": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.061Z"
     }
   },
   "readme": "spark-plotly\n============\n\nA port of Plotly library for Arduino to the Spark Core\n\n\nWas not successful getting the Plot.ly Arduino libraries to work.  This code makes them work on the Spark Core (required very little change BTW) and now you can import it via spark.io.\n\n",

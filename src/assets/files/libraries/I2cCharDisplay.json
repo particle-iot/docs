@@ -54,8 +54,23 @@
           "boron": {
             "I2cCharDisplayDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "I2cCharDisplayDemo": true
+          },
+          "electron": {
+            "I2cCharDisplayDemo": true
+          },
+          "argon": {
+            "I2cCharDisplayDemo": true
+          },
+          "boron": {
+            "I2cCharDisplayDemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.861Z"
     }
   },
   "readme": "\n### I2cCharDisplay - Particle software library for controlling I²C character LCD and OLED Displays\n\n<div style=\"text-align: center;\">\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img class=\"size-thumbnail wp-image-175\" src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-oled-backpack-newhaven/newhaven-seeeduino.jpg\" alt=\"i2c oled backpack\" width=\"300\" height=\"200\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img class=\"size-thumbnail wp-image-175\" src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-oled-backpack-newhaven/i2c-oled-backpack-on-newhaven.jpg\" alt=\"i2c oled backpack\" width=\"300\" height=\"200\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img class=\"size-thumbnail wp-image-176\" src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-oled-backpack-newhaven/i2c-oled-backpack-newhaven.jpg\" alt=\"i2c oled backpack with display\" width=\"300\" height=\"200\" />\n</div>\n</div>\n\n**[This link has details](https://www.dcity.org/portfolio/i2c-display-library/) including:**\n* software library installation for use with Arduino, Particle and Raspberry Pi boards\n* list of functions available in these libraries\n* a demo program (which shows the usage of most library functions)\n* info on OLED and LCD character displays that work with this software\n* hardware design for a backpack board for LCDs and OLEDs, available on github\n* info on backpack “bare” pc boards available from OSH Park.\n\n**License Information**\nLicense Information is [here](https://www.dcity.org/license-information/).\n",

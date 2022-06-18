@@ -50,8 +50,23 @@
           "boron": {
             "basic-data-output": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "basic-data-output": true
+          },
+          "electron": {
+            "basic-data-output": true
+          },
+          "argon": {
+            "basic-data-output": true
+          },
+          "boron": {
+            "basic-data-output": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.826Z"
     }
   },
   "readme": "HIH61XX Library for Spark Core\n===================\nHoneywell HumidIconTM Digital Humidity/Temperature Sensors: HIH6130/6131 and 6120/6121 Series is a digital output-type relative humidity (RH) and temperature sensor combined in the same package. The library uses I2C to connect to the sensor (see the Wire library). ***SPI can also be used, but is not implemented in this library***.\n\nNote\n----\nIf you have multiple devices connected to the I2C bus, remember that this device screws up the bus when it is not powered. One solution is to keep the device powered all the time. Another possible solution is to add an analog switch to physically disconnect the GND line or the SDA line to the device.\n\nThis library has been tested, but might still contain bugs, so please be careful.\n\nAbout\n-----\nThis project is based on https://code.google.com/p/arduino-hih61xx/ and is part of Tomas's work.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TinyGPS++",
     "version": "0.9.4",
-    "installs": 95606,
+    "installs": 95621,
     "license": "MIT",
     "author": "Mikal Hart",
     "sentence": "A new, customizable Arduino NMEA parsing library http://arduiniana.org",
@@ -98,8 +98,47 @@
             "SatelliteTracker": false,
             "UsingCustomFields": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "electron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "argon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.658Z"
     }
   },
   "readme": "# TinyGPS++\n\nTinyGPS++ library for www.particle.com photon and electron.",

@@ -16,6 +16,31 @@ var particle = new Particle();
 
 const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
 
+
+const targetInfo = [
+    {
+        version: '3.3.0',
+        platforms: ['photon', 'electron', 'argon', 'boron'],
+        ifAddedAfter: '2022-01-01T00:00:00.000Z'
+    },
+    { 
+        // Any new libraries build on 2.3.0
+        version: '2.3.0',
+        platforms: ['photon', 'electron', 'argon', 'boron'],
+        isNotExists: '2.0.1',
+    },
+    { 
+        version: '2.0.1',
+        platforms: ['photon', 'electron', 'argon', 'boron'],
+    },
+    {
+        version: '1.5.2',
+        platforms: ['photon', 'electron', 'argon', 'boron'],
+        ifAddedBefore: '2022-01-01T00:00:00.000Z'
+    }
+];
+
+
 const dataDir = path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir);
@@ -144,6 +169,11 @@ async function testBuilds() {
             libraryData[lib.id].versions[lib.attributes.version] = {};
         }
 
+        if (!libraryData[lib.id].versions[lib.attributes.version].added) {
+            libraryData[lib.id].versions[lib.attributes.version].added = new Date().toISOString();
+        }
+        const dateAdded = new Date(libraryData[lib.id].versions[lib.attributes.version].added);
+
         if (!libraryData[lib.id].versions[lib.attributes.version].builds) {
             libraryData[lib.id].versions[lib.attributes.version].builds = {};
         }
@@ -173,7 +203,31 @@ async function testBuilds() {
                 fs.mkdirSync(buildsDir);
             }
     
-            for(const target of ['2.0.1','1.5.2']) {
+            for(const ti of targetInfo) {
+                const target = ti.version;
+
+                if (ti.ifAddedBefore) {
+                    const ifAddedBefore = new Date(ti.ifAddedBefore);
+                    if (dateAdded.getTime() >= ifAddedBefore) {
+                        console.log('  skipping target ' + target + ' because of ifAddedBefore');
+                        continue;
+                    }
+                }
+                if (ti.ifAddedAfter) {
+                    const ifAddedAfter = new Date(ti.ifAddedAfter);
+                    if (dateAdded.getTime() < ifAddedAfter) {
+                        console.log('  skipping target ' + target + ' because of ifAddedAfter');
+                        continue;
+                    }
+                }
+                if (ti.isNotExists) {
+                    if (libraryData[lib.id].versions[lib.attributes.version].builds[ti.isNotExists]) {
+                        console.log('  skipping target ' + target + ' because of ifNotExists');
+                        continue;
+                    }
+                }
+
+
                 if (!libraryData[lib.id].versions[lib.attributes.version].builds[target]) {
                     libraryData[lib.id].versions[lib.attributes.version].builds[target] = {};
                 }
@@ -182,7 +236,7 @@ async function testBuilds() {
                     fs.mkdirSync(targetDir);
                 }
         
-                for(const platform of ['photon', 'electron', 'argon', 'boron']) {
+                for(const platform of ti.platforms) {
                     if (!libraryData[lib.id].versions[lib.attributes.version].builds[target][platform]) {
                         libraryData[lib.id].versions[lib.attributes.version].builds[target][platform] = {};
                     }

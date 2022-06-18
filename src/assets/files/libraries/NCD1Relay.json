@@ -66,8 +66,31 @@
             "Loop_Test": false,
             "duct-relay": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "electron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.783Z"
     }
   },
   "readme": "# About\n\nThis Library is intended for use with NCD 1 Relay Particle Core/Photon compatible relay controllers.\n\nThe intention of this library is to make use of the NCD 1 channel relay controller with Particle development web IDE as simple as possible for users.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com \n\n###Requirements\n- NCD 1 Channel Particle Core/Photon Compatible Relay board\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the NCD1Relay.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particles's documentation] [sparkIncludeLibrary] \n\n### Example use\n\nOnce the Library is included in your applicaiton you should see an include statement at the top like this:\n```cpp\n//This #include statement was automatically added by the Particle IDE.\n#include \"NCD1Relay/NCD1Relay.h\"\n```\nNow you need to instanciate an object of the library for use in your application like this:\n```cpp\nNCD1Relay relayController;\n```\n\nHere is an example use case for the class\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"NCD1Relay/NCD1Relay.h\"\nNCD1Relay relayController;\n\nvoid setup() {\nSerial.begin(115200);\nrelayController.setAddress(0, 0, 0);\n}\n\nvoid loop() {\nint Status = relayController.readAllInputs();\nif(Status != 0){\nSerial.print(\"Status: \");\nSerial.println(Status);\n}\ndelay(50);\nrelayController.toggleRelay();\ndelay(500);\n}\n```\n\n###Public accessible methods\n```cpp\nvoid setAddress(int a0, int a1, int a2);\n```\n>Must be called first before using the object.  This method should also be called any time communication with\n>the controller is lost or broken to recover communication  This method accepts two int arguments.  This\n>tells the Library what address to direct commands to.  a0 and a1 ints are representations of the two\n>jumpers on the 4 channel relay controller which are labeled on the board A0, A1, and A2.  If the jumper is\n>installed then that int in this call should be set to 1.  If it is not installed then the int should be set to \nSo if I have A0, A1, and A2 installed I would call ```relayController.setAddress(1, 1, 1).```\n\n\n```cpp\nvoid turnOnRelay();\n```\n>A call to this method will turn on the relay.\n\n\n```cpp\nvoid turnOffRelay(int Relay);\n```\n>A call to this method will turn off the relay.\n\n\n```cpp\nvoid toggleRelay();\n```\n>A call to this method will toggle the state of the relay.  If the relay was previously off a call to this method\n>turn the relay on and vice versa.\n\n\n```cpp\nint readRelayStatus();\n```\nA call to this method will read the status of the relay and return the current on/off\n>status of the relay.  1 will be returned if the relay is on and 0 will be returned if the relay is off. \n>256 will be returned if an error has occured(generally due to lack of communication with the controller).\n\n\n```cpp\nint readInputStatus(int input);\n```\n>This method accepts one int argument and returns one int.  Valid input int arguments 1-7.  A call to this\n>method will read the status of the given input passed by the input argumetn and return the current closed/open\n>status of the given input.  1 will be returned if the input is closed and 0 will be returned if the input is open.\n>256 will be returned if an error has occured(generally due to lack of communication with the controller).\n\n\n```cpp\nbyte readAllInputs();\n```\n>This method accepts no arguments and returns one byte.  A call to this\n>method will read and return the status of all 7 inputs on the board. \n>Each input on the board is represented as a bit in the returned byte.  Valid returns are 0-128.  If the input is closed \n>the bit in the byte is set to 1, if the input is open the bit in the byte is set to 0.  256 will be\n>returned if an error has occured(generally due to lack of communciation with controller).\n\n\n###Public accessible variables\n```cpp\nbool initialized;\n```\n>This boolean indicates the current status of the interface connection to the controller.  This variable should\n>be checked often throughout your application.  If communication to the board is lost for any reason this\n>boolean variable will return false.  If all is well it will return true.\n\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:http://docs.spark.io/build/#flash-apps-with-spark-build-using-libraries",

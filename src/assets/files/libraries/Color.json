@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Color",
     "version": "1.2.1",
-    "installs": 2014,
+    "installs": 2015,
     "license": "GPL v3",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A simple library for the Particle Photon that generates Phant posts, gets, deletes and more. Ported to Particle by Ben Artin <ben@artins.org>",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.885Z"
     }
   },
   "readme": "ColorArduino\n============\n\nColor library for Arduino with Hue Saturation and Brightness conversion to RGB.\n",

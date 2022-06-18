@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.724Z"
     }
   },
   "readme": "This is a library for the Control Everything BME280 Humidity, Barometric Pressure + Temp sensor\n\nParticle Photon & Core DHT Library based on Arduino Library for BME280 sensors adapted by Thomas Rockenbauer\n\nMarch 2016 Initial Release\n\nDesigned specifically to work with the Control Everything BME280 Breakout\n * https://www.controleverything.com/content/Humidity?sku=BME280_I2CS\n\n * The Adafruit BME280 uses a different i2c address!\n\nThese sensors use I2C and 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n",

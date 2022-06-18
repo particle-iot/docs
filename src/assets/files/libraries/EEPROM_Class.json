@@ -60,8 +60,27 @@
             "advancedUsage": false,
             "basicUsage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "advancedUsage": true,
+            "basicUsage": true
+          },
+          "electron": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "argon": {
+            "advancedUsage": false,
+            "basicUsage": false
+          },
+          "boron": {
+            "advancedUsage": false,
+            "basicUsage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.081Z"
     }
   },
   "readme": "\r\n# EEPROM_Class Library for Particle Version 1.1.0\r\n\r\nThis library implements classes for managing data objects stored in the emulated EEPROM of Particle devices.\r\n\r\n\r\n## EEPROM_Class\r\n\r\n```cpp\r\ntemplate <class OBJ>\r\nclass EEPROM_Class {}\r\n```\r\nImplements the basic, low-level functions for storing and retrieving generic data objects in EEPROM. Integrity is maintained via a 16-bit checksum which is verifed before data is retrieved, and updated whenever the entries in the object are changed. May be used standalone for small data objects or used in derived classes for specialized data objects.\r\n\r\nImplemented as a template class so that objects of any type may be used.\r\n\r\n## UserSettingsClass\r\n```cpp\r\nclass UserSettingsClass : public EEPROM_Class<SettingsObject> {}\r\n```\r\nDerives from the EEPROM_Class base class to implement a specialized data object containing clock settings and Wifi information not already provided by the system OS.\r\n\r\n\r\n[API Documentation](https://randyrtx.github.io/EEPROM_Class/)\r\n\r\n## Simple Object use with EEPROM_Class\r\n### User-defined data object (example)\r\n```cpp\r\n    // Define structure of the object\r\n    struct UserCredentials\r\n    {\r\n        char userName[16];\r\n        char password[16];\r\n    };\r\n\r\n    // Declare the object\r\n    UserCredentials myCredentials = {\"\", \"\"};\r\n\r\n    // Instantiate the class object with the type\r\n    EEPROM_Class<UserCredentials> myEEPROM;\r\n    \r\n    // Define the EEPROM address for the object, \r\n    //      where: 0 <= address <= EEPROM.length()  - (sizeof(object) + sizeof(uint16_t))\r\n    #define mySettingsAddress 0\r\n    \r\n    // Initialize the data object with EEPROM image\r\n    if(myEEPROM.begin(myCredentialsAddress, myCredentials))\r\n        // Valid Image Loaded\r\n    else\r\n        // Checksum error, image not loaded\r\n```\r\n### Updating the object\r\n```cpp\r\n    strcpy(myCredentials.userName, \"NewUserName\");\r\n    strcpy(myCredentials.password, \"NewPassword\");\r\n    myEEPROM.writeObject(myCredentials);\r\n```\r\nRefer to the [API Documentation](https://randyrtx.github.io/EEPROM_Class/) and [Examples](https://github.com/Randyrtx/EEPROM_Class/tree/master/examples) for further details.\r\n\r\n## UserSettingsClass  User Configuration Object\r\n\r\n### Data Object\r\n```cpp\r\n    struct SettingsObject\r\n    {\r\n        float timeZone;\r\n        float dstOffset;\r\n        bool dstEnabled;\r\n        char hostName[32];\r\n        WLanSelectAntenna_TypeDef antennaType;\r\n    };\r\n```\r\n### Class instantiation and startup\r\n```cpp\r\n    // User Settings Class Object\r\n    UserSettingsClass mySettings;\r\n\r\n    // Define the EEPROM address for the object,\r\n    //      where: 0 <= address <= EEPROM.length() - (sizeof(object) + sizeof(uint16_t))\r\n    #define mySettingsAddress 0\r\n\r\n    if (mySettings.begin(mySettingsAddress))\r\n    {\r\n        // Valid Image Loaded\r\n    }\r\n    else\r\n    {\r\n        // Checksum error, image not loaded\r\n    }\r\n```\r\n#### Typical use:\r\n```cpp\r\n    Time.zone(mySettings.getTimeZone()); // Set time zone\r\n    Time.setDSTOffset(mySettings.getDstOffset()); // Set DST offset\r\n    if (mySettings.isDSTEnabled())\r\n    {\r\n        Time.beginDST(); // Set Daylight Savings Time flag\r\n    }\r\n    else\r\n    {\r\n        Time.endDST(); // Note: this is not needed on startup, as the DST setting defaults to off.\r\n    }\r\n\r\n    WiFi.setHostname(mySettings.getHostName());\r\n    WiFi.selectAntenna(mySettings.getAntennaType());\r\n```\r\n\r\n## Object Address Calculation for Multiple Data Objects\r\n```cpp\r\n    // Define desired start of used EEPROM for data objects\r\n    #define EEPROM_START_ADDRESS 0\r\n\r\n    // Create an address variable to set starting address for each object\r\n    size_t objectAddress = EEPROM_START_ADDRESS;\r\n\r\n    // Create first object\r\n    UserSettingsClass mySettingsObject;\r\n    mySettingsObject.begin(objectAddress);\r\n\r\n    // bump the address for next item\r\n    objectAddress += mySettingsObject.getSize();\r\n\r\n    // Create next object\r\n    struct UserObject { ... };\r\n    UserObject myObject;\r\n    EEPROM_Class<UserObject> myEEPROM;\r\n    myEEPROM.begin(objectAddress, myObject);\r\n\r\n    // bump the address for next item\r\n    objectAddress += myObject.getSize();\r\n```\r\n\r\n\r\nRefer to the provided [examples](https://github.com/Randyrtx/EEPROM_Class/tree/master/examples) for more details.\r\n\r\n## Examples:\r\n\r\n[Basic Usage Example](https://github.com/Randyrtx/EEPROM_Class/tree/master/examples/basicUsage): Demonstrates use of the UserSettingsClass for common system settings.\r\n\r\n\r\n\r\n[Advanced Usage Example](https://github.com/Randyrtx/EEPROM_Class/tree/master/examples/advancedUsage): Demonstrates use of the EEPROM_Class for a small user-defined data object.\r\n\r\n## LICENSE\r\nCopyright 2019 Randy E. Rainwater\r\n\r\nLicensed under the MIT License\r\n\r\n",

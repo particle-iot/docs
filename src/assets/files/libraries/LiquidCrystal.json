@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal",
     "version": "0.0.3",
-    "installs": 106904,
+    "installs": 106928,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "LiquidCrystal on Spark Core",
@@ -50,8 +50,23 @@
           "boron": {
             "Spark-HelloSparky": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Spark-HelloSparky": true
+          },
+          "electron": {
+            "Spark-HelloSparky": true
+          },
+          "argon": {
+            "Spark-HelloSparky": true
+          },
+          "boron": {
+            "Spark-HelloSparky": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.657Z"
     }
   },
   "readme": "SparkCore-LiquidCrystal\n=======================\n\nAn Implementation of Arduino's LiquidCrystal library for the Spark Core\n\nUniversally Supports:\n* Standard Hitachi HD44780 based LCDs in 4-bit mode\n* Adafruit's 16x2 OLED Display (Winstar)\n* Sparkfun's 16x2 OLED Display (ADH Technology Co. Ltd.)\n\nGrab the RAW version of each file and place into your web IDE as follows:\n\n![image](http://i.imgur.com/ovx14kb.png)\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\LiquidCrystal.h\n..\\core-firmware\\src\\application.cpp (renamed from Spark-HelloSparky.cpp)\n..\\core-firmware\\src\\LiquidCrystal.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the LiquidCrystal.cpp to it)\n```",

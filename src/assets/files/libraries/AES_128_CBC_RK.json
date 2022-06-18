@@ -52,8 +52,23 @@
           "boron": {
             "1-test": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-test": true
+          },
+          "electron": {
+            "1-test": true
+          },
+          "argon": {
+            "1-test": true
+          },
+          "boron": {
+            "1-test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.886Z"
     }
   },
   "readme": "# AES 128 CBC Library\n\n**Implementation of AES 128 (CBC mode) for Particle Devices**\n\n## API\n\n### AES\\_ctx\n\n```cpp\nstruct AES_ctx\n{\n  uint8_t RoundKey[AES_keyExpSize];\n  uint8_t Iv[AES_BLOCKLEN];\n};\n```\n\nThe `AES_ctx` structure holds the encryption/decryption context for a session. It's 192 bytes for AES 128. \n\n- `AES_keyExpSize` = 176 \n- `AES_BLOCKLEN` = 16\n\n### AES\\_init\\_ctx\\_iv\n\n```cpp\nvoid AES_init_ctx_iv(struct AES_ctx* ctx, const uint8_t* key, const uint8_t* iv);\nvoid AES_init_ctx(struct AES_ctx* ctx, const uint8_t* key);\nvoid AES_ctx_set_iv(struct AES_ctx* ctx, const uint8_t* iv);\n```\n\nYou typically initialize it using `AES_init_ctx_iv`. The parameters are:\n\n- `key` (const uint8_t *) The secret private shared key between the sender and receiver. It's always 16 bytes long.\n- `iv` (const uint8_t *) The initialization vector is a 16-byte random value. It assures that the given the same plaintext and key, the encrypted output is not the same. The iv should be randomly generated and does not need to be kept secret. You can transmit the iv in clear text, which is a common scenario because the other side cannot decrypt without the iv.\n\nThere are also functions to set the key and iv separately. \n\n### AES\\_CBC\\_encrypt\\_buffer\n\n```cpp\nvoid AES_CBC_encrypt_buffer(struct AES_ctx* ctx, uint8_t* buf, uint32_t length);\n```\n\nEncrypt a block of data. `length` must be a multiple of `AES_BLOCKLEN` bytes (16). Encryption is done in place, overwriting the plain text.\n\n\n### AES\\_CBC\\_decrypt\\_buffer\n\n```cpp\nvoid AES_CBC_decrypt_buffer(struct AES_ctx* ctx, uint8_t* buf, uint32_t length);\n```\n\nDecrypt a block of data. `length` must be a multiple of `AES_BLOCKLEN` bytes (16). Decryption is done in place, overwriting the cypher text.\n\nBecause of the fixed block size if you are encrypting arbitrary stream data you'll need an out-of-band method of determining how much actual data there is. The AES ECB mode supports arbitrary length and is suitable for streams, except it's also insecure and is not recommended for any use.\n\n## Original Library\n\nhttps://github.com/kokke/tiny-AES-c\n\n```\nThis is free and unencumbered software released into the public domain.\n\nAnyone is free to copy, modify, publish, use, compile, sell, or\ndistribute this software, either in source code form or as a compiled\nbinary, for any purpose, commercial or non-commercial, and by any\nmeans.\n\nIn jurisdictions that recognize copyright laws, the author or authors\nof this software dedicate any and all copyright interest in the\nsoftware to the public domain. We make this dedication for the benefit\nof the public at large and to the detriment of our heirs and\nsuccessors. We intend this dedication to be an overt act of\nrelinquishment in perpetuity of all present and future rights to this\nsoftware under copyright law.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,\nARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.\n\nFor more information, please refer to <http://unlicense.org/>\n```\n\n## Revision History\n\n### 0.0.1 (2020-08-07)\n\n- Initial version\n\n",

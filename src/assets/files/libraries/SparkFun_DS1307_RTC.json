@@ -53,8 +53,23 @@
           "boron": {
             "DS1307_RTC_Demo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DS1307_RTC_Demo": false
+          },
+          "electron": {
+            "DS1307_RTC_Demo": false
+          },
+          "argon": {
+            "DS1307_RTC_Demo": false
+          },
+          "boron": {
+            "DS1307_RTC_Demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.016Z"
     }
   },
   "readme": "SparkFun Real Time Clock Module (DS1307) Arduino Library\n========================================\n\n[![SparkFun Real Time Clock Module](https://cdn.sparkfun.com//assets/parts/9/4/5/4/12708-01.jpg)](https://www.sparkfun.com/products/12708)\n\n[*SparkFun Real Time Clock Module (BOB-12708)*](https://www.sparkfun.com/products/12708)\n\nArduino library for the I<sup>2</sup>C-based DS1307 real time clock (RTC). Allows you to set and read the time and date, and configure the SQW output pin.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/RTC-Module/tree/v1.4)** - Main repository (including hardware files) for the Real Time Clock Module.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/real-time-clock-module-hookup-guide)** - Basic hookup guide for the Real Time Clock Module.\n\nProducts that use this Library \n---------------------------------\n\n* [SparkFun Real Time Clock Module (BOB-12708)](https://www.sparkfun.com/products/12708)- Basic breakout for the DS1307, including pull-up resistors and a coin cell battery holder.\n\nVersion History\n---------------\n\n* [V_1.0.0](https://github.com/sparkfun/SparkFun_DS1307_RTC_Arduino_Library/tree/V_1.0.0) - Initial library release\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.",

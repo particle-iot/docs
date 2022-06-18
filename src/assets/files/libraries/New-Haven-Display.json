@@ -53,8 +53,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.082Z"
     }
   },
   "readme": "# New-Haven-Display\n\nThis is a simple library to implement a display driver for the New Haven OLED displays.  \n\nPlease note that this Library has been superceeded by a new version NewHaven-Display-I2C  - Please use this one.\n",

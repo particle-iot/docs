@@ -50,8 +50,23 @@
           "boron": {
             "P9813-example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "P9813-example": true
+          },
+          "electron": {
+            "P9813-example": true
+          },
+          "argon": {
+            "P9813-example": true
+          },
+          "boron": {
+            "P9813-example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.932Z"
     }
   },
   "readme": "Library for controlling smart LEDs based on the P9813 protocol aka the ChainableLED in the Grove Starter Kit for Photon.\n\nCopyright (C) 2012 Paulo Marques (pjp.marques@gmail.com)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n*/\n\n/*\n * Library for controlling a chain of RGB LEDs based on the P9813 protocol.\n * E.g., supports the Grove Chainable RGB LED product.\n *\n * Information about the P9813 protocol obtained from:\n * http://www.seeedstudio.com/wiki/index.php?title=Twig_-_Chainable_RGB_LED\n */\n",

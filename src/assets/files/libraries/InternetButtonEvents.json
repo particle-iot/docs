@@ -53,8 +53,23 @@
           "boron": {
             "example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.977Z"
     }
   },
   "readme": "# InternetButtonEvents\nProvides clean, debounced, button state and click events for the [Particle Internet Button](https://docs.particle.io/guide/tools-and-features/button/photon).\n\nThis library simplifies scenarios around publishing events when buttons have been clicked by offering a set of callback-based button events for the Internet Button. It also debounces button pushes to provide more stable button states, with a configurable `clickThreshold`.\n\n![Particle Internet Button](https://docs.particle.io/assets/images/internet-button-in-box.jpg)\n\n## Getting Started\nConnect your hardware to your Particle Internet Button, add the InternetButton and InternetButtonEvents library to your project and follow this simple example:\n\n```\n#include <InternetButton.h>\n#include \"InternetButtonEvents.h\"\n\nInternetButton b = InternetButton();\nInternetButtonEvents buttonEvents = InternetButtonEvents(b);\n\nvoid setup() { \n  buttonEvents.onButtonClicked(buttonClickedHandler);\n\n  b.begin(); \n}\n\nvoid loop() {\n  buttonEvents.update();\n}\n\nvoid buttonClickedHandler(int buttonNumber) {\n    Serial.print(\"Button clicked: \");\n    Serial.println(buttonNumber);\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n\n## Button events\n* `onButtonOn(callback)` - Called when any button is pressed.\n* `onButtonOff(callback)` - Called when any button is was pressed and released.\n* `onButtonClicked(callback)` - Called when any button is was clicked (equvalent to `onButtonOff`).\n* `onAllButtonsOn(callback)` - Called when all buttons are pressed together.\n* `onAllButtonsOff(callback)` - Called when all buttons were pressed then one or more buttons was released.\n* `onAllButtonsClicked(callback)` - Called when all buttons are clicked (equvalent to `onAllButtonsClicked`).\n\n## Button debouncing\nInternetButtonEvents debouces button presses to limit accidental clicks. By default, a button needs to be pressed and released for `200` milliseconds for a click to register. \n\nThis click threshold can be modified in the constructor for `InternetButtonEvents`.\n\n```\nint clickThreshold = 300;\nInternetButtonEvents buttonEvents = InternetButtonEvents(b, clickThreshold);\n```\n\nYou can inspect the debouced button state by using these helpers:\n\n* `buttonOn(int buttonNumber)` - Get the debounced state of a specified button.\n* `allButtonsOn()` - Get the debounced state if all buttons are clicked.\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add InternetButtonEvents_myname` to add the library to a project on your machine or add the InternetButtonEvents_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2018 [@dwcares](https://twitter.com/dwcares)\n\nLicensed under the MIT license\n",

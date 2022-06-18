@@ -50,8 +50,23 @@
           "boron": {
             "Norwegian_Blue": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Norwegian_Blue": true
+          },
+          "electron": {
+            "Norwegian_Blue": true
+          },
+          "argon": {
+            "Norwegian_Blue": true
+          },
+          "boron": {
+            "Norwegian_Blue": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.930Z"
     }
   },
   "readme": "# Embedded SWD\n\nThe Embedded SWD library allows you to use a working Particle device to repair the bootloader on another (non-functioning) device. This would normally require a programmer shield, but we can achieve the same thing using an additional device, a few connecting wires and a 10K resistor. \n\nIf you have a device that is unresponsive, just showing a dim blue D7 LED, then this library may help you revive it.\n\n## Using the example app to Revive a Dead Device\n\n> -- No no he's not dead, he's, he's restin'! Remarkable bird, the Norwegian Blue, idn'it, ay? Beautiful plumage!\n\nIn the examples folder is an example called \"Norwegian_Blue\". It repairs the bootloader on a Particle Photon, P1 or Electron device by using a working device as a flash programmer. Note that you only need to do this if your device does not show any sign of life on the main LED - if the LED lights up then the bootloader is good. This also includes use of DFU mode - if you can get the device into DFU mode the bootloader is good, and you do not need ot use this process.\n\nOk, so caveats out the way, you have a dead parrot, and you want to revive it using another particle device. Your dead device is called the \"target\". You'll also need another working device, which we call the \"programmer\".\n\nIn addition to these devices you'll also need:\n\n- 5 breadboard jumper cables\n- a 10K-100K resistor\n \n### Assembly\n \nAssembly is quite straightforward.\n\nEach connection is between a pin on the programmer and the corresponding pin on target. For example, D6 is connected, so we connect, D6 on the programmer to D6 on the target.\n \n \n - 3V3\n - GND (left side)\n - GND (right side)\n - D6\n - D7\n\nFinally, a 10K resistor is required (brown, black, orange colors). This is connected between D7 on the programmer device and 3V3.\n\nThe fritzing digram shows how it should look after assembly\n\n![Reviving a Parrot](./Particle Programmer Diagram.png)\n\n### Setup the Programmer App\n\nThe next step is to flash the programmer app to the programmer device. (Recall the programmer device is the device that's working normally.)\n\nThe simplest way is to use the Particle WebIDE:\n\n- Click the libraries drawer\n- Type \"SWD\" into the search field, click \"SWD\" when it appears in the list below\n- Click on the \"Norwegian Blue\" example\n- Click \"Use this example\"\n- Click \"Flash\" to flash the example to your device\n \nAlternatively, you can download the latest release for your programmer device from the [Releases](https://github.com/m-mcgowan/embedded-swd/releases) page on GitHub. \n\nOnce the app has been flashed, the device will show a steady blue LED. The device doesn't connect to the cloud or use Wi-Fi. \n \n### Using the Programmer App\n\n- Open a serial terminal to the device.\n- Press a key\n- Read the messages that appear. \n- If you're sure you want to continue flashing the target device, type `Y` and press return.\n- Follow the on-screen prompts.\n- Once flashing is complete, your target device should be showing signs of life via the main LED! The programmer LED turns green.\n\n\n\n# Developers\n\n## Handy Bits for Reuse\n\nThe library has some useful parts that may be generally useful:\n\n- An implementation of the SWD protocol\n- A wire driver abstraction for give the protocol a physical binding\n- An implementation of the wire driver that uses GPIOs for the clock and data signals.\n- An implementation of the Debug Port and Access Port types\n- An implementation of the MEM_AP port\n- A flash memory binding for the STM32F2xx that allows flash operations to be performed. (This is presently limited to reflashing the bootloader.)\n\nBy resuing this, you'll save yourself a few hours staring at a logic analyser... :-)\n\n![SWD Logic](swd_logic.png)\n\n\n\n\n\n\n\n\n",

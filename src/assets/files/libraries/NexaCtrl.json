@@ -50,8 +50,23 @@
           "boron": {
             "BasicUsageExample": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BasicUsageExample": false
+          },
+          "electron": {
+            "BasicUsageExample": false
+          },
+          "argon": {
+            "BasicUsageExample": false
+          },
+          "boron": {
+            "BasicUsageExample": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.006Z"
     }
   },
   "allVersions": [

@@ -60,8 +60,27 @@
             "1-simple": true,
             "2-thermostat-interrupt": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.078Z"
     }
   },
   "readme": "# DS75-RK\n\n*Particle driver for DS75 I2C temperature sensor*\n\n## Pinouts\n\n- 1 SDA\n- 2 SCL\n- 3 OS\n- 4 GND\n- 5 A2\n- 6 A1\n- 7 A0\n- 8 VDD\n\nThe A lines are the I2C addressed and are not biased so you need to connect them either to VDD or GND. Tying all 3 to GND sets address 0.\n\nOS is the thermostat output (optional).\n\nRemember that this is a bare chip, so the SDA and SCL do not have built-in pull-up resistors, so make sure you have them on your I2C bus.\n\n\n## Test Circuit\n\nIn this circuit, I made the following connections:\n\n- 1 SDA to D0 (green)\n- 2 SCL to D1 (blue)\n- 3 OS to D2 (white)\n- 4 GND to GND (black)\n- 5 A2 to GND (black)\n- 6 A1 to GND (black)\n- 7 A0 to GND (black)\n- 8 VDD to 3V3 (red)\n\nNote that the DS75 is also 5V compatible, so if you want to run it on a 5V I2C bus with VDD at 5V, that is fine.\n\nDon't forget the pull ups on SDA and SCL! They're the two 10K resistors connected to pins D0 and D1 on the Photon and 3V3.\n\nThe OS line (white) is optional. I use it only in example 2 for the \n\n## Examples\n\nThe DS75-RK.h header file has many comments that will help understand the calls.\n\n### Simple Example\n\nUsing the temperature sensor is as easy as:\n\n```\n#include \"DS75-RK.h\"\n\nconst unsigned long PRINT_PERIOD_MS = 5000;\nunsigned long lastPrint = 0;\n\nDS75 temp(Wire, 0);\n\nvoid setup() {\n\tSerial.begin(9600);\n\ttemp.begin();\n}\n\nvoid loop() {\n\tif (millis() - lastPrint >= PRINT_PERIOD_MS) {\n\t\tlastPrint = millis();\n\n\t\tfloat tempC = temp.getTemperature();\n\n\t\tSerial.printlnf(\"temp %fC %fF\", tempC, temp.convertCtoF(tempC));\n\t}\n}\n```\n\n### Interrupt Example\n\nThe interrupt example is an interrupt in the sense that it detects high temperature and signals when the condition occurs. Instead of using an actual STM32F205 interrupt handler (attachInterrupt) the bit is just checked from loop. \n\nThe reason is that in order to clear the interrupt, you need to read or write an I2C register, which can't be done from an interrupt handler. But the main reason you want an interrupt is that you are detecting a signal that changes state frequently or has a short pulse width you need to detect. Since the DS75 has a latching interrupt output, checking it from loop is a completely reasonable thing to do. \n\nAnother helpful thing: The OS output on the DS75 is open-collector. This means if you have multiple DS75 sensors you can just connect all of their OS output to a single pin on the Photon/Electron. You can figure out which one triggered the alarm by reading the temperature values.\n\n\n",

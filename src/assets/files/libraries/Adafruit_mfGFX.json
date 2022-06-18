@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_mfGFX",
     "version": "1.0.4",
-    "installs": 88143,
+    "installs": 88208,
     "license": "Adafruit",
     "author": "Paul Kourany/Adafruit",
     "sentence": "Adafruit mfGFX multifont library for Particle Devices",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.660Z"
     }
   },
   "readme": "Adafruit_mfGFX Library\r\n====================== \r\n\r\nMultifont GFX library is adapted from Adafruit_GFX library by Paul Kourany\r\n\r\n- v1.0.0, May 2014 Initial Release\r\n- v1.0.1, June 2014 Font Compilation update\r\n- v1.0.2, Aug 2015 Added charWidth(char) function to return char width in pixels\r\n- v1.0.3, Jan 2016 update to Libraries V2.0\r\n- V1.0.4 Jan 2020 Move swap() definition from .h to .cpp file\r\n\r\nThis library supports any compatible Adafruit_GFX display driver. The \r\nfree TheDotFactory Windows program is recommended for creating font data \r\ncompatible with the Adafruit_mfGFX library. \r\n\r\nPlease see the HOWTO.pdf file for instructions on creating and adding \r\nnew fonts. The base library comes with 4 fonts and a \"test\" font so a \r\nnew candidate font data can easily be added and tested before being \r\npermanently added to the library. \r\n\r\nBase library fonts may be added/removed using compile flags. BE AWARE \r\nthat though font data does not take up Spark RAM, they do however take \r\nup flash space so having too many fonts may prove problematic. \r\n\r\nThe GLCDFONT from original GFX library is included and made the default \r\nfont so code based on the older library will work as expected. \r\n\r\n",

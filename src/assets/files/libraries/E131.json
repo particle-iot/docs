@@ -52,8 +52,23 @@
           "boron": {
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.970Z"
     }
   },
   "readme": "E131 - E1.31 (sACN) library for Particle\n=======================================\nThis library is to simplify the validation and handling of E1.31 sACN (DMX over Ethernet) traffic.  It supports both Unicast and Multicast configurations and exposes the full E1.31 packet to the user.  Currently, development is targeted for the The Photon from particle.io.  \n\n### Supported Hardware\n- Particle Photon\n\n### API / Usage\n#### Notes\nThere is a stand alone version (E131.ino) in the repo currently which is fully fuctional but the library version is not currently working.\n\n#### Initializers\nThese are to initialize the network stack and should be in the ```setup()``` function of your sketch.\n\n  ```void begin()``` Starts with with only 1 universe at number 1\n  \n  ```void begin(uint16_t universes)``` specifies how many universes to monitor (Not currently finished)\n\n#### Loop Handlers\nThese are non-blocking handlers to be used in the ```loop()``` function of your sketch.\n- ```int parsePacket()```: Checks and parses new packets, returns number of DMX Channels in packet as ```uint16_t```\n\n#### Exposed Data Structures\n- ```byte *data```: Pointer to DMX channel data from packet.  Always valid if double-buffering is enabled (see notes above)\n- ```uint16_t universe```: DMX Universe of last valid packet\n- ```e131_stats_t stats```: E1.31 Statistics\n\n### Resources:\n- Based on code From: http://github.com/forkineye/E131\n",

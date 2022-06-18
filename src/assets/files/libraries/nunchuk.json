@@ -51,8 +51,23 @@
           "boron": {
             "wiichuk-demo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "wiichuk-demo": true
+          },
+          "electron": {
+            "wiichuk-demo": true
+          },
+          "argon": {
+            "wiichuk-demo": true
+          },
+          "boron": {
+            "wiichuk-demo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.037Z"
     }
   },
   "readme": "# SparkNunchuk\n\nSpark.io friendly fork of ArduinoNunchuk customized by @creationix.\n\nThis should be available in the list of libraries on spark.io",

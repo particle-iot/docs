@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleSoftSerial",
     "version": "0.0.15",
-    "installs": 85093,
+    "installs": 85102,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic SoftSerial implementation (requires SparkIntervalTimer library to work)",
@@ -50,8 +50,23 @@
           "boron": {
             "PSS_SimpleTest": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "PSS_SimpleTest": false
+          },
+          "electron": {
+            "PSS_SimpleTest": false
+          },
+          "argon": {
+            "PSS_SimpleTest": false
+          },
+          "boron": {
+            "PSS_SimpleTest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.662Z"
     }
   },
   "readme": "﻿  ParticleSoftSerial library\r\n  Copyright (c) 2016 Free Software Foundation.  All right reserved.\r\n  Written by Andreas Rothenwänder (aka ScruffR)\r\n\r\n  This library provides a basic implementation of an interrupt timer\r\n  driven software serial port on any two digital GPIOs as RX/TX.\r\n\r\n  Notes:\r\n  Import SparkIntervalTimer library (by Paul Kourany)\r\n    Due to limited free timers and to avoid interrupt mashup, only\r\n    one active instance is allowed.\r\n  Soft RX pin needs to be interrupt enabled, so on Photon D0 & A5\r\n    won't work as RX\r\n  \r\n  This library is free software; you can redistribute it and/or\r\n  modify it under the terms of the GNU Lesser General Public\r\n  License as published by the Free Software Foundation; either\r\n  version 2.1 of the License, or (at your option) any later version.\r\n\r\n  This library is distributed in the hope that it will be useful,\r\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\r\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\r\n  Lesser General Public License for more details.\r\n\r\n  You should have received a copy of the GNU Lesser General Public\r\n  License along with this library; if not, write to the Free Software\r\n  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\r\n",

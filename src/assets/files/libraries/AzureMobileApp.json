@@ -74,8 +74,35 @@
             "3_Update": true,
             "4_Delete": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "electron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "argon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "boron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.028Z"
     }
   },
   "readme": "# AzureMobileApp #\r\nLibrary for abstracting Azure Mobile App Easy Tables REST Api for particle.io devices\r\n\r\n## Prerequisites ##\r\n- An active [Microsoft Azure](http://azure.com) subscription \r\n- [Deploy and configure an Easy Table in an Azure App Service Mobile App](https://dzone.com/articles/setting-up-easy-tables-in-azure-app-service-mobile)\r\n\r\n## Walkthrough and Tutorial ##\r\n\r\n[![Demo](https://sec.ch9.ms/ch9/7701/8d7917b8-624e-49d7-b286-ebaaa2ce7701/TheMakerShowEpisode12ConnectingParticlePhotontoCl_960.jpg)](https://channel9.msdn.com/Shows/themakershow/The-Maker-Show-Episode-12-Connecting-Particle-Photon-to-Cloud-Services)\r\n\r\n\r\n\r\n## Usage ##\r\n\r\nObtain the value for `AzureAppServiceURL` from:\r\n\r\n![](http://i.imgur.com/2zED5qM.png)\r\n\r\n\r\n## Example ##\r\n\r\n    #include \"AzureMobileApp.h\" \r\n\t#define MYSERVICE \"AzureAppServiceURL\"\r\n\t#define MYKEY \"AuthKey(IfEnabled)\"\r\n\r\n\tAzureMobileApp ama;\r\n\t\r\n\tvoid setup() {\r\n\t    Serial.begin(9600);\r\n\t    delay(10000);\r\n\t    ama.configure(MYSERVICE, MYKEY);\r\n\t}\r\n\r\n\tvoid loop() \r\n\t{\r\n\t    delay(5000);\r\n\t    String table = \"Data\";\r\n\r\n\t\t//send JSON formatted data\r\n\t\t// { \"Value1\":\"1\", \"Value2\":\"2\", \"Value3\":\"3\" }\r\n\r\n    \tchar buffer[100];\r\n    \tsnprintf(buffer, sizeof(buffer), \"{\\\"Value1\\\":\\\"1\\\", \\\"Value2\\\":\\\"2\\\",\\\"Value3\\\":\\\"3\\\"}\");\r\n\r\n    \r\n\t    Serial.println(\"**************************************************************\");\r\n\t    Serial.println(\"Publishing data from buffer to AMA\");\r\n\t    Serial.println(\"**************************************************************\");\r\n\t    ama.create(table, buffer);\r\n\r\n\t    Serial.println(\"**************************************************************\");\r\n\t    Serial.println(\"Reading data from \" + table);\r\n\t    Serial.println(\"**************************************************************\");\r\n\t    String queryPayload = ama.read(table);\r\n\t\tSerial.println queryPayload;\r\n\r\n\t}\r\n",

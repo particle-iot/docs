@@ -58,8 +58,27 @@
             "control-everything-shield-demo": false,
             "relay-shield-demo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "electron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.887Z"
     }
   },
   "readme": "About\n===\nBasic relay control library.  Based off of http://awtfy.com/2011/07/14/a-too-simple-arduino-library-for-handling-the-seeeduino-relay-shield-and-generic-relays/\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Photon_Weather_Shield_Library",
     "version": "1.1.3",
-    "installs": 85689,
+    "installs": 85703,
     "license": "MIT",
     "author": "Joel Bartlett <joel.bartlett@sparkfun.com>",
     "sentence": "A library to support all I2C sensors on the SparkFun Photon Weather Shield.",
@@ -56,8 +56,27 @@
             "SparkFun_Photon_Weather_Shield_Example": true,
             "Weather_Publish_and_Variable": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          },
+          "electron": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          },
+          "argon": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          },
+          "boron": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.661Z"
     }
   },
   "readme": "# SparkFun_Photon_Weather_Shield_Library\nUse this one library to talk to all the built-in I2C devices on your SparkFun Photon Weather Shield\n\nAbout\n-------------------\n\nThis is a firmware library for [SparkFun's Photon Weather Shield](https://www.sparkfun.com/products/13630).\n\n[![Photon Battery Shield](https://cdn.sparkfun.com//assets/parts/1/1/0/1/7/13630-01a.jpg)](https://www.sparkfun.com/products/13630).\n\nRepository Contents\n-------------------\n\n* **/doc** - Additional documentation for the user. These files are ignored by the IDE. \n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particel library manager. \n\nExample Usage\n-------------------\n\nInclude the library:\n\n\t#include \"SparkFunMPL3115A2.h\" // Include the SparkFun MPL3115A2 library\n\t\nThen use the `Weather` object to interact with it. Begin by initializing the IC:\n\n\tWeather sensor;//Create Instance of Weather Class\n\nThe Setup\n\n\tvoid setup()\n\t{\n    Serial.begin(9600);   // open serial over USB at 9600 baud\n\n    // Make sure your Serial Terminal app is closed before powering your device\n    // Now open your Serial Terminal, and hit any key to continue!\n    Serial.println(\"Press any key to begin\");\n    //This line pauses the Serial port until a key is pressed\n    while(!Serial.available()) Spark.process();\n\n    //Initialize the I2C sensors and ping them\n    sensor.begin();\n\n    /*You can only receive acurate barrometric readings or acurate altitiude\n    readings at a given time, not both at the same time. The following two lines\n    tell the sensor what mode to use. You could easily write a function that\n    takes a reading in one made and then switches to the other mode to grab that\n    reading, resulting in data that contains both acurate altitude and barrometric\n    readings. For this example, we will only be using the barometer mode. Be sure\n    to only uncomment one line at a time. */\n    sensor.setModeBarometer();//Set to Barometer Mode\n    //baro.setModeAltimeter();//Set to altimeter Mode\n\n    //These are additional MPL3115A2 functions the MUST be called for the sensor to work.\n    sensor.setOversampleRate(7); // Set Oversample rate\n    //Call with a rate from 0 to 7. See page 33 for table of ratios.\n    //Sets the over sample rate. Datasheet calls for 128 but you can set it\n    //from 1 to 128 samples. The higher the oversample rate the greater\n    //the time between data samples.\n\n\n    sensor.enableEventFlags(); //Necessary register calls to enble temp, baro ansd alt\n\t}\n\nThen you can read various data like this:\n\n\t// Measure Relative Humidity from the HTU21D or Si7021\n\thumidity = sensor.getRH();\n\t\n\t// Measure Temperature from the HTU21D or Si7021\n\ttempf = sensor.getTempF();\n\t\n\t//Measure the Barometer temperature in F from the MPL3115A2\n\tbaroTemp = sensor.readBaroTempF();\n\t\n\t//Measure Pressure from the MPL3115A2\n\tpascals = sensor.readPressure();\n\t\n\t//If in altitude mode, you can get a reading in feet with this line:\n    altf = sensor.readAltitudeFt();\n\t\nCheck out the example files in the [examples directory](https://github.com/sparkfun/SparkFun_Photon_Weather_Shield_Particle_Library/tree/master/firmware/examples) for more guidance.\n\nRecommended Components\n-------------------\n\n* [Particle Photon](https://www.sparkfun.com/products/13345)\n* [SparkFun Photon Weather Shield](https://www.sparkfun.com/products/13630)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "custom-pwm",
     "version": "0.0.1",
-    "installs": 3694,
+    "installs": 3695,
     "license": "MIT",
     "author": "Ken Kaiser <admin@makerken.com>",
     "sentence": "Abstracting the 6.0.0 analogWrite functions",
@@ -50,8 +50,23 @@
           "boron": {
             "digital-servo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "digital-servo": true
+          },
+          "electron": {
+            "digital-servo": true
+          },
+          "argon": {
+            "digital-servo": true
+          },
+          "boron": {
+            "digital-servo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.835Z"
     }
   },
   "readme": "# custom-pwm\nUsing Particle functions\n\nUpdated 6.0.0 firmware allows for custom PWM settings, this is barely abstracting those functions, mainly learning to contribute a library for me.\n",

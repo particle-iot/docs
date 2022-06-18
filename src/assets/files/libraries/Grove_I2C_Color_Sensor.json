@@ -58,8 +58,27 @@
             "GroveColorSensorDemo": true,
             "MUXandTwoSensorsDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "electron": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "argon": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          },
+          "boron": {
+            "GroveColorSensorDemo": true,
+            "MUXandTwoSensorsDemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.098Z"
     }
   },
   "readme": "Modify source code and support Particle library from Seeed Studio.\nGrove - I2C Color Sensor\n------------------------\n\n[![Grove - I2C Color Sensor](http://www.seeedstudio.com/depot/bmz_cache/9/9bf4f9503ae716421188aaa65205b272.image.530x397.jpg)](http://www.seeedstudio.com/depot/grove-i2c-color-sensor-p-854.html?cPath=25_27)\n\nThis is an Arduino example for [Grove - I2C Color Sensor](http://www.seeedstudio.com/depot/grove-i2c-color-sensor-p-854.html?cPath=25_27)\n\nFor more information, please refer to [wiki page](http://www.seeedstudio.com/wiki/Grove_-_I2C_Color_Sensor).\n\n----\n\nThis software is written by Seeed Studio<br>\nand is licensed under [The LGPL License V2.1](http://www.gnu.org/licenses/lgpl-2.1.html). \n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n\n\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_I2C_Color_Sensor)](https://github.com/igrigorik/ga-beacon)\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Humidity_AHT20_Arduino_Library",
     "version": "1.0.0",
-    "installs": 4907,
+    "installs": 4922,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive ASAIT's new AHT20 temperature and humidity IC.",
@@ -54,8 +54,23 @@
           "boron": {
             "Example1_GetMeasurements": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_GetMeasurements": true
+          },
+          "electron": {
+            "Example1_GetMeasurements": true
+          },
+          "argon": {
+            "Example1_GetMeasurements": true
+          },
+          "boron": {
+            "Example1_GetMeasurements": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.815Z"
     }
   },
   "readme": "SparkFun Qwiic Humidity AHT20 Arduino Library\n=============================================\n\n[![Qwiic AHT20](https://cdn.sparkfun.com/assets/parts/1/5/5/0/2/16618-Qwiic_Humidity_AHT20-01.jpg)](https://cdn.sparkfun.com/assets/parts/1/5/5/0/2/16618-Qwiic_Humidity_AHT20-01.jpg)\n\nNew from SparkX, the AHT20 breakout board. Use this library to easy trigger and return temperature and humidity measurements.\n\nSparkFun labored with love to create this code. Feel like supporting open-source hardware?\nBuy a [board](https://www.sparkfun.com/) from SparkFun!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example code to show how the functions work.\n* **/src** - Source files for the library (.cpp, .h)\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_TMP117)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nPlease review the LICENSE.md file for license information.\n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun Forum](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun\n\n_<COLLABORATION CREDIT>_\n",

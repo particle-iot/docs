@@ -7,7 +7,7 @@
   "attributes": {
     "name": "movingAvg",
     "version": "2.1.0",
-    "installs": 6387,
+    "installs": 6402,
     "author": "Jack Christensen <jack.christensen@outlook.com>",
     "maintainer": "Jack Christensen <jack.christensen@outlook.com>",
     "sentence": "A simple Arduino library for calculating moving averages.",
@@ -77,8 +77,35 @@
             "photoCell": true,
             "tmp36": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "electron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "argon": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "boron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.792Z"
     }
   },
   "readme": "# Arduino Moving Average Library\nhttps://github.com/JChristensen/movingAvg  \nREADME file  \nJack Christensen  \nMar 2012  \n\n## License\nArduino movingAvg Library Copyright (C) 2018 Jack Christensen GNU GPL v3.0\n\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License v3.0 as published by the Free Software Foundation.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program. If not, see <https://www.gnu.org/licenses/gpl.html>\n\n## Description\n*movingAvg* is a simple Arduino library for calculating moving averages. It is useful for smoothing sensor readings, etc. For efficiency, the library operates in the integer domain. This means that the calculated moving averages are mathematically approximate. Both data input to the library and the returned moving averages are 16-bit signed integers.\n\nThe user specifies the interval (number of data points) for the moving average in the constructor. When the `begin()` function is called, an array is dynamically allocated to hold the number of data points in the interval. This array is never deallocated, and the user should call `begin()` only once (for a given `movingAvg` instance) in setup or other initialization code. Dynamic allocation is used strictly with the intent of creating the proper size array for the user's purposes, and not to free up the memory at a later point. It is strongly recommended that `movingAvg` objects remain allocated as long as the code is running. Failure to observe these guidelines can result in heap fragmentation, crashes and other undesired behavior.\n\n## Constructor\n### movingAvg(int interval)\n##### Description\nDefines a `movingAvg` object where the average is calculated using *interval* data points.\n##### Syntax\n`movingAvg(interval);`\n##### Parameters\n**interval:** The number of data points to use when calculating the moving average. *(int)*\n##### Returns\nNone.\n##### Example\n```c++\nmovingAvg mySensor(10);    // use 10 data points for the moving average\n```\n\n## Methods\n### begin()\n##### Description\nInitializes a `movingAvg` object. Call `begin()` once and only once for any given `movingAvg` instance. See comments in the **Description** section above.\n##### Syntax\n`begin();`\n##### Parameters\nNone.\n##### Returns\nNone.\n##### Example\n```c++\nmovingAvg mySensor(10);    // use 10 data points for the moving average\nmySensor.begin();\n```\n\n### reading(int dataPoint)\n##### Description\nAdds a new data point to the moving average. Returns the new moving average value. Until the interval array is filled, the average is calculated from those data points already added, i.e. a fewer number of points than defined by the constructor - thanks to Tom H. (Duckie) for this idea!\n##### Syntax\n`reading(dataPoint);`\n##### Parameters\n**dataPoint:** The new data point to be added to the moving average. *(int)*\n##### Returns\nThe new moving average value. *(int)*\n##### Example\n```c++\nint sensorData = analogRead(SENSOR_PIN);\nint sensorMovingAvg = mySensor.reading(sensorData);\n```\n\n### getAvg()\n##### Description\nReturns the current moving average value without adding a new reading.\n##### Syntax\n`getAvg();`\n##### Parameters\nNone.\n##### Returns\nThe moving average value. *(int)*\n##### Example\n```c++\nint sensorMovingAvg = mySensor.getAvg();\n```\n\n### reset()\n##### Description\nRestarts the moving average. Zeros the interval array and associated data.\n##### Syntax\n`reset();`\n##### Parameters\nNone.\n##### Returns\nNone.\n##### Example\n```c++\nmySensor.reset();\n```\n",

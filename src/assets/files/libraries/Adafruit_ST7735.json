@@ -50,8 +50,23 @@
           "boron": {
             "example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.694Z"
     }
   },
   "readme": "Adafruit_mfGFX_Library\n======================\n\nMultifont version of Adafruit_GFX library with Adafruit ST7735 Display drivers and demo.\n\nThis library supports any compatible Adafruit_GFX display driver.  The free TheDotFactory Windows program is recommended for created data compatible with the Adafruit_mfGFX library.\n\nPlease see the README.pdf files for instructions on creating and adding new fonts.  The base library comes with 4 fonts and a \"test\" font so new candidate font data can easily be added and tested before being permanently added to the library.\n\nBE AWARE that though font data does not take up Spark RAM, they do however take up flash space so having too many fonts may prove problematic.\n\n** UPDATED with font compilation option, June 2014\n\nThis is a library for the Adafruit 1.8\" SPI display.\nThis library works with the Adafruit 1.8\" TFT Breakout w/SD card\n  ----> http://www.adafruit.com/products/358\nas well as Adafruit raw 1.8\" TFT display\n  ----> http://www.adafruit.com/products/618\n \nCheck out the links above for our tutorials and wiring diagrams.\nThese displays use SPI to communicate, 4 or 5 pins are required\nto interface (RST is optional).\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\n!!! mfGFX library adapted from Adafruit GFX library by Paul Kourany, 2014 !!!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nMIT license, all text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_ST7735. Check that the Adafruit_ST7735 folder contains Adafruit_ST7735.cpp and Adafruit_ST7735.\n\nPlace the Adafruit_ST7735 library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE\n\n",

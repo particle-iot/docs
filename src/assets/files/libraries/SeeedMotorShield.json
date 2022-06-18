@@ -50,8 +50,23 @@
           "boron": {
             "example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.987Z"
     }
   },
   "readme": "#### Library for Seeed's Motor Shield 2.0 That works with Spark's Photon\n",

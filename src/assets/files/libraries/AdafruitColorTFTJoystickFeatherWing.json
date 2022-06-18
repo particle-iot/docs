@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitColorTFTJoystickFeatherWing",
     "version": "0.0.1",
-    "installs": 1384,
+    "installs": 1385,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Adafruit Mini Color TFT with Joystick FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitColorTFTJoystickFeatherWing",
@@ -58,8 +58,27 @@
             "2-tft-basic": true,
             "3-tft-graphicstest": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "electron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "argon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.927Z"
     }
   },
   "readme": "# AdafruitColorTFTJoystickFeatherWing\n\n*Particle Library for Adafruit Mini Color TFT with Joystick FeatherWing*\n\n\nThis library makes it easy to use the [Adafruit Mini Color TFT with Joystick FeatherWing](https://www.adafruit.com/product/3321) with Particle mesh devices (Argon, Boron, Xenon). Additional information the board is available [here](https://learn.adafruit.com/adafruit-mini-tft-featherwing).\n\n| Pin | Function | \n| --- | --- |\n| D2 | TFT CS | \n| D3 | TFT CD | \n| SCK | TFT SCK | \n| MOSI | TFT DI |\n\nThis library basically just pulls in the necessary libraries and provides working examples. It directly depends on:\n\n- [Adafruit_ST7735_RK](https://github.com/rickkas7/Adafruit_ST7735_RK)\n- [Adafruit_Seesaw](https://github.com/bsatrom/Adafruit_Seesaw)\n\nThe ST7735_RK library further depends on:\n\n- [Adafruit_GFX_RK](https://github.com/rickkas7/Adafruit_GFX_RK)\n\n\n\n## Examples\n\n### 2-basic\n\nThis is the basic example from the Adafruit\\_ST7735. It does some basic graphics and also shows how to handle the joystick and buttons.\n\n### 3-graphicstest\n\nThis is the graphics example from the Adafruit\\_ST7735. It does more advanced graphics and text on the display.\n\n\n\n\n\n\n\n\n\n\n",

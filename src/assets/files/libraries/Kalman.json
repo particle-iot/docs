@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.872Z"
     }
   },
   "readme": "#### Developed by Kristian Lauszus, TKJ Electronics 2012\n\nThe code is released under the GNU General Public License.\n_________\n\nThis is a Kalman filter library for any microcontroller that supports float math.\n\nIt can also be used with Arduino, simply copy the folder to your library folder.\n\nMy assignment I wrote back in High School regarding Kalman filter can be found here: <http://www.tkjelectronics.dk/uploads/Kalman_SRP.zip>.\n\nFor more information see my blog post: <http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it> or send me an email at <kristianl@tkjelectronics.dk>.",

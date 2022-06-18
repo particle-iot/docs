@@ -61,8 +61,27 @@
             "tsl2591": true,
             "tsl2591_interrupt": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "electron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "argon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "boron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.719Z"
     }
   },
   "readme": "# Adafruit TSL2591 Library [![Build Status](https://travis-ci.org/adafruit/Adafruit_TSL2591_Library.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_TSL2591_Library)\n\n<img src=\"https://cdn-shop.adafruit.com/970x728/1980-01.jpg\" height=\"300\"/>\n\nThis is an Arduino library for the TSL2591 digital luminosity (light) sensors. \n\nPick one up at http://www.adafruit.com/products/1980\n\nYou'll also need the Adafruit_Sensor library from https://github.com/adafruit/Adafruit_Sensor",

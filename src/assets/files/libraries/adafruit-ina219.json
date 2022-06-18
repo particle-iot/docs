@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-ina219",
     "version": "0.0.1",
-    "installs": 47012,
+    "installs": 47016,
     "license": "BSD",
     "author": "K. Townsend Adafruit Industries",
     "sentence": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle Photon",
@@ -50,8 +50,23 @@
           "boron": {
             "get-current": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "get-current": true
+          },
+          "electron": {
+            "get-current": true
+          },
+          "argon": {
+            "get-current": true
+          },
+          "boron": {
+            "get-current": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.685Z"
     }
   },
   "readme": "adafruit-ina219\n===============\n\nINA219 Current Sensor\n\nFork of Adafruits repo so it could be added to the Particle (formally Spark) library.\n",

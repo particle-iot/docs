@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CS_gasads1115",
     "version": "1.0.1",
-    "installs": 433,
+    "installs": 434,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -62,8 +62,31 @@
             "singleended": true,
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "electron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "argon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "boron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.059Z"
     }
   },
   "readme": "# cityscanner-gasADS1115-lib\n \n",

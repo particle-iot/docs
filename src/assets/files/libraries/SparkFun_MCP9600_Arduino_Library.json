@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MCP9600_Arduino_Library",
     "version": "1.0.3",
-    "installs": 2296,
+    "installs": 2297,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
     "sentence": "Driver for Microchip's MCP9600 Thermocouple Amplifier.",
@@ -94,8 +94,43 @@
             "Example5_BurstMode": true,
             "Example6_ConfigureTemperatureAlert": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.873Z"
     }
   },
   "readme": "SparkFun MCP9600 Arduino Library [![Build Status](https://travis-ci.org/sparkfun/SparkFun_MCP9600_Arduino_Library.svg?branch=master)](https://travis-ci.org/sparkfun/SparkFun_MCP9600_Arduino_Library)\n========================================\n\n<table class=\"table table-hover table-striped table-bordered\">\n    <tr>\n        <th class=\"text-center\"> \n        </th>\n        <th class=\"text-center\">\n        </th>\n    </tr>\n    <tr align=\"center\">\n        <td><a href=\"https://www.sparkfun.com/products/16294\"><img src=\"https://cdn.sparkfun.com/assets/parts/1/4/9/8/3/16294-Qwiic_Thermocouple_Amplifier_-_MCP9600_-_PCC_Connector-01.jpg\" alt=\"\"></a></td>\n        <td><a href=\"https://www.sparkfun.com/products/16295\"><img src=\"https://cdn.sparkfun.com/assets/parts/1/4/9/8/5/16295-Qwiic_Thermocouple_Amplifier_-_MCP9600_-_Screw_Terminals-01.jpg\" alt=\"\"></a></td>\n    </tr>\n    <tr align=\"center\">\n        <td>SparkFun MCP9600 Thermocouple Amplifier - PCC Connector (SEN-16294)</td>\n        <td>SparkFun MCP9600 Thermocouple Amplifier - Screw Terminals (SEN-16295)</td>\n    </tr>\n</table>\n\n\nThis library allows the user to:\n\n* Read temperature in Celsius or Fahrenheit\n* Use a variety of thermocouple types\n* Configure the onboard exponential moving average filter\n* Set up continuous and burst conversion modes\n* Configure temperature alerts\n\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n* **[Thermocouple Amplifier Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-qwiic-thermocouple-hookup-guide)** - Hookup guide for the SparkFun Thermocouple Amplifiers.\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_Thermocouple_Amplifer)** - Main repository (including hardware files) for the SparkFun MCP9600 Breakout.\n\nProducts that use this Library \n---------------------------------\n\n* [*SEN-16294*](https://www.sparkfun.com/products/16294)\n* [*SEN-16295*](https://www.sparkfun.com/products/16295)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact support@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

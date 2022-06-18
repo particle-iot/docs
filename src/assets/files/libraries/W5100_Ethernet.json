@@ -7,7 +7,7 @@
   "attributes": {
     "name": "W5100_Ethernet",
     "version": "1.1.5",
-    "installs": 564,
+    "installs": 565,
     "license": "GNU",
     "author": "Various (see AUTHORS file for details)",
     "maintainer": "Arduino <info@arduino.cc>",
@@ -127,8 +127,59 @@
             "WebClientRepeating": false,
             "WebServer": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "electron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "argon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.025Z"
     }
   },
   "readme": "= Ethernet Library for Particle =\n\nYou can connect to any W5100 arduino shield compatible. With the Arduino Ethernet Shield, this library allows an Arduino board to connect to the internet.\n\nIn order to select SPI port and CS pin:\n\n```c++\n#include <utility/w5100.h>\n\nW5100.spi(SPI1, D5);\n```\n\nFor more information about this library please visit us at\nhttp://www.arduino.cc/en/Reference/Ethernet\n\n== License ==\n\nCopyright (c) 2010 Arduino LLC. All right reserved.\n\nThis library is free software; you can redistribute it and/or\nmodify it under the terms of the GNU Lesser General Public\nLicense as published by the Free Software Foundation; either\nversion 2.1 of the License, or (at your option) any later version.\n\nThis library is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU\nLesser General Public License for more details.\n\nYou should have received a copy of the GNU Lesser General Public\nLicense along with this library; if not, write to the Free Software\nFoundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA\n",
