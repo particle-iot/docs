@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HttpsClient",
     "version": "1.0.0",
-    "installs": 1170,
+    "installs": 1235,
     "author": "amcewen",
     "architectures": [],
     "visibility": "public",
@@ -46,8 +46,23 @@
           "boron": {
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.934Z"
     }
   },
   "readme": "# HttpClient\n\nHttpClient is a library to make it easier to interact with web servers from Arduino.\n\n## Dependencies\n\n- Requires the new Ethernet library API (with DHCP and DNS) which is in Arduino 1.0 and later\n\n## Installation\n\n1. Download the latest version of the library from https://github.com/amcewen/HttpClient/releases and save the file somewhere\n1. In the Arduino IDE, go to the Sketch -> Import Library -> Add Library... menu option\n1. Find the zip file that you saved in the first step, and choose that\n1. Check that it has been successfully added by opening the Sketch -> Import Library menu.  You should now see HttpClient listed among the available libraries.\n\n## Usage\n\nIn normal usage, handles the outgoing request and Host header.  The returned status code is parsed for you, as is the Content-Length header (if present).\n\nBecause it expects an object of type Client, you can use it with any of the networking classes that derive from that.  Which means it will work with EthernetClient, WiFiClient and GSMClient.\n\nSee the examples for more detail on how the library is used.\n\n",

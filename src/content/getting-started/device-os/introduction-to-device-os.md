@@ -34,7 +34,7 @@ Device OS supports a number of ways for devices to communicate with each other a
 
 #### Particle.publish
 
-[Particle.publish](/cards/firmware/cloud-functions/particle-publish/) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
+[Particle.publish](/reference/device-os/api/cloud-functions/particle-publish/) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
 
 When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/cloud-apis/webhooks/) that makes a connection to an external service or web server.
 
@@ -51,7 +51,7 @@ When using SSE, your server makes an outbound connection to the Particle cloud. 
 
 #### Particle.variable
 
-[Particle.variable](/cards/firmware/cloud-functions/particle-subscribe/) allows the cloud to query a value from the device.
+[Particle.variable](/reference/device-os/api/cloud-functions/particle-subscribe/) allows the cloud to query a value from the device.
 
 - For a publish, every time you publish, the data is sent up to the cloud.
 - For a variable, the current value is stored on the device, and is only sent when requested.
@@ -66,31 +66,31 @@ Depending on your situation, one or the other may be more efficient. Also note:
 
 #### Particle.subscribe
 
-[Particle.subscribe](/cards/firmware/cloud-functions/particle-subscribe/) allows a device to listen for an event from another device or the cloud.
+[Particle.subscribe](/reference/device-os/api/cloud-functions/particle-subscribe/) allows a device to listen for an event from another device or the cloud.
 
 Subscribing to private events is secure, as only devices in your account can send these events. Also, subscribe works across all connection types such as Wi-Fi and cellular, and does not require any firewall modifications for Wi-Fi networks in most cases.
 
 #### Particle.function
 
-[Particle.function](/cards/firmware/cloud-functions/particle-subscribe/) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
+[Particle.function](/reference/device-os/api/cloud-functions/particle-subscribe/) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
 
 There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
 
 #### TCP
 
-Particle devices can also use low-level networking communication methods like [TCP](/cards/firmware/tcpclient/tcpclient/). TCP connections do not use the Particle cloud and are suitable for applications with higher data rates, very large data, and other specialized applications. While TCP is flexible, it does not include built-in encryption. Encryption requires the use of third-party libraries.
+Particle devices can also use low-level networking communication methods like [TCP](/reference/device-os/api/tcpclient/tcpclient/). TCP connections do not use the Particle cloud and are suitable for applications with higher data rates, very large data, and other specialized applications. While TCP is flexible, it does not include built-in encryption. Encryption requires the use of third-party libraries.
 
 Note that TCP server mode is not supported on cellular devices. Cellular devices can only make outgoing TCP client connections, though data does flow both ways once connected.
 
 #### UDP
 
-In addition to TCP, the low-level [UDP](/cards/firmware/udp/udp/) networking protocol is also supported. 
+In addition to TCP, the low-level [UDP](/reference/device-os/api/udp/udp/) networking protocol is also supported. 
 
 On cellular devices, persistent UDP listeners are not supported. UDP packets can be received, but only after sending a packet, only from the address that was sent to, and only for a limited period of time, between 30 seconds and 23 minutes, depending on the carrier. 
 
 #### BLE (Bluetooth LE)
 
-[BLE](/cards/firmware/bluetooth-le-ble/bluetooth-le-ble/) can be used to send data between BLE compatible devices at short distances, typically within 10 meters. BLE does not require pairing (like with A2DP Bluetooth headsets) but does not have built-in encryption support. Both peripheral and central modes are supported, so the Particle device can be either side of the BLE connection.
+[BLE](/reference/device-os/api/bluetooth-le-ble/bluetooth-le-ble/) can be used to send data between BLE compatible devices at short distances, typically within 10 meters. BLE does not require pairing (like with A2DP Bluetooth headsets) but does not have built-in encryption support. Both peripheral and central modes are supported, so the Particle device can be either side of the BLE connection.
 
 BLE is only supported on Gen 3 devices (Argon, Boron, B Series SoM).
 

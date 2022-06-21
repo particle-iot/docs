@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Wasm3",
     "version": "0.5.0",
-    "installs": 32303,
+    "installs": 32346,
     "license": "MIT",
     "author": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>, Steven Massey <soundandform@gmail.com>",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
@@ -151,8 +151,39 @@
             "Wasm_Dino_PyBadge": false,
             "Wasm_Fibonacci": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "electron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "argon": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "boron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.695Z"
     }
   },
   "readme": "# Wasm3\r\n🚀 The fastest WebAssembly interpreter\r\n\r\n[![WAPM](https://wapm.io/package/vshymanskyy/wasm3/badge.svg)](https://wapm.io/package/vshymanskyy/wasm3) \r\n[![GitHub issues](https://img.shields.io/github/issues-raw/wasm3/wasm3?style=flat-square&label=issues&color=success)](https://github.com/wasm3/wasm3/issues) \r\n[![Tests status](https://img.shields.io/github/workflow/status/wasm3/wasm3/tests/main?style=flat-square&logo=github&label=tests)](https://github.com/wasm3/wasm3/actions) \r\n[![GitHub license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/wasm3/wasm3)\r\n\r\n\r\nMain repository: [**Wasm3 project**](https://github.com/wasm3/wasm3)  \r\nThis library can be used with \r\n[`Arduino`](https://www.arduinolibraries.info/libraries/wasm3), \r\n[`PlatformIO`](https://platformio.org/lib/show/6973/Wasm3) and \r\n[`Particle`](https://build.particle.io/libs/Wasm3/latest/tab/example/Wasm_Blink.ino).\r\n\r\n## Supported devices\r\n\r\nWasm3 requires at least **~64Kb** Flash and **~10Kb** RAM even for minimal functionality.\r\n\r\nThe library was verified to work with:  \r\n`ESP32`, `ESP8266`, `Arduino MKR`, `Particle`,  \r\n`RTL8711`, `ST Nucleo WB55RG`, `BluePill`,  \r\n`Nordic nRF5`, `Teensy`, ... [see full list](https://github.com/wasm3/wasm3/blob/master/docs/Hardware.md)\r\n\r\n## Disclaimer\r\n\r\nPlease also note that Arduino API here is just for an example. We do not encourage this way of programming, and we have to come up with a better API (i.e. **Event-Driven**, **Resource-Oriented** or similar).\r\n\r\n### License\r\nThis project is released under The MIT License (MIT)\r\n",

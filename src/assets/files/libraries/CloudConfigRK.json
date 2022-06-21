@@ -1,0 +1,151 @@
+{
+  "type": "libraries",
+  "id": "CloudConfigRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CloudConfigRK/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "CloudConfigRK",
+    "version": "0.0.2",
+    "installs": 913,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Store configuration settings locally with the ability to set from the cloud",
+    "url": "https://github.com/rickkas7/CloudConfigRK",
+    "repository": "https://github.com/rickkas7/CloudConfigRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/CloudConfigRK",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": false,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "electron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": false,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "argon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": false,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "electron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": false,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "argon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": false,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "electron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": false,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "argon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          }
+        }
+      },
+      "added": "2022-06-17T10:16:53.971Z"
+    }
+  },
+  "readme": "# CloudConfigRK\n\nStore configuration settings locally with the ability to set from the cloud\n\n- Github repository: https://github.com/rickkas7/CloudConfigRK\n- License: MIT\n\nThe [full browsable API docs](https://rickkas7.github.io/CloudConfigRK/index.html) are available online as well as in HTML in the docs folder.\n\n## Storage Methods\n\nThe storage methods provide a way to store the data locally so it's available immediately after restart, and to avoid having to get the data from the cloud as frequently. You can set an adjustable refresh period, if desired, or only fetch once.\n\n### Retained Memory\n\nRetained memory is preserved:\n\n- Across reboot\n- Across sleep modes including HIBERNATE\n\nIt is not preserved:\n\n- When removing power (including use the Gen 3 EN pin)\n- Most code flashes\n- Most Device OS upgrades\n\nThere is around 3K of retained memory on most devices.\n\nTo use retained memory you create a global retained variable to store the data. The <256> parameter is the maximum size of the JSON data in characters. This can be up to 622 for function or publish, the maximum size of the payload. And equal amount of RAM is reserved, so you don't want to make this excessively large.\n\n```cpp\nretained CloudConfigData<256> retainedConfig;\n```\n\nFrom setup() initialize your updateMethod (function, subscription, webhook, etc.) and your storage method. In this case, retained memory.\n\n```\nvoid setup() {\n    // You must call this from setup!\n    CloudConfig::instance()\n        .withUpdateMethod(new CloudConfigUpdateFunction(\"setConfig\"))\n        .withStorageMethod(new CloudConfigStorageRetained(&retainedConfig, sizeof(retainedConfig)))\n        .setup();\n}\n```\n\nDon't forget to call from loop() as well!\n\n```\nvoid loop() {\n    // You must call this from loop!\n    CloudConfig::instance().loop();\n```\n\n\n### EEPROM\n\nEmulated EEPROM is a good choice on Gen2 devices because it's preserved:\n\n- Across reboot\n- Across sleep modes including HIBERNATE\n- When removing power (including use the Gen 3 EN pin)\n- Most code flashes\n- Most Device OS upgrades\n\nThere is around 3K of emulated EEPROM on most devices. \n\nOn Gen 3 devices, it may make more sense to use the flash file system file option instead. On the Argon, Boron, B Series SoM, and Tracker SoM, emulated EEPROM is just a file on the flash file system, so there is no efficiency advantage to using EEPROM over files.\n\nFrom setup() initialize your updateMethod (function, subscription, webhook, etc.) and your storage method. In this case, EEPROM.\n\nThe <256> parameter is the maximum size of the JSON data in characters. This can be up to 622 for function or publish, the maximum size of the payload. And equal amount of RAM is reserved, so you don't want to make this excessively large.\n\n```cpp\nsize_t EEPROM_OFFSET = 0;\n\nvoid setup() {\n    // You must call this from setup!\n    CloudConfig::instance()\n        .withUpdateMethod(new CloudConfigUpdateFunction(\"setConfig\"))\n        .withStorageMethod(new CloudConfigStorageEEPROM<256>(EEPROM_OFFSET))\n        .setup();\n}\n```\n\nWhen using EEPROM you must specify the start offset (EEPROM_OFFSET, 0, in this example). Note that the total EEPROM required is sizeof(CloudConfigDataHeader) + SIZE bytes as there is a 20 byte header before the data. Thus for the <256> example, it will use 256 + 20 = 276 bytes of EEPROM so you can't use anything from offset 0 to 276. Of course you can change the offset to a different part of EEPROM if you are using offset 0 already.\n\n\n### Flash File System File\n\nOn Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) running Device OS 2.0.0 or later, you can store the data in a file on the flash file system.\n\nThe file system is 2 MB, except on the Tracker SoM, where it's 4 MB. \n\nUsing a file is easy, just pass the pathname to the CloudConfigStorageFile constructor.\n\nThe <256> parameter is the maximum size of the JSON data in characters. This can be up to 622 for function or publish, the maximum size of the payload. And equal amount of RAM is reserved, so you don't want to make this excessively large.\n\n```cpp\nvoid setup() {\n    // You must call this from setup!\n    CloudConfig::instance()\n        .withDataCallback(logJson)\n        .withUpdateMethod(new CloudConfigUpdateFunction(\"setConfig\"))\n        .withStorageMethod(new CloudConfigStorageFile<256>(\"/usr/cloudconfig\"))\n        .setup();\n}\n```\n\n\n### Static Data in Code\n\nThis option does not allow for updating from the cloud, but does provide a way to store the configuration as a string constant in the program flash. This is convenient when you want to be able to use a similar code base with both hardcoded and cloud-based configuration settings.\n\n```cpp\n// {\"a\":123,\"b\":\"testing\",\"c\":true,\"d\",12.4,\"e\":[1,2,3],\"f\":{\"f1\":1,\"f2\":2}}\nconst char *testConfig = \"{\\\"a\\\":123,\\\"b\\\":\\\"testing\\\",\\\"c\\\":true,\\\"d\\\",12.4,\\\"e\\\":[1,2,3],\\\"f\\\":{\\\"f1\\\":1,\\\"f2\\\":2}}\";\n\nvoid setup() {\n    // You must call this from setup!\n    CloudConfig::instance()\n        .withStorageMethod(new CloudConfigStorageStatic(testConfig))\n        .setup();\n}\n```\n\n\n## Data Update Methods\n\nThe data update methods allow the data to be updated from the cloud.\n\n### Function\n\nThe configuration data can be updated by making a Particle.function call to the device. Since it's a \"push\" method, there's no way for the device to request it be sent the configuration data, so it's best suited for EEPROM or file storage methods.\n\nFunction update is a good choice if:\n\n- You will be pushing the changes from your own server. \n- Each device has its own configuration.\n- You want confirmation that the device received the update.\n- The device may be in sleep mode or offline.\n- You are using unclaimed product devices (also works if claimed).\n\n\n### Subscription\n\nSubscription is a good choice if:\n\n- You want to update all devices at once efficiently.\n- Devices are generally always online.\n\nNote that devices must be claimed to an account to use subscriptions; you cannot use subscriptions with unclaimed product devices.\n\nSince it's a \"push\" method, there's no way for the device to request it be sent the configuration data, so it's best suited for EEPROM or file storage methods. The webhook method is based on subscription, but works as both \"push\" and \"pull\" so it can both request the current configuration and receive configuration updates spontaneously.\n\n### Webhook\n\nThere are two examples of using a webhook: Device Notes and Google Sheets. You can easily base your own webhook-based system for getting configuration data from your own server using this method.\n\n### Device Notes\n\n![](images/device-notes.png)\n\nThe Device Notes example allows you to store the configuration data for each device in the Device Notes field in the console. One of the major benefits is that you don't need any external services and you can edit the data in the Particle console, though you do need to edit the JSON data as text. See also the Google Sheets example, below.\n\n- Create an access token for your account. You will probably want to use the [Particle CLI](https://docs.particle.io/reference/developer-tools/cli/#particle-token-create) since you will probably want a token that does not expire. Keep this secure since it allows complete access to your account!\n\n```\nparticle token create --never-expires\n```\n\n- Log into the [Particle console](https://console.particle.io) and open **Integrations**.\n\n- Use the **New Integration** button (+ icon) to create a new integration.\n\n- Select the **Webhook** option for the kind of integration to create.\n\n![](images/create-webhook.png)\n\n- Set the **Event Name**. For this test I used **CloudConfigDeviceNotes** but you can use any event name as long as you match the webhook and device firmware. Remember that the event name is a prefix, so the event name CloudConfigDeviceNotes2 would also trigger this event!\n\n- Set the **URL** field to: `https://api.particle.io/v1/devices/{{PARTICLE_DEVICE_ID}}`\n\n- Set the **Request Type** to **GET**. \n\n- Set the **Request Format** to **Query Parameters**.\n\n![](images/device-notes-advanced.png)\n\n- Click **Advanced Settings**.\n\n- Under **Query Parameters** select **Custom**.\n\n- Enter: `access_token` > *your access token* that you created above.\n\n- Under ***Webhook Responses** enter a **Response Topic**: \n\n```\n{{PARTICLE_DEVICE_ID}}/hook-response/{{PARTICLE_EVENT_NAME}}\n```\n\n- Under **Response Template** enter:\n\n```\n{{{notes}}}\n```\n\nBe sure to use triple curly brackets for this!\n\n- Save the webhook.\n\n- In the **Devices** tab in the console, open your device.\n\n- Check the **Edit** button in the upper right.\n\n- Enter this in the **Devices Notes** field:\n\n```\n{\"a\":123,\"b\":\"testing\",\"c\":true,\"d\",12.4,\"e\":[1,2,3],\"f\":{\"f1\":1,\"f2\":2}}\n```\n\n\n### Device Firmware\n\nThis is the firmware to test device notes. It stores the data in retained memory, but you could also use EEPROM or File.\n\n```cpp\n#include \"CloudConfigRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\n// Store in Device Notes\n// {\"a\":123,\"b\":\"testing\",\"c\":true,\"d\",12.4,\"e\":[1,2,3],\"f\":{\"f1\":1,\"f2\":2}}\n\nretained CloudConfigData<256> retainedConfig;\n\nvoid logJson();\n\nvoid setup() {\n    // This two lines are here so you can see the debug logs. You probably\n    // don't want them in your code.\n    waitFor(Serial.isConnected, 10000);\n    delay(2000);\n\n    // You must call this from setup!\n    CloudConfig::instance()\n        .withDataCallback([]() {\n            Log.info(\"dataCallback\");        \n            logJson();\n        })\n        .withUpdateFrequency(5min)\n        .withUpdateMethod(new CloudConfigUpdateWebhook(\"CloudConfigDeviceNotes\"))\n        .withStorageMethod(new CloudConfigStorageRetained(&retainedConfig, sizeof(retainedConfig)))\n        .setup();\n}\n\nvoid loop() {\n    // You must call this from loop!\n    CloudConfig::instance().loop();\n}\n\n\nvoid logJson() {\n    if (CloudConfig::instance().getJSONValueForKey(\"a\").isValid()) {\n        Log.info(\"a=%d b=%s c=%s d=%lf\",\n            CloudConfig::instance().getInt(\"a\"),\n            CloudConfig::instance().getString(\"b\"),\n            CloudConfig::instance().getBool(\"c\") ? \"true\" : \"false\",\n            CloudConfig::instance().getDouble(\"d\"));\n\n        JSONValue array = CloudConfig::instance().getJSONValueForKey(\"e\");\n        JSONArrayIterator iter(array);\n        for(size_t ii = 0; iter.next(); ii++) {\n            Log.info(\"%u: %s\", ii, iter.value().toString().data());\n        }\n\n        JSONValue obj = CloudConfig::instance().getJSONValueForKey(\"f\");\n        Log.info(\"f1=%d f2=%d\",\n            CloudConfigStorage::getJSONValueForKey(obj, \"f1\").toInt(),\n            CloudConfigStorage::getJSONValueForKey(obj, \"f2\").toInt());\n    }\n    else {\n        Log.info(\"no config set\");\n    }\n\n}\n\n```\n\n### Google Sheets\n\nThis is a great option for storing per-device configuration for a set of devices in a Google Sheets spreadsheet. It makes adding and updating configuration easy, and you can see the values for your fleet at a glance. \n\n![](images/update-button.png)\n\nThe setup process is a bit involved, so it's in a [separate page](GoogleSheets.md). However, once you've got it set up, updating configuration values is as easy as editing a Google spreadsheet. Also, it uses Apps Script, which is included in your G Suite subscription, so you don't need to purchase separate Google Cloud computing resources!\n\nThe second part of the tutorial adds the **Update Selected** button so you can send the configuration to selected devices (that are online) immediately!\n\n\n### Static Data\n\nThis storage method doesn't use the cloud at all and instead has the configuration as a static string in code.\n\nThis is mainly so you can use the same code base for cloud or local storage, swappable at compile time. It's a bit of overkill for normal use.\n \n## Version History\n\n### 0.0.2 (2021-02-21)\n\n- Fixed a bug where EEPROM wasn't saved correct (eepromOffset not stored)",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

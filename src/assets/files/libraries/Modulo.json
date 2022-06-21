@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Modulo",
     "version": "1.2.0",
-    "installs": 282,
+    "installs": 295,
     "author": "Erin Tomson <erin@modulo.co>",
     "url": "https://github.com/modulolabs/modulo-particle",
     "repository": "https://github.com/modulolabs/modulo-particle.git",
@@ -104,8 +104,51 @@
             "MotorTutorial": true,
             "USBControl": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "electron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "argon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "boron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.106Z"
     }
   },
   "readme": "# modulo-particle\nThe modulo library for particle.io\n",

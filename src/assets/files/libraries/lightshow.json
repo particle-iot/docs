@@ -7,7 +7,7 @@
   "attributes": {
     "name": "lightshow",
     "version": "0.0.5",
-    "installs": 289,
+    "installs": 303,
     "license": "MIT",
     "author": "Jeremy Calloway <xntricweb@gmail.com>",
     "sentence": "A neopixel helper library to show off some pretty colors.",
@@ -58,8 +58,27 @@
             "_basic_lightshow": false,
             "_lightshow-with-blynk": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "electron": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.103Z"
     }
   },
   "readme": "# spark-lightshow",

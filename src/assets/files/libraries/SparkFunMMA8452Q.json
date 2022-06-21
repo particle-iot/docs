@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMMA8452Q",
     "version": "1.0.1",
-    "installs": 30037,
+    "installs": 37177,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A Particle library for the SparkFun MMA8452Q 3-axis I2C accelerometer.",
@@ -50,8 +50,23 @@
           "boron": {
             "MMA8452Q-Serial_Example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "electron": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "argon": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "boron": {
+            "MMA8452Q-Serial_Example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.691Z"
     }
   },
   "readme": "### SparkFun MMA8452Q 3-Axis Accelerometer Particle Library\n\nA firmware library for the SparkFun's [MMA8452Q 3-Axis Accelerometer](https://www.sparkfun.com/products/12756).\n\n[![MMA8452Q 3-Axis Accelerometer](https://cdn.sparkfun.com//assets/parts/9/5/1/5/12756-00.jpg)](https://www.sparkfun.com/products/12756)\nAbout\n-------------------\n\nThe MMA8452Q is an I2C-based 3-axis accelerometer. It has user selectable full scales of ±2g/±4g/±8g with high pass filtered data as well as non filtered data available real-time. Unique features include programmable interrupts, tap-detection, and orientation detection.\n\nRepository Contents\n-------------------\n\n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particle library manager. \n\nExample Usage\n-------------------\n\n#### Create an MMA8452Q 3-Axis Accelerometer Object & Initialize\n\nTo begin, create an MMA8452Q 3-Axis Accelerometer class object. This'll often go in the global section of the code:\n\n\t//////////////////////////////\n\t// MMA8452Q Object Creation //\n\t//////////////////////////////\n\tMMA8452Q accel; // This creates an MMA8452Q object, which we'll use to interact with the sensor\n\nTo initialize the sensor, call the `begin([range], [odr])` function, where `[range]` is the full-scale range of the sensor and `[odr]` is the output data rate:\n\n\tvoid setup()\n\t{\n\t\t...\n\t\taccel.begin(SCALE_2G, ODR_1); // Set up accel with +/-2g range, and slowest (1Hz) ODR\n\t\t...\n\t}\n\nThe full-scale range can be: `SCALE_2G`, `SCALE_4G`, or `SCALE_8G` (2, 4, or 8g).\n\nThe output-data rate (ODR) can be: `ODR_800`, `ODR_400`, `ODR_200`, `ODR_100`, `ODR_50`, `ODR_12`, `ODR_6` or `ODR_1` (800, 400, 200, 100, 50, 12, 6, or 1 Hz).\n\n#### Update and Read Acceleration Values\n\nAll three of the accelerometer values are read in one fell swoop with the `read()` function:\n\n\taccel.read();\n\nOnce read, the library updates six class variables: `x`, `y`, `z` -- the \"raw\" 12-bit values from the accelerometer -- and `cx`, `cy`, and `cz`, the calculated accelerations in _g_.\n\n\tSerial.println(\"X: \" + String(accel.x) + \" | \" + String(accel.cx, 2) + \" g\");\n\tSerial.println(\"Y: \" + String(accel.y) + \" | \" + String(accel.cy, 2) + \" g\");\n\tSerial.println(\"Z: \" + String(accel.z) + \" | \" + String(accel.cz, 2) + \" g\");\n\nRecommended Components\n-------------------\n\n* [MMA8452Q 3-Axis Accelerometer](https://www.sparkfun.com/products/12756)\n* [Particle Photon](https://www.sparkfun.com/products/13345) or [SparkFun Photon RedBoard](https://www.sparkfun.com/products/13321)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.",

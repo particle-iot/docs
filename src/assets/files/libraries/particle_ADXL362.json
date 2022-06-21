@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle_ADXL362",
     "version": "0.0.1",
-    "installs": 359172,
+    "installs": 360567,
     "license": "GNU Lesser GPL v3",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Read orientation, acceleration and temperature from the ADXL362",
@@ -50,8 +50,23 @@
           "boron": {
             "motion": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "motion": true
+          },
+          "electron": {
+            "motion": true
+          },
+          "argon": {
+            "motion": true
+          },
+          "boron": {
+            "motion": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.638Z"
     }
   },
   "readme": "# ADXL362\nLibrary for the ADXL362 accelerometer factored out of the internet button library\n",

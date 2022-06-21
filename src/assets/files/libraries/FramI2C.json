@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FramI2C",
     "version": "0.1.3",
-    "installs": 5009,
+    "installs": 5265,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -35,7 +35,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.811Z"
     }
   },
   "readme": "# FramI2C\r\nSentient Things FRAM I2C library. Based on the SPI FRAM work by Ray Benitez. \r\n\r\nWorks with the following FRAM:\r\n```\r\n\tMB85RC64 = 0,\t\t      \t// 8KB\r\n\tMB85RC128A,\t\t\t// 16KB older model\r\n\tMB85RC128B,\t\t\t// 16KB newer model\r\n\tMB85RC256A,\t\t\t// 32KB older model\r\n\tMB85RC256B,\t\t\t// 32KB newer model\r\n\tMB85RC256V,\t\t\t// 32KB\r\n\tMB85RC512T,\t\t\t// 64KB\r\n```\r\n\r\nThe library works with structs up to 127 bytes in length.\r\n\r\n```\r\n// Create FRAM instances\r\n#define PART_NUMBER MB85RC256V\r\nFramI2C myFram(PART_NUMBER); // create an instance\r\nframResult myResult = framUnknownError; // Error message\r\n```\r\n\r\nBasic functionality includes reading and writing elements:\r\n\r\n\tframResult read(unsigned long startAddress, unsigned int numberOfBytes, byte *buffer);\r\n\tframResult write(unsigned long startAddress, unsigned int numberOfBytes, byte *buffer);\r\n\t\r\nCreating an array:\r\n```\r\nFramI2CArray framConfig(myFram, 10, sizeof(Settings_t), myResult);\r\n```\r\nand reading and writing to the array:\r\n\r\n\tvoid readElement(unsigned long index, byte *buffer, framResult &result);\r\n\tvoid writeElement(unsigned long index, byte *buffer, framResult &result);\r\n\t\r\nA Ring buffer class is also included - i.e.\r\n```\r\nRing_FramArray dataRing(myFram, 300, sizeof(sensorReadings), myResult);\r\n```\r\n\r\nwith the ability to pop push peek etc:\r\n\r\n\tbool popFirstElement(byte *buffer);\r\n\tbool popLastElement(byte *buffer);\r\n\tvoid pushElement(byte *buffer);\r\n\tbool peekFirstElement(byte *buffer);\r\n\tbool peekLastElement(byte *buffer);\r\n\tvoid clearArray();\r\n\tbool isEmpty();\r\n\tbool isFull();\r\n\r\nAs of Version 0.1.0, the ring array keeps track of its pointers in FRAM.\r\nRun initialize() to load the pointers before using the ring.\r\n\r\n\r\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Si7021_kag",
     "version": "1.2.3",
-    "installs": 253,
+    "installs": 291,
     "license": "BSD",
     "author": "Adafruit info@adafruit.com",
     "maintainer": "Ron M. Battle CaptIgmu",
@@ -28,7 +28,8 @@
   "versions": {
     "1.2.3": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.107Z"
     }
   },
   "readme": "Adafruit Si7021\n===============\n\nDriver for Adafruit's Si7021 humidity / temp sensor breakout\n\nDesigned specifically to work with the Si7021 breakout in the adafruit shop\n\n   * https://www.adafruit.com/products/3251\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nSensor data sheet:\nhttps://www.silabs.com/Support%20Documents%2FTechnicalDocs%2FSi7021-A20.pdf\n\nModified for use as a community library for Particle Photon/Electron  RMB\n",

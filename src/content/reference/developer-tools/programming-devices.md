@@ -77,7 +77,7 @@ It is also possible to use the Particle CLI to manually program the device, whic
 - Flash the SoftDevice (Gen 3 only) using `particle flash --usb`.
 - Program system-parts in numerical order using `particle flash --usb`
 - Program the user firmware using `particle flash --usb`
-- Mark setup done (Gen 3) using `particle usb setup-done`
+- Mark setup done (Gen 3 running Device OS 3.x or earlier) using `particle usb setup-done`
 
 You can download the necessary files for several common Device OS releases as a zip file for several common Device OS releases here:
 
@@ -95,14 +95,14 @@ All versions are available in [GitHub Device OS Releases](https://github.com/par
 | System Parts | All | &check; | &check;<sup>2</sup> |
 | User Firmware | All | &check; | &check;<sup>2</sup> |
 
-<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](/troubleshooting/device-restore/device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
+<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](/tools/device-restore/device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
 
 <sup>2</sup> While it's possible to flash system parts in listening mode (--serial), using DFU mode is generally more reliable. If you are downgrading in --serial mode, there are also additional restrictions, as the system parts must be flashed in reverse numerical order. Also, you can run into a situation where the device reboots too early in --serial mode, and completes the upgrade OTA, which defeats the purpose of flashing over USB first.
 
 
 ## USB (web-based)
 
-[Device Restore - USB](/troubleshooting/device-restore/device-restore-usb/) is a convenient way to flash a specific version of Device OS, bootloader, SoftDevice, and user firmware onto a device over USB. It's normally used for individual developers, not manufacturing.
+[Device Restore - USB](/tools/device-restore/device-restore-usb/) is a convenient way to flash a specific version of Device OS, bootloader, SoftDevice, and user firmware onto a device over USB. It's normally used for individual developers, not manufacturing.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
@@ -141,7 +141,7 @@ The Electron, E Series, Photon and P1 have SWD on pins D7, D5, and optionally RE
 
 If you want to use SWD/JTAG see the [JTAG Reference](/reference/developer-tools/jtag/). The most common method is to generate an Intel Hex File (.hex) containing all of the binaries, including your user firmware binary. 
 
-Using the [Hex File Generator](/troubleshooting/developer-tools/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
+Using the [Hex File Generator](/tools/developer-tools/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
 
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 

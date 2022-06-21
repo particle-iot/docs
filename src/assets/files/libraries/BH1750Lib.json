@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BH1750Lib",
     "version": "0.0.5",
-    "installs": 7369,
+    "installs": 9071,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Davide Gironi <davide.gironi@gmail.com>",
     "sentence": "A Spark.io for the BH1750FVI IC.",
@@ -50,8 +50,23 @@
           "boron": {
             "BH1750LibSample": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BH1750LibSample": false
+          },
+          "electron": {
+            "BH1750LibSample": false
+          },
+          "argon": {
+            "BH1750LibSample": false
+          },
+          "boron": {
+            "BH1750LibSample": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.765Z"
     }
   },
   "readme": "About\n===\n\nA [Spark.io] (https://www.spark.io/) library for the BH1750FVI IC.\n\nThe BH1750 IC is a light intensity sensor module with built-in a 16 bit AD converter generating digital signal. With the BH1750 Light Sensor intensity can be directly measured by the luxmeter, without needing to make calculations.\nThis library provides function to measure lux through I2C on a Spark Core.\n\nCopyright\n---\nCopyright (c) Davide Gironi, 2014<br/>\n[http://davidegironi.it] (http://davidegironi.it/)<br/>\n\nLicense\n---\nReleased under GPLv3.<br/>\nPlease refer to LICENSE file for licensing information.\n\n",

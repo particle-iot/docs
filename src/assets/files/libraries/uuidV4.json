@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uuidV4",
     "version": "1.0.1",
-    "installs": 753,
+    "installs": 763,
     "license": "MIT",
     "author": "Micah L Abelson",
     "sentence": "A Particle library to create version 4 universally unique identifier (UUID)",
@@ -50,8 +50,23 @@
           "boron": {
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.988Z"
     }
   },
   "readme": "# uuidV4\n\nA Particle library to create version 4 universally unique identifier (UUID)\n\n\n## Usage\n\nThis is not a typical library in the sense that there is no class.  It is simply a function that can be included and called using the uuid:: namespace.\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nA Particle library to create version 4 universally unique identifier (UUID).  This function uses the Particle HAL RNG rather than the standard random function in order access to the STM32F205 32 bit true random number generator.\n\n## LICENSE\nCopyright 2017 Micah L Abelson\n\nLicensed under the MIT license\n",

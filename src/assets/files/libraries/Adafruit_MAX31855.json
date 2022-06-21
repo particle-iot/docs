@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31855",
     "version": "0.0.2",
-    "installs": 28542,
+    "installs": 29044,
     "license": "BSD",
     "author": "Adafruit, Technobly",
     "sentence": "Adafruit MAX31885 Library ported to Spark Core.",
@@ -58,8 +58,27 @@
             "lcd-thermocouple": false,
             "serial-thermocouple": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "electron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.702Z"
     }
   },
   "readme": "This is the Adafruit MAX31885 Arduino Library ported to Spark Core\n---\n\nTested and works great with the Adafruit Thermocouple Breakout w/MAX31885K \n------> http://www.adafruit.com/products/269\n\nThese modules use SPI to communicate, 3 pins are required to\ninterface. Technically this is a software SPI implementation, so these pins can be defined anywhere on the Spark Core. For simplicity, the pins used below are the same pins used for the Hardware SPI.\n\n```\nMAX31885 Breakout    Spark Core\nVin                  3V3*\n3Vo                  (No Connection)\nGND                  GND\nDO (Data Out)        A4 (MISO)\nCS (Chip Select)     A2 (SS)\nCLK (Clock)          A3 (SCK)\n```\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries. Ported to Spark Core by Technobly.\nBSD license, check LICENSE for more information All text above must be included in any redistribution",

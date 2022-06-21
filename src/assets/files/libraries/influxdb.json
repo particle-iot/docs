@@ -7,7 +7,7 @@
   "attributes": {
     "name": "influxdb",
     "version": "0.0.2",
-    "installs": 447,
+    "installs": 537,
     "license": "MIT",
     "author": "Wojtek Siudzinski <admin@suda.pl>",
     "sentence": "InfluxDB data writer library",
@@ -27,7 +27,8 @@
   "versions": {
     "0.0.2": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.030Z"
     }
   },
   "readme": "# InfluxDB library for Particle devices\n",

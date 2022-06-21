@@ -7,7 +7,7 @@
   "attributes": {
     "name": "StreamDebug",
     "version": "0.0.2",
-    "installs": 388,
+    "installs": 413,
     "author": "Exovii",
     "architectures": [],
     "visibility": "public",
@@ -19,7 +19,8 @@
   "versions": {
     "0.0.2": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.062Z"
     }
   },
   "readme": "# StreamDebug\n\nA Particle project named StreamDebug.\n\n## Overview\n\nA simple library to debug on any stream, like serial ports, and embedding sprintf-like behaviour.\n\n## Use\n\nSee examples directory.\n",

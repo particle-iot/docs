@@ -1,7 +1,10 @@
 {
   "versionNames": [
+    "4.0.0-alpha.1",
     "3.3.0",
     "3.3.0-rc.1",
+    "3.2.1-p2.3",
+    "3.2.1-p2.2",
     "3.2.0",
     "3.2.0-rc.1",
     "3.1.0",
@@ -257,6 +260,12 @@
       "photon",
       "tracker"
     ],
+    "3.2.1-p2.2": [
+      "p2"
+    ],
+    "3.2.1-p2.3": [
+      "p2"
+    ],
     "3.3.0": [
       "argon",
       "b5som",
@@ -275,6 +284,13 @@
       "electron",
       "p1",
       "photon",
+      "tracker"
+    ],
+    "4.0.0-alpha.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
       "tracker"
     ]
   },
@@ -428,6 +444,12 @@
       "photon",
       "tracker"
     ],
+    "3.2.1-p2.2": [
+      "p2"
+    ],
+    "3.2.1-p2.3": [
+      "p2"
+    ],
     "3.3.0": [
       "argon",
       "b5som",
@@ -447,6 +469,13 @@
       "p1",
       "photon",
       "tracker"
+    ],
+    "4.0.0-alpha.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "tracker"
     ]
   },
   "platforms": [
@@ -454,60 +483,87 @@
       "name": "argon",
       "title": "Argon",
       "id": 12,
-      "gen": 3
+      "gen": 3,
+      "mcu": "nRF52840",
+      "wifi": true
     },
     {
       "name": "boron",
       "title": "Boron",
       "id": 13,
-      "gen": 3
+      "gen": 3,
+      "mcu": "nRF52840",
+      "cellular": true
     },
     {
       "name": "bsom",
       "title": "B4xx",
       "id": 23,
-      "gen": 3
+      "gen": 3,
+      "mcu": "nRF52840",
+      "cellular": true
     },
     {
       "name": "b5som",
       "title": "B5xx",
       "id": 25,
-      "gen": 3
+      "gen": 3,
+      "mcu": "nRF52840",
+      "cellular": true
     },
     {
       "name": "tracker",
       "title": "Tracker",
       "id": 26,
-      "gen": 3
+      "gen": 3,
+      "mcu": "nRF52840",
+      "cellular": true
     },
     {
       "name": "electron",
       "title": "Electron",
       "id": 10,
-      "gen": 2
+      "gen": 2,
+      "mcu": "STM32F205",
+      "cellular": true
     },
     {
       "name": "photon",
       "title": "Photon",
       "id": 6,
-      "gen": 2
+      "gen": 2,
+      "mcu": "STM32F205",
+      "wifi": true
     },
     {
       "name": "p1",
       "title": "P1",
       "id": 8,
-      "gen": 2
+      "gen": 2,
+      "mcu": "STM32F205",
+      "wifi": true
+    },
+    {
+      "name": "p2",
+      "title": "P2",
+      "id": 32,
+      "gen": 3,
+      "mcu": "RTL8721",
+      "wifi": true
     },
     {
       "name": "xenon",
       "title": "Xenon",
       "id": 14,
       "gen": 3,
-      "discontinued": true
+      "mcu": "nRF52840",
+      "discontinued": true,
+      "mesh": true
     }
   ],
   "versionsZipByPlatform": {
     "argon": [
+      "4.0.0-alpha.1",
       "3.3.0",
       "3.3.0-rc.1",
       "3.2.0",
@@ -527,6 +583,7 @@
       "1.4.4"
     ],
     "boron": [
+      "4.0.0-alpha.1",
       "3.3.0",
       "3.3.0-rc.1",
       "3.2.0",
@@ -546,6 +603,7 @@
       "1.4.4"
     ],
     "bsom": [
+      "4.0.0-alpha.1",
       "3.3.0",
       "3.3.0-rc.1",
       "3.2.0",
@@ -565,6 +623,7 @@
       "1.4.4"
     ],
     "b5som": [
+      "4.0.0-alpha.1",
       "3.3.0",
       "3.3.0-rc.1",
       "3.2.0",
@@ -583,6 +642,7 @@
       "1.5.2"
     ],
     "tracker": [
+      "4.0.0-alpha.1",
       "3.3.0",
       "3.3.0-rc.1",
       "3.2.0",
@@ -655,6 +715,10 @@
       "2.0.1",
       "1.5.2",
       "1.4.4"
+    ],
+    "p2": [
+      "3.2.1-p2.3",
+      "3.2.1-p2.2"
     ],
     "xenon": [
       "1.5.2"

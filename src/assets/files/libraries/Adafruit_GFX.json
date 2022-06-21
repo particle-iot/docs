@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_GFX",
     "version": "0.0.0",
-    "installs": 61668,
+    "installs": 63421,
     "license": "SOME",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "A Port of the ADAFruit GFX libary",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.675Z"
     }
   },
   "readme": "Adafruit_SSD1306\n================\n\nAdafruit_GFX library ported for Spark by Paul Kourany, Mar 18, 2014\nUntested as of Mar 18, 2018\n\n",

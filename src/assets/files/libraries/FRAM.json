@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FRAM",
     "version": "1.0.1",
-    "installs": 632,
+    "installs": 648,
     "license": "GPLv3",
     "author": "Paul Kourany, Kenneth Lim",
     "sentence": "FRAM library for Particle.",
@@ -58,8 +58,27 @@
             "FRAM-Checkcounter": true,
             "FRAM-RW-validate": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "electron": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "argon": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          },
+          "boron": {
+            "FRAM-Checkcounter": false,
+            "FRAM-RW-validate": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.011Z"
     }
   },
   "readme": "fram-lib\n========\n\nFRAM library for Fujitsu IC\n\nThe following functions are available in this library:\n\n* FRAM(uint8_t chipSelect, framAvailSize framSize);\n* int8_t Read(uint16_t addr, uint8_t* buf, uint16_t count);\n* int8_t Write(uint16_t addr, uint8_t* buf, uint16_t count);\n* int8_t Present(void);\n* int16_t MaxAdd(void);\n* void init(void);\n\nYou will be able to better understand how they can be used in this  [example](/firmware/examples/FRAM-RW-validate.ino).\n\nUpdated on: 23 July 2015\n",

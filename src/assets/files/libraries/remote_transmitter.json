@@ -7,7 +7,7 @@
   "attributes": {
     "name": "remote_transmitter",
     "version": "2.3.1",
-    "installs": 596,
+    "installs": 621,
     "license": "GPLv3",
     "author": "Randy Simons",
     "sentence": "This library provides an easy class for Arduino, to send and receive signals used by some common old style 433MHz remote control switches.",
@@ -23,7 +23,8 @@
   "versions": {
     "2.3.1": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.016Z"
     }
   },
   "readme": "RemoteSwitch library v2.3.0 (20121229) for Arduino 1.0\r\n\r\nOriginally authored by Randy Simons http://randysimons.nl/\r\n\r\nOriginal repository: https://github.com/hjgode/homewatch/tree/master/arduino/libraries/RemoteSwitch\r\n \r\n**Compatible with Particle Photon.**\r\n\r\nThis library provides an easy class for Arduino, to send and receive signals\r\nused by some common \"old style\" 433MHz remote control switches.\r\n",

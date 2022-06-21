@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ds1307",
     "version": "0.0.1",
-    "installs": 5096,
+    "installs": 5818,
     "license": "Public Domain",
     "author": "JeeLabs, Technobly",
     "sentence": "DS-1307 RTC library",
@@ -50,8 +50,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.802Z"
     }
   },
   "readme": "# RTC DS1307 library for Spark/Particle Core\n",

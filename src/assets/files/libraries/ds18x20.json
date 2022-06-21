@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ds18x20",
     "version": "0.0.4",
-    "installs": 9749,
+    "installs": 10130,
     "license": "GPL",
     "author": "MORA99 <jkn@air-port.dk>",
     "sentence": "DS18B20/DS18S20 library with support for multiple sensors",
@@ -50,8 +50,23 @@
           "boron": {
             "onewiretemp": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "onewiretemp": false
+          },
+          "electron": {
+            "onewiretemp": false
+          },
+          "argon": {
+            "onewiretemp": false
+          },
+          "boron": {
+            "onewiretemp": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.756Z"
     }
   },
   "readme": "Ported AVR code for interacting with DS18B20 sensors.\r\n\r\nSupports multiple sensors on one pin.\r\n\r\nStandard hardware configuration, 4.7k ohm resistor from data to VCC line.\r\n\r\nNote that this is C code, not CPP, so functions etc are not enclosed in their own name space.\r\nThe functions are named crc8 for the CRC calculations, ow_ for onewire functions, and DS18X20_ for temperature specific functions.\r\n\r\n## Typical usage\r\n\r\n```\r\n#include \"ds18x20.h\"\r\n#include \"onewire.h\"\r\n\r\nuint8_t sensors[80];\r\n\r\nvoid log(char* msg)\r\n{\r\n    Particle.publish(\"log\", msg);\r\n    delay(500);\r\n}\r\n\r\nvoid setup()\r\n{\r\n    ow_setPin(D0);\r\n}\r\n\r\nvoid loop()\r\n{\r\n    uint8_t subzero, cel, cel_frac_bits;\r\n    char msg[100];\r\n    log(\"Starting measurement\");    \r\n    \r\n    DS18X20_start_meas( DS18X20_POWER_PARASITE, NULL ); //Asks all DS18x20 devices to start temperature measurement, takes up to 750ms at max resolution\r\n    delay(1000); //If your code has other tasks, you can store the timestamp instead and return when a second has passed.\r\n\r\n    uint8_t numsensors = ow_search_sensors(10, sensors);\r\n    sprintf(msg, \"Found %i sensors\", numsensors);\r\n    log(msg);\r\n\r\n    \r\n    for (uint8_t i=0; i<numsensors; i++)\r\n    {\r\n        if (sensors[i*OW_ROMCODE_SIZE+0] == 0x10 || sensors[i*OW_ROMCODE_SIZE+0] == 0x28) //0x10=DS18S20, 0x28=DS18B20\r\n        {\r\n            //log(\"Found a DS18B20\");\r\n\t\t\tif ( DS18X20_read_meas( &sensors[i*OW_ROMCODE_SIZE], &subzero, &cel, &cel_frac_bits) == DS18X20_OK ) {\r\n\t\t\t\tchar sign = (subzero) ? '-' : '+';\r\n\t\t\t\tint frac = cel_frac_bits*DS18X20_FRACCONV;\r\n\t\t\t\tsprintf(msg, \"Sensor# %d (%02X%02X%02X%02X%02X%02X%02X%02X) =  : %c%d.%04d\\r\\n\",i+1,\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+0],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+1],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+2],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+3],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+4],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+5],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+6],\r\n\t\t\t\tsensors[(i*OW_ROMCODE_SIZE)+7],\r\n\t\t\t\tsign,\r\n\t\t\t\tcel,\r\n\t\t\t\tfrac\r\n\t\t\t\t);\r\n\t\t\t\tlog(msg);\r\n\t\t\t}\r\n\t\t\telse\r\n\t\t\t{\r\n\t\t\t    Particle.publish(\"log\", \"CRC Error (lost connection?)\");\r\n\t\t\t}\r\n        }\r\n    }\r\n    delay(10000);\r\n}\r\n```",

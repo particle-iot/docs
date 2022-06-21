@@ -5949,3 +5949,12 @@ E314X
  - src/content/reference/datasheets/wi-fi/p2-eval-board.md
 40-pin
 20x2
+ - src/content/getting-started/integrations/community-integrations/ifttt.md
+TestEvent
+bCYXXXXXXXX_YfdXXXXXeV
+ - src/content/getting-started/integrations/community-integrations/zapier.md
+Zapier
+ - src/content/tools/developer-tools/usb-serial.md
+WebSerial
+ - src/content/tools/developer-tools/web-ide-exporter.md
+export.zip

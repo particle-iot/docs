@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LedControl-MAX7219-MAX7221",
     "version": "0.0.10",
-    "installs": 10944,
+    "installs": 11205,
     "license": "GNU GPL v3",
     "author": "Christian Loris <christian.loris@gmail.com>",
     "sentence": "Port of Eberhard Fahle's LedControl library for controlling the MAX7219/MAX7221 for the Spark Core.",
@@ -50,8 +50,23 @@
           "boron": {
             "matrixpaneldemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "matrixpaneldemo": true
+          },
+          "electron": {
+            "matrixpaneldemo": true
+          },
+          "argon": {
+            "matrixpaneldemo": true
+          },
+          "boron": {
+            "matrixpaneldemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.748Z"
     }
   },
   "readme": "LedControl\n==========\n\nPort of Eberhard Fahle's LedControl library for controlling the MAX7219/MAX7221 for the Spark Core.\n\nhttps://code.google.com/p/arudino-maxmatrix-library/\n",

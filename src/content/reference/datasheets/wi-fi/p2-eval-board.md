@@ -43,6 +43,28 @@ If powering by USB, 500 mA is required. This a compatible with most USB hubs, co
  
 The P2 includes a built-in trace antenna that is used for both BLE and Wi-Fi. A U.FL connector is provided for an external antenna, if desired. The antenna selection must be made in software; the P2 will not automatically switch between built-in and external antennas. If using an external antenna, a dual-band (2.4 GHz and 5 GHz) antenna is required. The external antenna doesn't have to explicitly include BLE support, as the BLE frequencies are the same as 2.4 GHz Wi-Fi so all dual-band Wi-Fi antennas are compatible.
 
+## Building user firmware
+
+As of the time of writing (June 2022), P2 firmware can only be compiled using the cloud compiler.
+
+### Using Particle Workbench
+
+When using Particle Workbench, use the **Particle: Launch CLI** option from the Command Palette (Command-Shift-P or Ctrl-Shift-P). Then use the Particle CLI to generate a binary, as described in the next section.
+
+### Using the Particle CLI
+
+From the Particle CLI, you can use a command such as:
+
+```
+particle compile p2 . --target 3.2.1-p2.3 --saveTo firmware.bin
+```
+
+Note that you must specify a target system version when building for the P2. If an upgrade of Device OS is required, it will be updated OTA.
+
+### Using the Web IDE
+
+From the Web IDE, select the Devices icon, then your P2 device, then target an appropriate firmware version, such as 3.2.1-p2.3 or 3.2.1-p2.2. If an upgrade of Device OS is required, it will be updated OTA.
+
 ## Expansion connectors
 
 ### Expansion header

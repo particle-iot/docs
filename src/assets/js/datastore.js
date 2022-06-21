@@ -192,8 +192,16 @@ datastore.findCountryModemSim = function(country, modem, sim) {
     let result = null;
 
     datastore.data.countryModemSim.forEach(function(obj) {
-        if (obj.country == country && obj.modem == modem && obj.sim == sim) {
-            result = obj;
+        if (obj.country == country && obj.sim == sim) {
+            if (Array.isArray(modem)) {
+                if (modem.includes(obj.modem)) {
+                    result = obj;
+                }
+            }
+            else 
+            if (obj.modem == modem) {
+                result = obj;
+            }
         }
     });
 

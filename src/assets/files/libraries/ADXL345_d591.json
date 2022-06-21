@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADXL345_d591",
     "version": "0.1.1",
-    "installs": 1534,
+    "installs": 1582,
     "license": "GPLv3",
     "author": "Kenneth Lim",
     "sentence": "ADXL345 3-axes accelerometer",
@@ -66,8 +66,31 @@
             "2_no_lib": true,
             "3_run": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "electron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "argon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.911Z"
     }
   },
   "readme": "##ADXL345 Library\n\nOriginal library repo is at: https://github.com/jenschr/Arduino-libraries/tree/master/ADXL345\n\nPorted over to Spark core platform by @kennethlimcp\n\nUpdated on 23 July 2015\n",

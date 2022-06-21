@@ -22,7 +22,7 @@ Both the Feather and Gen 3 M.2 SoM Click shields have two mikroBUS sockets.
 
 There are a very large number of Click shields available, however there is no set of available libraries like the Sparkfun Qwiic line. One reason is that the Mikroe line is designed around generic ARM processors, not Arduino. While the Arduino library system is different than Particle, the translation is very straightforward and was automated. There currently is no automatic translation of Mikroe libraries to Particle so they need to be done by hand.
 
-For some sensors, for example the TMP102 I2C temperature sensor, there is a library available in the [Particle community libraries](/cards/libraries/s/SparkFun-TMP102/).
+For some sensors, for example the TMP102 I2C temperature sensor, there is a library available in the [Particle community libraries](/reference/device-os/libraries/s/SparkFun-TMP102/).
 
 
 ## Feather Shield

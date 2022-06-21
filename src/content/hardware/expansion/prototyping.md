@@ -29,7 +29,7 @@ Also, ncd has a large selection of relay boards for Particle devices.
 
 ## Grove
 
-[Seeed Studio](https://www.seeedstudio.com/) has the [Grove](https://www.seeedstudio.com/category/Grove-c-1003.html) line of expansion boards. They all have the same four-pin connectors, however, there is different functionality depending on which port you are connected to:
+[Seeed Studio](https://www.seeedstudio.com/) has the Grove line of expansion boards. They all have the same four-pin connectors, however, there is different functionality depending on which port you are connected to:
 
 - Analog input (ADC)
 - Digital GPIO

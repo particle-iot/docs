@@ -19473,7 +19473,7 @@
     {
       "name": "B404XMEA",
       "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "In development",
       "modem": "R510",
       "sim": 4,
       "simPlans": [
@@ -19497,7 +19497,7 @@
     {
       "name": "B404XMTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "In development",
       "modem": "R510",
       "multiple": true,
       "sim": 4,
@@ -20016,7 +20016,7 @@
     {
       "name": "BRN404X",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "In development",
       "modem": "R510",
       "sim": 4,
       "simPlans": [
@@ -20041,7 +20041,7 @@
     {
       "name": "BRN404XKIT",
       "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "In development",
       "modem": "R510",
       "sim": 4,
       "simPlans": [
@@ -20066,7 +20066,7 @@
     {
       "name": "BRN404XTRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
+      "lifecycle": "In development",
       "modem": "R510",
       "multiple": true,
       "sim": 4,
@@ -21989,7 +21989,7 @@
           "modem": "BG96-MC"
         },
         {
-          "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (Europe) EtherSIM",
+          "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "T524",
             "ONE524"
@@ -22039,7 +22039,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R510"
+          "modem": "R510",
+          "mapColor": 0
         },
         {
           "name": "B Series B404 LTE M1 (NorAm) EtherSIM",
@@ -22047,13 +22048,14 @@
             "B404"
           ],
           "region": "noram",
-          "lifecycle": "NRND",
+          "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
-          "name": "B Series B524 LTE CAT1/3G/2G (Europe) EtherSIM",
+          "name": "B Series B524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "B524"
           ],
@@ -22061,7 +22063,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "EG91-E"
+          "modem": "EG91-E",
+          "mapColor": 1
         },
         {
           "name": "B Series B402 LTE M1 (NorAm) (before 2021)",
@@ -22072,7 +22075,8 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "B Series B523 LTE CAT1/3G/2G (Europe) (before 2021)",
@@ -22083,7 +22087,8 @@
           "lifecycle": "NRND",
           "sim": 2,
           "simPlan": 20,
-          "modem": "EG91-E"
+          "modem": "EG91-E",
+          "mapColor": 1
         }
       ]
     },
@@ -22100,7 +22105,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R510"
+          "modem": "R510",
+          "mapColor": 0
         },
         {
           "name": "Boron BRN404 LTE M1 (NorAm) EtherSIM",
@@ -22108,10 +22114,11 @@
             "BRN404"
           ],
           "region": "noram",
-          "lifecycle": "NRND",
+          "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "Boron BRN314 2G/3G Global EtherSIM",
@@ -22122,7 +22129,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "U201"
+          "modem": "U201",
+          "mapColor": 1
         },
         {
           "name": "Boron BRN402 LTE M1 (NorAm) (before 2021)",
@@ -22133,7 +22141,8 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "Boron BRN310 2G/3G Global (before 2021)",
@@ -22144,7 +22153,8 @@
           "lifecycle": "NRND",
           "sim": 2,
           "simPlan": 20,
-          "modem": "U201"
+          "modem": "U201",
+          "mapColor": 1
         }
       ]
     },

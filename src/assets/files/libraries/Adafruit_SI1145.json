@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SI1145",
     "version": "0.0.1",
-    "installs": 11685,
+    "installs": 11889,
     "license": "BSD",
     "author": "Garrett Bartley",
     "sentence": "Spark Core library for the SI1145 sensors in the Adafruit shop",
@@ -50,8 +50,23 @@
           "boron": {
             "si1145test": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "si1145test": true
+          },
+          "electron": {
+            "si1145test": true
+          },
+          "argon": {
+            "si1145test": true
+          },
+          "boron": {
+            "si1145test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.745Z"
     }
   },
   "readme": "This is a library for the Si1145 UV/IR/Visible Light Sensor\n\nDesigned specifically to work with the Si1145 sensor in the adafruit shop\n  ----> https://www.adafruit.com/products/1777\n\n  These sensors use I2C to communicate, 2 pins are required to  \n  interface\n  Adafruit invests time and resources providing this open source code, \n  please support Adafruit and open-source hardware by purchasing \n  products from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_SI1145. Check that the Adafruit_SI1145 folder contains Adafruit_SI1145.cpp and Adafruit_SI1145.h\n\nPlace the Adafruit_SI1145 library folder your arduinosketchfolder/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.",

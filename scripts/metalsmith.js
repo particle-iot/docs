@@ -54,7 +54,7 @@ var carriersUpdate = require('./carriers-update/carriers-update.js');
 var pinmapDiagram = require('./pinmap-diagram/pinmap-diagram.js');
 var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
-var refCards = require('./refcards.js');
+var deviceOsApi = require('./device-os-api.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
@@ -77,7 +77,7 @@ var gitBranch;
 
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
-var noScripts = false;
+var noScripts = false; 
 
 exports.metalsmith = function () {
   function removeEmptyTokens(token) {
@@ -220,18 +220,19 @@ exports.metalsmith = function () {
     .use(planLimits({
       config: '../config/planLimits.json'
     }))
-    .use(refCards({
+    .use(deviceOsApi({
       contentDir: '../src/content',
       sources: [
         'reference/device-os/firmware.md'
       ],
-      outputDir: 'cards',
+      outputDir: 'reference/device-os/api',
       cardMapping: '../config/card_mapping.json',
       redirects: '../config/redirects.json'
     }))
     .use(libraries({
       sourceDir: '../src/assets/files/libraries',
       searchIndex: '../build/assets/files/librarySearch.json',
+      contentDir: '../src/content',
       redirects: '../config/redirects.json'
     }))
     .use(navMenuGenerator({      
@@ -258,6 +259,7 @@ exports.metalsmith = function () {
       config: '../config/device_features.json'
     }))
     .use(sitemap({
+      contentDir: '../src/content',
       config: '../config/sitemap.json',
       output: '../build/sitemap.xml',
       baseUrl: 'https://docs.particle.io/'

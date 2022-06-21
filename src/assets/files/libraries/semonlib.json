@@ -7,7 +7,7 @@
   "attributes": {
     "name": "semonlib",
     "version": "0.0.1",
-    "installs": 3325,
+    "installs": 3720,
     "author": "Chris Guy <chris_guy_84@hotmail.com>",
     "sentence": "Spark port of open energy monitor emonlib",
     "url": "https://github.com/newbray/semonlib",
@@ -29,7 +29,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.835Z"
     }
   },
   "readme": "TODO: Describe your library and how to run the examples\n",

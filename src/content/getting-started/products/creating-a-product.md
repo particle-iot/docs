@@ -70,7 +70,7 @@ In the growth and enterprise tiers the organization also has a team. You can hav
 
 One major difference between developer devices and products is with device claiming. There are several options:
 
-- Leave product devices unclaimed. This is a good option if the device does not need to subscribe to Particle events using [`Particle.subscribe()`](/cards/firmware/cloud-functions/particle-subscribe/). This include subscribing to the replies from a webhook. If you need to receive events, then you cannot use this option.
+- Leave product devices unclaimed. This is a good option if the device does not need to subscribe to Particle events using [`Particle.subscribe()`](/reference/device-os/api/cloud-functions/particle-subscribe/). This include subscribing to the replies from a webhook. If you need to receive events, then you cannot use this option.
 
 - Claim all devices to a single account. This is a common option for cellular products. The single owner account, which could also be the product owner account, claims all devices. There's full support for receiving events with this option.
 
@@ -189,7 +189,7 @@ The local compiler may be necessary for very large projects, but otherwise you c
 
 The Particle Web IDE can be used to create product firmware, but it's recommended that you use Particle Workbench. It's difficult to share code between multiple users in the Web IDE, and there is no version control.
 
-If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/troubleshooting/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 ### Particle CLI
 
@@ -205,7 +205,7 @@ It is possible to use libraries as you have with development devices. In the Web
 
 One thing to beware of: If you have a project.properties file containing a library in the dependencies section of the file, and you also installed a copy using **Particle: Install Library** or `particle library copy` you will end up with both the source code in the lib directory, and a definition in project.properties. When you build locally, the version in the lib directory is used. When you cloud build, the lib directory is uploaded, but the official version in project.properties is used. If you are locally modifying libraries in the lib directory, be sure the remove the library from project.properties to avoid building the wrong version.
 
-You can search popular public libraries from the [library search tool](/cards/libraries/search/).
+You can search popular public libraries from the [library search tool](/reference/device-os/libraries/search/).
 
 ### GitHub (single project)
 
@@ -265,7 +265,7 @@ Finally, once you've tested the binary and upgrade process, you can then flash t
 
 ## Events
 
-Events, using [`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/), from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
+Events, using [`Particle.publish()`](/reference/device-os/api/cloud-functions/particle-publish/), from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
 
 Since unclaimed product devices don't have a device owner, they cannot receive private events. This includes events sent from other devices, the cloud API, or webhook responses.
 
@@ -322,7 +322,7 @@ Also all team members can access product integrations with their own login. They
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
-To copy or move a device owner integration into a product, you can use the [integration copy tool](/troubleshooting/cloud-tools/integration-copy/).
+To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/cloud-tools/integration-copy/).
 
 ### Server Sent Events (SSE)
 

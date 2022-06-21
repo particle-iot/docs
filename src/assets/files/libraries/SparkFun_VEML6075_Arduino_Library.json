@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VEML6075_Arduino_Library",
     "version": "1.1.4",
-    "installs": 283,
+    "installs": 353,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the VEML6075 on the SparkFun Qwiic UV Sensor",
@@ -86,8 +86,39 @@
             "Example4_Calculate_UVI": true,
             "ExampleZ_VEML6075_UV_Test": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "electron": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "argon": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "boron": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.083Z"
     }
   },
   "readme": "SparkFun VEML6075 Arduino Library\n==============================\n\n[![SparkFun UV Sensor (Qwiic) - VEML6075](https://cdn.sparkfun.com//assets/parts/1/3/4/4/7/15089-SparkFun_UV_Light_Sensor_Breakout_-_VEML6075__Qwiic_-01.jpg)](https://www.sparkfun.com/products/15089)\n\n[*SparkFun UV Sensor (Qwiic) - VEML6075 (SEN-15089)*](https://www.sparkfun.com/products/15089)\n\nThe VEML6075 senses UVA and UVB light, which allows for a calculation of the UV index.\n  \nThis library handles the initialization, configuration 1and monitoring of the UVA and UVB intensity, and calculation of the UV index.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repo](https://github.com/sparkfun/SparkFun_UV_Sensor)** - Board design files.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-uv-sensor-veml6075-hookup-guide)** - Basic hookup guide.\n\nProduct Versions\n----------------\n* [SEN-15089](https://www.sparkfun.com/products/15089)- SparkFun Red Version\n* [SPX-14748](https://www.sparkfun.com/products/14748)- SparkX Version\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

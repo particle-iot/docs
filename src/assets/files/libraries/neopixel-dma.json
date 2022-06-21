@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-dma",
     "version": "0.0.1",
-    "installs": 434,
+    "installs": 483,
     "license": "GNU GPLv3",
     "author": "EkbDuffy",
     "sentence": "An Implementation of NeoPixel Library with usind Direct Memory Access methods for the Spark Core",
@@ -50,8 +50,23 @@
           "boron": {
             "test": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "test": false
+          },
+          "electron": {
+            "test": false
+          },
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.045Z"
     }
   },
   "readme": "Spark-Neopixel-DMA\n==================\n\nSparkCore-NeoPixel-DMA\n",

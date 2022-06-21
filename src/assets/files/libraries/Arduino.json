@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino",
     "version": "0.0.10",
-    "installs": 73658,
+    "installs": 75502,
     "license": "MIT",
     "author": "John Plocher <John.Plocher+git@gmail.com>",
     "sentence": "A simple shim header that makes it easier to use Arduino sketches/libs with Particle",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.668Z"
     }
   },
   "readme": "# Arduino_h\nA shim header for Particle/Photon development\n",

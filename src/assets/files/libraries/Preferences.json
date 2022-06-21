@@ -1,0 +1,94 @@
+{
+  "type": "libraries",
+  "id": "Preferences",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Preferences/archive/2.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Preferences",
+    "version": "2.0.0",
+    "installs": 602,
+    "author": "Volodymyr Shymanskyy",
+    "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
+    "sentence": "Preferences library for ESP8266 and Particle Gen3 devices, with ESP32-compatible API",
+    "paragraph": "",
+    "category": "Data Storage",
+    "url": "https://github.com/vshymanskyy/Preferences",
+    "architectures": [
+      "esp8266",
+      "particle-argon",
+      "particle-boron",
+      "particle-xenon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/Preferences",
+  "versions": {
+    "2.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "electron": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "electron": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "electron": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          },
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          }
+        }
+      },
+      "added": "2022-06-17T10:16:54.020Z"
+    }
+  },
+  "readme": "# Preferences\nPreferences library for **ESP8266** and **Particle Gen3** devices. **ESP32**-compatible API.\n\n[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)\n\n## How does it work?\n\nPreferences are stored in the internal flash filesystem in a bunch of `/nvs/{namespace}/{property}` files.  \nFilesystem should handle flash wearing, bad sectors and atomic `rename` file operation.  \n`LittleFS` handles all that, so this is the default FS driver for ESP8266.  \nParticle Gen3 devices also operate on `LittleFS` filesystem.\n\n## Supported devices\n\n- Arduino ESP8266 with LittleFS or SPIFFS\n- Particle Argon, Boron, Xenon, Tracker, BSOM\n\nCan be easily adjusted for any device with a reliable and POSIX-compatible filesystem\n\n## API\n\nCheck out ESP32 [Preferences library](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/preferences.html) API.\nDifferences:\n- `partition_label` argument is not supported in `begin()`\n- `getType()` and `freeEntries()` methods are not supported (returning dummy values)\n",
+  "allVersions": [
+    "2.0.0"
+  ]
+}

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Manchester",
     "version": "1.0.2",
-    "installs": 2114,
+    "installs": 2386,
     "license": "Unspecified",
     "author": "Paul Kourany",
     "sentence": "Manchester library for 315/433MHz radios",
@@ -90,8 +90,43 @@
             "ManchesterTX_Basic": false,
             "ManchesterTX_Check": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "electron": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "argon": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.867Z"
     }
   },
   "readme": "Manchester_Library\n==================\n\nManchester library for 315/433Mhz transmitter/receivers adapted for Spark by Paul Kourany, May 21/2014\n\nAdapted from mchr3k's Arduino library using SparkIntervalTimer timer library by Paul Kourany\n\nReplace ManchesterTX_Basic.ino with desired example from examples folder and compile.\n\nPlease read Manchester.h for details on the implementation of the protocol.\n\nThis library requires SparkIntervalTimer library to function\n\n",

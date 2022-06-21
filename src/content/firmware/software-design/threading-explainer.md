@@ -1537,7 +1537,7 @@ You can find more documentation in the source:
 
 - [spark\_wiring\_thread.h](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_thread.h) contains the headers for the Thread class.
 - [concurrent\_hal.h](https://github.com/particle-iot/firmware/blob/develop/hal/inc/concurrent_hal.h) contains the headers for the low-level functions.
-- [concurrent\_hal.cpp](https://github.com/particle-iot/firmware/blob/develop/hal/src/stm32f2xx/concurrent_hal.cpp) contains the implementations of the low-level functions so you can see how they map to FreeRTOS functions.
+- [concurrent\_hal.cpp](https://github.com/particle-iot/firmware/blob/develop/hal/src/nRF52840/concurrent_hal.cpp) contains the implementations of the low-level functions so you can see how they map to FreeRTOS functions.
 - [FreeRTOS docs](https://www.freertos.org/a00106.html) are helpful as well.
 
 Note that if you are browsing the concurrent\_hal not all functions are exported to user firmware. In particular, you cannot use these functions from user firmware:

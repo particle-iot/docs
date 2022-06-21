@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TlsTcpClient",
     "version": "0.2.16",
-    "installs": 10859,
+    "installs": 11055,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/TlsTcpClient",
@@ -57,8 +57,27 @@
             "a1-example": true,
             "a2-example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "electron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.751Z"
     }
   },
   "readme": "# Simple TLS Client library for Particle.\r\nThis library is based [mbedTLS](https://tls.mbed.org/)  library, this can use for several TLS server. Now this library is compatible with every TLS server certificate, client private key certification. Now supported TLS 1.0, 1.1, 1.2.\r\n\r\nThis library's Cipher Suite is based AES and SHA, here is cipher suite list.\r\n* TLS_RSA_WITH_AES_256_CBC_SHA256\r\n* TLS_RSA_WITH_AES_256_CBC_SHA\r\n* TLS_RSA_WITH_AES_128_GCM_SHA256\r\n* TLS_RSA_WITH_AES_128_CBC_SHA256\r\n* TLS_RSA_WITH_AES_128_CBC_SHA\r\n* TLS_RSA_PSK_WITH_AES_256_CBC_SHA\r\n* TLS_RSA_PSK_WITH_AES_128_GCM_SHA256\r\n* TLS_RSA_PSK_WITH_AES_128_CBC_SHA256\r\n* TLS_RSA_PSK_WITH_AES_128_CBC_SHA\r\n* TLS_EMPTY_RENOGOTIATION_INFO_SCSV\r\n\r\n\r\n## Example\r\nSome sample sketches included(firmware/examples/a1-example.ino).\r\n\r\n```C++\r\n\r\n#include \"application.h\"\r\n\r\n#include \"TlsTcpClient/TlsTcpClient.h\"\r\n\r\n//\r\n// This example connect to the Let's Encrypt HTTPS server.\r\n// Let's Encrypt ROOT Ca PEM file is here ( https://letsencrypt.org/certificates/ )\r\n// If you want to use other Root CA, check your server administrator or own Root CA pem.\r\n//\r\n#define LET_ENCRYPT_CA_PEM                                              \\\r\n\"-----BEGIN CERTIFICATE----- \\r\\n\"                                      \\\r\n\"MIIFjTCCA3WgAwIBAgIRANOxciY0IzLc9AUoUSrsnGowDQYJKoZIhvcNAQELBQAw\\r\\n\"  \\\r\n\"TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh\\r\\n\"  \\\r\n\"cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMTYxMDA2MTU0MzU1\\r\\n\"  \\\r\n\"WhcNMjExMDA2MTU0MzU1WjBKMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNTGV0J3Mg\\r\\n\"  \\\r\n\"RW5jcnlwdDEjMCEGA1UEAxMaTGV0J3MgRW5jcnlwdCBBdXRob3JpdHkgWDMwggEi\\r\\n\"  \\\r\n\"MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCc0wzwWuUuR7dyXTeDs2hjMOrX\\r\\n\"  \\\r\n\"NSYZJeG9vjXxcJIvt7hLQQWrqZ41CFjssSrEaIcLo+N15Obzp2JxunmBYB/XkZqf\\r\\n\"  \\\r\n\"89B4Z3HIaQ6Vkc/+5pnpYDxIzH7KTXcSJJ1HG1rrueweNwAcnKx7pwXqzkrrvUHl\\r\\n\"  \\\r\n\"Npi5y/1tPJZo3yMqQpAMhnRnyH+lmrhSYRQTP2XpgofL2/oOVvaGifOFP5eGr7Dc\\r\\n\"  \\\r\n\"Gu9rDZUWfcQroGWymQQ2dYBrrErzG5BJeC+ilk8qICUpBMZ0wNAxzY8xOJUWuqgz\\r\\n\"  \\\r\n\"uEPxsR/DMH+ieTETPS02+OP88jNquTkxxa/EjQ0dZBYzqvqEKbbUC8DYfcOTAgMB\\r\\n\"  \\\r\n\"AAGjggFnMIIBYzAOBgNVHQ8BAf8EBAMCAYYwEgYDVR0TAQH/BAgwBgEB/wIBADBU\\r\\n\"  \\\r\n\"BgNVHSAETTBLMAgGBmeBDAECATA/BgsrBgEEAYLfEwEBATAwMC4GCCsGAQUFBwIB\\r\\n\"  \\\r\n\"FiJodHRwOi8vY3BzLnJvb3QteDEubGV0c2VuY3J5cHQub3JnMB0GA1UdDgQWBBSo\\r\\n\"  \\\r\n\"SmpjBH3duubRObemRWXv86jsoTAzBgNVHR8ELDAqMCigJqAkhiJodHRwOi8vY3Js\\r\\n\"  \\\r\n\"LnJvb3QteDEubGV0c2VuY3J5cHQub3JnMHIGCCsGAQUFBwEBBGYwZDAwBggrBgEF\\r\\n\"  \\\r\n\"BQcwAYYkaHR0cDovL29jc3Aucm9vdC14MS5sZXRzZW5jcnlwdC5vcmcvMDAGCCsG\\r\\n\"  \\\r\n\"AQUFBzAChiRodHRwOi8vY2VydC5yb290LXgxLmxldHNlbmNyeXB0Lm9yZy8wHwYD\\r\\n\"  \\\r\n\"VR0jBBgwFoAUebRZ5nu25eQBc4AIiMgaWPbpm24wDQYJKoZIhvcNAQELBQADggIB\\r\\n\"  \\\r\n\"ABnPdSA0LTqmRf/Q1eaM2jLonG4bQdEnqOJQ8nCqxOeTRrToEKtwT++36gTSlBGx\\r\\n\"  \\\r\n\"A/5dut82jJQ2jxN8RI8L9QFXrWi4xXnA2EqA10yjHiR6H9cj6MFiOnb5In1eWsRM\\r\\n\"  \\\r\n\"UM2v3e9tNsCAgBukPHAg1lQh07rvFKm/Bz9BCjaxorALINUfZ9DD64j2igLIxle2\\r\\n\"  \\\r\n\"DPxW8dI/F2loHMjXZjqG8RkqZUdoxtID5+90FgsGIfkMpqgRS05f4zPbCEHqCXl1\\r\\n\"  \\\r\n\"eO5HyELTgcVlLXXQDgAWnRzut1hFJeczY1tjQQno6f6s+nMydLN26WuU4s3UYvOu\\r\\n\"  \\\r\n\"OsUxRlJu7TSRHqDC3lSE5XggVkzdaPkuKGQbGpny+01/47hfXXNB7HntWNZ6N2Vw\\r\\n\"  \\\r\n\"p7G6OfY+YQrZwIaQmhrIqJZuigsrbe3W+gdn5ykE9+Ky0VgVUsfxo52mwFYs1JKY\\r\\n\"  \\\r\n\"2PGDuWx8M6DlS6qQkvHaRUo0FMd8TsSlbF0/v965qGFKhSDeQoMpYnwcmQilRh/0\\r\\n\"  \\\r\n\"ayLThlHLN81gSkJjVrPI0Y8xCVPB4twb1PFUd2fPM3sA1tJ83sZ5v8vgFv2yofKR\\r\\n\"  \\\r\n\"PB0t6JzUA81mSqM3kxl5e+IZwhYAyO0OTg3/fs8HqGTNKd9BqoUwSRBzp06JMg5b\\r\\n\"  \\\r\n\"rUCGwbCUDI0mxadJ3Bz4WxR6fyNpBK2yAinWEsikxqEt\\r\\n\"  \\\r\n\"-----END CERTIFICATE----- \"\r\nconst char letencryptCaPem[] = LET_ENCRYPT_CA_PEM;\r\n\r\n#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)\r\nunsigned long lastSync = millis();\r\n\r\nvoid setup() {\r\n    Serial.begin(9600);\r\n\r\n    // need a Particle time sync for X509 certificates verify.\r\n    if (millis() - lastSync > ONE_DAY_MILLIS) {\r\n        Particle.syncTime();\r\n        lastSync = millis();\r\n    }\r\n    Serial.print(Time.timeStr());\r\n}\r\n\r\nvoid loop() {\r\n    unsigned char buff[256];\r\n\r\n    TlsTcpClient client;\r\n\r\n    // setup Root CA pem.\r\n    client.init(letencryptCaPem, sizeof(letencryptCaPem));\r\n\r\n    // connect HTTPS server.\r\n    client.connect(\"www.hirotakaster.com\", 443);\r\n\r\n    // check server certificate. if verify failed, TLS connection is alive.\r\n    if (!client.verify()) {\r\n      Serial.println(\"Server Certificates is in-valid.\");\r\n    }\r\n\r\n    // Send request to HTTPS web server.\r\n    int len = sprintf((char *)buff, \"GET / HTTP/1.0\\r\\nHost: www.hirotakaster.com\\r\\nContent-Length: 0\\r\\n\\r\\n\");\r\n    client.write(buff, len );\r\n\r\n    // GET HTTPS response.\r\n    memset(buff, 0, sizeof(buff));\r\n    while(1) {\r\n        // read renponse.\r\n        memset(buff, 0, sizeof(buff));\r\n        int ret = client.read(buff, sizeof(buff) - 1);\r\n        if (ret == MBEDTLS_ERR_SSL_WANT_READ) {\r\n            delay(100);\r\n        } else if (ret <= 0) {\r\n            break;\r\n        } else {\r\n            Serial.println((char *)buff);\r\n        }\r\n    }\r\n    delay(10000);\r\n}\r\n\r\n```\r\n",

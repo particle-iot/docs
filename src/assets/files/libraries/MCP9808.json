@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP9808",
     "version": "0.1.2",
-    "installs": 17967,
+    "installs": 18523,
     "license": "GPLv3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "Library to support MCP9808 high precision temperature sensor",
@@ -50,8 +50,23 @@
           "boron": {
             "MCP9808": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MCP9808": true
+          },
+          "electron": {
+            "MCP9808": true
+          },
+          "argon": {
+            "MCP9808": true
+          },
+          "boron": {
+            "MCP9808": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.721Z"
     }
   },
   "readme": "# MCP9808\nA Library to add support of MCP9808 precision temperature sensor to Particle core (Formerly Spark Core).\n\n## Usage\nBefore your setup function\n```C++\n#include \"MCP9808.h\"\nMCP9808 mcp = MCP9808();\n```\n\nIn your setup function\n```C++\n    // MCP9808 sensor setup\n    while(! mcp.begin()){\n        Serial.println(\"Couldnt find MCP9808\");\n        delay(1000);\n    }\n    mcp.setResolution(MCP9808_SLOWEST);\n```\nIn your loop you can now get the temperature like that\n```C++\n    temperature = mcp.getTemperature();\n```\n\n## Options\n### Power modes\nThe MCP9808 offers a continuous conversion mode or a low-power mode where the sensor only draw 0.1µA.\nThe low power mode is also called shutdown mode. Continuous conversion is the default mode.\nYou can select either with setPowerMode :\n```C++\n    mcp.setPowerMode(MCP9808_CONTINUOUS);\n```\nor\n```C++\n    mcp.setPowerMode(MCP9808_LOW_POWER);\n```\n\n### Resolution and Speed modes\nIf you want to get more frequent temperature readings you'll need to lower the resolution.\nThe best resolution is +/-0.0625°C resolution\tand takes 250ms of conversion time : MCP9808_SLOWEST\nThe fastest conversion time is 30ms and has a resolution of +/- 0.5°C : MCP9808_FASTEST\nMCP9808_SLOWEST / MCP9808_SLOW / MCP9808_FAST / MCP9808_FASTEST\n\n```C++\n    mcp.setResolution(MCP9808_SLOWEST);\n```\n\n## Contributing\n\n1. Fork it (https://github.com/romainmp/MCP9808/fork)\n2. Create your feature branch (`git checkout -b my-new-feature`)\n3. Commit your changes (`git commit -am 'Add some feature'`)\n4. Push to the branch (`git push origin my-new-feature`)\n5. Create a new Pull Request",

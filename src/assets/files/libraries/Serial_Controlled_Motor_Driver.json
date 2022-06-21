@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Serial_Controlled_Motor_Driver",
     "version": "1.0.3",
-    "installs": 1125,
+    "installs": 1195,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Use this to command the SCMD and connected chain.",
@@ -93,8 +93,43 @@
             "TwoMasterMotorTest": false,
             "TwoMotorRobot": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "electron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "argon": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "boron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.939Z"
     }
   },
   "readme": "SparkFun Serial Controlled Motor Driver Arduino Library\n========================================\n\n![Serial Controlled Motor Driver](https://cdn.sparkfun.com/assets/learn_tutorials/5/7/4/SCMD_Main_Photo.jpg)\n\n[*Serial Controlled Motor Driver (SCMD) (ROB-13911)*](https://www.sparkfun.com/products/13911)\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/extras** - Additional documentation for the user. These files are ignored by the IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Serial_Controlled_Motor_Driver)** - Main repository (including hardware files) for the SCMD.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/serial-controlled-motor-driver-hookup-guide)** - Basic hookup guide for the SCMD.\n\n### Usage\n\nThe library is made such that new motor driver object is constructed without parameters, the user populates the public settings structure, then calls .begin() to start the wire library and apply the communication settings.\n\nExample:\n\n\tSCMD myMotorDriver; //This creates an instance of SCMD which will be bound to a single master.\n\t\n\tvoid setup()\n\t{\n\t\tmyMotorDriver.settings.commInterface = I2C_MODE; //or SPI_MODE\n\t\tmyMotorDriver.settings.I2CAddress = 0x5A;\n\t\tmyMotorDriver.settings.chipSelectPin = 10;\n\t\tmyMotorDriver.begin();\n\t}\n\n#### Settings\nThe main SCMD class has a public member which is named settings.  To configure settings, use the format `myMotorDriver.settings.I2CAddress = (...);` then call .begin() to apply.\n\nsettings contains the following members:\n\n* uint8_t commInterface -- Set equal to I2C_MODE or SPI_MODE\n* uint8_t I2CAddress -- Set to address that master is configured to in case of I2C usage\n* uint8_t chipSelectPin -- Set to chip select pin used on Arduino in case of SPI\n\n### Classes and Structures\n\nThere are a few classes used in the library.  The main class is called `SCMD`, which is the object that talks to the motor drivers.  There are also a couple structs in use -- `SCMDSettings` and `SCMDDiagnostics`.  A `SCMDSettings` object named settings is present within the SCMD class for configuration.\n\n#### SCMD\nSCMD is used to declare a single chain of motor drivers at specified port and modes in settings. The contained functions are described in a later section.\n\n\tclass SCMD\n\t{\n\tpublic:\n\t\t//settings\n\t\tSCMDSettings settings;\n\t\tSCMD( void );\n\t\t\n\t\tuint8_t begin( void );\n\t\t... (Other functions...)\n\t\t\n\t\tuint16_t i2cFaults; //Location to hold i2c faults for alternate\n\t\tdriver\n\t};\n\n#### SCMDSettings\nSCMDSettings is an type for the settings member of SCMD. It is declared public to be configured by the user.\n\n\tstruct SCMDSettings\n\t{\n\tpublic:\n\t\t//Main Interface and mode settings\n\t\tuint8_t commInterface;\n\t\tuint8_t I2CAddress;\n\t\tuint8_t chipSelectPin;\n\t};\n\n#### SCMDDiagnostics\nSCMDDiagnostics contains a bunch of 8 bit values of data for use with getDiagnostics and getRemoteDiagnostics. Declared objects are passed as a reference to the diagnostic function and written by the collected data.\n\n\tstruct SCMDDiagnostics\n\t{\n\tpublic:\n\t\t//Attainable metrics from SCMD\n\t\tuint8_t numberOfSlaves = 0;\n\t\tuint8_t U_I2C_RD_ERR = 0;\n\t\tuint8_t U_I2C_WR_ERR = 0;\n\t\tuint8_t U_BUF_DUMPED = 0;\n\t\tuint8_t E_I2C_RD_ERR = 0;\n\t\tuint8_t E_I2C_WR_ERR = 0;\n\t\tuint8_t LOOP_TIME = 0;\n\t\tuint8_t SLV_POLL_CNT = 0;\n\t\tuint8_t MST_E_ERR = 0;\n\t\tuint8_t MST_E_STATUS = 0;\n\t\tuint8_t FSAFE_FAULTS = 0;\n\t\tuint8_t REG_OOR_CNT = 0;\n\t\tuint8_t REG_RO_WRITE_CNT = 0;\n\t};\n\n### Functions\n\n#### uint8_t begin( void );\n\nCall after providing settings to start the wire library, apply the settings, and get the ID word (return value should be 0xA9).  Don't progress unless this returns 0xA9!\n\n#### bool ready( void );\n\nThis function checks to see if the SCMD is done booting and is ready to receive commands.  Use this after .begin(), and don't progress to your main program until this returns true.\n\n#### bool busy( void );\n\nThis function checks to see if the SCMD busy with an operation.  Wait for busy to be clear before sending each configuration commands (not needed for motor drive levels).\n\n#### void enable( void );\n\nCall after .begin(); to allow PWM signals into the H-bridges.  If any outputs are connected as bridged, configure the driver to be bridged before calling .enable();.  This prevents the bridges from shorting out each other before configuration.\n\n#### void disable( void );\n\nCall to remove drive from the H-bridges.  All outputs will go low.\n\n#### void reset( void );\n\nThis resets the I2C hardware for Teensy 3 devices using the alternate library, and nothing otherwise.\n\n#### void setDrive( uint8_t channel, uint8_t direction, uint8_t level );\n\nThis sets an output to drive at a level and direction.\n\n* channel:  Motor number, 0 through 33.\n* direction:  1 or 0 for forward or backwards.\n* level: 0 to 255 for drive strength.\n\n#### void inversionMode( uint8_t motorNum, uint8_t polarity );\n\nThis switches the perceived direction of a particular motor.\n\n* motorNum:  Motor number, 0 through 33.\n* polarity: 0 for normal and 1 for inverted direction.\n\n#### void bridgingMode( uint8_t driverNum, uint8_t bridged );\n\nThis connects any board's outputs together controlling both from what was the 'A' position.\n\n* driverNum:  Number of connected SCMD, 0 (master) to 16.\n* bridged: 0 for normal and 1 for bridged.\n\n#### void getDiagnostics( SCMDDiagnostics &diagObjectReference );\n\nThis returns a diagnostic report from the master.\n\n* &diagObjectReference:  Pass a local SCMDDiagnostics object that will be written into.\n\n#### void getRemoteDiagnostics( uint8_t address, SCMDDiagnostics &diagObjectReference );\n\nThis returns a diagnostic report from a slave.\n\n* address: address of intended slave.  This starts at 0x50 for the first slave and goes up from there.\n* &diagObjectReference:  Pass a local SCMDDiagnostics object that will be written into.\n\n#### void resetDiagnosticCounts( void );\n\nClears the diagnostic counts of a master.\n\n#### void resetRemoteDiagnosticCounts( uint8_t address );\n\nClears the diagnostic counts of a slave.\n\n* address: address of intended slave.  This starts at 0x50 for the first slave and goes up from there.\n\n#### uint8_t readRegister(uint8_t offset);\n\nReturns the contents of a memory location of the master.\n\n* offset:  Memory address to read.\n\n#### void writeRegister(uint8_t offset, uint8_t dataToWrite);\n\nWrites data to a memory location of the master.\n\n* offset:  Memory address to write.\n* dataToWrite:  Data to write to that address.\n\n#### uint8_t readRemoteRegister(uint8_t address, uint8_t offset);\n\nReturns the contents of a memory location of a slave.\n\n* address: address of intended slave.  This starts at 0x50 for the first slave and goes up from there.\n* offset:  Memory address to read.\n\n#### void writeRemoteRegister(uint8_t address, uint8_t offset, uint8_t dataToWrite);\n\nWrites data to a memory location of a slave.\n\n* address: address of intended slave.  This starts at 0x50 for the first slave and goes up from there.\n* offset:  Memory address to write.\n* dataToWrite:  Data to write to that address.\n\n\nProducts that use this Library \n---------------------------------\n\n* [ROB-13911](https://www.sparkfun.com/products/13911)- A serial controlled bridgable driver for small DC motors.\n\nVersion History\n---------------\n\n* [V_1.0.0](https://github.com/sparkfun/SparkFun_Serial_Controlled_Motor_Driver_Arduino_Library/tree/V_1.0.0)\n* [V_1.0.1](https://github.com/sparkfun/SparkFun_Serial_Controlled_Motor_Driver_Arduino_Library/tree/V_1.0.1) - Public Release\n* [V_1.0.2](https://github.com/sparkfun/SparkFun_Serial_Controlled_Motor_Driver_Arduino_Library/tree/V_1.0.2) - Added enable pin macro\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n",

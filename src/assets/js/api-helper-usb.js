@@ -244,6 +244,11 @@ $(document).ready(function () {
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
+                if ((nativeUsbDevice.productId & 0xff) == 32) {
+                    setStatus('Device restore by USB DFU is not currently supported on the P2');
+                    return;
+                }
+
                 usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
         
                 // Find available versions for this device
@@ -254,6 +259,7 @@ $(document).ready(function () {
                     usbDevice = null;
                     return;
                 }
+
                 console.log('platformVersionInfo', platformVersionInfo);
     
                 $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);

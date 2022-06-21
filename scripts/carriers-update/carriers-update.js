@@ -563,6 +563,12 @@ const generatorConfig = require('./generator-config');
                 }
             }
 
+            if (options.lifecycles) {
+                if (!options.lifecycles.includes(skuObj.lifecycle)) {
+                    return;
+                }
+            }
+            else
             if (options.onlyGA && skuObj.lifecycle != 'GA' && skuObj.lifecycle != 'NRND-US') {
                 return;
             }

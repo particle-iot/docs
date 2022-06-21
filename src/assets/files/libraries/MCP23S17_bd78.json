@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23S17_bd78",
     "version": "0.0.1",
-    "installs": 6490,
+    "installs": 6624,
     "license": "MIT",
     "author": "Mike Machado <mike@machadolab.com>",
     "sentence": "Library for MCP23S17 SPI IO expander. Originally written for Arduino by Cort Buffington & Keith Neufeld.",
@@ -50,8 +50,23 @@
           "boron": {
             "writewords": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "writewords": true
+          },
+          "electron": {
+            "writewords": true
+          },
+          "argon": {
+            "writewords": true
+          },
+          "boron": {
+            "writewords": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.790Z"
     }
   },
   "readme": "MCP23S17\n========\n\nArduino and Spark Core Library for MCP23S17 SPI IO expander\n\n\nFor API documentation, see http://playground.arduino.cc/Main/MCP23S17\n",

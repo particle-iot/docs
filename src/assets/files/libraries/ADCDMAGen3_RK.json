@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADCDMAGen3_RK",
     "version": "0.0.2",
-    "installs": 1886,
+    "installs": 2040,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Analog to digital conversion using DMA for Particle Gen 3 devices (Argon, Boron, Xenon)",
@@ -180,8 +180,47 @@
             "06-dtmf-two-channel": true,
             "07-mixed": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "01-simple": false,
+            "02-audio-over-tcp": false,
+            "03-one-shot-freq-counter": false,
+            "04-continuous-freq-counter": false,
+            "05-dtmf": false,
+            "06-dtmf-two-channel": false,
+            "07-mixed": false
+          },
+          "electron": {
+            "01-simple": false,
+            "02-audio-over-tcp": false,
+            "03-one-shot-freq-counter": false,
+            "04-continuous-freq-counter": false,
+            "05-dtmf": false,
+            "06-dtmf-two-channel": false,
+            "07-mixed": false
+          },
+          "argon": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.882Z"
     }
   },
   "readme": "# ADC DMA Gen3\n\n*Analog to digital conversion using DMA for Particle Gen 3 devices (Argon, Boron, Xenon)*\n\n**Note: This feature is experimental and not supported. It may not work properly. It may break in a future version of Device OS. Beware!**\n\nAlso, this is the preview release 0.0.1, there may still be bugs.\n\n## Introduction\n\nNormally, on Particle (and Arduino) devices, the `analogRead()` function reads a value from a pin synchronously. There's a limit to how fast you can do this, and also because of the task scheduling on Particle, it's hard to do this regularly.\n\nThe nRF52 MCU in the Particle Argon, Boron, and Xenon has the ability to sample the analog to digital converter (ADC) using DMA (direct memory access). This samples the ADC at precise intervals (even when interrupts are disabled) and stores the values in RAM. You can do this into a single buffer if doing a one-shot sample until the buffer is filled. Or you can use double buffers so the capture is continuous. Once one buffer is filled you can begin processing it while the other buffer continues to be filled.\n\nSome caveats:\n\n- This is an unsupported feature.\n- You cannot mix calls to ADC DMA and `analogRead()` at the same time. In order to `analogRead()` you must `uninit()` the ADC DMA.\n- There are hardware timer limitations. In the examples below, NFC cannot be used at the same time as ADC DMA, but if you absolutely need to use NFC you could give up a different peripheral (like Serial1).\n\nYou typically create a `ADCDMAGen3` object as a global variable. You can only have one per app!\n\n```\n#include \"ADCDMAGen3_RK.h\"\n\nADCDMAGen3 adc;\n\nconst size_t SAMPLE_FREQ = 16000; // Hz\n\nconst size_t SAMPLES_IN_BUFFER = 1024;\n\nstatic nrf_saadc_value_t buffer0[SAMPLES_IN_BUFFER];\nstatic nrf_saadc_value_t buffer1[SAMPLES_IN_BUFFER];\n\n```\n\nSome constants and two buffers are set up as global variables as well.\n\nYou can either set up the settings from `setup()` or right before you need to use ADC DMA. \n\n```\n\tret_code_t err = adc\n\t\t.withSampleFreqHz(SAMPLE_FREQ)\n\t\t.withDoubleBuffer(SAMPLES_IN_BUFFER, buffer0, buffer1)\n\t\t.withSamplePin(A0)\n\t\t.withBufferCallback(myBufferCallback)\n\t\t.init();\n```\n\nSettings are made fluent-style with the `withXXX()` methods. In the example above:\n\n- Sampling frequency is set to `SAMPLE_FREQ` (16000 Hz)\n- Double buffering is enabled and stores `SAMPLES_IN_BUFFER` (1024) samples in each of `buffer0` and `buffer1`. When one buffer is filled the bufferCallback is called and the other buffer will continue to be filled. This prevents losing samples while processing a buffer.\n- Samples pin A0\n- Sets the bufferCallback to the function `myBufferCallback`.\n- Finally calls `init()` to complete the initialization.\n\nYou must call `init()` and `start()` to actually start sampling. \n\nYou can call `init()` once and use `start()` and `stop()` as necessary.\n\nOr you can call `init()` and `start()` whenever you want to sample and call `uninit()` when done. This will release the ADC resources when not actively being used.\n\nIf you want to mix ADC DMA and `analogRead()` you need to call both `uninit()` and `restoreDefaults()`. See the 07-mixed example for more information.\n\nThe other thing you need to do is set a bufferCallback, the function that's called when a \n\nThe bufferCallback function looks like this:\n\n```\nvoid myBufferCallback(nrf_saadc_value_t *buf, size_t size) {\n\t// This gets executed after each sample buffer has been read.\n\t// Note: This is executed in interrupt context, so beware of what you do here!\n\n\t// We just remember the buffer and handle it from loop\n\tbufferReady = buf;\n}\n```\n\nBecause we may want to do lengthy operations we just save the buffer pointer and handle it from loop().\n\nThe samples other than 01-simple use a C++11 lambda to handle the buffer callback. That technique can also be used to call a class member function if desired.\n\n```\n\tadc.withBufferCallback([](nrf_saadc_value_t *buf, size_t size) {\n\t\t// This gets executed after each sample buffer has been read.\n\t\t// Note: This is executed in interrupt context, so beware of what you do here!\n\n\t\t// We just remember the buffer and handle it from loop\n\t\tbufferReady = buf;\n\t});\n```\n\nIn addition to the SAADC (successive approximation ADC) module in the nRF52, this library also requires a hardware timer. Unfortunately there are no free timers available and you'll have to steal one.\n\n- 0: Softdevice - do not use\n- 1: Radio - probably best to not use, might work if not using BLE or mesh\n- 2: Usart (Serial1) Can use if not using Serial1.\n- 3: Usart (Serial2 on Xenon) Cannot be used on Argon or Boron because it's required by NCP.\n- 4: NFC - recommended (unless you need NFC). This is the default.\n\nThe default is to use the NFC timer, which means you can't use NFC at the same time. If you need NFC, then you can switch to using a different timer using `withHardwareTimer()`.\n\n\n\n## API documentation\n\nThe full API documentation can be found [here](https://rickkas7.github.io/ADCDMAGen3_RK/index.html).\n\n## Examples\n\n### 01-simple\n\nThis is the simplest example, and the code is described above in the introduction.\n\n### 02-audio-over-tcp\n\nThis sends audio data to a node.js server (located in the server directory).\n\nI used an [Adafruit 1713](https://www.adafruit.com/products/1713) Electret Microphone Amplifier - MAX9814 with Auto Gain Control. Connect:\n\n- GND to GND\n- Vd to 3V3\n- Gain (leave unconnected)\n- Out to A0\n- AR (leave unconnected)\n\n![Microphone](images/mic.jpg)\n \nMake sure you update the example code with the IP address and port of your server.\n\nTo install the dependencies:\n\n```\ncd server\nnpm install\n```\n\nTo run the server:\n\n```\nnpm start\n```\n\nTo sample audio, tap the MODE button. It will connect to the server and send audio for 30 seconds, or until you stop it using the MODE button.\n\nThe server saves .wav files in the `out` directory.\n\n### 03-one-shot-freq-counter\n\nThis code samples A0 to find the dominant frequency. This is best tested by connecting a function generator to A0. Make sure it's set to a sine wave 0 to 3.3V, not sending negative voltages!\n\nThis samples at 200 kHz so it can detect frequencies up to a little less than 100 kHz.\n\nThe frequency is printed to USB debug serial. You can read it with a serial terminal program or `particle serial monitor`.\n\n### 04-continuous-freq-counter\n\nThis is a continuous version the frequency counter. When the frequency changes it's printed to the USB debug serial. It's limited to detecting frequencies up to around 24 kHz.\n\n### 05-dtmf\n\nThis example listens to the microphone input on A0 and prints any DTMF (telephone keypad) frequencies it hears to USB debug serial.\n\n### 06-dtmf-two-channel\n\nThis example shows how to handle sampling multiple pins using the DTMF decoder. \n\n### 07-mixed\n\nThis example shows how to switch between ADC DMA and `analogRead()` mode. Basically, make sure you call:\n\n```\nadc.uninit();\nadc.restoreDefaults();\n```\n\nafter using ADC DMA and before using `analogRead()` again. Then call `adc.init()` again if you want to use ADC DMA again. You don't need to reset the settings using the `withXXX()` methods again; they are saved.\n\n## More Examples\n\nThe more-examples directory contains more examples, mainly based on the SSD1306 display.\n\n### more-examples/01-dtmf-display\n\nWorks like the 05-dtmf example, but displays the results on a 0.96\" OLED SSD1306 display.\n\n<video width=\"640\" height=\"360\" controls >\n  <source src=\"images/dtmf.mp4\" type=\"video/mp4\">\n</video>\n\n### more-examples/02-spectrum \n\nBased on the 04-continuous-freq-counter example, instead of picking the dominant frequency it displays the results on a SSD1306 display showing the amplitude on each frequency bucket.\n\nI'm not completely sure the results are correct, however it does display something, and does update at 20 millisecond intervals, which is pretty impressive, in my opinion.\n\n### more-examples/03-frequency-counter\n\nA slightly modified version of 04-continuous-freq-counter that samples at 200 kHz and displays the results on a SSD1306 display.\n\nIt's pretty close (97000 vs. 97070 Hz.)!\n\n![Frequency Counter](images/freq.jpg)\n\n## Version History\n\n- 0.0.1 (2019-09-27) Initial version. There may be bugs still.\n\n\n\n",

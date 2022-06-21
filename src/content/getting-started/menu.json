@@ -71,17 +71,17 @@
           {
             "title": "setup.particle.io",
             "detail": "Set up your Particle device from a web browser or mobile app",
-            "href": "https://setup.particle.io/"  
+            "href": "https://setup.particle.io/"
           },
           {
             "title": "Command Line",
             "detail": "Command line interface setup",
-            "href": "/getting-started/developer-tools/cli/"  
+            "href": "/getting-started/developer-tools/cli/"
           },
           {
             "title": "Tracker",
             "detail": "Set up a Tracker One of Tracker SoM eval board",
-            "href": "/getting-started/tracker/tracker-setup/"  
+            "href": "/getting-started/tracker/tracker-setup/"
           }
         ]
       }
@@ -311,6 +311,16 @@
           "dir": "questdb",
           "title": "QuestDB",
           "href": "/getting-started/integrations/community-integrations/questdb/"
+        },
+        {
+          "dir": "ifttt",
+          "title": "IFTTT",
+          "href": "/getting-started/integrations/community-integrations/ifttt/"
+        },
+        {
+          "dir": "zapier",
+          "title": "Zapier",
+          "href": "/getting-started/integrations/community-integrations/zapier/"
         },
         {
           "dir": "publish-to-google-sheets",

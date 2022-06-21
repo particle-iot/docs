@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MS5803_I2C",
     "version": "1.0.0",
-    "installs": 998,
+    "installs": 1037,
     "license": "open source",
     "author": "Casey Kuhns @ SparkFun Electronics, ported from Thomas Rockenbauer (https://github.com/hl68fx)",
     "sentence": "Library for MS5803 pressure sensors",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.956Z"
     }
   },
   "readme": "MS5803-14BA Particle Library\n===============================================================\n\n![SparkFun Pressure Sensor Breakout - MS5803-14BA](https://cdn.sparkfun.com//assets/parts/9/8/1/1/12909-01a.jpg)\n\n[*SparkFun Pressure Sensor Breakout - MS5803-14BA (SEN-12909)*](https://www.sparkfun.com/products/12909)\n\n![MS5803-14BA 14-Bar Depth Measurement Module with 24-Bit Analog to Digital Converter I²C Mini Module](https://s3.amazonaws.com/controleverything.media/styles/slideshow/s3/controleverything/Production%20Run%206/42_MS5803-14BA_I2CS/Photos/MS5803-14BA_I2CS_A_2.png?itok=0_WPvFcS)\n\n[*Control Everything MS5803-14BA 14-Bar Depth Measurement Module with 24-Bit Analog to Digital Converter I²C Mini Module*](https://www.controleverything.com/content/Analog-Digital-Converters?sku=MS5803-14BA_I2CS)\n\nParticle library gives user basic communication from sensor to microcontroller via I2C protocol.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n",

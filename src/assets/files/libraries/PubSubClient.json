@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PubSubClient",
     "version": "2.6.0",
-    "installs": 30138,
+    "installs": 30909,
     "license": "MIT",
     "author": "knolleary",
     "url": "https://github.com/tectiv3/pubsubclient",
@@ -29,7 +29,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.698Z"
     }
   },
   "readme": "# Arduino Client for MQTT\n\nThis library provides a client for doing simple publish/subscribe messaging with\na server that supports MQTT.\n\n## Examples\n\nThe library comes with a number of example sketches. See File > Examples > PubSubClient\nwithin the Arduino application.\n\nFull API documentation is available here: http://pubsubclient.knolleary.net\n\n## Limitations\n\n - It can only publish QoS 0 messages. It can subscribe at QoS 0 or QoS 1.\n - The maximum message size, including header, is **128 bytes** by default. This\n   is configurable via `MQTT_MAX_PACKET_SIZE` in `PubSubClient.h`.\n - The keepalive interval is set to 15 seconds by default. This is configurable\n   via `MQTT_KEEPALIVE` in `PubSubClient.h`.\n - The client uses MQTT 3.1.1 by default. It can be changed to use MQTT 3.1 by\n   changing value of `MQTT_VERSION` in `PubSubClient.h`.\n\n\n## Compatible Hardware\n\nThe library uses the Arduino Ethernet Client api for interacting with the\nunderlying network hardware. This means it Just Works with a growing number of\nboards and shields, including:\n\n - Arduino Ethernet\n - Arduino Ethernet Shield\n - Arduino YUN – use the included `YunClient` in place of `EthernetClient`, and\n   be sure to do a `Bridge.begin()` first\n - Arduino WiFi Shield - if you want to send packets > 90 bytes with this shield,\n   enable the `MQTT_MAX_TRANSFER_SIZE` define in `PubSubClient.h`.\n - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)\n - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)\n - Intel Galileo/Edison\n - ESP8266\n\nThe library cannot currently be used with hardware based on the ENC28J60 chip –\nsuch as the Nanode or the Nuelectronics Ethernet Shield. For those, there is an\n[alternative library](https://github.com/njh/NanodeMQTT) available.\n\n## License\n\nThis code is released under the MIT License.\n",

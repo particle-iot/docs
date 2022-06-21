@@ -92,6 +92,26 @@ function findMenu(dir) {
     }
 }
 
+function readFrontMatter(mdPartialPath) {
+    let result = {};
+
+    const md = fs.readFileSync(path.join(contentDir, mdPartialPath), 'utf8');
+    let section = 0;
+    for(const line of md.split('\n')) {
+        if (line == '---') {
+            section++;
+        }
+        if (section == 1) {
+            const parts = line.split(':', 2);
+            if (parts.length == 2) {
+                result[parts[0].trim()] = parts[1].trim();
+            }
+        }
+    }
+
+    return result;
+}
+
 
 async function removeFromMenu(options) {
 
@@ -131,7 +151,7 @@ async function removeFromMenu(options) {
         removeArray.splice(removeIndex, 1);
     }
 
-    // Insert into menu.json
+    // Remove from menu.json
     fs.writeFileSync(path.join(contentDir, options.menuPartialPath), JSON.stringify(menuJson, null, 2));
 
     
@@ -213,29 +233,42 @@ async function insertIntoMenu(options) {
 }
 
 
+
+
 async function run() {
     try {
         let cmd = '';
         let fixLinks = false;
 
-        if (argv.move) {
-            // --move 
-            // Move a page
-            cmd = 'move';
+        const menuOptions = [
+            {
+                key: 'move',
+                desc: 'move a page',
+            },
+            {
+                key: 'create',
+                desc: 'create a new page',
+            },
+            {
+                key: 'show',
+                desc: 'add a hidden page to a menu',
+            },
+        ];
+
+        for(const m of menuOptions) {
+            if (argv[m.key]) {
+                cmd = m.key;
+                break;
+            }
         }
-        else
-        if (argv.create) {
-            // --create
-            // Create a page
-            cmd = 'create';
-        }        
-        else {
-            const menuOptions = [
-                'move',
-                'create'
-            ];
-            const res = await helper.questionMenu('Operation?', menuOptions, {});
-            cmd = menuOptions[res];
+        
+        if (!cmd) {
+            let menuDesc = [];
+            for(const m of menuOptions) {
+                menuDesc.push(m.desc);
+            }
+            const res = await helper.questionMenu('Operation?', menuDesc, {});
+            cmd = menuOptions[res].key;
         }
 
         if (cmd == 'move') {
@@ -323,6 +356,29 @@ async function run() {
             md += '# {{title}}\n';
 
             fs.writeFileSync(path.join(contentDir, options.dstDirPartialPath, options.urlName + '.md'), md);
+        }
+
+        if (cmd == 'show') {
+            let options = {};
+            
+            console.log('Add a hidden page to a menu: select source md file');
+            options.srcMdPartialPath = await getFile('');
+
+            options.dstDirPartialPath = path.dirname(options.srcMdPartialPath);
+
+            const frontMatter = readFrontMatter(options.srcMdPartialPath);
+            
+            options.title = frontMatter.title;
+
+            options.menuPartialPath = findMenu(path.dirname(options.srcMdPartialPath));
+        
+            options.urlName = path.basename(options.srcMdPartialPath, '.md');
+
+            //console.log('options', options);
+
+            // Insert into new location
+            await insertIntoMenu(options);
+
         }
 
 

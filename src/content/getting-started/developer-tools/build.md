@@ -8,7 +8,7 @@ description: Web-based IDE for programming your Particle IoT devices
 
 The Particle Web IDE makes it easy to write code, compile, and flash devices over-the-air (OTA) right from a web browser!
 
-We recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/troubleshooting/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
+We recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 If you are interested in using Particle Workbench with the Tracker One or Tracker SoM, you must use Particle Workbench as it's not possible to use the Web IDE. See [Tracker Edge Firmware](/firmware/tracker-edge/tracker-edge-firmware/) for additional information.
 
@@ -211,7 +211,7 @@ To find the right library for your project, you can either search for it directl
 
 ![Search](/assets/images/libraries-guide-search.png)
 
-For additional search and browsing options, you can also use the [web-based library search tool](/cards/libraries/search/) in the documentation.
+For additional search and browsing options, you can also use the [web-based library search tool](/reference/device-os/libraries/search/) in the documentation.
 
 **Browsing arrows**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
 

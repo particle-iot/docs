@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2cMaster",
     "version": "0.0.4",
-    "installs": 11337,
+    "installs": 11598,
     "license": "GPL v3",
     "author": "William Greiman <fat16lib@sbcglobal.net>",
     "sentence": "An I2C Master library for Particle.",
@@ -50,8 +50,23 @@
           "boron": {
             "I2cMasterTest": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "I2cMasterTest": true
+          },
+          "electron": {
+            "I2cMasterTest": true
+          },
+          "argon": {
+            "I2cMasterTest": false
+          },
+          "boron": {
+            "I2cMasterTest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.747Z"
     }
   },
   "readme": "About\n===\nI2cMaster-Particle is a beta library for [Particle](https://www.particle.io/) development boards.\n\nIt has only been tested on Photon.\n\nExpect bugs.\n\n## Examples\n\nI included the two examples I used for development.\n\nI2cMasterTest.cpp in firmware/examples folder.\n\nMPU6050 tests in the mpu6050test folder.\n\n\n\n",

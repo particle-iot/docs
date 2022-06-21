@@ -7,7 +7,7 @@
   "attributes": {
     "name": "azure_umqtt_c",
     "version": "0.0.2",
-    "installs": 927,
+    "installs": 979,
     "license": "MIT",
     "author": "dcristo@microsoft.com",
     "sentence": "Experimental port - General purpose MQTT library",
@@ -50,8 +50,23 @@
           "boron": {
             "main": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.960Z"
     }
   },
   "readme": "# Microsoft Azure MQTT\n\nazure-mqtt is a general purpose library build for MQTT protocol\n\n## Dependencies\n\nazure-mqtt client use the azure-c-shared-utility, which is a C library provisioning common functionality for basic tasks (like string, list manipulation, IO, etc.).\nazure-c-shared-utility is available here: https://github.com/Azure/azure-c-shared-utility.\nazure-c-shared-utility needs to be built before building azure-mqtt.  \n",

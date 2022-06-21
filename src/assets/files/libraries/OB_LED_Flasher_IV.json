@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OB_LED_Flasher_IV",
     "version": "6.3.25",
-    "installs": 287,
+    "installs": 319,
     "license": "MIT",
     "author": "BobDawgs",
     "sentence": "Onboard LED Flasher utility for Particle boards Core,Photon, and Electron with variable repeat count, Flash On and Off time control, and brightness",
@@ -21,7 +21,8 @@
   "versions": {
     "6.3.25": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.097Z"
     }
   },
   "readme": "# OB_LED_Flasher_IV\r\n\r\nLED Flashing utility for Particle's Core, Photon, and Electron's on-board LED with variable pulse count.\r\n\r\nThe following calls are available: \r\n\r\nLED_Red_Flash(count,onRate,offRate,brightness);  // red flash x(count)  \r\n\r\nLED_Green_Flash(count,onRate,offRate,brightness); // green flash x(count)  \r\n\r\nLED_Blue_Flash(count,onRate,offRate,brightness); // blue flash x(count)  \r\n\r\nLED_Yellow_Flash(count,onRate,offRate,brightness); // yellow flash x(count)  \r\n\r\nLED_Orange_Flash(count,onRate,offRate,brightness); // orange flash x(count)  \r\n\r\nLED_Cyan_Flash(count,onRate,offRate,brightness); // cyan flash x(count)  \r\n\r\nLED_Magenta_Flash(count,onRate,offRate,brightness); // magenta flash x(count)  \r\n\r\nLED_White_Flash(count,onRate,offRate,brightness); // white flash x(count)  \r\n\r\nLED_Rainbow_Flash(count,brightness); // RGB flash x(count) \r\n\r\nLED_reset(count,brightness);  // green/white flash x(count)\r\n\r\nNOTE:  \r\nFlash count can be from 1 to 8. Any other value results in 3 flashes.\r\nFlash onRate and offRate is a multiplier (n*100) milliseconds.\r\nDefault onRate is 9 (900 milliseconds).\r\nDefault offRate is 4 (400 milliseconds). \r\nBrightness is system level from 1-255 (default is 96)\r\n\r\nAn onRate of 10 and an offRate of 5 yields a flash pattern of 1 second on and a half second off.\r\n\r\nExample:  \r\n\r\n    //  Status LED Update  \r\n    if (ledEnable)  {\r\n        if (LED_Red_Flag) LED_Red_Flash(5,9,4,96);\r\n        if (LED_Yellow_Flag) LED_Yellow_Flash(3,9,4,96);\r\n        if (LED_Green_Flag) LED_Green_Flash(3,9,4,96);\r\n        if (LED_Rainbow_Flag) LED_Rainbow_Flash(3,192);\r\n        }\r\n\r\nArguments are optional and may be omitted from right to left\r\n\r\nExamples below all mean the same:\r\n\r\n    LED_Red_Flash(3,9,4,96);\r\n    LED_Red_Flash(3,9,4);\r\n    LED_Red_Flash(3,9);\r\n    LED_Red_Flash(3);\r\n    LED_Red_Flash();\r\n         \r\n",

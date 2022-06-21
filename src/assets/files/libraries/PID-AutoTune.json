@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PID-AutoTune",
     "version": "0.0.3",
-    "installs": 6639,
+    "installs": 6725,
     "license": "GPLv3",
     "author": "Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com",
     "sentence": "PID AutoTune library for Particle",
@@ -50,8 +50,23 @@
           "boron": {
             "AutoTune": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "AutoTune": false
+          },
+          "electron": {
+            "AutoTune": false
+          },
+          "argon": {
+            "AutoTune": false
+          },
+          "boron": {
+            "AutoTune": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.788Z"
     }
   },
   "readme": "Credits go to:\nBrett Beauregard for creating the Arduino library\nScruffR from the Particle community for providing help\n\n// ************************************************\n// This library relies on the PID library\n// You must not forget to include it on your own!\n// ************************************************",

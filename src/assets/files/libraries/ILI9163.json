@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ILI9163",
     "version": "0.0.2",
-    "installs": 443,
+    "installs": 462,
     "license": "MIT",
     "author": "Noah Rosamilia <ivoahivoah@gmail.com>",
     "sentence": "ILI9163 display driver",
@@ -23,7 +23,8 @@
   "versions": {
     "0.0.2": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.053Z"
     }
   },
   "readme": "Particle library for using ILI9163 based displays.\n",

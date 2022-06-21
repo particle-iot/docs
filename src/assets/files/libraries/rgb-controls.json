@@ -7,7 +7,7 @@
   "attributes": {
     "name": "rgb-controls",
     "version": "0.0.1",
-    "installs": 13978,
+    "installs": 14156,
     "license": "MIT",
     "author": "Michael Gillett <mgillett54@gmail.com>",
     "sentence": "Particle.io library with methods for controlling RGB LEDs",
@@ -90,8 +90,43 @@
             "flash_example": true,
             "pulse_example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "electron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "argon": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "boron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.732Z"
     }
   },
   "readme": "# RGB Controls for Particle.io\nParticle.io library for controlling RGB LEDs\n\n\n## Quick Start\n\n1. [Add the library to your project](https://docs.particle.io/photon/build/#flash-apps-with-particle-build-using-libraries)\n\n2. Connect your RGB led to pins D0, D1, and D2 (Assuming Photon board)\n3. Copy the code below into a new project and flash it to your board\n  ```c++\n  #include \"rgb-controls/rgb-controls.h\"\n  using namespace RGBControls;\n\n  // RGB led on PWN pins\n  Led led(D0, D1, D2); // red_pin = D0, green_pin = D1, blue_pin = D2\n\n  Color red(255, 0, 0);\n  Color blue(0, 0, 255);\n\n  void setup() { }\n\n  void loop() {\n    // Fade the led light between red and blue every 5 seconds\n    led.fade(red, blue, 5000);\n  }\n  ```\n\n4. Your RGB led will now fade from red to blue!\n\n## Led Methods\n\n#### constructor(int rPin, int gPin, int bPin [, bool isCathode])\nInitalize an `Led` with 3 PWM pins\n\nParameter | Description | Example\n--- | --- | ---\nrPin | The pin number attached to the red leg of the led | `D0`\ngPin | The pin number attached to the green leg of the led | `D1`\nbPin | The pin number attached to the blue leg of the led | `D2`\nisCathode | Boolean whether the rgb led is common cathode `optional` | `true` (default)\n\n```c++\n// Create a common cathode led\nLed led(D0, D1, D2);\n\n// Create a common anode led\nLed led(D0, D1, D2, false);\n```\n\n#### setColor(Color color)\nSet the led to `color`\n\n```c++\n// Make the led light magenta\nled.setColor(Color(255, 0, 255))\n```\n\n#### fade(Color c1, Color c2, int duration)\n\nFade from `c1` to `c2` in `duration` milliseconds. **Must be called in a `void loop()`.**\n\nParameter | Description | Example\n--- | --- | ---\nc1 | The color to fade from | `Color(255, 0, 0)`\nc2 | The color to fade to | `Color(0, 0, 255`\nduration | The duration of the fade in ms | `3000`\n\n```c++\nColor red(255, 0, 0);\nColor blue(0, 0, 255);\n\n// Fade the led back and forth between red to blue every 3 seconds\nvoid loop() {\n  led.fade(red, blue, 3000);\n}\n```\n\n\n#### fade(Color* colors, int length, int duration)\n\nFade between each color in  in `duration` milliseconds. **Must be called in a `void loop()`.**\n\nParameter | Description | Example\n--- | --- | ---\ncolors | An array of colors | See below\nlength | The length of the colors array | `3`\nduration | The duration of the fade in ms | `3000`\n\n```c++\nColor red(255, 0, 0);\nColor green(0, 255, 0);\nColor blue(0, 0, 255);\n\nColor colors[3] = { red, green, blue };\n\n// Fade the led back and forth between colors in the array every 3 seconds\nvoid loop() {\n  led.fade(colors, 3, 3000);\n}\n```\n\n#### fadeOnce(Color c1, Color c2, int duration)\n\nFade from `c1` to `c2` in `duration` milliseconds\n\nParameter | Description | Example\n--- | --- | ---\nc1 | The color to fade from | `Color(255, 0, 0)`\nc2 | The color to fade to | `Color(0, 0, 255`\nduration | The duration of the fade in ms | `3000`\n\n```c++\nColor red(255, 0, 0);\nColor blue(0, 0, 255);\n\n// Fade the led from red to blue in 3 seconds\nled.fadeOnce(red, blue, 3000);\n```\n\n#### flash(Color color [, int onTime, int offTime])\n\nFlash `color` on for `onTime` ms and off for `offTime` ms\n\nParameter | Description | Example\n--- | --- | ---\ncolor | The color to flash | `Color(255, 0, 0)`\nonTime | The time in ms that the light is on `optional` | `200` (default)\noffTime | The time in ms that the light is off `optional`| `200` (default)\n\n```c++\n// Flash red using the default on and off times\nled.flash(Color(255, 0, 0));\n\n// Flash blue on for 1 second and off for 100 ms\nled.flash(Color(0, 255, 0), 1000, 100);\n```\n\n#### flash(Color* colors, int length [, int onTime, int offTime])\n\nFlash an array of `colors` on for `onTime` ms and off for `offTime` ms\n\nParameter | Description | Example\n--- | --- | ---\ncolors | The array of color to pulse | See below\nlength | The length of the color array | `3`\nonTime | The time in ms that the light is on `optional` | `200` (default)\noffTime | The time in ms that the light is off `optional`| `200` (default)\n\n```c++\nColor red(255, 0, 0);\nColor green(0, 255, 0);\nColor blue(0, 0, 255);\n\nColor colors[3] = {red, green, blue};\n\n// Flash the colors one after another using default on and off times\nled.flash(colors, 3);\n\n// Flash the colors one after another on for 500 ms and off for 1000 ms\nled.flash(colors, 3, 500, 1000);\n```\n\n\n#### off()\n\nShut off the led\n\n```c++\n// Turn off the led\nled.off();\n```\n\n## Color Methods\n\n#### constructor(int red, int green, int blue)\n\nInitialize a `Color` with 3 RGB color values\n\nParameter | Description | Example\n--- | --- | ---\nred | The RGB red value `0 to 255` | `0`\ngreen | The RGB green value `0 to 255` | `255`\nblue | The RGB blue value `0 to 255` | `120`\n\n```c++\nColor red(255, 0, 0);\nColor orange(255, 165, 0);\nColor white(255, 255, 255);\n```\n\n#### withBrightness(int brightness)\nReturns a new color with desired brightness percentage\n\nParameter | Description | Example\n--- | --- | ---\nbrightness | The desired brightness percentage of the color | `20`\n\n```c++\nColor orange(255, 165, 0);\n\norange.withBrightness(20); // returns Color(51, 33, 0)\n```\n\n\n#### lerp(Color to, float t)\n\nLinearly interpolates between two colors\n\nParameter | Description | Example\n--- | --- | ---\nto | The Color to lerp to | `Color(0, 0, 255)`\nt | The fraction clamped to range `[0...1]` | `0.5`\n\n```c++\nColor red(200, 0, 0);\nColor blue(0, 0, 200);\n\nred.lerp(blue, 0.5); // returns Color(100, 0, 100)\n```\n",

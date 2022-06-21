@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-wdgs",
     "version": "1.0.1",
-    "installs": 12878,
+    "installs": 12962,
     "license": "MIT",
     "author": "phsacar & amp",
     "sentence": "Use forced OTA and firmware > 1.2! Library to employ independent and window watch dogs of STM32F205 for the Particle Photon.",
@@ -49,8 +49,23 @@
           "boron": {
             "photon-wdgs-demo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "photon-wdgs-demo": true
+          },
+          "electron": {
+            "photon-wdgs-demo": false
+          },
+          "argon": {
+            "photon-wdgs-demo": false
+          },
+          "boron": {
+            "photon-wdgs-demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.736Z"
     }
   },
   "readme": "/*\nThe MIT License (MIT)\n\nCopyright (c) 2019 Kevin Kasal, Alexander Partsch\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n*/\n# photon-wdgs\nLibrary to employ independent and window watchdogs of STM32F205 for the Particle Photon with the help of hardware timers.\n\n\n# Why?\nSometimes faults can happen. Maybe its a bit in your code that gets flipped in ram, or a simple programming bug in your software. Electronic devices can get stuck and when this happens a watchdog is able to detect the problem and reset your device. This is especially helpful when you want to use your photon 24/7 or in hard to reach places.  \n\n## Importing the Library\nNormally you should use the Particle WebIDE to include this Project, but you could also manually add the .cpp and .h file to your particle project.\n\n## Usage\nSimply call `PhotonWdgs::begin` to start the watchdog, and reset it regularly by calling `PhotonWdgs::tickle()`\n** IMPORTANT:\nOTA: This library depends on forced OTA, which is available as of Device Firmware 1.2; You need to force enable OTA before updating. Internally the library detects the forced OTA and disables the window watchdog. Please don't use the independent watchdog if you want OTA, _except_ you really need to and it is safe if your device looses it's programm or reboots (Most of the time nothing bad will happen) - It is possible that the Photon resets during an firmware update **\n\n\n\n** IMPORTANT:\nIf you want to enter sleep mode, you can only use the WWDG(Window Watchdog) as the Independant Watchdog can't be stopped **\n\n### begin(bool \\_enable\\_wwdg,bool \\_enable\\_iwdg,unsigned long \\_timeout, TIMid id)\nStarts one or both watchdogs. The first two parameters are\nflags to start the watchdogs, the timeout is specified in milliseconds\nand tells the watchdog(s) when to reset if tickle() is not called. Last\nthe HW timer is specified using the TIMER constants from SparkIntervalTimer\nlibrary. We recommend using TIMER7 if not otherwhise used in one of Projects.\n\n * \\_enable\\_wwdg:\n\tEnable this to use the Window Watchdog.\n\tThis watchdog *can* be disabled during runtime in a future version of the library, however it uses the same clock source as the CPU itself so it is not as reliable as the independent watchdog.\n * \\_enable\\_iwdg:\n\tEnable this to use the independent watchdog.\n\tThis watchdog *cannot* be disabled during runtime. It uses an independent clock source (LSI) and can trigger an reset even if the main clock goes down. * It is not possible to use this watchdog if you want to use low power modes (sleep) because the only option to deactivate it is a reset(hardware) *\n * \\_timeout (in ms):\n\tSets the maximum amount of time between calling tickle() in ms ( percision: 10ms, so avoid setting it lower ). Set this as low as possible. \n* id:\n\tSelects the hardware timer to use. We recommend *TIMER7*.\n\n\n\n### tickle()\n\nCall this function to reset the watchdog.\n\n### disableWWDG()\n\nCall this function to stop the Window Watchdog - Use before sleeping, otherwise the device will reset.\n\n## If something goes wrong\n\nIf you accidently started the watchdog in your code and you do not call tickle somewhere within the given timout, your photon will reset. That could mean that you are unable to flash your photon OTA. There is a simple method to restore access to your photon by entering safe mode:\n\n1. Hold down BOTH buttons\n2. Release only the RESET button, while holding down the SETUP button.\n3. Wait for the LED to start flashing magenta\n4. Release the SETUP button\n5. Flash another piece of software\n\n## Contribute\nPlease consider following rules when contributing to this library:\n\n1. Follow the library style guide introduced in particle [uber-library-example](https://github.com/spark/uber-library-example/blob/master/doc/firmware-code-conventions.md).\n2. Changes require an bug or enhancement issue first. Work shall be done in an extra branch named dev-${issue number}.\n3. If you are not a direct contributor and what to have something changed, post an issue (bug or enhancement) and create a pull request if you want to fix it on your own.\n",

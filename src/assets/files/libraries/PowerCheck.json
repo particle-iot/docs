@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PowerCheck",
     "version": "1.0.2",
-    "installs": 354,
+    "installs": 382,
     "license": "LGPL",
     "author": "Rick K",
     "sentence": "simple power checking for battery devices",
@@ -23,7 +23,8 @@
   "versions": {
     "1.0.2": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.074Z"
     }
   },
   "readme": "",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TinyGPS",
     "version": "1.0.0",
-    "installs": 27203,
+    "installs": 27840,
     "license": "GNU Lesser General Public License",
     "author": "Krishnaraj Varma",
     "sentence": "TinyGPS (by Mikal Hart) for Spark Core library",
@@ -50,8 +50,23 @@
           "boron": {
             "gps": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "gps": false
+          },
+          "electron": {
+            "gps": false
+          },
+          "argon": {
+            "gps": false
+          },
+          "boron": {
+            "gps": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.704Z"
     }
   },
   "readme": "**TinyGPS** - a small GPS library for Arduino providing basic NMEA parsing Based on work by and \"distance_to\" and \"course_to\" courtesy of Maarten Lamers. Suggestion to add satellites(), course_to(), and cardinal(), by Matt Monson. Precision improvements suggested by Wayne Holder.\nCopyright (C) 2008-2013 Mikal Hart\nAll rights reserved.\n\n--- *Adapted by Krishnaraj Varma for Spark Code* ---\n\nA MediaTek MT3329 GPS receiver is used in this example application. The sample simply publishes the GPS location every 15 minutes. The HMTL page uses Google Map API to display Spark Core location on a Map. You should replace the tag deviceid and accesstoken with actual values.\n\n**Wiring**\n\n 1. GPS Vcc to 3.3V\n 2. GPS GND to GND \n 3. GPS Tx to Rx \n 4. GPS Rx to Tx\n \n**Screenshot**\n\n![enter image description here][1]\n\n![enter image description here][2]\n\n\n  [1]: https://raw.githubusercontent.com/krvarma/TinyGPS_SparkCore/master/IMG_0087.JPG\n  [2]: https://raw.githubusercontent.com/krvarma/TinyGPS_SparkCore/master/IMG_0088.JPG",

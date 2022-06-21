@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20Minimal",
     "version": "0.0.1",
-    "installs": 7679,
+    "installs": 7959,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -37,7 +37,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.777Z"
     }
   },
   "readme": "About\n===\n\nMinimal DS18B20 library based on work by Rob Tillaart.\n",

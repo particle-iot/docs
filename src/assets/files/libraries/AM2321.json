@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AM2321",
     "version": "0.9.0",
-    "installs": 813,
+    "installs": 848,
     "license": "MIT",
     "author": "Ed Wios <edwintam@iostation.com>",
     "sentence": "AM2321 temperature and humidity sensor library for Spark Core",
@@ -50,8 +50,23 @@
           "boron": {
             "AM2321Example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "AM2321Example": true
+          },
+          "electron": {
+            "AM2321Example": true
+          },
+          "argon": {
+            "AM2321Example": true
+          },
+          "boron": {
+            "AM2321Example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.976Z"
     }
   },
   "readme": "AM2321\n======\n\nAM2321 temperature and humidity sensor library and example for Spark Core.\n\nThis device is manufactured by a China vendor called AoSong. It claims to use the I2C standard, however, the I2C protocol it is using is not entirely the same as what is expected from the I2C standard. Thus, custom I2C handling methods must be built to conform to the AM2321 I2C protocol in order to correctly read the information off the device.\n\nAfter anything is read from the device, at least 2s must be waited before you can perform another read from the device again.\n\nEd Wios\nOct 2014\n\n",

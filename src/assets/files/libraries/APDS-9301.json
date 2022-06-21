@@ -7,7 +7,7 @@
   "attributes": {
     "name": "APDS-9301",
     "version": "1.0.2",
-    "installs": 265,
+    "installs": 308,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Broadcom APDS-9301 Lux Sensor.",
@@ -61,8 +61,27 @@
             "Simple_Example": false,
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "electron": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "argon": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Simple_Example": false,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.101Z"
     }
   },
   "readme": "SparkFun APDS-9301 Arduino Library\r\n==========\r\nThe APDS-9301 is an I2C light sensor capable of returning the current Lux value\r\nof the local visible light. \r\n\r\nSparkFun does not currently sell a breakout just for the APDS-9301.\r\n\r\nRepository Contents\r\n-------------------\r\n* **src** - Contains the source for the Arduino library.\r\n* **Examples** - Example sketches demonstrating the use of the library\r\n* **keywords.txt** - List of words to be highlighted by the Arduino IDE\r\n* **library.properties** - Used by the Arduino package manager\r\n\r\nDocumentation\r\n-------------------\r\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\r\n\r\nVersion History\r\n-------------------\r\n\r\n* [v 1.0.0](https://github.com/sparkfun/SparkFun_APDS9301_Library/tree/V_1.0.0) - Initial release\r\n\r\n\r\nLicense Information\r\n-------------------\r\nThis product is open source! \r\nThe code is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\r\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\r\n\r\nDistributed as-is; no warranty is given.\r\n\r\n- Your friends at SparkFun.\r\n\r\n",

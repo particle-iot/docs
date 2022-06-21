@@ -113,7 +113,7 @@ Once you are on the growth plan, if you exceed the data operations limit, cellul
 The central billing element for both cellular and Wi-Fi is the Data Operation:
 
 - Each publish, subscribe, function, or variable consumes one Data Operation regardless of size
-- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
+- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/api/cloud-functions/overview-of-api-field-limits/)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
 

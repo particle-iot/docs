@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Fingerprint",
     "version": "1.0.3",
-    "installs": 3450,
+    "installs": 3593,
     "license": "BSD License",
     "author": "Paul Kourany",
     "sentence": "Adafruit Fingerprint Sensor library",
@@ -67,8 +67,31 @@
             "enroll": true,
             "fingerprint": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "electron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "argon": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "boron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.838Z"
     }
   },
   "readme": "This is a library for our optical Fingerprint sensor\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products/751\n\nThese displays use TTL Serial to communicate, 2 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\n!!! Update for Particle Libraries V2.0, Jan 2016 !!!\n!!! Adapted for Spark Core by Paul Kourany, May 2014 !!!\n",

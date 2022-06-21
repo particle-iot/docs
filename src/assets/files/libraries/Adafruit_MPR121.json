@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MPR121",
     "version": "0.0.3",
-    "installs": 17436,
+    "installs": 18026,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit MPR121 12-Key Capacitive Touch Sensor Breakout library for Particle devices",
@@ -96,8 +96,27 @@
             "MPR121_ISR": true,
             "MPR121_Test": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          },
+          "electron": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          },
+          "argon": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          },
+          "boron": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.722Z"
     }
   },
   "readme": "This is a library for the MPR121 12-channel Capacitive touch sensor\r\n\r\nDesigned specifically to work with the MPR121 Breakout in the Adafruit shop \r\n  ----> https://www.adafruit.com/products/1982\r\n\r\nThese sensors use I2C communicate, at least 2 pins are required \r\nto interface\r\n\r\nAdafruit invests time and resources providing this open source code, \r\nplease support Adafruit and open-source hardware by purchasing \r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \r\nBSD license, all text above must be included in any redistribution\r\n\r\nCheck out the links above for our tutorials and wiring diagrams \r\n\r\nTo download. click the ZIP button, and rename the uncompressed folder Adafruit_MPR121\r\nCheck that the Adafruit_MPR121 folder contains Adafruit_MPR121.cpp and Adafruit_MPR121.h\r\n\r\nPlace the Adafruit_MPR121 library folder your arduinosketchfolder/libraries/ folder. \r\nYou may need to create the libraries subfolder if its your first library. Restart the IDE.\r\n\r\nWe also have a great tutorial on Arduino library installation at:\r\nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use",

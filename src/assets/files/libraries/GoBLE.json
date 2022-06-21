@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GoBLE",
     "version": "0.0.1",
-    "installs": 336,
+    "installs": 349,
     "author": "Michael Doan",
     "sentence": "Add generic BLE RC controller to your projects",
     "paragraph": "Port of DFRobot's GoBLE. Program HM-10 BLE modules to connect with the APP on your phone: AT+BAUD4, AT+UUID0xDFB0, AT+CHAR0xDFB1.",
@@ -52,8 +52,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.085Z"
     }
   },
   "readme": "# GoBLE\n\nA Particle port of DFRobot's library for GoBLE\nhttps://www.dfrobot.com/wiki/index.php/Bluetooth_APP_Control\n\nThis enables the uses of genertic BLE modules like HM-10 with Particle for added RC control.\n\nUsing AT commands, set the HM-10 as follows (all other settings at default values):\n\nAT+BAUD4\n\nAT+UUID0xDFB0\n\nAT+CHAR0xDFB1\n\nThen connect hm-10's TX to Particle Serial1_RX, connect power. Good to go.\n\n",

@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_AW9523_latest",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_AW9523_latest/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_AW9523_latest",
+    "version": "1.0.1",
+    "installs": 366,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for the AW9523 GPIO expanders in the Adafruit shop",
+    "paragraph": "Arduino library for the AW9523 GPIO expanders in the Adafruit shop",
+    "category": "Signal Input/Output",
+    "url": "https://github.com/adafruit/Adafruit_AW9523",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_AW9523_latest",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "electron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "argon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "boron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "electron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "argon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "boron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "electron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "argon": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          },
+          "boron": {
+            "blink_demo": false,
+            "constcurrent_demo": false,
+            "ledbutton_demo": false
+          }
+        }
+      },
+      "added": "2022-06-17T10:16:54.079Z"
+    }
+  },
+  "readme": "# Adafruit AW9523 GPIO Expander and LED Driver for Arduino [![Build Status](https://github.com/adafruit/Adafruit_AW9523/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_AW9523/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_AW9523/html/index.html)\n\nThis is a library for the AW9523 GPIO Expander and LED Driver\n\nDesigned specifically to work with the AW9523 breakout in the Adafruit shop:\n\n- https://www.adafruit.com/products/4886\n\nThese boards use **I2C** to communicate. 2 pins are required to interface.\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution.\n\n## Installing this Library\n\nCheck out the links above for our tutorials and wiring diagrams. Use the Arduino library manager to install\n\nWe also have a great tutorial on Arduino library installation at:\nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

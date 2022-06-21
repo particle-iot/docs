@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SensirionSGP30",
     "version": "1.0.4",
-    "installs": 3671,
+    "installs": 3864,
     "author": "Michael Guntli",
     "sentence": "Library for Sensirion SGP30 Indoor Quality Sensor",
     "paragraph": "Forked from Adafruit_SGP30 and ported to Particle Platform",
@@ -52,8 +52,23 @@
           "boron": {
             "sgp30test": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "sgp30test": true
+          },
+          "electron": {
+            "sgp30test": true
+          },
+          "argon": {
+            "sgp30test": true
+          },
+          "boron": {
+            "sgp30test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.830Z"
     }
   },
   "readme": "SensirionSGP30\r\n================\r\n\r\nThis is a ported Particle Library from the Adafruit SGP30 Gas / Air Quality  I2C sensor library\r\n\r\nTested and works great with the Aadafruit SGP30 Breakout Board\r\n  * http://www.adafruit.com/products/3709\r\n\r\nThis chip uses I2C to communicate, 2 pins are required to interface\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried for Adafruit Industries.  \r\nBSD license, check license.txt for more information\r\nAll text above must be included in any redistribution\r\n",

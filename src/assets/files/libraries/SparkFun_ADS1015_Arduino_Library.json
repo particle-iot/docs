@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ADS1015_Arduino_Library",
     "version": "2.3.0",
-    "installs": 327,
+    "installs": 383,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the ADS1015 ADC to I2C converter used on the SparkFun Qwiic 12-bit ADC and Flex Glove Controller.",
@@ -94,8 +94,43 @@
             "Example5_Alert": true,
             "Example6_DisplayMillivolts": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_ReadBasic": true,
+            "Example2_ChangeGain": true,
+            "Example3_Address": true,
+            "Example4_Differential": true,
+            "Example5_Alert": true,
+            "Example6_DisplayMillivolts": true
+          },
+          "electron": {
+            "Example1_ReadBasic": true,
+            "Example2_ChangeGain": true,
+            "Example3_Address": true,
+            "Example4_Differential": true,
+            "Example5_Alert": true,
+            "Example6_DisplayMillivolts": true
+          },
+          "argon": {
+            "Example1_ReadBasic": true,
+            "Example2_ChangeGain": true,
+            "Example3_Address": true,
+            "Example4_Differential": true,
+            "Example5_Alert": true,
+            "Example6_DisplayMillivolts": true
+          },
+          "boron": {
+            "Example1_ReadBasic": true,
+            "Example2_ChangeGain": true,
+            "Example3_Address": true,
+            "Example4_Differential": true,
+            "Example5_Alert": true,
+            "Example6_DisplayMillivolts": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.073Z"
     }
   },
   "readme": "SparkFun ADS1015 Arduino Library\n===========================================================\n Note, this library is written for use with the Texas Instruments ADS1015. It can be used with most hardware designed around this chip. SparkFun has two products that use this chip, and so we have tailored the example sketchs (and some of the function names) to make most sense with each of these designs. \n \n Please see the product pages and custom hookup guides for more information on the specific parts of this library that work best with each design.\n \n ![SparkFun Qwiic 12 Bit ADC - 4 Channel ADS1015](https://cdn.sparkfun.com//assets/parts/1/3/8/5/7/15334-SparkFun_Qwiic_12_Bit_ADC_-_4_Channel__ADS1015_-02.jpg)\n \n [*SparkFun Qwiic 12 Bit ADC - 4 Channel (DEV-15334)*](https://www.sparkfun.com/products/15334)\n [Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-12-bit-adc)\n\nThe SparkFun Qwiic 12 Bit ADC can provide four channels of I2C controlled ADC input to your Qwiic enabled project. These channels can be used as single-ended inputs, or in pairs for differential inputs. What makes this even more powerful is that it has a programmable gain amplifier that lets you \"zoom in\" on a very small change in analog voltage (but will still effect your input range and resolution). Utilizing our handy Qwiic system, no soldering is required to connect it to the rest of your system. However, we still have broken out 0.1\"-spaced pins in case you prefer to use a breadboard.\n\nThe ADS1015 uses its own internal voltage reference for measurements, but a ground and 3.3V reference are also available on the pin outs for users. This ADC board includes screw pin terminals on the four channels of input, allowing for solderless connection to voltage sources in your setup. It also has an address jumper that lets you choose one of four unique addresses (0x48, 0x49, 0x4A, 0x4B). With this, you can connect up to four of these on the same I2C bus and have sixteen channels of ADC. The maximum resolution of the converter is 12-bits in differential mode and 11-bits for single-ended inputs. Step sizes range from 125μV per count to 3mV per count depending on the full-scale range (FSR) setting.\n\nWe have included an onboard 10K trimpot connected to channel A3. This is handy for initial setup testing and can be used as a simple variable input to your project. But don't worry, we added an isolation jumper so you can use channel A3 however you'd like.\n\n![SparkFun Qwiic Flex Glove Controller](https://cdn.sparkfun.com//assets/parts/1/2/8/6/2/14666-SparkFun_Qwiic_Flex_Glove_Controller-01.jpg)\n\n [*SparkFun Qwiic Flex Glove Controller (SEN-14666)*](https://www.sparkfun.com/products/14666)\n [Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-flex-glove-controller-hookup-guide/all)\n\nThe Qwiic Flex Glove Controller allows you to figure out just how bent all of your fingers are. This board uses an ADC to I2C to create an interface with SparkFun's Qwiic system, which means you won't have to do any soldering to figure out how bent your fingers are.\n\nLibrary written by Andy England, then modified by Pete Lewis ([SparkFun](http://www.sparkfun.com)). Also, we'd like to thank Adafruit for their work on their Arduino library, as it proved to be a great reference with lots of information. If you'd like to try out their library (which also supports the 16 bit version of this chip:ADS1115), please check that out here: [Adafruit's ADS1X15 library](https://github.com/adafruit/Adafruit_ADS1X15).\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/examples/Flex Glove Controller** - Example sketches for use with the [Qwiic Flex Glove Controller](https://www.sparkfun.com/products/14666)\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[SparkFun Qwiic 12 Bit ADC - 4 Channel Product Repository](https://github.com/sparkfun/SparkFun_Qwiic_12_Bit_ADC_-_4_Channel_ADS1015)** - Main repository (including hardware files)\n* **[SparkFun Qwiic Flex Glove Controller Product Repository](https://github.com/sparkfun/Qwiic_Flex_Glove_Controller)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round! Anything Maxim wrote has its own license. Anything that was co-writing with Peter Jansen is BSD.\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

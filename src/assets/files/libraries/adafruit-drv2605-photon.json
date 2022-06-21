@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-drv2605-photon",
     "version": "1.1.0",
-    "installs": 3472,
+    "installs": 3574,
     "license": "MIT",
     "author": "Harshita Gupta <gupta.harshita.001@gmail.com>",
     "sentence": "Arduino DRV2605 library ported for the Particle Photon. Makes code compatible with Adafruit Haptic Controller Breakout.",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.839Z"
     }
   },
   "readme": "About\n==\nPorted version of the Arduino DRV2605 library to control the Haptic Controller Breakout via I2C, modified to meet the requirements of a Particle Photon library. ",

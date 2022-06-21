@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ProbeCube_DHT",
     "version": "1.0.2",
-    "installs": 4364,
+    "installs": 4381,
     "license": "MIT License",
     "author": "Lafudoci",
     "sentence": "Forked from russgrue/Adafruit_DHT_Library",
@@ -50,8 +50,23 @@
           "boron": {
             "DHTtester": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DHTtester": true
+          },
+          "electron": {
+            "DHTtester": true
+          },
+          "argon": {
+            "DHTtester": true
+          },
+          "boron": {
+            "DHTtester": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.821Z"
     }
   },
   "readme": "\n",

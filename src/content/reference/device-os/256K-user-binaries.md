@@ -80,6 +80,6 @@ There are several reasons for this:
 
 When flashing a Device OS 3.1 or later user binary by SWD/JTAG, be careful if your binary is less than 128K and you have not erased the whole flash. The reason is that if there is a valid 128K binary at 0xd4000 it will always have precedence over a user binary at 0xb4000, so the old binary will be used instead of the newly flashed binary.
 
-If you are using the [hex generator](/troubleshooting/developer-tools/hex-generator/), this is taken care of for you. A 4K sector is erased at 0xd4000 before the user firmware is written when targeting Device OS 3.1 or later. This will assure that there isn't a valid 128K user binary regardless of the size of your Device OS 3.1 user binary.
+If you are using the [hex generator](/tools/developer-tools/hex-generator/), this is taken care of for you. A 4K sector is erased at 0xd4000 before the user firmware is written when targeting Device OS 3.1 or later. This will assure that there isn't a valid 128K user binary regardless of the size of your Device OS 3.1 user binary.
 
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Spark-Phant",
     "version": "0.1.1",
-    "installs": 464,
+    "installs": 502,
     "license": "GPL v3",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A simple library for the Spark Photon that generates Phant posts, gets, deletes and more.",
@@ -50,8 +50,23 @@
           "boron": {
             "testStream": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "testStream": true
+          },
+          "electron": {
+            "testStream": true
+          },
+          "argon": {
+            "testStream": true
+          },
+          "boron": {
+            "testStream": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.039Z"
     }
   },
   "readme": "# SparkFun Spark Phant Library\n\nA Phant library for the Spark Core and Photon.\n\n### Create a Phant Stream\n\nVisit [data.sparkfun.com](https://data.sparkfun.com) to create a Phant stream of your own. You'll be given public and private keys, don't lose them!\n\nIf you want to set up Phant on a server of your own, visit [phant.io](http://phant.io/).\n\n### Include & Constructor\n\nMake sure you include \"SparkFun-Spark-Phant/SparkFun-Spark-Phant.h\":\n\n\t// Include the Phant library:\n\t#include \"SparkFun-Spark-Phant/SparkFun-Spark-Phant.h\":\n\nThen create a Phant object, which requires a **server**, **public key** and **private key**:\n\n\tconst char server[] = \"data.sparkfun.com\"; // Phant destination server\n\tconst char publicKey[] = \"DJjNowwjgxFR9ogvr45Q\"; // Phant public key\n\tconst char privateKey[] = \"P4eKwGGek5tJVz9Ar84n\"; // Phant private key\n\tPhant phant(server, publicKey, privateKey); // Create a Phant object\n\t\n### Adding Fields/Data\n\nBefore posting, update every field in the stream using the `add([field], [value])` function. The `[field]` variable will always be a String (or const char array), `[value]` can be just about any basic data type -- `int`, `byte`, `long`, `float`, `double`, `String`, `const char`, etc.\n\nFor example:\n\n\tphant.add(\"myByte\", 127);\n\tphant.add(\"myInt\", -42);\n\tphant.add(\"myString\", \"Hello, world\");\n\tphant.add(\"myFloat\", 3.1415);\n\n### POSTing\n\nAfter you've phant.add()'ed, you can call `phant.post()` to create a Phant POST string. `phant.post()` returns a string, which you can send straight to a print function.\n\nMost of the time, you'll want to send your `phant.post()` string straight out of a TCPClient print. For example:\n\n\tTCPClient client;\n\tif (client.connect(server, 80)) // Connect to the server\n    {\n        client.print(phant.post());\n\t}\n\nAfter calling `phant.post()` all of the field/value parameters are erased. You'll need to make all of your phant.add() calls before calling post again.",

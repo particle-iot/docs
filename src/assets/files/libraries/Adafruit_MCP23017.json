@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MCP23017",
     "version": "1.0.2",
-    "installs": 131798,
+    "installs": 132905,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada/Paul Kourany",
     "sentence": "Adafruit_MCP23017 I2C expander library adapted for Spark",
@@ -66,8 +66,31 @@
             "interrupt": true,
             "toggle": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "electron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "argon": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "boron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.654Z"
     }
   },
   "readme": "Adafruit_MCP23017 I2C expander library\r\n======================================\r\nThis is a library for the MCP23017 I2c Port Expander\r\n \r\nThese chips use I2C to communicate, 2 pins required to interface\r\n\r\nAdafruit invests time and resources providing this open source code, \r\nplease support Adafruit and open-source hardware by purchasing \r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \r\nBSD license, check license.txt for more information\r\nAll text above must be included in any redistribution\r\n\r\nAdapted for Spark Core by Paul Kourany, Sept 3, 2014\r\nUpdate to Libraries 2.0, Jan 29, 2017\r\n\r\n",

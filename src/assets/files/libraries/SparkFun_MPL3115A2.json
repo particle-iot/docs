@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MPL3115A2",
     "version": "1.1.2",
-    "installs": 14520,
+    "installs": 14608,
     "license": "MIT",
     "author": "Joel Bartlett <joel@sparkfun.com>",
     "sentence": "A library to drive the MPL3115A2 barometric pressure sensor.",
@@ -50,8 +50,23 @@
           "boron": {
             "SparkFun_MPL3115A2_Example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "electron": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "argon": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "boron": {
+            "SparkFun_MPL3115A2_Example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.729Z"
     }
   },
   "readme": "## SparkFun MPL3115A2 Particle Library\n\nFirmware library SparkFun's Photon Weather Shield and the MPL3115A2 Breakout.\n\nAbout\n-------------------\n\nThis is a firmware library for [SparkFun's Photon Weather Shield](https://www.sparkfun.com/products/13630).\n\n[![Photon Battery Shield](https://cdn.sparkfun.com//assets/parts/1/1/0/1/7/13630-01a.jpg)](https://www.sparkfun.com/products/13630).\n\nThe MPL3115A2 is a MEMS pressure sensor that provides Altitude data to within 30cm (with oversampling enabled). The sensor outputs are digitized by a high resolution 24-bit ADC and transmitted over I2C, meaning it’s easy to interface with most controllers. Pressure output can be resolved with output in fractions of a Pascal, and Altitude can be resolved in fractions of a meter. The device also provides 12-bit temperature measurements in degrees Celsius.\n\nRepository Contents\n-------------------\n\n* **/doc** - Additional documentation for the user. These files are ignored by the IDE. \n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particel library manager. \n\nExample Usage\n-------------------\n\nInclude the MPL3115A2 library:\n\n\t#include \"SparkFunMPL3115A2.h\" // Include the SparkFun MPL3115A2 library\n\t\nThen use the `MPL3115A2` object to interact with it. Begin by initializing the IC:\n\n\tMPL3115A2 baro = MPL3115A2();//create instance of MPL3115A2 barrometric sensor\n\n\tvoid setup()\n\t{\n\t    Serial.begin(9600);   // open serial over USB at 9600 baud\n\t\n\t    //Initialize\n\t  \twhile(! baro.begin()) {\n\t          Serial.println(\"MPL3115A2 not found\");\n\t          delay(1000);\n\t     }\n\t     Serial.println(\"MPL3115A2 OK\");\n\n\t    //MPL3115A2 Settings\n\t    //baro.setModeBarometer();//Set to Barometer Mode\n\t    baro.setModeAltimeter();//Set to altimeter Mode\n\t\n\t    baro.setOversampleRate(7); // Set Oversample to the recommended 128\n\t    baro.enableEventFlags(); //Necessary register calls to enble temp, baro ansd alt\n\t}\n\nThen you can read various data like this:\n\n\t  baroTemp = baro.readTempF();//get the temperature in F\n\t\n\t  pascals = baro.readPressure();//get pressure in Pascals\n\t\n\t  altf = baro.readAltitudeFt();//get altitude in feet\n\t\nCheck out the example files in the [examples directory](https://github.com/sparkfun/SparkFun_MPL3115A2_Particle_Library/tree/master/firmware/examples) for more guidance.\n\nRecommended Components\n-------------------\n\n* [Particle Photon](https://www.sparkfun.com/products/13345)\n* [SparkFun Photon Weather Shield](https://www.sparkfun.com/products/13630)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

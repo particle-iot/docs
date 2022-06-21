@@ -601,7 +601,7 @@ const familyMapCreate = function() {
 
         let models = [];
         skuFamilyObj.group.forEach(function(obj) {
-            if (obj.lifecycle == 'GA') {
+            if (obj.lifecycle == 'GA' || obj.lifecycle == 'In development' || obj.lifecycle == 'Sampling') {
                 models.push(obj);
             }
         });
@@ -619,7 +619,12 @@ const familyMapCreate = function() {
 
                 models.forEach(function(modelObj, modelIndex) {
                     if (modelObj.sim == cmsObj.sim && modelObj.modem == cmsObj.modem) {
-                        foundModel = modelIndex;
+                        if (typeof modelObj['mapColor'] != 'undefined') {
+                            foundModel = modelObj.mapColor;
+                        }
+                        else {
+                            foundModel = modelIndex;
+                        }
                     }
                 });
             });    
@@ -648,7 +653,11 @@ const familyMapCreate = function() {
             let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th><th>Lifecycle</th></tr></thead><tbody>';
 
             models.forEach(function(skuFamilyObj, modelIndex) {
-                const style = 'background-color:#' + options.colorAxis.colors[modelIndex];
+                let mapColor = modelIndex;
+                if (typeof skuFamilyObj['mapColor'] != 'undefined') {
+                    mapColor = skuFamilyObj.mapColor;
+                }
+                const style = 'background-color:#' + options.colorAxis.colors[mapColor];
 
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {

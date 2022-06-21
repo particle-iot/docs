@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ILI9341",
     "version": "1.0.3",
-    "installs": 35281,
+    "installs": 35653,
     "author": "Paupl Kourany / Adafruit",
     "maintainer": "Paul Kourany / Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit ILI9341 displays using Adafruit_mfGFX",
@@ -52,8 +52,23 @@
           "boron": {
             "graphicstest": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "graphicstest": true
+          },
+          "electron": {
+            "graphicstest": true
+          },
+          "argon": {
+            "graphicstest": true
+          },
+          "boron": {
+            "graphicstest": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.693Z"
     }
   },
   "readme": "This is a library for the Adafruit ILI9341 display products\r\n\r\nAdapted for Particle devices and to use Adafruit_mfGFX\r\nmultifont library by Paul Kourany\r\n\r\nThis library works with the Adafruit 2.8\" Touch Shield V2 (SPI)\r\n  ----> http://www.adafruit.com/products/1651\r\n \r\nCheck out the links above for our tutorials and wiring diagrams.\r\nThese displays use SPI to communicate, 4 or 5 pins are required\r\nto interface (RST is optional).\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada for Adafruit Industries.\r\nMIT license, all text above must be included in any redistribution\r\n",

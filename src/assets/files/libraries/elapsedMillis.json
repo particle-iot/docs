@@ -7,7 +7,7 @@
   "attributes": {
     "name": "elapsedMillis",
     "version": "0.0.2",
-    "installs": 72208,
+    "installs": 73482,
     "license": "Unknown",
     "author": "Paul Kourany/PJRC.COM",
     "sentence": "elapsedMillis for Particle devices",
@@ -50,8 +50,23 @@
           "boron": {
             "elapsedMillisDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "elapsedMillisDemo": true
+          },
+          "electron": {
+            "elapsedMillisDemo": true
+          },
+          "argon": {
+            "elapsedMillisDemo": true
+          },
+          "boron": {
+            "elapsedMillisDemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.672Z"
     }
   },
   "readme": "elapsedMillis\n=============\n\n- Jan 2017, updated to Libraries 2.0\n- Adapted for Particle devices\n\nElapsed time types - for easy-to-use measurements of elapsed time\nhttp://www.pjrc.com/teensy/\nCopyright (c) 2011 PJRC.COM, LLC\n\nThese special variable types automatically increase as time elapses.\nIt's easy to check if a certain time has elapsed, while your program\nperforms other work or checks for user input. It is also very to handle\nmultiple tasks requiring different delays.\n",

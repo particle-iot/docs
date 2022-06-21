@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WaveshareEPaper29b",
     "version": "0.0.2",
-    "installs": 1429,
+    "installs": 1584,
     "license": "MIT",
     "author": "Yehui from Waveshare (port ScruffR)",
     "sentence": "Support for the Waveshare 2.9\" EPaper Module B (white/black/red)",
@@ -102,8 +102,27 @@
             "EPaper29b": false,
             "EPaper29bRotate": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "electron": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "argon": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "boron": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.911Z"
     }
   },
   "readme": "# WaveshareEPaper29\r\n\r\nA Particle library for WaveshareEPaper29\r\n\r\nUsage examples for this library can be found in the `examples` folder\r\n\r\n## LICENSE\r\nCopyright 2017 Yehui from Waveshare (port ScruffR)\r\nhttps://www.waveshare.com/wiki/2.9inch_e-Paper_Module_(B)\r\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TimeAlarms",
     "version": "0.0.3",
-    "installs": 53937,
+    "installs": 54896,
     "license": "LGPL 3.0",
     "author": "Brian Ogilvie <bko@pobox.com>",
     "sentence": "Port of TimeAlarms",
@@ -50,8 +50,23 @@
           "boron": {
             "TimeAlarmsExample": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "TimeAlarmsExample": false
+          },
+          "electron": {
+            "TimeAlarmsExample": false
+          },
+          "argon": {
+            "TimeAlarmsExample": false
+          },
+          "boron": {
+            "TimeAlarmsExample": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.680Z"
     }
   },
   "readme": "SparkTimeAlarms\n===============\n\nPort of PJRC's TimeAlarms Library using core Time.now\n\nPlease note that this library is not intended to work with the SparkTime NTP library.\n\nThis library only works with built-in core Time.now() initialized from the Spark Cloud.\n",

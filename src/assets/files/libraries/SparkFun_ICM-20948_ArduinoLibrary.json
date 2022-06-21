@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ICM-20948_ArduinoLibrary",
     "version": "1.1.1",
-    "installs": 1463,
+    "installs": 1932,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Use the low-power high-resolution ICM 20948 9 DoF IMU from Invensense with I2C or SPI. Includes a portable C skeleton",
@@ -70,8 +70,31 @@
             "Example2_Advanced": true,
             "Example3_Interrupts": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "electron": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "argon": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          },
+          "boron": {
+            "Example1_Basics": true,
+            "Example2_Advanced": true,
+            "Example3_Interrupts": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.889Z"
     }
   },
   "readme": "SparkFun_ICM-20948_ArduinoLibrary\n========================================\n\nThis is the library for the [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335). \n\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-9dof-imu-icm-20948-breakout-hookup-guide)** - Basic hookup guide for the SparkFun 9DoF IMU Breakout.\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n\nProducts that use this Library \n---------------------------------\n* [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335)\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is released under the GPL v3 license. See the included LICENSE.md for more information.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

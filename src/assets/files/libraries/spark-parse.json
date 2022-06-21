@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-parse",
     "version": "0.0.3",
-    "installs": 295,
+    "installs": 321,
     "author": "Ian Wells <ijw@cack.org.uk>",
     "url": "https://github.com/iawells/spark-parse",
     "repository": "https://github.com/iawells/spark-parse.git",
@@ -48,8 +48,23 @@
           "boron": {
             "parse_hex": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "parse_hex": true
+          },
+          "electron": {
+            "parse_hex": true
+          },
+          "argon": {
+            "parse_hex": true
+          },
+          "boron": {
+            "parse_hex": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.096Z"
     }
   },
   "readme": "spark-parse\n===========\n\nFunctions to help with parsing RPC arguments\n",

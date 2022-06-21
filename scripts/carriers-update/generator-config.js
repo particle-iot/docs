@@ -370,7 +370,7 @@ const path = require('path');
             guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'b series';
@@ -1701,7 +1701,7 @@ const path = require('path');
             guid:'b7083b52-4bd3-47a6-85e8-396922c41b33',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'tracker' || !skuObj.name.includes('ONE');
@@ -1713,7 +1713,7 @@ const path = require('path');
             guid:'6a02fd77-1222-4208-8da5-45c9290c5f6d',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return !skuObj.accessory || !skuObj.name.includes('M8');
@@ -1726,7 +1726,7 @@ const path = require('path');
             guid:'455bf1d0-0230-4074-bfa7-99ce6e4f6245',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'batteryInc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         if (skuObj.multiple) {
@@ -1745,7 +1745,7 @@ const path = require('path');
             guid:'a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'batteryInc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.gen != '3' || (skuObj.skuClass != 'prototyping' && skuObj.skuClass != 'kit');
@@ -1761,7 +1761,7 @@ const path = require('path');
             guid:'518869dc-61de-43db-add1-f0d57956c4e0',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'boron';
@@ -1773,7 +1773,7 @@ const path = require('path');
             guid:'88844fc4-c390-44ff-9254-2fa41e2b8963',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'tracker' || skuObj.name.includes('ONE');
@@ -1786,7 +1786,7 @@ const path = require('path');
             guid:'b9f495c6-80bc-49d7-a4b7-cb210f89fb65',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'tracker';
@@ -1799,7 +1799,7 @@ const path = require('path');
             guid:'a1f313d4-5b1a-409e-b03c-32ebec003b10',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'argon';
@@ -1811,7 +1811,7 @@ const path = require('path');
             guid:'5e188545-21ff-4ef8-9510-155caea7014e',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'e series';
@@ -1823,7 +1823,7 @@ const path = require('path');
             guid:'8ba8241b-1084-463b-b5be-64cda68e3a4b',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.family != 'p series' || skuObj.name.includes('P0');
@@ -1836,7 +1836,7 @@ const path = require('path');
             guid:'2de596b8-2889-4df7-86d1-910d5551b34f',
             generatorFn:function(updater) {
                 return updater.generateSkuList({
-                    onlyGA: true,
+                    lifecycles: ['GA', 'NRND-US', 'Sampling', 'In development'],
                     columns: ['name', 'desc', 'region', 'batteryInc', 'cellAntInc', 'lifecycle'],
                     filterFn: function(skuObj) {
                         return skuObj.gen != '3' || skuObj.name.includes('ONE');

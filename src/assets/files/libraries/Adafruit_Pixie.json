@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Pixie",
     "version": "1.1.0",
-    "installs": 1194,
+    "installs": 1234,
     "license": "GNU GPL",
     "author": "Chris Gervang <chris@gervang.com>",
     "sentence": "Particle library (Ported from Arduino) for controlling Serial-based ultra-bright LED pixels and strip.",
@@ -50,8 +50,23 @@
           "boron": {
             "strandtest": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "strandtest": false
+          },
+          "electron": {
+            "strandtest": false
+          },
+          "argon": {
+            "strandtest": false
+          },
+          "boron": {
+            "strandtest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.935Z"
     }
   },
   "readme": "Adafruit Pixie library (Ported to Particle)\n=========================\n\nArduino library for controlling Pixie - a 3W chainable LED. Uses one serial pin, \"NeoPixel\" library compatible.\n\nCheck it out over at \n\n   * https://www.adafruit.com/products/2741\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Ytai Ben-Tsvi/Limor Fried for Adafruit Industries.\nPorted by dialThat/chrisgervang.\nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_Pixie. Check that the Adafruit_Pixie folder contains Adafruit_Pixie.cpp and Adafruit_Pixie.h\n\nUSERS OF PREVIOUS VERSIONS OF LIBRARY PLEASE NOTE: strip.begin() no longer exists. Instead, in setup(), call serial.begin(115200) for the hardware or software serial port being used for output, e.g. Serial1.begin(115200) or pixieSerial.begin(115200); see strandtest.ino example for use.\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-thermistor",
     "version": "3.1.3",
-    "installs": 46743,
+    "installs": 47710,
     "license": "LGPL",
     "author": "Paul Cowan <paul@monospacesoftware.com>",
     "sentence": "A thermistor library for Particle devices.",
@@ -55,8 +55,23 @@
           "boron": {
             "temperature": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "temperature": true
+          },
+          "electron": {
+            "temperature": true
+          },
+          "argon": {
+            "temperature": true
+          },
+          "boron": {
+            "temperature": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.684Z"
     }
   },
   "readme": "# photon-thermistor\r\nA fully configurable thermistor library for Particle Photon and other devices.\r\n\r\nSimplified for Particle but also allows for full configuration of Vcc, analog reference voltage, and ADC max. Most thermistor libraries assume ADC max is 1023 but ADC max on Particle is 4095!\r\n\r\nFor NTC (negative temperature coefficient) thermistors only.\r\n\r\n### Hookup\r\n\r\nSee https://learn.adafruit.com/thermistor/using-a-thermistor\r\n\r\n![Breadboard Hookup](https://raw.githubusercontent.com/kegnet/photon-thermistor/master/breadboard_hookup.png)\r\n\r\n### Configuration\r\n\r\nConfiguration is done via constructor parameters as follows:\r\n\r\nParticle constructor, sets defaults: vcc=3.3, analogReference=3.3, adcMax=4095\r\n```\r\n1. pin: Photon analog pin\r\n2. seriesResistor: The ohms value of the fixed resistor (based on your hardware setup, usually 10k)\r\n3. thermistorNominal: Resistance at nominal temperature (will be documented with the thermistor, usually 10k)\r\n4. temperatureNominal: Temperature for nominal resistance in celcius (will be documented with the thermistor, assume 25 if not stated)\r\n5. bCoef: Beta coefficient (or constant) of the thermistor (will be documented with the thermistor, typically 3380, 3435, or 3950)\r\n6. samples: Number of analog samples to average (for smoothing)\r\n7. sampleDelay: Milliseconds between samples (for smoothing)\r\n\r\nThermistor(int pin, int seriesResistor, int thermistorNominal, int temperatureNominal, int bCoef, int samples, int sampleDelay)\r\n```\r\n\r\nGeneral arduino constructor, sets defaults: vcc=3.3, analogReference=3.3\r\n```\r\n1. pin: Photon analog pin\r\n2. seriesResistor: The ohms value of the fixed resistor (based on your hardware setup, usually 10k)\r\n3. adcMax: The maximum analog-to-digital convert value returned by analogRead (Photon is 4095 NOT the typical Arduino 1023!)\r\n4. thermistorNominal: Resistance at nominal temperature (will be documented with the thermistor, usually 10k)\r\n5. temperatureNominal: Temperature for nominal resistance in celcius (will be documented with the thermistor, assume 25 if not stated)\r\n6. bCoef: Beta coefficient (or constant) of the thermistor (will be documented with the thermistor, typically 3380, 3435, or 3950)\r\n7. samples: Number of analog samples to average (for smoothing)\r\n8. sampleDelay: Milliseconds between samples (for smoothing)\r\n\r\nThermistor(int pin, int seriesResistor, int adcMax, int thermistorNominal, int temperatureNominal, int bCoef, int samples, int sampleDelay)\r\n```\r\n\r\nFull constructor, no defaults (useful for ESP8266)\r\n```\r\n1. pin: Photon analog pin\r\n2: vcc: Input voltage (3.3, 5, or something else if you're using a voltage divider)\r\n3: analogReference: reference voltage. Typically the same as vcc, but not always (ie ESP8266=1.0)\r\n4: seriesResistor: The ohms value of the fixed resistor (based on your hardware setup, usually 10k)\r\n5: adcMax: The maximum analog-to-digital convert value returned by analogRead (Photon is 4095 NOT the typical Arduino 1023!)\r\n6: thermistorNominal: Resistance at nominal temperature (will be documented with the thermistor, usually 10k)\r\n7: temperatureNominal: Temperature for nominal resistance in celcius (will be documented with the thermistor, assume 25 if not stated)\r\n8: bCoef: Beta coefficient (or constant) of the thermistor (will be documented with the thermistor, typically 3380, 3435, or 3950)\r\n9: samples: Number of analog samples to average (for smoothing)\r\n10: sampleDelay: Milliseconds between samples (for smoothing)\r\n\r\nThermistor(int pin, float vcc, float analogReference, int seriesResistor, int adcMax, int thermistorNominal, int temperatureNominal, int bCoef, int samples, int sampleDelay)\r\n```\r\n\r\n### Example\r\n```\r\n#include \"photon-thermistor.h\"\r\n\r\nThermistor *thermistor;\r\n\r\nvoid setup() {\r\n  thermistor = new Thermistor(A0, 10000, 10000, 25, 3950, 5, 20);\r\n}\r\n\r\nvoid loop() {\r\n  double tempF = thermistor->readTempF();\r\n  Particle.publish(String(\"tempF\"), String(tempF));\r\n  delay(5000);\r\n}\r\n```\r\n\r\n### Troubleshooting\r\n\r\n* If the temperature reported by the thermistor is a very small negative number, around -140, the circuit is open or thermistor is not connected.\r\n* If the temperature reported by the thermistor is a very high number, such as 650, the thermistor is likely connected without the series resistor.\r\n* Be sure your connection is Vcc -> seriesResistor -> thermistor -> ground, and your A0 pin is connect between seriesResistor and thermistor. It will not work otherwise.\r\n",

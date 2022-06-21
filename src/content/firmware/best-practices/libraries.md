@@ -20,7 +20,7 @@ This application note includes information on using libraries effectively in Par
 
 The web-based library search tool is often the best option:
 
-<a href="/cards/libraries/search/" class="button">Search and browse libraries</a>
+<a href="/reference/device-os/libraries/search/" class="button">Search and browse libraries</a>
 
 However, you can also use:
 
@@ -48,7 +48,7 @@ Your application source resides in `src` as .ino, .cpp, and .h files. In this ex
 
 ### Particle: Install Library
 
-To install a library, you typically use the Command Palette (Ctrl-Shift-P on Windows and Linux and Command-Shift-P on the Mac) and select **Particle: Install Library** and enter the library name. In this example, the [CellularHelper](/cards/libraries/c/CellularHelper/) library has been added. This will update two things in your project:
+To install a library, you typically use the Command Palette (Ctrl-Shift-P on Windows and Linux and Command-Shift-P on the Mac) and select **Particle: Install Library** and enter the library name. In this example, the [CellularHelper](/reference/device-os/libraries/c/CellularHelper/) library has been added. This will update two things in your project:
 
 - `lib/`
   - `CellularHelper/`

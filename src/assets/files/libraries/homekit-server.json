@@ -7,7 +7,7 @@
   "attributes": {
     "name": "homekit-server",
     "version": "0.0.1",
-    "installs": 262,
+    "installs": 305,
     "architectures": [],
     "visibility": "public",
     "mine": false
@@ -45,8 +45,23 @@
           "boron": {
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.102Z"
     }
   },
   "readme": "# Deprecated\n\nPlease see library `particle-hap`.\n",

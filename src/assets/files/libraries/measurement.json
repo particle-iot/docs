@@ -7,7 +7,7 @@
   "attributes": {
     "name": "measurement",
     "version": "0.4.0",
-    "installs": 622,
+    "installs": 689,
     "license": "MIT",
     "author": "Douglas Johnson <particle@douglasjohnson.org>",
     "sentence": "Measurements are tagged and timed values such as temperature.",
@@ -28,7 +28,8 @@
   "versions": {
     "0.4.0": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.004Z"
     }
   },
   "readme": "About\n===\n\nThis is the library for Measurements.  A Measurement is a tagged, time stamped value such as temperature.\n",

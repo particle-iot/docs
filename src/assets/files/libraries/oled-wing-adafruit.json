@@ -7,7 +7,7 @@
   "attributes": {
     "name": "oled-wing-adafruit",
     "version": "0.0.8",
-    "installs": 42800,
+    "installs": 45296,
     "author": "rickkas7",
     "maintainer": "rickkas7@rickkas7.com",
     "sentence": "Driver for Adafruit feather wing with SSD1306 oled and buttons",
@@ -56,8 +56,23 @@
           "boron": {
             "1-demo-oled-wing-adafruit": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "electron": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "argon": {
+            "1-demo-oled-wing-adafruit": true
+          },
+          "boron": {
+            "1-demo-oled-wing-adafruit": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.686Z"
     }
   },
   "readme": "# oled-wing-adafruit\n\n\n*Driver for Adafruit feather wing with SSD1306 oled and buttons*\n\n![board](oled.jpg)\n\nThe [Adafruit OLED FeatherWing](https://www.adafruit.com/product/2900) has a 128x32 OLED display and 3 buttons. You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).\n\nIt's handy because you can put an Argon, Boron, or Xenon in a FeatherWing doubler or tripler with the display and not have to worry about any loose wires!\n\n## Using it\n\nUsing it is easy!\n\n```\n#include \"oled-wing-adafruit.h\"\n\nOledWingAdafruit display;\n\nvoid setup() {\n\tdisplay.setup();\n\n\tdisplay.clearDisplay();\n\tdisplay.display();\n}\n\nvoid loop() {\n\tdisplay.loop();\n\n\tif (display.pressedA()) {\n\t\tdisplay.clearDisplay();\n\n\t\tdisplay.setTextSize(1);\n\t\tdisplay.setTextColor(WHITE);\n\t\tdisplay.setCursor(0,0);\n\t\tdisplay.println(\"Hello, world!\");\n\t\tdisplay.display();\n\t}\n\n\tif (display.pressedB()) {\n\t}\n\n\tif (display.pressedC()) {\n\t}\n}\n```\n\nThe important things are:\n\n- Declare an object for the display:\n\n```\nOledWingAdafruit display;\n```\n\n- Call the setup method from setup()\n\n```\n\tdisplay.setup();\n```\n\n- Call the loop method from loop()\n\n```\n\tdisplay.loop();\n```\n\n- Use the methods to determine if the button is pressed. The buttons are debounced for you.\n\n```\n\tif (display.pressedB()) {\n\t\t// Put some code here\n\t}\n```\n\nThe display drawing commands use the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library), which supports text, graphics primitives (lines, circles, etc.) and bitmaps. The [example code](https://github.com/rickkas7/Adafruit_SSD1306_RK/blob/master/examples/simple/simple.ino) may be helpful.\n\n\n## Revision History\n\n### 0.0.8 (2020-12-18)\n\n- Upgraded to Adafruit_SSD1306_RK 1.3.2 to fix a compilation error with Device OS 2.0.0\n\n#### 0.0.7 (2019-12-10)\n\n- Added mutex and lock methods for display usage on multiple threads\n\n \n\n",

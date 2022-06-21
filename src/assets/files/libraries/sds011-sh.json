@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sds011-sh",
     "version": "1.1.2",
-    "installs": 340,
+    "installs": 390,
     "license": "MIT",
     "author": "Alexey M",
     "sentence": "Manager dust sensor SDS011.",
@@ -50,8 +50,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.071Z"
     }
   },
   "readme": "# sds011\n\nA Particle library for sds011 - dust sensor from Nova.\n\n## Code error\n\n- -1: Error read\n- -2: Checksum does not match\n- -3: Error format packet\n- -4: Command does not match\n\n## Change Log\n\n1.1.2:\n\n- Changed names of file to sds011-sh.*\n\n1.1.0:\n\n- Added timeout for read packet UART.\n- Added error code description.\n- Added function flush\\_in\\_buffer.\n\n## LICENSE\nCopyright 2019 Alexey M\n\nLicensed under the MIT license",

@@ -108,7 +108,7 @@ For personal home automation tasks you can hardcode an authentication token for 
 
 The P1 and Photon support SoftAP (software access point) mode for Wi-Fi configuration. This is what the [Photon Device Setup SDK for iOS](/reference/mobile-sdks/ios/) and [Android](/reference/mobile-sdks/android/) use. 
 
-However, it's also possible to use SoftAP directly in less common scenarios. This can be done from a computer or mobile web browser and directly connecting to the Photon or P1 in setup mode. You can customize the user interface using [SoftAP Pages](/cards/firmware/softap-http-pages/softap-http-pages/).
+However, it's also possible to use SoftAP directly in less common scenarios. This can be done from a computer or mobile web browser and directly connecting to the Photon or P1 in setup mode. You can customize the user interface using [SoftAP Pages](/reference/device-os/api/softap-http-pages/softap-http-pages/).
 
 ### Argon
 

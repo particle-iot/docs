@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2Cdev",
     "version": "0.0.3",
-    "installs": 2520,
+    "installs": 2647,
     "license": "GNU",
     "author": "Gymneus",
     "url": "https://github.com/kraken-down/i2cdev",
@@ -29,7 +29,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.862Z"
     }
   },
   "readme": "MPU6050Spark\n============\n\nMPU6050 library for Spark adapted from Sparkfun Arudino library.\n\n\nExample MPU6050_raw.cpp is dependent on:\n\n\tMPU6050.h\n\tMPU6050.cpp\n\tI2Cdev.cpp\n\tI2Cdev.h\n\t\nExample MPU6050_DMP6.cpp is dependent on:\n\n\tMPU6050.h\n\tMPU6050.cpp\n\tI2Cdev.cpp\n\tI2Cdev.h\n\thelper_3dmath.h\n\tMPU6050_6Axis_MotionApps20.h \n\nNOTE: The MPU6050_DMP6.cpp will not compile on the web IDE but will compile on a local toolchain (using github master Mar 2/2014)\n\nNone of the examples make use of MPU6050_9Axis_MotionApps41.h\n",

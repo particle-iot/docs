@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunRHT03",
     "version": "1.0.4",
-    "installs": 30804,
+    "installs": 31444,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A simple library for RHT03 temperature and humidity sensor, which communicates over a 1-wire digital interface.",
@@ -50,8 +50,23 @@
           "boron": {
             "RHT03-Example-Serial": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "RHT03-Example-Serial": true
+          },
+          "electron": {
+            "RHT03-Example-Serial": true
+          },
+          "argon": {
+            "RHT03-Example-Serial": true
+          },
+          "boron": {
+            "RHT03-Example-Serial": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.697Z"
     }
   },
   "readme": "### SparkFun RHT03 Particle Library\n\nA firmware library for the SparkFun's [RHT03](https://www.sparkfun.com/products/10167) humidity and temperaure sensor.\n\n[![RHT03](https://cdn.sparkfun.com//assets/parts/4/4/7/2/10167-01.jpg)](https://www.sparkfun.com/products/10167)\nAbout\n-------------------\n\nThe RHT03 is a one-wire digital sensor that measures relative humidity from 0-100% and temperature from -40-80 deg C.\n\nRepository Contents\n-------------------\n\n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particle library manager. \n\nExample Usage\n-------------------\n\n#### Create an RHT03 Object & Initialize\n\nTo begin, create an RHT03 class object. This'll often go in the global section of the code:\n\n\t///////////////////////////\n\t// RHT03 Object Creation //\n\t///////////////////////////\n\tRHT03 rht; // This creates a RTH03 object, which we'll use to interact with the sensor\n\nTo initialize the sensor, call the `begin([pin])` function, where `[pin]` is the Photon pin connected to the RHT03 data pin.\n\n\tvoid setup()\n\t{\n\t\t...\n\t\trht.begin(D3); // Initialize an RHT03 sensor, with the data pin connected to D3.\n\t\t...\n\t}\n\n#### Update and Read Humidity and Temp Values\n\nTemperature and humidity values are updated in one fell single-wire swoop. To get new values from the sensor, call `update()`. `update()` returns either 1 on success, or a negative value if it fails.\n\n\tint updateRet = rht.update();\n\nIf the update succeeds, use the `humidity()`, `tempC()`, and `tempF()` functions to get relative humidity, celsius, and farenheit temperatures. All variables are returned as `float`'s.\n\n\tif (updateRet == 1)\n\t{\n\t\tfloat rh = rht.humidity();\n\t\tfloat tf = rht.tempF();\n\t\tfloat tc = rht.tempC();\n\t}\n\nRecommended Components\n-------------------\n\n* [RHT03 Humidity & Temperature Sensor](https://www.sparkfun.com/products/10167)\n* [Particle Photon](https://www.sparkfun.com/products/13345) or [SparkFun Photon RedBoard](https://www.sparkfun.com/products/13321)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.",

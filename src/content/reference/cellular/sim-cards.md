@@ -63,7 +63,7 @@ It is technically possible to use an EtherSIM 4FF plastic SIM card in a Boron 2G
 
 If you are interested in using an EtherSIM 4FF plastic SIM card in a Boron, please note:
 
-- You will need to use the [`setActiveSim()`](/cards/firmware/cellular/setactivesim/) call to enable the external SIM card.
+- You will need to use the [`setActiveSim()`](/reference/device-os/api/cellular/setactivesim/) call to enable the external SIM card.
 - The setting is persistent across reset, user firmware upgrades, and Device OS upgrades.
 - If you set the SIM back to `INTERNAL_SIM` you must remove the physical SIM card on the BRN402 as just changing the setting in software is not sufficient and you will be unable to connect to cellular in this configuration.
 - It may be necessary to reset the cellular modem after changing the SIM card setting.

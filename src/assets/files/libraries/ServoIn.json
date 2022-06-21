@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ServoIn",
     "version": "1.0.2",
-    "installs": 1521,
+    "installs": 1594,
     "license": "GPL3",
     "author": "rnash",
     "sentence": "Class to read servo signals from a typical RC system.",
@@ -49,8 +49,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.910Z"
     }
   },
   "readme": "# ServoIn\n\nClass to read servo signals from a typical RC system.\n\n## Usage\n\nThis class is very similar to the Arduino Servo library for reading servo\nsignals. It uses interrupts on all pins attached to a signal, so make sure\nall pins you use are using support interrupts and are independent from\neach other.\n\nSee the example in examples/usage/usage.ino for an example of how to use\nthis library with 6 channels simultaneously.\n\n## Wiring with a Particle Photon\n\n### Power\nMost RC servo system operate on 5V, so if you are powering the receiver directly\nfrom your Photon, connect it to the VIN pin while on USB power. Or connect\n5V from some other regulator in your system to the VIN pin and DO NOT connect\nthe USB port.\n\n### Receiver Outputs\nAll that is needed to get the signal from the receiver is to plug the receive\npins from the channels you want directly into any 5 volt tolerant pin on the\nPhoton. See the documentation for which ones are 5V tolerant. Also, see the\ndocumentation on which pins support interrupts. D1-D7 are good choices as they\nmeet both of these requirements. See the photo for the wiring that works with\nthe code example given here.\n\nWiring Picture 1:\n\n![alt text](https://raw.githubusercontent.com/rvnash/ServoIn/master/picts/Wiring1.jpg)\n\nWiring Picture 2:\n\n![alt text](https://raw.githubusercontent.com/rvnash/ServoIn/master/picts/Wiring2.jpg)\n\nWiring Picture 3:\n\n![alt text](https://raw.githubusercontent.com/rvnash/ServoIn/master/picts/Wiring3.jpg)\n\n## LICENSE\n\nSee LICENSE\n",

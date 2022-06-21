@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonS3Client",
     "version": "0.0.1",
-    "installs": 1385,
+    "installs": 1430,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon S3 Client for Spark Core.",
@@ -50,8 +50,23 @@
           "boron": {
             "application": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "application": true
+          },
+          "electron": {
+            "application": true
+          },
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.924Z"
     }
   },
   "readme": "# Version 1 of the Experimental AWS SDK for Arduino\n\nAn experimental SDK for contacting AWS Services on Arduino-compatible devices. \n\n##Step 1: Create Amazon S3 Bucket\n\n##Step 2: Create an IAM User with permission to write to this S3 bucket. Also note down the user's AccessKey and SecretKey. \n\n##Step 3: Edit S3 bucket ACL/ Policy to allow IAM user to write \n\n##Step 4: Import AmazonS3Client Contributed Library\n\nSketch > Contributed Libraries \"AmazonS3Client\"\n\n##Step 5: Open the sample application \n\nLoad the .ino or application.cpp file\n\n##Step 6: Enter the AccessKey and SecretKey in the application file\n\n##Step 7: Enter the bucket name, key name and region in the application file\n\n##Step 8: Verify, Compile and Upload\n\nWire your connected device. After the wiring is finished, you should be able to connect two cables to your computer via usb, compile and upload the code with the Arduino IDE. \n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-htu21df",
     "version": "0.0.2",
-    "installs": 12088,
+    "installs": 12233,
     "license": "BSD License",
     "author": "Marc Cobler <electronicslab@icloud.com>",
     "sentence": "Arduino library for the HTU21D-F sensors in the Adafruit shop",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.741Z"
     }
   },
   "readme": "This is a library for the HTU21D-F Humidity + Temp sensor\n\nDesigned specifically to work with the HTU21D-F in the Adafruit shop\n  ----> https://www.adafruit.com/products/1899\n\nThese displays use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nCheck out the links above for our tutorials and wiring diagrams\n\nTo download. click the ZIP button in the top-middle navbar,\nrename the uncompressed folder Adafruit_HTU21DF.\nCheck that the Adafruit_HTU21DF folder contains Adafruit_HTU21DF.cpp and Adafruit_HTU21DF.h\n\nPlace the Adafruit_HTU21DF library folder your arduinosketchfolder/libraries/ folder.\nYou may need to create the libraries subfolder if its your first library. Restart the IDE.\n\nWe also have a great tutorial on Arduino library installation at:\nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use\n",

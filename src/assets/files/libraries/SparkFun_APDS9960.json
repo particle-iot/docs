@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_APDS9960",
     "version": "0.0.1",
-    "installs": 4617,
+    "installs": 4695,
     "license": "GNU",
     "author": "SparkFun_APDS9960",
     "sentence": "Spark Library to work with SparkFun_APDS-9960",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.818Z"
     }
   },
   "allVersions": [

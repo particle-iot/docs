@@ -35,7 +35,9 @@ The `Tracker` object is a singleton that you access using `Tracker::instance()`.
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -212,7 +214,7 @@ Since the Tracker One has a LiPo battery inside the case, and the case is screwe
 
 You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
 
-**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](https://support.particle.io/hc/en-us/articles/360052713714).
+**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 ### configService - Tracker
 
@@ -717,13 +719,13 @@ Disables wake-on-network mode.
 int wakeFor(SystemSleepFlag flag);
 ```
 
-Adds a [SystemSleepFlag](/cards/firmware/sleep-sleep/flag-systemsleepconfiguration/) to the sleep settings.
+Adds a [SystemSleepFlag](/reference/device-os/api/sleep-sleep/flag-systemsleepconfiguration/) to the sleep settings.
 
 The only supported flag is:
 
 - `SystemSleepFlag::WAIT_CLOUD`
 
-You do not need to specify this as [graceful disconnect mode](/cards/firmware/cloud-functions/particle-setdisconnectoptions/) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
+You do not need to specify this as [graceful disconnect mode](/reference/device-os/api/cloud-functions/particle-setdisconnectoptions/) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
 
 ### pauseSleep() - TrackerSleep
 

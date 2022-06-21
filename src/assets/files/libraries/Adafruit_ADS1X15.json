@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ADS1X15",
     "version": "0.1.2",
-    "installs": 40055,
+    "installs": 42060,
     "license": "BSD",
     "author": "Koos du Preez <kdupreez@hotmail.com>",
     "sentence": "Library for ADS1x15 series of 12-bit and 16-bit Analog to Digital converter breakout boards",
@@ -66,8 +66,31 @@
             "differential": true,
             "singleended": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "electron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "argon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "boron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.688Z"
     }
   },
   "readme": "Adafruit_ADS1015\n================\nLibrary for ADS1x15 series of 12-bit and 16-bit Analog to Digital converter breakout boards\n\nv1.2.0 Added Photon online IDE compatibility..\n",

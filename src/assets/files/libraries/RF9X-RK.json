@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RF9X-RK",
     "version": "0.0.5",
-    "installs": 8664,
+    "installs": 9597,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Port of the RadioHead RF95/96/97/98 LoRa Packet radio driver for Particle",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",
@@ -74,8 +74,35 @@
             "3-reliable-datagram-server": true,
             "4-reliable-datagram-client": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "electron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "argon": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "boron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.759Z"
     }
   },
   "readme": "# RF9X-RK\n\n*Port of the RadioHead RF95/96/97/98 LoRa Packet radio driver for Particle*\n\nThis is a port of the [RadioHead Packet Radio Library](http://www.airspayce.com/mikem/arduino/RadioHead/) version 1.89 for RF95/96/97/98 LoRa compatible radios.\n\n![Argon](images/server.jpg)\n\nNote that this only allows nearby RF9x LoRa radios to communicate with each other in point-to-point mode to send data packets. It does not allow the Xenon, for example, to establish a cloud connection over LoRa instead of Particle Mesh (Thread mesh, 6LoWPAN over 802.15.4).\n\nWhile I tested the Adafruit FeatherWing form-factor radios, it also works with the breakout versions.\n\n- [RFM95W](https://www.adafruit.com/product/3231) 868 or 915 MHz  Americas ITU 2 license-free ISM\n- [RFM98](https://www.adafruit.com/product/3232) 433 MHz for use in Europe ITU 1 license-free ISM\n\nDon't forget to purchase an antenna to go with your radio! \n\n## Assembly\n\nIf you are using the Adafruit Radio FeatherWing you should [just follow the Adafruit instructions](https://learn.adafruit.com/radio-featherwing/overview).\n\n![Board](images/board.jpg)\n\nThe radio communicates by SPI (MISO, MOSI, and SCK) and these pins are fixed. \n\nHowever, there is a choice you need to make for the 3 remaining control pins. I selected these pins:\n\n| Pin | Map To | Particle Pin | Color |\n| --- | --- | --- | --- |\n| IRQ | E | D2 | Green |\n| CS | A | D6 | Yellow |\n| RST | F | A5 | White |\n\nThe reason is that D3, D4, and D5 (D, C, B) are used by the Ethernet FeatherWing, and by using different pins you can put the Radio FeatherWing in the Particle Ethernet FeatherWing along with a Xenon to make a nice base station.\n\nAfter soldering the headers and the jumper wires are shown above:\n\n![Assembled](images/assembled.jpg)\n\n\n\n## Library Notes\n\nI included what I believe to be a useful subset of the RadioHead library features:\n\n- RF95/96/97/98 radio support\n- Reliable datagram\n- Encryption (optional)\n\nYou can easily make a fork of this library and add in a different set of features copied from the RadioHead distribution easily, if you wanted to.\n\n\n## Examples\n\n### Reliable Datagram\n\nThe reliable datagram client and server projects set up point-to-point communications between two radios. Note that you must assure:\n\n- The models are the same (RF95X to RF95X, for example)\n- The frequency is configured to be the same\n- You have correctly configured the addresses (0-254) on both sides.\n\nIf you flash the server code to a device and monitor the USB serial output, you'll see something like this:\n\n```\ngot packet from 0x01 rssi=-5 to server counter=1\ngot packet from 0x01 rssi=-4 to server counter=2\ngot packet from 0x01 rssi=-5 to server counter=3\ngot packet from 0x01 rssi=-5 to server counter=4\ngot packet from 0x01 rssi=-5 to server counter=5\n```\n\nAnd from the client:\n\n```\nSending to rf95_reliable_datagram_server\ngot reply from 0x02 rssi=-3 request=1 rssi=-5\nSending to rf95_reliable_datagram_server\ngot reply from 0x02 rssi=-4 request=2 rssi=-4\nSending to rf95_reliable_datagram_server\ngot reply from 0x02 rssi=-3 request=3 rssi=-5\nSending to rf95_reliable_datagram_server\ngot reply from 0x02 rssi=-4 request=4 rssi=-5\n```\n\n\n### Encrypted\n\nThe encrypted version uses the [rweather CryptoLW library](https://github.com/rweather/arduinolibs) ported to the Particle platform as [CryptoLW-RK](https://github.com/rickkas7/CryptoLW-RK).\n\nNote that you must assure:\n\n- The models are the same (RF95X to RF95X, for example)\n- The frequency is configured to be the same\n- You have the same encryption key configured in the server and client\n\n\n### Display Example\n\nIn the more-examples/10-reliable-datagram-client-display directory, there's a sample program that's almost the same as 4-reliable-datagram-client, except it displays the output on the [Adafruit OLED FeatherWing](https://www.adafruit.com/product/2900).\n\n![Display Client](images/client.jpg)\n\n\n### Licensing Note\n\nWhile most of my libraries are MIT or Apache Licensed, this one is GPL Version 2, because the original RadioHead library was. Thus there are limitations on using it in closed-source commercial projects!\n\n> This software is Copyright (C) 2008 Mike McCauley. Use is subject to license\nconditions. The main licensing options available are GPL V2 or Commercial:\n\n> Open Source Licensing GPL V2\n\n> This is the appropriate option if you want to share the source code of your\napplication with everyone you distribute it to, and you also want to give them\nthe right to share who uses it. If you wish to use this software under Open\nSource Licensing, you must contribute all your source code to the open source\ncommunity in accordance with the GPL Version 2 when your application is\ndistributed. See http://www.gnu.org/copyleft/gpl.html\n\n> Commercial Licensing\n\n> This is the appropriate option if you are creating proprietary applications\nand you are not prepared to distribute and share the source code of your\napplication. Contact info@open.com.au for details.\n\n\n## Version History\n\n### 0.0.5 (2020-11-15)\n\n- Fixed compile error on Gen3 devices with 2.0.0-rc due to HAL_PLATFORM_MESH no longer being defined.\n\n### 0.0.4 (2020-09-09)\n\n- Modified the hardware SPI initialization to not set the default SS pin (typically A5) as an output and high, regardless of what was configured as the CS pin.\n",

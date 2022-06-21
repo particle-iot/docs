@@ -14,8 +14,8 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**
-- [B402 Datasheet](/reference/datasheets/b-series/b404x-b404-b402-datasheet/)
-- [B523 Datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
+- [B404X/B404/B402 Datasheet](/reference/datasheets/b-series/b404x-b404-b402-datasheet/)
+- [B524/B523 Datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/)
 - [Certification](/hardware/certification/certification/)
 {{box op="switch"}}

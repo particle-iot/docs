@@ -35,7 +35,7 @@ The pinouts are:
 | U_TX | 3V3 |
 | U_RX | 5V |
 
-If you are using Mac or Linux you can probably use it without a device driver. If you are using the [Web-based JTAG programmer](/troubleshooting/device-restore/device-restore-jtag/) you may also be able to avoid using a device driver, even on Windows. The web-based programmer also works on Chromebooks.
+If you are using Mac or Linux you can probably use it without a device driver. If you are using the [Web-based JTAG programmer](/tools/device-restore/device-restore-jtag/) you may also be able to avoid using a device driver, even on Windows. The web-based programmer also works on Chromebooks.
 
 If you are using Windows and want to use the source-level debugger or OpenOCD, you will likely need to install a device driver; the manufacturer of your debugger should provide a link to download a compatible one. 
 

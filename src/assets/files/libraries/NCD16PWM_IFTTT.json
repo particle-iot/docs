@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD16PWM_IFTTT",
     "version": "0.0.1",
-    "installs": 801,
+    "installs": 849,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 16 channel Particle compatible PWM Controller",
@@ -23,7 +23,8 @@
   "versions": {
     "0.0.1": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.976Z"
     }
   },
   "readme": "# About\n\nThis Library is intended for use with NCD 16 channel PWM Particle Core/Photon compatible relay controllers.\n\nThe intention of this library is to make use of the NCD 16 channel PWM controller with Particle development web IDE as simple as possible for users.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com \n\n###Requirements\n- NCD 16 Channel Particle Core/Photon Compatible PWM board\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the NCD1Relay.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particles's documentation] [sparkIncludeLibrary] \n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:http://docs.spark.io/build/#flash-apps-with-spark-build-using-libraries",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2c7SegmentLed",
     "version": "1.0.1",
-    "installs": 455,
+    "installs": 464,
     "license": "MIT",
     "author": "Gary Muhonen <gary@dcity.org>",
     "sentence": "Particle library for controlling I2C 7 Segment LED Displays",
@@ -54,8 +54,23 @@
           "boron": {
             "I2c7SegmentLedDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "electron": {
+            "I2c7SegmentLedDemo": true
+          },
+          "argon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "boron": {
+            "I2c7SegmentLedDemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.049Z"
     }
   },
   "readme": "\n### I2c7SegmentLed - Particle library for controlling I²C 7 Segment Led Displays\n\n<div style=\"text-align: center;\">\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img  src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-7-segment-led-dot56inch/i2c-7-segment-led-dot56inch-seeeduino.jpg\" alt=\"i2c LED display\" width=\"300\" height=\"300\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img  src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-7-segment-led-dot56inch/i2c-7-segment-led-dot56inch-front.jpg\" alt=\"i2c LED display\" width=\"300\" height=\"300\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img  src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-7-segment-led-dot56inch/i2c-7-segment-led-dot56inch-back.jpg\" alt=\"i2c LED display\" width=\"300\" height=\"300\" />\n</div>\n</div>\n\n**[This link has details](https://www.dcity.org/portfolio/i2c-7-segment-led-library/) including:**\n* software library installation for use with Arduino, Particle and Raspberry Pi boards\n* list of functions available in these libraries\n* a demo program (which shows the usage of most library functions)\n* info on 7 segment LED displays that work with this software\n* hardware design for a backpack board for 7 segment LEDs, available on github\n* info on backpack “bare” pc boards available from OSH Park.\n\n**License Information**\nLicense Information is [here](https://www.dcity.org/license-information/).\n",

@@ -36,7 +36,7 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
   - Integrated RF switch
 - BLE 5 using same antenna as Wi-Fi
 - Realtek RTL8721DM MCU
-  - ARM Cortex M4F CPU, 200 MHz
+  - ARM Cortex M23 CPU, 200 MHz
 - 2048 KB (2 MB) user application maximum size
 - 2 MB flash file system
 - FCC, IC, and CE certified
@@ -143,7 +143,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
 
-_DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/device-os/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
+_DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/device-os/blob/release/v2.x/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|

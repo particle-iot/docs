@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Spark-Websockets",
     "version": "0.0.7",
-    "installs": 5651,
+    "installs": 5742,
     "license": "MIT",
     "author": "Ivan Davletshin <ekbduffy@gmail.com> and Austin Kurpuis",
     "sentence": "Spark Library to work with websockets",
@@ -50,8 +50,23 @@
           "boron": {
             "test": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "test": false
+          },
+          "electron": {
+            "test": false
+          },
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.803Z"
     }
   },
   "readme": "spark_websockets\n================\n\nWebsockets implementation for Spark Core, ported from Arduino WebSocketClient\n\n\n\nHow to use :\n==============\n```\n#include Spark-Websockets/Spark-Websockets.h\n\nWebSocketClient client;\n\n\nvoid onMessage(WebSocketClient client, char* message) {\n  Serial.print(\"Received: \");\n  Serial.println(message);\n}\n\n\n/* This function is called once at start up ----------------------------------*/\nvoid setup()\n{\n\tSerial.begin(9600);\n\twhile(!Serial.available()); // Wait here until the user presses ENTER in the Serial Terminal\n\t\n\tclient.onMessage(onMessage);\n\tclient.connect(\"echo.websocket.org\");\n}\n\nvoid loop()\n{\n  client.monitor();\n\tdelay(3000);\n\tclient.send(\"Hello World!\");\n}\n\n```\n",

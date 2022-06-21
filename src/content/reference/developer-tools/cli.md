@@ -285,7 +285,7 @@ $ particle compile e myapp.ino
 
 ---
 
-The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/cards/firmware/preprocessor/preprocessor/).
+The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/device-os/api/preprocessor/preprocessor/).
 
 If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
 
@@ -871,7 +871,7 @@ Reset can be used from normal operating mode, safe mode, or DFU mode.
 
 ### particle usb setup-done
 
-On the Argon and Boron, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
+On the Argon, Boron, B Series SoM, and Tracker SoM running Device OS 3.x and earlier, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
 
 ```
 particle usb setup-done [devices...] [--reset]
@@ -881,6 +881,7 @@ The `--reset` command clears the setup done flag, so the device will resume boot
 
 Setup done can only be issued when in normal operating mode or safe mode. It is only applicable for Gen 3 devices (Argon, Boron).
 
+**With Device OS 4.0 and later, there is no setup done flag and this CLI command does not do anything.**
 
 ### particle usb configure
 

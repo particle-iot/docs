@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Tinker-Servo",
     "version": "1.0.1",
-    "installs": 6207,
+    "installs": 6286,
     "license": "GPL",
     "author": "Christian Vallières&Scott Beasley",
     "sentence": "Control Spark unused pins with Tinker interface in your project.",
@@ -50,8 +50,23 @@
           "boron": {
             "Tinker-servo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Tinker-servo": true
+          },
+          "electron": {
+            "Tinker-servo": true
+          },
+          "argon": {
+            "Tinker-servo": true
+          },
+          "boron": {
+            "Tinker-servo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.793Z"
     }
   },
   "readme": "Simple calling interface for GPIO pins and the servo libary.\n",

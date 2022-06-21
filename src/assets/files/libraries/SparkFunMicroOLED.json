@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMicroOLED",
     "version": "1.3.0",
-    "installs": 88142,
+    "installs": 92601,
     "license": "GPL v3",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the SparkFun Photon Micro OLED shield.",
@@ -58,8 +58,27 @@
             "Micro-OLED-Shield-Example": false,
             "OLED-Cube": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "electron": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "argon": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          },
+          "boron": {
+            "Micro-OLED-Shield-Example": false,
+            "OLED-Cube": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.659Z"
     }
   },
   "readme": "## SparkFun Photon Micro OLED Shield Library\n\nFirmware library SparkFun's Photon Micro OLED Shield.\n\nAbout\n-------------------\n\nThis is a firmware library for [SparkFun's Photon Micro OLED Shield](https://www.sparkfun.com/products/13628).\n\n[![Photon Micro OLED Shield](https://cdn.sparkfun.com//assets/parts/1/1/0/1/5/13628-01.jpg)](https://www.sparkfun.com/products/13628).\n\nWith a bit of extra setup, it'll also work with the [Micro OELD Breakout](https://www.sparkfun.com/products/13003).\n\nYou can use this library to draw pixels, lines, circles, squares, and text on the micro OLED's 64x48 display.\n\nRepository Contents\n-------------------\n\n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particel library manager. \n\nExample Usage\n-------------------\n\nInclude the library, declare a MicroOLED object, and set the display up with these snippets of code:\n\n\t#include \"SparkFunMicroOLED.h\"  // Include the SFE_MicroOLED library\n\t...\n\t//////////////////////////\n\t// MicroOLED Definition //\n\t//////////////////////////\n\t#define PIN_RESET D7  // Connect RST to pin 7 (req. for SPI and I2C)\n\t#define PIN_DC    D3  // Connect DC to pin 3 (required for SPI)\n\t#define PIN_CS    A2 // Connect CS to pin A2 (required for SPI)\n\n\t//////////////////////////////////\n\t// MicroOLED Object Declaration //\n\t//////////////////////////////////\n\t// Declare a MicroOLED object. The parameters include:\n\t// 1 - Mode: Should be either MODE_SPI or MODE_I2C\n\t// 2 - Reset pin: Any digital pin\n\t// 3 - D/C pin: Any digital pin (SPI mode only)\n\t// 4 - CS pin: Any digital pin (SPI mode only, 10 recommended)\n\tMicroOLED oled(MODE_SPI, PIN_RESET, PIN_DC, PIN_CS);\n\t...\n\tvoid setup()\n\t{\n\t\toled.begin(); // Initialize the OLED\n\t\toled.clear(ALL); // Clear the OLED's internal display buffer\n\t\toled.display(); // Display whatever is in the firmware display buffer (SparkFun logo by default)\n\t}\n\nCheck out the example files in the [examples directory](https://github.com/sparkfun/SparkFun_Photon_Micro_OLED_Shield_Library/tree/master/firmware/examples) for more guidance.\n\n### Recommended Components\n\n* [Particle Photon](https://www.sparkfun.com/products/13345)\n* [SparkFun Photon Micro OLED Shield](https://www.sparkfun.com/products/13628)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.",

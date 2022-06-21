@@ -16,7 +16,7 @@ Device OS API
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/cards/firmware/introduction/introduction/) if you prefer that style. 
+It is also available [divided into small sections](/reference/device-os/api/introduction/introduction/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
@@ -65,7 +65,7 @@ Instead of hardcoding these values, you should use these definitions:
 - `particle::protocol::MAX_EVENT_NAME_LENGTH`
 - `particle::protocol::MAX_EVENT_DATA_LENGTH`
 
-Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/cards/firmware/cloud-functions/particle-maxeventdatasize/) for more information.
+Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/reference/device-os/api/cloud-functions/particle-maxeventdatasize/) for more information.
 
 ### Particle.variable()
 
@@ -734,7 +734,7 @@ Only devices that are claimed to an account can subscribe to events.
 {{note op="start" type="gen3" deviceList="Tracker SoM and Tracker One"}}
 By default, Tracker One and Tracker SoM devices are unclaimed product devices. You can either:
 
-- Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
+- Use [`Particle.function`](/reference/device-os/api/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
 
 - Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
 
@@ -1134,7 +1134,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-- It will also update the [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
+- It will also update the [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -4259,7 +4259,7 @@ The Tracker SoM has shared A and D pins. In other words, pin A0 is the same phys
 | TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
 | RX / D9 | 4      | Serial1 RX  | Wire3 SDA   |           | &check; |
 
-On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 {{note op="end"}}
 
@@ -15083,7 +15083,7 @@ if (timer.isActive()) {
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-Device OS includes a software-based watchdog, [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
+Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
 The application note [AN023 Watchdog Timers](/hardware/best-practices/watchdog-timers/) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
@@ -15954,7 +15954,7 @@ in mind, using pullup/pulldown resistors as appropriate. For Gen 2 devices, see 
 
 Other acceptable calls to make from STARTUP include:
 
-- [`System.setPowerConfiguration()`](/cards/firmware/power-manager/systempowerfeature/)
+- [`System.setPowerConfiguration()`](/reference/device-os/api/power-manager/systempowerfeature/)
 - `System.enableFeature()`
 
 ---
@@ -15976,30 +15976,72 @@ On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controllin
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
 {{note op="end"}}
 
-### PRODUCT_ID()
 
-{{api name1="PRODUCT_ID" name2="PRODUCT_VERSION"}}
+### PRODUCT_VERSION()
 
-When preparing software for your product, it is essential to include your product ID and version at the top of the firmware source code.
+{{api name1="PRODUCT_VERSION"}}
+
+When preparing software for your product, you must include product version at the top of the firmware source code. This must also match the version specified when uploading the firmware as product firmware.
 
 ```cpp
 // EXAMPLE
+PRODUCT_VERSION(1); // increment each time you upload to the console
+```
+
+Devices that are marked as development devices do not need a valid `PRODUCT_VERSION`.
+
+With Device OS 4.0 and later, you only need the `PRODUCT_VERSION` and not the `PRODUCT_ID`.  
+
+### PRODUCT_ID()
+
+{{api name1="PRODUCT_ID"}}
+
+#### Device OS 4.0 and later
+
+In Device OS 4.0 and later, the `PRODUCT_ID` macro is no longer used. If you attempt to use it, you will get an error during compilation targeting 4.0.0 and later.
+
+```
+The PRODUCT_ID macro must be removed from your firmware source code. The same compiled firmware binary may be used in multiple products that share the same platform and functionality.
+```
+
+You must also pre-add all Device IDs that will be using your product when using Device OS 4.0 and later. There is no support for quarantine mode or auto-approve modes. The only way to add a device to a product is to do it using the console or cloud API before the device first connects to the cloud.
+
+You still need to include `PRODUCT_VERSION`.
+
+#### Device OS before 3.x and earlier
+
+When preparing software for versions of Device OS before 4.0 it is essential to include your product ID and version at the top of the firmware source code.
+
+```cpp
+// EXAMPLE 3.x and earlier
 PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
 You can find more details about the product ID and how to get yours in the [_Console_ guide.](/getting-started/console/console/#your-product-id)
 
-In Device OS 1.5.3 and later, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
+#### Device OS 1.5.3 to 3.x Wildcard
+
+In Device OS 1.5.3 and later, but before 4.0, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
 
 ```cpp
+// EXAMPLE 1.5.3 to 3.x with wildcard product ID
 PRODUCT_ID(PLATFORM_ID);
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
 This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
 
+The behavior with 4.0 and later is similar to using a wildcard product ID, but you simply omit the `PRODUCT_ID`.
 
+If you want to make your product firmware compile both before and after 4.0, you could use something like:
+
+```cpp
+#ifndef SYSTEM_VERSION_v400ALPHA1
+// Include this only for versions prior to 4.0.0-alpha.1
+PRODUCT_ID(PLATFORM_ID)
+#endif
+```
 
 ## sleep() [ Sleep ]
 

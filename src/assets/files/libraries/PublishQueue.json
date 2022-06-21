@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueue",
     "version": "0.0.11",
-    "installs": 6389,
+    "installs": 6400,
     "license": "MIT",
     "author": "Tiago Andrade e Silva <tiagonmas@hotmail.com>",
     "sentence": "Delays the calling of cloud events (Particle.publish) so it does not pass the limits defined by Particle",
@@ -50,8 +50,23 @@
           "boron": {
             "publishqueue": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "publishqueue": false
+          },
+          "electron": {
+            "publishqueue": false
+          },
+          "argon": {
+            "publishqueue": false
+          },
+          "boron": {
+            "publishqueue": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.791Z"
     }
   },
   "readme": "# publishqueue-library-spark\nDelays (puts in queues, thus the name) the calling of cloud events (via Particle.publish) so it does not pass the limits defined by Particle\n  As defined by Particle in the [Particle.publish()](https://docs.particle.io/reference/firmware/photon/#particle-publish-) documentation: \n\n>\"NOTE: Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.\"\n\nit will record the time of last publish event and delay the next publish event until enough time as passed to guarantee the limits above are not hit.\n\n#Example\n\n#In Action\n:ok\n\n\nevent: spark/status\ndata: {\"data\":\"online\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:17:33.784Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: version\ndata: {\"data\":\"v0.04.TAS.PQ\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:17:33.995Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName1\ndata: {\"data\":\"11111\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:17:39.529Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName2\ndata: {\"data\":\"22222\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:17:49.534Z\",\"coreid\":\"1f0036000847343432313031\"}\n\n\nevent: EventName3\ndata: {\"data\":\"33333\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:17:59.539Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName4\ndata: {\"data\":\"44444\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:18:09.544Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName5\ndata: {\"data\":\"55555\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:18:19.549Z\",\"coreid\":\"1f0036000847343432313031\"}\n\n\nevent: EventName6\ndata: {\"data\":\"66666\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:18:29.554Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName7\ndata: {\"data\":\"77777\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:18:39.561Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName8\ndata: {\"data\":\"88888\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:18:49.564Z\",\"coreid\":\"1f0036000847343432313031\"}\n\n\nevent: EventName9\ndata: {\"data\":\"99991\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:18:59.569Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName10\ndata: {\"data\":\"99992\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:19:09.574Z\",\"coreid\":\"1f0036000847343432313031\"}\n\nevent: EventName11\ndata: {\"data\":\"99993\",\"ttl\":\"60\",\"published_at\":\"2016-03-04T18:19:19.579Z\",\"coreid\":\"1f0036000847343432313031\"}\n",

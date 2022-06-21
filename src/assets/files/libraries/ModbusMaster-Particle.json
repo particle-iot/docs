@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ModbusMaster-Particle",
     "version": "1.0.3",
-    "installs": 7801,
+    "installs": 8334,
     "license": "APA2",
     "author": "Philippe Hilger <phil@peergum.com>",
     "sentence": "Alternate ModbusMaster library port from Arduino",
@@ -48,8 +48,23 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.769Z"
     }
   },
   "readme": "# ModbusMaster-Electron [![Build Status](https://travis-ci.org/peergum/ModbusMaster-Electron.svg?branch=master)](https://travis-ci.org/peergum/ModbusMaster-Electron)\nModbusMaster library for the Electron\n\nThis is a derived work from 4-20's library for Arduinos.\n\nDue to time constraint, specific parts/defines to Arduinos were removed, rather than adapted to the Electron environment.\nPlease feel free to improve, adapt or extend as necessary.\n\nCheers\nPhil.\n\n## Changelog\n* 1.0.2: improved performance, added example, allowed parity configuration\n* 1.0.3: increased inter-char timeout from 300ms to 500ms, and send a zero after setting speed for serial sync with sensors\n",

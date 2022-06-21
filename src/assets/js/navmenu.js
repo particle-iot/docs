@@ -2,6 +2,11 @@
 let navMenu = {};
 
 navMenu.scanHeaders = function () {
+    const thisUrl = new URL(location.href);
+    if (thisUrl.pathname.startsWith('/reference/device-os/api')) {
+        return;
+    }
+
     navMenu.headers = [];
 
     const contentInner = $('div.content-inner');
@@ -11,10 +16,13 @@ navMenu.scanHeaders = function () {
     let headerLevels = 'h2,h3,h4';
     let levelAdjust = 0;
 
-    if (location.href.includes('cards/firmware')) {
+    // TODO: Remove this block, no longer used 
+    /*
+    if (location.href.includes('reference/device-os/api')) {
         headerLevels = 'h4,h5';
         levelAdjust = -2;
     }
+    */
 
     let lastL2;
 

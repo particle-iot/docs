@@ -117,7 +117,9 @@ A typical main source file looks like this:
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -158,7 +160,7 @@ These are some standard Tracker include files that you will likely need:
 #include "tracker.h"
 ```
 
-This is the recommended [threading](/cards/firmware/system-thread/system-thread/) and [system mode](/cards/firmware/system-modes/system-modes/) to use. 
+This is the recommended [threading](/reference/device-os/api/system-thread/system-thread/) and [system mode](/reference/device-os/api/system-modes/system-modes/) to use. 
 
 ```cpp
 SYSTEM_THREAD(ENABLED);
@@ -168,7 +170,9 @@ SYSTEM_MODE(SEMI_AUTOMATIC);
 Since all Tracker devices must belong to a product, you should set the product ID and version. You can either set the product ID to `PLATFORM_ID` which means use the product that the device has been added to, or you can set the product ID to your actual product ID value. The version is arbitrary, though it should be sequential and can only have value from 1 to 65535.
 
 ```cpp
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 ```
 
@@ -241,7 +245,7 @@ Note the additions:
 
 - Calls `Tracker::instance().location.regLocGenCallback()` to register a location generation callback in `setup()`.
 - Adds a new function `locationGenerationCallback()`.
-- In the function adds a value to the loc object using the [JSON Writer API](/cards/firmware/json/jsonwriter/).
+- In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/api/json/jsonwriter/).
 
 If you look at the location event, you can see the new field for `speed` (in meters/second):
 
@@ -326,17 +330,17 @@ Wire3.begin();
 
 This feature is also available on the Tracker SoM, however on the Tracker SoM you have access to `Wire` on pins D0 an D1, so there is less of a need to use `Wire3`. Note that they map to the same I2C peripheral so you cannot use `Wire` and `Wire3` at the same time!
 
-If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/cards/firmware/input-output/pinmode/), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
+If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/api/input-output/pinmode/), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
 
 These pins have a 3.3V maximum and are **not** 5V tolerant!
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 ## Subscribing to events
 
-By default, Tracker One and Tracker SoM devices are unclaimed product devices. One caveat of this is that your firmware cannot use [`Particle.subscribe`](/cards/firmware/cloud-functions/particle-subscribe/) to subscribe to events. You can either:
+By default, Tracker One and Tracker SoM devices are unclaimed product devices. One caveat of this is that your firmware cannot use [`Particle.subscribe`](/reference/device-os/api/cloud-functions/particle-subscribe/) to subscribe to events. You can either:
 
-- Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
+- Use [`Particle.function`](/reference/device-os/api/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
 
 - Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
 
@@ -462,7 +466,7 @@ It's also possible to [create custom `cmd` handlers](/firmware/tracker-edge/trac
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
-**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](https://support.particle.io/hc/en-us/articles/360052713714).
+**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 ## Learn More 
 

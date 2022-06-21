@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ISL29125",
     "version": "1.0.2",
-    "installs": 2724,
+    "installs": 2765,
     "license": "CC-SA",
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "sentence": "Arduino library showing basic functionality for the ISL29125 RGB Light Sensor Breakout Board. Ported to Particle by Ben Artin <ben@artins.org>",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.854Z"
     }
   },
   "readme": "SparkFun ISL2912 Sensor Libraries\n===================================================\n\nLibraries for use in different environments. \n\nDirectory Contents\n-------------------\n* **/Arduino** - [Arduino IDE](http://www.arduino.cc/en/Main/Software) libraries\n\n\nLicense Information\n-------------------\nThis product is open source! \nThe code is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n\n\nUpdate Library Instructions:\n----------------------------\nTo get the most up-to-date version of the library, you must run the following git subtree commands. \n\n$git subtree pull -P Libraries/Arduino --squash https://github.com/sparkfun/SparkFun_ISL29125_Breakout_Arduino_Library.git master",

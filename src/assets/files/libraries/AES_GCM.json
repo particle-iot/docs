@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AES_GCM",
     "version": "1.0.0",
-    "installs": 1370,
+    "installs": 1438,
     "license": "Apache-2",
     "author": "Jidesh Veeramachaneni",
     "sentence": "An AES GCM Library based on mbedtls 2.16.0.",
@@ -62,8 +62,27 @@
             "AES_GCM": true,
             "mbedtls_self_tests": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "electron": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "argon": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "boron": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.923Z"
     }
   },
   "readme": "# Particle AES GCM Library\n\nA Particle library to encrypt and decrypt using AES GCM. Useful if you have a requirement where end to end encryption through the Particle Cloud is required. Encode encrypted data with Base85 or Base64 before using with Particle.publish(). The library is a wrapper around [mbed tls 2.16.0](https://github.com/ARMmbed/mbedtls/releases/tag/mbedtls-2.16.0).\n\n## Usage\n\nSee the [examples](examples) folder for more details.\n\n## LICENSE\n\nCopyright 2006-2015, ARM Limited, All Rights Reserved (mbed tls)\nCopyright 2019 Jidesh Veeramachaneni\n\nLicensed under the Apache License, Version 2.0\n",

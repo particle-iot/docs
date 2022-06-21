@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Unified_Sensors",
     "version": "0.0.1",
-    "installs": 1845,
+    "installs": 1928,
     "license": "Adafruit",
     "author": "Matt Thompson @inet_ntoa",
     "sentence": "Adafruit Unified Sensors for Particle",
@@ -50,8 +50,23 @@
           "boron": {
             "Sensors": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Sensors": true
+          },
+          "electron": {
+            "Sensors": true
+          },
+          "argon": {
+            "Sensors": true
+          },
+          "boron": {
+            "Sensors": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.890Z"
     }
   },
   "readme": "Collection of Adafruit Unified sensors\n",

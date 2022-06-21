@@ -57,7 +57,7 @@ There are other ways you can pass the access token, which will be discussed a li
 
 ### Get variable
 
-Another common task is to get the value of a [Particle.variable](/cards/firmware/cloud-functions/particle-variable/) using the [get variable](/reference/cloud-apis/api/#get-a-variable-value) API.
+Another common task is to get the value of a [Particle.variable](/reference/device-os/api/cloud-functions/particle-variable/) using the [get variable](/reference/cloud-apis/api/#get-a-variable-value) API.
 
 To fully take advantage of this example you'll need firmware on one of your devices that returns a variable. This firmware combines the function and variable examples from the [cloud communication tutorial](/getting-started/cloud/cloud-communication/#variable). You don't need to fully understand how the firmware works right now.
 
@@ -102,7 +102,7 @@ If you request an invalid variable name, you'll also get a 404 error, but the JS
 
 ### Call a function
 
-Another common thing is to do is [call a function](/reference/cloud-apis/api/#call-a-function) that has been registered on a device using [Particle.function](/cards/firmware/cloud-functions/particle-function/). 
+Another common thing is to do is [call a function](/reference/cloud-apis/api/#call-a-function) that has been registered on a device using [Particle.function](/reference/device-os/api/cloud-functions/particle-function/). 
 
 To fully take advantage of this tutorial, you should flash the code from the get a variable example, above to a test device. It supports testing function calls, too.
 
