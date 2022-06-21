@@ -145,22 +145,26 @@ You can find more information in the [Data Operations](/getting-started/billing/
 
 ## Wi-Fi Support
 
-| Feature | Gen 2 | Gen 3 |
-| :------ | :---: | :---: |
-| Devices | [Photon](/reference/datasheets/wi-fi/photon-datasheet/) & [P1](/reference/datasheets/wi-fi/p1-datasheet/) | [Argon](/reference/datasheets/wi-fi/argon-datasheet/) |
-| Particle mobile app supported | &check; | &check; |
-| [Mobile SDK](/reference/mobile-sdks/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
+| Feature | Gen 2 | Gen 3 | P2 | 
+| :------ | :---: | :---: | :---: |
+| Devices | [Photon](/reference/datasheets/wi-fi/photon-datasheet/) | [Argon](/reference/datasheets/wi-fi/argon-datasheet/) | [Photon 2](/reference/datasheets/wi-fi/photon-2-datasheet/) | 
+| | [P1](/reference/datasheets/wi-fi/p1-datasheet/) |  | [P2](/reference/datasheets/wi-fi/argon-datasheet/) | 
+| 2.4 GHz Wi-Fi | &check; |&check; |&check; |
+| 5 GHz Wi-Fi | &nbsp; | &nbsp; | &check; |
+| Particle mobile app supported | &check; | &check; | &check; |
+| [Mobile SDK](/reference/mobile-sdks/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; | &nbsp; |
+| React Native Setup Example | &nbsp; | &check; | &check; |
 | USB configuration | &check; | &check; |
-| BLE configuration | &nbsp; | &check; |
-| [Soft AP](/reference/device-os/api/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; |
-| Static IP address support | &check; | &nbsp; |
-| WPA2 Enterprise support | &check; | &nbsp; |
+| BLE configuration | &nbsp; | &check; |&check; |
+| [Soft AP](/reference/device-os/api/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; | &nbsp; |
+| Static IP address support | &check; | &nbsp; | &nbsp; |
+| WPA2 Enterprise support | &check; | &nbsp; | &check; |
 
 ### WPA2 Enterprise
 
 WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educations environments. It's sometimes referred to as WPA Enterprise, and mentions of 802.1(x), RADIUS, or eduroam indicate that WPA2 Enterprise is being used.
 
-To configure a Photon or P1 using WPA2 Enterprise, follow the [WPA2 Enterprise Setup Instructions](https://support.particle.io/hc/en-us/articles/360039741153). Of note:
+To configure a Photon, P1, P2, or Photon 2 using WPA2 Enterprise using the Particle CLI. Of note:
 
 - Setup can only be done over USB using the [Particle CLI](/getting-started/developer-tools/cli/) (no mobile app support).
 - Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
@@ -189,7 +193,7 @@ Support has been tested with Microsoft NPS, Cisco Secure ACS, and Cisco ISE. Fre
 
 The following features are **not supported**:
 
-- 5 GHz is not supported.
+- 5 GHz is not supported on the Argon, Photon, or P1. It is supported on the P2 and Photon 2.
 - Captive portals (where you are redirected to a web page to agree to terms of service or enter an authorization code) are not supported. This is common in hotels and corporate public networks.
 - Wi-Fi networks that are 802.11 n only (do not support 802.11 b or g as well) are not supported on the Photon and P1.
 - Special configuration steps are necessary to [set up a Photon or P1 with WEP encryption](http://rickkas7.github.io/wep/). It is possible, but difficult, to set up and is not recommended as WEP is also not secure.
