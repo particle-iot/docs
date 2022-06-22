@@ -39,6 +39,7 @@ $(document).ready(function() {
         let usbDevice;
         let deviceInfo = {};
         let userFirmwareBinary;
+        let restoreFirmwareBinary;
         let mccmnc;
         let setupOptions = {};
 
@@ -511,6 +512,9 @@ $(document).ready(function() {
             }
             
             if (!deviceLogsTimer2) {
+                // Retrieve logs more slowly on Gen 2 because the control request handler can run out of RAM
+                const logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
+
                 deviceLogsTimer2 = setInterval(async function() {
                     let reqObj = {
                         op: 'logs'
@@ -554,7 +558,7 @@ $(document).ready(function() {
                             }
                         }
                     }
-                }, 1000);
+                }, logTimerInterval);
             }
 
 
@@ -647,7 +651,7 @@ $(document).ready(function() {
                     $('.restoreFirmwareDiv').show();
 
                     $('.setupRestoreDeviceButton').on('click', function() {
-
+                        $('#uploadUserBinary').trigger('click');
                     });
                 }
 
@@ -1229,9 +1233,13 @@ $(document).ready(function() {
                 showStep('setupStepFlashDeviceDownload');
 
                 // Flash device                
-
-                const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
-                userFirmwareBinary = await resp.arrayBuffer();
+                if (!restoreFirmwareBinary) {
+                    userFirmwareBinary = restoreFirmwareBinary;
+                }
+                else {
+                    const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
+                    userFirmwareBinary = await resp.arrayBuffer();    
+                }
 
                 let dfuPartTableInfo = {};
 
@@ -1341,7 +1349,7 @@ $(document).ready(function() {
                 };
 
             
-                if (troubleshootingMode) {
+                if (troubleshootingMode && !restoreFirmwareBinary) {
                     options.userBackup = true;
                 }
 
@@ -1369,6 +1377,10 @@ $(document).ready(function() {
 
             await reconnectToDevice();
 
+            if (restoreFirmwareBinary) {
+                setSetupStep('setupStepRestoreDone');
+            }
+            else
             if (troubleshootingMode) {
                 checkSimAndClaiming();
             }
@@ -1925,6 +1937,21 @@ $(document).ready(function() {
 
             
         };
+
+        $('#uploadUserBinary').on('change', function() {
+            if (this.files.length == 1) {
+                const file = this.files[0];
+                
+                let fileReader = new FileReader();
+                fileReader.onload = function() {
+                    restoreFirmwareBinary = fileReader.result;
+                    flashDevice();
+                };
+                fileReader.readAsArrayBuffer(file);
+            
+            }
+        });
+
 
         $(thisElem).find('.setColorButton').on('click', function() {
             const color =  $(thisElem).find('.colorSelector').val();

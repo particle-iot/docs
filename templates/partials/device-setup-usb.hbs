@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="setupStepConfirm" style="display:none">
-                <p>This tool will flash Device OS and setup firmware to your device, replacing the 
+                <p>This tool will flash Device OS and doctor firmware to your device, replacing the 
                     existing Device OS and user firmware.</p>
                 <p>Upon successful completion you can to program your firmware again 
                     over-the-air (OTA) or by USB.</p>
@@ -76,8 +76,9 @@
                     the original firmware and a similar version of Device OS if you still have the backup 
                     file available. It should be in your Downloads folder as firmware_<span class="restoreDeviceId"></span>.bin
                 </p>
-                <p><button class="setupRestoreDeviceButton apiHelperButton">Restore Original Firmware</button></p>
+                <p><button class="setupRestoreDeviceButton apiHelperButton">Restore firmware from backup file</button><input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></p>
                 </div> <!-- restorePane -->
+
 
                 <div class="setupMode">
                     <details style="padding-top: 100px">
@@ -298,6 +299,9 @@
             </div>
             <div class="setupStepTroubleshootingSuccess" style="display:none">
                 <p>Congratulations, it appears that your device is online and functioning properly now!</p>
+            </div>
+            <div class="setupStepRestoreDone" style="display:none">
+                <p>Your original device firmware has been restored.</p>
             </div>
             <div class="setupStepClaimFailed" style="display:none">
                 <p>Claiming the device failed.</p>
