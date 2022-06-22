@@ -21,9 +21,6 @@
         </div>
         <div class="setupStep">
             <div class="setupStepSelectDevice" style="display:none">
-                <div class="troubleshootingMode">
-                    <h2>Particle Device Troubleshooting Tool</h2>
-                </div>
                 <div>
                     <p>Connect your Particle device to your computer with a USB cable, click the **Select Device** button, 
                         select your device, and click **Connect**.</p>
@@ -32,49 +29,33 @@
                 <div class="troubleshootingMode">
                     <h3>Other issues</h3>
                     <div>
-                        <p>I have a Gen 2 device (Photon, P1, Electron, or E Series). The status LED stays off, the buttons do not 
-                            do anything. On the Photon or Electron, the blue LED next to pin D7 is on and dim.<br/>
-                            <button disabled>I have the Dim D7 Issue</button> (this flow is not yet implemented)
-                        </p>
-                    </div>
-                    <div>
-                        <p>The device is hot to the touch, or does not turn on at all.<br/>
-                            <button disabled>I may have a power issue</button> (this flow is not yet implemented)
-                        </p>
-                    </div>
-                    <div>
-                        <p>When I use **Select Device** no devices show up in the device selection dialog.<br/>
-                            <button disabled>No USB device</button> (this flow is not yet implemented)
-                        </p>
-                    </div>
-                    <div class="setupMode">
-                        <p>This tool upgrades the device firmware, activates the SIM (for cellular devices), configures
-                            Wi-Fi (for Wi-Fi devices), and claims the device to your account.
-                        </p>
-                        <p>It is experimental, however if you run into trouble you should be able to
-                            use the <a href="https://docs.particle.io/cli/">Particle CLI</a> to recover the device.
-                        </p>
+                        <ul>
+                            <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="setupStepDimD7" style="display:none">
-                <p>If you have the Dim D7 issue, the bootloader in the device flash memory has become corrupted. 
-                    This requires a SWD/JTAG programmer to repair. 
-                </p>
-                <p></p>
+            <div class="setupStepLoginTicket" style="display:none">
+                <p>If you are unable to log in to your account or are having trouble with multi-factor authentication, you may 
+                    submit a support ticket.</p>
+                
+                <p>Email: <input type="text" size="20" class="loginTicketEmail" /> (required)</p>
+                <p>Additional details for support:</p>
+                <textarea rows="10" cols="80" class="loginTicketText"></textarea>
+                <p><button class="apiHelperButton">Submit support ticket</button></p>
             </div>
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
                     <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
                 </div>
                 <div class="setupStepCheckDeviceTracker" style="display:none">
-                    <p>This setup tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
+                    <p>This tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
                         use <a href="https://setup.particle.io">setup.particle.io</a> instead.
                     </p>
                 </div>
                 <div class="setupStepCheckDeviceUnknown" style="display:none">
-                    <p>This setup tool cannot set up this type of device. You should use the Particle mobile apps for iOS
-                        and Android, or the <a href="https://docs.particle.io/cli/">Particle CLI</a>.
+                    <p>This tool cannot set up this type of device. You should use the the <a href="https://docs.particle.io/cli/">Particle CLI</a>
+                        or Particle mobile apps for iOS and Android.
                     </p>
                 </div>
                 <div class="setupStepCheckDeviceSIM">
@@ -83,13 +64,20 @@
             </div>
             <div class="setupStepConfirm" style="display:none">
                 <p>This tool will flash Device OS and setup firmware to your device, replacing the 
-                    existing Device OS and user firmware. There is no way to revert to the original firmware 
-                    automatically.</p>
-                <p>Upon successful completion, however, you should be able to program your firmware again 
+                    existing Device OS and user firmware.</p>
+                <p>Upon successful completion you can to program your firmware again 
                     over-the-air (OTA) or by USB.</p>
                 <p>Proceed with flashing the device and setup?</p>
 
                 <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device and Setup</button></p>
+
+                <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
+                <p>It appears that you previously flashed doctor firmware to this device. You can restore 
+                    the original firmware and a similar version of Device OS if you still have the backup 
+                    file available. It should be in your Downloads folder as firmware_<span class="restoreDeviceId"></span>.bin
+                </p>
+                <p><button class="setupRestoreDeviceButton apiHelperButton">Restore Original Firmware</button></p>
+                </div> <!-- restorePane -->
 
                 <div class="setupMode">
                     <details style="padding-top: 100px">
@@ -134,12 +122,11 @@
                     <p>Checking device ownership...</p>
                 </div>
                 <div class="setupStepCheckSimAndClaimingNoDeviceInfo">
-                    <p>If you are setting up this device for the first time, click **Continue Setup**.</p>
-                    <p><button class="setupContinueSetupButton apiHelperButton">Continue Setup</button></p>
                     <p>This device could not be found in your account, your products, or any organization products you have access to. 
                         This is normal if you are setting up the device for the first time.</p>
                     <p>However, it can also happen if the device is part of a product you are not a team member of. This tool 
                         not recommended for use on product devices by non-developers.</p>
+                    <p><button class="setupContinueSetupButton apiHelperButton">Continue</button></p>
                 </div>
                 <div class="setupStepCheckSimAndClaimingCheckAccount">
                     <p>Checking account status...</p>
@@ -418,7 +405,7 @@
         <div class="setupStatus">
         </div>
         <div class="setupBrowserError" style="display:none">
-            <p>This setup tool can only be used on:</p>
+            <p>This tool can only be used on:</p>
             <ul>
                 <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
                 <li>Edge (version 79 or later</li>
@@ -426,8 +413,7 @@
                 <li>Samsung Internet (version 8.0 or later)</li>
             </ul>
             <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
-            you can use the Particle mobile app for iOS or Android, or the Particle CLI for Windows, 
-            Mac, and Linux, instead.</p>
+            you can use the Particle CLI for Windows, Mac, and Linux, or the Particle mobile app for iOS or Android instead.</p>
         </div>
     </div>
     <div class="accessTokenError" style="display:none">

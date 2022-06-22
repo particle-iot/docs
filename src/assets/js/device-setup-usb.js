@@ -10,6 +10,7 @@ $(document).ready(function() {
     if (!navigator.usb) {
         ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
         $('.setupBrowserError').show();
+        $('.setupStepOtherIssues').show();
         return;
     }
 
@@ -35,7 +36,6 @@ $(document).ready(function() {
 
         const userInfoElem = $(thisElem).find('.userInfo');
 
-
         let usbDevice;
         let deviceInfo = {};
         let userFirmwareBinary;
@@ -56,8 +56,16 @@ $(document).ready(function() {
             $(setupStepElem).children('.' + whichStep).show();
         };
 
-        setSetupStep('setupStepSelectDevice');
+        $('.apiHelperOtherIssuesLink').each(function() {
+            const aElem = $(this);
+            
+            $(aElem).on('click', function() {
+                setSetupStep($(aElem).data('step'));
+            });
+        });
 
+
+        setSetupStep('setupStepSelectDevice');
 
         let infoTableItems = [
             {
@@ -211,6 +219,63 @@ $(document).ready(function() {
             $(thisElem).find('.userInfoTable > tbody').append(trElem);
         };
 
+
+        const getUserFirmwareBackup = function() {
+            let firmwareBackup;
+            try {
+                firmwareBackup = JSON.parse(localStorage.getItem('firmwareBackup'));
+            }
+            catch(e) {                        
+            }
+            if (!firmwareBackup) {
+                firmwareBackup = {};
+            }
+
+            if (!firmwareBackup.backups) {
+                firmwareBackup.backups = [];
+            }
+
+            // Ignore backups older than 1 week
+            const oldestTs = Math.floor(Date.now() / 1000) - 604800;
+            for(let ii = 0; ii < firmwareBackup.backups.length;) {
+                if (firmwareBackup.backups[ii].ts < oldestTs) {
+                    // Delete this
+                    firmwareBackup.backups.splice(ii, 1);
+                }
+                else {
+                    ii++;
+                }
+            }
+
+            return firmwareBackup;
+        }
+
+        const addUserFirmwareBackup = function() {
+            let firmwareBackup = getUserFirmwareBackup();
+
+            firmwareBackup.backups.push({
+                deviceId: deviceInfo.deviceId,
+                username: apiHelper.auth.username,
+                ts: Math.floor(Date.now() / 1000)
+            });
+
+            localStorage.setItem('firmwareBackup', JSON.stringify(firmwareBackup));
+        }
+
+        const hasUserFirmwareBackup = function() {
+            const firmwareBackup = getUserFirmwareBackup();
+
+            for(const f of firmwareBackup.backups) {
+                if (f.deviceId == deviceInfo.deviceId && f.username == apiHelper.auth.username) {
+                    // Found
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+
         apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
             function(data) {
                 userInfo = data.body;
@@ -238,6 +303,46 @@ $(document).ready(function() {
                 setStatus('Error retrieving user information (access token may have expired)');
             }
         )
+
+
+        $('.setupStepLoginTicket').each(function() {
+            const thisElem = $(this);
+            
+            const emailElem = $(thisElem).find('.loginTicketEmail');
+            const textElem = $(thisElem).find('.loginTicketText');
+            const buttonElem = $(thisElem).find('.apiHelperButton');
+
+            const checkButtonEnable = function() {
+                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0) {
+                    $(buttonElem).prop('disabled', false);
+                }
+                else {
+                    $(buttonElem).prop('disabled', true);                    
+                }
+            }
+
+            $(emailElem).on('input', function() {
+                checkButtonEnable();
+            });
+            $(textElem).on('input', function() {
+                checkButtonEnable();
+            });
+
+            if (apiHelper.auth && apiHelper.auth.username) {
+                $(emailElem).val(apiHelper.auth.username);
+            }
+
+            checkButtonEnable();
+
+            $(buttonElem).on('click', function() {
+                const ticket = {
+                    subject: 'Having trouble logging in',
+                    email: $(emailElem).val(),
+                    text: $(textElem).val()
+                }
+                console.log('ticket', ticket);
+            });
+        });
 
         $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
@@ -455,7 +560,6 @@ $(document).ready(function() {
 
         };
 
-
         /*
 
         */
@@ -535,6 +639,16 @@ $(document).ready(function() {
                     catch(e) {
 
                     }
+                }
+
+                if (hasUserFirmwareBackup()) {
+                    // TODO: Implement this feature
+                    $('.restoreDeviceId').text(deviceInfo.deviceId);
+                    $('.restoreFirmwareDiv').show();
+
+                    $('.setupRestoreDeviceButton').on('click', function() {
+
+                    });
                 }
 
                 confirmFlash();
@@ -1234,6 +1348,8 @@ $(document).ready(function() {
                 const restoreResult = await dfuDeviceRestore(usbDevice, options);
             
                 if (restoreResult.ok) {
+                    // Remember that we have backed up this device
+                    addUserFirmwareBackup();
                 }
                 else {
                     console.log('dfu error', restoreResult);

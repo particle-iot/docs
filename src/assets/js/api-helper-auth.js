@@ -21,6 +21,7 @@ $(document).ready(function() {
 
     const handleLogout = function() {
         localStorage.removeItem('particleAuth'); // No longer used, but if present, remove
+        localStorage.removeItem('apiHelperOrg')
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             ga('send', 'event', eventCategory, 'Logged Out Local');
@@ -64,7 +65,7 @@ $(document).ready(function() {
     
     }
 
-    const checkLogin = function() {
+    const checkLogin = async function() {
         const cookie = Cookies.get('ember_simple_auth_session');
         if (cookie) {
             try {
@@ -137,7 +138,8 @@ $(document).ready(function() {
             else {
                 $('#userMenuEditAccount > a').on('click', handleEditAccount);
             }
-    
+            
+
             $('#userMenuLogout > a').on('click', handleLogout);
         
         }
@@ -199,6 +201,64 @@ $(document).ready(function() {
         // This page doesn't have API helper
         return;
     }
+    const checkOrgs = async function() {
+        const selectOrg = $('.apiHelperSSO').data('select-org');
+        if (selectOrg) {
+            let orgInfo;
+            try {
+                orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
+            }
+            catch(e) {                    
+            }
+            if (!orgInfo) {
+                orgInfo = {};
+            }
+    
+            const saveOrgInfo = function() {
+                localStorage.setItem('apiHelperOrg', JSON.stringify(orgInfo));
+            };
+    
+            if (!orgInfo.orgList && apiHelper.auth) {
+                // Fetch organization list
+                try {
+                    orgInfo.orgList = await apiHelper.getOrgs();
+                }
+                catch(e) {
+                }
+            }
+            if (orgInfo.orgList) {
+                if (orgInfo.orgList.organizations.length > 0) {
+                    const selectElem = $('.apiHelperSsoSelectOrg > select');
+                    $(selectElem).html('');
+    
+                    for(const org of orgInfo.orgList.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(selectElem).append(optionElem);
+                    }
+    
+                    if (orgInfo.orgId) {
+                        $(selectElem).val(orgInfo.orgId);
+
+                        apiHelper.selectedOrg = orgInfo.orgId;
+                    }
+    
+                    $('.apiHelperSsoSelectOrg').show();
+    
+                    $(selectElem).on('change', function() {
+                        apiHelper.selectedOrg = orgInfo.orgId = $(selectElem).val();
+                        saveOrgInfo();
+                    });
+                }
+                saveOrgInfo();
+            }    
+        }
+        else {
+            $('.apiHelperSsoSelectOrg').hide();
+        }        
+    }
+    checkOrgs();
 
 
     $('.apiHelperLocalLogIn').each(function() {
