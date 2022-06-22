@@ -92,8 +92,9 @@ $(document).ready(function () {
         const setupBitSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSetupBit');
 
         // Update NCP
-        const updateNcpTrElem = $(thisPartial).find('.apiHelperUsbRestoreUpdateNcpTr');
+        const trackerTrElem = $(thisPartial).find('.apiHelperUsbRestoreTrackerTr');
         const updateNcpCheckboxElem = $(thisPartial).find('.updateNcpCheckbox');
+        const shippingModeCheckboxElem = $(thisPartial).find('.shippingModeCheckbox');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -118,7 +119,7 @@ $(document).ready(function () {
             $(versionElem).prop('disabled', true);
             $(restoreElem).prop('disabled', true);
             $(setupBitTrElem).hide();
-            $(updateNcpTrElem).hide();
+            $(trackerTrElem).hide();
             $(tinkerOptionElem).text('Tinker (Factory Default)');
         };
 
@@ -278,7 +279,7 @@ $(document).ready(function () {
                     $(setupBitTrElem).show();
                 }
                 if (platformVersionInfo.isTracker) {
-                    $(updateNcpTrElem).show();
+                    $(trackerTrElem).show();
 
                     $(tinkerOptionElem).text('Tracker Edge (Factory Default)');
                 }
@@ -349,21 +350,17 @@ $(document).ready(function () {
     
             let restoreResult = await dfuDeviceRestore(usbDevice, options);
 
-            if (platformVersionInfo.isTracker && $(updateNcpCheckboxElem).prop('checked')) {
-                // Update Tracker NCP
-                let ncpOptions = Object.assign({}, baseOptions);
-                ncpOptions.ncpUpdate = true;
-
+            const waitForUpdates = async function(isLongWait) {
                 nativeUsbDevice = null;
 
                 setStatus('Waiting for updates to be applied...');
                 await new Promise(function(resolve, reject) {
                     setTimeout(function() {
                         resolve();
-                    }, 10000);
+                    }, (isLongWait ? 45000 : 10000));
                 });        
 
-                for(let tries = 1; tries <= 8; tries++) {
+                for(let tries = 1; tries <= (isLongWait ? 16 : 8); tries++) {
                     setStatus('Attempting to reconnect to the device...');
                     const nativeUsbDevices = await navigator.usb.getDevices()
                 
@@ -381,18 +378,54 @@ $(document).ready(function () {
                         }, 1000);
                     });        
                 }    
-                
-                if (nativeUsbDevice) {
-                    setStatus('Updating NCP...');
+            }
 
-                    usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+            if (platformVersionInfo.isTracker) {
+                if ($(updateNcpCheckboxElem).prop('checked') || $(shippingModeCheckboxElem).prop('checked')) {
+                    await waitForUpdates(false);
 
-                    restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
-                }
-                else {
-                    setStatus('Failed to reconnect to device to update NCP');
+                    if ($(updateNcpCheckboxElem).prop('checked')) {
+                        // Update Tracker NCP
+                        let ncpOptions = Object.assign({}, baseOptions);
+                        ncpOptions.ncpUpdate = true;
+        
+                        if (nativeUsbDevice) {
+                            setStatus('Updating NCP...');
+        
+                            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+        
+                            restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
+                        }
+                        else {
+                            setStatus('Failed to reconnect to device to update NCP');
+                        }
+                        await waitForUpdates(true);
+                    }
+        
+        
+                    if ($(shippingModeCheckboxElem).prop('checked')) {
+
+                        if (nativeUsbDevice) {
+                            setStatus('Entering shipping mode...');
+        
+                            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+        
+                            const reqObj = {
+                                cmd: 'enter_shipping'
+                            };
+                            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+            
+            
+                        }
+                        else {
+                            setStatus('Failed to reconnect to device to enter shipping mode');
+                        }
+                    }                
                 }
             }
+
+
+
 
             resetRestorePanel();
 
