@@ -4374,6 +4374,14 @@ STARTUP(disable());
 {{note op="start" type="P2"}}
 - Make sure the signal does not exceed 3.3V. The P2 and Photon 2 are not 5V tolerant in any mode (digital or analog).
 
+- `INPUT_PULLUP` and `INPUT_PULLDOWN` vary by pin and can be approximately 2.1K, 22K, or 42K depending on the pin.
+
+  - Pins A0, A1, D2, D3, D4, D5, D10, S0, S1, S2 are 2.1K
+  - Pins D0, D1, S4, S5, S6 are 22K
+  - Pins A2, A5, D6, TX, RX are 42K
+
+- On the P2, pins S4, S5, S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
 If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
 | Photon 2, P2 | Ethernet FeatherWing Pin  |
@@ -16271,6 +16279,14 @@ In this mode:
 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 {{note op="end"}}
+
+---
+
+{{note op="start" type="P2"}}
+- On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+{{note op="end"}}
+
+---
 
 {{note op="start" type="gen2"}}
 - On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.

@@ -414,6 +414,11 @@ These are differences in pins that support PWM between the Boron and B Series So
 
 All pins can be used for interrupts on Gen 3 devices, however only 8 pins can be used for interrupts at the same time.
 
+### Internal pull-up or pull-down
+
+Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
+
+On both the Boron and B Series SoM (Gen 3), the internal pull is approximately 16K.
 
 ### Retained memory
 
@@ -458,6 +463,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### A1
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -471,6 +477,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | A0, A1, A6, and A7 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### A2
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -484,6 +491,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### A3
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -497,6 +505,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### A4
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -510,6 +519,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### A5
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -524,6 +534,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### A6
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -536,6 +547,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | A0, A1, A6, and A7 must have the same frequency.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
+| Internal pull-up or pull-down resistance | 13K|
 #### A7
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -548,6 +560,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes|
 | Supports tone | A0, A1, A6, and A7 must have the same frequency.|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
+| Internal pull-up or pull-down resistance | 13K|
 #### AGND
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -585,6 +598,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D1
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -595,6 +609,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D2
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -609,6 +624,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | SCK. Use SPI1 object. | SCK. Use SPI1 object. |
 | I2C interface | n/a | SDA. Use Wire1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D22
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -618,6 +634,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
+| Internal pull-up or pull-down resistance | 13K|
 #### D23
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -627,6 +644,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins.|
+| Internal pull-up or pull-down resistance | 13K|
 #### D3
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -641,6 +659,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | SPI interface | MOSI. Use SPI1 object. | MOSI. Use SPI1 object. |
 | I2C interface | n/a | SCL. Use Wire1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D4
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -653,6 +672,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
 | SPI interface | MISO. Use SPI1 object. | MISO. Use SPI1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D5
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -664,6 +684,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D6
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -675,6 +696,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | D4, D5, and D6 must have the same frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D7
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -685,6 +707,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. | PWM is shared with the RGB LED, you can specify a different duty cycle but should not change the frequency. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### D8
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -698,6 +721,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
 | SPI interface | n/a | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### EN
 | | Removed from Boron |
 | :--- | :--- |
@@ -727,6 +751,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### MODE
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -745,6 +770,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### NC
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -804,6 +830,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | UART serial | RX Use Serial1 object. | RX Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### SCK
 |   | Boron | B Series SoM |
 | :--- | :--- | :--- |
@@ -815,6 +842,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### SIM_CLK
 | | Added to B Series SoM |
 | :--- | :--- |
@@ -850,6 +878,7 @@ The Boron has a U.FL connector on the bottom of the board; you must supply your 
 | Supports digitalWrite | Yes | Yes |
 | UART serial | TX Use Serial1 object. | TX Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 13K | 13K |
 #### USBDATA-
 | | Added to B Series SoM |
 | :--- | :--- |

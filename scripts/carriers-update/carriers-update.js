@@ -1944,6 +1944,7 @@ const generatorConfig = require('./generator-config');
                 'attachInterrupt',
                 'can',
                 'i2s',
+                'internalPull',
                 'is5VTolerant',
                 'jtag',
                 'swd'      
