@@ -30,6 +30,7 @@
                     <h3>Other issues</h3>
                     <div>
                         <ul>
+                            <li><a class="apiHelperOtherIssuesLink" data-step="setupStepHardwareTicket">I have a hardware issue and cannot connect to the device.</a></li>
                             <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
                         </ul>
                     </div>
@@ -41,9 +42,17 @@
                 
                 <p>Email: <input type="text" size="20" class="loginTicketEmail" /> (required)</p>
                 <p>Additional details for support:</p>
-                <textarea rows="10" cols="80" class="loginTicketText"></textarea>
+                <textarea rows="10" cols="80" class="ticketText"></textarea>
                 <p><button class="apiHelperButton">Submit support ticket</button></p>
             </div>
+            <div class="setupStepHardwareTicket" style="display:none">
+                <p>If you have a hardware issue and are unable to connect to the device by USB, your first step should be to check the <a href="https://community.particle.io">Particle community forum</a>.</p>
+                <p class="setupSupportNo" style="display:none">If you have a hardware failure that is covered under the warranty, you can submit a support ticket.</p>                 
+                <p class="setupSupportYes" style="display:none">As a growth or enterprise customer you can submit a support ticket.</p>                 
+                <p>Include the Device ID or Serial Number and any additional information for support:</p>
+                <textarea rows="10" cols="80" class="ticketText"></textarea>
+                <p><button class="apiHelperButton">Submit support ticket</button></p>
+            </div>            
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
                     <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
@@ -429,5 +438,15 @@
         <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
         <p><button class="loginAgain">Log In Again</button></p>
     </div>
+    <!--
+    <div class="apiHelperNotLoggedIn" style="display:none">
+        <h3>Other issues</h3>
+        <div>
+            <ul>
+                <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
+            </ul>
+        </div>
+    </div>
+    -->
 </div>
 

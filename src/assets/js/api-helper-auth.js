@@ -194,7 +194,6 @@ $(document).ready(function() {
         $('.apiHelperLocalLogIn').show(); 
         $('.apiHelperLocalLoginLogInUsingRow').find('input[value="userPass"]').trigger('click');
     });
-
     checkLogin();
 
     if (typeof apiHelper == 'undefined') {
@@ -216,6 +215,7 @@ $(document).ready(function() {
     
             const saveOrgInfo = function() {
                 localStorage.setItem('apiHelperOrg', JSON.stringify(orgInfo));
+                $('.apiHelper').trigger('selectedOrgUpdated');
             };
     
             if (!orgInfo.orgList && apiHelper.auth) {
@@ -240,9 +240,8 @@ $(document).ready(function() {
     
                     if (orgInfo.orgId) {
                         $(selectElem).val(orgInfo.orgId);
-
-                        apiHelper.selectedOrg = orgInfo.orgId;
                     }
+                    apiHelper.selectedOrg = $(selectElem).val();
     
                     $('.apiHelperSsoSelectOrg').show();
     

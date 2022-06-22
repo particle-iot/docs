@@ -18,6 +18,20 @@ $(document).ready(function() {
         'setupStepSelectDevice'
     ];
 
+    const updateSupportAvailable = function() {
+        if (apiHelper.selectedOrg) {
+            $('.setupSupportYes').show();
+            $('.setupSupportNo').hide();
+        }
+        else {
+            $('.setupSupportNo').show();
+            $('.setupSupportYes').hide();
+        }
+    };
+
+    $('.apiHelper').on('selectedOrgUpdated', updateSupportAvailable);
+    updateSupportAvailable();
+
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
@@ -245,7 +259,7 @@ $(document).ready(function() {
                     firmwareBackup.backups.splice(ii, 1);
                 }
                 else {
-                    ii++;
+                    ii++;   
                 }
             }
 
@@ -277,41 +291,46 @@ $(document).ready(function() {
             return false;
         }
         
-
-        apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
-            function(data) {
-                userInfo = data.body;
-                
-                $(userInfoElem).show();
-
-                setUserInfoItem('Account email', userInfo.username);
-
-                let name = '';
-                if (userInfo.account_info.first_name) {
-                    name += userInfo.account_info.first_name;
-                }
-                if (userInfo.account_info.last_name) {
-                    if (name.length > 0) {
-                        name += ' ';
+        if (apiHelper.auth) {
+            apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
+                function(data) {
+                    userInfo = data.body;
+                    
+                    $(userInfoElem).show();
+    
+                    setUserInfoItem('Account email', userInfo.username);
+    
+                    let name = '';
+                    if (userInfo.account_info.first_name) {
+                        name += userInfo.account_info.first_name;
                     }
-                    name += userInfo.account_info.last_name;
+                    if (userInfo.account_info.last_name) {
+                        if (name.length > 0) {
+                            name += ' ';
+                        }
+                        name += userInfo.account_info.last_name;
+                    }
+                    if (name) {
+                        setUserInfoItem('Name', name);
+                    }
+    
+                },
+                function(err) {
+                    setStatus('Error retrieving user information (access token may have expired)');
                 }
-                if (name) {
-                    setUserInfoItem('Name', name);
-                }
+            )
+        }
+        else {
+            $('.apiHelperLoggedIn').hide();
+        }
 
-            },
-            function(err) {
-                setStatus('Error retrieving user information (access token may have expired)');
-            }
-        )
 
 
         $('.setupStepLoginTicket').each(function() {
             const thisElem = $(this);
             
             const emailElem = $(thisElem).find('.loginTicketEmail');
-            const textElem = $(thisElem).find('.loginTicketText');
+            const textElem = $(thisElem).find('.ticketText');
             const buttonElem = $(thisElem).find('.apiHelperButton');
 
             const checkButtonEnable = function() {
@@ -345,6 +364,40 @@ $(document).ready(function() {
                 console.log('ticket', ticket);
             });
         });
+
+
+
+        $('.setupStepHardwareTicket').each(function() {
+            const thisElem = $(this);
+            
+            const textElem = $(thisElem).find('.ticketText');
+            const buttonElem = $(thisElem).find('.apiHelperButton');
+
+            const checkButtonEnable = function() {
+                if ($(textElem).val().trim().length > 0) {
+                    $(buttonElem).prop('disabled', false);
+                }
+                else {
+                    $(buttonElem).prop('disabled', true);                    
+                }
+            }
+
+            $(textElem).on('input', function() {
+                checkButtonEnable();
+            });
+
+            checkButtonEnable();
+
+            $(buttonElem).on('click', function() {
+                const ticket = {
+                    subject: 'Hardware ticket',
+                    email: apiHelper.auth.username,
+                    text: $(textElem).val()
+                }
+                console.log('ticket', ticket);
+            });
+        });
+
 
         $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
@@ -776,6 +829,8 @@ $(document).ready(function() {
             $(deviceLookupOutputElem).show();
 
             $('.apiHelperDeviceLookupResult').text('');
+            $('.apiHelperDeviceLookupProduct').hide();
+            $('.apiHelperDeviceLookupOrg').hide();
             
             deviceLookup = apiHelper.deviceLookup({
                 deviceId: deviceInfo.deviceId,
