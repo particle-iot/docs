@@ -21,13 +21,13 @@ $(document).ready(function() {
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
-        const troubleshootingMode = ($(thisElem).data('troubleshooting') == '1');
-        if (troubleshootingMode) {
-            $(thisElem).find('.troubleshootingMode').show();
+        const doctorMode = ($(thisElem).data('doctor') == '1');
+        if (doctorMode) {
+            $(thisElem).find('.doctorMode').show();
             $(thisElem).find('.setupMode').hide();
         }
         else {
-            $(thisElem).find('.troubleshootingMode').hide();
+            $(thisElem).find('.doctorMode').hide();
             $(thisElem).find('.setupMode').show();
         }
 
@@ -38,6 +38,7 @@ $(document).ready(function() {
 
         let usbDevice;
         let deviceInfo = {};
+        let deviceLookup;
         let userFirmwareBinary;
         let restoreFirmwareBinary;
         let mccmnc;
@@ -770,6 +771,21 @@ $(document).ready(function() {
 
         };
 
+        const runDeviceLookup = async function() {
+            const deviceLookupOutputElem = $(thisElem).find('.apiHelperDeviceLookupOutput');
+            $(deviceLookupOutputElem).show();
+
+            $('.apiHelperDeviceLookupResult').text('');
+            
+            deviceLookup = apiHelper.deviceLookup({
+                deviceId: deviceInfo.deviceId,
+                deviceLookupElem: deviceLookupOutputElem                
+            });
+
+            await deviceLookup.run();
+
+        };
+
         const checkSimAndClaiming  = async function() {
             setSetupStep('setupStepCheckSimAndClaiming');
 
@@ -782,17 +798,7 @@ $(document).ready(function() {
 
             showStep('setupStepCheckSimAndClaimingOwnership');
 
-            const deviceLookupOutputElem = $(thisElem).find('.apiHelperDeviceLookupOutput');
-            $(deviceLookupOutputElem).show();
-
-            let deviceLookup = apiHelper.deviceLookup({
-                deviceId: deviceInfo.deviceId,
-                deviceLookupElem: deviceLookupOutputElem                
-            });
-
-            await deviceLookup.run();
-
-            console.log('deviceLookup', deviceLookup);
+            await runDeviceLookup();
 
             // TODO: Check service agreements to make sure account state == 'active'
 
@@ -1233,7 +1239,7 @@ $(document).ready(function() {
                 showStep('setupStepFlashDeviceDownload');
 
                 // Flash device                
-                if (!restoreFirmwareBinary) {
+                if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
                 else {
@@ -1349,7 +1355,7 @@ $(document).ready(function() {
                 };
 
             
-                if (troubleshootingMode && !restoreFirmwareBinary) {
+                if (doctorMode && !restoreFirmwareBinary) {
                     options.userBackup = true;
                 }
 
@@ -1381,7 +1387,7 @@ $(document).ready(function() {
                 setSetupStep('setupStepRestoreDone');
             }
             else
-            if (troubleshootingMode) {
+            if (doctorMode) {
                 checkSimAndClaiming();
             }
             else
@@ -1755,7 +1761,18 @@ $(document).ready(function() {
     
                 $(userInfoElem).show();
 
-                if (setupOptions.noClaim || troubleshootingMode) {
+                
+
+                if (doctorMode) {
+                    if (deviceLookup && !deviceLookup.deviceInfo) {
+                        setupOptions.noClaim = !$('.doctorClaimDevice').prop('checked');
+                    }
+                    else {
+                        setupOptions.noClaim = true;    
+                    }
+                }
+                
+                if (setupOptions.noClaim) {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
@@ -1790,13 +1807,7 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
-                if (troubleshootingMode) {                    
-                    // TODO: Check if device is claimed to my account and 
-                    setSetupStep('setupStepTroubleshootingSuccess');
-                    return;
-                }
-
-                if (!setupOptions.noClaim && !troubleshootingMode) {
+                if (!setupOptions.noClaim) {
                     // Claim device
                     const result = await new Promise(function(resolve, reject) {      
                         const requestObj = {
@@ -1828,7 +1839,10 @@ $(document).ready(function() {
 
                     if (result.ok) {
                         $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
-
+                        
+                        // Re-run device lookup to update information
+                        runDeviceLookup();
+            
                         // Wait a second so the green check shows up
                         await new Promise(function(resolve) {
                             setTimeout(function() {
@@ -1839,9 +1853,17 @@ $(document).ready(function() {
                     else {
                         // TODO: Handle error. What happens if device is already claimed or 
                         // in a product? This might cause an exception, not an error
+                        console.log('error claiming device', result);
                     }
                 }
 
+                if (doctorMode) {                    
+                    // TODO: Check if device is claimed to my account and 
+                    setSetupStep('setupStepTroubleshootingSuccess');
+                    return;
+                }
+
+                // TODO: Possibly allow naming in troubleshooting mode if name is not set
                 nameDevice();
     
             }

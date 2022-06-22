@@ -1,4 +1,4 @@
-<div class="apiHelperDeviceSetupUsb" data-troubleshooting="{{troubleshooting}}">
+<div class="apiHelperDeviceSetupUsb" data-doctor="{{doctor}}">
     <div class="apiHelper">
         <div class="apiHelperNotLoggedIn apiHelperBox">
             <div class="apiHelperCouldSSO apiHelperSmallText" style="display:none">
@@ -26,7 +26,7 @@
                         select your device, and click **Connect**.</p>
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
                 </div>
-                <div class="troubleshootingMode">
+                <div class="doctorMode">
                     <h3>Other issues</h3>
                     <div>
                         <ul>
@@ -67,6 +67,9 @@
                     existing Device OS and user firmware.</p>
                 <p>Upon successful completion you can to program your firmware again 
                     over-the-air (OTA) or by USB.</p>
+                <p>A backup file containing your user firmware will be saved to your Downloads folder; 
+                    this can be used to restore the original firmware and a similar version of Device OS as well.
+                </p>
                 <p>Proceed with flashing the device and setup?</p>
 
                 <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device and Setup</button></p>
@@ -125,8 +128,10 @@
                 <div class="setupStepCheckSimAndClaimingNoDeviceInfo">
                     <p>This device could not be found in your account, your products, or any organization products you have access to. 
                         This is normal if you are setting up the device for the first time.</p>
-                    <p>However, it can also happen if the device is part of a product you are not a team member of. This tool 
+                    <p>However, it can also happen if the device is really claimed to another account, or the device is part of a 
+                        product you are not a team member of. This tool 
                         not recommended for use on product devices by non-developers.</p>
+                    <p><label><input type="checkbox" class="doctorClaimDevice" checked/>Attempt to claim device when online</label></p>
                     <p><button class="setupContinueSetupButton apiHelperButton">Continue</button></p>
                 </div>
                 <div class="setupStepCheckSimAndClaimingCheckAccount">
