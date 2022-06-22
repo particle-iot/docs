@@ -411,7 +411,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 42K |
 #### A3 / A5
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -424,7 +424,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 42K |
 #### A4 / S4
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -437,7 +437,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | A4, A5, D2, and D3 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### A5 / S3
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -502,7 +502,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports digitalWrite | Yes | Yes |
 | UART serial | RX Use Serial1 object. | RX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 42K |
 #### TX
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -513,7 +513,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports digitalWrite | Yes | Yes |
 | UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 42K |
 #### D0
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -527,7 +527,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports tone | No | Yes |
 | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 22K |
 #### D1
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -541,7 +541,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports tone | No | Yes |
 | I2C interface | SCL. Use Wire object. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 22K |
 #### D2
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -606,7 +606,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | D4, D5, D6, and D7 must have the same frequency. | No |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
-| Internal pull-up or pull-down resistance | 13K | 2.1K |
+| Internal pull-up or pull-down resistance | 13K | 42K |
 | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
 #### D7
 |   | Argon | Photon 2 |

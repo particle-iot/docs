@@ -469,7 +469,7 @@ There are many limitations for interrupts on the STM32F205. All pins can be used
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-- On the P2, the internal pull is approximately 2.1K.
+- - On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
 - On the Photon (Gen 2), the internal pull is approximately 40K.
 
 ### Retained memory
@@ -659,7 +659,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports tone | No | Yes |
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### A3
 |   | Photon | P2 |
@@ -677,7 +677,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | SPI interface | SCK. Use SPI object. | n/a |
 | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 #### A4
 |   | Photon | P2 |
 | :--- | :--- | :--- |
@@ -693,7 +693,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | SPI interface | MISO. Use SPI object. | n/a |
 | I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### A5
 |   | Photon | P2 |
@@ -709,7 +709,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | SPI interface | MOSI. Use SPI object. | n/a |
 | Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### D0
 |   | Photon | P2 |
@@ -725,7 +725,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports tone | Yes | Yes |
 | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### D1
 |   | Photon | P2 |
@@ -742,7 +742,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
 | CAN interface | CAN2_TX | n/a |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### D2
 |   | Photon | P2 |
@@ -816,7 +816,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
@@ -829,7 +829,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes. But the on-board LED will light when 3.3V is supplied on this pin as well. | Yes. |
 | Supports digitalWrite | Yes. Note that this controls the on-board blue LED. | Yes. On the Photon this is the blue D7 LED. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 #### DAC
@@ -909,7 +909,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports tone | Yes | No |
 | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### S0
 | | Added to P2 |
@@ -976,7 +976,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K. No internal pull up or pull down in HIBERNATE sleep mode|
+| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### S5
 | | Added to P2 |
 | :--- | :--- |
@@ -986,7 +986,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Description | S5 GPIO. (Was P1S5 on P1.)|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K. No internal pull up or pull down in HIBERNATE sleep mode|
+| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode|
 #### S6
 | | Added to P2 |
 | :--- | :--- |
@@ -997,7 +997,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K. No internal pull up or pull down in HIBERNATE sleep mode|
+| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### SETUP
 | | Removed from Photon |
 | :--- | :--- |
@@ -1018,7 +1018,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Supports tone | Yes | No |
 | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
 |   | Photon | P2 |

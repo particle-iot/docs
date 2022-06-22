@@ -7465,7 +7465,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": true,
-          "internalPull": "2.1K. No internal pull up or pull down in HIBERNATE sleep mode",
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode",
           "hardwarePin": "PB[29]",
           "mcuPin": 64
         },
@@ -7582,7 +7582,7 @@
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA[27]",
           "mcuPin": 33,
-          "internalPull": "2.1K"
+          "internalPull": "42K"
         },
         {
           "num": 55,
@@ -8054,7 +8054,7 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[29]",
           "mcuPin": 64,
-          "internalPull": "2.1K. No internal pull up or pull down in HIBERNATE sleep mode"
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode"
         },
         {
           "num": 26,
@@ -8175,7 +8175,7 @@
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA[27]",
           "mcuPin": 33,
-          "internalPull": "2.1K"
+          "internalPull": "42K"
         },
         {
           "num": 32,

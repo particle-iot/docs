@@ -373,7 +373,7 @@ There are many limitations for interrupts on the STM32F205. All pins can be used
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-- On the P2, the internal pull is approximately 2.1K.
+- - On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
 - On the P1, the internal pull is approximately 40K.
 - The P1 module has 2.1K pull-ups on D0 and D1 (I2C), separate from the MCU pull-ups. The P2 does not have extra hardware pull-ups.
 
@@ -582,7 +582,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | SPI interface | MOSI. Use SPI object. | n/a |
 | Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 24 (DAC / NC)
 |   | P1 | P2 |
@@ -665,7 +665,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K. No internal pull up or pull down in HIBERNATE sleep mode |
+| Internal pull-up or pull-down resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 #### Module Pin 34 (RST)
 | | Unchanged between P1 and P2 |
 | :--- | :--- |
@@ -685,7 +685,7 @@ The following pins were NC on the P1 but are used on the P2.
 | I2C interface | SCL. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
 | CAN interface | CAN2_TX | n/a |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 36 (D0)
 |   | P1 | P2 |
@@ -700,7 +700,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | Yes | Yes |
 | I2C interface | SDA. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 37 (GND)
 | | Unchanged between P1 and P2 |
@@ -820,7 +820,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K. No internal pull up or pull down in HIBERNATE sleep mode |
+| Internal pull-up or pull-down resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode. |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (P1S5 / S5)
 |   | P1 | P2 |
@@ -832,7 +832,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
 | Supports attachInterrupt | Yes. P1S1 and P1S5 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K. No internal pull up or pull down in HIBERNATE sleep mode |
+| Internal pull-up or pull-down resistance | 40K | 22K. No internal pull up or pull down in HIBERNATE sleep mode |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (A2)
 |   | P1 | P2 |
@@ -847,7 +847,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | No | Yes |
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (A0)
 |   | P1 | P2 |
@@ -912,7 +912,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalRead | Yes. | Yes. |
 | Supports digitalWrite | Yes. On the Photon this is the blue D7 LED. | Yes. On the Photon this is the blue D7 LED. |
 | Supports attachInterrupt | Yes. D7 and P1S4 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
 #### Module Pin 55 (D6)
@@ -923,7 +923,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
@@ -976,7 +976,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | Yes | No |
 | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 64 (TX)
 |   | P1 | P2 |
@@ -990,7 +990,7 @@ The following pins were NC on the P1 but are used on the P2.
 | Supports tone | Yes | No |
 | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 65 (GND)
 | | Unchanged between P1 and P2 |

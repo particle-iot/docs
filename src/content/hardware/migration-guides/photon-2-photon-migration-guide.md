@@ -500,7 +500,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports tone | No | Yes |
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | n/a |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### A3
 |   | Photon | Photon 2 |
@@ -517,7 +517,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | SPI interface | SCK. Use SPI object. | n/a |
 | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 #### A4
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
@@ -532,7 +532,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | SPI interface | MISO. Use SPI object. | n/a |
 | I2C interface | n/a | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### A5
 |   | Photon | Photon 2 |
@@ -547,7 +547,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | SPI interface | MOSI. Use SPI object. | n/a |
 | Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### D0
 |   | Photon | Photon 2 |
@@ -562,7 +562,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports tone | Yes | Yes |
 | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### D1
 |   | Photon | Photon 2 |
@@ -578,7 +578,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes |
 | CAN interface | CAN2_TX | n/a |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 22K |
 | Input is 5V Tolerant | Yes | No |
 #### D2
 |   | Photon | Photon 2 |
@@ -647,7 +647,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 42K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
@@ -759,7 +759,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports tone | Yes | No |
 | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### S3
 | | Added to Photon 2 |
@@ -781,7 +781,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports digitalRead | Yes|
 | Supports digitalWrite | Yes|
 | Supports attachInterrupt | Yes|
-| Internal pull-up or pull-down resistance | 2.1K|
+| Internal pull-up or pull-down resistance | 22K. No internal pull up or pull down in HIBERNATE sleep mode.|
 #### SCK
 | | Added to Photon 2 |
 | :--- | :--- |
@@ -812,7 +812,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports tone | Yes | No |
 | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes | Yes |
-| Internal pull-up or pull-down resistance | 40K | 2.1K |
+| Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
 #### USBDATA-
 | | Removed from Photon |

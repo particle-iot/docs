@@ -15,6 +15,7 @@ const saveChanges = true;
 
 
 // Don't run this again as the output has been manually edited since generating
+/*
 {
     // Populate pull resistance
     for(let platform of pinInfo.platforms) {
@@ -69,6 +70,7 @@ const saveChanges = true;
         }
     }    
 }
+*/
 
 
 fs.writeFileSync(pinInfoPath, JSON.stringify(pinInfo, null, 2));
