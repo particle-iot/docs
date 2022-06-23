@@ -88,6 +88,12 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     } 
 
+    let moduleInfo;
+    let ncpImage;
+    let zipFs;
+    let userFirmwareBinaryStartAddr;
+
+
     if (options.userFirmwareBinary) {
         setStatus('Validating user firmware binary...');
 
@@ -132,12 +138,10 @@ async function dfuDeviceRestore(usbDevice, options) {
         if (systemVersionSemVer != restoreSemVer) {
             // console.log('not an exact system match');
         }
+        userFirmwareBinaryStartAddr = startAddr;
+        console.log('using userFirmwareBinaryStartAddr=0x' + userFirmwareBinaryStartAddr.toString(16))
         options.version = restoreSemVer;
     }
-
-    let moduleInfo;
-    let ncpImage;
-    let zipFs;
 
 
     ga('send', 'event', options.eventCategory, 'DFU Restore Started', options.version + '/' + options.platformVersionInfo.name);
@@ -631,6 +635,9 @@ async function dfuDeviceRestore(usbDevice, options) {
     
             if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
                 genericPartName = 'custom user firmware';     
+                // If a custom binary, use the address in the module because on the P2 it's different depending on the size of the module
+                console.log('using userFirmwareBinaryStartAddr=0x' + userFirmwareBinaryStartAddr.toString(16))
+                dfuseDevice.startAddress = userFirmwareBinaryStartAddr;
             } else {
                 genericPartName = partName;
             }
