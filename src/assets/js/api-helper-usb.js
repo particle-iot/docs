@@ -61,6 +61,9 @@ $(document).ready(function () {
                     result = Object.assign({}, tempPlatformObj);
                     result.versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
                     result.isTracker = (result.id == 26);
+                    result.isRTL872x = (result.mcu.startsWith('RTL872'));
+                    result.isnRF52 = (result.mcu.startsWith('nRF52'));
+                    result.isSTM32F2xx = (result.mcu.startsWith('STM32F2'));
                     break;
                 }
             }
@@ -245,11 +248,6 @@ $(document).ready(function () {
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
-                if ((nativeUsbDevice.productId & 0xff) == 32) {
-                    setStatus('Device restore by USB DFU is not currently supported on the P2');
-                    return;
-                }
-
                 usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
         
                 // Find available versions for this device
@@ -260,8 +258,6 @@ $(document).ready(function () {
                     usbDevice = null;
                     return;
                 }
-
-                console.log('platformVersionInfo', platformVersionInfo);
     
                 $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);
                 $(selectElem).text('Select a Different Device');
@@ -429,9 +425,16 @@ $(document).ready(function () {
 
             resetRestorePanel();
 
-            setTimeout(function() {
-                setStatus('');
-            }, 2000);
+            // 
+            if (platformVersionInfo.isRTL872x) {
+                setStatus('If the P2 device is still blinking yellow, press the reset button on the device');
+            }
+            else {
+                setTimeout(function() {
+                    setStatus('');
+                }, 2000);    
+            }                        
+            
 
             if (options.downloadUrl) {
                 if ($(modeSelectElem).val() == 'url') {
