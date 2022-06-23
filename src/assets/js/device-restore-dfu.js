@@ -363,6 +363,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
         */
         
+        
 
         dfuseDevice.logInfo = function(msg) {
             // console.log(msg); 
@@ -521,8 +522,17 @@ async function dfuDeviceRestore(usbDevice, options) {
     let extPart;
     let extPartName;
     let partName;
-        let genericPartName;
-    
+    let genericPartName;
+    let setOTAFlag = false;
+
+    // options.platformVersionInfo contains the deviceInfo.platformVersionInfo
+    // This is the result from apiHelper.getRestoreVersions(), which contains the
+    // information from deviceRestore.json for this platform:
+    // name, title, id (platform), gen, mcu, wifi, cellular    
+    // Plus:
+    // versionArray - the versions for for this platform from deviceRestore.json versionsZipByPlatform
+    // isTracker, isRTL872x, isnRF52, isSTM32F2xx
+
     if (!options.flashBackup || options.flashBackup.type == 'main') {
         const dfuseDevice = await createDfuseDevice(interface);
 
@@ -547,6 +557,11 @@ async function dfuDeviceRestore(usbDevice, options) {
         
             if (!options.ncpUpdate) {
                 for(const dfuPart of allDfuParts) {
+                    if (options.platformVersionInfo.isRTL872x && dfuPart.name == 'bootloader') {
+                        // P2 and Photon 2 handle bootloader and pre-bootloader with the system part
+                        continue;
+                    }
+
                     const zipEntry = zipFs.find(dfuPart.name + '.bin');
                     if (zipEntry) {
                         dfuParts.push(dfuPart);
@@ -563,32 +578,51 @@ async function dfuDeviceRestore(usbDevice, options) {
             
         // 
         dfuseDevice.logProgress = logProgress;
-    
         
-    
+        const getPartBinary = async function(partName) {
+            const zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
+            if (!zipEntry) {
+                return null;
+            }    
+
+            let part = await zipEntry.getUint8Array();
+
+            if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+                part = part.slice(24); // MODULE_PREFIX_SIZE
+            }
+
+            return part;
+        };
+
+        const padPartToSector = function(part) {
+            if ((part.length % 4096) != 0) {
+                const padLength = 4096 - (part.length % 4096);
+
+                let newPart = new Uint8Array(part.length + padLength);
+                newPart.set(part);
+                newPart.fill(0xff, part.length);
+
+                return newPart;
+            }
+            else {
+                return part;
+            }
+        };
+
         for(const dfuPart of dfuParts) {
             partName = dfuPart.name;
     
-            let zipEntry;
             let part;
     
             if (partName == 'user-backup' || partName == 'flash-backup') {
             }
             else
             if (partName != 'ncp') {
-                zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
-                if (!zipEntry) {
+                part = await getPartBinary(partName);
+                if (!part) {
                     continue;
-                }    
-    
-                part = await zipEntry.getUint8Array();
-    
-                dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
-    
-                if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
-                    part = part.slice(24); // MODULE_PREFIX_SIZE
                 }
-    
+                dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
             }
             else {
                 extPartName = 'ncp';
@@ -612,24 +646,41 @@ async function dfuDeviceRestore(usbDevice, options) {
                 }
                 else
                 if (partName == 'user-backup') {
-                    let maxSize = 128 * 1024;
-                    if (extInterface) {
-                        // Gen 3
-                        maxSize = 256 * 1024;
-                        dfuseDevice.startAddress = 0xb4000;
+                    if (options.platformVersionInfo.isRTL872x) {
+                        // Not supported on P2 yet
                     }
                     else {
                         dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
-                    }
-                    const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
-    
-                    let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
-    
-                    userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
-    
-                    if (userBinaryArrayBuffer) {
-                        let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
-                        saveAs(blob, 'firmware_' + deviceId + '.bin');	
+
+                        const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
+        
+                        let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+        
+                        userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
+        
+                        if (userBinaryArrayBuffer) {
+                            let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                            saveAs(blob, 'firmware_' + deviceId + '.bin');	
+                            let maxSize = 128 * 1024;
+                            if (options.platformVersionInfo.isnRF52) {
+                                // Gen 3
+                                maxSize = 256 * 1024;
+                                dfuseDevice.startAddress = 0xb4000;
+                            }
+                            else {
+                                dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                            }
+                            const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
+            
+                            let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+            
+                            userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
+            
+                            if (userBinaryArrayBuffer) {
+                                let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                                saveAs(blob, 'userFirmwareBackup.bin');	
+                            }
+                        }
                     }
                 }
                 else
@@ -639,16 +690,19 @@ async function dfuDeviceRestore(usbDevice, options) {
                 else
                 if (partName == 'bootloader') {
                     // Flash to OTA region instead of actual location
-    
-                    if (extInterface) {
+                    // This block is not used on RTL872x because the bootloader and prebootloader are appended to the system part
+                    // and are not in the dfuParts array
+                    if (options.platformVersionInfo.isnRF52) {
                         // Gen 3
                         extPart = part;
                         extPartName = 'bootloader';
+                        setOTAFlag = true;
                     }
                     else {
                         // Gen 2
                         dfuseDevice.startAddress = 0x80C0000;
                         await dfuseDevice.do_download(4096, part, {});
+                        setOTAFlag = true;
                     }
                 }
                 else
@@ -673,6 +727,46 @@ async function dfuDeviceRestore(usbDevice, options) {
                         await dfuseDevice.do_download(4096, part, {});
                     }
                 }
+                else
+                if (partName == 'system-part1' && options.platformVersionInfo.isRTL872x) {
+                    // System part is special on RTL872x because the OTA sector is appended
+
+                    const bootloaderPart = await getPartBinary('bootloader');
+                    if (bootloaderPart) {
+                        // Pad system-part1 out to a 4K sector alignment
+                        part = padPartToSector(part);
+
+                        let newPart = new Uint8Array(part.length + bootloaderPart.length);
+                        newPart.set(part);
+                        newPart.set(bootloaderPart, part.length);
+                        part = newPart;                                                
+                    }
+
+                    // This does not currently work
+                    /*
+                    const bootloaderPart = await getPartBinary('bootloader');
+                    const preBootloaderPart = await getPartBinary('prebootloader-part1');
+
+                    if (bootloaderPart && preBootloaderPart) {
+                        // Set the combined flag on the prebootloader part
+                        // offset 9, 1-byte: module flags (module_info_flags_t)
+                        // It must be first because the bootloader does not have a module header
+                        console.log('module flags ' + preBootloaderPart[9]);
+                        preBootloaderPart[9] |= 0x4; // MODULE_INFO_FLAG_COMBINED
+
+                        let newPart = new Uint8Array(part.length + preBootloaderPart.length + bootloaderPart.length);
+                        newPart.set(part);
+                        newPart.set(preBootloaderPart, part.length);
+                        newPart.set(bootloaderPart, part.length + preBootloaderPart.length);
+                        part = newPart;                                                
+                    }
+                    */
+
+                    setOTAFlag = true;
+
+                    await dfuseDevice.do_download(4096, part, {});
+
+                }
                 else {
                     await dfuseDevice.do_download(4096, part, {});
                 }
@@ -690,7 +784,6 @@ async function dfuDeviceRestore(usbDevice, options) {
         await dfuseDevice.close();
     }
 
-
     if (options.flashBackup) {
         if (options.flashBackup.type == 'ext') {
             const dfuseExtDevice =  await createDfuseDevice(extInterface);
@@ -703,7 +796,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
     else {
-        if (extInterface && extPart) {
+        if (options.platformVersionInfo.isnRF52 && extInterface && extPart) {
             partName = genericPartName = extPartName;
 
             setStatus('Updating ' + partName + '...');
@@ -740,13 +833,12 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     }
     else {
-        // Write 0xA5 to offset 1753 in alt 1 (DCT) 
 
         const dfuseAltDevice = await createDfuseDevice(altInterface);
         
         dfuseAltDevice.logProgress = logProgress;
 
-        if (extInterface && options.setupBit != 'unchanged') {
+        if (options.platformVersionInfo.isnRF52 && options.setupBit != 'unchanged') {
             // setup done on gen3
             partName = genericPartName = 'setup done';
        
@@ -765,25 +857,27 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
 
         }
+        if (setOTAFlag) {
+            // Write 0xA5 to offset 1753 in alt 1 (DCT) 
+            partName = genericPartName = 'ota flag';
 
-        partName = genericPartName = 'ota flag';
-
-        dfuseAltDevice.startAddress = 1753;
-        
-        let flag = new Uint8Array(1);
-        flag[0] = 0xA5;
-          
-        try {
-            await dfuseAltDevice.do_download(4096, flag, {doManifestation:true, noErase:true});                    
-
-            setStatus('Resetting device...');
+            dfuseAltDevice.startAddress = 1753;
+            
+            let flag = new Uint8Array(1);
+            flag[0] = 0xA5;
+              
+            try {
+                await dfuseAltDevice.do_download(4096, flag, {doManifestation:true, noErase:true});                    
+    
+                setStatus('Resetting device...');
+            }
+            catch(e) {
+                const text = 'Error setting device flags, manually reset device';
+                setStatus(text);
+                dfuErrors.push(text);
+            }        
         }
-        catch(e) {
-            const text = 'Error setting device flags, manually reset device';
-            setStatus(text);
-            dfuErrors.push(text);
-        }
-        
+
         await dfuseAltDevice.close();
     }
     
