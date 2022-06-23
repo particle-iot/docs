@@ -657,8 +657,23 @@ async function dfuDeviceRestore(usbDevice, options) {
                         // Not supported on P2 yet
                     }
                     else {
-                        dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                        if (moduleInfo['tinker']) {
+                            dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                        }
+                        else
+                        if (moduleInfo['tracker-edge']) {
+                            dfuseDevice.startAddress = parseInt(moduleInfo['tracker-edge'].prefixInfo.moduleStartAddy, 16);
+                        }
 
+                        let maxSize = 128 * 1024;
+                        if (options.platformVersionInfo.isnRF52) {
+                            // Gen 3
+                            maxSize = 256 * 1024;
+                            dfuseDevice.startAddress = 0xb4000;
+                        }
+                        else {
+                            dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                        }
                         const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
         
                         let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
@@ -667,27 +682,9 @@ async function dfuDeviceRestore(usbDevice, options) {
         
                         if (userBinaryArrayBuffer) {
                             let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
-                            saveAs(blob, 'firmware_' + deviceId + '.bin');	
-                            let maxSize = 128 * 1024;
-                            if (options.platformVersionInfo.isnRF52) {
-                                // Gen 3
-                                maxSize = 256 * 1024;
-                                dfuseDevice.startAddress = 0xb4000;
-                            }
-                            else {
-                                dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
-                            }
-                            const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
-            
-                            let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
-            
-                            userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
-            
-                            if (userBinaryArrayBuffer) {
-                                let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
-                                saveAs(blob, 'userFirmwareBackup.bin');	
-                            }
+                            saveAs(blob, 'userFirmwareBackup.bin');	
                         }
+                        
                     }
                 }
                 else

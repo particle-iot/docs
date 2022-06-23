@@ -653,11 +653,12 @@ $(document).ready(function() {
 
                 $(thisElem).find('.setupStepCheckDeviceStart').hide();
 
+                /*
                 if (usbDevice.platformId == 26) {
                     $(thisElem).find('.setupStepCheckDeviceTracker').show();
                     return;
                 }
-                else
+                else*/
                 if (!deviceInfo.platformVersionInfo) {
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
