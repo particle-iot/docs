@@ -457,8 +457,9 @@ async function dfuDeviceRestore(usbDevice, options) {
             // P2 is weird because the binary is right aligned in the buffer. Fix that here to move it to the beginning.
             const dv = new DataView(array);
 
-            for(let offset = 0; offset < dv.byteLength; offset += 4096) {
-                if (dv.getUint8(offset) != 0xff) {
+            for(offset = dv.byteLength - 4096; offset >= 0; offset -= 4096) {
+                prefixHeader = parseModule(array, offset);
+                if (prefixHeader.valid) {
                     array = array.slice(offset);
                     break;
                 }
@@ -474,14 +475,11 @@ async function dfuDeviceRestore(usbDevice, options) {
                 }
             }    
         }
-
         
         prefixHeader = parseModule(array, 0);
         if (!prefixHeader.valid) {
             return null;
         }
-
-        console.log('prefixHeader', prefixHeader);
 
         // Trim the binary to be the actual size of the binary from the prefix header
         const fullSize = prefixHeader.moduleEndAddy  - prefixHeader.moduleStartAddy + 4;
