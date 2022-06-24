@@ -139,7 +139,6 @@ async function dfuDeviceRestore(usbDevice, options) {
             // console.log('not an exact system match');
         }
         userFirmwareBinaryStartAddr = startAddr;
-        console.log('using userFirmwareBinaryStartAddr=0x' + userFirmwareBinaryStartAddr.toString(16))
         options.version = restoreSemVer;
     }
 
@@ -444,7 +443,6 @@ async function dfuDeviceRestore(usbDevice, options) {
 
         result.prefixSize = offset;
 
-
         result.valid = (result.moduleStartAddy < result.moduleEndAddy && 
             result.moduleFunction == 5 &&
             result.moduleIndex == 1);
@@ -455,18 +453,35 @@ async function dfuDeviceRestore(usbDevice, options) {
     const fixUserBackup = function(array) {
         let prefixHeader;
 
-        if (array.byteLength == (256 * 1024)) {
-            // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
-            prefixHeader = parseModule(array, 128 * 1024);
-            if (prefixHeader.valid) {
-                array = array.slice(128 * 1024);
+        if (options.platformVersionInfo.isRTL872x) {
+            // P2 is weird because the binary is right aligned in the buffer. Fix that here to move it to the beginning.
+            const dv = new DataView(array);
+
+            for(let offset = 0; offset < dv.byteLength; offset += 4096) {
+                if (dv.getUint8(offset) != 0xff) {
+                    array = array.slice(offset);
+                    break;
+                }
             }
         }
+        else
+        if (options.platformVersionInfo.isnRF52) {
+            if (array.byteLength == (256 * 1024)) {
+                // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
+                prefixHeader = parseModule(array, 128 * 1024);
+                if (prefixHeader.valid) {
+                    array = array.slice(128 * 1024);
+                }
+            }    
+        }
+
         
         prefixHeader = parseModule(array, 0);
         if (!prefixHeader.valid) {
             return null;
         }
+
+        console.log('prefixHeader', prefixHeader);
 
         // Trim the binary to be the actual size of the binary from the prefix header
         const fullSize = prefixHeader.moduleEndAddy  - prefixHeader.moduleStartAddy + 4;
@@ -636,7 +651,6 @@ async function dfuDeviceRestore(usbDevice, options) {
             if (options.userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
                 genericPartName = 'custom user firmware';     
                 // If a custom binary, use the address in the module because on the P2 it's different depending on the size of the module
-                console.log('using userFirmwareBinaryStartAddr=0x' + userFirmwareBinaryStartAddr.toString(16))
                 dfuseDevice.startAddress = userFirmwareBinaryStartAddr;
             } else {
                 genericPartName = partName;
@@ -653,8 +667,11 @@ async function dfuDeviceRestore(usbDevice, options) {
                 }
                 else
                 if (partName == 'user-backup') {
+                    let maxSize = 128 * 1024;
+
                     if (options.platformVersionInfo.isRTL872x) {
-                        // Not supported on P2 yet
+                        maxSize = 2 * 1024 * 1024;
+                        dfuseDevice.startAddress = 0x08600000 - maxSize;
                     }
                     else {
                         if (moduleInfo['tinker']) {
@@ -664,8 +681,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                         if (moduleInfo['tracker-edge']) {
                             dfuseDevice.startAddress = parseInt(moduleInfo['tracker-edge'].prefixInfo.moduleStartAddy, 16);
                         }
-
-                        let maxSize = 128 * 1024;
+    
                         if (options.platformVersionInfo.isnRF52) {
                             // Gen 3
                             maxSize = 256 * 1024;
@@ -673,18 +689,18 @@ async function dfuDeviceRestore(usbDevice, options) {
                         }
                         else {
                             dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
-                        }
-                        const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
-        
-                        let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
-        
-                        userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
-        
-                        if (userBinaryArrayBuffer) {
-                            let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
-                            saveAs(blob, 'userFirmwareBackup.bin');	
-                        }
-                        
+                        }    
+                    }
+
+                    const userBinaryBlob = await dfuseDevice.do_upload(4096, maxSize);
+    
+                    let userBinaryArrayBuffer = await userBinaryBlob.arrayBuffer();
+    
+                    userBinaryArrayBuffer = fixUserBackup(userBinaryArrayBuffer);
+    
+                    if (userBinaryArrayBuffer) {
+                        let blob = new Blob([userBinaryArrayBuffer], {type:'application/octet-stream'});
+                        saveAs(blob, 'firmware_' + deviceId + '.bin');	
                     }
                 }
                 else
