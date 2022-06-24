@@ -542,6 +542,11 @@ async function dfuDeviceRestore(usbDevice, options) {
     let genericPartName;
     let setOTAFlag = false;
 
+    // options.deviceModuleInfo is the decoded module info control request data if 
+    // available. If the device was already in DFU mode this will not be available,
+    // and also if the version of Device OS on the device was old it will be missing.
+    // If present, it can be used to skip programming some modules.
+
     // options.platformVersionInfo contains the deviceInfo.platformVersionInfo
     // This is the result from apiHelper.getRestoreVersions(), which contains the
     // information from deviceRestore.json for this platform:
@@ -553,6 +558,8 @@ async function dfuDeviceRestore(usbDevice, options) {
     if (!options.flashBackup || options.flashBackup.type == 'main') {
         const dfuseDevice = await createDfuseDevice(interface);
 
+        // Not really all, it doesn't included flash-backup, user-backup, or ncp which are added
+        // manually below.
         const allDfuParts = [
             { name: 'system-part1', title: 'Device OS System Part 1' },
             { name: 'system-part2', title: 'Device OS System Part 2' },
@@ -581,6 +588,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
                     const zipEntry = zipFs.find(dfuPart.name + '.bin');
                     if (zipEntry) {
+                        // 
                         dfuParts.push(dfuPart);
                     }
                 }

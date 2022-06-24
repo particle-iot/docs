@@ -57,6 +57,7 @@ $(document).ready(function() {
         let restoreFirmwareBinary;
         let mccmnc;
         let setupOptions = {};
+        let deviceModuleInfo;
 
         const minimumDeviceOsVersion = '2.1.0';
 
@@ -618,6 +619,169 @@ $(document).ready(function() {
 
         };
 
+        const decodeModuleInfoProtobuf = function(data) {
+            // data must be a Uint8Array
+            let moduleInfo = {};
+            let result, offset = 0;
+        
+            const decodeVarint = function() {
+                let value = 0;
+            
+                let bytes = [];
+            
+                let ii = 0;
+                while(true) {
+                    const more = ((data[offset + ii] & 0x80) != 0);
+                    
+                    bytes.push(data[offset + ii] & 0x7f);
+            
+                    ii++;
+            
+                    if (!more) {
+                        break;
+                    }
+                }
+            
+                bytes.reverse();
+                for(const b of bytes) {
+                    value <<= 7;
+                    value |= b;
+                }
+                offset += ii;
+            
+                return value;
+            };
+            
+            const decodeTag = function() {
+                let result = {};
+            
+                result.wireType = data[offset] & 0x07;
+                result.field = data[offset] >> 3;
+                offset++;
+                
+                if (result.wireType == 0 || result.wireType == 2) {
+                    // varint, zigzag, or delimited, next thing is a varint size
+                    result.value = decodeVarint();
+                }
+        
+                return result;
+            };
+        
+            const decodeDependencies = function(array, end) {
+                let dependency = {};
+        
+                while(offset < end) {
+                    result = decodeTag();
+        
+                    switch(result.field) {
+                    case 1:
+                        dependency.moduleType = result.value;
+                        break;
+        
+                    case 2:
+                        dependency.index = result.value;
+                        break;
+        
+                    case 3:
+                        dependency.version = result.value;
+                        break;
+                    }
+                }
+        
+                array.push(dependency);
+            };
+        
+            const decodeModule = function(end) {
+                let module = {
+                    dependencies: []
+                };
+                let result;
+        
+                // moduleType values (protobuf values, not internal describe values!)
+                // 1 bootloader
+                // 2 system part 
+                // 3 user part (ignore index and version)
+                // 4 monolithic firmware
+                // 5 NCP
+                // 6 Radio stack (softdevice)
+
+                while(offset < end) {
+                    result = decodeTag();
+                    switch(result.field) {
+                    case 1:
+                        module.moduleType = result.value;
+                        break;
+                    case 2:
+                        module.index = result.value;
+                        break;
+                    case 3:
+                        module.version = result.value;
+                        break;
+                    case 4:
+                        module.size = result.value;
+                        break;
+                    case 5:
+                        module.validity = result.value;
+                        break;
+                    case 6:
+                        // Dependencies       
+                        decodeDependencies(module.dependencies, offset + result.value);
+                        break;
+                    }
+                }
+        
+                moduleInfo.modules.push(module);    
+            };
+        
+            moduleInfo.modules = [];
+        
+            while(offset < data.byteLength) {
+                result = decodeTag();
+        
+                // repeated Module modules = 1; // Firmware modules
+                if (result.field != 1 || result.wireType != 2) {
+                    console.log('unexpected field', result);
+                    return null;
+                }
+                
+                result = decodeModule(offset + result.value);
+        
+            }
+        
+            /*
+            tag       := (field << 3) BIT_OR wire_type, encoded as varint
+            value     := (varint|zigzag) for wire_type==0 |
+        
+            message GetModuleInfoReply {
+            message Dependency {
+                FirmwareModuleType type = 1; // Module type
+                uint32 index = 2; // Module index
+                uint32 version = 3; // Module version
+            }
+            message Module {
+                FirmwareModuleType type = 1; // Module type
+                uint32 index = 2; // Module index
+                uint32 version = 3; // Module version
+                uint32 size = 4; // Module size
+                uint32 validity = 5; // Validity flags (see FirmwareModuleValidityFlag)
+                repeated Dependency dependencies = 6; // Module dependencies
+            }
+            repeated Module modules = 1; // Firmware modules
+            }
+            // See also: https://developers.google.com/protocol-buffers/docs/encoding
+            */
+        
+            return moduleInfo;
+        }
+        
+        const getModuleInfoCtrlRequest = async function() {
+            const res = await usbDevice.sendControlRequest(90); // CTRL_REQUEST_GET_MODULE_INFO
+
+            const moduleInfo = decodeModuleInfoProtobuf(res.data);
+            
+            return moduleInfo;
+        };
+
         /*
 
         */
@@ -653,17 +817,20 @@ $(document).ready(function() {
 
                 $(thisElem).find('.setupStepCheckDeviceStart').hide();
 
-                /*
-                if (usbDevice.platformId == 26) {
-                    $(thisElem).find('.setupStepCheckDeviceTracker').show();
-                    return;
-                }
-                else*/
                 if (!deviceInfo.platformVersionInfo) {
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
     
+                if (!usbDevice.isInDfuMode) {
+                    // Attempt to get the module info on the device using control requests if not already in DFU mode.
+                    // When in DFU already, just flash full Device OS and binaries to avoid leaving DFU.
+
+                    // Control may fail on older Device OS, but that's OK, we'll just flash everything as well.
+                    deviceModuleInfo = await getModuleInfoCtrlRequest();
+                    console.log('moduleInfo', deviceModuleInfo);
+                }
+
                 if (usbDevice.isCellularDevice) {                    
                     deviceInfo.cellular = true;
 
@@ -1270,7 +1437,8 @@ $(document).ready(function() {
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
             
-            // In troubleshooting mode, we do try to autoconnect
+            // In troubleshooting mode, disable autoconnect and connect manually instead
+            // as we want to check the SIM first
             reqObj = {
                 op: 'noAutoConnect',
             };
@@ -1312,6 +1480,7 @@ $(document).ready(function() {
                     setStatus,
                     version: deviceInfo.targetVersion, 
                     setupBit: 'done',
+                    deviceModuleInfo, // Maybe be undefined
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -1438,6 +1607,10 @@ $(document).ready(function() {
             });
 
             await reconnectToDevice();
+
+            // Attempt to fetch the device module info for the device
+            deviceModuleInfo = await getModuleInfoCtrlRequest();
+            console.log('moduleInfo', deviceModuleInfo);
 
             if (restoreFirmwareBinary) {
                 setSetupStep('setupStepRestoreDone');
