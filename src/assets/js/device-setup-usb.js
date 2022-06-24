@@ -1129,19 +1129,12 @@ $(document).ready(function() {
                 }, 1000);
             };
 
-            const nextStep = async function() {
-                reqObj = {
-                    op: 'connect',
-                };
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-
-                waitDeviceOnline();
-            };
-
-            $(thisElem).find('.continueWithoutActivating').on('click', nextStep);
-
+            let done = false;
+            $(thisElem).find('.continueWithoutActivating').on('click', function() {
+                done = true;
+            });
             
-            while(true) {
+            while(!done) {
                 try {
                     if (!deviceInfo.iccid) {
 
@@ -1366,6 +1359,14 @@ $(document).ready(function() {
             if (clockTimer) {
                 clearInterval(clockTimer);
             }
+
+            reqObj = {
+                op: 'connect',
+            };
+            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+            waitDeviceOnline();
+
             
         };
 
