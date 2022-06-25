@@ -558,9 +558,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     if (!options.flashBackup || options.flashBackup.type == 'main') {
         const dfuseDevice = await createDfuseDevice(interface);
 
-        // Not really all, it doesn't included flash-backup, user-backup, or ncp which are added
-        // manually below.
-        const allDfuParts = [
+        const allDfuPartsWithBinaries = [
             { name: 'system-part1', title: 'Device OS System Part 1' },
             { name: 'system-part2', title: 'Device OS System Part 2' },
             { name: 'system-part3', title: 'Device OS System Part 3' },
@@ -569,41 +567,9 @@ async function dfuDeviceRestore(usbDevice, options) {
             { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' },
             { name: 'bootloader', title: 'Device OS Bootloader' },
         ];
+        // Note that other parts that don't necessarily have binaries are added below
         let dfuParts = [];
     
-        if (options.flashBackup) {
-            dfuParts.push({ name: 'flash-backup', title: 'Flash backup' });
-        }
-        else {
-            if (options.userBackup) {
-                dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
-            }
-        
-            if (!options.ncpUpdate) {
-                for(const dfuPart of allDfuParts) {
-                    if (options.platformVersionInfo.isRTL872x && dfuPart.name == 'bootloader') {
-                        // P2 and Photon 2 handle bootloader and pre-bootloader with the system part
-                        continue;
-                    }
-
-                    const zipEntry = zipFs.find(dfuPart.name + '.bin');
-                    if (zipEntry) {
-                        // 
-                        dfuParts.push(dfuPart);
-                    }
-                }
-            }
-            else {
-                dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
-            }    
-        }
-        if (options.progressDfuParts) {
-            options.progressDfuParts(dfuParts);
-        }
-            
-        // 
-        dfuseDevice.logProgress = logProgress;
-        
         const getPartBinary = async function(partName) {
             const zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
             if (!zipEntry) {
@@ -618,6 +584,52 @@ async function dfuDeviceRestore(usbDevice, options) {
 
             return part;
         };
+
+        if (options.flashBackup) {
+            dfuParts.push({ name: 'flash-backup', title: 'Flash backup' });
+        }
+        else {
+            if (options.userBackup) {
+                dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
+            }
+        
+            if (!options.ncpUpdate) {
+                for(const dfuPart of allDfuPartsWithBinaries) {
+                    if (options.platformVersionInfo.isRTL872x && dfuPart.name == 'bootloader') {
+                        // P2 and Photon 2 handle bootloader and pre-bootloader with the system part
+                        continue;
+                    }
+
+                    const zipEntry = zipFs.find(dfuPart.name + '.bin');
+                    if (zipEntry) {
+                        // 
+                        let obj = Object.assign({}, dfuPart);
+
+                        obj.binary = await getPartBinary(dfuPart.name);
+                        if (obj.binary) {
+                            obj.moduleInfo = parseModule(obj.binary.buffer);
+
+                            obj.startAddress = parseInt(moduleInfo[dfuPart.name].prefixInfo.moduleStartAddy, 16);
+
+                            console.log('dfuPart', obj);
+
+                            dfuParts.push(obj);
+                        }
+                    }
+                }
+            }
+            else {
+                dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
+            }    
+        }
+        if (options.progressDfuParts) {
+            options.progressDfuParts(dfuParts);
+        }
+            
+        // 
+        dfuseDevice.logProgress = logProgress;
+        
+
 
         const padPartToSector = function(part) {
             if ((part.length % 4096) != 0) {
@@ -643,11 +655,8 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
             else
             if (partName != 'ncp') {
-                part = await getPartBinary(partName);
-                if (!part) {
-                    continue;
-                }
-                dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
+                part = dfuPart.binary;
+                dfuseDevice.startAddress = dfuPart.startAddress;
             }
             else {
                 extPartName = 'ncp';

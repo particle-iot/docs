@@ -621,57 +621,16 @@ $(document).ready(function() {
 
         const decodeModuleInfoProtobuf = function(data) {
             // data must be a Uint8Array
-            let moduleInfo = {};
-            let result, offset = 0;
-        
-            const decodeVarint = function() {
-                let value = 0;
-            
-                let bytes = [];
-            
-                let ii = 0;
-                while(true) {
-                    const more = ((data[offset + ii] & 0x80) != 0);
-                    
-                    bytes.push(data[offset + ii] & 0x7f);
-            
-                    ii++;
-            
-                    if (!more) {
-                        break;
-                    }
-                }
-            
-                bytes.reverse();
-                for(const b of bytes) {
-                    value <<= 7;
-                    value |= b;
-                }
-                offset += ii;
-            
-                return value;
+            let moduleInfo = {
             };
+
+            let protobuf = apiHelper.protobuf(data);
             
-            const decodeTag = function() {
-                let result = {};
-            
-                result.wireType = data[offset] & 0x07;
-                result.field = data[offset] >> 3;
-                offset++;
-                
-                if (result.wireType == 0 || result.wireType == 2) {
-                    // varint, zigzag, or delimited, next thing is a varint size
-                    result.value = decodeVarint();
-                }
-        
-                return result;
-            };
-        
             const decodeDependencies = function(array, end) {
                 let dependency = {};
         
-                while(offset < end) {
-                    result = decodeTag();
+                while(protobuf.offset < end) {
+                    result = protobuf.decodeTag();
         
                     switch(result.field) {
                     case 1:
@@ -705,8 +664,8 @@ $(document).ready(function() {
                 // 5 NCP
                 // 6 Radio stack (softdevice)
 
-                while(offset < end) {
-                    result = decodeTag();
+                while(protobuf.offset < end) {
+                    result = protobuf.decodeTag();
                     switch(result.field) {
                     case 1:
                         module.moduleType = result.value;
@@ -725,7 +684,7 @@ $(document).ready(function() {
                         break;
                     case 6:
                         // Dependencies       
-                        decodeDependencies(module.dependencies, offset + result.value);
+                        decodeDependencies(module.dependencies, protobuf.offset + result.value);
                         break;
                     }
                 }
@@ -735,8 +694,8 @@ $(document).ready(function() {
         
             moduleInfo.modules = [];
         
-            while(offset < data.byteLength) {
-                result = decodeTag();
+            while(protobuf.offset < data.byteLength) {
+                result = protobuf.decodeTag();
         
                 // repeated Module modules = 1; // Firmware modules
                 if (result.field != 1 || result.wireType != 2) {
@@ -744,9 +703,16 @@ $(document).ready(function() {
                     return null;
                 }
                 
-                result = decodeModule(offset + result.value);
+                result = decodeModule(protobuf.offset + result.value);
         
             }
+
+            moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
+                for(const m of moduleInfo.modules) {
+
+                }
+            };
+
         
             /*
             tag       := (field << 3) BIT_OR wire_type, encoded as varint
