@@ -656,14 +656,6 @@ $(document).ready(function() {
                 };
                 let result;
         
-                // moduleType values (protobuf values, not internal describe values!)
-                // 1 bootloader
-                // 2 system part 
-                // 3 user part (ignore index and version)
-                // 4 monolithic firmware
-                // 5 NCP
-                // 6 Radio stack (softdevice)
-
                 while(protobuf.offset < end) {
                     result = protobuf.decodeTag();
                     switch(result.field) {
@@ -691,6 +683,22 @@ $(document).ready(function() {
         
                 moduleInfo.modules.push(module);    
             };
+
+            // moduleType values
+            // protobuf  system  description
+            // 1         2       bootloader
+            // 2         4       system part 
+            // 3         5       user part (ignore index and version)
+            // 4         3       monolithic firmware
+            // 5         7       NCP
+            // 6         8       Radio stack (softdevice)
+            const systemModuleTypes = [0, 2, 4, 5, 3, 7, 8];
+
+            // Validity values:
+            // 0 (or omitted): valid
+            // 1 integrity check failed
+            // 2 dependency check failed
+
         
             moduleInfo.modules = [];
         
@@ -707,10 +715,58 @@ $(document).ready(function() {
         
             }
 
-            moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
-                for(const m of moduleInfo.modules) {
+            moduleInfo.moduleTypeProtobufToSystem = function(moduleType) {
+                return systemModuleTypes[moduleType];
+            };
 
+            moduleInfo.moduleTypeSystemToProtobuf = function(systemModuleType) {
+                for(let ii = 0; ii < systemModuleTypes.length; ii++) {
+                    if (systemModuleTypes[ii] == systemModuleType) {
+                        return ii;
+                    }
                 }
+                return 0;
+            };
+
+            moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
+                console.log('getByModuleTypeIndex moduleType=' + moduleType + ' index=' + index);
+                // Pass 1: Exact match
+                let numModuleTypeMatches = 0;
+
+                for(const m of moduleInfo.modules) {
+                    if (m.moduleType == moduleType) {
+                        if (m.index == index) {
+                            console.log('found matching type and index', m);
+                            return m;
+                        }
+                        numModuleTypeMatches++;
+                    }
+                }    
+
+                // Pass 2: Only one instance of the module
+                if (numModuleTypeMatches == 1) {
+                    for(const m of moduleInfo.modules) {
+                        if (m.moduleType == moduleType) {
+                            console.log('found since instance of module', m);
+                            return m;
+                        }
+                    }   
+                }
+
+                
+                // Pass 3: Wildcard index
+                for(const m of moduleInfo.modules) {
+                    if (m.moduleType == moduleType && typeof m.index == 'undefined') {
+                        console.log('found matching type and index', m);
+                        return m;
+                    }
+                }    
+                // Not found
+                return null;
+            };
+
+            moduleInfo.getModuleNcp = function() {
+                return moduleInfo.getByModuleTypeIndex(5);
             };
 
         
@@ -850,7 +906,8 @@ $(document).ready(function() {
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
                 
-                setSetupStep('setupStepManualDfu');
+                // This is not the right step!
+                // setSetupStep('setupStepManualDfu');
             }
         };
 
@@ -1254,7 +1311,6 @@ $(document).ready(function() {
 
                         localStorage.removeItem(storageActivateSim);
 
-                        nextStep();
                         break;
                     }                            
     
@@ -1352,7 +1408,6 @@ $(document).ready(function() {
             showStep('setupStepReconnectingWaiting');
 
             for(let tries = 0; tries < 4 && !nativeUsbDevice; tries++) {
- 
                 await new Promise(function(resolve) {
                     setTimeout(function() {
                         resolve();
@@ -1376,7 +1431,6 @@ $(document).ready(function() {
                 }
 
             }
-
 
             if (!nativeUsbDevice) {
                 showStep('setupStepReconnectingNeedReauthorize');
@@ -1414,7 +1468,7 @@ $(document).ready(function() {
         };
 
 
-        const flashDevice = async function() {
+        const flashDeviceInternal = async function(flashDeviceOptions) {
             try {
                 setSetupStep('setupStepFlashDevice');
 
@@ -1486,9 +1540,13 @@ $(document).ready(function() {
                         // obj.func == 'erase' else programming
                         // obj.partName == system-part1, system-part2, system-part3, bootloader, softdevice, tinker
                         // (obj.partName is tinker even for a custom binary)
-                        
                         if (!dfuPartTableInfo[obj.partName]) {
                             return;
+                        }
+                        if (obj.skipSameVersion) {
+                            $(dfuPartTableInfo[obj.partName].imgElem).css('visibility', 'visible');
+                            $(dfuPartTableInfo[obj.partName].progressElem).hide();
+                            return;                            
                         }
 
                         if (obj.func != 'erase') {
@@ -1579,25 +1637,34 @@ $(document).ready(function() {
             deviceModuleInfo = await getModuleInfoCtrlRequest();
             console.log('moduleInfo', deviceModuleInfo);
 
-            if (restoreFirmwareBinary) {
-                setSetupStep('setupStepRestoreDone');
-            }
-            else
-            if (doctorMode) {
-                checkSimAndClaiming();
-            }
-            else
-            if (deviceInfo.wifi) {
-
-                configureWiFi();                              
-            }
-            else {
-                activateSim();
-            }
         };
 
-        const continueDfuElem = $(thisElem).find('.continueDfu');
-        $(continueDfuElem).on('click', flashDevice);
+        const flashDevice = async function(flashDeviceOptions) {
+            // TODO: Possibly flash P2 prebootloader-part1 here on upgrade
+            
+            // Flash Device OS
+            await flashDeviceInternal(flashDeviceOptions);
+            
+            if (deviceInfo.platformVersionInfo.isTracker) {
+                // Is a tracker, could need NCP
+                const m = deviceModuleInfo.getModuleNcp();
+                if (m) {
+                    // TODO: Get this from the NCP binary
+                    if (m.version < 7) {
+                        flashDeviceOptions.ncpUpdate = true;
+                        await flashDeviceInternal(flashDeviceOptions);
+                    }
+                    console.log('ncp on device', m);                    
+                }
+            }
+
+        };
+
+        // setupStepManualDfu which has the continueDfu button is not currently used.
+        // const continueDfuElem = $(thisElem).find('.continueDfu');
+        // $(continueDfuElem).on('click', function() {
+        //    // Do something here!
+        //});
 
         const addToProduct = async function() {
             setSetupStep('setupStepAddToProduct');
@@ -1621,9 +1688,7 @@ $(document).ready(function() {
                     auth: apiHelper.auth.access_token 
                 });                
             }
-            
-            await flashDevice();
-
+        
         };
 
 
@@ -1706,9 +1771,23 @@ $(document).ready(function() {
                 if (setupOptions.addToProduct) {
                     await addToProduct();
                 }
-                else {
-                    await flashDevice();
+
+                // This is used for both setup device and device doctor
+                let flashDeviceOptions = {};
+
+                await flashDevice(flashDeviceOptions);
+
+                if (doctorMode) {
+                    checkSimAndClaiming();
                 }
+                else
+                if (deviceInfo.wifi) {
+                    configureWiFi();                              
+                }
+                else {
+                    activateSim();
+                }
+    
             });
 
         }
@@ -2161,9 +2240,12 @@ $(document).ready(function() {
                 const file = this.files[0];
                 
                 let fileReader = new FileReader();
-                fileReader.onload = function() {
+                fileReader.onload = async function() {
                     restoreFirmwareBinary = fileReader.result;
-                    flashDevice();
+                    await flashDevice({
+                        restoreFirmwareBinary
+                    });
+                    setSetupStep('setupStepRestoreDone');
                 };
                 fileReader.readAsArrayBuffer(file);
             

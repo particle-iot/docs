@@ -192,6 +192,8 @@ async function dfuDeviceRestore(usbDevice, options) {
 
         try {
             await new Promise(function(resolve, reject) {
+                // When updating this, be sure to update device-setup-usb.js. Search for:
+                // TODO: Get this from the NCP binary
                 fetch('/assets/files/tracker/tracker-esp32-ncp@0.0.7.bin')
                 .then(response => response.arrayBuffer())
                 .then(function(res) {
@@ -375,6 +377,23 @@ async function dfuDeviceRestore(usbDevice, options) {
         return dfuseDevice;
     }
 
+    const moduleFromModuleInfo = function(mod) {
+        let result = Object.assign({}, mod.prefixInfo);
+
+        if (typeof result.moduleStartAddy == 'string') {
+            result.moduleStartAddy = parseInt(result.moduleStartAddy, 16);
+        }
+        if (typeof result.moduleEndAddy == 'string') {
+            result.moduleEndAddy = parseInt(result.moduleEndAddy, 16);
+        }
+
+        result.valid = true;
+
+        result.validUserBinary = result.valid && result.moduleFunction == 5 && result.moduleIndex == 1;
+
+        return result;        
+    };
+
     const parseModule = function(array, arrayOffset) {
         let result = {};
 
@@ -441,14 +460,36 @@ async function dfuDeviceRestore(usbDevice, options) {
 		result.dep2ModuleVersion = dv.getUint16(offset, true);
         offset += 2;
 
-        result.prefixSize = offset;
+        result.prefixSize = arrayOffset;
 
-        result.valid = (result.moduleStartAddy < result.moduleEndAddy && 
-            result.moduleFunction == 5 &&
-            result.moduleIndex == 1);
+        const maxModuleFunction = 10; // Currently 8 but just in case
+        const maxModuleIndex = 5; // Currently 3
+
+        result.valid = (result.moduleStartAddy < result.moduleEndAddy) &&
+            (result.moduleFunction >= 1 && result.moduleFunction <= maxModuleFunction) &&  // This module must be >= 1
+            (result.moduleIndex >= 0 && result.moduleIndex <= maxModuleIndex) &&
+            (result.depModuleFunction >= 0 && result.depModuleFunction <= maxModuleFunction) && // Dep and Dep2 can be 0 (no dependency)
+            (result.depModuleIndex >= 0 && result.depModuleIndex <= maxModuleIndex) &&
+            (result.dep2ModuleFunction >= 0 && result.dep2ModuleFunction <= maxModuleFunction) &&
+            (result.dep2ModuleIndex >= 0 && result.dep2ModuleIndex <= maxModuleIndex);
+
+        result.validUserBinary = result.valid && result.moduleFunction == 5 && result.moduleIndex == 1;
 
         return result;
     }
+
+    // Not currently used
+    const findModule = function(array) {
+        for(let ii = 0; ii < 256; ii += 4) {
+            let m = parseModule(array, ii);
+            if (m.valid) {
+                m.startOffset = ii;
+                return m;
+            }
+        }        
+        return null;
+    }
+
 
     const fixUserBackup = function(array) {
         let prefixHeader;
@@ -459,7 +500,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
             for(offset = dv.byteLength - 4096; offset >= 0; offset -= 4096) {
                 prefixHeader = parseModule(array, offset);
-                if (prefixHeader.valid) {
+                if (prefixHeader.validUserBinary) {
                     array = array.slice(offset);
                     break;
                 }
@@ -470,14 +511,14 @@ async function dfuDeviceRestore(usbDevice, options) {
             if (array.byteLength == (256 * 1024)) {
                 // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
                 prefixHeader = parseModule(array, 128 * 1024);
-                if (prefixHeader.valid) {
+                if (prefixHeader.validUserBinary) {
                     array = array.slice(128 * 1024);
                 }
             }    
         }
         
         prefixHeader = parseModule(array, 0);
-        if (!prefixHeader.valid) {
+        if (!prefixHeader.validUserBinary) {
             return null;
         }
 
@@ -530,6 +571,11 @@ async function dfuDeviceRestore(usbDevice, options) {
             });
         }
     };
+
+    if (options.platformVersionInfo.isRTL872x) {
+        // No setup bit on P2
+        options.setupBit = 'unchanged';
+    }
 
     if (options.progressShowHide) {
         options.progressShowHide(true);
@@ -595,27 +641,22 @@ async function dfuDeviceRestore(usbDevice, options) {
         
             if (!options.ncpUpdate) {
                 for(const dfuPart of allDfuPartsWithBinaries) {
-                    if (options.platformVersionInfo.isRTL872x && dfuPart.name == 'bootloader') {
-                        // P2 and Photon 2 handle bootloader and pre-bootloader with the system part
-                        continue;
-                    }
+                    let obj = Object.assign({}, dfuPart);
 
-                    const zipEntry = zipFs.find(dfuPart.name + '.bin');
-                    if (zipEntry) {
+                    obj.binary = await getPartBinary(dfuPart.name);
+                    if (obj.binary) {
                         // 
-                        let obj = Object.assign({}, dfuPart);
+                        obj.moduleInfo = moduleFromModuleInfo(moduleInfo[obj.name]);
+                        obj.startAddress = parseInt(moduleInfo[dfuPart.name].prefixInfo.moduleStartAddy, 16);
 
-                        obj.binary = await getPartBinary(dfuPart.name);
-                        if (obj.binary) {
-                            obj.moduleInfo = parseModule(obj.binary.buffer);
+                        console.log('dfuPart', obj);
 
-                            obj.startAddress = parseInt(moduleInfo[dfuPart.name].prefixInfo.moduleStartAddy, 16);
-
-                            console.log('dfuPart', obj);
-
-                            dfuParts.push(obj);
-                        }
+                        dfuParts.push(obj);
                     }
+                    else {
+                        console.log('no binary for ' + dfuPart.name);
+                    }
+                    
                 }
             }
             else {
@@ -625,7 +666,40 @@ async function dfuDeviceRestore(usbDevice, options) {
         if (options.progressDfuParts) {
             options.progressDfuParts(dfuParts);
         }
-            
+        
+        // Skip parts that are up-to-date 
+        for(let ii = 0; ii < dfuParts.length; ii++) {
+            let obj = dfuParts[ii];
+
+
+            if (options.deviceModuleInfo && obj.moduleInfo) {
+                // Modules on device were passed in and we were 
+                // TODO: Need to convert obj.moduleInfo value, which is the Device OS value, into the protobuf value!
+                const protobufModuleType = options.deviceModuleInfo.moduleTypeSystemToProtobuf(obj.moduleInfo.moduleFunction);
+
+                const m = options.deviceModuleInfo.getByModuleTypeIndex(protobufModuleType, obj.moduleInfo.moduleIndex);
+
+                console.log('check moduleType', m);
+                console.log('check obj.moduleInfo', obj.moduleInfo);
+
+                // Don't do version check on user firmware (moduleFunction = 5)
+                if (obj.moduleInfo.moduleFunction != 5 && m.version == obj.moduleInfo.moduleVersion) {
+                    // Same version, skip
+                    console.log('skipping same version');
+                    options.progressUpdate('Up to date', 0, {
+                        partName: obj.name,
+                        skipSameVersion: true
+                    });
+
+                    dfuParts.splice(ii, 1);
+                    ii--; // Is incremented in for loop
+                }
+
+            }
+        }
+
+        console.log('dfuParts after skipping same version', dfuParts);
+
         // 
         dfuseDevice.logProgress = logProgress;
         
@@ -725,8 +799,10 @@ async function dfuDeviceRestore(usbDevice, options) {
                 else
                 if (partName == 'bootloader') {
                     // Flash to OTA region instead of actual location
-                    // This block is not used on RTL872x because the bootloader and prebootloader are appended to the system part
-                    // and are not in the dfuParts array
+                    if (options.platformVersionInfo.isRTL872x) {
+                        // P2 appends the bootloader to the system part s
+                    }
+                    else
                     if (options.platformVersionInfo.isnRF52) {
                         // Gen 3
                         extPart = part;
@@ -755,11 +831,19 @@ async function dfuDeviceRestore(usbDevice, options) {
                         dfuseDevice.startAddress = savedStart;
                     }
     
+                    let dfuOptions = {};
+
+                    if (!setOTAFlag && options.setupBit == 'unchanged') {
+                        // If not setting the OTA flag or setup done, do manifestation on the user binary
+                        dfuOptions.doManifestation = true;
+                    }
+                    console.log('flashing user binary with options', dfuOptions);
+
                     if (options.userFirmwareBinary) {
-                        await dfuseDevice.do_download(4096, options.userFirmwareBinary, {});
+                        await dfuseDevice.do_download(4096, options.userFirmwareBinary, dfuOptions);
                     }
                     else {
-                        await dfuseDevice.do_download(4096, part, {});
+                        await dfuseDevice.do_download(4096, part, dfuOptions);
                     }
                 }
                 else
@@ -775,6 +859,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                         newPart.set(part);
                         newPart.set(bootloaderPart, part.length);
                         part = newPart;                                                
+                        setOTAFlag = true;
                     }
 
                     // This does not currently work
@@ -796,8 +881,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                         part = newPart;                                                
                     }
                     */
-
-                    setOTAFlag = true;
 
                     await dfuseDevice.do_download(4096, part, {});
 
@@ -841,11 +924,12 @@ async function dfuDeviceRestore(usbDevice, options) {
 
             dfuseExtDevice.logProgress = logProgress;
 
-            if (options.platformVersionInfo.id != 26) {
+            if (!options.platformVersionInfo.isTracker) {
+                // Other Gen 3 (4 MB flash)
                 dfuseExtDevice.startAddress = 0x80289000;
             }
             else {
-                // Tracker
+                // Tracker (8 MB flash)
                 dfuseExtDevice.startAddress = 0x80689000;
             }
 
@@ -883,7 +967,16 @@ async function dfuDeviceRestore(usbDevice, options) {
             flag[0] = (options.setupBit == 'done') ? 0x01 : 0xff;
               
             try {
-                await dfuseAltDevice.do_download(4096, flag, {doManifestation:false, noErase:true});                    
+                let dfuOptions = {
+                    doManifestation:false, 
+                    noErase:true
+                };
+
+                if (!setOTAFlag) {
+                    dfuOptions.doManifestation = true;
+                }
+
+                await dfuseAltDevice.do_download(4096, flag, dfuOptions);                    
             }
             catch(e) {
                 const text = 'Error setting setup done flag';
