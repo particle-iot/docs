@@ -481,6 +481,53 @@ $(document).ready(function() {
         let msgExternalSIM = false;
         let msgCPINERROR = false;
 
+        let gnssInfo = {
+            initialized: false,
+            fields: [
+                {
+                    num: 3,
+                    title: 'Latitude',
+                    format: 'latLon'
+                },
+                {
+                    num: 5,
+                    title: 'Longitude',
+                    format: 'latLon',
+                },
+                {
+                    num: 7,
+                    title: 'Altitude',
+                    unit: 'm'
+                },
+                {
+                    num: 8,
+                    title: 'Navigation Status',
+                    format: 'ns',
+                },
+                {
+                    num: 9,
+                    title: 'Horizontal Accuracy',
+                    unit: 'm'
+                },
+                {
+                    num: 10,
+                    title: 'Vertical Accuracy',
+                    unit: 'm'
+                },
+                {
+                    num: 11,
+                    title: 'Speed Over Ground',
+                    unit: 'km/h'
+                },
+                {
+                    num: 12,
+                    title: 'Course Over Ground',
+                    unit: 'deg'
+                },
+
+            ]
+        };
+
         $(showDebuggingLogsElem).on('click', function() {
             if ($(showDebuggingLogsElem).prop('checked')) {                
                 $(deviceLogsTextElem).val(deviceLogs);
@@ -520,7 +567,122 @@ $(document).ready(function() {
             if (msg.includes('CPIN ERROR')) {
                 msgCPINERROR = true;
             }
+
+            {
+                // GNSS boot status messages
+                const prefix = '$GNTXT,01,01,02,';
+                const index = msg.indexOf(prefix);
+                if (index >= 0) {
+                    let param = msg.substring(index + prefix.length);
+                    param = param.substring(0, param.length - 3);
+    
+                    let rowElem = document.createElement('tr');
+                    
+                    let cellElem = document.createElement('td');
+                    $(cellElem).text(param);
+    
+                    $(rowElem).append(cellElem);
+    
+                    $('.gnssInfoTable > tbody').append(rowElem);
+    
+                    $('.gnssInfo').show();
+                }
+            }
+            
+            {
+                // GNSS location
+                // 0000016961 [app.gps.nmea] TRACE: RX: $PUBX,00,000014.00,4299.03984,N,07599.98328,W,328.330,DR,5.9,4
+                // 0000309496 [app.gps.nmea] TRACE: RX: $PUBX,00,164020.00,4299.03899,N,07599.98425,W,331.708,RK,6.3,4
+                const prefix = 'RX: $PUBX,';
+                const index = msg.indexOf(prefix);
+                if (index >= 0) {
+                    let parts = msg.substring(index + 3).split(',');
+                    
+                    if (!gnssInfo.initialized) {
+                        for(let f of gnssInfo.fields) {
+                            const rowElem = document.createElement('tr');
+
+                            let tdElem = document.createElement('td');
+                            $(tdElem).text(f.title);
+                            $(rowElem).append(tdElem);
+
+                            tdElem = f.elem = document.createElement('td');
+                            $(rowElem).append(tdElem);
+
+                            tdElem = document.createElement('td');
+                            if (f.unit) {
+                                $(tdElem).text(f.unit);
+                            }
+                            $(rowElem).append(tdElem);
+
+                            $('.gnssLocationTable > tbody').append(rowElem);
+                        }
+                        gnssInfo.initialized = true;
+                    }
+
+                    for(let f of gnssInfo.fields) {
+                        if (f.format == 'latLon') {
+                            if (parts.length >= (f.num + 1) && parts[f.num].length > 0) {
+                                const value = parseFloat(parts[f.num]);
+                                const deg = Math.floor(value / 100);
+                                const min = value - deg * 100;
+
+                                $(f.elem).text(deg + '° ' + min + '\' ' + parts[f.num + 1]);
+                            }
+                            else {
+                                $(f.elem).text('');
+                            }
+                        }
+                        else 
+                        if (f.format == 'ns') {
+                            let ns = parts[f.num];
+                            if (ns == 'NF') {
+                                ns = 'No Fix (NF)';
+                            }
+                            else
+                            if (ns == 'DR') {
+                                ns = 'Dead-reckoning only (DR)';
+                            }
+                            else
+                            if (ns == 'RK') {
+                                ns = 'GPS or Dead-reckoning (RK)';
+                            }
+                            $(f.elem).text(ns);
+                        }
+                        else {
+                            if (parts.length >= f.num) {
+                                $(f.elem).text(parts[f.num])
+                            }
+                        }
+                    }
+
+                    // 0: $PUBX
+                    // 1: msgId
+                    // 2: time
+                    // 3: lat ddmm. mmmmm
+                    // 4: NS
+                    // 5: long ddmm. mmmmm
+                    // 6: EW
+                    // 7: alt (meters)
+                    // 8: navStat
+                    // 9: hAcc (meters)
+                    // 10: vAcc (meters) <- this is the last thing that seems to be enabled
+                    // 11: SOG km/g
+                    // 12: COG deg
+                    // 13: vVel m/s
+                    // 14: diffAge s
+                    // 15: HDOP
+                    // 16: VDOP
+                    // 17: TDOP
+                    // 18: numSvs
+                    // 19: reserved
+                    // 20: DR
+                    // 21: cs
+                }
+            }
+
         };
+
 
         const showDeviceLogs = function() {
             $(deviceLogsElem).show();
