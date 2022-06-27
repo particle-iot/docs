@@ -482,49 +482,79 @@ $(document).ready(function() {
         let msgCPINERROR = false;
 
         let gnssInfo = {
-            initialized: false,
+            hardwareTableInitialized: false,
             fields: [
+                {
+                    format: 'check',
+                    locKey: 'loc',
+                    locationTable: true,
+                },
                 {
                     num: 3,
                     title: 'Latitude',
-                    format: 'latLon'
+                    format: 'latLon',
+                    hardwareTable: true,
+                    locKey: 'lat',
+                    locationTable: true,
                 },
                 {
                     num: 5,
                     title: 'Longitude',
                     format: 'latLon',
+                    hardwareTable: true,
+                    locKey: 'lon',
+                    locationTable: true,
                 },
                 {
                     num: 7,
                     title: 'Altitude',
-                    unit: 'm'
+                    unit: 'm',
+                    hardwareTable: true,
+                    locKey: 'alt',
+                    locationTable: true,
                 },
                 {
                     num: 8,
                     title: 'Navigation Status',
                     format: 'ns',
+                    hardwareTable: true,
                 },
                 {
                     num: 9,
                     title: 'Horizontal Accuracy',
-                    unit: 'm'
+                    unit: 'm',
+                    hardwareTable: true,
+                    locKey: 'h_acc',
+                    locationTable: true,
                 },
                 {
                     num: 10,
                     title: 'Vertical Accuracy',
-                    unit: 'm'
+                    unit: 'm',
+                    hardwareTable: true,
+                    locKey: 'v_acc',
+                    locationTable: true,
                 },
                 {
                     num: 11,
                     title: 'Speed Over Ground',
-                    unit: 'km/h'
+                    unit: 'km/h',
+                    hardwareTable: true,
+                    locKey: 'spd',
+                    locationTable: true,
                 },
                 {
                     num: 12,
                     title: 'Course Over Ground',
-                    unit: 'deg'
+                    unit: 'deg',
+                    hardwareTable: true,
+                    locKey: 'hd',
+                    locationTable: true,
                 },
-
+                {
+                    locKey: 'src',
+                    locationTable: true,
+                },
             ]
         };
 
@@ -598,39 +628,39 @@ $(document).ready(function() {
                 if (index >= 0) {
                     let parts = msg.substring(index + 3).split(',');
                     
-                    if (!gnssInfo.initialized) {
+                    if (!gnssInfo.hardwareTableInitialized) {
                         for(let f of gnssInfo.fields) {
+                            if (!f.hardwareTable) {
+                                continue;
+                            }
                             const rowElem = document.createElement('tr');
 
                             let tdElem = document.createElement('td');
                             $(tdElem).text(f.title);
                             $(rowElem).append(tdElem);
 
-                            tdElem = f.elem = document.createElement('td');
-                            $(rowElem).append(tdElem);
-
-                            tdElem = document.createElement('td');
-                            if (f.unit) {
-                                $(tdElem).text(f.unit);
-                            }
+                            tdElem = f.hardwareTableElem = document.createElement('td');
                             $(rowElem).append(tdElem);
 
                             $('.gnssLocationTable > tbody').append(rowElem);
                         }
-                        gnssInfo.initialized = true;
+                        gnssInfo.hardwareTableInitialized = true;
                     }
 
                     for(let f of gnssInfo.fields) {
+                        if (!f.hardwareTable) {
+                            continue;
+                        }
                         if (f.format == 'latLon') {
                             if (parts.length >= (f.num + 1) && parts[f.num].length > 0) {
                                 const value = parseFloat(parts[f.num]);
                                 const deg = Math.floor(value / 100);
                                 const min = value - deg * 100;
 
-                                $(f.elem).text(deg + '° ' + min + '\' ' + parts[f.num + 1]);
+                                $(f.hardwareTableElem).text(deg + '° ' + min + '\' ' + parts[f.num + 1]);
                             }
                             else {
-                                $(f.elem).text('');
+                                $(f.hardwareTableElem).text('');
                             }
                         }
                         else 
@@ -647,11 +677,18 @@ $(document).ready(function() {
                             if (ns == 'RK') {
                                 ns = 'GPS or Dead-reckoning (RK)';
                             }
-                            $(f.elem).text(ns);
+                            $(f.hardwareTableElem).text(ns);
                         }
                         else {
                             if (parts.length >= f.num) {
-                                $(f.elem).text(parts[f.num])
+                                let text = parts[f.num];
+                                if (typeof text == 'undefined') {
+                                    text = '';
+                                }
+                                if (text.length && f.unit) {
+                                    text += ' ' + f.unit;
+                                }
+                                $(f.hardwareTableElem).text(text)
                             }
                         }
                     }
@@ -869,7 +906,6 @@ $(document).ready(function() {
         
                 // repeated Module modules = 1; // Firmware modules
                 if (result.field != 1 || result.wireType != 2) {
-                    console.log('unexpected field', result);
                     return null;
                 }
                 
@@ -891,14 +927,12 @@ $(document).ready(function() {
             };
 
             moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
-                console.log('getByModuleTypeIndex moduleType=' + moduleType + ' index=' + index);
                 // Pass 1: Exact match
                 let numModuleTypeMatches = 0;
 
                 for(const m of moduleInfo.modules) {
                     if (m.moduleType == moduleType) {
                         if (m.index == index) {
-                            console.log('found matching type and index', m);
                             return m;
                         }
                         numModuleTypeMatches++;
@@ -909,7 +943,6 @@ $(document).ready(function() {
                 if (numModuleTypeMatches == 1) {
                     for(const m of moduleInfo.modules) {
                         if (m.moduleType == moduleType) {
-                            console.log('found since instance of module', m);
                             return m;
                         }
                     }   
@@ -919,7 +952,6 @@ $(document).ready(function() {
                 // Pass 3: Wildcard index
                 for(const m of moduleInfo.modules) {
                     if (m.moduleType == moduleType && typeof m.index == 'undefined') {
-                        console.log('found matching type and index', m);
                         return m;
                     }
                 }    
@@ -1012,7 +1044,6 @@ $(document).ready(function() {
 
                     // Control may fail on older Device OS, but that's OK, we'll just flash everything as well.
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
-                    console.log('moduleInfo', deviceModuleInfo);
                 }
 
                 if (usbDevice.isCellularDevice) {                    
@@ -1156,7 +1187,6 @@ $(document).ready(function() {
                     }
 
                     if (respObj.done) {
-                        console.log('done!', respObj);
                         $(thisElem).find('.towerScanStepsScanning > td > img').attr('src', doneUrl);
                         break;
                     }
@@ -1194,6 +1224,121 @@ $(document).ready(function() {
 
         };
 
+        const logEvents = function(eventOptions) {
+            const locationEvent = function(eventName, eventJson) {
+                if (!eventJson.loc) {
+                    return;
+                }
+
+                if (!gnssInfo.locationTableInitialized) {
+                    $('.locationInfo').show();
+
+                    for(let f of gnssInfo.fields) {
+                        if (!f.locationTable) {
+                            continue;
+                        }
+                        const rowElem = document.createElement('tr');
+
+                        let tdElem = document.createElement('td');
+                        $(tdElem).text(f.title);
+                        $(rowElem).append(tdElem);
+
+                        tdElem = f.locationTableElem = document.createElement('td');
+                        $(rowElem).append(tdElem);
+
+                        tdElem = f.locationFusionTableElem = document.createElement('td');
+                        $(rowElem).append(tdElem);
+
+                        $('.locationInfoTable > tbody').append(rowElem);
+                    }
+
+
+                    gnssInfo.locationTableInitialized = true;
+                }
+
+                for(let f of gnssInfo.fields) {
+                    if (!f.locationTable) {
+                        continue;
+                    }
+                    const elem = (eventName == 'loc') ? f.locationTableElem : f.locationFusionTableElem;
+
+                    let data = eventJson.loc[f.locKey];
+
+                    if (f.format == 'check') {
+                        if (parseInt(data)) {
+                            $(elem).html('&check;');
+                        } 
+                        else {
+                            $(elem).text('');
+                        }
+                    }
+                    else {
+                        if (!data) {
+                            data = '';
+                        }
+                        $(elem).text(data);                        
+                    }
+                }
+            }
+
+            const addRow = function(event) {
+                const tableBodyElem = $('.cloudEventsTable > tbody');
+
+                const rowElem = document.createElement('tr');
+
+                let cellElem = document.createElement('td');
+                $(cellElem).text(event.name)
+                $(rowElem).append(cellElem);
+
+                cellElem = document.createElement('td');
+                if (event.data) {
+                    $(cellElem).text(event.data)
+                }
+                $(rowElem).append(cellElem);
+
+                const time = event.published_at.replace('T', ' ');
+                cellElem = document.createElement('td');
+                $(cellElem).text(time)
+                $(rowElem).append(cellElem);
+
+                $(tableBodyElem).append(rowElem);
+
+                if (event.name == 'loc' || event.name == 'loc-enhanced') {
+                    try {
+                        const eventJson = JSON.parse(event.data);
+                        
+                        locationEvent(event.name, eventJson);
+                    }
+                    catch(e) {
+
+                    }
+                }
+            };
+
+            const handleStream = function(stream) {
+                stream.on('event', function(event) {
+                    if (event.coreid == eventOptions.deviceId) {
+                        try {
+                            addRow(event);
+                        }
+                        catch(e) {
+                            console.log('exception in event', e);
+                        }
+                    }
+                });            
+            };
+
+            $('.cloudEvents').show();
+
+            //
+            if (eventOptions.productId) {
+                apiHelper.particle.getEventStream({ product: eventOptions.productId, auth: apiHelper.auth.access_token }).then(handleStream);
+            }
+            else {
+                apiHelper.particle.getEventStream({ deviceId: eventOptions.deviceId, auth: apiHelper.auth.access_token }).then(handleStream);    
+            }
+        };
+
         const checkSimAndClaiming  = async function() {
             setSetupStep('setupStepCheckSimAndClaiming');
 
@@ -1222,9 +1367,15 @@ $(document).ready(function() {
                 });
 
             }
-            else if (deviceLookup.deviceMine) {
 
+            if (deviceLookup.deviceMine || deviceLookup.deviceProductId) {
+                let eventOptions = {
+                    deviceId: deviceInfo.deviceId,
+                    productId: deviceLookup.deviceProductId,
+                };
+                logEvents(eventOptions);                
             }
+
             // deviceLookup.deviceMine
 
             // deviceLookup.deviceInMyProduct, .deviceProductId, .deviceProductName
@@ -1323,8 +1474,6 @@ $(document).ready(function() {
                 try {
                     if (!deviceInfo.iccid) {
 
-                        console.log('getting cellularInfo');
-
                         let reqObj = {
                             op: 'cellularInfo'
                         } 
@@ -1383,7 +1532,7 @@ $(document).ready(function() {
 
                         // 
                         if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
-                            console.log('no tower scan available');
+                            // console.log('no tower scan available');
                         }
                         else {
                             $(thisElem).find('.towerScanOption').show();
@@ -1797,7 +1946,6 @@ $(document).ready(function() {
 
             // Attempt to fetch the device module info for the device
             deviceModuleInfo = await getModuleInfoCtrlRequest();
-            console.log('moduleInfo', deviceModuleInfo);
 
         };
 
@@ -1816,7 +1964,6 @@ $(document).ready(function() {
                         flashDeviceOptions.ncpUpdate = true;
                         await flashDeviceInternal(flashDeviceOptions);
                     }
-                    console.log('ncp on device', m);                    
                 }
             }
 

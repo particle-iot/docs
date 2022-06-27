@@ -649,12 +649,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                         obj.moduleInfo = moduleFromModuleInfo(moduleInfo[obj.name]);
                         obj.startAddress = parseInt(moduleInfo[dfuPart.name].prefixInfo.moduleStartAddy, 16);
 
-                        console.log('dfuPart', obj);
-
                         dfuParts.push(obj);
-                    }
-                    else {
-                        console.log('no binary for ' + dfuPart.name);
                     }
                     
                 }
@@ -679,13 +674,9 @@ async function dfuDeviceRestore(usbDevice, options) {
 
                 const m = options.deviceModuleInfo.getByModuleTypeIndex(protobufModuleType, obj.moduleInfo.moduleIndex);
 
-                console.log('check moduleType', m);
-                console.log('check obj.moduleInfo', obj.moduleInfo);
-
                 // Don't do version check on user firmware (moduleFunction = 5)
                 if (obj.moduleInfo.moduleFunction != 5 && m.version == obj.moduleInfo.moduleVersion) {
                     // Same version, skip
-                    console.log('skipping same version');
                     options.progressUpdate('Up to date', 0, {
                         partName: obj.name,
                         skipSameVersion: true
@@ -697,8 +688,6 @@ async function dfuDeviceRestore(usbDevice, options) {
 
             }
         }
-
-        console.log('dfuParts after skipping same version', dfuParts);
 
         // 
         dfuseDevice.logProgress = logProgress;
@@ -837,7 +826,6 @@ async function dfuDeviceRestore(usbDevice, options) {
                         // If not setting the OTA flag or setup done, do manifestation on the user binary
                         dfuOptions.doManifestation = true;
                     }
-                    console.log('flashing user binary with options', dfuOptions);
 
                     if (options.userFirmwareBinary) {
                         await dfuseDevice.do_download(4096, options.userFirmwareBinary, dfuOptions);
