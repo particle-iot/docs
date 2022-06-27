@@ -1170,7 +1170,6 @@ $(document).ready(function() {
                 }
 
                 if (hasUserFirmwareBackup()) {
-                    // TODO: Implement this feature
                     $('.restoreDeviceId').text(deviceInfo.deviceId);
                     $('.restoreFirmwareDiv').show();
 
@@ -2059,7 +2058,7 @@ $(document).ready(function() {
                     }
                 }
             }
-            
+
             // Update firmware version table
             // deviceModuleInfo is updated in flashDeviceInternal
             showDeviceFirmwareInfo(deviceModuleInfo);
