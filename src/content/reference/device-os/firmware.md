@@ -17675,8 +17675,7 @@ When executing timing-critical sections of code, the task switching needs to be 
 ```
 // SYNTAX
 SINGLE_THREADED_BLOCK() {
-   // code here is executed atomically, without task switching
-   // or interrupts
+   // code here is executed without thread swapping
 }
 ```
 
@@ -17723,7 +17722,7 @@ WARNING: Disabling interrupts prevents normal system operation. Consequently, `A
 // SYNTAX
 ATOMIC_BLOCK() {
    // code here is executed atomically, without task switching
-   // or interrupts
+   // or interrupts of a lower priority than this thread
 }
 ```
 
