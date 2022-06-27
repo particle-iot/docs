@@ -11,6 +11,7 @@ module.exports = function plugin(options) {
         // Find menu.json files
         const contentDir = metalsmith.path(options.contentDir);
 
+        let visiblePages = {};
         let hiddenPages = {};
         
         for(const dirEnt of fs.readdirSync(contentDir, {withFileTypes:true})) {
@@ -27,18 +28,26 @@ module.exports = function plugin(options) {
                                 processMenuArray(e);
                             }
                             else {
-                                if (e.hidden && !e.searchable) {
-                                    // Example e.href: /reference/technical-advisory-notices/tan007/
+                                if (e.hidden) {
+                                    if (!e.searchable) {
+                                        // Example e.href: /reference/technical-advisory-notices/tan007/
 
-                                    // Remove the leading slash
-                                    let page = e.href.substring(1);
+                                        // Remove the leading slash
+                                        let page = e.href.substring(1);
 
-                                    // Remove the trailing slash
-                                    page = page.substring(0, page.length - 1);
+                                        // Remove the trailing slash
+                                        page = page.substring(0, page.length - 1);
 
-                                    page += '.md';
+                                        page += '.md';
 
-                                    hiddenPages[page] = e;
+                                        hiddenPages[page] = e;
+                                    }
+                                }
+                                else {
+                                    if (e.href) {
+                                        const mdPath = e.href.substring(1, e.href.length - 1) + '.md';
+                                        visiblePages[mdPath] = true;    
+                                    }
                                 }
                             }
                         }
@@ -54,6 +63,14 @@ module.exports = function plugin(options) {
         sitemap += '<?xml version="1.0" encoding="UTF-8"?>\n';
 
         sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+        const noPageInMenuCheck = [
+            'archives',
+            'community',
+            'reference/device-os/api/',
+            'reference/device-os/libraries/',
+            'troubleshooting/led/',
+        ];
 
 
         Object.keys(files).forEach(function (fileName) {
@@ -76,6 +93,22 @@ module.exports = function plugin(options) {
 
             if (hiddenPages[fileName]) {
                 return;
+            }
+
+            let doPageInMenuCheck = true;
+            for(const p of noPageInMenuCheck) {
+                if (fileName.startsWith(p)) {
+                    doPageInMenuCheck = false;
+                    break;
+                }
+            }
+
+            if (doPageInMenuCheck) {
+                // Ignore pages that are not in menu.json if they are not in the list to include anyway
+                if (!visiblePages[fileName]) {
+                    // console.log('not visible ' + fileName);
+                    return;
+                }    
             }
             
             let priority = 0.5;

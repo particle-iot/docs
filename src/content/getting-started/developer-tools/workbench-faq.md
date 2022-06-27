@@ -1,15 +1,20 @@
 ---
-title: Workbench
+title: Workbench FAQ
 layout: commonTwo.hbs
 columns: two
 ---
 
 # {{{title}}}
-## Particle Workbench FAQ
 
 * [Installation Instructions](https://docs.particle.io/quickstart/workbench/)
 * [Tutorial](https://docs.particle.io/tutorials/developer-tools/workbench)
 * [Step by Step Video Guide](https://www.youtube.com/watch?v=w7xOmJR2HeE)
+
+### Reporting bugs and feedback
+
+- Follow the instructions in [this community forum post](https://community.particle.io/t/how-to-report-bugs-and-provide-feedback/52361) to report bugs or provide feedback.
+
+- The [Developer Tools - Workbench Category](https://community.particle.io/c/dt/particle-workbench/43) in the community forums should be used for Workbench support.
 
 ### Working with a custom Device OS build
 

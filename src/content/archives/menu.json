@@ -34,6 +34,41 @@
       "dir": "xenon-circuit-python",
       "title": "CircuitPython on Xenon",
       "href": "/archives/xenon-circuit-python/"
+    },
+    {
+      "dir": "xenon-standalone",
+      "title": "Xenon Standalone",
+      "href": "/archives/xenon-standalone/"
+    },
+    {
+      "dir": "mesh-setup-over-usb",
+      "title": "Mesh Setup over USB",
+      "href": "/archives/mesh-setup-over-usb/"
+    },
+    {
+      "dir": "serial2-on-the-photon",
+      "title": "Serial2 on the Photon",
+      "href": "/archives/serial2-on-the-photon/"
+    },
+    {
+      "dir": "create-a-local-publishsubscribe-group-using-ble-on-gen3-devices",
+      "title": "Create a local publish/subscribe group using BLE on Gen3 devices",
+      "href": "/archives/create-a-local-publishsubscribe-group-using-ble-on-gen3-devices/"
+    },
+    {
+      "dir": "debugging-with-eclipse",
+      "title": "Debugging with Eclipse",
+      "href": "/archives/debugging-with-eclipse/"
+    },
+    {
+      "dir": "installing-dfu-util",
+      "title": "Installing DFU-util",
+      "href": "/archives/installing-dfu-util/"
+    },
+    {
+      "dir": "local-build-using-gcc-arm",
+      "title": "Local build using gcc-arm",
+      "href": "/archives/local-build-using-gcc-arm/"
     }
   ]
 }

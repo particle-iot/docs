@@ -15,7 +15,7 @@ You will learn how to:
 * Configure your devices, using the on-board emulated **EEPROM**, into hierarchical groups.
 * Remotely commission devices into groups using DeviceOS's `Particle.function()` method.
 
-Example code for this example can be found on [Github](https://github.com/particle-iot/messaging%5Farch%5Ffor%5Fscale)
+Example code for this example can be found on [Github](https://github.com/particle-iot/messaging_arch%_for_scale)
 
 ### Background
 
@@ -71,6 +71,7 @@ The code provided below shows how to use the above architecture with some hardco
 5. The example functions `red`, `green`, and `blue` change the onboard LED colors respectively. They could easily be configured to change GPIO pin, trigger a sensor to report back, or something else entirely
 6. Log all the events and their resulting output to the serial terminal
 
+```cpp
  SerialLogHandler logHandler(LOG_LEVEL_WARN, {  
      {"app", LOG_LEVEL_ALL}  
  });  
@@ -199,12 +200,15 @@ The code provided below shows how to use the above architecture with some hardco
      Log.info("blue() called with data: %s", data);  
      RGB.color(0, 0, 255);  
  }
+```
 
 #### Running the Example
 
 To demonstrate this code, I flashed it to 3 Argon boards that are part of a product in the console. I then sent 3 example events to the product. Below is the example events and respective serial log output:
 
-1. Title: `ABC123` Data: `ABC123/blue`. This will turn all the LEDs blue:  
+1. `ABC123` Data: `ABC123/blue`. This will turn all the LEDs blue:  
+
+```
  0001812226 [app] TRACE: Event received {  
          event: ABC123  
          data: ABC123/blue  
@@ -214,7 +218,11 @@ To demonstrate this code, I flashed it to 3 Argon boards that are part of a prod
  0001812229 [app] INFO: All groups addressed!  
  0001812229 [app] INFO: Group parsed: 0  
  0001812230 [app] INFO: blue() called with data: ABC123/blue
-2. Title: `ABC123` Data: `ABC123/red/128`.This will do nothing, as the group ID doesn't match the configured values:  
+```
+
+2. `ABC123` Data: `ABC123/red/128`.This will do nothing, as the group ID doesn't match the configured values:  
+
+```
  0001832476 [app] TRACE: Event received {  
          event: ABC123  
          data: ABC123/red/128  
@@ -222,7 +230,10 @@ To demonstrate this code, I flashed it to 3 Argon boards that are part of a prod
  0001832477 [app] TRACE: Event parsed ABC123  
  0001832478 [app] TRACE: Command parsed: red  
  0001832479 [app] INFO: Device's group was NOT addressed: 128
-3. Title: `ABC123` Data: `ABC123/foo`. This will do nothing, as the function name doesn't match any configured one:  
+```
+
+3. `ABC123` Data: `ABC123/foo`. This will do nothing, as the function name doesn't match any configured one:  
+```
  0001870978 [app] TRACE: Event received {  
          event: ABC123  
          data: ABC123/foo  
@@ -232,6 +243,7 @@ To demonstrate this code, I flashed it to 3 Argon boards that are part of a prod
  0001870981 [app] INFO: All groups addressed!  
  0001870981 [app] INFO: Group parsed: 0  
  0001870982 [app] WARN: Unknown function received: foo
+```
 
 ## Particle Best Practice: Storing Configuration Values in EEPROM
 
@@ -247,6 +259,7 @@ Additionally, we define three utility functions to allow for writing, reading (i
 
 We will replace the previous `constexpr` definitions of `userID` and `deviceGroups` with the following code above the `setup()` and `loop()` routines:
 
+```cpp
  // --------------------------------------------------  
  // EEPROM-based device configuration  
  // --------------------------------------------------  
@@ -312,6 +325,7 @@ Next, we need to add our configuration initialization method to our `setup()`, w
      // Set up our subscription to events to the configured User ID  
      Particle.subscribe(config.userID, parseMessage, MY_DEVICES);  
  }
+```
 
 Finally, we need to point our comparisons in the `parseMessage()` routine at our new `config` struct:
 
@@ -332,6 +346,7 @@ Now with our configurable parameters stored and accessible in EEPROM, it is time
 2. `clearGroups()`: **Clearing all groups** a device is assigned to
 3. `setUserID()`:Setting the device's associated **User ID**
 
+```cpp
  // ----------------------------------------------------------------------------------------------------  
  // The following functions are exposed as Particle.function() instances in the cloud  
  // ----------------------------------------------------------------------------------------------------  
@@ -385,9 +400,11 @@ Now with our configurable parameters stored and accessible in EEPROM, it is time
      }  
      return 0;  
  }
+```
 
 In addition to defining the above functions, we need to register them with the cloud. For that we call the `Particle.function()` method at the beginning of our `setup()` routine, which now becomes:
 
+```cpp
  void setup() {  
      // Functions and variables should always be set up first  
      Particle.function("addToGroup", addToGroup);  
@@ -403,6 +420,7 @@ In addition to defining the above functions, we need to register them with the c
      // Set up our subscription to events to the configured User ID  
      Particle.subscribe(config.userID, parseMessage, MY_DEVICES);  
  }
+```
 
 Once your device comes online, these three functions will appear in the right hand side of the console and can be used to provision a device at manufacturing time with a specific User ID, or enable a user in the field to dynamically create groups of devices.
 

@@ -21,14 +21,13 @@ For this example, I had available some kontakt.io asset tags S18-3, which includ
 
 ## Beacon Scanner library
 
-The bulk of the work on the firmware that is running on the Boron or Argon collecting the data is done by the BeaconScanner library. To find out more about how to include a library in your project, see the documentation here:
+The bulk of the work on the firmware that is running on the Boron or Argon collecting the data is done by the BeaconScanner library. To find out more about how to include a library in your project, see the documentation [here](/tutorials/device-os/libraries/#using-libraries)
 
-<https://docs.particle.io/tutorials/device-os/libraries/#using-libraries>
-
-The Github repository for this library is here: <https://github.com/particle-iot/beacon-scanner-library>
+The Github repository for this library is [here](https://github.com/particle-iot/beacon-scanner-library)
 
 Since the library can be setup to automatically scan and publish the data received, the code that runs in the Boron/Argon is simply: 
 
+```cpp
 #include "Particle.h"  
 #include "Beaconscanner.h"  
   
@@ -46,6 +45,7 @@ void loop() {
         scanner.scanAndPublish(20, SCAN_KONTAKT, "test", PRIVATE);  
     }  
 }
+```
 
 Once per minute, the scanner library will scan and collect Kontakt TLM data for 20 seconds, and publish it with the "test-kontakt" event name. Make sure, if using these same asset tags, that you enable the Kontakt TLM packet in their configuration.
 
@@ -69,6 +69,7 @@ Next, I wanted to store the data in a database. Since the data is already in Goo
 
 So I created a Cloud Function within Firebase that subscribes to the "temp" topic in Pub/Sub, extracts the JSON data, creates a document in the Firestore for each BLE address, and an array with the temperature in that document:
 
+```js
 exports.helloPubSub = functions.pubsub.topic('temp').onPublish((message) => {  
   let obj=null;  
   try {  
@@ -81,6 +82,7 @@ exports.helloPubSub = functions.pubsub.topic('temp').onPublish((message) => {
       db.collection("devices").doc(tag).collection("temps").add({temps:obj[tag],created: admin.firestore.Timestamp.fromDate(new Date()) });   }  
   }  
 });
+```
 
 This function will then populate the Firebase database with the data as it arrives:
 

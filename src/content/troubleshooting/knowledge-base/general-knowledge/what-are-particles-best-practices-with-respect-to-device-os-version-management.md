@@ -18,11 +18,15 @@ If you have a Support Request that centers around a specific Device, and if you 
 * Put your Device in DFU Mode. To put your device in DFU Mode, connect your Device to your computer. Then, press both RESET and MODE buttons and hold them down together. Release the RESET button, and wait until the Status LED Blinks Yellow. Then release the MODE button. The device should continue to Blink Yellow.
 * Once your Device is in DFU Mode, enter the following command in the Command Line:
 
+```
 particle update
+```
 
 This should take care of the entire process. If the device does not reboot and run your firmware as expected, please place the device back into DFU Mode and run:
 
+```
 particle flash --usb tinker 
+```
 
 Then open up a Support Ticket!
 

@@ -20,6 +20,7 @@ The following article is divided into 4 sections:
 
 Please review the code example below.
 
+```cpp
 void setup()  
 {  
   SystemPowerConfiguration conf;  
@@ -30,6 +31,7 @@ void setup()
   int res = System.setPowerConfiguration(conf);  
   // returns SYSTEM_ERROR_NONE (0) in case of success  
 }
+```
 
 _\* Please note that the setting above are persistent and once set on a device, will remain until either changed or reset. If your device is not behaving as expected; you should attempt a reset._
 
