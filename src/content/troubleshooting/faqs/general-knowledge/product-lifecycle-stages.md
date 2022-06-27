@@ -83,7 +83,7 @@ No further additions will be made to Deprecated products, but these products wil
 
 #### _For hardware_
 
-Particle will continue to carry deprecated SKUs in our stores until the End of Support date, but are unlikely to release new Device OS versions with support for this platform. Deprecated hardware will continue to be supported by Particle development tools until it reaches the End of Support phase.
+Deprecated SKUs can no longer be purchased. Existing devices will continue to work and be supported by at least one Particle development tool until the End of Support date, but new versions of Device OS may no longer support devices that have been deprecated.
 
 ## End of Support
 

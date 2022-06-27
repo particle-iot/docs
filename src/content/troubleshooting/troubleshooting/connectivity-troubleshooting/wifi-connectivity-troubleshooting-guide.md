@@ -30,9 +30,7 @@ If your device still struggles to connect, let's first evaluate the compatibilit
 
 ## Checking Network Compatibility
 
-**First**, what kind of authentication does your web connection use? If you are on a WPA2 Enterprise connection, please see the relevant support article here: ([link](https://support.particle.io/hc/en-us/articles/360039741153-WPA2-Enterprise-Setup)), and please note that WPA2 Enterprise support is **only** available on the Photon and P1.
-
-**Next**, do you have any firewalls in place that may preempt IoT connectivity?
+**Do you have any firewalls** in place that may preempt IoT connectivity?
 
 _This is far, far and way the **most common issue** our Technical Support Team comes across when helping out our WiFi customers! If you do not think you have a firewall active, please double check and if possible contact your system administrator to ensure that no firewall is indeed blocking your Photon, P1, or Argon!_
 
