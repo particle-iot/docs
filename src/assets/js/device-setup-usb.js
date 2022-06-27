@@ -998,6 +998,38 @@ $(document).ready(function() {
             return moduleInfo;
         };
 
+
+        const showDeviceFirmwareInfo = function(moduleInfo) {
+            $('.deviceFirmwareInfo').show();
+
+            const tableBodyElem = $('.deviceFirmwareInfoTable > tbody');
+            $(tableBodyElem).html('');
+
+            for(const m of moduleInfo.modules) {
+                const rowElem = document.createElement('tr');
+
+                let cellElem;
+                
+                // Module
+                cellElem = document.createElement('tr');
+                $(rowElem).append(cellElem);
+
+                // 
+                cellElem = document.createElement('tr');
+                $(rowElem).append(cellElem);
+
+                cellElem = document.createElement('tr');
+                $(rowElem).append(cellElem);
+
+                cellElem = document.createElement('tr');
+                $(rowElem).append(cellElem);
+
+                $(tableBodyElem).append(rowElem);
+            }
+
+
+        }
+
         /*
 
         */
