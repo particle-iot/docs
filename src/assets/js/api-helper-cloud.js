@@ -2305,33 +2305,36 @@ $(document).ready(function () {
 
         $(orgSelectElem).on('change', updateProductList);
 
-        updateProductList();
+        if (apiHelper.auth) {
+            updateProductList();
 
-        apiHelper.getOrgs().then(function (data) {
-            // No orgs: orgsData.organizations empty array
-            // Object in array orgsData.organizations: id, slug, name
-            orgsData = data;
-
-            if (orgsData.organizations.length > 0) {
-                let html = '';
-                for (let org of orgsData.organizations) {
-                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+            apiHelper.getOrgs().then(function (data) {
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+                orgsData = data;
+    
+                if (orgsData.organizations.length > 0) {
+                    let html = '';
+                    for (let org of orgsData.organizations) {
+                        html += '<option value="' + org.id + '">' + org.name + '</option>';
+                    }
+                    $(orgSelectElem).html(html);
+    
+                    if (queryState && queryState.orgId) {
+                        $(orgSelectElem).val(queryState.orgId);
+                    }
+    
+                    updateProductList();
                 }
-                $(orgSelectElem).html(html);
-
-                if (queryState && queryState.orgId) {
-                    $(orgSelectElem).val(queryState.orgId);
+                else {
+                    // No orgs
+                    $(thisElem).find('input[value=org]:radio').prop('disabled', true);
+                    $(thisElem).find('.orgSelectorRow').hide();
+                    $(thisElem).find('.sandboxOrgRow').hide();
                 }
+            });
+        }
 
-                updateProductList();
-            }
-            else {
-                // No orgs
-                $(thisElem).find('input[value=org]:radio').prop('disabled', true);
-                $(thisElem).find('.orgSelectorRow').hide();
-                $(thisElem).find('.sandboxOrgRow').hide();
-            }
-        });
 
         $(thisElem).data('loadQuerySettings', function(stateObj) {
             queryState = stateObj;

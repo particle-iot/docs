@@ -10,6 +10,7 @@ $(document).ready(function() {
     if (!navigator.usb) {
         ga('send', 'event', gaCategory, 'No WebUSB', navigator.userAgent);
         $('.setupBrowserError').show();
+        $('.setupStepOtherIssues').show();
         return;
     }
 
@@ -17,16 +18,30 @@ $(document).ready(function() {
         'setupStepSelectDevice'
     ];
 
+    const updateSupportAvailable = function() {
+        if (apiHelper.selectedOrg) {
+            $('.setupSupportYes').show();
+            $('.setupSupportNo').hide();
+        }
+        else {
+            $('.setupSupportNo').show();
+            $('.setupSupportYes').hide();
+        }
+    };
+
+    $('.apiHelper').on('selectedOrgUpdated', updateSupportAvailable);
+    updateSupportAvailable();
+
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
-        const troubleshootingMode = ($(thisElem).data('troubleshooting') == '1');
-        if (troubleshootingMode) {
-            $(thisElem).find('.troubleshootingMode').show();
+        const doctorMode = ($(thisElem).data('doctor') == '1');
+        if (doctorMode) {
+            $(thisElem).find('.doctorMode').show();
             $(thisElem).find('.setupMode').hide();
         }
         else {
-            $(thisElem).find('.troubleshootingMode').hide();
+            $(thisElem).find('.doctorMode').hide();
             $(thisElem).find('.setupMode').show();
         }
 
@@ -35,12 +50,14 @@ $(document).ready(function() {
 
         const userInfoElem = $(thisElem).find('.userInfo');
 
-
         let usbDevice;
         let deviceInfo = {};
+        let deviceLookup;
         let userFirmwareBinary;
+        let restoreFirmwareBinary;
         let mccmnc;
         let setupOptions = {};
+        let deviceModuleInfo;
 
         const minimumDeviceOsVersion = '2.1.0';
 
@@ -56,8 +73,16 @@ $(document).ready(function() {
             $(setupStepElem).children('.' + whichStep).show();
         };
 
-        setSetupStep('setupStepSelectDevice');
+        $('.apiHelperOtherIssuesLink').each(function() {
+            const aElem = $(this);
+            
+            $(aElem).on('click', function() {
+                setSetupStep($(aElem).data('step'));
+            });
+        });
 
+
+        setSetupStep('setupStepSelectDevice');
 
         let infoTableItems = [
             {
@@ -211,33 +236,169 @@ $(document).ready(function() {
             $(thisElem).find('.userInfoTable > tbody').append(trElem);
         };
 
-        apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
-            function(data) {
-                userInfo = data.body;
-                
-                $(userInfoElem).show();
 
-                setUserInfoItem('Account email', userInfo.username);
-
-                let name = '';
-                if (userInfo.account_info.first_name) {
-                    name += userInfo.account_info.first_name;
-                }
-                if (userInfo.account_info.last_name) {
-                    if (name.length > 0) {
-                        name += ' ';
-                    }
-                    name += userInfo.account_info.last_name;
-                }
-                if (name) {
-                    setUserInfoItem('Name', name);
-                }
-
-            },
-            function(err) {
-                setStatus('Error retrieving user information (access token may have expired)');
+        const getUserFirmwareBackup = function() {
+            let firmwareBackup;
+            try {
+                firmwareBackup = JSON.parse(localStorage.getItem('firmwareBackup'));
             }
-        )
+            catch(e) {                        
+            }
+            if (!firmwareBackup) {
+                firmwareBackup = {};
+            }
+
+            if (!firmwareBackup.backups) {
+                firmwareBackup.backups = [];
+            }
+
+            // Ignore backups older than 1 week
+            const oldestTs = Math.floor(Date.now() / 1000) - 604800;
+            for(let ii = 0; ii < firmwareBackup.backups.length;) {
+                if (firmwareBackup.backups[ii].ts < oldestTs) {
+                    // Delete this
+                    firmwareBackup.backups.splice(ii, 1);
+                }
+                else {
+                    ii++;   
+                }
+            }
+
+            return firmwareBackup;
+        }
+
+        const addUserFirmwareBackup = function() {
+            let firmwareBackup = getUserFirmwareBackup();
+
+            firmwareBackup.backups.push({
+                deviceId: deviceInfo.deviceId,
+                username: apiHelper.auth.username,
+                ts: Math.floor(Date.now() / 1000)
+            });
+
+            localStorage.setItem('firmwareBackup', JSON.stringify(firmwareBackup));
+        }
+
+        const hasUserFirmwareBackup = function() {
+            const firmwareBackup = getUserFirmwareBackup();
+
+            for(const f of firmwareBackup.backups) {
+                if (f.deviceId == deviceInfo.deviceId && f.username == apiHelper.auth.username) {
+                    // Found
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        if (apiHelper.auth) {
+            apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
+                function(data) {
+                    userInfo = data.body;
+                    
+                    $(userInfoElem).show();
+    
+                    setUserInfoItem('Account email', userInfo.username);
+    
+                    let name = '';
+                    if (userInfo.account_info.first_name) {
+                        name += userInfo.account_info.first_name;
+                    }
+                    if (userInfo.account_info.last_name) {
+                        if (name.length > 0) {
+                            name += ' ';
+                        }
+                        name += userInfo.account_info.last_name;
+                    }
+                    if (name) {
+                        setUserInfoItem('Name', name);
+                    }
+    
+                },
+                function(err) {
+                    setStatus('Error retrieving user information (access token may have expired)');
+                }
+            )
+        }
+        else {
+            $('.apiHelperLoggedIn').hide();
+        }
+
+
+
+        $('.setupStepLoginTicket').each(function() {
+            const thisElem = $(this);
+            
+            const emailElem = $(thisElem).find('.loginTicketEmail');
+            const textElem = $(thisElem).find('.ticketText');
+            const buttonElem = $(thisElem).find('.apiHelperButton');
+
+            const checkButtonEnable = function() {
+                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0) {
+                    $(buttonElem).prop('disabled', false);
+                }
+                else {
+                    $(buttonElem).prop('disabled', true);                    
+                }
+            }
+
+            $(emailElem).on('input', function() {
+                checkButtonEnable();
+            });
+            $(textElem).on('input', function() {
+                checkButtonEnable();
+            });
+
+            if (apiHelper.auth && apiHelper.auth.username) {
+                $(emailElem).val(apiHelper.auth.username);
+            }
+
+            checkButtonEnable();
+
+            $(buttonElem).on('click', function() {
+                const ticket = {
+                    subject: 'Having trouble logging in',
+                    email: $(emailElem).val(),
+                    text: $(textElem).val()
+                }
+                console.log('ticket', ticket);
+            });
+        });
+
+
+
+        $('.setupStepHardwareTicket').each(function() {
+            const thisElem = $(this);
+            
+            const textElem = $(thisElem).find('.ticketText');
+            const buttonElem = $(thisElem).find('.apiHelperButton');
+
+            const checkButtonEnable = function() {
+                if ($(textElem).val().trim().length > 0) {
+                    $(buttonElem).prop('disabled', false);
+                }
+                else {
+                    $(buttonElem).prop('disabled', true);                    
+                }
+            }
+
+            $(textElem).on('input', function() {
+                checkButtonEnable();
+            });
+
+            checkButtonEnable();
+
+            $(buttonElem).on('click', function() {
+                const ticket = {
+                    subject: 'Hardware ticket',
+                    email: apiHelper.auth.username,
+                    text: $(textElem).val()
+                }
+                console.log('ticket', ticket);
+            });
+        });
+
 
         $(setupSelectDeviceButtonElem).on('click', async function() {
             const filters = [
@@ -320,6 +481,83 @@ $(document).ready(function() {
         let msgExternalSIM = false;
         let msgCPINERROR = false;
 
+        let gnssInfo = {
+            hardwareTableInitialized: false,
+            fields: [
+                {
+                    format: 'check',
+                    locKey: 'loc',
+                    locationTable: true,
+                },
+                {
+                    num: 3,
+                    title: 'Latitude',
+                    format: 'latLon',
+                    hardwareTable: true,
+                    locKey: 'lat',
+                    locationTable: true,
+                },
+                {
+                    num: 5,
+                    title: 'Longitude',
+                    format: 'latLon',
+                    hardwareTable: true,
+                    locKey: 'lon',
+                    locationTable: true,
+                },
+                {
+                    num: 7,
+                    title: 'Altitude',
+                    unit: 'm',
+                    hardwareTable: true,
+                    locKey: 'alt',
+                    locationTable: true,
+                },
+                {
+                    num: 8,
+                    title: 'Navigation Status',
+                    format: 'ns',
+                    hardwareTable: true,
+                },
+                {
+                    num: 9,
+                    title: 'Horizontal Accuracy',
+                    unit: 'm',
+                    hardwareTable: true,
+                    locKey: 'h_acc',
+                    locationTable: true,
+                },
+                {
+                    num: 10,
+                    title: 'Vertical Accuracy',
+                    unit: 'm',
+                    hardwareTable: true,
+                    locKey: 'v_acc',
+                    locationTable: true,
+                },
+                {
+                    num: 11,
+                    title: 'Speed Over Ground',
+                    unit: 'km/h',
+                    hardwareTable: true,
+                    locKey: 'spd',
+                    locationTable: true,
+                },
+                {
+                    num: 12,
+                    title: 'Course Over Ground',
+                    unit: 'deg',
+                    hardwareTable: true,
+                    locKey: 'hd',
+                    locationTable: true,
+                },
+                {
+                    locKey: 'src',
+                    locationTable: true,
+                },
+            ]
+        };
+
         $(showDebuggingLogsElem).on('click', function() {
             if ($(showDebuggingLogsElem).prop('checked')) {                
                 $(deviceLogsTextElem).val(deviceLogs);
@@ -359,7 +597,129 @@ $(document).ready(function() {
             if (msg.includes('CPIN ERROR')) {
                 msgCPINERROR = true;
             }
+
+            {
+                // GNSS boot status messages
+                const prefix = '$GNTXT,01,01,02,';
+                const index = msg.indexOf(prefix);
+                if (index >= 0) {
+                    let param = msg.substring(index + prefix.length);
+                    param = param.substring(0, param.length - 3);
+    
+                    let rowElem = document.createElement('tr');
+                    
+                    let cellElem = document.createElement('td');
+                    $(cellElem).text(param);
+    
+                    $(rowElem).append(cellElem);
+    
+                    $('.gnssInfoTable > tbody').append(rowElem);
+    
+                    $('.gnssInfo').show();
+                }
+            }
+            
+            {
+                // GNSS location
+                // 0000016961 [app.gps.nmea] TRACE: RX: $PUBX,00,000014.00,4299.03984,N,07599.98328,W,328.330,DR,5.9,4
+                // 0000309496 [app.gps.nmea] TRACE: RX: $PUBX,00,164020.00,4299.03899,N,07599.98425,W,331.708,RK,6.3,4
+                const prefix = 'RX: $PUBX,';
+                const index = msg.indexOf(prefix);
+                if (index >= 0) {
+                    let parts = msg.substring(index + 3).split(',');
+                    
+                    if (!gnssInfo.hardwareTableInitialized) {
+                        for(let f of gnssInfo.fields) {
+                            if (!f.hardwareTable) {
+                                continue;
+                            }
+                            const rowElem = document.createElement('tr');
+
+                            let tdElem = document.createElement('td');
+                            $(tdElem).text(f.title);
+                            $(rowElem).append(tdElem);
+
+                            tdElem = f.hardwareTableElem = document.createElement('td');
+                            $(rowElem).append(tdElem);
+
+                            $('.gnssLocationTable > tbody').append(rowElem);
+                        }
+                        gnssInfo.hardwareTableInitialized = true;
+                    }
+
+                    for(let f of gnssInfo.fields) {
+                        if (!f.hardwareTable) {
+                            continue;
+                        }
+                        if (f.format == 'latLon') {
+                            if (parts.length >= (f.num + 1) && parts[f.num].length > 0) {
+                                const value = parseFloat(parts[f.num]);
+                                const deg = Math.floor(value / 100);
+                                const min = value - deg * 100;
+
+                                $(f.hardwareTableElem).text(deg + '° ' + min + '\' ' + parts[f.num + 1]);
+                            }
+                            else {
+                                $(f.hardwareTableElem).text('');
+                            }
+                        }
+                        else 
+                        if (f.format == 'ns') {
+                            let ns = parts[f.num];
+                            if (ns == 'NF') {
+                                ns = 'No Fix (NF)';
+                            }
+                            else
+                            if (ns == 'DR') {
+                                ns = 'Dead-reckoning only (DR)';
+                            }
+                            else
+                            if (ns == 'RK') {
+                                ns = 'GPS or Dead-reckoning (RK)';
+                            }
+                            $(f.hardwareTableElem).text(ns);
+                        }
+                        else {
+                            if (parts.length >= f.num) {
+                                let text = parts[f.num];
+                                if (typeof text == 'undefined') {
+                                    text = '';
+                                }
+                                if (text.length && f.unit) {
+                                    text += ' ' + f.unit;
+                                }
+                                $(f.hardwareTableElem).text(text)
+                            }
+                        }
+                    }
+
+                    // 0: $PUBX
+                    // 1: msgId
+                    // 2: time
+                    // 3: lat ddmm. mmmmm
+                    // 4: NS
+                    // 5: long ddmm. mmmmm
+                    // 6: EW
+                    // 7: alt (meters)
+                    // 8: navStat
+                    // 9: hAcc (meters)
+                    // 10: vAcc (meters) <- this is the last thing that seems to be enabled
+                    // 11: SOG km/g
+                    // 12: COG deg
+                    // 13: vVel m/s
+                    // 14: diffAge s
+                    // 15: HDOP
+                    // 16: VDOP
+                    // 17: TDOP
+                    // 18: numSvs
+                    // 19: reserved
+                    // 20: DR
+                    // 21: cs
+                }
+            }
+
         };
+
 
         const showDeviceLogs = function() {
             $(deviceLogsElem).show();
@@ -406,6 +766,9 @@ $(document).ready(function() {
             }
             
             if (!deviceLogsTimer2) {
+                // Retrieve logs more slowly on Gen 2 because the control request handler can run out of RAM
+                const logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
+
                 deviceLogsTimer2 = setInterval(async function() {
                     let reqObj = {
                         op: 'logs'
@@ -449,12 +812,276 @@ $(document).ready(function() {
                             }
                         }
                     }
-                }, 1000);
+                }, logTimerInterval);
             }
 
 
         };
 
+        const decodeModuleInfoProtobuf = function(data) {
+            // data must be a Uint8Array
+            let moduleInfo = {
+            };
+
+            let protobuf = apiHelper.protobuf(data);
+            
+            const decodeDependencies = function(array, end) {
+                let dependency = {};
+        
+                while(protobuf.offset < end) {
+                    result = protobuf.decodeTag();
+        
+                    switch(result.field) {
+                    case 1:
+                        dependency.moduleType = result.value;
+                        break;
+        
+                    case 2:
+                        dependency.index = result.value;
+                        break;
+        
+                    case 3:
+                        dependency.version = result.value;
+                        break;
+                    }
+                }
+        
+                array.push(dependency);
+            };
+        
+            const decodeModule = function(end) {
+                let module = {
+                    dependencies: []
+                };
+                let result;
+        
+                while(protobuf.offset < end) {
+                    result = protobuf.decodeTag();
+                    switch(result.field) {
+                    case 1:
+                        module.moduleType = result.value;
+                        break;
+                    case 2:
+                        module.index = result.value;
+                        break;
+                    case 3:
+                        module.version = result.value;
+                        break;
+                    case 4:
+                        module.size = result.value;
+                        break;
+                    case 5:
+                        module.validity = result.value;
+                        break;
+                    case 6:
+                        // Dependencies       
+                        decodeDependencies(module.dependencies, protobuf.offset + result.value);
+                        break;
+                    }
+                }
+        
+                moduleInfo.modules.push(module);    
+            };
+
+            // moduleType values
+            // protobuf  system  description
+            // 1         2       bootloader
+            // 2         4       system part 
+            // 3         5       user part (ignore index and version)
+            // 4         3       monolithic firmware
+            // 5         7       NCP
+            // 6         8       Radio stack (softdevice)
+            const systemModuleTypes = [0, 2, 4, 5, 3, 7, 8];
+
+            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Radio Stack']; 
+
+            // Validity values:
+            // 0 (or omitted): valid
+            // 1 integrity check failed
+            // 2 dependency check failed
+
+        
+            moduleInfo.modules = [];
+        
+            while(protobuf.offset < data.byteLength) {
+                result = protobuf.decodeTag();
+        
+                // repeated Module modules = 1; // Firmware modules
+                if (result.field != 1 || result.wireType != 2) {
+                    return null;
+                }
+                
+                result = decodeModule(protobuf.offset + result.value);
+        
+            }
+
+            moduleInfo.moduletypeProtobufToName = function(moduleType) {
+                return moduleTypeNames[moduleType];
+            }
+
+            moduleInfo.moduleTypeProtobufToSystem = function(moduleType) {
+                return systemModuleTypes[moduleType];
+            };
+
+            moduleInfo.moduleTypeSystemToProtobuf = function(systemModuleType) {
+                for(let ii = 0; ii < systemModuleTypes.length; ii++) {
+                    if (systemModuleTypes[ii] == systemModuleType) {
+                        return ii;
+                    }
+                }
+                return 0;
+            };
+
+            moduleInfo.getByModuleTypeIndex = function(moduleType, index) {
+                // Pass 1: Exact match
+                let numModuleTypeMatches = 0;
+
+                for(const m of moduleInfo.modules) {
+                    if (m.moduleType == moduleType) {
+                        if (m.index == index) {
+                            return m;
+                        }
+                        numModuleTypeMatches++;
+                    }
+                }    
+
+                // Pass 2: Only one instance of the module
+                if (numModuleTypeMatches == 1) {
+                    for(const m of moduleInfo.modules) {
+                        if (m.moduleType == moduleType) {
+                            return m;
+                        }
+                    }   
+                }
+
+                
+                // Pass 3: Wildcard index
+                for(const m of moduleInfo.modules) {
+                    if (m.moduleType == moduleType && typeof m.index == 'undefined') {
+                        return m;
+                    }
+                }    
+                // Not found
+                return null;
+            };
+
+            moduleInfo.getModuleNcp = function() {
+                return moduleInfo.getByModuleTypeIndex(5);
+            };
+
+        
+            /*
+            tag       := (field << 3) BIT_OR wire_type, encoded as varint
+            value     := (varint|zigzag) for wire_type==0 |
+        
+            message GetModuleInfoReply {
+            message Dependency {
+                FirmwareModuleType type = 1; // Module type
+                uint32 index = 2; // Module index
+                uint32 version = 3; // Module version
+            }
+            message Module {
+                FirmwareModuleType type = 1; // Module type
+                uint32 index = 2; // Module index
+                uint32 version = 3; // Module version
+                uint32 size = 4; // Module size
+                uint32 validity = 5; // Validity flags (see FirmwareModuleValidityFlag)
+                repeated Dependency dependencies = 6; // Module dependencies
+            }
+            repeated Module modules = 1; // Firmware modules
+            }
+            // See also: https://developers.google.com/protocol-buffers/docs/encoding
+            */
+        
+            return moduleInfo;
+        }
+        
+        const getModuleInfoCtrlRequest = async function() {
+            const res = await usbDevice.sendControlRequest(90); // CTRL_REQUEST_GET_MODULE_INFO
+
+            const moduleInfo = decodeModuleInfoProtobuf(res.data);
+            
+            return moduleInfo;
+        };
+
+        const hideDeviceFirmwareInfo = function() {
+            $('.deviceFirmwareInfo').hide();
+
+            const tableBodyElem = $('.deviceFirmwareInfoTable > tbody');
+            $(tableBodyElem).html('');
+        };
+
+        const showDeviceFirmwareInfo = function(moduleInfo) {
+            $('.deviceFirmwareInfo').show();
+
+            const tableBodyElem = $('.deviceFirmwareInfoTable > tbody');
+            $(tableBodyElem).html('');
+
+            const formatModuleIndex = function(obj) {
+                if (obj.index) {
+                    return moduleInfo.moduletypeProtobufToName(obj.moduleType) + ' ' + obj.index;
+                }
+                else {
+                    return moduleInfo.moduletypeProtobufToName(obj.moduleType);
+                }
+            }
+
+            const formatVersion = function(obj) {
+                let text = '';
+                if (obj.moduleType == 2) {
+                    const semVer = apiHelper.systemVersionToSemVer(obj.version);
+                    if (semVer) {
+                        text = semVer + ' (' + obj.version + ')';
+                    }
+                    else {
+                        text = obj.version;                        
+                    }
+                }
+                else {
+                    text = obj.version;
+                }             
+                return text;   
+            }
+
+            for(const m of moduleInfo.modules) {
+                const rowElem = document.createElement('tr');
+
+                let cellElem;
+                
+                // Module
+                cellElem = document.createElement('td');
+                $(cellElem).text(formatModuleIndex(m));
+                $(rowElem).append(cellElem);
+
+                // Valid
+                cellElem = document.createElement('td');
+                if (!m.validity) {
+                    $(cellElem).html('\u2705'); // Green Check
+                }
+                else {
+                    $(cellElem).html('\u274C'); // Red X
+                }                
+                $(rowElem).append(cellElem);
+
+                // Version
+                cellElem = document.createElement('td');
+                $(cellElem).text(formatVersion(m));
+                $(rowElem).append(cellElem);
+
+                // Dependencies
+                cellElem = document.createElement('td');
+                let deps = [];
+                for(const d of m.dependencies) {
+                    deps.push(formatModuleIndex(d) + ' ' + formatVersion(d));
+                }
+                $(cellElem).text(deps.join(', '));
+                $(rowElem).append(cellElem);
+
+                $(tableBodyElem).append(rowElem);
+            }
+
+
+        }
 
         /*
 
@@ -491,16 +1118,21 @@ $(document).ready(function() {
 
                 $(thisElem).find('.setupStepCheckDeviceStart').hide();
 
-                if (usbDevice.platformId == 26) {
-                    $(thisElem).find('.setupStepCheckDeviceTracker').show();
-                    return;
-                }
-                else
                 if (!deviceInfo.platformVersionInfo) {
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
     
+                if (!usbDevice.isInDfuMode) {
+                    // Attempt to get the module info on the device using control requests if not already in DFU mode.
+                    // When in DFU already, just flash full Device OS and binaries to avoid leaving DFU.
+
+                    // Control may fail on older Device OS, but that's OK, we'll just flash everything as well.
+                    deviceModuleInfo = await getModuleInfoCtrlRequest();
+
+                    showDeviceFirmwareInfo(deviceModuleInfo);
+                }
+
                 if (usbDevice.isCellularDevice) {                    
                     deviceInfo.cellular = true;
 
@@ -537,6 +1169,15 @@ $(document).ready(function() {
                     }
                 }
 
+                if (hasUserFirmwareBackup()) {
+                    $('.restoreDeviceId').text(deviceInfo.deviceId);
+                    $('.restoreFirmwareDiv').show();
+
+                    $('.setupRestoreDeviceButton').on('click', function() {
+                        $('#uploadUserBinary').trigger('click');
+                    });
+                }
+
                 confirmFlash();
             }
             catch(e) {
@@ -544,7 +1185,8 @@ $(document).ready(function() {
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
                 
-                setSetupStep('setupStepManualDfu');
+                // This is not the right step!
+                // setSetupStep('setupStepManualDfu');
             }
         };
 
@@ -631,7 +1273,6 @@ $(document).ready(function() {
                     }
 
                     if (respObj.done) {
-                        console.log('done!', respObj);
                         $(thisElem).find('.towerScanStepsScanning > td > img').attr('src', doneUrl);
                         break;
                     }
@@ -652,6 +1293,138 @@ $(document).ready(function() {
 
         };
 
+        const runDeviceLookup = async function() {
+            const deviceLookupOutputElem = $(thisElem).find('.apiHelperDeviceLookupOutput');
+            $(deviceLookupOutputElem).show();
+
+            $('.apiHelperDeviceLookupResult').text('');
+            $('.apiHelperDeviceLookupProduct').hide();
+            $('.apiHelperDeviceLookupOrg').hide();
+            
+            deviceLookup = apiHelper.deviceLookup({
+                deviceId: deviceInfo.deviceId,
+                deviceLookupElem: deviceLookupOutputElem                
+            });
+
+            await deviceLookup.run();
+
+        };
+
+        const logEvents = function(eventOptions) {
+            const locationEvent = function(eventName, eventJson) {
+                if (!eventJson.loc) {
+                    return;
+                }
+
+                if (!gnssInfo.locationTableInitialized) {
+                    $('.locationInfo').show();
+
+                    for(let f of gnssInfo.fields) {
+                        if (!f.locationTable) {
+                            continue;
+                        }
+                        const rowElem = document.createElement('tr');
+
+                        let tdElem = document.createElement('td');
+                        $(tdElem).text(f.title);
+                        $(rowElem).append(tdElem);
+
+                        tdElem = f.locationTableElem = document.createElement('td');
+                        $(rowElem).append(tdElem);
+
+                        tdElem = f.locationFusionTableElem = document.createElement('td');
+                        $(rowElem).append(tdElem);
+
+                        $('.locationInfoTable > tbody').append(rowElem);
+                    }
+
+
+                    gnssInfo.locationTableInitialized = true;
+                }
+
+                for(let f of gnssInfo.fields) {
+                    if (!f.locationTable) {
+                        continue;
+                    }
+                    const elem = (eventName == 'loc') ? f.locationTableElem : f.locationFusionTableElem;
+
+                    let data = eventJson.loc[f.locKey];
+
+                    if (f.format == 'check') {
+                        if (parseInt(data)) {
+                            $(elem).html('&check;');
+                        } 
+                        else {
+                            $(elem).text('');
+                        }
+                    }
+                    else {
+                        if (!data) {
+                            data = '';
+                        }
+                        $(elem).text(data);                        
+                    }
+                }
+            }
+
+            const addRow = function(event) {
+                const tableBodyElem = $('.cloudEventsTable > tbody');
+
+                const rowElem = document.createElement('tr');
+
+                let cellElem = document.createElement('td');
+                $(cellElem).text(event.name)
+                $(rowElem).append(cellElem);
+
+                cellElem = document.createElement('td');
+                if (event.data) {
+                    $(cellElem).text(event.data)
+                }
+                $(rowElem).append(cellElem);
+
+                const time = event.published_at.replace('T', ' ');
+                cellElem = document.createElement('td');
+                $(cellElem).text(time)
+                $(rowElem).append(cellElem);
+
+                $(tableBodyElem).append(rowElem);
+
+                if (event.name == 'loc' || event.name == 'loc-enhanced') {
+                    try {
+                        const eventJson = JSON.parse(event.data);
+                        
+                        locationEvent(event.name, eventJson);
+                    }
+                    catch(e) {
+
+                    }
+                }
+            };
+
+            const handleStream = function(stream) {
+                stream.on('event', function(event) {
+                    if (event.coreid == eventOptions.deviceId) {
+                        try {
+                            addRow(event);
+                        }
+                        catch(e) {
+                            console.log('exception in event', e);
+                        }
+                    }
+                });            
+            };
+
+            $('.cloudEvents').show();
+
+            //
+            if (eventOptions.productId) {
+                apiHelper.particle.getEventStream({ product: eventOptions.productId, auth: apiHelper.auth.access_token }).then(handleStream);
+            }
+            else {
+                apiHelper.particle.getEventStream({ deviceId: eventOptions.deviceId, auth: apiHelper.auth.access_token }).then(handleStream);    
+            }
+        };
+
         const checkSimAndClaiming  = async function() {
             setSetupStep('setupStepCheckSimAndClaiming');
 
@@ -664,17 +1437,7 @@ $(document).ready(function() {
 
             showStep('setupStepCheckSimAndClaimingOwnership');
 
-            const deviceLookupOutputElem = $(thisElem).find('.apiHelperDeviceLookupOutput');
-            $(deviceLookupOutputElem).show();
-
-            let deviceLookup = apiHelper.deviceLookup({
-                deviceId: deviceInfo.deviceId,
-                deviceLookupElem: deviceLookupOutputElem                
-            });
-
-            await deviceLookup.run();
-
-            console.log('deviceLookup', deviceLookup);
+            await runDeviceLookup();
 
             // TODO: Check service agreements to make sure account state == 'active'
 
@@ -690,9 +1453,15 @@ $(document).ready(function() {
                 });
 
             }
-            else if (deviceLookup.deviceMine) {
 
+            if (deviceLookup.deviceMine || deviceLookup.deviceProductId) {
+                let eventOptions = {
+                    deviceId: deviceInfo.deviceId,
+                    productId: deviceLookup.deviceProductId,
+                };
+                logEvents(eventOptions);                
             }
+
             // deviceLookup.deviceMine
 
             // deviceLookup.deviceInMyProduct, .deviceProductId, .deviceProductName
@@ -782,23 +1551,14 @@ $(document).ready(function() {
                 }, 1000);
             };
 
-            const nextStep = async function() {
-                reqObj = {
-                    op: 'connect',
-                };
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-
-                waitDeviceOnline();
-            };
-
-            $(thisElem).find('.continueWithoutActivating').on('click', nextStep);
-
+            let done = false;
+            $(thisElem).find('.continueWithoutActivating').on('click', function() {
+                done = true;
+            });
             
-            while(true) {
+            while(!done) {
                 try {
                     if (!deviceInfo.iccid) {
-
-                        console.log('getting cellularInfo');
 
                         let reqObj = {
                             op: 'cellularInfo'
@@ -858,7 +1618,7 @@ $(document).ready(function() {
 
                         // 
                         if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
-                            console.log('no tower scan available');
+                            // console.log('no tower scan available');
                         }
                         else {
                             $(thisElem).find('.towerScanOption').show();
@@ -948,7 +1708,6 @@ $(document).ready(function() {
 
                         localStorage.removeItem(storageActivateSim);
 
-                        nextStep();
                         break;
                     }                            
     
@@ -1019,6 +1778,14 @@ $(document).ready(function() {
             if (clockTimer) {
                 clearInterval(clockTimer);
             }
+
+            reqObj = {
+                op: 'connect',
+            };
+            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+            waitDeviceOnline();
+
             
         };
 
@@ -1038,7 +1805,6 @@ $(document).ready(function() {
             showStep('setupStepReconnectingWaiting');
 
             for(let tries = 0; tries < 4 && !nativeUsbDevice; tries++) {
- 
                 await new Promise(function(resolve) {
                     setTimeout(function() {
                         resolve();
@@ -1062,7 +1828,6 @@ $(document).ready(function() {
                 }
 
             }
-
 
             if (!nativeUsbDevice) {
                 showStep('setupStepReconnectingNeedReauthorize');
@@ -1090,7 +1855,8 @@ $(document).ready(function() {
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
             
-            // In troubleshooting mode, we do try to autoconnect
+            // In troubleshooting mode, disable autoconnect and connect manually instead
+            // as we want to check the SIM first
             reqObj = {
                 op: 'noAutoConnect',
             };
@@ -1099,7 +1865,7 @@ $(document).ready(function() {
         };
 
 
-        const flashDevice = async function() {
+        const flashDeviceInternal = async function(flashDeviceOptions) {
             try {
                 setSetupStep('setupStepFlashDevice');
 
@@ -1115,9 +1881,13 @@ $(document).ready(function() {
                 showStep('setupStepFlashDeviceDownload');
 
                 // Flash device                
-
-                const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
-                userFirmwareBinary = await resp.arrayBuffer();
+                if (restoreFirmwareBinary) {
+                    userFirmwareBinary = restoreFirmwareBinary;
+                }
+                else {
+                    const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
+                    userFirmwareBinary = await resp.arrayBuffer();    
+                }
 
                 let dfuPartTableInfo = {};
 
@@ -1128,6 +1898,7 @@ $(document).ready(function() {
                     setStatus,
                     version: deviceInfo.targetVersion, 
                     setupBit: 'done',
+                    deviceModuleInfo, // Maybe be undefined
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -1166,9 +1937,14 @@ $(document).ready(function() {
                         // obj.func == 'erase' else programming
                         // obj.partName == system-part1, system-part2, system-part3, bootloader, softdevice, tinker
                         // (obj.partName is tinker even for a custom binary)
-                        
                         if (!dfuPartTableInfo[obj.partName]) {
                             return;
+                        }
+                        if (obj.skipSameVersion) {
+                            $(dfuPartTableInfo[obj.partName].imgElem).css('visibility', 'visible');
+                            $(dfuPartTableInfo[obj.partName].progressElem).hide();
+                            $(dfuPartTableInfo[obj.partName].noteElem).text('Correct version already on device');
+                            return;                            
                         }
 
                         if (obj.func != 'erase') {
@@ -1213,6 +1989,9 @@ $(document).ready(function() {
                             $(colElem).append(progressElem);
                             $(rowElem).append(colElem);
 
+                            const noteElem = document.createElement('td');
+                            $(rowElem).append(noteElem);
+
                             $(flashDeviceStepsElem).append(rowElem);
 
 
@@ -1220,20 +1999,23 @@ $(document).ready(function() {
                                 dfuPart,
                                 progressElem,
                                 rowElem,
-                                imgElem
+                                imgElem,
+                                noteElem
                             };
                         }
                     }
                 };
 
             
-                if (troubleshootingMode) {
+                if (doctorMode && !restoreFirmwareBinary) {
                     options.userBackup = true;
                 }
 
                 const restoreResult = await dfuDeviceRestore(usbDevice, options);
             
                 if (restoreResult.ok) {
+                    // Remember that we have backed up this device
+                    addUserFirmwareBackup();
                 }
                 else {
                     console.log('dfu error', restoreResult);
@@ -1253,21 +2035,41 @@ $(document).ready(function() {
 
             await reconnectToDevice();
 
-            if (troubleshootingMode) {
-                checkSimAndClaiming();
-            }
-            else
-            if (deviceInfo.wifi) {
+            // Attempt to fetch the device module info for the device
+            deviceModuleInfo = await getModuleInfoCtrlRequest();
 
-                configureWiFi();                              
-            }
-            else {
-                activateSim();
-            }
         };
 
-        const continueDfuElem = $(thisElem).find('.continueDfu');
-        $(continueDfuElem).on('click', flashDevice);
+        const flashDevice = async function(flashDeviceOptions) {
+            // TODO: Possibly flash P2 prebootloader-part1 here on upgrade
+            
+            // Flash Device OS
+            await flashDeviceInternal(flashDeviceOptions);
+            
+            if (deviceInfo.platformVersionInfo.isTracker) {
+                // Is a tracker, could need NCP
+                const m = deviceModuleInfo.getModuleNcp();
+                if (m) {
+                    // TODO: Get this from the NCP binary
+                    if (m.version < 7) {
+
+                        flashDeviceOptions.ncpUpdate = true;
+                        await flashDeviceInternal(flashDeviceOptions);
+                    }
+                }
+            }
+
+            // Update firmware version table
+            // deviceModuleInfo is updated in flashDeviceInternal
+            showDeviceFirmwareInfo(deviceModuleInfo);
+
+        };
+
+        // setupStepManualDfu which has the continueDfu button is not currently used.
+        // const continueDfuElem = $(thisElem).find('.continueDfu');
+        // $(continueDfuElem).on('click', function() {
+        //    // Do something here!
+        //});
 
         const addToProduct = async function() {
             setSetupStep('setupStepAddToProduct');
@@ -1291,9 +2093,7 @@ $(document).ready(function() {
                     auth: apiHelper.auth.access_token 
                 });                
             }
-            
-            await flashDevice();
-
+        
         };
 
 
@@ -1373,12 +2173,28 @@ $(document).ready(function() {
                     setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
                 }
 
+                hideDeviceFirmwareInfo();
+
                 if (setupOptions.addToProduct) {
                     await addToProduct();
                 }
-                else {
-                    await flashDevice();
+
+                // This is used for both setup device and device doctor
+                let flashDeviceOptions = {};
+
+                await flashDevice(flashDeviceOptions);
+
+                if (doctorMode) {
+                    checkSimAndClaiming();
                 }
+                else
+                if (deviceInfo.wifi) {
+                    configureWiFi();                              
+                }
+                else {
+                    activateSim();
+                }
+    
             });
 
         }
@@ -1627,7 +2443,18 @@ $(document).ready(function() {
     
                 $(userInfoElem).show();
 
-                if (setupOptions.noClaim || troubleshootingMode) {
+                
+
+                if (doctorMode) {
+                    if (deviceLookup && !deviceLookup.deviceInfo) {
+                        setupOptions.noClaim = !$('.doctorClaimDevice').prop('checked');
+                    }
+                    else {
+                        setupOptions.noClaim = true;    
+                    }
+                }
+                
+                if (setupOptions.noClaim) {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
@@ -1662,13 +2489,7 @@ $(document).ready(function() {
                 cloudConnectedResolve = null;
                 checkStatus = null;
 
-                if (troubleshootingMode) {                    
-                    // TODO: Check if device is claimed to my account and 
-                    setSetupStep('setupStepTroubleshootingSuccess');
-                    return;
-                }
-
-                if (!setupOptions.noClaim && !troubleshootingMode) {
+                if (!setupOptions.noClaim) {
                     // Claim device
                     const result = await new Promise(function(resolve, reject) {      
                         const requestObj = {
@@ -1700,7 +2521,10 @@ $(document).ready(function() {
 
                     if (result.ok) {
                         $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
-
+                        
+                        // Re-run device lookup to update information
+                        runDeviceLookup();
+            
                         // Wait a second so the green check shows up
                         await new Promise(function(resolve) {
                             setTimeout(function() {
@@ -1711,9 +2535,17 @@ $(document).ready(function() {
                     else {
                         // TODO: Handle error. What happens if device is already claimed or 
                         // in a product? This might cause an exception, not an error
+                        console.log('error claiming device', result);
                     }
                 }
 
+                if (doctorMode) {                    
+                    // TODO: Check if device is claimed to my account and 
+                    setSetupStep('setupStepTroubleshootingSuccess');
+                    return;
+                }
+
+                // TODO: Possibly allow naming in troubleshooting mode if name is not set
                 nameDevice();
     
             }
@@ -1809,6 +2641,24 @@ $(document).ready(function() {
 
             
         };
+
+        $('#uploadUserBinary').on('change', function() {
+            if (this.files.length == 1) {
+                const file = this.files[0];
+                
+                let fileReader = new FileReader();
+                fileReader.onload = async function() {
+                    restoreFirmwareBinary = fileReader.result;
+                    await flashDevice({
+                        restoreFirmwareBinary
+                    });
+                    setSetupStep('setupStepRestoreDone');
+                };
+                fileReader.readAsArrayBuffer(file);
+            
+            }
+        });
+
 
         $(thisElem).find('.setColorButton').on('click', function() {
             const color =  $(thisElem).find('.colorSelector').val();

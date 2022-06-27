@@ -77,6 +77,26 @@ async function generateSystemVersionInfo(options, done) {
             }
         }
 
+        // Manually add these private versions
+        // 1007	3210	3.2.1-p2.1	P2
+        // 1007	3211	3.2.1-p2.2	P2
+        // 1008	3212	3.2.1-p2.3	P2
+        versionInfo.versions.push({
+            boot: 1007,
+            sys: 3210,
+            semVer: '3.2.1-p2.1'
+        });
+        versionInfo.versions.push({
+            boot: 1007,
+            sys: 3211,
+            semVer: '3.2.1-p2.2'
+        });
+        versionInfo.versions.push({
+            boot: 1008,
+            sys: 3212,
+            semVer: '3.2.1-p2.3'
+        });
+
         // Update JSON data on disk
         // console.log('versionInfo', versionInfo);
         const versionInfoStr = JSON.stringify(versionInfo, null, 2);

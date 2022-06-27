@@ -617,6 +617,12 @@ $(document).ready(function() {
                     let foundInProduct = false;
     
                     for(const product of productsData.products) {
+                        if (deviceLookup.deviceMine && deviceLookup.isProductDevice) {
+                            if (product.id != deviceLookup.deviceInfo.product_id) {
+                                // Skip this product
+                                continue;
+                            }
+                        }
 
                         try {
                             const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, product: product.id, auth: apiHelper.auth.access_token });
@@ -667,6 +673,13 @@ $(document).ready(function() {
                         $(options.deviceLookupElem).find('.apiHelperDeviceLookupOrg').show();
 
                         for(const product of orgProducts.products) {
+                            if (deviceLookup.deviceMine && deviceLookup.isProductDevice) {
+                                if (product.id != deviceLookup.deviceInfo.product_id) {
+                                    // Skip this product
+                                    continue;
+                                }
+                            }
+    
                             let foundInOrgProduct = false;
     
                             try {
@@ -692,6 +705,10 @@ $(document).ready(function() {
                             if (!foundInOrgProduct) {
                                 currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
                             }
+                        }
+
+                        if (foundInOrgProduct) {
+                            break;
                         }
                     }
                     if (orgsData.organizations.length == 0) {

@@ -23,6 +23,12 @@
       ]
     }, 
     {
+      "title": "Device Doctor",
+      "dir": "doctor",
+      "href": "/tools/doctor/",
+      "hidden": true
+    },
+    {
       "dir": "developer-tools",
       "isSection": true
     },

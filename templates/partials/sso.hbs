@@ -1,9 +1,12 @@
-<div class="apiHelper apiHelperSSO">
+<div class="apiHelper apiHelperSSO" data-select-org="{{selectOrg}}">
     <div class="apiHelperBox">
         <div class="apiHelperLoggedIn apiHelperSmallText apiHelperManualOption" style="display:none">
             <p>Logged into Particle as <span class="apiHelperUser"></span> &nbsp;
                 <button class="apiHelperLogoutButton">Logout</button>
             </p>
+            <p style="display:none" class="apiHelperSsoSelectOrg">
+                Organization: <select class="apiHelperSelect"></select>
+            </p>            
         </div>
         <div class="apiHelperCouldSSO apiHelperSmallText apiHelperManualOption" style="display:none">
             <p>Log in to your Particle account to interact with your devices</p>
