@@ -61,6 +61,9 @@ $(document).ready(function () {
                     result = Object.assign({}, tempPlatformObj);
                     result.versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
                     result.isTracker = (result.id == 26);
+                    result.isRTL872x = (result.mcu.startsWith('RTL872'));
+                    result.isnRF52 = (result.mcu.startsWith('nRF52'));
+                    result.isSTM32F2xx = (result.mcu.startsWith('STM32F2'));
                     break;
                 }
             }
@@ -92,8 +95,9 @@ $(document).ready(function () {
         const setupBitSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSetupBit');
 
         // Update NCP
-        const updateNcpTrElem = $(thisPartial).find('.apiHelperUsbRestoreUpdateNcpTr');
+        const trackerTrElem = $(thisPartial).find('.apiHelperUsbRestoreTrackerTr');
         const updateNcpCheckboxElem = $(thisPartial).find('.updateNcpCheckbox');
+        const shippingModeCheckboxElem = $(thisPartial).find('.shippingModeCheckbox');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -118,7 +122,7 @@ $(document).ready(function () {
             $(versionElem).prop('disabled', true);
             $(restoreElem).prop('disabled', true);
             $(setupBitTrElem).hide();
-            $(updateNcpTrElem).hide();
+            $(trackerTrElem).hide();
             $(tinkerOptionElem).text('Tinker (Factory Default)');
         };
 
@@ -244,11 +248,6 @@ $(document).ready(function () {
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
-                if ((nativeUsbDevice.productId & 0xff) == 32) {
-                    setStatus('Device restore by USB DFU is not currently supported on the P2');
-                    return;
-                }
-
                 usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
         
                 // Find available versions for this device
@@ -259,8 +258,6 @@ $(document).ready(function () {
                     usbDevice = null;
                     return;
                 }
-
-                console.log('platformVersionInfo', platformVersionInfo);
     
                 $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);
                 $(selectElem).text('Select a Different Device');
@@ -278,7 +275,7 @@ $(document).ready(function () {
                     $(setupBitTrElem).show();
                 }
                 if (platformVersionInfo.isTracker) {
-                    $(updateNcpTrElem).show();
+                    $(trackerTrElem).show();
 
                     $(tinkerOptionElem).text('Tracker Edge (Factory Default)');
                 }
@@ -349,21 +346,17 @@ $(document).ready(function () {
     
             let restoreResult = await dfuDeviceRestore(usbDevice, options);
 
-            if (platformVersionInfo.isTracker && $(updateNcpCheckboxElem).prop('checked')) {
-                // Update Tracker NCP
-                let ncpOptions = Object.assign({}, baseOptions);
-                ncpOptions.ncpUpdate = true;
-
+            const waitForUpdates = async function(isLongWait) {
                 nativeUsbDevice = null;
 
                 setStatus('Waiting for updates to be applied...');
                 await new Promise(function(resolve, reject) {
                     setTimeout(function() {
                         resolve();
-                    }, 10000);
+                    }, (isLongWait ? 45000 : 10000));
                 });        
 
-                for(let tries = 1; tries <= 8; tries++) {
+                for(let tries = 1; tries <= (isLongWait ? 16 : 8); tries++) {
                     setStatus('Attempting to reconnect to the device...');
                     const nativeUsbDevices = await navigator.usb.getDevices()
                 
@@ -381,24 +374,67 @@ $(document).ready(function () {
                         }, 1000);
                     });        
                 }    
-                
-                if (nativeUsbDevice) {
-                    setStatus('Updating NCP...');
+            }
 
-                    usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+            if (platformVersionInfo.isTracker) {
+                if ($(updateNcpCheckboxElem).prop('checked') || $(shippingModeCheckboxElem).prop('checked')) {
+                    await waitForUpdates(false);
 
-                    restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
-                }
-                else {
-                    setStatus('Failed to reconnect to device to update NCP');
+                    if ($(updateNcpCheckboxElem).prop('checked')) {
+                        // Update Tracker NCP
+                        let ncpOptions = Object.assign({}, baseOptions);
+                        ncpOptions.ncpUpdate = true;
+        
+                        if (nativeUsbDevice) {
+                            setStatus('Updating NCP...');
+        
+                            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+        
+                            restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
+                        }
+                        else {
+                            setStatus('Failed to reconnect to device to update NCP');
+                        }
+                        await waitForUpdates(true);
+                    }
+        
+        
+                    if ($(shippingModeCheckboxElem).prop('checked')) {
+
+                        if (nativeUsbDevice) {
+                            setStatus('Entering shipping mode...');
+        
+                            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+        
+                            const reqObj = {
+                                cmd: 'enter_shipping'
+                            };
+                            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+            
+            
+                        }
+                        else {
+                            setStatus('Failed to reconnect to device to enter shipping mode');
+                        }
+                    }                
                 }
             }
 
+
+
+
             resetRestorePanel();
 
-            setTimeout(function() {
-                setStatus('');
-            }, 2000);
+            // 
+            if (platformVersionInfo.isRTL872x) {
+                setStatus('If the P2 device is still blinking yellow, press the reset button on the device');
+            }
+            else {
+                setTimeout(function() {
+                    setStatus('');
+                }, 2000);    
+            }                        
+            
 
             if (options.downloadUrl) {
                 if ($(modeSelectElem).val() == 'url') {

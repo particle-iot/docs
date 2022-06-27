@@ -537,6 +537,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | Yes | Yes |
 | UART serial | TX. Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 17 (RX)
 |   | E Series | E404X |
@@ -549,6 +550,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | Yes | Yes |
 | UART serial | RX. Use Serial1 object. | RX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | Yes |
 #### Module Pin 18 (GND)
 | | Unchanged between E Series and E404X |
@@ -567,6 +569,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 20 (DAC / A6)
 |   | E Series | E404X |
@@ -579,6 +582,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogRead | Yes | Yes |
 | Supports analogWrite (DAC) | Yes | No |
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 #### Module Pin 21 (A5)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
@@ -591,6 +595,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | Yes. D2 and A5 share the same PWM channel and only one frequency can be set for both. | Yes |
 | SPI interface | MOSI. Use SPI object. | MOSI. Use SPI object. |
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 22 (A4)
 |   | E Series | E404X |
@@ -604,6 +609,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | Yes |
 | SPI interface | MISO. Use SPI object. | MISO. Use SPI object. |
 | Supports attachInterrupt | Yes. D1 and A4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 23 (A3)
 |   | E Series | E404X |
@@ -618,6 +624,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | No | Yes |
 | SPI interface | SCK. Use SPI object. | SCK. Use SPI object. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 #### Module Pin 24 (A2)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
@@ -630,6 +637,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | No | Yes |
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 25 (A1)
 |   | E Series | E404X |
@@ -640,6 +648,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 26 (A0)
 |   | E Series | E404X |
@@ -650,6 +659,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 27 (GND)
 | | Unchanged between E Series and E404X |
@@ -665,6 +675,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports digitalWrite | Yes | n/a |
 | Supports analogRead | Yes | n/a |
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | n/a |
+| Internal pull-up or pull-down resistance | 40K | n/a |
 | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 29 (B4 / NC)
 |   | E Series | E404X |
@@ -675,6 +686,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports digitalWrite | Yes | n/a |
 | Supports analogRead | Yes | n/a |
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | n/a |
+| Internal pull-up or pull-down resistance | 40K | n/a |
 | Input is 5V Tolerant | Yes | n/a |
 #### Module Pin 30 (B3)
 |   | E Series | E404X |
@@ -687,6 +699,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogWrite (PWM) | Yes | Yes |
 | Supports tone | Yes | Yes |
 | Supports attachInterrupt | Yes. B3 and B5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 31 (B2)
 |   | E Series | E404X |
@@ -699,6 +712,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogWrite (PWM) | Yes | Timer is shared with RGB LED; duty cycle can be set but not frequency. |
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 32 (B1)
 |   | E Series | E404X |
@@ -710,6 +724,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 33 (B0)
 |   | E Series | E404X |
@@ -721,6 +736,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports analogWrite (PWM) | Yes | No |
 | Supports tone | Yes | No |
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 34 (GND)
 | | Unchanged between E Series and E404X |
@@ -735,6 +751,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports digitalRead | Yes | No |
 | Supports digitalWrite | Yes | No |
 | Supports attachInterrupt | No. Shared with BAT_INT_PC13 | No |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | n/a |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO |
@@ -746,6 +763,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports digitalRead | Yes | No |
 | Supports digitalWrite | Yes | No |
 | Supports attachInterrupt | Yes | No |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | n/a |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK |
@@ -759,6 +777,7 @@ No pin functions have been added to previously unused (NC) pins.
 | SPI interface | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. | SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however. |
 | Supports attachInterrupt | Yes | Yes. You can only have 8 active interrupt pins. |
 | I2S interface | I2S3_WS | n/a |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
 #### Module Pin 38 (D4 / SWO)
@@ -771,6 +790,7 @@ No pin functions have been added to previously unused (NC) pins.
 | SPI interface | SCK. Use SPI1 object. | n/a |
 | Supports attachInterrupt | Yes. D4 and A1 share the same interrupt handler. | No |
 | I2S interface | I2S3_SD | n/a |
+| Internal pull-up or pull-down resistance | 40K | n/a |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | SWD interface | n/a | SWO |
@@ -785,6 +805,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | Yes. D3 and A4 share the same PWM channel and only one frequency can be set for both. | n/a |
 | SPI interface | MISO. Use SPI1 object. | n/a |
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | n/a |
+| Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | n/a |
 | Input is 5V Tolerant | Yes | n/a |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 40 (D2)
@@ -800,6 +821,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN2_RX | n/a |
 | I2S interface | I2S3_SD | n/a |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 41 (D1)
 |   | E Series | E404X |
@@ -814,6 +836,7 @@ No pin functions have been added to previously unused (NC) pins.
 | I2C interface | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D1, A4, and B1 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN2_TX | n/a |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 42 (D0)
 |   | E Series | E404X |
@@ -827,6 +850,7 @@ No pin functions have been added to previously unused (NC) pins.
 | UART serial | n/a | RTS flow control (optional). Use Serial1 object. |
 | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 43 (GND)
 | | Unchanged between E Series and E404X |
@@ -845,6 +869,7 @@ No pin functions have been added to previously unused (NC) pins.
 | I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both! | n/a |
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN1_RX | n/a |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 45 (C4)
 |   | E Series | E404X |
@@ -858,6 +883,7 @@ No pin functions have been added to previously unused (NC) pins.
 | I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both! | n/a |
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN1_TX | n/a |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 46 (C3)
 |   | E Series | E404X |
@@ -869,6 +895,7 @@ No pin functions have been added to previously unused (NC) pins.
 | UART serial | TX. Use Serial4 object. | n/a |
 | SPI interface | SCK. Use SPI2 object. | SCK. Use SPI1 object. |
 | Supports attachInterrupt | Yes. C3 and TX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 47 (C2)
 |   | E Series | E404X |
@@ -880,6 +907,7 @@ No pin functions have been added to previously unused (NC) pins.
 | UART serial | RX. Use Serial4 object. | n/a |
 | SPI interface | MISO. Use SPI2 object. | MISO. Use SPI1 object. |
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 48 (C1)
 |   | E Series | E404X |
@@ -891,6 +919,7 @@ No pin functions have been added to previously unused (NC) pins.
 | UART serial | TX. Use Serial5 object. | n/a |
 | SPI interface | MOSI. Use SPI2 object. | MOSI. Use SPI1 object. |
 | Supports attachInterrupt | No | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 49 (C0)
 |   | E Series | E404X |
@@ -903,6 +932,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Supports tone | No | Yes |
 | UART serial | RX. Use Serial5 object. | n/a |
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
+| Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 #### Module Pin 50 (NC)
 | | Unchanged between E Series and E404X |
