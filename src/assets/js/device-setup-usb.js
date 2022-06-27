@@ -893,6 +893,8 @@ $(document).ready(function() {
             // 6         8       Radio stack (softdevice)
             const systemModuleTypes = [0, 2, 4, 5, 3, 7, 8];
 
+            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Radio Stack']; 
+
             // Validity values:
             // 0 (or omitted): valid
             // 1 integrity check failed
@@ -911,6 +913,10 @@ $(document).ready(function() {
                 
                 result = decodeModule(protobuf.offset + result.value);
         
+            }
+
+            moduleInfo.moduletypeProtobufToName = function(moduleType) {
+                return moduleTypeNames[moduleType];
             }
 
             moduleInfo.moduleTypeProtobufToSystem = function(moduleType) {
@@ -998,6 +1004,12 @@ $(document).ready(function() {
             return moduleInfo;
         };
 
+        const hideDeviceFirmwareInfo = function() {
+            $('.deviceFirmwareInfo').hide();
+
+            const tableBodyElem = $('.deviceFirmwareInfoTable > tbody');
+            $(tableBodyElem).html('');
+        };
 
         const showDeviceFirmwareInfo = function(moduleInfo) {
             $('.deviceFirmwareInfo').show();
@@ -1005,23 +1017,64 @@ $(document).ready(function() {
             const tableBodyElem = $('.deviceFirmwareInfoTable > tbody');
             $(tableBodyElem).html('');
 
+            const formatModuleIndex = function(obj) {
+                if (obj.index) {
+                    return moduleInfo.moduletypeProtobufToName(obj.moduleType) + ' ' + obj.index;
+                }
+                else {
+                    return moduleInfo.moduletypeProtobufToName(obj.moduleType);
+                }
+            }
+
+            const formatVersion = function(obj) {
+                let text = '';
+                if (obj.moduleType == 2) {
+                    const semVer = apiHelper.systemVersionToSemVer(obj.version);
+                    if (semVer) {
+                        text = semVer + ' (' + obj.version + ')';
+                    }
+                    else {
+                        text = obj.version;                        
+                    }
+                }
+                else {
+                    text = obj.version;
+                }             
+                return text;   
+            }
+
             for(const m of moduleInfo.modules) {
                 const rowElem = document.createElement('tr');
 
                 let cellElem;
                 
                 // Module
-                cellElem = document.createElement('tr');
+                cellElem = document.createElement('td');
+                $(cellElem).text(formatModuleIndex(m));
                 $(rowElem).append(cellElem);
 
-                // 
-                cellElem = document.createElement('tr');
+                // Valid
+                cellElem = document.createElement('td');
+                if (!m.validity) {
+                    $(cellElem).html('\u2705'); // Green Check
+                }
+                else {
+                    $(cellElem).html('\u274C'); // Red X
+                }                
                 $(rowElem).append(cellElem);
 
-                cellElem = document.createElement('tr');
+                // Version
+                cellElem = document.createElement('td');
+                $(cellElem).text(formatVersion(m));
                 $(rowElem).append(cellElem);
 
-                cellElem = document.createElement('tr');
+                // Dependencies
+                cellElem = document.createElement('td');
+                let deps = [];
+                for(const d of m.dependencies) {
+                    deps.push(formatModuleIndex(d) + ' ' + formatVersion(d));
+                }
+                $(cellElem).text(deps.join(', '));
                 $(rowElem).append(cellElem);
 
                 $(tableBodyElem).append(rowElem);
@@ -1076,6 +1129,8 @@ $(document).ready(function() {
 
                     // Control may fail on older Device OS, but that's OK, we'll just flash everything as well.
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
+
+                    showDeviceFirmwareInfo(deviceModuleInfo);
                 }
 
                 if (usbDevice.isCellularDevice) {                    
@@ -1889,6 +1944,7 @@ $(document).ready(function() {
                         if (obj.skipSameVersion) {
                             $(dfuPartTableInfo[obj.partName].imgElem).css('visibility', 'visible');
                             $(dfuPartTableInfo[obj.partName].progressElem).hide();
+                            $(dfuPartTableInfo[obj.partName].noteElem).text('Correct version already on device');
                             return;                            
                         }
 
@@ -1934,6 +1990,9 @@ $(document).ready(function() {
                             $(colElem).append(progressElem);
                             $(rowElem).append(colElem);
 
+                            const noteElem = document.createElement('td');
+                            $(rowElem).append(noteElem);
+
                             $(flashDeviceStepsElem).append(rowElem);
 
 
@@ -1941,7 +2000,8 @@ $(document).ready(function() {
                                 dfuPart,
                                 progressElem,
                                 rowElem,
-                                imgElem
+                                imgElem,
+                                noteElem
                             };
                         }
                     }
@@ -1993,11 +2053,16 @@ $(document).ready(function() {
                 if (m) {
                     // TODO: Get this from the NCP binary
                     if (m.version < 7) {
+
                         flashDeviceOptions.ncpUpdate = true;
                         await flashDeviceInternal(flashDeviceOptions);
                     }
                 }
             }
+            
+            // Update firmware version table
+            // deviceModuleInfo is updated in flashDeviceInternal
+            showDeviceFirmwareInfo(deviceModuleInfo);
 
         };
 
@@ -2108,6 +2173,8 @@ $(document).ready(function() {
                 if (showSimSelectionOption) {
                     setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
                 }
+
+                hideDeviceFirmwareInfo();
 
                 if (setupOptions.addToProduct) {
                     await addToProduct();
