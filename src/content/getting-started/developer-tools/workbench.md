@@ -304,7 +304,7 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 _Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
 
-For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](https://support.particle.io/hc/en-us/articles/360039741253/). As you'll see, this is way easier in Workbench! 
+For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp).
 
 - You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/reference/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
@@ -466,7 +466,7 @@ Some of the available settings are:
 
 - **Compile Defines**: Specify a list of preprocessor definitions to set while compiling your application (local compilation only).
 
-- **Custom Device OS Location**: Source Device OS from a custom location - see [FAQ](https://support.particle.io/hc/en-us/articles/360039251434/#working-with-a-custom-device-os-build).
+- **Custom Device OS Location**: Source Device OS from a custom location - see [FAQ](/getting-started/developer-tools/workbench-faq/#working-with-a-custom-device-os-build).
 
 ## Source Code Management
 
@@ -963,5 +963,5 @@ If you are making a brand new library from scratch, you may want to use **Partic
 
 ## Learn More
 
-Additional questions and answers are in the [FAQ](https://support.particle.io/hc/en-us/articles/360039251434/).
+Additional questions and answers are in the [FAQ](/getting-started/developer-tools/workbench-faq/).
 

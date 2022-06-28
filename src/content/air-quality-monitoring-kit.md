@@ -23,7 +23,6 @@ The Air Quality Kit includes a Particle Argon and three specialized sensors to m
 - [Quickstart with Air Quality Monitoring](/quickstart/aqmk-project/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io)
-- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)

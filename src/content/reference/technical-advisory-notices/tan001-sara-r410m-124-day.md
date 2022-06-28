@@ -29,7 +29,7 @@ The following Particle products with a manufacturing date before October 2019 ar
 
 The manufacturing date of a device can be identified by doing the following:
 
-* Locate the serial number of the device by navigating to its device page in the Console, by using the [CLI command](/tutorials/developer-tools/cli/) `particle identify`, by checking your device's original packaging, or by reading the value from the u-blox module itself (Borons only).
+* Locate the serial number of the device by navigating to its device page in the Console, by using the [CLI command](/getting-started/developer-tools/cli/) `particle identify`, by checking your device's original packaging, or by reading the value from the u-blox module itself (Borons only).
    * Example: E42TAB852123456
 * Characters 1-6 are for internal tracking, Character 7-9 identify the year and week of manufacturing.
    * This Electron in the example above was manufactured in 2018, week 52\. This device would be subject to the 124-day housekeeping issue.

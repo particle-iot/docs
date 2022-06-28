@@ -37,6 +37,6 @@ Log.error(const char *format, ...)
 
 SerialLogHandler may interact with`Serial.begin()`) negatively, so if you are using the general Serial class for generic debugging, it may be better to switch to the logHandler class instead.
 
-To collect logs, make sure you have the CLI ([link](/tutorials/developer-tools/cli/)) installed. Then open up your Terminal (Mac) or Command Line (Windows) and run the command `particle serial monitor --follow`, and **only** **then** connect a device with logging enabled via its USB connection. 
+To collect logs, make sure you have the CLI ([link](/getting-started/developer-tools/cli/)) installed. Then open up your Terminal (Mac) or Command Line (Windows) and run the command `particle serial monitor --follow`, and **only** **then** connect a device with logging enabled via its USB connection. 
 
 If you are collecting logs to bring to a Technical Support Engineer, it's strongly recommended that you annotate your firmware using log flags like the above - e.g. `Log.info("LOOP BEGINS--");` \- this will help someone unfamiliar with your firmware to quickly grasp its architecture.

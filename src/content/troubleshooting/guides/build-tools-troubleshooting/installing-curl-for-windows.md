@@ -6,7 +6,7 @@ columns: two
 
 # {{{title}}}
 
-The curl command, used in the [Particle cloud examples](/reference/api/) is generally built-in on the Mac and Linux, but not Windows. These instructions explain how to install it.
+The curl command, used in the [Particle cloud examples](/reference/cloud-apis/api/) is generally built-in on the Mac and Linux, but not Windows. These instructions explain how to install it.
 
 ## Installation
 

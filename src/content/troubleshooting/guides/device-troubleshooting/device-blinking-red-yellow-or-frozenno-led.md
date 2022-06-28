@@ -34,7 +34,7 @@ Your device is Blinking Red or Yellow, or Frozen Cyan, or has no Status LED at a
 
 For a number of reasons, sometimes Safe Mode does not work - it could be that the problem has to do the system files on the device, or it could be that the User Application prevents the device from entering Safe Mode altogether. Below is a magic pair of commands that the Support Team uses to resolve issues where this is the case.
 
-**Do** **:** Download and Install the [Particle CLI](/tutorials/developer-tools/cli/). Upon doing so, open your Terminal (Mac) or Command Line (Windows).
+**Do** **:** Download and Install the [Particle CLI](/getting-started/developer-tools/cli/). Upon doing so, open your Terminal (Mac) or Command Line (Windows).
 
 **Do:** Put your device in DFU Mode. A device in DFU (Device Firmware Update) Mode can be manually programmed by your computer. To put your device in DFU Mode, connect your device to your computer. Then, press both RESET and MODE buttons and hold them down together. Release the RESET button, and wait until the Status LED Blinks Yellow. Then release the MODE button. The device should continue to Blink Yellow.
 
@@ -73,8 +73,8 @@ If this does not work the first time, please give it one more shot. Sometimes, t
 
 Particle has implemented two browser-based tools that can help you restore your device to a stable, factory-like state. Please review the caveats listed as part of the documentation of each tool.
 
-* For simple error states, see the [device restore via USB tool](/device-restore-usb/). This will restore your device via a simple USB connection, but requires the device to be able to enter DFU Mode (see above) in order to perform its function.
-* For more complex error states, including states where a device has a missing bootloader, see the [device restore via JTAG tool](/device-restore-jtag/). This requires the use of a JTAG interface, e.g. the [Particle Debugger](/datasheets/accessories/debugger/). This tool also requires a device to be in DFU Mode, but it works via SWD (which is enabled in DFU Mode) - it may, however, work on devices without a status LED.
+* For simple error states, see the [device restore via USB tool](/tools/device-restore/device-restore-usb/). This will restore your device via a simple USB connection, but requires the device to be able to enter DFU Mode (see above) in order to perform its function.
+* For more complex error states, including states where a device has a missing bootloader, see the [device restore via JTAG tool](/tools/device-restore/device-restore-jtag/). This requires the use of a JTAG interface, e.g. the [Particle Debugger](/reference/datasheets/accessories/debugger/). This tool also requires a device to be in DFU Mode, but it works via SWD (which is enabled in DFU Mode) - it may, however, work on devices without a status LED.
 
 ## Manual DeviceOS Flash
 
@@ -90,7 +90,7 @@ If your device is completely unresponsive the the above, please see our article 
 
 If you are unable to resolve the issue via the above, please collect the following information before opening a Support Ticket:
 
-* Your [DeviceID](/support/particle-devices-faq/finding-device-id/) (if possible)
+* Your [DeviceID](https://support.particle.io/hc/en-us/articles/360039735733/) (if possible)
 * The LED Status exhibited by your device
 * The results of the steps above that you have taken, in sequence
 * A brief history of this device including:  

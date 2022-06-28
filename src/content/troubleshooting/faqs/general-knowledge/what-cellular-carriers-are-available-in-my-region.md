@@ -13,5 +13,5 @@ The cellular carriers available to a given device are determined by two things: 
 
 We have two great resources for you -
 
-1. a cellular SKU breakout by country: ([link](/tutorials/cellular-connectivity/cellular-carriers/)).
-2. a breakdown of the answer to the question "will this device work in x country": ([link](/tutorials/cellular-connectivity/introduction/#does-this-device-work-in-this-country-)).
+1. a cellular SKU breakout by country: ([link](/reference/cellular/cellular-carriers/)).
+2. a breakdown of the answer to the question "will this device work in x country": ([link](/getting-started/hardware/cellular-overview/#does-this-device-work-in-this-country-)).

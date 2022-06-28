@@ -410,7 +410,7 @@ You can get the value of the variable here:
 {{> device-variable nameIsText="true" defaultName="sensor"}}
 
 - Or in the [console](https://console.particle.io)
-- Using the [Particle CLI](/tutorials/developer-tools/cli/):
+- Using the [Particle CLI](/getting-started/developer-tools/cli/):
 
 ```
 particle get test2 sensor
@@ -469,7 +469,7 @@ This example works like the function example, except it uses subscribe instead o
 {{> publish-event defaultName="setColorEvent" defaultData="255,0,0"}}
 
 - Or in the [console](https://console.particle.io)
-- Or using the [Particle CLI](/tutorials/developer-tools/cli/):
+- Or using the [Particle CLI](/getting-started/developer-tools/cli/):
 
 ```
 particle publish setColor "255,0,0"

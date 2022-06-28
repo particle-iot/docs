@@ -3427,7 +3427,7 @@ not support `Cellular.setActiveSim()`.
 
 {{note op="end"}}
 
-For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](https://support.particle.io/hc/en-us/articles/360039741113/) if you are switching SIM cards with Boron LTE.
+For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) if you are switching SIM cards with Boron LTE.
 
 
 

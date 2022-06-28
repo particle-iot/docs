@@ -207,7 +207,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
-If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](https://support.particle.io/hc/en-us/articles/360039741113/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
+If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
 
 #### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
@@ -426,7 +426,7 @@ You can also use the [`particle usb safe-mode`](/reference/developer-tools/cli/#
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
+If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/archives/installing-dfu-util/)
 
 Installation tutorial can be found [here.](/getting-started/developer-tools/cli/)
 
@@ -442,7 +442,7 @@ To enter DFU Mode:
 
 The device now is in the DFU mode.
 
-DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](https://support.particle.io/hc/en-us/articles/360039251394/).
+DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](/archives/installing-dfu-util/).
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 

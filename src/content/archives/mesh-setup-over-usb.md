@@ -7,7 +7,7 @@ columns: two
 # {{{title}}}
 ## Mesh Setup over USB
 
-### Mesh networking is [no longer supported](/reference/discontinued/mesh/). The instructions below will no longer work to create a mesh network and cannot be used.
+### Mesh networking is [no longer supported](/reference/discontinued/hardware/mesh/). The instructions below will no longer work to create a mesh network and cannot be used.
 
 Normally, mesh networks are set up using the mobile apps for iOS and Android. Alternatively, you can set up a gateway and mesh nodes using a computer and the devices connected by USB using the process described here.
 
@@ -25,7 +25,7 @@ Your gateway can be:
 
 #### Argon Gateway Setup
 
-* You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
+* You must have the [Particle CLI](/getting-started/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 * Attach the Wi-Fi antenna to your Argon. Make sure you connect it to the correct connector, there are three U.FL connectors: WiFi, BT, and NFC.
 * Remove the Argon from the anti-static foam before powering the device.
 * Plug the Argon into a USB port on your computer. It should begin blinking blue.
@@ -98,7 +98,7 @@ Done! The device will be registered in the network once it is connected to the c
 
 #### Boron Gateway Setup
 
-* You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
+* You must have the [Particle CLI](/getting-started/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 * Attach the cellular antenna to your Boron. Make sure you connect it to the correct connector, there are three U.FL connectors: cellular (on the top), BT and NFC (on the bottom).
 * Remove the Boron from the anti-static foam before powering the device.
 * Plug the Boron into a USB port on your computer. It should begin blinking blue. For a Boron LTE, you can power only by USB, but for a Boron 2G/3G you should also attach the LiPo battery.
@@ -126,7 +126,7 @@ Your system firmware version is 1.2.1
 
 * Save the device ID and ICCID, you'll need them later. If you get a serial timed out error, just try the command again.
 * If you are using the Particle SIM card built into your Boron, Copy the ICCID and go to: <https://setup.particle.io>. Click on the link to **Activate a Particle SIM** under the pictures. Enter the ICCID and proceed through the activation steps.
-* If you want to use a 3rd-party SIM with the Boron, follow [the instructions here](/support/particle-devices-faq/electron-3rdparty-sims) for setting up a Boron with 3rd-party SIM card.
+* If you want to use a 3rd-party SIM with the Boron, follow [the instructions here](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) for setting up a Boron with 3rd-party SIM card.
 * Once you've activated your SIM, exit listening mode:
 
 ```html

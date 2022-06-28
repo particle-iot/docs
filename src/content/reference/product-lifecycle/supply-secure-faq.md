@@ -28,27 +28,27 @@ Device OS support for existing and new Supply Secure SKUs is as documented below
 
 | Product class | Generation | Product family                                                                                  | SKUs                              | Supply Secure? | 2.x (LTS) | 3.x (Feat) | 4.x (LTS) | 5.x (Feat) |
 | ------------- | ---------- | ----------------------------------------------------------------------------------------------- | --------------------------------- | -------------- | --------- | ---------- | --------- | ---------- |
-| Wi-Fi         | Gen 3      | [Argon](https://www.notion.so/Argon-d2282fb911c34924ba714f50ef9ebafe)                           | ARGNTRAY50                        | 🚫             | ✅         | ✅          | ✅         | ✅          |
-| Wi-Fi         | Gen 2      | [P0](https://www.notion.so/P0-ec91b293d90c467cbfb047d2ec9ab21b)                                 | P0REEL                            | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Wi-Fi         | Gen 2      | [P1](https://www.notion.so/P1-c8897fb0345947c0b566e96e1256566f)                                 | P1REEL                            | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Wi-Fi         | Gen 2      | [Photon](https://www.notion.so/Photon-17748862529146829b78ac6266289103)                         | PHNTRAYH, PHNTRAYNOH              | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Wi-Fi         | Gen 3      | [P2](https://www.notion.so/P2-11bf26a9c3dc43b7894ff4841f8536f2)                                 | P2REEL                            | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.0+    |
-| Cellular      | Gen 3      | [B Series LTE M1](https://www.notion.so/B-Series-LTE-M1-a892f7ee9308406b84313c26b948fe13)       | B402MTY, B404MTY                  | 🚫             | ✅         | ✅          | ✅         | ✅          | 
-| Cellular      | Gen 3      | [Boron 2G/3G](https://www.notion.so/Boron-2G-3G-bd13670a895b4558803a3f5292f5665e)               | BRN310TRAY50, BRN314TRAY50        | 🚫             | ✅         | ✅          | ✅         | ✅          |
-| Cellular      | Gen 3      | [Boron LTE M1](https://www.notion.so/Boron-LTE-M1-3931f4b11bc64bbea74d9549c4a44fb3)             | BRN402TRAY50, BRN404TRAY50        | 🚫             | ✅         | ✅          | ✅         | ✅          |
-| Cellular      | Gen 2      | [E Series 2G/3G](https://www.notion.so/E-Series-2G-3G-810b36c8cb4843ffb1fe7e0b2858977b)         | E310TRAY50, E313TY, E314TRAY50    | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | [E Series LTE M1](https://www.notion.so/E-Series-LTE-M1-8fbfe8af567342daad5f7c3294d6e42f)       | E402TRAY50\. E404TRAY50           | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | [Electron 2G](https://www.notion.so/Electron-2G-cf0810271f4e4770bda51da1aceecae0)               | E350TRAY50                        | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | [Electron 2G/3G](https://www.notion.so/Electron-2G-3G-453e48ced164427badd7c1c7cee89093)         | E260TRAY50, E270TRAY50, ELC314TY  | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 2      | [Electron LTE M1](https://www.notion.so/Electron-LTE-M1-20ceb7b0d040436da690561ba235ba37)       | ELC402TY, ELC404TY                | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
-| Cellular      | Gen 3      | [B Series LTE CAT 1](https://www.notion.so/B-Series-LTE-CAT-1-3e8e1db7b67f48d9aa14f83f60c6c151) | B523MTY, B524MTY                  | ✅              | ✅         | ✅          | ✅         | ✅          |
-| Cellular      | Gen 3      | [B Series LTE M1](https://www.notion.so/B-Series-LTE-M1-381e4113d153472aac49d4ce14b177a4)       | B404X                             | ✅              | ✅ v2.3+   | ✅ v3.2+    | ✅         | ✅          |
-| Cellular      | Gen 3      | [Boron LTE M1](https://www.notion.so/Boron-LTE-M1-6b7565ec8d5d4daea1bb2adc69a444dd)             | BRN404X                           | ✅              | ✅ v2.3+   | ✅ v3.2+    | ✅         | ✅          |
-| Cellular      | Gen 3      | [E Series LTE M1](https://www.notion.so/E-Series-LTE-M1-0caf36ed30524300884363bab207bbe5)       | E404X                             | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
-| Tracker       | Gen 3      | [Tracker One](https://www.notion.so/Tracker-One-0d0dc3c47a504c3a9061c5c56f294a24)               | ONE402M, ONE404M, ONE523M ONE524M | 🚫             | 🚫        | ✅          | ✅         | ✅          |
-| Tracker       | Gen 3      | [Tracker SoM](https://www.notion.so/Tracker-SoM-c06a708994a34b098038df656362b683)               | T402M T404M                       | 🚫             | 🚫        | ✅          | ✅         | ✅          |
-| Tracker       | Gen 3      | [Tracker One](https://www.notion.so/Tracker-One-6360f4053e084e20b3178ccce4d56c8b)               | ONE404X, ONE524X                  | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
-| Tracker       | Gen 3      | [Tracker SoM](https://www.notion.so/Tracker-SoM-0d402403b29d4a4298be98f4d267bb00)               | T404X, T524X                      | ✅              | 🚫        | 🚫         | 🚫        | ✅          |
+| Wi-Fi         | Gen 3      | Argon                          | ARGNTRAY50                        | 🚫             | ✅         | ✅          | ✅         | ✅          |
+| Wi-Fi         | Gen 2      | P0)                                 | P0REEL                            | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Wi-Fi         | Gen 2      | P1                                 | P1REEL                            | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Wi-Fi         | Gen 2      | Photon                        | PHNTRAYH, PHNTRAYNOH              | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Wi-Fi         | Gen 3      | P2                                 | P2REEL                            | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.0+    |
+| Cellular      | Gen 3      | B Series LTE M1       | B402MTY, B404MTY                  | 🚫             | ✅         | ✅          | ✅         | ✅          | 
+| Cellular      | Gen 3      | Boron 2G/3G               | BRN310TRAY50, BRN314TRAY50        | 🚫             | ✅         | ✅          | ✅         | ✅          |
+| Cellular      | Gen 3      | Boron LTE M1             | BRN402TRAY50, BRN404TRAY50        | 🚫             | ✅         | ✅          | ✅         | ✅          |
+| Cellular      | Gen 2      | E Series 2G/3G         | E310TRAY50, E313TY, E314TRAY50    | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Cellular      | Gen 2      | E Series LTE M1       | E402TRAY50\. E404TRAY50           | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Cellular      | Gen 2      | Electron 2G               | E350TRAY50                        | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Cellular      | Gen 2      | Electron 2G/3G         | E260TRAY50, E270TRAY50, ELC314TY  | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Cellular      | Gen 2      | Electron LTE M1       | ELC402TY, ELC404TY                | 🚫             | ✅         | ✅          | 🚫        | 🚫         |
+| Cellular      | Gen 3      | B Series LTE CAT 1 | B523MTY, B524MTY                  | ✅              | ✅         | ✅          | ✅         | ✅          |
+| Cellular      | Gen 3      | B Series LTE M1       | B404X                             | ✅              | ✅ v2.3+   | ✅ v3.2+    | ✅         | ✅          |
+| Cellular      | Gen 3      | Boron LTE M1            | BRN404X                           | ✅              | ✅ v2.3+   | ✅ v3.2+    | ✅         | ✅          |
+| Cellular      | Gen 3      | E Series LTE M1       | E404X                             | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
+| Tracker       | Gen 3      | Tracker One               | ONE402M, ONE404M, ONE523M ONE524M | 🚫             | 🚫        | ✅          | ✅         | ✅          |
+| Tracker       | Gen 3      | Tracker SoM               | T402M T404M                       | 🚫             | 🚫        | ✅          | ✅         | ✅          |
+| Tracker       | Gen 3      | Tracker One              | ONE404X, ONE524X                  | ✅              | 🚫        | 🚫         | 🚫        | ✅ v5.x+    |
+| Tracker       | Gen 3      | Tracker SoM               | T404X, T524X                      | ✅              | 🚫        | 🚫         | 🚫        | ✅          |
 
 #### How will prices change for these new modules?
 All Supply Secure SKUs will be offered at pricing that is equivalent to the contracted pricing of the SKUs that they replace.

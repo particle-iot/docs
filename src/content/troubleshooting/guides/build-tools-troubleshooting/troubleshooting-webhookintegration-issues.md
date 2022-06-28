@@ -6,11 +6,11 @@ columns: two
 
 # {{{title}}}
 
-If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/tutorials/device-cloud/webhooks/)) and our API documentation ([link](/reference/device-cloud/webhooks/)) before proceeding to troubleshoot.
+If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/getting-started/integrations/webhooks/)) and our API documentation ([link](/reference/cloud-apis/webhooks/)) before proceeding to troubleshoot.
 
 ## Navigating To The Integrations Page
 
-Particle thoroughly logs the request and response of the last 10 Webhook successes and errors. This information is available to you in the Integrations panel of your [Console](console.particle.io), by selecting the following icon from the left-hand panel:
+Particle thoroughly logs the request and response of the last 10 Webhook successes and errors. This information is available to you in the Integrations panel of your [Console](https://console.particle.io), by selecting the following icon from the left-hand panel:
 
 ![Screen_Shot_2021-01-08_at_6.13.33_AM.png](/assets/images/support/Screen_Shot_2021-01-08_at_6.13.33_AM.png)
 
@@ -51,7 +51,7 @@ Let's say your Integrations History graph is emptier than you'd expect. This typ
 ```  
 $ curl "https://api.particle.io/v1/events/:EVENTNAME?access_token=1234"  
 ```  
-or by following the instructions here ([link](/reference/device-cloud/api/#get-a-stream-of-events)). Ensure that a test device with guaranteed connectivity is able to Publish to this Event successfully and then watch for the rest of your expected devices.
+or by following the instructions here ([link](/reference/cloud-apis/api/#get-a-stream-of-events)). Ensure that a test device with guaranteed connectivity is able to Publish to this Event successfully and then watch for the rest of your expected devices.
 * Double-check against your devices' Events Stream in the Console - this is accessible to you either across your User- or Product-scope via the left-hand toolbar:  
     
 ![Screen_Shot_2021-01-08_at_7.11.09_AM.png](/assets/images/support/Screen_Shot_2021-01-08_at_7.11.09_AM.png)

@@ -3211,7 +3211,7 @@ The device can use either the built-in MFF2 embedded Particle SIM card or an ext
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
 
-For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](https://support.particle.io/hc/en-us/articles/360039741113/) if you are switching SIM cards with Boron LTE.
+For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) if you are switching SIM cards with Boron LTE.
 
 
 ```cpp

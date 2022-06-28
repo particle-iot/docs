@@ -19,7 +19,7 @@ See below for three methods you can use to trip this setup flag in the right dir
 
 This is by far the easiest and fastest way to fix the issue, but it requires a hardwired connection (via USB).
 
-If you haven't already, install the Particle CLI ([link](/tutorials/developer-tools/cli/)). Then connect your Argon or Boron via USB, open up your computer's Terminal, and run the command:
+If you haven't already, install the Particle CLI ([link](/getting-started/developer-tools/cli/)). Then connect your Argon or Boron via USB, open up your computer's Terminal, and run the command:
 
 particle usb setup-done
 

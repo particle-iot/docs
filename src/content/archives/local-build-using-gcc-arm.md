@@ -14,9 +14,9 @@ It is possible to build both application firmware and Device OS locally using th
 * To work entirely offline, with no Internet access
 * To use the GDB debugger
 
-While you can still use these instructions, a much easier way to use gcc-arm is to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools.
+While you can still use these instructions, a much easier way to use gcc-arm is to install [Particle Workbench](/getting-started/developer-tools/workbench/). It provides an automated way to install local development tools.
 
-This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/tutorials/developer-tools/dev/), or [Particle CLI](/tutorials/developer-tools/cli/) which are much easier to install and use.
+This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/getting-started/developer-tools/workbench/), or [Particle CLI](/getting-started/developer-tools/cli/) which are much easier to install and use.
 
 ### Installation - Windows
 
@@ -132,7 +132,7 @@ git --help
 
 If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [Particle Windows CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), this will have been already.
 
-There are also additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/).
+There are also additional instructions in the [FAQ for installing dfu-util](/archives/installing-dfu-util/).
 
 #### Install other build tools - Windows
 
@@ -236,7 +236,7 @@ brew install dfu-util
 
 ```
 
-There are additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
+There are additional instructions in the [FAQ for installing dfu-util](/archives/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
 
 ### Installation - Linux
 
@@ -325,7 +325,7 @@ sudo apt-get install dfu-util
 
 By default, dfu-util requires sudo (root access) to run. This will cause a problem using the program-dfu option in make, and many other locations.
 
-The easiest solution is to install the [Particle CLI](/tutorials/developer-tools/cli), however you can also manually install a udev rule:
+The easiest solution is to install the [Particle CLI](/getting-started/developer-tools/cli/), however you can also manually install a udev rule:
 
 * Download the [50-particle.rules](/assets/files/50-particle.rules) file, then:
 
@@ -510,7 +510,7 @@ particle flash --serial target/blinkled.bin
 
 ### Building with libraries
 
-To use libraries with local build you should use the [extended project structure](/tutorials/device-os/libraries) within the APPDIR.
+To use libraries with local build you should use the [extended project structure](/getting-started/device-os/firmware-libraries/) within the APPDIR.
 
 It looks like this:
 
@@ -525,7 +525,7 @@ myappdir
 
 You can start out with an empty file for project.properties.
 
-To add a library you typically cd into myappdir then use a [CLI library copy command](/tutorials/developer-tools/cli#using-libraries) for example:
+To add a library you typically cd into myappdir then use a [CLI library copy command](/getting-started/developer-tools/cli/#using-libraries) for example:
 
 ```
 particle library copy neopixel
@@ -543,7 +543,7 @@ If you have a project in the extended format, building with APPDIR automatically
 
 ### Including additional header directories
 
-Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](/tutorials/device-os/libraries/#project-file-structure) within the APPDIR with the following layout:
+Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](/getting-started/device-os/firmware-libraries/#project-file-structure) within the APPDIR with the following layout:
 
 ```
 myappdir

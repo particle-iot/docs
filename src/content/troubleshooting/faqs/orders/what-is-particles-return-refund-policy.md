@@ -32,7 +32,7 @@ If you are not 100% satisfied with your order, we will be happy to arrange a ret
 
 #### Opened Product Return Policy
 
-Sometimes you can’t tell a product is not for you until you take it for a test drive. Not a problem - we’ve got your back! We can offer advice, troubleshoot or diagnose any issue that might have come up. First, look for troubleshooting tips and assistance on your issue on our [documentation page](/tutorials/device-os/led). If you don’t find it there, our amazing [community](https://community.particle.io/) can most likely help you out. If you still are having trouble, visit us at our [support portal](https://support.particle.io/).
+Sometimes you can’t tell a product is not for you until you take it for a test drive. Not a problem - we’ve got your back! We can offer advice, troubleshoot or diagnose any issue that might have come up. First, look for troubleshooting tips and assistance on your issue on our [documentation page](/troubleshooting/led/). If you don’t find it there, our amazing [community](https://community.particle.io/) can most likely help you out. If you still are having trouble, visit us at our [support portal](https://support.particle.io/).
 
 If we determine that something is wrong with your product due to a manufacturing defect or error, we will be happy to replace your item(s) as needed, or issue you a refund/credit depending on availability. Please visit our [support portal](https://support.particle.io/) and let us know your order number, the product you’re having issues with, and a detailed description of the problems you’re seeing. For broken products, please include pictures, they are worth a thousand words.
 
@@ -44,7 +44,7 @@ If your package was damaged in shipment, please visit our [support portal](https
 
 #### Orders placed through a distributor
 
-If you placed your original order through one of our [distributors](https://www.particle.io/partnerships/distributors), please see their website for the applicable return/replacement/refund policy. For potentially defective units, we can offer advice, troubleshoot or diagnose any issue that might have come up. First, look for troubleshooting tips and assistance about your issue on our [documentation page](/tutorials/device-os/led). If you don’t find it there, our amazing [community](https://community.particle.io/) can most likely help you out. If you still are having trouble, visit us at our [support portal](https://support.particle.io/).
+If you placed your original order through one of our [distributors](https://www.particle.io/partnerships/distributors), please see their website for the applicable return/replacement/refund policy. For potentially defective units, we can offer advice, troubleshoot or diagnose any issue that might have come up. First, look for troubleshooting tips and assistance about your issue on our [documentation page](/troubleshooting/led/). If you don’t find it there, our amazing [community](https://community.particle.io/) can most likely help you out. If you still are having trouble, visit us at our [support portal](https://support.particle.io/).
 
 If we determine that something is wrong with your product due to a manufacturing defect or error, we will be happy to replace your item(s) as needed or offer you a discount/credit for our store depending on availability. Please visit our [support portal](https://support.particle.io/) and let us know the product you’re having issues with along with a detailed description of the problems you’re seeing. Be sure to let us know which distributor you ordered your item(s) from as well. For physically broken products that were damaged in transit, please contact the original distributor.
 
@@ -66,7 +66,7 @@ If you are struggling with a Particle product or aren’t satisfied with your pu
 
 In the case of demonstrable manufacturing issues or failure due to defective materials, we will troubleshoot and replace the item(s) as needed, or issue a refund/credit depending on availability.
 
-Please check out the troubleshooting tips and assistance on our [documentation page](/tutorials/device-os/led). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in a position to quickly and easily resolve certain issues if they crop up again.
+Please check out the troubleshooting tips and assistance on our [documentation page](/troubleshooting/led/). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in a position to quickly and easily resolve certain issues if they crop up again.
 
 If your product is opened and working as expected, we are unable to issue you a refund. However, please feel free to reach out to our support team so that we can try to assist in any way possible.
 

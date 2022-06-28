@@ -35,13 +35,13 @@ If you are the prior owner of the device, the Console is likely the easiest way 
 
 ### Using the Particle CLI
 
-1. **Install [CLI](/tutorials/developer-tools/cli).** Make sure you've got the CLI installed by typing  
+1. **Install [CLI](/getting-started/developer-tools/cli/).** Make sure you've got the CLI installed by typing  
     
 `particle help`  
     
 into your terminal. If you're presented with a list of commands, the CLI is installed correctly. If not, please see the following article:  
     
-[Installing the Particle CLI ](/tutorials/developer-tools/cli/)
+[Installing the Particle CLI ](/getting-started/developer-tools/cli/)
 2. **Login.** Make sure you're logged into your Particle account by typing  
     
 `particle login`  

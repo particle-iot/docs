@@ -50,11 +50,11 @@ The device \*will\* generate a new private and public device key. (They have to 
 
 If you have physical access to the in question, here's how to change the Key on it. Once you do that you can share the Public key with us and we'll get you up and running again on that . You may not even need to share the key with us if it your connects to the Cloud after following this procedure.
 
-1. Before we can start, you're going to want to install the Particle CLI tool to make life easier: [Particle CLI.](/tutorials/developer-tools/cli)
+1. Before we can start, you're going to want to install the Particle CLI tool to make life easier: [Particle CLI.](/getting-started/developer-tools/cli/)
 2. Once the CLI tool is installed, the first thing you should do is log in to your Particle account. To login on the Particle CLI, run the command `particle login` and follow the prompts for email and password.
 3. Next we need to get the Device ID of your device. Start by putting the device into Listening Mode by holding the Mode button for about 3 seconds until it starts blinking BLUE.
 4. Next run the following CLI command to get the ID of your device: `particle identify`. It should reply "Your device id is: xxxxxxxxxxxxxxxxxx". Copy the number down or to your clipboard for later.
-5. View the key commands and example output here for the next steps: [particle keys doctor.](/reference/cli/#particle-keys-doctor)
+5. View the key commands and example output here for the next steps: [particle keys doctor.](/reference/developer-tools/cli/#particle-keys-doctor)
 6. Place your into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 7. It's a good idea to run the `particle keys server` command in case your server keys or address are corrupted.
 8. Run the `particle keys doctor xxxxx` command, where xxxxx is the device ID you copied just earlier. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.

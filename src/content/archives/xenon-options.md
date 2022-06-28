@@ -21,7 +21,7 @@ If you wish, you can continue to use your Xenon as a part of a pre-existing Part
 
 *_Please note that this option, while available, is not supported by Particle for production use._*
 
-You can also use your Xenon in [standalone mode, with no network connectivity](https://support.particle.io/hc/en-us/articles/360044183314/#set-the-system_mode).
+You can also use your Xenon in standalone mode, with no network connectivity by using SYSTEM_MODE(MANUAL).
 
 ## Option 2: Provision your Xenon as a non-Particle dev kit
 

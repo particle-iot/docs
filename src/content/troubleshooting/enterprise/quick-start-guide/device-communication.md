@@ -24,7 +24,7 @@ The initial handshaking process creates an encrypted session using DTLS over UDP
   
 The Particle cloud connection uses the CoAP (constrained application protocol) over DTLS or AES. All features like Publish, Subscribe, Particle Functions and Variables, and OTA firmware updates occur over a single CoAP connection.  
   
-[Learn More about the Device Cloud](/tutorials/device-cloud/introduction/#secure)
+[Learn More about the Device Cloud](/getting-started/cloud/introduction/#secure)
 
   
 ## Data-Efficient
@@ -41,10 +41,10 @@ Using CoAP over DTLS with session resume allows the cloud connection to be resum
 * Functions allow the cloud to trigger an action on a device.
 * Variables allow the cloud to query a value from a device on demand.
 
-[Learn More about Device Communications](/tutorials/device-os/device-os/#communication)
+[Learn More about Device Communications](/getting-started/device-os/introduction-to-device-os/#communication)
 
 When sent from a device to the cloud, Publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger an integration that makes a connection to an external service or web server efficiently.
 
 ![PublishFlow.png](/assets/images/support/PublishFlow.png)
 
-[Learn More About Integrations](/tutorials/integrations/introduction/)
+[Learn More About Integrations](/getting-started/integrations/integrations/)

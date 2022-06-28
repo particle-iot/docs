@@ -13,7 +13,7 @@ If you are using a build of Tracker Edge application firmware, Serial Debug Logs
 
 1\. Download and Install the Particle CLI
 
-You can find instructions here ([link](/tutorials/developer-tools/cli/)).
+You can find instructions here ([link](/getting-started/developer-tools/cli/)).
 
 2\. Open up your computer's Terminal (Mac) / Command Line (Windows - cmd.exe). Make sure that you've got the Particle Command Line Interface (CLI) correctly installed by typing `particle` into your Terminal. You should see a help message that displays the various commands available to you. 
 

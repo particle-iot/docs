@@ -20,7 +20,7 @@ Workbench is our integrated development environment (IDE) based on Visual Studio
 
 The installation instructions will also get you started creating your first project.
 
-[Install](/quickstart/workbench/) | [Tutorial](/tutorials/developer-tools/workbench) | [FAQ](360039251434/)
+[Install](/quickstart/workbench/) | [Tutorial](/getting-started/developer-tools/workbench/) | [FAQ](360039251434/)
 
 ## 2\. Try the CLI (Command Line Interface)
 
@@ -32,7 +32,7 @@ Try listing your devices from the Workbench CLI, Command Prompt, or Terminal win
 
 particle list
 
-[Installation & Tutorial](/tutorials/developer-tools/cli/) | [Reference](/reference/developer-tools/cli/)
+[Installation & Tutorial](/getting-started/developer-tools/cli/) | [Reference](/reference/developer-tools/cli/)
 
 ## 3\. Try the Console
 
@@ -46,4 +46,4 @@ The [Particle Console](https://console.particle.io/) is your centralized IoT com
 
 ![devices-view.png](/assets/images/support/devices-view.png)
 
-[Tutorial](/tutorials/device-cloud/console/)
+[Tutorial](/getting-started/console/console/)

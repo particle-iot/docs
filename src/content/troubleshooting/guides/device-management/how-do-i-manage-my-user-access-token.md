@@ -32,7 +32,7 @@ particle token create
 
 2. **Using the Cloud API**  
     
-Follow the instructions here: [Cloud API Reference](/reference/device-cloud/api/#generate-an-access-token).  
+Follow the instructions here: [Cloud API Reference](/reference/cloud-apis/api/#generate-an-access-token).  
     
 For controlling your user access token, pass particle:particle as your authorization header. See the cURL example below:  
 

@@ -20,13 +20,13 @@ Some of the things you can do:
 
 ![Features](/assets/images/support/eclipse-debug-debug-15.png)
 
-While you can still use these instructions, a much easier way to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools and do source-level debugging without the extreme hassle of the method described below.
+While you can still use these instructions, a much easier way to install [Particle Workbench](/getting-started/developer-tools/workbench/). It provides an automated way to install local development tools and do source-level debugging without the extreme hassle of the method described below.
 
 ### Install local gcc-arm toolchain
 
 * Install a gcc-arm toolchain for local building for Windows, Mac or Linux
 
-The instructions are in the [local build FAQ](/faq/particle-tools/local-build/). This is necessary because the cloud compilers are not configured to generate debugging builds.
+The instructions are in the [local build FAQ](/archives/local-build-using-gcc-arm/). This is necessary because the cloud compilers are not configured to generate debugging builds.
 
 ### Connect the debugger device
 

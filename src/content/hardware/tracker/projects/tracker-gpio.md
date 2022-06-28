@@ -163,7 +163,7 @@ While this design uses the 18-SOIC version of the MCP23008, the [AN018 Tracker L
 
 ### Qwiic Connector
 
-This board includes a [Sparkfun Qwiic connector](https://www.sparkfun.com/products/14417). This allows other I2C devices to be easily chained off this board. This is handy for testing and prototyping, but is not necessary for a production device. You can find out how using Qwiic can make prototyping new sensor designs quick and easy on [this page](/community/qwiic/).
+This board includes a [Sparkfun Qwiic connector](https://www.sparkfun.com/products/14417). This allows other I2C devices to be easily chained off this board. This is handy for testing and prototyping, but is not necessary for a production device. You can find out how using Qwiic can make prototyping new sensor designs quick and easy on [this page](/hardware/expansion/qwiic/).
 
 ## Firmware
 
@@ -202,7 +202,7 @@ git submodule update --init --recursive
 - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
-Make sure you've used the [**Mark As Development Device**](/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 
 #### Add the MCP23008 library

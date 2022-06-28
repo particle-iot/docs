@@ -7,7 +7,7 @@ columns: two
 # {{{title}}}
 If your device is going into safe mode (breathing magenta) or is unexpectedly connecting to the cloud (blinking green) when it should be in a manual mode (breathing white), you may have an unmet system dependency. This is easiest to diagnose using the Particle CLI with the device connected by USB to your computer.
 
-1. Install the [Particle CLI](/tutorials/developer-tools/cli/) if you have not done so.
+1. Install the [Particle CLI](/getting-started/developer-tools/cli/) if you have not done so.
 2. Connect the device by USB to your computer.
 3. Put the device in listening mode (blinking dark blue) by holding down the MODE button until the status LED blinks dark blue, then release.
 4. Enter the following command from a Command Prompt or Terminal window:

@@ -42,7 +42,7 @@ _NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download
 ![Authenticate](/assets/images/workbench/install7.png)
 
 - Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
-- If you are having difficulties, there are [additional tips in the FAQ](https://support.particle.io/hc/en-us/articles/360039251434/#linux-tips).
+- If you are having difficulties, there are [additional tips in the FAQ](/getting-started/developer-tools/workbench-faq/#linux-tips).
 
 ### All Operating Systems
 

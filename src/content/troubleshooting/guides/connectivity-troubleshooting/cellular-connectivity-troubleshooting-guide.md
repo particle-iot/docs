@@ -21,7 +21,7 @@ But first things first, let's tackle the **four easiest things** you can do to r
 
 * Place your device in Safe Mode by pressing RESET and MODE simultaneously, releasing RESET, and releasing MODE once the status LED blinks magenta. Give the device ample opportunity to connect.
 * Ensure your antenna's U.FL connector is firmly attached. If possible, try with another antenna.
-* [Upgrade your device's Device OS to the most recent Device OS version.](/tutorials/device-os/device-os/#managing-device-os)
+* [Upgrade your device's Device OS to the most recent Device OS version.](/getting-started/device-os/introduction-to-device-os/#managing-device-os)
 * If you have a 2G/3G device, ensure your device's LiPo battery is attached.
 
 ## Device Vitals
@@ -67,7 +67,7 @@ _Seeing -1200 here indicates the response from the modem was not received in a t
 * **Device.cloud.connection.error**  
 _Common errors here include 1 (ping timeout) and 17 (error establishing a session), both commonly associated with signal issues. See below for more information about error codes!_
 * **Device.power.source**  
-_Useful to determine what is powering your device (VIN, battery, etc…). **It’s worth explicitly stating that 2G/3G devices have specific current requirements ([link](/datasheets/cellular/electron-datasheet/#usb)) in order to connect.**_
+_Useful to determine what is powering your device (VIN, battery, etc…). **It’s worth explicitly stating that 2G/3G devices have specific current requirements ([link](/reference/datasheets/e-series/electron-datasheet/#usb)) in order to connect.**_
 * **Device.power.battery.state**  
 _Is your battery charging or not?_
 * _**Device.power.battery.charge**_  
@@ -77,7 +77,7 @@ _The amount of charge in your battery (percentage)._
 
 ## SIM Management
 
-If your cellular device has trouble getting online, make a note of its ICCID (the identifier for your SIM Card). If this device has come online in the past and is visible in the Console, merely click on the Device in question to check the ICCID number. If the device has never come online, you can find this information by either checking the packaging for your Particle SIM and/or (especially in the case of embedded SIM devices), following the instructions [here](/support/particle-devices-faq/finding-device-id/) to ask the device to reveal this number for you.  
+If your cellular device has trouble getting online, make a note of its ICCID (the identifier for your SIM Card). If this device has come online in the past and is visible in the Console, merely click on the Device in question to check the ICCID number. If the device has never come online, you can find this information by either checking the packaging for your Particle SIM and/or (especially in the case of embedded SIM devices), following the instructions [here](https://support.particle.io/hc/en-us/articles/360039735733/) to ask the device to reveal this number for you.  
   
 Once you have your ICCID, be sure to check <https://console.particle.io/sims> to ensure the SIM is Active. If the SIM does not appear in <https://console.particle.io/sims> (or in the respective SIM Management page for a given Product), please activate your SIM by following the steps at <https://setup.particle.io>. If the SIM does appear in <https://console.particle.io/sims> but is marked as “Deactivated”, please Activate the SIM by pressing the “…” marking on the right-hand side of the SIM Management page. Should you have any issues with SIM Activation, please visit our Article on “Troubleshooting SIM Activation/Deactivations.”  
   
@@ -108,11 +108,11 @@ If you would like to source debug logs using your application binary instead, fo
 
 **NOTE: trace logs are _substantially_ more detailed and useful on Device OS 2.x and 3.x.** 
   
-### Google chrome users can flash and see debug logs directly from the browser thanks to the wonders of Web USB: [Web Cloud Debug](/cloud-debug/)
+### Google chrome users can flash and see debug logs directly from the browser thanks to the wonders of Web USB: [Web Cloud Debug](/troubleshooting/connectivity/cloud-debug/)
 
 #### Gathering Debug Logs
 
-The best way to produce these logs is with `particle serial monitor --follow` in [CLI](/tutorials/developer-tools/cli/). We recommend resetting the device after running this command so that you are able to source logs from the device from the very beginning of the application.
+The best way to produce these logs is with `particle serial monitor --follow` in [CLI](/getting-started/developer-tools/cli/). We recommend resetting the device after running this command so that you are able to source logs from the device from the very beginning of the application.
 
 Several seconds after connecting serial monitor, the tests will begin.
 
@@ -154,7 +154,7 @@ It's worth double-checking your uFL connector for physical defects - this part i
 
 Barring any physical damage to the unit, the next step is to thoroughly evaluate whether the device can be moved in any way - oftentimes, for indoor devices, a few feet closer to a window can make a world of difference. Should a relocation insufficiently address your connectivity issue it may be worth exploring an alternative antenna - but please note that prototyping with an alternative antenna may have certification implications. 
 
-Should this be your object of interest, please read our technical notes on this subject thoroughly, located here: ([link](/datasheets/certifications/antenna/)).
+Should this be your object of interest, please read our technical notes on this subject thoroughly, located here: ([link](/hardware/certification/antenna/)).
 
 ## Submitting A Ticket
 

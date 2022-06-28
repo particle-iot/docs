@@ -7,7 +7,7 @@ columns: two
 # {{{title}}}
 Here is a collection of resources relevant to questions around data consumption. If you are curious about how Particle devices use data, are concerned about a change in data usage, or are trying to better understand your bill - this article is for you!  
   
-For questions about **how Particle devices consume data**, including information about Publish payloads and system usage, see this link [here](/tutorials/cellular-connectivity/data/#cellular-data-service-with-particle).
+For questions about **how Particle devices consume data**, including information about Publish payloads and system usage, see this link [here](/getting-started/billing/cellular-data/#cellular-data-service-with-particle).
 
 For questions about **how Particle bills for data**, please see our [Pricing Page](https://www.particle.io/pricing/) and [Pricing FAQ](https://support.particle.io/hc/en-us/articles/360039741073).  
   

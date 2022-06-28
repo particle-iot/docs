@@ -14,7 +14,7 @@ description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 {{box op="start" cssClass="boxed warningBox"}}
 The P1 has been deprecated. The recommend replacement is the [P2](/reference/datasheets/wi-fi/p2-datasheet/).
 
-See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
 {{box op="end"}}
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>

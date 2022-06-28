@@ -46,7 +46,7 @@ If your device works in isolation, but plugging into the circuit causes issues, 
 
 ## Device Gets Warm (Battery-Powered)
 
-Make sure your battery connector conforms to the Feather specification and that the polarity is not reversed. See the Particle [battery tutorial.](/tutorials/learn-more/batteries/) 
+Make sure your battery connector conforms to the Feather specification and that the polarity is not reversed. See the Particle [battery tutorial.](/hardware/power/batteries/) 
 
 If the polarity is correct, check with a spare battery if possible.
 

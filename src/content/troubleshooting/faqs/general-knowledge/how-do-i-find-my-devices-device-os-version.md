@@ -25,4 +25,4 @@ You can click on that page to view more information about this device (including
 
 ## The CLI
 
-If your device **has not come online** since its most recent firmware flash (or ever), you can grab your device's Device OS version by using the Particle CLI ([link](/tutorials/developer-tools/cli/)) or PuTTY/CoolTerm/Screen. You simply need to follow the instructions here ([link](https://support.particle.io/hc/en-us/articles/360045422954)) for getting your Device ID. The payload returned back from your computer Terminal will include Device OS version in addition to other important information (Device ID, ICCID, etc...).
+If your device **has not come online** since its most recent firmware flash (or ever), you can grab your device's Device OS version by using the Particle CLI ([link](/getting-started/developer-tools/cli/)) or PuTTY/CoolTerm/Screen. You simply need to follow the instructions here ([link](https://support.particle.io/hc/en-us/articles/360045422954)) for getting your Device ID. The payload returned back from your computer Terminal will include Device OS version in addition to other important information (Device ID, ICCID, etc...).

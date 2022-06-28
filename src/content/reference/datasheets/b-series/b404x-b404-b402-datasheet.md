@@ -38,7 +38,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 #### Features - B402, B404
 
  * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
-  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 

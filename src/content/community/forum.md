@@ -26,7 +26,6 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Cloud API Reference](/reference/cloud-apis/api/)
 - [GitHub Organization](https://github.com/particle-iot)
 - [Device OS Firmware Release Notes](/reference/device-os/api/device-os-versions/github-release-notes/)
-- [FAQ](https://support.particle.io/hc/en-us/articles/360039741093/)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
 - [Particle Blog](https://blog.particle.io)
 - [Particle Store](https://store.particle.io)
@@ -60,9 +59,6 @@ Stop by and join on of the best places online meet other people using Particle t
 
 - [Serial FAQ](/hardware/expansion/about-serial/)
 - [I2C FAQ](/hardware/expansion/about-i2c/)
-- [Local Builds using GCC-ARM](https://support.particle.io/hc/en-us/articles/360039741273/)
-- [JTAG and SWD Debugging](https://support.particle.io/hc/en-us/articles/360039251414/)
-- [Code Size Tips](https://support.particle.io/hc/en-us/articles/360039741093/)
 - [Measuring Electron Power Consumption](https://github.com/rickkas7/particle_notes/tree/master/measuring-electron-power)
 - [Tips for Public and Private Particle Events](https://github.com/rickkas7/particle_notes/tree/master/public-private-event-tips)
 - [Using Retained Memory](https://github.com/rickkas7/particle_notes/tree/master/retained-memory-tips)

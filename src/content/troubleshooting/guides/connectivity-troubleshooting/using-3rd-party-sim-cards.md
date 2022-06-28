@@ -25,7 +25,7 @@ The **E Series** and **B Series** does not have a SIM card slot and cannot use a
 
 The **Boron** has both a MFF2 embedded SIM card (the default) and a nano SIM card slot for a 3rd-party SIM card. You need to tell the device which one you want to use, however.
 
-Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](/tutorials/developer-tools/cli/).
+Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](/getting-started/developer-tools/cli/).
 
 All SIMs, including 3rd-party SIMs, must be activated. The method for activating varies by carrier; you might do this from a web site or with a phone call. If you're using the SIM that was in your phone, it's already activated. Being activated or not is part of the state of the SIM and doesn't depend on what device it's being used in.
 

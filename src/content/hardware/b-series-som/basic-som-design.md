@@ -22,7 +22,7 @@ As this board doesn't really do much, you'll unlikely use it as-is, but you can 
 
 ![Whole Board](/assets/images/app-notes/AN001/whole-board.png)
 
-There is another design in the [SoM first board tutorial](/tutorials/hardware-projects/som-first-board/) that includes additional information that will be useful for building your first board.
+There is another design in the [SoM first board tutorial](/hardware/b-series-som/som-first-board/) that includes additional information that will be useful for building your first board.
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN001.zip).
 
@@ -44,7 +44,7 @@ You can download the files associated with this app note [as a zip file](/assets
 
 ![Board](/assets/images/app-notes/AN001/board.png)
 
-While the pictures show a simple M3 screw and nut to hold down the SoM, the Eagle files have been updated with a proper standoff assembly. This is described in detail [here](/tutorials/hardware-projects/som-first-board/#hold-down-screw).
+While the pictures show a simple M3 screw and nut to hold down the SoM, the Eagle files have been updated with a proper standoff assembly. This is described in detail [here](/hardware/b-series-som/som-first-board/#hold-down-screw).
 
 ## Schematic
 

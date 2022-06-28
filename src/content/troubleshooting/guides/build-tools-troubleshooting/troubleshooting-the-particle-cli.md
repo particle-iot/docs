@@ -106,7 +106,7 @@ And when in normal operating mode or listening mode (blinking blue), the Device 
    * Operating System  
    * CPU Architecture (32/64 bit? ARM?)  
    * CLI Version (`particle version`).  
-   * CLI Installation Type (Standard or Advanced?, see link: ([here](/tutorials/developer-tools/cli/#installing)).  
+   * CLI Installation Type (Standard or Advanced?, see link: ([here](/getting-started/developer-tools/cli/#installing)).  
    * Terminal / Shell within which you running the Particle CLI (e.g. Powershell, Bash, Zsh, cmd.exe, etc)  
    * What Particle hardware are you using (Argon, Boron, etc...) and with what Device OS Version?
 4. **Carefully, with screenshots as appropriate, walk us through the process with which you experience the error step-by-step, taking care to note expected behavior.**

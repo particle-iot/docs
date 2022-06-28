@@ -10,7 +10,7 @@ The following document seeks to locate all of Particle's resources for troublesh
 
 ## Photon/P1
 
-_For issues setting up a Particle Photon/P1, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/tutorials/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+_For issues setting up a Particle Photon/P1, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
 
 **1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
 
@@ -36,7 +36,7 @@ _For issues setting up a Particle Photon/P1, it's best to use the CLI (Command L
 
 ## Electron/E-Series
 
-_For issues setting up a Particle Electron/E-Series, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/tutorials/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+_For issues setting up a Particle Electron/E-Series, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
 
 **1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
 
@@ -62,7 +62,7 @@ _For issues setting up a Particle Electron/E-Series, it's best to use the CLI (C
 
 ## Argon
 
-_For issues setting up a Particle Argon, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/tutorials/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+_For issues setting up a Particle Argon, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
 
 **1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
 
@@ -77,7 +77,7 @@ _For issues setting up a Particle Argon, it's best to use the CLI (Command Line 
 
 ## Boron/B-Series
 
-_For issues setting up a Particle Boron/B-Series, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/tutorials/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
+_For issues setting up a Particle Boron/B-Series, it's best to use the CLI (Command Line Interface) for device configuration. You can find CLI installation instructions here ([link](/getting-started/developer-tools/cli/)) and CLI troubleshooting tactics [here](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) should you experience an issue with this tool._
 
 **1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
 
@@ -94,7 +94,7 @@ _For issues setting up a Particle Boron/B-Series, it's best to use the CLI (Comm
 
 **1\.** Ensure your device powers on. If the device does not power on (does not display any information via its status LED) follow the instructions here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)) to diagnose further.
 
-**2.** Follow the instructions here ([link](/tutorials/asset-tracking/setup/#setup)) to set up your device. If the conventional setup mode is failing in some way, take note of the error you are receiving. Go through the "Manual Setup" process, take a note of successes and/or failures, and then submit a support ticket to report the setup issue.
+**2.** Follow the instructions here ([link](/getting-started/tracker/tracker-setup/#setup)) to set up your device. If the conventional setup mode is failing in some way, take note of the error you are receiving. Go through the "Manual Setup" process, take a note of successes and/or failures, and then submit a support ticket to report the setup issue.
 
 ### Troubleshooting Resources:
 

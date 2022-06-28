@@ -36,7 +36,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 #### Features - BRN402, BRN404 (Boron LTE)
 
- * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+ * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
  * u-blox SARA-R410M-02B or R410M-03 LTE modem
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
@@ -48,7 +48,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 #### Features - BRN314, BRN310 (Boron 2G/3G)
 
- * The BRN314 and BRN310 have been deprecated. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+ * The BRN314 and BRN310 have been deprecated. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
  * u-blox SARA U201 2G/3G modem
  * HSPA/GSM with global hardware and SIM support 
  * Bands 800/850/900/1900/2100 MHz 

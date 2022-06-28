@@ -21,14 +21,14 @@ The following article contains 7 sections:
 
 First things first, let's make sure you've done all you can to help this device get connected:
 
-* Download and install the Particle CLI ([link](/tutorials/developer-tools/cli/)). Connect your device to your computer.
+* Download and install the Particle CLI ([link](/getting-started/developer-tools/cli/)). Connect your device to your computer.
 * Place your device in DFU Mode by pressing RESET and MODE simultaneously, releasing RESET, and then releasing MODE once the status LED blinks yellow. Once the status LED blinks yellow, open up your Command Line ("Terminal" (Mac), "cmd.exe" (Windows)), and then enter the command `particle update`. Allow the device to reset once complete.
 * Place your device in Listening Mode by pressing the MODE button and holding it down for 3 seconds. Once the status LED blinks dark blue, open up your Command Line ("Terminal" (Mac), "cmd.exe" (Windows), and then enter the command `particle serial wifi` and follow the instructions.
 * Place your device in Safe Mode by pressing RESET and MODE simultaneously, releasing RESET, and releasing MODE once the status LED blinks magenta. Give the device ample opportunity to connect.
 
 If your device still struggles to connect, please ensure that you have walked through the WiFi Connectivity Guide here: ([link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)) and have collected the requested logs from Cloud Debug ([link](https://github.com/particle-iot/cloud-debug/releases)).  
   
-Please remember that in order to source the requisite logs to proceed, you will need to download Cloud Debug and install it onto your device (see the Cloud Debug link above for instructions). From there, open up the terminal of your choice (cmd.exe (Windows) or Terminal (Mac), and enter the CLI ([link](/tutorials/developer-tools/cli/)) command `particle serial monitor --follow`. Then connect your device via USB.
+Please remember that in order to source the requisite logs to proceed, you will need to download Cloud Debug and install it onto your device (see the Cloud Debug link above for instructions). From there, open up the terminal of your choice (cmd.exe (Windows) or Terminal (Mac), and enter the CLI ([link](/getting-started/developer-tools/cli/)) command `particle serial monitor --follow`. Then connect your device via USB.
 
 ## Walking Through the Argon's Connectivity Routine
 
@@ -50,7 +50,7 @@ After calling `WiFi.on()`, the steps undertaken to connect are as follows:
 
 ## Network Scan And Authentication
 
-* The device will scan for networks via the `CWLAP` AT command - this the AT command implicated when you run `WiFi.connect()` or `WiFi.scan()`. At this stage, an array of available APs should display. If your device cannot find your AP, that can point either to a network compatibility issue (see our WiFi Connectivity Guide - [link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)), or to a simple proximity issue (go closer to the AP). If no APs appear, create a Mobile Hotspot to test - if this fails, [open up a support ticket](support.particle.io).
+* The device will scan for networks via the `CWLAP` AT command - this the AT command implicated when you run `WiFi.connect()` or `WiFi.scan()`. At this stage, an array of available APs should display. If your device cannot find your AP, that can point either to a network compatibility issue (see our WiFi Connectivity Guide - [link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)), or to a simple proximity issue (go closer to the AP). If no APs appear, create a Mobile Hotspot to test - if this fails, [open up a support ticket](https://support.particle.io).
 * Your WiFi credentials are stored inside the Argon's filesystem. It will scroll through the enumerated APs and look for SSID + Password matches. The authentication process begins and is confirmed by this line:
 
 ```

@@ -21,7 +21,7 @@ For this example, I had available some kontakt.io asset tags S18-3, which includ
 
 ## Beacon Scanner library
 
-The bulk of the work on the firmware that is running on the Boron or Argon collecting the data is done by the BeaconScanner library. To find out more about how to include a library in your project, see the documentation [here](/tutorials/device-os/libraries/#using-libraries)
+The bulk of the work on the firmware that is running on the Boron or Argon collecting the data is done by the BeaconScanner library. To find out more about how to include a library in your project, see the documentation [here](/getting-started/device-os/firmware-libraries/#using-libraries)
 
 The Github repository for this library is [here](https://github.com/particle-iot/beacon-scanner-library)
 
