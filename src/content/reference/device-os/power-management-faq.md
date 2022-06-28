@@ -9,13 +9,6 @@ When considering the deployment of your Particle IoT device it is important to c
 
 In most cases changing the parameters of the PMIC (Power Management Integrated Circuit) will not be necessary or even recommended, but **in power-related use-cases outside of the conventional VIN / Particle LiPo configuration (e.g. a solar-powered deployment), attention to the PMIC in firmware can be critical.** 
 
-The following article is divided into 4 sections:
-
-* [Key Concepts](https://support.particle.io/hc/en-us/articles/1260803794770#key-concepts)
-* [Resetting The PMIC](https://support.particle.io/hc/en-us/articles/1260803794770#resetting-the-pmic)
-* [En/Disabling Charging](https://support.particle.io/hc/en-us/articles/1260803794770#en-disabling-charging)
-* [Low Power Use-Cases](https://support.particle.io/hc/en-us/articles/1260803794770#low-power-use-cases)
-
 ## Key Concepts
 
 Please review the code example below.

@@ -18514,7 +18514,7 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 The Photon, P1, and Electron all have an STM32F205 processor with 128K of available RAM and 128K of flash for your user firmware.
 
-Some tips for understanding the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+Some tips for understanding the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
 

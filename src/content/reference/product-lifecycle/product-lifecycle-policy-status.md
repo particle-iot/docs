@@ -6,7 +6,7 @@ columns: two
 
 # {{{title}}}
 
-Learn more about stages of our hardware and software lifecycle policy [here](https://support.particle.io/hc/en-us/articles/360039251234-Product-Lifecycle-Policy).
+Learn more about stages of our hardware and software lifecycle policy [here](/reference/product-lifecycle/product-lifecycle-stages/).
 
 ## Hardware products
 

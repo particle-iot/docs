@@ -2007,7 +2007,7 @@
   "/support/particle-devices-faq/mesh-setup-over-usb": "https://support.particle.io/hc/en-us/articles/360039741133",
   "/support/particle-devices-faq/photon-serial2-faq": "https://support.particle.io/hc/en-us/articles/360039251274",
   "/support/particle-devices-faq/serial-faq/": "/hardware/expansion/about-serial",
-  "/support/particle-devices-faq/wpa2-enterprise": "https://support.particle.io/hc/en-us/articles/360039741153",
+  "/support/particle-devices-faq/wpa2-enterprise": "/getting-started/setup/wpa2-enterprise",
   "/support/particle-devices-faq/xenon-standalone": "https://support.particle.io/hc/en-us/articles/360044183314",
   "/support/particle-tools-faq/eclipse-debug": "https://support.particle.io/hc/en-us/articles/360039741253",
   "/support/particle-tools-faq/installing-curl": "https://support.particle.io/hc/en-us/articles/360039251374",

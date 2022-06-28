@@ -86,10 +86,10 @@ The following enterprise SKUs are _**not currently impacted**_ by the silicon sh
    * B Series LTE CAT 1 (B524MTY)
 
 #### What SKUs are going to be deprecated, and when?
-A complete list of new and deprecated SKUs is available [here](https://support.particle.io/hc/en-us/articles/4596391852443).
+A complete list of new and deprecated SKUs is available [here](/reference/product-lifecycle/notices/product-deprecation-notice-march-16-2022/).
 
 #### How long will the existing products be available?
-According to our [hardware lifecycle policy](https://support.particle.io/hc/en-us/articles/360049388173-Product-Lifecycle-Policy-and-Status), Particle typically provides one year after formal deprecation of a product for customers to complete a Last Buy, and an additional year after that to accept Last Shipment. However, due to the significant and unprecedented circumstances of the silicon shortage, we have identified a “Last Request to Buy” date for all impacted and deprecated SKUs of **June 30, 2022**. We request that all POs for deprecated SKUs be submitted before this date and include a requested delivery schedule that extends no more than 12 months, through **June 30, 2023** at the latest. Due to the severity of the silicon shortage, it is likely that we will only be able to fulfill a very limited quantity of existing customers orders for impacted SKUs, as well as new orders placed before the Last Buy date. For this reason, POs placed before the Last Buy date will be eligible for customer cancellation, rescheduling, or conversion to Supply Secure SKUs as reasonable.
+According to our [hardware lifecycle policy](/reference/product-lifecycle/product-lifecycle-policy-status/), Particle typically provides one year after formal deprecation of a product for customers to complete a Last Buy, and an additional year after that to accept Last Shipment. However, due to the significant and unprecedented circumstances of the silicon shortage, we have identified a “Last Request to Buy” date for all impacted and deprecated SKUs of **June 30, 2022**. We request that all POs for deprecated SKUs be submitted before this date and include a requested delivery schedule that extends no more than 12 months, through **June 30, 2023** at the latest. Due to the severity of the silicon shortage, it is likely that we will only be able to fulfill a very limited quantity of existing customers orders for impacted SKUs, as well as new orders placed before the Last Buy date. For this reason, POs placed before the Last Buy date will be eligible for customer cancellation, rescheduling, or conversion to Supply Secure SKUs as reasonable.
 
 #### How long will the existing products be supported?
 All products deprecated from a GA lifecycle state as a result of the silicon shortage will still be fully supported according to our product lifecycle policy for 3 years, through **April 30 2025\.**  
@@ -138,4 +138,4 @@ Particle will be providing engineering samples, data sheets, migration guides, c
 
 #### What about SKUs that aren’t getting a “Supply Secure” replacement SKU, like the Photon?
 
-Particle is not planning to build replacement SKUs for hardware platforms like the Photon that already have a functionally equivalent and Supply Secure Gen 3 replacement in a similar form factor. Further information is available [here](https://support.particle.io/hc/en-us/articles/4596391852443).
+Particle is not planning to build replacement SKUs for hardware platforms like the Photon that already have a functionally equivalent and Supply Secure Gen 3 replacement in a similar form factor. Further information is available [here](/reference/product-lifecycle/notices/product-deprecation-notice-march-16-2022/).

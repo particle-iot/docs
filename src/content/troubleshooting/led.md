@@ -130,7 +130,7 @@ If your device is blinking green, it is trying to connect to Wi-Fi.
 If you are unable to get past blinking green, here are a few known working situations that the device is not compatible with:
 
 {{#if photon}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](https://support.particle.io/hc/en-us/articles/360039741153/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/getting-started/setup/wpa2-enterprise//). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
 
 
@@ -741,7 +741,7 @@ A pattern of more than 10 red blinks is caused by the firmware crashing. The pat
 
 [Enter safe mode](#safe-mode), tweak your firmware and try again! 
 
-You can also reset your device to a known state by following [these instructions](https://support.particle.io/hc/en-us/articles/360046136473).
+You can also reset your device to a known state by following [these instructions](/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/).
 
 
 There are a number of other red blink codes that may be expressed after the SOS blinks:
@@ -795,7 +795,7 @@ particle device doctor
 ```
 {{/if}}
 
-Some tips for reducing the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+Some tips for reducing the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 **Assertion failure (10 blinks between 2 SOS patterns)**
 
@@ -863,5 +863,5 @@ If you still see no change in the status LED you probably have a missing or corr
 
 
 
-This can be corrected using a [JTAG/SWD programmer](https://support.particle.io/hc/en-us/articles/360039251414/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
+This can be corrected using a [JTAG/SWD programmer](/reference/developer-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

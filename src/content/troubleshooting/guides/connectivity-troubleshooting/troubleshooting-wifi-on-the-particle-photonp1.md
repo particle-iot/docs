@@ -63,7 +63,7 @@ In rare cases, this could be Static if you've configured Static IP addressing on
 LOG(ERROR, "wiced_join_ap_specific(), result: %d", (int)result);
 ```
 
-* This will print out one of the error codes here: ([link](https://github.com/particle-iot/device-os/blob/develop/hal/src/photon/wiced/WWD/include/wwd%5Fconstants.h#L463)). Common results include `1003: Partial Results` (AP Out of Range) and `1024: Network Not Found` (see our WiFi Connectivity Guide for compatibility information - ([link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)).
+* This will print out one of the error codes here: ([link](https://github.com/particle-iot/device-os/blob/release/v2.x/hal/src/photon/wiced/WWD/include/wwd_constants.h#L463)). Common results include `1003: Partial Results` (AP Out of Range) and `1024: Network Not Found` (see our WiFi Connectivity Guide for compatibility information - ([link](/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/)).
 
 ## DNS And Cloud Connection
 
