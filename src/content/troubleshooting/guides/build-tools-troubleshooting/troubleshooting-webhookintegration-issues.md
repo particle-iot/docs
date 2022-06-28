@@ -127,7 +127,7 @@ _For webhooks, data is sent as 512 bytes per Publish._ This means that a device 
 
 * To test the viability of your endpoint, try testing against a service like [https://requestbin.com/ ](https://requestbin.com/)to receive the webhooks. Changing your destination endpoint to a neutral service like RequestBin is a great troubleshooting step to rule out infrastructure issues.
 * To conveniently send and view Webhooks results, you can use an API client like Postman. You can learn more about using Postman here (https://learning.postman.com/docs/getting-started/sending-the-first-request/).  
-Note: in order to find your access token, follow the instructions here: <https://support.particle.io/hc/en-us/articles/360045363174-How-do-I-manage-my-User-Access-Token->.
+Note: in order to find your access token, follow the instructions [here](/troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token/).
 
 * To quickly view and check the JSON, at the Console (console.particle.io), go to Edit Integration and Custom Template. You can then visually check the JSON formatting. For testing, you can remove {{variables}} and replace with hardcoded values.
 

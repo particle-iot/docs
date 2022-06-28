@@ -32,7 +32,7 @@ In your email, include a brief description of the issue in the subject and inclu
 
 A P1 request results in an immediate notification to the on-call support resource. Customers are expected to be available to work with a support engineer on diagnosis and troubleshooting. Business hours are 9am Pacific time - 5pm Pacific time excluding North American public holidays. For companies based in EMEA, business hours are 9am - 5pm UK time (GMT +1).
 
-\* Particle is committed to maintaining and supporting 2 major production versions of Device OS. Customers operating an unsupported version or in development and testing are considered Priority 2 issues and are encouraged to work with our technical support team to update to a supported version of Device OS. See the current [recommended supported version](https://support.particle.io/hc/en-us/articles/360046301194-What-are-Particle-s-Best-Practices-with-respect-to-DeviceOS-Version-Management-) for more information
+\* Particle is committed to maintaining and supporting 2 major production versions of Device OS. Customers operating an unsupported version or in development and testing are considered Priority 2 issues and are encouraged to work with our technical support team to update to a supported version of Device OS. See the current [recommended supported version](/scaling/best-practices/what-are-particles-best-practices-with-respect-to-device-os-version-management/-What-are-Particle-s-Best-Practices-with-respect-to-DeviceOS-Version-Management-) for more information
 
 ### Product service notifications
 

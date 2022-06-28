@@ -90,7 +90,7 @@ If your device is completely unresponsive the the above, please see our article 
 
 If you are unable to resolve the issue via the above, please collect the following information before opening a Support Ticket:
 
-* Your [DeviceID](https://support.particle.io/hc/en-us/articles/360039735733/) (if possible)
+* Your [DeviceID](/troubleshooting/guides/device-management/finding-your-device-id/) (if possible)
 * The LED Status exhibited by your device
 * The results of the steps above that you have taken, in sequence
 * A brief history of this device including:  

@@ -17,13 +17,13 @@ Particle's cellular and WiFi stacks differ in a few notable ways. From a trouble
 
 However, _for WiFi devices_, the network component is situated much closer to the end user - one's own router, one's own ISP, or one's own commercial networking arrangement. For this reason, we ask our WiFi users to take a more active role in the troubleshooting process. This guide will walk you through the most common blockers to a successful first connection. We ask you to review this list before submitting a WiFi connectivity-related support ticket.
 
-It should be explicitly stated that this guide is relevant to WiFi Particle devices that are blinking green (or alternating between blinking cyan and blinking green). If your device is presenting some other LED state, please return to our Support Portal ([link](https://support.particle.io/hc/en-us)) and select the appropriate resource.
+It should be explicitly stated that this guide is relevant to WiFi Particle devices that are blinking green (or alternating between blinking cyan and blinking green).
 
 First things first, let's make sure you've done all you can to help this device get connected:
 
    * Download and install the Particle CLI ([link](/getting-started/developer-tools/cli/)). Connect your device to your computer.
-   * Place your device in DFU Mode by pressing RESET and MODE simultaneously, releasing RESET, and then releasing MODE once the status LED blinks yellow. Once the status LED blinks yellow, open up your Command Line ("Teminal" (Mac), "cmd.exe" (Windows)), and then enter the command `particle update`. Allow the device to reset once complete.
-   * Place your device in Listening Mode by pressing the MODE button and holding it down for 3 seconds. Once the status LED blinks dark blue, open up your Command Line ("Teminal" (Mac), "cmd.exe" (Windows), and then enter the command `particle serial wifi` and follow the instructions.
+   * Place your device in DFU Mode by pressing RESET and MODE simultaneously, releasing RESET, and then releasing MODE once the status LED blinks yellow. Once the status LED blinks yellow, open up your Command Line ("Terminal" (Mac), "cmd.exe" (Windows)), and then enter the command `particle update`. Allow the device to reset once complete.
+   * Place your device in Listening Mode by pressing the MODE button and holding it down for 3 seconds. Once the status LED blinks dark blue, open up your Command Line ("Terminal" (Mac), "cmd.exe" (Windows), and then enter the command `particle serial wifi` and follow the instructions.
    * Place your device in Safe Mode by pressing RESET and MODE simultaneously, releasing RESET, and releasing MODE once the status LED blinks magenta. Give the device ample opportunity to connect.
 
 If your device still struggles to connect, let's first evaluate the compatibility of your network before going through some hands-on troubleshooting. 

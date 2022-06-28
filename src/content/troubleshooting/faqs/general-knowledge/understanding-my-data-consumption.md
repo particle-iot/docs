@@ -27,4 +27,4 @@ Devices with connectivity issues may experience frequent, abrupt disconnects - s
 
 ## Data Latency
 
-We rely on third party telephony partners to provide us with information about your data consumption. Data consumption logs (“Call Data Records” or CDRs) are processed in a large queue for execution by our telephony partner. In some instances, on high-traffic days, this can lead to delays. In some cases, this can take a few business days, leading to a perceived asynchrony between your device’s real life performance and data usage displayed on the Console. You can find more information about this issue [here](https://support.particle.io/hc/en-us/articles/360044033874).
+We rely on third party telephony partners to provide us with information about your data consumption. Data consumption logs (“Call Data Records” or CDRs) are processed in a large queue for execution by our telephony partner. In some instances, on high-traffic days, this can lead to delays. In some cases, this can take a few business days, leading to a perceived mismatch between your device’s real life performance and data usage displayed on the Console. 

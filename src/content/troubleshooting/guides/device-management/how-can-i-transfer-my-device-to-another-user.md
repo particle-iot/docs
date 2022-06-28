@@ -15,8 +15,8 @@ If you really are the owner of your device, and are having trouble logging into 
 
 This article is divided into two sections:
 
-* For the current owner: [Removing a Device from its Current Account](https://support.particle.io/hc/en-us/articles/360045423454#removing-a-device-from-its-current-account)
-* For the new owner: [Claiming the Device to a New Account](https://support.particle.io/hc/en-us/articles/360045423454#claiming-a-device-to-a-new-account)
+* For the current owner: [Removing a Device from its Current Account](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/#removing-a-device-from-its-current-account)
+* For the new owner: [Claiming the Device to a New Account](/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/#claiming-a-device-to-a-new-account)
 
 ## Removing A Device From Its Current Account
 

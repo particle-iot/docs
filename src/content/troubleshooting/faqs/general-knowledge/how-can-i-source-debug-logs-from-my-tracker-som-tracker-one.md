@@ -25,4 +25,4 @@ If you intend to submit these logs to a Support Engineer via a support ticket, e
 
 ## Custom Firmware
 
-Follow the instructions here: ([link](https://support.particle.io/hc/en-us/articles/360059637793-How-Do-I-Collect-Trace-Logs-From-My-Device-))!
+Follow the instructions here: ([link](/troubleshooting/guides/device-troubleshooting/how-do-i-collect-trace-logs-from-my-device/-How-Do-I-Collect-Trace-Logs-From-My-Device-))!
