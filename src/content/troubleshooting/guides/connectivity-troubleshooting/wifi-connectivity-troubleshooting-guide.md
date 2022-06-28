@@ -21,7 +21,7 @@ It should be explicitly stated that this guide is relevant to WiFi Particle devi
 
 First things first, let's make sure you've done all you can to help this device get connected:
 
-   * Download and install the Particle CLI ([link](https://docs.particle.io/tutorials/developer-tools/cli/)). Connect your device to your computer.
+   * Download and install the Particle CLI ([link](/tutorials/developer-tools/cli/)). Connect your device to your computer.
    * Place your device in DFU Mode by pressing RESET and MODE simultaneously, releasing RESET, and then releasing MODE once the status LED blinks yellow. Once the status LED blinks yellow, open up your Command Line ("Teminal" (Mac), "cmd.exe" (Windows)), and then enter the command `particle update`. Allow the device to reset once complete.
    * Place your device in Listening Mode by pressing the MODE button and holding it down for 3 seconds. Once the status LED blinks dark blue, open up your Command Line ("Teminal" (Mac), "cmd.exe" (Windows), and then enter the command `particle serial wifi` and follow the instructions.
    * Place your device in Safe Mode by pressing RESET and MODE simultaneously, releasing RESET, and releasing MODE once the status LED blinks magenta. Give the device ample opportunity to connect.

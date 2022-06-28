@@ -59,7 +59,7 @@ These are the available current limits:
 4110 or 4210
 
   
-**Note:** Beginning with the release of Device OS 1.5.x, and with further improvements in Particle's LTS branch (2.x, also applicable to 3.x), Particle introduced a new Power Manager ([link](https://docs.particle.io/reference/device-os/firmware/boron/#power-manager)). The previous PMIC API ([link](https://docs.particle.io/reference/device-os/firmware/boron/#pmic-power-management-ic-)) will be phased out moving forward.
+**Note:** Beginning with the release of Device OS 1.5.x, and with further improvements in Particle's LTS branch (2.x, also applicable to 3.x), Particle introduced a new Power Manager ([link](/reference/device-os/firmware/boron/#power-manager)). The previous PMIC API ([link](/reference/device-os/firmware/boron/#pmic-power-management-ic-)) will be phased out moving forward.
 
 ## Resetting The PMIC
 

@@ -18,7 +18,7 @@ Please see the following 6 sections, written to help diagnose issues with damage
 
 Before proceeding with this article, please review the following:
 
-* Is your Status LED going through the connection cycle like it normally would? ([link](https://docs.particle.io/tutorials/device-os/led/boron/#standard-modes))
+* Is your Status LED going through the connection cycle like it normally would? ([link](/tutorials/device-os/led/boron/#standard-modes))
 * If so, does it breathe cyan once done and can you ping it from the cloud?
 
 If neither of the above are true, please proceed to the next section. If the above are true, and if you are concerned that the device was damaged due to a brief short or power incident, be sure to check all the pins by setting them to _digitalWrite(Pin, HIGH);_ and checking for 3V3 (3.3 Volts) across each pin with a multimeter.  
@@ -35,7 +35,7 @@ If you don’t see a Status LED, begin by removing your device from any shield, 
 
 Try the following steps:
 
-* Tap the RESET button. Your device could be sleeping. If it responds, set the device into [Safe Mode](https://docs.particle.io/tutorials/device-os/led/boron/#safe-mode) and see if it connects.
+* Tap the RESET button. Your device could be sleeping. If it responds, set the device into [Safe Mode](/tutorials/device-os/led/boron/#safe-mode) and see if it connects.
 * Ensure that there is power going to the device. If you are using USB, test the cable on another device. Try powering it from a known-good battery.
 * If it is battery powered, try powering it via USB.
 * If you are sure power is going to the device, check the EN pin - is it pulled to GND? It should read 3V3 for a device to function normally.
@@ -53,7 +53,7 @@ If your device works in isolation, but plugging into the circuit causes issues, 
 
 ## Device Gets Warm (Battery-Powered)
 
-Make sure your battery connector conforms to the Feather specification and that the polarity is not reversed. See the Particle [battery tutorial.](https://docs.particle.io/tutorials/learn-more/batteries/) 
+Make sure your battery connector conforms to the Feather specification and that the polarity is not reversed. See the Particle [battery tutorial.](/tutorials/learn-more/batteries/) 
 
 If the polarity is correct, check with a spare battery if possible.
 

@@ -208,7 +208,7 @@ brew install dfu-util
 
 ```
 
-The [macOS CLI Installer](https://docs.particle.io/tutorials/developer-tools/cli/) tries to install dfu-util if you have homebrew installed.
+The [macOS CLI Installer](/tutorials/developer-tools/cli/) tries to install dfu-util if you have homebrew installed.
 
 If you have neither homebrew nor MacPorts installed, I recommend installing homebrew as the easiest way to install dfu-util. Just follow the instructions on the [homebrew](http://brew.sh) site to install it first.
 
@@ -227,7 +227,7 @@ port install libusb dfu-util
 
 Most Linux installations have packages for dfu-util already.
 
-If you have Ubuntu, the [Linux CLI Installer](https://docs.particle.io/tutorials/developer-tools/cli/) will try to install dfu-util through `apt-get`.
+If you have Ubuntu, the [Linux CLI Installer](/tutorials/developer-tools/cli/) will try to install dfu-util through `apt-get`.
 
 Here are the manual install commands for some popular distributions.
 
@@ -254,7 +254,7 @@ sudo pacman -Sy dfu-util
 
 You will also want to add a udev rule. This allows dfu-util to work without requiring sudo, which is convenient, and also necessary when using certain CLI and local build commands.
 
-Download the [50-particle.rules](https://docs.particle.io/assets/files/50-particle.rules) file, then copy it to /etc/udev/rules.d.
+Download the [50-particle.rules](/assets/files/50-particle.rules) file, then copy it to /etc/udev/rules.d.
 
 ```
 sudo cp 50-particle.rules /etc/udev/rules.d/
@@ -324,7 +324,7 @@ dfu-util -d 2b04:d006 -a 0 -s 0x08060000:leave -D system-part2-0.4.9-photon.bin
 
 ```
 
-Note the addresses are different for the Electron; you should refer to the [release notes](https://docs.particle.io/reference/device-os/firmware/photon/?fw%5Fver=0.5.3&cli%5Fver=1.17.0&electron%5Fparts=2#programming-and-debugging-notes)to find the addresses to use for your device and Device OS version.
+Note the addresses are different for the Electron; you should refer to the [release notes](/reference/device-os/firmware/photon/?fw%5Fver=0.5.3&cli%5Fver=1.17.0&electron%5Fparts=2#programming-and-debugging-notes)to find the addresses to use for your device and Device OS version.
 
 You will often see this warning in the output from dfu-util. It's normal:
 

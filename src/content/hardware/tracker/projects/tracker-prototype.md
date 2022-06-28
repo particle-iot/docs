@@ -18,7 +18,7 @@ One of the best ways to expand the Tracker One is using I2C, since that interfac
 
 For this example we'll add thermocouple sensor and add the temperature to location publishes using the Tracker SoM Evaluation Board.
 
-We'll also use the [SparkFun Qwiic](https://docs.particle.io/community/qwiic/) line of products for easy prototyping. In the second part of this tutorial we'll make our own thermocouple adapter board instead of using the Qwiic board.
+We'll also use the [SparkFun Qwiic](/community/qwiic/) line of products for easy prototyping. In the second part of this tutorial we'll make our own thermocouple adapter board instead of using the Qwiic board.
 
 With the Evaluation board you'll need the [Qwiic connector to prototyping wires](https://www.sparkfun.com/products/14425) or the [cable assortment](https://www.sparkfun.com/products/15081) that includes it.
 
@@ -84,7 +84,7 @@ git submodule update --init --recursive
 - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
-Make sure you've used the [**Mark As Development Device**](https://docs.particle.io/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+Make sure you've used the [**Mark As Development Device**](/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 ### Add the libraries
 

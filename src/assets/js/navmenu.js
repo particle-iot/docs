@@ -7,6 +7,11 @@ navMenu.scanHeaders = function () {
         return;
     }
 
+    let navLevel = 3;
+    if (thisUrl.pathname.split('/').length >= 6) {
+        navLevel = 4;
+    }
+
     navMenu.headers = [];
 
     const contentInner = $('div.content-inner');
@@ -134,10 +139,10 @@ navMenu.scanHeaders = function () {
             let e1, e2, e3, e4;
 
             e1 = document.createElement('div');
-            $(e1).addClass('navMenu3 navContainer');
+            $(e1).addClass('navMenu' + navLevel + ' navContainer');
 
             e2 = document.createElement('div');
-            $(e2).addClass('navIndent3');
+            $(e2).addClass('navIndent' + navLevel);
             $(e1).append(e2);
 
             if (hdr.hasDisclosureTriangle) {

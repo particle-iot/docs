@@ -8,21 +8,20 @@ columns: two
   
 While troubleshooting a cellular connectivity issue might seem intimidating at first, the Particle Platform empowers users like you with a number of tools to help you get (and stay) connected. This guide will walk you through three of these tools: Device Vitals (an easy-to-access readout of connectivity metrics), SIM Management, and Cloud Debug (a powerful firmware application that prints out relevant connectivity data directly from your device). Let's get started!
 
-It should be explicitly stated that this guide is relevant to cellular Particle devices that are **blinking green**. If your device is presenting some other LED state, please return to our Support Portal ([link](https://support.particle.io/hc/en-us)) and select the appropriate resource.
 
 This article is divided into the following resources:
 
-* [Device Vitals](https://support.particle.io/hc/en-us/articles/360044518213#device-vitals)
-* [SIM Management](https://support.particle.io/hc/en-us/articles/360044518213#sim-management)
-* [Cloud Debug](https://support.particle.io/hc/en-us/articles/360044518213#cloud-debug)
-* [Troubleshooting Your Antenna](https://support.particle.io/hc/en-us/articles/360044518213#troubleshooting-your-antenna)
-* [Submitting A Ticket (Important!)](https://support.particle.io/hc/en-us/articles/360044518213#submitting-a-ticket)
+* Device Vitals
+* SIM Management
+* Cloud Debug
+* Troubleshooting Your Antenna
+* Submitting A Ticket
 
 But first things first, let's tackle the **four easiest things** you can do to rule out a cellular issue:
 
 * Place your device in Safe Mode by pressing RESET and MODE simultaneously, releasing RESET, and releasing MODE once the status LED blinks magenta. Give the device ample opportunity to connect.
 * Ensure your antenna's U.FL connector is firmly attached. If possible, try with another antenna.
-* [Upgrade your device's Device OS to the most recent Device OS version.](https://docs.particle.io/tutorials/device-os/device-os/#managing-device-os)
+* [Upgrade your device's Device OS to the most recent Device OS version.](/tutorials/device-os/device-os/#managing-device-os)
 * If you have a 2G/3G device, ensure your device's LiPo battery is attached.
 
 ## Device Vitals
@@ -53,20 +52,22 @@ This is a very information-dense document, but the key things to look out for ar
 
 * **Device.network.signal.strength**  
 _This value corresponds to signal “Strength”, with desirable values higher than -85dBm, with a steady decrease in stability as you approach -120dBm. We recommend you use our "%" metrics to scale these values accordingly as there are differences between RSCP and RSRP measurements for 2G/3G and LTE devices respectively._  
-_![1.JPG](https://support.particle.io/hc/articleattachments/1260803516849/1.JPG)_
+![](/assets/images/support/cellular-connectivity1.jpeg)
+
 * **Device.network.signal.quality**  
 __This value corresponds to signal “Quality”._  
 _For 3G devices, the metric for Signal Quality is EC/IO. In the case of the LTE devices, the metric for Signal Quality is RSRQ (Reference Signal Received Quality). This is a measure of the signal quality of LTE cellular connection. You can check this signal value in the historical vitals file of each device. This file is available on the web page of the device._  
 _EC/IO and RSRQ are typically displayed in a range from 0dB (highest quality) to -20dB (lowest quality). Typically better signal quality results in a more reliable connection. Lower values (-16dBm) are considered insufficient for a sustainable connection (eg. potentially due to interference in operating environment)._  
 _We also convert this value to a readable “%”. You can refer to this percentage on the SIGNAL QUALITY graph and in the above mentioned “Download History”” file._  
     
-_![2.JPG](https://support.particle.io/hc/articleattachments/1260803516869/2.JPG)_
+![](/assets/images/support/cellular-connectivity2.jpeg)
+
 * **Device.network.cellular.operator**  
 _Seeing -1200 here indicates the response from the modem was not received in a timely manner and would indicate a bad signal. **Please note that on DeviceOS 1.5.0, this key returns -1200 regardless of signal strength: a regression that was fixed in DeviceOS 1.5.1.**_
 * **Device.cloud.connection.error**  
 _Common errors here include 1 (ping timeout) and 17 (error establishing a session), both commonly associated with signal issues. See below for more information about error codes!_
 * **Device.power.source**  
-_Useful to determine what is powering your device (VIN, battery, etc…). **It’s worth explicitly stating that 2G/3G devices have specific current requirements ([link](https://docs.particle.io/datasheets/cellular/electron-datasheet/#usb)) in order to connect.**_
+_Useful to determine what is powering your device (VIN, battery, etc…). **It’s worth explicitly stating that 2G/3G devices have specific current requirements ([link](/datasheets/cellular/electron-datasheet/#usb)) in order to connect.**_
 * **Device.power.battery.state**  
 _Is your battery charging or not?_
 * _**Device.power.battery.charge**_  
@@ -76,7 +77,7 @@ _The amount of charge in your battery (percentage)._
 
 ## SIM Management
 
-If your cellular device has trouble getting online, make a note of its ICCID (the identifier for your SIM Card). If this device has come online in the past and is visible in the Console, merely click on the Device in question to check the ICCID number. If the device has never come online, you can find this information by either checking the packaging for your Particle SIM and/or (especially in the case of embedded SIM devices), following the instructions [here](https://docs.particle.io/support/particle-devices-faq/finding-device-id/) to ask the device to reveal this number for you.  
+If your cellular device has trouble getting online, make a note of its ICCID (the identifier for your SIM Card). If this device has come online in the past and is visible in the Console, merely click on the Device in question to check the ICCID number. If the device has never come online, you can find this information by either checking the packaging for your Particle SIM and/or (especially in the case of embedded SIM devices), following the instructions [here](/support/particle-devices-faq/finding-device-id/) to ask the device to reveal this number for you.  
   
 Once you have your ICCID, be sure to check <https://console.particle.io/sims> to ensure the SIM is Active. If the SIM does not appear in <https://console.particle.io/sims> (or in the respective SIM Management page for a given Product), please activate your SIM by following the steps at <https://setup.particle.io>. If the SIM does appear in <https://console.particle.io/sims> but is marked as “Deactivated”, please Activate the SIM by pressing the “…” marking on the right-hand side of the SIM Management page. Should you have any issues with SIM Activation, please visit our Article on “Troubleshooting SIM Activation/Deactivations.”  
   
@@ -103,15 +104,15 @@ Cloud debug is a tool to debug cloud connection issues. It:
 
 You can download Cloud Debug here: [https://github.com/particle-iot/cloud-debug.](https://github.com/particle-iot/cloud-debug)
 
-If you would like to source debug logs using your application binary instead, follow the link [here](https://support.particle.io/hc/en-us/articles/360059637793-How-Do-I-Collect-Trace-Logs-From-My-Device-).
+If you would like to source debug logs using your application binary instead, follow the link [here](/troubleshooting/guides/device-troubleshooting/how-do-i-collect-trace-logs-from-my-device/).
 
 **NOTE: trace logs are _substantially_ more detailed and useful on Device OS 2.x and 3.x.** 
   
-### Google chrome users can flash and see debug logs directly from the browser thanks to the wonders of Web USB: [Web Cloud Debug](https://docs.particle.io/cloud-debug/)
+### Google chrome users can flash and see debug logs directly from the browser thanks to the wonders of Web USB: [Web Cloud Debug](/cloud-debug/)
 
 #### Gathering Debug Logs
 
-The best way to produce these logs is with `particle serial monitor --follow` in [CLI](https://docs.particle.io/tutorials/developer-tools/cli/). We recommend resetting the device after running this command so that you are able to source logs from the device from the very beginning of the application.
+The best way to produce these logs is with `particle serial monitor --follow` in [CLI](/tutorials/developer-tools/cli/). We recommend resetting the device after running this command so that you are able to source logs from the device from the very beginning of the application.
 
 Several seconds after connecting serial monitor, the tests will begin.
 
@@ -123,7 +124,7 @@ Once you have the logs, scan through it and look out for the following responses
 
 _2,3 indicates your SIM card is being rejected by the local tower. **Please ensure that your SIM card is active!** If your SIM card is indeed active, this error could occur for various infrastructural reasons; it might resolve itself if you have a day or two to wait._ 
 
-_If not, please submit a ticket at <https://particle.io/support> so we can check with our MVNO what is going on._
+_If not, please submit a ticket at <https://support.particle.io/> so we can check with our MVNO what is going on._
 
 #### 2,2
 
@@ -137,7 +138,7 @@ _2,0 indicates a lack of available local towers._
 
 _Indicates a successful connection to the tower._  
 
-Once you have these logs in hand, reach out to our support team ([https://particle.io/support)](https://particle.io/support) with about 10 minutes or so of those logs! 
+Once you have these logs in hand, reach out to our support team ([https://support.particle.io/)](https://support.particle.io/) with about 10 minutes or so of those logs! 
 
 #### Uninstalling Cloud Debug
 
@@ -153,14 +154,14 @@ It's worth double-checking your uFL connector for physical defects - this part i
 
 Barring any physical damage to the unit, the next step is to thoroughly evaluate whether the device can be moved in any way - oftentimes, for indoor devices, a few feet closer to a window can make a world of difference. Should a relocation insufficiently address your connectivity issue it may be worth exploring an alternative antenna - but please note that prototyping with an alternative antenna may have certification implications. 
 
-Should this be your object of interest, please read our technical notes on this subject thoroughly, located here: ([link](https://docs.particle.io/datasheets/certifications/antenna/)).
+Should this be your object of interest, please read our technical notes on this subject thoroughly, located here: ([link](/datasheets/certifications/antenna/)).
 
 ## Submitting A Ticket
 
 ### In order to provide our Support Team the opportunity to address your request with optimal efficiency, please supplement any and all cellular connectivity tickets with the following information (to the extent possible):
 
 1. Confirmation that the antenna and (if using a 2G/3G device) LiPo battery connections satisfy a visual inspection.
-2. An attached Device Vitals History .pdf, downloadable in the Console per the instructions above ([link](https://support.particle.io/hc/en-us/articles/360044518213#device-vitals)). (Please note that this resource will not appear if the device has never connected in the past).
+2. An attached Device Vitals History .pdf, downloadable in the Console per the instructions above. (Please note that this resource will not appear if the device has never connected in the past).
 3. Confirmation that the SIM associated with this device is indeed active within the Console. If you are using a 3rd Party SIM, please specify that you are doing so, taking care to note that we cannot help troubleshoot cellular connectivity for 3rd Party configurations.
 4. At least ten minutes of Cloud Debug logs documenting the connectivity incident. If possible, please further supplement these logs with a carrier scan, accomplished by resetting the device and using the \`c\` command to request a carrier scan (note: carrier scans not supported on LTE devices, so just Cloud Debug logs will suffice in this instance).
 5. The location of the device in question (e.g. GPS coordinates).

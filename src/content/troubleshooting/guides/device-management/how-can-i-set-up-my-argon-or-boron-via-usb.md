@@ -15,7 +15,7 @@ This article contains information for setting up:
 
 ## Argon Setup
 
-1. You must have the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
+1. You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 2. Open up your computer's Terminal (Mac) or Command Line (Windows).
 3. Download the following from the [Argon NCP release site](https://github.com/particle-iot/argon-ncp-firmware/releases/tag/v0.0.5): [argon-ncp-firmware-0.0.5-ota.bin](https://github.com/particle-iot/argon-ncp-firmware/releases/download/v0.0.5/argon-ncp-firmware-0.0.5-ota.bin) and save it within an accessible directory. Use `cd` in your Terminal to navigate to the directory that contains this file.
 4. Attach the Wi-Fi antenna to your Argon. Make sure you connect it to the correct connector, there are three U.FL connectors: WiFi, BT, and NFC.
@@ -48,7 +48,7 @@ particle usb setup-done
 
 ## Boron Setup
 
-1. You must have the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
+1. You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 2. Attach the cellular antenna to your Boron. Make sure you connect it to the correct connector, there are three U.FL connectors: cellular (on the top), BT and NFC (on the bottom).
 3. Remove the Boron from the anti-static foam before powering the device.
 4. Plug the Boron into a USB port on your computer. It should begin blinking blue. For a Boron LTE, just USB power alone should be sufficient, but for a Boron 2G/3G you should also attach the LiPo battery.
@@ -69,7 +69,7 @@ Your system firmware version is 1.5.0
 10. Save the device ID and ICCID, you'll need them later. If you get a serial timed out error, just try the command again.
 11. If you are using the Particle SIM card built into your Boron, Copy the ICCID and go to: [https://setup.particle.io](https://setup.particle.io/). Click on the link to **Activate a Particle SIM** under the pictures. Enter the ICCID and proceed through the activation steps.  
     
-If you want to use a 3rd-party SIM with the Boron, follow [the instructions here](https://docs.particle.io/support/particle-devices-faq/electron-3rdparty-sims) for setting up a Boron with 3rd-party SIM card.
+If you want to use a 3rd-party SIM with the Boron, follow [the instructions here](/support/particle-devices-faq/electron-3rdparty-sims) for setting up a Boron with 3rd-party SIM card.
 12. Once you've activated your SIM, exit listening mode:  
 particle usb stop-listening
 13. The Boron should go through the normal sequence of blinking green, blinking cyan (light blue), fast blinking cyan, and breathing cyan.

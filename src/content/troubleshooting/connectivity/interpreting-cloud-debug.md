@@ -230,7 +230,7 @@ The logs are very similar to the case where there is no signal, so it's best to 
 
 #### 2G no longer supported (on Electron 2G G350) (blinking green)
 
-Some carriers have stopped supporting 2G. You can find out more information in [the 2G/3G sunset guide](https://docs.particle.io/tutorials/cellular-connectivity/introduction/#2g-and-3g-sunset). 
+Some carriers have stopped supporting 2G. You can find out more information in [the 2G/3G sunset guide](/tutorials/cellular-connectivity/introduction/#2g-and-3g-sunset). 
 
 If you are using an Electron 2G (G350), it can no longer be used in:
 
@@ -256,7 +256,7 @@ The Electron has two 3G models:
 - Electron 3G Americas/Australia/New Zealand (U260)
 - Electron 3G Europe/Asia/Africa (U270)
 
-If you are using a 3rd-party SIM card, the model may vary. For example, if you are using Optus in Australia, you'd use the U270 instead of the U260. There is more information in [the roaming guide](https://docs.particle.io/tutorials/cellular-connectivity/introduction/#roaming).
+If you are using a 3rd-party SIM card, the model may vary. For example, if you are using Optus in Australia, you'd use the U270 instead of the U260. There is more information in [the roaming guide](/tutorials/cellular-connectivity/introduction/#roaming).
 
 If you are using the wrong model, the log will typically look like no tower available, as the modem cannot receive the frequencies it is transmitting on.
 

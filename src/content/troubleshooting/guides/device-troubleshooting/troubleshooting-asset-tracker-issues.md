@@ -7,7 +7,7 @@ columns: two
 # {{{title}}}
 ## <Introduction>
 
-The purpose of this document is to outline troubleshooting steps for the Asset Tracker. As a start, you can read here to know about the Asset Tracker: [https://docs.particle.io/tutorials/asset-tracking/introduction/ ](https://docs.particle.io/tutorials/asset-tracking/introduction/)This article is divided into the follow sections:
+The purpose of this document is to outline troubleshooting steps for the Asset Tracker. As a start, you can read here to know about the Asset Tracker: [https://docs.particle.io/tutorials/asset-tracking/introduction/ ](/tutorials/asset-tracking/introduction/)This article is divided into the follow sections:
 
 * [Datasheets](#h%5F01FPVVTE9EGRRB36WAP7F4DK22)
 * [Setup & Claim](#h%5F01FPVVTQWC9DPRF3WT1SPNYQK6)
@@ -50,7 +50,7 @@ For the 1st time your setup, if you see that the **setup time of GPS / GNSS sign
 
 Make sure you use the **Mark As Development Device option** for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting any application you just flashed.
 
-Is Tracker **officially supported for connectivity in your country**? Do check [here](https://docs.particle.io/tutorials/cellular-connectivity/cellular-carriers/?tab=ByDevice&device=Tracker%20T524%2FONE524%20LTE%20CAT1%2F3G%2F2G%20%28Europe%29%20EtherSIM&region=All).
+Is Tracker **officially supported for connectivity in your country**? Do check [here](/tutorials/cellular-connectivity/cellular-carriers/?tab=ByDevice&device=Tracker%20T524%2FONE524%20LTE%20CAT1%2F3G%2F2G%20%28Europe%29%20EtherSIM&region=All).
 
 Since the I2C and Serial1 lines are shared on the M8 connector of the Tracker One, the customer must choose one or the other. The I2C interface on this connector is Wire3 and it is the same interface as Wire but the pins have been rerouted on the MCU to override the Serial1 pins.
 

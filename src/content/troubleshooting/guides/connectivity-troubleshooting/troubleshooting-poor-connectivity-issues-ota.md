@@ -22,7 +22,7 @@ You can also check that the antenna is firmly attached and that the most suitabl
 
 If the antenna is not properly connected, the Cloud Debug logs will output CREG 2,0 and CREG 2,2 alternately.
 
-All said, devices require both good cellular signal power and quality. Without either, the connectivity will be affected. To understand more about cellular signal, you can read [here](https://docs.particle.io/tutorials/diagnostics/device-vitals/).
+All said, devices require both good cellular signal power and quality. Without either, the connectivity will be affected. To understand more about cellular signal, you can read [here](/tutorials/diagnostics/device-vitals/).
 
 ## Device Vitals
 
@@ -39,11 +39,11 @@ There are usually two main reasons:
 a) a high rate of application-driven calls to our Cloud API, or b) high rate of system-related calls made to keep your device online.  
 If you have done the math on your expected data consumption based on Publish payload size and frequency, it's possible that your device is experiencing poor enough connectivity.  
 Devices with connectivity issues may experience frequent, abrupt disconnects - sometimes in the middle of the handshake process. In certain edge cases, this can lead to noticeably higher-than-expected data consumption. The device is forced to consume data in order to try to get online.  
-You can also read more about cellular data consumption [here](https://docs.particle.io/tutorials/cellular-connectivity/data/#cellular-data-service-with-particle).
+You can also read more about cellular data consumption [here](/tutorials/cellular-connectivity/data/#cellular-data-service-with-particle).
 
 ## Dealing with OTA failures
 
-To prevent devices with low cellular signal strength and quality, from repeatedly attempting to OTA update, you can check for cellular signal before OTA updates using [Cellular Signal](https://docs.particle.io/reference/device-os/firmware/#cellularsignal-class) and [Disable Updates](https://docs.particle.io/reference/device-os/firmware/#system-disableupdates-).  
+To prevent devices with low cellular signal strength and quality, from repeatedly attempting to OTA update, you can check for cellular signal before OTA updates using [Cellular Signal](/reference/device-os/firmware/#cellularsignal-class) and [Disable Updates](/reference/device-os/firmware/#system-disableupdates-).  
   
 One thing that can cause problems is special sleep logic. Once the download starts, if there is not enough wait before sleep, the download will start over from the beginning with DeviceOS 2.x and may never complete. With DeviceOS 3.x on Gen 3, then it will resume from where it left off before sleep.
 
@@ -59,7 +59,7 @@ Firmware updates have a much higher odds of success than deviceOS updates. Users
 
 We have clients implementing at extreme locations such as rural and forested areas with poor signal strength.
 
-To improve the signal, you can use a [cellular booster](https://docs.particle.io/datasheets/certifications/antenna/#cellular-boosters-and-micro-cells). We have seen users deploying successfully at the San Francisco bay.
+To improve the signal, you can use a [cellular booster](/datasheets/certifications/antenna/#cellular-boosters-and-micro-cells). We have seen users deploying successfully at the San Francisco bay.
 
 ##   **Cellular Class**
 

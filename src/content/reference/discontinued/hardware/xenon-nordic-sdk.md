@@ -5,10 +5,10 @@ columns: two
 ---
 # {{title}}
 
-With the [deprecation of Thread Mesh](https://docs.particle.io/reference/discontinued/mesh/), some options for Xenons include:
+With the [deprecation of Thread Mesh](/reference/discontinued/mesh/), some options for Xenons include:
 
-- Using Xenons in [standalone mode, with no network connectivity](https://docs.particle.io/support/particle-devices-faq/xenon-standalone/#set-the-system_mode).
-- Using them standalone as a [CircuitPython devices](https://docs.particle.io/tutorials/learn-more/xenon-circuit-python/).
+- Using Xenons in [standalone mode, with no network connectivity](/support/particle-devices-faq/xenon-standalone/#set-the-system_mode).
+- Using them standalone as a [CircuitPython devices](/tutorials/learn-more/xenon-circuit-python/).
 
 If you need to have the ability to create and use mesh networking features after December 31, 2020, one option is to use the Nordic  SDK native Thread support. If you absolutely need to continue using Thread mesh, this is the best option, however there are important caveats:
 

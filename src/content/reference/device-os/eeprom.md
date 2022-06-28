@@ -61,7 +61,7 @@ Serial1LogHandler logHandler(115200);
 // SerialLogHandler logHandler;
 ```
 
-These are our configurable parameters. This example uses [Chrono Literals](https://docs.particle.io/reference/device-os/firmware/#chrono-literals) which is a great feature of Device OS 1.5.0 and later. Instead of setting 6 minutes in milliseconds (360000 or 6 * 60 * 1000), you can just use `6min`. You can also use `30s` for seconds. Or `2h` for hours.
+These are our configurable parameters. This example uses [Chrono Literals](/reference/device-os/firmware/#chrono-literals) which is a great feature of Device OS 1.5.0 and later. Instead of setting 6 minutes in milliseconds (360000 or 6 * 60 * 1000), you can just use `6min`. You can also use `30s` for seconds. Or `2h` for hours.
 
 ```
 // This is the maximum amount of time to wait for the cloud to be connected in

@@ -20,13 +20,13 @@ Some of the things you can do:
 
 ![Features](/assets/images/support/eclipse-debug-debug-15.png)
 
-While you can still use these instructions, a much easier way to install [Particle Workbench](https://docs.particle.io/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools and do source-level debugging without the extreme hassle of the method described below.
+While you can still use these instructions, a much easier way to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools and do source-level debugging without the extreme hassle of the method described below.
 
 ### Install local gcc-arm toolchain
 
 * Install a gcc-arm toolchain for local building for Windows, Mac or Linux
 
-The instructions are in the [local build FAQ](https://docs.particle.io/faq/particle-tools/local-build/). This is necessary because the cloud compilers are not configured to generate debugging builds.
+The instructions are in the [local build FAQ](/faq/particle-tools/local-build/). This is necessary because the cloud compilers are not configured to generate debugging builds.
 
 ### Connect the debugger device
 
@@ -174,7 +174,7 @@ For debugging using JTAG/SWD you create special monolithic debug builds. They're
 
 Whenever you switch between debug and non-debug builds, or monolithic to non-monolithic, you must add the clean option to make.
 
-In this example I created a new directory in src called "tinkerbreak" that contains [tinkerbreak.cpp](https://docs.particle.io/assets/files/eclipse-debug/tinkerbreak.cpp), a modified version of tinker that responds to the Particle function "break" to break into the debugger under software control.
+In this example I created a new directory in src called "tinkerbreak" that contains [tinkerbreak.cpp](/assets/files/eclipse-debug/tinkerbreak.cpp), a modified version of tinker that responds to the Particle function "break" to break into the debugger under software control.
 
 ![src directory layout](/assets/images/support/eclipse-debug-srcdir.png)
 
@@ -421,9 +421,9 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 
 ```
 
-If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](https://docs.particle.io/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
+If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
-For Gen 3 devices, also download [nrf52-particle.cfg](https://docs.particle.io/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
+For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
 
 #### Install GNU ARM Eclipse OpenOCD - Mac
 
@@ -461,9 +461,9 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 
 ```
 
-If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](https://docs.particle.io/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
+If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
-For Gen 3 devices, also download [nrf52-particle.cfg](https://docs.particle.io/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
+For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
 
 #### Install GNU ARM Eclipse OpenOCD - Linux
 
@@ -508,9 +508,9 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 
 ```
 
-If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](https://docs.particle.io/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
+If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
-For Gen 3 devices, also download [nrf52-particle.cfg](https://docs.particle.io/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
+For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-particle.cfg) and copy it to the scripts/target directory.
 
 ### Create an Eclipse project - All Operating Systems
 
@@ -522,7 +522,7 @@ In this example, we'll create a project for the tinkerbreak code we used in the 
 
 ![Eclipse New Project](/assets/images/support/eclipse-debug-eclipse-new-project-2.png)
 
-* Download [Makefile](https://docs.particle.io/assets/files/eclipse-debug/Makefile) and save it into your project directory.
+* Download [Makefile](/assets/files/eclipse-debug/Makefile) and save it into your project directory.
 
 It will be the same for all projects. You will need to right click on the project name (tinkerbreak) in the **Project Explorer** and select **Refresh** for it to display in Eclipse.
 

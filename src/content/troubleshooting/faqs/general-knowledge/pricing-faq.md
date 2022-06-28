@@ -53,9 +53,9 @@ The[ Particle Console](http://console.particle.io) lists the three limits you wi
 * For Free and Growth plans, the number of Data Operations consumed this billing month (for Enterprise plans, Data Operations reporting will be annual). Data Operation reporting will be near real-time, but up to 30 minutes behind.
 * For Free and Growth plans, the number of MB of cellular usage this billing month (for Enterprise plans, data usage reporting will be annual). Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
 
-### For a Data Operations Calculator, please follow the link [here](https://docs.particle.io/tutorials/device-cloud/introduction/#pricing).
+### For a Data Operations Calculator, please follow the link [here](/tutorials/device-cloud/introduction/#pricing).
 
-For questions regarding the technical specifications of a Data Operation, please review our documentation [here](https://docs.particle.io/tutorials/device-cloud/introduction/#pricing). 
+For questions regarding the technical specifications of a Data Operation, please review our documentation [here](/tutorials/device-cloud/introduction/#pricing). 
 
 ## How Much Can One Expect To Pay Per Plan?
 
@@ -87,9 +87,9 @@ If you would like to lower your block usage in a given month, please contact the
 
 ## How Do I Create A Product For My Growth Plan Devices?
 
-Growth Plan devices are housed within an Organization. An Organization is space set aside for you in your Console **outside** of your Sandbox once you complete the Growth Plan transition process. You can read more about Organizations [here](https://docs.particle.io/tutorials/product-tools/organizations/).
+Growth Plan devices are housed within an Organization. An Organization is space set aside for you in your Console **outside** of your Sandbox once you complete the Growth Plan transition process. You can read more about Organizations [here](/tutorials/product-tools/organizations/).
 
-Organizations consist of one or many Particle Products. Products are a schema designed to house and manage similarly-behaving Particle devices at scale. In order to use Particle's Growth Plan, you will need to create at least one Product for Particle to migrate into your new Organization. You can read more about Products [here](https://docs.particle.io/tutorials/product-tools/introduction/#introduction).
+Organizations consist of one or many Particle Products. Products are a schema designed to house and manage similarly-behaving Particle devices at scale. In order to use Particle's Growth Plan, you will need to create at least one Product for Particle to migrate into your new Organization. You can read more about Products [here](/tutorials/product-tools/introduction/#introduction).
 
 To create a Product, log into your Particle Console and select the Product icon on the left-hand side:  
   
@@ -109,7 +109,7 @@ Congratulations, you've created your first Product! Take note of its ID, located
 
 You're almost there! Now you need to migrate the relevant devices into your Product. Please be aware that Products only support one device type (e.g. "Tracker" or "Boron"), so you may need to create multiple Products to support a more varied Growth Plan fleet!
 
-Adding devices to a Product is easy - gather a list of Device IDs, either by hand or [with our API](https://docs.particle.io/tutorials/product-tools/introduction/#introduction), and then navigate to the Devices page of your Product (https://console.particle.io/:your ProductID/devices). Select "Add Devices" on the right-hand side of the page, and follow the instructions to add one or many devices into your new Product!
+Adding devices to a Product is easy - gather a list of Device IDs, either by hand or [with our API](/tutorials/product-tools/introduction/#introduction), and then navigate to the Devices page of your Product (https://console.particle.io/:your ProductID/devices). Select "Add Devices" on the right-hand side of the page, and follow the instructions to add one or many devices into your new Product!
 
 ## How is my Growth plan billed?
 
@@ -133,7 +133,7 @@ For cellular devices, there is a data limit depending on your pricing plan. The 
 
 ## How Can I Optimize My Data Operation Consumption?
 
-Please see our documentation [here](https://docs.particle.io/tutorials/device-cloud/introduction/#minimizing-data-operations) for suggested practices to reduce Data Operation consumption. 
+Please see our documentation [here](/tutorials/device-cloud/introduction/#minimizing-data-operations) for suggested practices to reduce Data Operation consumption. 
 
 ## What Happens If I Cross My Data Operations Threshold?
 

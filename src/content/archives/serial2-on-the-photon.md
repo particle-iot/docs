@@ -103,7 +103,7 @@ To use the status LED on different pins, you must choose other pins that have PW
 
 ![LED wired to alternate location](https://particle.zendesk.com/hc/article_attachments/360051654394/photon-serial2-faq-10ledwired.jpg)
 
-The documentations for [tone](https://docs.particle.io/reference/device-os/firmware/photon/#tone-) more details of which pins you can use. I purposely avoided D0/D1 since I2C can be handy, and TX/RX since why would to go through the insanity if you didn't need both UART serial ports.
+The documentations for [tone](/reference/device-os/firmware/photon/#tone-) more details of which pins you can use. I purposely avoided D0/D1 since I2C can be handy, and TX/RX since why would to go through the insanity if you didn't need both UART serial ports.
 
 And here's the sample code to test out the LED on the new pins:
 

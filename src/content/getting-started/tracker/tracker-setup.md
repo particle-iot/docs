@@ -124,7 +124,7 @@ In the future, it will also be possible to enter shipping mode by USB, but this 
 
 #### Other Functions
 
-Other functions that would normally be performed by button presses can be done using the [Particle CLI](https://docs.particle.io/reference/developer-tools/cli/#particle-usb-safe-mode) when connected by USB. For example:
+Other functions that would normally be performed by button presses can be done using the [Particle CLI](/reference/developer-tools/cli/#particle-usb-safe-mode) when connected by USB. For example:
 
 ```bash
 particle usb reset

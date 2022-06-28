@@ -9,10 +9,10 @@ columns: two
 
 We're sorry to hear that you're having trouble with your Particle device! To help you get started, or to help you troubleshoot, we have the following reference material for you to review:
 
-* Review our [quickstart guides](https://docs.particle.io/quickstart/) for assistance getting started
-* Check out these[ tutorials](https://docs.particle.io/tutorials/device-os/device-os/)
-* Ask our [community](https://docs.particle.io/community/forum/) members for help
-* Find a [workshop](https://docs.particle.io/workshops/particle-workshops/main/) to assist you
+* Review our [quickstart guides](/quickstart/) for assistance getting started
+* Check out these[ tutorials](/tutorials/device-os/device-os/)
+* Ask our [community](/community/forum/) members for help
+* Find a [workshop](/workshops/particle-workshops/main/) to assist you
 
 ## How can I request a replacement?
 

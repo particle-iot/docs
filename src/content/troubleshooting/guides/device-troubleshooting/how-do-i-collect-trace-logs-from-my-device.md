@@ -7,7 +7,7 @@ columns: two
 # {{{title}}}
 ## Log Levels and Log Handlers
 
-Our Serial Log Handler class is a great resource when it comes to quickly sourcing traces from firmware that is behaving unexpectedly. You can read more about Log Handlers [here](https://docs.particle.io/reference/device-os/firmware/electron/#log-handlers). For collecting trace logs from a device, it's best to use a Serial Log Handler with a certain priority: `SerialLogHandler logHandler(LOG_LEVEL_ALL);`. Simply prepend this logHandler to your firmware, above the `setup()` function. 
+Our Serial Log Handler class is a great resource when it comes to quickly sourcing traces from firmware that is behaving unexpectedly. You can read more about Log Handlers [here](/reference/device-os/firmware/electron/#log-handlers). For collecting trace logs from a device, it's best to use a Serial Log Handler with a certain priority: `SerialLogHandler logHandler(LOG_LEVEL_ALL);`. Simply prepend this logHandler to your firmware, above the `setup()` function. 
 
 Here are some examples of what you might look for in these logs:
 
@@ -35,6 +35,6 @@ Log.error(const char *format, ...)
 
 SerialLogHandler may interact with`Serial.begin()`) negatively, so if you are using the general Serial class for generic debugging, it may be better to switch to the logHandler class instead.
 
-To collect logs, make sure you have the CLI ([link](https://docs.particle.io/tutorials/developer-tools/cli/)) installed. Then open up your Terminal (Mac) or Command Line (Windows) and run the command `particle serial monitor --follow`, and **only** **then** connect a device with logging enabled via its USB connection. 
+To collect logs, make sure you have the CLI ([link](/tutorials/developer-tools/cli/)) installed. Then open up your Terminal (Mac) or Command Line (Windows) and run the command `particle serial monitor --follow`, and **only** **then** connect a device with logging enabled via its USB connection. 
 
 If you are collecting logs to bring to a Technical Support Engineer, it's strongly recommended that you annotate your firmware using log flags like the above - e.g. `Log.info("LOOP BEGINS--");` \- this will help someone unfamiliar with your firmware to quickly grasp its architecture.

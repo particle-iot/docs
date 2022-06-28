@@ -25,7 +25,7 @@ The **E Series** and **B Series** does not have a SIM card slot and cannot use a
 
 The **Boron** has both a MFF2 embedded SIM card (the default) and a nano SIM card slot for a 3rd-party SIM card. You need to tell the device which one you want to use, however.
 
-Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](https://docs.particle.io/tutorials/developer-tools/cli/).
+Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](/tutorials/developer-tools/cli/).
 
 All SIMs, including 3rd-party SIMs, must be activated. The method for activating varies by carrier; you might do this from a web site or with a phone call. If you're using the SIM that was in your phone, it's already activated. Being activated or not is part of the state of the SIM and doesn't depend on what device it's being used in.
 
@@ -459,7 +459,7 @@ else return -2;
 
 Be sure to edit the `cellular_credentials_set`line with the APN for your SIM card. Comment out this line if using a Particle-branded 4FF plastic SIM card in the 3rd-party SIM card slot.
 
-Put the Electron in DFU mode ([blinking yellow](https://docs.particle.io/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
+Put the Electron in DFU mode ([blinking yellow](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
 
 ```
 particle compile electron --target 0.4.8 tinker.ino --saveTo firmware.bin
@@ -524,7 +524,7 @@ The embedded MFF2 Particle SIM card on the E Series E402 only supports AT&T, and
 
 Once your device is breathing cyan after successfully setting the APN, you can claim it.
 
-You'll need the device ID of your device. You can get it by putting the device in [listening mode](https://docs.particle.io/tutorials/device-os/led/electron/#listening-mode), blinking dark blue, by holding down the MODE button until the main status LED blinks blue, then issuing the CLI command:
+You'll need the device ID of your device. You can get it by putting the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode), blinking dark blue, by holding down the MODE button until the main status LED blinks blue, then issuing the CLI command:
 
 ```
 particle identify
@@ -570,7 +570,7 @@ The problem is that without a working return channel the following things don't 
 * Getting the value of Particle variables on the device
 * OTA code flash
 
-If you're using a 3rd-party SIM card you almost certainly will need to use the [Particle.keepAlive()](https://docs.particle.io/reference/device-os/firmware/electron/#particle-keepalive-) function. It's typically added to setup and the parameter is in seconds.
+If you're using a 3rd-party SIM card you almost certainly will need to use the [Particle.keepAlive()](/reference/device-os/firmware/electron/#particle-keepalive-) function. It's typically added to setup and the parameter is in seconds.
 
 ```
 void setup()
@@ -625,13 +625,13 @@ Basically, you need to set the keep alive only after successfully connected to t
 
 #### Blinking Blue
 
-If, when you power on the Electron, it's blinking dark blue ([listening mode blue](https://docs.particle.io/tutorials/device-os/led/electron/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
+If, when you power on the Electron, it's blinking dark blue ([listening mode blue](/tutorials/device-os/led/electron/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
 
 Or you can try to either gently lift the little metal prongs that contact the SIM with a pin (with power off and SIM card removed) or push down on the little metal holder to get a better contact.
 
 #### Stuck on blinking green
 
-If the Electron or Boron never progresses past [blinking green](https://docs.particle.io/tutorials/device-os/led/electron/#looking-for-internet), it probably can't contact a cellular tower. There are several possible reasons for this:
+If the Electron or Boron never progresses past [blinking green](/tutorials/device-os/led/electron/#looking-for-internet), it probably can't contact a cellular tower. There are several possible reasons for this:
 
 * No coverage on the required band. For example, you have a 2G Electron but no 2G coverage. 2G coverage may be different than 3G, 4G or LTE coverage.
 * No coverage from the selected carrier/SIM.
@@ -643,4 +643,4 @@ Also note that the 2G Electron is not supported in Japan, Australia, Korea, and 
 
 #### Blinking magenta
 
-[Blinking magenta](https://docs.particle.io/tutorials/device-os/led/electron/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).
+[Blinking magenta](/tutorials/device-os/led/electron/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).

@@ -7,7 +7,7 @@ columns: two
 
 This tutorial shows how to make a simple base board for the Tracker SoM that has a number of features from the Tracker Carrier Board (used in the Tracker One), however can easily be modified to fit your needs. 
 
-The full tutorial can be found in [the documentation](https://docs.particle.io/tutorials/asset-tracking/tracker-som-first-board/). 
+The full tutorial can be found in [the documentation](/tutorials/asset-tracking/tracker-som-first-board/). 
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN025.zip).
 

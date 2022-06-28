@@ -13,7 +13,7 @@ This guide is divided into five sections:
 * [Steps To Take If The CLI Does Not Recognize Your Device](https://support.particle.io/hc/en-us/articles/1260801311330#cli-does-not-recognize-device)
 * [How To Report CLI-related Issues (Important!)](https://support.particle.io/hc/en-us/articles/1260801311330#how-to-report-cli-issues)
 
-But first, let's ensure that you've installed Particle's Command Line Interface (CLI) by following the instructions here: ([link](https://docs.particle.io/tutorials/developer-tools/cli/)).
+But first, let's ensure that you've installed Particle's Command Line Interface (CLI) by following the instructions here: ([link](/tutorials/developer-tools/cli/)).
 
 ## How To Use And Interact With The CLI
 
@@ -39,7 +39,7 @@ Before troubleshooting further, please take the following steps to ensure the CL
 * `particle usb list` (ensure that no errors are reported. If no devices are connected via USB, this command will report 0\. If it fails with an error like this ([link](https://github.com/particle-iot/particle-cli/blob/d2cede0561e4ce7df4fe76a602a7b9bfb9b7d029/src/lib/require-optional.js#L8-L9%C2%A0)), confirm that your OS / CPU architecture are supported - as of writing this, some ARM environments are not fully supported).
 * `particle serial list` (ensure that no errors are reported. If no devices are connected for serial communication via USB, this command will report 0).
 
-If you receive errors from the above, it's worth proceeding further through this guide. If these commands report as expected, it's worth taking a good look at our CLI reference page ([link](https://docs.particle.io/reference/developer-tools/cli/)) to ensure that the commands you are trying to run are supported and formatted correctly.
+If you receive errors from the above, it's worth proceeding further through this guide. If these commands report as expected, it's worth taking a good look at our CLI reference page ([link](/reference/developer-tools/cli/)) to ensure that the commands you are trying to run are supported and formatted correctly.
 
 ## Ensuring The CLI Is Properly Installed On And Configure** **d For Your System
 
@@ -115,7 +115,7 @@ And when in normal operating mode or listening mode (blinking blue), the Device 
    * Operating System  
    * CPU Architecture (32/64 bit? ARM?)  
    * CLI Version (`particle version`).  
-   * CLI Installation Type (Standard or Advanced?, see link: ([here](https://docs.particle.io/tutorials/developer-tools/cli/#installing)).  
+   * CLI Installation Type (Standard or Advanced?, see link: ([here](/tutorials/developer-tools/cli/#installing)).  
    * Terminal / Shell within which you running the Particle CLI (e.g. Powershell, Bash, Zsh, cmd.exe, etc)  
    * What Particle hardware are you using (Argon, Boron, etc...) and with what Device OS Version?
 4. **Carefully, with screenshots as appropriate, walk us through the process with which you experience the error step-by-step, taking care to note expected behavior.**

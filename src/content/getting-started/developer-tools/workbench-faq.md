@@ -6,8 +6,8 @@ columns: two
 
 # {{{title}}}
 
-* [Installation Instructions](https://docs.particle.io/quickstart/workbench/)
-* [Tutorial](https://docs.particle.io/tutorials/developer-tools/workbench)
+* [Installation Instructions](/quickstart/workbench/)
+* [Tutorial](/tutorials/developer-tools/workbench)
 * [Step by Step Video Guide](https://www.youtube.com/watch?v=w7xOmJR2HeE)
 
 ### Reporting bugs and feedback
@@ -43,7 +43,7 @@ git submodule update --init --recursive
 
 * Select the `deviceOS@source` entry - it should be first in the list
 * Wait for the toolchain to install and activate
-* Run commands ([docs](https://docs.particle.io/tutorials/developer-tools/workbench/#particle-commands)) and local compilation tasks as normal ([docs](https://docs.particle.io/tutorials/developer-tools/workbench/#local-build-and-flash))
+* Run commands ([docs](/tutorials/developer-tools/workbench/#particle-commands)) and local compilation tasks as normal ([docs](/tutorials/developer-tools/workbench/#local-build-and-flash))
 
 ### Error: Unable to load manifest
 
@@ -90,6 +90,6 @@ sudo apt-get install gcc-multilib libarchive-zip-perl libncurses-dev
 ```
 
 * If you get a permission error when debugging, you may need to add udev rules.  
-   * If you have the [Particle Workbench](https://docs.particle.io/workbench/), run the `Particle: Launch CLI` command and then run `particle usb configure` in the terminal that launches  
-   * if you just have the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/), open a terminal and run `particle usb configure`  
+   * If you have the [Particle Workbench](/workbench/), run the `Particle: Launch CLI` command and then run `particle usb configure` in the terminal that launches  
+   * if you just have the [Particle CLI](/tutorials/developer-tools/cli/), open a terminal and run `particle usb configure`  
    * Otherwise, you can download [50-particle.rules](https://github.com/particle-iot/particle-cli/blob/master/assets/50-particle.rules) and copy it to `/etc/udev/rules.d/`

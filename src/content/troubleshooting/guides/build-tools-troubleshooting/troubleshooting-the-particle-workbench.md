@@ -19,7 +19,7 @@ This guide is divided into five sections:
 * [Linux Tips](#workbench-linux-tips)
 * [How To Report Workbench-related Issues (Important!)](https://support.particle.io/hc/en-us/articles/1260801313350#how-to-report-workbench-issues)
 
-For questions with respect to the installation of Particle Workbench, please see our Workbench Tutorial ([link](https://docs.particle.io/tutorials/developer-tools/workbench/)). The Tutorial goes deep, with resources about many lesser-known Workbench features.
+For questions with respect to the installation of Particle Workbench, please see our Workbench Tutorial ([link](/tutorials/developer-tools/workbench/)). The Tutorial goes deep, with resources about many lesser-known Workbench features.
 
 It is generally worth also reviewing the troubleshooting documentation available by running the command `Particle: Get Help` in the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS). 
 
@@ -44,7 +44,7 @@ Before troubleshooting further, please take the following steps to ensure Workbe
 ![Screen_Shot_2021-01-28_at_9.39.09_AM.png](/assets/images/support/Screen_Shot_2021-01-28_at_9.39.09_AM.png)
 
   
-**If all of the above work without an issue, it's worth taking a look at the configuration of the user application and project layout for which you received errors/failures.** Again, we'd like to refer you to the documentation available here ([link](https://docs.particle.io/tutorials/developer-tools/workbench/)).
+**If all of the above work without an issue, it's worth taking a look at the configuration of the user application and project layout for which you received errors/failures.** Again, we'd like to refer you to the documentation available here ([link](/tutorials/developer-tools/workbench/)).
 
 **If, however, you receive errors in one or all of the above stages, proceed by c** **ollecting an Environment Report.** Go to the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS)) and select `Particle: Audit Environment`. 
 
@@ -149,7 +149,7 @@ git submodule update --init --recursive
 
 * Select the `deviceOS@source` entry - it should be first in the list
 * Wait for the toolchain to install and activate
-* Run commands ([docs](https://docs.particle.io/tutorials/developer-tools/workbench/#particle-commands)) and local compilation tasks as normal ([docs](https://docs.particle.io/tutorials/developer-tools/workbench/#local-build-and-flash))
+* Run commands ([docs](/tutorials/developer-tools/workbench/#particle-commands)) and local compilation tasks as normal ([docs](/tutorials/developer-tools/workbench/#local-build-and-flash))
 
 ## 
 
@@ -198,8 +198,8 @@ sudo apt-get install gcc-multilib libarchive-zip-perl libncurses-dev
 ```
 
 * If you get a permission error when debugging, you may need to add udev rules.  
-   * If you have the [Particle Workbench](https://docs.particle.io/workbench/), run the `Particle: Launch CLI` command and then run `particle usb configure` in the terminal that launches  
-   * if you just have the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/), open a terminal and run `particle usb configure`  
+   * If you have the [Particle Workbench](/workbench/), run the `Particle: Launch CLI` command and then run `particle usb configure` in the terminal that launches  
+   * if you just have the [Particle CLI](/tutorials/developer-tools/cli/), open a terminal and run `particle usb configure`  
    * Otherwise, you can download [50-particle.rules](https://github.com/particle-iot/particle-cli/blob/master/assets/50-particle.rules) and copy it to `/etc/udev/rules.d/`
 
 ## How To Report Workbench Issues

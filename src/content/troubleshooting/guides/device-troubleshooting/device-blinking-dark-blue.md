@@ -5,7 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
-**Caveat:** the following applies to the third generation of the Particle Platform (Argons, Borons, BSoM/B5SoM) only. If you have an Electron with this issue, please see our resource here: ([link](https://docs.particle.io/tutorials/device-os/led/electron/#listening-mode)). If you have an E-Series that is Blinking Dark Blue, please open a support ticket.
+**Caveat:** the following applies to the third generation of the Particle Platform (Argons, Borons, BSoM/B5SoM) only. If you have an Electron with this issue, please see our resource here: ([link](/tutorials/device-os/led/electron/#listening-mode)). If you have an E-Series that is Blinking Dark Blue, please open a support ticket.
 
 This article is divided into four sections:
 
@@ -24,7 +24,7 @@ See below for three methods you can use to trip this setup flag in the right dir
 
 This is by far the easiest and fastest way to fix the issue, but it requires a hardwired connection (via USB).
 
-If you haven't already, install the Particle CLI ([link](https://docs.particle.io/tutorials/developer-tools/cli/)). Then connect your Argon or Boron via USB, open up your computer's Terminal, and run the command:
+If you haven't already, install the Particle CLI ([link](/tutorials/developer-tools/cli/)). Then connect your Argon or Boron via USB, open up your computer's Terminal, and run the command:
 
 particle usb setup-done
 

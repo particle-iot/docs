@@ -601,7 +601,7 @@ Serial output for Argon (1.4.2):
 
 Note that you must add WITH\_LOCK in both your thread AND in the loop thread (and any software timers). Internally, this uses a mutex to prevent simultaneous access.
 
-Note: The [logging class](https://docs.particle.io/reference/firmware/#logging), such as Log.info, is MT safe and you can call it from multiple threads without a lock. It's much better to use that instead of directly writing to Serial.
+Note: The [logging class](/reference/firmware/#logging), such as Log.info, is MT safe and you can call it from multiple threads without a lock. It's much better to use that instead of directly writing to Serial.
 
 ### Using a mutex with an OLED display
 

@@ -171,7 +171,7 @@ Sparkfun has created a whole line of accessories including:
 
 Each of the devices is a small board with two Qwiic connectors, tiny JST 1mm-pitch 4-pin connectors. The connector is keyed so you don't need to worry about connecting it backwards, and the devices can be daisy-chained, one after the other. They're intended to be used over relatively small distances, under a meter, though there is also long-distance differential version that requires more wires.
 
-Learn more about the Qwiic system and libraries [here](https://docs.particle.io/community/qwiic/).
+Learn more about the Qwiic system and libraries [here](/community/qwiic/).
 
 This can be an easy way to prototype new sensor designs, even if you eventually plan to build your own custom sensor board. The M8 breakout board here has a Qwiic connector for easy prototyping. 
 

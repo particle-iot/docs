@@ -19,14 +19,14 @@ The following article contains 5 sections:
 
 First things first, let's make sure you've done all you can to help this device get connected:
 
-* Download and install the Particle CLI ([link](https://docs.particle.io/tutorials/developer-tools/cli/)). Connect your device to your computer.
+* Download and install the Particle CLI ([link](/tutorials/developer-tools/cli/)). Connect your device to your computer.
 * Place your device in DFU Mode by pressing RESET and MODE simultaneously, releasing RESET, and then releasing MODE once the status LED blinks yellow. Once the status LED blinks yellow, open up your Command Line ("Teminal" (Mac), "cmd.exe" (Windows)), and then enter the command `particle update`. Allow the device to reset once complete.
 * Place your device in Listening Mode by pressing the MODE button and holding it down for 3 seconds. Once the status LED blinks dark blue, open up your Command Line ("Teminal" (Mac), "cmd.exe" (Windows), and then enter the command `particle serial wifi` and follow the instructions.
 * Place your device in Safe Mode by pressing RESET and MODE simultaneously, releasing RESET, and releasing MODE once the status LED blinks magenta. Give the device ample opportunity to connect.
 
 If your device still struggles to connect, please ensure that you have walked through the WiFi Connectivity Guide here: ([link](https://support.particle.io/hc/articles/360052621274/)) and have collected the requested logs from Cloud Debug ([link](https://github.com/particle-iot/cloud-debug/releases)).   
   
-Please remember that in order to source the requisite logs to proceed, you will need to download Cloud Debug and install it onto your device (see the Cloud Debug link above for instructions). From there, open up the terminal of your choice (cmd.exe (Windows) or Terminal (Mac), and enter the CLI ([link](https://docs.particle.io/tutorials/developer-tools/cli/)) command `particle serial monitor --follow`. Then connect your device via USB.
+Please remember that in order to source the requisite logs to proceed, you will need to download Cloud Debug and install it onto your device (see the Cloud Debug link above for instructions). From there, open up the terminal of your choice (cmd.exe (Windows) or Terminal (Mac), and enter the CLI ([link](/tutorials/developer-tools/cli/)) command `particle serial monitor --follow`. Then connect your device via USB.
 
 ## Walking Through The Photon's Connectivity Routine
 
