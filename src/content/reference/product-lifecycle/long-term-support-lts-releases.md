@@ -46,10 +46,11 @@ Particle aims to produce a new LTS release for Device OS approximately **once pe
 
 All LTS releases **have a support lifecycle of two years** that is broken into two distinct phases: 
 
-* **Year 1 - Active LTS:**
+**Year 1 - Active LTS:**
    * Active support of high-severity bugs, security vulnerabilities, and issues for a period of one (1) year
    * LTS maintenance releases will generally be made on a quarterly basis, with ad-hoc releases in the event of severe bugs or vulnerabilities
-* **Year 2 - ESM LTS:**
+
+**Year 2 - ESM LTS:**
    * Beginning in the second year of availability, LTS releases enter an Extended Security Maintenance (ESM) phase. In this phase, **only emergency security fixes will be back-ported**
    * Before being transitioned to the ESM phase a newer LTS release will be available and identified as an active LTS release
 
@@ -73,12 +74,14 @@ The information provided below is directional guidance and not a replacement for
 
 ### Switching from an LTS release to a standard release 
 
-* Make sure that the standard release you’re migrating to has been released after the LTS version you’re migrating from – it should have a greater major version number
-   * ✅ – migrating from LTS release 2.X.X to standard release 3.X.X
-   * 🚫 – migrating from LTS release 2.X.X to standard release 1.4.4
+Make sure that the standard release you’re migrating to has been released after the LTS version you’re migrating from – it should have a greater major version number
+
+- ✅ – migrating from LTS release 2.X.X to standard release 3.X.X
+- 🚫 – migrating from LTS release 2.X.X to standard release 1.4.4
 
 ### Switching from a standard release to an LTS release
 
-* Make sure that the LTS baseline you’re migrating to is more recent (compared numerically) than the Stable Release you’re migrating from. Note that this is true even for LTS releases that were released at a later date than the higher-versioned standard release
-   * ✅ – migrating from standard release 1.4.4 to LTS release 2.X.X
-   * 🚫 – migrating from standard release 3.X.X to LTS release 2.X.X
+Make sure that the LTS baseline you’re migrating to is more recent (compared numerically) than the Stable Release you’re migrating from. Note that this is true even for LTS releases that were released at a later date than the higher-versioned standard release
+
+- ✅ – migrating from standard release 1.4.4 to LTS release 2.X.X
+- 🚫 – migrating from standard release 3.X.X to LTS release 2.X.X

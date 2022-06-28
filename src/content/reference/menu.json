@@ -51,8 +51,7 @@
         "noSeparator": true,
         "addClass": "deviceOsApiNavMenu"
       },
-      [        
-      ],
+      [],
       {
         "dir": "firmware",
         "title": "Device OS API (Single Page)",
@@ -80,7 +79,7 @@
         "href": "/reference/device-os/libraries/search/",
         "noSeparator": true
       },
-      [        
+      [
         {
           "title": "Search",
           "href": "/reference/device-os/libraries/search/"
@@ -381,6 +380,43 @@
           "title": "Debugger",
           "href": "/reference/datasheets/accessories/debugger/"
         }
+      ]
+    ],
+    {
+      "dir": "product-lifecycle",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "product-lifecycle-stages",
+        "title": "Product Lifecycle Stages",
+        "href": "/reference/product-lifecycle/product-lifecycle-stages/"
+      },
+      {
+        "dir": "product-lifecycle-policy-status",
+        "title": "Product Lifecycle Policy Status",
+        "href": "/reference/product-lifecycle/product-lifecycle-policy-status/"
+      },
+      {
+        "dir": "supply-secure-faq",
+        "title": "Supply Secure FAQ",
+        "href": "/reference/product-lifecycle/supply-secure-faq/"
+      },
+      {
+        "dir": "long-term-support-lts-releases",
+        "title": "Long Term Support (LTS) Releases",
+        "href": "/reference/product-lifecycle/long-term-support-lts-releases/"
+      },
+      {
+        "dir": "notices",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "product-deprecation-notice-march-16-2022",
+          "title": "Product deprecation notice - March 16, 2022",
+          "href": "/reference/product-lifecycle/supply-secure-faq/"
+        }      
       ]
     ],
     {

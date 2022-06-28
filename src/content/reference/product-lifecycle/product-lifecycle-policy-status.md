@@ -5,11 +5,12 @@ columns: two
 ---
 
 # {{{title}}}
+
 Learn more about stages of our hardware and software lifecycle policy [here](https://support.particle.io/hc/en-us/articles/360039251234-Product-Lifecycle-Policy).
 
 ## Hardware products
 
-#### _Longevity commitment_
+_Longevity commitment_
 
 Particle provides an explicit minimum longevity commitment for a subset of its hardware products, mostly enterprise-class SKUs, as described below. In the case that a particular product is not covered by this longevity commitment, please contact the Particle sales team for support.
 

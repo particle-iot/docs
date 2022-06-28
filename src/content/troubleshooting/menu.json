@@ -106,11 +106,6 @@
       },
       [
         {
-          "dir": "supply-secure-faq",
-          "title": "Supply Secure FAQ",
-          "href": "/troubleshooting/faqs/general-knowledge/supply-secure-faq/"
-        },
-        {
           "dir": "pricing-faq",
           "title": "Pricing FAQ",
           "href": "/troubleshooting/faqs/general-knowledge/pricing-faq/"
@@ -136,19 +131,9 @@
           "href": "/troubleshooting/faqs/general-knowledge/what-cellular-carriers-are-available-in-my-region/"
         },
         {
-          "dir": "product-lifecycle-policy-status",
-          "title": "Product Lifecycle Policy Status",
-          "href": "/troubleshooting/faqs/general-knowledge/product-lifecycle-policy-status/"
-        },
-        {
           "dir": "enterprise-support-handbook",
           "title": "Enterprise Support Handbook",
           "href": "/troubleshooting/faqs/general-knowledge/enterprise-support-handbook/"
-        },
-        {
-          "dir": "long-term-support-lts-releases",
-          "title": "Long Term Support (LTS) Releases",
-          "href": "/troubleshooting/faqs/general-knowledge/long-term-support-lts-releases/"
         },
         {
           "dir": "particle-mvp-program",
@@ -194,11 +179,6 @@
           "dir": "my-device-is-broken-how-can-i-request-a-replacement",
           "title": "My device is broken! How can I request a replacement?",
           "href": "/troubleshooting/faqs/general-knowledge/my-device-is-broken-how-can-i-request-a-replacement/"
-        },
-        {
-          "dir": "product-lifecycle-stages",
-          "title": "Product Lifecycle Stages",
-          "href": "/troubleshooting/faqs/general-knowledge/product-lifecycle-stages/"
         },
         {
           "dir": "pricing-faq",
@@ -348,11 +328,6 @@
       },
       [
         {
-          "dir": "product-deprecation-notice-march-16-2022",
-          "title": "Product deprecation notice - March 16, 2022",
-          "href": "/troubleshooting/knowledge-base/general-knowledge/product-deprecation-notice-march-16-2022/"
-        },
-        {
           "dir": "power-management-faq",
           "title": "Power Management FAQ",
           "href": "/troubleshooting/knowledge-base/general-knowledge/power-management-faq/"
@@ -387,11 +362,6 @@
           "dir": "how-do-i-manage-my-user-access-token",
           "title": "How do I manage my User Access Token?",
           "href": "/troubleshooting/knowledge-base/particle-tools/how-do-i-manage-my-user-access-token/"
-        },
-        {
-          "dir": "jtag-and-swd-guide",
-          "title": "JTAG and SWD Guide",
-          "href": "/troubleshooting/knowledge-base/particle-tools/jtag-and-swd-guide/"
         },
         {
           "dir": "installing-curl-for-windows",
