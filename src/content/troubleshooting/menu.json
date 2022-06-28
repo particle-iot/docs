@@ -92,103 +92,7 @@
       }
     ],
     {
-      "title": "Support",
-      "href": "https://support.particle.io/hc/"
-    },
-    {
-      "dir": "faqs",
-      "isSection": true
-    },
-    [
-      {
-        "dir": "general-knowledge",
-        "isSection": true
-      },
-      [
-        {
-          "dir": "pricing-faq",
-          "title": "Pricing FAQ",
-          "href": "/troubleshooting/faqs/general-knowledge/pricing-faq/"
-        },
-        {
-          "dir": "how-can-i-source-debug-logs-from-my-tracker-som-tracker-one",
-          "title": "How Can I Source Debug Logs from My Tracker SoM / Tracker One?",
-          "href": "/troubleshooting/faqs/general-knowledge/how-can-i-source-debug-logs-from-my-tracker-som-tracker-one/"
-        },
-        {
-          "dir": "how-do-i-find-my-devices-device-os-version",
-          "title": "How Do I Find My Device's Device OS Version",
-          "href": "/troubleshooting/faqs/general-knowledge/how-do-i-find-my-devices-device-os-version/"
-        },
-        {
-          "dir": "understanding-my-data-consumption",
-          "title": "Understanding My Data Consumption",
-          "href": "/troubleshooting/faqs/general-knowledge/understanding-my-data-consumption/"
-        },
-        {
-          "dir": "what-cellular-carriers-are-available-in-my-region",
-          "title": "What Cellular Carriers Are Available In My Region?",
-          "href": "/troubleshooting/faqs/general-knowledge/what-cellular-carriers-are-available-in-my-region/"
-        },
-        {
-          "dir": "enterprise-support-handbook",
-          "title": "Enterprise Support Handbook",
-          "href": "/troubleshooting/faqs/general-knowledge/enterprise-support-handbook/"
-        },
-        {
-          "dir": "particle-mvp-program",
-          "title": "Particle MVP Program",
-          "href": "/troubleshooting/faqs/general-knowledge/particle-mvp-program/"
-        },
-        {
-          "dir": "how-can-i-change-my-particle-user-id",
-          "title": "How Can I Change My Particle User ID?",
-          "href": "/troubleshooting/faqs/general-knowledge/how-can-i-change-my-particle-user-id/"
-        },
-        {
-          "dir": "what-is-the-proper-process-for-deleting-my-account",
-          "title": "What Is The Proper Process For Deleting My Account?",
-          "href": "/troubleshooting/faqs/general-knowledge/what-is-the-proper-process-for-deleting-my-account/"
-        },
-        {
-          "dir": "what-should-i-do-if-im-locked-out-via-2fa",
-          "title": "What Should I Do If I'm Locked Out Via 2FA?",
-          "href": "/troubleshooting/faqs/general-knowledge/what-should-i-do-if-im-locked-out-via-2fa/"
-        },
-        {
-          "dir": "how-should-i-set-up-2fa-for-my-particle-account",
-          "title": "How should I set up 2FA for my Particle Account?",
-          "href": "/troubleshooting/faqs/general-knowledge/how-should-i-set-up-2fa-for-my-particle-account/"
-        },
-        {
-          "dir": "account-management-faq-2fa-account-deletion-changing-your-particle-id",
-          "title": "Account Management FAQ (2FA, Account Deletion, Changing Your Particle ID)",
-          "href": "/troubleshooting/faqs/general-knowledge/account-management-faq-2fa-account-deletion-changing-your-particle-id/"
-        },
-        {
-          "dir": "how-can-i-cancel-billing",
-          "title": "How can I cancel billing?",
-          "href": "/troubleshooting/faqs/general-knowledge/how-can-i-cancel-billing/"
-        },
-        {
-          "dir": "how-do-i-make-a-tax-exempt-purchase",
-          "title": "How do I make a tax-exempt purchase?",
-          "href": "/troubleshooting/faqs/general-knowledge/how-do-i-make-a-tax-exempt-purchase/"
-        },
-        {
-          "dir": "my-device-is-broken-how-can-i-request-a-replacement",
-          "title": "My device is broken! How can I request a replacement?",
-          "href": "/troubleshooting/faqs/general-knowledge/my-device-is-broken-how-can-i-request-a-replacement/"
-        },
-        {
-          "dir": "pricing-faq",
-          "title": "Pricing FAQ",
-          "href": "/troubleshooting/faqs/general-knowledge/pricing-faq/"
-        }
-      ]
-    ],
-    {
-      "dir": "troubleshooting",
+      "dir": "guides",
       "isSection": true
     },
     [
@@ -200,27 +104,32 @@
         {
           "dir": "troubleshooting-poor-connectivity-issues-ota",
           "title": "Troubleshooting Poor Connectivity Issues & OTA",
-          "href": "/troubleshooting/troubleshooting/connectivity-troubleshooting/troubleshooting-poor-connectivity-issues-ota/"
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-poor-connectivity-issues-ota/"
         },
         {
           "dir": "troubleshooting-wifi-on-the-particle-photonp1",
           "title": "Troubleshooting WiFi On The Particle Photon/P1",
-          "href": "/troubleshooting/troubleshooting/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-photonp1/"
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-photonp1/"
         },
         {
           "dir": "troubleshooting-wifi-on-the-particle-argon",
           "title": "Troubleshooting WiFi On the Particle Argon",
-          "href": "/troubleshooting/troubleshooting/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/"
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/"
         },
         {
           "dir": "wifi-connectivity-troubleshooting-guide",
           "title": "WiFi Connectivity Troubleshooting Guide",
-          "href": "/troubleshooting/troubleshooting/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/"
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/"
         },
         {
           "dir": "cellular-connectivity-troubleshooting-guide",
           "title": "Cellular Connectivity Troubleshooting Guide",
-          "href": "/troubleshooting/troubleshooting/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/"
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/"
+        },
+        {
+          "dir": "using-3rd-party-sim-cards",
+          "title": "Using 3rd-party SIM cards",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/"
         }
       ],
       {
@@ -231,17 +140,22 @@
         {
           "dir": "troubleshooting-the-particle-workbench",
           "title": "Troubleshooting the Particle Workbench",
-          "href": "/troubleshooting/troubleshooting/build-tools-troubleshooting/troubleshooting-the-particle-workbench/"
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/"
         },
         {
           "dir": "troubleshooting-the-particle-cli",
           "title": "Troubleshooting the Particle CLI",
-          "href": "/troubleshooting/troubleshooting/build-tools-troubleshooting/troubleshooting-the-particle-cli/"
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/"
         },
         {
           "dir": "troubleshooting-webhookintegration-issues",
           "title": "Troubleshooting Webhook/Integration Issues",
-          "href": "/troubleshooting/troubleshooting/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/"
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/"
+        },
+        {
+          "dir": "installing-curl-for-windows",
+          "title": "Installing curl (for Windows)",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows/"
         }
       ],
       {
@@ -252,42 +166,47 @@
         {
           "dir": "troubleshooting-asset-tracker-issues",
           "title": "Troubleshooting Asset Tracker Issues",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/troubleshooting-asset-tracker-issues/"
+          "href": "/troubleshooting/guides/device-troubleshooting/troubleshooting-asset-tracker-issues/"
         },
         {
           "dir": "troubleshooting-the-setup-process",
           "title": "Troubleshooting the Setup Process",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/troubleshooting-the-setup-process/"
+          "href": "/troubleshooting/guides/device-troubleshooting/troubleshooting-the-setup-process/"
         },
         {
           "dir": "identifying-damaged-hardware",
           "title": "Identifying Damaged Hardware",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/identifying-damaged-hardware/"
+          "href": "/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/"
         },
         {
           "dir": "device-breathing-cyan-but-cannot-connect",
           "title": "Device Breathing Cyan But Cannot Connect",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/device-breathing-cyan-but-cannot-connect/"
+          "href": "/troubleshooting/guides/device-troubleshooting/device-breathing-cyan-but-cannot-connect/"
         },
         {
           "dir": "how-do-i-collect-trace-logs-from-my-device",
           "title": "How Do I Collect Trace Logs From My Device?",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/how-do-i-collect-trace-logs-from-my-device/"
+          "href": "/troubleshooting/guides/device-troubleshooting/how-do-i-collect-trace-logs-from-my-device/"
         },
         {
           "dir": "device-blinking-dark-blue",
           "title": "Device Blinking Dark Blue",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/device-blinking-dark-blue/"
+          "href": "/troubleshooting/guides/device-troubleshooting/device-blinking-dark-blue/"
         },
         {
           "dir": "device-blinking-red-yellow-or-frozenno-led",
           "title": "Device Blinking Red, Yellow, or Frozen/No LED",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/"
+          "href": "/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/"
         },
         {
           "dir": "device-blinking-cyan",
           "title": "Device Blinking Cyan",
-          "href": "/troubleshooting/troubleshooting/device-troubleshooting/device-blinking-cyan/"
+          "href": "/troubleshooting/guides/device-troubleshooting/device-blinking-cyan/"
+        },
+        {
+          "dir": "using-particle-serial-inspect",
+          "title": "Using particle serial inspect",
+          "href": "/troubleshooting/guides/device-troubleshooting/using-particle-serial-inspect/"
         }
       ],
       {
@@ -298,103 +217,38 @@
         {
           "dir": "how-can-i-set-up-my-argon-or-boron-via-usb",
           "title": "How Can I Set Up My Argon Or Boron Via USB?",
-          "href": "/troubleshooting/troubleshooting/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/"
+          "href": "/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/"
         },
         {
           "dir": "how-can-i-transfer-my-device-to-another-user",
           "title": "How Can I Transfer My Device To Another User?",
-          "href": "/troubleshooting/troubleshooting/device-management/how-can-i-transfer-my-device-to-another-user/"
-        },
-        {
-          "dir": "how-do-i-find-my-devices-device-id",
-          "title": "How Do I Find My Device's Device ID?",
-          "href": "/troubleshooting/troubleshooting/device-management/how-do-i-find-my-devices-device-id/"
+          "href": "/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/"
         },
         {
           "dir": "sim-activationdeactivationdata-limit-troubleshooting",
           "title": "Sim Activation/Deactivation/Data Limit Troubleshooting",
-          "href": "/troubleshooting/troubleshooting/device-management/sim-activationdeactivationdata-limit-troubleshooting/"
-        }
-      ]
-    ],
-    {
-      "dir": "knowledge-base",
-      "isSection": true
-    },
-    [
-      {
-        "dir": "general-knowledge",
-        "isSection": true
-      },
-      [
-        {
-          "dir": "power-management-faq",
-          "title": "Power Management FAQ",
-          "href": "/troubleshooting/knowledge-base/general-knowledge/power-management-faq/"
+          "href": "/troubleshooting/guides/device-management/sim-activationdeactivationdata-limit-troubleshooting/"
         },
         {
-          "dir": "what-are-particles-best-practices-with-respect-to-device-os-version-management",
-          "title": "What are Particle's Best Practices with respect to Device OS Version Management?",
-          "href": "/troubleshooting/knowledge-base/general-knowledge/what-are-particles-best-practices-with-respect-to-device-os-version-management/"
-        },
-        {
-          "dir": "standard-manufacturing-lead-times",
-          "title": "Standard Manufacturing Lead Times",
-          "href": "/troubleshooting/knowledge-base/general-knowledge/standard-manufacturing-lead-times/"
-        },
-        {
-          "dir": "wholesale-store-user-compliance-survey",
-          "title": "Wholesale Store User Compliance Survey",
-          "href": "/troubleshooting/knowledge-base/general-knowledge/wholesale-store-user-compliance-survey/"
-        }
-      ],
-      {
-        "dir": "particle-tools",
-        "isSection": true
-      },
-      [
-        {
-          "dir": "using-particle-serial-inspect",
-          "title": "Using particle serial inspect",
-          "href": "/troubleshooting/knowledge-base/particle-tools/using-particle-serial-inspect/"
+          "dir": "repairing-product-device-keys",
+          "title": "Repairing product device keys",
+          "href": "/troubleshooting/guides/device-management/repairing-product-device-keys/"
         },
         {
           "dir": "how-do-i-manage-my-user-access-token",
           "title": "How do I manage my User Access Token?",
-          "href": "/troubleshooting/knowledge-base/particle-tools/how-do-i-manage-my-user-access-token/"
-        },
-        {
-          "dir": "installing-curl-for-windows",
-          "title": "Installing curl (for Windows)",
-          "href": "/troubleshooting/knowledge-base/particle-tools/installing-curl-for-windows/"
-        }
-      ],
-      {
-        "dir": "particle-devices",
-        "isSection": true
-      },
-      [
-        {
-          "dir": "repairing-product-device-keys",
-          "title": "Repairing product device keys",
-          "href": "/troubleshooting/knowledge-base/particle-devices/repairing-product-device-keys/"
-        },
-        {
-          "dir": "messaging-architecture-for-scale",
-          "title": "Messaging Architecture for Scale",
-          "href": "/troubleshooting/knowledge-base/particle-devices/messaging-architecture-for-scale/"
-        },
-        {
-          "dir": "using-3rd-party-sim-cards",
-          "title": "Using 3rd-party SIM cards",
-          "href": "/troubleshooting/knowledge-base/particle-devices/using-3rd-party-sim-cards/"
+          "href": "/troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token/"
         },
         {
           "dir": "finding-your-device-id",
           "title": "Finding your device ID",
-          "href": "/troubleshooting/knowledge-base/particle-devices/finding-your-device-id/"
+          "href": "/troubleshooting/guides/device-management/finding-your-device-id/"
         }
       ]
-    ]
+    ],
+    {
+      "title": "Support",
+      "href": "https://support.particle.io/hc/"
+    }
   ]
 }

@@ -109,6 +109,11 @@
         "dir": "real-time-clocks",
         "title": "Real-time clocks",
         "href": "/reference/device-os/real-time-clocks/"
+      },
+      {
+        "dir": "power-management-faq",
+        "title": "Power Management FAQ",
+        "href": "/reference/device-os/power-management-faq/"
       }
     ],
     {
@@ -416,7 +421,7 @@
           "dir": "product-deprecation-notice-march-16-2022",
           "title": "Product deprecation notice - March 16, 2022",
           "href": "/reference/product-lifecycle/supply-secure-faq/"
-        }      
+        }
       ]
     ],
     {

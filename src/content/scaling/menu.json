@@ -56,6 +56,22 @@
         "title": "Automating device onboarding",
         "href": "https://github.com/particle-iot/node-example-device-cloud-setup"
       }
+    ],
+    {
+      "dir": "best-practices",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "messaging-architecture-for-scale",
+        "title": "Messaging Architecture for Scale",
+        "href": "/scaling/best-practices/messaging-architecture-for-scale/"
+      },
+      {
+        "dir": "what-are-particles-best-practices-with-respect-to-device-os-version-management",
+        "title": "What are Particle's Best Practices with respect to Device OS Version Management?",
+        "href": "/scaling/best-practices/what-are-particles-best-practices-with-respect-to-device-os-version-management/"
+      }
     ]
   ]
 }
