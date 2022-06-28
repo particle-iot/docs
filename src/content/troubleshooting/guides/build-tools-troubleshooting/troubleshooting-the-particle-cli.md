@@ -5,15 +5,6 @@ columns: two
 ---
 
 # {{{title}}}
-This guide is divided into five sections:
-
-* [How To Use And Interact With The CLI](https://support.particle.io/hc/en-us/articles/1260801311330#how-to-use-and-interact-with-the-cli)
-* [Running A Basic CLI Functionality Check](https://support.particle.io/hc/en-us/articles/1260801311330#running-a-basic-cli-functionality-check)
-* [Ensuring The CLI Is Properly Installed And Configured](https://support.particle.io/hc/en-us/articles/1260801311330#ensuring-the-cli-is-properly-installed)
-* [Steps To Take If The CLI Does Not Recognize Your Device](https://support.particle.io/hc/en-us/articles/1260801311330#cli-does-not-recognize-device)
-* [How To Report CLI-related Issues (Important!)](https://support.particle.io/hc/en-us/articles/1260801311330#how-to-report-cli-issues)
-
-But first, let's ensure that you've installed Particle's Command Line Interface (CLI) by following the instructions here: ([link](/tutorials/developer-tools/cli/)).
 
 ## How To Use And Interact With The CLI
 
@@ -55,12 +46,12 @@ Issues related to build tools can be complex! After all, every computer is confi
 
 **Open the directory** containing the CLI’s files:
 
-* * MacOS / Linux: `~/.particle`  
-   * Windows: `C:\Users\<your username>\AppData\Local\particle`
+* MacOS / Linux: `~/.particle`  
+* Windows: `C:\Users\<your username>\AppData\Local\particle`
 
 **Delete the following files and directories** if available:
 
-* * `.npm-cache`  
+* `.npm-cache`  
    * `autoupdate`  
    * `error.log`  
    * `node-v8.15.0-<os>-<cpu>`  

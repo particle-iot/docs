@@ -5,11 +5,10 @@ columns: two
 ---
 
 # {{{title}}}
-## Installing curl (for Windows)
 
 The curl command, used in the [Particle cloud examples](/reference/api/) is generally built-in on the Mac and Linux, but not Windows. These instructions explain how to install it.
 
-### Installation
+## Installation
 
 #### Download
 
@@ -137,7 +136,7 @@ There must be a semicolon separating the new item from the previous last item, a
 
 After editing the system path environment variable you'll need to restart the computer or log out and log back in.
 
-### Testing
+## Testing
 
 Most calls require an access token. At CLI, you can create by using
 

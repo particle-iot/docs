@@ -5,18 +5,13 @@ columns: two
 ---
 
 # {{{title}}}
+
 **Caveat:** the following applies to the third generation of the Particle Platform (Argons, Borons, BSoM/B5SoM) only. If you have an Electron with this issue, please see our resource here: ([link](/tutorials/device-os/led/electron/#listening-mode)). If you have an E-Series that is Blinking Dark Blue, please open a support ticket.
 
-This article is divided into four sections:
-
-* [Understanding The Setup Flag](https://support.particle.io/hc/en-us/articles/360049403474#the-setup-flag)
-* [Marking Setup Done Using the Particle CLI](https://support.particle.io/hc/en-us/articles/360049403474#marking-setup-done-using-the-particle-cli)
-* [Marking Setup Done From Code](https://support.particle.io/hc/en-us/articles/360049403474#marking-setup-done-from-code)
-* [Marking Setup Done via DFU-Util](https://support.particle.io/hc/en-us/articles/360049403474#marking-setup-done-via-dfu-util)
 
 ## The Setup Flag
 
-In order to facilitate a smooth and rapid mobile setup, Gen3 Devices have a flag set in their DCT sector that, when active, boots the Device into Listening Mode. **A Device in Listening Mode awaits further configuration and Blinks Dark Blue.** Normally, when you complete mobile phone-based setup, this flag is marked as done. In the absence of mobile setup (like in our [Gen3 Setup via USB Process](https://support.particle.io/hc/en-us/articles/360045547634)) and in a few rare mobile setup edge cases, **Argons or Borons can become stuck in this state. The issue will manifest immediately (upon first reboot after setup) and the fix is permanent and very fast.**
+In order to facilitate a smooth and rapid mobile setup, Gen3 Devices have a flag set in their DCT sector that, when active, boots the Device into Listening Mode. **A Device in Listening Mode awaits further configuration and Blinks Dark Blue.** Normally, when you complete mobile phone-based setup, this flag is marked as done. In the absence of mobile setup (like in our [Gen3 Setup via USB Process](/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/)) and in a few rare mobile setup edge cases, **Argons or Borons can become stuck in this state. The issue will manifest immediately (upon first reboot after setup) and the fix is permanent and very fast.**
 
 See below for three methods you can use to trip this setup flag in the right direction!
 
@@ -36,6 +31,7 @@ If this does now work, please take care to place your device in Safe Mode. In or
 
 If the Device is remote, and if there is a tech nearby who can get the Device back online by running your setup configuration again, you can set the flag from code by flashing this firmware to your Device:
 
+```cpp
 #include "Particle.h"
 
 #include "dct.h"
@@ -55,6 +51,7 @@ void setup() {
 
 void loop() {
 }
+```
 
 You only need to do this once, as the setting is stored in configuration flash.
 
@@ -66,12 +63,16 @@ You can also set the setup done flag locally using dfu-util. Put the device in D
 
 **Argon**:
 
+```
 echo -n -e \\x01 > dummy.bin
 dfu-util -d 2b04:d00c -a 1 -s 8134:leave -D dummy.bin
+```
 
 **Boron**:
 
+```
 echo -n -e \\x01 > dummy.bin
 dfu-util -d 2b04:d00d -a 1 -s 8134:leave -D dummy.bin
+```
 
 You only need to do this once, as the setting is stored in configuration flash, unless you clear credentials (fast blinking dark blue), then you need to do it again.

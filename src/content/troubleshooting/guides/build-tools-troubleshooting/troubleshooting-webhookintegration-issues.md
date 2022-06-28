@@ -5,15 +5,8 @@ columns: two
 ---
 
 # {{{title}}}
-If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/tutorials/device-cloud/webhooks/)) and our API documentation ([link](/reference/device-cloud/webhooks/)) before proceeding to troubleshoot.
 
-* [Navigating To The Integrations Page](https://support.particle.io/hc/en-us/articles/1260801242950#navigating-to-the-integrations-page)
-* [Missing Integrations (Integrations Not Firing)](https://support.particle.io/hc/en-us/articles/1260801242950#missing-integrations)
-* [Understanding Webhook Errors](https://support.particle.io/hc/en-us/articles/1260801242950#understanding-webhook-errors)
-* [Skipped Events](https://support.particle.io/hc/en-us/articles/1260801242950#skipped-events)
-* [Integrations Leading To High Data Operation Consumption](https://support.particle.io/hc/en-us/articles/1260801242950#data-operations)
-* [Important Resources For Webhook/Integration Troubleshooting](https://support.particle.io/hc/en-us/articles/1260801242950#troubleshooting)
-* [Opening A Support Ticket](https://support.particle.io/hc/en-us/articles/1260801242950#support)
+If your Particle-based Integration endpoint is failing to receive data, or is throwing unexpected errors, this article is a great starting point for your troubleshooting investigation. It's also worth exploring our Webhooks Tutorial ([link](/tutorials/device-cloud/webhooks/)) and our API documentation ([link](/reference/device-cloud/webhooks/)) before proceeding to troubleshoot.
 
 ## Navigating To The Integrations Page
 

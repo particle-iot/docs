@@ -9,11 +9,6 @@ columns: two
 
 Thanks so much for your interest in Particle! If you are here, it means that you are looking for help with signing up for or logging into your [Particle wholesale](https://wholesale.particle.io) account. A Wholesale account will help you get preferred or bulk pricing, volume discounts, and other exciting offers. The information below will help you better understand which customers our Wholesale store may be right for, as well as how gaining access works.
 
-* [Wholesale Account Application Overview](#h%5F711e1ef2-a7f1-4af4-ba63-b47a4f4b16d5)
-* [Wholesale Account Types](#h%5F8cc2afd0-f466-47ca-806a-8ee66cd951be)
-* [Creating a Particle Account](#h%5Fac443944-517b-4e2a-8c08-3c2955031c77)
-* [Particle Wholesale Store Application Process](#h%5Ffef168bd-eb45-4714-8d17-0593ecab9ee2)
-
 A Wholesale account will help you get preferred or bulk pricing, volume discounts and other exciting offers through our bulk purchasing portal called the Particle Wholesale store. Learn more [here](https://wholesale.particle.io/).
 
 ## Wholesale Account Application Overview

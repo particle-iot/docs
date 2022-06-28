@@ -7,18 +7,7 @@ columns: two
 # {{{title}}}
 Most devices that find themselves stuck Blinking Cyan (light blue) are experiencing a keys issue. Read on for a detailed examination of this issue as well as steps you can take to resolve. If these steps do not work for you, or if a large number of devices in your fleet are Blinking Cyan all at once, please open a support ticket.
 
-This article is divided into six sections:
-
-* [How To Identify A Device Keys Issue](https://support.particle.io/hc/en-us/articles/360045359554#how-to-identify-a-device-keys-issue)
-* [About Device Keys](https://support.particle.io/hc/en-us/articles/360045359554#about-device-keys)
-* [Issue Breakdown](https://support.particle.io/hc/en-us/articles/360045359554#issue-breakdown)
-* [How To Backup/Save Your Key](https://support.particle.io/hc/en-us/articles/360045359554#how-to-backup-save-your-key)
-* [How To Restore/Load Your Key](https://support.particle.io/hc/en-us/articles/360045359554#how-to-restore-load-your-key)
-* [How To Change Your Key](https://support.particle.io/hc/en-us/articles/360045359554#how-to-change-your-key)
-
-##   
-  
-**How To Identify A Device Keys Issue** 
+## How To Identify A Device Keys Issue
 
 Device Keys issues can manifest in a few different forms, but they tend to follow the same profile:
 
@@ -26,7 +15,7 @@ Device Keys issues can manifest in a few different forms, but they tend to follo
 2) The device enters the rapid-cyan blink phase but is unable to proceed further - it will blink Red once or Orange three times. This signals an inability to connect to the Cloud.   
   
 Your device most likely needs new device keys! Skip ahead to the resolution below (How to Change Your Key), or read on for a bit more information!
-
+  
 ## About Device Keys
 
 Particle devices authenticate with the Particle cloud using public key cryptography. Each side (device and Cloud) has a public key and a private key. Public keys are public information. The Particle cloud knows every device's public key and a device’s public key can be shared even over insecure channels. You can share it with everyone! The device has its own private key, however, that is stored deep within its memory. 

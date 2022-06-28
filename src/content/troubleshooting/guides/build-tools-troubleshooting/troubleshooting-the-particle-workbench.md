@@ -5,19 +5,6 @@ columns: two
 ---
 
 # {{{title}}}
-This guide is divided into five sections:
-
-* [Running A Basic Workbench Functionality Check](https://support.particle.io/hc/en-us/articles/1260801313350#running-a-basic-workbench-functionality-check)
-* [Ensuring That Workbench Is Properly Installed And Configured](https://support.particle.io/hc/en-us/articles/1260801313350#ensuring-workbench-is-properly-installed)
-* [Steps To Take If You Encounter An Intellisense Issue](https://support.particle.io/hc/en-us/articles/1260801313350#intellisense-issue)
-* [Steps To Take If Workbench Does Not Recognize Your Device](https://support.particle.io/hc/en-us/articles/1260801313350#workbench-does-not-recognize-device)
-* [Workbench Network Error](#h%5F01FMS36KTW2PVMC7CEGF9MXA1D)
-* [Working with a custom DeviceOS Build](#h%5F01FMS3TT0RT5H6PM3XCGA2ANVQ)
-* [Unable to load manifest error](#h%5F01FMS3V32FXQZEMG05VHA3T2QR)
-* [Uninstalling Workbench](#h%5F01FMS3VWABJV9V8EWXTHK5C9C7)
-* [Uninstalling VSCode](#h%5F01FMS3W7H09177GY9ZW5F3PCS9)
-* [Linux Tips](#workbench-linux-tips)
-* [How To Report Workbench-related Issues (Important!)](https://support.particle.io/hc/en-us/articles/1260801313350#how-to-report-workbench-issues)
 
 For questions with respect to the installation of Particle Workbench, please see our Workbench Tutorial ([link](/tutorials/developer-tools/workbench/)). The Tutorial goes deep, with resources about many lesser-known Workbench features.
 
@@ -151,7 +138,6 @@ git submodule update --init --recursive
 * Wait for the toolchain to install and activate
 * Run commands ([docs](/tutorials/developer-tools/workbench/#particle-commands)) and local compilation tasks as normal ([docs](/tutorials/developer-tools/workbench/#local-build-and-flash))
 
-## 
 
 ## Unable to load manifest error
 

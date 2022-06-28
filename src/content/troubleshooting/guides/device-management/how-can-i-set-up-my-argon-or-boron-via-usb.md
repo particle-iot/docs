@@ -7,12 +7,6 @@ columns: two
 # {{{title}}}
 Many users set up their Argons and Borons by using the mobile apps for iOS and Android. However, it is quite simple to set up these devices over USB using the process described here.
 
-This article contains information for setting up:
-
-* [Argons](https://support.particle.io/hc/en-us/articles/360045547634#argon-setup)
-* [Borons](https://support.particle.io/hc/en-us/articles/360045547634#boron-setup)
-* [Marking Setup Done](https://support.particle.io/hc/en-us/articles/360045547634#marking-setup-done)
-
 ## Argon Setup
 
 1. You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.47.0 or newer) installed. Use `particle update-cli` to upgrade if necessary.

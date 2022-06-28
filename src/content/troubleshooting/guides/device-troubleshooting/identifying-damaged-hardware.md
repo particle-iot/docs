@@ -5,14 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
-Please see the following 6 sections, written to help diagnose issues with damaged hardware:
-
-* [Initial Troubleshooting](https://support.particle.io/hc/en-us/articles/1260801176309#initial-troubleshooting)
-* [Status LED Not Turning On](https://support.particle.io/hc/en-us/articles/1260801176309#status-led-not-turning-on)
-* [Device Fails In Circuit](https://support.particle.io/hc/en-us/articles/1260801176309#device-fails-in-circuit)
-* [Device Gets Warm (Battery-Powered)](https://support.particle.io/hc/en-us/articles/1260801176309#device-gets-warm-battery-powered)
-* [Device Gets Warm (USB/VUSB/VIN-Powered)](https://support.particle.io/hc/en-us/articles/1260801176309#device-gets-warm-usb-vusb-vin-powered)
-* [Device Is Back-Powered](https://support.particle.io/hc/en-us/articles/1260801176309#device-is-back-powered)
+Please see the following to help diagnose issues with damaged hardware:
 
 ## Initial Troubleshooting
 

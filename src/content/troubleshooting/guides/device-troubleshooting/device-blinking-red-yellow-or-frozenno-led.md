@@ -5,15 +5,8 @@ columns: two
 ---
 
 # {{{title}}}
-Bugs happen! From hard faults to heap exhaustion to a missing DeviceOS component - even the best of us can accidentally flash firmware that leaves our Particle device Blinking Red, crashing, or failing to connect (Blinking Green). This article will help you understand **what to do** and **what not to do** when dealing with a device that just won't stop crashing or Blinking Red. Please see the following 7 sections:
 
-* [Getting Started](https://support.particle.io/hc/en-us/articles/360046136473#getting-started)
-* [Interacting With The Device](https://support.particle.io/hc/en-us/articles/360046136473#interacting-with-the-device)
-* [DFU Mode](https://support.particle.io/hc/en-us/articles/360046136473#dfu-mode)
-* [Device Restore](https://support.particle.io/hc/en-us/articles/360046136473#device-restore)
-* [Manual DeviceOS Flash](https://support.particle.io/hc/en-us/articles/360046136473#manual-deviceos-flash)
-* [Totally Unresponsive Devices](https://support.particle.io/hc/en-us/articles/360046136473#totally-unresponsive-devices)
-* [Before Opening A Support Ticket (Important!)](https://support.particle.io/hc/en-us/articles/360046136473#before-opening-a-support-ticket)
+Bugs happen! From hard faults to heap exhaustion to a missing DeviceOS component - even the best of us can accidentally flash firmware that leaves our Particle device Blinking Red, crashing, or failing to connect (Blinking Green). This article will help you understand **what to do** and **what not to do** when dealing with a device that just won't stop crashing or Blinking Red. Please see the following 7 sections:
 
 ## Getting Started
 
@@ -25,7 +18,6 @@ Your device is Blinking Red or Yellow, or Frozen Cyan, or has no Status LED at a
 
 * [Boron](/tutorials/device-os/led/boron/)
 * [Argon](/tutorials/device-os/led/argon/)
-* [Xenon](/tutorials/device-os/led/xenon/)
 * [Electron](/tutorials/device-os/led/electron/)
 * [Photon](/tutorials/device-os/led/photon/)
 
@@ -54,11 +46,15 @@ _If you are unable to force this device to Blink Yellow_ there are a few avenues
 
  Once your device is in DFU Mode, enter the following commands in the Command Line:
 
+```
 particle update
+```
 
 followed by
 
+```
 particle flash --usb tinker 
+```
 
 If the device goes out of Blinking Yellow after the first command, put it back into DFU Mode for the second one.
 
@@ -88,7 +84,7 @@ The following is recommended for advanced Particle Users, preferably those who h
 
 ## Totally Unresponsive Devices
 
-If your device is completely unresponsive the the above, please see our article on Identifying Damaged Hardware here ([link](https://support.particle.io/hc/en-us/articles/1260801176309-Identifying-Damaged-Hardware)).
+If your device is completely unresponsive the the above, please see our article on Identifying Damaged Hardware here ([link](/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/)).
 
 ## Before Opening A Support Ticket
 

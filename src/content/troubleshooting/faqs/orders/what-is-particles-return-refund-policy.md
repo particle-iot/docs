@@ -9,14 +9,9 @@ columns: two
 
 This section will give you an overview of our return policy for wherever you may have purchased our products.
 
-* [General Returns Guidelines](#general-returns-guidelines)
-* [Retail Store Returns Policy](#h%5Fba5f2533-10a9-4657-aecd-7c0880ad1497) (store.particle.io)
-* [Orders placed through a distributor](#orders-placed-through-a-distributor) (including Amazon)
-* [Wholesale Store Returns Policy](#h%5F790efcf1-2a31-4eea-93dc-b47ccc35ec4b) (wholesale.particle.io)
-
 ## General Returns Guidelines
 
-These guidelines apply to all returns, regardless of the store from which you purchased your Particle products. Please read this section carefully, and then proceed to either the [Retail](#h%5Fba5f2533-10a9-4657-aecd-7c0880ad1497) or [Wholesale](#h%5F790efcf1-2a31-4eea-93dc-b47ccc35ec4b) store policy depending on where you made your purchase. **Note**: if you **made your purchase through Amazon or one of our other distributors**, you will need to contact them directly to process a refund.
+These guidelines apply to all returns, regardless of the store from which you purchased your Particle products. Please read this section carefully, and then proceed to either the Retail or Wholesale store policy depending on where you made your purchase. **Note**: if you **made your purchase through Amazon or one of our other distributors**, you will need to contact them directly to process a refund.
 
 * Please contact us at our [support portal](https://support.particle.io/) prior to sending any products back to us. If an order is returned to us without approval for any reason, you will not receive a refund.
 * If you’ve made a purchase through our Wholesale Store, our policy and processes are slightly different than our normal retail return process.

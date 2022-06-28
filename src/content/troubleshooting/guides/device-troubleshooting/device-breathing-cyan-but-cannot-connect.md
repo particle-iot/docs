@@ -5,12 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
-A device that is breathing cyan but cannot connect (e.g. you cannot ping the device in the Console) has three likely causes, both of which should be easily actionable to the user. The following outlines a few strategies to debug, in four sections:
-
-* [The Console Online Indicator](https://support.particle.io/hc/en-us/articles/360060114433#the-console-online-indicator)
-* [Keeping System Firmware Up To Date](https://support.particle.io/hc/en-us/articles/360060114433#keeping-system-firmware-up-to-date)
-* [Checking For Sporadic RF Issues](https://support.particle.io/hc/en-us/articles/360060114433#checking-for-sporadic-rf-issues)
-* [Identifying Blocking Firmware](https://support.particle.io/hc/en-us/articles/360060114433#identifying-blocking-firmware)
+A device that is breathing cyan but cannot connect (e.g. you cannot ping the device in the Console) has three likely causes, both of which should be easily actionable to the user. The following outlines a few strategies to debug.
 
 ## The Console Online Indicator
 
@@ -20,10 +15,7 @@ It's worth explicitly stating that the Console's **Online Indicator** is not a r
 
 Prior to Device OS 1.3.1, firmware connectivity-blocking issues can be disguised as a "Breathing Cyan But Cannot Connect" state. This is because `Particle.connected()` returned true immediately after successfully resuming a session, but not prior to a completed handshake. While Device OS 1.3.1 fixes this issue ([link](https://github.com/particle-iot/device-os/pull/1825)), we recommend upgrading system firmware to at least the most recent production version following the instructions here ([link](/reference/device-os/versions/#sts=Device%20OS%20Versions,%20Upgrades,%20and%20Downgrades)). Note: updating your Device OS may not result in a successful connection, but it may kick the device out of the Breathing Cyan state - allowing the Status LED to show more useful information about its connectivity status. 
 
-### 
-
-##   
-**Checking For Sporadic RF Issues** 
+## Checking For Sporadic RF Issues
 
 An environment that has _just enough_ cellular connectivity to allow for successful connections but _not enough_ to prevent constant timeouts and long roundtrip times could put a device into this condition.   
   
@@ -48,6 +40,7 @@ In some edge cases, application firmware can interfere with a device's ability t
   
 In order to establish whether or not your application firmware is blocking, flash blank firmware down to the device that runs with `SYSTEM_MODE_AUTOMATIC` and has an empty `loop()`. However - **please take care to ensure that a blank sketch is safe for your device's hardware configuration, making all the necessary initializations in `setup()` while keeping your application functionally minimal:**
 
+```
 void setup() {  
 // any necessary hardware initializations  
 }  
@@ -57,5 +50,6 @@ void loop() {
 }  
   
 // refrain from declaring any interrupts and try and keep your test firmware as empty as possible
+```
 
 It is worth stating that the majority of these issues do boil down to blocking firmware, so performing the above test is an essential component of the troubleshooting process. If all of the above fails, please [open a support ticket.](https://support.particle.io)
