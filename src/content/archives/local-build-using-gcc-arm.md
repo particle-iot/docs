@@ -69,7 +69,7 @@ You'll need to use the **MinGW Shell** for entering your build commands, not the
 
 #### Download the gcc-arm toolchain - Windows
 
-The gcc-arm toolchains are here: <https://launchpad.net/gcc-arm-embedded>
+The gcc-arm toolchains are [here](https://launchpad.net/gcc-arm-embedded)
 
 For Device OS 2.0.0 and later, the [9-2019-q4-major](https://launchpad.net/gcc-arm-embedded/9.0/9-2019-q4-major) (9.2.1) version is required
 
@@ -108,7 +108,7 @@ This should also work from the Cygwin Terminal or MinGW Shell.
 
 #### Install git - Windows
 
-* Go to <https://git-scm.com/> and download the latest Windows version for your type of Windows. In my case, I downloaded 2.10.2 for 64-bit Windows.
+* Go to [https://git-scm.com/](https://git-scm.com/) and download the latest Windows version for your type of Windows. In my case, I downloaded 2.10.2 for 64-bit Windows.
 * Run the installer and select **Next >** to accept the license terms.
 * You will typically install in the default location (**C:\\Program Files\\Git**) and click **Next >**.
 * The default components should be fine and click **Next >**. The startup menu default is usually fine, click **Next >**.
@@ -175,7 +175,7 @@ There are additional instructions in the README.md file if necessary, including 
 
 Some of the other instructions use Homebrew, but they update their current compiler more frequently than Particle does, and it can cause build problems. It's easy to just download a specific version from Canonical, instead:
 
-* The gcc-arm toolchains are here: <https://launchpad.net/gcc-arm-embedded>
+* The gcc-arm toolchains are [here](https://launchpad.net/gcc-arm-embedded).
 
 For Device OS 2.0.0 and later, the [9-2019-q4-major](https://launchpad.net/gcc-arm-embedded/9.0/9-2019-q4-major) (9.2.1) version is required
 
@@ -214,7 +214,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 #### Install git - Mac
 
-* Go to <https://git-scm.com/> and download the [latest Mac installer](https://git-scm.com/download/mac). I used 2.10.1.
+* Go to [https://git-scm.com/](https://git-scm.com/) and download the [latest Mac installer](https://git-scm.com/download/mac). I used 2.10.1.
 * Run the installer. Depending on your security settings, you may get an error that it is from an unidentified developer. Go into **Apple Menu - System Preferences - Security and Privacy** and click the **Open Anyway** button.
 
 ![open anyway](/assets/images/support/local-build-05openanyway.png)
@@ -246,8 +246,7 @@ Also note that the pre-built gcc-arm toolchains are for x86 architecture only. T
 
 #### Download the gcc-arm toolchain - Linux
 
-The gcc-arm toolchains are here:  
-<https://launchpad.net/gcc-arm-embedded>
+The gcc-arm toolchains are [here](https://launchpad.net/gcc-arm-embedded)
 
 For Device OS 2.0.0 and later, the [9-2019-q4-major](https://launchpad.net/gcc-arm-embedded/9.0/9-2019-q4-major) (9.2.1) version is required
 

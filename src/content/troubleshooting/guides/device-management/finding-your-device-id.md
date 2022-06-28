@@ -282,9 +282,9 @@ After you've claimed the device to your Particle account, the device ID is avail
 
 In the phone apps, clicking on the device will show you the device ID in the Info panel.
 
-In Particle Build (Web IDE) at <https://build.particle.io>, click on the Devices icon (the circle with 4 lines, the target symbol). Select the device and then the ">" icon to view the device ID.
+In [Particle Web IDE](https://build.particle.io/), click on the Devices icon (the circle with 4 lines, the target symbol). Select the device and then the ">" icon to view the device ID.
 
-In the Particle Console at <https://console.particle.io>, the My Devices icon displays the device ID.
+In the [Particle Console](https://console.particle.io/), the My Devices icon displays the device ID.
 
 In the Particle CLI, the command:
 

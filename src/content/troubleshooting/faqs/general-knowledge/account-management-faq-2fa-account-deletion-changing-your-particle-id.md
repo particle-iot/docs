@@ -35,7 +35,7 @@ First, log into your account at console.particle.io and perform the following:
 
 Also, as necessary, be sure to back up any source files you have stored in the [Web IDE](https://build.particle.io/build/new).
 
-Click on your email address in the top right and select the “Edit Account” option from the dropdown menu. You will be redirected to <https://login.particle.io/account-info?redirect=https://console.particle.io/devices>. Select the “delete account” option near the center-bottom of the page. You will be prompted to enter your password one more time to confirm deletion of your account.
+Click on your email address in the top right and select the “Edit Account” option from the dropdown menu. You will be redirected to [another page](https://login.particle.io/account-info?redirect=https://console.particle.io/devices). Select the “delete account” option near the center-bottom of the page. You will be prompted to enter your password one more time to confirm deletion of your account.
 
  (_Note_ that this action is non-reversible, so be very sure that you really want the account deleted.)
 

@@ -535,7 +535,7 @@ The device ID is different from your SIM ICCID.
 
 #### Claiming from Particle Build (Web IDE)
 
-Click the devices icon in the lower left corner of the Particle Build <https://build.particle.io> window.
+Click the devices icon in the lower left corner of the [Particle Web IDE](https://build.particle.io) window.
 
 ![Particle Build Devices Icon](/assets/images/support/electron-3rdparty-sims-03devices.png)
 

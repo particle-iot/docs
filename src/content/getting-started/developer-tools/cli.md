@@ -10,11 +10,11 @@ description: Command line interface for managing your Particle devices for Windo
 # Particle CLI
 
 The Particle CLI is a powerful tool for interacting with your devices
-and the Particle Device Cloud.  The CLI uses [Node.js](https://nodejs.org/) and can easily run on Windows, macOS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+and the Particle Device Cloud.  The CLI uses [Node.js](https://nodejs.org/) and can easily run on Windows, Mac OS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
-### Using macOS or Linux
+### Using Mac OS or Linux
 
 The easiest way to install the CLI is to open a Terminal and type:
 
@@ -87,7 +87,7 @@ To force it to update, run the installer script again or enter this command:
 $ particle update-cli
 ```
 
-If the CLI is outputing unexpected errors after an update, delete the `~/.particle` (macOS and Linux) or `C:\Users\<username>\AppData\Local\particle` directory and run the installer script again to start over.
+If the CLI is outputing unexpected errors after an update, delete the `~/.particle` (Mac OS and Linux) or `C:\Users\<username>\AppData\Local\particle` directory and run the installer script again to start over.
 
 **To prevent the Particle CLI from automatically updating, set the environment variable `PARTICLE_DISABLE_UPDATE=true` for your system. Use `particle update-cli` to manually update.**
 

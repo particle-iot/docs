@@ -21,7 +21,7 @@ Please see the instructions for each store:
 
 ## Retail
 
-1. For Retail store orders, please go to the main Retail store (<https://store.particle.io/>), sign in or click on My Account on the right of the main page top navigation section.  
+1. For Retail store orders, please go to the main [Retail store](https://store.particle.io/), sign in or click on My Account on the right of the main page top navigation section.  
     
 ![Screen_Shot_2021-06-08_at_1.45.01_PM.png](/assets/images/support/Screen_Shot_2021-06-08_at_1.45.01_PM.png)
 2. Select “My Orders” from the drop down menu.  
@@ -36,7 +36,7 @@ Please see the instructions for each store:
 
 ## Wholesale
 
-1. After logging into the Wholesale store (<https://wholesale.particle.io/>), you will click the Orders option on the navigation menu on the right hand side of the wholesale store main page - it is the second option from the left.  
+1. After logging into the [Wholesale store](https://wholesale.particle.io/), you will click the Orders option on the navigation menu on the right hand side of the wholesale store main page - it is the second option from the left.  
     
 ![Screen_Shot_2021-06-08_at_1.47.33_PM.png](/assets/images/support/Screen_Shot_2021-06-08_at_1.47.33_PM.png)
 2. On the Orders page, you will see your current and previous order history with information pertaining to your order number, the date of purchase, the payment status, the fulfillment status and total.  

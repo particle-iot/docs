@@ -323,7 +323,7 @@ ParticleCloudSDK.getCloud().publishEventWithName(
 ### API Reference
 For a complete interface reference, check out the JavaDoc and source code in [the `cloudsdk` module in the Git repo](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/).
 
-If you're working in Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This shortcut is for macOS; shortcuts on other platforms may vary.)
+If you're working in Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This shortcut is for Mac OS; shortcuts on other platforms may vary.)
 
 
 ### OAuth client configuration

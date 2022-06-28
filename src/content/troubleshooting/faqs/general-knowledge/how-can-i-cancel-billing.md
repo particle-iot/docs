@@ -9,7 +9,7 @@ If you need to set your Particle project aside for awhile, there’s an easy way
 
 ## How to Suspend a Cellular Subscription
 
-In order to suspend your billing, all you need to do is [Deactivate your SIMs](/getting-started/console/sim-management/#individual-sim-actions). (Here’s a hint - go to <https://console.particle.io/sims>, click on the “…” on the right-hand side of the page, and select “Deactivate SIM”). If you have any Products connected with your account, please deactivate any SIMs connected with your Products as well!  
+In order to suspend your billing, all you need to do is [Deactivate your SIMs](/getting-started/console/sim-management/#individual-sim-actions) in the [console SIMs page](https://console.particle.io/sims), click on the “…” on the right-hand side of the page, and select “Deactivate SIM”). If you have any Products connected with your account, please deactivate any SIMs connected with your Products as well!  
   
 You can also do so via the [API](/reference/cloud-apis/api/#deactivate-sim) directly.  
   

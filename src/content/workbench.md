@@ -9,7 +9,7 @@ description: Desktop IDE for writing Particle IoT device firmware for Windows, M
 
 {{!-- Landing Page see ch25555 --}}
 
-Particle Workbench provides IoT developers with a cross-platform desktop development environment for Windows, macOS, and Linux. Particle Workbench is easy to install, is preconfigured for easy development, and comes with everything you need to build, compile, and deploy code for your Particle-powered products.
+Particle Workbench provides IoT developers with a cross-platform desktop development environment for Windows, Mac OS, and Linux. Particle Workbench is easy to install, is preconfigured for easy development, and comes with everything you need to build, compile, and deploy code for your Particle-powered products.
 
 - <b>#1 code editor</b> - Powered by Microsoft’s industry-leading [Visual Studio Code](https://code.visualstudio.com/).
 - <b>Managed toolchain</b> - Supports offline and cloud compilation, plus wireless OTA updates.

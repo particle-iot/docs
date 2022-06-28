@@ -8,7 +8,7 @@ columns: two
 
 For questions with respect to the installation of Particle Workbench, please see our Workbench Tutorial ([link](/getting-started/developer-tools/workbench/)). The Tutorial goes deep, with resources about many lesser-known Workbench features.
 
-It is generally worth also reviewing the troubleshooting documentation available by running the command `Particle: Get Help` in the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS). 
+It is generally worth also reviewing the troubleshooting documentation available by running the command `Particle: Get Help` in the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (Mac OS). 
 
 ## Running A Basic Workbench Functionality Check
 
@@ -33,7 +33,7 @@ Before troubleshooting further, please take the following steps to ensure Workbe
   
 **If all of the above work without an issue, it's worth taking a look at the configuration of the user application and project layout for which you received errors/failures.** Again, we'd like to refer you to the documentation available here ([link](/getting-started/developer-tools/workbench/)).
 
-**If, however, you receive errors in one or all of the above stages, proceed by c** **ollecting an Environment Report.** Go to the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS)) and select `Particle: Audit Environment`. 
+**If, however, you receive errors in one or all of the above stages, proceed by c** **ollecting an Environment Report.** Go to the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (Mac OS)) and select `Particle: Audit Environment`. 
 
 Take a look at the following elements of your Environment Report:
 
@@ -53,13 +53,13 @@ Issues related to build tools can be complex! After all, every computer is confi
 
 * Verify you are using the **latest version of Particle Workbench** \- there’s a decent chance we’ve already fixed your issue. In most cases, Particle Workbench will auto-update, so pay attention to a dialog box on the bottom right of the Workbench window prompting you to update. If you have not seen this box in awhile, or if you are concerned that you may have disabled this functionality, follow the instructions here to update your Workbench extension: ([link](https://code.visualstudio.com/docs/editor/extension-gallery#%5Fextension-autoupdate)).
 * Further, verify that you are using the **latest version of Visual Studio Code**. Follow the instructions here: ([link](https://code.visualstudio.com/Docs/setup/setup-overview#%5Fupdate-cadence)) to ensure that VSCode will auto-update correctly.
-* **Reset your Workbench Instance** \- Open up the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS) and run the command `Particle: Reset Environment`.
+* **Reset your Workbench Instance** \- Open up the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (Mac OS) and run the command `Particle: Reset Environment`.
 * **Disable any other extensions that may be active within your VSCode instance**. On occasion, new developments in other extensions can impact or interfere with the performance of this (and other) extensions. You can find more information about how to do so here: ([link](https://code.visualstudio.com/docs/editor/extension-gallery#%5Fdisable-an-extension)).
 * **Disable Antivirus Software** \- some antivirus programs interfere with the CLI. During the course of troubleshooting, it is important to temporarily disable or explicitly grant higher privileges in your firewall interface to confirm your issue is still present.
 * Likewise, temporarily disable any **VPNs** through which you may be networking and confirm that your issue is still present.
 * **Avoid Cloud Storage Drives** targeting a project in a Dropbox / OneDrive / Google Drive directory. Ensure the CLI has been installed within a standard directory to which you have the appropriate permissions.
 * If Workbench is installed within a user directory, ensure there is **no whitespace** within the filepath of that directory (e.g. /Users/Particle Support/).
-* **Avoid Custom Shell Commands** \- Local compilation on MacOS & Linux relies on a number of standard shell commands (e.g. `cd`, `ls`, `rm`, `stat`, etc...). In rare cases a developer may choose to replace these standard built-in commands with custom versions that behave differently. Verify you are _not_ using custom shell commands or disable them temporarily and re-test your issue.
+* **Avoid Custom Shell Commands** \- Local compilation on Mac OS & Linux relies on a number of standard shell commands (e.g. `cd`, `ls`, `rm`, `stat`, etc...). In rare cases a developer may choose to replace these standard built-in commands with custom versions that behave differently. Verify you are _not_ using custom shell commands or disable them temporarily and re-test your issue.
 * **UNABLE\_TO\_GET\_ISSUER\_CERT\_LOCALLY error** \- This is due to Node.js security and can occur after upgrading the Node.js. When connecting to the NPM Registry, the error is "fetchPackageMetaData error for particle-cli@latest request to https://registry.npmjs.org/particle-cli failed, reason: unable to get local issuer certificate".  
 ![mceclip0.png](/assets/images/support/mceclip0.png)
    * Open a terminal within VSCode or open a Windows Command Prompt (you may need to run the Windows Node Terminal, depending on your setup). Run the command: npm config set strict-ssl false​
@@ -78,7 +78,7 @@ or through any number of warnings or other errors reported (some which may invok
 3. Close and re-open VSCode.
 4. Check the version of the C/C++ extension installed with VSCode (l[ink](https://code.visualstudio.com/docs/editor/extension-gallery#%5Flist-installed-extensions)).  
 _NOTE: if you are running an “insiders” build, rollback to a non-prerelease version ([link](https://code.visualstudio.com/docs/editor/extension-gallery#%5Funinstall-an-extension)) and make sure to opt-out of the “insiders” channel in your user-level settings ([link](https://code.visualstudio.com/docs/getstarted/settings))._
-5. Run the `C/C++: Reset Intellisense Database` command (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS), then start typing the command and it should autopopulate).
+5. Run the `C/C++: Reset Intellisense Database` command (⇧⌃P (Windows, Linux) or ⇧⌘P (Mac OS), then start typing the command and it should autopopulate).
 6. Try adding `"C_Cpp.loggingLevel": "Debug"` to your project’s `./vscode/settings.json` file (or use VSCode’s UI - **File** \-> **Preferences** \-> **Settings** and then search for “logging level”)..
 7. Verify that your project `settings.json` includes `"C_Cpp.default.configurationProvider":  
 "particle.particle-vscode-core"`.
@@ -92,7 +92,7 @@ Hardware peripheral issues have several main causes. In order:
 2. **Make sure your USB cable is not damaged in some way**. Again, cross-testing against another device and against another cable is strongly recommended.
 3. **Bypass USB hub / extension**s - if you are working with a device and are seeing issues related to its USB connection, try disconnecting all USB devices and reconnecting only your Particle device directly to you computer’s USB port.
 4. For Windows devices, you may need to ensure that the appropriate drivers are installed. IF you see the error `LIBUSB_ERROR_NOT_SUPPORTED`, you may need to install the latest [Particle USB/serial drivers](http://binaries.particle.io/cli/installer/windows/ParticleDriversSetup.exe). Please see our extensive troubleshooting documentation for fixing Windows driver issues here: ([link](https://github.com/rickkas7/particle%5Fnotes/tree/master/fixing-windows-10-serial-drivers)).
-5. Check your computer's Device Manager to ensure that your computer is able to identify the device. For MacOS, you will need to go to `Applications/Utilities` and open up the application called "System Information." For Windows, this is your Device Manager.  
+5. Check your computer's Device Manager to ensure that your computer is able to identify the device. For Mac OS, you will need to go to `Applications/Utilities` and open up the application called "System Information." For Windows, this is your Device Manager.  
     
 When in DFU mode, the Device Manager looks like this: (Note that it may say **Photon DFU Mode** regardless of device type.)  
     
@@ -197,7 +197,7 @@ sudo apt-get install gcc-multilib libarchive-zip-perl libncurses-dev
 ![Screen_Shot_2021-01-11_at_1.56.51_PM.png](/assets/images/support/Screen_Shot_2021-01-11_at_1.56.51_PM.png)
     
 Re-run any commands that have resulted in errors and collect them into your report.
-2. Collect an Environment Report by going to the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (macOS)) and select `Particle: Audit Environment`. **IMPORTANT: take care to sanitize this document and remove any sensitive information before submitting it along with your support request.**
+2. Collect an Environment Report by going to the Workbench Command Palette (⇧⌃P (Windows, Linux) or ⇧⌘P (Mac OS)) and select `Particle: Audit Environment`. **IMPORTANT: take care to sanitize this document and remove any sensitive information before submitting it along with your support request.**
 3. Navigate to the Particle Community's Workbench Topic ([link](https://community.particle.io/c/DT/particle-workbench/43)) and create a support request via a forum post, taking care to further specify:  
    * Operating System  
    * CPU Architecture (32/64 bit? ARM?)  

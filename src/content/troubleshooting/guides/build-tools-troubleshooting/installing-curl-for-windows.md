@@ -12,7 +12,7 @@ The curl command, used in the [Particle cloud examples](/reference/cloud-apis/ap
 
 #### Download
 
-Download the files from <https://curl.haxx.se/download.html>. You generally want one of the two highlighted files, depending on whether you have 32-bit or 64-bit Windows:
+Download the files from [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html). You generally want one of the two highlighted files, depending on whether you have 32-bit or 64-bit Windows:
 
 * Win32 Generic - Win32 zip 7.51.0 binary SSL SSH
 * Win64 Generic - Win64 x86\_64 zip 7.51.0 binary SSL SSH

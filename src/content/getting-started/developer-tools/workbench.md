@@ -44,7 +44,7 @@ Typically, there is a toolbar on the left with frequently used features.
 
 ### Particle Commands
 
-If you’re new to Visual Studio Code, the Command Palette will become a familiar part of the user interface. As the name implies, the Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on macOS or `ctrl+shift+p` on Linux and Windows.
+If you’re new to Visual Studio Code, the Command Palette will become a familiar part of the user interface. As the name implies, the Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows.
 
 Workbench adds custom Particle commands to the palette. Start typing `Particle` to see all the currently available commands.
 

@@ -12,7 +12,7 @@ Right off the bat, you may be reading this article with a more conceptual questi
 
 **CLI** stands for "**Command Line Interface**" - one accesses the CLI via your computer's command line.
 
-For MacOS, use your computer's Spotlight Search to search for "Terminal". 
+For Mac OS, use your computer's Spotlight Search to search for "Terminal". 
 
 For Windows, perform a search for "cmd.exe".
 
@@ -46,7 +46,7 @@ Issues related to build tools can be complex! After all, every computer is confi
 
 **Open the directory** containing the CLI’s files:
 
-* MacOS / Linux: `~/.particle`  
+* Mac OS / Linux: `~/.particle`  
 * Windows: `C:\Users\<your username>\AppData\Local\particle`
 
 **Delete the following files and directories** if available:
@@ -85,7 +85,7 @@ Hardware peripheral issues have several main causes. In order:
 2. **Make sure your USB cable is not damaged in some way**. Again, cross-testing against another device and against another cable is strongly recommended.
 3. **Bypass USB hub / extension**s - if you are working with a device and are seeing issues related to its USB connection, try disconnecting all USB devices and reconnecting only your Particle device directly to you computer’s USB port.
 4. For Windows devices, you may need to ensure that the appropriate drivers are installed. IF you see the error `LIBUSB_ERROR_NOT_SUPPORTED`, you may need to install the latest [Particle USB/serial drivers](http://binaries.particle.io/cli/installer/windows/ParticleDriversSetup.exe). Please see our extensive troubleshooting documentation for fixing Windows driver issues here: ([link](https://github.com/rickkas7/particle%5Fnotes/tree/master/fixing-windows-10-serial-drivers)).
-5. Check your computer's Device Manager to ensure that your computer is able to identify the device. For MacOS, you will need to go to `Applications/Utilities` and open up the application called "System Information." For Windows, this is your Device Manager.  
+5. Check your computer's Device Manager to ensure that your computer is able to identify the device. For Mac OS, you will need to go to `Applications/Utilities` and open up the application called "System Information." For Windows, this is your Device Manager.  
     
 When in DFU mode, the Device Manager looks like this: (Note that it may say **Photon DFU Mode** regardless of device type.)  
     
@@ -101,7 +101,7 @@ And when in normal operating mode or listening mode (blinking blue), the Device 
 **Particle's Support Team refers CLI and Workbench issues to our Particle Community** **([link](https://community.particle.io/c/DT/CLI/52)).** There are several benefits to doing so - other members of our Community may already have a solution for this issue, it allows for more transparent self-service after your issue is resolved, and it also is an often direct channel to our CLI and Workbench Engineering Team. **In order to report your issue, please post in our Particle Community** ([link](https://community.particle.io/c/DT/CLI/52))   **following the instructions below**:
 
 1. Capture verbose error logs of the incident in question - run your any commands that have been failing using the `--verbose` flag  (- e.g. `particle <cmd> --verbose`) and collect those results into your report.
-2. Collect the contents of your particle directory -`ls -a ~./particle` (MacOS / Linux), or `get-childitem ~\AppData\Local\particle` (Windows + PowerShell) into your report as well.
+2. Collect the contents of your particle directory -`ls -a ~./particle` (Mac OS / Linux), or `get-childitem ~\AppData\Local\particle` (Windows + PowerShell) into your report as well.
 3. Navigate to the Particle Community's CLI Topic ([link](https://community.particle.io/c/DT/CLI/52)) and post your issue, taking care to further specify:  
    * Operating System  
    * CPU Architecture (32/64 bit? ARM?)  

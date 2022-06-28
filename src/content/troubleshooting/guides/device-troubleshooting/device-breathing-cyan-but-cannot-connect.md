@@ -19,7 +19,7 @@ Prior to Device OS 1.3.1, firmware connectivity-blocking issues can be disguised
 
 An environment that has _just enough_ cellular connectivity to allow for successful connections but _not enough_ to prevent constant timeouts and long roundtrip times could put a device into this condition.   
   
-The Particle Console provides you with current and historical Device Vitals that are helpful in debugging cellular connections. To see Device Vitals, head to: <https://console.particle.io/devices>, and click on the device you are interested in. **These values will not appear if the device has never connected in the past** \- if this is the case, please skip ahead to "Sim Management" below.  
+The Particle Console provides you with current and historical Device Vitals that are helpful in debugging cellular connections. To see Device Vitals, head to [the console](https://console.particle.io/devices), and click on the device you are interested in. **These values will not appear if the device has never connected in the past** \- if this is the case, please skip ahead to "Sim Management" below.  
   
 On the right-hand side you will see “Last Vitals”, and you can press the reset button to request the latest numbers from the device. (You can also do so by selecting "Run health check" on the bottom of the panel). For devices that are Breathing Cyan but can't connect, we recommend downloading the CSV file with your vitals history to dig into more details. In order to do so, click "Download History" on the underside of the Vitals panel.  
   

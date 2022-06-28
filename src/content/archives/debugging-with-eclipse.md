@@ -58,7 +58,7 @@ Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then se
 
 #### Particle Programmer Shield - Mac
 
-This doesn't seem to be a problem with El Capitan and Sierra versions of macOS (OS X), but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield).
+This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS (OS X), but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield).
 
 In some cases, you may need to unload and reload the driver to get the Programmer Shield to work. This will need to be done after each reboot. Try it first without running this, as sometimes it works without it. It may be sufficient to only do this and not the more elaborate steps listed above, as well.
 
@@ -247,7 +247,7 @@ For this example, I selected **Eclipse IDE for C/C++ Developers** but you can ch
 
 Eclipse doesn't have an installer or dmg file.
 
-Also, you may be prompted to install the Legacy Java SE 6 for macOS when you first run Eclipse. If this happens, just follow the instructions for doing so.
+Also, you may be prompted to install the Legacy Java SE 6 for Mac OS when you first run Eclipse. If this happens, just follow the instructions for doing so.
 
 * Upgrade to Java JDK 8 if necessary
 
@@ -257,9 +257,9 @@ However, if you install the Legacy Java SE 6, you will also need to install a mo
 
 It was 8u111 when I wrote this, but select the current version.
 
-I used the 64-bit Mac version, jdk-8u111-macosx-x64.dmg. You should use the latest version of JDK 8 for your operating system, not specifically build 111.
+I used the 64-bit Mac version, jdk-8u111-Mac OSx-x64.dmg. You should use the latest version of JDK 8 for your operating system, not specifically build 111.
 
-* Swap the default macOS JVM
+* Swap the default Mac OS JVM
 
 Then you need to swap version 8 for the version 6 of the Mac system JVM. Open a Terminal window:
 
@@ -382,7 +382,7 @@ You may get a warning for unsigned content. You should select **OK** and proceed
 
 There is a separate install for the operating system-specific GNU ARM Eclipse OpenOCD bits.
 
-<https://github.com/gnuarmeclipse/openocd/releases>
+[https://github.com/gnuarmeclipse/openocd/releases](https://github.com/gnuarmeclipse/openocd/releases)
 
 There are further installation instructions in the [GNU ARM Eclipse OpenOCD installation instructions](http://gnuarmeclipse.github.io/openocd/install/).
 
@@ -429,7 +429,7 @@ For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-partic
 
 There is a separate install for the operating-specific GNU ARM Eclipse OpenOCD bits.
 
-<https://github.com/gnuarmeclipse/openocd/releases>
+[https://github.com/gnuarmeclipse/openocd/releases](https://github.com/gnuarmeclipse/openocd/releases)
 
 There are further installation instructions in the [GNU ARM Eclipse OpenOCD installation instructions](http://gnuarmeclipse.github.io/openocd/install/).
 
@@ -469,7 +469,7 @@ For Gen 3 devices, also download [nrf52-particle.cfg](/assets/files/nrf52-partic
 
 There is a separate install for the operating-specific GNU ARM Eclipse OpenOCD bits.
 
-<https://github.com/gnuarmeclipse/openocd/releases>
+[https://github.com/gnuarmeclipse/openocd/releases](https://github.com/gnuarmeclipse/openocd/releases)
 
 There are further installation instructions in the [GNU ARM Eclipse OpenOCD installation instructions](http://gnuarmeclipse.github.io/openocd/install/).
 
@@ -593,7 +593,7 @@ After making a change in the preferences, it's a good idea to click **Apply** (3
 
 ![Environment Properties Windows](/assets/images/support/eclipse-debug-settings-5.png)
 
-* For macOS: Use the **Add** button (2) to add new environment variables:
+* For Mac OS: Use the **Add** button (2) to add new environment variables:
 
 | Name      | Type   | Value                                                                   |
 | --------- | ------ | ----------------------------------------------------------------------- |

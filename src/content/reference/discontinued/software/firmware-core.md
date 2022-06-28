@@ -5053,9 +5053,9 @@ For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). 
 - Parity: none
 - Stop Bits: 1
 
-On **macOS (OS X) and Linux** systems, you can access the serial port through the terminal.
+On **Mac OS (OS X) and Linux** systems, you can access the serial port through the terminal.
 
-For macOS, open the terminal and type:
+For Mac OS, open the terminal and type:
 
 ```screen /dev/tty.u```
 

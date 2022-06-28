@@ -106,7 +106,7 @@ Next, we'll use OpenOCD to burn this bootloader `hex` file to your Xenon.
 
   ![](/assets/images/flash-list.png)
 
-5. Install the Hex file from the step above using the `program` command. Replace the path to the hex file with your own path **NOTE**: If using macOS, the the `~` path shortcut will fail, so be sure to use your entire path from `/Users/user` in the statement below.
+5. Install the Hex file from the step above using the `program` command. Replace the path to the hex file with your own path **NOTE**: If using Mac OS, the the `~` path shortcut will fail, so be sure to use your entire path from `/Users/user` in the statement below.
 
   ```bash
   bin/openocd -f interface/cmsis-dap.cfg -f target/nrf52-particle.cfg \

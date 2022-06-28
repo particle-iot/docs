@@ -79,7 +79,7 @@ _The amount of charge in your battery (percentage)._
 
 If your cellular device has trouble getting online, make a note of its ICCID (the identifier for your SIM Card). If this device has come online in the past and is visible in the Console, merely click on the Device in question to check the ICCID number. If the device has never come online, you can find this information by either checking the packaging for your Particle SIM and/or (especially in the case of embedded SIM devices), following the instructions [here](/troubleshooting/guides/device-management/finding-your-device-id/) to ask the device to reveal this number for you.  
   
-Once you have your ICCID, be sure to check <https://console.particle.io/sims> to ensure the SIM is Active. If the SIM does not appear in <https://console.particle.io/sims> (or in the respective SIM Management page for a given Product), please activate your SIM by following the steps at <https://setup.particle.io>. If the SIM does appear in <https://console.particle.io/sims> but is marked as “Deactivated”, please Activate the SIM by pressing the “…” marking on the right-hand side of the SIM Management page. Should you have any issues with SIM Activation, please visit our Article on “Troubleshooting SIM Activation/Deactivations.”  
+Once you have your ICCID, be sure to check [the console SIMs page](https://console.particle.io/sims) to ensure the SIM is Active. If the SIM does not appear in your sandbox SIMs page (or in the respective SIM Management page for a given Product), please activate your SIM by following the steps at [setup.particle.io](https://setup.particle.io). If the SIM does appear in the SIM list but is marked as “Deactivated”, please Activate the SIM by pressing the “…” marking on the right-hand side of the SIM Management page. Should you have any issues with SIM Activation, please visit our Article on “Troubleshooting SIM Activation/Deactivations.”  
   
 If all of the above are correct, and your device is blinking green, Cloud Debug is the next step. 
 
@@ -124,7 +124,7 @@ Once you have the logs, scan through it and look out for the following responses
 
 _2,3 indicates your SIM card is being rejected by the local tower. **Please ensure that your SIM card is active!** If your SIM card is indeed active, this error could occur for various infrastructural reasons; it might resolve itself if you have a day or two to wait._ 
 
-_If not, please submit a ticket at <https://support.particle.io/> so we can check with our MVNO what is going on._
+_If not, please [submit a support ticket](https://support.particle.io/) at so we can check with our MVNO what is going on._
 
 #### 2,2
 
@@ -138,7 +138,7 @@ _2,0 indicates a lack of available local towers._
 
 _Indicates a successful connection to the tower._  
 
-Once you have these logs in hand, reach out to our support team ([https://support.particle.io/)](https://support.particle.io/) with about 10 minutes or so of those logs! 
+Once you have these logs in hand, reach out to our [support team](https://support.particle.io/) with about 10 minutes or so of those logs! 
 
 #### Uninstalling Cloud Debug
 

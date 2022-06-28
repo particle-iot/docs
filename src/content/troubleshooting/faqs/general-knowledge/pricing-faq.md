@@ -75,7 +75,7 @@ If you are a new customer, we encourage you to start developing within the free 
 
 ## How Can I Sign Up For The Growth Plan?
 
-To upgrade to the Growth plan, enter your email address at <https://particle.io/upgradetogrowth>!
+To upgrade to the Growth plan, enter your email address at [https://particle.io/upgradetogrowth](https://particle.io/upgradetogrowth)!
 
 ## How am I billed while on the Growth plan?
 

@@ -9,13 +9,9 @@ Until recently, Particle users were able to access their User Access Token from 
 
 1. **Using the Particle CLI.**  
     
-First, install the Particle CLI if you have not already done so. For macOS, open a terminal and run:  
-bash <( curl -sL https://particle.io/install-cli )  
-For Windows, download the installer here: [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe)  
+Follow the instructions to [install the Particle CLI](/getting-started/developer-tools/cli/).
     
-Further, more detailed instructions can be found here: <https://docs.particle.io/tutorials/developer-tools/cli/>.  
-    
-Once you have the CLI installed, open up your command line (for macOS, the Terminal, for Windows, cmd.exe) and use the following command to **log in**:  
+Once you have the CLI installed, open up your command line (for Mac OS, the Terminal, for Windows, cmd.exe) and use the following command to **log in**:  
 particle login  
 
 You can then **list your current tokens** with:  
@@ -46,4 +42,4 @@ $ curl https://api.particle.io/oauth/token \
 
 and pass your Particle Username and Password as request arguments.
 
-**Note**, users can still quickly grab an access token by going to <https://console.particle.io/events> and selecting the "View Events from a Terminal" button. However, this token will expire in 15 minutes.
+**Note**, users can still quickly grab an access token by going to [the console events page](https://console.particle.io/events) and selecting the "View Events from a Terminal" button. However, this token will expire in 15 minutes.

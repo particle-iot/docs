@@ -16,4 +16,4 @@ Note that these tools have not been tested by Particle. If you develop an open-s
 
 ## Neopo
 
-* [Neopo](https://neopo.xyz/) - A utility created by [Nathan Robinson](https://github.com/nrobinson2000) that leverages existing Particle tools to provide a command-line experience compatible with Workbench and Particle CLI for Linux, macOS, Windows, and Raspberry Pi.
+* [Neopo](https://neopo.xyz/) - A utility created by [Nathan Robinson](https://github.com/nrobinson2000) that leverages existing Particle tools to provide a command-line experience compatible with Workbench and Particle CLI for Linux, Mac OS, Windows, and Raspberry Pi.

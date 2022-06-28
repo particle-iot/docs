@@ -89,7 +89,7 @@ After reload, some more components will be installed and you will be prompted to
 
 To create your first project, you'll start with the Command Palette.
 
-The Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on macOS or `ctrl+shift+p` on Linux and Windows.
+The Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows.
 
 In the Command Palette select **Particle: Create New Project**. The matching is very flexible - you don't have to type that whole thing in or scroll through the list. You could just type **project** and that would typically be the first match.
 
