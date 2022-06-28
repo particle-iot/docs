@@ -56,7 +56,7 @@ _For issues setting up a Particle Electron/E-Series, it's best to use the CLI (C
 
 * If CLI commands are failing with errors, follow the CLI instructions here ([link](https://support.particle.io/hc/en-us/articles/1260801311330-Troubleshooting-the-Particle-CLI)).
 * If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions here ([link](https://support.particle.io/hc/en-us/articles/1260801311330/#CLI-does-not-recognize-device)).
-* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a supported region ([link](https://support.particle.io/hc/en-us/articles/1500000013382)), and then please follow our generic Cellular Connectivity Guide ([link](https://support.particle.io/hc/en-us/articles/360044518213)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
+* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a supported region ([link](https://support.particle.io/hc/en-us/articles/1500000013382)), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
 * If you receive errors that the device belongs to another user, please follow the instructions here ([link](https://support.particle.io/hc/articles/360045423454/)).
 
 ## Argon
@@ -86,7 +86,7 @@ _For issues setting up a Particle Boron/B-Series, it's best to use the CLI (Comm
 
 * If CLI commands are failing with errors, follow the CLI instructions here ([link](https://support.particle.io/hc/en-us/articles/1260801311330-Troubleshooting-the-Particle-CLI)).
 * If the CLI reports that it cannot find a device connected, first take care that your device is in the correct mode specified above. Then, follow the USB connectivity troubleshooting instructions here ([link](https://support.particle.io/hc/en-us/articles/1260801311330/#CLI-does-not-recognize-device)).
-* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a supported region ([link](https://support.particle.io/hc/en-us/articles/1500000013382)), and then please follow our generic Cellular Connectivity Guide ([link](https://support.particle.io/hc/en-us/articles/360044518213)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
+* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a supported region ([link](https://support.particle.io/hc/en-us/articles/1500000013382)), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
 * If you receive errors that the device belongs to another user, please follow the instructions here ([link](https://support.particle.io/hc/articles/360045423454/)).
 
 ## Tracker One/Tracker SoM
@@ -97,5 +97,5 @@ _For issues setting up a Particle Boron/B-Series, it's best to use the CLI (Comm
 
 ### Troubleshooting Resources:
 
-* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a supported region ([link](https://support.particle.io/hc/en-us/articles/1500000013382)), and then please follow our generic Cellular Connectivity Guide ([link](https://support.particle.io/hc/en-us/articles/360044518213)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
+* If the device blinks green or cyan with intermittent blinks of orange, green, or yellow - ensure your device is in a supported region ([link](https://support.particle.io/hc/en-us/articles/1500000013382)), and then please follow our generic Cellular Connectivity Guide ([link](/troubleshooting/guides/device-management/repairing-product-device-keys/)) to troubleshoot. **Ensure you've collected the logs necessary to open a support ticket**.
 * If you receive errors that the device belongs to another user, please follow the instructions here ([link](https://support.particle.io/hc/articles/360045423454/)).

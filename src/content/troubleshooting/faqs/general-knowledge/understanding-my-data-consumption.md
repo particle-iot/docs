@@ -21,7 +21,7 @@ b) high rate of system-related calls made to keep your device online.
   
 If you have done the math on your expected data consumption based on Publish payload size and frequency, it's possible that your device is experiencing poor enough connectivity that the device is forced to consume data in order to try to get online.
 
-You can collect connectivity metrics by navigating to the Console page for a given device, navigating to the “Get Vitals” panel on the left-hand-side, and selecting “Download History.” You can find information about how to interpret these results [here](https://support.particle.io/hc/en-us/articles/360044518213).
+You can collect connectivity metrics by navigating to the Console page for a given device, navigating to the “Get Vitals” panel on the left-hand-side, and selecting “Download History.” You can find information about how to interpret these results [here](/troubleshooting/guides/device-management/repairing-product-device-keys/).
 
 Devices with connectivity issues may experience frequent, abrupt disconnects - sometimes in the middle of the handshake process. In certain edge cases, this can lead to noticeably higher-than-expected data consumption. 
 

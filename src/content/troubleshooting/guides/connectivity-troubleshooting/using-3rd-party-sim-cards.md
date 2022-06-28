@@ -7,15 +7,15 @@ columns: two
 # {{{title}}}
 The following article is divided into the following sections:
 
-* [3rd Party SIM Overview](https://support.particle.io/hc/en-us/articles/360039741113#3rd-party-sim-overview)
-* [About ICCIDs](https://support.particle.io/hc/en-us/articles/360039741113#about-iccids)
-* [About SIM PINs](https://support.particle.io/hc/en-us/articles/360039741113#about-sim-pins)
-* [Finding Your APN](https://support.particle.io/hc/en-us/articles/360039741113#finding-your-apn)
-* [Setting Up A 3rd-Party SIM Card - Boron](https://support.particle.io/hc/en-us/articles/360039741113#setting-up-a-3rd-party-sim-card-boron)
-* [Setting Up A 3rd-Party SIM Card - Electron](https://support.particle.io/hc/en-us/articles/360039741113#setting-up-a-3rd-party-sim-card-electron)
-* [Claiming A Boron Or An Electron Manually](https://support.particle.io/hc/en-us/articles/360039741113#claiming-a-boron-or-an-electron-manually)
-* [About Keep-Alive](https://support.particle.io/hc/en-us/articles/360039741113#about-keep-alive)
-* [More Troubleshooting Tips](https://support.particle.io/hc/en-us/articles/360039741113#more-troubleshooting-tips)
+* 3rd Party SIM Overview
+* About ICCIDs
+* About SIM PINs
+* Finding Your APN
+* Setting Up A 3rd-Party SIM Card - Boron
+* Setting Up A 3rd-Party SIM Card - Electron
+* Claiming A Boron Or An Electron Manually
+* About Keep-Alive
+* More Troubleshooting Tips
 
 ## 3rd Party SIM Overview
 
@@ -43,7 +43,9 @@ The location varies on Android phones, and sometimes it's called the SIM ID or S
 
 You can also easily find out the ICCID using the Particle CLI. Connect the Electron by USB to your computer. Hold down the MODE button until the main status LED blinks blue, then release. Issue the command:
 
-`particle identify`
+```
+particle identify
+```
 
 ## About SIM PINs
 
@@ -61,7 +63,7 @@ If you have set your APN correctly the Electron should proceed through the norma
 
 Some carriers may also require a username and password. Note those, if they are required, as well.
 
-## Setting Up A 3rd-party SIM Card - Boron
+## Boron - Setting Up A 3rd-party SIM Card
 
 * For the Boron 2G/3G most nano SIM cards are compatible.
 * For the Boron LTE, support for LTE Cat M1 is required. This is an IoT-specific subset of LTE, and not all carriers support LTE Cat M1 at this time. Some may not have approved the u-blox SARA-R410M-02B modem used in the Boron LTE yet and may not allow it on their network, as well.
@@ -210,7 +212,7 @@ Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT 
 
 The embedded MFF2 Particle SIM card on the Boron LTE is only supported in the United States, Canada, and Mexico at this time. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
 
-## Setting Up A 3rd-party SIM Card - Electron
+## Electron - Setting Up A 3rd-party SIM Card
 
 #### Making Tinker with APN setting - Electron
 
@@ -469,7 +471,7 @@ particle flash --usb firmware.bin
 
 You can flash an Electron with code even before you're claimed it or gotten connected to the Internet. In fact, you'll have to when you're using a 3rd-party SIM.
 
-#### About APN setting persistence - Electron
+#### About APN setting persistence
 
 On the Electron, APN setting is not stored in configuration flash. Thus you should include it in every program that you run on the Electron that uses a 3rd party SIM. This is different than the Photon, where configuration parameters like Wi-Fi settings are stored in configuration flash.
 
@@ -512,7 +514,6 @@ The E Series E310 uses the 5-band u-blox SARA-U201 cellular modem and can be use
 * In places with a mix, like Australia, it can use combinations like 850/2100.
 * In places that no longer have 2G service, like Australia, Korea, Japan, and Singapore, it will of course only use 3G.
 
-### 
 
 #### E Series E402
 
@@ -528,7 +529,6 @@ You'll need the device ID of your device. You can get it by putting the device i
 
 ```
 particle identify
-
 ```
 
 The device ID is different from your SIM ICCID.
@@ -549,7 +549,9 @@ Using Particle Dev on Windows or Mac, select **Claim Device...** from the **Part
 
 With the device in breathing cyan mode, issue the CLI command:
 
-`particle device add YOUR_DEVICE_ID`
+```
+particle device add YOUR_DEVICE_ID
+```
 
 ## About Keep-Alive
 

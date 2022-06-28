@@ -28,7 +28,7 @@ But first things first, let's tackle the **four easiest things** you can do to r
 
 The Particle Console provides you with current and historical Device Vitals that are helpful in debugging cellular connections.
 
-To see Device Vitals, head to: <https://console.particle.io/devices>, and click on the device you are interested in. **These values will not appear if the device has never connected in the past** \- if this is the case, please skip ahead to "Sim Management" below.
+To see Device Vitals, head to [the Particle console](https://console.particle.io/devices) and click on the device you are interested in. **These values will not appear if the device has never connected in the past** \- if this is the case, please skip ahead to "Sim Management" below.
 
 On the right-hand side you will see “Last Vitals”, and you can press the reset button to request the latest numbers from the device. (You can also do so by selecting "Run health check" on the bottom of the panel).
 

@@ -7,9 +7,9 @@ columns: two
 # {{{title}}}
 The following guide is divided into 3 sections:
 
-* [Basic WiFi Troubleshooting](https://support.particle.io/hc/en-us/articles/360052621274#basic-wifi-troubleshooting)
-* [Checking Network Compatibility](https://support.particle.io/hc/en-us/articles/360052621274#checking-network-compatibility)
-* [Further Troubleshooting Steps](https://support.particle.io/hc/en-us/articles/360052621274#further-troubleshooting-steps)
+* Basic WiFi Troubleshooting
+* Checking Network Compatibility
+* Further Troubleshooting Steps
 
 ## Basic WiFi Troubleshooting
 
@@ -54,8 +54,8 @@ If no Particle devices can connect to the network in question, **please set up a
 
 Next, **consult the relevant resource for advanced WiFi troubleshooting**:
 
-* [Troubleshooting WiFi on the Photon/P1](https://support.particle.io/hc/articles/1260800691709/)
-* [Troubleshooting WiFi on the Argon](https://support.particle.io/hc/articles/1260800691709/)
+* [Troubleshooting WiFi on the Photon/P1](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-photonp1/)
+* [Troubleshooting WiFi on the Argon](/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/)
 
 To take advantage of the above resources, you will need to follow the instructions here ([link](https://github.com/particle-iot/cloud-debug)) to source important debug logs via Cloud Debug. Please note the uninstallation instructions at the bottom of the link as well. Using the serial monitor per the instructions, please gather about 10 minutes or so of logs that document the device attempting to connect. Please then copy and paste those logs into a .txt or .log file and attach them to your support request.
 
