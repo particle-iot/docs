@@ -477,6 +477,17 @@
       }
     ],
     {
+      "dir": "errata",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker",
+        "title": "Tracker system errata",
+        "href": "/reference/errata/tracker/"
+      }
+    ],
+    {
       "dir": "mobile-sdks",
       "isSection": true
     },
