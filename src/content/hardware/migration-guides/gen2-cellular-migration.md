@@ -444,7 +444,7 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 - Group 1: D4, D5, D6, D7
 - Group 1: D0, D1, D2, D3
 
-It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](https://docs.particle.io/cards/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
+It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](/reference/device-os/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
 
 ### Interrupts
 

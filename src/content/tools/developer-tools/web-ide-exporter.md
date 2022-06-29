@@ -43,6 +43,6 @@ This tool makes it easy to export projects from the [Particle Web IDE](https://b
 
 - To install Workbench and get a brief overview of the features, see the [Workbench Quickstart](/quickstart/workbench/).
 - For a more in-depth explanation of the features, see the [Workbench Tutorial](/getting-started/developer-tools/workbench/).
-- See also [FAQ and Tips](https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench).
-- And [Troubleshooting](https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench).
+- See also [FAQ and Tips](/getting-started/developer-tools/workbench-faq/).
+- And [Troubleshooting](/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/).
 

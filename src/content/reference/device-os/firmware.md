@@ -1943,7 +1943,7 @@ It is not supported on the Argon.
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
 
-For information on setting up WPA2 Enterprise from the Particle CLI, see [this article](https://support.particle.io/hc/en-us/articles/360039741153).
+For information on setting up WPA2 Enterprise from the Particle CLI, see [this article](/getting-started/setup/wpa2-enterprise/).
 
 ```cpp
 // WPA2 Enterprise with EAP-TLS
@@ -3275,7 +3275,7 @@ Unlocks the `Cellular` mutex. See `lock()`.
 
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
 
-Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/getting-started/hardware/cellular-overview/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](https://support.particle.io/hc/en-us/articles/360039741113).
+Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/getting-started/hardware/cellular-overview/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/).
 
 | Device | Internal SIM | SIM Card Slot | APN Saved |
 | :--- | :---: | :---: | :---: |
@@ -3427,7 +3427,7 @@ not support `Cellular.setActiveSim()`.
 
 {{note op="end"}}
 
-For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](https://support.particle.io/hc/en-us/articles/360039741113/) if you are switching SIM cards with Boron LTE.
+For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) if you are switching SIM cards with Boron LTE.
 
 
 
@@ -23874,7 +23874,7 @@ Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM and E404X) have an nRF528
 
 Gen 2 devices (Photon, P1, Electron, and E Series) all have an STM32F205 processor with 128K of flash for your user firmware.
 
-Some tips for understanding the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+Some tips for understanding the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
 

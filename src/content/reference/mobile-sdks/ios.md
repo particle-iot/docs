@@ -59,7 +59,7 @@ Cloud SDK usage involves two basic classes: first is `ParticleCloud` which is a 
 
 ##### Return values
 
-Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation. This is a result of the SDK relying on AFNetworking which is a networking library for iOS and macOS (OS X). It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
+Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation. This is a result of the SDK relying on AFNetworking which is a networking library for iOS and Mac OS (OS X). It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
 
 ##### Error handling
 _Starting SDK version 0.8.0_

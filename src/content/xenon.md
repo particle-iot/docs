@@ -22,7 +22,6 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 - [Quickstart with starter project](/xenon/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
-- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/xenon)
@@ -87,7 +86,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 
 The Xenon is no longer supported by the mobile apps and if you choose to use the Xenon you will need to set it up using USB, and can only use Device OS up to 1.5.2. Later versions of Device OS do not support the Xenon.
 
-- [Mesh Setup over USB](https://support.particle.io/hc/en-us/articles/360039741133)
+- [Mesh Setup over USB](/archives/mesh-setup-over-usb/)
 
 ## 2. Using the Web IDE
 

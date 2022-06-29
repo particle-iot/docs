@@ -821,7 +821,7 @@ This library works with Particle Gen3 devices to scan for BLE advertisements and
 - Eddystone UID, URL, and unencrypted TLM
 - Kontakt.io beacons (tested with Asset Tag S18-3)
 
-This [Application Note](https://support.particle.io/hc/en-us/articles/360046862953-Create-a-custom-cold-chain-solution-using-Gen3-devices-and-BLE) shows how the library can be used to monitor temperature using BLE beacons.
+The [custom cold chain tutorial](/hardware/expansion/create-a-custom-cold-chain-solution-using-gen3-devices-and-ble/) shows how the library can be used to monitor temperature using BLE beacons.
 
 #### Installation
 

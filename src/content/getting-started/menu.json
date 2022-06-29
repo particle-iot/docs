@@ -84,6 +84,11 @@
             "href": "/getting-started/tracker/tracker-setup/"
           }
         ]
+      },
+      {
+        "dir": "wpa2-enterprise",
+        "title": "WPA2 Enterprise Wi-Fi Setup",
+        "href": "/getting-started/setup/wpa2-enterprise/"
       }
     ],
     {
@@ -115,6 +120,11 @@
         "dir": "workbench",
         "title": "Workbench",
         "href": "/getting-started/developer-tools/workbench/"
+      },
+      {
+        "dir": "workbench FAQ",
+        "title": "Workbench FAQ",
+        "href": "/getting-started/developer-tools/workbench-faq/"
       },
       {
         "dir": "cli",

@@ -27,8 +27,6 @@ Before you contribute to the code base, check out the [`style-guides`](https://g
 The [`firmware`](https://github.com/particle-iot/device-os) repo contains
 the [Device OS](/reference/device-os/firmware/) code that runs on the Core and Photon.
 
-See the [local build tools FAQ](https://support.particle.io/hc/en-us/articles/360039741273/) for steps to build the firmware on your machine.
-
 
 ### CLI
 

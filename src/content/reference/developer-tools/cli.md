@@ -273,7 +273,7 @@ $ particle flash --usb firmware.bin
   - bsom (B Series SoM)
 
 
-  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](https://support.particle.io/hc/en-us/articles/204952620).
+  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it in [preprocessor](/reference/device-os/api/preprocessor/preprocessor/) in the Device OS Firmware API reference.
 
 ```bash
 $ particle compile photon myapp.ino
@@ -691,7 +691,7 @@ Configure Wi-Fi credentials over serial on the Photon, P1, and Argon.
 $ particle serial wifi
 ```
 
-You will need to use this command to set up a device using WPA2 Enterprise and services like EduRoam that use it. See [this article](https://support.particle.io/hc/en-us/articles/360039741153) for more information.
+You will need to use this command to set up a device using WPA2 Enterprise and services like EduRoam that use it.
 
 Note: Argons cannot connect to a Wi-Fi network with a hidden SSID, even using the CLI. The reason is that prior to connecting, a Wi-Fi scan is done to find the BSSID with the strongest signal and connect to that. Otherwise, on network with multiple access points, the Argon would not necessarily connect to the best AP.
 

@@ -14,7 +14,7 @@ description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 {{box op="start" cssClass="boxed warningBox"}}
 The Argon has been deprecated. The recommended replacement is the [Photon 2](/reference/datasheets/wi-fi/photon-2-datasheet/).
 
-See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
 {{box op="end"}}
 
 <div align=center><img src="/assets/images/argon/argon-top.png" ></div>

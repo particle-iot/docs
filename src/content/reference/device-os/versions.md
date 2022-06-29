@@ -99,7 +99,7 @@ Note the number of components that need to be flashed varies depending on the de
 - The SoftDevice ("radio stack") is rarely updated.
 - The only devices with an OTA programmable NCP are the Argon and Tracker SoM. The NCP is rarely updated.
 
-To find out the versions of the components on your device, use [`particle serial inspect`](https://support.particle.io/hc/en-us/articles/360057772154).
+To find out the versions of the components on your device, use [`particle serial inspect`](/troubleshooting/guides/device-troubleshooting/using-particle-serial-inspect/).
 
 Some components require DFU mode (`--usb`), blinking yellow. Some require listening mode (`--serial`), blinking dark blue. Some can use either. The recommended ordering of the component upgrades is as follows, as well:
 

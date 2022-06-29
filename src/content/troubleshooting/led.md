@@ -130,7 +130,7 @@ If your device is blinking green, it is trying to connect to Wi-Fi.
 If you are unable to get past blinking green, here are a few known working situations that the device is not compatible with:
 
 {{#if photon}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](https://support.particle.io/hc/en-us/articles/360039741153/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/getting-started/setup/wpa2-enterprise//). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
 
 
@@ -207,7 +207,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
-If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](https://support.particle.io/hc/en-us/articles/360039741113/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
+If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
 
 #### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
@@ -426,7 +426,7 @@ You can also use the [`particle usb safe-mode`](/reference/developer-tools/cli/#
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
+If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/archives/installing-dfu-util/)
 
 Installation tutorial can be found [here.](/getting-started/developer-tools/cli/)
 
@@ -442,7 +442,7 @@ To enter DFU Mode:
 
 The device now is in the DFU mode.
 
-DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](https://support.particle.io/hc/en-us/articles/360039251394/).
+DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](/archives/installing-dfu-util/).
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
@@ -726,7 +726,7 @@ cd c:\OpenSSL-Win32\bin
 particle keys doctor YOUR_DEVICE_ID
 ```
 
-There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for macOS (OS X) and Linux.
+There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for Mac OS (OS X) and Linux.
 
 {{collapse op="end"}}
 
@@ -741,7 +741,7 @@ A pattern of more than 10 red blinks is caused by the firmware crashing. The pat
 
 [Enter safe mode](#safe-mode), tweak your firmware and try again! 
 
-You can also reset your device to a known state by following [these instructions](https://support.particle.io/hc/en-us/articles/360046136473).
+You can also reset your device to a known state by following [these instructions](/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/).
 
 
 There are a number of other red blink codes that may be expressed after the SOS blinks:
@@ -795,7 +795,7 @@ particle device doctor
 ```
 {{/if}}
 
-Some tips for reducing the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+Some tips for reducing the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 **Assertion failure (10 blinks between 2 SOS patterns)**
 
@@ -863,5 +863,5 @@ If you still see no change in the status LED you probably have a missing or corr
 
 
 
-This can be corrected using a [JTAG/SWD programmer](https://support.particle.io/hc/en-us/articles/360039251414/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
+This can be corrected using a [JTAG/SWD programmer](/reference/developer-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

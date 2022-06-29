@@ -117,10 +117,6 @@ Here you'll find detailed technical specifications for the:
 
 If you're building a carrier board you'll probably want to use the Eagle CAD Tracker SoM footprint in the [Hardware Libraries](https://github.com/particle-iot/hardware-libraries). You can also import this into other CAD programs.
 
-### Known Issues and Errata
-
-- [Known Issues and Errata](https://support.particle.io/hc/en-us/articles/360050288874)
-
 
 ## Models
 

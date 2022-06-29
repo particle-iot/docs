@@ -13,7 +13,7 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 {{/unless}} {{!-- pdf-generation --}}
 
 {{box op="start" cssClass="boxed warningBox"}}
-The Electron has been deprecated. See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+The Electron has been deprecated. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
 {{box op="end"}}
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>

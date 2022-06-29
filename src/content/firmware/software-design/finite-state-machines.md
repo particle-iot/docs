@@ -47,7 +47,7 @@ Serial1LogHandler logHandler(115200);
 // SerialLogHandler logHandler;
 ```
 
-These are our configurable parameters. This uses [Chrono Literals](https://docs.particle.io/reference/device-os/firmware/#chrono-literals) which is a great feature of Device OS 1.5.0 and later. Instead of setting 6 minutes in milliseconds (360000 or 6 * 60 * 1000), you can just use `6min`. You can also use `30s` for seconds. Or `2h` for hours.
+These are our configurable parameters. This uses [Chrono Literals](/reference/device-os/api/chrono-literals/chrono-literals/) which is a great feature of Device OS 1.5.0 and later. Instead of setting 6 minutes in milliseconds (360000 or 6 * 60 * 1000), you can just use `6min`. You can also use `30s` for seconds. Or `2h` for hours.
 
 ```
 // This is the maximum amount of time to wait for the cloud to be connected in
@@ -369,7 +369,7 @@ We have a new header file `MainStateMachine.h`. Here's what's in it:
 
 {{> codebox content="/assets/files/app-notes/AN010/06-Class/MainStateMachine.h" format="cpp" height="500"}}
 
-You normally declare the `MainStateMachine` as a global variable in your main source file. You should avoid doing much in the constructor, as there are limitations on what is safe at [global object construction time](https://docs.particle.io/reference/device-os/firmware/#global-object-constructors).
+You normally declare the `MainStateMachine` as a global variable in your main source file. You should avoid doing much in the constructor, as there are limitations on what is safe at [global object construction time](/reference/device-os/api/global-object-constructors/global-object-constructors/).
 
 Instead, you do most setup in the `setup()` method, which you call from the application `setup()`. Same with `loop()`.
 

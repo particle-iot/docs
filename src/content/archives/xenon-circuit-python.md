@@ -26,7 +26,7 @@ In addition, you'll need to install the following software:
 1. [J-Link Software](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) if using a Segger J-Link for this tutorial.
 2. [nRF Command-Line Tools](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs)
 3. [arm gcc compiler](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm). Note: Make sure that the GCC Compiler is in your PATH
-4. [OpenOCD](https://support.particle.io/hc/en-us/articles/360039251414/#installing-openocd-manually) unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
+4. OpenOCD unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
 5. Lastly, you will need to download a [CircuitPython release](https://circuitpython.org/board/particle_xenon)
 
 ## Replacing the Default Bootloader
@@ -106,7 +106,7 @@ Next, we'll use OpenOCD to burn this bootloader `hex` file to your Xenon.
 
   ![](/assets/images/flash-list.png)
 
-5. Install the Hex file from the step above using the `program` command. Replace the path to the hex file with your own path **NOTE**: If using macOS, the the `~` path shortcut will fail, so be sure to use your entire path from `/Users/user` in the statement below.
+5. Install the Hex file from the step above using the `program` command. Replace the path to the hex file with your own path **NOTE**: If using Mac OS, the the `~` path shortcut will fail, so be sure to use your entire path from `/Users/user` in the statement below.
 
   ```bash
   bin/openocd -f interface/cmsis-dap.cfg -f target/nrf52-particle.cfg \

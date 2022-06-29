@@ -8,22 +8,22 @@
         {
           "title": "First board examples",
           "detail": "Creating a simple production module design",
-          "href":"/hardware/b-series-som/som-first-board/"
+          "href": "/hardware/b-series-som/som-first-board/"
         },
         {
           "title": "Migration guides",
           "detail": "Moving a design to new Particle devices",
-          "href":"/hardware/migration-guides/b-series-boron-migration-guide/"
+          "href": "/hardware/migration-guides/b-series-boron-migration-guide/"
         },
         {
           "title": "Expansion",
           "detail": "Adding features to your Particle device",
-          "href":"/hardware/expansion/feather/"
+          "href": "/hardware/expansion/feather/"
         },
         {
           "title": "Tracker One Expansion",
           "detail": "Adding features to your Tracker One",
-          "href":"/hardware/tracker/tracker-one-expansion/"
+          "href": "/hardware/tracker/tracker-one-expansion/"
         },
         {
           "title": "Certification",
@@ -253,6 +253,11 @@
         "dir": "beyond-prototyping",
         "title": "Beyond Prototyping",
         "href": "/hardware/expansion/beyond-prototyping/"
+      },
+      {
+        "dir": "create-a-custom-cold-chain-solution-using-gen3-devices-and-ble",
+        "title": "Custom cold chain solution",
+        "href": "/hardware/expansion/create-a-custom-cold-chain-solution-using-gen3-devices-and-ble/"
       }
     ],
     {

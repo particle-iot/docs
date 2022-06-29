@@ -14,7 +14,7 @@ description: Datasheet for the Particle E Series, Gen 2 cellular mass-production
 {{box op="start" cssClass="boxed warningBox"}}
 The E Series models below have been deprecated. The recommended replacement for the E402/E404 is the [E404X](/reference/datasheets/e-series/e404x-datasheet/).
 
-See the [Supply Secure FAQ](https://support.particle.io/hc/en-us/articles/4589957939611) for more information.
+See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
 {{box op="end"}}
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-top.png" ></div>

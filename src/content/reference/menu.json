@@ -51,8 +51,7 @@
         "noSeparator": true,
         "addClass": "deviceOsApiNavMenu"
       },
-      [        
-      ],
+      [],
       {
         "dir": "firmware",
         "title": "Device OS API (Single Page)",
@@ -80,7 +79,7 @@
         "href": "/reference/device-os/libraries/search/",
         "noSeparator": true
       },
-      [        
+      [
         {
           "title": "Search",
           "href": "/reference/device-os/libraries/search/"
@@ -110,6 +109,11 @@
         "dir": "real-time-clocks",
         "title": "Real-time clocks",
         "href": "/reference/device-os/real-time-clocks/"
+      },
+      {
+        "dir": "power-management-faq",
+        "title": "Power Management FAQ",
+        "href": "/reference/device-os/power-management-faq/"
       }
     ],
     {
@@ -384,6 +388,43 @@
       ]
     ],
     {
+      "dir": "product-lifecycle",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "product-lifecycle-stages",
+        "title": "Product Lifecycle Stages",
+        "href": "/reference/product-lifecycle/product-lifecycle-stages/"
+      },
+      {
+        "dir": "product-lifecycle-policy-status",
+        "title": "Product Lifecycle Policy Status",
+        "href": "/reference/product-lifecycle/product-lifecycle-policy-status/"
+      },
+      {
+        "dir": "supply-secure-faq",
+        "title": "Supply Secure FAQ",
+        "href": "/reference/product-lifecycle/supply-secure-faq/"
+      },
+      {
+        "dir": "long-term-support-lts-releases",
+        "title": "Long Term Support (LTS) Releases",
+        "href": "/reference/product-lifecycle/long-term-support-lts-releases/"
+      },
+      {
+        "dir": "notices",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "product-deprecation-notice-march-16-2022",
+          "title": "Product deprecation notice - March 16, 2022",
+          "href": "/reference/product-lifecycle/notices/product-deprecation-notice-march-16-2022/"
+        }
+      ]
+    ],
+    {
       "dir": "technical-advisory-notices",
       "isSection": true
     },
@@ -433,6 +474,17 @@
         "dir": "tan008",
         "title": "TAN008 - B404 Manufacturing Firmware 2.3.0",
         "href": "/reference/technical-advisory-notices/tan008/"
+      }
+    ],
+    {
+      "dir": "errata",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker",
+        "title": "Tracker system errata",
+        "href": "/reference/errata/tracker/"
       }
     ],
     {

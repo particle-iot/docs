@@ -16,7 +16,6 @@ The Ethernet FeatherWing is the fastest way to add wired connectivity to your Ar
 - [Quick start](/quickstart/ethernet/)
 
 - Code examples
-- [Support](https://support.particle.io/hc/)
 {{box op="switch"}}
 **Resources:**
 - Code

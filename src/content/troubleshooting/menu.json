@@ -21,7 +21,7 @@
           "href": "/tools/device-restore/device-restore-usb/"
         }
       ]
-    },  
+    },
     {
       "dir": "led",
       "title": "Status LED and Device Modes",
@@ -90,6 +90,161 @@
         "title": "Debugger Adapter",
         "href": "/troubleshooting/debuggers/debugger-adapter/"
       }
+    ],
+    {
+      "dir": "guides",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "connectivity-troubleshooting",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "troubleshooting-poor-connectivity-issues-ota",
+          "title": "Troubleshooting Poor Connectivity Issues & OTA",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-poor-connectivity-issues-ota/"
+        },
+        {
+          "dir": "troubleshooting-wifi-on-the-particle-photonp1",
+          "title": "Troubleshooting WiFi On The Particle Photon/P1",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-photonp1/"
+        },
+        {
+          "dir": "troubleshooting-wifi-on-the-particle-argon",
+          "title": "Troubleshooting WiFi On the Particle Argon",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/troubleshooting-wifi-on-the-particle-argon/"
+        },
+        {
+          "dir": "wifi-connectivity-troubleshooting-guide",
+          "title": "WiFi Connectivity Troubleshooting Guide",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/"
+        },
+        {
+          "dir": "cellular-connectivity-troubleshooting-guide",
+          "title": "Cellular Connectivity Troubleshooting Guide",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/"
+        },
+        {
+          "dir": "using-3rd-party-sim-cards",
+          "title": "Using 3rd-party SIM cards",
+          "href": "/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/"
+        }
+      ],
+      {
+        "dir": "build-tools-troubleshooting",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "troubleshooting-the-particle-workbench",
+          "title": "Troubleshooting the Particle Workbench",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/"
+        },
+        {
+          "dir": "troubleshooting-the-particle-cli",
+          "title": "Troubleshooting the Particle CLI",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/"
+        },
+        {
+          "dir": "troubleshooting-webhookintegration-issues",
+          "title": "Troubleshooting Webhook/Integration Issues",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/"
+        },
+        {
+          "dir": "installing-curl-for-windows",
+          "title": "Installing curl (for Windows)",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows/"
+        }
+      ],
+      {
+        "dir": "device-troubleshooting",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "troubleshooting-asset-tracker-issues",
+          "title": "Troubleshooting Asset Tracker Issues",
+          "href": "/troubleshooting/guides/device-troubleshooting/troubleshooting-asset-tracker-issues/"
+        },
+        {
+          "dir": "troubleshooting-the-setup-process",
+          "title": "Troubleshooting the Setup Process",
+          "href": "/troubleshooting/guides/device-troubleshooting/troubleshooting-the-setup-process/"
+        },
+        {
+          "dir": "identifying-damaged-hardware",
+          "title": "Identifying Damaged Hardware",
+          "href": "/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/"
+        },
+        {
+          "dir": "device-breathing-cyan-but-cannot-connect",
+          "title": "Device Breathing Cyan But Cannot Connect",
+          "href": "/troubleshooting/guides/device-troubleshooting/device-breathing-cyan-but-cannot-connect/"
+        },
+        {
+          "dir": "how-do-i-collect-trace-logs-from-my-device",
+          "title": "How Do I Collect Trace Logs From My Device?",
+          "href": "/troubleshooting/guides/device-troubleshooting/how-do-i-collect-trace-logs-from-my-device/"
+        },
+        {
+          "dir": "device-blinking-dark-blue",
+          "title": "Device Blinking Dark Blue",
+          "href": "/troubleshooting/guides/device-troubleshooting/device-blinking-dark-blue/"
+        },
+        {
+          "dir": "device-blinking-red-yellow-or-frozenno-led",
+          "title": "Device Blinking Red, Yellow, or Frozen/No LED",
+          "href": "/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/"
+        },
+        {
+          "dir": "device-blinking-cyan",
+          "title": "Device Blinking Cyan",
+          "href": "/troubleshooting/guides/device-troubleshooting/device-blinking-cyan/"
+        },
+        {
+          "dir": "using-particle-serial-inspect",
+          "title": "Using particle serial inspect",
+          "href": "/troubleshooting/guides/device-troubleshooting/using-particle-serial-inspect/"
+        }
+      ],
+      {
+        "dir": "device-management",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "how-can-i-set-up-my-argon-or-boron-via-usb",
+          "title": "How Can I Set Up My Argon Or Boron Via USB?",
+          "href": "/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/"
+        },
+        {
+          "dir": "how-can-i-transfer-my-device-to-another-user",
+          "title": "How Can I Transfer My Device To Another User?",
+          "href": "/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/"
+        },
+        {
+          "dir": "sim-activationdeactivationdata-limit-troubleshooting",
+          "title": "Sim Activation/Deactivation/Data Limit Troubleshooting",
+          "href": "/troubleshooting/guides/device-management/sim-activationdeactivationdata-limit-troubleshooting/"
+        },
+        {
+          "dir": "repairing-product-device-keys",
+          "title": "Repairing product device keys",
+          "href": "/troubleshooting/guides/device-management/repairing-product-device-keys/"
+        },
+        {
+          "dir": "how-do-i-manage-my-user-access-token",
+          "title": "How do I manage my User Access Token?",
+          "href": "/troubleshooting/guides/device-management/how-do-i-manage-my-user-access-token/"
+        },
+        {
+          "dir": "finding-your-device-id",
+          "title": "Finding your device ID",
+          "href": "/troubleshooting/guides/device-management/finding-your-device-id/"
+        }
+      ]
     ],
     {
       "title": "Support",

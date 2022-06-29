@@ -3211,7 +3211,7 @@ The device can use either the built-in MFF2 embedded Particle SIM card or an ext
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
 
-For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](https://support.particle.io/hc/en-us/articles/360039741113/) if you are switching SIM cards with Boron LTE.
+For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) if you are switching SIM cards with Boron LTE.
 
 
 ```cpp
@@ -5297,9 +5297,9 @@ For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). 
 - Parity: none
 - Stop Bits: 1
 
-On **macOS (OS X) and Linux** systems, you can access the serial port through the terminal.
+On **Mac OS (OS X) and Linux** systems, you can access the serial port through the terminal.
 
-For macOS, open the terminal and type:
+For Mac OS, open the terminal and type:
 
 ```screen /dev/tty.u```
 
@@ -18514,7 +18514,7 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 The Photon, P1, and Electron all have an STM32F205 processor with 128K of available RAM and 128K of flash for your user firmware.
 
-Some tips for understanding the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+Some tips for understanding the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
 
