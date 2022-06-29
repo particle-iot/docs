@@ -66,6 +66,16 @@ Using the [Hex File Generator](/tools/developer-tools/hex-generator/), you can t
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
 
+## Chip Erase
+
+Depending on the device, the behavior of chip erase of the internal flash from SWD/JTAG is very different:
+
+- Boron, B Series SoM, Tracker SoM (Gen 3, nRF52840): Chip erase is safe and fast. You will not lose data. You can also copy the entire internal flash from one device (of the same type) to another.
+
+- P1, Photon, E Series, Electron (Gen 2, STM32F205): Chip erase is not recommended. You will lose all device settings including EEPROM settings, the prefix for the Photon/P1 Wi-Fi network printed on the box, and device keys. The device will not be able to connect to the cloud until the keys are updated in the cloud after chip erase.
+
+- P2, Photon 2 (RTL8721): **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
+
 ## Particle Debugger with OpenOCD (via Particle Workbench)
 
 Installing [Particle Workbench](/getting-started/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-Debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle Debugger firmware.

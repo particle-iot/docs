@@ -79,7 +79,18 @@ Note that SWD is shared with GPIO pins D6 and D7, and by default SWD is only ena
 
 ## Memory Map
 
-{{!-- ### Flash Layout Overview --}}
+### Flash Layout Overview
+
+| Address    | File | Purpose |
+| :--------- | :--- | :--- |
+| 0x00000000 | p2-prebootloader-mbr | This file is factory configured and must never be overwritten |
+| 0x00004000 | p2-bootloader | Device OS bootloader |
+| 0x00014000 | p2-prebootloader-part1 | Bootloader for KM0 processor, infrequently modified |
+| 0x00060000 | p2-system-part1 | Device OS system part |
+
+- The location of the user binary is dependent on the size of the user binary and is not flashed to a fixed location.
+
+- **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
 
 ### DCT Layout
 
@@ -656,6 +667,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-05-27 | RK | Updated antenna information, rendering |
 |     | 2022-06-03 | RK | Added note about module certification |
 |     | 2022-06-08 | RK | Added intended applications section, changed reference to ARM M4F to M33 | 
+|     | 2022-06-29 | RK | Added flash memory map |
 
 ### D Pin Change (2022-02-25)
 
