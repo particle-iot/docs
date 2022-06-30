@@ -17909,7 +17909,8 @@
       "sunset3G": "2021-12-31",
       "lteM1": true,
       "supersim": {
-        "allow3G": true,
+        "allow2G": false,
+        "allow3G": false,
         "allowCat1": true,
         "allowM1": true,
         "preferredRate": true,
@@ -17917,20 +17918,18 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "koreNORAM": {
         "allowM1": true
       },
       "bands": [
-        "3G-2",
-        "3G-5",
         "LTE-2",
         "LTE-4",
         "LTE-5",
@@ -17942,7 +17941,8 @@
         "LTE-66"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ]
     },
     {
@@ -18040,38 +18040,36 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
         "2G-1900",
-        "3G-2",
-        "3G-4",
         "LTE-2",
         "LTE-4",
         "LTE-5",

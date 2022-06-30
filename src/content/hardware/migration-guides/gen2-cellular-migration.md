@@ -905,7 +905,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | United Kingdom | Sure | &nbsp; | &check; | &check; | &nbsp; |
 | United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
 | United States | Alaska Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
-| United States | AT&T | &check; | <sup>NRND</sup> | &nbsp; | &check; |
+| United States | AT&T | &check; | &nbsp; | &nbsp; | &check; |
 | United States | T-Mobile (USA) | &check; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | United States | Union Telephone | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Uruguay | Antel | &nbsp; | &check; | &nbsp; | &nbsp; |

@@ -12,13 +12,15 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### AT&T
 
+- 2G/3G devices will no longer connect AT&T at this time.
 - AT&T 2G has been shut down since 2016.
-- AT&T 3G will shut down in [February 2022](https://www.att.com/support/article/wireless/KM1324171/).
+- AT&T 3G started shut down in [February 2022](https://www.att.com/support/article/wireless/KM1324171/) and this is substantially complete as of June 2022.
 
 ### T-Mobile
 
-- T-Mobile 2G will shut down December 2022.
-- T-Mobile 3G will shut down October 2021. This process started in January 2021, and some areas have reduced 3G coverage already. There are some third party reports that this may be delayed until April 2022, but this has not been announced by T-Mobile and should not be relied on.
+- T-Mobile 2G will shut down December 2022, though there are some unofficial reports that this deadline may be extended.
+- T-Mobile 3G shutdown started in January 2021 and is substantially complete as of June 2022.
+
 
 ## Timeline
 
