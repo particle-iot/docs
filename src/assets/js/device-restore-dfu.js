@@ -572,8 +572,9 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     };
 
-    if (options.platformVersionInfo.isRTL872x) {
-        // No setup bit on P2
+    if (!options.platformVersionInfo.isnRF52) {
+        // No setup bit on Gen 2 or P2. Clear the flag so we don't need to check the platform
+        // when we check if we need to set the setup bit.
         options.setupBit = 'unchanged';
     }
 
@@ -600,6 +601,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     // Plus:
     // versionArray - the versions for for this platform from deviceRestore.json versionsZipByPlatform
     // isTracker, isRTL872x, isnRF52, isSTM32F2xx
+
 
     if (!options.flashBackup || options.flashBackup.type == 'main') {
         const dfuseDevice = await createDfuseDevice(interface);

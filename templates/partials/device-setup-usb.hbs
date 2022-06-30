@@ -256,15 +256,31 @@
                     <tbody>
                     </tbody>
                 </table>
-                <p class="passwordRow">Password: <input type="password" class="passwordInput" /></p>
+                <table class="wifiSettingsTable apiHelperTableNoMargin" style="display:none">
+                    <tbody>
+                        <tr>
+                           <td>Security Type</td> 
+                           <td class="wifiSecurityType"></td> 
+                        </tr>
+                        <tr class="passwordRow" style="display:none">
+                            <td>Password</td>
+                            <td><input type="password" class="passwordInput" /></td>
+                        </tr>
+                        <tr class="eapTypeRow" style="display:none">
+                           <td>EAP Type</td> 
+                           <td><select class="eapSelect">
+                                <option value="0">PEAP/MSCHAPv2</option>
+                                <option value="1">EAP-TLS</option>
+                                </select></td> 
+                        </tr>
+                    </tbody>
+                </table>
                 <p><button class="setCredentials">Select Wi-Fi Network</button></p>
                 <div class="showUseExisting">
-                    <p>&nbsp;</p>
-                    <p><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
+                    <p style="padding-top:15px"><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
                 </div>
                 <div>
-                    <p>&nbsp;</p>
-                    <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                    <p style="padding-top:15px"><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
                 </div>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">

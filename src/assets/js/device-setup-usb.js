@@ -2250,7 +2250,20 @@ $(document).ready(function() {
                 if (checkedItems.length > 0) {
                     const ssid = $(checkedItems).val();
 
-                    if (addedNetworks[ssid].respObj.sec != 0) {
+                    const wifiNetworkInfo = addedNetworks[ssid].respObj;
+
+                    // sec values (WLanSecurityType):
+                    // WLAN_SEC_UNSEC = 0,
+                    // WLAN_SEC_WEP = 1,
+                    // WLAN_SEC_WPA = 2,
+                    // WLAN_SEC_WPA2 = 3,
+                    // WLAN_SEC_WPA_ENTERPRISE = 4,
+                    // WLAN_SEC_WPA2_ENTERPRISE = 5,
+                    const secNames = [ 'Unsecured', 'WEP', 'WPA', 'WPA2', 'WPA Enterprise', 'WPA2 Enterprise'];
+
+                    $(thisElem).find('.wifiSecurityType').text(secNames[wifiNetworkInfo.sec]);
+
+                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec < 4) {
                         setStatus('Enter Wi-Fi network password and click Select Wi-Fi Network');
                         $(passwordRowElem).show();
 
