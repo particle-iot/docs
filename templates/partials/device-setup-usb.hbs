@@ -262,16 +262,36 @@
                            <td>Security Type</td> 
                            <td class="wifiSecurityType"></td> 
                         </tr>
-                        <tr class="passwordRow" style="display:none">
-                            <td>Password</td>
-                            <td><input type="password" class="passwordInput" /></td>
-                        </tr>
                         <tr class="eapTypeRow" style="display:none">
                            <td>EAP Type</td> 
-                           <td><select class="eapSelect">
+                           <td><select class="eapSelect apiHelperSelect">
                                 <option value="0">PEAP/MSCHAPv2</option>
                                 <option value="1">EAP-TLS</option>
                                 </select></td> 
+                        </tr>
+                        <tr class="wifiUsernameRow" style="display:none">
+                            <td>Username (Inner Identity)</td>
+                            <td><input class="wifiUsername" /></td>
+                        </tr>
+                        <tr class="passwordRow" style="display:none">
+                            <td>Password</td>
+                            <td><input class="passwordInput" type="password" /></td>
+                        </tr>
+                        <tr class="privateKeyRow" style="display:none">
+                            <td>Private Key (required)</td>
+                            <td><textarea class="privateKey" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                        </tr>
+                        <tr class="clientCertRow" style="display:none">
+                            <td>Client Certificate (required)</td>
+                            <td><textarea class="clientCert" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                        </tr>
+                        <tr class="outerIdentityRow" style="display:none">
+                            <td>Outer Identity (optional)</td>
+                            <td><input class="outerIdentity" /></td>
+                        </tr>
+                        <tr class="caCertRow" style="display:none">
+                            <td>CA Certificate (Optional)</td>
+                            <td><textarea class="caCert" rows="8" cols="65" style="font-size:10px;"></textarea></td>
                         </tr>
                     </tbody>
                 </table>

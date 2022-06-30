@@ -2239,15 +2239,49 @@ $(document).ready(function() {
                 }
             }
 
+            const wifiSettingsTableElem = $(thisElem).find('.wifiSettingsTable');
+            const wifiSecurityTypeElem = $(thisElem).find('.wifiSecurityType');
             const passwordInputElem = $(thisElem).find('.passwordInput');
             const setCredentialsElem = $(thisElem).find('.setCredentials');
             const passwordRowElem = $(thisElem).find('.passwordRow');
+            const eapTypeRowElem = $(thisElem).find('.eapTypeRow');
+            const eapSelectElem = $(thisElem).find('.eapSelect');
+            const wifiUsernameRowElem = $(thisElem).find('.wifiUsernameRow');
+            const wifiUsernameElem = $(thisElem).find('.wifiUsername');
+            const outerIdentityRowElem = $(thisElem).find('.outerIdentityRow');
+            const outerIdentityElem = $(thisElem).find('.outerIdentity');
+            const caCertRowElem = $(thisElem).find('.caCertRow');
+            const caCertElem = $(thisElem).find('.caCert');
+            const privateKeyRowElem = $(thisElem).find('.privateKeyRow');
+            const privateKeyElem = $(thisElem).find('.privateKey');
+            const clientCertRowElem = $(thisElem).find('.clientCertRow');
+            const clientCertElem = $(thisElem).find('.clientCert');
 
             let addedNetworks = {};
+
+            const eapSelectUpdate = function() {
+                const eapMode = parseInt($(eapSelectElem).val());
+
+                if (eapMode == 0) {
+                    // PEAP/MSCHAPv2
+                    $(wifiUsernameRowElem).show();
+                    $(passwordRowElem).show();
+                }
+                else
+                if (eapMode == 1) {
+                    // EAP-TLS
+                    $(wifiUsernameRowElem).hide();
+                    $(passwordRowElem).hide();
+                    $(privateKeyRowElem).show();
+                    $(clientCertRowElem).show();
+                }
+            }
 
             const radioSelectionUpdate = function() {
                 const checkedItems = $('input[name="selectedNetwork"]:checked');
                 if (checkedItems.length > 0) {
+                    $(wifiSettingsTableElem).show();
+
                     const ssid = $(checkedItems).val();
 
                     const wifiNetworkInfo = addedNetworks[ssid].respObj;
@@ -2261,29 +2295,52 @@ $(document).ready(function() {
                     // WLAN_SEC_WPA2_ENTERPRISE = 5,
                     const secNames = [ 'Unsecured', 'WEP', 'WPA', 'WPA2', 'WPA Enterprise', 'WPA2 Enterprise'];
 
-                    $(thisElem).find('.wifiSecurityType').text(secNames[wifiNetworkInfo.sec]);
+                    $(wifiSecurityTypeElem).text(secNames[wifiNetworkInfo.sec]);
 
-                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec < 4) {
+                    $(eapTypeRowElem).hide();
+                    $(passwordRowElem).hide();
+                    $(wifiUsernameRowElem).hide();
+                    $(outerIdentityRowElem).hide();
+                    $(caCertRowElem).hide();
+                    $(privateKeyRowElem).hide();
+                    $(clientCertRowElem).hide();
+
+                    if (wifiNetworkInfo.sec == 0) {
+                        // Unsecured
+                    }
+                    else
+                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                        // WEP, WPA, WPA2
                         setStatus('Enter Wi-Fi network password and click Select Wi-Fi Network');
                         $(passwordRowElem).show();
 
                         $(passwordInputElem).focus();
                         $(passwordInputElem).select();            
                     }
+                    else
+                    if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                        // Enterprise
+                        $(eapTypeRowElem).show();
+                        eapSelectUpdate();
+
+                        $(outerIdentityRowElem).show();
+                        $(caCertRowElem).show();
+    
+                    }
                     else {
                         setStatus('Click Select Wi-Fi Network');
-                        $(passwordRowElem).hide();
                     }
 
                     
                     $(setCredentialsElem).prop('disabled', false);
                 }
                 else {
-                    $(passwordRowElem).hide();
+                    $(wifiSettingsTableElem).hide();
                     $(setCredentialsElem).prop('disabled', true);
                 }
             };
 
+            $(eapSelectElem).on('change', eapSelectUpdate);
 
             $(passwordInputElem).on('keydown', function(ev) {
                 if (ev.key != 'Enter') {
@@ -2301,16 +2358,61 @@ $(document).ready(function() {
                 // so it's clear that the button worked
                 setSetupStep('setupStepWaitForOnline');
 
-                const ssid = $('input[name="selectedNetwork"]:checked').val();
+                const checkedItems = $('input[name="selectedNetwork"]:checked');
+                const ssid = $(checkedItems).val();
+
+                const wifiNetworkInfo = addedNetworks[ssid].respObj;
 
                 let reqObj = {
                     op: 'wifiSetCredentials',
                     ssid,
-                    sec: addedNetworks[ssid].respObj.sec,
-                    cip: addedNetworks[ssid].respObj.cip,
-                    pass: $(passwordInputElem).val()
+                    sec: wifiNetworkInfo.sec,
+                    cip: wifiNetworkInfo.cip,                    
                 };
+
+                if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                    // WEP, WPA, WPA2
+                    reqObj.pass = $(passwordInputElem).val();
+                }
     
+                if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                    // Enterprise
+                    const eapMode = parseInt($(eapSelectElem).val());
+
+                    if (eapMode == 0) {
+                        // PEAP/MSCHAPv2
+                        // Requires: Inner Identity, Password
+                        // Optional: Root CA, Outer Identity
+                        reqObj.eap = 25; // WLAN_EAP_TYPE_PEAP
+                        reqObj.username = $(wifiUsernameElem).val();
+                        reqObj.pass = $(passwordInputElem).val();
+                    }
+                    else
+                    if (eapMode == 1) {
+                        // EAP-TLS
+                        // Requires: Client Certificate, Private Key
+                        // Optional: Root CA, Outer Identity
+                        reqObj.eap = 13; // WLAN_EAP_TYPE_TLS
+                        reqObj.client_certificate = $(clientCertElem).val();
+                        reqObj.private_key = $(privateKeyElem).val();
+                    }
+
+                    // Root CA
+                    const caCert = $(caCertElem).val();
+                    if (caCert.length) {
+                        reqObj.root_ca = caCert;
+                    }
+
+
+                    // Outer Identity
+                    const outerIdentity = $(outerIdentityElem).val();
+                    if (outerIdentity.length) {
+                        reqObj.outer_identity = outerIdentity;
+                    }
+
+                }
+                console.log('sending request', reqObj);
+
                 await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
 
                 reqObj = {
