@@ -687,7 +687,16 @@ async function dfuDeviceRestore(usbDevice, options) {
                     dfuParts.splice(ii, 1);
                     ii--; // Is incremented in for loop
                 }
+            }
+        }
 
+        // If the bootloader is still in the list, we need use the OTA trick (except on the P2)
+        for(let ii = 0; ii < dfuParts.length; ii++) {
+            let obj = dfuParts[ii];
+
+            if (obj.name == 'bootloader' && !options.platformVersionInfo.isRTL872x) {
+                // Bootloader requires OTA trick except on P2
+                setOTAFlag = true;
             }
         }
 
@@ -798,13 +807,11 @@ async function dfuDeviceRestore(usbDevice, options) {
                         // Gen 3
                         extPart = part;
                         extPartName = 'bootloader';
-                        setOTAFlag = true;
                     }
                     else {
                         // Gen 2
                         dfuseDevice.startAddress = 0x80C0000;
                         await dfuseDevice.do_download(4096, part, {});
-                        setOTAFlag = true;
                     }
                 }
                 else
