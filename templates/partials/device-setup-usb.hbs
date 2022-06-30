@@ -256,15 +256,51 @@
                     <tbody>
                     </tbody>
                 </table>
-                <p class="passwordRow">Password: <input type="password" class="passwordInput" /></p>
+                <table class="wifiSettingsTable apiHelperTableNoMargin" style="display:none">
+                    <tbody>
+                        <tr>
+                           <td>Security Type</td> 
+                           <td class="wifiSecurityType"></td> 
+                        </tr>
+                        <tr class="eapTypeRow" style="display:none">
+                           <td>EAP Type</td> 
+                           <td><select class="eapSelect apiHelperSelect">
+                                <option value="0">PEAP/MSCHAPv2</option>
+                                <option value="1">EAP-TLS</option>
+                                </select></td> 
+                        </tr>
+                        <tr class="wifiUsernameRow" style="display:none">
+                            <td>Username (Inner Identity)</td>
+                            <td><input class="wifiUsername" /></td>
+                        </tr>
+                        <tr class="passwordRow" style="display:none">
+                            <td>Password</td>
+                            <td><input class="passwordInput" type="password" /></td>
+                        </tr>
+                        <tr class="privateKeyRow" style="display:none">
+                            <td>Private Key (required)</td>
+                            <td><textarea class="privateKey" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                        </tr>
+                        <tr class="clientCertRow" style="display:none">
+                            <td>Client Certificate (required)</td>
+                            <td><textarea class="clientCert" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                        </tr>
+                        <tr class="outerIdentityRow" style="display:none">
+                            <td>Outer Identity (optional)</td>
+                            <td><input class="outerIdentity" /></td>
+                        </tr>
+                        <tr class="caCertRow" style="display:none">
+                            <td>CA Certificate (Optional)</td>
+                            <td><textarea class="caCert" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
                 <p><button class="setCredentials">Select Wi-Fi Network</button></p>
-                <div class="showUseExisting">
-                    <p>&nbsp;</p>
-                    <p><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
+                <div class="showUseExisting" style="display:none">
+                    <p style="padding-top:15px"><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
                 </div>
                 <div>
-                    <p>&nbsp;</p>
-                    <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                    <p style="padding-top:15px"><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
                 </div>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
