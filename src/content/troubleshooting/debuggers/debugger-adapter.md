@@ -7,7 +7,7 @@ description: Adapter for using the NanoDAP debugger with Particle Gen 3 devices
 
 # {{title}}
 
-The [Particle Debugger](/reference/datasheets/accessories/debugger/) is no longer available, however there are are number of inexpensive CMSIS-DAP debuggers available. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available, for example [this one](https://www.aliexpress.com/item/1005001274653678.html). Most DAPLink or CMSIS-DAP debuggers should work similarly.
+The [Particle Debugger](/reference/datasheets/accessories/debugger/) is no longer available, however there are are number of inexpensive CMSIS-DAP debuggers available. This document describes using the [NanoDAP](https://github.com/wuxx/nanoDAP-HS/blob/master/README_en.md) debugger, however there are many nearly identical debuggers available. If have the option of getting it with or without file system support, get it with the file system, though on many models it won't even be mentioned since file system support should be standard for a CMSIS-DAP debugger.
 
 The CMSIS-DAP debuggers work with both Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and Gen 2 (Photon, P1, Electron, E Series) devices. The ST-LINK/V2 adapter only works with Gen 2 devices.
 
@@ -75,7 +75,7 @@ Of course the colors don't matter, but are included in the table to help if your
 
 ## Building an adapter
 
-Instead of the wires and the generic SWD adapter, you could also build your own!
+Instead of the wires and the generic SWD adapter, you could also build your own! **This is completely optional** and you can just use wires to connect the debugger directly to your device.
 
 ![](/assets/images/debugger/final2.jpeg)
 
