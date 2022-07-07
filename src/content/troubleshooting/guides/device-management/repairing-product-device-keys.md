@@ -5,6 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
+
 ## Keys background
 
 Each Particle devices has two pairs of keys that are used to do authentication with the cloud. They use RSA public key cryptography, which requires a matched set of public and private keys. These not only are used to establish an encrypted session, they also assure that the other side is who they say it is.
@@ -39,37 +40,47 @@ In order to update the public keys in the cloud using the CLI, it does so by hav
 
 Devices don't have your login token by design, so you can't steal it off a device and log into the account, even if you have physical access to the device.
 
-## How do keys go bad?
+#### How do keys go bad?
 
 The most common reason is an issue on Gen 2 devices where some flash sectors can get erased. This can happen in some uncommon brownout or intermittent power situations. When this happens to a configuration sector, the keys will be regenerated, but are then out of sync. (When it happens to the bootloader sector, you get a dim blue D7 LED at boot and no working status LED or buttons.)
 
 On Gen 3 devices, if the SPI flash or Little FS file system becomes corrupted or reformatted, the device keys can be lost and then regenerated (but out of sync with the cloud).
 
-## Repair - development devices
+## Repairing keys
 
+### Repair - development devices
+
+```
 particle keys server  
-particle keys doctor <deviceid>
+particle keys doctor [deviceid]
+```
 
 The most common way to repair the keys is using these two CLI commands. The caveat is that the CLI must be logged into the account that the device is claimed to. This is the normal situation for development devices, as they're typically your device, and you are logged into your own account.
 
-## Repair - product devices claimed to a single account
+### Repair - product devices claimed to a single account
 
 This technique is used for the common case of product devices claimed to a single account, typically the product owner account.
 
 On the customer's computer, they'll need to be logged in with any account. They could create a new account for this.
 
-## On customer's computer  
+#### On customer's computer  
+
+```
 particle keys save device.der
+```
 
 This creates two files, device.der and device.pub.pem. The device.pub.pem could be emailed to you, the product owner or team member.
 
 Then the product owner or team member sends the key to the cloud, since they have an access token that allows the upload.
 
-## On product owner or team member's computer  
-particle keys send --product_id 1234 1d0034000fffffffffff3933 device.pub.pem
+#### On product owner or team member's computer  
 
-\- Replace 1234 with your product ID  
-\- Replace 1d0034000fffffffffff3933 with the device ID
+```
+particle keys send --product_id 1234 1d0034000fffffffffff3933 device.pub.pem
+```
+
+- Replace 1234 with your product ID  
+- Replace 1d0034000fffffffffff3933 with the device ID
 
 Note: A team member must have Developer or Administrator privileges to upload keys (does not work for View-only or Support).
 
@@ -83,33 +94,43 @@ Two-legged customer product devices are much trickier. You cannot just update th
 
 On the customer's computer, they'll need to be logged in with any account. They could create a new account for this.
 
-## On customer's computer  
+#### On customer's computer  
+
+```
 particle keys save device.der
+```
 
 This creates two files, device.der and device.pub.pem. The device.pub.pem could be emailed to you, the product owner or team member.
 
 Team member or product owner unclaims the device from the console. Also remember the device ID and two-legged customer account email, you'll need them again later.
 
-## On product owner or team member's computer  
-particle keys send --product_id 1234 1d0034000fffffffffff3933 device.pub.pem
+#### On product owner or team member's computer  
 
-\- Replace 1234 with your product ID  
-\- Replace 1d0034000fffffffffff3933 with the device ID
+```
+particle keys send --product_id 1234 1d0034000fffffffffff3933 device.pub.pem
+```
+
+- Replace 1234 with your product ID  
+- Replace 1d0034000fffffffffff3933 with the device ID
 
 You'll need a product oAuth token, two-legged (server) type. Presumably you already have at least one of these if you have customer accounts.
 
+```
 curl -X POST https://api.particle.io/oauth/token -u "test2-1236:b316a0cef80ba7ffffffffffffffff1ab910e1f" -d grant_type=client_credentials -d scope=customer=customer5@mycompany.com
+```
 
-\* Replace test2-1236 with the OAuth client ID (two-legged server type)  
-\* Replace b316a0cef80ba7ffffffffffffffff1ab910e1f with the oAuth client secret  
-\* Replace customer5@mycompany.com with the customer email.   
-\* Note the weird scope=customer= syntax, that really is correct.
+* Replace test2-1236 with the OAuth client ID (two-legged server type)  
+* Replace b316a0cef80ba7ffffffffffffffff1ab910e1f with the oAuth client secret  
+* Replace customer5@mycompany.com with the customer email.   
+* Note the weird scope=customer= syntax, that really is correct.
 
 This will return an access\_token for the customer. Let's say it was f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0.
 
 The device should be able to come online now that the keys have been updated. Now claim the device:
 
+```
 curl https://api.particle.io/v1/devices -d id=1d0034000fffffffffff3933 -d access_token=f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0
+```
 
-\- Replace 1d0034000fffffffffff3933 with the device ID  
-\- Replace f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0 with the customer impersonation token. This associates the claiming with both a customer account and a product.
+- Replace 1d0034000fffffffffff3933 with the device ID  
+- Replace f8a4d380cb6ffffffffffffffffffaf5e496ddf0c0 with the customer impersonation token. This associates the claiming with both a customer account and a product.
