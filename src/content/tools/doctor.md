@@ -9,4 +9,4 @@ includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-
 
 {{> sso selectOrg="1"}}
 
-{{> device-setup-usb doctor="1"}}
+{{> device-setup-usb mode="doctor"}}
