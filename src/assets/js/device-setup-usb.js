@@ -65,6 +65,7 @@ $(document).ready(function() {
         let mccmnc;
         let setupOptions = {};
         let deviceModuleInfo;
+        let flashDeviceOptions = {};
 
         const minimumDeviceOsVersion = '2.1.0';
 
@@ -88,6 +89,9 @@ $(document).ready(function() {
             });
         });
 
+        $('.reloadPage').on('click', function() {
+            location.reload();
+        });
 
         setSetupStep('setupStepSelectDevice');
 
@@ -1818,6 +1822,8 @@ $(document).ready(function() {
             showStep('setupStepReconnectingWaiting');
 
             for(let tries = 0; tries < 4 && !nativeUsbDevice; tries++) {
+                console.log('reconnect loop tries=' + tries);
+
                 await new Promise(function(resolve) {
                     setTimeout(function() {
                         resolve();
@@ -1865,20 +1871,27 @@ $(document).ready(function() {
                 });
             }
             
+            console.log('calling openDeviceById');
+
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
             
-            // In troubleshooting mode, disable autoconnect and connect manually instead
-            // as we want to check the SIM first
-            reqObj = {
-                op: 'noAutoConnect',
-            };
-            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                // In troubleshooting mode, disable autoconnect and connect manually instead
+                // as we want to check the SIM first
+                reqObj = {
+                    op: 'noAutoConnect',
+                };
+                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+
+            }            
+
+            console.log('reconnect complete');
             
         };
 
 
-        const flashDeviceInternal = async function(flashDeviceOptions) {
+        const flashDeviceInternal = async function() {
             try {
                 setSetupStep('setupStepFlashDevice');
 
@@ -1897,10 +1910,12 @@ $(document).ready(function() {
                 if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
-                else {
+                else 
+                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
                     const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
                     userFirmwareBinary = await resp.arrayBuffer();    
                 }
+                // For restore mode, leave userFirmwareBinary undefined so tinker will be flashed
 
                 let dfuPartTableInfo = {};
 
@@ -2048,16 +2063,20 @@ $(document).ready(function() {
 
             await reconnectToDevice();
 
-            // Attempt to fetch the device module info for the device
-            deviceModuleInfo = await getModuleInfoCtrlRequest();
-
+            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                // Attempt to fetch the device module info for the device
+                deviceModuleInfo = await getModuleInfoCtrlRequest();
+            }
+            else {
+                deviceModuleInfo = null;
+            }
         };
 
-        const flashDevice = async function(flashDeviceOptions) {
+        const flashDevice = async function() {
             // TODO: Possibly flash P2 prebootloader-part1 here on upgrade
             
             // Flash Device OS
-            await flashDeviceInternal(flashDeviceOptions);
+            await flashDeviceInternal();
             
             if (deviceInfo.platformVersionInfo.isTracker) {
                 // Is a tracker, could need NCP
@@ -2067,14 +2086,16 @@ $(document).ready(function() {
                     if (m.version < 7) {
 
                         flashDeviceOptions.ncpUpdate = true;
-                        await flashDeviceInternal(flashDeviceOptions);
+                        await flashDeviceInternal();
                     }
                 }
             }
 
-            // Update firmware version table
-            // deviceModuleInfo is updated in flashDeviceInternal
-            showDeviceFirmwareInfo(deviceModuleInfo);
+            if (deviceModuleInfo) {
+                // Update firmware version table
+                // deviceModuleInfo is updated in flashDeviceInternal
+                showDeviceFirmwareInfo(deviceModuleInfo);
+            }
 
         };
 
@@ -2280,22 +2301,21 @@ $(document).ready(function() {
 
 
             $(setupDeviceButtonElem).on('click', async function() {
-                deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
-
-                setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
-                setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
-
-                setupOptions.productId = $(productSelectElem).val();
-                if (showSimSelectionOption) {
-                    setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
-                }
-
                 if (mode == 'restore') {
-                    setupOptions.deviceOsVersion = $(versionElem).val();
+                    deviceInfo.targetVersion = $(versionElem).val();
                     setupOptions.setupBit = $(setupBitSelectElem).val();
                     setupOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
                 }
-
+                else {
+                    deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+                    setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
+                    setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
+    
+                    setupOptions.productId = $(productSelectElem).val();
+                    if (showSimSelectionOption) {
+                        setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
+                    }
+                }
 
                 hideDeviceFirmwareInfo();
 
@@ -2304,9 +2324,9 @@ $(document).ready(function() {
                 }
 
                 // This is used for both setup device and device doctor
-                let flashDeviceOptions = {};
+                flashDeviceOptions.mode = mode;
 
-                await flashDevice(flashDeviceOptions);
+                await flashDevice();
 
                 if (mode == 'doctor') {
                     checkSimAndClaiming();
@@ -2320,7 +2340,10 @@ $(document).ready(function() {
                         activateSim();
                     }    
                 }
-    
+                else {
+                    // Restore
+                    setSetupStep('setupStepDeviceRestoreDone');
+                }
             });
 
         }
@@ -2926,7 +2949,7 @@ $(document).ready(function() {
                     }, 10000);                
                 }
             );    
-        });
+        });        
 
         const setupDone = async function() {
             setSetupStep('setupStepDone');
