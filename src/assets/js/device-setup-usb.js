@@ -907,7 +907,7 @@ $(document).ready(function() {
             // 6         8       Radio stack (softdevice)
             const systemModuleTypes = [0, 2, 4, 5, 3, 7, 8];
 
-            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Radio Stack']; 
+            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Softdevice (Radio Stack)']; 
 
             // Validity values:
             // 0 (or omitted): valid
@@ -1925,7 +1925,7 @@ $(document).ready(function() {
                     userFirmwareBinary,
                     setStatus,
                     version: deviceInfo.targetVersion, 
-                    setupBit: 'done',
+                    setupBit: flashDeviceOptions.setupBit,
                     deviceModuleInfo, // Maybe be undefined
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
@@ -2301,16 +2301,31 @@ $(document).ready(function() {
 
 
             $(setupDeviceButtonElem).on('click', async function() {
+                /*
+                if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
+                    setStatus('Confirming...');
+                    const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
+                        'Make sure that it is from a reputable author and stored on a secure server. '
+                    if (!confirm(msg)) {
+                        setStatus('Restore canceled');
+                        resetRestorePanel();
+                        return;
+                    } 
+                    options.downloadUrl = $(urlTrElem).find('td > input').val();
+                }
+                */
+
                 if (mode == 'restore') {
                     deviceInfo.targetVersion = $(versionElem).val();
-                    setupOptions.setupBit = $(setupBitSelectElem).val();
+                    flashDeviceOptions.setupBit = $(setupBitSelectElem).val();
                     setupOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
                 }
                 else {
                     deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
                     setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
                     setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
-    
+                    flashDeviceOptions.setupBit = 'done';
+
                     setupOptions.productId = $(productSelectElem).val();
                     if (showSimSelectionOption) {
                         setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());

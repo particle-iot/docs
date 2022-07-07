@@ -15,7 +15,7 @@ This tool works like [`particle update`](/reference/developer-tools/cli/#particl
 
 ## Additional details
 
-- There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
+- Chrome, Opera, and Edge browsers are supported on computers. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 or 11 on supported browsers.
 - It can update Device OS, the bootloader, soft device (on Gen 3), Tinker (or Tracker Edge for Tracker devices), and the NCP (network co-processor) on the Tracker using DFU mode (blinking yellow). 
 - It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers. This requires a USB OTG cable or adapter.
