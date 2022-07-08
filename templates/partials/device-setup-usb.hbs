@@ -67,7 +67,7 @@
                         or Particle mobile apps for iOS and Android.
                     </p>
                 </div>
-                <div class="setupStepCheckDeviceSIM">
+                <div class="setupStepCheckDeviceSIM" style="display:none">
                     <p>Just a little longer while we check the SIM card in your device...</p>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                                 <select class="apiHelperUsbRestoreDeviceModeSelect apiHelperSelect">
                                     <option value="tinker">Tinker (Factory Default)</option>
                                     <option value="upload">Custom User Firmware Upload</option>
-                                    <option value="url">Custom User Firmware from URL</option>
+                                    <!-- <option value="url">Custom User Firmware from URL</option> -->
                                 </select>
                             </td>
                             <td>&nbsp;</td>
@@ -167,6 +167,10 @@
                                 <option value="done">Mark setup done (run firmware normally)</option>
                                 <option value="notDone">Mark setup not done (go into listening mode)</option>
                             </select></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="updateNcpCheckboxTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="updateNcpCheckbox"/>Update NCP (network coprocessor)</label></td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr class="apiHelperUsbRestoreTrackerTr" style="display:none">
@@ -406,6 +410,18 @@
             <div class="setupStepDeviceRestoreDone" style="display:none">
                 <p>Device restore complete!</p>
                 <p><button class="reloadPage">Restore another device</button></p>
+            </div>
+            <div class="setupStepShippingMode" style="display:none">
+                <p>Device restore complete! Tracker will enter shipping mode shortly.</p>
+                <p><button class="reloadPage">Restore another device</button></p>
+            </div>
+            <div class="setupStepStartOver" style="display:none">
+                <p><button class="reloadPage">Start over</button></p>
+            </div>
+            <div class="setupStepDfuFailed" style="display:none">
+                <p>DFU flashing failed.</p>
+                <p class="dfuFailedReason"></p>
+                <p><button class="reloadPage">Start over</button></p>
             </div>
             <div class="setupStepTroubleshootingSuccess" style="display:none">
                 <p>Congratulations, it appears that your device is online and functioning properly now!</p>

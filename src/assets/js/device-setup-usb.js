@@ -1927,6 +1927,7 @@ $(document).ready(function() {
                     version: deviceInfo.targetVersion, 
                     setupBit: flashDeviceOptions.setupBit,
                     deviceModuleInfo, // Maybe be undefined
+                    downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -2035,7 +2036,7 @@ $(document).ready(function() {
                 };
 
             
-                if (mode == 'doctor' && !restoreFirmwareBinary) {
+                if (flashDeviceOptions.mode == 'doctor' && !restoreFirmwareBinary) {
                     options.userBackup = true;
                 }
 
@@ -2052,6 +2053,8 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception', e);
+                setSetupStep('setupStepDfuFailed');
+                $('.dfuFailedReason').text(e.text);
             }
 
             // Wait a little extra before trying to reconnect
@@ -2079,15 +2082,24 @@ $(document).ready(function() {
             await flashDeviceInternal();
             
             if (deviceInfo.platformVersionInfo.isTracker) {
-                // Is a tracker, could need NCP
-                const m = deviceModuleInfo.getModuleNcp();
-                if (m) {
-                    // TODO: Get this from the NCP binary
-                    if (m.version < 7) {
+                let updateNcp = false;
 
-                        flashDeviceOptions.ncpUpdate = true;
-                        await flashDeviceInternal();
+                if (deviceModuleInfo) {
+                    // Is a tracker, could need NCP
+                    const m = deviceModuleInfo.getModuleNcp();
+                    if (m) {
+                        // TODO: Get this from the NCP binary
+                        if (m.version < 7) {
+                            updateNcp = true;
+                        }
                     }
+                }
+                else {
+                    updateNcp = flashDeviceOptions.updateNcp;
+                }
+                if (updateNcp) {
+                    flashDeviceOptions.ncpUpdate = true;
+                    await flashDeviceInternal();
                 }
             }
 
@@ -2163,6 +2175,9 @@ $(document).ready(function() {
             const enterUrlTrElem = $(thisElem).find('.apiHelperUsbRestoreDeviceUrlTr');
             const selectUserBinaryButtonElem = $(thisElem).find('.selectUserBinaryButton');
             const userBinaryFileSelectorElem = $(thisElem).find('#userBinaryFileSelector');
+            const restoreDeviceVersionTrElem = $(thisElem).find('.apiHelperUsbRestoreDeviceVersionTr');
+            const updateNcpCheckboxTrElem = $(thisElem).find('.updateNcpCheckboxTr');
+            const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
 
             $(productDestinationElem).data('filterPlatformId', deviceInfo.platformId);
             $(productDestinationElem).data('updateProductList')();
@@ -2173,11 +2188,17 @@ $(document).ready(function() {
                 if (mode == 'restore') {
                     switch($(modeSelectElem).val()) {
                         case 'upload':
+                            $(restoreDeviceVersionTrElem).hide();
                             enableButton = !!restoreFirmwareBinary;
                             break;
 
                         case 'url':
+                            $(restoreDeviceVersionTrElem).hide();
                             enableButton = $(userFirmwareUrlElem).val().trim() != '';
+                            break;
+
+                        default:
+                            $(restoreDeviceVersionTrElem).show();
                             break;
                         }
                 }
@@ -2224,6 +2245,11 @@ $(document).ready(function() {
                 if (deviceInfo.platformVersionInfo.isTracker) {
                     $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
                     $(trackerTrElem).show();
+
+                    console.log('deviceModuleInfo', deviceModuleInfo);
+                    if (!deviceModuleInfo) {
+                        $(updateNcpCheckboxTrElem).show();
+                    }
                 }
                 else {
                     $(modeSelectElem).find('option[value="tinker"]').text('Tinker (Factory Default)');
@@ -2301,24 +2327,32 @@ $(document).ready(function() {
 
 
             $(setupDeviceButtonElem).on('click', async function() {
-                /*
-                if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
+                
+                const userFirmwareMode = $(modeSelectElem).val();
+                if (userFirmwareMode == 'url' || userFirmwareMode == 'customUrl') {
                     setStatus('Confirming...');
                     const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
                         'Make sure that it is from a reputable author and stored on a secure server. '
                     if (!confirm(msg)) {
                         setStatus('Restore canceled');
-                        resetRestorePanel();
+                        setSetupStep('setupStepStartOver');
                         return;
                     } 
-                    options.downloadUrl = $(urlTrElem).find('td > input').val();
+                    flashDeviceOptions.downloadUrl = $(userFirmwareUrlElem).val().trim();
                 }
-                */
+                
 
                 if (mode == 'restore') {
                     deviceInfo.targetVersion = $(versionElem).val();
                     flashDeviceOptions.setupBit = $(setupBitSelectElem).val();
-                    setupOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
+                    flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
+
+                    if (deviceInfo.platformVersionInfo.isTracker) {    
+                        if (!deviceModuleInfo) {
+                            flashDeviceOptions.updateNcp = $(updateNcpCheckboxElem).prop('checked');
+                        }
+                    }
+    
                 }
                 else {
                     deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
@@ -2356,8 +2390,25 @@ $(document).ready(function() {
                     }    
                 }
                 else {
+
                     // Restore
-                    setSetupStep('setupStepDeviceRestoreDone');
+                    if (flashDeviceOptions.shippingMode) {
+                        setSetupStep('setupStepShippingMode');
+                        if (usbDevice) {                
+                            const reqObj = {
+                                cmd: 'enter_shipping'
+                            };
+                            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));    
+                        }
+                        else {
+                            setStatus('Failed to reconnect to device to enter shipping mode');
+                        }
+
+                    }
+                    else {
+                        setSetupStep('setupStepDeviceRestoreDone');
+                    }
+
                 }
             });
 
