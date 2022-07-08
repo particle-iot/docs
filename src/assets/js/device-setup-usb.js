@@ -1928,7 +1928,7 @@ $(document).ready(function() {
                     setStatus,
                     version: deviceInfo.targetVersion, 
                     setupBit: flashDeviceOptions.setupBit,
-                    deviceModuleInfo, // Maybe be undefined
+                    deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
                     downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
@@ -2086,7 +2086,7 @@ $(document).ready(function() {
             if (deviceInfo.platformVersionInfo.isTracker) {
                 let updateNcp = false;
 
-                if (deviceModuleInfo) {
+                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
                     // Is a tracker, could need NCP
                     const m = deviceModuleInfo.getModuleNcp();
                     if (m) {
@@ -2180,6 +2180,7 @@ $(document).ready(function() {
             const restoreDeviceVersionTrElem = $(thisElem).find('.apiHelperUsbRestoreDeviceVersionTr');
             const updateNcpCheckboxTrElem = $(thisElem).find('.updateNcpCheckboxTr');
             const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
+            const forceUpdateElem = $(thisElem).find('.forceUpdate');
 
             $(productDestinationElem).data('filterPlatformId', deviceInfo.platformId);
             $(productDestinationElem).data('updateProductList')();
@@ -2202,7 +2203,22 @@ $(document).ready(function() {
                         default:
                             $(restoreDeviceVersionTrElem).show();
                             break;
+                    }
+
+                    if (deviceInfo.platformVersionInfo.isTracker) {
+                        const forceUpdate = $(forceUpdateElem).prop('checked');
+                        if (forceUpdate) {
+                            $(updateNcpCheckboxTrElem).show();
                         }
+                        else {
+                            if (!deviceModuleInfo) {
+                                $(updateNcpCheckboxTrElem).show();
+                            }
+                            else {
+                                $(updateNcpCheckboxTrElem).hide();
+                            }
+                        }
+                    }
                 }
                 $(setupDeviceButtonElem).prop('disabled', !enableButton);
             };
@@ -2247,10 +2263,6 @@ $(document).ready(function() {
                 if (deviceInfo.platformVersionInfo.isTracker) {
                     $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
                     $(trackerTrElem).show();
-
-                    if (!deviceModuleInfo) {
-                        $(updateNcpCheckboxTrElem).show();
-                    }
                 }
                 else {
                     $(modeSelectElem).find('option[value="tinker"]').text('Tinker (Factory Default)');
@@ -2309,6 +2321,8 @@ $(document).ready(function() {
                 $(setupSimSelectionRowElem).hide();
             }
 
+            $(forceUpdateElem).on('click', checkButtonEnable);
+
             $(setupAddToProductElem).on('click', function() {
                 setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
                 if (setupOptions.addToProduct) {
@@ -2347,9 +2361,10 @@ $(document).ready(function() {
                     deviceInfo.targetVersion = $(versionElem).val();
                     flashDeviceOptions.setupBit = $(setupBitSelectElem).val();
                     flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
+                    flashDeviceOptions.forceUpdate = $(forceUpdateElem).prop('checked');
 
                     if (deviceInfo.platformVersionInfo.isTracker) {    
-                        if (!deviceModuleInfo) {
+                        if (!deviceModuleInfo || flashDeviceOptions.forceUpdate) {
                             flashDeviceOptions.updateNcp = $(updateNcpCheckboxElem).prop('checked');
                         }
                     }
