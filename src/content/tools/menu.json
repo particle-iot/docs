@@ -87,8 +87,7 @@
       },
       {
         "title": "Device Restore USB (Old Version)",
-        "href": "/tools/device-restore/device-restore-usb-old/",
-        "hidden": true
+        "href": "/tools/device-restore/device-restore-usb-old/"
       }
     ]
   ]

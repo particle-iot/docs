@@ -76,7 +76,7 @@ async function generateSystemVersionInfo(options, done) {
                 }
             }
         }
-
+        /*
         // Manually add these private versions
         // 1007	3210	3.2.1-p2.1	P2
         // 1007	3211	3.2.1-p2.2	P2
@@ -96,6 +96,7 @@ async function generateSystemVersionInfo(options, done) {
             sys: 3212,
             semVer: '3.2.1-p2.3'
         });
+        */
 
         // Update JSON data on disk
         // console.log('versionInfo', versionInfo);

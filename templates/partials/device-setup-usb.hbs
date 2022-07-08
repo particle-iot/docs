@@ -27,6 +27,7 @@
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
                 </div>
                 <div class="doctorMode">
+                    <!--
                     <h3>Other issues</h3>
                     <div>
                         <ul>
@@ -34,13 +35,15 @@
                             <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
                         </ul>
                     </div>
+                    -->
                 </div>
             </div>
             <div class="setupStepLoginTicket" style="display:none">
                 <p>If you are unable to log in to your account or are having trouble with multi-factor authentication, you may 
                     submit a support ticket.</p>
                 
-                <p>Email: <input type="text" size="20" class="loginTicketEmail" /> (required)</p>
+                <p>Name: <input type="text" size="30" class="loginTicketName" /> (required)</p>
+                <p>Email: <input type="text" size="30" class="loginTicketEmail" /> (required)</p>
                 <p>Additional details for support:</p>
                 <textarea rows="10" cols="80" class="ticketText"></textarea>
                 <p><button class="apiHelperButton">Submit support ticket</button></p>
@@ -52,6 +55,9 @@
                 <p>Include the Device ID or Serial Number and any additional information for support:</p>
                 <textarea rows="10" cols="80" class="ticketText"></textarea>
                 <p><button class="apiHelperButton">Submit support ticket</button></p>
+            </div>            
+            <div class="setupStepTicketSubmitted" style="display:none">
+                <p>Your support ticket has been submitted.</p>
             </div>            
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
@@ -606,15 +612,5 @@
         <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
         <p><button class="loginAgain">Log In Again</button></p>
     </div>
-    <!--
-    <div class="apiHelperNotLoggedIn" style="display:none">
-        <h3>Other issues</h3>
-        <div>
-            <ul>
-                <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
-            </ul>
-        </div>
-    </div>
-    -->
 </div>
 

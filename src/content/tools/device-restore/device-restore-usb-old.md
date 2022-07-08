@@ -1,11 +1,17 @@
 ---
-title: Device Restore USB
+title: Device Restore USB (Old)
 layout: commonTwo.hbs
 description: Device restore over USB from a browser
 includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ---
 
-# Device Restore over USB
+# {{{title}}}
+
+{{note op="start" type="note"}}
+This is the old version of Device Restore USB. It will be deprecated in the near future.
+
+Using the [new version of Device Restore USB](/tools/device-restore/device-restore-usb/) is recommended.
+{{note op="end"}}
 
 This experimental tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required) and it can upgrade or downgrade to different versions of Device OS. It works with both Gen 2 and Gen 3 devices. 
 

@@ -66,6 +66,7 @@ $(document).ready(function() {
         let setupOptions = {};
         let deviceModuleInfo;
         let flashDeviceOptions = {};
+        let userInfo;
 
         const minimumDeviceOsVersion = '2.1.0';
 
@@ -159,7 +160,24 @@ $(document).ready(function() {
                 key: 'band',
                 label: 'Band',
                 cellular: true
-            }            
+            },
+            {
+                key: 'cgi',
+                label: 'Cellular Global Identity',
+                cellular: true
+            },
+            /*
+            {
+                key: 'strength',
+                label: 'Signal Strength',
+                cellular: true
+            },
+            {
+                key: 'quality',
+                label: 'Signal Quality',
+                cellular: true
+            },
+*/
         ];
 
 
@@ -229,7 +247,6 @@ $(document).ready(function() {
             return text;
         };
 
-        let userInfo;
 
         const setUserInfoItem = function(label, value) {
             const trElem = document.createElement('tr');
@@ -324,8 +341,8 @@ $(document).ready(function() {
                     }
                     if (name) {
                         setUserInfoItem('Name', name);
-                    }
-    
+                        userInfo.name = name;
+                    }    
                 },
                 function(err) {
                     setStatus('Error retrieving user information (access token may have expired)');
@@ -341,12 +358,13 @@ $(document).ready(function() {
         $('.setupStepLoginTicket').each(function() {
             const thisElem = $(this);
             
+            const nameElem = $(thisElem).find('.loginTicketName');
             const emailElem = $(thisElem).find('.loginTicketEmail');
             const textElem = $(thisElem).find('.ticketText');
             const buttonElem = $(thisElem).find('.apiHelperButton');
 
             const checkButtonEnable = function() {
-                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0) {
+                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0 && $(nameElem).val().trim().length > 0) {
                     $(buttonElem).prop('disabled', false);
                 }
                 else {
@@ -370,10 +388,13 @@ $(document).ready(function() {
             $(buttonElem).on('click', function() {
                 const ticket = {
                     subject: 'Having trouble logging in',
+                    name: $(nameElem).val(),
                     email: $(emailElem).val(),
-                    text: $(textElem).val()
+                    body: $(textElem).val()
                 }
                 console.log('ticket', ticket);
+                apiHelper.ticketSubmit(ticket);
+                setSetupStep('setupStepTicketSubmitted');
             });
         });
 
@@ -407,6 +428,8 @@ $(document).ready(function() {
                     text: $(textElem).val()
                 }
                 console.log('ticket', ticket);
+                apiHelper.ticketSubmit(ticket);
+                setSetupStep('setupStepTicketSubmitted');
             });
         });
 
@@ -416,41 +439,6 @@ $(document).ready(function() {
                 {vendorId: 0x2b04}
             ];
         
-            if (requiresLogin) {
-                try {
-                    // Check access token
-                    const result = await new Promise(function(resolve, reject) {
-        
-                        const request = {
-                            dataType: 'json',
-                            error: function (jqXHR) {
-                                reject(jqXHR.status);
-                            },
-                            headers: {
-                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                                'Accept': 'application/json'
-                            },
-                            method: 'GET',
-                            success: function (resp, textStatus, jqXHR) {
-                                resolve(resp);
-                            },
-                            url: 'https://api.particle.io/v1/user'
-                        };
-            
-                        $.ajax(request);            
-                    });
-    
-                }
-                catch(e) {
-                    if (e == 401) {
-                        $(thisElem).find('.apiHelperLoggedIn').hide();
-                        $(thisElem).find('.accessTokenError').show();
-    
-                        $(thisElem).find('.loginAgain').on('click', apiHelper.loginAgain);
-                        return;
-                    }
-                }
-            }
 
 
             try {
@@ -611,6 +599,14 @@ $(document).ready(function() {
             if (msg.includes('CPIN ERROR')) {
                 msgCPINERROR = true;
             }
+            {
+                const searchStr = 'Cellular Info:';
+                const index = msg.indexOf(searchStr);
+                if (index >= 0) {
+                    const content = msg.substring(index + searchStr.length).trim();
+                    setInfoTableItem('cgi', content);
+                }
+            }            
 
             {
                 // GNSS boot status messages
@@ -1130,9 +1126,8 @@ $(document).ready(function() {
                         break;
                 }
 
-                $(thisElem).find('.setupStepCheckDeviceStart').hide();
-
                 if (!deviceInfo.platformVersionInfo) {
+                    $(thisElem).find('.setupStepCheckDeviceStart').hide();
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
@@ -1382,7 +1377,10 @@ $(document).ready(function() {
                         $(elem).text(data);                        
                     }
                 }
-            }
+            };
+
+            const diagnosticsEvent = function(eventJson) {
+            };
 
             const addRow = function(event) {
                 const tableBodyElem = $('.cloudEventsTable > tbody');
@@ -1408,14 +1406,23 @@ $(document).ready(function() {
 
                 if (event.name == 'loc' || event.name == 'loc-enhanced') {
                     try {
-                        const eventJson = JSON.parse(event.data);
-                        
+                        const eventJson = JSON.parse(event.data);                        
                         locationEvent(event.name, eventJson);
                     }
                     catch(e) {
-
                     }
                 }
+                else 
+                if (event.name == 'spark/device/diagnostics/update') {
+                    try {
+                        const eventJson = JSON.parse(event.data);                        
+                        diagnosticsEvent(eventJson);
+                    }
+                    catch(e) {
+                    }
+                }
+                
+            
             };
 
             const handleStream = function(stream) {
@@ -1822,8 +1829,6 @@ $(document).ready(function() {
             showStep('setupStepReconnectingWaiting');
 
             for(let tries = 0; tries < 4 && !nativeUsbDevice; tries++) {
-                console.log('reconnect loop tries=' + tries);
-
                 await new Promise(function(resolve) {
                     setTimeout(function() {
                         resolve();
@@ -1871,7 +1876,6 @@ $(document).ready(function() {
                 });
             }
             
-            console.log('calling openDeviceById');
 
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
@@ -1885,8 +1889,6 @@ $(document).ready(function() {
                 await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
 
             }            
-
-            console.log('reconnect complete');
             
         };
 
@@ -2246,7 +2248,6 @@ $(document).ready(function() {
                     $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
                     $(trackerTrElem).show();
 
-                    console.log('deviceModuleInfo', deviceModuleInfo);
                     if (!deviceModuleInfo) {
                         $(updateNcpCheckboxTrElem).show();
                     }
