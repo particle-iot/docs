@@ -2333,6 +2333,7 @@ $(document).ready(function() {
                 if (deviceInfo.platformVersionInfo.isTracker) {
                     // Tracker setup mode
                     $(trackerProductSettingsElem).show();
+                    $(setupModeSettingsElem).hide();
 
                     $(trackerProductSettingsElem).find('input[name=trackerProductType][value=new]').on('click', function() {
                         $(trackerSetupAddToProductSelectorElem).hide();
@@ -2359,7 +2360,8 @@ $(document).ready(function() {
                 }
                 else {
                     // Non-tracker setup mode
-                    $(setupModeSettingsElem).hide();
+                    $(trackerProductSettingsElem).hide();
+                    $(setupModeSettingsElem).show();
 
                     $(setupAddToProductElem).on('click', function() {
                         setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
