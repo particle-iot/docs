@@ -68,7 +68,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         setStatus('Downloading user firmware binary...');
         try {
             await new Promise(function(resolve, reject) {
-                fetch(options.downloadUrl)
+                fetch(options.downloadUrl, {})
                     .then(response => response.arrayBuffer())
                     .then(function(res) {
                         options.userFirmwareBinary = res;

@@ -84,6 +84,11 @@
       {
         "dir": "device-restore-jtag",
         "href": "/tools/device-restore/device-restore-jtag/"
+      },
+      {
+        "title": "Device Restore USB (Old Version)",
+        "href": "/tools/device-restore/device-restore-usb-old/",
+        "hidden": true
       }
     ]
   ]

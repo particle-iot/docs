@@ -1,4 +1,4 @@
-<div class="apiHelperDeviceSetupUsb" data-doctor="{{doctor}}">
+<div class="apiHelperDeviceSetupUsb" data-mode="{{mode}}">
     <div class="apiHelper">
         <div class="apiHelperNotLoggedIn apiHelperBox">
             <div class="apiHelperCouldSSO apiHelperSmallText" style="display:none">
@@ -27,6 +27,7 @@
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
                 </div>
                 <div class="doctorMode">
+                    <!--
                     <h3>Other issues</h3>
                     <div>
                         <ul>
@@ -34,13 +35,15 @@
                             <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
                         </ul>
                     </div>
+                    -->
                 </div>
             </div>
             <div class="setupStepLoginTicket" style="display:none">
                 <p>If you are unable to log in to your account or are having trouble with multi-factor authentication, you may 
                     submit a support ticket.</p>
                 
-                <p>Email: <input type="text" size="20" class="loginTicketEmail" /> (required)</p>
+                <p>Name: <input type="text" size="30" class="loginTicketName" /> (required)</p>
+                <p>Email: <input type="text" size="30" class="loginTicketEmail" /> (required)</p>
                 <p>Additional details for support:</p>
                 <textarea rows="10" cols="80" class="ticketText"></textarea>
                 <p><button class="apiHelperButton">Submit support ticket</button></p>
@@ -52,6 +55,9 @@
                 <p>Include the Device ID or Serial Number and any additional information for support:</p>
                 <textarea rows="10" cols="80" class="ticketText"></textarea>
                 <p><button class="apiHelperButton">Submit support ticket</button></p>
+            </div>            
+            <div class="setupStepTicketSubmitted" style="display:none">
+                <p>Your support ticket has been submitted.</p>
             </div>            
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
@@ -67,22 +73,32 @@
                         or Particle mobile apps for iOS and Android.
                     </p>
                 </div>
-                <div class="setupStepCheckDeviceSIM">
+                <div class="setupStepCheckDeviceSIM" style="display:none">
                     <p>Just a little longer while we check the SIM card in your device...</p>
                 </div>
             </div>
             <div class="setupStepConfirm" style="display:none">
-                <p>This tool will flash Device OS and doctor firmware to your device, replacing the 
-                    existing Device OS and user firmware.</p>
-                <p>Upon successful completion you can to program your firmware again 
-                    over-the-air (OTA) or by USB.</p>
-                <p>A backup file containing your user firmware will be saved to your Downloads folder; 
-                    this can be used to restore the original firmware and a similar version of Device OS as well.
-                </p>
-                <p>Proceed with flashing the device and setup?</p>
-
-                <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device and Setup</button></p>
-
+                <div class="doctorMode">
+                    <p>This tool will flash Device OS and doctor firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
+                <div class="setupMode">
+                    <p>This tool will flash Device OS and setup firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
+                <div class="restoreMode">
+                    <p>This tool will flash Device OS and the specified user firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
+                <div class="setupMode doctorMode">
+                    <p>Upon successful completion you can to program your firmware again 
+                        over-the-air (OTA) or by USB.</p>
+                    <p>A backup file containing your user firmware will be saved to your Downloads folder; 
+                        this can be used to restore the original firmware and a similar version of Device OS if desired.
+                    </p>
+                    <p>Proceed with flashing the device?</p>
+                    <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
+                </div>
                 <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
                 <p>It appears that you previously flashed doctor firmware to this device. You can restore 
                     the original firmware and a similar version of Device OS if you still have the backup 
@@ -90,8 +106,6 @@
                 </p>
                 <p><button class="setupRestoreDeviceButton apiHelperButton">Restore firmware from backup file</button><input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></p>
                 </div> <!-- restorePane -->
-
-
                 <div class="setupMode">
                     <details style="padding-top: 100px">
                         <summary>Advanced Setup Options</summary>
@@ -124,6 +138,57 @@
                         </select></p>
 
                     </details>
+                </div>
+                <div class="restoreMode">
+                    <table>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">Restore Type</td>
+                            <td>
+                                <select class="apiHelperUsbRestoreDeviceModeSelect apiHelperSelect">
+                                    <option value="tinker">Tinker (Factory Default)</option>
+                                    <option value="upload">Custom User Firmware Upload</option>
+                                    <!-- <option value="url">Custom User Firmware from URL</option> -->
+                                </select>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreDeviceVersionTr">
+                            <td class="apiHelperProductSelectorLabel">Version</td>
+                            <td><select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect"><option>Select Device OS Version</option></select></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreDeviceFileTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel">Upload File</td>
+                            <td><button class="selectUserBinaryButton apiHelperButton">Select user binary to upload</button><input type="file" id="userBinaryFileSelector" accept=".bin" style="display:none"></td>
+                            <td class="apiHelperProductSelectorLabel"></td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreDeviceUrlTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel">User Firmware URL</td>
+                            <td colspan="2"><input type="text" size="60" class="apiHelperUsbRestoreDeviceUrl" /></td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreSetupBitTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel">Setup Bit</td>
+                            <td><select class="apiHelperUsbRestoreDeviceSetupBit apiHelperSelect">
+                                <option value="unchanged" selected>Leave value unchanged</option>
+                                <option value="done">Mark setup done (run firmware normally)</option>
+                                <option value="notDone">Mark setup not done (go into listening mode)</option>
+                            </select></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="forceUpdate"/>Flash even if system parts are already the correct version</label></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="updateNcpCheckboxTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="updateNcpCheckbox"/>Update NCP (network coprocessor)</label></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreTrackerTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="shippingModeCheckbox"/>Enter shipping mode when done</label></td>
+                            <td>&nbsp;</td>
+                        </tr>                        
+                    </table>
+                    <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
             </div>
             <div class="setupStepAddToProduct" style="display:none">
@@ -279,11 +344,11 @@
                         </tr>
                         <tr class="privateKeyRow" style="display:none">
                             <td>Private Key (required)</td>
-                            <td><textarea class="privateKey" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                            <td><textarea class="privateKey" rows="8" cols="65" style="font-size:10px;" spellcheck="false"></textarea></td>
                         </tr>
                         <tr class="clientCertRow" style="display:none">
                             <td>Client Certificate (required)</td>
-                            <td><textarea class="clientCert" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                            <td><textarea class="clientCert" rows="8" cols="65" style="font-size:10px;" spellcheck="false"></textarea></td>
                         </tr>
                         <tr class="outerIdentityRow" style="display:none">
                             <td>Outer Identity (optional)</td>
@@ -291,7 +356,7 @@
                         </tr>
                         <tr class="caCertRow" style="display:none">
                             <td>CA Certificate (Optional)</td>
-                            <td><textarea class="caCert" rows="8" cols="65" style="font-size:10px;"></textarea></td>
+                            <td><textarea class="caCert" rows="8" cols="65" style="font-size:10px;" spellcheck="false"></textarea></td>
                         </tr>
                     </tbody>
                 </table>
@@ -351,6 +416,22 @@
                     <p><input type="color" class="colorSelector" value="#ff0000"/> &nbsp;
                         <button class="setColorButton">Set Status LED Color</button></p>
                 </div>
+            </div>
+            <div class="setupStepDeviceRestoreDone" style="display:none">
+                <p>Device restore complete!</p>
+                <p><button class="reloadPage">Restore another device</button></p>
+            </div>
+            <div class="setupStepShippingMode" style="display:none">
+                <p>Device restore complete! Tracker will enter shipping mode shortly.</p>
+                <p><button class="reloadPage">Restore another device</button></p>
+            </div>
+            <div class="setupStepStartOver" style="display:none">
+                <p><button class="reloadPage">Start over</button></p>
+            </div>
+            <div class="setupStepDfuFailed" style="display:none">
+                <p>DFU flashing failed.</p>
+                <p class="dfuFailedReason"></p>
+                <p><button class="reloadPage">Start over</button></p>
             </div>
             <div class="setupStepTroubleshootingSuccess" style="display:none">
                 <p>Congratulations, it appears that your device is online and functioning properly now!</p>
@@ -535,15 +616,5 @@
         <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
         <p><button class="loginAgain">Log In Again</button></p>
     </div>
-    <!--
-    <div class="apiHelperNotLoggedIn" style="display:none">
-        <h3>Other issues</h3>
-        <div>
-            <ul>
-                <li><a class="apiHelperOtherIssuesLink" data-step="setupStepLoginTicket">I am unable to log into my account or am having issues with multi-factor authentication (MFA).</a></li>
-            </ul>
-        </div>
-    </div>
-    -->
 </div>
 

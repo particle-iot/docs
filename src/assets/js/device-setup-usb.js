@@ -35,15 +35,22 @@ $(document).ready(function() {
     $('.apiHelperDeviceSetupUsb').each(function() {
         const thisElem = $(this);
 
-        const doctorMode = ($(thisElem).data('doctor') == '1');
-        if (doctorMode) {
-            $(thisElem).find('.doctorMode').show();
-            $(thisElem).find('.setupMode').hide();
+        const mode = $(thisElem).data('mode');
+
+        const modes = ['doctor', 'setup', 'restore'];
+
+        // Hide all modes
+        for(const m of modes) {
+            $(thisElem).find('.' + m + 'Mode').hide();    
         }
-        else {
-            $(thisElem).find('.doctorMode').hide();
-            $(thisElem).find('.setupMode').show();
+        // Show active mode. It's done this way so you can add multiple mode classes and it's an OR, not an AND.
+        for(const m of modes) {
+            if (mode == m) {
+                $(thisElem).find('.' + m + 'Mode').show();    
+            }
         }
+
+        const requiresLogin = (mode != 'restore');
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
@@ -58,6 +65,8 @@ $(document).ready(function() {
         let mccmnc;
         let setupOptions = {};
         let deviceModuleInfo;
+        let flashDeviceOptions = {};
+        let userInfo;
 
         const minimumDeviceOsVersion = '2.1.0';
 
@@ -81,6 +90,9 @@ $(document).ready(function() {
             });
         });
 
+        $('.reloadPage').on('click', function() {
+            location.reload();
+        });
 
         setSetupStep('setupStepSelectDevice');
 
@@ -148,7 +160,24 @@ $(document).ready(function() {
                 key: 'band',
                 label: 'Band',
                 cellular: true
-            }            
+            },
+            {
+                key: 'cgi',
+                label: 'Cellular Global Identity',
+                cellular: true
+            },
+            /*
+            {
+                key: 'strength',
+                label: 'Signal Strength',
+                cellular: true
+            },
+            {
+                key: 'quality',
+                label: 'Signal Quality',
+                cellular: true
+            },
+*/
         ];
 
 
@@ -218,7 +247,6 @@ $(document).ready(function() {
             return text;
         };
 
-        let userInfo;
 
         const setUserInfoItem = function(label, value) {
             const trElem = document.createElement('tr');
@@ -313,8 +341,8 @@ $(document).ready(function() {
                     }
                     if (name) {
                         setUserInfoItem('Name', name);
-                    }
-    
+                        userInfo.name = name;
+                    }    
                 },
                 function(err) {
                     setStatus('Error retrieving user information (access token may have expired)');
@@ -330,12 +358,13 @@ $(document).ready(function() {
         $('.setupStepLoginTicket').each(function() {
             const thisElem = $(this);
             
+            const nameElem = $(thisElem).find('.loginTicketName');
             const emailElem = $(thisElem).find('.loginTicketEmail');
             const textElem = $(thisElem).find('.ticketText');
             const buttonElem = $(thisElem).find('.apiHelperButton');
 
             const checkButtonEnable = function() {
-                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0) {
+                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0 && $(nameElem).val().trim().length > 0) {
                     $(buttonElem).prop('disabled', false);
                 }
                 else {
@@ -359,10 +388,13 @@ $(document).ready(function() {
             $(buttonElem).on('click', function() {
                 const ticket = {
                     subject: 'Having trouble logging in',
+                    name: $(nameElem).val(),
                     email: $(emailElem).val(),
-                    text: $(textElem).val()
+                    body: $(textElem).val()
                 }
                 console.log('ticket', ticket);
+                apiHelper.ticketSubmit(ticket);
+                setSetupStep('setupStepTicketSubmitted');
             });
         });
 
@@ -396,6 +428,8 @@ $(document).ready(function() {
                     text: $(textElem).val()
                 }
                 console.log('ticket', ticket);
+                apiHelper.ticketSubmit(ticket);
+                setSetupStep('setupStepTicketSubmitted');
             });
         });
 
@@ -405,39 +439,7 @@ $(document).ready(function() {
                 {vendorId: 0x2b04}
             ];
         
-            try {
-                // Check access token
-                const result = await new Promise(function(resolve, reject) {
-    
-                    const request = {
-                        dataType: 'json',
-                        error: function (jqXHR) {
-                            reject(jqXHR.status);
-                        },
-                        headers: {
-                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
-                        },
-                        method: 'GET',
-                        success: function (resp, textStatus, jqXHR) {
-                            resolve(resp);
-                        },
-                        url: 'https://api.particle.io/v1/user'
-                    };
-        
-                    $.ajax(request);            
-                });
 
-            }
-            catch(e) {
-                if (e == 401) {
-                    $(thisElem).find('.apiHelperLoggedIn').hide();
-                    $(thisElem).find('.accessTokenError').show();
-
-                    $(thisElem).find('.loginAgain').on('click', apiHelper.loginAgain);
-                    return;
-                }
-            }
 
             try {
                 $(setupSelectDeviceButtonElem).prop('disabled', false);
@@ -597,6 +599,14 @@ $(document).ready(function() {
             if (msg.includes('CPIN ERROR')) {
                 msgCPINERROR = true;
             }
+            {
+                const searchStr = 'Cellular Info:';
+                const index = msg.indexOf(searchStr);
+                if (index >= 0) {
+                    const content = msg.substring(index + searchStr.length).trim();
+                    setInfoTableItem('cgi', content);
+                }
+            }            
 
             {
                 // GNSS boot status messages
@@ -893,7 +903,7 @@ $(document).ready(function() {
             // 6         8       Radio stack (softdevice)
             const systemModuleTypes = [0, 2, 4, 5, 3, 7, 8];
 
-            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Radio Stack']; 
+            const moduleTypeNames = ['', 'Bootloader', 'System Part', 'User Part', 'Monolithic', 'NCP', 'Softdevice (Radio Stack)']; 
 
             // Validity values:
             // 0 (or omitted): valid
@@ -1116,9 +1126,8 @@ $(document).ready(function() {
                         break;
                 }
 
-                $(thisElem).find('.setupStepCheckDeviceStart').hide();
-
                 if (!deviceInfo.platformVersionInfo) {
+                    $(thisElem).find('.setupStepCheckDeviceStart').hide();
                     $(thisElem).find('.setupStepCheckDeviceUnknown').show();
                     return;
                 }
@@ -1153,29 +1162,32 @@ $(document).ready(function() {
                     deviceInfo.wifi = true;
                 }
 
-                const stor = localStorage.getItem(storageActivateSim);
-                if (stor) {
-                    try {
-                        const storObj = JSON.parse(stor);
-                        // TODO: Check date here
-                        if (stor.deviceId == deviceInfo.deviceId) {
-                            // TODO: Maybe ask user here?
-                            activateSim();
-                            return;''   
+                // Don't check SIM or firmware backup when in device restore mode
+                if (mode == 'setup' || mode == 'doctor') {
+                    const stor = localStorage.getItem(storageActivateSim);
+                    if (stor) {
+                        try {
+                            const storObj = JSON.parse(stor);
+                            // TODO: Check date here
+                            if (stor.deviceId == deviceInfo.deviceId) {
+                                // TODO: Maybe ask user here?
+                                activateSim();
+                                return;''   
+                            }
+                        }
+                        catch(e) {
+    
                         }
                     }
-                    catch(e) {
-
-                    }
-                }
-
-                if (hasUserFirmwareBackup()) {
-                    $('.restoreDeviceId').text(deviceInfo.deviceId);
-                    $('.restoreFirmwareDiv').show();
-
-                    $('.setupRestoreDeviceButton').on('click', function() {
-                        $('#uploadUserBinary').trigger('click');
-                    });
+    
+                    if (hasUserFirmwareBackup()) {
+                        $('.restoreDeviceId').text(deviceInfo.deviceId);
+                        $('.restoreFirmwareDiv').show();
+    
+                        $('.setupRestoreDeviceButton').on('click', function() {
+                            $('#uploadUserBinary').trigger('click');
+                        });
+                    }    
                 }
 
                 confirmFlash();
@@ -1365,7 +1377,10 @@ $(document).ready(function() {
                         $(elem).text(data);                        
                     }
                 }
-            }
+            };
+
+            const diagnosticsEvent = function(eventJson) {
+            };
 
             const addRow = function(event) {
                 const tableBodyElem = $('.cloudEventsTable > tbody');
@@ -1391,14 +1406,23 @@ $(document).ready(function() {
 
                 if (event.name == 'loc' || event.name == 'loc-enhanced') {
                     try {
-                        const eventJson = JSON.parse(event.data);
-                        
+                        const eventJson = JSON.parse(event.data);                        
                         locationEvent(event.name, eventJson);
                     }
                     catch(e) {
-
                     }
                 }
+                else 
+                if (event.name == 'spark/device/diagnostics/update') {
+                    try {
+                        const eventJson = JSON.parse(event.data);                        
+                        diagnosticsEvent(eventJson);
+                    }
+                    catch(e) {
+                    }
+                }
+                
+            
             };
 
             const handleStream = function(stream) {
@@ -1852,20 +1876,24 @@ $(document).ready(function() {
                 });
             }
             
+
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
             
-            // In troubleshooting mode, disable autoconnect and connect manually instead
-            // as we want to check the SIM first
-            reqObj = {
-                op: 'noAutoConnect',
-            };
-            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                // In troubleshooting mode, disable autoconnect and connect manually instead
+                // as we want to check the SIM first
+                reqObj = {
+                    op: 'noAutoConnect',
+                };
+                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+
+            }            
             
         };
 
 
-        const flashDeviceInternal = async function(flashDeviceOptions) {
+        const flashDeviceInternal = async function() {
             try {
                 setSetupStep('setupStepFlashDevice');
 
@@ -1884,10 +1912,12 @@ $(document).ready(function() {
                 if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
-                else {
+                else 
+                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
                     const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
                     userFirmwareBinary = await resp.arrayBuffer();    
                 }
+                // For restore mode, leave userFirmwareBinary undefined so tinker will be flashed
 
                 let dfuPartTableInfo = {};
 
@@ -1897,8 +1927,9 @@ $(document).ready(function() {
                     userFirmwareBinary,
                     setStatus,
                     version: deviceInfo.targetVersion, 
-                    setupBit: 'done',
-                    deviceModuleInfo, // Maybe be undefined
+                    setupBit: flashDeviceOptions.setupBit,
+                    deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
+                    downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -2007,7 +2038,7 @@ $(document).ready(function() {
                 };
 
             
-                if (doctorMode && !restoreFirmwareBinary) {
+                if (flashDeviceOptions.mode == 'doctor' && !restoreFirmwareBinary) {
                     options.userBackup = true;
                 }
 
@@ -2024,6 +2055,8 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception', e);
+                setSetupStep('setupStepDfuFailed');
+                $('.dfuFailedReason').text(e.text);
             }
 
             // Wait a little extra before trying to reconnect
@@ -2035,33 +2068,48 @@ $(document).ready(function() {
 
             await reconnectToDevice();
 
-            // Attempt to fetch the device module info for the device
-            deviceModuleInfo = await getModuleInfoCtrlRequest();
-
+            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                // Attempt to fetch the device module info for the device
+                deviceModuleInfo = await getModuleInfoCtrlRequest();
+            }
+            else {
+                deviceModuleInfo = null;
+            }
         };
 
-        const flashDevice = async function(flashDeviceOptions) {
+        const flashDevice = async function() {
             // TODO: Possibly flash P2 prebootloader-part1 here on upgrade
             
             // Flash Device OS
-            await flashDeviceInternal(flashDeviceOptions);
+            await flashDeviceInternal();
             
             if (deviceInfo.platformVersionInfo.isTracker) {
-                // Is a tracker, could need NCP
-                const m = deviceModuleInfo.getModuleNcp();
-                if (m) {
-                    // TODO: Get this from the NCP binary
-                    if (m.version < 7) {
+                let updateNcp = false;
 
-                        flashDeviceOptions.ncpUpdate = true;
-                        await flashDeviceInternal(flashDeviceOptions);
+                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
+                    // Is a tracker, could need NCP
+                    const m = deviceModuleInfo.getModuleNcp();
+                    if (m) {
+                        // TODO: Get this from the NCP binary
+                        if (m.version < 7) {
+                            updateNcp = true;
+                        }
                     }
+                }
+                else {
+                    updateNcp = flashDeviceOptions.updateNcp;
+                }
+                if (updateNcp) {
+                    flashDeviceOptions.ncpUpdate = true;
+                    await flashDeviceInternal();
                 }
             }
 
-            // Update firmware version table
-            // deviceModuleInfo is updated in flashDeviceInternal
-            showDeviceFirmwareInfo(deviceModuleInfo);
+            if (deviceModuleInfo) {
+                // Update firmware version table
+                // deviceModuleInfo is updated in flashDeviceInternal
+                showDeviceFirmwareInfo(deviceModuleInfo);
+            }
 
         };
 
@@ -2105,6 +2153,7 @@ $(document).ready(function() {
             const setupNoClaimElem = $(thisElem).find('.setupNoClaim');
             $(setupNoClaimElem).prop('checked', false);
 
+            // Setup mode
             const setupAddToProductElem = $(thisElem).find('.setupAddToProduct');
             const setupAddToProductSelectorElem = $(thisElem).find('.setupAddToProductSelector');
             const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
@@ -2113,9 +2162,67 @@ $(document).ready(function() {
             const setupDevelopmentDeviceRowElem = $(thisElem).find('.setupDevelopmentDeviceRow');
             const setupDevelopmentDeviceElem = $(thisElem).find('.setupDevelopmentDevice');
             const setupDeviceOsVersionElem = $(thisElem).find('.setupDeviceOsVersion');
+            const setupDeviceButtonElem = $('.setupSetupDeviceButton');
+            const userFirmwareUrlElem = $('.apiHelperUsbRestoreDeviceUrl');
+
+            // Restore mode
+            const modeSelectElem = $(thisElem).find('.apiHelperUsbRestoreDeviceModeSelect');
+            const tinkerOptionElem = $(modeSelectElem).find('option[value="tinker"]');
+            const setupBitTrElem =  $(thisElem).find('.apiHelperUsbRestoreSetupBitTr');
+            const setupBitSelectElem = $(thisElem).find('.apiHelperUsbRestoreDeviceSetupBit');
+            const trackerTrElem = $(thisElem).find('.apiHelperUsbRestoreTrackerTr');
+            const shippingModeCheckboxElem = $(thisElem).find('.shippingModeCheckbox');
+            const versionElem = $(thisElem).find('.apiHelperUsbRestoreDeviceVersion'); // 
+            const uploadFileTrElem = $(thisElem).find('.apiHelperUsbRestoreDeviceFileTr');
+            const enterUrlTrElem = $(thisElem).find('.apiHelperUsbRestoreDeviceUrlTr');
+            const selectUserBinaryButtonElem = $(thisElem).find('.selectUserBinaryButton');
+            const userBinaryFileSelectorElem = $(thisElem).find('#userBinaryFileSelector');
+            const restoreDeviceVersionTrElem = $(thisElem).find('.apiHelperUsbRestoreDeviceVersionTr');
+            const updateNcpCheckboxTrElem = $(thisElem).find('.updateNcpCheckboxTr');
+            const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
+            const forceUpdateElem = $(thisElem).find('.forceUpdate');
 
             $(productDestinationElem).data('filterPlatformId', deviceInfo.platformId);
             $(productDestinationElem).data('updateProductList')();
+
+            const checkButtonEnable = function() {
+                let enableButton = true;
+
+                if (mode == 'restore') {
+                    switch($(modeSelectElem).val()) {
+                        case 'upload':
+                            $(restoreDeviceVersionTrElem).hide();
+                            enableButton = !!restoreFirmwareBinary;
+                            break;
+
+                        case 'url':
+                            $(restoreDeviceVersionTrElem).hide();
+                            enableButton = $(userFirmwareUrlElem).val().trim() != '';
+                            break;
+
+                        default:
+                            $(restoreDeviceVersionTrElem).show();
+                            break;
+                    }
+
+                    if (deviceInfo.platformVersionInfo.isTracker) {
+                        const forceUpdate = $(forceUpdateElem).prop('checked');
+                        if (forceUpdate) {
+                            $(updateNcpCheckboxTrElem).show();
+                        }
+                        else {
+                            if (!deviceModuleInfo) {
+                                $(updateNcpCheckboxTrElem).show();
+                            }
+                            else {
+                                $(updateNcpCheckboxTrElem).hide();
+                            }
+                        }
+                    }
+                }
+                $(setupDeviceButtonElem).prop('disabled', !enableButton);
+            };
+            checkButtonEnable();
 
             const minSysVer = apiHelper.semVerToSystemVersion(minimumDeviceOsVersion);
 
@@ -2131,8 +2238,78 @@ $(document).ready(function() {
                     $(setupDeviceOsVersionElem).append(optionElem);
                 }
             }
-    
+            
+            if (mode == 'restore') {                
+                const lastVersion = $(versionElem).val();
+                $(versionElem).empty();
+                let firstRelease;
+                for(let ver of deviceInfo.platformVersionInfo.versionArray) {
+                    versionElem.append('<option name="' + ver + '">' + ver + '</option>');
+                    if (!firstRelease && !ver.includes('alpha') && !ver.includes('beta') && !ver.includes('rc')) {
+                        firstRelease = ver;
+                    }
+                }
+                if (lastVersion && !lastVersion.startsWith('Select')) {
+                    $(versionElem).val(lastVersion);
+                }
+                else if (firstRelease) {
+                    $(versionElem).val(firstRelease);
+                }
 
+                if (deviceInfo.platformVersionInfo.gen == 3) {
+                    $(setupBitTrElem).show();
+                }
+
+                if (deviceInfo.platformVersionInfo.isTracker) {
+                    $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
+                    $(trackerTrElem).show();
+                }
+                else {
+                    $(modeSelectElem).find('option[value="tinker"]').text('Tinker (Factory Default)');
+                    $(trackerTrElem).hide();
+                }                
+
+                $(selectUserBinaryButtonElem).on('click', function() {
+                    $(userBinaryFileSelectorElem).trigger('click');
+                });
+                $(userBinaryFileSelectorElem).on('change', function(event) {
+                    if (this.files.length == 1) {
+                        const file = this.files[0];
+                        
+                        let fileReader = new FileReader();
+                        fileReader.onload = async function() {
+                            restoreFirmwareBinary = fileReader.result;
+                            checkButtonEnable();
+                        };
+                        fileReader.readAsArrayBuffer(file);
+                    
+                    }
+                });
+
+                $(modeSelectElem).on('change', function() {
+                    const userFirmwareMode = $(modeSelectElem).val();
+
+                    $(uploadFileTrElem).hide();
+                    $(enterUrlTrElem).hide();
+
+                    switch(userFirmwareMode) {
+                        case 'tinker':
+                            break;
+                        case 'upload':
+                            $(uploadFileTrElem).show();
+                            break;
+
+                        case 'url':
+                            $(enterUrlTrElem).show();
+                            break;
+                    }
+                    checkButtonEnable();
+                });
+
+
+
+                $(userFirmwareUrlElem).on('input', checkButtonEnable);
+            }
 
             const showSimSelectionOption = (deviceInfo.platformId == 13);
 
@@ -2143,6 +2320,8 @@ $(document).ready(function() {
             else {
                 $(setupSimSelectionRowElem).hide();
             }
+
+            $(forceUpdateElem).on('click', checkButtonEnable);
 
             $(setupAddToProductElem).on('click', function() {
                 setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
@@ -2162,15 +2341,45 @@ $(document).ready(function() {
             });
 
 
-            $(thisElem).find('.setupSetupDeviceButton').on('click', async function() {
-                deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+            $(setupDeviceButtonElem).on('click', async function() {
+                
+                const userFirmwareMode = $(modeSelectElem).val();
+                if (userFirmwareMode == 'url' || userFirmwareMode == 'customUrl') {
+                    setStatus('Confirming...');
+                    const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
+                        'Make sure that it is from a reputable author and stored on a secure server. '
+                    if (!confirm(msg)) {
+                        setStatus('Restore canceled');
+                        setSetupStep('setupStepStartOver');
+                        return;
+                    } 
+                    flashDeviceOptions.downloadUrl = $(userFirmwareUrlElem).val().trim();
+                }
+                
 
-                setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
-                setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
+                if (mode == 'restore') {
+                    deviceInfo.targetVersion = $(versionElem).val();
+                    flashDeviceOptions.setupBit = $(setupBitSelectElem).val();
+                    flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
+                    flashDeviceOptions.forceUpdate = $(forceUpdateElem).prop('checked');
 
-                setupOptions.productId = $(productSelectElem).val();
-                if (showSimSelectionOption) {
-                    setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
+                    if (deviceInfo.platformVersionInfo.isTracker) {    
+                        if (!deviceModuleInfo || flashDeviceOptions.forceUpdate) {
+                            flashDeviceOptions.updateNcp = $(updateNcpCheckboxElem).prop('checked');
+                        }
+                    }
+    
+                }
+                else {
+                    deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+                    setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
+                    setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
+                    flashDeviceOptions.setupBit = 'done';
+
+                    setupOptions.productId = $(productSelectElem).val();
+                    if (showSimSelectionOption) {
+                        setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
+                    }
                 }
 
                 hideDeviceFirmwareInfo();
@@ -2180,21 +2389,43 @@ $(document).ready(function() {
                 }
 
                 // This is used for both setup device and device doctor
-                let flashDeviceOptions = {};
+                flashDeviceOptions.mode = mode;
 
-                await flashDevice(flashDeviceOptions);
+                await flashDevice();
 
-                if (doctorMode) {
+                if (mode == 'doctor') {
                     checkSimAndClaiming();
                 }
                 else
-                if (deviceInfo.wifi) {
-                    configureWiFi();                              
+                if (mode == 'setup') {
+                    if (deviceInfo.wifi) {
+                        configureWiFi();                              
+                    }
+                    else {
+                        activateSim();
+                    }    
                 }
                 else {
-                    activateSim();
+
+                    // Restore
+                    if (flashDeviceOptions.shippingMode) {
+                        setSetupStep('setupStepShippingMode');
+                        if (usbDevice) {                
+                            const reqObj = {
+                                cmd: 'enter_shipping'
+                            };
+                            await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));    
+                        }
+                        else {
+                            setStatus('Failed to reconnect to device to enter shipping mode');
+                        }
+
+                    }
+                    else {
+                        setSetupStep('setupStepDeviceRestoreDone');
+                    }
+
                 }
-    
             });
 
         }
@@ -2560,7 +2791,7 @@ $(document).ready(function() {
 
                 
 
-                if (doctorMode) {
+                if (mode == 'doctor') {
                     if (deviceLookup && !deviceLookup.deviceInfo) {
                         setupOptions.noClaim = !$('.doctorClaimDevice').prop('checked');
                     }
@@ -2654,7 +2885,7 @@ $(document).ready(function() {
                     }
                 }
 
-                if (doctorMode) {                    
+                if (mode == 'doctor') {                    
                     // TODO: Check if device is claimed to my account and 
                     setSetupStep('setupStepTroubleshootingSuccess');
                     return;
@@ -2800,7 +3031,7 @@ $(document).ready(function() {
                     }, 10000);                
                 }
             );    
-        });
+        });        
 
         const setupDone = async function() {
             setSetupStep('setupStepDone');
