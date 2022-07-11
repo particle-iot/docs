@@ -23,6 +23,7 @@ This tool works like [`particle update`](/reference/developer-tools/cli/#particl
 - If you get an USB device not selected error on Windows, you may have a [Windows device driver issue](https://github.com/rickkas7/particle_notes/tree/master/fixing-windows-10-serial-drivers) that is hard, but not impossible, to fix.
 - If you get an USB device not selected error on Linux, you may need a udev rule. Download [99-particle.rules](/assets/files/50-particle.rules) and copy it to /etc/udev/rules.d and reboot.
 - There is also a version that implements [Device Restore over JTAG](/tools/device-restore/device-restore-jtag/) that works with the Particle debugger. It can restore devices that do not have a working bootloader (Dim D7 on Gen 2 devices) or have been completely erased.
+- For a short period of time, the [old version of Device Restore USB](/tools/device-restore/device-restore-usb-old/) will be available in addition to this newer version, however the old version will be deprecated.
 
 ## Special Notes for Downgrading
 
