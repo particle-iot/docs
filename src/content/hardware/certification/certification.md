@@ -345,6 +345,15 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 ### Documentation
 For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipmentSearch/searchRadioEquipments?execution=e2s1&lang=en) using the IC ID for each Particle device, respectively.
 
+#### P2 Module
+- IC ID: **20127-P2**
+- [Certificate of Conformity](/assets/pdfs/p2-ic-certificate.pdf)
+- [IC RSS-247 BTLE Test Report](/assets/pdfs/p2-ic-rss247-btle.pdf)
+- [IC RSS-247 Wi-Fi 2.4 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi.pdf)
+- [IC RSS-247 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-ic-rss247-wifi5.pdf)
+- [IC RSS-247 DFS Test Report](/assets/pdfs/p2-ic-rss247-dfs.pdf);
+- [IC RSS-102 RF Exposure Report](/assets/pdfs/p2-ic-rf-exposure.pdf)
+
 #### Photon/PØ - (updated 3/20/17)
 - IC ID: **20127-PHOTON**.
 - [Certificate of Conformity](/assets/pdfs/new-certs/ic/photon-ic-certificate2017.pdf)
