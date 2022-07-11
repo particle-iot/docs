@@ -2122,6 +2122,8 @@ $(document).ready(function() {
         const addToProduct = async function() {
             setSetupStep('setupStepAddToProduct');
 
+            console.log('add device ' + deviceInfo.deviceId + ' to product ' + setupOptions.productId);
+
             // Add device into product
             const res = await apiHelper.particle.addDeviceToProduct({ 
                 deviceId: deviceInfo.deviceId,
@@ -2135,6 +2137,8 @@ $(document).ready(function() {
             }
 
             if (setupOptions.developmentDevice) {
+                console.log('set as development device');
+
                 await apiHelper.particle.markAsDevelopmentDevice({ 
                     deviceId: deviceInfo.deviceId,
                     product: setupOptions.productId,
@@ -2154,16 +2158,26 @@ $(document).ready(function() {
             $(setupNoClaimElem).prop('checked', false);
 
             // Setup mode
-            const setupAddToProductElem = $(thisElem).find('.setupAddToProduct');
-            const setupAddToProductSelectorElem = $(thisElem).find('.setupAddToProductSelector');
-            const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
-            const setupSimSelectionRowElem = $(thisElem).find('.setupSimSelectionRow');
-            const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
-            const setupDevelopmentDeviceRowElem = $(thisElem).find('.setupDevelopmentDeviceRow');
-            const setupDevelopmentDeviceElem = $(thisElem).find('.setupDevelopmentDevice');
-            const setupDeviceOsVersionElem = $(thisElem).find('.setupDeviceOsVersion');
+            const setupModeSettingsElem = $(thisElem).find('.setupModeSettings');
+            const setupAddToProductElem = $(setupModeSettingsElem).find('.setupAddToProduct');
+            const setupAddToProductSelectorElem = $(setupModeSettingsElem).find('.setupAddToProductSelector');
+            const setupSimSelectionRowElem = $(setupModeSettingsElem).find('.setupSimSelectionRow');
+            const productSelectElem = $(setupModeSettingsElem).find('.apiHelperProductSelect');
+            const setupDevelopmentDeviceRowElem = $(setupModeSettingsElem).find('.setupDevelopmentDeviceRow');
+            const setupDevelopmentDeviceElem = $(setupModeSettingsElem).find('.setupDevelopmentDevice');
+            const setupDeviceOsVersionElem = $(setupModeSettingsElem).find('.setupDeviceOsVersion');
+
             const setupDeviceButtonElem = $('.setupSetupDeviceButton');
             const userFirmwareUrlElem = $('.apiHelperUsbRestoreDeviceUrl');
+
+            // Tracker setup
+            const trackerProductSettingsElem = $(thisElem).find('.trackerProductSettings');
+            const trackerSetupAddToProductSelectorElem = $(trackerProductSettingsElem).find('.trackerSetupAddToProductSelector');
+            const trackerProductNamedElem = $(trackerProductSettingsElem).find('.trackerProductNamed');
+            const trackerProductNameElem = $(trackerProductSettingsElem).find('.trackerProductName');
+            const trackerProductSelectElem = $(trackerProductSettingsElem).find('.apiHelperProductSelect');
+            const trackerSetupDevelopmentDeviceElem = $(trackerProductSettingsElem).find('.trackerSetupDevelopmentDevice');
+            const trackerSetupNoClaimElem = $(trackerProductSettingsElem).find('.trackerSetupNoClaim');
 
             // Restore mode
             const modeSelectElem = $(thisElem).find('.apiHelperUsbRestoreDeviceModeSelect');
@@ -2181,9 +2195,11 @@ $(document).ready(function() {
             const updateNcpCheckboxTrElem = $(thisElem).find('.updateNcpCheckboxTr');
             const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
             const forceUpdateElem = $(thisElem).find('.forceUpdate');
-
-            $(productDestinationElem).data('filterPlatformId', deviceInfo.platformId);
-            $(productDestinationElem).data('updateProductList')();
+            
+            $('.apiHelperProductDestination').each(function() {
+                $(this).data('filterPlatformId', deviceInfo.platformId);
+                $(this).data('updateProductList')();    
+            });
 
             const checkButtonEnable = function() {
                 let enableButton = true;
@@ -2310,6 +2326,61 @@ $(document).ready(function() {
 
                 $(userFirmwareUrlElem).on('input', checkButtonEnable);
             }
+            else
+            if (mode == 'setup') {
+                // Setup mode
+
+                if (deviceInfo.platformVersionInfo.isTracker) {
+                    // Tracker setup mode
+                    $(trackerProductSettingsElem).show();
+
+                    $(trackerProductSettingsElem).find('input[name=trackerProductType][value=new]').on('click', function() {
+                        $(trackerSetupAddToProductSelectorElem).hide();
+                        $(trackerProductNamedElem).show();
+                        $(trackerProductNameElem).show();
+                    });
+                    $(trackerProductSettingsElem).find('input[name=trackerProductType][value=existing]').on('click', function() {
+                        $(trackerSetupAddToProductSelectorElem).show();
+                        $(trackerProductNamedElem).hide();
+                        $(trackerProductNameElem).hide();
+                    });
+
+                    $(trackerSetupDevelopmentDeviceElem).on('click', function() {
+                        const devDevice = $(trackerSetupDevelopmentDeviceElem).prop('checked');
+                        if (devDevice) {
+                            $(trackerSetupNoClaimElem).prop('checked', false);
+                            $(trackerSetupNoClaimElem).parents('p').hide();
+                        }
+                        else {
+                            $(trackerSetupNoClaimElem).parents('p').show();
+                        }
+                    });
+
+                }
+                else {
+                    // Non-tracker setup mode
+                    $(setupModeSettingsElem).hide();
+
+                    $(setupAddToProductElem).on('click', function() {
+                        setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
+                        if (setupOptions.addToProduct) {
+                            $(setupAddToProductSelectorElem).show();
+                            $(setupDevelopmentDeviceRowElem).show()
+                        }
+                        else {
+                            $(setupAddToProductSelectorElem).hide();
+                            $(setupDevelopmentDeviceRowElem).hide();
+                        }
+                    });
+        
+                    $(productSelectElem).on('change', function() {
+                        // Product changed                
+                        console.log('product change ' + $(productSelectElem).val());
+                    });
+        
+        
+                }
+            }
 
             const showSimSelectionOption = (deviceInfo.platformId == 13);
 
@@ -2322,23 +2393,6 @@ $(document).ready(function() {
             }
 
             $(forceUpdateElem).on('click', checkButtonEnable);
-
-            $(setupAddToProductElem).on('click', function() {
-                setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
-                if (setupOptions.addToProduct) {
-                    $(setupAddToProductSelectorElem).show();
-                    $(setupDevelopmentDeviceRowElem).show()
-                }
-                else {
-                    $(setupAddToProductSelectorElem).hide();
-                    $(setupDevelopmentDeviceRowElem).hide();
-                }
-            });
-
-            $(productSelectElem).on('change', function() {
-                // Product changed                
-                console.log('product change ' + $(productSelectElem).val());
-            });
 
 
             $(setupDeviceButtonElem).on('click', async function() {
@@ -2370,16 +2424,77 @@ $(document).ready(function() {
                     }
     
                 }
-                else {
-                    deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
-                    setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
-                    setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
-                    flashDeviceOptions.setupBit = 'done';
+                else
+                if (mode == 'setup') {
+                    // mode == setup 
 
-                    setupOptions.productId = $(productSelectElem).val();
-                    if (showSimSelectionOption) {
-                        setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
+                    if (deviceInfo.platformVersionInfo.isTracker) {
+                        if ($(trackerProductSettingsElem).find('input[name=trackerProductType][value=new]').prop('checked')) {
+                            // Create a new product
+
+                            const result = await new Promise(function(resolve, reject) {      
+                                const requestObj = {
+                                    product: {
+                                        name: $(trackerProductNameElem).val(),
+                                        platform_id: deviceInfo.platformId,
+                                    },
+                                }
+                                
+                                const request = {
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(requestObj),
+                                    dataType: 'json',
+                                    error: function (jqXHR) {
+                                        console.log('error', jqXHR);
+                                        reject(jqXHR.status);
+                                    },
+                                    headers: {
+                                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                        'Accept': 'application/json'
+                                    },
+                                    method: 'POST',
+                                    success: function (resp, textStatus, jqXHR) {
+                                        resolve(resp);
+                                    },
+                                    url: 'https://api.particle.io/v1/user/products/'
+                                };
+                    
+                                $.ajax(request);            
+                            });
+
+                            if (!result.ok) {
+                                // TODO: Handle error here
+                            }
+        
+                            console.log('Created product', result);
+                            
+                            // result.ok
+                            // result.product .id, .platform_id, .name, .slug, .description, ...
+                            setupOptions.productId = result.product.id;
+                        }
+                        else {
+                            setupOptions.productId = $(trackerProductSelectElem).val();
+                        }
+                        setupOptions.addToProduct = true;
+                        setupOptions.noClaim = $(trackerSetupNoClaimElem).prop('checked');
+                        setupOptions.developmentDevice = $(trackerSetupDevelopmentDeviceElem).prop('checked');
                     }
+                    else {
+                        deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+                        setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
+                        setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
+    
+                        setupOptions.productId = $(productSelectElem).val();
+                        if (showSimSelectionOption) {
+                            setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
+                        }                            
+                    }
+
+                    flashDeviceOptions.setupBit = 'done';
+                }
+                else {
+                    // mode == doctor
+                    flashDeviceOptions.setupBit = 'done';
                 }
 
                 hideDeviceFirmwareInfo();
@@ -2837,6 +2952,8 @@ $(document).ready(function() {
 
                 if (!setupOptions.noClaim) {
                     // Claim device
+                    console.log('claim ' + deviceInfo.deviceId);
+                    
                     const result = await new Promise(function(resolve, reject) {      
                         const requestObj = {
                             id: deviceInfo.deviceId

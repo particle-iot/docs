@@ -34,6 +34,11 @@
     },
     [
       {
+        "dir": "device-setup",
+        "href": "/tools/developer-tools/device-setup/",
+        "hidden": true
+      },
+      {
         "dir": "lookup",
         "href": "/tools/developer-tools/lookup/"
       },
