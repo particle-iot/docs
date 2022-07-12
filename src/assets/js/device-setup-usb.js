@@ -938,10 +938,16 @@ $(document).ready(function() {
         }
         
         const getModuleInfoCtrlRequest = async function() {
-            const res = await usbDevice.sendControlRequest(90); // CTRL_REQUEST_GET_MODULE_INFO
+            let moduleInfo;
+            try {
+                const res = await usbDevice.sendControlRequest(90, null, {timeout:15000}); // CTRL_REQUEST_GET_MODULE_INFO
 
-            const moduleInfo = decodeModuleInfoProtobuf(res.data);
-            
+                moduleInfo = decodeModuleInfoProtobuf(res.data);
+            }
+            catch(e) {
+                // Could be timeout            
+                console.log('getModuleInfoCtrlRequest exception', e);    
+            }
             return moduleInfo;
         };
 
@@ -1067,10 +1073,17 @@ $(document).ready(function() {
                     // Attempt to get the module info on the device using control requests if not already in DFU mode.
                     // When in DFU already, just flash full Device OS and binaries to avoid leaving DFU.
 
-                    // Control may fail on older Device OS, but that's OK, we'll just flash everything as well.
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
 
-                    showDeviceFirmwareInfo(deviceModuleInfo);
+                    if (deviceModuleInfo) {
+                        console.log('after control request', deviceModuleInfo);
+
+                        showDeviceFirmwareInfo(deviceModuleInfo);    
+                    }
+                    else {
+                        setSetupStep('setupStepManualDfu');      
+                        return;              
+                    }
                 }
 
                 if (usbDevice.isCellularDevice) {                    
@@ -2135,11 +2148,6 @@ $(document).ready(function() {
 
         };
 
-        // setupStepManualDfu which has the continueDfu button is not currently used.
-        // const continueDfuElem = $(thisElem).find('.continueDfu');
-        // $(continueDfuElem).on('click', function() {
-        //    // Do something here!
-        //});
 
         const addToProduct = async function() {
             setSetupStep('setupStepAddToProduct');
@@ -3129,12 +3137,7 @@ $(document).ready(function() {
             
         };
 
-        $('.continueToSelectDevice').on('click', function() {
-            setSetupStep('setupStepSelectDevice');
-        });
-
-
-        $(setupSelectDeviceButtonElem).on('click', async function() {
+        const selectDevice = async function() {
             const filters = [
                 {vendorId: 0x2b04}
             ];
@@ -3166,7 +3169,18 @@ $(document).ready(function() {
                 }
                 console.log('exception', e);
             }
+        };
+
+        $('.continueDfu').on('click', function() {
+            selectDevice();
         });
+
+        $('.continueToSelectDevice').on('click', function() {
+            setSetupStep('setupStepSelectDevice');
+        });
+
+
+        $(setupSelectDeviceButtonElem).on('click', selectDevice);
 
 
         $('#uploadUserBinary').on('change', function() {
