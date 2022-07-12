@@ -59,6 +59,19 @@
             <div class="setupStepTicketSubmitted" style="display:none">
                 <p>Your support ticket has been submitted.</p>
             </div>            
+            <div class="setupStepCheckAccount" style="display:none">
+                <div class="setupStepCheckAccountStart">
+                    <p>Checking the account you have logged in with...</p>
+                </div>
+                <div class="setupStepCheckAccountLimits" style="display:none">
+                    <p>Your developer sandbox account has reached free tier account limits and device operation will be affected.</p>
+                    <p><button class="continueToSelectDevice">Continue anyway</button></p>
+                </div>
+                <div class="setupStepCheckAccountInvalidToken">
+                    <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
+                    <p><button class="loginAgain">Log In Again</button></p>
+                </div>
+            </div>            
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
                     <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
@@ -636,10 +649,6 @@
             <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
             you can use the Particle CLI for Windows, Mac, and Linux, or the Particle mobile app for iOS or Android instead.</p>
         </div>
-    </div>
-    <div class="accessTokenError" style="display:none">
-        <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
-        <p><button class="loginAgain">Log In Again</button></p>
     </div>
 </div>
 

@@ -50,8 +50,6 @@ $(document).ready(function() {
             }
         }
 
-        const requiresLogin = (mode != 'restore');
-
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
 
@@ -94,7 +92,7 @@ $(document).ready(function() {
             location.reload();
         });
 
-        setSetupStep('setupStepSelectDevice');
+        
 
         let infoTableItems = [
             {
@@ -320,38 +318,6 @@ $(document).ready(function() {
             return false;
         }
         
-        if (apiHelper.auth) {
-            apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
-                function(data) {
-                    userInfo = data.body;
-                    
-                    $(userInfoElem).show();
-    
-                    setUserInfoItem('Account email', userInfo.username);
-    
-                    let name = '';
-                    if (userInfo.account_info.first_name) {
-                        name += userInfo.account_info.first_name;
-                    }
-                    if (userInfo.account_info.last_name) {
-                        if (name.length > 0) {
-                            name += ' ';
-                        }
-                        name += userInfo.account_info.last_name;
-                    }
-                    if (name) {
-                        setUserInfoItem('Name', name);
-                        userInfo.name = name;
-                    }    
-                },
-                function(err) {
-                    setStatus('Error retrieving user information (access token may have expired)');
-                }
-            )
-        }
-        else {
-            $('.apiHelperLoggedIn').hide();
-        }
 
 
 
@@ -431,41 +397,6 @@ $(document).ready(function() {
                 apiHelper.ticketSubmit(ticket);
                 setSetupStep('setupStepTicketSubmitted');
             });
-        });
-
-
-        $(setupSelectDeviceButtonElem).on('click', async function() {
-            const filters = [
-                {vendorId: 0x2b04}
-            ];
-        
-
-
-            try {
-                $(setupSelectDeviceButtonElem).prop('disabled', false);
-        
-            
-                if (usbDevice) {
-                    await usbDevice.close();
-                    usbDevice = null;
-                }
-
-                const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
-        
-                usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
-
-                // TODO: Try this with a device with old Device OS, not sure whether this step
-                // fails or the next one, but if the Device OS doesn't support control requests
-                // we need to update Device OS first, then go back to check device settings.
-
-                checkDevice();
-            }
-            catch(e) {
-                if (e.message.includes('No device selected')) {
-                    return;
-                }
-                console.log('exception', e);
-            }
         });
 
         const deviceLogsElem = $(thisElem).find('.deviceLogs');
@@ -1448,6 +1379,98 @@ $(document).ready(function() {
                 apiHelper.particle.getEventStream({ deviceId: eventOptions.deviceId, auth: apiHelper.auth.access_token }).then(handleStream);    
             }
         };
+
+        const checkAccount  = async function() {
+
+            if (mode == 'setup' || mode == 'doctor') {
+                // Device restore does not need a valid account
+                setSetupStep('setupStepCheckAccount');
+
+                const showStep = function(step) {
+                    $(thisElem).find('.setupStepCheckAccount').children().each(function() {
+                        $(this).hide();
+                    });
+                    $(thisElem).find('.' + step).show();    
+                }
+
+                showStep('setupStepCheckAccountStart');
+                if (apiHelper.auth) {
+                    apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
+                        function(data) {
+                            userInfo = data.body;
+                            
+                            $(userInfoElem).show();
+            
+                            setUserInfoItem('Account email', userInfo.username);
+            
+                            let name = '';
+                            if (userInfo.account_info.first_name) {
+                                name += userInfo.account_info.first_name;
+                            }
+                            if (userInfo.account_info.last_name) {
+                                if (name.length > 0) {
+                                    name += ' ';
+                                }
+                                name += userInfo.account_info.last_name;
+                            }
+                            if (name) {
+                                setUserInfoItem('Name', name);
+                                userInfo.name = name;
+                            }    
+
+                            // Also get service agreements
+                            let request = {
+                                contentType: 'application/json',
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    showStep('setupStepCheckAccountInvalidToken');
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json'
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    if (resp.data && resp.data.length > 0) {
+                                        console.log('service agreements', resp.data);
+                                        const attr = resp.data[0].attributes;
+                                        setUserInfoItem('Billing Period Start', attr.current_billing_period_start);
+                                        setUserInfoItem('Device Limit Reached', attr.current_usage_summary.device_limit_reached ? 'Yes' : 'No');
+                                        setUserInfoItem('Devices Paused', attr.current_usage_summary.device_limit_reached ? 'Yes' : 'No');
+                                        setUserInfoItem('Usage threshold exceeded', attr.current_usage_summary.usage_threshold_exceeded ? 'Yes' : 'No');
+
+                                        if (attr.current_usage_summary.device_limit_reached || 
+                                            attr.current_usage_summary.device_limit_reached || 
+                                            attr.current_usage_summary.usage_threshold_exceeded || true) {
+                                            showStep('setupStepCheckAccountLimits');
+
+                                        }
+                                        else {
+                                            setSetupStep('setupStepSelectDevice');
+                                        }
+                                    }
+                                    else {
+                                        // No service agreements?
+                                        setSetupStep('setupStepSelectDevice');
+                                    }
+
+                                },
+                                url: 'https://api.particle.io/v1/user/service_agreements/'
+                            }
+                            $.ajax(request);            
+                        },
+                        function(err) {
+                            showStep('setupStepCheckAccountInvalidToken');
+                        }
+                    )
+                }
+                else {
+                    console.log('no auth');
+                    $('.apiHelperLoggedIn').hide();
+                }
+            }
+        };
+        checkAccount();
 
         const checkSimAndClaiming  = async function() {
             setSetupStep('setupStepCheckSimAndClaiming');
@@ -3106,6 +3129,46 @@ $(document).ready(function() {
 
             
         };
+
+        $('.continueToSelectDevice').on('click', function() {
+            setSetupStep('setupStepSelectDevice');
+        });
+
+
+        $(setupSelectDeviceButtonElem).on('click', async function() {
+            const filters = [
+                {vendorId: 0x2b04}
+            ];
+        
+
+
+            try {
+                $(setupSelectDeviceButtonElem).prop('disabled', false);
+        
+            
+                if (usbDevice) {
+                    await usbDevice.close();
+                    usbDevice = null;
+                }
+
+                const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
+        
+                usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+
+                // TODO: Try this with a device with old Device OS, not sure whether this step
+                // fails or the next one, but if the Device OS doesn't support control requests
+                // we need to update Device OS first, then go back to check device settings.
+
+                checkDevice();
+            }
+            catch(e) {
+                if (e.message.includes('No device selected')) {
+                    return;
+                }
+                console.log('exception', e);
+            }
+        });
+
 
         $('#uploadUserBinary').on('change', function() {
             if (this.files.length == 1) {
