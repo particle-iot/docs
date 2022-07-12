@@ -1076,8 +1076,6 @@ $(document).ready(function() {
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
 
                     if (deviceModuleInfo) {
-                        console.log('after control request', deviceModuleInfo);
-
                         showDeviceFirmwareInfo(deviceModuleInfo);    
                     }
                     else {
@@ -1497,8 +1495,6 @@ $(document).ready(function() {
             showStep('setupStepCheckSimAndClaimingOwnership');
 
             await runDeviceLookup();
-
-            // TODO: Check service agreements to make sure account state == 'active'
 
             if (!deviceLookup.deviceInfo) {
                 showStep('setupStepCheckSimAndClaimingNoDeviceInfo');
