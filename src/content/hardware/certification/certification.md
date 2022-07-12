@@ -545,10 +545,12 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf) (2018-06-19)
 
 #### P2 Module
+- [Certificate of Conformity](/assets/pdfs/p2-ce-certificate.pdf)
 - [EN 300-328 Bluetooth LE Test Report](/assets/pdfs/p2-EN300-328-btle-test-report.pdf)
 - [EN 300-328 Wi-Fi Test Report](/assets/pdfs/p2-EN300-328-wifi-test-report.pdf)
 - [EN 300-440 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN300-440-wifi-test-report.pdf)
 - [EN 301-893 Wi-Fi 5 GHz Test Report](/assets/pdfs/p2-EN301-893-wifi-test-report.pdf)
+- [EN 301-489 Test Report](/assets/pdfs/p2-EN301-489-test-report.pdf)
 - [EN 301-893 Dynamic Frequency Selection DFS Test Report](/assets/pdfs/p2-EN301-893-dfs-test-report.pdf)
 - [EN62311 Test Report](/assets/pdfs/p2-EN62311-test-report.pdf)
 - [EN62368 Test Report](/assets/pdfs/p2-EN62368-test-report.pdf)
