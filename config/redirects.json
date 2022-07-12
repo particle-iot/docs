@@ -1857,6 +1857,7 @@
   "/photon/webhooks": "/tutorials/device-os/webhooks",
   "/quickstart": "/quickstart/boron",
   "/quickstart/button": "/reference/discontinued/hardware/button",
+  "/quickstart/ethernet": "/hardware/ethernet/ethernet",
   "/quickstart/ldk-project": "/reference/discontinued/hardware/ldk-project",
   "/quickstart/xenon": "/xenon",
   "/reference": "/reference/reference",
