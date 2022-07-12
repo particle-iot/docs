@@ -1432,7 +1432,6 @@ $(document).ready(function() {
                                 method: 'GET',
                                 success: function (resp, textStatus, jqXHR) {
                                     if (resp.data && resp.data.length > 0) {
-                                        console.log('service agreements', resp.data);
                                         const attr = resp.data[0].attributes;
                                         setUserInfoItem('Billing Period Start', attr.current_billing_period_start);
                                         setUserInfoItem('Device Limit Reached', attr.current_usage_summary.device_limit_reached ? 'Yes' : 'No');
@@ -1441,7 +1440,7 @@ $(document).ready(function() {
 
                                         if (attr.current_usage_summary.device_limit_reached || 
                                             attr.current_usage_summary.device_limit_reached || 
-                                            attr.current_usage_summary.usage_threshold_exceeded || true) {
+                                            attr.current_usage_summary.usage_threshold_exceeded) {
                                             showStep('setupStepCheckAccountLimits');
 
                                         }
