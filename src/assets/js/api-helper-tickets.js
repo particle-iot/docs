@@ -30,7 +30,6 @@ $(document).ready(function() {
                     reject(jqXHR.status);
                 },
                 headers: {
-                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
                     'Accept': 'application/json'
                 },
                 method: 'POST',
@@ -43,6 +42,78 @@ $(document).ready(function() {
             $.ajax(request);      
         });
     };
+
+    $('.apiHelperSupportTicket').each(function() {
+        const thisElem = $(this);
+
+        const submitTicketDivElem = $(thisElem).find('.submitTicketDiv');
+        const loginRequiredDivElem = $(thisElem).find('.loginRequiredDiv');
+        const isFreeTierDivElem = $(thisElem).find('.isFreeTierDiv');
+        const usernameFieldElem = $(thisElem).find('.usernameField');
+        const organizationFieldElem = $(thisElem).find('.organizationField');
+        const subjectRowElem = $(thisElem).find('.subjectRow');
+        const subjectInputElem = $(thisElem).find('.subjectRow').find('input');
+        const messageFieldElem = $(thisElem).find('.messageField');
+        const submitButtonElem = $(thisElem).find('.submitButton');
+
+        // const Elem = $(thisElem).find('.');
+        
+
+        if (!apiHelper.auth) {
+            $(loginRequiredDivElem).show();
+            return;
+        }
+
+        const updateSupportAvailable = function() {
+            if (apiHelper.selectedOrg) {
+                $(isFreeTierDivElem).hide();
+                $(submitTicketDivElem).show();
+
+                $(usernameFieldElem).text(apiHelper.auth.username);
+                $(organizationFieldElem).text(apiHelper.selectedOrg.name);
+            }
+            else {
+                $(isFreeTierDivElem).show();
+                $(submitTicketDivElem).hide();
+            }
+        };
+    
+        const enableButtons = function() {
+            let disableSubmit = true;
+            
+            if ($(subjectInputElem).val().trim() && $(messageFieldElem).val().trim()) {
+                disableSubmit = false;
+            }
+
+            $(submitButtonElem).prop('disabled', disableSubmit);
+        };
+
+        $('.apiHelper').on('selectedOrgUpdated', updateSupportAvailable);
+        updateSupportAvailable();
+
+        $(subjectInputElem).on('input', enableButtons);
+        $(messageFieldElem).on('input', enableButtons);
+        enableButtons();
+    
+        $(submitButtonElem).on('click', function() {
+            let subject = $(subjectInputElem).val();
+            let body = '';
+            
+            body += 'Organization: ' + apiHelper.selectedOrg.name + '\n\n';
+            body += $(messageFieldElem).val();
+
+            let options = {
+                email: apiHelper.auth.username,
+                subject,
+                body,
+            };
+
+            console.log('options', options);
+            
+            apiHelper.ticketSubmit(options);
+        });
+
+    });
 
 });
 
