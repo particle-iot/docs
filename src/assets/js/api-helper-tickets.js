@@ -3,10 +3,10 @@ $(document).ready(function() {
         return;
     }
 
-    apiHelper.ticketSubmit = async function(options) {
+    apiHelper.ticketSubmit = function(options) {
         // options:
         // name, email, subject, body
-        const result = await new Promise(function(resolve, reject) {      
+        return new Promise(function(resolve, reject) {      
 
             let zendeskRequestObj = {
                 request: {
@@ -56,7 +56,12 @@ $(document).ready(function() {
         const subjectInputElem = $(thisElem).find('.subjectRow').find('input');
         const messageFieldElem = $(thisElem).find('.messageField');
         const submitButtonElem = $(thisElem).find('.submitButton');
-
+        const ticketSubmittedDivElem = $(thisElem).find('.ticketSubmittedDiv');
+        const ticketErrorDivElem = $(thisElem).find('.ticketErrorDiv');
+        const ticketNumElem = $(thisElem).find('.ticketNum');
+        
+        
+        
         // const Elem = $(thisElem).find('.');
         
         const style = $(thisElem).data('style');
@@ -125,10 +130,12 @@ $(document).ready(function() {
         }
         
     
-        $(submitButtonElem).on('click', function() {
+        $(submitButtonElem).on('click', async function() {
             let subject = $(subjectInputElem).val();
             let body = '';
             
+            $(submitButtonElem).prop('disabled', true);
+
             body += 'Organization: ' + apiHelper.selectedOrg.name + '\n\n';
             body += $(messageFieldElem).val();
 
@@ -140,7 +147,18 @@ $(document).ready(function() {
 
             console.log('options', options);
             
-            apiHelper.ticketSubmit(options);
+            try {
+                const resp = await apiHelper.ticketSubmit(options);
+
+                $(ticketNumElem).text(resp.request.id);
+
+                $(ticketSubmittedDivElem).show();
+
+            }
+            catch(e) {
+                console.log('exception submitting ticket', e);
+                $(ticketErrorDivElem).show();
+            }
         });
 
     });
