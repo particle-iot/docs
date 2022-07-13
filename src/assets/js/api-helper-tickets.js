@@ -46,6 +46,7 @@ $(document).ready(function() {
     $('.apiHelperSupportTicket').each(function() {
         const thisElem = $(this);
 
+        const boxDivElem = $(thisElem).find('.apiHelperBox');
         const submitTicketDivElem = $(thisElem).find('.submitTicketDiv');
         const loginRequiredDivElem = $(thisElem).find('.loginRequiredDiv');
         const isFreeTierDivElem = $(thisElem).find('.isFreeTierDiv');
@@ -58,6 +59,7 @@ $(document).ready(function() {
 
         // const Elem = $(thisElem).find('.');
         
+        const style = $(thisElem).data('style');
 
         if (!apiHelper.auth) {
             $(loginRequiredDivElem).show();
@@ -89,11 +91,39 @@ $(document).ready(function() {
         };
 
         $('.apiHelper').on('selectedOrgUpdated', updateSupportAvailable);
-        updateSupportAvailable();
+
+        const showPanel = function() {
+            $(boxDivElem).show();
+            updateSupportAvailable();
+            enableButtons();    
+        };
+
+        $(thisElem).data('ops', {
+            showPanel, 
+            updateSubjectMessage: function(opts) {
+                if (opts.subject) {
+                    $(subjectInputElem).val(opts.subject);
+                }
+                if (opts.message) {
+                    $(messageFieldElem).val(opts.message);
+                }
+                enableButtons();
+            },
+            subjectInputElem,
+            messageFieldElem,
+            enableButtons,
+        });
 
         $(subjectInputElem).on('input', enableButtons);
         $(messageFieldElem).on('input', enableButtons);
-        enableButtons();
+
+        if (style == 'hidden') {
+            $(boxDivElem).hide();
+        }
+        else {
+            showPanel();
+        }
+        
     
         $(submitButtonElem).on('click', function() {
             let subject = $(subjectInputElem).val();
