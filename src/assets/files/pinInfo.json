@@ -7424,7 +7424,7 @@
         {
           "num": 46,
           "name": "MODE",
-          "desc": "MODE button, has internal pull-up. Pin number constant is BTN.",
+          "desc": "MODE button. Pin number constant is BTN. External pull-up required!",
           "isControl": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -8009,7 +8009,7 @@
           "num": 23,
           "p2pin": 46,
           "name": "MODE",
-          "desc": "MODE button, has internal pull-up. Pin number constant is BTN.",
+          "desc": "MODE button. Pin number constant is BTN. External pull-up required!",
           "isControl": true,
           "is5VTolerant": false,
           "attachInterrupt": true,

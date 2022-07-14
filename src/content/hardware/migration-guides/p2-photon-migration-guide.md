@@ -460,17 +460,21 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 {{!-- END do not edit content above, it is automatically generated  --}}
 
+### MODE button
 
-### Interrupts
-
-There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the P2.
+The P2 MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
 
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
-- - On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
+- On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
 - On the Photon (Gen 2), the internal pull is approximately 40K.
+
+### Interrupts
+
+There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the P2.
+
 
 ### Retained memory
 
@@ -521,7 +525,7 @@ The following pins served Photon-specific uses and are NC on the P2. You should 
 | :---: | :--- | :--- |
 | 5 | 3V3_IO | 3.3V power to MCU IO. |
 | 2 | 3V3_RF | 3.3V power to RF module |
-| 46 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. |
+| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) |
@@ -856,7 +860,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | :--- | :--- |
 | Pin Number | 46|
 | Pin Name | MODE|
-| Description | MODE button, has internal pull-up. Pin number constant is BTN.|
+| Description | MODE button. Pin number constant is BTN. External pull-up required!|
 | Supports attachInterrupt | Yes|
 #### NC
 | | Added to P2 |

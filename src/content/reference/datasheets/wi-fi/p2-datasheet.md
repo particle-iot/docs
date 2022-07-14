@@ -364,18 +364,21 @@ The use of the RGB LED is optional, however it is highly recommended as troubles
 
 ### SETUP and RESET button
 
-It is highly recommended that you add SETUP and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
+It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
 
 {{!-- BEGIN do not edit content below, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
 | 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
-| 46 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. | PA[4] |
+| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[4] |
 
 
 {{!-- END do not edit content above, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
 
+The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
+
+The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
 
 ### Complete module pin listing
 
@@ -430,7 +433,7 @@ It is highly recommended that you add SETUP and RESET buttons to your base board
 | 43 | A1 / D12 | A1 Analog in, GPIO | PB[2] |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | PB[26] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | PA[16] |
-| 46 | MODE | MODE button, has internal pull-up. Pin number constant is BTN. | PA[4] |
+| 46 | MODE | MODE button. Pin number constant is BTN. External pull-up required! | PA[4] |
 | 47 | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | PA[0] |
 | 48 | S5 / D20 | S5 GPIO. (Was P1S5 on P1.) | PB[29] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |

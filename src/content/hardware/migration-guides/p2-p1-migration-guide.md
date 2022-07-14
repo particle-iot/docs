@@ -365,6 +365,19 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 {{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
 
+### Internal pull-up or pull-down
+
+Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
+
+- On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
+- On the P1, the internal pull is approximately 40K.
+
+### MODE button
+
+The P2 MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
+
+The P1 had an internal weak pull-up.
+
 ### Interrupts
 
 There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the P2.
@@ -808,7 +821,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | MODE | MODE |
-| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
+| Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button. Pin number constant is BTN. External pull-up required! |
 | Supports attachInterrupt | n/a | Yes |
 | I2S interface | I2S3_MCK | n/a |
 #### Module Pin 47 (P1S4 / S4)

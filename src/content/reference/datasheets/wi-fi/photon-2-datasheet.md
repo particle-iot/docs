@@ -361,7 +361,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | D6 | D6 GPIO, SWCLK. | D6 | D6 GPIO, SWCLK | 55 | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | D7 | D7 GPIO, SWDIO | 54 | PA[27] |
 | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
-| MODE | MODE button, has internal pull-up | MODE | MODE button, has internal pull-up. Pin number constant is BTN. | 46 | PA[4] |
+| MODE | MODE button, has internal pull-up | MODE | MODE button. Pin number constant is BTN. External pull-up required! | 46 | PA[4] |
 | MOSI / D15 | D15 GPIO, S0 GPIO, PWM, SPI MOSI, Serial3 TX | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | 34 | CHIP_EN |
 | RX / D9 | Serial1 RX (received data), GPIO | RX / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |

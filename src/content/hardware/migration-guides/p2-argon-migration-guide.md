@@ -433,18 +433,23 @@ The Argon can use I2S via a 3rd-party library, however there has never been supp
 
 There is no software support for I2S on the P2, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
 
-### Interrupts
-
-All pins can be used for interrupts on Gen 3 devices and the P2.
-
-There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the P2.
-
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
 - On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
 - On the Argon (Gen 3), the internal pull is approximately 13K.
+
+### MODE button
+
+The P2 MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
+
+### Interrupts
+
+All pins can be used for interrupts on Gen 3 devices and the P2.
+
+There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the P2.
+
 
 ### Retained memory
 
@@ -869,7 +874,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 3 | 46 |
 | Pin Name | MODE | MODE |
 | Pin Alternate Name | D20 | n/a |
-| Description | MODE button, has internal pull-up | MODE button, has internal pull-up. Pin number constant is BTN. |
+| Description | MODE button, has internal pull-up | MODE button. Pin number constant is BTN. External pull-up required! |
 | Supports attachInterrupt | n/a | Yes |
 #### NC
 | | Added to P2 |
