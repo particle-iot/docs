@@ -241,12 +241,20 @@ $(document).ready(function() {
                     if (orgInfo.orgId) {
                         $(selectElem).val(orgInfo.orgId);
                     }
-                    apiHelper.selectedOrg = $(selectElem).val();
-    
+
+                    const updateSelectedOrg = function() {
+                        const orgId = orgInfo.orgId = $(selectElem).val();
+                        apiHelper.selectedOrg = {
+                            id: orgId,
+                            name: orgInfo.orgList.organizations.find(e => e.id == orgId).name,
+                        }    
+                    }
+                    updateSelectedOrg();
+                    
                     $('.apiHelperSsoSelectOrg').show();
     
                     $(selectElem).on('change', function() {
-                        apiHelper.selectedOrg = orgInfo.orgId = $(selectElem).val();
+                        updateSelectedOrg();
                         saveOrgInfo();
                     });
                 }

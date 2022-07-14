@@ -563,6 +563,9 @@ $(document).ready(function() {
         // Input in options:
         // deviceLookup.deviceId
         // deviceLookup.deviceLookupElem
+        
+        // Optional in options:
+        // platformId - This will reduce the number of products needed to be checked if you know it (such as for a device connected by USB)
 
         deviceLookup.options = options;
         
@@ -623,6 +626,11 @@ $(document).ready(function() {
                                 continue;
                             }
                         }
+                        if (deviceLookup.options.platformId) {
+                            if (product.platform_id != deviceLookup.options.platformId) {
+                                continue;
+                            }
+                        }
 
                         try {
                             const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, product: product.id, auth: apiHelper.auth.access_token });
@@ -676,6 +684,12 @@ $(document).ready(function() {
                             if (deviceLookup.deviceMine && deviceLookup.isProductDevice) {
                                 if (product.id != deviceLookup.deviceInfo.product_id) {
                                     // Skip this product
+                                    continue;
+                                }
+                            }
+    
+                            if (deviceLookup.options.platformId) {
+                                if (product.platform_id != deviceLookup.options.platformId) {
                                     continue;
                                 }
                             }

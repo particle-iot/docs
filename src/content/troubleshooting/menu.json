@@ -249,6 +249,12 @@
     {
       "title": "Support",
       "href": "https://support.particle.io/hc/"
+    },
+    {
+      "dir": "ticket",
+      "title": "Support Ticket",
+      "href": "/troubleshooting/ticket/",
+      "hidden": true
     }
   ]
 }
