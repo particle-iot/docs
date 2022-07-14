@@ -1257,7 +1257,8 @@ $(document).ready(function() {
             
             deviceLookup = apiHelper.deviceLookup({
                 deviceId: deviceInfo.deviceId,
-                deviceLookupElem: deviceLookupOutputElem                
+                deviceLookupElem: deviceLookupOutputElem,
+                platformId:  deviceInfo.platformId,
             });
 
             await deviceLookup.run();

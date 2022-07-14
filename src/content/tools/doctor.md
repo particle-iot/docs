@@ -10,3 +10,5 @@ includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-
 {{> sso selectOrg="1"}}
 
 {{> device-setup-usb mode="doctor"}}
+
+{{> support-ticket style="hidden"}}
