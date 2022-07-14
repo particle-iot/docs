@@ -671,6 +671,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-06-03 | RK | Added note about module certification |
 |     | 2022-06-08 | RK | Added intended applications section, changed reference to ARM M4F to M33 | 
 |     | 2022-06-29 | RK | Added flash memory map |
+|     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
 
 ### D Pin Change (2022-02-25)
 

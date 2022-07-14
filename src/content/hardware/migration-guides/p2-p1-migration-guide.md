@@ -1114,3 +1114,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-03-23 | RK | Add notes about flash file system and EEPROM |
 |     | 2022-04-12 | RK | Added serial baud rates |
+|     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
