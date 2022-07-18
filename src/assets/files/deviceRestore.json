@@ -1,5 +1,6 @@
 {
   "versionNames": [
+    "5.0.0-alpha.1",
     "4.0.0-alpha.2",
     "4.0.0-alpha.1",
     "3.3.0",
@@ -301,6 +302,14 @@
       "bsom",
       "esomx",
       "tracker"
+    ],
+    "5.0.0-alpha.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "esomx",
+      "tracker"
     ]
   },
   "versionsZip": {
@@ -493,6 +502,14 @@
       "bsom",
       "esomx",
       "tracker"
+    ],
+    "5.0.0-alpha.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "esomx",
+      "tracker"
     ]
   },
   "platforms": [
@@ -580,6 +597,7 @@
   ],
   "versionsZipByPlatform": {
     "argon": [
+      "5.0.0-alpha.1",
       "4.0.0-alpha.2",
       "4.0.0-alpha.1",
       "3.3.0",
@@ -601,6 +619,7 @@
       "1.4.4"
     ],
     "boron": [
+      "5.0.0-alpha.1",
       "4.0.0-alpha.2",
       "4.0.0-alpha.1",
       "3.3.0",
@@ -622,6 +641,7 @@
       "1.4.4"
     ],
     "bsom": [
+      "5.0.0-alpha.1",
       "4.0.0-alpha.2",
       "4.0.0-alpha.1",
       "3.3.0",
@@ -643,6 +663,7 @@
       "1.4.4"
     ],
     "b5som": [
+      "5.0.0-alpha.1",
       "4.0.0-alpha.2",
       "4.0.0-alpha.1",
       "3.3.0",
@@ -663,6 +684,7 @@
       "1.5.2"
     ],
     "tracker": [
+      "5.0.0-alpha.1",
       "4.0.0-alpha.2",
       "4.0.0-alpha.1",
       "3.3.0",
