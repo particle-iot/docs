@@ -438,6 +438,10 @@ There is no software support for I2S on the P2, and while the RTL872x hardware s
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
 
 - On the P2, the internal pull varies by pin and can be approximately 2.1K, 22K, or 42K.
+  - Pins A0, A1, D2, D3, D4, D5, D10, S0, S1, S2 are 2.1K
+  - Pins D0, D1, S4, S5, S6 are 22K
+  - Pins A2, A5, D6, TX, RX are 42K
+  - Pins S4, S5, S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
 - On the Argon (Gen 3), the internal pull is approximately 13K.
 
 ### MODE button
@@ -1093,3 +1097,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-04-08 | RK | Added recommended pin mappings |
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
+|     | 2022-07-18 | RK | List which pins have which pull-up or pull-down value |
