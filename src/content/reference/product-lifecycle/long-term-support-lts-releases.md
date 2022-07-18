@@ -17,7 +17,7 @@ LTS releases **_are_**, however, supported by an extended support window which a
 
 ## Should I build my application on LTS releases?
 
-In general, **LTS releases are suitable and recommended for all customer applications** that do not require the latest features from the newest releases on our master branch. 
+In general, **LTS releases are suitable and recommended for all customer applications** that do not require the latest features from the newest feature releases. 
 
 Compared to standard Device OS releases, LTS releases are:
 
@@ -38,7 +38,21 @@ LTS releases are **not**:
 
 * **Feature-based releases. Incremental LTS releases focus on hardening functionality of existing features versus introducing new ones.**
 * **Cutting-edge releases**. LTS is not suitable for customers who want access to the newest features of the Particle platform
-* **Customizable**. We do not recommend that customers modify the default behavior of LTS releases, as such modifications may interfere with reliable performance and upgrades
+
+LTS versions have an even-numbered major version (2.x, 4.x, ...).
+
+## When should I use a feature release?
+
+In some cases, a new product is released out of cadence with a LTS version. Two examples are:
+
+- Tracker, which requires 3.x for most features
+- P2 and Photon 2, which will require 5.x
+
+The reason is that adding a new platform is considered to be a feature, so it cannot be added to an existing LTS release. 
+
+In some cases you will need a new feature before it's included in a LTS release. For example, 256K firmware binaries for Gen 3 devices were added in 3.1.0, and some customers needed this feature right away as they were already at the size limit.
+
+Feature release have an odd major version (3.x, 5.x, ...).
 
 ## LTS release cadence and support policy
 
@@ -60,11 +74,32 @@ Particle recommends that customers leveraging LTS for their applications upgrade
 
 ## LTS release process
 
-LTS releases are subject to a higher degree of testing and scrutiny than standard Device OS releases on our master branch. 
+LTS releases are subject to a higher degree of testing and scrutiny than standard Device OS releases on our development branch. 
 
 * LTS releases are identified months in advance and are scoped with a development roadmap that builds on existing stable releases and significantly limits any new feature development.
 * LTS releases go through sequential upgrade testing to ensure that incremental upgrades from previous LTS releases are delivered reliably
 * Before a release version can be labeled as an LTS release, it must spend a minimum of 6 weeks as a standard Device OS release where it is used and tested by thousands of developers
+
+## Release stages
+
+Both LTS and regular release may include one or more of the following stages:
+
+- Alpha. These releases have major changes. Alpha releases are for initial testing only and should not be used in production. Many releases will skip this stage.
+- Beta. More stable than alpha, but still should not be used on production devices.
+- Release Candidate. This release is close to final, but is not final yet. If you are planning to upgrade to this release you should test with a release candidate. The final release candidate is often released as a the final release with few or no changes, depending on customer feedback.
+- Final. At release that does not have the a, b, or rc label is a final release. At this point it will never be re-released; if an update is required it will have a new patch version number. Final releases can now be used in production.
+
+## What happens when a LTS version goes into ESM?
+
+For example: Device OS 2.3.0 is the current LTS release. This will be the ESM release for customers who wish to remain on 2.x LTS. 
+
+If you are using a Gen 2 device (E Series, Electron, P1, or Photon), these platforms were removed from 4.x and 5.x, and you should stay on 2.x LTS.
+
+The new LTS (4.x) and feature (5.x) releases are based on the latest feature release (3.3.0), so there will be changes from the 2.x release line. You should still upgrade to the latest LTS, but you should always test your firmware thoroughly on a major version upgrade.
+
+While 4.x and 5.x started from the same place, the 5.0.0-alpha.1 release adds in support for the P2 platform.
+
+Feature releases (3.x, for example) do not have an ESM phase, so once 5.0.0 final comes out, there will not be additional updates after 3.3.0.
 
 ## Switching Between Release Lines
 

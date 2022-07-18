@@ -644,7 +644,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 | Parameter |                                       | GPS & GLONASS | GPS      | GLONASS  | BeiDou   | Galileo  |
 | :--- | :---                                       | :---          | :---     | :---     | :---     | :---     |
 | Time-To-First Fix<sup>5</sup> | Cold start        | 26s           | 30s      | 31s      | 39s      | 57s      |
-|                               | Hot start         | 1.5s          | 1.5s     | 1.5s     | 15.s     | 1.5s     |
+|                               | Hot start         | 1.5s          | 1.5s     | 1.5s     | 1.5s     | 1.5s     |
 |                  | Aided start<sup>6</sup>        | 3s            | 3s       | 3s       | 7s       | 7s       |
 | Sensitivity <sup>78</sup> | Tracking & Navigation | -160 dBm      | -160 dBm | -157 dBm | -160 dBm | -154 dBm |
 |                           | Reacquisiton          | -160 dBm      | -159 dBm | -156 dBm | -155 dBm | -152 dBm |
@@ -1303,3 +1303,4 @@ The bootloader allows you to easily update the user application via several diff
 | 017      | 2021 Jul 28 | RK | Added mechanical drawing |
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
 | 019      | 2021 Sep 23 | RK | Corrected part number for CAN step-up converter |
+| 020      | 2022 Jul 18 | RK | Correct typo in hot start time on Beidou |
