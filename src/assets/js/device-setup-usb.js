@@ -1480,6 +1480,10 @@ $(document).ready(function() {
                     $('.apiHelperLoggedIn').hide();
                 }
             }
+            else {
+                // restore mode just go to select device
+                setSetupStep('setupStepSelectDevice');
+            }
         };
         checkAccount();
 
