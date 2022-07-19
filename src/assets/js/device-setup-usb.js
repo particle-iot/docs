@@ -66,6 +66,11 @@ $(document).ready(function() {
         let flashDeviceOptions = {};
         let userInfo;
 
+        let ticketOptions = {
+            subject: 'Request from Device Doctor',
+            message: 'Describe your problem here:\n\n\nAdditional information provided by Device Doctor:\n',
+        }
+
         const minimumDeviceOsVersion = '2.1.0';
 
         const setStatus = function(status) {
@@ -697,7 +702,9 @@ $(document).ready(function() {
                             if (mccmnc) {
                                 for(const obj of mccmnc) {
                                     if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);                                        
+                                        setInfoTableItemObj(obj);
+                                        
+                                        ticketOptions.message += 'Country: ' + obj.country + ' Carrier:' + obj.name + '\n';
                                     }
                                 }
                             }                                          
@@ -1048,6 +1055,9 @@ $(document).ready(function() {
                 deviceInfo.platformId = usbDevice.platformId;
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
+
+                ticketOptions.message += 'Device ID: ' + deviceInfo.deviceId + '\n';
+                ticketOptions.message += 'Platform ID: ' + deviceInfo.platformId + '\n';
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -1675,6 +1685,7 @@ $(document).ready(function() {
                         }
     
                         deviceInfo.iccid = respObj.iccid;
+                        ticketOptions.message += 'ICCID: ' + deviceInfo.iccid + '\n';
 
                         // 
                         if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
@@ -1841,6 +1852,8 @@ $(document).ready(function() {
 
             reqObj = {
                 op: 'connect',
+                ethernet: setupOptions.ethernet,
+                keepAlive: setupOptions.keepAlive,
             };
             await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
 
@@ -2188,6 +2201,8 @@ $(document).ready(function() {
             const setupNoClaimElem = $(thisElem).find('.setupNoClaim');
             $(setupNoClaimElem).prop('checked', false);
 
+            const hasEthernetRowElem = $(thisElem).find('.hasEthernetRow');
+
             // Setup mode
             const setupModeSettingsElem = $(thisElem).find('.setupModeSettings');
             const setupAddToProductElem = $(setupModeSettingsElem).find('.setupAddToProduct');
@@ -2197,9 +2212,9 @@ $(document).ready(function() {
             const setupDevelopmentDeviceRowElem = $(setupModeSettingsElem).find('.setupDevelopmentDeviceRow');
             const setupDevelopmentDeviceElem = $(setupModeSettingsElem).find('.setupDevelopmentDevice');
             const setupDeviceOsVersionElem = $(setupModeSettingsElem).find('.setupDeviceOsVersion');
-
             const setupDeviceButtonElem = $('.setupSetupDeviceButton');
             const userFirmwareUrlElem = $('.apiHelperUsbRestoreDeviceUrl');
+            const setupUseEthernetElem = $(thisElem).find('.setupUseEthernet');
 
             // Tracker setup
             const trackerProductSettingsElem = $(thisElem).find('.trackerProductSettings');
@@ -2227,6 +2242,13 @@ $(document).ready(function() {
             const updateNcpCheckboxElem = $(thisElem).find('.updateNcpCheckbox');
             const forceUpdateElem = $(thisElem).find('.forceUpdate');
             
+            // Doctor mode
+            const doctorModeSettingsElem = $(thisElem).find('.doctorModeSettings');
+            const doctorUseEthernetElem = $(thisElem).find('.doctorUseEthernet');
+            const doctorSetKeepAliveCheckboxElem = $(thisElem).find('.doctorSetKeepAliveCheckbox');
+            const doctorKeepAliveInputElem = $(thisElem).find('.doctorKeepAliveInput');
+
+
             $('.apiHelperProductDestination').each(function() {
                 $(this).data('filterPlatformId', deviceInfo.platformId);
                 $(this).data('updateProductList')();    
@@ -2285,7 +2307,17 @@ $(document).ready(function() {
                     $(setupDeviceOsVersionElem).append(optionElem);
                 }
             }
+
+            if (deviceInfo.platformVersionInfo.gen == 2) {
+                // No Ethernet option on Gen 2
+                $(hasEthernetRowElem).hide();
+            }
+
             
+            if (mode == 'doctor') {
+               
+            }
+            else
             if (mode == 'restore') {                
                 const lastVersion = $(versionElem).val();
                 $(versionElem).empty();
@@ -2411,8 +2443,8 @@ $(document).ready(function() {
                         console.log('product change ' + $(productSelectElem).val());
                     });
         
-        
                 }
+
             }
 
             const showSimSelectionOption = (deviceInfo.platformId == 13);
@@ -2424,6 +2456,14 @@ $(document).ready(function() {
             else {
                 $(setupSimSelectionRowElem).hide();
             }
+
+            $(doctorUseEthernetElem).on('click', function() {
+                if ($(doctorUseEthernetElem).prop('checked')) {
+                    if (!$(doctorSetKeepAliveCheckboxElem).prop('checked')) {
+                        $(doctorSetKeepAliveCheckboxElem).prop('checked', true);
+                    }
+                }
+            });
 
             $(forceUpdateElem).on('click', checkButtonEnable);
 
@@ -2522,11 +2562,18 @@ $(document).ready(function() {
                             setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
                         }                            
                     }
+                    setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
 
                     flashDeviceOptions.setupBit = 'done';
                 }
                 else {
                     // mode == doctor
+                    setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
+
+                    if ($(doctorSetKeepAliveCheckboxElem).prop('checked')) {
+                        setupOptions.keepAlive = parseInt($(doctorKeepAliveInputElem).val());
+                    }
+                    
                     flashDeviceOptions.setupBit = 'done';
                 }
 
@@ -2946,6 +2993,10 @@ $(document).ready(function() {
                     else {
                         setupOptions.noClaim = true;    
                     }
+                    // In doctor, if there is an org, enable the ticket button
+                    if (apiHelper.selectedOrg) {
+                        $('.ticketButtonDiv').show();
+                    }
                 }
                 
                 if (setupOptions.noClaim) {
@@ -2954,6 +3005,7 @@ $(document).ready(function() {
 
                 showDeviceLogs();
 
+                
                 const waitOnlineStepsElem = $(thisElem).find('.waitOnlineSteps');
     
                 // waitOnlineSteps
@@ -3199,6 +3251,14 @@ $(document).ready(function() {
                 fileReader.readAsArrayBuffer(file);
             
             }
+        });
+
+        $(thisElem).find('.ticketButton').on('click', function() {
+            $('.ticketButtonDiv').hide();
+
+            ticketOptions.message += '\nLogs:\n' + $('.deviceLogsText').val();
+
+            apiHelper.showTicketPanel(ticketOptions);
         });
 
 

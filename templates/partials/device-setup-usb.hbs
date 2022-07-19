@@ -144,16 +144,20 @@
                 </p>
                 <p><button class="setupRestoreDeviceButton apiHelperButton">Restore firmware from backup file</button><input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></p>
                 </div> <!-- restorePane -->
+                <div class="doctorMode">
+                    <details style="padding-top: 100px" class="doctorModeSettings">
+                        <summary>Advanced Options</summary>
+                        <p class="hasEthernetRow"><label><input type="checkbox" class="doctorUseEthernet"/>Use Ethernet for connectivity</label></p>
+                        <p><label><input type="checkbox" class="doctorSetKeepAliveCheckbox"/>Set keep-alive to </label> <input type="text" size="6" value="120" class="doctorKeepAliveInput" /> seconds</p>
+                    </details>
+                </div>
                 <div class="setupMode">
                     <details style="padding-top: 100px" class="setupModeSettings">
                         <summary>Advanced Setup Options</summary>
                         <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
-
                         <p>Device OS Version: <select class="setupDeviceOsVersion apiHelperSelect">
                         </select></p>
-
                         <p><label><input type="checkbox" class="setupNoClaim"/>Do not claim device</label></p>
-                        
                         <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
                         <table class="apiHelperTableNoMargin setupAddToProductSelector" style="display:none">
                             <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
@@ -166,15 +170,13 @@
                                 <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
                             </tbody>
                         </table>
-
                         <p class="setupDevelopmentDeviceRow" style="display:none"><label><input type="checkbox" class="setupDevelopmentDevice"/>Mark as development device</label></p>
-
                         <p class="setupSimSelectionRow" style="display:none">SIM Select: <select class="setupSimSelect apiHelperSelect">
                             <option value="0">No change</option>
                             <option value="1">Internal SIM (MFF2 SMD Particle SIM)</option>
                             <option value="2">External SIM (4FF)</option>
                         </select></p>
-
+                        <p class="hasEthernetRow"><label><input type="checkbox" class="setupUseEthernet"/>Use Ethernet for connectivity</label></p>
                     </details>
                 </div>
                 <div class="restoreMode">
@@ -634,6 +636,10 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="ticketButtonDiv" style="display:none" style="padding-top:20px;">
+            <p>Still having trouble? You can create a support ticket for help with this issue.</p>
+            <p><button class="ticketButton">Create support ticket</button></p>
         </div>
         <div class="setupStatus">
         </div>
