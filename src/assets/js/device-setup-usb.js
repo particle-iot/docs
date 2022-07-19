@@ -66,6 +66,11 @@ $(document).ready(function() {
         let flashDeviceOptions = {};
         let userInfo;
 
+        let ticketOptions = {
+            subject: 'Request from Device Doctor',
+            message: 'Describe your problem here:\n\n\nAdditional information provided by Device Doctor:\n',
+        }
+
         const minimumDeviceOsVersion = '2.1.0';
 
         const setStatus = function(status) {
@@ -697,7 +702,9 @@ $(document).ready(function() {
                             if (mccmnc) {
                                 for(const obj of mccmnc) {
                                     if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);                                        
+                                        setInfoTableItemObj(obj);
+                                        
+                                        ticketOptions.message += 'Country: ' + obj.country + ' Carrier:' + obj.name + '\n';
                                     }
                                 }
                             }                                          
@@ -1048,6 +1055,9 @@ $(document).ready(function() {
                 deviceInfo.platformId = usbDevice.platformId;
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
+
+                ticketOptions.message += 'Device ID: ' + deviceInfo.deviceId + '\n';
+                ticketOptions.message += 'Platform ID: ' + deviceInfo.platformId + '\n';
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -1675,6 +1685,7 @@ $(document).ready(function() {
                         }
     
                         deviceInfo.iccid = respObj.iccid;
+                        ticketOptions.message += 'ICCID: ' + deviceInfo.iccid + '\n';
 
                         // 
                         if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
@@ -2946,6 +2957,10 @@ $(document).ready(function() {
                     else {
                         setupOptions.noClaim = true;    
                     }
+                    // In doctor, if there is an org, enable the ticket button
+                    if (apiHelper.selectedOrg) {
+                        $('.ticketButtonDiv').show();
+                    }
                 }
                 
                 if (setupOptions.noClaim) {
@@ -2954,6 +2969,7 @@ $(document).ready(function() {
 
                 showDeviceLogs();
 
+                
                 const waitOnlineStepsElem = $(thisElem).find('.waitOnlineSteps');
     
                 // waitOnlineSteps
@@ -3199,6 +3215,14 @@ $(document).ready(function() {
                 fileReader.readAsArrayBuffer(file);
             
             }
+        });
+
+        $(thisElem).find('.ticketButton').on('click', function() {
+            $('.ticketButtonDiv').hide();
+
+            ticketOptions.message += '\nLogs:\n' + $('.deviceLogsText').val();
+
+            apiHelper.showTicketPanel(ticketOptions);
         });
 
 

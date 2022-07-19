@@ -43,16 +43,25 @@ $(document).ready(function() {
         });
     };
 
+    apiHelper.showTicketPanel = function(options) {
+        const ticketPanel = $('.apiHelperSupportTicket');
+
+        const ops = $(ticketPanel).data('ops');
+
+        ops.updateSubjectMessage(options);
+        ops.showPanel();
+    };
+
     $('.apiHelperSupportTicket').each(function() {
         const thisElem = $(this);
 
-        const boxDivElem = $(thisElem).find('.apiHelperBox');
+        //const boxDivElem = $(thisElem).find('.apiHelperBox');
         const submitTicketDivElem = $(thisElem).find('.submitTicketDiv');
         const loginRequiredDivElem = $(thisElem).find('.loginRequiredDiv');
         const isFreeTierDivElem = $(thisElem).find('.isFreeTierDiv');
         const usernameFieldElem = $(thisElem).find('.usernameField');
         const organizationFieldElem = $(thisElem).find('.organizationField');
-        const subjectRowElem = $(thisElem).find('.subjectRow');
+        //const subjectRowElem = $(thisElem).find('.subjectRow');
         const subjectInputElem = $(thisElem).find('.subjectRow').find('input');
         const messageFieldElem = $(thisElem).find('.messageField');
         const submitButtonElem = $(thisElem).find('.submitButton');
@@ -98,10 +107,13 @@ $(document).ready(function() {
         $('.apiHelper').on('selectedOrgUpdated', updateSupportAvailable);
 
         const showPanel = function() {
-            $(boxDivElem).show();
+            $(thisElem).show();
             updateSupportAvailable();
             enableButtons();    
-        };
+            const pos = $(thisElem).position().top;
+            $('.content-inner').scrollTop(pos);
+          };
+        
 
         $(thisElem).data('ops', {
             showPanel, 
@@ -123,7 +135,7 @@ $(document).ready(function() {
         $(messageFieldElem).on('input', enableButtons);
 
         if (style == 'hidden') {
-            $(boxDivElem).hide();
+            $(thisElem).hide();
         }
         else {
             showPanel();
