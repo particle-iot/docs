@@ -43,6 +43,8 @@ $(document).ready(function () {
                 description: 'What kind of issue are you experiencing?',
                 buttons: [
                     {
+                        title: 'Help with my order',
+                        page: 360001073373,
                     },
                 ],
             },
@@ -77,6 +79,23 @@ $(document).ready(function () {
                     { id: 360056120693, value:'cannot_log_in__error_in_login_page_'},
                 ],                
             },
+            {
+                page: 105,
+                title: 'Ticket submitted!',
+                note: 'ticket-submitted.md',
+            },
+            {
+                page: 106,
+                title: 'Error submitting ticket',
+                description: 'An error occurred submitting your support ticket request.',
+            },
+            {
+                page: 107,
+                title: 'Help with my order',
+                fields: [
+                    { id: 360026060074 },
+                ],
+            },
         ];
 
         let pageStack = [];
@@ -103,7 +122,13 @@ $(document).ready(function () {
 
 
         const showPage = async function(page) {
-            const pageObj = decisionTree.find(e => e.page == page);
+            let pageObj = decisionTree.find(e => e.page == page);
+            if (!pageObj) {
+                pageObj = ticketForms.ticketForms.find(e => e.id == page);
+                if (pageObj) {
+                    pageObj.ticketForm = page;
+                }
+            }
 
             ga('send', 'event', gaCategory, 'showPage', page);
 
@@ -136,6 +161,7 @@ $(document).ready(function () {
                 const fieldDivElem = document.createElement('div');
                 $(fieldDivElem).addClass('apiHelperTroubleshootingField')
     
+                let valElem;
 
                 if (fieldSpecObj.title) {
                     const titleElem = document.createElement('div');
@@ -151,6 +177,11 @@ $(document).ready(function () {
                     $(inputElem).attr('size', '60');
                     $(entryElem).append(inputElem);
 
+                    if (fieldSpecObj.value) {
+                        $(inputElem).val(fieldSpecObj.value);
+                        $(inputElem).prop('readonly', true);
+                    }
+
                     $(inputElem).on('input', validateForm);
                 }
                 else
@@ -161,6 +192,42 @@ $(document).ready(function () {
                     $(entryElem).append(textareaElem);
 
                     $(textareaElem).on('input', validateForm);
+                }
+                else
+                if (fieldSpecObj.type == 'tagger') {
+                    const selectElem = valElem = document.createElement('select');
+                    $(selectElem).addClass('apiHelperSelect');
+
+                    let hasDefault = false;
+                    for(f of fieldSpecObj.customFields) {
+                        if (f.default) {
+                            hasDefault = true;
+                        }
+                    }
+                    if (!hasDefault) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).text('-');
+                        $(optionElem).prop('value', '-')
+                        $(optionElem).prop('selected', true);
+
+                        $(selectElem).append(optionElem);
+                    }
+
+                    for(f of fieldSpecObj.customFields) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).text(f.name);
+                        $(optionElem).prop('value', f.value)
+                        // $(optionElem).data('valueId', f.id);
+
+                        $(selectElem).append(optionElem);
+                    }
+
+                    $(entryElem).append(selectElem);
+
+                    $(selectElem).on('change', function() {
+
+                    });
+
                 }
                 $(fieldDivElem).append(entryElem);
                 
@@ -212,24 +279,32 @@ $(document).ready(function () {
                     type: 'text',
                     field: 'email',
                     required: true,
+                    value: apiHelper.auth ? apiHelper.auth.username : undefined,
                 });
             }
 
             if (pageObj.fields) {
+                const ignoreFields = [
+                    22020244, // subject
+                    22020254, // description
+                ];
+
                 for(const fieldObj of pageObj.fields) {
                     const fieldSpecObj = ticketForms.ticketFields.find(e => e.id == fieldObj.id);
                     if (fieldSpecObj) {
                         if (!fieldObj.value) {
-                            addField(fieldSpecObj);
+                            if (!ignoreFields.includes(fieldObj.id)) {
+                                addField(fieldSpecObj);
+                            }
                         }                    
                         else {
                             fields.push({
                                 fieldSpecObj,
                                 customField: fieldSpecObj.id,
                                 value: fieldObj.value,
-                            });
+                            });    
                         }
-                    }
+                    }    
                 }
             }
 
@@ -249,7 +324,7 @@ $(document).ready(function () {
                 $(buttonElem).text('Submit support request');
                 $(pageDivElem).append(buttonElem);
 
-                $(buttonElem).on('click', function() {
+                $(buttonElem).on('click', async function() {
                     $(buttonElem).prop('disabled');
 
                     let options = {
@@ -283,9 +358,20 @@ $(document).ready(function () {
 
                     console.log('options', options);
 
-                    ga('send', 'event', gaCategory, 'ticketSubmit', pageObj.ticketForm);
 
-                    apiHelper.ticketSubmit(options);
+                    try {
+                        const resp = await apiHelper.ticketSubmit(options);
+                        console.log('resp', resp);
+
+                        ga('send', 'event', gaCategory, 'ticketSubmitSuccess', pageObj.ticketForm);
+                        showPage(105); // Ticket submitted
+                    }
+                    catch(e) {
+                        console.log('exception submitting ticket');
+                        ga('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
+                        showPage(106); // Ticket error
+                    }
+                    
 
                 });
             }
@@ -318,14 +404,19 @@ $(document).ready(function () {
 
             $(thisPartial).append(pageDivElem);
 
-            validateForm();
-
             pageStack.push({
                 page,
                 pageObj,
                 pageDivElem,
             });
 
+            // Enable buttons on the new page
+            validateForm();
+
+            // Scroll new page into view
+            const pos = $(pageDivElem).position().top;
+            $('.content-inner').scrollTop(pos);
+            
             updateUrl();
         };
 

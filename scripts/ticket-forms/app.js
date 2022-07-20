@@ -90,6 +90,7 @@ async function run() {
         if (options.export) {
             let exportData = {
                 ticketFields: [],
+                ticketForms: [],
             };
 
             for(const f of data.ticketFields) {
@@ -111,6 +112,8 @@ async function run() {
                             obj.customFields.push({
                                 name: opt.name,
                                 value: opt.value,
+                                id: opt.id,
+                                default: opt.default,
                             });
                         }
                     }
@@ -118,6 +121,34 @@ async function run() {
                     exportData.ticketFields.push(obj);
                 }
             }
+
+            const exportForms = [360001073373];
+
+            for(const f of data.ticketForms) {
+                if (!exportForms.includes(f.id)) {
+                    continue;
+                }
+                const obj = {
+                    id: f.id,
+                    title: f.display_name,
+                    fields: [],
+                    conditions: f.end_user_conditions,
+                };
+
+                for(const fieldId of f.ticket_field_ids) {
+                    const fieldObj = data.ticketFields.find(e => e.id == fieldId);
+                    if (fieldObj) {
+                        if (fieldObj.visible_in_portal) {
+                            obj.fields.push({id: fieldObj.id});
+                        }
+                    }
+                }
+
+                console.log('obj', obj);
+                exportData.ticketForms.push(obj);
+
+            }
+
             
             fs.writeFileSync(path.join(outputDir, 'ticketForms.json'), JSON.stringify(exportData, null, 4));
         }
