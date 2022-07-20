@@ -184,9 +184,9 @@ It requires these jumpers, which should be installed at the factory:
 
 To use the MicroSD card, you must add the jumpers:
 
-- SD_MISO to PWM0 (D4, SPI1 MISO)
-- SD_SCK to RTS (D2, SPI1 SCK)
-- SD_MOSI to CTS (D3, SPI1 MOSI)
+- SD_MISO to SPI MISO
+- SD_SCK to SPI SCK
+- SD_MOSI to SPI MOSI
 - SD_CS to PWM1 (D5)
 - SD_DECT to PWM2 (D6) (optional)
 
@@ -196,9 +196,9 @@ With the jumpers installed, it will use the secondary SPI (SPI1) and pin D5 as t
 
 | Micro SD | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
-| SD\_MISO | P1.8 | D4 / PWM0 / SPI1 MISO | 66 |
-| SD\_SCK | P1.12 | D2 / RTS / SPI1 SCK | 42 |
-| SD\_MOSI | P1.1 | D3 / CTS / SPI1 MOSI | 40 |
+| SD\_MISO | P1.14 | D11 / SPI MISO | 50 |
+| SD\_SCK | P1.15 | D13 / SPI SCK | 54 |
+| SD\_MOSI | P1.13 | D12 / SPI MOSI | 52 |
 | SD\_CS | P1.10 | D5 / PWM1 | 68 |
 | SD\_DET | P1.11 | D6 / PWM2 | 70 |
 
@@ -219,11 +219,12 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | W5500 | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
 | ETH\_CS | P1.03 | D8 | 48 |
-| ETH\_SCK | P1.15 | D13 | 13
-| ETH\_MISO | P1.14 | D11 | 11 |
-| ETH\_MOSI | P1.13 | D12 | 12
+| ETH\_MISO | P1.14 | D11 / SPI MISO | 50 |
+| ETH\_SCK | P1.15 | D13 / SPI SCK | 54 |
+| ETH\_MOSI | P1.13 | D12 / SPI MOSI | 52 |
 | RST_N | P0.02 | A7 (D20) | 47 |
 | ETH\_INT | P0.24 | D22 | 62 |
+
 
 ### Using the Grove Connectors
 
@@ -291,5 +292,5 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | 001      | 29 Apr 2019 | RK | Initial Release |
 | 002      | 21 Jan 2020 | RK | Remove mesh |
 | 003      |  3 Feb 2020 | RK | Correct pins for SD card |
-
+| 004      | 20 Jul 2022 | RK | Correct pins for SD and Ethernet SPI, which are SPI not SPI1 |
 
