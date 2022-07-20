@@ -30,11 +30,11 @@ $(document).ready(function () {
                     },
                     {
                         title: 'I cannot login because I don\'t know my username or password',
-                        ticketForm: 360006636853,
+                        page: 103,
                     },
                     {
                         title: 'I cannot login due to an error in the login page',
-                        ticketForm: 360006636853,
+                        page: 104,
                     },
                  ],
             },
@@ -54,7 +54,28 @@ $(document).ready(function () {
                 fields: [
                     { id: 360056036113 }, // Account email
                     { id: 360055034734 }, // Last 4 of credit card  
-                ],
+                    { id: 360056120693, value:'blocked_from_logging_in_due_to_2fa/mfa_issue'},
+                ],                
+            },
+            {
+                page: 103,
+                title: 'I cannot login because I don\'t know my username or password',
+                ticketForm: 360006636853,
+                note: 'recover-account.md',
+                fields: [
+                    { id: 360055034734 }, // Last 4 of credit card  
+                    { id: 360056120693, value:'i_don_t_know_my_login_credentials'},
+                ],                
+            },
+            {
+                page: 104,
+                title: 'I cannot login due to an error in the login page',
+                ticketForm: 360006636853,
+                fields: [
+                    { id: 360055034774 }, // Browser Type
+                    { id: 1500000021382 }, // VPN
+                    { id: 360056120693, value:'cannot_log_in__error_in_login_page_'},
+                ],                
             },
         ];
 
@@ -91,16 +112,30 @@ $(document).ready(function () {
             $(pageDivElem).addClass('apiHelperTroubleshootingPage');
 
             let fields = [];
+            let submitButton;
 
             const validateForm = function() {
+                let isValid = true;
 
+                for(const field of fields) {
+                    if (field.fieldSpecObj.required) {
+                        if (field.valElem) {
+                            const v = $(field.valElem).val();
+                            if (v.trim() == '') {
+                                isValid = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                $(submitButton).prop('disabled', !isValid);
             };
 
             const addField = function(fieldSpecObj) {
                 const fieldDivElem = document.createElement('div');
                 $(fieldDivElem).addClass('apiHelperTroubleshootingField')
     
-                let valElem;
 
                 if (fieldSpecObj.title) {
                     const titleElem = document.createElement('div');
@@ -113,9 +148,10 @@ $(document).ready(function () {
                 if (fieldSpecObj.type == 'text') {
                     const inputElem = valElem= document.createElement('input');
                     $(inputElem).attr('type', 'text');
+                    $(inputElem).attr('size', '60');
                     $(entryElem).append(inputElem);
 
-                    $(inputElem).on('input, validateForm');
+                    $(inputElem).on('input', validateForm);
                 }
                 else
                 if (fieldSpecObj.type == 'textarea') {
@@ -124,7 +160,7 @@ $(document).ready(function () {
                     $(textareaElem).attr('cols', '100');
                     $(entryElem).append(textareaElem);
 
-                    $(textareaElem).on('input, validateForm');
+                    $(textareaElem).on('input', validateForm);
                 }
                 $(fieldDivElem).append(entryElem);
                 
@@ -136,13 +172,14 @@ $(document).ready(function () {
                 }
                 
     
-                $(pageDivElem).append(fieldDivElem);
+                $(pageDivElem).append(fieldDivElem);    
 
                 fields.push({
-                    fieldSpecObject,
+                    fieldSpecObj,
+                    fieldDivElem,
                     valElem,
-                    field: fieldSpecObject.field,
-                    customField: fieldSpecObject.id,
+                    field: fieldSpecObj.field,
+                    customField: fieldSpecObj.id,
                 });
             }
 
@@ -182,8 +219,17 @@ $(document).ready(function () {
                 for(const fieldObj of pageObj.fields) {
                     const fieldSpecObj = ticketForms.ticketFields.find(e => e.id == fieldObj.id);
                     if (fieldSpecObj) {
-                        addField(fieldSpecObj);
-                    }                
+                        if (!fieldObj.value) {
+                            addField(fieldSpecObj);
+                        }                    
+                        else {
+                            fields.push({
+                                fieldSpecObj,
+                                customField: fieldSpecObj.id,
+                                value: fieldObj.value,
+                            });
+                        }
+                    }
                 }
             }
 
@@ -199,12 +245,47 @@ $(document).ready(function () {
                     field: 'body',
                 });
 
-                const buttonElem = document.createElement('button');
+                const buttonElem = submitButton = document.createElement('button');
                 $(buttonElem).text('Submit support request');
                 $(pageDivElem).append(buttonElem);
 
                 $(buttonElem).on('click', function() {
                     $(buttonElem).prop('disabled');
+
+                    let options = {
+                        ticketFormId: pageObj.ticketForm
+                    };
+
+                    for(const field of fields) {
+                        let val = '';
+                        if (field.value) {
+                            val = field.value;
+                        }
+                        else
+                        if (field.valElem) {
+                            val = $(field.valElem).val();
+                        }
+
+                        if (field.field) {
+                            options[field.field] = val;
+                        }
+
+                        if (field.fieldSpecObj.id) {
+                            if (!options.customFields) {
+                                options.customFields = [];
+                            }
+                            options.customFields.push({
+                                id: field.fieldSpecObj.id,
+                                value: val
+                            });
+                        }
+                    }
+
+                    console.log('options', options);
+
+                    ga('send', 'event', gaCategory, 'ticketSubmit', pageObj.ticketForm);
+
+                    apiHelper.ticketSubmit(options);
 
                 });
             }
@@ -251,8 +332,6 @@ $(document).ready(function () {
         const run = async function() {
             const formsFetch = await fetch(ticketFormDataUrl);
             ticketForms = await formsFetch.json();
-
-            console.log('ticketForms', ticketForms);
 
             if (apiHelper.auth) {
                 // Have a token, verify it

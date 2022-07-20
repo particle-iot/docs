@@ -1,4 +1,4 @@
-If you have lost/replaced your mobile device and also do not have any of the one-time recovery passcodes at hand you will have to submit a support request.
+If you don't know the email address you used for your Particle account you will have to submit a support request.
 
 In order for us to authenticate you (i.e. ensure that you are the actual account owner), we will need you to submit in your support request the last four digits and expiry date of the credit card associated with your account.
 
