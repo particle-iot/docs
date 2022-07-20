@@ -18,6 +18,8 @@ $(document).ready(function() {
                     comment: {
                         body: options.body,
                     },
+                    ticket_form_id: options.ticketFormId,
+                    custom_fields: options.customFields,
                 }
             };
 

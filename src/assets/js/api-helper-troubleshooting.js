@@ -4,6 +4,11 @@ $(document).ready(function () {
         const thisPartial = $(this);
 
         const gaCategory = 'troubleshootingTool';
+        const notesUrlBase = '/notes/';
+        const ticketFormDataUrl = '/assets/files/ticketForms.json';
+
+
+        let ticketForms;
 
         // Decision tree definition
         const decisionTree = [
@@ -43,9 +48,13 @@ $(document).ready(function () {
             },
             {
                 page: 102,
-                description: 'I am blocked from logging in due to multi-factor authentication (2FA/MFA)',
+                title: 'I am blocked from logging in due to multi-factor authentication (2FA/MFA)',
+                note: 'lost-mfa.md',
                 ticketForm: 360006636853,
-                
+                fields: [
+                    { id: 360056036113 }, // Account email
+                    { id: 360055034734 }, // Last 4 of credit card  
+                ],
             },
         ];
 
@@ -56,6 +65,7 @@ $(document).ready(function () {
         }
 
         const clearPagesBelow = function(page) {
+            console.log('clearPagesBelow ' + page);
             for(let ii = 0; ii < pageStack.length; ii++) {
                 if (pageStack[ii].page == page) {
                     $(pageStack[ii].pageDivElem).find('.apiHelperGiantButtonSelected').removeClass('apiHelperGiantButtonSelected');
@@ -63,24 +73,142 @@ $(document).ready(function () {
                     for(let jj = ii + 1; jj < pageStack.length; jj++) {
                         $(pageStack[jj].pageDivElem).remove();
                     }
-                    pageStack.splice(ii);
+                    pageStack.splice(ii + 1);
                     break;
                 }
             }
             updateUrl();
         };
 
-        const showPage = function(page) {
+
+        const showPage = async function(page) {
             const pageObj = decisionTree.find(e => e.page == page);
 
             ga('send', 'event', gaCategory, 'showPage', page);
 
             const pageDivElem = document.createElement('div');
             $(pageDivElem).data('page', page);
+            $(pageDivElem).addClass('apiHelperTroubleshootingPage');
 
-            const descriptionElem = document.createElement('div');
-            $(descriptionElem).text(pageObj.description);
-            $(pageDivElem).append(descriptionElem);
+            let fields = [];
+
+            const validateForm = function() {
+
+            };
+
+            const addField = function(fieldSpecObj) {
+                const fieldDivElem = document.createElement('div');
+                $(fieldDivElem).addClass('apiHelperTroubleshootingField')
+    
+                let valElem;
+
+                if (fieldSpecObj.title) {
+                    const titleElem = document.createElement('div');
+                    $(titleElem).text(fieldSpecObj.title);
+                    $(fieldDivElem).append(titleElem);    
+                }
+    
+                const entryElem = document.createElement('div');
+                $(entryElem).addClass('apiHelperTroubleshootingInput');
+                if (fieldSpecObj.type == 'text') {
+                    const inputElem = valElem= document.createElement('input');
+                    $(inputElem).attr('type', 'text');
+                    $(entryElem).append(inputElem);
+
+                    $(inputElem).on('input, validateForm');
+                }
+                else
+                if (fieldSpecObj.type == 'textarea') {
+                    const textareaElem = valElem = document.createElement('textarea');
+                    $(textareaElem).attr('rows', '10');
+                    $(textareaElem).attr('cols', '100');
+                    $(entryElem).append(textareaElem);
+
+                    $(textareaElem).on('input, validateForm');
+                }
+                $(fieldDivElem).append(entryElem);
+                
+                if (fieldSpecObj.description) {
+                    const descriptionElem = document.createElement('div');
+                    $(descriptionElem).addClass('apiHelperTroubleshootingDescription');
+                    $(descriptionElem).text(fieldSpecObj.description);
+                    $(fieldDivElem).append(descriptionElem);
+                }
+                
+    
+                $(pageDivElem).append(fieldDivElem);
+
+                fields.push({
+                    fieldSpecObject,
+                    valElem,
+                    field: fieldSpecObject.field,
+                    customField: fieldSpecObject.id,
+                });
+            }
+
+
+            if (pageObj.title) {
+                const titleElem = document.createElement('h3');
+                $(titleElem).text(pageObj.title);
+                $(pageDivElem).append(titleElem);    
+            }
+            if (pageObj.description) {
+                const descriptionElem = document.createElement('div');
+                $(descriptionElem).text(pageObj.description);
+                $(pageDivElem).append(descriptionElem);    
+            }
+
+            if (pageObj.note) {
+                const url = notesUrlBase + pageObj.note.replace('.md', '/index.html');
+
+                const noteFetch = await fetch(url);
+                const html = await noteFetch.text();
+
+                const noteElem = document.createElement('div');
+                $(noteElem).html(html);
+                $(pageDivElem).append(noteElem);
+            }
+
+            if (pageObj.ticketForm) {
+                addField({
+                    title: 'Email address',
+                    type: 'text',
+                    field: 'email',
+                    required: true,
+                });
+            }
+
+            if (pageObj.fields) {
+                for(const fieldObj of pageObj.fields) {
+                    const fieldSpecObj = ticketForms.ticketFields.find(e => e.id == fieldObj.id);
+                    if (fieldSpecObj) {
+                        addField(fieldSpecObj);
+                    }                
+                }
+            }
+
+            if (pageObj.ticketForm) {
+                addField({
+                    title: 'Subject',
+                    type: 'text',
+                    field: 'subject',
+                });
+                addField({
+                    title: 'Description',
+                    type: 'textarea',
+                    field: 'body',
+                });
+
+                const buttonElem = document.createElement('button');
+                $(buttonElem).text('Submit support request');
+                $(pageDivElem).append(buttonElem);
+
+                $(buttonElem).on('click', function() {
+                    $(buttonElem).prop('disabled');
+
+                });
+            }
+
 
             if (pageObj.buttons) {
                 for(const buttonObj of pageObj.buttons) {
@@ -107,12 +235,9 @@ $(document).ready(function () {
                 }    
             }
 
-            const separatorElem = document.createElement('div');
-            $(separatorElem).addClass('apiHelperTroubleshootingSeparator');
-            $(separatorElem).html('&nbsp;');
-            $(pageDivElem).append(separatorElem);
-
             $(thisPartial).append(pageDivElem);
+
+            validateForm();
 
             pageStack.push({
                 page,
@@ -123,15 +248,24 @@ $(document).ready(function () {
             updateUrl();
         };
 
+        const run = async function() {
+            const formsFetch = await fetch(ticketFormDataUrl);
+            ticketForms = await formsFetch.json();
 
-        if (apiHelper.auth) {
-            // Have a token, verify it
-            showPage(101);
-        }
-        else {
-            // No token
-            showPage(100);
-        }
+            console.log('ticketForms', ticketForms);
+
+            if (apiHelper.auth) {
+                // Have a token, verify it
+                showPage(101);
+            }
+            else {
+                // No token
+                showPage(100);
+            }
+    
+        };
+        run();
+
 
     }));
 });

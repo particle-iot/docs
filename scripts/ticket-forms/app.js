@@ -42,8 +42,9 @@ const topDir = path.normalize(path.join(__dirname, '..', '..'));
 const srcDir = path.join(topDir, 'src');
 
 let options = {
-    getTicketFields: true,
-    getTicketForms: true,
+    getTicketFields: false,
+    getTicketForms: false,
+    export: true,
 };
 
 const dataDir = path.join(__dirname, 'data');
@@ -51,8 +52,12 @@ if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir);
 }
 
+const outputDir = path.join(srcDir, 'assets', 'files');
+
 async function run() {
     try {
+        let data = {};
+
         let res;
 
         // This is not currently paginated but could be if a lot of fields are added.
@@ -60,10 +65,11 @@ async function run() {
         if (options.getTicketFields) {
             res = await axiosInstance.get('/api/v2/ticket_fields');
             
+            data.ticketFields = res.data.ticket_fields;
             fs.writeFileSync(ticketFieldsPath, JSON.stringify(res.data, null, 4));    
         }
         else {
-            data.categories = JSON.parse(fs.readFileSync(ticketFieldsPath, 'utf8'));
+            data.ticketFields = JSON.parse(fs.readFileSync(ticketFieldsPath, 'utf8')).ticket_fields;
         }
 
         // 
@@ -71,12 +77,50 @@ async function run() {
         if (options.getTicketFields) {
             res = await axiosInstance.get('/api/v2/ticket_forms');
             
+            data.ticketForms = res.data.ticket_forms;
             fs.writeFileSync(ticketFormsPath, JSON.stringify(res.data, null, 4));    
         }
         else {
-            data.categories = JSON.parse(fs.readFileSync(ticketFormsPath, 'utf8'));
+            data.ticketForms = JSON.parse(fs.readFileSync(ticketFormsPath, 'utf8')).ticket_forms;
         }
 
+        // console.log('data', data);
+
+        // Export public fields
+        if (options.export) {
+            let exportData = {
+                ticketFields: [],
+            };
+
+            for(const f of data.ticketFields) {
+                if (f.visible_in_portal) {
+                    // console.log('f', f);
+    
+                    const obj = {};
+    
+                    obj.id = f.id;
+                    obj.type = f.type; // text, textarea, etc.
+                    obj.title = f.title_in_portal;
+                    obj.description = f.description;
+                    obj.required = f.required_in_portal;
+                    
+                    if (f.custom_field_options) {
+                        obj.customFields = [];
+
+                        for(const opt of f.custom_field_options) {
+                            obj.customFields.push({
+                                name: opt.name,
+                                value: opt.value,
+                            });
+                        }
+                    }
+                    //console.log('obj', obj);
+                    exportData.ticketFields.push(obj);
+                }
+            }
+            
+            fs.writeFileSync(path.join(outputDir, 'ticketForms.json'), JSON.stringify(exportData, null, 4));
+        }
     }
     catch(e) {
         console.log('uncaught exception in run', e);
