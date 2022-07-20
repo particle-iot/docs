@@ -1,0 +1,15 @@
+{
+    "name": "ticket-forms",
+    "version": "0.0.1",
+    "description": "tool to extract ticket forms and fields Zendesk guide",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.27.2"
+    },
+    "engines": {
+        "node": ">=12.14.0"
+    }
+}

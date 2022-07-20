@@ -87,6 +87,22 @@ tr.apiHelperSelectedRow {
     font-size: 12px;  
 };
 
+.apiHelperGiantButton {
+    width: 80%;
+    padding: 10px 10px 10px 10px;
+    margin: 20px 20px 20px 20px;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+};
+.apiHelperTroubleshootingSeparator {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px;
+}
+
+
 .usbSerialConsoleTextArea {
     width: 99%;
     height: 500px;
@@ -112,6 +128,16 @@ textarea.usbSerialConsoleTextArea:focus {
         background-color: @COLOR_Midnight_500;
         color: @COLOR_Gray_100;
     }
+    .apiHelperGiantButton {
+        background-color: @COLOR_ParticleBlue_900;
+        color: @COLOR_Gray_100;
+    }
+    .apiHelperGiantButtonSelected {
+        background-color: @COLOR_ParticleBlue_700;
+    }
+    .apiHelperTroubleshootingSeparator {
+        border-color: @COLOR_Gray_100;
+    }
 }
 
 
@@ -125,5 +151,15 @@ textarea.usbSerialConsoleTextArea:focus {
     select.apiHelperConfigSchemaProductSelect {
         background-color:#EFEFEF;
         color: @COLOR_Midnight_500;
+    }
+    .apiHelperGiantButton {
+        background-color: @COLOR_ParticleBlue_400;
+        color: @COLOR_Midnight_500;
+    }
+    .apiHelperGiantButtonSelected {
+        background-color: @COLOR_ParticleBlue_700;
+    }
+    .apiHelperTroubleshootingSeparator {
+        border-color: @COLOR_Midnight_500;
     }
 }
