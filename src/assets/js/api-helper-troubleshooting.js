@@ -157,6 +157,33 @@ $(document).ready(function () {
                 $(submitButton).prop('disabled', !isValid);
             };
 
+            const updateConditions = function() {
+                if (!pageObj.conditions) {
+                    return;
+                }
+
+                console.log('updateConditions', pageObj.conditions);
+
+                for(const conditionObj of pageObj.conditions) {
+                    for(const childObj of conditionObj.child_fields) {
+                        const childFieldObj = fields.find(e => e.customField == childObj.id);
+                        $(childFieldObj.fieldDivElem).hide();                    
+                    }
+                }
+
+                for(const conditionObj of pageObj.conditions) {
+                    const parentField = fields.find(e => e.customField == conditionObj.parent_field_id);
+                    const showIt = $(parentField.valElem).val() == conditionObj.value;
+
+                    if (showIt) {
+                        for(const childObj of conditionObj.child_fields) {
+                            const childFieldObj = fields.find(e => e.customField == childObj.id);
+                            $(childFieldObj.fieldDivElem).show();                                                
+                        }    
+                    }
+                }
+            };
+
             const addField = function(fieldSpecObj) {
                 const fieldDivElem = document.createElement('div');
                 $(fieldDivElem).addClass('apiHelperTroubleshootingField')
@@ -225,7 +252,7 @@ $(document).ready(function () {
                     $(entryElem).append(selectElem);
 
                     $(selectElem).on('change', function() {
-
+                        updateConditions();
                     });
 
                 }
@@ -249,7 +276,6 @@ $(document).ready(function () {
                     customField: fieldSpecObj.id,
                 });
             }
-
 
             if (pageObj.title) {
                 const titleElem = document.createElement('h3');
@@ -332,6 +358,10 @@ $(document).ready(function () {
                     };
 
                     for(const field of fields) {
+                        if (!$(field.valElem).is(':visible')) {
+                            continue;
+                        }
+
                         let val = '';
                         if (field.value) {
                             val = field.value;
@@ -358,7 +388,7 @@ $(document).ready(function () {
 
                     console.log('options', options);
 
-
+                    /*
                     try {
                         const resp = await apiHelper.ticketSubmit(options);
                         console.log('resp', resp);
@@ -371,6 +401,7 @@ $(document).ready(function () {
                         ga('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
                         showPage(106); // Ticket error
                     }
+                    */
                     
 
                 });
@@ -410,8 +441,10 @@ $(document).ready(function () {
                 pageDivElem,
             });
 
+            
             // Enable buttons on the new page
             validateForm();
+            updateConditions();
 
             // Scroll new page into view
             const pos = $(pageDivElem).position().top;
