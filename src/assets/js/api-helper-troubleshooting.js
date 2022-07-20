@@ -43,8 +43,12 @@ $(document).ready(function () {
                 description: 'What kind of issue are you experiencing?',
                 buttons: [
                     {
-                        title: 'Help with my order',
-                        page: 360001073373,
+                        title: 'Technical issues with devices, cloud services, or setup',
+                        page: 108,
+                    },
+                    {
+                        title: 'Order and billing issues',
+                        page: 107,
                     },
                 ],
             },
@@ -91,9 +95,36 @@ $(document).ready(function () {
             },
             {
                 page: 107,
-                title: 'Help with my order',
-                fields: [
-                    { id: 360026060074 },
+                title: 'Order and billing issues',
+                buttons: [
+                    {
+                        title: 'Help with my order',
+                        page: 360001073373,
+                    },
+                    {
+                        title: 'Managing billing and subscriptions',
+                        page: 360001730794,
+                    },
+                    {
+                        title: 'Upgrading my account to the growth plan',
+                        page: 1260809279669,
+                    },
+                    {
+                        title: 'I have another non-technical issue',
+                        page: 360000327294,
+                    },
+                ],
+            },
+            {
+                page: 108,
+                title: 'Technical issues',
+                buttons: [
+                    /*
+                    {
+                        title: 'Can\'t set up new device',
+                        page: 360005653294
+                    }
+                    */
                 ],
             },
         ];
@@ -138,6 +169,7 @@ $(document).ready(function () {
 
             let fields = [];
             let submitButton;
+            let conditionSelected = true;
 
             const validateForm = function() {
                 let isValid = true;
@@ -153,16 +185,17 @@ $(document).ready(function () {
                         }
                     }
                 }
+                if (!conditionSelected) {
+                    isValid = false;
+                }
 
                 $(submitButton).prop('disabled', !isValid);
             };
 
             const updateConditions = function() {
-                if (!pageObj.conditions) {
+                if (!pageObj.conditions || pageObj.conditions.length == 0) {
                     return;
                 }
-
-                console.log('updateConditions', pageObj.conditions);
 
                 for(const conditionObj of pageObj.conditions) {
                     for(const childObj of conditionObj.child_fields) {
@@ -171,17 +204,23 @@ $(document).ready(function () {
                     }
                 }
 
+                conditionSelected = false;
+
                 for(const conditionObj of pageObj.conditions) {
                     const parentField = fields.find(e => e.customField == conditionObj.parent_field_id);
-                    const showIt = $(parentField.valElem).val() == conditionObj.value;
+                    const val = $(parentField.valElem).val();
+                    if (val != '-') {
+                        conditionSelected = true;
+                    }
 
-                    if (showIt) {
+                    if (val == conditionObj.value) {
                         for(const childObj of conditionObj.child_fields) {
                             const childFieldObj = fields.find(e => e.customField == childObj.id);
                             $(childFieldObj.fieldDivElem).show();                                                
                         }    
                     }
                 }
+                validateForm();
             };
 
             const addField = function(fieldSpecObj) {
@@ -198,7 +237,7 @@ $(document).ready(function () {
     
                 const entryElem = document.createElement('div');
                 $(entryElem).addClass('apiHelperTroubleshootingInput');
-                if (fieldSpecObj.type == 'text') {
+                if (fieldSpecObj.type == 'text' || fieldSpecObj.type == 'integer') {
                     const inputElem = valElem= document.createElement('input');
                     $(inputElem).attr('type', 'text');
                     $(inputElem).attr('size', '60');
@@ -221,9 +260,15 @@ $(document).ready(function () {
                     $(textareaElem).on('input', validateForm);
                 }
                 else
-                if (fieldSpecObj.type == 'tagger') {
+                if (fieldSpecObj.type == 'tagger' || fieldSpecObj.type == 'multiselect') {
                     const selectElem = valElem = document.createElement('select');
-                    $(selectElem).addClass('apiHelperSelect');
+                    if (fieldSpecObj.type == 'multiselect') {
+                        $(selectElem).attr('multiple', true);
+                        $(selectElem).addClass('apiHelperSelectMultiple');
+                    }
+                    else {
+                        $(selectElem).addClass('apiHelperSelect');
+                    }
 
                     let hasDefault = false;
                     for(f of fieldSpecObj.customFields) {
@@ -369,6 +414,9 @@ $(document).ready(function () {
                         else
                         if (field.valElem) {
                             val = $(field.valElem).val();
+                        }
+                        if (field.fieldSpecObj && field.fieldSpecObj.type == 'integer') {
+                            val = parseInt(val);
                         }
 
                         if (field.field) {

@@ -122,7 +122,13 @@ async function run() {
                 }
             }
 
-            const exportForms = [360001073373];
+            const exportForms = [
+                360001073373, // Help with my order
+                360001730794, // Managing billing & subscriptions
+                1260809279669, // Upgrading my account to the growth plan
+                360000327294, // Another non-technical issue
+                360005653294, // Can't set up a new device
+            ];
 
             for(const f of data.ticketForms) {
                 if (!exportForms.includes(f.id)) {
