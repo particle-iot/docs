@@ -125,8 +125,9 @@ $(document).ready(function () {
                         page: 126,
                     },
                     {
-                        title: 'The status LED on my device is blinking colors, what do they mean?',
-                        url: '/troubleshooting/led/',
+                        title: 'Troubleshooting based on the status LED',
+                        page: 130,
+                        detail: 'You can learn a lot of about what the device is doing simply by watching the status LED color and patterns.',
                     },
                     {
                         title: 'Connectivity questions',
@@ -532,7 +533,268 @@ $(document).ready(function () {
                     },                                                            
                 ],
             },
-
+            {
+                page: 130,
+                title: 'Troubleshooting based on the status LED',
+                buttons: [
+                    {
+                        title: 'The status LED is off',
+                        page: 131,
+                    },
+                    {
+                        title: 'The status LED blinking',
+                        detail: 'Blinking is where the color turns on and off without dimming.',
+                        page: 133,
+                    },
+                    {
+                        title: 'The status LED breathing',
+                        detail: 'Breathing is where the color slowly fades in and out.',
+                        page: 146,
+                    },
+                    {
+                        title: 'The status LED going crazy, showing rainbow of colors',
+                        page: 151,
+                    },
+                ],
+            },
+            {
+                page: 131,
+                title: 'Status LED off',
+                note: 'status-led-off.md',
+                buttons: [
+                    {
+                        title: 'The blue LED next to pin D7 is on, dimly',
+                        page: 132,
+                    },
+                    {
+                        title: 'Use Device Restore to replace the device firmware',
+                        url: '/tools/device-restore/device-restore-usb/',
+                    },
+                    {
+                        title: 'Visit the community forums for help',
+                        url: 'https://community.particle.io/',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 1500000008462,
+                        // orgRequired: true, // Currently allowed for non-enterprise since it could be a warranty issue
+                    },                                                                            
+                ],
+            },
+            {
+                page: 132,
+                title: 'Dim D7',
+                note: 'dim-d7.md',
+                buttons: [
+                    {
+                        title: 'Visit the SWD/JTAG page to learn about SWD programmers',
+                        url: '/reference/developer-tools/jtag/',
+                    },
+                    {
+                        title: 'Visit the community forums for help',
+                        url: 'https://community.particle.io/',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 1500000008462,
+                        orgRequired: true, 
+                    },                                                                            
+                ],
+            },
+            {
+                page: 133,
+                title: 'Status LED blinking',
+                note: 'status-led-blinking.md',
+                buttons: [
+                    {
+                        title: 'Blinking dark blue (listening mode)',
+                        page: 134,
+                        swatch: '#0000ff',
+                    },
+                    {
+                        title: 'Blinking magenta (safe mode) (red and blue at the same time)',
+                        page: 135,
+                        swatch: '#ff00ff',
+                    },
+                    {
+                        title: 'Yellow (DFU mode)',
+                        page: 136,
+                        swatch: '#ffff00',
+                    },
+                    {
+                        title: 'Green',
+                        page: 137,
+                        swatch: '#00ff00',
+                    },
+                    {
+                        title: 'Cyan (light blue)',
+                        page: 142,
+                        swatch: '#00ffff',
+                    },
+                    {
+                        title: 'White',
+                        page: 143,
+                        swatch: '#fffff',
+                    },
+                    {
+                        title: 'Red',
+                        page: 144,
+                        swatch: '#ff0000',
+                    },
+                    {
+                        title: 'Orange',
+                        page: 145,
+                        swatch: '#ff4500',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 360005659054,
+                        orgRequired: true, 
+                    },                                                                                                
+                ],
+            },
+            {
+                page: 134,
+                title: 'Listening mode (blinking dark blue)',
+                note: 'status-led-blinking-dark-blue.md',
+            },
+            {
+                page: 135,
+                title: 'Safe mode (blinking magenta)',
+                note: 'status-led-blinking-magenta.md',
+            },
+            {
+                page: 136,
+                title: 'DFU mode (blinking yellow)',
+                note: 'status-led-blinking-yellow.md',
+            },
+            {
+                page: 137,
+                title: 'Blinking green',
+                description: 'Blinking green means your device is trying to connect to the network',
+                buttons: [
+                    {
+                        title: 'I have a cellular device',
+                        detail: 'Tracker, Boron, B Series SoM, E Series or Electron',
+                        page: 138,
+                    },
+                    {
+                        title: 'I have a P2 or Photon 2 Wi-Fi device',
+                        page: 139,
+                    },
+                    {
+                        title: 'I have an Argon (Gen 3) Wi-Fi device',
+                        page: 141,
+                    },
+                    {
+                        title: 'I have a P1 or Photon (Gen 2) Wi-Fi device',
+                        page: 140,
+                    },
+                ],
+            },
+            {
+                page: 138,
+                title: 'Blinking green - Cellular',
+                note: 'status-led-blinking-green-cellular.md',
+                showStatus: true, 
+            },
+            {
+                page: 139,
+                title: 'Blinking green - P2/Photon 2',
+                note: 'status-led-blinking-green-p2.md',
+            },
+            {
+                page: 140,
+                title: 'Blinking green - P1 and Photon',
+                note: 'status-led-blinking-green-gen2.md',
+            },
+            {
+                page: 141,
+                title: 'Blinking green - Argon',
+                note: 'status-led-blinking-green-gen3.md',
+            },
+            {
+                page: 142,
+                title: 'Blinking cyan (light blue)',
+                note: 'status-led-blinking-cyan.md',
+            },
+            {
+                page: 143,
+                title: 'Blinking white',
+                note: 'status-led-blinking-white.md',
+            },
+            {
+                page: 144,
+                title: 'Blinking red',
+                note: 'status-led-blinking-red.md',
+            },
+            {
+                page: 145,
+                title: 'Blinking orange',
+                note: 'status-led-blinking-orange.md',
+            },
+            {
+                page: 146,
+                title: 'Status LED breathing',
+                description: 'Breathing (slowly fading in an out) is typically a normal operating mode. The color indicates which connectivity mode the device is in.',
+                buttons: [
+                    {
+                        title: 'Breathing cyan (light blue, normal operating mode)',
+                        page: 147,
+                        swatch: '#00ffff',
+                    },
+                    {
+                        title: 'Breathing green (network connected, no cloud)',
+                        page: 148,
+                        swatch: '#00ff00',
+                    },
+                    {
+                        title: 'Breathing magenta (red and blue at the same time, safe mode)',
+                        page: 149,
+                        swatch: '#ff00ff',
+                    },
+                    {
+                        title: 'Breathing dark blue',
+                        page: 150,
+                        swatch: '#0000ff',
+                    },
+                    {
+                        title: 'Breathing white',
+                        page: 152,
+                        swatch: '#ffffff',
+                    },
+                ],
+            },
+            {
+                page: 147,
+                title: 'Breathing cyan (light blue)',
+                note: 'status-led-breathing-cyan.md',
+            },
+            {
+                page: 148,
+                title: 'Breathing green',
+                note: 'status-led-breathing-green.md',
+            },
+            {
+                page: 149,
+                title: 'Breathing magenta',
+                note: 'status-led-breathing-magenta.md',
+            },
+            {
+                page: 150,
+                title: 'Breathing dark blue',
+                note: 'status-led-breathing-dark-blue.md',
+            },
+            {
+                page: 151,
+                title: 'Signaling (nyan) mode',
+                note: 'status-led-nyan.md',
+            },
+            {
+                page: 152,
+                title: 'Breathing white',
+                note: 'status-led-breathing-white.md',
+            },
         ];
 
         let pageStack = [];
@@ -921,6 +1183,15 @@ $(document).ready(function () {
 
                     if (pageOptions.next && pageOptions.next == buttonObj.page) {
                         $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+
+                    if (buttonObj.swatch) {
+                        const swatchElem = document.createElement('div');
+                        $(swatchElem).addClass('apiHelperGiantButtonSwatch');
+                        $(swatchElem).css('background-color', buttonObj.swatch);
+                        $(buttonElem).append(swatchElem);
+
+                        
                     }
  
                     $(buttonElem).on('click', function() {

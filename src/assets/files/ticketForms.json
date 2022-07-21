@@ -6625,6 +6625,251 @@
             "conditions": []
         },
         {
+            "id": 360005659054,
+            "title": "My Device's Status LED is Blinking Cyan, Red, Yellow, or Dark Blue",
+            "fields": [
+                {
+                    "id": 1260817480909
+                },
+                {
+                    "id": 360056081933
+                },
+                {
+                    "id": 1500000056042
+                },
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360056039773
+                },
+                {
+                    "id": 360056141253
+                },
+                {
+                    "id": 360056141433
+                },
+                {
+                    "id": 360056141453
+                },
+                {
+                    "id": 1500000053121
+                },
+                {
+                    "id": 360056120253
+                },
+                {
+                    "id": 360056120293
+                },
+                {
+                    "id": 360026958653
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": [
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_blinking_red_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_red_sos_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_frozen_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_no_led_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120253,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000053121,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_breathing_magenta_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_blinking_yellow_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056141453,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_breathing_white_d",
+                    "child_fields": [
+                        {
+                            "id": 360056120293,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_blinking_cyan_d",
+                    "child_fields": [
+                        {
+                            "id": 360056141253,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000056042,
+                    "parent_field_type": "tagger",
+                    "value": "led_blinking_dark_blue_d",
+                    "child_fields": [
+                        {
+                            "id": 360056141433,
+                            "is_required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1500000008462,
+            "title": "My Device is Unresponsive (Frozen or No Status LED)",
+            "fields": [
+                {
+                    "id": 1260817480909
+                },
+                {
+                    "id": 360056081933
+                },
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360056039773
+                },
+                {
+                    "id": 360055033874
+                },
+                {
+                    "id": 360056141453
+                },
+                {
+                    "id": 360056120253
+                },
+                {
+                    "id": 1500000053121
+                },
+                {
+                    "id": 360056120293
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
             "id": 1500000002882,
             "title": "Console / Web IDE Issue",
             "fields": [

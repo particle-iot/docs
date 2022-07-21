@@ -133,7 +133,9 @@ async function run() {
                 360006636913, // Another technical issue
                 360005653294, // Cannot set up new device
                 360006631353, // Cellular connectivity issue
-                1500000002842, // Wi-FI connectivity issues
+                1500000002842, // Wi-Fi connectivity issues
+                1500000008462, // Device is unresponsive
+                360005659054, // Status LED blinking
             ];
 
             for(const f of data.ticketForms) {
