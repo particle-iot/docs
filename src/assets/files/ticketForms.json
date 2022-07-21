@@ -6364,6 +6364,230 @@
             "conditions": []
         },
         {
+            "id": 360006631353,
+            "title": "Cellular Connectivity Issues",
+            "fields": [
+                {
+                    "id": 5777314619035
+                },
+                {
+                    "id": 5799117305499
+                },
+                {
+                    "id": 360055071054
+                },
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360056039773
+                },
+                {
+                    "id": 1500000014802
+                },
+                {
+                    "id": 360055033874
+                },
+                {
+                    "id": 360055034214
+                },
+                {
+                    "id": 360056043073
+                },
+                {
+                    "id": 360056043093
+                },
+                {
+                    "id": 1500000047961
+                },
+                {
+                    "id": 1500000050462
+                },
+                {
+                    "id": 360055104874
+                },
+                {
+                    "id": 360026958653
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": [
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_t1_d",
+                    "child_fields": [
+                        {
+                            "id": 360055104874,
+                            "is_required": false
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_tsomltem1_d",
+                    "child_fields": [
+                        {
+                            "id": 360055104874,
+                            "is_required": false
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_tsomlte1_d",
+                    "child_fields": [
+                        {
+                            "id": 360055104874,
+                            "is_required": false
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_blte1_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000047961,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_bltem1_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000047961,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_brnlte_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000047961,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_brn2g3g_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000047961,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_elte_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000050462,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_e2g3g_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000050462,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360055071054,
+                    "parent_field_type": "tagger",
+                    "value": "sku_c_elec2g3g_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000050462,
+                            "is_required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1500000002842,
+            "title": "WiFi Connectivity Issues",
+            "fields": [
+                {
+                    "id": 360055033134
+                },
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360056039773
+                },
+                {
+                    "id": 360055033874
+                },
+                {
+                    "id": 360026963213
+                },
+                {
+                    "id": 360055076154
+                },
+                {
+                    "id": 1500000021082
+                },
+                {
+                    "id": 360056043193
+                },
+                {
+                    "id": 360056043233
+                },
+                {
+                    "id": 1500000048761
+                },
+                {
+                    "id": 360026958653
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
             "id": 360005653294,
             "title": "Cannot Set Up My New Device",
             "fields": [
@@ -6433,6 +6657,218 @@
                 }
             ],
             "conditions": []
+        },
+        {
+            "id": 1500000002701,
+            "title": "Webhooks / Integrations Not Performing As Expected ",
+            "fields": [
+                {
+                    "id": 5777314619035
+                },
+                {
+                    "id": 360056036113
+                },
+                {
+                    "id": 360056045453
+                },
+                {
+                    "id": 1260804097730
+                },
+                {
+                    "id": 360055036274
+                },
+                {
+                    "id": 360056045473
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "id": 360006636913,
+            "title": "I Have Another Technical Issue",
+            "fields": [
+                {
+                    "id": 1500000019321
+                },
+                {
+                    "id": 1500000019042
+                },
+                {
+                    "id": 1500000019481
+                },
+                {
+                    "id": 360055073414
+                },
+                {
+                    "id": 1500000019501
+                },
+                {
+                    "id": 1500000019002
+                },
+                {
+                    "id": 1500000220882
+                },
+                {
+                    "id": 1500000222461
+                },
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360056039773
+                },
+                {
+                    "id": 1500000014802
+                },
+                {
+                    "id": 360048593434
+                },
+                {
+                    "id": 360056084113
+                },
+                {
+                    "id": 1500000073181
+                },
+                {
+                    "id": 360026958653
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": [
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_ublox_d",
+                    "child_fields": [
+                        {
+                            "id": 360048593434,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056084113,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_data_d",
+                    "child_fields": [
+                        {
+                            "id": 360055073414,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_gps_d",
+                    "child_fields": [
+                        {
+                            "id": 360056039773,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056043053,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000014802,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_hardware_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000019002,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_firmware_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000019042,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_carrier_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000019481,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_transfer_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000019501,
+                            "is_required": false
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_mobile_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000073181,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_3rd_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000220882,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000019321,
+                    "parent_field_type": "tagger",
+                    "value": "other_cert_d",
+                    "child_fields": [
+                        {
+                            "id": 1500000222461,
+                            "is_required": false
+                        }
+                    ]
+                }
+            ]
         },
         {
             "id": 360000327294,

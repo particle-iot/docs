@@ -121,6 +121,18 @@ $(document).ready(function () {
                 title: 'Technical questions',
                 buttons: [
                     {
+                        title: 'Device setup questions',
+                        page: 126,
+                    },
+                    {
+                        title: 'The status LED on my device is blinking colors, what do they mean?',
+                        url: '/troubleshooting/led/',
+                    },
+                    {
+                        title: 'Connectivity questions',
+                        page: 127,
+                    },
+                    {
                         title: 'Developer tool questions',
                         page: 109,
                     },
@@ -136,6 +148,12 @@ $(document).ready(function () {
                         title: 'Webhook or other integrations questions',
                         page: 124,
                     },
+                    {
+                        title: 'I\'d like to create a support ticket for another technical issue',
+                        page: 360006636913,
+                        orgRequired: true,
+                    }
+
 
                 ],
             },
@@ -298,6 +316,7 @@ $(document).ready(function () {
             {
                 page: 119,
                 title: 'Cloud API questions',
+                showStatus: true, 
                 buttons: [
                     {
                         title: 'Visit the introduction to the Cloud API',
@@ -311,10 +330,6 @@ $(document).ready(function () {
                         title: 'Visit the Cloud API reference',
                         url: '/reference/cloud-apis/api/',
                         detail: 'Also includes information about using the web-based Postman tool for accessing the Particle Cloud API.',
-                    },
-                    {
-                        title: 'Visit the status page to check for incidents',
-                        url: 'https://status.particle.io',
                     },
                     {
                         title: 'Those resources did not answer my question',
@@ -349,6 +364,7 @@ $(document).ready(function () {
             {
                 page: 122,
                 title: 'Particle console questions',
+                showStatus: true, 
                 buttons: [
                     {
                         title: 'Visit the console getting started guide',
@@ -358,10 +374,6 @@ $(document).ready(function () {
                         title: 'Visit the console',
                         url: 'https://console.particle.io',
                     },             
-                    {
-                        title: 'Visit the status page to check for incidents',
-                        url: 'https://status.particle.io',
-                    },
                     {
                         title: 'Those resources did not answer my question',
                         page: 123,
@@ -387,19 +399,20 @@ $(document).ready(function () {
             {
                 page: 124,
                 title: 'Webhook or other integration questions',
+                showStatus: true, 
                 buttons: [
                     {
                         title: 'Visit the integrations getting started guide',
                         url: '/getting-started/integrations/integrations/',
                     },        
                     {
-                        title: 'Visit the console',
+                        title: 'Visit the console to manage integrations',
                         url: 'https://console.particle.io',
                     },             
                     {
-                        title: 'Visit the status page to check for incidents',
-                        url: 'https://status.particle.io',
-                    },
+                        title: 'Visit the integrations troubleshooting guide',
+                        url: '/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/',
+                    },             
                     {
                         title: 'Those resources did not answer my question',
                         page: 125,
@@ -407,10 +420,119 @@ $(document).ready(function () {
                 ],
             },
             {
+                page: 125,
+                title: 'Integrations community forums',
+                description: 'The Particle community forums are the best place to ask questions about and report bugs about webhooks and other integrations.',
+                buttons: [
+                    {
+                        title: 'Visit the community forums',
+                        url: 'https://community.particle.io/c/cloud-software/itg/23',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 1500000002701,
+                        orgRequired: true,
+                    },                    
+                ],
+            },    
+            {
                 page: 126,
-                title: 'Particle Status',
-                isStatusPage: true,
+                title: 'Device setup questions',
+                buttons: [
+                    {
+                        title: 'Set up a device from a browser or mobile app',
+                        url: 'https://setup.particle.io/',
+                    },
+                    {
+                        title: 'Set up a device using the Particle CLI',
+                        url: '/getting-started/developer-tools/cli/',
+                    },
+                    {
+                        title: 'Set up a Tracker One or Tracker SoM device',
+                        url: '/getting-started/tracker/tracker-setup/',
+                    },
+                    {
+                        title: 'Troubleshooting the setup process',
+                        url: '/troubleshooting/guides/device-troubleshooting/troubleshooting-the-setup-process/',
+                    },
+                    {
+                        title: 'The status LED on my device is blinking colors, what do they mean?',
+                        url: '/troubleshooting/led/',
+                    },
+                    {
+                        title: 'Visit the community forums for help',
+                        url: 'https://community.particle.io/',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 360005653294,
+                        orgRequired: true,
+                    },                                        
+                ],
             },
+            {
+                page: 127,
+                title: 'Connectivity questions',
+                buttons: [
+                    {
+                        title: 'Cellular connectivity questions',
+                        page: 128,
+                    },
+                    {
+                        title: 'Wi-Fi connectivity questions',
+                        page: 129,
+                    },
+                    {
+                        title: 'Learn about billing (data operations)',
+                        url: '/getting-started/billing/data-operations/',
+                    }
+                ],
+            },
+            {
+                page: 128,
+                title: 'Cellular connectivity questions',
+                showStatus: true, 
+                buttons: [
+                    {
+                        title: 'Is there cellular coverage in a particular country?',
+                        url: '/reference/cellular/cellular-carriers/',
+                    },
+                    {
+                        title: 'Troubleshooting cellular connectivity',
+                        url: '/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/',
+                    },
+                    {
+                        title: 'Visit the community forums for help',
+                        url: 'https://community.particle.io/',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 360006631353,
+                        orgRequired: true,
+                    },                                                            
+                ],
+            },
+            {
+                page: 129,
+                title: 'Wi-Fi connectivity questions',
+                showStatus: true, 
+                buttons: [
+                    {
+                        title: 'Troubleshooting Wi-Fi connectivity',
+                        url: '/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/',
+                    },
+                    {
+                        title: 'Visit the community forums for help',
+                        url: 'https://community.particle.io/',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 1500000002842,
+                        orgRequired: true,
+                    },                                                            
+                ],
+            },
+
         ];
 
         let pageStack = [];
@@ -421,6 +543,15 @@ $(document).ready(function () {
                 query += p.page + ','
             }
             history.pushState(null, '', query);
+        }
+
+        const isStatusVisible = function() {
+            for(const p of pageStack) {
+                if (p.statusVisible) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         const clearPagesBelow = function(page) {
@@ -816,12 +947,27 @@ $(document).ready(function () {
                 }    
             }
 
+            let statusVisible = false;
+
+            if (pageObj.showStatus && !isStatusVisible()) {
+                statusVisible = true;
+
+                const iframeElem = document.createElement('iframe');
+                $(iframeElem).attr('src', 'https://status.particle.io');
+                $(iframeElem).attr('title', 'Particle status page');
+                $(iframeElem).attr('width', '800');
+                $(iframeElem).attr('height', '500');
+                $(pageDivElem).append(iframeElem);
+            }
+
+
             $(thisPartial).append(pageDivElem);
 
             pageStack.push({
                 page: pageOptions.page,
                 pageObj,
                 pageDivElem,
+                statusVisible,
             });
 
             
