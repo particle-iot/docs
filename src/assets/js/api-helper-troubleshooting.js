@@ -41,14 +41,14 @@ $(document).ready(function () {
             },
             {
                 page: 101,
-                description: 'What kind of issue are you experiencing?',
+                description: 'What kind of question do you have?',
                 buttons: [
                     {
-                        title: 'Technical issues with devices, cloud services, or setup',
+                        title: 'Technical questions about devices, cloud services, or setup',
                         page: 108,
                     },
                     {
-                        title: 'Order and billing issues',
+                        title: 'Order and billing questions',
                         page: 107,
                     },
                 ],
@@ -96,7 +96,7 @@ $(document).ready(function () {
             },
             {
                 page: 107,
-                title: 'Order and billing issues',
+                title: 'Order and billing questions',
                 buttons: [
                     {
                         title: 'Help with my order',
@@ -118,15 +118,298 @@ $(document).ready(function () {
             },
             {
                 page: 108,
-                title: 'Technical issues',
+                title: 'Technical questions',
                 buttons: [
-                    /*
                     {
-                        title: 'Can\'t set up new device',
-                        page: 360005653294
-                    }
-                    */
+                        title: 'Developer tool questions',
+                        page: 109,
+                    },
+                    {
+                        title: 'Particle console (console.particle.io) questions',
+                        page: 122,
+                    },
+                    {
+                        title: 'Cloud API questions',
+                        page: 119,
+                    },
+                    {
+                        title: 'Webhook or other integrations questions',
+                        page: 124,
+                    },
+
                 ],
+            },
+            {
+                page: 109,
+                title: 'Developer tool questions',
+                buttons: [
+                    {
+                        title: 'Particle Workbench questions',
+                        page: 110,
+                    },
+                    {
+                        title: 'Particle CLI (Command Line Interface) questions',
+                        page: 115,
+                    },
+                    {
+                        title: 'Particle Dev (Atom IDE)',
+                        page: 118,
+                    },
+                ],
+            },
+            {
+                page: 110,
+                title: 'Particle workbench questions',
+                buttons: [
+                    {
+                        title: 'Visit the getting started guide',
+                        url: '/getting-started/developer-tools/workbench/',
+                    },
+                    {
+                        title: 'Visit the Workbench troubleshooting guide',
+                        url: '/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/',
+                    },
+                    {
+                        title: 'Visit the frequently asked questions',
+                        url: '/getting-started/developer-tools/workbench/',
+                    },  
+                    {
+                        title: 'Those resources did not answer my question',
+                        page: 111,
+                    },                    
+                ],
+            },
+            {
+                page: 111,
+                title: 'Upgrading Workbench',
+                note: 'workbench-upgrade.md',
+                buttons: [
+                    {
+                        title: 'Upgrading was not necessary or did not help',
+                        page: 112,
+                    },                        
+                ],
+            },
+            {
+                page: 112,
+                title: 'Disabling Workbench extensions',
+                note: 'workbench-disable-extensions.md',
+                buttons: [
+                    {
+                        title: 'Disabling extensions was not necessary or did not help',
+                        page: 113,
+                    },                        
+                ],
+            },
+            {
+                page: 113,
+                title: 'Workbench community forums',
+                description: 'The Particle community forums are the best place to ask questions about and report bugs in Particle workbench.',
+                buttons: [
+                    {
+                        title: 'Visit the community forums',
+                        url: 'https://community.particle.io/c/dt/particle-workbench/43',
+                    },
+                    {
+                        title: 'Visit community forum instructions for reporting bugs',
+                        url: 'https://community.particle.io/t/how-to-report-bugs-and-provide-feedback/52361',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 114,
+                        orgRequired: true,
+                    },                    
+                ],
+            },
+            {
+                page: 114,
+                title: 'Workbench support ticket',
+                ticketForm: 360006636893,
+                fields: [
+                    { id: 360056044093, value:'devtool_wb' }, // Developer tool issue category
+                    { id: 360056044893 }, // Developer tool issue type
+                    { id: 360056043773 }, // Computer OS
+                ],                
+            },
+            {
+                page: 115,
+                title: 'Particle CLI questions',
+                buttons: [
+                    {
+                        title: 'Visit the CLI getting started guide',
+                        url: '/getting-started/developer-tools/cli/',
+                        detail: 'Includes installation instructions.'
+                    },  
+                    {
+                        title: 'Visit the CLI reference guide',
+                        url: '/reference/developer-tools/cli/',
+                    },  
+                    {
+                        title: 'Visit the CLI troubleshooting guide',
+                        url: '/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/',
+                    },
+                    {
+                        title: 'Those resources did not answer my question',
+                        page: 116,
+                    },                    
+                ],
+            },
+            {
+                page: 116,
+                title: 'CLI community forums',
+                description: 'The Particle community forums are the best place to ask questions about and report bugs in the Particle CLI.',
+                buttons: [
+                    {
+                        title: 'Visit the community forums',
+                        url: 'https://community.particle.io/c/dt/cli/52',
+                    },
+                    {
+                        title: 'Visit community forum instructions for reporting bugs',
+                        url: 'https://community.particle.io/t/how-to-report-bugs-provide-feedback/53835',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 117,
+                        orgRequired: true,
+                    },                    
+                ],
+            },        
+            {
+                page: 117,
+                title: 'CLI support ticket',
+                ticketForm: 360006636893,
+                fields: [
+                    { id: 360056044093, value:'devtool_cli' }, // Developer tool issue category
+                    { id: 360056044893 }, // Developer tool issue type
+                    { id: 360056043773 }, // Computer OS
+                ],                
+            },
+            {
+                page: 118,
+                title: 'Particle Dev (Atom IDE)',
+                note: 'dev-deprecated.md',
+                buttons: [
+                    {
+                        title: 'Install Workbench',
+                        url: '/getting-started/developer-tools/workbench/',
+                    },                        
+                ],
+            },
+            {
+                page: 119,
+                title: 'Cloud API questions',
+                buttons: [
+                    {
+                        title: 'Visit the introduction to the Cloud API',
+                        url: '/getting-started/cloud/introduction/',
+                    },        
+                    {
+                        title: 'Visit the interactive tutorial for getting started with the Cloud API',
+                        url: '/getting-started/cloud/cloud-api/',
+                    },             
+                    {
+                        title: 'Visit the Cloud API reference',
+                        url: '/reference/cloud-apis/api/',
+                        detail: 'Also includes information about using the web-based Postman tool for accessing the Particle Cloud API.',
+                    },
+                    {
+                        title: 'Visit the status page to check for incidents',
+                        url: 'https://status.particle.io',
+                    },
+                    {
+                        title: 'Those resources did not answer my question',
+                        page: 120,
+                    },                    
+                ],
+            },
+            {
+                page: 120,
+                title: 'Cloud API community forums',
+                description: 'The Particle community forums are the best place to ask questions about and report bugs in the Particle Cloud API.',
+                buttons: [
+                    {
+                        title: 'Visit the community forums',
+                        url: 'https://community.particle.io/c/cloud-software/2',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 121,
+                        orgRequired: true,
+                    },                    
+                ],
+            },    
+            {
+                page: 121,
+                title: 'Cloud support ticket',
+                ticketForm: 360005653314,
+                fields: [
+                    { id: 360056043733 }, // Error messaging
+                ],                
+            },        
+            {
+                page: 122,
+                title: 'Particle console questions',
+                buttons: [
+                    {
+                        title: 'Visit the console getting started guide',
+                        url: '/getting-started/console/console/',
+                    },        
+                    {
+                        title: 'Visit the console',
+                        url: 'https://console.particle.io',
+                    },             
+                    {
+                        title: 'Visit the status page to check for incidents',
+                        url: 'https://status.particle.io',
+                    },
+                    {
+                        title: 'Those resources did not answer my question',
+                        page: 123,
+                    },                    
+                ],
+            },        
+            {
+                page: 123,
+                title: 'Console community forums',
+                description: 'The Particle community forums are the best place to ask questions about and report bugs in the Particle console.',
+                buttons: [
+                    {
+                        title: 'Visit the community forums',
+                        url: 'https://community.particle.io/c/cloud-software/2',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 1500000002882,
+                        orgRequired: true,
+                    },                    
+                ],
+            },    
+            {
+                page: 124,
+                title: 'Webhook or other integration questions',
+                buttons: [
+                    {
+                        title: 'Visit the integrations getting started guide',
+                        url: '/getting-started/integrations/integrations/',
+                    },        
+                    {
+                        title: 'Visit the console',
+                        url: 'https://console.particle.io',
+                    },             
+                    {
+                        title: 'Visit the status page to check for incidents',
+                        url: 'https://status.particle.io',
+                    },
+                    {
+                        title: 'Those resources did not answer my question',
+                        page: 125,
+                    },                    
+                ],
+            },
+            {
+                page: 126,
+                title: 'Particle Status',
+                isStatusPage: true,
             },
         ];
 
@@ -141,7 +424,6 @@ $(document).ready(function () {
         }
 
         const clearPagesBelow = function(page) {
-            console.log('clearPagesBelow ' + page);
             for(let ii = 0; ii < pageStack.length; ii++) {
                 if (pageStack[ii].page == page) {
                     $(pageStack[ii].pageDivElem).find('.apiHelperGiantButtonSelected').removeClass('apiHelperGiantButtonSelected');
@@ -157,23 +439,27 @@ $(document).ready(function () {
         };
 
 
-        const showPage = async function(page) {
-            let pageObj = decisionTree.find(e => e.page == page);
+        const showPage = async function(pageOptions) {
+            let pageObj = decisionTree.find(e => e.page == pageOptions.page);
             if (!pageObj) {
-                pageObj = ticketForms.ticketForms.find(e => e.id == page);
+                pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
-                    pageObj.ticketForm = page;
+                    pageObj.ticketForm = pageOptions.page;
                 }
             }
             if (!pageObj) {
-                ga('send', 'event', gaCategory, 'invalidPage', page);
+                ga('send', 'event', gaCategory, 'invalidPage', pageOptions.page);
+                return;
+            }
+            if (pageStack.find(e => e.page == pageOptions.page)) {
+                ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
                 return;
             }
 
-            ga('send', 'event', gaCategory, 'showPage', page);
+            ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
 
             const pageDivElem = document.createElement('div');
-            $(pageDivElem).data('page', page);
+            $(pageDivElem).data('page', pageOptions.page);
             $(pageDivElem).addClass('apiHelperTroubleshootingPage');
 
             let fields = [];
@@ -187,6 +473,13 @@ $(document).ready(function () {
                     if (field.fieldSpecObj.required) {
                         if (field.valElem) {
                             const v = $(field.valElem).val();
+                            if (Array.isArray(v)) {
+                                if (v.length == 0 || v[0] == '-') {
+                                    isValid = false;
+                                    break;    
+                                }
+                            }
+                            else
                             if (v.trim() == '') {
                                 isValid = false;
                                 break;
@@ -218,6 +511,12 @@ $(document).ready(function () {
                 for(const conditionObj of pageObj.conditions) {
                     const parentField = fields.find(e => e.customField == conditionObj.parent_field_id);
                     const val = $(parentField.valElem).val();
+                    if (Array.isArray(val)) {
+                        if (val.length != 1 || val[0] != '-') {
+                            conditionSelected = true;
+                        }
+                    }
+                    else
                     if (val != '-') {
                         conditionSelected = true;
                     }
@@ -451,12 +750,12 @@ $(document).ready(function () {
                         console.log('resp', resp);
 
                         ga('send', 'event', gaCategory, 'ticketSubmitSuccess', pageObj.ticketForm);
-                        showPage(105); // Ticket submitted
+                        showPage({page: 105}); // Ticket submitted
                     }
                     catch(e) {
                         console.log('exception submitting ticket');
                         ga('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
-                        showPage(106); // Ticket error
+                        showPage({page: 106}); // Ticket error
                     }
                     */
                     
@@ -467,12 +766,34 @@ $(document).ready(function () {
 
             if (pageObj.buttons) {
                 for(const buttonObj of pageObj.buttons) {
+                    if (buttonObj.orgRequired && !apiHelper.selectedOrg) {
+                        continue;
+                    }
+
                     const buttonElem = document.createElement('div');
                     $(buttonElem).addClass('apiHelperGiantButton');
-                    $(buttonElem).text(buttonObj.title);
+                    if (!buttonObj.detail) {
+                        $(buttonElem).text(buttonObj.title);
+                    }
+                    else {
+                        // Has multi-line button
+                        const topElem = document.createElement('div');
+                        $(topElem).text(buttonObj.title);
+                        $(buttonElem).append(topElem);
 
+                        const bottomElem = document.createElement('div');
+                        $(bottomElem).addClass('apiHelperGiantButtonDetail');
+                        $(bottomElem).text(buttonObj.detail);
+                        $(buttonElem).append(bottomElem);
+                        
+                    }
+
+                    if (pageOptions.next && pageOptions.next == buttonObj.page) {
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+ 
                     $(buttonElem).on('click', function() {
-                        clearPagesBelow(page);
+                        clearPagesBelow(pageOptions.page);
                         $(buttonElem).addClass('apiHelperGiantButtonSelected');
 
                         if (buttonObj.loginService) {
@@ -482,7 +803,12 @@ $(document).ready(function () {
                         }
                         else
                         if (buttonObj.page) {
-                            showPage(buttonObj.page);
+                            showPage({page: buttonObj.page});
+                        }
+                        else
+                        if (buttonObj.url) {
+                            ga('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
+                            window.location.href = buttonObj.url;                        
                         }
                     });
 
@@ -493,7 +819,7 @@ $(document).ready(function () {
             $(thisPartial).append(pageDivElem);
 
             pageStack.push({
-                page,
+                page: pageOptions.page,
                 pageObj,
                 pageDivElem,
             });
@@ -518,18 +844,30 @@ $(document).ready(function () {
                 // Have a token, verify it
                 const pageListStr = urlParams.get('p');
                 if (pageListStr) {
+                    let loadPages = [];
                     for(const p of pageListStr.split(',')) {
-                        await showPage(parseInt(p));
+                        if (p != '') {
+                            loadPages.push(parseInt(p));
+                        }
+                    }
+                    if (loadPages.length > 1 || loadPages[0] != 100) {
+                        // Not the no auth page
+                        for(let ii = 0; ii < loadPages.length; ii++) {
+                            const page = loadPages[ii];
+                            const next = ((ii + 1) < loadPages.length) ? loadPages[ii + 1] : undefined;
+    
+                            await showPage({page, next});
+                        }    
                     }
                 }
 
                 if (pageStack.length == 0) {
-                    await showPage(101);
+                    await showPage({page: 101});
                 }
             }
             else {
                 // No token
-                await showPage(100);
+                await showPage({page: 100});
             }
     
         };

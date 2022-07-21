@@ -128,6 +128,7 @@ async function run() {
                 1260809279669, // Upgrading my account to the growth plan
                 360000327294, // Another non-technical issue
                 360005653294, // Can't set up a new device
+                1500000002882, // Console ticket
             ];
 
             for(const f of data.ticketForms) {
