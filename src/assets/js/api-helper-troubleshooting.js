@@ -7,6 +7,7 @@ $(document).ready(function () {
         const notesUrlBase = '/notes/';
         const ticketFormDataUrl = '/assets/files/ticketForms.json';
 
+        const urlParams = new URLSearchParams(window.location.search);
 
         let ticketForms;
 
@@ -132,7 +133,11 @@ $(document).ready(function () {
         let pageStack = [];
 
         const updateUrl = function() {
-            // TODO: Match the query parameters to the pageStack here
+            let query = '?p=';
+            for(const p of pageStack) {
+                query += p.page + ','
+            }
+            history.pushState(null, '', query);
         }
 
         const clearPagesBelow = function(page) {
@@ -159,6 +164,10 @@ $(document).ready(function () {
                 if (pageObj) {
                     pageObj.ticketForm = page;
                 }
+            }
+            if (!pageObj) {
+                ga('send', 'event', gaCategory, 'invalidPage', page);
+                return;
             }
 
             ga('send', 'event', gaCategory, 'showPage', page);
@@ -507,11 +516,20 @@ $(document).ready(function () {
 
             if (apiHelper.auth) {
                 // Have a token, verify it
-                showPage(101);
+                const pageListStr = urlParams.get('p');
+                if (pageListStr) {
+                    for(const p of pageListStr.split(',')) {
+                        await showPage(parseInt(p));
+                    }
+                }
+
+                if (pageStack.length == 0) {
+                    await showPage(101);
+                }
             }
             else {
                 // No token
-                showPage(100);
+                await showPage(100);
             }
     
         };
