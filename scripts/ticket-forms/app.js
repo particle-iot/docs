@@ -136,6 +136,7 @@ async function run() {
                 1500000002842, // Wi-Fi connectivity issues
                 1500000008462, // Device is unresponsive
                 360005659054, // Status LED blinking
+                1500000002902, // SIM activation
             ];
 
             for(const f of data.ticketForms) {

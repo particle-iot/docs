@@ -121,17 +121,18 @@ $(document).ready(function () {
                 title: 'Technical questions',
                 buttons: [
                     {
-                        title: 'Device setup questions',
-                        page: 126,
-                    },
-                    {
                         title: 'Troubleshooting based on the status LED',
                         page: 130,
                         detail: 'You can learn a lot of about what the device is doing simply by watching the status LED color and patterns.',
                     },
                     {
+                        title: 'Device setup questions',
+                        page: 126,
+                    },
+                    {
                         title: 'Connectivity questions',
                         page: 127,
+                        detail: 'Also SIM activation, and technical details about what activities are billable.'
                     },
                     {
                         title: 'Developer tool questions',
@@ -484,9 +485,13 @@ $(document).ready(function () {
                         page: 129,
                     },
                     {
+                        title: 'SIM activation questions',
+                        page: 153,
+                    },
+                    {
                         title: 'Learn about billing (data operations)',
                         url: '/getting-started/billing/data-operations/',
-                    }
+                    },
                 ],
             },
             {
@@ -634,7 +639,7 @@ $(document).ready(function () {
                     {
                         title: 'White',
                         page: 143,
-                        swatch: '#fffff',
+                        swatch: '#ffffff',
                     },
                     {
                         title: 'Red',
@@ -763,6 +768,11 @@ $(document).ready(function () {
                         page: 152,
                         swatch: '#ffffff',
                     },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 360005659054,
+                        orgRequired: true, 
+                    },                                                                                                
                 ],
             },
             {
@@ -794,6 +804,22 @@ $(document).ready(function () {
                 page: 152,
                 title: 'Breathing white',
                 note: 'status-led-breathing-white.md',
+            },
+            {
+                page: 153,
+                title: 'SIM activation questions',
+                note: 'sim-activation.md',
+                buttons: [
+                    {
+                        title: 'Visit the community forums for help',
+                        url: 'https://community.particle.io/',
+                    },
+                    {
+                        title: 'I\'d like to create a support ticket',
+                        page: 1500000002902,
+                        orgRequired: true, 
+                    },                                                                                                
+                ],
             },
         ];
 

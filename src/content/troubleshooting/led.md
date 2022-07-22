@@ -239,14 +239,7 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 
 Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](https://support.particle.io/hc/).
 
-#### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](https://support.particle.io/hc/).
 
-#### 6\. Contact Particle
-Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
-- Your Device ID
-- Your ICCID (SIM Number)
-- A photo of your device setup to help with troubleshooting.
 {{collapse op="end"}}
 
 {{/if}}

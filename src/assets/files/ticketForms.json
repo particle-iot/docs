@@ -6625,6 +6625,28 @@
             "conditions": []
         },
         {
+            "id": 1500000002902,
+            "title": "SIM Not Activating / Deactivating / Unpausing",
+            "fields": [
+                {
+                    "id": 5777314619035
+                },
+                {
+                    "id": 360056045853
+                },
+                {
+                    "id": 360026982714
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
             "id": 360005659054,
             "title": "My Device's Status LED is Blinking Cyan, Red, Yellow, or Dark Blue",
             "fields": [
