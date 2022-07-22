@@ -1328,6 +1328,20 @@
             "required": false
         },
         {
+            "id": 7521793229083,
+            "type": "textarea",
+            "title": "GNSS Information",
+            "description": "",
+            "required": false
+        },
+        {
+            "id": 7521822852635,
+            "type": "textarea",
+            "title": "Device doctor debug logs",
+            "description": "",
+            "required": false
+        },
+        {
             "id": 5773565316123,
             "type": "textarea",
             "title": "Your community forum post",
@@ -1339,6 +1353,13 @@
             "type": "textarea",
             "title": "Check on Sleep documentation",
             "description": "Have you checked our About Sleep guide (https://docs.particle.io/tutorials/learn-more/about-sleep/)?",
+            "required": false
+        },
+        {
+            "id": 7521832693787,
+            "type": "textarea",
+            "title": "Network information",
+            "description": "",
             "required": false
         },
         {
@@ -3939,6 +3960,13 @@
                     "default": false
                 }
             ]
+        },
+        {
+            "id": 7521824368795,
+            "type": "textarea",
+            "title": "User information",
+            "description": "Your account information",
+            "required": false
         },
         {
             "id": 5794589272475,
@@ -7263,6 +7291,37 @@
                 },
                 {
                     "id": 1260816805790
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
+            "id": 7521710158235,
+            "title": "Cellular Connectivity Issues",
+            "fields": [
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360026982714
+                },
+                {
+                    "id": 7521824368795
+                },
+                {
+                    "id": 7521832693787
+                },
+                {
+                    "id": 7521793229083
+                },
+                {
+                    "id": 7521822852635
                 },
                 {
                     "id": 22020244

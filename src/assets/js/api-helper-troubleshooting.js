@@ -1163,7 +1163,6 @@ $(document).ready(function () {
 
                     console.log('options', options);
 
-                    /*
                     try {
                         const resp = await apiHelper.ticketSubmit(options);
                         console.log('resp', resp);
@@ -1176,7 +1175,6 @@ $(document).ready(function () {
                         ga('send', 'event', gaCategory, 'ticketSubmitError', pageObj.ticketForm);
                         showPage({page: 106}); // Ticket error
                     }
-                    */
                     
 
                 });
