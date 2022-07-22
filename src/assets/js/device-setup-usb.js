@@ -3237,7 +3237,7 @@ $(document).ready(function() {
                 {
                     // Organization
                     id: 7522488707227,
-                    value: apiHelper.selectedOrg,
+                    value: apiHelper.selectedOrg ? apiHelper.selectedOrg.name : '',
                 },
                 {
                     // Device Logs

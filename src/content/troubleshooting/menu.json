@@ -25,7 +25,8 @@
     {
       "dir": "troubleshooting2",
       "title": "Troubleshooting 2",
-      "href": "/troubleshooting/troubleshooting2/"
+      "href": "/troubleshooting/troubleshooting2/",
+      "hidden": true
     },
     {
       "dir": "led",
