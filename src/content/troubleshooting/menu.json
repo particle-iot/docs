@@ -23,6 +23,11 @@
       ]
     },
     {
+      "dir": "troubleshooting2",
+      "title": "Troubleshooting 2",
+      "href": "/troubleshooting/troubleshooting2/"
+    },
+    {
       "dir": "led",
       "title": "Status LED and Device Modes",
       "href": "/troubleshooting/led/"

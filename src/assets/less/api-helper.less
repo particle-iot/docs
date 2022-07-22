@@ -23,6 +23,10 @@ select.apiHelperSelect24 {
     height: 24px;
 }
 
+select.apiHelperSelectMultiple {
+    height: 100px;
+}
+
 select.codeboxFlashDeviceSelect, select.apiHelperConfigSchemaProductSelect {
     height: 24px;
 }
@@ -87,6 +91,49 @@ tr.apiHelperSelectedRow {
     font-size: 12px;  
 };
 
+.apiHelperGiantButton {
+    position: relative;
+    width: 80%;
+    padding: 10px 10px 10px 10px;
+    margin: 20px 20px 20px 20px;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+};
+
+.apiHelperGiantButtonDetail {
+    font-size: 11px;
+    padding-top: 3px;
+};
+
+.apiHelperGiantButtonSwatch {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    width: 27px;
+    height: 27px;
+}
+
+.apiHelperTroubleshootingPage {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.apiHelperTroubleshootingField {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.apiHelperTroubleshootingInput {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.apiHelperTroubleshootingDescription {
+    font-size: 10px;
+}
+
 .usbSerialConsoleTextArea {
     width: 99%;
     height: 500px;
@@ -107,10 +154,18 @@ textarea.usbSerialConsoleTextArea:focus {
     }
     select.apiHelperSelect,
     select.apiHelperSelect24,
+    select.apiHelperSelectMultiple,
     select.codeboxFlashDeviceSelect, 
     select.apiHelperConfigSchemaProductSelect {
         background-color: @COLOR_Midnight_500;
         color: @COLOR_Gray_100;
+    }
+    .apiHelperGiantButton {
+        background-color: @COLOR_ParticleBlue_900;
+        color: @COLOR_Gray_100;
+    }
+    .apiHelperGiantButtonSelected {
+        background-color: @COLOR_ParticleBlue_700;
     }
 }
 
@@ -121,9 +176,17 @@ textarea.usbSerialConsoleTextArea:focus {
     }
     select.apiHelperSelect,
     select.apiHelperSelect24,
+    select.apiHelperSelectMultiple,
     select.codeboxFlashDeviceSelect, 
     select.apiHelperConfigSchemaProductSelect {
         background-color:#EFEFEF;
         color: @COLOR_Midnight_500;
+    }
+    .apiHelperGiantButton {
+        background-color: @COLOR_ParticleBlue_400;
+        color: @COLOR_Midnight_500;
+    }
+    .apiHelperGiantButtonSelected {
+        background-color: @COLOR_ParticleBlue_700;
     }
 }

@@ -68,7 +68,7 @@ $(document).ready(function() {
 
         let ticketOptions = {
             subject: 'Request from Device Doctor',
-            message: 'Describe your problem here:\n\n\nAdditional information provided by Device Doctor:\n',
+            message: '',
         }
 
         const minimumDeviceOsVersion = '2.1.0';
@@ -324,85 +324,6 @@ $(document).ready(function() {
         }
         
 
-
-
-        $('.setupStepLoginTicket').each(function() {
-            const thisElem = $(this);
-            
-            const nameElem = $(thisElem).find('.loginTicketName');
-            const emailElem = $(thisElem).find('.loginTicketEmail');
-            const textElem = $(thisElem).find('.ticketText');
-            const buttonElem = $(thisElem).find('.apiHelperButton');
-
-            const checkButtonEnable = function() {
-                if ($(emailElem).val().indexOf('@') && $(textElem).val().trim().length > 0 && $(nameElem).val().trim().length > 0) {
-                    $(buttonElem).prop('disabled', false);
-                }
-                else {
-                    $(buttonElem).prop('disabled', true);                    
-                }
-            }
-
-            $(emailElem).on('input', function() {
-                checkButtonEnable();
-            });
-            $(textElem).on('input', function() {
-                checkButtonEnable();
-            });
-
-            if (apiHelper.auth && apiHelper.auth.username) {
-                $(emailElem).val(apiHelper.auth.username);
-            }
-
-            checkButtonEnable();
-
-            $(buttonElem).on('click', function() {
-                const ticket = {
-                    subject: 'Having trouble logging in',
-                    name: $(nameElem).val(),
-                    email: $(emailElem).val(),
-                    body: $(textElem).val()
-                }
-                console.log('ticket', ticket);
-                apiHelper.ticketSubmit(ticket);
-                setSetupStep('setupStepTicketSubmitted');
-            });
-        });
-
-
-
-        $('.setupStepHardwareTicket').each(function() {
-            const thisElem = $(this);
-            
-            const textElem = $(thisElem).find('.ticketText');
-            const buttonElem = $(thisElem).find('.apiHelperButton');
-
-            const checkButtonEnable = function() {
-                if ($(textElem).val().trim().length > 0) {
-                    $(buttonElem).prop('disabled', false);
-                }
-                else {
-                    $(buttonElem).prop('disabled', true);                    
-                }
-            }
-
-            $(textElem).on('input', function() {
-                checkButtonEnable();
-            });
-
-            checkButtonEnable();
-
-            $(buttonElem).on('click', function() {
-                const ticket = {
-                    subject: 'Hardware ticket',
-                    email: apiHelper.auth.username,
-                    text: $(textElem).val()
-                }
-                console.log('ticket', ticket);
-                apiHelper.ticketSubmit(ticket);
-                setSetupStep('setupStepTicketSubmitted');
-            });
-        });
 
         const deviceLogsElem = $(thisElem).find('.deviceLogs');
         const deviceLogsTextElem = $(thisElem).find('.deviceLogsText');
@@ -702,9 +623,7 @@ $(document).ready(function() {
                             if (mccmnc) {
                                 for(const obj of mccmnc) {
                                     if (obj.mcc == respObj.mcc && obj.mnc == respObj.mnc) {
-                                        setInfoTableItemObj(obj);
-                                        
-                                        ticketOptions.message += 'Country: ' + obj.country + ' Carrier:' + obj.name + '\n';
+                                        setInfoTableItemObj(obj);                                        
                                     }
                                 }
                             }                                          
@@ -1055,9 +974,6 @@ $(document).ready(function() {
                 deviceInfo.platformId = usbDevice.platformId;
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
-
-                ticketOptions.message += 'Device ID: ' + deviceInfo.deviceId + '\n';
-                ticketOptions.message += 'Platform ID: ' + deviceInfo.platformId + '\n';
 
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
@@ -1685,7 +1601,6 @@ $(document).ready(function() {
                         }
     
                         deviceInfo.iccid = respObj.iccid;
-                        ticketOptions.message += 'ICCID: ' + deviceInfo.iccid + '\n';
 
                         // 
                         if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
@@ -3253,10 +3168,98 @@ $(document).ready(function() {
             }
         });
 
+        const padText = function(text, width) {
+            if (text.length < width) {
+                return text + '                                                           '.substring(0, width - text.length);
+            }
+            else {
+                return text;
+            }
+        }
+
+        const tableToText = function(tableElem) {
+            let rows = [];
+            for(const rowElem of $(tableElem).find('tr')) {
+                let row = [];
+                for(const colElem of $(rowElem).find('td')) {
+                    row.push($(colElem).text());                    
+                }
+                rows.push(row);
+            }
+            // Calculate maximum column width
+            let colWidths = [];
+            for(const row of rows) {
+                for(let colIndex = 0; colIndex < row.length; colIndex++) {
+                    const col = row[colIndex];
+                    if (colWidths.length <= colIndex) {
+                        colWidths[colIndex] = 0;
+                    }
+                    if (col.length > colWidths[colIndex]) {
+                        colWidths[colIndex] = col.length;
+                    }
+                }
+            }
+
+            let text = '';
+
+            for(const row of rows) {
+                for(let colIndex = 0; colIndex < row.length; colIndex++) {
+                    const col = row[colIndex];
+                    if ((colIndex + 1) < row.length) {
+
+                        text += padText(col, colWidths[colIndex] + 1);
+                    }
+                    else {
+                        text += col;
+                    }
+                }
+                text += '\n';
+            }            
+
+            return text;
+        }
+
         $(thisElem).find('.ticketButton').on('click', function() {
             $('.ticketButtonDiv').hide();
 
-            ticketOptions.message += '\nLogs:\n' + $('.deviceLogsText').val();
+            ticketOptions.ticketFormId = 7521710158235;
+            ticketOptions.customFields = [                
+                {
+                    // Device ID
+                    id: 360056043053,
+                    value: deviceInfo.deviceId,
+                },
+                {
+                    // ICCID
+                    id: 360026982714,
+                    value: deviceInfo.iccid,
+                },
+                {
+                    // Organization
+                    id: 7522488707227,
+                    value: apiHelper.selectedOrg,
+                },
+                {
+                    // Device Logs
+                    id: 7521822852635,
+                    value: $('.deviceLogsText').val(),
+                },
+                {
+                    // User Info
+                    id: 7521824368795,
+                    value: tableToText($(thisElem).find('.userInfoTable > tbody'))
+                },
+                {
+                    // Network info
+                    id: 7521832693787,
+                    value: tableToText($(thisElem).find('.cellularInfoTable > tbody'))
+                },
+                {
+                    // GNSS info
+                    id: 7521793229083,
+                    value: tableToText($(thisElem).find('.gnssLocationTable > tbody')) + '\n' + tableToText($(thisElem).find('.gnssInfoTable > tbody'))
+                },
+            ];
 
             apiHelper.showTicketPanel(ticketOptions);
         });

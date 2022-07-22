@@ -18,6 +18,8 @@ $(document).ready(function() {
                     comment: {
                         body: options.body,
                     },
+                    ticket_form_id: options.ticketFormId,
+                    custom_fields: options.customFields,
                 }
             };
 
@@ -48,7 +50,7 @@ $(document).ready(function() {
 
         const ops = $(ticketPanel).data('ops');
 
-        ops.updateSubjectMessage(options);
+        ops.updateRequestFields(options);
         ops.showPanel();
     };
 
@@ -69,7 +71,9 @@ $(document).ready(function() {
         const ticketErrorDivElem = $(thisElem).find('.ticketErrorDiv');
         const ticketNumElem = $(thisElem).find('.ticketNum');
         
-        
+        let options = {
+            email: apiHelper.auth.username,
+        };    
         
         // const Elem = $(thisElem).find('.');
         
@@ -117,12 +121,18 @@ $(document).ready(function() {
 
         $(thisElem).data('ops', {
             showPanel, 
-            updateSubjectMessage: function(opts) {
+            updateRequestFields: function(opts) {
                 if (opts.subject) {
                     $(subjectInputElem).val(opts.subject);
                 }
                 if (opts.message) {
                     $(messageFieldElem).val(opts.message);
+                }
+                if (opts.ticketFormId) {
+                    options.ticketFormId = opts.ticketFormId;
+                }
+                if (opts.customFields) {
+                    options.customFields = opts.customFields;
                 }
                 enableButtons();
             },
@@ -143,19 +153,12 @@ $(document).ready(function() {
         
     
         $(submitButtonElem).on('click', async function() {
-            let subject = $(subjectInputElem).val();
-            let body = '';
+            options.subject = $(subjectInputElem).val();
+            options.body = '';
             
             $(submitButtonElem).prop('disabled', true);
 
-            body += 'Organization: ' + apiHelper.selectedOrg.name + '\n\n';
-            body += $(messageFieldElem).val();
-
-            let options = {
-                email: apiHelper.auth.username,
-                subject,
-                body,
-            };
+            options.body += $(messageFieldElem).val();
 
             console.log('options', options);
             

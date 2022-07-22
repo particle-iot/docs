@@ -162,88 +162,38 @@ And the less common situations:
 If your device is blinking green, it is trying to connect to cellular.
 
 {{collapse op="start" label="More information"}}
+Blinking green indicates that your cellular device is attempting to connect to the cellular network. This can take anywhere from a few seconds to several minutes. You should wait at least 10 minutes.
 
-Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
+#### SIM not activated
 
-#### 1) Is your Electron compatible with your local cellular network?
-There are three different variants of the Electron, and they each work in different parts of the world:
+You must activate the SIM card. This normally happens during device setup, but if you set up your device manually you can miss this step. Also if you manually deactivate your SIM card, it will get stuck in blinking green. You can check the status in [the Particle console](https://console.particle.io/).
 
+Also check the [console billing page](https://console.particle.io/billing) to make sure your account is not paused.
 
-| Electron Name  | Service | Service Location | Bands (MHz) |
-| ------------- | :-------------: | :----: | :----: |
-| Electron G350  | 2G only | Worldwide | 850/900/1800/1900 |
-| Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
-| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
-| E Series E310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 |
-| E Series E402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
-| Boron 2G/3G BRN310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 | 
-| Boron LTE BRN402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
+#### Device not compatible
 
-The Boron LTE can be used in other locations with a 3rd-party SIM card on bands 2, 3, 4, 5, 8, 12, 13, 20, and 28.
+Some devices, including the Boron LTE (BRN404X, BRN404, BRN402), B Series LTE (B404X, B404, B402), Tracker SoM (ONE404X, ONE404, ONE402, T404X, T404, T402), E Series LTE (E404X, E404, E402), Electron LTE (ELC402) are only intended for use in North America, the United States, Canada and Mexico. The devices will not generally connect from other locations and will be be stuck in blinking green.
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country see the [Carrier List](/reference/cellular/cellular-carriers/).
+Likewise, some EMEAA models including the B Series SoM (B524, B523), Tracker (ONE524, ONE523, T524, T523) will not connect in North America, and will only connect in limited circumstances in other locations in the Americas.
 
-If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
+2G/3G models including the Boron 2G/3G (BRN314, BRN310), E Series (E310), Electron (U270, U260, G350) may have connectivity impacted by 2G/3G shutdown in some countries.
 
-#### 2) Is your antenna connected?
-Your Electron cannot connect without the included external cellular antenna. Please make sure it is connected as depicted below:
+#### No local carrier
 
-![Attach the antenna](/assets/images/antenna_attach.jpg)
+Check the [Carrier List](/reference/cellular/cellular-carriers/) to make sure you have a compatible cellular carrier for your device and location. Note that different devices have different sets of carriers, even with a Particle SIM, as there are four different Particle SIM cards.
 
-#### 3) Is your battery connected?
-Your Electron, E Series E310, or Boron 2G/3G *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
+#### Antenna problems
 
-![Connect the battery](/assets/images/attach_batt.jpg)
+If you antenna is disconnected, not compatible with your device, or damaged you could get stuck in blinking green.
 
-While the Electron does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
+Adjusting the antenna position may help, and on some devices using a larger external antenna can help.
 
-The E Series E402 (LTE Cat M1) and Boron LTE can be used only powered by USB.
+#### Battery required in some cases
 
-#### 4) Is your SIM activated?
-In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io) or the mobile apps. Follow the on-screen prompts to complete device setup and SIM activation.
+For 2G/3G devices, you should always connect a battery. The USB power supply may not supply enough current to connect, especially to 2G.
 
-#### 5) Are you using a 3rd party (non-Particle) SIM?
-If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](https://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
+LTE Cat M1 devices can connect without a battery.
 
-> **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
-
-If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
-
-#### 6) Check the cellular coverage in your area
-The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
-
-- Find the carrier from the [carrier list](/reference/cellular/cellular-carriers/)
-- Use a tool such as the OpenSignal mobile app to find coverage. The OpenSignal apps for iOS and Android can provide coverage information world-wide.
-- If you are using an E Series E402 (LTE) or Boron LTE, the built-in Particle SIM card can only be used in the United States, on AT&T. It will only work in areas with LTE coverage; it cannot fall back to 3G.
-
-If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!
-
-
-#### 7) Check the cellular reception in your location
-Cellular *coverage* and cellular *reception* are slightly different.  Coverage is determined by the location and availability of cellular towers in your neighborhood. Even if there is coverage, your device might not have *reception*. Things like RF interference, being in a basement, or a damaged antenna might affect your device's ability to get a good signal from the cell tower nearby.
-
-There are a bunch of things that you can do to improve your cellular reception:
-
-- Check the coverage on your phone (if it is on a GSM network) as a comparison point. Do you get a good signal?
-- Try going outside, or by a window, to confirm that your device can connect
-
-
-#### 8) Check your data limit
-If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
-
-[https://console.particle.io/billing](https://console.particle.io/billing)
-
-#### 9) Cold boot your device
-If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
-
-#### 10) Are Particle's mobile carriers experiencing issues?
-Check out [our status page](https://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
-
-#### 11) Contact Particle
-Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
-- Your Device ID
-- Your ICCID (SIM Number)
-- A photo of your device setup to help with troubleshooting.
 
 {{collapse op="end"}}
 
@@ -289,14 +239,7 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 
 Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](https://support.particle.io/hc/).
 
-#### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](https://support.particle.io/hc/).
 
-#### 6\. Contact Particle
-Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
-- Your Device ID
-- Your ICCID (SIM Number)
-- A photo of your device setup to help with troubleshooting.
 {{collapse op="end"}}
 
 {{/if}}
