@@ -485,6 +485,27 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 
 {{!-- ### I/O Characteristics --}}
 
+
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 63.8 | 65.8 | 68.9 | mA |
+| Operating Current (uC on, BLE advertising)  | I<sub>ble_adv</sub> | 62.4 | 66.1 | 73.8 | mA |
+| Operating Current (uC on, radio connected to access point) | I<sub>wifi_conn_ap</sub> | 62.3 | 67.8 | 325 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 549 | 579 | 608 | uA |
+| STOP mode sleep, time wake-up | I<sub>stop_intrtc</sub> | 543 | 572 | 604 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 549 | 579 | 608 | uA |
+| ULP mode sleep, time wake-up | I<sub>ulp_intrtc</sub> | 543 | 572 | 604 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 93.8 | 114 | 133 | uA |
+| HIBERNATE mode sleep, time wake-up | I<sub>hib_intrtc</sub> | 93.3 | 115 | 133 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
+
+
 ## Mechanical specifications
 
 {{!-- ### Overall dimensions --}}
@@ -672,6 +693,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-06-08 | RK | Added intended applications section, changed reference to ARM M4F to M33 | 
 |     | 2022-06-29 | RK | Added flash memory map |
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
+|     | 2022-07-22 | RK | Added power consumption |
 
 ### D Pin Change (2022-02-25)
 

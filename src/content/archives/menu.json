@@ -69,6 +69,11 @@
       "dir": "local-build-using-gcc-arm",
       "title": "Local build using gcc-arm",
       "href": "/archives/local-build-using-gcc-arm/"
+    },
+    {
+      "dir": "maker-kit",
+      "title": "Maker kit tutorials",
+      "href": "/archives/maker-kit/"
     }
   ]
 }

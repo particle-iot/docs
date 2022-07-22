@@ -7,13 +7,19 @@ description: Tutorials for the Photon Maker Kit, a collection of sensors and acc
 
 # {{title}}
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only.
+
+The Photon, Photon Maker Kit, and IFTTT integration have been discontinued.
+{{box op="end"}}
+
 This section provides tutorials for new users of the [Photon Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the getting started guide and have set up your Photon. You'll also need to know how to use the [Particle Web IDE](https://build.particle.io).
 
 ![Photon Maker Kit](/assets/images/maker-kit-box.jpg)
 
 ## Tutorial #1: Servo Gong
 
-In this beginner tutorial, you’ll learn how to connect the Maker Kit **servo** to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
+In this beginner tutorial, you’ll learn how to connect the Maker Kit **servo** to your Photon, and how to control it via the web using the IFTTT Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
 
 <iframe src="https://player.vimeo.com/video/178283217" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 

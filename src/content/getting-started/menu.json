@@ -355,11 +355,6 @@
         "href": "/getting-started/hardware-tutorials/hardware-examples/"
       },
       {
-        "dir": "maker-kit",
-        "title": "Maker kit tutorials",
-        "href": "/getting-started/hardware-tutorials/maker-kit/"
-      },
-      {
         "dir": "e-series-eval-kit",
         "title": "E Series eval kkit tutorials",
         "href": "/getting-started/hardware-tutorials/e-series-eval-kit/"
