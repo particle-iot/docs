@@ -19,7 +19,7 @@ This section provides tutorials for new users of the [Photon Maker Kit](https://
 
 ## Tutorial #1: Servo Gong
 
-In this beginner tutorial, you’ll learn how to connect the Maker Kit **servo** to your Photon, and how to control it via the web using the IFTTT Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
+In this beginner tutorial, you’ll learn how to connect the Maker Kit **servo** to your Photon, and how to control it via the web using the IFTTT Do Button app on your smartphone to ring a gong or other noise-making object.
 
 <iframe src="https://player.vimeo.com/video/178283217" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -106,7 +106,7 @@ Save the code, then flash the firmware to the Photon. (If you have multiple Phot
 
 ### Set up remote control
 
-One of the easiest ways to control a Particle device remotely is by using the [Do Button](https://ifttt.com/products/do/button). The Do Button is a smartphone app made by [IFTTT](https://ifttt.com) (If This Then That) that can be set to trigger events, which they call applets, when you press the button(_My Applets_) inside the app. In this case, we’ll make an applet that activates the servo.
+One of the easiest ways to control a Particle device remotely is by using the Do Button. The Do Button is a smartphone app made by [IFTTT](https://ifttt.com) (If This Then That) that can be set to trigger events, which they call applets, when you press the button(_My Applets_) inside the app. In this case, we’ll make an applet that activates the servo.
 
 First, download the Do Button app to your phone, make an account or log into your existing IFTTT account if you have one, and flip through the examples in the app. (Optionally, swipe left on the example applet to delete it and reduce clutter.)
 
