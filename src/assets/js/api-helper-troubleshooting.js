@@ -10,6 +10,8 @@ $(document).ready(function () {
 
         const urlParams = new URLSearchParams(window.location.search);
 
+        const baseTitle = document.title;
+
         let ticketForms;
 
         // Loaded from /assets/file/troubleshooting.json
@@ -245,6 +247,8 @@ $(document).ready(function () {
                 const titleElem = document.createElement('h3');
                 $(titleElem).text(pageObj.title);
                 $(pageDivElem).append(titleElem);    
+
+                document.title = pageObj.title + ' - ' + baseTitle;
             }
             if (pageObj.description) {
                 const descriptionElem = document.createElement('div');

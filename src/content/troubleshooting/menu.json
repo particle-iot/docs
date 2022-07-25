@@ -3,7 +3,7 @@
     {
       "dir": "troubleshooting",
       "title": "Troubleshooting",
-      "href": "/troubleshooting/",
+      "href": "/troubleshooting/troubleshooting-menu/",
       "tiles": [
         {
           "title": "Status LED",
@@ -23,10 +23,10 @@
       ]
     },
     {
-      "dir": "troubleshooting2",
-      "title": "Troubleshooting 2",
-      "href": "/troubleshooting/troubleshooting2/",
-      "hidden": true
+      "dir": "troubleshooting",
+      "title": "Troubleshooting",
+      "href": "/troubleshooting/troubleshooting/",
+      "hidden": "true"
     },
     {
       "dir": "led",

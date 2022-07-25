@@ -211,6 +211,15 @@
                 "title": "Upgrading was not necessary or did not help",
                 "page": 112
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                109,
+                110,
+                111
+            ]
         ]
     },
     {
@@ -222,6 +231,16 @@
                 "title": "Disabling extensions was not necessary or did not help",
                 "page": 113
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                109,
+                110,
+                111,
+                112
+            ]
         ]
     },
     {
@@ -330,6 +349,14 @@
                 "title": "Install Workbench",
                 "url": "/getting-started/developer-tools/workbench/"
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                109,
+                118
+            ]
         ]
     },
     {
@@ -602,6 +629,14 @@
                 "title": "I'd like to create a support ticket",
                 "page": 1500000008462
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                131
+            ]
         ]
     },
     {
@@ -622,6 +657,15 @@
                 "page": 1500000008462,
                 "orgRequired": true
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                131,
+                132
+            ]
         ]
     },
     {
@@ -674,22 +718,57 @@
                 "page": 360005659054,
                 "orgRequired": true
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133
+            ]
         ]
     },
     {
         "page": 134,
         "title": "Listening mode (blinking dark blue)",
-        "note": "status-led-blinking-dark-blue.md"
+        "note": "status-led-blinking-dark-blue.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                134
+            ]
+        ]
     },
     {
         "page": 135,
         "title": "Safe mode (blinking magenta)",
-        "note": "status-led-blinking-magenta.md"
+        "note": "status-led-blinking-magenta.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                135
+            ]
+        ]
     },
     {
         "page": 136,
         "title": "DFU mode (blinking yellow)",
-        "note": "status-led-blinking-yellow.md"
+        "note": "status-led-blinking-yellow.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                136
+            ]
+        ]
     },
     {
         "page": 137,
@@ -719,42 +798,118 @@
         "page": 138,
         "title": "Blinking green - Cellular",
         "note": "status-led-blinking-green-cellular.md",
-        "showStatus": true
+        "showStatus": true,
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                137,
+                138
+            ]
+        ]
     },
     {
         "page": 139,
         "title": "Blinking green - P2/Photon 2",
-        "note": "status-led-blinking-green-p2.md"
+        "note": "status-led-blinking-green-p2.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                137,
+                139
+            ]
+        ]
     },
     {
         "page": 140,
         "title": "Blinking green - P1 and Photon",
-        "note": "status-led-blinking-green-gen2.md"
+        "note": "status-led-blinking-green-gen2.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                137,
+                140
+            ]
+        ]
     },
     {
         "page": 141,
         "title": "Blinking green - Argon",
-        "note": "status-led-blinking-green-gen3.md"
+        "note": "status-led-blinking-green-gen3.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                137,
+                141
+            ]
+        ]
     },
     {
         "page": 142,
         "title": "Blinking cyan (light blue)",
-        "note": "status-led-blinking-cyan.md"
+        "note": "status-led-blinking-cyan.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                142
+            ]
+        ]
     },
     {
         "page": 143,
         "title": "Blinking white",
-        "note": "status-led-blinking-white.md"
+        "note": "status-led-blinking-white.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                143
+            ]
+        ]
     },
     {
         "page": 144,
         "title": "Blinking red",
-        "note": "status-led-blinking-red.md"
+        "note": "status-led-blinking-red.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                144
+            ]
+        ]
     },
     {
         "page": 145,
         "title": "Blinking orange",
-        "note": "status-led-blinking-orange.md"
+        "note": "status-led-blinking-orange.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                133,
+                145
+            ]
+        ]
     },
     {
         "page": 146,
@@ -796,32 +951,85 @@
     {
         "page": 147,
         "title": "Breathing cyan (light blue)",
-        "note": "status-led-breathing-cyan.md"
+        "note": "status-led-breathing-cyan.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                146,
+                147
+            ]
+        ]
     },
     {
         "page": 148,
         "title": "Breathing green",
-        "note": "status-led-breathing-green.md"
+        "note": "status-led-breathing-green.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                146,
+                148
+            ]
+        ]
     },
     {
         "page": 149,
         "title": "Breathing magenta",
-        "note": "status-led-breathing-magenta.md"
+        "note": "status-led-breathing-magenta.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                146,
+                149
+            ]
+        ]
     },
     {
         "page": 150,
         "title": "Breathing dark blue",
-        "note": "status-led-breathing-dark-blue.md"
+        "note": "status-led-breathing-dark-blue.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                146,
+                150
+            ]
+        ]
     },
     {
         "page": 151,
         "title": "Signaling (nyan) mode",
-        "note": "status-led-nyan.md"
+        "note": "status-led-nyan.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                151
+            ]
+        ]
     },
     {
         "page": 152,
         "title": "Breathing white",
-        "note": "status-led-breathing-white.md"
+        "note": "status-led-breathing-white.md",
+        "paths": [
+            [
+                101,
+                108,
+                130,
+                146,
+                152
+            ]
+        ]
     },
     {
         "page": 153,
@@ -837,6 +1045,14 @@
                 "page": 1500000002902,
                 "orgRequired": true
             }
+        ],
+        "paths": [
+            [
+                101,
+                108,
+                127,
+                153
+            ]
         ]
     }
 ]

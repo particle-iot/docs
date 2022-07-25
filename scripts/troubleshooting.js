@@ -1,0 +1,84 @@
+
+const fs = require('fs');
+const path = require('path');
+
+function updateTroubleshootingPaths(json) {
+    // console.log('updateTroubleshootingPaths', json);
+
+    // Delete all of the paths and add them back in
+    for(let p of json) {
+        if (p.paths) {
+            delete p.paths;
+        }
+    }
+
+    const getPage = function(page) {
+        return json.find(e => e.page == page);
+    }
+
+    const crawl = function(page, pagePath) {
+        const p = getPage(page);
+        if (!p) {
+            console.log('page ' + page + ' not found', pagePath);
+            return;
+        }
+        // console.log('crawl ' + page, pagePath);
+
+        const newPagePath = pagePath.concat([page]);
+
+        if (p.buttons) {
+            for(const b of p.buttons) {
+                if (b.page && b.page < 10000) {
+                    // Link to a page (not a form)
+                    crawl(b.page, newPagePath);
+                }
+            }    
+        }
+        
+        if (p.note) {
+            // console.log('note ' + p.note, newPagePath);
+            if (!p.paths) {
+                p.paths = [];
+            }
+            p.paths.push(newPagePath);
+        }
+    }   
+
+    // Crawl from the first page
+    crawl(101, []);
+
+}
+
+module.exports = function(options) {
+
+	return function(files, metalsmith, done) {
+        // options.sourceDir is usually '../src' 
+        // options.jsonFile is the configuration JSON file, relative to src: 'assets/files/troubleshooting.json'
+
+        const jsonPath = metalsmith.path(path.join(options.sourceDir, options.jsonFile));
+
+        const origJsonStr = fs.readFileSync(jsonPath, 'utf8');
+
+        let json = JSON.parse(origJsonStr);
+
+        updateTroubleshootingPaths(json);
+
+        const newJsonStr = JSON.stringify(json, null, 4);
+        if (origJsonStr != newJsonStr) {
+            console.log('updated ' + jsonPath);
+
+            fs.writeFileSync(jsonPath, newJsonStr);
+
+            files[options.jsonFile] = {
+                contents: Buffer.from(newJsonStr, 'utf8'),
+                mode: '0644',
+                stats: fs.statSync(jsonPath)
+            };
+    
+        }
+
+        done();
+	};
+};
+
+
