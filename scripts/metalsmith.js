@@ -60,7 +60,7 @@ var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
-const troubleshooting = require('./troubleshooting.js');
+const troubleshooting = require('./troubleshooting.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -149,7 +149,9 @@ exports.metalsmith = function () {
       environment === 'development',
       troubleshooting({
         sourceDir: '../src',
-        jsonFile: 'assets/files/troubleshooting.json'
+        jsonFile: 'assets/files/troubleshooting.json',
+        redirectsFile: '../config/redirects.json',
+        ticketFormsFile: 'assets/files/ticketForms.json'
       })))
         // Minify CSS
     .use(cleanCSS({

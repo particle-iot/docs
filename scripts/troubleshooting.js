@@ -2,35 +2,57 @@
 const fs = require('fs');
 const path = require('path');
 
-function updateTroubleshootingPaths(json) {
-    // console.log('updateTroubleshootingPaths', json);
+function verifyTroubleshooting(options) {
+    // console.log('verifyTroubleshooting', json);
 
     // Delete all of the paths and add them back in
-    for(let p of json) {
+    for(let p of options.troubleshootingJson) {
         if (p.paths) {
             delete p.paths;
         }
     }
 
     const getPage = function(page) {
-        return json.find(e => e.page == page);
+        return options.troubleshootingJson.find(e => e.page == page);
     }
 
     const crawl = function(page, pagePath) {
         const p = getPage(page);
         if (!p) {
-            console.log('page ' + page + ' not found', pagePath);
+            console.log('ERROR! Troubleshooting page ' + page + ' not found', pagePath);
             return;
         }
         // console.log('crawl ' + page, pagePath);
 
         const newPagePath = pagePath.concat([page]);
 
+        if (p.ticketForm) {
+            const form = options.ticketFormsJson.ticketForms.find(e => e.id == p.ticketForm);
+            if (!form) {
+                console.log('ERROR! Troubleshooting page ' + page + ' unknown ticketForm ' + p.ticketForm);
+            }
+
+            for(const field of p.fields) {
+                const f = options.ticketFormsJson.ticketFields.find(e => e.id == field.id);
+                if (!f) {
+                    console.log('ERROR! Troubleshooting page ' + page + ' unknown ticketForm field ' + field.id);
+                }
+            }
+        }
+
         if (p.buttons) {
             for(const b of p.buttons) {
                 if (b.page && b.page < 10000) {
                     // Link to a page (not a form)
                     crawl(b.page, newPagePath);
+                }
+                else
+                if (b.page >= 10000) {
+                    // Link to ticket form
+                    const f = options.ticketFormsJson.ticketForms.find(e => e.id == b.page);
+                    if (!f) {
+                        console.log('ERROR! Troubleshooting page ' + page + ' links to unknown form ' + b.page);
+                    }
                 }
             }    
         }
@@ -47,38 +69,45 @@ function updateTroubleshootingPaths(json) {
     // Crawl from the first page
     crawl(101, []);
 
+
 }
 
-module.exports = function(options) {
+module.exports = {
+    metalsmith: function(options) {
 
-	return function(files, metalsmith, done) {
-        // options.sourceDir is usually '../src' 
-        // options.jsonFile is the configuration JSON file, relative to src: 'assets/files/troubleshooting.json'
+        return function(files, metalsmith, done) {
+            // options.sourceDir is usually '../src' 
+            // options.jsonFile is the configuration JSON file, relative to src: 'assets/files/troubleshooting.json'
 
-        const jsonPath = metalsmith.path(path.join(options.sourceDir, options.jsonFile));
+            const jsonPath = metalsmith.path(path.join(options.sourceDir, options.jsonFile));
 
-        const origJsonStr = fs.readFileSync(jsonPath, 'utf8');
+            const origJsonStr = fs.readFileSync(jsonPath, 'utf8');
 
-        let json = JSON.parse(origJsonStr);
+            let troubleshootingJson = JSON.parse(origJsonStr);
 
-        updateTroubleshootingPaths(json);
+            verifyTroubleshooting({
+                troubleshootingJson,
+                redirectsJson: JSON.parse(fs.readFileSync(metalsmith.path(path.join(options.sourceDir, options.redirectsFile)), 'utf8')),
+                ticketFormsJson: JSON.parse(fs.readFileSync(metalsmith.path(path.join(options.sourceDir, options.ticketFormsFile)), 'utf8'))
+            });
 
-        const newJsonStr = JSON.stringify(json, null, 4);
-        if (origJsonStr != newJsonStr) {
-            console.log('updated ' + jsonPath);
+            const newJsonStr = JSON.stringify(troubleshootingJson, null, 4);
+            if (origJsonStr != newJsonStr) {
+                console.log('updated ' + jsonPath);
 
-            fs.writeFileSync(jsonPath, newJsonStr);
+                fs.writeFileSync(jsonPath, newJsonStr);
 
-            files[options.jsonFile] = {
-                contents: Buffer.from(newJsonStr, 'utf8'),
-                mode: '0644',
-                stats: fs.statSync(jsonPath)
-            };
-    
+                files[options.jsonFile] = {
+                    contents: Buffer.from(newJsonStr, 'utf8'),
+                    mode: '0644',
+                    stats: fs.statSync(jsonPath)
+                };
+        
+            }
+
+            done();
         }
-
-        done();
-	};
+    },
 };
 
 
