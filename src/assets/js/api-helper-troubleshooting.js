@@ -62,11 +62,11 @@ $(document).ready(function () {
             }
             if (!pageObj) {
                 ga('send', 'event', gaCategory, 'invalidPage', pageOptions.page);
-                return;
+                return false;
             }
             if (pageStack.find(e => e.page == pageOptions.page)) {
                 ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
-                return;
+                return false;
             }
 
             ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
@@ -471,6 +471,24 @@ $(document).ready(function () {
             $('.content-inner').scrollTop(pos);
             
             updateUrl();
+
+            return true;
+        };
+
+        const loadPath = async function(path) {
+            let loadedPage = false;
+
+            for(let ii = 0; ii < path.length; ii++) {
+                const page = path[ii];
+                const next = ((ii + 1) < path.length) ? path[ii + 1] : undefined;
+
+                const res = await showPage({page, next});
+                if (!res) {
+                    break;
+                }
+                loadedPage = false;
+            }    
+            return loadedPage;
         };
 
         const run = async function() {
@@ -482,6 +500,8 @@ $(document).ready(function () {
 
             if (apiHelper.auth) {
                 // Have a token, verify it
+                let showDefaultPage = true;
+
                 const pageListStr = urlParams.get('p');
                 if (pageListStr) {
                     let loadPages = [];
@@ -490,18 +510,21 @@ $(document).ready(function () {
                             loadPages.push(parseInt(p));
                         }
                     }
+
+                    if (loadPages.length == 1) {
+                        let pageObj = decisionTree.find(e => e.page == loadPages[0]);
+                        if (pageObj.paths) {
+                            showDefaultPage = !loadPath(pageObj.paths[0]); 
+                        }
+                    }
+                    else
                     if (loadPages.length > 1 || loadPages[0] != 100) {
                         // Not the no auth page
-                        for(let ii = 0; ii < loadPages.length; ii++) {
-                            const page = loadPages[ii];
-                            const next = ((ii + 1) < loadPages.length) ? loadPages[ii + 1] : undefined;
-    
-                            await showPage({page, next});
-                        }    
+                        showDefaultPage = !loadPath(loadPages); 
                     }
                 }
 
-                if (pageStack.length == 0) {
+                if (showDefaultPage) {
                     await showPage({page: 101});
                 }
             }

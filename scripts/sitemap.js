@@ -144,8 +144,9 @@ module.exports = function plugin(options) {
             if (!p.paths) {
                 continue;
             }
-            let url = options.baseUrl + 'troubleshooting/troubleshooting/?p=' + p.paths.join(',');
-            let priority = 0.5;
+            
+            let url = options.baseUrl + 'troubleshooting/troubleshooting/?p=' + p.paths[0][p.paths[0].length - 1];
+            let priority = 0.4;
 
             sitemap += '  <url>\n';
 
