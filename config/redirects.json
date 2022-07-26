@@ -2042,6 +2042,7 @@
   "/support/wholesale-store/wholesale-products": "https://support.particle.io/hc/",
   "/tinker": "/archives/tinker",
   "/tools": "/tools/tools",
+  "/tools/developer-tools/device-setup": "/tools/setup",
   "/tools/device-programming": "/tools/device-restore/device-restore-usb",
   "/tools/device-programming/device-restore-jtag": "/tools/device-restore/device-restore-jtag",
   "/tools/device-programming/device-restore-usb": "/tools/device-restore/device-restore-usb",
