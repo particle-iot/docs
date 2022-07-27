@@ -45,6 +45,91 @@ function hexAddr8(n) {
 };
 
 
+function parseBinaryModuleInfo(array, arrayOffset) {
+    let result = {};
+
+    const dv = new DataView(array, arrayOffset);
+
+    let offset = 0;
+
+    // offset 0, 4-bytes: module start address
+    result.moduleStartAddy = dv.getUint32(offset, true); // 0
+    offset += 4;
+    
+    // offset 4, 4-bytes: module end address
+    result.moduleEndAddy = dv.getUint32(offset, true); // 4
+    offset += 4;
+    
+    // reserved (MCU target on Gen 3)
+    result.reserved = dv.getUint8(offset);
+    offset++;
+
+    // offset 9, 1-byte: module flags (module_info_flags_t)
+    result.moduleFlags = dv.getUint8(offset); // 9
+    offset++
+
+    // offset 10, 2-bytes: module version (this is not the same as
+    // product version, it relates to the module export functions)
+    result.moduleVersion = dv.getUint16(offset, true); // 10
+    offset += 2;
+    
+    // offset 12, 2-bytes: Platform ID (6 for Photon)
+    result.platformID = dv.getUint16(offset, true);
+    offset += 2;
+
+    // offset 14, 1-byte: module function (5 for user firmware)
+    result.moduleFunction = dv.getUint8(offset);
+    offset++;
+
+    // offset 15, 1-byte: module index (1 for user firmware)
+    result.moduleIndex = dv.getUint8(offset);
+    offset++;
+
+    // offset 16, 1-byte: dependency module function (usually system, 4)
+    result.depModuleFunction = dv.getUint8(offset);
+    offset++;
+
+    // offset 17, 1-byte: dependency module index (usually 2, so
+    // dependency is system-part2)
+    result.depModuleIndex = dv.getUint8(offset);
+    offset++;
+
+    // offset 18, 1-byte: minimum version of system dependency
+    result.depModuleVersion = dv.getUint16(offset, true);
+    offset += 2;
+
+    // offset 20, 1-byte: dependency module function (usually system, 4)
+    result.dep2ModuleFunction = dv.getUint8(offset);
+    offset++;
+
+    // offset 21, 1-byte: dependency module index (usually 2, so
+    // dependency is system-part2)
+    result.dep2ModuleIndex = dv.getUint8(offset);
+    offset++;
+
+    // offset 22, 2-byte: minimum version of system dependency
+    result.dep2ModuleVersion = dv.getUint16(offset, true);
+    offset += 2;
+
+    result.prefixSize = arrayOffset;
+
+    const maxModuleFunction = 10; // Currently 8 but just in case
+    const maxModuleIndex = 5; // Currently 3
+
+    result.valid = (result.moduleStartAddy < result.moduleEndAddy) &&
+        (result.moduleFunction >= 1 && result.moduleFunction <= maxModuleFunction) &&  // This module must be >= 1
+        (result.moduleIndex >= 0 && result.moduleIndex <= maxModuleIndex) &&
+        (result.depModuleFunction >= 0 && result.depModuleFunction <= maxModuleFunction) && // Dep and Dep2 can be 0 (no dependency)
+        (result.depModuleIndex >= 0 && result.depModuleIndex <= maxModuleIndex) &&
+        (result.dep2ModuleFunction >= 0 && result.dep2ModuleFunction <= maxModuleFunction) &&
+        (result.dep2ModuleIndex >= 0 && result.dep2ModuleIndex <= maxModuleIndex);
+
+    result.validUserBinary = result.valid && result.moduleFunction == 5 && result.moduleIndex == 1;
+
+    return result;
+}
+
+
 async function dfuDeviceRestore(usbDevice, options) {
 
     const setStatus = function(s) {
@@ -89,9 +174,7 @@ async function dfuDeviceRestore(usbDevice, options) {
         }
     } 
 
-    let moduleInfo;
     let ncpImage;
-    let zipFs;
     let userFirmwareBinaryStartAddr;
 
 
@@ -151,45 +234,49 @@ async function dfuDeviceRestore(usbDevice, options) {
     }
     else
     if (!options.ncpUpdate) {
-        setStatus('Downloading module info...');
 
         const baseUrl = '/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name;
-        console.log('download baseUrl=' + baseUrl);
 
-        try {
-            await new Promise(function(resolve, reject) {
-                fetch(baseUrl + '.json')
-                .then(response => response.json())
-                .then(function(res) {
-                    moduleInfo = res;
-                    resolve();
-                });
-            });            
-        }
-        catch(e) {
-            return {
-                ok: false,
-                text: 'Failed to download module info',
-                e
+        if (!options.moduleInfo) {
+            setStatus('Downloading module info...');
+            try {
+                await new Promise(function(resolve, reject) {
+                    fetch(baseUrl + '.json')
+                    .then(response => response.json())
+                    .then(function(res) {
+                        options.moduleInfo = res;
+                        resolve();
+                    });
+                });            
             }
-        }
-    
-        setStatus('Downloading restore image...');
-    
-        const zipUrl = baseUrl + '.zip';
-    
-        zipFs = new zip.fs.FS();
-    
-        try {
-            await zipFs.importHttpContent(zipUrl);
-        }
-        catch(e) {
-            return {
-                ok: false,
-                text: 'Failed to download restore image',
-                e
+            catch(e) {
+                return {
+                    ok: false,
+                    text: 'Failed to download module info',
+                    e
+                }
             }
-        }    
+    
+        }
+    
+        if (!options.zipFs) {
+            setStatus('Downloading restore image...');
+    
+            const zipUrl = baseUrl + '.zip';
+        
+            options.zipFs = new zip.fs.FS();
+        
+            try {
+                await options.zipFs.importHttpContent(zipUrl);
+            }
+            catch(e) {
+                return {
+                    ok: false,
+                    text: 'Failed to download restore image',
+                    e
+                }
+            }   
+        }
     }
     else {
         // is NCP update
@@ -398,94 +485,10 @@ async function dfuDeviceRestore(usbDevice, options) {
         return result;        
     };
 
-    const parseModule = function(array, arrayOffset) {
-        let result = {};
-
-        const dv = new DataView(array, arrayOffset);
-
-        let offset = 0;
-
-        // offset 0, 4-bytes: module start address
-        result.moduleStartAddy = dv.getUint32(offset, true); // 0
-        offset += 4;
-        
-        // offset 4, 4-bytes: module end address
-        result.moduleEndAddy = dv.getUint32(offset, true); // 4
-        offset += 4;
-        
-        // reserved (MCU target on Gen 3)
-        result.reserved = dv.getUint8(offset);
-        offset++;
-
-        // offset 9, 1-byte: module flags (module_info_flags_t)
-        result.moduleFlags = dv.getUint8(offset); // 9
-        offset++
-
-        // offset 10, 2-bytes: module version (this is not the same as
-		// product version, it relates to the module export functions)
-        result.moduleVersion = dv.getUint16(offset, true); // 10
-        offset += 2;
-        
-        // offset 12, 2-bytes: Platform ID (6 for Photon)
-        result.platformID = dv.getUint16(offset, true);
-        offset += 2;
-
-        // offset 14, 1-byte: module function (5 for user firmware)
-        result.moduleFunction = dv.getUint8(offset);
-        offset++;
-
-        // offset 15, 1-byte: module index (1 for user firmware)
-        result.moduleIndex = dv.getUint8(offset);
-        offset++;
-
-		// offset 16, 1-byte: dependency module function (usually system, 4)
-		result.depModuleFunction = dv.getUint8(offset);
-        offset++;
-
-		// offset 17, 1-byte: dependency module index (usually 2, so
-		// dependency is system-part2)
-		result.depModuleIndex = dv.getUint8(offset);
-        offset++;
-
-		// offset 18, 1-byte: minimum version of system dependency
-        result.depModuleVersion = dv.getUint16(offset, true);
-        offset += 2;
-
-		// offset 20, 1-byte: dependency module function (usually system, 4)
-		result.dep2ModuleFunction = dv.getUint8(offset);
-        offset++;
-
-		// offset 21, 1-byte: dependency module index (usually 2, so
-		// dependency is system-part2)
-		result.dep2ModuleIndex = dv.getUint8(offset);
-        offset++;
-
-		// offset 22, 2-byte: minimum version of system dependency
-		result.dep2ModuleVersion = dv.getUint16(offset, true);
-        offset += 2;
-
-        result.prefixSize = arrayOffset;
-
-        const maxModuleFunction = 10; // Currently 8 but just in case
-        const maxModuleIndex = 5; // Currently 3
-
-        result.valid = (result.moduleStartAddy < result.moduleEndAddy) &&
-            (result.moduleFunction >= 1 && result.moduleFunction <= maxModuleFunction) &&  // This module must be >= 1
-            (result.moduleIndex >= 0 && result.moduleIndex <= maxModuleIndex) &&
-            (result.depModuleFunction >= 0 && result.depModuleFunction <= maxModuleFunction) && // Dep and Dep2 can be 0 (no dependency)
-            (result.depModuleIndex >= 0 && result.depModuleIndex <= maxModuleIndex) &&
-            (result.dep2ModuleFunction >= 0 && result.dep2ModuleFunction <= maxModuleFunction) &&
-            (result.dep2ModuleIndex >= 0 && result.dep2ModuleIndex <= maxModuleIndex);
-
-        result.validUserBinary = result.valid && result.moduleFunction == 5 && result.moduleIndex == 1;
-
-        return result;
-    }
-
     // Not currently used
     const findModule = function(array) {
         for(let ii = 0; ii < 256; ii += 4) {
-            let m = parseModule(array, ii);
+            let m = parseBinaryModuleInfo(array, ii);
             if (m.valid) {
                 m.startOffset = ii;
                 return m;
@@ -503,7 +506,7 @@ async function dfuDeviceRestore(usbDevice, options) {
             const dv = new DataView(array);
 
             for(offset = dv.byteLength - 4096; offset >= 0; offset -= 4096) {
-                prefixHeader = parseModule(array, offset);
+                prefixHeader = parseBinaryModuleInfo(array, offset);
                 if (prefixHeader.validUserBinary) {
                     array = array.slice(offset);
                     break;
@@ -514,14 +517,14 @@ async function dfuDeviceRestore(usbDevice, options) {
         if (options.platformVersionInfo.isnRF52) {
             if (array.byteLength == (256 * 1024)) {
                 // Check and see if there's a 128K binary half way into a 256K user binary (Gen 3). If so, use that instead (discard first half)
-                prefixHeader = parseModule(array, 128 * 1024);
+                prefixHeader = parseBinaryModuleInfo(array, 128 * 1024);
                 if (prefixHeader.validUserBinary) {
                     array = array.slice(128 * 1024);
                 }
             }    
         }
         
-        prefixHeader = parseModule(array, 0);
+        prefixHeader = parseBinaryModuleInfo(array, 0);
         if (!prefixHeader.validUserBinary) {
             return null;
         }
@@ -623,14 +626,14 @@ async function dfuDeviceRestore(usbDevice, options) {
         let dfuParts = [];
     
         const getPartBinary = async function(partName) {
-            const zipEntry = zipFs ? zipFs.find(partName + '.bin') : null;
+            const zipEntry = options.zipFs ? options.zipFs.find(partName + '.bin') : null;
             if (!zipEntry) {
                 return null;
             }    
 
             let part = await zipEntry.getUint8Array();
 
-            if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+            if ((options.moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
                 part = part.slice(24); // MODULE_PREFIX_SIZE
             }
 
@@ -640,18 +643,15 @@ async function dfuDeviceRestore(usbDevice, options) {
         const updateBinary = async function(obj) {
             obj.binary = await getPartBinary(obj.name);
             if (obj.binary) {
-                console.log('updateBinary binary', obj.binary);
                 // This previously set obj.moduleInfo = moduleFromModuleInfo(moduleInfo[obj.name]);
                 // which is almost certainly wrong. 
 
-                // obj.binary is a Uint8Array. The .buffer property is the ArrayBuffer, which is what parseModule needs
-                obj.moduleInfo = parseModule(obj.binary.buffer, 0); 
+                // obj.binary is a Uint8Array. The .buffer property is the ArrayBuffer, which is what parseBinaryModuleInfo needs
+                obj.moduleInfo = parseBinaryModuleInfo(obj.binary.buffer, 0); 
 
                 // This was previously from moduleInfo, but I think that's wrong as well
                 // obj.startAddress = parseInt(moduleInfo[obj.name].prefixInfo.moduleStartAddy, 16);
                 obj.startAddress = obj.moduleInfo.moduleStartAddy;
-
-                console.log('updateBinary partName=' + obj.name, obj.moduleInfo);
 
                 dfuParts.push(obj);
             }
@@ -682,8 +682,6 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
         }
 
-        console.log('dfuParts', dfuParts);
-
         if (options.progressDfuParts) {
             options.progressDfuParts(dfuParts);
         }
@@ -699,7 +697,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
                 const m = options.deviceModuleInfo.getByModuleTypeIndex(protobufModuleType, obj.moduleInfo.moduleIndex);
                 if (m) {
-                    console.log('partName=' + obj.name + ' m.version=' + m.version + ' obj.moduleInfo.moduleVersion=' + obj.moduleInfo.moduleVersion, m);
+                    // console.log('partName=' + obj.name + ' m.version=' + m.version + ' obj.moduleInfo.moduleVersion=' + obj.moduleInfo.moduleVersion, m);
 
                     // Don't do version check on user firmware (moduleFunction = 5)
                     if (obj.moduleInfo.moduleFunction != 5 && m.version == obj.moduleInfo.moduleVersion) {
@@ -789,12 +787,12 @@ async function dfuDeviceRestore(usbDevice, options) {
                         dfuseDevice.startAddress = 0x08600000 - maxSize;
                     }
                     else {
-                        if (moduleInfo['tinker']) {
-                            dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                        if (options.moduleInfo['tinker']) {
+                            dfuseDevice.startAddress = parseInt(options.moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
                         }
                         else
-                        if (moduleInfo['tracker-edge']) {
-                            dfuseDevice.startAddress = parseInt(moduleInfo['tracker-edge'].prefixInfo.moduleStartAddy, 16);
+                        if (options.moduleInfo['tracker-edge']) {
+                            dfuseDevice.startAddress = parseInt(options.moduleInfo['tracker-edge'].prefixInfo.moduleStartAddy, 16);
                         }
     
                         if (options.platformVersionInfo.isnRF52) {
@@ -803,7 +801,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                             dfuseDevice.startAddress = 0xb4000;
                         }
                         else {
-                            dfuseDevice.startAddress = parseInt(moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
+                            dfuseDevice.startAddress = parseInt(options.moduleInfo['tinker'].prefixInfo.moduleStartAddy, 16);
                         }    
                     }
 
@@ -912,7 +910,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                     // Only P2 (options.platformVersionInfo.isRTL872x)
                     console.log('processing prebootloader-part1');
 
-                    dfuseDevice.startAddress = parseInt(moduleInfo['system-part1'].prefixInfo.moduleStartAddy, 16);
+                    dfuseDevice.startAddress = parseInt(options.moduleInfo['system-part1'].prefixInfo.moduleStartAddy, 16);
                     console.log('dfuseDevice.startAddress=' + dfuseDevice.startAddress);
 
                     // Read the beginning of the system part
@@ -923,7 +921,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                     console.log('systemStartArrayBuffer', systemStartArrayBuffer);
 
                     // Determine the end of the system part
-                    prefixInfo = parseModule(systemStartArrayBuffer);
+                    prefixInfo = parseBinaryModuleInfo(systemStartArrayBuffer);
 
                     console.log('prefixInfo', prefixInfo);
 
