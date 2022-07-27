@@ -258,6 +258,12 @@ $(document).ready(function () {
                     usbDevice = null;
                     return;
                 }
+                if (platformVersionInfo.isRTL872x) {
+                    setStatus('Cloud debug is not available on the P2');
+                    await usbDevice.close();
+                    usbDevice = null;
+                    return;
+                }
     
                 $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);
                 $(selectElem).text('Select a Different Device');
@@ -333,6 +339,7 @@ $(document).ready(function () {
                 options.downloadUrl = $(urlTrElem).find('td > input').val();
             }
             if ($(modeSelectElem).val() == 'cloudDebug') {
+
                 const platformName = apiHelper.platformIdToName(usbDevice.platformId);
 
                 options.downloadUrl = '/assets/files/cloud-debug/' + platformName + '.bin';
