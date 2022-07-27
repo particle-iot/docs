@@ -56,6 +56,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     // options.ncpUpdate to update NCP, must be separate from a regular update because 
     // only one module can use the OTA update option at a time and a normal device OS
     // update uses that for the bootloader.
+    // Same for options.prebootloader (a.k.a prebootloader-part1 or bootloader 2 in the describe)
 
     if (!options.setupBit) {
         options.setupBit = 'unchanged';
@@ -152,9 +153,12 @@ async function dfuDeviceRestore(usbDevice, options) {
     if (!options.ncpUpdate) {
         setStatus('Downloading module info...');
 
+        const baseUrl = '/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name;
+        console.log('download baseUrl=' + baseUrl);
+
         try {
             await new Promise(function(resolve, reject) {
-                fetch('/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name + '.json')
+                fetch(baseUrl + '.json')
                 .then(response => response.json())
                 .then(function(res) {
                     moduleInfo = res;
@@ -172,7 +176,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     
         setStatus('Downloading restore image...');
     
-        const zipUrl = '/assets/files/device-restore/' + options.version + '/' + options.platformVersionInfo.name + '.zip';
+        const zipUrl = baseUrl + '.zip';
     
         zipFs = new zip.fs.FS();
     
@@ -633,6 +637,26 @@ async function dfuDeviceRestore(usbDevice, options) {
             return part;
         };
 
+        const updateBinary = async function(obj) {
+            obj.binary = await getPartBinary(obj.name);
+            if (obj.binary) {
+                console.log('updateBinary binary', obj.binary);
+                // This previously set obj.moduleInfo = moduleFromModuleInfo(moduleInfo[obj.name]);
+                // which is almost certainly wrong. 
+
+                // obj.binary is a Uint8Array. The .buffer property is the ArrayBuffer, which is what parseModule needs
+                obj.moduleInfo = parseModule(obj.binary.buffer, 0); 
+
+                // This was previously from moduleInfo, but I think that's wrong as well
+                // obj.startAddress = parseInt(moduleInfo[obj.name].prefixInfo.moduleStartAddy, 16);
+                obj.startAddress = obj.moduleInfo.moduleStartAddy;
+
+                console.log('updateBinary partName=' + obj.name, obj.moduleInfo);
+
+                dfuParts.push(obj);
+            }
+        }
+
         if (options.flashBackup) {
             dfuParts.push({ name: 'flash-backup', title: 'Flash backup' });
         }
@@ -641,25 +665,25 @@ async function dfuDeviceRestore(usbDevice, options) {
                 dfuParts.push({ name: 'user-backup', title: 'User firmware backup' });
             }
         
-            if (!options.ncpUpdate) {
+            if (options.prebootloader) {
+                let obj = { name: 'prebootloader-part1', title: 'Prebootloader' };
+                await updateBinary(obj);
+            }
+            else
+            if (options.ncpUpdate) {
+                dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
+            }
+            else {
                 for(const dfuPart of allDfuPartsWithBinaries) {
                     let obj = Object.assign({}, dfuPart);
 
-                    obj.binary = await getPartBinary(dfuPart.name);
-                    if (obj.binary) {
-                        // 
-                        obj.moduleInfo = moduleFromModuleInfo(moduleInfo[obj.name]);
-                        obj.startAddress = parseInt(moduleInfo[dfuPart.name].prefixInfo.moduleStartAddy, 16);
-
-                        dfuParts.push(obj);
-                    }
-                    
+                    await updateBinary(obj);                    
                 }
             }
-            else {
-                dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
-            }    
         }
+
+        console.log('dfuParts', dfuParts);
+
         if (options.progressDfuParts) {
             options.progressDfuParts(dfuParts);
         }
@@ -670,22 +694,24 @@ async function dfuDeviceRestore(usbDevice, options) {
 
 
             if (options.deviceModuleInfo && obj.moduleInfo) {
-                // Modules on device were passed in and we were 
-                // TODO: Need to convert obj.moduleInfo value, which is the Device OS value, into the protobuf value!
+                // Modules on device were passed 
                 const protobufModuleType = options.deviceModuleInfo.moduleTypeSystemToProtobuf(obj.moduleInfo.moduleFunction);
 
                 const m = options.deviceModuleInfo.getByModuleTypeIndex(protobufModuleType, obj.moduleInfo.moduleIndex);
+                if (m) {
+                    console.log('partName=' + obj.name + ' m.version=' + m.version + ' obj.moduleInfo.moduleVersion=' + obj.moduleInfo.moduleVersion, m);
 
-                // Don't do version check on user firmware (moduleFunction = 5)
-                if (obj.moduleInfo.moduleFunction != 5 && m.version == obj.moduleInfo.moduleVersion) {
-                    // Same version, skip
-                    options.progressUpdate('Up to date', 0, {
-                        partName: obj.name,
-                        skipSameVersion: true
-                    });
-
-                    dfuParts.splice(ii, 1);
-                    ii--; // Is incremented in for loop
+                    // Don't do version check on user firmware (moduleFunction = 5)
+                    if (obj.moduleInfo.moduleFunction != 5 && m.version == obj.moduleInfo.moduleVersion) {
+                        // Same version, skip
+                        options.progressUpdate('Up to date', 0, {
+                            partName: obj.name,
+                            skipSameVersion: true
+                        });
+    
+                        dfuParts.splice(ii, 1);
+                        ii--; // Is incremented in for loop
+                    }
                 }
             }
         }
@@ -800,7 +826,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                 if (partName == 'bootloader') {
                     // Flash to OTA region instead of actual location
                     if (options.platformVersionInfo.isRTL872x) {
-                        // P2 appends the bootloader to the system part s
+                        // P2 appends OTA parts to the end of the system
                     }
                     else
                     if (options.platformVersionInfo.isnRF52) {
@@ -880,7 +906,38 @@ async function dfuDeviceRestore(usbDevice, options) {
                     */
 
                     await dfuseDevice.do_download(4096, part, {});
+                }
+                else
+                if (partName == 'prebootloader-part1') {
+                    // Only P2 (options.platformVersionInfo.isRTL872x)
+                    console.log('processing prebootloader-part1');
 
+                    dfuseDevice.startAddress = parseInt(moduleInfo['system-part1'].prefixInfo.moduleStartAddy, 16);
+                    console.log('dfuseDevice.startAddress=' + dfuseDevice.startAddress);
+
+                    // Read the beginning of the system part
+                    const systemStartBlob = await dfuseDevice.do_upload(4096, 4096);
+    
+                    let systemStartArrayBuffer = await systemStartBlob.arrayBuffer();
+                    
+                    console.log('systemStartArrayBuffer', systemStartArrayBuffer);
+
+                    // Determine the end of the system part
+                    prefixInfo = parseModule(systemStartArrayBuffer);
+
+                    console.log('prefixInfo', prefixInfo);
+
+                    let otaStartAddr = prefixInfo.moduleEndAddy + 4; // + 4 because the CRC-32 is not included
+                    if ((otaStartAddr % 4096) != 0) {
+                        otaStartAddr += 4096 - (otaStartAddr % 4096)
+                    }
+                    console.log('otaStartAddr=0x' + otaStartAddr.toString(16) + ' ' + otaStartAddr);
+
+                    part = await getPartBinary('prebootloader-part1');
+                    dfuseDevice.startAddress = otaStartAddr;
+
+                    await dfuseDevice.do_download(4096, part, {});
+                    setOTAFlag = true;
                 }
                 else {
                     await dfuseDevice.do_download(4096, part, {});

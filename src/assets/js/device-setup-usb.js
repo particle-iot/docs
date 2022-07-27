@@ -836,6 +836,10 @@ $(document).ready(function() {
                 return moduleInfo.getByModuleTypeIndex(5);
             };
 
+            moduleInfo.getPrebootLoaderPart1 = function() {
+                // prebootloader-part1 on P2 is bootloader (2) index 2
+                return moduleInfo.getByModuleTypeIndex(2, 2);
+            };
         
             /*
             tag       := (field << 3) BIT_OR wire_type, encoded as varint
@@ -1843,16 +1847,28 @@ $(document).ready(function() {
 
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
-            
-            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
-                // In troubleshooting mode, disable autoconnect and connect manually instead
-                // as we want to check the SIM first
-                reqObj = {
-                    op: 'noAutoConnect',
-                };
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+            if (!usbDevice.isInDfuMode) {
+                // Control requests are not supported if the device is still in DFU mode
+                // It should have rebooted but if we don't check this, if it didn't there will be a 
+                // Uncaught (in promise) ProtocolError: Unable to parse service reply
+                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                    // In troubleshooting mode, disable autoconnect and connect manually instead
+                    // as we want to check the SIM first
+                    reqObj = {
+                        op: 'noAutoConnect',
+                    };
+                    await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+    
+                }            
 
-            }            
+                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                    // Attempt to fetch the device module info for the device
+                    deviceModuleInfo = await getModuleInfoCtrlRequest();
+                }
+                else {
+                    deviceModuleInfo = null;
+                }    
+            }
             
         };
 
@@ -1872,7 +1888,11 @@ $(document).ready(function() {
 
                 showStep('setupStepFlashDeviceDownload');
 
-                // Flash device                
+                // Flash device               
+                if (flashDeviceOptions.prebootloader) {
+                    // No User firmware binary
+                }  
+                else
                 if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
@@ -1894,6 +1914,7 @@ $(document).ready(function() {
                     setupBit: flashDeviceOptions.setupBit,
                     deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
                     downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
+                    prebootloader: flashDeviceOptions.prebootloader,
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -1954,6 +1975,7 @@ $(document).ready(function() {
                     progressDfuParts: function(dfuParts) {
 
                         const flashDeviceStepsElem = $(thisElem).find('.flashDeviceSteps');
+                        $(flashDeviceStepsElem).empty();
 
                         for(const dfuPart of dfuParts) {
                             const rowElem = document.createElement('tr');
@@ -2032,18 +2054,27 @@ $(document).ready(function() {
 
             await reconnectToDevice();
 
-            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
-                // Attempt to fetch the device module info for the device
-                deviceModuleInfo = await getModuleInfoCtrlRequest();
-            }
-            else {
-                deviceModuleInfo = null;
-            }
         };
 
         const flashDevice = async function() {
-            // TODO: Possibly flash P2 prebootloader-part1 here on upgrade
+
+
+
+            // Check for P2 prebootloader update. Maybe do this after?
+            if (deviceInfo.platformVersionInfo.isRTL872x) {          
+                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
+                    const m = deviceModuleInfo.getPrebootLoaderPart1();
+                    if (m) {
+                        console.log('existing ')
+                    }
+                }                
+                
+                flashDeviceOptions.prebootloader = true;
+                await flashDeviceInternal();
+                flashDeviceOptions.prebootloader = false;
+            }
             
+
             // Flash Device OS
             await flashDeviceInternal();
             
