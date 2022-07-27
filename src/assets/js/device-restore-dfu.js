@@ -643,15 +643,19 @@ async function dfuDeviceRestore(usbDevice, options) {
         const updateBinary = async function(obj) {
             obj.binary = await getPartBinary(obj.name);
             if (obj.binary) {
-                // This previously set obj.moduleInfo = moduleFromModuleInfo(moduleInfo[obj.name]);
-                // which is almost certainly wrong. 
-
-                // obj.binary is a Uint8Array. The .buffer property is the ArrayBuffer, which is what parseBinaryModuleInfo needs
-                obj.moduleInfo = parseBinaryModuleInfo(obj.binary.buffer, 0); 
-
-                // This was previously from moduleInfo, but I think that's wrong as well
-                // obj.startAddress = parseInt(moduleInfo[obj.name].prefixInfo.moduleStartAddy, 16);
-                obj.startAddress = obj.moduleInfo.moduleStartAddy;
+                if (!options.platformVersionInfo.isRTL872x) {
+                    // Gen2 binaries don't always have the module info at the start of the binary but
+                    // are always in the same place
+                    obj.moduleInfo = moduleFromModuleInfo(options.moduleInfo[obj.name]);
+                    obj.startAddress = parseInt(options.moduleInfo[obj.name].prefixInfo.moduleStartAddy, 16);
+                }
+                else {
+                    // P2 user binary address can only be found from the binary
+                    // Gen 3 3.1 and later user binaries may have a different start address (128K vs 256K) but this is 
+                    // checked below
+                    obj.moduleInfo = parseBinaryModuleInfo(obj.binary.buffer, 0); 
+                    obj.startAddress = obj.moduleInfo.moduleStartAddy;
+                }
 
                 dfuParts.push(obj);
             }
@@ -825,6 +829,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                     // Flash to OTA region instead of actual location
                     if (options.platformVersionInfo.isRTL872x) {
                         // P2 appends OTA parts to the end of the system
+                        logProgress(100, 100, 'program');
                     }
                     else
                     if (options.platformVersionInfo.isnRF52) {
@@ -908,28 +913,22 @@ async function dfuDeviceRestore(usbDevice, options) {
                 else
                 if (partName == 'prebootloader-part1') {
                     // Only P2 (options.platformVersionInfo.isRTL872x)
-                    console.log('processing prebootloader-part1');
 
                     dfuseDevice.startAddress = parseInt(options.moduleInfo['system-part1'].prefixInfo.moduleStartAddy, 16);
-                    console.log('dfuseDevice.startAddress=' + dfuseDevice.startAddress);
-
+                    
                     // Read the beginning of the system part
                     const systemStartBlob = await dfuseDevice.do_upload(4096, 4096);
     
                     let systemStartArrayBuffer = await systemStartBlob.arrayBuffer();
                     
-                    console.log('systemStartArrayBuffer', systemStartArrayBuffer);
-
                     // Determine the end of the system part
                     prefixInfo = parseBinaryModuleInfo(systemStartArrayBuffer);
 
-                    console.log('prefixInfo', prefixInfo);
 
                     let otaStartAddr = prefixInfo.moduleEndAddy + 4; // + 4 because the CRC-32 is not included
                     if ((otaStartAddr % 4096) != 0) {
                         otaStartAddr += 4096 - (otaStartAddr % 4096)
                     }
-                    console.log('otaStartAddr=0x' + otaStartAddr.toString(16) + ' ' + otaStartAddr);
 
                     part = await getPartBinary('prebootloader-part1');
                     dfuseDevice.startAddress = otaStartAddr;

@@ -1824,6 +1824,14 @@ $(document).ready(function() {
             if (!nativeUsbDevice) {
                 showStep('setupStepReconnectingNeedReauthorize');
 
+                if (deviceInfo.platformVersionInfo.isRTL872x) {
+                    $(setupStepWhiteLed).show();
+                }
+                else {
+                    $(setupStepWhiteLed).hide();
+                }
+                
+
                 await new Promise(function(resolve, reject) {
                     const filters = [
                         {vendorId: 0x2b04}
@@ -2053,7 +2061,6 @@ $(document).ready(function() {
         const flashDevice = async function() {
 
             const baseUrl = '/assets/files/device-restore/' + deviceInfo.targetVersion + '/' + deviceInfo.platformVersionInfo.name;
-            console.log('download baseUrl=' + baseUrl);
     
             try {
                 await new Promise(function(resolve, reject) {
@@ -2098,7 +2105,6 @@ $(document).ready(function() {
                     if (m) {
                         const newVersion = flashDeviceOptions.moduleInfo['prebootloader-part1'].prefixInfo.moduleVersion;
                         
-                        console.log('existing prebootloader version=' + m.version + ' newVersion=' + newVersion);
                         if (m.version < newVersion) {
                             // Upgrade prebootloader
                             flashPrebootloaderFirst = true;
@@ -2299,7 +2305,6 @@ $(document).ready(function() {
 
                 const userFirmwareModuleInfo = parseBinaryModuleInfo(userFirmwareBinary);
                 minSysVer = userFirmwareModuleInfo.depModuleVersion;
-                console.log('minSysVer=' + minSysVer, userFirmwareModuleInfo);
             }
             else {
                 minSysVer = apiHelper.semVerToSystemVersion(minimumDeviceOsVersion);
@@ -2477,6 +2482,10 @@ $(document).ready(function() {
             });
 
             $(forceUpdateElem).on('click', checkButtonEnable);
+
+            $(setupDeviceOsVersionElem).on('change', function() {
+                $(setupForceVersionElem).prop('checked', true);
+            });
 
 
             $(setupDeviceButtonElem).on('click', async function() {

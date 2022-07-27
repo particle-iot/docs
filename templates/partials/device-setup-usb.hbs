@@ -290,10 +290,13 @@
                     <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
                     <p><button class="reconnectUsb">Reconnect</button></p>
                 </div>
-                <div class="setupStepReconnectFailed">
+                <div class="setupStepReconnectFailed" style="display:none">
                     <p>Waiting for the device to finish updating itself and restart...</p>
-                    <p>If the device is still blinking yellow, press the reset button on the device, then click Continue.</p>
+                    <p>If the device is still blinking yellow, tap the reset button on the device, then click Continue.</p>
                     <p><button class="continueFailedReconnect">Continue</button></p>
+                </div>
+                <div class="setupStepWhiteLed" style="display:none">
+                    <p>If the status LED is solid white, not blinking, tap the reset button on the device, then Reconnect</p>
                 </div>
             </div>
             <div class="setupStepNoWiFi" style="display:none">
