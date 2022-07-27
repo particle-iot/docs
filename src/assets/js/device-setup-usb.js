@@ -593,6 +593,7 @@ $(document).ready(function() {
 
             if (!deviceLogsTimer1) {
                 deviceLogsTimer1 = setInterval(async function() {
+
                     let reqObj = {
                         op: 'status'
                     };
@@ -634,9 +635,15 @@ $(document).ready(function() {
             
             if (!deviceLogsTimer2) {
                 // Retrieve logs more slowly on Gen 2 because the control request handler can run out of RAM
-                const logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
-
+                let logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
+                
                 deviceLogsTimer2 = setInterval(async function() {
+                    if ($('.deviceLogWarning').is(':visible')) {
+                        // On the Electron, skip the logs requests because control requests are blocked
+                        // while connecting to cellular
+                        return;
+                    }
+
                     let reqObj = {
                         op: 'logs'
                     };
@@ -3027,6 +3034,10 @@ $(document).ready(function() {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
+                if (deviceInfo.platformId == 10) {
+                    $('.deviceLogWarning').show();
+                }
+
                 showDeviceLogs();
 
                 
@@ -3043,6 +3054,9 @@ $(document).ready(function() {
                     checkStatus = function(respObj) {
                         if (respObj.netReady && !networkReady) {
                             networkReady = true;
+                            if (deviceInfo.platformId == 10) {
+                                $('.deviceLogWarning').hide();
+                            }
                             $(thisElem).find('.waitOnlineStepNetwork > td > img').attr('src', doneUrl);
                             $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
                         }
