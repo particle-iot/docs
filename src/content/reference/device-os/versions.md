@@ -280,7 +280,7 @@ The process to downgrade by USB is:
 
 | Release | Notes |
 | :--- | :--- |
-| [3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0) | Feature Release |
+| [3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0) | Developer Preview Release |
 | [2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0) | Latest 2.0 LTS |
 | [2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1) | First 2.0 LTS |
 | [1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2) | Last version before 2.0 LTS |

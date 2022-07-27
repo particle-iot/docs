@@ -83,7 +83,7 @@ You can download the necessary files for several common Device OS releases as a 
 
 {{device-restore mode="zip"}}
 
-It is recommended that you use the latest in release line. For example, if you are using 1.5.x, use 1.5.2 instead of 1.5.0. Ideally, you should be using the latest LTS release (2.1.0, for example), unless you need features in a feature release (3.1.0, for example).
+It is recommended that you use the latest in release line. For example, if you are using 1.5.x, use 1.5.2 instead of 1.5.0. Ideally, you should be using the latest LTS release (2.1.0, for example), unless you need features in a developer preview release (3.1.0, for example).
 
 All versions are available in [GitHub Device OS Releases](https://github.com/particle-iot/device-os/releases).
 

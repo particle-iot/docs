@@ -17,7 +17,7 @@ LTS releases **_are_**, however, supported by an extended support window which a
 
 ## Should I build my application on LTS releases?
 
-In general, **LTS releases are suitable and recommended for all customer applications** that do not require the latest features from the newest feature releases. 
+In general, **LTS releases are suitable and recommended for all customer applications** that do not require the latest features from the newest developer preview releases. 
 
 Compared to standard Device OS releases, LTS releases are:
 
@@ -41,7 +41,7 @@ LTS releases are **not**:
 
 LTS versions have an even-numbered major version (2.x, 4.x, ...).
 
-## When should I use a feature release?
+## When should I use a developer preview release?
 
 In some cases, a new product is released out of cadence with a LTS version. Two examples are:
 
@@ -52,7 +52,7 @@ The reason is that adding a new platform is considered to be a feature, so it ca
 
 In some cases you will need a new feature before it's included in a LTS release. For example, 256K firmware binaries for Gen 3 devices were added in 3.1.0, and some customers needed this feature right away as they were already at the size limit.
 
-Feature release have an odd major version (3.x, 5.x, ...).
+Developer preview releases have an odd major version (3.x, 5.x, ...). These were sometimes referred to as feature releases.
 
 ## LTS release cadence and support policy
 
@@ -95,11 +95,11 @@ For example: Device OS 2.3.0 is the current LTS release. This will be the ESM re
 
 If you are using a Gen 2 device (E Series, Electron, P1, or Photon), these platforms were removed from 4.x and 5.x, and you should stay on 2.x LTS.
 
-The new LTS (4.x) and feature (5.x) releases are based on the latest feature release (3.3.0), so there will be changes from the 2.x release line. You should still upgrade to the latest LTS, but you should always test your firmware thoroughly on a major version upgrade.
+The new LTS (4.x) and feature (5.x) releases are based on the latest developer preview release (3.3.0), so there will be changes from the 2.x release line. You should still upgrade to the latest LTS, but you should always test your firmware thoroughly on a major version upgrade.
 
 While 4.x and 5.x started from the same place, the 5.0.0-alpha.1 release adds in support for the P2 platform.
 
-Feature releases (3.x, for example) do not have an ESM phase, so once 5.0.0 final comes out, there will not be additional updates after 3.3.0.
+Developer preview releases (3.x, for example) do not have an ESM phase, so once 5.0.0 final comes out, there will not be additional updates after 3.3.0.
 
 ## Switching Between Release Lines
 
