@@ -11,6 +11,10 @@ module.exports = function plugin(options) {
         // Find menu.json files
         const contentDir = metalsmith.path(options.contentDir);
 
+        // troubleshooting: '../src/assets/files/troubleshooting.json',
+        const troubleshootingPath = metalsmith.path(options.troubleshooting);
+        const troubleshootingJson = JSON.parse(fs.readFileSync(troubleshootingPath, 'utf8')); 
+        
         let visiblePages = {};
         let hiddenPages = {};
         
@@ -136,6 +140,22 @@ module.exports = function plugin(options) {
             sitemap += '  </url>\n'
         });
 
+        for(const p of troubleshootingJson) {
+            if (!p.paths) {
+                continue;
+            }
+            
+            let url = options.baseUrl + 'troubleshooting/troubleshooting/?p=' + p.paths[0][p.paths[0].length - 1];
+            let priority = 0.4;
+
+            sitemap += '  <url>\n';
+
+            sitemap += '    <loc>' + url + '</loc>\n';
+            sitemap += '    <priority>' + priority + '</priority>\n';
+
+            sitemap += '  </url>\n'
+
+        }
 
 
         sitemap += '</urlset>\n';

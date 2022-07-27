@@ -278,7 +278,7 @@
             "id": 1260802583309,
             "type": "tagger",
             "title": "Workbench Issue Referral",
-            "description": "Have you referred to our Workbench Troubleshooting Guide (https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench) and followed the instructions for issue submission?",
+            "description": "Have you referred to our Workbench Troubleshooting Guide (https://docs.particle.io/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/) and followed the instructions for issue submission?",
             "required": true,
             "customFields": [
                 {
@@ -1324,7 +1324,7 @@
             "id": 5772592295451,
             "type": "textarea",
             "title": "Check Cellular guides",
-            "description": "Please check our guide on Cellular Connectivity Troubleshooting (https://support.particle.io/hc/en-us/articles/360044518213-Cellular-Connectivity-Troubleshooting-Guide).\nIf you are encountering issues of Poor Connectivity and OTA failures, please read our guide (https://support.particle.io/hc/en-us/articles/4412821956507-Troubleshooting-Poor-Connectivity-Issues-OTA).",
+            "description": "Please check our guide on Cellular Connectivity Troubleshooting (https://docs.particle.io/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/).",
             "required": false
         },
         {
@@ -1337,7 +1337,7 @@
         {
             "id": 7521822852635,
             "type": "textarea",
-            "title": "Device doctor debug logs",
+            "title": "Debug logs",
             "description": "",
             "required": false
         },
@@ -1366,7 +1366,7 @@
             "id": 5795492782875,
             "type": "checkbox",
             "title": "My Question is Not Resolved by the \"Power Management FAQ\" Support Article",
-            "description": "(see: https://support.particle.io/hc/en-us/articles/1260803794770-Power-Management-FAQ)",
+            "description": "(see: https://docs.particle.io/scaling/best-practices/what-are-particles-best-practices-with-respect-to-device-os-version-management/)",
             "required": true
         },
         {
@@ -1425,14 +1425,14 @@
             "id": 1500000050462,
             "type": "textarea",
             "title": "Are You Able to Source Logs from Electron Cloud Debug?",
-            "description": "This is a useful logging tool that provides device-side logs documenting connectivity issues. You can find instructions here: https://github.com/particle-iot/cloud-debug, and some guidelines here: https://support.particle.io/hc/en-us/articles/360044518213. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time.",
+            "description": "This is a useful logging tool that provides device-side logs documenting connectivity issues. You can find instructions here: https://github.com/particle-iot/cloud-debug, and some guidelines here: https://docs.particle.io/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time.",
             "required": false
         },
         {
             "id": 1260802583329,
             "type": "tagger",
             "title": "CLI Issue Referral",
-            "description": "Have you referred to our CLI Troubleshooting Guide (https://support.particle.io/hc/en-us/articles/1260801311330-Troubleshooting-the-Particle-CLI)) and followed the instructions for issue submission?",
+            "description": "Have you referred to our CLI Troubleshooting Guide (https://docs.particle.io/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/) and followed the instructions for issue submission?",
             "required": true,
             "customFields": [
                 {
@@ -2130,7 +2130,7 @@
             "id": 1500000047961,
             "type": "textarea",
             "title": "Are You Able to Source Logs from Boron Cloud Debug?",
-            "description": "This is a useful logging tool that provides device-side logs documenting connectivity issues. You can find instructions here: https://github.com/particle-iot/cloud-debug, and some guidelines here: https://support.particle.io/hc/en-us/articles/360044518213. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time.",
+            "description": "This is a useful logging tool that provides device-side logs documenting connectivity issues. You can find instructions here: https://github.com/particle-iot/cloud-debug, and some guidelines here: https://docs.particle.io/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time.",
             "required": false
         },
         {
@@ -3362,7 +3362,7 @@
             "id": 1500000048761,
             "type": "textarea",
             "title": "Are You Able to Source Logs from WiFi Cloud Debug?",
-            "description": "This is a useful logging tool that provides device-side logs documenting connectivity issues. You can find instructions here: https://github.com/particle-iot/cloud-debug and some guidelines here: https://support.particle.io/hc/en-us/articles/360052621274. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time. PLEASE NOTE: if your ticket does not submit, it may be because you've gone over the character limit. Trim your logs down to relevant errors and try again.",
+            "description": "This is a useful logging tool that provides device-side logs documenting connectivity issues. You can find instructions here: https://github.com/particle-iot/cloud-debug and some guidelines here: https://docs.particle.io/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time. PLEASE NOTE: if your ticket does not submit, it may be because you've gone over the character limit. Trim your logs down to relevant errors and try again.",
             "required": false
         },
         {
@@ -3809,7 +3809,7 @@
             "id": 1260805645709,
             "type": "tagger",
             "title": "The \"Setup Troubleshooting\" Doc Does Not Resolve My Issue",
-            "description": "See: https://support.particle.io/hc/en-us/articles/1260801921089.",
+            "description": "See: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/troubleshooting-the-setup-process/",
             "required": true,
             "customFields": [
                 {
@@ -3830,7 +3830,7 @@
             "id": 360056141453,
             "type": "tagger",
             "title": "I Have Reviewed the \"Device Blinking Red, Yellow, or Frozen/No LED\" Support Article",
-            "description": "Please see: https://support.particle.io/hc/en-us/articles/360046136473 (for general diagnosis) and https://particle.zendesk.com/knowledge/articles/1260801176309 (for identifying damaged hardware).",
+            "description": "Please see: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/ (for general diagnosis) and https://docs.particle.io/troubleshooting/guides/device-troubleshooting/identifying-damaged-hardware/ (for identifying damaged hardware).",
             "required": true,
             "customFields": [
                 {
@@ -3897,7 +3897,7 @@
             "id": 1500000055442,
             "type": "checkbox",
             "title": "The \"Device Blinking Cyan\" Support Article Does Not Resolve My Issue",
-            "description": "See: https://support.particle.io/hc/en-us/articles/360045359554.",
+            "description": "See: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/device-blinking-cyan/",
             "required": true
         },
         {
@@ -3962,10 +3962,17 @@
             ]
         },
         {
+            "id": 7522488707227,
+            "type": "text",
+            "title": "Organization",
+            "description": "",
+            "required": false
+        },
+        {
             "id": 7521824368795,
             "type": "textarea",
-            "title": "User information",
-            "description": "Your account information",
+            "title": "Account information",
+            "description": "",
             "required": false
         },
         {
@@ -5139,7 +5146,7 @@
             "id": 1260804097730,
             "type": "tagger",
             "title": "The \"Webhooks/Integrations Troubleshooting Guide\" Support Article Does Not Resolve My Issue",
-            "description": "See: https://support.particle.io/hc/en-us/articles/1260801242950.",
+            "description": "See: https://docs.particle.io/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/",
             "required": true,
             "customFields": [
                 {
@@ -5218,7 +5225,7 @@
             "id": 360056141253,
             "type": "tagger",
             "title": "The \"Device Blinking Cyan\" Support Article Does Not Resolve My Issue",
-            "description": "See: https://support.particle.io/hc/en-us/articles/360045359554.",
+            "description": "See: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/device-blinking-cyan/",
             "required": true,
             "customFields": [
                 {
@@ -5288,7 +5295,7 @@
             "id": 1500000220882,
             "type": "tagger",
             "title": "Particle's 3rd Party SIM Documentation Does Not Address My Issue",
-            "description": "(please see: https://support.particle.io/hc/en-us/articles/360039741113-3rd-party-SIM-cards).",
+            "description": "(please see: https://docs.particle.io/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/).",
             "required": true,
             "customFields": [
                 {
@@ -5316,7 +5323,7 @@
             "id": 1500000073181,
             "type": "tagger",
             "title": "Select a Mobile App Issue Type:",
-            "description": "If you have a Mobile App setup issue, please attempt to set up your device via USB instead: https://support.particle.io/hc/en-us/articles/360045547634. ",
+            "description": "If you have a Mobile App setup issue, please attempt to set up your device via USB instead: https://docs.particle.io/troubleshooting/guides/device-management/how-can-i-set-up-my-argon-or-boron-via-usb/",
             "required": true,
             "customFields": [
                 {
@@ -5614,7 +5621,7 @@
             "id": 1500000052961,
             "type": "checkbox",
             "title": "I Have Reviewed the \"Device Blinking Red, Yellow, or Frozen/No LED\" Support Article",
-            "description": "Please see: https://support.particle.io/hc/en-us/articles/360046136473.",
+            "description": "Please see: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/device-blinking-red-yellow-or-frozenno-led/",
             "required": true
         },
         {
@@ -6954,6 +6961,194 @@
             "conditions": []
         },
         {
+            "id": 360006636893,
+            "title": "Workbench / CLI Issue",
+            "fields": [
+                {
+                    "id": 360056044093
+                },
+                {
+                    "id": 1260802583309
+                },
+                {
+                    "id": 1260802583329
+                },
+                {
+                    "id": 360056036113
+                },
+                {
+                    "id": 1500000020141
+                },
+                {
+                    "id": 360056043773
+                },
+                {
+                    "id": 360055029414
+                },
+                {
+                    "id": 360056043053
+                },
+                {
+                    "id": 360056039773
+                },
+                {
+                    "id": 360055036194
+                },
+                {
+                    "id": 360055035894
+                },
+                {
+                    "id": 1500000072801
+                },
+                {
+                    "id": 1500000072961
+                },
+                {
+                    "id": 360055036034
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": [
+                {
+                    "parent_field_id": 360056044093,
+                    "parent_field_type": "tagger",
+                    "value": "devtool_cli",
+                    "child_fields": [
+                        {
+                            "id": 360055035894,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360055036034,
+                            "is_required": false
+                        },
+                        {
+                            "id": 360055036194,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1260802583329,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360056044093,
+                    "parent_field_type": "tagger",
+                    "value": "devtool_wb",
+                    "child_fields": [
+                        {
+                            "id": 1260802583309,
+                            "is_required": true
+                        },
+                        {
+                            "id": 1500000072801,
+                            "is_required": false
+                        },
+                        {
+                            "id": 1500000072961,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000020141,
+                    "parent_field_type": "tagger",
+                    "value": "devtools_compile_local_d",
+                    "child_fields": [
+                        {
+                            "id": 360055029414,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056039773,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000020141,
+                    "parent_field_type": "tagger",
+                    "value": "devtools_compile_cloud_d",
+                    "child_fields": [
+                        {
+                            "id": 360055029414,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056039773,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000020141,
+                    "parent_field_type": "tagger",
+                    "value": "devtools_flash_local_d",
+                    "child_fields": [
+                        {
+                            "id": 360055029414,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056039773,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056043053,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 1500000020141,
+                    "parent_field_type": "tagger",
+                    "value": "devtools_flash_cloud_d",
+                    "child_fields": [
+                        {
+                            "id": 360055029414,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056039773,
+                            "is_required": true
+                        },
+                        {
+                            "id": 360056043053,
+                            "is_required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 360005653314,
+            "title": "Cloud API Not Performing As Expected ",
+            "fields": [
+                {
+                    "id": 1260817424610
+                },
+                {
+                    "id": 360056036113
+                },
+                {
+                    "id": 360056043733
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": []
+        },
+        {
             "id": 1500000002701,
             "title": "Webhooks / Integrations Not Performing As Expected ",
             "fields": [
@@ -7303,13 +7498,16 @@
         },
         {
             "id": 7521710158235,
-            "title": "Cellular Connectivity Issues",
+            "title": "Request from device doctor tool",
             "fields": [
                 {
                     "id": 360056043053
                 },
                 {
                     "id": 360026982714
+                },
+                {
+                    "id": 7522488707227
                 },
                 {
                     "id": 7521824368795

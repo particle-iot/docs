@@ -106,7 +106,7 @@
                     <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
                 <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
-                <p>It appears that you previously flashed doctor firmware to this device. You can restore 
+                <p>It appears that you previously flashed doctor or setup firmware to this device. You can restore 
                     the original firmware and a similar version of Device OS if you still have the backup 
                     file available. It should be in your Downloads folder as firmware_<span class="restoreDeviceId"></span>.bin
                 </p>
@@ -123,7 +123,7 @@
                     <details style="padding-top: 100px" class="setupModeSettings">
                         <summary>Advanced Setup Options</summary>
                         <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
-                        <p>Device OS Version: <select class="setupDeviceOsVersion apiHelperSelect">
+                        <p><label><input type="checkbox" class="setupForceVersion"/>Specific Device OS version</label> <select class="setupDeviceOsVersion apiHelperSelect">
                         </select></p>
                         <p><label><input type="checkbox" class="setupNoClaim"/>Do not claim device</label></p>
                         <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
@@ -290,10 +290,13 @@
                     <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
                     <p><button class="reconnectUsb">Reconnect</button></p>
                 </div>
-                <div class="setupStepReconnectFailed">
+                <div class="setupStepReconnectFailed" style="display:none">
                     <p>Waiting for the device to finish updating itself and restart...</p>
-                    <p>If the device is still blinking yellow, press the reset button on the device, then click Continue.</p>
+                    <p>If the device is still blinking yellow, tap the reset button on the device, then click Continue.</p>
                     <p><button class="continueFailedReconnect">Continue</button></p>
+                </div>
+                <div class="setupStepWhiteLed" style="display:none">
+                    <p>If the status LED is solid white, not blinking, tap the reset button on the device, then Reconnect</p>
                 </div>
             </div>
             <div class="setupStepNoWiFi" style="display:none">

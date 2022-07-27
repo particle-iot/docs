@@ -3,10 +3,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const contentRoot = path.join(__dirname, '../../src/content');
+const topDir = path.resolve(__dirname, '../..');
+
+const contentRoot = path.join(topDir, 'src/content');
 console.log('contentRoot=' + contentRoot);
 
-let redirects = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/redirects.json')));
+let redirects = JSON.parse(fs.readFileSync(path.join(topDir, 'config/redirects.json')));
+
+const troubleshootingFile = '../../src/assets/files/troubleshooting.json';
+
 
 // To simplify the logic below, we replicate every redirect that does not end with a '/' to one that does
 for(const old in redirects) {
@@ -125,6 +130,32 @@ function replaceUrl(content, prefix, suffix, oldUrl, newUrl) {
     return content;
 }
 
+function processTroubleshooting() {
+    const orig = fs.readFileSync(troubleshootingFile, 'utf8');
+    let json = JSON.parse(orig);
+    // console.log('json', json);
+    for(let page of json) {
+        if (page.buttons) {
+            for(let button of page.buttons) {
+                if (button.url && button.url.startsWith('/')) {
+                    if (redirects[button.url]) {
+                        console.log('button url changed ' + button.url + ' -> ' + redirects[button.url]);
+                        button.url = redirects[button.url];
+                    }
+                }
+            }
+        }
+    }
+
+    const final = JSON.stringify(json, null, 4);
+    if (orig != final) {
+        fs.writeFileSync(troubleshootingFile, final);
+        console.log('troubleshooting.json updated');
+    }
+};
+
+processTroubleshooting();
+process.exit(0); // TEMPORARY
 
 processDir(contentRoot);
 processNextMdFile();

@@ -836,6 +836,10 @@ $(document).ready(function() {
                 return moduleInfo.getByModuleTypeIndex(5);
             };
 
+            moduleInfo.getPrebootLoaderPart1 = function() {
+                // prebootloader-part1 on P2 is bootloader (1) index 2
+                return moduleInfo.getByModuleTypeIndex(1, 2);
+            };
         
             /*
             tag       := (field << 3) BIT_OR wire_type, encoded as varint
@@ -1820,6 +1824,14 @@ $(document).ready(function() {
             if (!nativeUsbDevice) {
                 showStep('setupStepReconnectingNeedReauthorize');
 
+                if (deviceInfo.platformVersionInfo.isRTL872x) {
+                    $(setupStepWhiteLed).show();
+                }
+                else {
+                    $(setupStepWhiteLed).hide();
+                }
+                
+
                 await new Promise(function(resolve, reject) {
                     const filters = [
                         {vendorId: 0x2b04}
@@ -1843,16 +1855,28 @@ $(document).ready(function() {
 
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
             
-            
-            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
-                // In troubleshooting mode, disable autoconnect and connect manually instead
-                // as we want to check the SIM first
-                reqObj = {
-                    op: 'noAutoConnect',
-                };
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+            if (!usbDevice.isInDfuMode) {
+                // Control requests are not supported if the device is still in DFU mode
+                // It should have rebooted but if we don't check this, if it didn't there will be a 
+                // Uncaught (in promise) ProtocolError: Unable to parse service reply
+                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                    // In troubleshooting mode, disable autoconnect and connect manually instead
+                    // as we want to check the SIM first
+                    reqObj = {
+                        op: 'noAutoConnect',
+                    };
+                    await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));      
+    
+                }            
 
-            }            
+                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
+                    // Attempt to fetch the device module info for the device
+                    deviceModuleInfo = await getModuleInfoCtrlRequest();
+                }
+                else {
+                    deviceModuleInfo = null;
+                }    
+            }
             
         };
 
@@ -1872,15 +1896,11 @@ $(document).ready(function() {
 
                 showStep('setupStepFlashDeviceDownload');
 
-                // Flash device                
+                // Flash device               
                 if (restoreFirmwareBinary) {
                     userFirmwareBinary = restoreFirmwareBinary;
                 }
-                else 
-                if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
-                    const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
-                    userFirmwareBinary = await resp.arrayBuffer();    
-                }
+
                 // For restore mode, leave userFirmwareBinary undefined so tinker will be flashed
 
                 let dfuPartTableInfo = {};
@@ -1894,6 +1914,9 @@ $(document).ready(function() {
                     setupBit: flashDeviceOptions.setupBit,
                     deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
                     downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
+                    prebootloader: flashDeviceOptions.prebootloader,
+                    moduleInfo: flashDeviceOptions.moduleInfo,
+                    zipFs: flashDeviceOptions.zipFs,
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -1954,6 +1977,7 @@ $(document).ready(function() {
                     progressDfuParts: function(dfuParts) {
 
                         const flashDeviceStepsElem = $(thisElem).find('.flashDeviceSteps');
+                        $(flashDeviceStepsElem).empty();
 
                         for(const dfuPart of dfuParts) {
                             const rowElem = document.createElement('tr');
@@ -2032,21 +2056,83 @@ $(document).ready(function() {
 
             await reconnectToDevice();
 
-            if (flashDeviceOptions.mode == 'setup' || flashDeviceOptions.mode == 'doctor') {
-                // Attempt to fetch the device module info for the device
-                deviceModuleInfo = await getModuleInfoCtrlRequest();
-            }
-            else {
-                deviceModuleInfo = null;
-            }
         };
 
         const flashDevice = async function() {
-            // TODO: Possibly flash P2 prebootloader-part1 here on upgrade
-            
+
+            const baseUrl = '/assets/files/device-restore/' + deviceInfo.targetVersion + '/' + deviceInfo.platformVersionInfo.name;
+    
+            try {
+                await new Promise(function(resolve, reject) {
+                    fetch(baseUrl + '.json')
+                    .then(response => response.json())
+                    .then(function(res) {
+                        flashDeviceOptions.moduleInfo = res;
+                        resolve();
+                    });
+                });            
+            }
+            catch(e) {
+                console.log('exception downloading restore json', e);
+                // TODO: Do something here
+            }
+                
+            const zipUrl = baseUrl + '.zip';
+        
+            flashDeviceOptions.zipFs = new zip.fs.FS();
+        
+            try {
+                await flashDeviceOptions.zipFs.importHttpContent(zipUrl);
+            }
+            catch(e) {
+                console.log('exception downloading restore json', e);
+                // TODO: Do something here
+            }    
+
+            let flashPrebootloaderFirst = false;
+            let flashPrebootloaderLast = false;
+
+            const flashPrebootloader = async function() {
+                flashDeviceOptions.prebootloader = true;
+                await flashDeviceInternal();
+                flashDeviceOptions.prebootloader = false;    
+            }
+
+            // Check for P2 prebootloader update. Maybe do this after?
+            if (deviceInfo.platformVersionInfo.isRTL872x) {          
+                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
+                    const m = deviceModuleInfo.getPrebootLoaderPart1();
+                    if (m) {
+                        const newVersion = flashDeviceOptions.moduleInfo['prebootloader-part1'].prefixInfo.moduleVersion;
+                        
+                        if (m.version < newVersion) {
+                            // Upgrade prebootloader
+                            flashPrebootloaderFirst = true;
+                        }
+                        else
+                        if (m.version > newVersion) {
+                            // Downgrade prebootloader
+                            flashPrebootloaderLast = true;
+                        }
+                    }
+                } 
+                else {
+                    // Either no module info (already in DFU) or fore update
+                    flashPrebootloaderFirst = true;
+                }                            
+            }
+
+            if (flashPrebootloaderFirst) {
+                await flashPrebootloader();
+            }
+        
             // Flash Device OS
             await flashDeviceInternal();
             
+            if (flashPrebootloaderLast) {
+                await flashPrebootloader();
+            }
+
             if (deviceInfo.platformVersionInfo.isTracker) {
                 let updateNcp = false;
 
@@ -2126,6 +2212,7 @@ $(document).ready(function() {
             const productSelectElem = $(setupModeSettingsElem).find('.apiHelperProductSelect');
             const setupDevelopmentDeviceRowElem = $(setupModeSettingsElem).find('.setupDevelopmentDeviceRow');
             const setupDevelopmentDeviceElem = $(setupModeSettingsElem).find('.setupDevelopmentDevice');
+            const setupForceVersionElem = $(setupModeSettingsElem).find('.setupForceVersion');
             const setupDeviceOsVersionElem = $(setupModeSettingsElem).find('.setupDeviceOsVersion');
             const setupDeviceButtonElem = $('.setupSetupDeviceButton');
             const userFirmwareUrlElem = $('.apiHelperUsbRestoreDeviceUrl');
@@ -2208,14 +2295,28 @@ $(document).ready(function() {
             };
             checkButtonEnable();
 
-            const minSysVer = apiHelper.semVerToSystemVersion(minimumDeviceOsVersion);
+            let minSysVer;
+
+            if (mode == 'doctor' || mode == 'setup') {
+                // In setup and doctor mode, minimum system version is the version the doctor/setup firmware was 
+                // compiled with
+                const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
+                userFirmwareBinary = await resp.arrayBuffer();    
+
+                const userFirmwareModuleInfo = parseBinaryModuleInfo(userFirmwareBinary);
+                minSysVer = userFirmwareModuleInfo.depModuleVersion;
+            }
+            else {
+                minSysVer = apiHelper.semVerToSystemVersion(minimumDeviceOsVersion);
+            }
+            deviceInfo.targetVersion = apiHelper.systemVersionToSemVer(minSysVer);
 
             for(const ver of deviceInfo.platformVersionInfo.versionArray) {
                 if (apiHelper.semVerToSystemVersion(ver) >= minSysVer) {
                     const optionElem = document.createElement('option');
                     $(optionElem).prop('value', ver);
                     $(optionElem).text(ver);
-                    if (ver == minimumDeviceOsVersion) {
+                    if (ver == deviceInfo.targetVersion) {
                         $(optionElem).prop('selected', true);
                     }
 
@@ -2382,6 +2483,10 @@ $(document).ready(function() {
 
             $(forceUpdateElem).on('click', checkButtonEnable);
 
+            $(setupDeviceOsVersionElem).on('change', function() {
+                $(setupForceVersionElem).prop('checked', true);
+            });
+
 
             $(setupDeviceButtonElem).on('click', async function() {
                 
@@ -2468,7 +2573,6 @@ $(document).ready(function() {
                         setupOptions.developmentDevice = $(trackerSetupDevelopmentDeviceElem).prop('checked');
                     }
                     else {
-                        deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
                         setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
                         setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
     
@@ -2477,6 +2581,11 @@ $(document).ready(function() {
                             setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
                         }                            
                     }
+
+                    if ($(setupForceVersionElem).prop('checked')) {
+                        deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+                    }
+
                     setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
 
                     flashDeviceOptions.setupBit = 'done';

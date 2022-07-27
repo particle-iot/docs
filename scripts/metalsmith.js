@@ -60,6 +60,7 @@ var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
+const troubleshooting = require('./troubleshooting.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -144,7 +145,15 @@ exports.metalsmith = function () {
               pinInfo: path.normalize(path.join(__dirname, '..', 'src', 'assets', 'files', 'pinInfo.json')),
             });
         }))
-    // Minify CSS
+    .use(msIf(
+      environment === 'development',
+      troubleshooting({
+        sourceDir: '../src',
+        jsonFile: 'assets/files/troubleshooting.json',
+        redirectsFile: '../config/redirects.json',
+        ticketFormsFile: 'assets/files/ticketForms.json'
+      })))
+        // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
     }))
@@ -262,6 +271,7 @@ exports.metalsmith = function () {
       contentDir: '../src/content',
       config: '../config/sitemap.json',
       output: '../build/sitemap.xml',
+      troubleshooting: '../src/assets/files/troubleshooting.json',
       baseUrl: 'https://docs.particle.io/'
     }))
     // Create HTML pages with meta http-equiv='refresh' redirects

@@ -6,823 +6,17 @@ $(document).ready(function () {
         const gaCategory = 'troubleshootingTool';
         const notesUrlBase = '/notes/';
         const ticketFormDataUrl = '/assets/files/ticketForms.json';
+        const decisionTreeUrl = '/assets/files/troubleshooting.json';
 
         const urlParams = new URLSearchParams(window.location.search);
 
+        const baseTitle = document.title;
+
         let ticketForms;
 
-        // Decision tree definition
-        const decisionTree = [
-            {
-                page: 100,
-                description: 'You must log into your Particle account to use the troubleshooting tool.',
-                buttons: [
-                    {
-                       title: 'I forgot my password and need to reset it',
-                       loginService: 'change-password',
-                    },
-                    {
-                        title: 'I don\'t have an account yet and need to create one',
-                        loginService: 'signup',
-                    },
-                    {
-                        title: 'I am blocked from logging in due to multi-factor authentication (2FA/MFA)',
-                        page: 102,
-                    },
-                    {
-                        title: 'I cannot login because I don\'t know my username or password',
-                        page: 103,
-                    },
-                    {
-                        title: 'I cannot login due to an error in the login page',
-                        page: 104,
-                    },
-                 ],
-            },
-            {
-                page: 101,
-                description: 'What kind of question do you have?',
-                buttons: [
-                    {
-                        title: 'Technical questions about devices, cloud services, or setup',
-                        page: 108,
-                    },
-                    {
-                        title: 'Order and billing questions',
-                        page: 107,
-                    },
-                ],
-            },
-            {
-                page: 102,
-                title: 'I am blocked from logging in due to multi-factor authentication (2FA/MFA)',
-                note: 'lost-mfa.md',
-                ticketForm: 360006636853,
-                fields: [
-                    { id: 360056036113 }, // Account email
-                    { id: 360055034734 }, // Last 4 of credit card  
-                    { id: 360056120693, value:'blocked_from_logging_in_due_to_2fa/mfa_issue'},
-                ],                
-            },
-            {
-                page: 103,
-                title: 'I cannot login because I don\'t know my username or password',
-                ticketForm: 360006636853,
-                note: 'recover-account.md',
-                fields: [
-                    { id: 360055034734 }, // Last 4 of credit card  
-                    { id: 360056120693, value:'i_don_t_know_my_login_credentials'},
-                ],                
-            },
-            {
-                page: 104,
-                title: 'I cannot login due to an error in the login page',
-                ticketForm: 360006636853,
-                fields: [
-                    { id: 360055034774 }, // Browser Type
-                    { id: 1500000021382 }, // VPN
-                    { id: 360056120693, value:'cannot_log_in__error_in_login_page_'},
-                ],                
-            },
-            {
-                page: 105,
-                title: 'Ticket submitted!',
-                note: 'ticket-submitted.md',
-            },
-            {
-                page: 106,
-                title: 'Error submitting ticket',
-                description: 'An error occurred submitting your support ticket request.',
-            },
-            {
-                page: 107,
-                title: 'Order and billing questions',
-                buttons: [
-                    {
-                        title: 'Help with my order',
-                        page: 360001073373,
-                    },
-                    {
-                        title: 'Managing billing and subscriptions',
-                        page: 360001730794,
-                    },
-                    {
-                        title: 'Upgrading my account to the growth plan',
-                        page: 1260809279669,
-                    },
-                    {
-                        title: 'I have another non-technical issue',
-                        page: 360000327294,
-                    },
-                ],
-            },
-            {
-                page: 108,
-                title: 'Technical questions',
-                buttons: [
-                    {
-                        title: 'Troubleshooting based on the status LED',
-                        page: 130,
-                        detail: 'You can learn a lot of about what the device is doing simply by watching the status LED color and patterns.',
-                    },
-                    {
-                        title: 'Device setup questions',
-                        page: 126,
-                    },
-                    {
-                        title: 'Connectivity questions',
-                        page: 127,
-                        detail: 'Also SIM activation, and technical details about what activities are billable.'
-                    },
-                    {
-                        title: 'Developer tool questions',
-                        page: 109,
-                    },
-                    {
-                        title: 'Particle console (console.particle.io) questions',
-                        page: 122,
-                    },
-                    {
-                        title: 'Cloud API questions',
-                        page: 119,
-                    },
-                    {
-                        title: 'Webhook or other integrations questions',
-                        page: 124,
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket for another technical issue',
-                        page: 360006636913,
-                        orgRequired: true,
-                    }
-
-
-                ],
-            },
-            {
-                page: 109,
-                title: 'Developer tool questions',
-                buttons: [
-                    {
-                        title: 'Particle Workbench questions',
-                        page: 110,
-                    },
-                    {
-                        title: 'Particle CLI (Command Line Interface) questions',
-                        page: 115,
-                    },
-                    {
-                        title: 'Particle Dev (Atom IDE)',
-                        page: 118,
-                    },
-                ],
-            },
-            {
-                page: 110,
-                title: 'Particle workbench questions',
-                buttons: [
-                    {
-                        title: 'Visit the getting started guide',
-                        url: '/getting-started/developer-tools/workbench/',
-                    },
-                    {
-                        title: 'Visit the Workbench troubleshooting guide',
-                        url: '/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/',
-                    },
-                    {
-                        title: 'Visit the frequently asked questions',
-                        url: '/getting-started/developer-tools/workbench/',
-                    },  
-                    {
-                        title: 'Those resources did not answer my question',
-                        page: 111,
-                    },                    
-                ],
-            },
-            {
-                page: 111,
-                title: 'Upgrading Workbench',
-                note: 'workbench-upgrade.md',
-                buttons: [
-                    {
-                        title: 'Upgrading was not necessary or did not help',
-                        page: 112,
-                    },                        
-                ],
-            },
-            {
-                page: 112,
-                title: 'Disabling Workbench extensions',
-                note: 'workbench-disable-extensions.md',
-                buttons: [
-                    {
-                        title: 'Disabling extensions was not necessary or did not help',
-                        page: 113,
-                    },                        
-                ],
-            },
-            {
-                page: 113,
-                title: 'Workbench community forums',
-                description: 'The Particle community forums are the best place to ask questions about and report bugs in Particle workbench.',
-                buttons: [
-                    {
-                        title: 'Visit the community forums',
-                        url: 'https://community.particle.io/c/dt/particle-workbench/43',
-                    },
-                    {
-                        title: 'Visit community forum instructions for reporting bugs',
-                        url: 'https://community.particle.io/t/how-to-report-bugs-and-provide-feedback/52361',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 114,
-                        orgRequired: true,
-                    },                    
-                ],
-            },
-            {
-                page: 114,
-                title: 'Workbench support ticket',
-                ticketForm: 360006636893,
-                fields: [
-                    { id: 360056044093, value:'devtool_wb' }, // Developer tool issue category
-                    { id: 360056044893 }, // Developer tool issue type
-                    { id: 360056043773 }, // Computer OS
-                ],                
-            },
-            {
-                page: 115,
-                title: 'Particle CLI questions',
-                buttons: [
-                    {
-                        title: 'Visit the CLI getting started guide',
-                        url: '/getting-started/developer-tools/cli/',
-                        detail: 'Includes installation instructions.'
-                    },  
-                    {
-                        title: 'Visit the CLI reference guide',
-                        url: '/reference/developer-tools/cli/',
-                    },  
-                    {
-                        title: 'Visit the CLI troubleshooting guide',
-                        url: '/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-cli/',
-                    },
-                    {
-                        title: 'Those resources did not answer my question',
-                        page: 116,
-                    },                    
-                ],
-            },
-            {
-                page: 116,
-                title: 'CLI community forums',
-                description: 'The Particle community forums are the best place to ask questions about and report bugs in the Particle CLI.',
-                buttons: [
-                    {
-                        title: 'Visit the community forums',
-                        url: 'https://community.particle.io/c/dt/cli/52',
-                    },
-                    {
-                        title: 'Visit community forum instructions for reporting bugs',
-                        url: 'https://community.particle.io/t/how-to-report-bugs-provide-feedback/53835',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 117,
-                        orgRequired: true,
-                    },                    
-                ],
-            },        
-            {
-                page: 117,
-                title: 'CLI support ticket',
-                ticketForm: 360006636893,
-                fields: [
-                    { id: 360056044093, value:'devtool_cli' }, // Developer tool issue category
-                    { id: 360056044893 }, // Developer tool issue type
-                    { id: 360056043773 }, // Computer OS
-                ],                
-            },
-            {
-                page: 118,
-                title: 'Particle Dev (Atom IDE)',
-                note: 'dev-deprecated.md',
-                buttons: [
-                    {
-                        title: 'Install Workbench',
-                        url: '/getting-started/developer-tools/workbench/',
-                    },                        
-                ],
-            },
-            {
-                page: 119,
-                title: 'Cloud API questions',
-                showStatus: true, 
-                buttons: [
-                    {
-                        title: 'Visit the introduction to the Cloud API',
-                        url: '/getting-started/cloud/introduction/',
-                    },        
-                    {
-                        title: 'Visit the interactive tutorial for getting started with the Cloud API',
-                        url: '/getting-started/cloud/cloud-api/',
-                    },             
-                    {
-                        title: 'Visit the Cloud API reference',
-                        url: '/reference/cloud-apis/api/',
-                        detail: 'Also includes information about using the web-based Postman tool for accessing the Particle Cloud API.',
-                    },
-                    {
-                        title: 'Those resources did not answer my question',
-                        page: 120,
-                    },                    
-                ],
-            },
-            {
-                page: 120,
-                title: 'Cloud API community forums',
-                description: 'The Particle community forums are the best place to ask questions about and report bugs in the Particle Cloud API.',
-                buttons: [
-                    {
-                        title: 'Visit the community forums',
-                        url: 'https://community.particle.io/c/cloud-software/2',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 121,
-                        orgRequired: true,
-                    },                    
-                ],
-            },    
-            {
-                page: 121,
-                title: 'Cloud support ticket',
-                ticketForm: 360005653314,
-                fields: [
-                    { id: 360056043733 }, // Error messaging
-                ],                
-            },        
-            {
-                page: 122,
-                title: 'Particle console questions',
-                showStatus: true, 
-                buttons: [
-                    {
-                        title: 'Visit the console getting started guide',
-                        url: '/getting-started/console/console/',
-                    },        
-                    {
-                        title: 'Visit the console',
-                        url: 'https://console.particle.io',
-                    },             
-                    {
-                        title: 'Those resources did not answer my question',
-                        page: 123,
-                    },                    
-                ],
-            },        
-            {
-                page: 123,
-                title: 'Console community forums',
-                description: 'The Particle community forums are the best place to ask questions about and report bugs in the Particle console.',
-                buttons: [
-                    {
-                        title: 'Visit the community forums',
-                        url: 'https://community.particle.io/c/cloud-software/2',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 1500000002882,
-                        orgRequired: true,
-                    },                    
-                ],
-            },    
-            {
-                page: 124,
-                title: 'Webhook or other integration questions',
-                showStatus: true, 
-                buttons: [
-                    {
-                        title: 'Visit the integrations getting started guide',
-                        url: '/getting-started/integrations/integrations/',
-                    },        
-                    {
-                        title: 'Visit the console to manage integrations',
-                        url: 'https://console.particle.io',
-                    },             
-                    {
-                        title: 'Visit the integrations troubleshooting guide',
-                        url: '/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-webhookintegration-issues/',
-                    },             
-                    {
-                        title: 'Those resources did not answer my question',
-                        page: 125,
-                    },                    
-                ],
-            },
-            {
-                page: 125,
-                title: 'Integrations community forums',
-                description: 'The Particle community forums are the best place to ask questions about and report bugs about webhooks and other integrations.',
-                buttons: [
-                    {
-                        title: 'Visit the community forums',
-                        url: 'https://community.particle.io/c/cloud-software/itg/23',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 1500000002701,
-                        orgRequired: true,
-                    },                    
-                ],
-            },    
-            {
-                page: 126,
-                title: 'Device setup questions',
-                buttons: [
-                    {
-                        title: 'Set up a device from a browser or mobile app',
-                        url: 'https://setup.particle.io/',
-                    },
-                    {
-                        title: 'Set up a device using the Particle CLI',
-                        url: '/getting-started/developer-tools/cli/',
-                    },
-                    {
-                        title: 'Set up a Tracker One or Tracker SoM device',
-                        url: '/getting-started/tracker/tracker-setup/',
-                    },
-                    {
-                        title: 'Troubleshooting the setup process',
-                        url: '/troubleshooting/guides/device-troubleshooting/troubleshooting-the-setup-process/',
-                    },
-                    {
-                        title: 'The status LED on my device is blinking colors, what do they mean?',
-                        url: '/troubleshooting/led/',
-                    },
-                    {
-                        title: 'Visit the community forums for help',
-                        url: 'https://community.particle.io/',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 360005653294,
-                        orgRequired: true,
-                    },                                        
-                ],
-            },
-            {
-                page: 127,
-                title: 'Connectivity questions',
-                buttons: [
-                    {
-                        title: 'Cellular connectivity questions',
-                        page: 128,
-                    },
-                    {
-                        title: 'Wi-Fi connectivity questions',
-                        page: 129,
-                    },
-                    {
-                        title: 'SIM activation questions',
-                        page: 153,
-                    },
-                    {
-                        title: 'Learn about billing (data operations)',
-                        url: '/getting-started/billing/data-operations/',
-                    },
-                ],
-            },
-            {
-                page: 128,
-                title: 'Cellular connectivity questions',
-                showStatus: true, 
-                buttons: [
-                    {
-                        title: 'Is there cellular coverage in a particular country?',
-                        url: '/reference/cellular/cellular-carriers/',
-                    },
-                    {
-                        title: 'Troubleshooting cellular connectivity',
-                        url: '/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/',
-                    },
-                    {
-                        title: 'Visit the community forums for help',
-                        url: 'https://community.particle.io/',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 360006631353,
-                        orgRequired: true,
-                    },                                                            
-                ],
-            },
-            {
-                page: 129,
-                title: 'Wi-Fi connectivity questions',
-                showStatus: true, 
-                buttons: [
-                    {
-                        title: 'Troubleshooting Wi-Fi connectivity',
-                        url: '/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/',
-                    },
-                    {
-                        title: 'Visit the community forums for help',
-                        url: 'https://community.particle.io/',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 1500000002842,
-                        orgRequired: true,
-                    },                                                            
-                ],
-            },
-            {
-                page: 130,
-                title: 'Troubleshooting based on the status LED',
-                buttons: [
-                    {
-                        title: 'The status LED is off',
-                        page: 131,
-                    },
-                    {
-                        title: 'The status LED blinking',
-                        detail: 'Blinking is where the color turns on and off without dimming.',
-                        page: 133,
-                    },
-                    {
-                        title: 'The status LED breathing',
-                        detail: 'Breathing is where the color slowly fades in and out.',
-                        page: 146,
-                    },
-                    {
-                        title: 'The status LED going crazy, showing rainbow of colors',
-                        page: 151,
-                    },
-                ],
-            },
-            {
-                page: 131,
-                title: 'Status LED off',
-                note: 'status-led-off.md',
-                buttons: [
-                    {
-                        title: 'The blue LED next to pin D7 is on, dimly',
-                        page: 132,
-                    },
-                    {
-                        title: 'Use Device Restore to replace the device firmware',
-                        url: '/tools/device-restore/device-restore-usb/',
-                    },
-                    {
-                        title: 'Visit the community forums for help',
-                        url: 'https://community.particle.io/',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 1500000008462,
-                        // orgRequired: true, // Currently allowed for non-enterprise since it could be a warranty issue
-                    },                                                                            
-                ],
-            },
-            {
-                page: 132,
-                title: 'Dim D7',
-                note: 'dim-d7.md',
-                buttons: [
-                    {
-                        title: 'Visit the SWD/JTAG page to learn about SWD programmers',
-                        url: '/reference/developer-tools/jtag/',
-                    },
-                    {
-                        title: 'Visit the community forums for help',
-                        url: 'https://community.particle.io/',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 1500000008462,
-                        orgRequired: true, 
-                    },                                                                            
-                ],
-            },
-            {
-                page: 133,
-                title: 'Status LED blinking',
-                note: 'status-led-blinking.md',
-                buttons: [
-                    {
-                        title: 'Blinking dark blue (listening mode)',
-                        page: 134,
-                        swatch: '#0000ff',
-                    },
-                    {
-                        title: 'Blinking magenta (safe mode) (red and blue at the same time)',
-                        page: 135,
-                        swatch: '#ff00ff',
-                    },
-                    {
-                        title: 'Yellow (DFU mode)',
-                        page: 136,
-                        swatch: '#ffff00',
-                    },
-                    {
-                        title: 'Green',
-                        page: 137,
-                        swatch: '#00ff00',
-                    },
-                    {
-                        title: 'Cyan (light blue)',
-                        page: 142,
-                        swatch: '#00ffff',
-                    },
-                    {
-                        title: 'White',
-                        page: 143,
-                        swatch: '#ffffff',
-                    },
-                    {
-                        title: 'Red',
-                        page: 144,
-                        swatch: '#ff0000',
-                    },
-                    {
-                        title: 'Orange',
-                        page: 145,
-                        swatch: '#ff4500',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 360005659054,
-                        orgRequired: true, 
-                    },                                                                                                
-                ],
-            },
-            {
-                page: 134,
-                title: 'Listening mode (blinking dark blue)',
-                note: 'status-led-blinking-dark-blue.md',
-            },
-            {
-                page: 135,
-                title: 'Safe mode (blinking magenta)',
-                note: 'status-led-blinking-magenta.md',
-            },
-            {
-                page: 136,
-                title: 'DFU mode (blinking yellow)',
-                note: 'status-led-blinking-yellow.md',
-            },
-            {
-                page: 137,
-                title: 'Blinking green',
-                description: 'Blinking green means your device is trying to connect to the network',
-                buttons: [
-                    {
-                        title: 'I have a cellular device',
-                        detail: 'Tracker, Boron, B Series SoM, E Series or Electron',
-                        page: 138,
-                    },
-                    {
-                        title: 'I have a P2 or Photon 2 Wi-Fi device',
-                        page: 139,
-                    },
-                    {
-                        title: 'I have an Argon (Gen 3) Wi-Fi device',
-                        page: 141,
-                    },
-                    {
-                        title: 'I have a P1 or Photon (Gen 2) Wi-Fi device',
-                        page: 140,
-                    },
-                ],
-            },
-            {
-                page: 138,
-                title: 'Blinking green - Cellular',
-                note: 'status-led-blinking-green-cellular.md',
-                showStatus: true, 
-            },
-            {
-                page: 139,
-                title: 'Blinking green - P2/Photon 2',
-                note: 'status-led-blinking-green-p2.md',
-            },
-            {
-                page: 140,
-                title: 'Blinking green - P1 and Photon',
-                note: 'status-led-blinking-green-gen2.md',
-            },
-            {
-                page: 141,
-                title: 'Blinking green - Argon',
-                note: 'status-led-blinking-green-gen3.md',
-            },
-            {
-                page: 142,
-                title: 'Blinking cyan (light blue)',
-                note: 'status-led-blinking-cyan.md',
-            },
-            {
-                page: 143,
-                title: 'Blinking white',
-                note: 'status-led-blinking-white.md',
-            },
-            {
-                page: 144,
-                title: 'Blinking red',
-                note: 'status-led-blinking-red.md',
-            },
-            {
-                page: 145,
-                title: 'Blinking orange',
-                note: 'status-led-blinking-orange.md',
-            },
-            {
-                page: 146,
-                title: 'Status LED breathing',
-                description: 'Breathing (slowly fading in an out) is typically a normal operating mode. The color indicates which connectivity mode the device is in.',
-                buttons: [
-                    {
-                        title: 'Breathing cyan (light blue, normal operating mode)',
-                        page: 147,
-                        swatch: '#00ffff',
-                    },
-                    {
-                        title: 'Breathing green (network connected, no cloud)',
-                        page: 148,
-                        swatch: '#00ff00',
-                    },
-                    {
-                        title: 'Breathing magenta (red and blue at the same time, safe mode)',
-                        page: 149,
-                        swatch: '#ff00ff',
-                    },
-                    {
-                        title: 'Breathing dark blue',
-                        page: 150,
-                        swatch: '#0000ff',
-                    },
-                    {
-                        title: 'Breathing white',
-                        page: 152,
-                        swatch: '#ffffff',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 360005659054,
-                        orgRequired: true, 
-                    },                                                                                                
-                ],
-            },
-            {
-                page: 147,
-                title: 'Breathing cyan (light blue)',
-                note: 'status-led-breathing-cyan.md',
-            },
-            {
-                page: 148,
-                title: 'Breathing green',
-                note: 'status-led-breathing-green.md',
-            },
-            {
-                page: 149,
-                title: 'Breathing magenta',
-                note: 'status-led-breathing-magenta.md',
-            },
-            {
-                page: 150,
-                title: 'Breathing dark blue',
-                note: 'status-led-breathing-dark-blue.md',
-            },
-            {
-                page: 151,
-                title: 'Signaling (nyan) mode',
-                note: 'status-led-nyan.md',
-            },
-            {
-                page: 152,
-                title: 'Breathing white',
-                note: 'status-led-breathing-white.md',
-            },
-            {
-                page: 153,
-                title: 'SIM activation questions',
-                note: 'sim-activation.md',
-                buttons: [
-                    {
-                        title: 'Visit the community forums for help',
-                        url: 'https://community.particle.io/',
-                    },
-                    {
-                        title: 'I\'d like to create a support ticket',
-                        page: 1500000002902,
-                        orgRequired: true, 
-                    },                                                                                                
-                ],
-            },
-        ];
-
+        // Loaded from /assets/file/troubleshooting.json
+        let decisionTree;
+           
         let pageStack = [];
 
         const updateUrl = function() {
@@ -868,11 +62,11 @@ $(document).ready(function () {
             }
             if (!pageObj) {
                 ga('send', 'event', gaCategory, 'invalidPage', pageOptions.page);
-                return;
+                return false;
             }
             if (pageStack.find(e => e.page == pageOptions.page)) {
                 ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
-                return;
+                return false;
             }
 
             ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
@@ -1053,6 +247,8 @@ $(document).ready(function () {
                 const titleElem = document.createElement('h3');
                 $(titleElem).text(pageObj.title);
                 $(pageDivElem).append(titleElem);    
+
+                document.title = pageObj.title + ' - ' + baseTitle;
             }
             if (pageObj.description) {
                 const descriptionElem = document.createElement('div');
@@ -1275,14 +471,37 @@ $(document).ready(function () {
             $('.content-inner').scrollTop(pos);
             
             updateUrl();
+
+            return true;
+        };
+
+        const loadPath = async function(path) {
+            let loadedPage = false;
+
+            for(let ii = 0; ii < path.length; ii++) {
+                const page = path[ii];
+                const next = ((ii + 1) < path.length) ? path[ii + 1] : undefined;
+
+                const res = await showPage({page, next});
+                if (!res) {
+                    break;
+                }
+                loadedPage = false;
+            }    
+            return loadedPage;
         };
 
         const run = async function() {
+            const decisionTreeFetch = await fetch(decisionTreeUrl);
             const formsFetch = await fetch(ticketFormDataUrl);
+
+            decisionTree = await decisionTreeFetch.json();
             ticketForms = await formsFetch.json();
 
             if (apiHelper.auth) {
                 // Have a token, verify it
+                let showDefaultPage = true;
+
                 const pageListStr = urlParams.get('p');
                 if (pageListStr) {
                     let loadPages = [];
@@ -1291,18 +510,21 @@ $(document).ready(function () {
                             loadPages.push(parseInt(p));
                         }
                     }
+
+                    if (loadPages.length == 1) {
+                        let pageObj = decisionTree.find(e => e.page == loadPages[0]);
+                        if (pageObj.paths) {
+                            showDefaultPage = !loadPath(pageObj.paths[0]); 
+                        }
+                    }
+                    else
                     if (loadPages.length > 1 || loadPages[0] != 100) {
                         // Not the no auth page
-                        for(let ii = 0; ii < loadPages.length; ii++) {
-                            const page = loadPages[ii];
-                            const next = ((ii + 1) < loadPages.length) ? loadPages[ii + 1] : undefined;
-    
-                            await showPage({page, next});
-                        }    
+                        showDefaultPage = !loadPath(loadPages); 
                     }
                 }
 
-                if (pageStack.length == 0) {
+                if (showDefaultPage) {
                     await showPage({page: 101});
                 }
             }
