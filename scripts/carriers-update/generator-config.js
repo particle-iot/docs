@@ -5,6 +5,18 @@ const path = require('path');
 (function(generatorConfig) {
     
     generatorConfig.updates = [
+        // firmware.md
+        {
+            guid:'4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pwm-groups',
+                    platformNew: 'E404X',
+                    useGroup: true,
+                }); 
+            } 
+        },                
+
         // Electron datasheet
         {
             guid:'ab31991a-76c5-11eb-9439-0242ac130002', 
@@ -152,6 +164,7 @@ const path = require('path');
                     platformNew: 'E404X',
                     port: 'analogWritePWM',
                     label: 'PWM',
+                    includeHardwareTimer: true,
                 }); 
             } 
         },

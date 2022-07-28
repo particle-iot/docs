@@ -1781,6 +1781,38 @@ const generatorConfig = require('./generator-config');
             md += updater.generateTable(tableOptions, tableData);
         }
 
+        if (options.style == 'pwm-groups') {
+            let timerNames = [];
+            let timers = {};
+
+            for(const p of platformInfoNew.pins) {
+                if (p.hardwareTimer) {
+                    if (!timerNames.includes(p.hardwareTimer)) {
+                        timerNames.push(p.hardwareTimer);
+                        timers[p.hardwareTimer] = [];
+                    }
+                    timers[p.hardwareTimer].push(p.name);
+                }
+            }
+            timerNames.sort(function(a, b) {
+                return a.localeCompare(b);
+            });
+
+            for(const t of timerNames) {
+                timers[t].sort(function(a, b) {
+                    return a.localeCompare(b);
+                });    
+
+                let tName = t;
+                if (options.useGroup) {
+                    tName = tName.replace('PWM', 'Group ').replace('TIM', 'Group ');
+                }
+
+                md += '- ' + tName + ': ' + timers[t].join(', ') + '\n';
+            }
+        }
+
+
         if (options.style == 'migration-removed') {
             let tableOptions = {
                 columns: [],
@@ -2101,6 +2133,12 @@ const generatorConfig = require('./generator-config');
                 title: newTitle + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });    
+            if (options.includeHardwareTimer) {
+                tableOptions.columns.push({
+                    key: 'newHardwareTimer',
+                    title: newTitle + ' Hardware Timer'
+                });        
+            }
 
             let tableData = [];
 
@@ -2116,6 +2154,7 @@ const generatorConfig = require('./generator-config');
                     if (m.new) {
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
+                        rowData.newHardwareTimer = m.new.hardwareTimer;
                     }
                     tableData.push(rowData);
                 }

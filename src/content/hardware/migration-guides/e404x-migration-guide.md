@@ -281,33 +281,43 @@ The pins that support PWM are different on the E Series and E404X.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
-| Pin | E Series Pin Name | E Series PWM | E404X Pin Name | E404X PWM |
-| :---: | :--- | :--- | :--- | :--- |
-| 16 | TX | &check; | TX | &check; |
-| 17 | RX | &check; | RX | &check; |
-| 19 | WKP / A7 | &check; | A7 / WKP | &nbsp; |
-| 21 | A5 | &check; | A5 | &check; |
-| 22 | A4 | &check; | A4 | &check; |
-| 23 | A3 | &nbsp; | A3 | &check; |
-| 24 | A2 | &nbsp; | A2 | &check; |
-| 30 | B3 | &check; | B3 | &check; |
-| 31 | B2 | &check; | B2 | &check; |
-| 32 | B1 | &check; | B1 | &nbsp; |
-| 33 | B0 | &check; | B0 | &nbsp; |
-| 39 | D3 | &check; | NC | &nbsp; |
-| 40 | D2 | &check; | D2 | &check; |
-| 41 | D1 | &check; | D1 | &check; |
-| 42 | D0 | &check; | D0 | &check; |
-| 44 | C5 | &check; | C5 | &nbsp; |
-| 45 | C4 | &check; | C4 | &nbsp; |
-| 49 | C0 | &nbsp; | C0 | &check; |
+| Pin | E Series Pin Name | E Series PWM | E404X Pin Name | E404X PWM | E404X Hardware Timer |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| 16 | TX | &check; | TX | &check; | PWM2 |
+| 17 | RX | &check; | RX | &check; | PWM2 |
+| 19 | WKP / A7 | &check; | A7 / WKP | &nbsp; | &nbsp; |
+| 20 | DAC / A6 | &nbsp; | A6 | &check; | PWM3 |
+| 21 | A5 | &check; | A5 | &check; | PWM3 |
+| 22 | A4 | &check; | A4 | &check; | PWM3 |
+| 23 | A3 | &nbsp; | A3 | &check; | PWM1 |
+| 30 | B3 | &check; | B3 | &check; | PWM2 |
+| 31 | B2 | &check; | B2 | &check; | PWM2 |
+| 32 | B1 | &check; | B1 | &nbsp; | &nbsp; |
+| 33 | B0 | &check; | B0 | &nbsp; | &nbsp; |
+| 39 | D3 | &check; | NC | &nbsp; | &nbsp; |
+| 40 | D2 | &check; | D2 | &check; | PWM1 |
+| 41 | D1 | &check; | D1 | &check; | PWM1 |
+| 42 | D0 | &check; | D0 | &check; | PWM1 |
+| 44 | C5 | &check; | C5 | &check; | PWM0 |
+| 45 | C4 | &check; | C4 | &check; | PWM3 |
+| 49 | C0 | &nbsp; | C0 | &check; | PWM1 |
 
 
 {{!-- END do not edit content above, it is automatically generated 0fc429e8-585e-4f36-9874-e3fa37a1136e --}}
 
-- PWM on the same timer (such as TIM3 or PMM3) must share the same frequency, but can have different duty cycles.
-- E404X pin B2 uses PWM0 which is used by the RGB LED. You can have a different duty cycle but should not change the frequency if you are using the RGB LED.
+PWM on the same timer group (such as TIM3 or PWM3) must share the same frequency, but can have different duty cycles.
 
+On the E404X, the following groups are defined. Each group must share the same frequency and resolution, but individual pins in the group can have a different duty cycle. Group 0 is shared with the RGB LED and must use the default resolution of 8 bits (0-255) and frequency of 500 Hz, but can have its own duty cycle.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3 --}}
+
+- Group 0: C5, RGBB, RGBG, RGBR
+- Group 1: A3, C0, D0, D1, D2
+- Group 2: B2, B3, RX, TX
+- Group 3: A4, A5, A6, C4
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Digital to analog converter (DAC)
 
@@ -530,7 +540,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | TX | TX |
-| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO, PWM. |
+| Description | Serial1 TX (transmitted data), GPIO, PWM. | Serial1 TX (transmitted data), GPIO D8, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | Yes |
@@ -543,7 +553,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | RX | RX |
-| Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO, PWM. |
+| Description | Serial1 RX (received data), GPIO, PWM. | Serial1 RX (received data), GPIO D9, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | Yes |
@@ -562,7 +572,7 @@ No pin functions have been added to previously unused (NC) pins.
 | :--- | :--- | :--- |
 | Pin Name | WKP | A7 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 analog in, WKP (wakeup), GPIO. |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | A7 analog in, WKP (wakeup), GPIO D17. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -576,18 +586,20 @@ No pin functions have been added to previously unused (NC) pins.
 | :--- | :--- | :--- |
 | Pin Name | DAC | A6 |
 | Pin Alternate Name | A6 | n/a |
-| Description | DAC/A6 True analog out, analog in, GPIO. | A6 analog in, GPIO. |
+| Description | DAC/A6 True analog out, analog in, GPIO. | A6 analog in, PWM, GPIO D16. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
 | Supports analogWrite (DAC) | Yes | No |
+| Supports analogWrite (PWM) | No | Yes |
+| Supports tone | No | Yes |
 | Supports attachInterrupt | Yes. D3 and DAC/A6 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Internal pull-up or pull-down resistance | 40K | 13K |
 #### Module Pin 21 (A5)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A5 | A5 |
-| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO, SPI MOSI, PWM. |
+| Description | A5 Analog in, GPIO, SPI MOSI. | A5 Analog in, GPIO D15, SPI MOSI, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -601,7 +613,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A4 | A4 |
-| Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO, SPI MISO, PWM. |
+| Description | A4 Analog in, GPIO, SPI MISO. | A4 Analog in, GPIO D14, SPI MISO, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -615,7 +627,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A3 | A3 |
-| Description | A3 True analog out, analog in, GPIO. | A3 analog in, GPIO, SPI SCK, PWM |
+| Description | A3 True analog out, analog in, GPIO. | A3 analog in, GPIO D13, SPI SCK, PWM |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -629,12 +641,10 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A2 | A2 |
-| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO, SPI SS, PWM |
+| Description | A2 Analog in, GPIO, SPI SS | A2 Analog in, GPIO D12, SPI SS |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
 | SPI interface | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. | SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead. |
 | Supports attachInterrupt | Yes. A2 and C0 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Internal pull-up or pull-down resistance | 40K | 13K |
@@ -643,7 +653,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A1 | A1 |
-| Description | A1 Analog in, GPIO | A1 Analog in, GPIO |
+| Description | A1 Analog in, GPIO | A1 Analog in, GPIO D11 |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -654,7 +664,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | A0 | A0 |
-| Description | A0 Analog in, GPIO | A0 Analog in, GPIO |
+| Description | A0 Analog in, GPIO | A0 Analog in, GPIO D10 |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
@@ -692,7 +702,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B3 | B3 |
-| Description | B3, analog in, GPIO, PWM | B3, GPIO, PWM |
+| Description | B3, analog in, GPIO, PWM | B3, GPIO D21, PWM |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
@@ -705,12 +715,12 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B2 | B2 |
-| Description | B2, analog in, GPIO, PWM | B2, GPIO, PWM |
+| Description | B2, analog in, GPIO, PWM | B2, GPIO D20, PWM |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | No |
-| Supports analogWrite (PWM) | Yes | Timer is shared with RGB LED; duty cycle can be set but not frequency. |
-| Supports tone | Yes | No |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
 | Supports attachInterrupt | Yes. A7 (WKP), B2, and B4 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
@@ -718,7 +728,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B1 | B1 |
-| Description | B1, GPIO, PWM | B1, GPIO |
+| Description | B1, GPIO, PWM | B1, GPIO D19 |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -730,7 +740,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | B0 | B0 |
-| Description | B0, GPIO, PWM | B0, GPIO |
+| Description | B0, GPIO, PWM | B0, GPIO D18 |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -861,10 +871,10 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C5 | C5 |
-| Description | I2C, CAN, GPIO. | GPIO C5 |
+| Description | I2C, CAN, GPIO. | GPIO D29, PWM |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
+| Supports analogWrite (PWM) | Yes | Timer is shared with RGB LED; duty cycle can be set but not frequency. |
 | Supports tone | Yes | No |
 | I2C interface | SCL. Use Wire1 object. You can only use Wire or Wire1, not both! | n/a |
 | Supports attachInterrupt | Yes. B0 and C5 share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
@@ -875,11 +885,11 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C4 | C4 |
-| Description | I2C, CAN, GPIO. | GPIO C4 |
+| Description | I2C, CAN, GPIO. | GPIO D28, PWM |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | No |
-| Supports tone | Yes | No |
+| Supports analogWrite (PWM) | Yes | Yes |
+| Supports tone | Yes | Yes |
 | I2C interface | SDA. Use Wire1 object. You can only use Wire or Wire1, not both! | n/a |
 | Supports attachInterrupt | Yes. C4 and RX share the same interrupt handler. | Yes. You can only have 8 active interrupt pins. |
 | CAN interface | CAN1_TX | n/a |
@@ -889,7 +899,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C3 | C3 |
-| Description | Serial4 TX (transmitted data), SPI2, GPIO. | SPI1 SCK, GPIO. |
+| Description | Serial4 TX (transmitted data), SPI2, GPIO. | SPI1 SCK, GPIO D27. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | TX. Use Serial4 object. | n/a |
@@ -901,7 +911,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C2 | C2 |
-| Description | Serial4 RX (received data), SPI2, GPIO. | SPI1 MISO, GPIO. |
+| Description | Serial4 RX (received data), SPI2, GPIO. | SPI1 MISO, GPIO D26. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | RX. Use Serial4 object. | n/a |
@@ -913,7 +923,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C1 | C1 |
-| Description | Serial5 TX (trasmitted data), SPI2, GPIO. | SPI1 MOSI, GPIO. |
+| Description | Serial5 TX (trasmitted data), SPI2, GPIO. | SPI1 MOSI, GPIO D25. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | TX. Use Serial5 object. | n/a |
@@ -925,7 +935,7 @@ No pin functions have been added to previously unused (NC) pins.
 |   | E Series | E404X |
 | :--- | :--- | :--- |
 | Pin Name | C0 | C0 |
-| Description | Serial5 RX (received data), GPIO. | GPIO, PWM. |
+| Description | Serial5 RX (received data), GPIO. | GPIO D24, PWM. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | No | Yes |
@@ -1017,3 +1027,4 @@ Since the E404X uses the same MCU as Gen 3 devices (Boron, B Series SoM, Tracker
 | pre | 2022-01-25 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
+|     | 2022-07-28 | RK | Update PWM assignments |

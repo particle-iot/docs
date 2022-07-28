@@ -149,7 +149,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | SPI  | 2 | I/O |
 | I2C  | 1 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 12 (max) | O |
+| PWM  | 13 (max) | O |
 
 #### GPIO
 
@@ -293,15 +293,17 @@ There is one available I2C interface on the E404X.
 | :---: | :--- | :--- |
 | 16 | TX | &check; |
 | 17 | RX | &check; |
+| 20 | A6 | &check; |
 | 21 | A5 | &check; |
 | 22 | A4 | &check; |
 | 23 | A3 | &check; |
-| 24 | A2 | &check; |
 | 30 | B3 | &check; |
 | 31 | B2 | &check; |
 | 40 | D2 | &check; |
 | 41 | D1 | &check; |
 | 42 | D0 | &check; |
+| 44 | C5 | &check; |
+| 45 | C4 | &check; |
 | 49 | C0 | &check; |
 
 
@@ -351,24 +353,24 @@ It cannot be programmed by the ST-LINK/V2.
 | 13 | USBDATA+ | USB Data+. Cannot be used as GPIO. | D+ |
 | 14 | USBDATA- | USB Data-. Cannot be used as GPIO. | D- |
 | 15 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 16 | TX | Serial1 TX (transmitted data), GPIO, PWM. | P0.6 |
-| 17 | RX | Serial1 RX (received data), GPIO, PWM. | P0.08 |
+| 16 | TX | Serial1 TX (transmitted data), GPIO D8, PWM. | P0.6 |
+| 17 | RX | Serial1 RX (received data), GPIO D9, PWM. | P0.08 |
 | 18 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 19 | A7 / WKP | A7 analog in, WKP (wakeup), GPIO. | P0.05 |
-| 20 | A6 | A6 analog in, GPIO. | P0.04 |
-| 21 | A5 | A5 Analog in, GPIO, SPI MOSI, PWM. | P0.31 |
-| 22 | A4 | A4 Analog in, GPIO, SPI MISO, PWM. | P0.30 |
-| 23 | A3 | A3 analog in, GPIO, SPI SCK, PWM | P0.29 |
-| 24 | A2 | A2 Analog in, GPIO, SPI SS, PWM | P0.28 |
-| 25 | A1 | A1 Analog in, GPIO | P0.02 |
-| 26 | A0 | A0 Analog in, GPIO | P0.03 |
+| 19 | A7 / WKP | A7 analog in, WKP (wakeup), GPIO D17. | P0.05 |
+| 20 | A6 | A6 analog in, PWM, GPIO D16. | P0.04 |
+| 21 | A5 | A5 Analog in, GPIO D15, SPI MOSI, PWM. | P0.31 |
+| 22 | A4 | A4 Analog in, GPIO D14, SPI MISO, PWM. | P0.30 |
+| 23 | A3 | A3 analog in, GPIO D13, SPI SCK, PWM | P0.29 |
+| 24 | A2 | A2 Analog in, GPIO D12, SPI SS | P0.28 |
+| 25 | A1 | A1 Analog in, GPIO D11 | P0.02 |
+| 26 | A0 | A0 Analog in, GPIO D10 | P0.03 |
 | 27 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 28 | NC | Do not connect to anything | &nbsp; |
 | 29 | NC | Do not connect to anything | &nbsp; |
-| 30 | B3 | B3, GPIO, PWM | P1.13 |
-| 31 | B2 | B2, GPIO, PWM | P1.12 |
-| 32 | B1 | B1, GPIO | P0.09 |
-| 33 | B0 | B0, GPIO | P0.10 |
+| 30 | B3 | B3, GPIO D21, PWM | P1.13 |
+| 31 | B2 | B2, GPIO D20, PWM | P1.12 |
+| 32 | B1 | B1, GPIO D19 | P0.09 |
+| 33 | B0 | B0, GPIO D18 | P0.10 |
 | 34 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 35 | SWDIO | SWDIO for JTAG/SWD debugger. Internal pull-up. Not GPIO. | SWDIO |
 | 36 | SWDCLK | SWCLK for JTAG/SWD debugger. Internal pull-down. Not GPIO. | SWCLK |
@@ -379,12 +381,12 @@ It cannot be programmed by the ST-LINK/V2.
 | 41 | D1 | D0 GPIO, I2C Wire SCL, Serial1 RTS, PWM | P1.02 |
 | 42 | D0 | D0 GPIO, I2C Wire SDA, Serial1 CTS, PWM | 1.01 |
 | 43 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 44 | C5 | GPIO C5 | P1.03 |
-| 45 | C4 | GPIO C4 | P0.24 |
-| 46 | C3 | SPI1 SCK, GPIO. | P0.12 |
-| 47 | C2 | SPI1 MISO, GPIO. | P0.11 |
-| 48 | C1 | SPI1 MOSI, GPIO. | P1.09 |
-| 49 | C0 | GPIO, PWM. | P1.08 |
+| 44 | C5 | GPIO D29, PWM | P1.03 |
+| 45 | C4 | GPIO D28, PWM | P0.24 |
+| 46 | C3 | SPI1 SCK, GPIO D27. | P0.12 |
+| 47 | C2 | SPI1 MISO, GPIO D26. | P0.11 |
+| 48 | C1 | SPI1 MOSI, GPIO D25. | P1.09 |
+| 49 | C0 | GPIO D24, PWM. | P1.08 |
 | 50 | NC | Do not connect to anything | &nbsp; |
 | 51 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 52 | RGBB | RGB LED Blue | P0.07 |
@@ -765,6 +767,23 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | pre | 2022-01-25 | RK | Pre-release |
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
+|     | 2022-07-28 | RK | Update PWM assignments |
+
+### 2022-07-28 PWM changes
+
+Several PWM channel assignments have been changed in Device OS 5.0.0-beta.1.
+
+| Pin | New Assignment | Old Assignment | Notes |
+| :---: | :--- | :--- | :--- |
+| A2 | No PWM | PWM2 | |
+| A3 | PWM1 | PWM2 | |
+| A6 | PWM3 | | |
+| B2 | PWM2 | PWM0 | No longer shared with RGB LED |
+| B3 | PWM2 | PWM1 | |
+| C4 | PWM3 | | |
+| C5 | PWM0 | | Shared with RGB LED |
+| D0 | PWM1 | PWM3 | |
+| D1 | PWM1 | PWM3 | |
 
 ## Known Errata
 

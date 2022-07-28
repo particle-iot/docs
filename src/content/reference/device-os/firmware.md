@@ -4695,6 +4695,18 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 - Group 1: D4, D5, D6, D7
 - Group 1: D0, D1, D2, D3
 
+On the E404X, the following groups are defined. Each group must share the same frequency and resolution, but individual pins in the group can have a different duty cycle. Group 0 is shared with the RGB LED and must use the default resolution of 8 bits (0-255) and frequency of 500 Hz, but can have its own duty cycle.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3 --}}
+
+- Group 0: C5, RGBB, RGBG, RGBR
+- Group 1: A3, C0, D0, D1, D2
+- Group 2: B2, B3, RX, TX
+- Group 3: A4, A5, A6, C4
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 {{note op="end"}}
 
 ---

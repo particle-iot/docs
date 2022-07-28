@@ -993,7 +993,13 @@ A6    </text>
     </rect>
     <text x="-149.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC6    </text>
-    <line x1="-177" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-177" y1="0" x2="-299" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="-354" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    </rect>
+    <text x="-326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+PWM3    </text>
+    <line x1="-354" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-413" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
     </rect>
@@ -1106,7 +1112,7 @@ SPI (SCK)    </text>
     <rect x="-354" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
     </rect>
     <text x="-326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PMW2    </text>
+PWM1    </text>
     <line x1="-354" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-413" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
@@ -1139,13 +1145,7 @@ ADC2    </text>
     </rect>
     <text x="-267.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI (SS)    </text>
-    <line x1="-295" y1="0" x2="-299" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="-354" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
-    </rect>
-    <text x="-326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PMW2    </text>
-    <line x1="-354" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
+    <line x1="-295" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-413" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
     </rect>
@@ -1270,7 +1270,7 @@ B3    </text>
     <rect x="-354" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
     </rect>
     <text x="-326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM1    </text>
+PWM2    </text>
     <line x1="-354" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-413" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
@@ -1296,7 +1296,7 @@ B2    </text>
     <rect x="-354" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
     </rect>
     <text x="-326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM0    </text>
+PWM2    </text>
     <line x1="-354" y1="0" x2="-358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-413" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
@@ -1514,7 +1514,7 @@ Serial1 (CTS)    </text>
     <rect x="299" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
     </rect>
     <text x="326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM3    </text>
+PWM1    </text>
     <line x1="354" y1="0" x2="358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="358" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
@@ -1546,7 +1546,7 @@ Serial1 (RTS)    </text>
     <rect x="299" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
     </rect>
     <text x="326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM3    </text>
+PWM1    </text>
     <line x1="354" y1="0" x2="358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="358" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
@@ -1587,7 +1587,13 @@ GND    </text>
     </rect>
     <text x="59" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 C5    </text>
-    <line x1="84" y1="0" x2="358" y2="0" stroke="black" stroke-width="1" >
+    <line x1="84" y1="0" x2="299" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="299" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    </rect>
+    <text x="326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+PWM0    </text>
+    <line x1="354" y1="0" x2="358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="358" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
     </rect>
@@ -1607,7 +1613,13 @@ P1.03    </text>
     </rect>
     <text x="59" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 C4    </text>
-    <line x1="84" y1="0" x2="358" y2="0" stroke="black" stroke-width="1" >
+    <line x1="84" y1="0" x2="299" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="299" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    </rect>
+    <text x="326.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+PWM3    </text>
+    <line x1="354" y1="0" x2="358" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="358" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
     </rect>
