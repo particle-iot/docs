@@ -284,9 +284,6 @@ There is one available I2C interface on the E404X.
 
 #### PWM
 
-- PWM on the same timer (such PMM3) must share the same frequency, but can have different duty cycles.
-- E404X pin B2 uses PWM0 which is used by the RGB LED. You can have a different duty cycle but should not change the frequency if you are using the RGB LED.
-
 {{!-- BEGIN do not edit content below, it is automatically generated 7467d36c-a9d2-4629-be9f-2e76262f956e --}}
 
 | Pin | E404X Pin Name | E404X PWM |
@@ -309,6 +306,17 @@ There is one available I2C interface on the E404X.
 
 {{!-- END do not edit content above, it is automatically generated 7467d36c-a9d2-4629-be9f-2e76262f956e --}}
 
+On the E404X, the following groups are defined. Each group must share the same frequency and resolution, but individual pins in the group can have a different duty cycle. Group 0 is shared with the RGB LED and must use the default resolution of 8 bits (0-255) and frequency of 500 Hz, but can have its own duty cycle.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3 --}}
+
+- Group 0: C5, RGBB, RGBG, RGBR
+- Group 1: A3, C0, D0, D1, D2
+- Group 2: B2, B3, RX, TX
+- Group 3: A4, A5, A6, C4
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### JTAG AND SWD
 
