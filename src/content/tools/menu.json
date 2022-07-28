@@ -30,7 +30,8 @@
     {
       "title": "Device Setup",
       "dir": "setup",
-      "href": "/tools/setup/"
+      "href": "/tools/setup/",
+      "hidden": true
     },
     {
       "dir": "developer-tools",

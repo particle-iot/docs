@@ -736,6 +736,11 @@
       "semVer": "4.0.0-alpha.2"
     },
     {
+      "boot": 1101,
+      "sys": 4002,
+      "semVer": "4.0.0-beta.1"
+    },
+    {
       "boot": 2000,
       "sys": 5000,
       "semVer": "5.0.0-alpha.1"
