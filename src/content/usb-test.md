@@ -14,6 +14,7 @@ includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 
 {{> usb-setup-done}}
 
+Setup done is only required on the Argon, Boron, B Series SoM, and Tracker SoM when using Device OS 3.x or earlier. It is no longer used in Device OS 4.0 and later.
 
 ## Restore device over USB
 

@@ -83,8 +83,11 @@ Normally when you complete the mobile phone-based setup, the setup is marked as 
 
 The Particle CLI can set the setup done flag for an Argon or Boron connected by USB using the command:
 
+```
 particle usb setup-done
+```
 
 You can optionally specify the name or device ID of a device if there is more than one connected by USB.
 
-## 
+**With Device OS 4.0 and later, there is no setup done flag and this CLI command does not do anything.**
+
