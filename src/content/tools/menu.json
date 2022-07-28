@@ -6,14 +6,14 @@
       "href": "/tools/tools/",
       "tiles": [
         {
+          "title": "Device doctor",
+          "detail": "Troubleshoot connectivity issues",
+          "href": "/tools/doctor/"
+        },
+        {
           "title": "Look up",
           "detail": "Find devices and SIMs",
           "href": "/tools/developer-tools/lookup/"
-        },
-        {
-          "title": "List devices",
-          "detail": "Get lists of devices and SIMs in your products",
-          "href": "/tools/cloud-tools/list-devices/"
         },
         {
           "title": "Device restore",
@@ -25,14 +25,12 @@
     {
       "title": "Device Doctor",
       "dir": "doctor",
-      "href": "/tools/doctor/",
-      "hidden": true
+      "href": "/tools/doctor/"
     },
     {
       "title": "Device Setup",
       "dir": "setup",
-      "href": "/tools/setup/",
-      "hidden": true
+      "href": "/tools/setup/"
     },
     {
       "dir": "developer-tools",

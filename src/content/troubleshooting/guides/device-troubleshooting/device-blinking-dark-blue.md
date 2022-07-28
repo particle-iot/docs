@@ -15,6 +15,8 @@ In order to facilitate a smooth and rapid mobile setup, Gen3 Devices have a flag
 
 See below for three methods you can use to trip this setup flag in the right direction!
 
+**With Device OS 4.0 and later, there is no setup done flag and this step is unnecessary.**
+
 ## Marking Setup Done Using The Particle CLI
 
 This is by far the easiest and fastest way to fix the issue, but it requires a hardwired connection (via USB).

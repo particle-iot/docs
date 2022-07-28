@@ -93,7 +93,7 @@
                             <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
                         </tbody>
                     </table>
-                    <p><label><input type="checkbox" class="trackerSetupDevelopmentDevice"/>Mark as development device</label></p>
+                    <p><label><input type="checkbox" class="trackerSetupDevelopmentDevice" checked/>Mark as development device</label></p>
                     <p><label><input type="checkbox" class="trackerSetupNoClaim"/>Do not claim device</label></p>
                 </div>
                 <div class="setupMode">
@@ -203,11 +203,11 @@
                 <p>Adding device to product...</p> 
                 <p>This should only take a few seconds.</p>
             </div>
-            <div class="setupStepCheckSimAndClaiming" style="display:none">
-                <div class="setupStepCheckSimAndClaimingOwnership">
+            <div class="setupStepCheckOwnership" style="display:none">
+                <div class="setupStepCheckOwnershipOwnership">
                     <p>Checking device ownership...</p>
                 </div>
-                <div class="setupStepCheckSimAndClaimingNoDeviceInfo">
+                <div class="setupStepCheckOwnershipNoDeviceInfo">
                     <p>This device could not be found in your account, your products, or any organization products you have access to. 
                         This is normal if you are setting up the device for the first time.</p>
                     <p>However, it can also happen if the device is really claimed to another account, or the device is part of a 
@@ -216,7 +216,7 @@
                     <p><label><input type="checkbox" class="doctorClaimDevice" checked/>Attempt to claim device when online</label></p>
                     <p><button class="setupContinueSetupButton apiHelperButton">Continue</button></p>
                 </div>
-                <div class="setupStepCheckSimAndClaimingCheckAccount">
+                <div class="setupStepCheckOwnershipCheckAccount">
                     <p>Checking account status...</p>
                 </div>
             </div>
@@ -446,6 +446,11 @@
             <div class="setupStepTroubleshootingSuccess" style="display:none">
                 <p>Congratulations, it appears that your device is online and functioning properly now!</p>
             </div>
+            <div class="setupStepFirmwareReplaced" style="display:none">
+                <p>It appears that your device connected to the cloud, then got a firmware update that erased the setup firmware.
+                    This prevents logs and other diagnostic data from being displayed, but your device should be fully functional.
+                </p>
+            </div>
             <div class="setupStepRestoreDone" style="display:none">
                 <p>Your original device firmware has been restored.</p>
             </div>
@@ -494,6 +499,13 @@
                 will interrupt the normal operation of your device. You may want to do this if your device is stuck on blinking
                 green or you want to troubleshoot intermittent cellular connectivity.</p>
             <p><button class="doTowerScan">Tower Scan</button></p>                
+        </div>
+        <div class="deviceLogWarning" style="display:none">
+            <p>&nbsp;</p>
+            <p>On the Electron and E Series, device debugging logs will not display while the device is connecting to cellular
+                (blinking green). If you are trying to debug connection failures, you may need to use a serial terminal program 
+                or the Particle CLI to view the logs.
+            </p>
         </div>
         <div class="deviceLogs" style="display:none">
             <p>&nbsp;</p>

@@ -50,6 +50,8 @@ $(document).ready(function() {
             }
         }
 
+        ga('send', 'event', gaCategory, 'Opened Page', mode);
+
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
         const setupStepElem = $(thisElem).find('.setupStep');
 
@@ -593,6 +595,7 @@ $(document).ready(function() {
 
             if (!deviceLogsTimer1) {
                 deviceLogsTimer1 = setInterval(async function() {
+
                     let reqObj = {
                         op: 'status'
                     };
@@ -634,9 +637,15 @@ $(document).ready(function() {
             
             if (!deviceLogsTimer2) {
                 // Retrieve logs more slowly on Gen 2 because the control request handler can run out of RAM
-                const logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
-
+                let logTimerInterval = (deviceInfo.platformId <= 10) ? 2000 : 1000;
+                
                 deviceLogsTimer2 = setInterval(async function() {
+                    if ($('.deviceLogWarning').is(':visible')) {
+                        // On the Electron, skip the logs requests because control requests are blocked
+                        // while connecting to cellular
+                        return;
+                    }
+
                     let reqObj = {
                         op: 'logs'
                     };
@@ -979,6 +988,8 @@ $(document).ready(function() {
                 deviceInfo.firmwareVersion = usbDevice.firmwareVersion;
                 deviceInfo.platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
 
+                ga('send', 'event', gaCategory, 'Selected', deviceInfo.platformId);
+
                 if (!deviceInfo.targetVersion) {
                     deviceInfo.targetVersion = minimumDeviceOsVersion;
                 }
@@ -1002,6 +1013,7 @@ $(document).ready(function() {
                 if (!usbDevice.isInDfuMode) {
                     // Attempt to get the module info on the device using control requests if not already in DFU mode.
                     // When in DFU already, just flash full Device OS and binaries to avoid leaving DFU.
+                    ga('send', 'event', gaCategory, 'Already DFU', deviceInfo.platformId);
 
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
 
@@ -1042,6 +1054,7 @@ $(document).ready(function() {
                             const storObj = JSON.parse(stor);
                             // TODO: Check date here
                             if (stor.deviceId == deviceInfo.deviceId) {
+                                ga('send', 'event', gaCategory, 'Reopened during Activate SIM');
                                 // TODO: Maybe ask user here?
                                 activateSim();
                                 return;''   
@@ -1053,6 +1066,8 @@ $(document).ready(function() {
                     }
     
                     if (hasUserFirmwareBackup()) {
+                        ga('send', 'event', gaCategory, 'Firmware Backup Available');
+
                         $('.restoreDeviceId').text(deviceInfo.deviceId);
                         $('.restoreFirmwareDiv').show();
     
@@ -1066,6 +1081,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception', e);
+                ga('send', 'event', gaCategory, 'Exception', 'checkDevice');
                 // TODO: Handle errors like UsbError here
                 // UsbError {jse_shortmsg: 'IN control transfer failed', jse_cause: DOMException: The device was disconnected., jse_info: {…}, message: 'IN control transfer failed: The device was disconnected.', stack: 'VError: IN control transfer failed: The device was…://ParticleUsb/./src/usb-device-webusb.js?:81:10)'}
                 
@@ -1417,22 +1433,22 @@ $(document).ready(function() {
         };
         checkAccount();
 
-        const checkSimAndClaiming  = async function() {
-            setSetupStep('setupStepCheckSimAndClaiming');
+        const checkOwnership  = async function() {
+            setSetupStep('setupStepCheckOwnership');
 
             const showStep = function(step) {
-                $(thisElem).find('.setupStepCheckSimAndClaiming').children().each(function() {
+                $(thisElem).find('.setupStepCheckOwnership').children().each(function() {
                     $(this).hide();
                 });
                 $(thisElem).find('.' + step).show();    
             }
 
-            showStep('setupStepCheckSimAndClaimingOwnership');
+            showStep('setupStepCheckOwnershipOwnership');
 
             await runDeviceLookup();
 
             if (!deviceLookup.deviceInfo) {
-                showStep('setupStepCheckSimAndClaimingNoDeviceInfo');
+                showStep('setupStepCheckOwnershipNoDeviceInfo');
 
 
                 await new Promise(function(resolve) {
@@ -1452,6 +1468,20 @@ $(document).ready(function() {
                 logEvents(eventOptions);                
             }
 
+            if (mode == 'doctor') { // TEMPORARY
+                if (deviceLookup.deviceInMyProduct || deviceLookup.deviceInOrgProduct) {
+                    // Mark as development device so firmware does not get overwritten
+                    console.log('marking as development device');
+                    await apiHelper.particle.markAsDevelopmentDevice({ 
+                        deviceId: deviceInfo.deviceId,
+                        product: deviceLookup.deviceProductId,
+                        auth: apiHelper.auth.access_token 
+                    });                
+                    ga('send', 'event', gaCategory, 'Mark as Development Device prior to flashing');
+                }
+            }
+
+
             // deviceLookup.deviceMine
 
             // deviceLookup.deviceInMyProduct, .deviceProductId, .deviceProductName
@@ -1459,24 +1489,9 @@ $(document).ready(function() {
             // deviceLookup.deviceInOrgProduct, .deviceProductId, .deviceProductName, .orgId, .orgName
 
             // if (deviceLookup.)
-//            showStep('setupStepCheckSimAndClaimingCheckAccount');
+//            showStep('setupStepCheckOwnershipCheckAccount');
 
             // Do something with deviceLookup.deviceInfo.isProductDevice here
-
-
-            if (deviceInfo.wifi) {
-                // Check if there are Wi-Fi credentials and ask to use those or reconfigure
-                configureWiFi();                              
-            } 
-            else {
-                // showStep('setupStepCheckSimAndClaimingGetIccid');
-
-                // Check ICCID
-                // Boron: Is the external SIM slot activated
-                // Does this look like a 3rd-party SIM card? Use 3rd-party SIM flow (warn about activation, LTE M1, prompt for APN)
-                // If Particle SIM, check if activated
-                activateSim();
-            }
 
         };
 
@@ -1546,6 +1561,8 @@ $(document).ready(function() {
                 done = true;
             });
             
+            let firmwareReplaced = false;
+
             while(!done) {
                 try {
                     if (!deviceInfo.iccid) {
@@ -1557,14 +1574,20 @@ $(document).ready(function() {
                             reqObj.simSelection = setupOptions.simSelection;
                         }
     
-                        const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                        if (res.result || !res.data) {
-                            await new Promise(function(resolve) {
-                                setTimeout(function() {
-                                    resolve();
-                                }, 5000);
-                            });
-                            continue;
+                        let res;
+                        try {
+                            res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                            if (res.result || !res.data) {
+                                firmwareReplaced = true;
+                            }    
+                        }
+                        catch(e) {
+                            console.log('exception sending cellularInfo control request', e);
+                            firmwareReplaced = true;
+                        }
+
+                        if (firmwareReplaced) {
+                            break;
                         }
 
                         if (msgExternalSIM && msgCPINERROR) {
@@ -1607,10 +1630,13 @@ $(document).ready(function() {
                         deviceInfo.iccid = respObj.iccid;
 
                         // 
+                        let canTowerScan = true;
                         if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
                             // console.log('no tower scan available');
+                            canTowerScan = false;
                         }
-                        else {
+                        
+                        if (canTowerScan) {
                             $(thisElem).find('.towerScanOption').show();
 
                             $(thisElem).find('.doTowerScan').on('click', async function() {
@@ -1618,7 +1644,9 @@ $(document).ready(function() {
                                 return;                                
                             });
                         }
-                            
+                        ga('send', 'event', gaCategory, 'TowerScanAvailable', canTowerScan);
+
+
                         showInfoTable();
                         setInfoTableItem('deviceId', deviceInfo.deviceId);
                         setInfoTableItemObj(respObj);    
@@ -1631,6 +1659,7 @@ $(document).ready(function() {
                             else {
                                 // Non-LTE model 
                                 if (respObj.soc <= 0) {
+                                    ga('send', 'event', gaCategory, 'BatteryWarning');
                                     $(thisElem).find('.batteryWarning').show();   
                                 }
                             }
@@ -1718,6 +1747,7 @@ $(document).ready(function() {
                 if (needToActivate) {
                     try {
                         setStatus('Activating SIM...');
+                        ga('send', 'event', gaCategory, 'Activating SIM');
 
                         if (!clockStart) {
                             clockStart = new Date();
@@ -1769,6 +1799,12 @@ $(document).ready(function() {
                 clearInterval(clockTimer);
             }
 
+            if (firmwareReplaced) {
+                setSetupStep('setupStepFirmwareReplaced');
+                return;
+            }
+
+
             reqObj = {
                 op: 'connect',
                 ethernet: setupOptions.ethernet,
@@ -1817,6 +1853,7 @@ $(document).ready(function() {
                 }         
                 catch(e) {
                     console.log('exception getting USB devices', e);
+                    ga('send', 'event', gaCategory, 'Exception', 'reconnectToDevice');
                 }
 
             }
@@ -2045,6 +2082,7 @@ $(document).ready(function() {
                 console.log('exception', e);
                 setSetupStep('setupStepDfuFailed');
                 $('.dfuFailedReason').text(e.text);
+                ga('send', 'event', gaCategory, 'Exception', 'setupStepDfuFailed');
             }
 
             // Wait a little extra before trying to reconnect
@@ -2053,6 +2091,8 @@ $(document).ready(function() {
                     resolve();
                 }, 3000);
             });
+
+        
 
             await reconnectToDevice();
 
@@ -2074,6 +2114,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception downloading restore json', e);
+                ga('send', 'event', gaCategory, 'Exception', 'get restore json');
                 // TODO: Do something here
             }
                 
@@ -2086,6 +2127,7 @@ $(document).ready(function() {
             }
             catch(e) {
                 console.log('exception downloading restore json', e);
+                ga('send', 'event', gaCategory, 'Exception', 'get restore zip');
                 // TODO: Do something here
             }    
 
@@ -2124,13 +2166,16 @@ $(document).ready(function() {
 
             if (flashPrebootloaderFirst) {
                 await flashPrebootloader();
+                ga('send', 'event', gaCategory, 'Flash Prebootloader First');
             }
         
             // Flash Device OS
             await flashDeviceInternal();
+            ga('send', 'event', gaCategory, 'Flash Device');
             
             if (flashPrebootloaderLast) {
                 await flashPrebootloader();
+                ga('send', 'event', gaCategory, 'Flash Prebootloade rLast');
             }
 
             if (deviceInfo.platformVersionInfo.isTracker) {
@@ -2152,6 +2197,7 @@ $(document).ready(function() {
                 if (updateNcp) {
                     flashDeviceOptions.ncpUpdate = true;
                     await flashDeviceInternal();
+                    ga('send', 'event', gaCategory, 'Flash NCP');
                 }
             }
 
@@ -2176,9 +2222,11 @@ $(document).ready(function() {
                 auth: apiHelper.auth.access_token 
             });
             if (res.statusCode >= 200 && res.statusCode < 300) {
+                ga('send', 'event', gaCategory, 'Add To Product', 'Success');
             }
             else {
                 console.log('failed to add to product, do something here');
+                ga('send', 'event', gaCategory, 'Add To Product', 'Failure ' + res.statusCode);
             }
 
             if (setupOptions.developmentDevice) {
@@ -2189,6 +2237,7 @@ $(document).ready(function() {
                     product: setupOptions.productId,
                     auth: apiHelper.auth.access_token 
                 });                
+                ga('send', 'event', gaCategory, 'Mark as Development Device');
             }
         
         };
@@ -2489,6 +2538,7 @@ $(document).ready(function() {
 
 
             $(setupDeviceButtonElem).on('click', async function() {
+                ga('send', 'event', gaCategory, 'Confirmed Flash');
                 
                 const userFirmwareMode = $(modeSelectElem).val();
                 if (userFirmwareMode == 'url' || userFirmwareMode == 'customUrl') {
@@ -2496,6 +2546,7 @@ $(document).ready(function() {
                     const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
                         'Make sure that it is from a reputable author and stored on a secure server. '
                     if (!confirm(msg)) {
+                        ga('send', 'event', gaCategory, 'Rejected using custom binary');
                         setStatus('Restore canceled');
                         setSetupStep('setupStepStartOver');
                         return;
@@ -2515,7 +2566,13 @@ $(document).ready(function() {
                             flashDeviceOptions.updateNcp = $(updateNcpCheckboxElem).prop('checked');
                         }
                     }
-    
+                    if (flashDeviceOptions.forceUpdate) {
+                        ga('send', 'event', gaCategory, 'Restore Force Update');
+                    }
+                    if (flashDeviceOptions.shippingMode) {
+                        ga('send', 'event', gaCategory, 'Restore Shipping Mode');
+                    }
+
                 }
                 else
                 if (mode == 'setup') {
@@ -2555,18 +2612,22 @@ $(document).ready(function() {
                                 $.ajax(request);            
                             });
 
-                            if (!result.ok) {
+                            if (result.ok) {
+                                ga('send', 'event', gaCategory, 'Create Product', 'Success');    
+                            }
+                            else {
                                 // TODO: Handle error here
+                                ga('send', 'event', gaCategory, 'Create Product', 'Failed');
                             }
         
-                            console.log('Created product', result);
-                            
+
                             // result.ok
                             // result.product .id, .platform_id, .name, .slug, .description, ...
                             setupOptions.productId = result.product.id;
                         }
                         else {
                             setupOptions.productId = $(trackerProductSelectElem).val();
+                            ga('send', 'event', gaCategory, 'Add Tracker To Existing Product');    
                         }
                         setupOptions.addToProduct = true;
                         setupOptions.noClaim = $(trackerSetupNoClaimElem).prop('checked');
@@ -2594,6 +2655,10 @@ $(document).ready(function() {
                     // mode == doctor
                     setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
 
+                    if (setupOptions.ethernet) {
+                        ga('send', 'event', gaCategory, 'Doctor using Ethernet');    
+                    }
+
                     if ($(doctorSetKeepAliveCheckboxElem).prop('checked')) {
                         setupOptions.keepAlive = parseInt($(doctorKeepAliveInputElem).val());
                     }
@@ -2602,6 +2667,10 @@ $(document).ready(function() {
                 }
 
                 hideDeviceFirmwareInfo();
+                    
+                if (mode == 'doctor') {
+                    checkOwnership();
+                }
 
                 if (setupOptions.addToProduct) {
                     await addToProduct();
@@ -2612,11 +2681,7 @@ $(document).ready(function() {
 
                 await flashDevice();
 
-                if (mode == 'doctor') {
-                    checkSimAndClaiming();
-                }
-                else
-                if (mode == 'setup') {
+                if (mode == 'doctor' || mode == 'setup') {
                     if (deviceInfo.wifi) {
                         configureWiFi();                              
                     }
@@ -2673,6 +2738,7 @@ $(document).ready(function() {
 
                 waitDeviceOnline();
             });
+            ga('send', 'event', gaCategory, 'Started Wi-Fi Scan');    
 
             // Start Wi-Fi scan
             let reqObj = {
@@ -2860,6 +2926,8 @@ $(document).ready(function() {
                         reqObj.outer_identity = outerIdentity;
                     }
 
+                    ga('send', 'event', gaCategory, 'Wi-Fi Credentials Set');    
+
                 }
                 console.log('sending request', reqObj);
 
@@ -3008,7 +3076,8 @@ $(document).ready(function() {
     
                 $(userInfoElem).show();
 
-                
+                ga('send', 'event', gaCategory, 'waitDeviceOnline');    
+
 
                 if (mode == 'doctor') {
                     if (deviceLookup && !deviceLookup.deviceInfo) {
@@ -3027,6 +3096,10 @@ $(document).ready(function() {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
+                if (deviceInfo.platformId == 10) {
+                    $('.deviceLogWarning').show();
+                }
+
                 showDeviceLogs();
 
                 
@@ -3043,6 +3116,10 @@ $(document).ready(function() {
                     checkStatus = function(respObj) {
                         if (respObj.netReady && !networkReady) {
                             networkReady = true;
+                            if (deviceInfo.platformId == 10) {
+                                $('.deviceLogWarning').hide();
+                            }
+                            ga('send', 'event', gaCategory, 'networkReady');    
                             $(thisElem).find('.waitOnlineStepNetwork > td > img').attr('src', doneUrl);
                             $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
                         }
@@ -3058,6 +3135,8 @@ $(document).ready(function() {
     
                 cloudConnectedResolve = null;
                 checkStatus = null;
+
+                ga('send', 'event', gaCategory, 'online');    
 
                 if (!setupOptions.noClaim) {
                     // Claim device
@@ -3092,6 +3171,7 @@ $(document).ready(function() {
 
 
                     if (result.ok) {
+                        ga('send', 'event', gaCategory, 'claimed device');    
                         $(thisElem).find('.waitOnlineStepClaim > td > img').attr('src', doneUrl);
                         
                         // Re-run device lookup to update information
@@ -3114,6 +3194,7 @@ $(document).ready(function() {
                 if (mode == 'doctor') {                    
                     // TODO: Check if device is claimed to my account and 
                     setSetupStep('setupStepTroubleshootingSuccess');
+                    ga('send', 'event', gaCategory, 'doctor success');    
                     return;
                 }
 
@@ -3124,6 +3205,7 @@ $(document).ready(function() {
             catch(e) {
                 setSetupStep('setupStepClaimFailed');
                 console.log('exception', e);
+                ga('send', 'event', gaCategory, 'Exception', 'claim failed');
             }
 
             
@@ -3202,12 +3284,14 @@ $(document).ready(function() {
         
                     $.ajax(request);            
                 });
+                ga('send', 'event', gaCategory, 'set name');    
 
                 setupDone();
             });
 
             
             $(thisElem).find('.skipNaming').on('click', function() {
+                ga('send', 'event', gaCategory, 'skip naming');    
                 setupDone();
             });
 
@@ -3403,6 +3487,8 @@ $(document).ready(function() {
 
         const setupDone = async function() {
             setSetupStep('setupStepDone');
+
+            ga('send', 'event', gaCategory, 'setupDone');    
 
             if (setupOptions.addToProduct) {
                 $(thisElem).find('.setupStepDoneNonProduct').hide();
