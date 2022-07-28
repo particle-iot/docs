@@ -2060,7 +2060,7 @@
   "/tools/troubleshooting/lookup": "/tools/developer-tools/lookup",
   "/tools/troubleshooting/lookup/usb-serial": "/tools/developer-tools/usb-serial",
   "/tools/troubleshooting/usb-serial": "/tools/developer-tools/usb-serial",
-  "/troubleshooting": "/troubleshooting/troubleshooting-menu",
+  "/troubleshooting": "/troubleshooting/troubleshooting",
   "/troubleshooting/connectivity": "/troubleshooting/connectivity/cloud-debug",
   "/troubleshooting/troubleshooting2": "/troubleshooting/troubleshooting",
   "/tutorials": "/getting-started/hardware/hardware-overview",
