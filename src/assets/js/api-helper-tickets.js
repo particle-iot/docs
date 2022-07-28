@@ -71,9 +71,11 @@ $(document).ready(function() {
         const ticketErrorDivElem = $(thisElem).find('.ticketErrorDiv');
         const ticketNumElem = $(thisElem).find('.ticketNum');
         
-        let options = {
-            email: apiHelper.auth.username,
-        };    
+        let options = {};    
+
+        if (apiHelper.auth) {
+            options.email = apiHelper.auth.username;
+        }
         
         // const Elem = $(thisElem).find('.');
         
