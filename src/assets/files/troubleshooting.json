@@ -488,6 +488,10 @@
         "title": "Device setup questions",
         "buttons": [
             {
+                "title": "Set up a device from your web browser using USB (recommended)",
+                "url": "/tools/setup/"
+            },
+            {
                 "title": "Set up a device from a browser or mobile app",
                 "url": "https://setup.particle.io/"
             },
@@ -523,6 +527,10 @@
         "title": "Connectivity questions",
         "buttons": [
             {
+                "title": "Diagnose connection problems using the web device doctor",
+                "url": "/tools/doctor/"
+            },
+            {
                 "title": "Cellular connectivity questions",
                 "page": 128
             },
@@ -550,6 +558,14 @@
                 "url": "/reference/cellular/cellular-carriers/"
             },
             {
+                "title": "Diagnose connection problems using the web device doctor",
+                "url": "/tools/doctor/"
+            },
+            {
+                "title": "Set up a cellular device using your web browser using USB",
+                "url": "/tools/setup/"
+            },
+            {
                 "title": "Troubleshooting cellular connectivity",
                 "url": "/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/"
             },
@@ -569,6 +585,14 @@
         "title": "Wi-Fi connectivity questions",
         "showStatus": true,
         "buttons": [
+            {
+                "title": "Diagnose connection problems using the web device doctor",
+                "url": "/tools/doctor/"
+            },
+            {
+                "title": "Set up a Wi-Fi device using your web browser using USB",
+                "url": "/tools/setup/"
+            },
             {
                 "title": "Troubleshooting Wi-Fi connectivity",
                 "url": "/troubleshooting/guides/connectivity-troubleshooting/wifi-connectivity-troubleshooting-guide/"
