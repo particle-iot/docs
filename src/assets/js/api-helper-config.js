@@ -571,8 +571,11 @@ $(document).ready(function() {
 
 
         let schemaPropertyTemplate;
-        let saveData = {};
         let defaultSchema; // this is a JSON object
+        let downloadedSchema;
+        let originalFieldValue;
+        let lastTabName;
+        let lastMode;
 
         $(addTabNameElem).on('input', function() {
             const tabName = $(addTabNameElem).val();
@@ -586,72 +589,108 @@ $(document).ready(function() {
             }
         });
 
-        $(addToTabSelectElem).on('change', function() {
+        const updateAddToField = function() {
             const tabName = $(addToTabSelectElem).val();
+
 
             try {
                 json = defaultSchema.properties[tabName];
                 apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
+                originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
             }
             catch(e) {
+            }    
+
+            lastTabName = tabName;
+        }
+
+        $(addToTabSelectElem).on('change', function() {
+            if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
+                if (!confirm('Changing the Add to field will discard the changes you have made.\nContinue?')) {
+                    $(addToTabSelectElem).val(lastTabName);
+                }
             }
+
+            updateAddToField();
         });
 
 
-        let lastMode;
         const updateEditMode = function() {
             const mode = $(editModeSelectElem).val();
 
-            if (lastMode) {
-                saveData[lastMode] = apiHelper.jsonLinterGetValue(thisElem);            
-            }
-
-            let data;
-
-            if (mode == 'append') {
-                $(addToTabRowElem).show();
-                data = saveData.append;
-                if (!data) {
-                    data = JSON.stringify(defaultSchema.properties[$(addToTabSelectElem).val()]);
+            if (mode != lastMode) {
+                if (mode == 'append') {
+                    $(addToTabRowElem).show();
+                    const addToTab = $(addToTabSelectElem).val();
+                    let data = defaultSchema.properties[addToTab];
+                    if (downloadedSchema && downloadedSchema[addToTab]) {
+                        data = downloadedSchema[addToTab];
+                    }
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
+                    updateAddToField();
                 }
-                apiHelper.jsonLinterSetValue(thisElem, data);
-                $(addToTabSelectElem).trigger('change');
-            }
-            else {
-                $(addToTabRowElem).hide();   
-            }
-
-            if (mode == 'add') {
-                $(addTabRowElem).show();
-                data = saveData.add;
-                if (!data) {
-                    data = JSON.stringify(schemaPropertyTemplate);
+                else {
+                    $(addToTabRowElem).hide();   
                 }
-                apiHelper.jsonLinterSetValue(thisElem, data);
-                $(addTabNameElem).trigger('input');
-            }
-            else {
-                $(addTabRowElem).hide();
-            }
-
-            if (mode == 'add' || mode == 'append') {
-                $(hideTabsRowElem).show();
-            }
-            else {
-                $(hideTabsRowElem).hide();
-            }
-
-            if (mode == 'edit') {
-                data = saveData.edit;
-                if (!data) {
-                    data = JSON.stringify(defaultSchema);
+    
+                if (mode == 'add') {
+                    $(addTabRowElem).show();
+                    const data = schemaPropertyTemplate;
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
+                    $(addTabNameElem).trigger('input');
                 }
-                apiHelper.jsonLinterSetValue(thisElem, data);
+                else {
+                    $(addTabRowElem).hide();
+                }
+    
+                if (mode == 'add' || mode == 'append') {
+                    $(hideTabsRowElem).show();
+                }
+                else {
+                    $(hideTabsRowElem).hide();
+                }
+    
+                if (mode == 'edit') {       
+                    let data = defaultSchema;
+                    if (downloadedSchema) {
+                        data = downloadedSchema;
+                    }         
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
+                }
+    
             }
 
+            originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
             lastMode = mode;
         };
-        $(editModeSelectElem).on('change', updateEditMode);
+
+        $(editModeSelectElem).on('change', function() {
+            if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
+                if (!confirm('Changing the Edit mode will discard the changes you have made.\nContinue?')) {
+                    $(editModeSelectElem).val(lastMode);
+                }
+            }
+            updateEditMode();
+        });
+
+        $(uploadButtonElem).on('click', function() {
+            let newSchema;
+
+            switch($(editModeSelectElem).val()) {
+                case 'edit':
+                    newSchema = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
+                    break;
+
+                case 'append':
+                    break;
+
+                case 'add':
+                    break;
+
+            }
+
+            console.log('newSchema', newSchema);
+        });
 
         fetch('/assets/files/tracker/schema-property-template.json')
             .then(response => response.json())
@@ -685,12 +724,12 @@ $(document).ready(function() {
                     $(addToTabSelectElem).append(optionElem);
                 }
 
-                saveData.edit = JSON.stringify(defaultSchema);
-                apiHelper.jsonLinterSetValue(thisElem, saveData.edit);
+                originalFieldValue = JSON.stringify(defaultSchema);
+                apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
                 updateEditMode();
             });
 
-        
+            
     })
 
 
