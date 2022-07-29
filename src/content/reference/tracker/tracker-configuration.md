@@ -178,8 +178,6 @@ Of note:
 
 Here's the whole file so you can see exactly where the data goes when merged with the default schema.
 
-{{> sso}}
-
 {{> codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
 
 If you set this schema you can go to the console and view your fleet configuration with the new panel!
@@ -195,7 +193,11 @@ This is what it looks like in the [console](https://console.particle.io):
 
 ![Engine Settings](/assets/images/tracker/settings-engine.png)
 
+### Schema editor
 
+This is an interactive schema editor that makes it much easier to work with custom schemas:
+
+{{> schema-editor }}
 
 ### Manually
 

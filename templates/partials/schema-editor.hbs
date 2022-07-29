@@ -1,0 +1,61 @@
+<div class="apiHelper apiHelperSchemaEditor apiHelperJsonLinter" >
+    <div class="apiHelperBox">
+        <table>
+            <tbody>
+                <tr class="apiHelperTrackerOrgRow" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Organization</td>
+                    <td><select class="apiHelperTrackerOrgSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr class="apiHelperTrackerProductRow">
+                    <td class="apiHelperProductSelectorLabel">Product</td>
+                    <td><select class="apiHelperTrackerProductSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Edit</td>
+                    <td><select class="apiHelperSelect editModeSelect">
+                        <option value="edit">Edit full schema</option>
+                        <option value="append">Append to an existing tab</option>
+                        <option value="add">Add a tab</option>
+                        </select></td>
+                    <td></td>
+                </tr>
+                <tr class="addToTabRow">
+                    <td class="apiHelperProductSelectorLabel">Add to existing tab</td>
+                    <td><select class="apiHelperSelect addToTabSelect"></select></td>
+                    <td></td>
+                </tr>
+                <tr class="addTabRow">
+                    <td class="apiHelperProductSelectorLabel">New tab JSON name</td>
+                    <td><input type="text" class="addTabName" size="15" value="customTab"/></td>
+                    <td></td>
+                </tr>
+                <tr class="hideTabsRow">
+                    <td class="apiHelperProductSelectorLabel">Hide standard tabs</td>
+                    <td class="hideTabsCell"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Update product schema</td>
+                    <td>
+                        <button class="downloadButton">Download current product schema</button>
+                        <button class="uploadButton">Upload schema to product</button>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Schema editor settings</td>
+                    <td>
+                        <button class="loadButton">Load settings</button>
+                        <button class="saveButton">Save settings</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="padding: 10px;">
+        <div class="apiHelperJsonLinterEditor">
+            <textarea rows="50" cols="80"></textarea>
+        </div>
+    </div>
+
+</div>

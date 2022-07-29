@@ -35,7 +35,7 @@ $(document).ready(function() {
 
         codeMirror.setValue(data);
     };
-    
+
     apiHelper.jsonLinterEvent = function(elem, event) {
         apiHelper.jsonLinterSetValue(elem, event.data);
     };

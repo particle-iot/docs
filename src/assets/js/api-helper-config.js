@@ -549,5 +549,149 @@ $(document).ready(function() {
 
     }
 
+    $('.apiHelperSchemaEditor').each(async function() {
+        const thisElem = $(this);
+
+        const editModeSelectElem = $(thisElem).find('.editModeSelect');
+        const addToTabRowElem = $(thisElem).find('.addToTabRow');
+        const addToTabSelectElem = $(thisElem).find('.addToTabSelect');
+        const addTabRowElem = $(thisElem).find('.addTabRow');
+        const addTabNameElem = $(thisElem).find('.addTabName');
+        const hideTabsRowElem = $(thisElem).find('.hideTabsRow');
+        const hideTabsCellElem = $(thisElem).find('.hideTabsCell');
+        const downloadButtonElem = $(thisElem).find('.downloadButton');
+        const uploadButtonElem = $(thisElem).find('.uploadButton');
+        const loadButtonElem = $(thisElem).find('.loadButton');
+        const saveButtonElem = $(thisElem).find('.saveButton');
+
+
+        
+
+        // const Elem = $(thisElem).find('.');
+
+
+        let schemaPropertyTemplate;
+        let saveData = {};
+        let defaultSchema; // this is a JSON object
+
+        $(addTabNameElem).on('input', function() {
+            const tabName = $(addTabNameElem).val();
+
+            try {
+                json = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
+                json.$id = '#/properties/' + tabName;
+                apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
+            }
+            catch(e) {
+            }
+        });
+
+        $(addToTabSelectElem).on('change', function() {
+            const tabName = $(addToTabSelectElem).val();
+
+            try {
+                json = defaultSchema.properties[tabName];
+                apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
+            }
+            catch(e) {
+            }
+        });
+
+
+        let lastMode;
+        const updateEditMode = function() {
+            const mode = $(editModeSelectElem).val();
+
+            if (lastMode) {
+                saveData[lastMode] = apiHelper.jsonLinterGetValue(thisElem);            
+            }
+
+            let data;
+
+            if (mode == 'append') {
+                $(addToTabRowElem).show();
+                data = saveData.append;
+                if (!data) {
+                    data = JSON.stringify(defaultSchema.properties[$(addToTabSelectElem).val()]);
+                }
+                apiHelper.jsonLinterSetValue(thisElem, data);
+                $(addToTabSelectElem).trigger('change');
+            }
+            else {
+                $(addToTabRowElem).hide();   
+            }
+
+            if (mode == 'add') {
+                $(addTabRowElem).show();
+                data = saveData.add;
+                if (!data) {
+                    data = JSON.stringify(schemaPropertyTemplate);
+                }
+                apiHelper.jsonLinterSetValue(thisElem, data);
+                $(addTabNameElem).trigger('input');
+            }
+            else {
+                $(addTabRowElem).hide();
+            }
+
+            if (mode == 'add' || mode == 'append') {
+                $(hideTabsRowElem).show();
+            }
+            else {
+                $(hideTabsRowElem).hide();
+            }
+
+            if (mode == 'edit') {
+                data = saveData.edit;
+                if (!data) {
+                    data = JSON.stringify(defaultSchema);
+                }
+                apiHelper.jsonLinterSetValue(thisElem, data);
+            }
+
+            lastMode = mode;
+        };
+        $(editModeSelectElem).on('change', updateEditMode);
+
+        fetch('/assets/files/tracker/schema-property-template.json')
+            .then(response => response.json())
+            .then(function(data) {
+                schemaPropertyTemplate = data;
+            });
+
+        fetch('/assets/files/tracker/default-schema.json')
+            .then(response => response.json())
+            .then(function(data) {
+                defaultSchema = data;
+
+                for(const tab in defaultSchema.properties) {
+                    const title = defaultSchema.properties[tab].title;
+
+                    const divElem = document.createElement('div');
+
+                    const checkboxElem = document.createElement('input');
+                    $(checkboxElem).prop('type', 'checkbox');
+
+                    const labelElem = document.createElement('label');
+                    $(labelElem).append(checkboxElem);
+                    $(labelElem).append(document.createTextNode(title + ' (' + tab + ')'));
+
+                    $(divElem).append(labelElem);
+                    $(hideTabsCellElem).append(divElem);
+                    
+                    const optionElem = document.createElement('option');
+                    $(optionElem).prop('value', tab);
+                    $(optionElem).text(title)
+                    $(addToTabSelectElem).append(optionElem);
+                }
+
+                saveData.edit = JSON.stringify(defaultSchema);
+                apiHelper.jsonLinterSetValue(thisElem, saveData.edit);
+                updateEditMode();
+            });
+
+        
+    })
+
 
 });
