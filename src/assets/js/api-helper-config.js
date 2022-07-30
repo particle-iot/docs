@@ -553,26 +553,18 @@ $(document).ready(function() {
         const thisElem = $(this);
 
         const editModeSelectElem = $(thisElem).find('.editModeSelect');
-        const addToTabRowElem = $(thisElem).find('.addToTabRow');
-        const addToTabSelectElem = $(thisElem).find('.addToTabSelect');
+        const editTabRowElem = $(thisElem).find('.editTabRow');
+        const editTabSelectElem = $(thisElem).find('.editTabSelect');
         const addTabRowElem = $(thisElem).find('.addTabRow');
         const addTabNameElem = $(thisElem).find('.addTabName');
-        const hideTabsRowElem = $(thisElem).find('.hideTabsRow');
-        const hideTabsCellElem = $(thisElem).find('.hideTabsCell');
-        const downloadButtonElem = $(thisElem).find('.downloadButton');
         const uploadButtonElem = $(thisElem).find('.uploadButton');
-        const loadButtonElem = $(thisElem).find('.loadButton');
-        const saveButtonElem = $(thisElem).find('.saveButton');
-
-
+        const revertButtonElem = $(thisElem).find('.revertButton');
         
-
-        // const Elem = $(thisElem).find('.');
-
+        // 
 
         let schemaPropertyTemplate;
-        let defaultSchema; // this is a JSON object
         let downloadedSchema;
+        let downloadedProductId;
         let originalFieldValue;
         let lastTabName;
         let lastMode;
@@ -580,21 +572,26 @@ $(document).ready(function() {
         $(addTabNameElem).on('input', function() {
             const tabName = $(addTabNameElem).val();
 
+            let tabNameCaps = '';
+            if (tabName.length >= 1) {
+                tabNameCaps = tabName.substring(0, 1).toUpperCase() + tabName.substring(1);
+            }
+
             try {
                 json = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
                 json.$id = '#/properties/' + tabName;
+                json.title = tabNameCaps;
                 apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
             }
             catch(e) {
             }
         });
 
-        const updateAddToField = function() {
-            const tabName = $(addToTabSelectElem).val();
-
+        const updateEditExistingTab = function() {
+            const tabName = $(editTabSelectElem).val();
 
             try {
-                json = defaultSchema.properties[tabName];
+                json = downloadedSchema.properties[tabName];
                 apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
                 originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
             }
@@ -604,33 +601,31 @@ $(document).ready(function() {
             lastTabName = tabName;
         }
 
-        $(addToTabSelectElem).on('change', function() {
+        $(editTabSelectElem).on('change', function() {
             if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
-                if (!confirm('Changing the Add to field will discard the changes you have made.\nContinue?')) {
-                    $(addToTabSelectElem).val(lastTabName);
+                if (!confirm('Changing the Edit existing tab will discard the changes you have made.\nContinue?')) {
+                    $(editTabSelectElem).val(lastTabName);
                 }
             }
 
-            updateAddToField();
+            updateEditExistingTab();
         });
+
+    
 
 
         const updateEditMode = function() {
             const mode = $(editModeSelectElem).val();
 
             if (mode != lastMode) {
-                if (mode == 'append') {
-                    $(addToTabRowElem).show();
-                    const addToTab = $(addToTabSelectElem).val();
-                    let data = defaultSchema.properties[addToTab];
-                    if (downloadedSchema && downloadedSchema[addToTab]) {
-                        data = downloadedSchema[addToTab];
-                    }
-                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
-                    updateAddToField();
+                if (mode == 'edit') {
+                    $(editTabRowElem).show();
+                    const editTab = $(editTabSelectElem).val();
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(downloadedSchema.properties[editTab]));
+                    updateEditExistingTab();    
                 }
                 else {
-                    $(addToTabRowElem).hide();   
+                    $(editTabRowElem).hide();   
                 }
     
                 if (mode == 'add') {
@@ -642,26 +637,54 @@ $(document).ready(function() {
                 else {
                     $(addTabRowElem).hide();
                 }
-    
-                if (mode == 'add' || mode == 'append') {
-                    $(hideTabsRowElem).show();
-                }
-                else {
-                    $(hideTabsRowElem).hide();
-                }
-    
-                if (mode == 'edit') {       
-                    let data = defaultSchema;
-                    if (downloadedSchema) {
-                        data = downloadedSchema;
-                    }         
-                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
+        
+                if (mode == 'full') {       
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(downloadedSchema));
                 }
     
             }
 
             originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
             lastMode = mode;
+        };
+
+        const updateTabList = function() {
+            $(editTabSelectElem).empty();
+
+            for(const tab in downloadedSchema.properties) {
+                const title = downloadedSchema.properties[tab].title;
+                
+                const optionElem = document.createElement('option');
+                $(optionElem).prop('value', tab);
+                $(optionElem).text(title)
+                $(editTabSelectElem).append(optionElem);
+            }
+        }
+
+        const downloadSchema = function() {
+            const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
+            downloadedProductId = productId;
+
+            $.ajax({
+                dataType: 'text',
+                error: function(err) {
+                    // next(err.responseJSON.message);
+                    console.log('error getting schema');
+                },
+                headers: {
+                    'Accept':'application/schema+json'
+                },
+                method: 'GET',
+                success: function (resp) {
+                    originalFieldValue = resp;
+                    downloadedSchema = JSON.parse(resp);
+                    apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
+                    updateTabList();
+                    updateEditMode();
+                },
+                url: 'https://api.particle.io/v1/products/' + productId + '/config' + '?access_token=' + apiHelper.auth.access_token
+            });                
+
         };
 
         $(editModeSelectElem).on('change', function() {
@@ -676,20 +699,82 @@ $(document).ready(function() {
         $(uploadButtonElem).on('click', function() {
             let newSchema;
 
+            let json;
+            try {
+                json = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
+            }
+            catch(e) {
+                alert('The editor does not have valid JSON and can only be uploaded if it is valid.');
+                return;
+            }
+
+
+            if (!confirm('This will update the product schema for all devices in the product and change the console behavior for all product team members.\nContinue?')) {
+                return;
+            }
+
             switch($(editModeSelectElem).val()) {
-                case 'edit':
-                    newSchema = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
+                case 'full':
+                    newSchema = json;
                     break;
 
-                case 'append':
+                case 'edit':
+                    {
+                        const editTab = $(editTabSelectElem).val();
+                        newSchema = Object.assign({}, downloadedSchema);
+                        newSchema.properties[editTab] = json;
+                    }
                     break;
 
                 case 'add':
+                    {
+                        const editTab = $(addTabNameElem).val();
+                        newSchema = Object.assign({}, downloadedSchema);
+                        newSchema.properties[editTab] = json;                        
+                    }
                     break;
 
             }
 
             console.log('newSchema', newSchema);
+        });
+
+        $(revertButtonElem).on('click', function() {
+            if (confirm('Revert product schema will discard any schema changes made locally and affect all devices in the product and change the console behavior for all product team members.\nContinue?')) {
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+
+                $.ajax({
+                    data: '{}',
+                    error: function(err) {
+                        ga('send', 'event', 'Tracker Schema', 'Restore Default Error', err.responseJSON.message);
+                        //setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
+                        console.log('error reverting schema', err);
+                        // Will get err.status=404 if there is no custom schema
+
+                    },
+                    headers: {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Content-Type':'application/schema+json'
+                    },
+                    method: 'DELETE',
+                    success: function (resp) {
+                        ga('send', 'event', 'Tracker Schema', 'Restore Default Success');
+                        //setStatus(configSchemaPartial, 'Successfully restored.');
+                        console.log('schema reverted');
+                        downloadSchema();
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
+                });                    
+            }
+        });
+
+
+        $('.apiHelperTrackerProductSelect').on('change', function() {
+            let productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
+            if (productId != downloadedProductId) {
+                // This event fires multiple times, so checking for change prevents downloading the file 6 times.
+                downloadSchema();
+            }    
         });
 
         fetch('/assets/files/tracker/schema-property-template.json')
@@ -698,38 +783,18 @@ $(document).ready(function() {
                 schemaPropertyTemplate = data;
             });
 
+        /*
         fetch('/assets/files/tracker/default-schema.json')
             .then(response => response.json())
             .then(function(data) {
                 defaultSchema = data;
 
-                for(const tab in defaultSchema.properties) {
-                    const title = defaultSchema.properties[tab].title;
-
-                    const divElem = document.createElement('div');
-
-                    const checkboxElem = document.createElement('input');
-                    $(checkboxElem).prop('type', 'checkbox');
-
-                    const labelElem = document.createElement('label');
-                    $(labelElem).append(checkboxElem);
-                    $(labelElem).append(document.createTextNode(title + ' (' + tab + ')'));
-
-                    $(divElem).append(labelElem);
-                    $(hideTabsCellElem).append(divElem);
-                    
-                    const optionElem = document.createElement('option');
-                    $(optionElem).prop('value', tab);
-                    $(optionElem).text(title)
-                    $(addToTabSelectElem).append(optionElem);
-                }
-
                 originalFieldValue = JSON.stringify(defaultSchema);
                 apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
                 updateEditMode();
             });
-
-            
+        */
+        
     })
 
 
