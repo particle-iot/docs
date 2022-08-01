@@ -563,6 +563,7 @@ $(document).ready(function() {
 
     $('.apiHelperSchemaEditor').each(async function() {
         const thisElem = $(this);
+        const gaCategory = 'Schema Editor';
 
         const editModeSelectElem = $(thisElem).find('.editModeSelect');
         const editTabRowElem = $(thisElem).find('.editTabRow');
@@ -571,6 +572,7 @@ $(document).ready(function() {
         const addTabNameElem = $(thisElem).find('.addTabName');
         const uploadButtonElem = $(thisElem).find('.uploadButton');
         const revertButtonElem = $(thisElem).find('.revertButton');
+        const saveBackupCheckboxElem = $(thisElem).find('.saveBackupCheckbox');
         const apiHelperStatusMsgElem = $(thisElem).find('.apiHelperStatusMsg');
 
         let schemaPropertyTemplate;
@@ -579,9 +581,21 @@ $(document).ready(function() {
         let originalFieldValue;
         let lastTabName;
         let lastMode;
+        let statusTimer;
 
-        const setStatus = function(msg) {
+        const setStatus = function(msg, time) { 
+            if (statusTimer) {
+                clearTimeout(statusTimer);
+                statusTimer = null;
+            }           
             $(apiHelperStatusMsgElem).text(msg);
+
+            if (time) {
+                statusTimer = setTimeout(function() {
+                    $(apiHelperStatusMsgElem).html('&nbsp;');
+                    statusTimer = null;
+                }, time);
+            }
         }
 
         $(addTabNameElem).on('input', function() {
@@ -676,31 +690,106 @@ $(document).ready(function() {
             }
         }
 
-        const downloadSchema = function() {
-            const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
-            downloadedProductId = productId;
 
-            $.ajax({
-                dataType: 'text',
-                error: function(err) {
-                    setStatus('Error getting schema from product');
-                },
-                headers: {
-                    'Accept':'application/schema+json'
-                },
-                method: 'GET',
-                success: function (resp) {
-                    setStatus('Downloaded schema from product');
-                    originalFieldValue = resp;
-                    downloadedSchema = JSON.parse(resp);
-                    apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
-                    updateTabList();
-                    updateEditMode();
-                },
-                url: 'https://api.particle.io/v1/products/' + productId + '/config' + '?access_token=' + apiHelper.auth.access_token
-            });                
 
+        const downloadSchema = async function() {
+            return await new Promise(function(resolve, reject) {
+
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
+                downloadedProductId = productId;
+
+                $.ajax({
+                    dataType: 'text',
+                    error: function(err) {
+                        reject(err);
+                    },
+                    headers: {
+                        'Accept':'application/schema+json'
+                    },
+                    method: 'GET',
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config' + '?access_token=' + apiHelper.auth.access_token
+                });                
+            });
         };
+
+        const downloadSchemaAndUpdateUI = async function() {
+            try {
+                const resp = await downloadSchema();
+
+                setStatus('Downloaded schema from product', 5000);
+                originalFieldValue = resp;
+                downloadedSchema = JSON.parse(resp);
+                apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
+                updateTabList();
+                updateEditMode();
+            }
+            catch(e) {
+                setStatus('Error getting schema from product');
+            }
+        };
+
+        const downloadAndSaveIfEnabled = async function() {
+            if (!$(saveBackupCheckboxElem).prop('checked')) {
+                return;
+            }
+
+            const schemaText = await downloadSchema();
+
+            let blob = new Blob([schemaText], {type:'text/json'});
+            saveAs(blob, 'backup-schema.json');
+        }
+
+        const uploadSchema = async function(newSchema) {
+            await downloadAndSaveIfEnabled();
+
+            return await new Promise(function(resolve, reject) {
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+
+                $.ajax({
+                    data: JSON.stringify(newSchema),
+                    error: function(err) {
+                        reject(err);
+                    },
+                    headers: {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Content-Type':'application/schema+json'
+                    },
+                    method: 'PUT',
+                    processData: false,
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
+                }); 
+            });
+        }
+
+        const revertSchema = async function() {
+            await downloadAndSaveIfEnabled();
+
+            return await new Promise(function(resolve, reject) {
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+
+                $.ajax({
+                    data: '{}',
+                    error: function(err) {
+                        reject(err);
+                    },
+                    headers: {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Content-Type':'application/schema+json'
+                    },
+                    method: 'DELETE',
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
+                });   
+            });
+        }
 
         $(editModeSelectElem).on('change', function() {
             if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
@@ -711,7 +800,7 @@ $(document).ready(function() {
             updateEditMode();
         });
 
-        $(uploadButtonElem).on('click', function() {
+        $(uploadButtonElem).on('click', async function() {
             let newSchema;
 
             let json;
@@ -720,11 +809,13 @@ $(document).ready(function() {
             }
             catch(e) {
                 alert('The editor does not have valid JSON and can only be uploaded if it is valid.');
+                ga('send', 'event', gaCategory, 'Upload invalid JSON');
                 return;
             }
 
 
             if (!confirm('This will update the product schema for all devices in the product and change the console behavior for all product team members.\nContinue?')) {
+                ga('send', 'event', gaCategory, 'Upload canceled');
                 return;
             }
 
@@ -751,67 +842,53 @@ $(document).ready(function() {
 
             }
 
-            console.log('newSchema', newSchema);
+            // console.log('newSchema', newSchema);
 
-            const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+            try {
+                const resp = await uploadSchema(newSchema);
+                setStatus('Schema uploaded to product', 5000);
+                downloadedSchema = newSchema;
+                ga('send', 'event', gaCategory, 'Upload success', $(editModeSelectElem).val());
+            }
+            catch(e) {
+                setStatus('Error uploading schema');
+            }
 
-            $.ajax({
-                data: newSchema,
-                error: function(err) {
-                    console.log('error uploading schema', err);
-                    setStatus('Error uploading schema');
-                },
-                headers: {
-                    'Authorization':'Bearer ' + apiHelper.auth.access_token,
-                    'Content-Type':'application/schema+json'
-                },
-                method: 'PUT',
-                processData: false,
-                success: function (resp) {
-                    setStatus('Schema uploaded to product');
-                    downloadedSchema = newSchema;
-                },
-                url: 'https://api.particle.io/v1/products/' + productId + '/config'
-            }); 
         });
 
-        $(revertButtonElem).on('click', function() {
+        $(revertButtonElem).on('click', async function() {
             if (confirm('Revert product schema will discard any schema changes made locally and affect all devices in the product and change the console behavior for all product team members.\nContinue?')) {
                 const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
 
-                $.ajax({
-                    data: '{}',
-                    error: function(err) {
-                        ga('send', 'event', 'Tracker Schema', 'Restore Default Error', err.responseJSON.message);
-                        
-                        if (err.status == 404) {
-                            setStatus('Schema was already the the default');
-                        }
-                        else {
-                            setStatus('Schema could not be reverted');
-                        }
-                    },
-                    headers: {
-                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
-                        'Content-Type':'application/schema+json'
-                    },
-                    method: 'DELETE',
-                    success: function (resp) {
-                        ga('send', 'event', 'Tracker Schema', 'Restore Default Success');
-                        setStatus('Schema reverted to default');
-                        downloadSchema();
-                    },
-                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
-                });                    
+                try {
+                    await revertSchema();
+
+                    ga('send', 'event', gaCategory, 'Restore Default Success');
+                    setStatus('Schema reverted to default', 5000);
+                    await downloadSchemaAndUpdateUI();
+                }
+                catch(e) {
+                    if (e.status == 404) {
+                        setStatus('Schema was already the the default', 5000);
+                        ga('send', 'event', gaCategory, 'Restore Default Already Default');
+                    }
+                    else {
+                        setStatus('Schema could not be reverted');
+                        ga('send', 'event', gaCategory, 'Restore Default Exception');
+                    }
+                }        
+            }
+            else {
+                ga('send', 'event', gaCategory, 'Restore Default Canceled');
             }
         });
 
 
-        $('.apiHelperTrackerProductSelect').on('change', function() {
+        $('.apiHelperTrackerProductSelect').on('change', async function() {
             let productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
             if (productId != downloadedProductId) {
                 // This event fires multiple times, so checking for change prevents downloading the file 6 times.
-                downloadSchema();
+                await downloadSchemaAndUpdateUI();
             }    
         });
 

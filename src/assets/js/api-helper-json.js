@@ -70,6 +70,15 @@ $(document).ready(function() {
             mode: "application/json", 
             json: true
         });
+        const height = $(parentElem).data('height');
+        if (height) {
+            if (height == 'full') {
+                codeMirror.setSize(null, $('.content-inner').height() - 50);                
+            }
+            else {
+                codeMirror.setSize(null, parseInt(height));
+            }
+        }
 
         apiHelper.jsonLinterCodeMirror[index] = codeMirror;
     });

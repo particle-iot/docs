@@ -1,4 +1,4 @@
-<div class="apiHelper apiHelperSchemaEditor apiHelperJsonLinter" >
+<div class="apiHelper apiHelperSchemaEditor apiHelperJsonLinter" data-height="full" >
     <div class="apiHelperBox apiHelperLoggedIn">
         <table class="apiHelperProductSelectorTable">
             <tbody>
@@ -43,13 +43,20 @@
                     </td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Download backup</td>
+                    <td>
+                        <label><input type="checkbox" class="saveBackupCheckbox" checked/>Download backup of schema before save or revert</label>
+                    </td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
         <p class="apiHelperStatusMsg" style="padding-top: 12px; padding-left: 5px;"></p>
     </div>
     <div style="padding: 10px;">
         <div class="apiHelperJsonLinterEditor apiHelperLoggedIn">
-            <textarea rows="50" cols="80"></textarea>
+            <textarea></textarea>
         </div>
         <div class="apiHelperNotLoggedIn" style="display:none;">
             <p>You must log into your Particle account to use the Schema Editor</p>
