@@ -100,8 +100,7 @@ $(document).ready(function() {
             }
         }
     
-    
-        if (auth || localAuth) {
+        const showLoggedIn = function() {
             if (localAuth) {
                 $('.apiHelperLocalLogIn').hide();
                 $('.apiHelperLogoutButton').text('Log out of manual login');
@@ -142,8 +141,8 @@ $(document).ready(function() {
 
             $('#userMenuLogout > a').on('click', handleLogout);
         
-        }
-        else {
+        };
+        const showNotLoggedIn = function() {
             $('#userMenuLabel').text('User');
 
             $('.apiHelperNotLoggedIn').show();
@@ -160,9 +159,17 @@ $(document).ready(function() {
                 $('.apiHelperLocalLogIn').show();
                 $('.apiHelperCouldSSO').hide();
             }
+            $('.apiHelperLoggedIn').hide();
             $('#userMenuConsole').hide();
             $('#userMenuEditAccount').hide();
             $('#userMenuLogout').hide();
+        };
+    
+        if (auth || localAuth) {
+            showLoggedIn();
+        }
+        else {
+            showNotLoggedIn();
         }
 
         if (typeof apiHelper != 'undefined') {
@@ -172,6 +179,15 @@ $(document).ready(function() {
             else {
                 delete apiHelper.auth;
             }
+
+            apiHelper.notLoggedIn = showNotLoggedIn;
+
+            apiHelper.scrollToSSO = function() {
+                let ssoElem = $('.apiHelperSSO').first();                
+                let pos = ssoElem.position().top;
+                $('.content-inner').scrollTop(pos);          
+            };
+            $('.apiHelperScrollToLoginButton').on('click', apiHelper.scrollToSSO);
         }
     }
     

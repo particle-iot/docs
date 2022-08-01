@@ -207,74 +207,86 @@ $(document).ready(function() {
 
     };
 
-    apiHelper.getProducts().then(function(productsResp) {
-        sandboxTrackerProducts = apiHelper.filterByTrackerPlatform(productsResp.products);
 
-        buildProductMenu(sandboxTrackerProducts, $('.apiHelperTrackerProductSelect'), {});
-        if (sandboxTrackerProducts.length > 0) {
-            $('.apiHelperTrackerProductSelect').trigger('change');
-        }
-        else {
-            buildTrackerDeviceMenu();
-        }
-    });
-    
+    async function setupMenus() {
+        try {
+            const productsResp = await apiHelper.getProducts();
+            sandboxTrackerProducts = apiHelper.filterByTrackerPlatform(productsResp.products);
 
-    const productSelectElems = $('.apiHelperTrackerProductSelect');
-
-    if (productSelectElems.length > 0 && apiHelper.auth) {
-        apiHelper.getOrgs().then(function(orgsData) {
-            // No orgs: orgsData.organizations empty array
-            // Object in array orgsData.organizations: id, slug, name
-            
-            if (orgsData.organizations.length > 0) {
-                const orgSelectElems = $('.apiHelperTrackerOrgSelect');
-
-                let html = '<option value="sandbox" checked>Sandbox</option>';
-                for(let org of orgsData.organizations) {
-                    html += '<option value="' + org.id + '">' + org.name + '</option>';
-                }
-                $(orgSelectElems).html(html);
-
-                $('.apiHelperTrackerOrgRow').show();
-
-                $(orgSelectElems).each(async function() {
-                    const orgSelectElem = $(this);
-
-
-                    $(orgSelectElem).on('change', async function() {
-                        const productSelectElems = $('.apiHelperTrackerProductSelect');
-
-                        const orgId = $(orgSelectElem).val();
-                        if (orgId != 'sandbox') {
-                            const orgProductsResp = await apiHelper.getOrgProducts(orgId);
-                        
-                            // Array is orgProductsResp.products
-                            // Each contains id and name
-        
-                            const orgTrackerProducts = apiHelper.filterByTrackerPlatform(orgProductsResp.products);
-
-                            buildProductMenu(orgTrackerProducts, productSelectElems, {noSelectFirst:true});
-                        }
-                        else {
-                            // 
-                            buildProductMenu(sandboxTrackerProducts, productSelectElems, {});
-                        }
-                    
-                        $(orgSelectElems).val(orgId);
-                    });
-
-                });
+            buildProductMenu(sandboxTrackerProducts, $('.apiHelperTrackerProductSelect'), {});
+            if (sandboxTrackerProducts.length > 0) {
+                $('.apiHelperTrackerProductSelect').trigger('change');
             }
             else {
-                $('.apiHelperTrackerOrgRow').hide();
+                buildTrackerDeviceMenu();
             }
 
-        });
+            const productSelectElems = $('.apiHelperTrackerProductSelect');
 
+            if (productSelectElems.length > 0 && apiHelper.auth) {
+                const orgsData = await apiHelper.getOrgs();
 
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+                
+                if (orgsData.organizations.length > 0) {
+                    const orgSelectElems = $('.apiHelperTrackerOrgSelect');
 
+                    let html = '<option value="sandbox" checked>Sandbox</option>';
+                    for(let org of orgsData.organizations) {
+                        html += '<option value="' + org.id + '">' + org.name + '</option>';
+                    }
+                    $(orgSelectElems).html(html);
+
+                    $('.apiHelperTrackerOrgRow').show();
+
+                    $(orgSelectElems).each(async function() {
+                        const orgSelectElem = $(this);
+
+                        $(orgSelectElem).on('change', async function() {
+                            const productSelectElems = $('.apiHelperTrackerProductSelect');
+
+                            const orgId = $(orgSelectElem).val();
+                            if (orgId != 'sandbox') {
+                                const orgProductsResp = await apiHelper.getOrgProducts(orgId);
+                            
+                                // Array is orgProductsResp.products
+                                // Each contains id and name
+            
+                                const orgTrackerProducts = apiHelper.filterByTrackerPlatform(orgProductsResp.products);
+
+                                buildProductMenu(orgTrackerProducts, productSelectElems, {noSelectFirst:true});
+                            }
+                            else {
+                                // 
+                                buildProductMenu(sandboxTrackerProducts, productSelectElems, {});
+                            }
+                        
+                            $(orgSelectElems).val(orgId);
+                        });
+
+                    });
+                }
+                else {
+                    $('.apiHelperTrackerOrgRow').hide();
+                }
+            }            
+        }
+        catch(e) {
+            if (e.status == 401) {
+                // Expired token
+            }
+            apiHelper.notLoggedIn();
+        }
+    };
+
+    if (apiHelper.auth) {
+        setupMenus();
     }
+    else {
+        // Not logged in
+    }
+
 
 
     $('.apiHelperTrackerProductSelect').each(function(index) {
@@ -548,6 +560,357 @@ $(document).ready(function() {
         });    
 
     }
+
+    $('.apiHelperSchemaEditor').each(async function() {
+        const thisElem = $(this);
+        const gaCategory = 'Schema Editor';
+
+        const editModeSelectElem = $(thisElem).find('.editModeSelect');
+        const editTabRowElem = $(thisElem).find('.editTabRow');
+        const editTabSelectElem = $(thisElem).find('.editTabSelect');
+        const addTabRowElem = $(thisElem).find('.addTabRow');
+        const addTabNameElem = $(thisElem).find('.addTabName');
+        const uploadButtonElem = $(thisElem).find('.uploadButton');
+        const revertButtonElem = $(thisElem).find('.revertButton');
+        const saveBackupCheckboxElem = $(thisElem).find('.saveBackupCheckbox');
+        const apiHelperStatusMsgElem = $(thisElem).find('.apiHelperStatusMsg');
+
+        let schemaPropertyTemplate;
+        let downloadedSchema;
+        let downloadedProductId;
+        let originalFieldValue;
+        let lastTabName;
+        let lastMode;
+        let statusTimer;
+
+        const setStatus = function(msg, time) { 
+            if (statusTimer) {
+                clearTimeout(statusTimer);
+                statusTimer = null;
+            }           
+            $(apiHelperStatusMsgElem).text(msg);
+
+            if (time) {
+                statusTimer = setTimeout(function() {
+                    $(apiHelperStatusMsgElem).html('&nbsp;');
+                    statusTimer = null;
+                }, time);
+            }
+        }
+
+        $(addTabNameElem).on('input', function() {
+            const tabName = $(addTabNameElem).val();
+
+            let tabNameCaps = '';
+            if (tabName.length >= 1) {
+                tabNameCaps = tabName.substring(0, 1).toUpperCase() + tabName.substring(1);
+            }
+
+            try {
+                json = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
+                json.$id = '#/properties/' + tabName;
+                json.title = tabNameCaps;
+                apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
+            }
+            catch(e) {
+            }
+        });
+
+        const updateEditExistingTab = function() {
+            const tabName = $(editTabSelectElem).val();
+
+            try {
+                json = downloadedSchema.properties[tabName];
+                apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(json));
+                originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
+            }
+            catch(e) {
+            }    
+
+            lastTabName = tabName;
+        }
+
+        $(editTabSelectElem).on('change', function() {
+            if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
+                if (!confirm('Changing the Edit existing tab will discard the changes you have made.\nContinue?')) {
+                    $(editTabSelectElem).val(lastTabName);
+                }
+            }
+
+            updateEditExistingTab();
+        });
+
+    
+
+
+        const updateEditMode = function() {
+            const mode = $(editModeSelectElem).val();
+
+            if (mode != lastMode) {
+                if (mode == 'edit') {
+                    $(editTabRowElem).show();
+                    const editTab = $(editTabSelectElem).val();
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(downloadedSchema.properties[editTab]));
+                    updateEditExistingTab();    
+                }
+                else {
+                    $(editTabRowElem).hide();   
+                }
+    
+                if (mode == 'add') {
+                    $(addTabRowElem).show();
+                    const data = schemaPropertyTemplate;
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(data));
+                    $(addTabNameElem).trigger('input');
+                }
+                else {
+                    $(addTabRowElem).hide();
+                }
+        
+                if (mode == 'full') {       
+                    apiHelper.jsonLinterSetValue(thisElem, JSON.stringify(downloadedSchema));
+                }
+    
+            }
+
+            originalFieldValue = apiHelper.jsonLinterGetValue(thisElem);
+            lastMode = mode;
+        };
+
+        const updateTabList = function() {
+            $(editTabSelectElem).empty();
+
+            for(const tab in downloadedSchema.properties) {
+                const title = downloadedSchema.properties[tab].title;
+                
+                const optionElem = document.createElement('option');
+                $(optionElem).prop('value', tab);
+                $(optionElem).text(title)
+                $(editTabSelectElem).append(optionElem);
+            }
+        }
+
+
+
+        const downloadSchema = async function() {
+            return await new Promise(function(resolve, reject) {
+
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
+                downloadedProductId = productId;
+
+                $.ajax({
+                    dataType: 'text',
+                    error: function(err) {
+                        reject(err);
+                    },
+                    headers: {
+                        'Accept':'application/schema+json'
+                    },
+                    method: 'GET',
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config' + '?access_token=' + apiHelper.auth.access_token
+                });                
+            });
+        };
+
+        const downloadSchemaAndUpdateUI = async function() {
+            try {
+                const resp = await downloadSchema();
+
+                setStatus('Downloaded schema from product', 5000);
+                originalFieldValue = resp;
+                downloadedSchema = JSON.parse(resp);
+                apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
+                updateTabList();
+                updateEditMode();
+            }
+            catch(e) {
+                setStatus('Error getting schema from product');
+            }
+        };
+
+        const downloadAndSaveIfEnabled = async function() {
+            if (!$(saveBackupCheckboxElem).prop('checked')) {
+                return;
+            }
+
+            const schemaText = await downloadSchema();
+
+            let blob = new Blob([schemaText], {type:'text/json'});
+            saveAs(blob, 'backup-schema.json');
+        }
+
+        const uploadSchema = async function(newSchema) {
+            await downloadAndSaveIfEnabled();
+
+            return await new Promise(function(resolve, reject) {
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+
+                $.ajax({
+                    data: JSON.stringify(newSchema),
+                    error: function(err) {
+                        reject(err);
+                    },
+                    headers: {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Content-Type':'application/schema+json'
+                    },
+                    method: 'PUT',
+                    processData: false,
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
+                }); 
+            });
+        }
+
+        const revertSchema = async function() {
+            await downloadAndSaveIfEnabled();
+
+            return await new Promise(function(resolve, reject) {
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+
+                $.ajax({
+                    data: '{}',
+                    error: function(err) {
+                        reject(err);
+                    },
+                    headers: {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Content-Type':'application/schema+json'
+                    },
+                    method: 'DELETE',
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/config'
+                });   
+            });
+        }
+
+        $(editModeSelectElem).on('change', function() {
+            if (originalFieldValue != apiHelper.jsonLinterGetValue(thisElem)) {
+                if (!confirm('Changing the Edit mode will discard the changes you have made.\nContinue?')) {
+                    $(editModeSelectElem).val(lastMode);
+                }
+            }
+            updateEditMode();
+        });
+
+        $(uploadButtonElem).on('click', async function() {
+            let newSchema;
+
+            let json;
+            try {
+                json = JSON.parse(apiHelper.jsonLinterGetValue(thisElem));
+            }
+            catch(e) {
+                alert('The editor does not have valid JSON and can only be uploaded if it is valid.');
+                ga('send', 'event', gaCategory, 'Upload invalid JSON');
+                return;
+            }
+
+
+            if (!confirm('This will update the product schema for all devices in the product and change the console behavior for all product team members.\nContinue?')) {
+                ga('send', 'event', gaCategory, 'Upload canceled');
+                return;
+            }
+
+            switch($(editModeSelectElem).val()) {
+                case 'full':
+                    newSchema = json;
+                    break;
+
+                case 'edit':
+                    {
+                        const editTab = $(editTabSelectElem).val();
+                        newSchema = Object.assign({}, downloadedSchema);
+                        newSchema.properties[editTab] = json;
+                    }
+                    break;
+
+                case 'add':
+                    {
+                        const editTab = $(addTabNameElem).val();
+                        newSchema = Object.assign({}, downloadedSchema);
+                        newSchema.properties[editTab] = json;                        
+                    }
+                    break;
+
+            }
+
+            // console.log('newSchema', newSchema);
+
+            try {
+                const resp = await uploadSchema(newSchema);
+                setStatus('Schema uploaded to product', 5000);
+                downloadedSchema = newSchema;
+                ga('send', 'event', gaCategory, 'Upload success', $(editModeSelectElem).val());
+            }
+            catch(e) {
+                setStatus('Error uploading schema');
+            }
+
+        });
+
+        $(revertButtonElem).on('click', async function() {
+            if (confirm('Revert product schema will discard any schema changes made locally and affect all devices in the product and change the console behavior for all product team members.\nContinue?')) {
+                const productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();;
+
+                try {
+                    await revertSchema();
+
+                    ga('send', 'event', gaCategory, 'Restore Default Success');
+                    setStatus('Schema reverted to default', 5000);
+                    await downloadSchemaAndUpdateUI();
+                }
+                catch(e) {
+                    if (e.status == 404) {
+                        setStatus('Schema was already the the default', 5000);
+                        ga('send', 'event', gaCategory, 'Restore Default Already Default');
+                    }
+                    else {
+                        setStatus('Schema could not be reverted');
+                        ga('send', 'event', gaCategory, 'Restore Default Exception');
+                    }
+                }        
+            }
+            else {
+                ga('send', 'event', gaCategory, 'Restore Default Canceled');
+            }
+        });
+
+
+        $('.apiHelperTrackerProductSelect').on('change', async function() {
+            let productId = $(thisElem).find('.apiHelperTrackerProductSelect').val();
+            if (productId != downloadedProductId) {
+                // This event fires multiple times, so checking for change prevents downloading the file 6 times.
+                await downloadSchemaAndUpdateUI();
+            }    
+        });
+
+        fetch('/assets/files/tracker/schema-property-template.json')
+            .then(response => response.json())
+            .then(function(data) {
+                schemaPropertyTemplate = data;
+            });
+
+        /*
+        fetch('/assets/files/tracker/default-schema.json')
+            .then(response => response.json())
+            .then(function(data) {
+                defaultSchema = data;
+
+                originalFieldValue = JSON.stringify(defaultSchema);
+                apiHelper.jsonLinterSetValue(thisElem, originalFieldValue);
+                updateEditMode();
+            });
+        */
+        
+    })
 
 
 });

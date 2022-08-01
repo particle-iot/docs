@@ -1,0 +1,66 @@
+<div class="apiHelper apiHelperSchemaEditor apiHelperJsonLinter" data-height="full" >
+    <div class="apiHelperBox apiHelperLoggedIn">
+        <table class="apiHelperProductSelectorTable">
+            <tbody>
+                <tr class="apiHelperTrackerOrgRow" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Organization</td>
+                    <td><select class="apiHelperTrackerOrgSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr class="apiHelperTrackerProductRow">
+                    <td class="apiHelperProductSelectorLabel">Product</td>
+                    <td><select class="apiHelperTrackerProductSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Edit mode</td>
+                    <td><select class="apiHelperSelect editModeSelect">
+                        <option value="full">Edit full schema</option>
+                        <option value="edit">Edit or add to an existing tab</option>
+                        <option value="add">Add a new tab</option>
+                        </select></td>
+                    <td></td>
+                </tr>
+                <tr class="editTabRow">
+                    <td class="apiHelperProductSelectorLabel">Edit existing tab</td>
+                    <td><select class="apiHelperSelect editTabSelect"></select></td>
+                    <td></td>
+                </tr>
+                <tr class="addTabRow">
+                    <td class="apiHelperProductSelectorLabel">New tab JSON name</td>
+                    <td><input type="text" class="addTabName" size="15" value="custom"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Update product schema</td>
+                    <td>
+                        <button class="uploadButton">Upload schema to product</button>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Revert product schema</td>
+                    <td>
+                        <button class="revertButton">Revert product schema to default</button>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Download backup</td>
+                    <td>
+                        <label><input type="checkbox" class="saveBackupCheckbox" checked/>Download backup of schema before save or revert</label>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="apiHelperStatusMsg" style="padding-top: 12px; padding-left: 5px;"></p>
+    </div>
+    <div style="padding: 10px;">
+        <div class="apiHelperJsonLinterEditor apiHelperLoggedIn">
+            <textarea></textarea>
+        </div>
+        <div class="apiHelperNotLoggedIn" style="display:none;">
+            <p>You must log into your Particle account to use the Schema Editor</p>
+            <p><button class="apiHelperScrollToLoginButton">Log In</button></p>
+        </div>
+    </div>
+</div>
