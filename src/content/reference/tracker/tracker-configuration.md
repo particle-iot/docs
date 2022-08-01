@@ -8,6 +8,8 @@ includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-
 
 # {{title}}
 
+{{> sso}}
+
 The Tracker provides a customizable configuration system:
 
 - **Standard configuration** allows features like publish intervals, sleep settings, etc. to be configured from [the console](https://console.particle.io).
@@ -24,8 +26,6 @@ Additionally:
 - **Devices that are currently online** receive the configuration updates immediately.
 - **Devices that are offline**, because of poor cellular coverage or use of sleep modes, receive configuration updates when they reconnect to the Particle cloud, if there were changes.
 - **On device, the configuration is cached** on the flash file system, so the last known configuration can be used before connecting to the cloud again.
-
-{{> sso}}
 
 ## Configuration
 

@@ -1,5 +1,5 @@
 <div class="apiHelper apiHelperSchemaEditor apiHelperJsonLinter" >
-    <div class="apiHelperBox">
+    <div class="apiHelperBox apiHelperLoggedIn">
         <table class="apiHelperProductSelectorTable">
             <tbody>
                 <tr class="apiHelperTrackerOrgRow" style="display:none">
@@ -45,11 +45,15 @@
                 </tr>
             </tbody>
         </table>
+        <p class="apiHelperStatusMsg" style="padding-top: 12px; padding-left: 5px;"></p>
     </div>
     <div style="padding: 10px;">
-        <div class="apiHelperJsonLinterEditor">
+        <div class="apiHelperJsonLinterEditor apiHelperLoggedIn">
             <textarea rows="50" cols="80"></textarea>
         </div>
+        <div class="apiHelperNotLoggedIn" style="display:none;">
+            <p>You must log into your Particle account to use the Schema Editor</p>
+            <p><button class="apiHelperScrollToLoginButton">Log In</button></p>
+        </div>
     </div>
-
 </div>
