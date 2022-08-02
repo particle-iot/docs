@@ -122,6 +122,11 @@
           "dir": "how-do-i-sign-up-for-or-log-into-the-wholesale-store",
           "title": "How do I sign up for or log into the wholesale store?",
           "href": "/troubleshooting/faqs/orders/how-do-i-sign-up-for-or-log-into-the-wholesale-store/"
+        },
+        {
+          "dir": "how-do-i-make-a-tax-exempt-purchase",
+          "title": "How do I make a tax-exempt purchase?",
+          "href": "/troubleshooting/faqs/orders/how-do-i-make-a-tax-exempt-purchase/"
         }
       ],
       {
@@ -144,7 +149,43 @@
         "dir": "general-knowledge",
         "isSection": true
       },
-      []
+      [
+        {
+          "dir": "wholesale-store-user-compliance-survey",
+          "title": "Wholesale Store User Compliance Survey",
+          "href": "/troubleshooting/faqs/general-knowledge/wholesale-store-user-compliance-survey/"
+        },
+        {
+          "dir": "pricing-faq",
+          "title": "Pricing FAQ",
+          "href": "/troubleshooting/faqs/general-knowledge/pricing-faq/"
+        },
+        {
+          "dir": "particle-mvp-program",
+          "title": "Particle MVP Program",
+          "href": "/troubleshooting/faqs/general-knowledge/particle-mvp-program/"
+        },
+        {
+          "dir": "what-should-i-do-if-im-locked-out-via-2fa",
+          "title": "What Should I Do If I'm Locked Out Via 2FA?",
+          "href": "/troubleshooting/faqs/general-knowledge/what-should-i-do-if-im-locked-out-via-2fa/"
+        },
+        {
+          "dir": "how-should-i-set-up-2fa-for-my-particle-account",
+          "title": "How should I set up 2FA for my Particle Account?",
+          "href": "/troubleshooting/faqs/general-knowledge/how-should-i-set-up-2fa-for-my-particle-account/"
+        },
+        {
+          "dir": "account-management-faq-2fa-account-deletion-changing-your-particle-id",
+          "title": "Account Management FAQ (2FA, Account Deletion, Changing Your Particle ID)",
+          "href": "/troubleshooting/faqs/general-knowledge/account-management-faq-2fa-account-deletion-changing-your-particle-id/"
+        },
+        {
+          "dir": "how-can-i-cancel-billing",
+          "title": "How can I cancel billing?",
+          "href": "/troubleshooting/faqs/general-knowledge/how-can-i-cancel-billing/"
+        }
+      ]
     ],
     {
       "dir": "guides",
