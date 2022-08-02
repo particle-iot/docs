@@ -23,6 +23,32 @@
       ]
     },
     {
+      "dir": "quick-start-guide",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tools-overview",
+        "title": "Tools Overview",
+        "href": "/scaling/quick-start-guide/tools-overview/"
+      },
+      {
+        "dir": "device-communication",
+        "title": "Device Communication",
+        "href": "/scaling/quick-start-guide/device-communication/"
+      },
+      {
+        "dir": "introduction-to-products",
+        "title": "Introduction to Products",
+        "href": "/scaling/quick-start-guide/introduction-to-products/"
+      },
+      {
+        "dir": "enterprise-order-placement",
+        "title": "Enterprise Order Placement",
+        "href": "/scaling/quick-start-guide/enterprise-order-placement/"
+      }
+    ],
+    {
       "dir": "manufacturing",
       "isSection": true
     },

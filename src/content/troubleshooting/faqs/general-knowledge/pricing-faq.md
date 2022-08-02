@@ -5,22 +5,8 @@ columns: two
 ---
 
 # {{{title}}}
-Below are some commonly asked questions with respect to Particle's pricing model (announced at Spectra, March 2021).
 
-* [What is the new pricing model that was announced?](https://support.particle.io/hc/en-us/articles/360039741073#what-is-the-new-pricing-model-that-was-announced)
-* [What is a block?](https://support.particle.io/hc/en-us/articles/360039741073#what-is-a-block)
-* [What is a Data Operation and how can I keep track of my consumption?](https://support.particle.io/hc/en-us/articles/360039741073#what-is-a-data-operation-and-how-can-i-keep-track-of-my-consumption)
-* [How much can one expect to pay per plan?](https://support.particle.io/hc/en-us/articles/360039741073#how-much-can-one-expect-to-pay-per-plan)
-* [How can I determine what plan I belong to?](https://support.particle.io/hc/en-us/articles/360039741073#how-can-i-determine-what-plan-i-belong-to)
-* [How can I sign up for the Growth plan?](https://support.particle.io/hc/en-us/articles/360039741073#how-can-i-sign-up-for-the-growth-plan)
-* [How am I billed while on the Growth plan?](https://support.particle.io/hc/en-us/articles/360039741073#how-am-i-billed-while-on-the-growth-plan)
-* [How do I create a Product for my Growth plan devices?](https://support.particle.io/hc/en-us/articles/360039741073#how-do-i-create-a-product-for-my-growth-plan-devices)
-* [If I would like to cancel my billing, what steps must I take?](https://support.particle.io/hc/en-us/articles/360039741073#if-i-would-like-to-cancel-my-billing-what-steps-must-i-take)
-* [Are there any restrictions on the device data usage outside of the Particle Cloud?](https://support.particle.io/hc/en-us/articles/360039741073#are-there-any-restrictions-on-device-data-usage-outside-of-the-particle-cloud)
-* [How can I optimize my Data Operation consumption?](https://support.particle.io/hc/en-us/articles/360039741073#how-can-i-optimize-my-data-operation-consumption)
-* [What happens if I cross my Data Operation threshold?](https://support.particle.io/hc/en-us/articles/360039741073#what-happens-if-i-cross-my-data-operations-threshold)
-* [What happens if I cross my device cap threshold?](https://support.particle.io/hc/en-us/articles/360039741073#what-happens-if-i-cross-my-device-cap-threshold)
-* [What happens if I cross my cellular data threshold?](https://support.particle.io/hc/en-us/articles/360039741073#what-happens-if-i-cross-my-cellular-data-threshold)
+Below are some commonly asked questions with respect to Particle's pricing model (announced at Spectra, March 2021).
 
 ## What Is The New Pricing Model That Was Announced?
 
@@ -119,7 +105,7 @@ Growth plan is billed at the beginning of your monthly beginning cycle for a set
 
 The majority of Particle users will be moved to the Free plan. If your account belongs to the Free plan, you will not be charged and you need to take no action to suspend further billing.
 
-If you have received notice from Particle via email that your account's current usage exceeds the boundaries of the Free Plan but would like to urgently cancel your billing, the prior model for billing cancellation will remain in effect until the rollout of the Growth plan in Summer 2021\. See [here ](https://support.particle.io/hc/en-us/articles/360044518993)for information about how to proceed. 
+If you have received notice from Particle via email that your account's current usage exceeds the boundaries of the Free Plan but would like to urgently cancel your billing, the prior model for billing cancellation will remain in effect until the rollout of the Growth plan in Summer 2021\. See [here ](/troubleshooting/faqs/general-knowledge/how-can-i-cancel-billing/)for information about how to proceed. 
 
 ## Are There Any Restrictions On Device Data Usage Outside Of The Particle Cloud?
 
