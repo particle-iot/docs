@@ -1,4 +1,4 @@
- |---
+---
 title: Standard Manufacturing Lead Times
 layout: commonTwo.hbs
 columns: two
