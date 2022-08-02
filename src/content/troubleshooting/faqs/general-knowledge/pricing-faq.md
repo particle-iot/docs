@@ -153,7 +153,7 @@ There is no limit to the number of blocks you can purchase in the Growth plan, h
 
 ## What Happens If I Cross My Cellular Data Threshold?
 
-In the **Free plan**, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free plan.
+In the **Free plan**, if you exceed the pooled monthly data quota, then all communications between your devices and the Particle cloud will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the free plan.
 
 In the **Growth plan**, if you use more than your current allotment of cellular data another block will be automatically used and you will be charged for it at the end of the month. In addition, for the subsequent month, we will update the number of blocks you need and charge you for it. 
 
