@@ -121,6 +121,7 @@ carriers2.selectMenu = function() {
     });
 
     let warnRoaming = false;
+    let warnTMobile = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
         let html = '';
@@ -137,7 +138,7 @@ carriers2.selectMenu = function() {
 
         }
         
-        html += '</td>';
+        html += '</td>';        
 
         let allow = false;
         technologies.forEach(function(tech) {
@@ -145,11 +146,17 @@ carriers2.selectMenu = function() {
 
             if (ccObj[countryCarrierKey]['allow' + tech]) {
                 allow = true;
+
+                if (ccObj[countryCarrierKey]['allow' + tech] == 5) {
+                    cell = '<sup>5</sup>'; 
+                    warnTMobile = true;
+                }
+                else
                 if (!ccObj[countryCarrierKey].roamingRestrictions) {
                     cell = '&check;'; 
                 }
                 else {
-                    cell = '<sup>*</sup>'; 
+                    cell = '<sup>6</sup>'; 
                     warnRoaming = true;
                 }
             }
@@ -164,6 +171,13 @@ carriers2.selectMenu = function() {
         $('#' + carriers2.options.table + ' > tbody').append(html);
 
     });
+
+    if (warnTMobile) {
+        $('#byDeviceTMobileWarning').show();
+    }
+    else {
+        $('#byDeviceTMobileWarning').hide();        
+    }
 
     if (warnRoaming) {
         $('#byDeviceRoamingWarning').show();
@@ -341,7 +355,7 @@ rec2.selectMenu = function() {
 
 
     let html = '';
-
+    let carrierOptions = {};
 
 
     const generateCountryListReason = function(labelStr, modemSimObj) {
@@ -368,7 +382,7 @@ rec2.selectMenu = function() {
 
         let lastCountry;
         let countryCount = 0;
-
+        
         datastore.data.countryCarrier.forEach(function(ccObj) {
             if (!modemSimObj.countries.includes(ccObj.country)) {
                 return;
@@ -396,8 +410,13 @@ rec2.selectMenu = function() {
             html += '<tr class="' + rowClass + '"><td>' + ccObj.country + '</td><td>' + ccObj.carrier + '</td>';
 
             modemObj.technologies.forEach(function(tech) {
-                const allow = !!ccObj[etherSimObj.simPlanKey]['allow' + tech];
-                html += '<td class="technologyCell">' + (allow ? '\u2705' : '&nbsp;') + '</td>'; // Green Check
+                const allow = ccObj[etherSimObj.simPlanKey]['allow' + tech];
+                html += '<td class="technologyCell">' + (!!allow ? '\u2705' : '&nbsp;');
+                if (allow == 5) {
+                    html += '<sup>5</sup>';
+                    carrierOptions.showFootnote5 = true;
+                }
+                html += '</td>'; // Green Check
             });
 
                 
@@ -408,7 +427,19 @@ rec2.selectMenu = function() {
     
     };
 
+    const generateFootnotes = function() {
+        if (carrierOptions.showFootnote5) {
+            html += '<p style="font-size: small;"><sup>5</sup>T-Mobile in the United States only officially supports ' +
+            'LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, ' +
+            'and where enabled, this device can connect to it. ' +
+            'There is no coverage map as T-Mobile does not acknowledge the existence of LTE Cat M1 coverage.</p>';             
+        }
+
+    };
+
     const generateSimpleSkuTables = function(labelStr, modemSimArray, showCarriers) {
+
+        let op
 
         modemSimArray.forEach(function(modemSimObj, index) {
             generateCountryListReason(labelStr, modemSimObj);
@@ -417,9 +448,12 @@ rec2.selectMenu = function() {
 
             if (showCarriers) {
                 generateCarrierTable(modemSimObj);
-            }
 
+                generateFootnotes();
+            }
         });
+
+
     }
 
 
@@ -474,6 +508,7 @@ rec2.selectMenu = function() {
             });
             html += '</div>'; // flex container close    
         }
+        generateFootnotes();
 
         if (modemSimArray.length == 2 && countriesMissing.length > 0) {
             html += '<p>Not recommended in: ' + countriesMissing.join(', ') + '</p>';
@@ -928,7 +963,8 @@ countryDetails.generateTable = function(options) {
             noBand:'1',
             noPlan:'2',
             noBandNoPlan:'3',
-            warnM1:'4'
+            warnM1:'4',
+            warnTMobile: '5',
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,

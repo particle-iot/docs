@@ -1209,6 +1209,11 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                                 const countryObj = datastore.findCountryByName(obj.country);
                                 if (countryObj.m1recommended) {
                                     cellContents = '\u2705'; // Green Check
+
+                                    if (options.footnotes && options.footnotes['warnTMobile'] && obj[planKey].allowM1 == 5) {
+                                        cellContents += '<sup>' + options.footnotes['warnTMobile'] + '</sup>';
+                                        showFootnotes.warnTMobile = true;                                        
+                                    }
                                 }
                                 else {
                                     cellContents = '\u2753'; // Red question
@@ -1303,6 +1308,13 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
                 html += '<tr><td><sup>' + options.footnotes.warnM1 + '</sup></td><td>LTE Cat M1 not recommended outside of NORAM</td></tr>';
                             
             }
+            if (showFootnotes.warnTMobile) {
+                html += '<tr><td><sup>' + options.footnotes.warnTMobile + '</sup></td><td>T-Mobile in the United States only officially supports ' +
+                'LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, ' +
+                'and where enabled, this device can connect to it. ' +
+                'There is no coverage map as T-Mobile does not acknowledge the existence of LTE Cat M1 coverage.</td></tr>';                            
+            }
+
             
             html += '</table>\n';
     

@@ -373,6 +373,10 @@ const generatorConfig = require('./generator-config');
                     if (!ccObj.supersim['allow' + tech]) {
                         return;
                     }
+                    if (tech == 'M1' && ccObj.supersim['allowM1'] == 5) {
+                        // T-Mobile unofficial support
+                        return;
+                    }
                     if (!showTechnologies.includes(tech)) {
                         showTechnologies.push(tech);
                     }
@@ -1116,7 +1120,7 @@ const generatorConfig = require('./generator-config');
                 
 
                 cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'R410', 4);
-                if (cmsObj && cmsObj.recommendation == 'YES' && ccObj.supersim.allowM1) {
+                if (cmsObj && cmsObj.recommendation == 'YES' && ccObj.supersim.allowM1 === true) {
                     row += '&check; |';
                     hasCheck = true;
                 }
