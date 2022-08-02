@@ -23,10 +23,10 @@ A new Blanket PO must be provided by the customer within 30 days of the start da
 
 ## Additional Resources
 
-[Shipping FAQs](https://support.particle.io/hc/en-us/articles/360045170254-What-shipping-options-do-you-offer-)
+- [Shipping FAQs](/troubleshooting/faqs/shipping/what-shipping-options-does-particle-offer/)
 
 Sample purchase order:
 
 ![Screen_Shot_2022-01-24_at_11.09.03_AM.png](/assets/images/support/Screen_Shot_2022-01-24_at_11.09.03_AM.png)
 
-You can also download an [Excel Purchase Order Template](https://support.particle.io/hc/article%5Fattachments/4416422422299/Template.xlsx).
+You can also download an [Excel Purchase Order Template](/assets/files/enterprise-order-template.xlsx).

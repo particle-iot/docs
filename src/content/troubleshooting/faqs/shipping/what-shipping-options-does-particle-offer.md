@@ -7,9 +7,6 @@ columns: two
 # {{{title}}}
 When purchasing products from our stores, you will be able to choose between various shipping methods. The shipping options you see at checkout will vary depending on your location and the weights/value of your order. The two sections below will provide you with a general understanding of the shipping options we offer:
 
-* [Domestic Shipping Options](https://support.particle.io/hc/en-us/articles/360045170254#domestic-shipping-options) (Contiguous 48 United States)
-* [International Shipping Options](https://support.particle.io/hc/en-us/articles/360045170254#international-shipping-options) (Outside of Contiguous 48 United States)
-
 Each shipping option will also show you the approximate delivery timeline from when your order ships. Please note order processing is between 2-4 business days and is in addition to the delivery timelines. If an item you've ordered is out of stock, you will see lead time information upon adding the item to your cart and checking out in our Wholesale Store. Your entire order will be shipped when all items are in stock and available. 
 
 ## Domestic Shipping Options
@@ -25,7 +22,7 @@ Orders will ship within 2-4 business days of placement if they are in-stock. If 
 
 ## International Shipping Options
 
-If you live anywhere other than the 48 contiguous United States, then you will see more specific shipping options available to you at checkout. International orders may also be subject to additional charges, which are outlined for you [here](https://support.particle.io/hc/en-us/articles/360044781654). Below are shipping options you may see for your order at checkout:
+If you live anywhere other than the 48 contiguous United States, then you will see more specific shipping options available to you at checkout. International orders may also be subject to additional charges, which are outlined for you [here](/troubleshooting/faqs/shipping/if-my-order-is-shipping-to-a-country-outside-of-the-united-states-what-do-i-need-to-know/). Below are shipping options you may see for your order at checkout:
 
 * UPS Worldwide Expedited (approx. 3-6 business days)
 * UPS Worldwide Saver (approx. 2-4 business days)

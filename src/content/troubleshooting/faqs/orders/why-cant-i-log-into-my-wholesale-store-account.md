@@ -10,7 +10,7 @@ columns: two
 You will need two things to start placing orders on the wholesale store:
 
 * **Particle Account** \- You need a valid [Particle account](https://login.particle.io/signup) to be able to log in to the wholesale store.
-* **Approved Wholesale Account** \- There are three types of wholesale accounts Particle offers: B2B, Distributor, and Particle For Good. See [Wholesale Account Creation](https://support.particle.io/hc/en-us/articles/360039251694) to get set up. You will receive a Welcome email from us upon account approval.
+* **Approved Wholesale Account** \- There are three types of wholesale accounts Particle offers: B2B, Distributor, and Particle For Good. See [Wholesale Account Creation](/troubleshooting/faqs/orders/how-do-i-sign-up-for-or-log-into-the-wholesale-store/) to get set up. You will receive a Welcome email from us upon account approval.
 
 ## Logging Into The Wholesale Store
 

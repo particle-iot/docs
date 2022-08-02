@@ -14,11 +14,6 @@ For all **Retail store orders,** your order number on the order confirmation tha
   
 For all **Wholesale customers,** your order number on the order confirmation that was emailed to you after purchase will **start with the letter W.**
 
-Please see the instructions for each store:
-
-* [Retail Store](https://support.particle.io/hc/en-us/articles/4401990491675#retail)
-* [Wholesale Store](https://support.particle.io/hc/en-us/articles/4401990491675#wholesale)
-
 ## Retail
 
 1. For Retail store orders, please go to the main [Retail store](https://store.particle.io/), sign in or click on My Account on the right of the main page top navigation section.  
