@@ -18437,16 +18437,17 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-4",
+        "LTE-13"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "noBands": []
     },
     {
       "country": "Virgin Islands (British)",
@@ -18461,6 +18462,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.15
       },
       "telefonicaBundle2018": {
@@ -18471,21 +18473,23 @@
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
         "2G-850",
         "2G-1900",
-        "3G-1"
+        "3G-1",
+        "LTE-2",
+        "LTE-12"
       ],
-      "noBands": [
-        "LTE"
-      ],
+      "noBands": [],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true
