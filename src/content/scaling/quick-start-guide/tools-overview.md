@@ -20,7 +20,9 @@ Workbench is our integrated development environment (IDE) based on Visual Studio
 
 The installation instructions will also get you started creating your first project.
 
-[Install](/quickstart/workbench/) | [Tutorial](/getting-started/developer-tools/workbench/) | [FAQ](360039251434/)
+- [Install](/quickstart/workbench/) 
+- [Tutorial](/getting-started/developer-tools/workbench/) 
+- [FAQ](/getting-started/developer-tools/workbench-faq/)
 
 ## 2\. Try the CLI (Command Line Interface)
 

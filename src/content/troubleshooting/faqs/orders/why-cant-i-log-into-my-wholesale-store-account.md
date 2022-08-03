@@ -28,4 +28,4 @@ When you click "Log In" you should be redirected to the wholesale store.
 
 * Check to see if you are logged into or are signed up for a [Particle account](https://console.particle.io/)
 * Make sure that your wholesale store username matches your Particle account username
-* Double-check that you are logging into the [wholesale store](wholesale.particle.io) and **not** our [retail store](store.particle.io)
+* Double-check that you are logging into the [wholesale store](https://wholesale.particle.io) and **not** our [retail store](https://store.particle.io)
