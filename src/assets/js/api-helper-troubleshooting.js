@@ -15,7 +15,7 @@ $(document).ready(function () {
         let ticketForms;
 
         // Loaded from /assets/file/troubleshooting.json
-        let decisionTree;
+        let troubleshootingJson;
            
         let pageStack = [];
 
@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 
         const showPage = async function(pageOptions) {
-            let pageObj = decisionTree.pages.find(e => e.page == pageOptions.page);
+            let pageObj = troubleshootingJson.pages.find(e => e.page == pageOptions.page);
             if (!pageObj) {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
@@ -67,6 +67,15 @@ $(document).ready(function () {
             if (pageStack.find(e => e.page == pageOptions.page)) {
                 ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
                 return false;
+            }
+            let environment = Object.assign({}, troubleshootingJson.environment);
+            if (pageObj.environment) {
+                environment = Object.assign(environment, pageObj.environment);
+            }
+
+            const handlebarsExpand = function(handlebarsTemplate) {
+                const template = Handlebars.compile(handlebarsTemplate);
+                return template(environment);
             }
 
             ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
@@ -260,7 +269,9 @@ $(document).ready(function () {
                 const url = notesUrlBase + pageObj.note.replace('.md', '/index.html');
 
                 const noteFetch = await fetch(url);
-                const html = await noteFetch.text();
+                const htmlTemplate = await noteFetch.text();                
+
+                const html = handlebarsExpand(htmlTemplate);
 
                 const noteElem = document.createElement('div');
                 $(noteElem).html(html);
@@ -390,7 +401,7 @@ $(document).ready(function () {
                     if (!title && buttonObj.page) {
                         // If no title, use the target page title
 
-                        let targetPageObj = decisionTree.pages.find(e => e.page == buttonObj.page);
+                        let targetPageObj = troubleshootingJson.pages.find(e => e.page == buttonObj.page);
                         title = targetPageObj.title;
                     }
 
@@ -506,7 +517,7 @@ $(document).ready(function () {
             const decisionTreeFetch = await fetch(decisionTreeUrl);
             const formsFetch = await fetch(ticketFormDataUrl);
 
-            decisionTree = await decisionTreeFetch.json();
+            troubleshootingJson = await decisionTreeFetch.json();
             ticketForms = await formsFetch.json();
 
             if (apiHelper.auth) {
@@ -523,7 +534,7 @@ $(document).ready(function () {
                     }
 
                     if (loadPages.length == 1) {
-                        let pageObj = decisionTree.pages.find(e => e.page == loadPages[0]);
+                        let pageObj = troubleshootingJson.pages.find(e => e.page == loadPages[0]);
                         if (pageObj.paths) {
                             showDefaultPage = !loadPath(pageObj.paths[0]); 
                         }

@@ -1166,5 +1166,6 @@
             "title": "Set up a Wi-Fi device using the Particle CLI",
             "buttons": []
         }
-    ]
+    ],
+    "environment": {}
 }
