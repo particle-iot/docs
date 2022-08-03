@@ -1164,7 +1164,23 @@
         {
             "page": 163,
             "title": "Set up a Wi-Fi device using the Particle CLI",
+            "steps": [
+                {
+                    "page": 164
+                },
+                {
+                    "page": 165
+                }
+            ]
+        },
+        {
+            "page": 164,
+            "title": "Install the Particle CLI",
             "buttons": []
+        },
+        {
+            "page": 165,
+            "title": "Connect your device by USB to your computer"
         }
     ],
     "environment": {}

@@ -394,14 +394,27 @@ $(document).ready(function () {
             }
 
 
-            if (pageObj.buttons) {
-                for(const buttonObj of pageObj.buttons) {
+            let buttonsOrSteps = pageObj.buttons;
+            let isSteps = false;
+            let firstStepPage;
+            if (pageObj.steps) {
+                buttonsOrSteps = pageObj.steps;
+                isSteps = true;
+            }
+
+
+            if (buttonsOrSteps) {
+                let step = 0;
+                let stepTotal = buttonsOrSteps + 1;
+
+                for(const buttonObj of buttonsOrSteps) {
                     if (buttonObj.orgRequired && !apiHelper.selectedOrg) {
                         continue;
                     }
                     if (buttonObj.hidden) {
                         continue;
                     }
+                    step++;
 
                     let title = buttonObj.title;
                     if (!title && buttonObj.page) {
@@ -409,6 +422,9 @@ $(document).ready(function () {
 
                         let targetPageObj = troubleshootingJson.pages.find(e => e.page == buttonObj.page);
                         title = targetPageObj.title;
+                    }
+                    if (isSteps) {
+                        title = step + '. ' + title;
                     }
 
                     const buttonElem = document.createElement('div');
@@ -462,6 +478,11 @@ $(document).ready(function () {
                         }
                     });
 
+                    if (isSteps && step == 1) {
+                        firstStepPage = buttonObj.page;
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+
                     $(pageDivElem).append(buttonElem);
                 }    
             }
@@ -499,6 +520,10 @@ $(document).ready(function () {
             $('.content-inner').scrollTop(pos);
             
             updateUrl();
+
+            if (firstStepPage) {
+                showPage({page: firstStepPage});
+            }
 
             return true;
         };
