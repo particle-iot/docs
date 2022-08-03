@@ -6,14 +6,14 @@ function verifyTroubleshooting(options) {
     // console.log('verifyTroubleshooting', json);
 
     // Delete all of the paths and add them back in
-    for(let p of options.troubleshootingJson) {
+    for(let p of options.troubleshootingJson.pages) {
         if (p.paths) {
             delete p.paths;
         }
     }
 
     const getPage = function(page) {
-        return options.troubleshootingJson.find(e => e.page == page);
+        return options.troubleshootingJson.pages.find(e => e.page == page);
     }
 
     const crawl = function(page, pagePath) {

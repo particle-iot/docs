@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 
         const showPage = async function(pageOptions) {
-            let pageObj = decisionTree.find(e => e.page == pageOptions.page);
+            let pageObj = decisionTree.pages.find(e => e.page == pageOptions.page);
             if (!pageObj) {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
@@ -382,16 +382,27 @@ $(document).ready(function () {
                     if (buttonObj.orgRequired && !apiHelper.selectedOrg) {
                         continue;
                     }
+                    if (buttonObj.hidden) {
+                        continue;
+                    }
+
+                    let title = buttonObj.title;
+                    if (!title && buttonObj.page) {
+                        // If no title, use the target page title
+
+                        let targetPageObj = decisionTree.pages.find(e => e.page == buttonObj.page);
+                        title = targetPageObj.title;
+                    }
 
                     const buttonElem = document.createElement('div');
                     $(buttonElem).addClass('apiHelperGiantButton');
                     if (!buttonObj.detail) {
-                        $(buttonElem).text(buttonObj.title);
+                        $(buttonElem).text(title);
                     }
                     else {
                         // Has multi-line button
                         const topElem = document.createElement('div');
-                        $(topElem).text(buttonObj.title);
+                        $(topElem).text(title);
                         $(buttonElem).append(topElem);
 
                         const bottomElem = document.createElement('div');
@@ -512,7 +523,7 @@ $(document).ready(function () {
                     }
 
                     if (loadPages.length == 1) {
-                        let pageObj = decisionTree.find(e => e.page == loadPages[0]);
+                        let pageObj = decisionTree.pages.find(e => e.page == loadPages[0]);
                         if (pageObj.paths) {
                             showDefaultPage = !loadPath(pageObj.paths[0]); 
                         }
