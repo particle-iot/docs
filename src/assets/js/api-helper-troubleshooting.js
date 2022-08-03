@@ -51,6 +51,14 @@ $(document).ready(function () {
             updateUrl();
         };
 
+        const getParentEnvironment = function() {
+            if (pageStack.length) {
+                return pageStack[pageStack.length - 1].pageObj.curEnvironment;
+            }   
+            else {
+                return troubleshootingJson.environment;
+            }
+        }
 
         const showPage = async function(pageOptions) {
             let pageObj = troubleshootingJson.pages.find(e => e.page == pageOptions.page);
@@ -68,14 +76,14 @@ $(document).ready(function () {
                 ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
                 return false;
             }
-            let environment = Object.assign({}, troubleshootingJson.environment);
+            pageObj.curEnvironment = Object.assign({}, getParentEnvironment());
             if (pageObj.environment) {
-                environment = Object.assign(environment, pageObj.environment);
+                pageObj.curEnvironment = Object.assign(pageObj.curEnvironment, pageObj.environment);
             }
 
             const handlebarsExpand = function(handlebarsTemplate) {
                 const template = Handlebars.compile(handlebarsTemplate);
-                return template(environment);
+                return template(pageObj.curEnvironment);
             }
 
             ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
@@ -261,7 +269,7 @@ $(document).ready(function () {
             }
             if (pageObj.description) {
                 const descriptionElem = document.createElement('div');
-                $(descriptionElem).text(pageObj.description);
+                $(descriptionElem).text(handlebarsExpand(pageObj.description));
                 $(pageDivElem).append(descriptionElem);    
             }
 
@@ -271,10 +279,8 @@ $(document).ready(function () {
                 const noteFetch = await fetch(url);
                 const htmlTemplate = await noteFetch.text();                
 
-                const html = handlebarsExpand(htmlTemplate);
-
                 const noteElem = document.createElement('div');
-                $(noteElem).html(html);
+                $(noteElem).html(handlebarsExpand(htmlTemplate));
                 $(pageDivElem).append(noteElem);
             }
 
