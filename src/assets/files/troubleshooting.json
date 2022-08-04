@@ -1123,6 +1123,10 @@
                 {
                     "title": "Set up a P2 using the Particle CLI",
                     "page": 163
+                },
+                {
+                    "title": "Set up a P2 from your web browser (experimental)",
+                    "url": "/tools/setup/"
                 }
             ]
         },
@@ -1147,7 +1151,15 @@
             "buttons": [
                 {
                     "title": "Set up a Photon or P1 using the Particle CLI",
-                    "page": 163
+                    "page": 174
+                },
+                {
+                    "title": "Set up a Photon or P1 using the Particle Mobile app for iOS or Android",
+                    "url": "https://setup.particle.io/"
+                },
+                {
+                    "title": "Set up a Photon or P1 from your web browser (experimental)",
+                    "url": "/tools/setup/"
                 }
             ]
         },
@@ -1157,31 +1169,46 @@
             "buttons": [
                 {
                     "title": "Set up an Argon using the Particle CLI",
-                    "page": 163
+                    "page": 173
+                },
+                {
+                    "title": "Set up an Argon using the Particle Mobile app for iOS or Android",
+                    "url": "https://setup.particle.io/"
+                },
+                {
+                    "title": "Set up an Argon from your web browser (experimental)",
+                    "url": "/tools/setup/"
                 }
             ]
         },
         {
             "page": 163,
             "title": "Set up a Wi-Fi device using the Particle CLI",
+            "comment": "This page is for the P2/Photon 2",
             "steps": [
                 {
-                    "page": 164
+                    "page": 164,
+                    "comment": "Install CLI"
                 },
                 {
-                    "page": 165
+                    "page": 165,
+                    "comment": "Connect device by USB"
                 },
                 {
-                    "page": 170
+                    "page": 170,
+                    "comment": "Enter listening mode"
                 },
                 {
-                    "page": 169
+                    "page": 169,
+                    "comment": "Get Device ID using CLI"
                 },
                 {
-                    "page": 166
+                    "page": 166,
+                    "comment": "this is the configure wi-fi page, which is device-specific"
                 },
                 {
-                    "page": 167
+                    "page": 167,
+                    "comment": "Claim device using CLI"
                 }
             ]
         },
@@ -1217,15 +1244,26 @@
             "page": 166,
             "title": "Configure Wi-Fi",
             "note": "configure-wifi.md",
+            "comment": "This page is for the P2/Photon 2",
             "buttons": [
                 {
-                    "nextStep": true
+                    "nextStep": true,
+                    "title": "Device is breathing cyan, continue to the next step"
+                },
+                {
+                    "title": "Device is stuck blinking green",
+                    "page": 139
+                },
+                {
+                    "title": "Device has a different status LED color",
+                    "page": 130
                 }
             ]
         },
         {
             "page": 167,
             "title": "Claim the device to your account",
+            "note": "claim-device.md",
             "buttons": [
                 {
                     "nextStep": true
@@ -1235,6 +1273,7 @@
         {
             "page": 169,
             "title": "Get the Device ID of your device",
+            "note": "get-device-id.md",
             "buttons": [
                 {
                     "nextStep": true
@@ -1245,6 +1284,123 @@
             "page": 170,
             "title": "Put the device in listening mode",
             "note": "enter-listening-mode.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 171,
+            "title": "Configure Wi-Fi",
+            "note": "configure-wifi.md",
+            "comment": "This page is for the Argon",
+            "buttons": [
+                {
+                    "nextStep": true,
+                    "title": "Device is breathing cyan, continue to the next step"
+                },
+                {
+                    "title": "Device is stuck blinking green",
+                    "page": 141
+                },
+                {
+                    "title": "Device has a different status LED color",
+                    "page": 130
+                }
+            ]
+        },
+        {
+            "page": 172,
+            "title": "Configure Wi-Fi",
+            "note": "configure-wifi.md",
+            "comment": "This page is for the P1/Photon",
+            "buttons": [
+                {
+                    "nextStep": true,
+                    "title": "Device is breathing cyan, continue to the next step"
+                },
+                {
+                    "title": "Device is stuck blinking green",
+                    "page": 140
+                },
+                {
+                    "title": "Device has a different status LED color",
+                    "page": 130
+                }
+            ]
+        },
+        {
+            "page": 173,
+            "title": "Set up a Wi-Fi device using the Particle CLI",
+            "comment": "This page is for the Argon",
+            "steps": [
+                {
+                    "page": 175,
+                    "comment": "Argon antenna"
+                },
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 169,
+                    "comment": "Get Device ID using CLI"
+                },
+                {
+                    "page": 171,
+                    "comment": "this is the configure wi-fi page, which is device-specific"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 174,
+            "title": "Set up a Wi-Fi device using the Particle CLI",
+            "comment": "This page is for the P1/Photon",
+            "steps": [
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 169,
+                    "comment": "Get Device ID using CLI"
+                },
+                {
+                    "page": 172,
+                    "comment": "this is the configure wi-fi page, which is device-specific"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 175,
+            "title": "Attach Wi-Fi antenna",
+            "comment": "Argon only",
+            "note": "attach-wifi-antenna.md",
             "buttons": [
                 {
                     "nextStep": true

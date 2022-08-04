@@ -526,7 +526,12 @@ $(document).ready(function () {
                         }
 
                         if (nextPage) {
-                            $(buttonElem).text('Continue to the next step');
+                            if (title) {
+                                $(buttonElem).text(title);
+                            }
+                            else {
+                                $(buttonElem).text('Continue to the next step');
+                            }
                         }
                         else {
                             $(buttonElem).text('All steps completed!');
