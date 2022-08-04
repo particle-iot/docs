@@ -1135,8 +1135,12 @@
             "title": "Set up Tracker One, Tracker SoM or Tracker evaluation board developer device",
             "buttons": [
                 {
-                    "title": "Set up a single Tracker",
+                    "title": "Set up a single Tracker using setup.particle.io",
                     "url": "https://setup.particle.io/"
+                },
+                {
+                    "page": 183,
+                    "comment": "Set up a Tracker eval board using the Particle CLI"
                 },
                 {
                     "title": "Set up a Tracker from your web browser using USB (experimental)",
@@ -1165,7 +1169,20 @@
         {
             "page": 160,
             "title": "Set up a Electron or E Series (Gen 2 cellular) developer device",
-            "buttons": []
+            "buttons": [
+                {
+                    "title": "Set up an Electron or E Series using the Particle CLI",
+                    "page": 181
+                },
+                {
+                    "title": "Set up an Electron or E Series using the Particle Mobile app for iOS or Android",
+                    "url": "https://setup.particle.io/"
+                },
+                {
+                    "title": "Set up an Electron or E Series from your web browser using USB (experimental)",
+                    "url": "/tools/setup/"
+                }
+            ]
         },
         {
             "page": 161,
@@ -1505,6 +1522,112 @@
             "page": 180,
             "title": "Attach cellular antenna",
             "note": "attach-cellular-antenna.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 181,
+            "title": "Set up an Electron or E Series using the Particle CLI",
+            "steps": [
+                {
+                    "page": 182,
+                    "comment": "Insert SIM"
+                },
+                {
+                    "page": 180,
+                    "comment": "Attach cellular antenna"
+                },
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 178,
+                    "comment": "Get Device ID and ICCID using CLI"
+                },
+                {
+                    "page": 179,
+                    "comment": "Activate SIM"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 182,
+            "title": "Insert 4FF plastic SIM card (if necessary)",
+            "note": "insert-sim-card.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 183,
+            "title": "Set up a Tracker SoM Eval board using the Particle CLI",
+            "steps": [
+                {
+                    "page": 180,
+                    "comment": "Attach cellular antenna"
+                },
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 169,
+                    "comment": "Get Device ID using CLI"
+                },
+                {
+                    "page": 184,
+                    "comment": "Create product"
+                },
+                {
+                    "page": 185,
+                    "comment": "Add to product"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 184,
+            "title": "Create a product",
+            "note": "create-a-product.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 185,
+            "title": "Add device to a product",
+            "note": "add-to-product.md",
             "buttons": [
                 {
                     "nextStep": true
