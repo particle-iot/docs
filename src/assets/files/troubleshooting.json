@@ -1125,7 +1125,7 @@
                     "page": 163
                 },
                 {
-                    "title": "Set up a P2 from your web browser (experimental)",
+                    "title": "Set up a P2 from your web browser using USB (experimental)",
                     "url": "/tools/setup/"
                 }
             ]
@@ -1133,12 +1133,34 @@
         {
             "page": 158,
             "title": "Set up Tracker One, Tracker SoM or Tracker evaluation board developer device",
-            "buttons": []
+            "buttons": [
+                {
+                    "title": "Set up a single Tracker",
+                    "url": "https://setup.particle.io/"
+                },
+                {
+                    "title": "Set up a Tracker from your web browser using USB (experimental)",
+                    "url": "/tools/setup/"
+                }
+            ]
         },
         {
             "page": 159,
             "title": "Set up a Boron or B Series SoM (Gen 3 cellular) developer device",
-            "buttons": []
+            "buttons": [
+                {
+                    "page": 177,
+                    "comment": "Set up a Gen 3 cellular device using the Particle CLI"
+                },
+                {
+                    "title": "Set up a Gen 3 cellular device using the Particle Mobile app for iOS or Android",
+                    "url": "https://setup.particle.io/"
+                },
+                {
+                    "title": "Set up a Gen 3 cellular device from your web browser using USB (experimental)",
+                    "url": "/tools/setup/"
+                }
+            ]
         },
         {
             "page": 160,
@@ -1158,7 +1180,7 @@
                     "url": "https://setup.particle.io/"
                 },
                 {
-                    "title": "Set up a Photon or P1 from your web browser (experimental)",
+                    "title": "Set up a Photon or P1 from your web browser using USB (experimental)",
                     "url": "/tools/setup/"
                 }
             ]
@@ -1176,7 +1198,7 @@
                     "url": "https://setup.particle.io/"
                 },
                 {
-                    "title": "Set up an Argon from your web browser (experimental)",
+                    "title": "Set up an Argon from your web browser using USB (experimental)",
                     "url": "/tools/setup/"
                 }
             ]
@@ -1360,6 +1382,10 @@
                     "comment": "this is the configure wi-fi page, which is device-specific"
                 },
                 {
+                    "page": 176,
+                    "comment": "Mark setup done"
+                },
+                {
                     "page": 167,
                     "comment": "Claim device using CLI"
                 }
@@ -1401,6 +1427,84 @@
             "title": "Attach Wi-Fi antenna",
             "comment": "Argon only",
             "note": "attach-wifi-antenna.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 176,
+            "title": "Mark setup done",
+            "note": "mark-setup-done-cli.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 177,
+            "title": "Set up a Gen 3 cellular device using the Particle CLI",
+            "steps": [
+                {
+                    "page": 180,
+                    "comment": "Attach cellular antenna"
+                },
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 178,
+                    "comment": "Get Device ID and ICCID using CLI"
+                },
+                {
+                    "page": 179,
+                    "comment": "Activate SIM"
+                },
+                {
+                    "page": 176,
+                    "comment": "Mark setup done"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 178,
+            "title": "Get the Device ID and ICCID",
+            "note": "get-device-id-iccid.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 179,
+            "title": "Activate SIM card",
+            "note": "activate-sim.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 180,
+            "title": "Attach cellular antenna",
+            "note": "attach-cellular-antenna.md",
             "buttons": [
                 {
                     "nextStep": true
