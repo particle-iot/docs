@@ -1191,6 +1191,9 @@
             "note": "install-cli.md",
             "buttons": [
                 {
+                    "nextStep": true
+                },
+                {
                     "title": "Visit the CLI installation instructions and download page",
                     "url": "/getting-started/developer-tools/cli/"
                 },
@@ -1203,25 +1206,50 @@
         {
             "page": 165,
             "title": "Connect your device by USB to your computer",
-            "note": "connect-device-by-usb.md"
+            "note": "connect-device-by-usb.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
         },
         {
             "page": 166,
             "title": "Configure Wi-Fi",
-            "note": "configure-wifi.md"
+            "note": "configure-wifi.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
         },
         {
             "page": 167,
-            "title": "Claim the device to your account"
+            "title": "Claim the device to your account",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
         },
         {
             "page": 169,
-            "title": "Get the Device ID of your device"
+            "title": "Get the Device ID of your device",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
         },
         {
             "page": 170,
             "title": "Put the device in listening mode",
-            "note": "enter-listening-mode.md"
+            "note": "enter-listening-mode.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
         }
     ],
     "environment": {}

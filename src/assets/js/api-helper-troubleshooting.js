@@ -393,27 +393,55 @@ $(document).ready(function () {
                 });
             }
 
-            let buttonsOrSteps = pageObj.buttons;
-            let isSteps = false;
             let firstStepPage;
+
+
             if (pageObj.steps) {
-                buttonsOrSteps = pageObj.steps;
-                isSteps = true;
+                for(let stepIndex = 0; stepIndex < pageObj.steps.length; stepIndex++) {
+                    let stepObj = pageObj.steps[stepIndex];
+
+                    let title = stepObj.title;
+                    if (!title && stepObj.page) {
+                        // If no title, use the target page title
+
+                        let targetPageObj = troubleshootingJson.pages.find(e => e.page == stepObj.page);
+                        title = targetPageObj.title;
+                    }
+                    title = (stepIndex + 1) + '. ' + title;
+
+                    const buttonElem = document.createElement('div');
+                    $(buttonElem).addClass('apiHelperGiantButton');
+
+                    $(buttonElem).text(title);
+
+                    $(buttonElem).on('click', function() {
+                        clearPagesBelow(pageOptions.page);
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+
+                        if (stepObj.page) {
+                            showPage({page: stepObj.page});
+                        }
+                    });
+
+                    if (stepIndex == 0) {
+                        firstStepPage = stepObj.page;
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+
+                    stepObj.buttonElem = buttonElem;
+
+                    $(pageDivElem).append(buttonElem);
+                }              
             }
 
-
-            if (buttonsOrSteps) {
-                let step = 0;
-                let stepTotal = buttonsOrSteps + 1;
-
-                for(const buttonObj of buttonsOrSteps) {
+            if (pageObj.buttons) {
+                for(const buttonObj of pageObj.buttons) {
                     if (buttonObj.orgRequired && !apiHelper.selectedOrg) {
                         continue;
                     }
                     if (buttonObj.hidden) {
                         continue;
                     }
-                    step++;
 
                     let title = buttonObj.title;
                     if (!title && buttonObj.page) {
@@ -422,69 +450,102 @@ $(document).ready(function () {
                         let targetPageObj = troubleshootingJson.pages.find(e => e.page == buttonObj.page);
                         title = targetPageObj.title;
                     }
-                    if (isSteps) {
-                        title = step + '. ' + title;
-                    }
-
+                    
                     const buttonElem = document.createElement('div');
                     $(buttonElem).addClass('apiHelperGiantButton');
-                    if (!buttonObj.detail) {
-                        $(buttonElem).text(title);
+
+                    if (!buttonObj.nextStep) {
+                        if (!buttonObj.detail) {
+                            $(buttonElem).text(title);
+                        }
+                        else {
+                            // Has multi-line button
+                            const topElem = document.createElement('div');
+                            $(topElem).text(title);
+                            $(buttonElem).append(topElem);
+    
+                            const bottomElem = document.createElement('div');
+                            $(bottomElem).addClass('apiHelperGiantButtonDetail');
+                            $(bottomElem).text(buttonObj.detail);
+                            $(buttonElem).append(bottomElem);
+                            
+                        }
+    
+                        if (pageOptions.next && pageOptions.next == buttonObj.page) {
+                            $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                        }
+    
+                        if (buttonObj.swatch) {
+                            const swatchElem = document.createElement('div');
+                            $(swatchElem).addClass('apiHelperGiantButtonSwatch');
+                            $(swatchElem).css('background-color', buttonObj.swatch);
+                            $(buttonElem).append(swatchElem);                    
+                        }
+        
+                        $(buttonElem).on('click', function() {
+                            clearPagesBelow(pageOptions.page);
+                            $(buttonElem).addClass('apiHelperGiantButtonSelected');
+    
+                            if (buttonObj.loginService) {
+                                const curPage = window.location.href;
+                                ga('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
+                                window.location.href = 'https://login.particle.io/' + buttonObj.loginService + '?redirect=' + curPage;                        
+                            }
+                            else
+                            if (buttonObj.page) {
+                                showPage({page: buttonObj.page});
+                            }
+                            else
+                            if (buttonObj.url) {
+                                ga('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
+                                window.location.href = buttonObj.url;                        
+                            }
+                        });
+    
                     }
                     else {
-                        // Has multi-line button
-                        const topElem = document.createElement('div');
-                        $(topElem).text(title);
-                        $(buttonElem).append(topElem);
+                        // nextStep is true
+                        let stepsPageIndex = pageStack.length - 1;
+                        let nextPage;
+                        let nextButtonElem;
 
-                        const bottomElem = document.createElement('div');
-                        $(bottomElem).addClass('apiHelperGiantButtonDetail');
-                        $(bottomElem).text(buttonObj.detail);
-                        $(buttonElem).append(bottomElem);
-                        
-                    }
-
-                    if (pageOptions.next && pageOptions.next == buttonObj.page) {
-                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
-                    }
-
-                    if (buttonObj.swatch) {
-                        const swatchElem = document.createElement('div');
-                        $(swatchElem).addClass('apiHelperGiantButtonSwatch');
-                        $(swatchElem).css('background-color', buttonObj.swatch);
-                        $(buttonElem).append(swatchElem);
-
-                        
-                    }
- 
-                    $(buttonElem).on('click', function() {
-                        clearPagesBelow(pageOptions.page);
-                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
-
-                        if (buttonObj.loginService) {
-                            const curPage = window.location.href;
-                            ga('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
-                            window.location.href = 'https://login.particle.io/' + buttonObj.loginService + '?redirect=' + curPage;                        
+                        while(stepsPageIndex >= 0 && !pageStack[stepsPageIndex].pageObj.steps) {
+                            stepsPageIndex--;
                         }
-                        else
-                        if (buttonObj.page) {
-                            showPage({page: buttonObj.page});
-                        }
-                        else
-                        if (buttonObj.url) {
-                            ga('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
-                            window.location.href = buttonObj.url;                        
-                        }
-                    });
+                        if (stepsPageIndex >= 0) {
+                            stepsPageObj = pageStack[stepsPageIndex].pageObj;
 
-                    if (isSteps && step == 1) {
-                        firstStepPage = buttonObj.page;
-                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                            for(let ii = 0; ii < stepsPageObj.steps.length; ii++) {
+                                if (stepsPageObj.steps[ii].page == pageOptions.page) {
+                                    if ((ii + 1) < stepsPageObj.steps.length) {
+                                        nextPage = stepsPageObj.steps[ii + 1].page;
+                                        nextButtonElem = stepsPageObj.steps[ii + 1].buttonElem;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (nextPage) {
+                            $(buttonElem).text('Continue to the next step');
+                        }
+                        else {
+                            $(buttonElem).text('All steps completed!');
+                        }
+
+                        $(buttonElem).on('click', function() {
+                            clearPagesBelow(stepsPageObj.page);
+                            if (nextPage) {
+                                showPage({page: nextPage});
+                                $(nextButtonElem).addClass('apiHelperGiantButtonSelected');
+                            }
+                        });
                     }
+
 
                     $(pageDivElem).append(buttonElem);
-                }    
+                }                    
             }
+
 
             let statusVisible = false;
 
