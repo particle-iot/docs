@@ -393,7 +393,6 @@ $(document).ready(function () {
                 });
             }
 
-
             let buttonsOrSteps = pageObj.buttons;
             let isSteps = false;
             let firstStepPage;
