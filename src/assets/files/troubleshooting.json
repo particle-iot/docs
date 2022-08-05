@@ -1082,8 +1082,7 @@
                 },
                 {
                     "title": "Set up a fleet of devices (product devices)",
-                    "page": 156,
-                    "hidden": true
+                    "page": 156
                 }
             ]
         },
@@ -1113,8 +1112,16 @@
         },
         {
             "page": 156,
-            "title": "Set up product devices",
-            "buttons": []
+            "title": "Set up a fleet of devices",
+            "note": "fleet-setup.md",
+            "buttons": [],
+            "paths": [
+                [
+                    101,
+                    154,
+                    156
+                ]
+            ]
         },
         {
             "page": 157,
@@ -1126,7 +1133,8 @@
                 },
                 {
                     "title": "Set up a P2 from your web browser using USB (experimental)",
-                    "url": "/tools/setup/"
+                    "url": "/tools/setup/",
+                    "hidden": true
                 }
             ]
         },
@@ -1148,7 +1156,8 @@
                 },
                 {
                     "title": "Set up a Tracker from your web browser using USB (experimental)",
-                    "url": "/tools/setup/"
+                    "url": "/tools/setup/",
+                    "hidden": true
                 }
             ]
         },
@@ -1184,7 +1193,8 @@
                 },
                 {
                     "title": "Set up an Electron or E Series from your web browser using USB (experimental)",
-                    "url": "/tools/setup/"
+                    "url": "/tools/setup/",
+                    "hidden": true
                 }
             ]
         },
@@ -1202,7 +1212,8 @@
                 },
                 {
                     "title": "Set up a Photon or P1 from your web browser using USB (experimental)",
-                    "url": "/tools/setup/"
+                    "url": "/tools/setup/",
+                    "hidden": true
                 }
             ]
         },
@@ -1220,7 +1231,8 @@
                 },
                 {
                     "title": "Set up an Argon from your web browser using USB (experimental)",
-                    "url": "/tools/setup/"
+                    "url": "/tools/setup/",
+                    "hidden": true
                 }
             ]
         },
@@ -1659,7 +1671,7 @@
                     "comment": "Install CLI"
                 },
                 {
-                    "page": 165,
+                    "page": 188,
                     "comment": "Connect device by USB"
                 },
                 {
@@ -1688,6 +1700,17 @@
             "page": 187,
             "title": "Connect battery (if necessary)",
             "note": "connect-battery.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 188,
+            "title": "Connect your device by USB to your computer",
+            "note": "connect-device-by-usb-c.md",
+            "comment": "USB C version for Tracker",
             "buttons": [
                 {
                     "nextStep": true

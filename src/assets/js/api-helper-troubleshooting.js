@@ -412,6 +412,10 @@ $(document).ready(function () {
                     const buttonElem = document.createElement('div');
                     $(buttonElem).addClass('apiHelperGiantButton');
 
+                    if (pageOptions.next && pageOptions.next == stepObj.page) {
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+
                     $(buttonElem).text(title);
 
                     $(buttonElem).on('click', function() {
@@ -423,7 +427,7 @@ $(document).ready(function () {
                         }
                     });
 
-                    if (stepIndex == 0) {
+                    if (stepIndex == 0 && !pageOptions.loadPath) {
                         firstStepPage = stepObj.page;
                         $(buttonElem).addClass('apiHelperGiantButtonSelected');
                     }
@@ -600,7 +604,7 @@ $(document).ready(function () {
                 const page = path[ii];
                 const next = ((ii + 1) < path.length) ? path[ii + 1] : undefined;
 
-                const res = await showPage({page, next});
+                const res = await showPage({page, next, loadPath: true});
                 if (!res) {
                     break;
                 }
