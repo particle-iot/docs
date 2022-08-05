@@ -11,6 +11,6 @@ particle device add 1f00300016473532ffffffff
 You may also want to name your device now.
 
 ```
-particle device rename 1f00300016473532ffffffff "boron-1"
+particle device rename 1f00300016473532ffffffff "device-1"
 ```
 

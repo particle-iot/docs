@@ -1091,22 +1091,32 @@
             "title": "Set up a developer device",
             "buttons": [
                 {
-                    "page": 157
+                    "page": 157,
+                    "comment": "P2"
                 },
                 {
-                    "page": 158
+                    "page": 158,
+                    "comment": "Tracker"
                 },
                 {
-                    "page": 159
+                    "page": 159,
+                    "comment": "Boron"
                 },
                 {
-                    "page": 162
+                    "page": 162,
+                    "comment": "Argon"
                 },
                 {
-                    "page": 160
+                    "page": 190,
+                    "comment": "Argon or Boron with Ethernet"
                 },
                 {
-                    "page": 161
+                    "page": 160,
+                    "comment": "Electron/E Series"
+                },
+                {
+                    "page": 161,
+                    "comment": "Photon/P1"
                 }
             ]
         },
@@ -1712,6 +1722,96 @@
             "title": "Connect your device by USB to your computer",
             "note": "connect-device-by-usb-c.md",
             "comment": "USB C version for Tracker",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 190,
+            "title": "Set up an Argon or Boron with Ethernet Featherwing (developer device)",
+            "buttons": [
+                {
+                    "title": "Set up an Ethernet device using the Particle CLI",
+                    "page": 191
+                },
+                {
+                    "title": "Set up an Ethernet device using the Particle Mobile app for iOS or Android",
+                    "url": "https://setup.particle.io/"
+                },
+                {
+                    "title": "Set up an Ethernet device from your web browser using USB (experimental)",
+                    "url": "/tools/setup/",
+                    "hidden": true
+                },
+                {
+                    "title": "Visit the Ethernet hardware documentation",
+                    "url": "/hardware/ethernet/ethernet/"
+                },
+                {
+                    "title": "Visit the Device OS firmware API documentation for Ethernet",
+                    "url": "/reference/device-os/api/ethernet/ethernet/"
+                }
+            ]
+        },
+        {
+            "page": 191,
+            "title": "Set up a Ethernet device using the Particle CLI",
+            "comment": "This page is for both Argon and Boron",
+            "steps": [
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 193,
+                    "comment": "Insert into Ethernet Featherwing"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 169,
+                    "comment": "Get Device ID using CLI"
+                },
+                {
+                    "page": 176,
+                    "comment": "Mark setup done"
+                },
+                {
+                    "page": 192,
+                    "comment": "Enable Ethernet detection"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 192,
+            "title": "Enable Ethernet detection",
+            "note": "enable-ethernet.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                },
+                {
+                    "title": "Did not get to breathing cyan, try using the device doctor",
+                    "url": "/tools/doctor/"
+                }
+            ]
+        },
+        {
+            "page": 193,
+            "title": "Insert the Argon or Boron in the Ethernet Featherwing",
+            "note": "ethernet-featherwing.md",
             "buttons": [
                 {
                     "nextStep": true
