@@ -1143,6 +1143,10 @@
                     "comment": "Set up a Tracker eval board using the Particle CLI"
                 },
                 {
+                    "page": 186,
+                    "comment": "Set up a Tracker One using the Particle CLI"
+                },
+                {
                     "title": "Set up a Tracker from your web browser using USB (experimental)",
                     "url": "/tools/setup/"
                 }
@@ -1469,6 +1473,10 @@
                     "comment": "Attach cellular antenna"
                 },
                 {
+                    "page": 187,
+                    "comment": "connect battery"
+                },
+                {
                     "page": 164,
                     "comment": "Install CLI"
                 },
@@ -1541,6 +1549,10 @@
                     "comment": "Attach cellular antenna"
                 },
                 {
+                    "page": 187,
+                    "comment": "connect battery"
+                },
+                {
                     "page": 164,
                     "comment": "Install CLI"
                 },
@@ -1583,6 +1595,10 @@
                 {
                     "page": 180,
                     "comment": "Attach cellular antenna"
+                },
+                {
+                    "page": 187,
+                    "comment": "connect battery"
                 },
                 {
                     "page": 164,
@@ -1628,6 +1644,50 @@
             "page": 185,
             "title": "Add device to a product",
             "note": "add-to-product.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 186,
+            "title": "Set up a Tracker One using the Particle CLI",
+            "steps": [
+                {
+                    "page": 164,
+                    "comment": "Install CLI"
+                },
+                {
+                    "page": 165,
+                    "comment": "Connect device by USB"
+                },
+                {
+                    "page": 170,
+                    "comment": "Enter listening mode"
+                },
+                {
+                    "page": 169,
+                    "comment": "Get Device ID using CLI"
+                },
+                {
+                    "page": 184,
+                    "comment": "Create product"
+                },
+                {
+                    "page": 185,
+                    "comment": "Add to product"
+                },
+                {
+                    "page": 167,
+                    "comment": "Claim device using CLI"
+                }
+            ]
+        },
+        {
+            "page": 187,
+            "title": "Connect battery (if necessary)",
+            "note": "connect-battery.md",
             "buttons": [
                 {
                     "nextStep": true
