@@ -1175,7 +1175,8 @@
                 },
                 {
                     "title": "Set up a Gen 3 cellular device from your web browser using USB (experimental)",
-                    "url": "/tools/setup/"
+                    "url": "/tools/setup/",
+                    "hidden": true
                 }
             ]
         },
