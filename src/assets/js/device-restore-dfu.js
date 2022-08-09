@@ -860,7 +860,7 @@ async function dfuDeviceRestore(usbDevice, options) {
     
                     let dfuOptions = {};
 
-                    if (!setOTAFlag && options.setupBit == 'unchanged') {
+                    if (!setOTAFlag && !options.claimCode && options.setupBit == 'unchanged') {
                         // If not setting the OTA flag or setup done, do manifestation on the user binary
                         dfuOptions.doManifestation = true;
                     }
@@ -1023,7 +1023,7 @@ async function dfuDeviceRestore(usbDevice, options) {
                     noErase:true
                 };
 
-                if (!setOTAFlag) {
+                if (!setOTAFlag && !options.claimCode) {
                     dfuOptions.doManifestation = true;
                 }
 
@@ -1036,6 +1036,30 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
 
         }
+
+        if (options.claimCode) {
+            // claim code	1762	63
+            partName = genericPartName = 'claim code';
+
+            dfuseAltDevice.startAddress = 1762;
+            
+            let array = new Uint8Array(63);
+            for(let ii = 0; ii < array.length; ii++) {
+                array[ii] = options.claimCode.charCodeAt(ii);
+            }
+            console.log('setting claim code', array);
+              
+            try {
+                await dfuseAltDevice.do_download(4096, array, {doManifestation:!setOTAFlag, noErase:true});                        
+            }
+            catch(e) {
+                const text = 'Error setting device flags, manually reset device';
+                setStatus(text);
+                dfuErrors.push(text);
+            }        
+
+        }
+
         if (setOTAFlag) {
             // Write 0xA5 to offset 1753 in alt 1 (DCT) 
             partName = genericPartName = 'ota flag';

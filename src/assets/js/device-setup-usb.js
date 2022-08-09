@@ -1949,6 +1949,7 @@ $(document).ready(function() {
                     setStatus,
                     version: deviceInfo.targetVersion, 
                     setupBit: flashDeviceOptions.setupBit,
+                    claimCode: flashDeviceOptions.claimCode,
                     deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
                     downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
                     prebootloader: flashDeviceOptions.prebootloader,
@@ -2248,13 +2249,15 @@ $(document).ready(function() {
 
             setupOptions = {}; 
 
-            const setupNoClaimElem = $(thisElem).find('.setupNoClaim');
-            $(setupNoClaimElem).prop('checked', false);
 
             const hasEthernetRowElem = $(thisElem).find('.hasEthernetRow');
 
             // Setup mode
+            const setupNoClaimElem = $(thisElem).find('.setupNoClaim');
+            const setupForceClaimRowElem = $(thisElem).find('.setupForceClaimRow');
+            const setupForceClaimElem = $(thisElem).find('.setupForceClaim');
             const setupModeSettingsElem = $(thisElem).find('.setupModeSettings');
+            const setupAddDeviceToProductDiv = $(thisElem).find('.setupAddDeviceToProductDiv');
             const setupAddToProductElem = $(setupModeSettingsElem).find('.setupAddToProduct');
             const setupAddToProductSelectorElem = $(setupModeSettingsElem).find('.setupAddToProductSelector');
             const setupSimSelectionRowElem = $(setupModeSettingsElem).find('.setupSimSelectionRow');
@@ -2339,6 +2342,10 @@ $(document).ready(function() {
                             }
                         }
                     }
+                }
+                else
+                if (mode == 'setup') {
+
                 }
                 $(setupDeviceButtonElem).prop('disabled', !enableButton);
             };
@@ -2491,6 +2498,32 @@ $(document).ready(function() {
                     $(trackerProductSettingsElem).hide();
                     $(setupModeSettingsElem).show();
 
+                    if (deviceInfo.wifi) {
+                        $(setupForceClaimRowElem).show();
+                    }
+
+                    $(setupForceClaimElem).on('click', function() {
+                        const forceClaim = $(setupForceClaimElem).prop('checked');
+                        if (forceClaim) {
+                            $(setupAddDeviceToProductDiv).hide();
+                            $(setupAddToProductElem).prop('checked', false);
+                        }
+                        else {
+                            $(setupAddDeviceToProductDiv).show();
+                        }
+                    });
+
+                    $(setupNoClaimElem).on('click', function() {
+                        const noClaim = $(setupNoClaimElem).prop('checked');
+                        if (noClaim) {
+                            $(setupForceClaimElem).prop('checked', false);
+                            $(setupForceClaimRowElem).hide();
+                        }
+                        else {
+                            $(setupForceClaimRowElem).show();
+                        }
+                    });
+
                     $(setupAddToProductElem).on('click', function() {
                         setupOptions.addToProduct = $(setupAddToProductElem).prop('checked');
                         if (setupOptions.addToProduct) {
@@ -2530,11 +2563,13 @@ $(document).ready(function() {
                 }
             });
 
+
             $(forceUpdateElem).on('click', checkButtonEnable);
 
             $(setupDeviceOsVersionElem).on('change', function() {
                 $(setupForceVersionElem).prop('checked', true);
             });
+
 
 
             $(setupDeviceButtonElem).on('click', async function() {
@@ -2634,13 +2669,46 @@ $(document).ready(function() {
                         setupOptions.developmentDevice = $(trackerSetupDevelopmentDeviceElem).prop('checked');
                     }
                     else {
+                        // Not tracker
                         setupOptions.noClaim = $(setupNoClaimElem).prop('checked');
                         setupOptions.developmentDevice = $(setupDevelopmentDeviceElem).prop('checked');
+
+                        if ($(setupForceClaimElem).prop('checked')) {
+                            // Get a claim code
+                            const result = await new Promise(function(resolve, reject) {      
+                                const requestObj = {
+                                }
+                                
+                                const request = {
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(requestObj),
+                                    dataType: 'json',
+                                    error: function (jqXHR) {
+                                        console.log('error', jqXHR);
+                                        reject(jqXHR.status);
+                                    },
+                                    headers: {
+                                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                        'Accept': 'application/json'
+                                    },
+                                    method: 'POST',
+                                    success: function (resp, textStatus, jqXHR) {
+                                        resolve(resp);
+                                    },
+                                    url: 'https://api.particle.io/v1/device_claims/'
+                                };
+                    
+                                $.ajax(request);            
+                            });
+                            console.log('device_claims', result);
+                            setupOptions.claimCode = flashDeviceOptions.claimCode = result.claim_code;
+                        }
     
                         setupOptions.productId = $(productSelectElem).val();
                         if (showSimSelectionOption) {
                             setupOptions.simSelection = parseInt($(thisElem).find('.setupSimSelect').val());
                         }                            
+                    
                     }
 
                     if ($(setupForceVersionElem).prop('checked')) {
@@ -3092,7 +3160,7 @@ $(document).ready(function() {
                     }
                 }
                 
-                if (setupOptions.noClaim) {
+                if (setupOptions.noClaim || setupOptions.claimCode) {
                     $(thisElem).find('.waitOnlineStepClaim').hide();
                 }
 
@@ -3138,7 +3206,7 @@ $(document).ready(function() {
 
                 ga('send', 'event', gaCategory, 'online');    
 
-                if (!setupOptions.noClaim) {
+                if (!setupOptions.noClaim && !setupOptions.claimCode) {
                     // Claim device
                     console.log('claim ' + deviceInfo.deviceId);
                     

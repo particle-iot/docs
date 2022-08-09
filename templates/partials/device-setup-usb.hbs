@@ -126,19 +126,22 @@
                         <p><label><input type="checkbox" class="setupForceVersion"/>Specific Device OS version</label> <select class="setupDeviceOsVersion apiHelperSelect">
                         </select></p>
                         <p><label><input type="checkbox" class="setupNoClaim"/>Do not claim device</label></p>
-                        <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
-                        <table class="apiHelperTableNoMargin setupAddToProductSelector" style="display:none">
-                            <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
-                                <tr class="sandboxOrgRow" style="display:none">
-                                    <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
-                                    <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
-                                    <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
-                                    </td><td>&nbsp;</td></tr>
-                                <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
-                                <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
-                            </tbody>
-                        </table>
-                        <p class="setupDevelopmentDeviceRow" style="display:none"><label><input type="checkbox" class="setupDevelopmentDevice"/>Mark as development device</label></p>
+                        <p class="setupForceClaimRow" style="display:none;"><label><input type="checkbox" class="setupForceClaim"/>Force claim device using claim code (can be used to transfer a non-product Wi-Fi device)</label></p>
+                        <div class="setupAddDeviceToProductDiv">
+                            <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
+                            <table class="apiHelperTableNoMargin setupAddToProductSelector" style="display:none">
+                                <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
+                                    <tr class="sandboxOrgRow" style="display:none">
+                                        <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                                        <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                                        <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                                        </td><td>&nbsp;</td></tr>
+                                    <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                                    <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                                </tbody>
+                            </table>
+                            <p class="setupDevelopmentDeviceRow" style="display:none"><label><input type="checkbox" class="setupDevelopmentDevice"/>Mark as development device</label></p>
+                        </div>
                         <p class="setupSimSelectionRow" style="display:none">SIM Select: <select class="setupSimSelect apiHelperSelect">
                             <option value="0">No change</option>
                             <option value="1">Internal SIM (MFF2 SMD Particle SIM)</option>
