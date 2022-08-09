@@ -140,7 +140,7 @@ module.exports = function plugin(options) {
             sitemap += '  </url>\n'
         });
 
-        for(const p of troubleshootingJson) {
+        for(const p of troubleshootingJson.pages) {
             if (!p.paths) {
                 continue;
             }

@@ -15,7 +15,7 @@ $(document).ready(function () {
         let ticketForms;
 
         // Loaded from /assets/file/troubleshooting.json
-        let decisionTree;
+        let troubleshootingJson;
            
         let pageStack = [];
 
@@ -51,9 +51,17 @@ $(document).ready(function () {
             updateUrl();
         };
 
+        const getParentEnvironment = function() {
+            if (pageStack.length) {
+                return pageStack[pageStack.length - 1].pageObj.curEnvironment;
+            }   
+            else {
+                return troubleshootingJson.environment;
+            }
+        }
 
         const showPage = async function(pageOptions) {
-            let pageObj = decisionTree.find(e => e.page == pageOptions.page);
+            let pageObj = troubleshootingJson.pages.find(e => e.page == pageOptions.page);
             if (!pageObj) {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
@@ -67,6 +75,15 @@ $(document).ready(function () {
             if (pageStack.find(e => e.page == pageOptions.page)) {
                 ga('send', 'event', gaCategory, 'pageLoop', pageOptions.page);
                 return false;
+            }
+            pageObj.curEnvironment = Object.assign({}, getParentEnvironment());
+            if (pageObj.environment) {
+                pageObj.curEnvironment = Object.assign(pageObj.curEnvironment, pageObj.environment);
+            }
+
+            const handlebarsExpand = function(handlebarsTemplate) {
+                const template = Handlebars.compile(handlebarsTemplate);
+                return template(pageObj.curEnvironment);
             }
 
             ga('send', 'event', gaCategory, 'showPage', pageOptions.page);
@@ -252,7 +269,7 @@ $(document).ready(function () {
             }
             if (pageObj.description) {
                 const descriptionElem = document.createElement('div');
-                $(descriptionElem).text(pageObj.description);
+                $(descriptionElem).text(handlebarsExpand(pageObj.description));
                 $(pageDivElem).append(descriptionElem);    
             }
 
@@ -260,10 +277,10 @@ $(document).ready(function () {
                 const url = notesUrlBase + pageObj.note.replace('.md', '/index.html');
 
                 const noteFetch = await fetch(url);
-                const html = await noteFetch.text();
+                const htmlTemplate = await noteFetch.text();                
 
                 const noteElem = document.createElement('div');
-                $(noteElem).html(html);
+                $(noteElem).html(handlebarsExpand(htmlTemplate));
                 $(pageDivElem).append(noteElem);
             }
 
@@ -376,67 +393,168 @@ $(document).ready(function () {
                 });
             }
 
+            let firstStepPage;
+
+
+            if (pageObj.steps) {
+                for(let stepIndex = 0; stepIndex < pageObj.steps.length; stepIndex++) {
+                    let stepObj = pageObj.steps[stepIndex];
+
+                    let title = stepObj.title;
+                    if (!title && stepObj.page) {
+                        // If no title, use the target page title
+
+                        let targetPageObj = troubleshootingJson.pages.find(e => e.page == stepObj.page);
+                        title = targetPageObj.title;
+                    }
+                    title = (stepIndex + 1) + '. ' + title;
+
+                    const buttonElem = document.createElement('div');
+                    $(buttonElem).addClass('apiHelperGiantButton');
+
+                    if (pageOptions.next && pageOptions.next == stepObj.page) {
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+
+                    $(buttonElem).text(title);
+
+                    $(buttonElem).on('click', function() {
+                        clearPagesBelow(pageOptions.page);
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+
+                        if (stepObj.page) {
+                            showPage({page: stepObj.page});
+                        }
+                    });
+
+                    if (stepIndex == 0 && !pageOptions.loadPath) {
+                        firstStepPage = stepObj.page;
+                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                    }
+
+                    stepObj.buttonElem = buttonElem;
+
+                    $(pageDivElem).append(buttonElem);
+                }              
+            }
 
             if (pageObj.buttons) {
                 for(const buttonObj of pageObj.buttons) {
                     if (buttonObj.orgRequired && !apiHelper.selectedOrg) {
                         continue;
                     }
+                    if (buttonObj.hidden) {
+                        continue;
+                    }
 
+                    let title = buttonObj.title;
+                    if (!title && buttonObj.page) {
+                        // If no title, use the target page title
+
+                        let targetPageObj = troubleshootingJson.pages.find(e => e.page == buttonObj.page);
+                        title = targetPageObj.title;
+                    }
+                    
                     const buttonElem = document.createElement('div');
                     $(buttonElem).addClass('apiHelperGiantButton');
-                    if (!buttonObj.detail) {
-                        $(buttonElem).text(buttonObj.title);
+
+                    if (!buttonObj.nextStep) {
+                        if (!buttonObj.detail) {
+                            $(buttonElem).text(title);
+                        }
+                        else {
+                            // Has multi-line button
+                            const topElem = document.createElement('div');
+                            $(topElem).text(title);
+                            $(buttonElem).append(topElem);
+    
+                            const bottomElem = document.createElement('div');
+                            $(bottomElem).addClass('apiHelperGiantButtonDetail');
+                            $(bottomElem).text(buttonObj.detail);
+                            $(buttonElem).append(bottomElem);
+                            
+                        }
+    
+                        if (pageOptions.next && pageOptions.next == buttonObj.page) {
+                            $(buttonElem).addClass('apiHelperGiantButtonSelected');
+                        }
+    
+                        if (buttonObj.swatch) {
+                            const swatchElem = document.createElement('div');
+                            $(swatchElem).addClass('apiHelperGiantButtonSwatch');
+                            $(swatchElem).css('background-color', buttonObj.swatch);
+                            $(buttonElem).append(swatchElem);                    
+                        }
+        
+                        $(buttonElem).on('click', function() {
+                            clearPagesBelow(pageOptions.page);
+                            $(buttonElem).addClass('apiHelperGiantButtonSelected');
+    
+                            if (buttonObj.loginService) {
+                                const curPage = window.location.href;
+                                ga('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
+                                window.location.href = 'https://login.particle.io/' + buttonObj.loginService + '?redirect=' + curPage;                        
+                            }
+                            else
+                            if (buttonObj.page) {
+                                showPage({page: buttonObj.page});
+                            }
+                            else
+                            if (buttonObj.url) {
+                                ga('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
+                                window.location.href = buttonObj.url;                        
+                            }
+                        });
+    
                     }
                     else {
-                        // Has multi-line button
-                        const topElem = document.createElement('div');
-                        $(topElem).text(buttonObj.title);
-                        $(buttonElem).append(topElem);
+                        // nextStep is true
+                        let stepsPageIndex = pageStack.length - 1;
+                        let nextPage;
+                        let nextButtonElem;
 
-                        const bottomElem = document.createElement('div');
-                        $(bottomElem).addClass('apiHelperGiantButtonDetail');
-                        $(bottomElem).text(buttonObj.detail);
-                        $(buttonElem).append(bottomElem);
-                        
+                        while(stepsPageIndex >= 0 && !pageStack[stepsPageIndex].pageObj.steps) {
+                            stepsPageIndex--;
+                        }
+                        if (stepsPageIndex >= 0) {
+                            stepsPageObj = pageStack[stepsPageIndex].pageObj;
+
+                            for(let ii = 0; ii < stepsPageObj.steps.length; ii++) {
+                                if (stepsPageObj.steps[ii].page == pageOptions.page) {
+                                    if ((ii + 1) < stepsPageObj.steps.length) {
+                                        nextPage = stepsPageObj.steps[ii + 1].page;
+                                        nextButtonElem = stepsPageObj.steps[ii + 1].buttonElem;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (nextPage) {
+                            if (title) {
+                                $(buttonElem).text(title);
+                            }
+                            else {
+                                $(buttonElem).text('Continue to the next step');
+                            }
+                        }
+                        else {
+                            $(buttonElem).text('All steps completed!');
+                        }
+
+                        $(buttonElem).on('click', function() {
+                            clearPagesBelow(stepsPageObj.page);
+                            if (nextPage) {
+                                showPage({page: nextPage});
+                                $(nextButtonElem).addClass('apiHelperGiantButtonSelected');
+                            }
+                        });
                     }
 
-                    if (pageOptions.next && pageOptions.next == buttonObj.page) {
-                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
-                    }
-
-                    if (buttonObj.swatch) {
-                        const swatchElem = document.createElement('div');
-                        $(swatchElem).addClass('apiHelperGiantButtonSwatch');
-                        $(swatchElem).css('background-color', buttonObj.swatch);
-                        $(buttonElem).append(swatchElem);
-
-                        
-                    }
- 
-                    $(buttonElem).on('click', function() {
-                        clearPagesBelow(pageOptions.page);
-                        $(buttonElem).addClass('apiHelperGiantButtonSelected');
-
-                        if (buttonObj.loginService) {
-                            const curPage = window.location.href;
-                            ga('send', 'event', gaCategory, 'loginService', buttonObj.loginService);
-                            window.location.href = 'https://login.particle.io/' + buttonObj.loginService + '?redirect=' + curPage;                        
-                        }
-                        else
-                        if (buttonObj.page) {
-                            showPage({page: buttonObj.page});
-                        }
-                        else
-                        if (buttonObj.url) {
-                            ga('send', 'event', gaCategory, 'buttonUrl', buttonObj.url);
-                            window.location.href = buttonObj.url;                        
-                        }
-                    });
 
                     $(pageDivElem).append(buttonElem);
-                }    
+                }                    
             }
+
 
             let statusVisible = false;
 
@@ -472,6 +590,10 @@ $(document).ready(function () {
             
             updateUrl();
 
+            if (firstStepPage) {
+                showPage({page: firstStepPage});
+            }
+
             return true;
         };
 
@@ -482,7 +604,7 @@ $(document).ready(function () {
                 const page = path[ii];
                 const next = ((ii + 1) < path.length) ? path[ii + 1] : undefined;
 
-                const res = await showPage({page, next});
+                const res = await showPage({page, next, loadPath: true});
                 if (!res) {
                     break;
                 }
@@ -495,7 +617,7 @@ $(document).ready(function () {
             const decisionTreeFetch = await fetch(decisionTreeUrl);
             const formsFetch = await fetch(ticketFormDataUrl);
 
-            decisionTree = await decisionTreeFetch.json();
+            troubleshootingJson = await decisionTreeFetch.json();
             ticketForms = await formsFetch.json();
 
             if (apiHelper.auth) {
@@ -512,7 +634,7 @@ $(document).ready(function () {
                     }
 
                     if (loadPages.length == 1) {
-                        let pageObj = decisionTree.find(e => e.page == loadPages[0]);
+                        let pageObj = troubleshootingJson.pages.find(e => e.page == loadPages[0]);
                         if (pageObj.paths) {
                             showDefaultPage = !loadPath(pageObj.paths[0]); 
                         }
