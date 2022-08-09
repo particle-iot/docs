@@ -1492,12 +1492,12 @@
             "title": "Set up a Gen 3 cellular device using the Particle CLI",
             "steps": [
                 {
-                    "page": 180,
+                    "page": 197,
                     "comment": "Attach cellular antenna"
                 },
                 {
-                    "page": 187,
-                    "comment": "connect battery"
+                    "page": 194,
+                    "comment": "connect battery - boron/gen3"
                 },
                 {
                     "page": 164,
@@ -1616,11 +1616,11 @@
             "title": "Set up a Tracker SoM Eval board using the Particle CLI",
             "steps": [
                 {
-                    "page": 180,
+                    "page": 196,
                     "comment": "Attach cellular antenna"
                 },
                 {
-                    "page": 187,
+                    "page": 195,
                     "comment": "connect battery"
                 },
                 {
@@ -1812,6 +1812,48 @@
             "page": 193,
             "title": "Insert the Argon or Boron in the Ethernet Featherwing",
             "note": "ethernet-featherwing.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 194,
+            "title": "Connect battery (if necessary)",
+            "note": "connect-battery-gen3.md",
+            "comment": "this is for the Boron",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 195,
+            "title": "Connect battery (if necessary)",
+            "note": "connect-battery-tracker-eval.md",
+            "comment": "this is for the Tracker SoM eval board",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 196,
+            "title": "Attach cellular antenna",
+            "note": "attach-cellular-antenna-tracker-eval.md",
+            "buttons": [
+                {
+                    "nextStep": true
+                }
+            ]
+        },
+        {
+            "page": 197,
+            "title": "Attach cellular antenna",
+            "note": "attach-cellular-antenna-boron.md",
             "buttons": [
                 {
                     "nextStep": true
