@@ -2700,7 +2700,6 @@ $(document).ready(function() {
                     
                                 $.ajax(request);            
                             });
-                            console.log('device_claims', result);
                             setupOptions.claimCode = flashDeviceOptions.claimCode = result.claim_code;
                         }
     

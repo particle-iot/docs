@@ -1047,7 +1047,6 @@ async function dfuDeviceRestore(usbDevice, options) {
             for(let ii = 0; ii < array.length; ii++) {
                 array[ii] = options.claimCode.charCodeAt(ii);
             }
-            console.log('setting claim code', array);
               
             try {
                 await dfuseAltDevice.do_download(4096, array, {doManifestation:!setOTAFlag, noErase:true});                        
