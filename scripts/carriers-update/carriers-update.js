@@ -2009,7 +2009,6 @@ const generatorConfig = require('./generator-config');
                     }
                 }
 
-                md += '#### ' + m.title + '\n';
                 
                 let hasChanges = false;
                 for(const tag of comparisonTags) {
@@ -2021,6 +2020,10 @@ const generatorConfig = require('./generator-config');
                        hasChanges = true;
                        break;
                    }
+                }
+
+                if (hasChanges || !options.hideUnchanged) {
+                    md += '#### ' + m.title + '\n';
                 }
 
                 if (!m.old) {
@@ -2087,7 +2090,8 @@ const generatorConfig = require('./generator-config');
 
                     md += updater.generateTable(tableOptions, tableData);
                 }
-                else {
+                else 
+                if (!options.hideUnchanged) {
                     md += '| | Unchanged between ' + oldTitle + ' and ' + newTitle + ' |\n';
                     md += '| :--- | :--- |\n';
 

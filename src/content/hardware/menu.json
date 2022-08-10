@@ -147,6 +147,11 @@
     },
     [
       {
+        "dir": "b-series-som-flexibility",
+        "title": "Designing for B Series SoM flexibility",
+        "href": "/hardware/b-series-som/b-series-som-flexibility/"
+      },
+      {
         "dir": "som-first-board",
         "title": "B Series SoM First Board",
         "href": "/hardware/b-series-som/som-first-board/"

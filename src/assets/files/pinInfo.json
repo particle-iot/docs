@@ -6126,9 +6126,9 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "spi": "SPI1 (SCK)|MOSI. Use SPI1 object.",
+          "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "serial": "Serial1 RTS|Optional RTS hardware flow control for Serial1",
-          "i2c": "Wire1 (SDA)|SCL. Use Wire1 object.",
+          "i2c": "Wire1 (SDA)|SDA. Use Wire1 object.",
           "hardwarePin": "P1.02",
           "somPin": "RESERVED",
           "internalPull": "13K"

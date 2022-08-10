@@ -16,6 +16,18 @@ const path = require('path');
                 }); 
             } 
         },                
+        {
+            // content/hardware/b-series-som/b-series-som-flexibility.md
+            guid:'28581230-6d89-4e9c-a7f7-7dcef556fb2b', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformOld: 'B4xx SoM',
+                    platformNew: 'B5xx SoM',
+                    hideUnchanged: true,
+                }); 
+            } 
+        },
 
         // Electron datasheet
         {
@@ -1863,6 +1875,7 @@ const path = require('path');
                 }); 
             } 
         },
+
     ];
 
 
