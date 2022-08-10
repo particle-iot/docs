@@ -475,9 +475,11 @@ $(document).ready(function () {
         }
 
         if ($(selectElem).on('click', async function () {
+            // TODO: Get this from the device-restore.json file
             const gen3platforms = [
                 0x0c, // argon
                 0x0d, // boron
+                0x0f, // esomx
                 0x17, // bsom
                 0x19, // b5som
                 0x1a, // tracker

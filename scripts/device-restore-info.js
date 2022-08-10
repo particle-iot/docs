@@ -62,7 +62,8 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
             // b is not an rc, but a is, so final goes first
             return +1;
         }
-        let cmp = aParts[3].localeCompare(bParts[3]);
+        // Reverse alphabetical so rc goes first, then b, a
+        let cmp = bParts[3].localeCompare(aParts[3]);
         if (cmp != 0) {
             return cmp;
         }
@@ -85,6 +86,7 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
     output.platforms = [
         {name:'argon', title:'Argon', id:12, gen:3, mcu:'nRF52840', wifi:true},
         {name:'boron', title:'Boron', id:13, gen:3, mcu:'nRF52840', cellular:true},
+        {name:'esomx', title:'E SoM X', id:15, gen:3, mcu:'nRF52840', cellular:true},
         {name:'bsom', title:'B4xx', id:23, gen:3, mcu:'nRF52840', cellular:true},
         {name:'b5som', title:'B5xx', id:25, gen:3, mcu:'nRF52840', cellular:true},
         {name:'tracker', title:'Tracker', id:26, gen:3, mcu:'nRF52840', cellular:true},
