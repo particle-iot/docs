@@ -80,7 +80,10 @@ Note: The limit on the B402 (u-blox LTE Cat M1) is 4.2V, so you should limit VCC
 
 #### 3V3
 
-3V3 is used to supply power to nRF52840, logic ICs, memory, etc. and 3.3v is recommended. VCC input voltage range is between 3V to 3.6V DC. Make sure that the supply can handle currents of at least 150mA.
+3V3 is used to supply power to nRF52840, logic ICs, memory, etc.. The 3V3 input voltage range is between 3V to 3.6V DC, but 3.3V is recommended. Make sure that the supply can handle at least 150 mA, however it may need to be larger than that if you have additional 3.3V peripherals on your base board.
+
+We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
+
 
 #### VBus
 
@@ -708,3 +711,4 @@ The bootloader allows you to easily update the user application via several diff
 | 010      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | 011      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | 012      | 05-May-2022 | RK | Corrected number of PWM outputs (8) |
+| 013      | 11-Aug-2022 | RK | Correct typo in 3V3 explanation |

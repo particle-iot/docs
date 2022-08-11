@@ -237,7 +237,7 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](https://support.particle.io/hc/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a loose SIM card holder.
 
 
 {{collapse op="end"}}
