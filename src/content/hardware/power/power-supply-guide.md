@@ -130,7 +130,7 @@ We recommend limiting the input voltage on bq24195 devices to 12 VDC. However, t
 
 Note, however, that in automotive uses-cases, vehicle power supplies may have surges that exceed 17 volts, so you should include extra protection.
 
-The Tracker One includes a bq24195 but has a higher current limit because it includes an additional power supply in front of the bq24195 input.
+The Tracker One includes a bq24195 but has a higher voltage limit because it includes an additional power supply in front of the bq24195 input.
 
 ### Using Li+ as a power input
 
