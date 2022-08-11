@@ -271,6 +271,11 @@
     },
     [
       {
+        "dir": "power-supply-guide",
+        "title": "Power supply guide",
+        "href": "/hardware/power/power-supply-guide/"
+      },
+      {
         "dir": "batteries",
         "title": "Batteries",
         "href": "/hardware/power/batteries/"
