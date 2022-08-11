@@ -633,6 +633,11 @@ $(document).ready(function () {
                         }
                     }
 
+                    if (loadPages.length >= 1 && loadPages[0] == 100) {
+                        // Was showing the need to login page, go to the default page instead
+                        showDefaultPage = true;
+                    }
+                    else
                     if (loadPages.length == 1) {
                         let pageObj = troubleshootingJson.pages.find(e => e.page == loadPages[0]);
                         if (pageObj.paths) {

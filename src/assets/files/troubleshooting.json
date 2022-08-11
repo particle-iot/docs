@@ -2,8 +2,12 @@
     "pages": [
         {
             "page": 100,
-            "description": "You must log into your Particle account to use the troubleshooting tool.",
+            "description": "You must log into your Particle account to use the Support & Troubleshooting tool.",
             "buttons": [
+                {
+                    "title": "I need help with my order, and I haven't created an account yet",
+                    "page": 360001073373
+                },
                 {
                     "title": "I forgot my password and need to reset it",
                     "loginService": "change-password"
@@ -528,7 +532,7 @@
             "title": "Connectivity questions",
             "buttons": [
                 {
-                    "title": "Diagnose connection problems using the web device doctor",
+                    "title": "Diagnose connection problems using the Particle Web Device Doctor",
                     "url": "/tools/doctor/"
                 },
                 {
@@ -559,7 +563,7 @@
                     "url": "/reference/cellular/cellular-carriers/"
                 },
                 {
-                    "title": "Diagnose connection problems using the web device doctor",
+                    "title": "Diagnose connection problems using the Particle Web Device Doctor",
                     "url": "/tools/doctor/"
                 },
                 {
@@ -583,7 +587,7 @@
             "showStatus": true,
             "buttons": [
                 {
-                    "title": "Diagnose connection problems using the web device doctor",
+                    "title": "Diagnose connection problems using the Particle Web Device Doctor",
                     "url": "/tools/doctor/"
                 },
                 {

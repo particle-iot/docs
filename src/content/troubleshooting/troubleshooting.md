@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting
+title: Support & Troubleshooting
 layout: commonTwo.hbs
 columns: two
 includeDefinitions: [api-helper, api-helper-troubleshooting, api-helper-tickets]

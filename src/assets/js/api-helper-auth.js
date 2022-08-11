@@ -222,6 +222,10 @@ $(document).ready(function() {
             let orgInfo;
             try {
                 orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
+                if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username) {
+                    // Username changed, ignore cached 
+                    orgInfo = null;
+                }
             }
             catch(e) {                    
             }
@@ -237,6 +241,7 @@ $(document).ready(function() {
             if (!orgInfo.orgList && apiHelper.auth) {
                 // Fetch organization list
                 try {
+                    orgInfo.username = apiHelper.auth.username;
                     orgInfo.orgList = await apiHelper.getOrgs();
                 }
                 catch(e) {
