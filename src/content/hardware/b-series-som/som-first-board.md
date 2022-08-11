@@ -93,6 +93,7 @@ This design uses a [Monolithic Power Systems MP2122GJ-Z](https://www.digikey.com
 
 Each output is controlled by a voltage divider (two resistors), has an inductor (4.7 uH), and an output capacitor (22 uF). There's also a 22 uF input capacitor.
 
+Voltage regulators are currently affected by supply chain issues. There's quite a bit of flexibility to choose a different regulator, but make sure it provides sufficient power, particularly on the 3V7 line (3.7 to 4.2V at 2A).
 
 ### M.2 Connector
 
