@@ -27,6 +27,12 @@ A good introduction to BLE can be found in the [Adafruit tutorial](https://learn
 
 BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. Additional features were added in Device OS 3.0 and 3.1.
 
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
+
+
 ### Logging in
 
 You can interact directly with your device from this tutorial page by logging into your 
@@ -428,6 +434,10 @@ There's also a special case of the central role: An **observer** only looks for 
 
 You can connect to up to thee devices at a time. (With Device OS 1.3.0, you can only connect to a single devices.)
 
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
 
 ### Pairing
 
@@ -511,6 +521,9 @@ Both the Argon (in my case, though it works with all Particle Gen 3 devices) and
 
 There is additional debugging information provided by USB serial debugging, for example using `particle serial monitor`.
 
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported, so this example cannot be used.
 
 ### Device Nearby
 
@@ -526,6 +539,10 @@ In this demo you have an central device and two or more peripheral devices. Each
 **For earlier DeviceOS including 2.x LTS**
 
 {{> project-browser project="ble-nearby-central-2.x" default-file="src/ble-nearby-central.cpp" height="400" flash="true" options="gen3" target="ble2"}}
+
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported, so this example cannot be used.
 
 #### Device Nearby Beacon
 
@@ -629,6 +646,10 @@ It's less common, however the Particle device can also be the central device. Yo
 
 {{> codebox content="/assets/files/ble/uart-central.cpp" format="cpp" height="400"}}
 
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported, so this example cannot be used.
+
 ### RSSI Meter
 
 This is a simple pair of applications that allow for simple testing of signal strength.
@@ -656,6 +677,10 @@ This example shows how to do encrypted BLE communication using LESC Pairing in "
 {{> project-browser project="ble-lesc1-central" default-file="src/ble-lesc1-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
 
 {{> project-browser project="ble-lesc1-peripheral" default-file="src/ble-lesc1-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported, so this example cannot be used.
 
 {{#if not-yet-working}}
 
@@ -751,6 +776,10 @@ If the peripheral is not currently supported, the library is written in a modula
 #### Installation
 
 You can install the library through the Particle library system. The name is `ble-gateway`. You can also clone the library from [GitHub](https://github.com/particle-iot/ble-gateway-library) to include in your project or to modify it.
+
+{{!-- P2 BLE Central Warning --}}
+
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported, so this example cannot be used.
 
 #### Usage
 
@@ -854,7 +883,9 @@ void loop() {
 
 There are other functions that allow you to collect a `Vector` of the nearby tags to do some local processing prior to publishing. You can see the full documentation in the [GitHub repository](https://github.com/particle-iot/beacon-scanner-library).
 
+{{!-- P2 BLE Central Warning --}}
 
+The P2 and Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported, so this example cannot be used.
 
 
 

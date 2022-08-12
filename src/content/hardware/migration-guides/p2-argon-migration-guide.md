@@ -433,6 +433,12 @@ The Argon can use I2S via a 3rd-party library, however there has never been supp
 
 There is no software support for I2S on the P2, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
 
+### BLE (Bluetooth LE)
+
+{{!-- P2 BLE Central Warning --}}
+
+The P2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
@@ -1115,3 +1121,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
 |     | 2022-07-18 | RK | List which pins have which pull-up or pull-down value |
+|     | 2022-08-12 | RK | Warning about BLE central mode not available |

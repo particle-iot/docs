@@ -313,6 +313,12 @@ The Argon supports I2S (sound) input and output with a third-party library.
 
 There is no software support for I2S on the Photon 2, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
 
+### BLE (Bluetooth LE)
+
+{{!-- P2 BLE Central Warning --}}
+
+The Photon 2 (and P2) only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
 ### Boot mode pins
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
@@ -711,3 +717,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-18 | RK | Major changes to pinmap to align with P2 |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
+|     | 2022-08-12 | RK | Warning about BLE central mode not available |

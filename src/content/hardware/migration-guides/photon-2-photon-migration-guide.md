@@ -360,6 +360,13 @@ There is no software support for I2S on the Photon 2 either, and while the RTL87
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+### BLE (Bluetooth LE)
+
+{{!-- P2 BLE Central Warning --}}
+
+The Photon 2 (and P2) only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
+
 ### Boot mode pins
 
 These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
@@ -947,3 +954,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
+|     | 2022-08-12 | RK | Warning about BLE central mode not available |

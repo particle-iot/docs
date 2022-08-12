@@ -365,6 +365,12 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 {{!-- END do not edit content above, it is automatically generated 8d8e7a73-c60c-4b04-8039-c5f8a7072f39 --}}
 
+### BLE (Bluetooth LE)
+
+{{!-- P2 BLE Central Warning --}}
+
+The P2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
@@ -1142,3 +1148,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
 |     | 2022-07-18 | RK | List which pins have which pull-up or pull-down value |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
+|     | 2022-08-12 | RK | Warning about BLE central mode not available |

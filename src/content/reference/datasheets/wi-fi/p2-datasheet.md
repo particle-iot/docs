@@ -396,6 +396,12 @@ The MODE button does not have a hardware pull-up on it, so you must add an exter
 
 The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
 
+### BLE (Bluetooth LE)
+
+{{!-- P2 BLE Central Warning --}}
+
+The P2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+
 ### Complete module pin listing
 
 {{imageOverlay src="/assets/images/p2-pinout.svg" alt="P2 Pinout Diagram" class="full-width"}}
@@ -711,6 +717,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
 |     | 2022-07-22 | RK | Added power consumption |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
+|     | 2022-08-12 | RK | Warning about BLE central mode not available |
 
 ### D Pin Change (2022-02-25)
 
