@@ -362,6 +362,22 @@ The use of the RGB LED is optional, however it is highly recommended as troubles
 {{!-- END do not edit content above, it is automatically generated e5794e03-d007-4420-be1f-b62ca2788442 --}}
 
 
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5936ede0-76ff-423b-97c7-5ba925aa6095 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 54 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+| 55 | D6 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 64 | TX / D8 | Low at boot triggers ISP flash download | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
 ### SETUP and RESET button
 
 It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
@@ -694,6 +710,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-06-29 | RK | Added flash memory map |
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
 |     | 2022-07-22 | RK | Added power consumption |
+|     | 2022-08-12 | RK | Added listing of pins used at boot |
 
 ### D Pin Change (2022-02-25)
 

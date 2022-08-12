@@ -285,6 +285,7 @@
           "attachInterrupt": true,
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA[7]",
+          "boot": "Low at boot triggers ISP flash download",
           "mcuPin": 7,
           "p2Pin": 64,
           "internalPull": "42K"
@@ -433,6 +434,7 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PB[3]",
           "mcuPin": 43,
           "p2Pin": 55,
@@ -453,6 +455,7 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
           "hardwarePin": "PA[27]",
           "mcuPin": 33,
           "p2Pin": 54,
@@ -832,6 +835,7 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
           "hardwareTimer": "TIM3_CH1",
           "modulePinNumber": 42,
@@ -853,6 +857,7 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SCK",
           "hardwarePin": "PB3",
           "modulePinNumber": 41,
@@ -874,6 +879,7 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
           "hardwarePin": "PA15",
           "modulePinNumber": 43,
@@ -894,6 +900,7 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PA14",
           "modulePinNumber": 40,
@@ -914,6 +921,7 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA13",
           "modulePinNumber": 44,
@@ -1585,6 +1593,7 @@
           "attachInterrupt": "Yes. D3, DAC/A6, and P1S3 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
           "hardwareTimer": "TIM3_CH1",
           "modulePinName": "MICRO_JTAG_TRSTN",
@@ -1605,6 +1614,7 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SCK",
           "hardwarePin": "PB3",
           "modulePinName": "MICRO_JTAG_TDO",
@@ -1625,6 +1635,7 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
           "hardwarePin": "PA15",
           "modulePinName": "MICRO_JTAG_TDI",
@@ -1644,6 +1655,7 @@
           "tone": false,
           "attachInterrupt": "Yes. D7 and P1S4 share the same interrupt handler.",
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA13",
           "modulePinName": "MICRO_JTAG_TMS",
@@ -1663,6 +1675,7 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PA14",
           "modulePinName": "MICRO_JTAG_TCK",
@@ -2177,6 +2190,7 @@
           "tone": false,
           "attachInterrupt": "No. Shared with BAT_INT_PC13",
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA13",
           "internalPull": "40K. Pull-up applied in bootloader for JTAG."
@@ -2195,6 +2209,7 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PA14",
           "internalPull": "40K. Pull-up applied in bootloader for JTAG."
@@ -2214,6 +2229,7 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
           "hardwarePin": "PA15",
           "internalPull": "40K"
@@ -2233,6 +2249,7 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SD",
           "hardwarePin": "PB3",
           "internalPull": "40K"
@@ -2252,6 +2269,7 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
           "hardwareTimer": "TIM3_CH1",
           "internalPull": "40K. Pull-up applied in bootloader for JTAG."
@@ -2991,6 +3009,7 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
           "hardwareTimer": "TIM3_CH1",
           "internalPull": "40K. Pull-up applied in bootloader for JTAG."
@@ -3010,6 +3029,7 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SCK",
           "hardwarePin": "PB3",
           "internalPull": "40K"
@@ -3029,6 +3049,7 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
           "hardwarePin": "PA15",
           "internalPull": "40K"
@@ -3047,6 +3068,7 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PA14",
           "internalPull": "40K. Pull-up applied in bootloader for JTAG."
@@ -3065,6 +3087,7 @@
           "tone": false,
           "attachInterrupt": "No. Shared with BAT_INT_PC13.",
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA13",
           "internalPull": "40K. Pull-up applied in bootloader for JTAG."
@@ -4813,6 +4836,7 @@
           "tone": false,
           "attachInterrupt": false,
           "swd": "SWDIO",
+          "boot": "JTAG SWDIO. 40K pull-up at boot.",
           "hardwarePin": "SWDIO"
         },
         {
@@ -4829,6 +4853,7 @@
           "tone": false,
           "attachInterrupt": false,
           "swd": "SWCLK",
+          "boot": "JTAG SWCLK. 40K pull-down at boot.",
           "hardwarePin": "SWCLK"
         },
         {
@@ -4862,6 +4887,7 @@
           "tone": false,
           "attachInterrupt": false,
           "swd": "SWO",
+          "boot": "JTAG SWO.",
           "hardwarePin": "SWO"
         },
         {
@@ -7582,6 +7608,7 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
           "hardwarePin": "PA[27]",
           "mcuPin": 33,
           "internalPull": "42K"
@@ -7600,6 +7627,7 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PB[3]",
           "mcuPin": 43,
           "internalPull": "42K"
@@ -7659,6 +7687,7 @@
           "attachInterrupt": true,
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA[7]",
+          "boot": "Low at boot triggers ISP flash download",
           "mcuPin": 7,
           "internalPull": "42K"
         }
@@ -8177,7 +8206,8 @@
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA[27]",
           "mcuPin": 33,
-          "internalPull": "42K"
+          "internalPull": "42K",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode."
         },
         {
           "num": 32,
@@ -8196,7 +8226,8 @@
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PB[3]",
           "mcuPin": 43,
-          "internalPull": "42K"
+          "internalPull": "42K",
+          "boot": "SWCLK. 40K pull-down at boot."
         },
         {
           "num": 33,
@@ -8248,6 +8279,7 @@
           "attachInterrupt": true,
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA[7]",
+          "boot": "Low at boot triggers ISP flash download",
           "mcuPin": 7,
           "internalPull": "42K"
         },
@@ -8421,6 +8453,11 @@
     {
       "tag": "swd",
       "label": "SWD interface",
+      "searchable": true
+    },
+    {
+      "tag": "boot",
+      "label": "Signal used at boot",
       "searchable": true
     },
     {

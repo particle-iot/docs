@@ -338,6 +338,21 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 - External pull-up resistors are required for I2C
 - If not using I2C, pins D0 and D1 can be used as GPIO
 
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2eae4165-6d66-49cc-b8ec-0e564c0f7a9e --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 15 | TX / D8 | Low at boot triggers ISP flash download | PA[7] |
+| 22 | D6 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 23 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 
 ### Pins Photon 2 vs. P2
 
@@ -607,6 +622,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |
 |     | 2022-05-04 | RK | USB connector is micro B, not USB C |
+|     | 2022-08-12 | RK | Added listing of pins used at boot |
 
 ## Known Errata
 

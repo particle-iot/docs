@@ -1983,7 +1983,8 @@ const generatorConfig = require('./generator-config');
                 'internalPull',
                 'is5VTolerant',
                 'jtag',
-                'swd'      
+                'swd',
+                'boot'
             ];
 
             if (options.showPinNum) {
@@ -2279,6 +2280,57 @@ const generatorConfig = require('./generator-config');
                     key: 'interface'
                 });    
             }
+            tableOptions.columns.push({
+                key: 'hardwarePin',
+                title: 'MCU'
+            });
+
+            let tableData = [];
+            for(const pin of pins) {
+                let rowData = Object.assign({}, pin);
+                rowData.pinName = getPinNameWithAlt(pin);
+                rowData.interface = getShortName(pin[options.interface]);
+                
+                tableData.push(rowData);
+            }
+
+            md += updater.generateTable(tableOptions, tableData);
+        }
+
+        if (options.style == 'bootPins') {
+            // options.interface
+
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin.boot) {
+                    pins.push(pin);
+                }    
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'pinName',
+                title: 'Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'boot',
+                title: 'Description'
+            });
+
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'

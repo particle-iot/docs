@@ -2448,7 +2448,7 @@ has connected.
 Defines the static IP addresses used by the system to connect to the network when static IP is activated.
 
 Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ```cpp
 // SYNTAX
@@ -2480,7 +2480,7 @@ Instructs the system to connect to the network using the IP addresses provided t
 The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
 
 Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ### useDynamicIP()
 
@@ -2494,7 +2494,7 @@ by the system after calling `WiFi.useDynamicIP()`, and so are available for use 
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ### setHostname()
 
@@ -2527,7 +2527,7 @@ Serial.println(System.deviceID());
 ```
 
 Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ### hostname()
 
@@ -2547,7 +2547,7 @@ String hostname = WiFi.hostname();
 By default the device uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
 
 Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 
 ### WiFiCredentials class
@@ -4381,6 +4381,8 @@ STARTUP(disable());
   - Pins A2, A5, D6, TX, RX are 42K
 
 - On the P2, pins S4, S5, S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- On the P2, make sure you do not hold down pins D8 or D7 at boot as this will cause the MCU to enter download or test mode and will not operate correctly.
 
 If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
 

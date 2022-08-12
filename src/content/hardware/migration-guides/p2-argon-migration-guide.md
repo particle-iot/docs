@@ -454,6 +454,20 @@ All pins can be used for interrupts on Gen 3 devices and the P2.
 
 There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the P2.
 
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5936ede0-76ff-423b-97c7-5ba925aa6095 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 54 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+| 55 | D6 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 64 | TX / D8 | Low at boot triggers ISP flash download | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 ### Retained memory
 
@@ -842,6 +856,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 42K |
 | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### D7
 |   | Argon | P2 |
 | :--- | :--- | :--- |
@@ -854,6 +869,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 42K |
 | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
+| Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### EN
 | | Removed from Argon |
 | :--- | :--- |
@@ -1012,6 +1028,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 42K |
+| Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### USBDATA-
 | | Added to P2 |
 | :--- | :--- |

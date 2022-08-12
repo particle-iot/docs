@@ -313,6 +313,21 @@ The Argon supports I2S (sound) input and output with a third-party library.
 
 There is no software support for I2S on the Photon 2, and while the RTL872x hardware supports I2S, the pins that it requires are in use by other ports.
 
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2eae4165-6d66-49cc-b8ec-0e564c0f7a9e --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 15 | TX / D8 | Low at boot triggers ISP flash download | PA[7] |
+| 22 | D6 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 23 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 ### Interrupts
 
 All pins can be used for interrupts on Gen 3 devices and the Photon 2.
@@ -514,6 +529,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | UART serial | TX Use Serial1 object. | TX. Use Serial1 object. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 42K |
+| Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### D0
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -608,6 +624,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 42K |
 | SWD interface | n/a | SWCLK. 40K pull-down at boot. |
+| Signal used at boot | n/a | SWCLK. 40K pull-down at boot. |
 #### D7
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -619,6 +636,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 2.1K |
 | SWD interface | n/a | SWDIO. 40K pull-up at boot. |
+| Signal used at boot | n/a | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### D8 / D10
 |   | Argon | Photon 2 |
 | :--- | :--- | :--- |
@@ -692,3 +710,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-18 | RK | Major changes to pinmap to align with P2 |
+|     | 2022-08-12 | RK | Added listing of pins used at boot |

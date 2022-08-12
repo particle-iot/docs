@@ -360,6 +360,21 @@ There is no software support for I2S on the Photon 2 either, and while the RTL87
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+### Boot mode pins
+
+These pins have a special function at boot. Beware when using these pins as input as they can trigger special modes in the MCU.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2eae4165-6d66-49cc-b8ec-0e564c0f7a9e --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 15 | TX / D8 | Low at boot triggers ISP flash download | PA[7] |
+| 22 | D6 | SWCLK. 40K pull-down at boot. | PB[3] |
+| 23 | D7 | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. | PA[27] |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 ### Interrupts
 
 There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the Photon 2.
@@ -611,6 +626,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
+| Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### D4
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
@@ -625,6 +641,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Internal pull-up or pull-down resistance | 40K | 2.1K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDO. Floating at boot. | n/a |
+| Signal used at boot | JTAG TDO. Floating at boot. | n/a |
 #### D5
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
@@ -639,6 +656,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Internal pull-up or pull-down resistance | 40K | 2.1K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
+| Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### D6
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
@@ -651,6 +669,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
+| Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | SWCLK. 40K pull-down at boot. |
 #### D7
 |   | Photon | Photon 2 |
 | :--- | :--- | :--- |
@@ -662,6 +681,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | 2.1K |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. |
+| Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode. |
 #### DAC
 | | Removed from Photon |
 | :--- | :--- |
@@ -814,6 +834,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | Supports attachInterrupt | Yes | Yes |
 | Internal pull-up or pull-down resistance | 40K | 42K |
 | Input is 5V Tolerant | Yes | No |
+| Signal used at boot | n/a | Low at boot triggers ISP flash download |
 #### USBDATA-
 | | Removed from Photon |
 | :--- | :--- |
@@ -925,3 +946,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-04-12 | RK | Added serial baud rates |
 |     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |
+|     | 2022-08-12 | RK | Added listing of pins used at boot |

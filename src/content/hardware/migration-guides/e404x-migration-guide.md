@@ -765,6 +765,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TMS. 40K pull-up at boot. | n/a |
 | SWD interface | SWDIO. 40K pull-up at boot. | SWDIO |
+| Signal used at boot | JTAG TMS/SWDIO. 40K pull-up at boot. | JTAG SWDIO. 40K pull-up at boot. |
 #### Module Pin 36 (D6 / SWDCLK)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
@@ -777,6 +778,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TCK. 40K pull-down at boot. | n/a |
 | SWD interface | SWCLK. 40K pull-down at boot. | SWCLK |
+| Signal used at boot | JTAG TCK/SWCLK. 40K pull-down at boot. | JTAG SWCLK. 40K pull-down at boot. |
 #### Module Pin 37 (D5)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
@@ -790,6 +792,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Internal pull-up or pull-down resistance | 40K | 13K |
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDI. 40K pull-up at boot. | n/a |
+| Signal used at boot | JTAG TDI. 40K pull-up at boot. | n/a |
 #### Module Pin 38 (D4 / SWO)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
@@ -804,6 +807,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Input is 5V Tolerant | Yes | No |
 | JTAG interface | JTAG TDO. Floating at boot. | n/a |
 | SWD interface | n/a | SWO |
+| Signal used at boot | JTAG TDO. Floating at boot. | JTAG SWO. |
 #### Module Pin 39 (D3 / NC)
 |   | E Series | E404X |
 | :--- | :--- | :--- |
@@ -818,6 +822,7 @@ No pin functions have been added to previously unused (NC) pins.
 | Internal pull-up or pull-down resistance | 40K. Pull-up applied in bootloader for JTAG. | n/a |
 | Input is 5V Tolerant | Yes | n/a |
 | JTAG interface | JTAG RST. 40K pull-up at boot. | n/a |
+| Signal used at boot | JTAG RST. 40K pull-up at boot. | n/a |
 #### Module Pin 40 (D2)
 |   | E Series | E404X |
 | :--- | :--- | :--- |

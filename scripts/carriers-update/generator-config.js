@@ -619,6 +619,16 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'5936ede0-76ff-423b-97c7-5ba925aa6095',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'P2'
+                }); 
+            }             
+        },
+
         // datasheets/wi-fi/photon-2-datasheet.md
         {
             guid: 'ed19d7a3-f59d-4eec-85ba-2f67859e87b2',
@@ -697,6 +707,16 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'2eae4165-6d66-49cc-b8ec-0e564c0f7a9e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'bootPins',
+                    platformNew: 'Photon 2'
+                }); 
+            }             
+        },
+
         // datasheets/wi-fi/p2-photon-migration-guide.md
         {
             guid:'3729b0b4-4058-454e-aef8-0ca5c2526bd52', 
