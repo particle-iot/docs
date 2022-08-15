@@ -1,8 +1,5 @@
 
 $(document).ready(function() {
-    if ($('.apiHelper').length == 0) {
-        return;
-    }
     const gaCategory = 'USB Device Setup';
     const storageActivateSim = "DeviceSetupActivatingSim";
     const doneUrl = '/assets/images/device-setup/ok-48.png';
@@ -33,6 +30,7 @@ $(document).ready(function() {
     updateSupportAvailable();
 
     $('.apiHelperDeviceSetupUsb').each(function() {
+
         const thisElem = $(this);
 
         const mode = $(thisElem).data('mode');
@@ -50,6 +48,10 @@ $(document).ready(function() {
             }
         }
 
+        if (mode == 'restore' || apiHelper.auth) {
+            $(thisElem).find('.deviceSetupLoggedIn').show();
+        }
+
         ga('send', 'event', gaCategory, 'Opened Page', mode);
 
         const setupSelectDeviceButtonElem = $(thisElem).find('.setupSelectDeviceButton');
@@ -58,7 +60,7 @@ $(document).ready(function() {
         const userInfoElem = $(thisElem).find('.userInfo');
 
         let usbDevice;
-        let deviceInfo = {};
+        let deviceInfo = {}; 
         let deviceLookup;
         let userFirmwareBinary;
         let restoreFirmwareBinary;
@@ -305,7 +307,7 @@ $(document).ready(function() {
 
             firmwareBackup.backups.push({
                 deviceId: deviceInfo.deviceId,
-                username: apiHelper.auth.username,
+                username: apiHelper.auth ? apiHelper.auth.username : '',
                 ts: Math.floor(Date.now() / 1000)
             });
 
@@ -1339,7 +1341,6 @@ $(document).ready(function() {
         };
 
         const checkAccount  = async function() {
-
             if (mode == 'setup' || mode == 'doctor') {
                 // Device restore does not need a valid account
                 setSetupStep('setupStepCheckAccount');

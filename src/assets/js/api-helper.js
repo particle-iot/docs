@@ -344,6 +344,9 @@ apiHelper.cachedResult = function() {
 apiHelper.getProductsCache = apiHelper.cachedResult();
 
 apiHelper.getProducts = async function() {
+    if (!apiHelper.auth) {
+        return { products: [] };
+    }
     return await apiHelper.getProductsCache.get({
         dataType: 'json',
         headers: {
@@ -358,6 +361,9 @@ apiHelper.getProducts = async function() {
 apiHelper.getOrgsCache = apiHelper.cachedResult();
 
 apiHelper.getOrgs = async function() {
+    if (!apiHelper.auth) {
+        return { organizations: [] };
+    }
     return await apiHelper.getOrgsCache.get({
         dataType: 'json',
         headers: {
