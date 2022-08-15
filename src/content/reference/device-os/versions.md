@@ -39,6 +39,23 @@ LTS releases are, however, supported by an extended support window which address
 
 LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.0.0 is released, new feature development will occur in the 3.x.x release line with only important bug and security fixes back-ported to 2.x.x.
 
+## Recommended LTS versions
+
+| Platform | Current Version | Test With | Eventually |
+| :--- | :--- | :--- | :--- | 
+| B Series, Boron, Argon | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Tracker | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+| E Series, Electron | {{version mode="latestRelease" line="2"}} | | |
+| P1, Photon | {{version mode="latestRelease" line="2"}} | | |
+
+## Devices that cannot use LTS yet
+
+| Platform | Test With | Eventually |
+| :--- | :--- | :--- | 
+| P2 | {{version mode="testWith" line="5" allowAlpha="true"}} | {{version mode="latestRelease" line="5" alt="5.0.0"}} |
+
+
 ## Upgrading Device OS
 
 ### OTA (over-the-air)
