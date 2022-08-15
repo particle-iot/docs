@@ -41,13 +41,17 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 
 ## Recommended LTS versions
 
-| Platform | Current Version | Test With | Eventually |
-| :--- | :--- | :--- | :--- | 
-| B Series, Boron, Argon | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
-| E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
-| Tracker | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
-| E Series, Electron | {{version mode="latestRelease" line="2"}} | | |
-| P1, Photon | {{version mode="latestRelease" line="2"}} | | |
+| Platform | Models | Current Version | Test With | Eventually |
+| :--- | :--- | :--- | :--- | :--- | 
+| B Series SoM | B404X, B404, B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
+| Boron | BRN404X, BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Argon | ARGN | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Tracker | T404, T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+| E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| E Series, Electron | E404, E402, E314, E313, E310, ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} | | |
+| P1, Photon | | {{version mode="latestRelease" line="2"}} | | |
+
+- Gen 2 devices (E Series except E404X, Electron, P1, Photon) require 
 
 ## Devices that cannot use LTS yet
 
