@@ -7,15 +7,16 @@ $(document).ready(function () {
         const notesUrlBase = '/notes/';
         const ticketFormDataUrl = '/assets/files/ticketForms.json';
         const decisionTreeUrl = '/assets/files/troubleshooting.json';
+        const environmentUrl = '/assets/files/environment.json';
 
         const urlParams = new URLSearchParams(window.location.search);
 
         const baseTitle = document.title;
 
+        // Content loaded at runtime
         let ticketForms;
-
-        // Loaded from /assets/file/troubleshooting.json
         let troubleshootingJson;
+        let environmentJson;
            
         let pageStack = [];
 
@@ -56,7 +57,7 @@ $(document).ready(function () {
                 return pageStack[pageStack.length - 1].pageObj.curEnvironment;
             }   
             else {
-                return troubleshootingJson.environment;
+                return environmentJson;
             }
         }
 
@@ -620,9 +621,11 @@ $(document).ready(function () {
         const run = async function() {
             const decisionTreeFetch = await fetch(decisionTreeUrl);
             const formsFetch = await fetch(ticketFormDataUrl);
+            const environmentFetch = await fetch(environmentUrl);
 
             troubleshootingJson = await decisionTreeFetch.json();
             ticketForms = await formsFetch.json();
+            environmentJson = await environmentFetch.json();
 
             if (apiHelper.auth) {
                 // Have a token, verify it
