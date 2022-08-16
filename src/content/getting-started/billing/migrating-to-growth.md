@@ -39,7 +39,7 @@ The growth plan usage is measured in blocks, and you need to pick an initial num
 
 Sign up at the [upgrade to growth page](https://www.particle.io/upgradetogrowth/).
 
-A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth tier. This process can take several business days. We will ensure that your service is not impacted during this time.
+A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth plan. This process can take several business days. We will ensure that your service is not impacted during this time.
 
 You'll be asked for the list of products to migrate, organization name, and number of blocks during your setup call.
 
@@ -160,7 +160,7 @@ If you need to create a product, see the [creating a product](/getting-started/p
 
 - Any product whose devices use more than {{freeTierDataOperationsUnit}} data operations, or large amount of cellular data.
 
-- You can continue to have free tier products as long as they are within the free tier limits. In fact, each member of your organization still has a free tier sandbox that they can use for personal and development devices and do not add your growth plan bill.
+- You can continue to have free plan products as long as they are within the free plan limits. In fact, each member of your organization still has a free plan sandbox that they can use for personal and development devices and do not add your growth plan bill.
 
 {{top}}
 
@@ -246,7 +246,7 @@ Moving individual devices from one product to another can present certain issues
 
 If you are absolutely sure you want to move devices from a product to another product you can use the [move devices into a product](https://github.com/particle-iot/node-example-device-move) script, however be sure to read all of the caveats on that page before doing so.
 
-- If you want to move entire products from the free tier into your your organization later, you can do so with a [support ticket](https://support.particle.io/). 
+- If you want to move entire products from the free plan into your your organization later, you can do so with a [support ticket](https://support.particle.io/). 
 - Team members with administrative access can create new products in your organization directly from the console at any time.
 
 {{top}}
@@ -277,7 +277,7 @@ However, if you change the device claiming you may need to move the webhook into
 
 ![Sandbox device list](/assets/images/console/sandbox-devices.png)
 
-The sandbox device list is confusing because it includes items that don't count against your free tier limit, and some devices that are part of the free tier limit are not in the list!
+The sandbox device list is confusing because it includes items that don't count against your free plan limit, and some devices that are part of the free plan limit are not in the list!
 
 - The device limit is 100 total devices across all device types (cellular, Wi-Fi, and Tracker).
 - If you select the **Show sandbox devices only checkbox** (3) it will show only developer devices claimed to your account.

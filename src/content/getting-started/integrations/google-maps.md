@@ -133,7 +133,7 @@ To view, edit or delete your credentials later, you can use the [Google Develope
 
 ### Enable Billing
 
-Make sure you enable billing on your Google account. Even if you don't exceed the limits of the free tier, you'll get an error 403 if you don't enable billing.
+Make sure you enable billing on your Google account. Even if you don't exceed the limits of the free plan, you'll get an error 403 if you don't enable billing.
 
 The instructions [can be found here](https://developers.google.com/maps/documentation/geolocation/usage-and-billing).
 

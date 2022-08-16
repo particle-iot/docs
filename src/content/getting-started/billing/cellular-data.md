@@ -11,22 +11,22 @@ description: Optimizing data using with Particle cellular devices
 
 Particle provides a number of devices with cellular connectivity including the Tracker, Boron, B Series SoM, E Series, and Electron. These can provide access in areas without Wi-Fi and provide a more seamless solution that does not depend on being able to connect to your customer's Wi-Fi network, which may involve unexpected challenges. 
 
-### Pricing Tiers
+### Pricing Plans
 
 {{!-- BEGIN shared-blurb 27145a22-9b9b-11ec-b909-0242ac120002 --}}
-#### Free tier
+#### Free plan
 
 - Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
 - {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Products can be prototyped in the Free tier
+- Products can be prototyped in the Free plan
 - Device communication is paused<sup>1</sup> when the monthly limit is reached
 - Community support
 
 <sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
-#### Growth tier
+#### Growth plan
 
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
@@ -34,11 +34,11 @@ Particle provides a number of devices with cellular connectivity including the T
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
 
-#### Enterprise tier
+#### Enterprise plan
 
-- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
+- Enterprise plans include a maximum number of devices, Data Operations, storage, and cellular data
 - Data Operations and cellular data are pooled across all devices annually
-- Discounts for higher Enterprise tier commitments
+- Discounts for higher Enterprise plan commitments
 - [Contact sales](https://particle.io/sales/) for more information
 {{!-- END shared-blurb --}}
 
@@ -89,9 +89,9 @@ If the transmission is not acknowledged, it is possible that up to two more atte
 
 ### Cellular Data Limit
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
+For cellular devices, there is a data limit depending on your tier. For the Free plan, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
 
-In the growth tier, {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker) is included for each block purchased, per month.
+In the growth plan, {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker) is included for each block purchased, per month.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 

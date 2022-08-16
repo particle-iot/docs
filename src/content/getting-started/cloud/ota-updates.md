@@ -696,7 +696,7 @@ will emit an internal system event, `firmware_update_pending` and
 
 This feature was added in Device OS 1.2.0 but was of limited use for non-enterprise customers 
 who did not have Intelligent OTA available. As of June 2020, Intelligent OTA is available on 
-all pricing tiers.
+all pricing plans.
 
 ### OTA availability in the Console
 

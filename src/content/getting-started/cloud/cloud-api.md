@@ -386,7 +386,7 @@ The product event stream is unidirectional from devices to the cloud, which is w
 If you are in the growth or enterprise plans, you will have access to organizations. Your account will 
 have two or more spaces:
 
-- Sandbox, for your personal development, in the free tier (up to 100 devices)
+- Sandbox, for your personal development, in the free plan (up to 100 devices)
 - An organization
 - There might be more than one organization, for example if a software contractor worked for more than one company
 

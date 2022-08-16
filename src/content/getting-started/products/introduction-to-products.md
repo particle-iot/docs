@@ -24,14 +24,14 @@ Plus, cellular, Tracker, and Wi-Fi devices can be free to use!
 - {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Products can be prototyped in the Free tier
+- Products can be prototyped in the Free plan
 - Device communication is paused when the monthly limit is reached
 - Community support
 
 
 #### Products
 
-Products group devices with similar firmware and usage. You can use products with the Free tier above for prototyping, then expand to the Growth tier for production.
+Products group devices with similar firmware and usage. You can use products with the Free plan above for prototyping, then expand to the Growth plan for production.
 
 Products allow a number of additional features over developer devices:
 
@@ -42,9 +42,9 @@ Products allow a number of additional features over developer devices:
 - [Fleet health](/getting-started/console/fleet-health/), for monitoring the status of your fleet of devices.
 
 
-#### Growth Tier
+#### Growth plan
 
-- [Organizations](/getting-started/products/organizations/), allowing you have multiple products with hierarchical access controls and billing in the Growth and Enterprise Tiers.
+- [Organizations](/getting-started/products/organizations/), allowing you have multiple products with hierarchical access controls and billing in the Growth and Enterprise plans.
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
@@ -55,9 +55,9 @@ Products allow a number of additional features over developer devices:
 
 Once you move beyond self-service to an enterprise plan, you get features such as:
 
-- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
+- Enterprise plans include a maximum number of devices, Data Operations, storage, and cellular data
 - Data Operations and cellular data are pooled across all devices annually
-- Discounts for higher Enterprise tier commitments
+- Discounts for higher Enterprise plan commitments
 - Service Level Agreements (SLA)
 - Dedicated support
 - [Contact sales](https://particle.io/sales/) for more information

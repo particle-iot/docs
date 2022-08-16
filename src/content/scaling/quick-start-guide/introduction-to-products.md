@@ -5,7 +5,7 @@ columns: two
 ---
 
 # {{{title}}}
-#### Free Tier
+#### Free plan
 
 Starting out with a single development kit and a single account you can use the Particle cloud features like:
 
@@ -17,7 +17,7 @@ With developer devices, you flash code to each device separately. To group toget
 
 #### Products
 
-A Product is a management schema that allows users higher-level control over groups of devices. In the Free tier you can have up to 100 devices, any mix of cellular, Wi-Fi, and Tracker devices, in a product or developer devices.
+A Product is a management schema that allows users higher-level control over groups of devices. In the Free plan you can have up to 100 devices, any mix of cellular, Wi-Fi, and Tracker devices, in a product or developer devices.
 
 Products allow a number of additional features over developer devices:
 
@@ -30,9 +30,9 @@ Products allow a number of additional features over developer devices:
 
 You can start developing with a Product for initial prototyping and testing and later import your Products to an Organization when you scale to Enterprise quantities.
 
-#### Growth Tier
+#### Growth plan
 
-Once you move beyond the 100-device limit of the Free tier, you can move to the [Growth tier](/getting-started/cloud/introduction/#pricing). 
+Once you move beyond the 100-device limit of the Free plan, you can move to the [Growth plan](/getting-started/cloud/introduction/#pricing). 
 
 #### Enterprise Features
 

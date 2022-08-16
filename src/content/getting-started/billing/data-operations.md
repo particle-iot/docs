@@ -30,7 +30,7 @@ The following do **not** count against your Data Operations limit:
 
 ## Blocks
 
-Blocks are a maximum number of Data Operations and devices per month in the Growth tier:
+Blocks are a maximum number of Data Operations and devices per month in the Growth plan:
 
 - Up to {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month 
 - Up to {{growthTierDevices}} devices
@@ -48,7 +48,7 @@ If you exceed the number of data operations or cellular data usage for the numbe
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}}, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
+For cellular devices, there is a data limit depending on your tier. For the Free plan, the cellular data limit is {{freeTierDataOperationsCellularData}}, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
 ## Minimizing Data Operations
 
@@ -113,27 +113,27 @@ Note that the cellular data usage is not real-time. It can take at least 24 hour
 
 ### What happens if I need more than 100 devices?
 
-You cannot add more than 100 devices to the Free tier. You instead will need to upgrade to the Growth tier. 
+You cannot add more than 100 devices to the Free plan. You instead will need to upgrade to the Growth plan. 
 
-You can have any number of devices in the Growth tier, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, Data Operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
+You can have any number of devices in the Growth plan, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, Data Operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
 
-There is no limit to the number of blocks you can purchase in the Growth tier, however upgrading to an enterprise contract can reduce the cost.
+There is no limit to the number of blocks you can purchase in the Growth plan, however upgrading to an enterprise contract can reduce the cost.
 
 ### What happens if I exceed the number of Data Operations?
 
-In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
+In the Free plan, if you need more Data Operations you will need to upgrade to the Growth plan. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free plan. 
 
-In the Growth tier, if you need more than {{growthTierDataOperationsUnit}} Data Operations across your fleet of devices per month, you can add another block.
+In the Growth plan, if you need more than {{growthTierDataOperationsUnit}} Data Operations across your fleet of devices per month, you can add another block.
 
-In the Enterprise tier, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+In the Enterprise plan, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth plans.
 
 ### What happens if I exceed the cellular data quota?
 
-In the Free tier, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free tier.
+In the Free plan, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free plan.
 
-In the Growth tier, if you exceed the pooled monthly data quota, you can add an additional block to add more data.
+In the Growth plan, if you exceed the pooled monthly data quota, you can add an additional block to add more data.
 
-In the Enterprise tier, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+In the Enterprise plan, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Growth plans.
 
 ### What is the maximum rate I can send data?
 
@@ -143,4 +143,4 @@ There are no additional limits placed on webhooks. However, if the server you ar
 
 While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/cloud-apis/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
 
-See also [Migrating to Growth](/getting-started/billing/migrating-to-growth/) for more information about data operations in the growth tier.
+See also [Migrating to Growth](/getting-started/billing/migrating-to-growth/) for more information about data operations in the growth plan.

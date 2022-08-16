@@ -64,7 +64,7 @@ For cellular devices, SIM activation is necessary in order for the device to get
 ### How is this related to billing?
 
 {{note op="start" type="developer"}}
-For developer (non-product) devices, there's a limit of 100 devices in the developer sandbox in the Free Tier. The device ownership (who claimed it) determines which account this device counts toward the limit for.
+For developer (non-product) devices, there's a limit of 100 devices in the developer sandbox in the Free plan. The device ownership (who claimed it) determines which account this device counts toward the limit for.
 {{note op="end"}}
 
 {{note op="start" type="product"}}
@@ -72,7 +72,7 @@ For product devices, claiming is irrelevant. It's the total number of devices th
 {{note op="end"}}
 
 - Devices that are both claimed to an account **and** in a product, the device shows up in the developer sandbox device list but does not count toward the 100 device limit, except...
-- If the account has free tier products in it, every device in those product count against the 100 device limit, but may or may not show up in the sandbox device list.
+- If the account has free plan products in it, every device in those product count against the 100 device limit, but may or may not show up in the sandbox device list.
 
 ### How do I claim a device?
 

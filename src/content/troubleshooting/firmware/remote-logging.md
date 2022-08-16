@@ -43,7 +43,7 @@ The [remote logging](https://github.com/rickkas7/RemoteLogRK) library supports s
 
 It is possible to set up your own syslog server on a computer on your local network, but this note will concentrate on using it with a commercial service, [SolarWinds Papertrail](https://www.papertrail.com/). Papertrail has a nice web-based user interface, fast searching, and live tail for displaying logs as they are generated. 
 
-- If you are a hobbyist with a very small number of devices, you may be able to use the free tier (50 MB/month)
+- If you are a hobbyist with a very small number of devices, you may be able to use the free plan (50 MB/month)
 - If you are a hobbyist with a medium number of devices but with some money to spend, the 1 GB, 2 GB, or 4 GB plans are reasonable.
 - If you are a product developer and want to use this for beta test devices, it will likely be affordable.
 

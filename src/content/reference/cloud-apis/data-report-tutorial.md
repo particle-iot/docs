@@ -40,7 +40,7 @@ To use the interactive examples in this page, you must be logged into your Parti
 
 ### Sandbox or organization
 
-You can request a report for your free tier developer sandbox. 
+You can request a report for your free plan developer sandbox. 
 
 If you are a growth or enterprise organization administrator, you can also request a data operations report for your whole organization. The report covers devices all devices in all organization products, however a column in the report specifies which product the device belongs to so you can filter the report results easily in a spreadsheet.
 

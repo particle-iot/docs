@@ -4,4 +4,4 @@ Devices are grouped into three categories:
 - Wi-Fi deviecs
 - Tracker devices
 
-The specifics of how devices are counted varies between the free, growth, and enterprise tiers.
+The specifics of how devices are counted varies between the free, growth, and enterprise plans.

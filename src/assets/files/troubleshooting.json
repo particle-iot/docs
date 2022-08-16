@@ -1884,7 +1884,7 @@
             "buttons": [
                 {
                     "page": 199,
-                    "comment": "What are the pricing tiers?"
+                    "comment": "What are the pricing plans?"
                 },
                 {
                     "page": 200,
@@ -1916,8 +1916,8 @@
         },
         {
             "page": 199,
-            "title": "What are the pricing tiers?",
-            "note": "tiers.md",
+            "title": "What are the pricing plans?",
+            "note": "plans.md",
             "buttons": [
                 {
                     "page": 200,
@@ -1938,6 +1938,10 @@
                 {
                     "page": 205,
                     "comment": "How are devices counted in the enterprise plan?"
+                },
+                {
+                    "url": "https://www.particle.io/upgradetogrowth/",
+                    "title": "Visit upgrade to growth to begin the upgrade process"
                 }
             ],
             "paths": [
@@ -2208,7 +2212,7 @@
             "note": "at-free-plan-limit.md",
             "buttons": [
                 {
-                    "title": "Visit the migrating to growth guide",
+                    "title": "Visit the migrating to growth guide and FAQ",
                     "url": "/getting-started/billing/migrating-to-growth/"
                 },
                 {
@@ -2234,6 +2238,10 @@
                 {
                     "title": "Visit the guide for minimizing data operations",
                     "url": "/getting-started/billing/data-operations/#minimizing-data-operations"
+                },
+                {
+                    "url": "https://www.particle.io/upgradetogrowth/",
+                    "title": "Visit upgrade to growth to begin the upgrade process"
                 }
             ],
             "paths": [

@@ -45,7 +45,7 @@ When checked, the list will only include non-product devices claimed to your acc
 - **Total personal devices** is the number of non-product devices in your free developer sandbox.
 - **Total claimed product devices** is the total number of devices claimed to your account that are in a product.
 
-The 100-device limit in the free tier is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free tier products that you are the owner of. 
+The 100-device limit in the free plan is the total of the devices claimed to your account in the developer sandbox, plus all devices in any free plan products that you are the owner of. 
 {{!-- END shared-blurb --}}
 
 You can also take certain actions on devices from this view, such as
@@ -150,7 +150,7 @@ tutorial](/getting-started/integrations/google-cloud-platform/)
 
 The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
 
-All accounts have a personal sandbox on the free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the growth tier, this is in addition to devices included in your growth tier blocks.
+All accounts have a personal sandbox on the free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the growth plan, this is in addition to devices included in your growth plan blocks.
 
 From this page you can view the total number of devices and data operations consumed by your free sandbox devices.
 
@@ -160,7 +160,7 @@ For users who are Administrators of an organization, selecting the organization 
 
 ![Organization Billing](/assets/images/console/org-view.png)
 
-In the Growth and Enterprise tiers, usage is divided by the class of devices. For example: Wi-Fi and Cellular:
+In the Growth and Enterprise plans, usage is divided by the class of devices. For example: Wi-Fi and Cellular:
 
 ![Wi-Fi and Cellular Usage](/assets/images/console/wifi-cellular-usage.png)
 
@@ -199,11 +199,11 @@ In the free plan, once you reach the 100% limit you have three days to switch th
 
 In the growth plan, once you reach the 100% limit an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
 
-### Upgrading to the growth tier
+### Upgrading to the growth plan
 
-Following the [link from the emails](https://www.particle.io/upgradetogrowth/) or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to growth tier.
+Following the [link from the emails](https://www.particle.io/upgradetogrowth/) or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to growth plan.
 
-When you upgrade to the growth tier, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the growth tier apply monthly across all products of the same type in your organization. Some limits vary between cellular, Wi-Fi, and tracker products. 
+When you upgrade to the growth plan, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the growth plan apply monthly across all products of the same type in your organization. Some limits vary between cellular, Wi-Fi, and tracker products. 
 
 Additionally, all organization members still have a private sandbox in their account and can still have their own 100 free devices that do not count against your growth plan limits. 
 
@@ -667,11 +667,11 @@ The Logs page (<i class="icon-terminal"></i>) is also available to product creat
 
 ### Managing your billing
 
-To see all billing related information, you can click on the billing icon in the sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions. For more specifics about the pricing tiers and frequently asked questions, [go check out the Pricing page](https://www.particle.io/pricing).
+To see all billing related information, you can click on the billing icon in the sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions. For more specifics about the pricing plans and frequently asked questions, [go check out the Pricing page](https://www.particle.io/pricing).
 
 ### How billing works
 
-#### Free tier
+#### Free plan
 
 - Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
 - {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
@@ -684,11 +684,11 @@ For more information see [Device Cloud - Introduction - Pricing](/getting-starte
 <sup>1</sup> You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. Once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
 
-#### Free tier products
+#### Free plan products
 
-Products can be prototyped in the Free tier at no charge. However, there is a limit of {{freeTierDevices}} devices for Free tier products. 
+Products can be prototyped in the Free plan at no charge. However, there is a limit of {{freeTierDevices}} devices for Free plan products. 
 
-#### Growth tier
+#### Growth plan
 
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
@@ -696,11 +696,11 @@ Products can be prototyped in the Free tier at no charge. However, there is a li
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
 
-In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
+In the Growth plan, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
 
 You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations for your current number of blocks. Once you reach the 100% limit, an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
 
-In the Growth and Enterprise tiers, you will also have access to an **Organization**, which allows finer access control to multiple products. 
+In the Growth and Enterprise plans, you will also have access to an **Organization**, which allows finer access control to multiple products. 
 
 The number of devices is limited by the number of blocks you have purchased, 100 devices per block. You can purchase as many blocks as necessary to support number of devices you need.
 
@@ -718,7 +718,7 @@ If we attempt to charge your credit card and it fails, we do not immediately pre
 
 ## Organizations
 
-An organization makes it easy to manage multiple products with shared team members and billing. Organizations are available in the Growth and Enterprise tiers. 
+An organization makes it easy to manage multiple products with shared team members and billing. Organizations are available in the Growth and Enterprise plans. 
 
 If your account is a member of an organization, the **Sandbox** popup in the upper left corner of the Particle console lists the organizations you can select:
 
@@ -988,7 +988,7 @@ Typical settings in common scenarios:
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
-You can estimate the number of data operations you will consume using this calculator. For more information on the free tier, growth tier, blocks, and data operations, see [Pricing Tiers](/getting-started/cloud/introduction/#pricing).
+You can estimate the number of data operations you will consume using this calculator. For more information on the free plan, growth plan, blocks, and data operations, see [Pricing Plans](/getting-started/cloud/introduction/#pricing).
 
 {{> dataoperationscalc}}
 
@@ -1072,11 +1072,11 @@ There are multiple lists of devices and SIM card lists, and this section describ
 
 ### Devices - sandbox
 
-The devices list includes devices that are claimed to your account, that you are the owner of, in your free developer sandbox. These devices count against your free tier limit of 100 devices.
+The devices list includes devices that are claimed to your account, that you are the owner of, in your free developer sandbox. These devices count against your free plan limit of 100 devices.
 
 It also includes devices that are claimed to your account, that are part of a product (free, growth, or enterprise). Devices that are claimed to your account but are part of product do not count toward your free device limit.
 
-The exception is free tier products owned by you, in which case all devices, whether claimed by you or not, count toward the 100 device limit. Only devices claimed by you show up in this list; the others are only in the product device list but still count toward the limit.
+The exception is free plan products owned by you, in which case all devices, whether claimed by you or not, count toward the 100 device limit. Only devices claimed by you show up in this list; the others are only in the product device list but still count toward the limit.
 
 In the developer sandbox, non-product, there is no add devices button. The intended paths to add a device are:
 
@@ -1107,8 +1107,8 @@ In the developer sandbox, non-product, there is no import button. The intended p
 
 The products list in the sandbox shows:
 
-- Free tier products that you are the owner of
-- Free tier products that you are a team member of
+- Free plan products that you are the owner of
+- Free plan products that you are a team member of
 
 You can tell by the email address under the product description as this is the owner of the product (3). If you are the owner, all devices in that product count toward your 100 device limit.
 
@@ -1158,7 +1158,7 @@ The products list in the organization shows all products in the organization you
 
 It is also possible to invite team members to the product who are not part of the organization. For example, if you hire a outside contractor to work on a specific project you could grant developer access to only that product, not the whole organization.
 
-Organizations are used for both growth and enterprise tiers. An organization is a collection of products, shared team access controls, and shared billing that span across all products. This makes it much easier to manage multiple products. Every member of an organization also has a free sandbox associated with their account.
+Organizations are used for both growth and enterprise plans. An organization is a collection of products, shared team access controls, and shared billing that span across all products. This makes it much easier to manage multiple products. Every member of an organization also has a free sandbox associated with their account.
 
 ![Products - organization](/assets/images/console/org-products.png)
 

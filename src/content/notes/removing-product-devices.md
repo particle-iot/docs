@@ -1,4 +1,4 @@
-In order to stop a device from being counted in the free or growth tier, there are up to three steps required:
+In order to stop a device from being counted in the free or growth plan, there are up to three steps required:
 
 - If the device is claimed to a single account, you should unclaim the device from the console.
 - If the device is cellular, you should release the SIM.
@@ -15,7 +15,7 @@ At this point, the device will no longer be associated with your product, will n
 
 Q: Why do you need to unclaim the device?
 
-A: You don't technically have to, but if claimed to a single account, once the device is removed from a product it becomes a free tier device, of which there is a limit of 100 per user account. If you plan on releasing fewer than 100 devices temporarily, you may be able to skip this step.
+A: You don't technically have to, but if claimed to a single account, once the device is removed from a product it becomes a free plan device, of which there is a limit of 100 per user account. If you plan on releasing fewer than 100 devices temporarily, you may be able to skip this step.
 
 ---
 

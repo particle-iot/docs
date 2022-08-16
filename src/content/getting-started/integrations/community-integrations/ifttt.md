@@ -81,13 +81,13 @@ https://maker.ifttt.com/trigger/TestEvent/json/with/key/bCYXXXXXXXX_YfdXXXXXeV
 
 ## Monitor a variable
 
-This feature polled a variable on the device once a minute. We do not recommend using this option as it doesn’t scale well. Polling a variable will use 45,000 data operations per device per month. This will likely exceed the limits of the free tier with more than a few devices.
+This feature polled a variable on the device once a minute. We do not recommend using this option as it doesn’t scale well. Polling a variable will use 45,000 data operations per device per month. This will likely exceed the limits of the free plan with more than a few devices.
 
 Instead of polling a function, you should have your device publish an event to trigger an IFTTT applet via a webhook.
 
 ## Monitor a function result
 
-This feature call a function on a device once a minute. We do not recommend using this option as it doesn’t scale well. Polling a function will use 45,000 data operations per device per month. This will likely exceed the limits of the free tier with more than a few devices.
+This feature call a function on a device once a minute. We do not recommend using this option as it doesn’t scale well. Polling a function will use 45,000 data operations per device per month. This will likely exceed the limits of the free plan with more than a few devices.
 
 Instead of polling a function, you should have your device publish an event to trigger an IFTTT applet via a webhook.
 
