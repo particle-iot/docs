@@ -572,12 +572,14 @@ $(document).ready(function () {
 
             $(thisPartial).append(pageDivElem);
 
-            pageStack.push({
-                page: pageOptions.page,
-                pageObj,
-                pageDivElem,
-                statusVisible,
-            });
+            if (!pageOptions.noUpdateUrl) {
+                pageStack.push({
+                    page: pageOptions.page,
+                    pageObj,
+                    pageDivElem,
+                    statusVisible,
+                });    
+            }
 
             
             // Enable buttons on the new page
@@ -588,7 +590,9 @@ $(document).ready(function () {
             const pos = $(pageDivElem).position().top;
             $('.content-inner').scrollTop(pos);
             
-            updateUrl();
+            if (!pageOptions.noUpdateUrl) {
+                updateUrl();
+            }
 
             if (firstStepPage) {
                 showPage({page: firstStepPage});
@@ -626,28 +630,33 @@ $(document).ready(function () {
 
                 const pageListStr = urlParams.get('p');
                 if (pageListStr) {
-                    let loadPages = [];
+                    let loadPagesArray = [];
                     for(const p of pageListStr.split(',')) {
                         if (p != '') {
-                            loadPages.push(parseInt(p));
+                            loadPagesArray.push(parseInt(p));
                         }
                     }
 
-                    if (loadPages.length >= 1 && loadPages[0] == 100) {
+                    if (loadPagesArray.length >= 1 && loadPagesArray[0] == 100) {
                         // Was showing the need to login page, go to the default page instead
                         showDefaultPage = true;
                     }
                     else
-                    if (loadPages.length == 1) {
-                        let pageObj = troubleshootingJson.pages.find(e => e.page == loadPages[0]);
-                        if (pageObj.paths) {
+                    if (loadPagesArray.length == 1) {
+                        let pageObj = troubleshootingJson.pages.find(e => e.page == loadPagesArray[0]);
+                        if (pageObj && pageObj.paths) {
                             showDefaultPage = !loadPath(pageObj.paths[0]); 
+                        }
+                        else {
+                            pageObj = ticketForms.ticketForms.find(e => e.id == loadPagesArray[0]);
+                            // Is a ticket form
+                            showDefaultPage = !await showPage({page: loadPagesArray[0]}); 
                         }
                     }
                     else
-                    if (loadPages.length > 1 || loadPages[0] != 100) {
+                    if (loadPagesArray.length > 1 || loadPagesArray[0] != 100) {
                         // Not the no auth page
-                        showDefaultPage = !loadPath(loadPages); 
+                        showDefaultPage = !loadPath(loadPagesArray); 
                     }
                 }
 
@@ -657,7 +666,7 @@ $(document).ready(function () {
             }
             else {
                 // No token
-                await showPage({page: 100});
+                await showPage({page: 100, noUpdateUrl: true});
             }
     
         };
