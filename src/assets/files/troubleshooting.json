@@ -2054,6 +2054,10 @@
                     "comment": "I've hit the free plan limit, now what?"
                 },
                 {
+                    "page": 213,
+                    "comment": "What's the difference between free and growth products?"
+                },
+                {
                     "page": 212,
                     "comment": "I don't have a product yet, what do I do?"
                 },
@@ -2098,6 +2102,10 @@
                 {
                     "page": 211,
                     "title": "What happens when I exceed the block device threshold?"
+                },
+                {
+                    "page": 213,
+                    "comment": "What's the difference between free and growth products?"
                 },
                 {
                     "page": 207,
@@ -2208,6 +2216,10 @@
                     "url": "/getting-started/billing/migrating-to-growth/"
                 },
                 {
+                    "page": 213,
+                    "comment": "What's the difference between free and growth products?"
+                },
+                {
                     "page": 203,
                     "comment": "How are devices counted in the free plan?"
                 },
@@ -2290,6 +2302,24 @@
                     203,
                     209,
                     212
+                ]
+            ]
+        },
+        {
+            "page": 213,
+            "title": "What's the difference between free and growth products?",
+            "note": "free-vs-growth-product.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    209,
+                    213
                 ]
             ]
         }
