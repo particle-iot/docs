@@ -1928,10 +1928,6 @@
                     "comment": "What is a block?"
                 },
                 {
-                    "page": 202,
-                    "comment": "How are devices counted?"
-                },
-                {
                     "page": 203,
                     "comment": "How are devices counted in the free plan?"
                 },
@@ -2236,7 +2232,7 @@
                     "comment": "How do I remove devices from my product?"
                 },
                 {
-                    "title": "How do I reduce the number of data operations I am using?",
+                    "title": "Visit the guide for minimizing data operations",
                     "url": "/getting-started/billing/data-operations/#minimizing-data-operations"
                 }
             ],
