@@ -227,7 +227,7 @@ exports.metalsmith = function () {
       directory: '../templates/helpers'
     }))
     .use(planLimits({
-      config: '../config/planLimits.json'
+      config: '../src/assets/files/environment.json'
     }))
     .use(deviceOsApi({
       contentDir: '../src/content',

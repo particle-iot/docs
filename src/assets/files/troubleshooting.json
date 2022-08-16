@@ -45,6 +45,10 @@
                 {
                     "title": "I'd like to set up a device or devices",
                     "page": 154
+                },
+                {
+                    "page": 198,
+                    "comment": "Free, growth, and enterprise plan technical differences and limits"
                 }
             ]
         },
@@ -220,6 +224,15 @@
                     "title": "Upgrading was not necessary or did not help",
                     "page": 112
                 }
+            ],
+            "s": [
+                [
+                    101,
+                    108,
+                    109,
+                    110,
+                    111
+                ]
             ],
             "paths": [
                 [
@@ -1863,7 +1876,448 @@
                     "nextStep": true
                 }
             ]
+        },
+        {
+            "page": 198,
+            "title": "Free, growth, and enterprise plan technical differences, limits, and billing",
+            "note": "plan-first-page.md",
+            "buttons": [
+                {
+                    "page": 199,
+                    "comment": "What are the pricing tiers?"
+                },
+                {
+                    "page": 200,
+                    "comment": "What are the data operations?"
+                },
+                {
+                    "page": 201,
+                    "comment": "What is a block?"
+                },
+                {
+                    "page": 202,
+                    "comment": "How are devices counted?"
+                },
+                {
+                    "page": 208,
+                    "comment": "What is a product?"
+                },
+                {
+                    "page": 209,
+                    "comment": "I've hit the free plan limit, now what?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198
+                ]
+            ]
+        },
+        {
+            "page": 199,
+            "title": "What are the pricing tiers?",
+            "note": "tiers.md",
+            "buttons": [
+                {
+                    "page": 200,
+                    "comment": "What are the data operations?"
+                },
+                {
+                    "page": 201,
+                    "comment": "What is a block?"
+                },
+                {
+                    "page": 203,
+                    "comment": "How are devices counted in the free plan?"
+                },
+                {
+                    "page": 204,
+                    "comment": "How are devices counted in the growth plan?"
+                },
+                {
+                    "page": 205,
+                    "comment": "How are devices counted in the enterprise plan?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199
+                ]
+            ]
+        },
+        {
+            "page": 200,
+            "title": "What are data operations?",
+            "note": "data-operations.md",
+            "buttons": [
+                {
+                    "page": 201,
+                    "comment": "What is a block?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200
+                ]
+            ]
+        },
+        {
+            "page": 201,
+            "title": "What is a block?",
+            "note": "what-is-a-block.md",
+            "buttons": [
+                {
+                    "page": 202,
+                    "comment": "How are devices counted?"
+                },
+                {
+                    "page": 208,
+                    "comment": "What is a product?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201
+                ]
+            ]
+        },
+        {
+            "page": 202,
+            "title": "How are devices counted?",
+            "note": "device-count.md",
+            "buttons": [
+                {
+                    "page": 203,
+                    "comment": "How are devices counted in the free plan?"
+                },
+                {
+                    "page": 204,
+                    "comment": "How are devices counted in the growth plan?"
+                },
+                {
+                    "page": 205,
+                    "comment": "How are devices counted in the enterprise plan?"
+                },
+                {
+                    "page": 206,
+                    "comment": "What's the difference between claiming and product membership?"
+                },
+                {
+                    "page": 208,
+                    "comment": "What is a product?"
+                },
+                {
+                    "page": 212,
+                    "comment": "I don't have a product yet, what do I do?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202
+                ]
+            ]
+        },
+        {
+            "page": 203,
+            "title": "How are devices counted in the free plan?",
+            "note": "device-count-free.md",
+            "buttons": [
+                {
+                    "page": 206,
+                    "comment": "What's the difference between claiming and product membership?"
+                },
+                {
+                    "page": 208,
+                    "comment": "What is a product?"
+                },
+                {
+                    "page": 209,
+                    "comment": "I've hit the free plan limit, now what?"
+                },
+                {
+                    "page": 213,
+                    "comment": "What's the difference between free and growth products?"
+                },
+                {
+                    "page": 212,
+                    "comment": "I don't have a product yet, what do I do?"
+                },
+                {
+                    "page": 207,
+                    "comment": "How do I remove devices from my product?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203
+                ]
+            ]
+        },
+        {
+            "page": 204,
+            "title": "How are devices counted in the growth plan?",
+            "note": "device-count-growth.md",
+            "buttons": [
+                {
+                    "page": 206,
+                    "comment": "What's the difference between claiming and product membership?"
+                },
+                {
+                    "page": 208,
+                    "comment": "What is a product?"
+                },
+                {
+                    "page": 210,
+                    "comment": "What is an organization?"
+                },
+                {
+                    "page": 201,
+                    "comment": "What is a block?"
+                },
+                {
+                    "page": 211,
+                    "title": "What happens when I exceed the block device threshold?"
+                },
+                {
+                    "page": 213,
+                    "comment": "What's the difference between free and growth products?"
+                },
+                {
+                    "page": 207,
+                    "comment": "How do I remove devices from my product?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    204
+                ]
+            ]
+        },
+        {
+            "page": 205,
+            "title": "How are devices counted in the enterprise plan?",
+            "note": "device-count-enterprise.md",
+            "buttons": [
+                {
+                    "page": 206,
+                    "comment": "What's the difference between claiming and product membership?"
+                },
+                {
+                    "page": 208,
+                    "comment": "What is a product?"
+                },
+                {
+                    "page": 207,
+                    "comment": "How do I remove devices from my product?"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    205
+                ]
+            ]
+        },
+        {
+            "page": 206,
+            "title": "What's the difference between claiming and product membership?",
+            "note": "claim-vs-product.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    206
+                ]
+            ]
+        },
+        {
+            "page": 207,
+            "title": "How do I remove devices from my product?",
+            "note": "removing-product-devices.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    209,
+                    207
+                ]
+            ]
+        },
+        {
+            "page": 208,
+            "title": "What is a product?",
+            "note": "what-is-a-product.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    208
+                ]
+            ]
+        },
+        {
+            "page": 209,
+            "title": "I've hit the free plan limit, now what?",
+            "note": "at-free-plan-limit.md",
+            "buttons": [
+                {
+                    "title": "Visit the migrating to growth guide",
+                    "url": "/getting-started/billing/migrating-to-growth/"
+                },
+                {
+                    "page": 213,
+                    "comment": "What's the difference between free and growth products?"
+                },
+                {
+                    "page": 203,
+                    "comment": "How are devices counted in the free plan?"
+                },
+                {
+                    "page": 206,
+                    "comment": "What's the difference between claiming and product membership?"
+                },
+                {
+                    "page": 212,
+                    "comment": "I don't have a product yet, what do I do?"
+                },
+                {
+                    "page": 207,
+                    "comment": "How do I remove devices from my product?"
+                },
+                {
+                    "title": "Visit the guide for minimizing data operations",
+                    "url": "/getting-started/billing/data-operations/#minimizing-data-operations"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    209
+                ]
+            ]
+        },
+        {
+            "page": 210,
+            "title": "What is an organization?",
+            "note": "what-is-an-organization.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    204,
+                    210
+                ]
+            ]
+        },
+        {
+            "page": 211,
+            "title": "Adding a block",
+            "note": "adding-blocks.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    204,
+                    211
+                ]
+            ]
+        },
+        {
+            "page": 212,
+            "title": "I don't have a product yet, what do I do?",
+            "note": "no-product-yet.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    209,
+                    212
+                ]
+            ]
+        },
+        {
+            "page": 213,
+            "title": "What's the difference between free and growth products?",
+            "note": "free-vs-growth-product.md",
+            "paths": [
+                [
+                    101,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    209,
+                    213
+                ]
+            ]
         }
-    ],
-    "environment": {}
+    ]
 }

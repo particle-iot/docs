@@ -24,6 +24,11 @@ function verifyTroubleshooting(options) {
         }
         // console.log('crawl ' + page, pagePath);
 
+        // Make sure we don't loop
+        if (pagePath.includes(page)) {
+            return;
+        }
+
         const newPagePath = pagePath.concat([page]);
 
         if (p.ticketForm) {
@@ -59,10 +64,18 @@ function verifyTroubleshooting(options) {
         
         if (p.note) {
             // console.log('note ' + p.note, newPagePath);
+            // This is the old way, were we save every path
+            /*
             if (!p.paths) {
                 p.paths = [];
             }
             p.paths.push(newPagePath);
+            */
+            // We now only save the first path, because that's the one we use when loading, and with redundant paths 
+            // the number of paths in the file was getting excessive
+            if (!p.paths) {
+                p.paths = [newPagePath];
+            }
         }
     }   
 
