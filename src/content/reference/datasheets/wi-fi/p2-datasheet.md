@@ -640,6 +640,8 @@ The P2 is not certified for use as a wearable device.
 
 The FCC, IC, and CE certifications are radio module certifications only. Additional certification will be required for your completed system.
 
+### United States (FCC)
+
 **Federal Communication Commission Interference Statement**
 This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
 
@@ -670,6 +672,8 @@ The OEM integrator has to be aware not to provide information to the end user re
 
 ---
 
+### Canada (IC)
+
 **Canada Statement**
 This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
 
@@ -696,7 +700,19 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 
+### European Union (CE)
 
+We, Particle Industries,Inc, declare under our sole responsibility that the product, P2, to which this declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the followingInternet address: 
+[https://www.particle.io/](https://www.particle.io/)
+
+Radiation Exposure Statement: This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+- BLE 2402-2480MHz 10dBm
+- WiFi 2.4GHz band 2412-2484MHz 20dBm
+- WiFi 5GHz band 5180-5825MHz 23dBm
 
 ## Revision history
 
@@ -718,6 +734,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-07-22 | RK | Added power consumption |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
+|     | 2022-08-18 | RK | EU certification statement |
 
 ### D Pin Change (2022-02-25)
 
