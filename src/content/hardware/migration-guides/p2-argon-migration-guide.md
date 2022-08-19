@@ -201,7 +201,7 @@ The Boron uses a full PMIC (bq24195) and fuel gauge (MAX17043). By including the
 
 The Argon has the EN pin which can shut down the Torex XC9258 3.3V regulator to power down the 3.3V supply to the Argon nRF52840 MCU and the ESP32 Wi-Fi coprocessor.
 
-This feature does not exist on the P2, however you could add equivalent circuitry on your base board. This could either be a regulator with power control like the Argon, or an external load switch like the Boron (Torex XC8107). The specific load switch is not important, as long as it meets the requirements of the nRF52840 MCU.
+This feature does not exist on the P2, however you could add equivalent circuitry on your base board. This could either be a regulator with power control like the Argon, or an external load switch like the Boron (Torex XC8107). The specific load switch is not important, as long as it meets the power requirements of the MCU and any additional peripherals on 3V3.
 
 
 ### Pins A3, A4, and DAC (A6)
