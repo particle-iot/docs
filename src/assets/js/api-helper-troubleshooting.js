@@ -102,18 +102,25 @@ $(document).ready(function () {
 
                 for(const field of fields) {
                     if (field.fieldSpecObj.required) {
-                        if (field.valElem) {
-                            const v = $(field.valElem).val();
-                            if (Array.isArray(v)) {
-                                if (v.length == 0 || v[0] == '-') {
+                        if (field.valElem && $(field.valElem).is(':visible')) {                            
+                            if (field.fieldSpecObj.type == 'checkbox') {
+                                if (!$(field.valElem).prop('checked')) {
                                     isValid = false;
-                                    break;    
                                 }
                             }
-                            else
-                            if (v.trim() == '') {
-                                isValid = false;
-                                break;
+                            else {
+                                const v = $(field.valElem).val();
+                                if (Array.isArray(v)) {
+                                    if (v.length == 0 || v[0] == '-') {
+                                        isValid = false;
+                                        break;    
+                                    }
+                                }
+                                else
+                                if (v.trim() == '') {
+                                    isValid = false;
+                                    break;
+                                }    
                             }
                         }
                     }
@@ -121,7 +128,6 @@ $(document).ready(function () {
                 if (!conditionSelected) {
                     isValid = false;
                 }
-
                 $(submitButton).prop('disabled', !isValid);
             };
 
@@ -168,79 +174,96 @@ $(document).ready(function () {
     
                 let valElem;
 
-                if (fieldSpecObj.title) {
-                    const titleElem = document.createElement('div');
-                    $(titleElem).text(fieldSpecObj.title);
-                    $(fieldDivElem).append(titleElem);    
-                }
-    
                 const entryElem = document.createElement('div');
                 $(entryElem).addClass('apiHelperTroubleshootingInput');
-                if (fieldSpecObj.type == 'text' || fieldSpecObj.type == 'integer') {
-                    const inputElem = valElem= document.createElement('input');
-                    $(inputElem).attr('type', 'text');
-                    $(inputElem).attr('size', '60');
-                    $(entryElem).append(inputElem);
 
-                    if (fieldSpecObj.value) {
-                        $(inputElem).val(fieldSpecObj.value);
-                        $(inputElem).prop('readonly', true);
-                    }
+                if (fieldSpecObj.type == 'checkbox') {
+                    const labelElem = document.createElement('label');
 
-                    $(inputElem).on('input', validateForm);
+                    const inputElem = valElem = document.createElement('input');
+                    $(inputElem).attr('type', 'checkbox');
+
+                    $(labelElem).append(inputElem);
+                    $(labelElem).append(document.createTextNode(fieldSpecObj.title));
+
+                    $(entryElem).append(labelElem);
+
+                    $(inputElem).on('click', validateForm);
                 }
-                else
-                if (fieldSpecObj.type == 'textarea') {
-                    const textareaElem = valElem = document.createElement('textarea');
-                    $(textareaElem).attr('rows', '10');
-                    $(textareaElem).attr('cols', '100');
-                    $(entryElem).append(textareaElem);
-
-                    $(textareaElem).on('input', validateForm);
-                }
-                else
-                if (fieldSpecObj.type == 'tagger' || fieldSpecObj.type == 'multiselect') {
-                    const selectElem = valElem = document.createElement('select');
-                    if (fieldSpecObj.type == 'multiselect') {
-                        $(selectElem).attr('multiple', true);
-                        $(selectElem).addClass('apiHelperSelectMultiple');
+                else {
+                    if (fieldSpecObj.title) {
+                        const titleElem = document.createElement('div');
+                        $(titleElem).text(fieldSpecObj.title);
+                        $(fieldDivElem).append(titleElem);    
                     }
-                    else {
-                        $(selectElem).addClass('apiHelperSelect');
-                    }
-
-                    let hasDefault = false;
-                    for(f of fieldSpecObj.customFields) {
-                        if (f.default) {
-                            hasDefault = true;
+        
+                    if (fieldSpecObj.type == 'text' || fieldSpecObj.type == 'integer') {
+                        const inputElem = valElem= document.createElement('input');
+                        $(inputElem).attr('type', 'text');
+                        $(inputElem).attr('size', '60');
+                        $(entryElem).append(inputElem);
+    
+                        if (fieldSpecObj.value) {
+                            $(inputElem).val(fieldSpecObj.value);
+                            $(inputElem).prop('readonly', true);
                         }
+    
+                        $(inputElem).on('input', validateForm);
                     }
-                    if (!hasDefault) {
-                        const optionElem = document.createElement('option');
-                        $(optionElem).text('-');
-                        $(optionElem).prop('value', '-')
-                        $(optionElem).prop('selected', true);
-
-                        $(selectElem).append(optionElem);
+                    else
+                    if (fieldSpecObj.type == 'textarea') {
+                        const textareaElem = valElem = document.createElement('textarea');
+                        $(textareaElem).attr('rows', '10');
+                        $(textareaElem).attr('cols', '100');
+                        $(entryElem).append(textareaElem);
+    
+                        $(textareaElem).on('input', validateForm);
                     }
-
-                    for(f of fieldSpecObj.customFields) {
-                        const optionElem = document.createElement('option');
-                        $(optionElem).text(f.name);
-                        $(optionElem).prop('value', f.value)
-                        // $(optionElem).data('valueId', f.id);
-
-                        $(selectElem).append(optionElem);
+                    else
+                    if (fieldSpecObj.type == 'tagger' || fieldSpecObj.type == 'multiselect') {
+                        const selectElem = valElem = document.createElement('select');
+                        if (fieldSpecObj.type == 'multiselect') {
+                            $(selectElem).attr('multiple', true);
+                            $(selectElem).addClass('apiHelperSelectMultiple');
+                        }
+                        else {
+                            $(selectElem).addClass('apiHelperSelect');
+                        }
+    
+                        let hasDefault = false;
+                        for(f of fieldSpecObj.customFields) {
+                            if (f.default) {
+                                hasDefault = true;
+                            }
+                        }
+                        if (!hasDefault) {
+                            const optionElem = document.createElement('option');
+                            $(optionElem).text('-');
+                            $(optionElem).prop('value', '-')
+                            $(optionElem).prop('selected', true);
+    
+                            $(selectElem).append(optionElem);
+                        }
+    
+                        for(f of fieldSpecObj.customFields) {
+                            const optionElem = document.createElement('option');
+                            $(optionElem).text(f.name);
+                            $(optionElem).prop('value', f.value)
+                            // $(optionElem).data('valueId', f.id);
+    
+                            $(selectElem).append(optionElem);
+                        }
+    
+                        $(entryElem).append(selectElem);
+    
+                        $(selectElem).on('change', function() {
+                            updateConditions();
+                        });
+    
                     }
-
-                    $(entryElem).append(selectElem);
-
-                    $(selectElem).on('change', function() {
-                        updateConditions();
-                    });
-
                 }
                 $(fieldDivElem).append(entryElem);
+
                 
                 if (fieldSpecObj.description) {
                     const descriptionElem = document.createElement('div');
