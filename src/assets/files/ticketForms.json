@@ -1617,7 +1617,7 @@
             "id": 1500000019501,
             "type": "checkbox",
             "title": "My Question is Not Resolved by the \"How Can I Transfer My Device to Another Account?\" Support Article",
-            "description": "(see support.particle.io)",
+            "description": "(see https://docs.particle.io/troubleshooting/guides/device-management/how-can-i-transfer-my-device-to-another-user/)",
             "required": false
         },
         {
