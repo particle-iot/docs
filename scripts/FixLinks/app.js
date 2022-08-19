@@ -134,7 +134,7 @@ function processTroubleshooting() {
     const orig = fs.readFileSync(troubleshootingFile, 'utf8');
     let json = JSON.parse(orig);
     // console.log('json', json);
-    for(let page of json) {
+    for(let page of json.pages) {
         if (page.buttons) {
             for(let button of page.buttons) {
                 if (button.url && button.url.startsWith('/')) {

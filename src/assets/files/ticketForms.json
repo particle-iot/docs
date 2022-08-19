@@ -199,7 +199,7 @@
             "id": 360056120073,
             "type": "checkbox",
             "title": "The \"Device Blinking Dark Blue\" Support Article Does Not Resolve My Issue",
-            "description": "See: https://support.particle.io/hc/articles/360049403474/.",
+            "description": "See: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/device-blinking-dark-blue/.",
             "required": true
         },
         {
@@ -1262,8 +1262,8 @@
         {
             "id": 1500000019481,
             "type": "checkbox",
-            "title": "My Question is Not Resolved by the \"What Cellular Carriers Are Available In My Region\" Support Article",
-            "description": "(see: https://support.particle.io/hc/articles/1500000013382/)",
+            "title": "My Question is not resolved by the cellular carrier reference guide",
+            "description": "(see: https://docs.particle.io/reference/cellular/cellular-carriers/)",
             "required": false
         },
         {
@@ -3369,7 +3369,7 @@
             "id": 360056141433,
             "type": "tagger",
             "title": "The \"Device Blinking Dark Blue\" Support Article Does Not Resolve My Issue",
-            "description": "See: https://support.particle.io/hc/articles/360049403474/.",
+            "description": "See: https://docs.particle.io/troubleshooting/guides/device-troubleshooting/device-blinking-dark-blue/.",
             "required": true,
             "customFields": [
                 {
