@@ -18,7 +18,7 @@
             "id": 57812267,
             "type": "text",
             "title": "Serial Number",
-            "description": "You can find a device's serial number by following the instructions here: https://support.particle.io/hc/en-us/articles/360045422954, or by checking the Console if the device has come online. Serial numbers are different from Device ID and look like this: \"E42TAB852123456\" or \"B40KAB851123456\".",
+            "description": "Serial numbers are different from Device ID and look like this: \"E42TAB852123456\" or \"B40KAB851123456\".",
             "required": true
         },
         {
@@ -1522,7 +1522,7 @@
             "id": 1260816571170,
             "type": "checkbox",
             "title": "Cellular Location Documentation",
-            "description": "Have you referred to our Cellular Compatibility Docs (https://support.particle.io/hc/en-us/articles/1500000013382)?",
+            "description": "Have you referred to our cellular troubleshooting guide https://docs.particle.io/troubleshooting/guides/connectivity-troubleshooting/cellular-connectivity-troubleshooting-guide/ ?",
             "required": true
         },
         {
@@ -1610,7 +1610,7 @@
             "id": 360056043053,
             "type": "textarea",
             "title": "Device ID(s)",
-            "description": "Please list any and all relevant Device IDs. Please see the \"How Do I find My Device ID\" article in our Support Portal if you need help finding your IDs (https://support.particle.io/hc/en-us/articles/360045422954). If no devices are involved and this is a more general question, select another category or enter \"N/A.\"",
+            "description": "Please list any and all relevant Device IDs. Please see the \"How Do I find My Device ID\" article in our Support Portal if you need help finding your IDs (https://docs.particle.io/troubleshooting/guides/device-management/finding-your-device-id/). If no devices are involved and this is a more general question, select another category or enter \"N/A.\"",
             "required": true
         },
         {
@@ -1785,7 +1785,7 @@
             "id": 360026982714,
             "type": "textarea",
             "title": "ICCID(s)",
-            "description": "An ICCID is a 19-20 digit number beginning with 8. The ICCID identifies your SIM card(s). You can find this information by following the same steps as here: https://support.particle.io/hc/en-us/articles/360045422954 (which will print both Device ID and ICCID). Your ICCID should also be visible in the Console under https://console.particle.io/sims (or in the SIM page of one of your Products).",
+            "description": "An ICCID is a 19-20 digit number beginning with 8. The ICCID identifies your SIM card(s). Your ICCID should be visible in the Console under https://console.particle.io/sims (or in the SIM page of one of your Products).",
             "required": true
         },
         {
@@ -2915,7 +2915,7 @@
             "id": 360056039773,
             "type": "multiselect",
             "title": "Device OS Version",
-            "description": "Please see our \"How to Find My Device's Device OS Version\" Article in our Support Portal: https://support.particle.io/hc/en-us/articles/360060344473.",
+            "description": "",
             "required": true,
             "customFields": [
                 {
@@ -3157,7 +3157,7 @@
             "id": 360055104874,
             "type": "textarea",
             "title": "Are You Able to Source Debug Logs From Your Tracker?",
-            "description": "You can follow the instructions here to source debug logs from your Tracker: https://github.com/particle-iot/cloud-debug. Alternatively, you can follow the instructions here (as debug logs may already be configured for this device):  https://support.particle.io/hc/en-us/articles/360058524014. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time. PLEASE NOTE: if your ticket does not submit, it may be because you've gone over the character limit. Trim your logs down to relevant errors and try again.",
+            "description": "You can follow the instructions here to source debug logs from your Tracker: https://github.com/particle-iot/cloud-debug. Providing at least 10 minutes of logs with your ticket will substantially reduce ticket resolution time. PLEASE NOTE: if your ticket does not submit, it may be because you've gone over the character limit. Trim your logs down to relevant errors and try again.",
             "required": false
         },
         {
@@ -3293,7 +3293,7 @@
             "id": 360055034734,
             "type": "text",
             "title": "Last Four Digits and Expiration Date of CC",
-            "description": "This is for authentication reasons. (Write \"N/A\" if there is no Credit Card for this account, but please see the following article for information you will have to provide in order to be unblocked: https://support.particle.io/hc/en-us/articles/360045935173).",
+            "description": "This is for authentication reasons. (Write \"N/A\" if there is no Credit Card for this account, but please see the following article for information you will have to provide in order to be unblocked: https://docs.particle.io/troubleshooting/faqs/general-knowledge/what-should-i-do-if-im-locked-out-via-2fa/).",
             "required": true
         },
         {
@@ -3664,7 +3664,7 @@
             "id": 360055073414,
             "type": "checkbox",
             "title": "My Question is Not Resolved by the \"Understanding My Data Consumption\" Support Article",
-            "description": "(see this guide on data consumption: https://support.particle.io/hc/en-us/articles/360060344013, and this guide on data limits: https://support.particle.io/hc/en-us/articles/360044033874 (in case it's relevant to your issue).",
+            "description": "(see this guide on data consumption: https://docs.particle.io/getting-started/billing/cellular-data/).",
             "required": false
         },
         {
@@ -3890,7 +3890,7 @@
             "id": 360056084113,
             "type": "text",
             "title": "Serial Number(s)",
-            "description": "You can find a device's serial number by following the instructions here: https://support.particle.io/hc/en-us/articles/360045422954, or by checking the Console if the device has come online. Serial numbers are different from Device ID and look like this: \"E42TAB852123456\" or \"B40KAB851123456\".",
+            "description": "You can find a device's serial number by checking the Console if the device has come online. Serial numbers are different from Device ID and look like this: \"E42TAB852123456\" or \"B40KAB851123456\".",
             "required": true
         },
         {
