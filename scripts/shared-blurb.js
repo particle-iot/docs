@@ -131,11 +131,10 @@ module.exports = function(options) {
             }
 
             if (Object.keys(hashCounts).length == 1) {
-                console.log('blurb ' + blurbId + ' is changed in multiple files but all to the same hash, keeping all changes');
+                console.log('blurb ' + blurbId + ' is changed, updating all locations');
                 for(const loc of blurbInfo[blurbId].locations) {
                     if (loc.isChanged) {
                         blurbConfig.blurbs[blurbId].hash = loc.hash;
-                        loc.isChanged = false;
                     }
                 }
             }
