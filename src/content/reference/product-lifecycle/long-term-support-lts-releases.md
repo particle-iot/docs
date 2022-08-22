@@ -43,16 +43,51 @@ LTS versions have an even-numbered major version (2.x, 4.x, ...).
 
 ## When should I use a developer preview release?
 
-In some cases, a new product is released out of cadence with a LTS version. Two examples are:
+In some cases, a new product is released out of cadence with a LTS version. The Tracker requires 3.x, however once 4.0.0 LTS is released, it will be able to use that LTS version.
 
-- Tracker, which requires 3.x for most features
-- P2 and Photon 2, which will require 5.x
+Another example is the P2 and Photon 2, which will require 5.x until 6.0.0 LTS comes out, probably in late 2023.
 
 The reason is that adding a new platform is considered to be a feature, so it cannot be added to an existing LTS release. 
 
 In some cases you will need a new feature before it's included in a LTS release. For example, 256K firmware binaries for Gen 3 devices were added in 3.1.0, and some customers needed this feature right away as they were already at the size limit.
 
 Developer preview releases have an odd major version (3.x, 5.x, ...). These were sometimes referred to as feature releases.
+
+{{!-- BEGIN shared-blurb d07841d1-c7b6-4d06-b89d-f906d454d2b7 --}}
+## Recommended LTS versions
+
+| Platform | Models | Current LTS | Test With | Eventual LTS |
+| :--- | :--- | :--- | :--- | :--- | 
+| B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
+| B Series SoM | B404, B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
+| Boron | BRN404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+
+### Devices that must stay on 2.x LTS
+
+| Platform | Models | Current LTS |
+| :--- | :--- | :--- |
+| E Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} |
+| Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} |
+| P1 | | {{version mode="latestRelease" line="2"}} |
+| Photon | | {{version mode="latestRelease" line="2"}} |
+
+### Devices that will be able to use LTS soon
+
+| Platform | Models | Current Version | Test With | Eventual LTS |
+| :--- | :--- | :--- | :--- | :--- | 
+| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+
+### Devices that cannot use LTS yet
+
+| Platform | Current Version |
+| :--- | :--- |
+| P2 | {{version mode="latestRelease" line="5"}} |
+
+{{!-- END shared-blurb --}}
 
 ## LTS release cadence and support policy
 
@@ -91,11 +126,11 @@ Both LTS and regular release may include one or more of the following stages:
 
 ## What happens when a LTS version goes into ESM?
 
-For example: Device OS 2.3.0 is the current LTS release. This will be the ESM release for customers who wish to remain on 2.x LTS. 
+For example: Device OS {{version mode="latestRelease" line="2"}} is the current LTS release. This will be the ESM release for customers who wish to remain on 2.x LTS. 
 
 If you are using a Gen 2 device (E Series, Electron, P1, or Photon), these platforms were removed from 4.x and 5.x, and you should stay on 2.x LTS.
 
-The new LTS (4.x) and feature (5.x) releases are based on the latest developer preview release (3.3.0), so there will be changes from the 2.x release line. You should still upgrade to the latest LTS, but you should always test your firmware thoroughly on a major version upgrade.
+The new LTS (4.x) and developer preview (5.x) releases are based on the latest developer preview release (3.3.0), so there will be changes from the 2.x release line. You should still upgrade to the latest LTS, but you should always test your firmware thoroughly on a major version upgrade.
 
 While 4.x and 5.x started from the same place, the 5.0.0-alpha.1 release adds in support for the P2 platform.
 
