@@ -97,11 +97,13 @@ module.exports = {
             const origJsonStr = fs.readFileSync(jsonPath, 'utf8');
 
             let troubleshootingJson = JSON.parse(origJsonStr);
+            const redirectsJson = JSON.parse(fs.readFileSync(metalsmith.path(path.join(options.sourceDir, options.redirectsFile)), 'utf8'));
+            const ticketFormsJson = JSON.parse(fs.readFileSync(metalsmith.path(path.join(options.sourceDir, options.ticketFormsFile)), 'utf8'));
 
             verifyTroubleshooting({
                 troubleshootingJson,
-                redirectsJson: JSON.parse(fs.readFileSync(metalsmith.path(path.join(options.sourceDir, options.redirectsFile)), 'utf8')),
-                ticketFormsJson: JSON.parse(fs.readFileSync(metalsmith.path(path.join(options.sourceDir, options.ticketFormsFile)), 'utf8'))
+                redirectsJson,
+                ticketFormsJson
             });
 
             const newJsonStr = JSON.stringify(troubleshootingJson, null, 4);
@@ -117,6 +119,27 @@ module.exports = {
                 };
         
             }
+
+            // Generate export of pages
+            if (options.pagesCsv) {
+                const pagesCsvPath = metalsmith.path(path.join(options.sourceDir, options.pagesCsv));
+                let pagesCsv = '';
+
+                for(const pageObj of troubleshootingJson.pages) {
+                    if (pageObj['title-hidden']) {
+                        pagesCsv += pageObj.page + '\t' + pageObj['title-hidden'] + '\n';
+                    }
+                    else {
+                        pagesCsv += pageObj.page + '\t' + pageObj.title + '\n';
+                    }
+                }
+                for(const ticketFormObj of ticketFormsJson.ticketForms) {
+                    pagesCsv += ticketFormObj.id + '\t' + ticketFormObj.title + '\n';
+                }
+
+                fs.writeFileSync(pagesCsvPath, pagesCsv);
+            }
+
 
             done();
         }

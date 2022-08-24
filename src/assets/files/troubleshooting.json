@@ -2,6 +2,7 @@
     "pages": [
         {
             "page": 100,
+            "title-hidden": "Log in",
             "description": "You must log into your Particle account to use the Support & Troubleshooting tool.",
             "buttons": [
                 {
@@ -32,6 +33,7 @@
         },
         {
             "page": 101,
+            "title-hidden": "Home",
             "description": "What kind of question do you have?",
             "buttons": [
                 {
@@ -151,6 +153,10 @@
                     "title": "Connectivity questions",
                     "page": 127,
                     "detail": "Also SIM activation, and technical details about what activities are billable."
+                },
+                {
+                    "page": 214,
+                    "comment": "Flashing code to my device did not behave as expected"
                 },
                 {
                     "title": "Developer tool questions",
@@ -2326,6 +2332,52 @@
                     213
                 ]
             ]
+        },
+        {
+            "page": 214,
+            "title": "Flashing code to my device did not behave as expected",
+            "buttons": [
+                {
+                    "page": 215,
+                    "comment": "The old code continues to run after flashing new code"
+                },
+                {
+                    "page": 216,
+                    "comment": "The device blinks magenta (red and blue at the same time)"
+                },
+                {
+                    "page": 217,
+                    "comment": "I get a permission denied error after flashing code"
+                },
+                {
+                    "page": 218,
+                    "comment": "I get a timeout error after flashing code"
+                },
+                {
+                    "page": 219,
+                    "comment": "I'm using manual mode but the device tries to connect to the cloud"
+                }
+            ]
+        },
+        {
+            "page": 215,
+            "title": "The old code continues to run after flashing new code"
+        },
+        {
+            "page": 216,
+            "title": "The device blinks magenta (red and blue at the same time)"
+        },
+        {
+            "page": 217,
+            "title": "I get a permission denied error after flashing code"
+        },
+        {
+            "page": 218,
+            "title": "I get a timeout error after flashing code"
+        },
+        {
+            "page": 219,
+            "title": "I'm using manual mode but the device tries to connect to the cloud"
         }
     ]
 }

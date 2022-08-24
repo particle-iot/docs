@@ -151,7 +151,8 @@ exports.metalsmith = function () {
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',
         redirectsFile: '../config/redirects.json',
-        ticketFormsFile: 'assets/files/ticketForms.json'
+        ticketFormsFile: 'assets/files/ticketForms.json',
+        pagesCsv: '../config/troubleshootingPages.csv',
       })))
         // Minify CSS
     .use(cleanCSS({
