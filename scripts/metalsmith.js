@@ -145,15 +145,13 @@ exports.metalsmith = function () {
               pinInfo: path.normalize(path.join(__dirname, '..', 'src', 'assets', 'files', 'pinInfo.json')),
             });
         }))
-    .use(msIf(
-      environment === 'development',
-      troubleshooting({
+    .use(troubleshooting({
         sourceDir: '../src',
         jsonFile: 'assets/files/troubleshooting.json',
         redirectsFile: '../config/redirects.json',
         ticketFormsFile: 'assets/files/ticketForms.json',
         pagesCsv: '../config/troubleshootingPages.csv',
-      })))
+      }))
         // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
