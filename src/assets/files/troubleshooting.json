@@ -2338,17 +2338,18 @@
             "title": "Flashing code to my device did not behave as expected",
             "buttons": [
                 {
-                    "page": 215,
-                    "comment": "My old code continues to run after flashing new code"
-                },
-                {
                     "page": 217,
                     "comment": "I get a permission denied error after flashing code"
                 },
                 {
                     "page": 135,
                     "title": "The device blinks magenta (red and blue at the same time)",
+                    "detail": "This is the normal, expected behavior.",
                     "comment": "Safe mode (blinking magenta)"
+                },
+                {
+                    "page": 215,
+                    "comment": "My old code continues to run after flashing new code"
                 },
                 {
                     "page": 219,
