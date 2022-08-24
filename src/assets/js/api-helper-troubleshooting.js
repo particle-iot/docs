@@ -13,6 +13,8 @@ $(document).ready(function () {
 
         const baseTitle = document.title;
 
+        const startPage = $(thisPartial).data('page') ? parseInt($(thisPartial).data('page')) : undefined;
+
         // Content loaded at runtime
         let ticketForms;
         let troubleshootingJson;
@@ -650,7 +652,7 @@ $(document).ready(function () {
             ticketForms = await formsFetch.json();
             environmentJson = await environmentFetch.json();
 
-            if (apiHelper.auth) {
+            if (apiHelper.auth || startPage) {
                 // Have a token, verify it
                 let showDefaultPage = true;
 
@@ -687,7 +689,7 @@ $(document).ready(function () {
                 }
 
                 if (showDefaultPage) {
-                    await showPage({page: 101});
+                    await showPage({page: (startPage ? startPage : 101)});
                 }
             }
             else {

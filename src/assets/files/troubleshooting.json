@@ -2,6 +2,7 @@
     "pages": [
         {
             "page": 100,
+            "title-hidden": "Log in",
             "description": "You must log into your Particle account to use the Support & Troubleshooting tool.",
             "buttons": [
                 {
@@ -32,6 +33,7 @@
         },
         {
             "page": 101,
+            "title-hidden": "Home",
             "description": "What kind of question do you have?",
             "buttons": [
                 {
@@ -151,6 +153,10 @@
                     "title": "Connectivity questions",
                     "page": 127,
                     "detail": "Also SIM activation, and technical details about what activities are billable."
+                },
+                {
+                    "page": 214,
+                    "comment": "Flashing code to my device did not behave as expected"
                 },
                 {
                     "title": "Developer tool questions",
@@ -2324,6 +2330,83 @@
                     203,
                     209,
                     213
+                ]
+            ]
+        },
+        {
+            "page": 214,
+            "title": "Flashing code to my device did not behave as expected",
+            "buttons": [
+                {
+                    "page": 217,
+                    "comment": "I get a permission denied error after flashing code"
+                },
+                {
+                    "page": 135,
+                    "title": "The device blinks magenta (red and blue at the same time)",
+                    "detail": "This is the normal, expected behavior.",
+                    "comment": "Safe mode (blinking magenta)"
+                },
+                {
+                    "page": 215,
+                    "comment": "My old code continues to run after flashing new code"
+                },
+                {
+                    "page": 219,
+                    "comment": "I'm using manual mode but the device tries to connect to the cloud"
+                }
+            ]
+        },
+        {
+            "page": 215,
+            "title": "My old code continues to run after flashing new code",
+            "note": "old-code-running.md",
+            "buttons": [
+                {
+                    "page": 135,
+                    "title": "Tell me more about blinking magenta"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    108,
+                    214,
+                    215
+                ]
+            ]
+        },
+        {
+            "page": 216,
+            "title": "Put something here"
+        },
+        {
+            "page": 217,
+            "title": "I get a permission denied error after flashing code OTA",
+            "note": "flash-permission-error.md",
+            "paths": [
+                [
+                    101,
+                    108,
+                    214,
+                    217
+                ]
+            ]
+        },
+        {
+            "page": 218,
+            "title": "Put something here"
+        },
+        {
+            "page": 219,
+            "title": "I'm using manual mode but the device tries to connect to the cloud",
+            "note": "manual-mode-cloud.md",
+            "paths": [
+                [
+                    101,
+                    108,
+                    214,
+                    219
                 ]
             ]
         }

@@ -1,5 +1,5 @@
-100	undefined
-101	undefined
+100	Log in
+101	Home
 102	I am blocked from logging in due to multi-factor authentication (2FA/MFA)
 103	I cannot login because I don't know my username or password
 104	I cannot login due to an error in the login page
@@ -110,6 +110,12 @@
 211	Adding a block
 212	I don't have a product yet, what do I do?
 213	What's the difference between free and growth products?
+214	Flashing code to my device did not behave as expected
+215	My old code continues to run after flashing new code
+216	Put something here
+217	I get a permission denied error after flashing code OTA
+218	Put something here
+219	I'm using manual mode but the device tries to connect to the cloud
 360001073373	Help With My Order
 360001730794	Managing Billing & Subscriptions
 360006631353	Cellular Connectivity Issues
