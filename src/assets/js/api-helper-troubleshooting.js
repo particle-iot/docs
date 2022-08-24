@@ -1,15 +1,44 @@
 $(document).ready(function () {
 
+    const decisionTreeUrl = '/assets/files/troubleshooting.json';
+
+    const redirectNote = async function(noteName) {
+        const decisionTreeFetch = await fetch(decisionTreeUrl);
+
+        const troubleshootingJson = await decisionTreeFetch.json();
+
+        let page;
+        for(const pageObj of troubleshootingJson.pages) {
+            if (pageObj.note == noteName) {
+                page = pageObj.page;
+            }
+        }
+
+        if (page) {
+            location.href = '/troubleshooting/troubleshooting/?p=' + page;
+            return;
+        }
+
+    };
+
+    const notePattern = /notes\/([^\/]+)/;
+    const match = location.href.match(notePattern);
+    if (match) {
+        const noteName = match[1] + '.md';
+        redirectNote(noteName);
+    }
+
     if ($('.apiHelperTroubleshooting').each(function() {
         const thisPartial = $(this);
 
         const gaCategory = 'troubleshootingTool';
         const notesUrlBase = '/notes/';
         const ticketFormDataUrl = '/assets/files/ticketForms.json';
-        const decisionTreeUrl = '/assets/files/troubleshooting.json';
         const environmentUrl = '/assets/files/environment.json';
 
         const urlParams = new URLSearchParams(window.location.search);
+
+        const parser = new DOMParser();
 
         const baseTitle = document.title;
 
@@ -303,10 +332,12 @@ $(document).ready(function () {
                 const url = notesUrlBase + pageObj.note.replace('.md', '/index.html');
 
                 const noteFetch = await fetch(url);
-                const htmlTemplate = await noteFetch.text();                
+                const noteText = await noteFetch.text();                
+
+                const noteDocument = parser.parseFromString(noteText, 'text/html');
 
                 const noteElem = document.createElement('div');
-                $(noteElem).html(handlebarsExpand(htmlTemplate));
+                $(noteElem).html($(noteDocument).find('.content'));
                 $(pageDivElem).append(noteElem);
             }
 

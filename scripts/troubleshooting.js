@@ -61,7 +61,17 @@ function verifyTroubleshooting(options) {
                 }
             }    
         }
-        
+        if (p.steps) {
+            for(const step of p.steps) {
+                if (step.page && step.page < 10000) {
+                    // Link to a page (not a form)
+                    crawl(step.page, newPagePath);
+                }
+                // Step-by-step pages don't have ticket forms
+            }
+        }
+
+
         if (p.note) {
             // console.log('note ' + p.note, newPagePath);
             // This is the old way, were we save every path
@@ -140,6 +150,33 @@ module.exports = {
                 fs.writeFileSync(pagesCsvPath, pagesCsv);
             }
 
+            // Titles for notes
+            let titlesForNotes = {};
+
+            for(const pageObj of troubleshootingJson.pages) {
+                if (!pageObj.note) {
+                    continue;
+                }
+                titlesForNotes[pageObj.note] = pageObj.title; 
+            }
+
+            // Add frontmatter to notes to they will render properly
+            for(const file in files) {
+                if (!file.startsWith('content/notes')) { // 
+                    continue;
+                }
+
+                let lastSlashIndex = file.lastIndexOf('/');
+                const noteName = file.substring(lastSlashIndex + 1);
+
+                files[file].title = titlesForNotes[noteName];
+                files[file].layout = 'commonTwo.hbs';
+                files[file].columns = 'two';
+                files[file].includeDefinitions = '[api-helper, api-helper-troubleshooting]';
+
+                // console.log('file ' + file, files[file]);
+
+            }
 
             done();
         }
