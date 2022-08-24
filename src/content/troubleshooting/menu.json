@@ -121,6 +121,11 @@
       },
       [
         {
+          "dir": "troubleshooting-flashing-code",
+          "title": "Troubleshooting flashing code",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-flashing-code/"
+        },
+        {
           "dir": "troubleshooting-the-particle-workbench",
           "title": "Troubleshooting the Particle Workbench",
           "href": "/troubleshooting/guides/build-tools-troubleshooting/troubleshooting-the-particle-workbench/"

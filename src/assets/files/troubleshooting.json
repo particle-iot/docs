@@ -2339,19 +2339,16 @@
             "buttons": [
                 {
                     "page": 215,
-                    "comment": "The old code continues to run after flashing new code"
-                },
-                {
-                    "page": 216,
-                    "comment": "The device blinks magenta (red and blue at the same time)"
+                    "comment": "My old code continues to run after flashing new code"
                 },
                 {
                     "page": 217,
                     "comment": "I get a permission denied error after flashing code"
                 },
                 {
-                    "page": 218,
-                    "comment": "I get a timeout error after flashing code"
+                    "page": 135,
+                    "title": "The device blinks magenta (red and blue at the same time)",
+                    "comment": "Safe mode (blinking magenta)"
                 },
                 {
                     "page": 219,
@@ -2361,23 +2358,56 @@
         },
         {
             "page": 215,
-            "title": "The old code continues to run after flashing new code"
+            "title": "My old code continues to run after flashing new code",
+            "note": "old-code-running.md",
+            "buttons": [
+                {
+                    "page": 135,
+                    "title": "Tell me more about blinking magenta"
+                }
+            ],
+            "paths": [
+                [
+                    101,
+                    108,
+                    214,
+                    215
+                ]
+            ]
         },
         {
             "page": 216,
-            "title": "The device blinks magenta (red and blue at the same time)"
+            "title": "Put something here"
         },
         {
             "page": 217,
-            "title": "I get a permission denied error after flashing code"
+            "title": "I get a permission denied error after flashing code OTA",
+            "note": "flash-permission-error.md",
+            "paths": [
+                [
+                    101,
+                    108,
+                    214,
+                    217
+                ]
+            ]
         },
         {
             "page": 218,
-            "title": "I get a timeout error after flashing code"
+            "title": "Put something here"
         },
         {
             "page": 219,
-            "title": "I'm using manual mode but the device tries to connect to the cloud"
+            "title": "I'm using manual mode but the device tries to connect to the cloud",
+            "note": "manual-mode-cloud.md",
+            "paths": [
+                [
+                    101,
+                    108,
+                    214,
+                    219
+                ]
+            ]
         }
     ]
 }
