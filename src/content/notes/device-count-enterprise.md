@@ -8,4 +8,6 @@ However, there is also a six month manufacturing grace period. After the device 
 
 After the six month manufacturing grace period, the device will count as a billable device whether it comes online or not.
 
+For cellular devices, if the SIM is deactivated for the entire billing month, it will not be counted as a billable device. There is no proration for devices active only part of the month.
 
+Product device counts are not affected by device claiming, whether unclaimed product devices, claimed to a single account, claimed to a team member, or claimed to a customer.

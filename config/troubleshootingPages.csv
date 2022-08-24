@@ -1,0 +1,128 @@
+100	undefined
+101	undefined
+102	I am blocked from logging in due to multi-factor authentication (2FA/MFA)
+103	I cannot login because I don't know my username or password
+104	I cannot login due to an error in the login page
+105	Ticket submitted!
+106	Error submitting ticket
+107	Order and billing questions
+108	Technical questions
+109	Developer tool questions
+110	Particle workbench questions
+111	Upgrading Workbench
+112	Disabling Workbench extensions
+113	Workbench community forums
+114	Workbench support ticket
+115	Particle CLI questions
+116	CLI community forums
+117	CLI support ticket
+118	Particle Dev (Atom IDE)
+119	Cloud API questions
+120	Cloud API community forums
+121	Cloud support ticket
+122	Particle console questions
+123	Console community forums
+124	Webhook or other integration questions
+125	Integrations community forums
+126	Device setup questions
+127	Connectivity questions
+128	Cellular connectivity questions
+129	Wi-Fi connectivity questions
+130	Troubleshooting based on the status LED
+131	Status LED off
+132	Dim D7
+133	Status LED blinking
+134	Listening mode (blinking dark blue)
+135	Safe mode (blinking magenta)
+136	DFU mode (blinking yellow)
+137	Blinking green
+138	Blinking green - Cellular
+139	Blinking green - P2/Photon 2
+140	Blinking green - P1 and Photon
+141	Blinking green - Argon
+142	Blinking cyan (light blue)
+143	Blinking white
+144	Blinking red
+145	Blinking orange
+146	Status LED breathing
+147	Breathing cyan (light blue)
+148	Breathing green
+149	Breathing magenta
+150	Breathing dark blue
+151	Signaling (nyan) mode
+152	Breathing white
+153	SIM activation questions
+154	Set up device or devices
+155	Set up a developer device
+156	Set up a fleet of devices
+157	Set up P2 (Wi-Fi) developer device
+158	Set up Tracker One, Tracker SoM or Tracker evaluation board developer device
+159	Set up a Boron or B Series SoM (Gen 3 cellular) developer device
+160	Set up a Electron or E Series (Gen 2 cellular) developer device
+161	Set up a Photon or P1 (Gen 2 Wi-Fi) developer device
+162	Set up an Argon (Gen 3 Wi-Fi) developer device
+163	Set up a Wi-Fi device using the Particle CLI
+164	Install the Particle CLI
+165	Connect your device by USB to your computer
+166	Configure Wi-Fi
+167	Claim the device to your account
+169	Get the Device ID of your device
+170	Put the device in listening mode
+171	Configure Wi-Fi
+172	Configure Wi-Fi
+173	Set up a Wi-Fi device using the Particle CLI
+174	Set up a Wi-Fi device using the Particle CLI
+175	Attach Wi-Fi antenna
+176	Mark setup done
+177	Set up a Gen 3 cellular device using the Particle CLI
+178	Get the Device ID and ICCID
+179	Activate SIM card
+180	Attach cellular antenna
+181	Set up an Electron or E Series using the Particle CLI
+182	Insert 4FF plastic SIM card (if necessary)
+183	Set up a Tracker SoM Eval board using the Particle CLI
+184	Create a product
+185	Add device to a product
+186	Set up a Tracker One using the Particle CLI
+187	Connect battery (if necessary)
+188	Connect your device by USB to your computer
+190	Set up an Argon or Boron with Ethernet Featherwing (developer device)
+191	Set up a Ethernet device using the Particle CLI
+192	Enable Ethernet detection
+193	Insert the Argon or Boron in the Ethernet Featherwing
+194	Connect battery (if necessary)
+195	Connect battery (if necessary)
+196	Attach cellular antenna
+197	Attach cellular antenna
+198	Free, growth, and enterprise plan technical differences, limits, and billing
+199	What are the pricing plans?
+200	What are data operations?
+201	What is a block?
+202	How are devices counted?
+203	How are devices counted in the free plan?
+204	How are devices counted in the growth plan?
+205	How are devices counted in the enterprise plan?
+206	What's the difference between claiming and product membership?
+207	How do I remove devices from my product?
+208	What is a product?
+209	I've hit the free plan limit, now what?
+210	What is an organization?
+211	Adding a block
+212	I don't have a product yet, what do I do?
+213	What's the difference between free and growth products?
+360001073373	Help With My Order
+360001730794	Managing Billing & Subscriptions
+360006631353	Cellular Connectivity Issues
+1500000002842	WiFi Connectivity Issues
+360005653294	Cannot Set Up My New Device
+1500000002902	SIM Not Activating / Deactivating / Unpausing
+360005659054	My Device's Status LED is Blinking Cyan, Red, Yellow, or Dark Blue
+1500000008462	My Device is Unresponsive (Frozen or No Status LED)
+1500000002882	Console / Web IDE Issue
+360006636893	Workbench / CLI Issue
+360005653314	Cloud API Not Performing As Expected 
+1500000002701	Webhooks / Integrations Not Performing As Expected 
+360006636913	I Have Another Technical Issue
+360000327294	I Have Another Non-Technical Issue
+1260809279669	Upgrading My Account to the Growth Plan
+7521710158235	Request from device doctor tool

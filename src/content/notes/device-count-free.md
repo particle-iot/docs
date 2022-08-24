@@ -14,5 +14,8 @@ These **do not** contribute to the free plan limit:
 
 For free plan products, devices are added to the product from the console or API. When you order a devices from the wholesale store in tray or reel quantities, you will be emailed a list of Device IDs in the order that you can upload to the console.
 
-A product device is not counted until it comes online at least once. At that point, it will be counted regardless of whether it comes online within a billing month.
+For free products, the device is counted regardless of its SIM status or whether it has connected to the cloud or not. The inclusion in a free plan product will cause the device to be counted against the 100 device limit.
+
+**Deactivating the SIM of a free plan cellular device does not reduce the device count in the free plan**
+
 
