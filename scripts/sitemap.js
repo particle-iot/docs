@@ -74,6 +74,7 @@ module.exports = function plugin(options) {
             'reference/device-os/api/',
             'reference/device-os/libraries/',
             'troubleshooting/led/',
+            'notes',
         ];
 
 
