@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B524/B523 Datasheet <sup>012</sup>
+# B524/B523 Datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b524-b523-datasheet.pdf"}}
@@ -560,6 +560,26 @@ The bootloader allows you to easily update the user application via several diff
 
 ---
 
+## Certification
+
+### EU Declaration of Conformity
+
+We, Particle Industries, Inc., declare under our sole responsibility that the product, B524 and B523, to which this
+declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the following Internet address [https://www.particle.io/](https://www.particle.io/).
+
+**Radiation Exposure Statement:** This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+
+- BLE 2402-2480MHz, 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
+- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+
+---
+
 
 ## Country compatibility
 
@@ -712,3 +732,4 @@ The bootloader allows you to easily update the user application via several diff
 | 011      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | 012      | 05-May-2022 | RK | Corrected number of PWM outputs (8) |
 | 013      | 11-Aug-2022 | RK | Correct typo in 3V3 explanation |
+| 014      | 29-Aug-2022 | RK | Added EU declaration of conformity |

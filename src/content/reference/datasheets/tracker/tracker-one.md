@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(018)</sup>
+# Tracker One
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -484,7 +484,7 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 ---
 
-## Product Handling
+## Certification
 
 ### FCC Interference Statement
 
@@ -528,6 +528,24 @@ Cet appareil et son antenne ne doivent pas être situés ou fonctionner en conjo
 This equipment complies with IC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
 
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
+
+### EU Declaration of Conformity
+
+We, Particle Industries, Inc., declare under our sole responsibility that the product, ONE523M, ONE524M, ONE523M-NB, and ONE524M-NB, to which this
+declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the following Internet address [https://www.particle.io/](https://www.particle.io/).
+
+**Radiation Exposure Statement:** This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+
+- BLE 2402-2480MHz, 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
+- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+
+## Product Handling
 
 ### ESD Precautions
 
@@ -573,3 +591,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
 | 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
+| 019      | 2022 Aug 29 | RK | Added EU declaration of conformity |

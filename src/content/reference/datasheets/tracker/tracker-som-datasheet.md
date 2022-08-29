@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(019)</sup>
+# Tracker SoM Datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -1111,6 +1111,23 @@ This equipment complies with IC radiation exposure limits set forth for an uncon
 **Déclaration d'exposition aux radiations:**
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
+### EU Declaration of Conformity
+
+We, Particle Industries, Inc., declare under our sole responsibility that the product, T523M and T524M, to which this
+declaration relates, is in conformity with RED Directive 2014/53/EU and (EU) 2015/863 RoHS Directive 2011/65/EU (Recast).
+
+The full text of the EU declaration of conformity is available at the following Internet address [https://www.particle.io/](https://www.particle.io/).
+
+**Radiation Exposure Statement:** This equipment complies with radiation exposure limits set forth for an uncontrolled environment.
+
+The operating frequency bands and the maximum transmitted power limit are listed below:
+
+- BLE 2402-2480MHz, 10dBm
+- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
+- LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
+- WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+
+
 ---
 
 ## Country compatibility
@@ -1304,3 +1321,4 @@ The bootloader allows you to easily update the user application via several diff
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
 | 019      | 2021 Sep 23 | RK | Corrected part number for CAN step-up converter |
 | 020      | 2022 Jul 18 | RK | Correct typo in hot start time on Beidou |
+| 021      | 2022 Aug 29 | RK | Added EU declaration of conformity |
