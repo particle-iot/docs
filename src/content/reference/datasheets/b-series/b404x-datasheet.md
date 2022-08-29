@@ -1,19 +1,17 @@
 ---
-title: B Series B404/B404X/B402 datasheet
+title: B Series B404X datasheet
 layout: commonTwo.hbs
 columns: two
-description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3 cellular LTE Cat M1
+description: Datasheet for the Particle B Series B404X SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404X/B404/B402 Datasheet <sup>(016)</sup>
+# B404X Datasheet
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/b404x-b404-b402-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/b404x-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/b-series/b-series-top.png" ></div>
-
-
 
 ## Functional description
 
@@ -35,17 +33,6 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * Embedded Particle EtherSIM (B404X)
   * Requires Device OS 2.3.0 LTS (or later) or 3.2.0 (or later)
   
-#### Features - B402, B404
-
- * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
-  * The B402 and B404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
-  * LTE Cat M1 module
-  * Support for United States, Canada, and Mexico only
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
-  * Embedded Particle EtherSIM (B404)
-  * Embedded Particle SIM (B402)
-
 
 <sup>1</sup> Not all bands enabled in software by default
 
@@ -76,7 +63,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Block diagram
 
-{{imageOverlay src="/assets/images/b-series/b-series-block-diagram.png" alt="Block Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/b-series/B404X-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -334,6 +321,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
+Values are from B404/B402. Actual operating current with cellular using the R510 modem may vary but should be similar.
+
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.48 | 4.71 | 5.17 | mA |
@@ -375,26 +364,6 @@ The B Series SoM has two radio modules.
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps
 
-#### u-blox SARA-R410M-02B or R410M-03
-
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat M1 Half-Duplex |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 28 (700 MHz)  |
-| | Band 13 (750 MHz)  |
-| | Band 20 (800 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 8 (900 MHz)  |
-| | Band 4 (1700 MHz) |
-| | Band 3 (1800 MHz)  |
-| | Band 2 (1900 MHz) |
-| Power class | Class 3 (23 dBm) |
-
-- LTE Cat M1 for United States, Canada, and Mexico.
-- Not all bands are enabled in software by default. 
-- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
 
 #### u-blox SARA-R510S-01B
 
@@ -536,30 +505,23 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 ### Microcontroller
 
-{{imageOverlay src="/assets/images/b-series/schematic-nrf.png" alt="Microcontroller" class="full-width"}}
+{{imageOverlay src="/assets/images/b-series/B404X-schematic-nrf.png" alt="Microcontroller" class="full-width"}}
 
 ### u-blox cellular modem
 
-{{imageOverlay src="/assets/images/b-series/schematic-ublox.png" alt="u-blox cellular modem" class="full-width"}}
+{{imageOverlay src="/assets/images/b-series/B404X-schematic-ublox.png" alt="u-blox cellular modem" class="full-width"}}
 
 ---
 
 ### M.2 connector
 
-{{imageOverlay src="/assets/images/b-series/schematic-conn.png" alt="M.2 Connector"}}
-
-Note: The labels for CTS and RTS are reversed in this schematic.
+{{imageOverlay src="/assets/images/b-series/B404X-schematic-conn.png" alt="M.2 Connector"}}
 
 ### SIM and Flash
 
-{{imageOverlay src="/assets/images/b-series/schematic-sim.png" alt="SIM and Flash" class="full-width"}}
-
+{{imageOverlay src="/assets/images/b-series/B404X-schematic-sim.png" alt="SIM and Flash" class="full-width"}}
 
 ---
-
-### Buffers
-
-{{imageOverlay src="/assets/images/b-series/schematic-buffers.png" alt="Buffers"}}
 
 ## Default settings
 
@@ -588,39 +550,19 @@ The bootloader allows you to easily update the user application via several diff
 ---
 ## Ordering information
 
-{{!-- BEGIN do not edit content below, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 442e5625-6587-4002-9f2f-474eb9ff7927 --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | In development | |
 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | In development | |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
-| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
 
 
-{{!-- END do not edit content above, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Revision history
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| 001      | 29 Apr 2019 | RK | Initial Release |
-| 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
-| 003      | 18 Feb 2020 | RK | Keep-out diagram M.2 connector was upside-down |
-| 004      | 16-Sep-2020 | RK | Added power consumption information |
-| 005      | 16-Dec-2020 | RK | Added missing TBD power consumption values |
-| 006      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
-| 007      | 03-Feb-2021 | RK | Split u-blox schematics into two images |
-| 008      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
-| 009      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
-| 010      | 26-Apr-2021 | RK | Added B404 model number |
-| 011      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
-| 012      | 19-May-2021 | RK | List Ethernet reserved pins |
-| 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
-| 014      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
-| 015      | 14-Mar-2022 | RK | Added B404X, deprecation notice |
-| 016      | 05-May-2022 | RK | Corrected number of PWM outputs (8) |
-| 017      | 11-Aug-2022 | RK | Correct typo in 3V3 explanation |
+| 018      | 2022-08-29 | RK | Split out from B404 and B402 |

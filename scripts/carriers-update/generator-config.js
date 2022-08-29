@@ -301,7 +301,18 @@ const path = require('path');
             generatorFn:function(updater) {
                 return updater.generateFamilySkus('b series', {
                     filterFn:function(skuObj) {
-                        return skuObj.skuRegion != 'noram';
+                        //return skuObj.skuRegion != 'noram';
+                        return skuObj.modem != 'R410';
+                    }        
+                }); 
+            } 
+        },
+        {
+            guid:'442e5625-6587-4002-9f2f-474eb9ff7927', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('b series', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R510';
                     }        
                 }); 
             } 
