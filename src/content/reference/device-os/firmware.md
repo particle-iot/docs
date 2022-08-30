@@ -23918,6 +23918,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |v5.0.x releases|[v5.0.0](https://github.com/particle-iot/device-os/releases/tag/v5.0.0)|-|-|-|-|-|-|
+|v4.0.x releases|[v4.0.0](https://github.com/particle-iot/device-os/releases/tag/v4.0.0)|-|-|-|-|-|-|
 |v4.0.x prereleases|[v4.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.0-beta.1)|-|-|-|-|-|-|
 |v3.3.x releases|[v3.3.0](https://github.com/particle-iot/device-os/releases/tag/v3.3.0)|-|-|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.3.0-rc.1)|-|-|-|-|-|-|
@@ -23964,6 +23965,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |v5.0.x releases|[v5.0.0](/reference/device-os/firmware/?fw_ver=5.0.0&cli_ver=3.4.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v4.0.x releases|[v4.0.0](/reference/device-os/firmware/?fw_ver=4.0.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v4.0.x prereleases|[v4.0.0-beta.1](/reference/device-os/firmware/?fw_ver=4.0.0-beta.1&cli_ver=3.3.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.3.x releases|[v3.3.0](/reference/device-os/firmware/?fw_ver=3.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](/reference/device-os/firmware/?fw_ver=3.3.0-rc.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
@@ -24006,6 +24008,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v3.5.0  = 4.0.0
 v3.4.0  = 5.0.0
 v3.3.3  = 4.0.0-beta.1
 v3.1.0  = 2.3.0, 3.3.0-rc.1, 3.3.0

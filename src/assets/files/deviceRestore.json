@@ -323,6 +323,14 @@
       "esomx",
       "tracker"
     ],
+    "4.0.0": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "esomx",
+      "tracker"
+    ],
     "5.0.0": [
       "argon",
       "b5som",
@@ -552,6 +560,14 @@
       "tracker"
     ],
     "4.0.0-beta.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "esomx",
+      "tracker"
+    ],
+    "4.0.0": [
       "argon",
       "b5som",
       "boron",
