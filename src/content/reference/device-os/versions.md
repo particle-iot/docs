@@ -42,7 +42,7 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 {{!-- BEGIN shared-blurb d07841d1-c7b6-4d06-b89d-f906d454d2b7 --}}
 ## Recommended LTS versions
 
-| Platform | Models | Current LTS | Test With | Eventual LTS |
+| Platform | Models | Previous LTS | Test With | Current LTS |
 | :--- | :--- | :--- | :--- | :--- | 
 | B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
 | B Series SoM | B404, B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
@@ -50,6 +50,8 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 | Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
 | Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
 | E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
 
 ### Devices that must stay on 2.x LTS
 
@@ -59,13 +61,6 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 | Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} |
 | P1 | | {{version mode="latestRelease" line="2"}} |
 | Photon | | {{version mode="latestRelease" line="2"}} |
-
-### Devices that will be able to use LTS soon
-
-| Platform | Models | Current Version | Test With | Eventual LTS |
-| :--- | :--- | :--- | :--- | :--- | 
-| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
-| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
 
 ### Devices that cannot use LTS yet
 

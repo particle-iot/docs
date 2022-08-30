@@ -118,6 +118,7 @@ module.exports = function(context) {
             if (ver.startsWith(line)) {
                 if (verParsed.isFinalRelease) {
                     // Already final release, no betas
+                    html += ver;
                     break;
                 }
                 if (verParsed.beta || verParsed.rc) {
