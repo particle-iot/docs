@@ -119,6 +119,7 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | In development |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | In development |
+| PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | In development |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
 
 
@@ -484,6 +485,7 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
+| E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | &check; | NRND-US |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | &nbsp; | &check; | NRND-US |
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &check; | &check; | NRND-US |
@@ -698,7 +700,10 @@ The P1 is intended for production use. It is an older Gen 2 models as is depreca
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Global | GA |
+| P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | GA |
+| P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | GA |
+| PHN2MEA | Photon 2, Kit [x1] | Global | In development |
+| PHN2MTY | Photon 2, Tray [x50] | Global | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 8ba8241b-1084-463b-b5be-64cda68e3a4b--}}
@@ -727,6 +732,8 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | In development |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | In development |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | In development |
+| PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | In development |
+| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | In development |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
 
 
@@ -775,6 +782,8 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | FWNG-ETH | Particle Ethernet FeatherWing, [x1] | Global | &nbsp; | &nbsp; | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
+| P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | &nbsp; | &nbsp; | GA |
+| P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | &nbsp; | &nbsp; | GA |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &nbsp; | &check; | GA |
@@ -784,6 +793,9 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | In development |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | In development |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
+| E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
+| PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
+| PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | In development |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | &check; | NRND-US |
 
 

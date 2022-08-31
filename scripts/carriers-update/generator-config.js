@@ -642,6 +642,16 @@ const path = require('path');
 
         // datasheets/wi-fi/photon-2-datasheet.md
         {
+            guid:'097ba52c-0c46-4ec0-827d-3c5880d3fd3a', 
+            generatorFn:function(updater){
+                return updater.generateFamilySkus('p series', {
+                    filterFn:function(skuObj) {
+                        return !skuObj.name.startsWith('PHN2');
+                    }        
+                }); 
+            } 
+        },        
+        {
             guid: 'ed19d7a3-f59d-4eec-85ba-2f67859e87b2',
             generatorFn:function(updater){
                 return updater.generatePinInfo({

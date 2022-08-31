@@ -496,13 +496,15 @@ The Photon 2 can be directly soldered onto the PCB or be mounted with the above 
 
 Photon 2 modules are available from [store.particle.io](https://store.particle.io/).
 
-{{!-- BEGIN do not edit content below, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}
+{{!-- BEGIN do not edit content below, it is automatically generated 097ba52c-0c46-4ec0-827d-3c5880d3fd3a --}}
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
+| PHN2MEA | Photon 2, Kit [x1] | Global | In development | |
+| PHN2MTY | Photon 2, Tray [x50] | Global | In development | |
 
 
-{{!-- END do not edit content above, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}
+{{!-- END do not edit content above, it is automatically generated  --}}
 
 
 ## Qualification and approvals

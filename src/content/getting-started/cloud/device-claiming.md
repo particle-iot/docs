@@ -385,6 +385,7 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Fast<sup>1</sup> | NRND-US | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Sometimes slow<sup>3</sup> | Deprecated | BRN314TRAY50|
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Sometimes slow<sup>3</sup> | End of life | BRN314KIT|
+| E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | Fast<sup>1</sup> | In development | |
 | E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | Fast<sup>1</sup> | Deprecated | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | Fast<sup>1</sup> | NRND-US | |
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND-US | |

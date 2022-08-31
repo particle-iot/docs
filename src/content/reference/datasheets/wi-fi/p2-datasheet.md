@@ -572,6 +572,8 @@ P2 modules are available from [store.particle.io](https://store.particle.io/) as
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
+| P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | GA | |
+| P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | GA | |
 
 
 {{!-- END do not edit content above, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}

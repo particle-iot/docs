@@ -5,6 +5,8 @@ columns: two
 description: Information about antennas and certification
 ---
 
+# {{title}}
+
 This page includes information on antennas for:
 
 - [Cellular](#cellular)
@@ -19,6 +21,8 @@ The following cellular antennas are available:
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
+| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
 | Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
@@ -44,24 +48,24 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | ANTCW2EA | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | In development|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | ANTCW2EA | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | In development|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | End of life|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXU | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | ANT-FLXU | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | PARANTC41EA | &nbsp; | In development|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXU | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXU | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | PARANTC41EA | &nbsp; | In development|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | ANT-FLXU | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | PARANTC41EA | &nbsp; | In development|
 | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
 | E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
 | E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
@@ -70,6 +74,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
 | E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
 | E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | PARANTC41EA | &nbsp; | In development|
 | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | End of life|
 | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
 | E Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | End of life|
@@ -127,7 +132,7 @@ These devices do not have a cellular modem and therefore do not need a cellular 
 | :----- | :--- |
 | Argon | ARG-AQKT, ARG-LDKT, ARG-STRTKT, ARGN-H, ARGNKIT, ARGNTRAY50|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL|
+| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2MEA, PHN2MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 57d69268-776d-11eb-9439-0242ac130002 --}}
@@ -197,8 +202,12 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 | Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | P0 Wi-Fi Module, Cut tape [x10] | P0MOD10 | &nbsp; | true | &nbsp; | End of life|
 | P0 Wi-Fi Module, Reel [x2000] | P0REEL | &nbsp; | true | &nbsp; | Deprecated|
-| P1 Wi-Fi Module, Cut tape [x10] | P1MOD10 | trace | 3 | &nbsp; | GA|
+| P1 Wi-Fi Module, Cut tape [x10] | P1MOD10 | trace | 3 | &nbsp; | NRND|
 | P1 Wi-Fi Module, Reel [x500] | P1REEL | trace | 3 | &nbsp; | Deprecated|
+| P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | trace | 4 | &nbsp; | GA|
+| P2 Wi-Fi Module, Reel [x600] | P2REEL | trace | 4 | &nbsp; | GA|
+| Photon 2, Kit [x1] | PHN2MEA | trace | 4 | &nbsp; | In development|
+| Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | In development|
 | Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | End of life|
 | Photon with Headers, [x1] | PHOTONH | chip | 3 | &nbsp; | GA|
 | Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | Deprecated|
@@ -240,6 +249,8 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 
 [This antenna from Adafruit](https://www.adafruit.com/product/944) is compatible and can be substituted when an external dipole ("duck") antenna is desired on the Photon and P1 while using the existing Particle certification. Note that a [RP-SMA to U.FL adapter](https://www.adafruit.com/product/852) is required to use this antenna.
 
+<sup>4</sup>The P2 is certified with the built-in trace antenna. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz). An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+
 ### Not compatible (Wi-Fi)
 
 These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenna.
@@ -250,7 +261,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 | :----- | :--- |
 | B Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B404XMEA, B404XMTY, B523MEA, B523MTY, B524MEA, B524MTY|
 | Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402-AQKT, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50, BRN404X, BRN404XKIT, BRN404XTRAY50|
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
+| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 
 
@@ -270,6 +281,8 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 | Tracker One BLE Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-ble.pdf) |
+
+The P2 shares its antenna between Wi-Fi and BLE and does not require a separate BLE antenna. The P2 includes an internal trace antenna. An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
 
 ### Compatible devices (BLE)
 
@@ -311,6 +324,10 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | In development|
+| P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
+| P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
+| Photon 2, Kit [x1] | PHN2MEA | &check; | 4 | &nbsp; | In development|
+| Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | In development|
 | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | &check; | &nbsp; | &nbsp; | Deprecated|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &nbsp; | &nbsp; | Deprecated|
 | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | &check; | &nbsp; | &nbsp; | GA|
@@ -338,6 +355,8 @@ These devices include Bluetooth LE (BLE) capabilities.
 	
 <sup>1</sup>The Tracker One includes an BLE antenna inside the case, however it's a different antenna than the Particle 2.4 GHz Antenna (ANT-FLXV2). A separate antenna is used because the Tracker SoM is mounted on the bottom side of the Tracker Carrier Board, so signals to the chip antenna would be adversely affected.
 
+<sup>4</sup>The P2 is certified with the built-in trace antenna. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz). An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+
 ### Not compatible (BLE)
 
 These devices do not have a BLE radio and therefore do not need a BLE antenna.
@@ -346,7 +365,7 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 
 | Family | SKUs |
 | :----- | :--- |
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
+| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
 | P Series | P0MOD10, P0REEL, P1MOD10, P1REEL|
@@ -441,10 +460,10 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 
 | Family | SKUs |
 | :----- | :--- |
-| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
+| E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL|
+| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2MEA, PHN2MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 6b9301fa-776e-11eb-9439-0242ac130002 --}}

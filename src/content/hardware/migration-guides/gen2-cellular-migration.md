@@ -70,6 +70,7 @@ Though the form-factor is different than the Electron, they are nearly identical
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | In development | |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND-US | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | NRND-US | |
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND-US | |
