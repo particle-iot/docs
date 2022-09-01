@@ -160,7 +160,7 @@ Discover more projects at [particle.hackster.io](https://particle.hackster.io), 
 
 ### Troubleshooting
 
-**I don't see my function listed when making my Do Button applet.** This can happen if you connect IFTTT to your Particle account before flashing code to your Photon, or if you add a new Photon to your account after connecting IFTTT. This can often be fixed by going to [ifttt.com/particle](https://ifttt.com/particle) and clicking the **Reconnect Channel** button.
+**I don't see my function listed when making my Do Button applet.** This can happen if you connect IFTTT to your Particle account before flashing code to your Photon, or if you add a new Photon to your account after connecting IFTTT. This can often be fixed by going to ifttt.com/particle and clicking the **Reconnect Channel** button.
 
 **When I press the Do Button, the D7 LED blinks but the servo doesn't move.** IFTTT is communicating successfully with the Photon, but the Photon is not communicating with the servo. Double-check your wiring: the servo's brown or black wire should go to GND, the orange wire to Vin, and the yellow wire to D0.
 
