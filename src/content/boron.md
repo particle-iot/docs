@@ -77,7 +77,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/boron-lte" target="_blank" class="button">BUY A BORON</a>
+<a href="https://store.particle.io/products/boron-lte-cat-m1-noram-with-ethersim-4th-gen" target="_blank" class="button">BUY A BORON</a>
 
 </div>
 
