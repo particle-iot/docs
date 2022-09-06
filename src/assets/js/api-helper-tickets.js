@@ -28,7 +28,7 @@ $(document).ready(function() {
         });        
     }
 
-    const submitTicketRequest = function(options, uploadToken) {
+    const submitTicketRequest = function(options) {
         // options:
         // name, email, subject, body
         return new Promise(function(resolve, reject) {      
@@ -45,7 +45,6 @@ $(document).ready(function() {
                     },
                     ticket_form_id: options.ticketFormId,
                     custom_fields: options.customFields,
-                    uploads: [uploadToken],
                 }
             };
 
@@ -116,7 +115,7 @@ $(document).ready(function() {
 
         const uploadToken = uploadAttachmentResp.upload.token;
 
-        const submitTicketResp = await submitTicketRequest(options, uploadToken);
+        const submitTicketResp = await submitTicketRequest(options);
         console.log('submitTicketResp', submitTicketResp);
 
         const ticket = submitTicketResp.request.id;

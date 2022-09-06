@@ -388,6 +388,20 @@ $(document).ready(function () {
                     field: 'body',
                 });
 
+                {
+                    const attachmentDiv = document.createElement('div');
+
+                    /*
+                    const titleElem = document.createElement('div');
+                    $(titleElem).text('');
+                    $(fieldDivElem).append(titleElem);    
+                    */
+                    
+
+                    $(pageDivElem).append(attachmentDiv);
+                }
+
+
                 const buttonElem = submitButton = document.createElement('button');
                 $(buttonElem).text('Submit support request');
                 $(pageDivElem).append(buttonElem);
