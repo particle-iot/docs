@@ -13,6 +13,8 @@ description: Datasheet for the Particle B Series B404X SoM, Gen 3 cellular LTE C
 
 <div align=center><img src="/assets/images/b-series/b-series-top.png" ></div>
 
+This is a graphic of the B404. The B404X has the same exterior dimensions but the appearance may vary slightly from this graphic.
+
 ## Functional description
 
 ### Overview
@@ -465,23 +467,14 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 ### Screw Assembly
 
-![Screw Assembly](/assets/images/b-series/b-series-screw.jpg)
+The M.2 SoM requires a screw to hold the SoM in place because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board. The screw also provides better vibration resistance than locking clips.
 
-We recommend this screw assembly to securely affix the B series SoM to your circuit board. From top to bottom:
+- This is one style of standoff.
 
-- M3 screw, 3mm long
-- M3 washer
-- M3 standoff, 2.45mm
-
-![Standoff](/assets/images/b-series/b-series-standoff.png)
-
-- Mounting hole, 2.6 mm metal hole, 3.1mm metal ring diameter (picture is of the bottom side of the circuit board)
-
-![Bottom](/assets/images/b-series/b-series-screw-bottom.jpg)
+![Screw Assembly](/assets/images/b-series/new-standoff.png)
 
 - An [alternative design](/hardware/b-series-som/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
 
-- Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
 ### Design Considerations
 

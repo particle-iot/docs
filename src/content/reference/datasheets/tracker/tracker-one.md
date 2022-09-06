@@ -76,13 +76,13 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 | M8 Pin | Function   | Function  | Function  | I/O | Color |
 | :----: | :-------   | :-------  | :-------  | :--- | :--- |
-| 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
+| 1      | CAN_P / CANH |           |           | IO<sup>2</sup> | Yellow |
 | 2      | VIN<sup>3</sup> |      |           | I | Red |
 | 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
 | 4      | Serial1 RX | Wire3 SDA | GPIO D9   | IO<sup>1</sup> | Green |
 | 5      | Serial1 TX | Wire3 SCL | GPIO D8   | IO<sup>1</sup> | Brown |
 | 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
-| 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
+| 7      | CAN_N / CANL |           |           | IO<sup>2</sup> | Blue |
 | 8      | GND        |           |           |   | Black | 
 
 
@@ -105,6 +105,13 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/reference/datasheets/tracker/tracker-m8-accessories/).
 
 You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
+
+Note that CAN bus is differential and consists of two lines:
+
+- CAN_P (positive), CANH (high), or CAN+
+- CAN_N (negative), CANL (low), or CAN-
+
+As the signals are differential you don't need to connect GND for CAN bus, but you do still need to connect it for Serial, I2C, or GPIO.
 
 ---
 

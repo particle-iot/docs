@@ -7,7 +7,9 @@ description: Using IFTTT with Particle
 
 # {{{title}}}
 
-The [IFTTT](https://ifttt.com/) (If This Then That) to Particle service is planned for removal. You can, however, still use IFTTT by using Webhooks. This document shows how.
+The [IFTTT](https://ifttt.com/) (If This Then That) to Particle service is no longer available. 
+
+You can, however, still use IFTTT by using Webhooks. This document shows how.
 
 
 ## New event published

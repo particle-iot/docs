@@ -130,6 +130,13 @@ The color code is as follows:
 | 7      | CAN_N     | Blue           | 
 | 8      | GND       | Black          | 
 
+Note that CAN bus is differential and consists of two lines:
+
+- CAN_P (positive), CANH (high), or CAN+
+- CAN_N (negative), CANL (low), or CAN-
+
+As the signals are differential you don't need to connect GND for CAN bus, but you do still need to connect it for Serial, I2C, or GPIO.
+
 ### With the Tracker One Carrier Board
 
 Inside the Tracker One is the Carrier Board. It can be purchased separately in case you want to use the Tracker One features in your own enclosure. The design for the Tracker One enclosure is open-source and can be modified to fit your needs. The Carrier Board has a B8B-PH 8-pin connector on the board, and a short cable that attaches to the M8 8-pin IP67 connector mounted on the side of the enclosure.

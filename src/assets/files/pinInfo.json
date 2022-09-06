@@ -6942,13 +6942,13 @@
         {
           "num": 64,
           "name": "CAN_N",
-          "desc": "CAN Data-",
+          "desc": "CAN Data- or CANL",
           "isIO": true
         },
         {
           "num": 65,
           "name": "CAN_P",
-          "desc": "CAN Data+",
+          "desc": "CAN Data+ or CANH",
           "isIO": true
         },
         {

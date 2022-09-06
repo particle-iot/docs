@@ -10,7 +10,7 @@ description: Connecting the IFTTT (if this then that) to your Particle IoT devic
 # Particle Channel on IFTTT
 
 {{box op="start" cssClass="boxed warningBox"}}
-This page is no longer maintained and is provided for historical reference only
+This page is no longer maintained and is provided for historical reference only. The IFTTT integration is no longer available.
 {{box op="end"}}
 
 ## Introduction

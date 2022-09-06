@@ -562,7 +562,6 @@ You can check out the results on your console at [console.particle.io](https://c
 
 ![Console](/assets/images/console-beamstatus.png)
 
-You can also hook up publishes to IFTTT! More info [here](/archives/ifttt/).
 
 ### Setup
 
