@@ -144,6 +144,11 @@
           "dir": "installing-curl-for-windows",
           "title": "Installing curl (for Windows)",
           "href": "/troubleshooting/guides/build-tools-troubleshooting/installing-curl-for-windows/"
+        },
+        {
+          "dir": "specific-cli-version",
+          "title": "Using a specific Particle CLI version",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/specific-cli-version/"
         }
       ],
       {
