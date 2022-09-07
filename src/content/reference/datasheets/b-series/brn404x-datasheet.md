@@ -201,6 +201,156 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 
 ---
 
+
+### GPIO and port listing
+
+{{!-- BEGIN do not edit content below, it is automatically generated ac335968-6a40-4e3a-9493-46510917cf20 --}}
+
+| Pin Name |   |   |   |   | MCU |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.3 |
+| A1 / D18 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.4 |
+| A2 / D17 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.28 |
+| A3 / D16 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.29 |
+| A4 / D15 | ADC4 | &nbsp; | &nbsp; | &nbsp; | P0.30 |
+| A5 / D14 | ADC5 | &nbsp; | SPI (SS) | &nbsp; | P0.31 |
+| D0 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | P0.26 |
+| D1 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | P0.27 |
+| D2 | &nbsp; | &nbsp; | SPI1 (SCK) | Serial1 RTS | P1.01 |
+| D3 | &nbsp; | &nbsp; | SPI1 (MOSI) | Serial1 CTS | P1.02 |
+| D4 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | P1.08 |
+| D5 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.10 |
+| D6 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.11 |
+| D7 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.12 |
+| D8 / WKP | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.03 |
+| MISO / D11 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | P1.14 |
+| MOSI / D12 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | P1.13 |
+| RX / D10 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | P0.08 |
+| SCK / D13 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | P1.15 |
+| TX / D09 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | P0.06 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### ADC (Analog to Digital Converter)
+
+The Boron supports 6 ADC inputs.
+
+{{!-- BEGIN do not edit content below, it is automatically generated bf872784-b042-45b5-980a-ff7abdec8a1b --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO, PWM | ADC0 | P0.3 |
+| A1 / D18 | A1 Analog in, GPIO, PWM | ADC1 | P0.4 |
+| A2 / D17 | A2 Analog in, GPIO, PWM | ADC2 | P0.28 |
+| A3 / D16 | A3 Analog in, GPIO, PWM | ADC3 | P0.29 |
+| A4 / D15 | A4 Analog in, GPIO, PWM | ADC4 | P0.30 |
+| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | ADC5 | P0.31 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- ADC inputs are single-ended and limited to 0 to 3.3V
+- Resolution is 12 bits
+
+
+### UART serial
+
+The Boron supports one UART serial interface. 
+
+{{!-- BEGIN do not edit content below, it is automatically generated 6169d4a3-4938-4c53-9830-849f29c0ffe7 --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| RX / D10 | Serial RX, GPIO | Serial1 RX | P0.08 |
+| TX / D09 | Serial TX, GPIO | Serial1 TX | P0.06 |
+| D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | Serial1 RTS | P1.01 |
+| D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | Serial1 CTS | P1.02 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
+- Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
+- You cannot use hardware flow control and Ethernet at the same time.
+
+
+### SPI
+
+The Boron supports two SPI (serial peripheral interconnect) ports.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5578133c-be91-431a-bec6-c903d70e87dd --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | SPI (SS) | P0.31 |
+| SCK / D13 | SPI SCK, GPIO | SPI (SCK) | P1.15 |
+| MOSI / D12 | SPI MOSI, GPIO | SPI (MOSI) | P1.13 |
+| MISO / D11 | SPI MISO, GPIO | SPI (MISO) | P1.14 |
+| D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | SPI1 (SCK) | P1.01 |
+| D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | SPI1 (MOSI) | P1.02 |
+| D4 | SPI1 MISO, PWM, GPIO | SPI1 (MISO) | P1.08 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
+- If not using a SPI port, its pins can be used as GPIO
+- Any pins can be used as the SPI chip select
+- Multiple devices can generally share a single SPI port
+- You cannot use `SPI1` and Ethernet at the same time.
+
+
+### I2C
+
+The Boron supports one I2C (two-wire serial interface) port.
+
+{{!-- BEGIN do not edit content below, it is automatically generated b959c6b0-5b22-4e0d-9bbc-ce9989d7e16c --}}
+
+| Pin Name | Description | Interface | MCU |
+| :--- | :--- | :--- | :--- |
+| D0 | I2C SDA, GPIO | Wire (SDA) | P0.26 |
+| D1 | I2C SCL, GPIO | Wire (SCL) | P0.27 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- The I2C port is 3.3V and must not be connected directly a 5V I2C bus
+- Maximum bus speed is 400 kHz
+- External pull-up resistors are recommended for I2C as the internal pull-up is 13K.
+- If not using I2C, pins D0 and D1 can be used as GPIO or analog input.
+
+### PWM
+
+The Boron supports PWM (pulse-width modulation) on the following pins:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2ee22e01-a29b-46db-9e33-cd9f93223537 --}}
+
+| Pin Name | Description | Timer | MCU |
+| :--- | :--- | :--- | :--- |
+| A0 / D19 | A0 Analog in, GPIO, PWM | PWM2 | P0.3 |
+| A1 / D18 | A1 Analog in, GPIO, PWM | PWM2 | P0.4 |
+| A2 / D17 | A2 Analog in, GPIO, PWM | PWM2 | P0.28 |
+| A3 / D16 | A3 Analog in, GPIO, PWM | PWM2 | P0.29 |
+| A4 / D15 | A4 Analog in, GPIO, PWM | PWM3 | P0.30 |
+| A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | PWM3 | P0.31 |
+| D2 | SPI1 SCK, Serial1 RTS, GPIO, PWM | PWM3 | P1.01 |
+| D3 | SPI1 MOSI, Serial1 CTS, PWM, GPIO | PWM3 | P1.02 |
+| D4 | SPI1 MISO, PWM, GPIO | PWM1 | P1.08 |
+| D5 | PWM, GPIO | PWM1 | P1.10 |
+| D6 | PWM, GPIO | PWM1 | P1.11 |
+| D7 | PWM, GPIO | PWM0 | P1.12 |
+| D8 / WKP | GPIO, PWM | PWM1 | P1.03 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- PWM that share the same timer (`PMW2` for example) must share the same frequency but can have different duty cycles.
+- Pin `D7` (PWM0) share a timer with the RGB LED and you should not change its frequency but it can have a different duty cycle.
+
+
+---
+
 ### LED status
 
 #### System RGB LED
@@ -549,7 +699,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 010      | 2022-09-06 | RK | Split out from rest of the Boron line |
-
+| 011      | 2022-09-07 | RK | Add additional port and pin information |
 
 ## Known Errata
 

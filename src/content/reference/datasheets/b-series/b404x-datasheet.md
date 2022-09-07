@@ -159,6 +159,238 @@ Additionally there are RESERVED<sup>3</sup> pins, whose functions vary depending
 
 For maximum cross-module flexibility, you should try to use only the common pins when possible.
 
+### GPIO and port listing
+
+{{!-- BEGIN do not edit content below, it is automatically generated 50c2d429-c8a8-4dd1-9afa-5ceab1fdb714 --}}
+
+| Pin Name | Module Pin |   |   |   |   | MCU |
+| :--- | :---: | :--- | :--- | :--- | :--- | :--- |
+| A0 / D19 | 23 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.3 |
+| A1 / D18 | 33 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.4 |
+| A2 / D17 | 35 | ADC4 | &nbsp; | &nbsp; | &nbsp; | P0.28 |
+| A3 / D16 | 37 | ADC5 | &nbsp; | &nbsp; | &nbsp; | P0.29 |
+| A4 / D15 | 41 | ADC6 | &nbsp; | &nbsp; | &nbsp; | P0.30 |
+| A5 / D14 | 43 | ADC7 | &nbsp; | &nbsp; | &nbsp; | P0.31 |
+| A6 | 45 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.5 |
+| A7 | 47 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.2 |
+| Cellular Modem USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Cellular Modem USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Cellular Modem VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | P0.26 |
+| D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | P0.27 |
+| D2 | 42 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | P1.02 |
+| D22 | 62 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.24 |
+| D23 | 64 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.09 |
+| D3 | 40 | &nbsp; | Wire1 (SCL) | SPI1 (MOSI) | Serial1 CTS | P1.01 |
+| D4 | 66 | &nbsp; | &nbsp; | SPI1 (MISO) | &nbsp; | P1.08 |
+| D5 | 68 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.10 |
+| D6 | 70 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.11 |
+| D7 | 72 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P1.12 |
+| D8 | 48 | &nbsp; | &nbsp; | SPI (SS) | &nbsp; | P1.03 |
+| MISO / D11 | 50 | &nbsp; | &nbsp; | SPI (MISO) | &nbsp; | P1.14 |
+| MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | P1.13 |
+| NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| NC | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| NFC1 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.9 |
+| NFC2 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.10 |
+| RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.15 |
+| RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.14 |
+| RGBR | 61 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.13 |
+| RX / D10 | 38 | &nbsp; | &nbsp; | &nbsp; | Serial1 RX | P0.08 |
+| SCK / D13 | 54 | &nbsp; | &nbsp; | SPI (SCK) | &nbsp; | P1.15 |
+| SIM_CLK | 71 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_DATA | 73 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_RST | 69 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| SIM_VCC | 67 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| TX / D9 | 36 | &nbsp; | &nbsp; | &nbsp; | Serial1 TX | P0.06 |
+| USBDATA- | 13 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| USBDATA+ | 11 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| VUSB | 16 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+### ADC (Analog to Digital Converter)
+
+The B404X supports 8 ADC inputs.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4f2addb7-dc0c-4a01-915a-e47b4cbea4f5 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC1 | P0.3 |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC2 | P0.4 |
+| 35 | A2 / D17 | A2 Analog in, GPIO | ADC4 | P0.28 |
+| 37 | A3 / D16 | A3 Analog in, GPIO | ADC5 | P0.29 |
+| 41 | A4 / D15 | A4 Analog in, GPIO | ADC6 | P0.30 |
+| 43 | A5 / D14 | A5 Analog in, GPIO | ADC7 | P0.31 |
+| 45 | A6 | A6 Analog in, PWM, GPIO | ADC3 | P0.5 |
+| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | ADC0 | P0.2 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- ADC inputs are single-ended and limited to 0 to 3.3V
+- Resolution is 12 bits
+
+
+### UART serial
+
+The B404X supports one UART serial interfaces. 
+
+{{!-- BEGIN do not edit content below, it is automatically generated f054fe69-870e-43d3-bd07-4d3168908a2b --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 36 | TX / D9 | Serial TX, GPIO | Serial1 TX | P0.06 |
+| 38 | RX / D10 | Serial RX, GPIO | Serial1 RX | P0.08 |
+| 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | Serial1 CTS | P1.01 |
+| 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Serial1 RTS | P1.02 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+- The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
+- Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
+- You cannot use hardware flow control and Ethernet at the same time.
+
+
+### SPI
+
+The B404X supports two SPI (serial peripheral interconnect) ports.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 7fe583f7-da0e-4353-aba3-57085789528f --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | SPI1 (MOSI) | P1.01 |
+| 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | SPI1 (SCK) | P1.02 |
+| 48 | D8 | GPIO, SPI SS, Ethernet CS | SPI (SS) | P1.03 |
+| 50 | MISO / D11 | SPI MISO, GPIO | SPI (MISO) | P1.14 |
+| 52 | MOSI / D12 | SPI MOSI, GPIO | SPI (MOSI) | P1.13 |
+| 54 | SCK / D13 | SPI SCK, GPIO | SPI (SCK) | P1.15 |
+| 66 | D4 | SPI1 MISO, PWM, GPIO | SPI1 (MISO) | P1.08 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
+- If not using a SPI port, its pins can be used as GPIO
+- Any pins can be used as the SPI chip select
+- Multiple devices can generally share a single SPI port
+- You cannot use `SPI1` and Ethernet at the same time.
+
+
+### I2C
+
+The B404X supports two I2C (two-wire serial interface) ports.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5736a439-4588-407f-a2bd-3a9f32920646 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 20 | D1 | I2C SCL, GPIO | Wire (SCL) | P0.27 |
+| 22 | D0 | I2C SDA, GPIO | Wire (SDA) | P0.26 |
+| 40 | D3 | SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL | Wire1 (SCL) | P1.01 |
+| 42 | D2 | SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA | Wire1 (SDA) | P1.02 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- The I2C port is 3.3V and must not be connected directly a 5V I2C bus
+- Maximum bus speed is 400 kHz
+- External pull-up resistors are recommended for I2C as the internal pull-up is 13K.
+- If not using I2C, pins D0 and D1 can be used as GPIO or analog input.
+- You cannot use `Wire1` and Ethernet at the same time.
+
+### PWM
+
+The B404X supports PWM (pulse-width modulation) on the following pins:
+
+{{!-- BEGIN do not edit content below, it is automatically generated 32c36a5a-08d1-4cd0-bb65-a9d05e085a3d --}}
+
+| Pin | Pin Name | Description | Timer | MCU |
+| :---: | :--- | :--- | :--- | :--- |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PWM2 | P0.3 |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PWM2 | P0.4 |
+| 45 | A6 | A6 Analog in, PWM, GPIO | PWM2 | P0.5 |
+| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | PWM2 | P0.2 |
+| 66 | D4 | SPI1 MISO, PWM, GPIO | PWM1 | P1.08 |
+| 68 | D5 | PWM, GPIO | PWM1 | P1.10 |
+| 70 | D6 | PWM, GPIO | PWM1 | P1.11 |
+| 72 | D7 | PWM, GPIO | PWM0 | P1.12 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- PWM that share the same timer (`PMW2` for example) must share the same frequency but can have different duty cycles.
+- Pin `D7` (PWM0) share a timer with the RGB LED and you should not change its frequency but it can have a different duty cycle.
+
+### USB
+
+The B404X supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 9a03f9ac-6d5e-4d9c-8962-4856d9029c30 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 11 | USBDATA+ | USB Data+ | &nbsp; |
+| 13 | USBDATA- | USB Data- | &nbsp; |
+| 16 | VUSB | USB VUSB power pin | &nbsp; |
+| 44 | Cellular Modem USBD+ | Cellular Modem USB Data+ | &nbsp; |
+| 46 | Cellular Modem USBD- | Cellular Modem USB Data- | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+- The Cellular Modem USB connector is optional, and can be used for firmware updates of the cellular module.
+
+
+### RGB LED
+
+The B404X supports an external common anode RGB LED. 
+
+One common LED that meets the requirements is the 
+[Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
+which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
+These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
+If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
+
+A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
+
+The use of the RGB LED is optional, however it is highly recommended as troubleshooting the device without the LED is very difficult.
+
+{{!-- BEGIN do not edit content below, it is automatically generated c4771770-1f59-4b95-9774-06e7ee605b64 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 61 | RGBR | RGB LED Red | P0.13 |
+| 63 | RGBG | RGB LED Green | P0.14 |
+| 65 | RGBB | RGB LED Blue | P0.15 |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+
+
+### SETUP and RESET button
+
+It is highly recommended that you add MODE (SETUP) and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
+
+{{!-- BEGIN do not edit content below, it is automatically generated e653d1b3-41a4-4c63-94a3-7029c2128bfd --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| 32 | MODE / D20 | MODE button, has internal pull-up | P0.11 |
+| 34 | RST | Hardware reset, active low. External pull-up required. | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated  --}}
+
+The MODE button does not have a hardware pull-up on it, so you must add an external pull-up (2.2K to 10K) to 3V3, or connect it to 3V3 if not using a button. 
+
+The RST pin does have an internal weak pull-up, but you may want to add external pull-up on that as well, especially if you use an off-board reset button connected by long wires.
+
 ### Pin description
 
 | # |	Pin	 | Common | Function | nRF52 |	Description |
@@ -551,3 +783,4 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | 018      | 2022-08-29 | RK | Split out from B404 and B402 |
 | 019      | 2022-09-06 | RK | Update certified cellular antenna |
+| 020      | 2022-09-07 | RK | Add additional port and pin information |
