@@ -1,14 +1,14 @@
 ---
-title: Boron datasheet
-layout: commonTwo.hbs
+title: Boron BRN404X datasheet
 columns: two
-description: Datasheet for the Particle Boron, Gen 3 cellular development kit
+layout: commonTwo.hbs
+description: Datasheet for the Particle Boron BRN404X, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet
+# {{title}}
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/brn404x-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/boron/boron-top.png" ></div>
@@ -17,35 +17,22 @@ description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 
 ### Overview
 
-The Boron is a powerful LTE Cat M1 or 2G/3G enabled development kit that supports cellular networks and Bluetooth LE (BLE). It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron is a powerful LTE Cat M1 enabled development kit that supports cellular networks and Bluetooth LE (BLE). It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud where Wi-Fi is missing or unreliable.
 
-The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X datasheet](/reference/datasheets/b-series/brn404x-datasheet/).
-
 ### Features
 
-#### Features - BRN402, BRN404 (Boron LTE)
+#### Features - BRN404X (Boron LTE)
 
- * The BRN402 and BRN404 have been deprecated, replacement is the B404X. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
- * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * u-blox SARA-R510S-01B LTE modem
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
- * 3GPP Release 13 LTE Cat M1 
- * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
- * Embedded Particle EtherSIM (BRN404)
- * Embedded Particle SIM (BRN402)
+ * 3GPP Release 14 LTE Cat M1 
+ * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+ * Embedded Particle EtherSIM
 
-
-#### Features - BRN314, BRN310 (Boron 2G/3G)
-
- * The BRN314 and BRN310 have been deprecated. See the [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) for more information.
- * u-blox SARA U201 2G/3G modem
- * HSPA/GSM with global hardware and SIM support 
- * Bands 800/850/900/1900/2100 MHz 
- * 3GPP Release 7
- * Embedded Particle EtherSIM (BRN314)
- * Embedded Particle SIM (BRN310)
+<sup>1</sup> Not all bands enabled in software by default
 
 #### Features - All Models
 
@@ -82,8 +69,6 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
 #### USB PORT
 The USB port is the easiest way to power up the Boron. Please make sure that the USB port is able to provide at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
-For powering the Boron 2G/3G version, you'll either need a USB port that is able support 2A current, or have the LiPo battery plugged in when powering over USB. This is because the on-board u-blox modem can consumes up to 1.8A peak current when operating in 2G mode. The Boron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
-
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
 
@@ -99,8 +84,6 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 
 #### Li+ PIN
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Boron. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
-
-For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current requirements.
 
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Photon, this pin _CANNOT_ be used to power the Boron.
@@ -139,9 +122,10 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE a
 
 **Cellular**
 
-|Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part #    | Gain       |
-|:--------------|:-------------|:-----------|:-----------|:--------------|:-----------|
-|Boron          | 698-3000 MHz| PCB Antenna|Taoglas     |FXUB63.07.0150C|5.00dBi peak|
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 
 ### Peripherals and GPIO
 
@@ -266,43 +250,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
-### Power consumption (Boron 2G/3G)
-
-| Parameter | Symbol | Min | Typ | Peak | Unit |
-| :---|:---|:---:|:---:|:---:|:---:
-| Peak Current, 3G | I<sub>Li+ pk</sub> | | | 800 | mA |
-| Peak Current, 2G | I<sub>Li+ pk</sub> | | | 1800 | mA |
-| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.76 | 3.77 | 3.79 | mA |
-| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 3.84 | 25.2 | 901 | mA |
-| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 11.6 | 56.9 | 579 | mA |
-| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 22.4 | 97.9 | 957 | mA |
-| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 15.6 | 18.7 | 84.7 | mA |
-| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 19.5 | 86.1 | 981 | mA |
-| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 594 | 631 | 665 | uA |
-| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 579 | 585 | 591 | uA |
-| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 589 | 607 | 630 | uA |
-| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | 17.0 | 907 | 2400 | uA |
-| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 443 | 906 | 1540 | uA |
-| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 589 | 606 | 627 | uA |
-| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 6.49 | 15.6 | 81.0 | mA |
-| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 160 | 171 | 182 | uA |
-| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | 166 | 178 | 188 | uA |
-| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 163 | 174 | 185 | uA |
-| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> |  | 494 | 2100 | uA |
-| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> |  55.9 | 515 | 1090 | uA |
-| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 590 | 610 | 634 | uA |
-| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 6.96 | 16.4 | 81.1 | mA |
-| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 139 | 146 | 162 | uA |
-| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 139 | 147 | 163 | uA |
-| Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
-
-<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
-The typical (typ) values are the best indicator of overall power consumption over time. The 
-peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
-
----
-
 ### Power consumption (Boron LTE)
+
+Values are from BRN404/BRN402. Actual operating current with cellular using the R510 modem may vary but should be similar.
 
 | Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
@@ -350,41 +300,34 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-#### u-blox SARA-U201 (2G/3G)
 
-|Parameter | Value | 
-|:---|:---|
-|Protocol stack| 3GPP Release 7 | 
-|MS Class | Class B | 
-|Bands | GSM 850 MHz |
-| | E-GSM 900 MHz|
-| | DCS 1800 MHz |
-| | PCS 1900 MHz | 
-|Power Class | Class 4 (33 dBm) for 850/900 bands |
-| | Class 1 (30 dBm) for 1800/1900 bands|
+#### u-blox SARA-R510S-01B
 
-- Global 2G/3G.
-- Not recommended for use in the United States due to the shutdown of 2G and 3G networks in 2022.
-
-#### u-blox SARA-R410M-02B or R410M-03
-
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat M1 Half-Duplex |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 28 (700 MHz)  |
-| | Band 13 (750 MHz)  |
-| | Band 20 (800 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 8 (900 MHz)  |
-| | Band 4 (1700 MHz) |
-| | Band 3 (1800 MHz)  |
-| | Band 2 (1900 MHz) |
-| Power class | Class 3 (23 dBm) |
+| Parameter | Value | FCC Certified | 
+| --- | --- | :---: | 
+| Protocol stack | 3GPP Release 14 | |
+| RAT | LTE Cat M1 Half-Duplex | |
+| LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
+| | Band 12 (700 MHz) | &check; |
+| | Band 28 (700 MHz)  | &check; |
+| | Band 85 (700 MHz)  | &nbsp; |
+| | Band 13 (750 MHz)  | &check; |
+| | Band 20 (800 MHz)  | &check; |
+| | Band 5 (850 MHz) | &check; |
+| | Band 18 (850 MHz) | &nbsp; |
+| | Band 19 (850 MHz) | &nbsp; |
+| | Band 26 (850 MHz)  | &nbsp; |
+| | Band 8 (900 MHz)  | &check; |
+| | Band 4 (1700 MHz) | &check; |
+| | Band 3 (1800 MHz)  | &check; |
+| | Band 2 (1900 MHz) | &check; |
+| | Band 25 (1900 MHz)  | &nbsp; |
+| | Band 1 (2100 MHz)  | &nbsp; |
+| Power class | Class 3 (23 dBm) | &nbsp; |
 
 - LTE Cat M1 for United States, Canada, and Mexico.
 - Not all bands are enabled in software by default. 
+- FCC Certification in the United States only tests bands in use in the United States.
 - Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
 
 
@@ -470,185 +413,32 @@ The complete schematic and board files are open source and available on Particle
 
 ## Country compatibility
 
-{{!-- BEGIN do not edit content below, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated e2c1aabb-d8d1-4bf4-90e1-6fe0978663e8 --}}
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
-| Afghanistan | BRN314 | 2G, 3G | MTN |
-| Albania | BRN314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
-| Algeria | BRN314 | 2G, 3G | Mobilis, Ooredoo |
-| Anguilla | BRN314 | 2G, 3G | Flow |
-| Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
-| Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
-| Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
-| Aruba | BRN314 | 2G, 3G | Setar |
-| Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
-| Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
-| Azerbaijan | BRN314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
-| Bahamas | BRN314 | 2G, 3G | Aliv, BTC Bahamas |
-| Bahrain | BRN314 | 2G, 3G | Zain |
-| Bangladesh | BRN314 | 2G, 3G | Bangalink, GrameenPhone |
-| Barbados | BRN314 | 2G, 3G | Flow |
-| Belarus | BRN314 | 2G, 3G | A1 |
-| Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
-| Bolivia | BRN314 | 2G, 3G | NuevaTel |
-| Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brunei | BRN314 | 2G, 3G | DST |
-| Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |
-| Burkina Faso | BRN314 | 2G, 3G | Orange |
-| Cambodia | BRN314 | 2G, 3G | Metfone |
-| Canada | BRN404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Canada | BRN404X | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Cayman Islands | BRN314 | 2G, 3G | Flow |
-| Chad | BRN314 | 2G, 3G | Airtel |
-| Chile | BRN314 | 2G, 3G | Claro, Entel, Movistar |
-| Colombia | BRN314 | 2G, 3G | Movistar, Tigo |
-| Congo (Brazzaville) | BRN314 | 2G, 3G | Airtel |
-| Congo (Kinshasa) | BRN314 | 2G, 3G | Airtel |
-| Costa Rica | BRN314 | 2G, 3G | Movistar |
-| Côte d'Ivoire | BRN314 | 2G, 3G | MTN |
-| Croatia | BRN314 | 2G, 3G | Hrvatski Telekom, Tele2 |
-| Cyprus | BRN314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
-| Czechia | BRN314 | 2G, 3G | O2, T-Mobile, Vodafone |
-| Denmark | BRN314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
-| Dominica | BRN314 | 2G, 3G | Flow |
-| Dominican Republic | BRN314 | 2G, 3G | Altice Dominicana, Claro, Viva |
-| Ecuador | BRN314 | 2G, 3G | Claro, Movistar |
-| Egypt | BRN314 | 2G, 3G | Etisalat, Orange |
-| El Salvador | BRN314 | 2G, 3G | Claro, Telefonica |
-| Estonia | BRN314 | 2G, 3G | Elisa, Tele2, Telia |
-| eSwatini | BRN314 | 2G, 3G | MTN |
-| Ethiopia | BRN314 | 2G, 3G | Ethio Telecom |
-| Faroe Islands | BRN314 | 2G, 3G | Faroese Telecom, Vodafone |
-| Finland | BRN314 | 2G, 3G | DNA, Elisa, Telia |
-| France | BRN314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
-| French Guiana | BRN314 | 2G, 3G | Digicel |
-| Gabon | BRN314 | 2G, 3G | Airtel |
-| Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
-| Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
-| Gibraltar | BRN314 | 2G, 3G | Gibtel |
-| Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
-| Grenada | BRN314 | 2G | Flow |
-| Guadeloupe | BRN314 | 2G, 3G | Orange |
-| Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
-| Guinea | BRN314 | 2G, 3G | MTN |
-| Guinea-Bissau | BRN314 | 2G, 3G | MTN |
-| Guyana | BRN314 | 2G | Digicel |
-| Haiti | BRN314 | 2G, 3G | Digicel |
-| Honduras | BRN314 | 2G, 3G | Claro, Tigo |
-| Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
-| Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
-| Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
-| Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
-| Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
-| Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
-| Italy | BRN314 | 2G, 3G | TIM, Vodafone, Wind |
-| Jamaica | BRN314 | 2G, 3G | Digicel, Flow |
-| Japan | BRN314 | 3G | NTT DoCoMo, Softbank |
-| Jordan | BRN314 | 2G, 3G | Zain |
-| Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
-| Kenya | BRN314 | 2G, 3G | Airtel |
-| Kuwait | BRN314 | 2G, 3G | Viva, Zain |
-| Kyrgyzstan | BRN314 | 2G, 3G | Beeline |
-| Latvia | BRN314 | 2G, 3G | Bite, LMT, Tele2 |
-| Liechtenstein | BRN314 | 2G, 3G | Mobilkom, Orange |
-| Lithuania | BRN314 | 2G, 3G | Bite, Omnitel, Tele2 |
-| Luxembourg | BRN314 | 2G, 3G | Orange, POST, Tango |
-| Malawi | BRN314 | 2G, 3G | Airtel |
-| Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
-| Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
-| Mexico | BRN404 | M1 | AT&T |
 | Mexico | BRN404X | M1 | AT&T |
-| Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
-| Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
-| Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |
-| Mozambique | BRN314 | 2G, 3G | Vodacom |
-| Myanmar | BRN314 | 2G, 3G | MPT, Telenor |
-| Namibia | BRN314 | 2G, 3G | Telecom Namibia |
-| Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
-| New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
-| Nicaragua | BRN314 | 2G, 3G | Movistar |
-| Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
-| Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
-| Oman | BRN314 | 2G, 3G | Ooredoo |
-| Pakistan | BRN314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
-| Palestine | BRN314 | 2G, 3G | Jawwal |
-| Panama | BRN314 | 2G, 3G | Digicel, Movistar |
-| Papua New Guinea | BRN314 | 2G, 3G | bmobile |
-| Paraguay | BRN314 | 2G, 3G | Claro, Personal, Tigo, Vox |
-| Peru | BRN314 | 2G, 3G | Claro, Entel, Movistar |
-| Philippines | BRN314 | 2G, 3G | Globe, Smart |
-| Poland | BRN314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
-| Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
-| Puerto Rico | BRN314 | 2G, 3G | Claro |
-| Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
-| Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
-| Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
-| Saint Lucia | BRN314 | 2G, 3G | Flow |
-| Saint Vincent and the Grenadines | BRN314 | 2G, 3G | Flow |
-| Saudi Arabia | BRN314 | 2G, 3G | Mobily, STC, Zain |
-| Serbia | BRN314 | 2G, 3G | Telenor, VIP |
-| Sint Maarten | BRN314 | 2G, 3G | TelCell |
-| Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |
-| Slovenia | BRN314 | 2G, 3G | A1, Mobitel |
-| South Africa | BRN314 | 2G, 3G | Cell C, MTN, Vodacom |
-| South Korea | BRN314 | 3G | KT, SK Telecom |
-| South Sudan | BRN314 | 2G, 3G | MTN |
-| Spain | BRN314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | BRN314 | 2G, 3G | Dialog, Mobitel |
-| Suriname | BRN314 | 2G, 3G | Telesur |
-| Sweden | BRN314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | BRN314 | 3G | Salt, Sunrise, Swisscom |
-| Taiwan | BRN314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tajikistan | BRN314 | 2G, 3G | Beeline, Tcell |
-| Tanzania | BRN314 | 2G, 3G | Airtel |
-| Thailand | BRN314 | 2G, 3G | AIS, DTAC, True Move |
-| Trinidad and Tobago | BRN314 | 2G, 3G | Digicel, TSTT |
-| Tunisia | BRN314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
-| Turks and Caicos Islands | BRN314 | 2G, 3G | Flow |
-| Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
-| Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
-| United States | BRN404 | M1 | AT&T |
 | United States | BRN404X | M1 | AT&T |
-| Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
-| Uzbekistan | BRN314 | 2G, 3G | Beeline |
-| Venezuela | BRN314 | 2G, 3G | Movistar |
-| Vietnam | BRN314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
-| Virgin Islands (British) | BRN314 | 2G, 3G | CCT, Flow |
-| Zambia | BRN314 | 2G, 3G | Airtel |
 
 
-{{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Ordering information
 
-Borons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G/3G and LTE Cat M1 versions.
+Borons are available from [store.particle.io](https://store.particle.io/).
 
-{{!-- BEGIN do not edit content below, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
+{{!-- BEGIN do not edit content below, it is automatically generated a7f02cc7-9035-489e-a7dc-15d4e915866f --}}
 
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 | &check; | GA | |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | In development | |
 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | &check; | In development | |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | In development | |
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | BRN404|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | NRND | BRN404KIT|
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | NRND-US | |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | Deprecated | BRN314TRAY50|
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | Deprecated | |
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | BRN404TRAY50|
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | Deprecated | |
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | End of life | BRN314KIT|
-| BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | NORAM | R410 |  | End of life | |
 
 
-{{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ## Qualification and approvals
@@ -657,20 +447,12 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 
 **BORON LTE (Cat M1) **
 
--   Model Number: BRN404, BRN402
+-   Model Number: BRN404X
 -   RoHS
 -   CE
 -   PTCRB
--   FCC ID: 2AEMI-BRN402
--   IC: 20127-BRN402
-
-**BORON 2G/3G**
-
--   Model Number: BRN314, BRN310
--   RoHS
--   CE
--   FCC ID: 2AEMI-BRN310
--   IC: 20127-BRN310
+-   FCC ID: 2AEMI-BRN404X
+-   IC: 20127-BRN404X
 
 ## Product Handling
 
@@ -728,8 +510,7 @@ In the event that these conditions can not be met (for example certain laptop co
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
 
-* Contains FCC ID: 2AEMI-BRN402 (BORON LTE)
-* Contains FCC ID: 2AEMI-BRN310 (BORON 2G/3G)
+* Contains FCC ID: 2AEMI-BRN404X
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -756,9 +537,8 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
- * Contains transmitter module IC: 20127-BRN402 (BORON LTE)
- * Contains transmitter module IC: 20127-BRN310 (BORON 2G/3G)
-
+ * Contains transmitter module IC: 20127-BRN404X
+ 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
 
@@ -768,17 +548,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| v001     | 2018 Oct 26 | MB | Initial release |
-| v002     | 2020 Jan 21 | RK | Remove mesh |
-| v003     | 2020 Sep 01 | RK | Add EN pin information |
-| v004     | 16-Sep-2020 | RK | Added power consumption information |
-| v005     | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
-| v005     | 26-Apr-2021 | RK | Added BRN314 and BRN404 model numbers |
-| v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
-| v007     | 09-Jul-2021 | RK | Number of accessible I2C ports is 1, not 2 |
-| v008     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
-| v009     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
-| v010     | 06-Sep-2022 | RK | Split BRN404X into new datasheet |
+| 010      | 2022-09-06 | RK | Split out from rest of the Boron line |
+
 
 ## Known Errata
 

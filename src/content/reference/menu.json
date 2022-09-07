@@ -302,6 +302,11 @@
           "href": "/reference/datasheets/b-series/b-series-eval-board/"
         },
         {
+          "dir": "brn404x-datasheet",
+          "title": "Boron BRN404X datasheet",
+          "href": "/reference/datasheets/b-series/brn404x-datasheet/"
+        },
+        {
           "dir": "boron-datasheet",
           "title": "Boron datasheet",
           "href": "/reference/datasheets/b-series/boron-datasheet/"

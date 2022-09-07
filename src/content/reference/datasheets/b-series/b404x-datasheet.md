@@ -91,20 +91,11 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
 
 #### Certified Cellular Antenna
 
-| SKU  | Description |
-| :--- | :--- |
-| ANTCW2EA | Particle Cellular Flex Antenna 2G/3G/LTE [x1] |
-| ANTCW2TY | Particle Cellular Flex Antenna 2G/3G/LTE Tray of 50 [x50] |
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 
-- Type: LTE Ultra Wide Band Flex Antenna
-- Frequency/band: 698 MHz-2690 MHz
-- RoHS Compliant
-- Mechanical Specs:
-  - Dimensions: 97 x 21 x 0.2 mm
-  - Mounting: 3M adhesive backed for application on non-metallic surfaces
-  - Connector type: FPC + IPEX connector
-  - Cable length: 210 mm
-  - Gain: 4.71 dBi
 
 #### General Antenna Guidance
 
@@ -559,3 +550,4 @@ The bootloader allows you to easily update the user application via several diff
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 018      | 2022-08-29 | RK | Split out from B404 and B402 |
+| 019      | 2022-09-06 | RK | Update certified cellular antenna |

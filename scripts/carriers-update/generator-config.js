@@ -295,7 +295,27 @@ const path = require('path');
                 return updater.generateCountryList('boron'); 
             } 
         },
-        // datasheets/boron/b404x-b404-b402-datasheet.md
+        {
+            guid:'e2c1aabb-d8d1-4bf4-90e1-6fe0978663e8',
+            generatorFn:function(updater) {
+                return updater.generateCountryList('boron', {
+                    groupFn:function(groupObj) {
+                        return groupObj.modem != 'R510';
+                    }
+                }); 
+            } 
+        },        
+        {
+            guid:'a7f02cc7-9035-489e-a7dc-15d4e915866f', 
+            generatorFn:function(updater) {
+                return updater.generateFamilySkus('boron', {
+                    filterFn:function(skuObj) {
+                        return skuObj.modem != 'R510';
+                    }        
+                }); 
+            } 
+        },
+        // datasheets/boron/b404-b402-datasheet.md
         {
             guid:'91d8b83c-76ce-11eb-9439-0242ac130002', 
             generatorFn:function(updater) {
