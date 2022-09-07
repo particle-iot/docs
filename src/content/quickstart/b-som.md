@@ -66,7 +66,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the Boron SoM. |
+| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 

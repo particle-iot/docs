@@ -47,7 +47,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the Boron SoM. |
+| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -134,7 +134,7 @@ For more information about Ethernet, see the application note [AN037 Ethernet](/
 
 ### PWM Differences
 
-On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On the B Series SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 2: Pins A0, A1, A6, and A7.

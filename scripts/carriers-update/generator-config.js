@@ -347,6 +347,178 @@ const path = require('path');
                 }); 
             } 
         },
+        // BRN404X
+        {
+            guid: 'ac335968-6a40-4e3a-9493-46510917cf20',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'Boron',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'6169d4a3-4938-4c53-9830-849f29c0ffe7',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Boron',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                }); 
+            }                     
+        },
+        {
+            guid:'5578133c-be91-431a-bec6-c903d70e87dd',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Boron',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'b959c6b0-5b22-4e0d-9bbc-ce9989d7e16c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Boron',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'bf872784-b042-45b5-980a-ff7abdec8a1b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Boron',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        {
+            guid:'2ee22e01-a29b-46db-9e33-cd9f93223537',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Boron',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: true,
+                    noPinNumbers: true,
+                }); 
+            } 
+        },
+        // B404X
+        {
+            guid: '50c2d429-c8a8-4dd1-9afa-5ceab1fdb714',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'pinFunction',
+                    platformNew: 'B4xx SoM',
+                }); 
+            } 
+        },/*
+        {
+            guid:'5c5c78ef-c99c-49b7-80f4-19196b90ecfe',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'B4xx SoM',
+                }); 
+            } 
+        },*/
+        {
+            guid:'f054fe69-870e-43d3-bd07-4d3168908a2b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'serial'
+                }); 
+            }                     
+        },
+        {
+            guid:'7fe583f7-da0e-4353-aba3-57085789528f',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'spi'
+                }); 
+            } 
+        },
+        {
+            guid:'5736a439-4588-407f-a2bd-3a9f32920646',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'i2c'
+                }); 
+            } 
+        },
+        {
+            guid:'4f2addb7-dc0c-4a01-915a-e47b4cbea4f5',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'hardwareADC'
+                }); 
+            } 
+        },
+        {
+            guid:'32c36a5a-08d1-4cd0-bb65-a9d05e085a3d',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    showHardwareTimer: true,
+                }); 
+            } 
+        },
+        {
+            guid:'9a03f9ac-6d5e-4d9c-8962-4856d9029c30',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'isUSB',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
+            guid:'c4771770-1f59-4b95-9774-06e7ee605b64',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'isLED',
+                    noInterface: true,
+                }); 
+            } 
+        },
+        {
+            guid:'e653d1b3-41a4-4c63-94a3-7029c2128bfd',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'B4xx SoM',
+                    interface: 'isControl',
+                    noInterface: true,
+                }); 
+            } 
+        },
         // datasheets/boron/b524-b523-datasheet.md
         {
             guid:'ea841986-76ce-11eb-9439-0242ac130002', 

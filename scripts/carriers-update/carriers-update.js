@@ -2280,6 +2280,12 @@ const generatorConfig = require('./generator-config');
                     key: 'interface'
                 });    
             }
+            if (options.showHardwareTimer) {
+                tableOptions.columns.push({
+                    key: 'hardwareTimer',
+                    title: 'Timer',
+                });    
+            }
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'
