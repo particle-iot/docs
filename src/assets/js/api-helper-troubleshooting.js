@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     const decisionTreeUrl = '/assets/files/troubleshooting.json';
@@ -48,6 +49,7 @@ $(document).ready(function () {
         let ticketForms;
         let troubleshootingJson;
         let environmentJson;
+        let ticketAttachments;
            
         let pageStack = [];
 
@@ -390,15 +392,164 @@ $(document).ready(function () {
 
                 {
                     const attachmentDiv = document.createElement('div');
+                    $(attachmentDiv).css('padding', '5px 0px 20px 0px');
 
-                    /*
-                    const titleElem = document.createElement('div');
-                    $(titleElem).text('');
-                    $(fieldDivElem).append(titleElem);    
-                    */
-                    
+                    const labelElem = document.createElement('label');
+
+                    const labelText = document.createTextNode(pageObj.attachmentTitle || 'Select files to attach or drag and drop files here (optional)')
+                    $(labelElem).append(labelText);
+
+                    const buttonElem = document.createElement('button');
+                    $(buttonElem).css('margin-left', '10px');
+                    $(buttonElem).text('Select files');
+                    $(labelElem).append(buttonElem);
+
+                    $(attachmentDiv).append(labelElem);    
+
+                    const inputElem = document.createElement('input');
+                    $(inputElem).attr('type', 'file');
+                    if (pageObj.attachmentTypes) {
+                        // comma-separated list of extensions ('.pdf') or mime types
+                        $(inputElem).attr('accept', pageObj.attachmentTypes);
+                    }
+                    $(inputElem).attr('multiple', true);
+                    $(inputElem).hide();
+
+                    ticketAttachments = null;
+
+                    $(buttonElem).on('click', function() {
+                        $(inputElem).trigger('click');
+                    });
+
+                    $(attachmentDiv).append(inputElem);
+
+                    const statusElem = document.createElement('div');
+                    $(statusElem).hide();
+                    $(attachmentDiv).append(statusElem);
+
+                    const setStatus = function(s) {
+                        if (s) {
+                            $(statusElem).text(s);
+                            $(statusElem).show();
+                        }
+                        else {
+                            $(statusElem).hide();
+                        }
+                    }
+                    const setStatusAttachmentError = function() {
+                        setStatus('You can attach a maximum of 5 files, with a maximum size of 10 MB each');
+                    }
+
 
                     $(pageDivElem).append(attachmentDiv);
+
+                
+                    const setAttachments = function(files, options) {
+                        if (!options) {
+                            options = {};
+                        }
+                        let totalSize = 0;
+                        let totalFiles = 0;
+                        if (!ticketAttachments || !options.addToExisting) {
+                            ticketAttachments = [];
+                        }
+                        else {
+                            for(const file of ticketAttachments) {
+                                totalSize += file.size;
+                            }
+                            totalFiles += ticketAttachments.length;
+                        }
+
+                        if ((ticketAttachments.length + files.length) > 5) {
+                            setStatusAttachmentError();
+                        }
+                        else
+                        if (files.length > 0) {
+                            for(const file of files) {
+                                totalSize += file.size;
+                            }
+                            if (totalSize < (10 * 1048576)) { // 10 MB
+                                for(const file of files) {
+                                    // file.name, .lastModified, .lastModifiedDate, .size, .type
+                                    
+                                    let fileReader = new FileReader();
+                                    fileReader.onload = async function() {
+                                        ticketAttachments.push({
+                                            'name': file.name,
+                                            'size': file.size,
+                                            'content': fileReader.result,
+                                        });
+                                    };
+                                    fileReader.readAsArrayBuffer(file);    
+                                }      
+                                
+                                let prefixStr, unitStr;
+                                totalFiles += files.length;
+                                if (totalFiles == 1) {
+                                    prefixStr = 'Will attach 1 file, size is ';
+                                }
+                                else {
+                                    prefixStr = 'Will attach ' + totalFiles + ' files, total size is ';
+                                }
+
+                                if (totalSize > 1048576) { // 1 MB
+                                    totalSize = Math.round(totalSize / 104857.6) / 10;
+                                    unitStr = ' MB';
+                                }
+                                else
+                                if (totalSize > 1024) { // 1 KB
+                                    totalSize = Math.round((totalSize / 102.4)) / 10;
+                                    unitStr = ' KB';
+                                }
+                                else {
+                                    unitStr = ' B';
+                                }
+                                setStatus(prefixStr + totalSize + unitStr);
+                            }
+                            else {
+                                setStatusAttachmentError();
+                            }
+
+                                              
+                        } 
+
+                        console.log('ticketAttachments', ticketAttachments);
+                    };
+
+
+                    $(inputElem).on('change', function(event) {
+                        setAttachments(this.files, {
+                            addToExisting: false,
+                        });                        
+                    });
+
+                    $(attachmentDiv).on('dragover', function(ev) {
+                        ev.preventDefault();
+                    });
+
+                    $(attachmentDiv).on('drop', function(ev) {
+                        ev.preventDefault();
+                        if (ev.originalEvent.dataTransfer.items) {
+                            let files = [];
+                            for(const item of ev.originalEvent.dataTransfer.items) {
+                                if (item.kind === 'file') {
+                                    const file = item.getAsFile();
+                                    // file.name, .lastModified, .lastModifiedDate, .size, .type
+                                    files.push(file);
+                                }
+                            }
+                            setAttachments(files, {
+                                addToExisting: true,
+                            })
+                        }
+                        else {
+                            setAttachments(ev.originalEvent.dataTransfer.files, {
+                                addToExisting: true,
+                            })
+                        }
+                    });
+
+
                 }
 
 
