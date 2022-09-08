@@ -58,6 +58,7 @@
             "page": 102,
             "title": "I am blocked from logging in due to multi-factor authentication (2FA/MFA)",
             "note": "lost-mfa.md",
+            "attachmentAllowed": true,
             "ticketForm": 360006636853,
             "fields": [
                 {

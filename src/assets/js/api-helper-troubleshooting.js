@@ -100,6 +100,7 @@ $(document).ready(function () {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
                     pageObj.ticketForm = pageOptions.page;
+                    pageObj.attachmentAllowed = true;
                 }
             }
             if (!pageObj) {
@@ -390,7 +391,7 @@ $(document).ready(function () {
                     field: 'body',
                 });
 
-                {
+                if (pageObj.attachmentAllowed) {
                     const attachmentDiv = document.createElement('div');
                     $(attachmentDiv).css('padding', '5px 0px 20px 0px');
 
@@ -474,13 +475,15 @@ $(document).ready(function () {
                                     
                                     let fileReader = new FileReader();
                                     fileReader.onload = async function() {
+                                        console.log('attachment ArrayBuffer', fileReader.result);
+
                                         ticketAttachments.push({
                                             'name': file.name,
                                             'size': file.size,
-                                            'content': fileReader.result,
+                                            'content': new Uint8Array(fileReader.result),
                                         });
                                     };
-                                    fileReader.readAsArrayBuffer(file);    
+                                    fileReader.readAsArrayBuffer(file);
                                 }      
                                 
                                 let prefixStr, unitStr;
@@ -512,8 +515,6 @@ $(document).ready(function () {
 
                                               
                         } 
-
-                        console.log('ticketAttachments', ticketAttachments);
                     };
 
 
@@ -561,7 +562,8 @@ $(document).ready(function () {
                     $(buttonElem).prop('disabled');
 
                     let options = {
-                        ticketFormId: pageObj.ticketForm
+                        ticketFormId: pageObj.ticketForm,
+                        ticketAttachments
                     };
 
                     for(const field of fields) {

@@ -4,11 +4,13 @@ $(document).ready(function() {
     }
 
     const uploadAttachment = function(options) {
+        // console.log('uploadAttachment', options);
+
         return new Promise(function(resolve, reject) {      
 
             const request = {
                 contentType: 'application/binary',
-                data: 'this is a test\n', // TODO: Replace this with actual data!
+                data: options.content,
                 dataType: 'json',
                 error: function (jqXHR) {
                     console.log('error', jqXHR);
@@ -18,10 +20,11 @@ $(document).ready(function() {
                     'Accept': 'application/json'
                 },
                 method: 'POST',
+                processData: false,
                 success: function (resp, textStatus, jqXHR) {
                     resolve(resp);
                 },
-                url: 'https://particle.zendesk.com/api/v2/uploads?filename=test.txt'
+                url: 'https://particle.zendesk.com/api/v2/uploads?filename=' + encodeURIComponent(options.name),
             };
 
             $.ajax(request);      
@@ -70,6 +73,7 @@ $(document).ready(function() {
         });
     }
 
+    /*
     const submitTicketComment = function(options) {
         return new Promise(function(resolve, reject) {      
 
@@ -105,30 +109,28 @@ $(document).ready(function() {
             $.ajax(request);      
         });        
     }
+    */
 
     apiHelper.ticketSubmit = async function(options) {
 
-        const uploadAttachmentResp = await uploadAttachment({
-
-        });
-        console.log('uploadAttachmentResp', uploadAttachmentResp);
-
-        const uploadToken = uploadAttachmentResp.upload.token;
+        if (options.ticketAttachments) {
+            for(const file of options.ticketAttachments) {
+                const uploadAttachmentResp = await uploadAttachment({
+                    name: file.name,
+                    content: file.content,
+                });
+                // console.log('uploadAttachmentResp', uploadAttachmentResp);
+        
+                // const uploadToken = uploadAttachmentResp.upload.token;
+                const contentUrl = uploadAttachmentResp.upload.attachment.content_url;
+                options.body += '\nAttachment: ' + contentUrl + '\n';
+            }
+        }
 
         const submitTicketResp = await submitTicketRequest(options);
-        console.log('submitTicketResp', submitTicketResp);
+        // console.log('submitTicketResp', submitTicketResp);
 
-        const ticket = submitTicketResp.request.id;
-
-        /*
-        // Getting 401 trying to submit this
-        // Access to XMLHttpRequest at 'https://particle.zendesk.com/api/v2/tickets/123663' from origin 'http://localhost:8080' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-        const submitTicketCommentResp = await submitTicketComment({
-            uploadToken,
-            ticket
-        });
-        console.log('submitTicketCommentResp', submitTicketCommentResp);
-        */
+        // const ticket = submitTicketResp.request.id;
 
         return submitTicketResp;
     };
