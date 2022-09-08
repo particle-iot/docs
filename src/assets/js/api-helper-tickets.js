@@ -113,7 +113,9 @@ $(document).ready(function() {
 
     apiHelper.ticketSubmit = async function(options) {
 
-        if (options.ticketAttachments) {
+        if (options.ticketAttachments && options.attachmentsField) {
+            let value = '';
+
             for(const file of options.ticketAttachments) {
                 const uploadAttachmentResp = await uploadAttachment({
                     name: file.name,
@@ -123,9 +125,14 @@ $(document).ready(function() {
         
                 // const uploadToken = uploadAttachmentResp.upload.token;
                 const contentUrl = uploadAttachmentResp.upload.attachment.content_url;
-                options.body += '\nAttachment: ' + contentUrl + '\n';
+                value += 'Attachment: ' + contentUrl + '\n';
             }
+            options.customFields.push({
+                id: options.attachmentsField,
+                value,
+            });
         }
+
 
         const submitTicketResp = await submitTicketRequest(options);
         // console.log('submitTicketResp', submitTicketResp);
@@ -252,7 +259,7 @@ $(document).ready(function() {
 
             options.body += $(messageFieldElem).val();
 
-            console.log('options', options);
+            // console.log('options', options);
             
             try {
                 const resp = await apiHelper.ticketSubmit(options);

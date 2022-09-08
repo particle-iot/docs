@@ -45,6 +45,10 @@ $(document).ready(function () {
 
         const startPage = $(thisPartial).data('page') ? parseInt($(thisPartial).data('page')) : undefined;
 
+        const attachmentFields = [
+            8688454802459,
+        ];
+
         // Content loaded at runtime
         let ticketForms;
         let troubleshootingJson;
@@ -100,7 +104,6 @@ $(document).ready(function () {
                 pageObj = ticketForms.ticketForms.find(e => e.id == pageOptions.page);
                 if (pageObj) {
                     pageObj.ticketForm = pageOptions.page;
-                    pageObj.attachmentAllowed = true;
                 }
             }
             if (!pageObj) {
@@ -130,6 +133,7 @@ $(document).ready(function () {
             let fields = [];
             let submitButton;
             let conditionSelected = true;
+            let attachmentsField;
 
             const validateForm = function() {
                 let isValid = true;
@@ -203,6 +207,12 @@ $(document).ready(function () {
             };
 
             const addField = function(fieldSpecObj) {
+                if (attachmentFields.includes(fieldSpecObj.id)) {
+                    // Don't render the attachment field
+                    attachmentsField = fieldSpecObj.id;
+                    return;
+                }
+
                 const fieldDivElem = document.createElement('div');
                 $(fieldDivElem).addClass('apiHelperTroubleshootingField')
     
@@ -391,7 +401,7 @@ $(document).ready(function () {
                     field: 'body',
                 });
 
-                if (pageObj.attachmentAllowed) {
+                if (attachmentsField) {
                     const attachmentDiv = document.createElement('div');
                     $(attachmentDiv).css('padding', '5px 0px 20px 0px');
 
@@ -475,8 +485,6 @@ $(document).ready(function () {
                                     
                                     let fileReader = new FileReader();
                                     fileReader.onload = async function() {
-                                        console.log('attachment ArrayBuffer', fileReader.result);
-
                                         ticketAttachments.push({
                                             'name': file.name,
                                             'size': file.size,
@@ -563,7 +571,8 @@ $(document).ready(function () {
 
                     let options = {
                         ticketFormId: pageObj.ticketForm,
-                        ticketAttachments
+                        ticketAttachments,
+                        attachmentsField,
                     };
 
                     for(const field of fields) {
@@ -602,7 +611,7 @@ $(document).ready(function () {
 
                     try {
                         const resp = await apiHelper.ticketSubmit(options);
-                        console.log('resp', resp);
+                        // console.log('resp', resp);
 
                         ga('send', 'event', gaCategory, 'ticketSubmitSuccess', pageObj.ticketForm);
                         showPage({page: 105}); // Ticket submitted
