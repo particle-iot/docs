@@ -106,20 +106,11 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 ### FCC approved antennas
 
-| SKU  | Description |
-| :--- | :--- |
-| ANTCW2EA | Particle Cellular Flex Antenna 2G/3G/LTE [x1] |
-| ANTCW2TY | Particle Cellular Flex Antenna 2G/3G/LTE Tray of 50 [x50] |
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 
-- Type: LTE Ultra Wide Band Flex Antenna
-- Frequency/band: 698 MHz-2690 MHz
-- RoHS Compliant
-- Mechanical Specs:
-  - Dimensions: 97 x 21 x 0.2 mm
-  - Mounting: 3M adhesive backed for application on non-metallic surfaces
-  - Connector type: FPC + IPEX connector
-  - Cable length: 210 mm
-  - Gain: 4.71 dBi
 
 #### Bluetooth LE (BLE)
 
@@ -728,7 +719,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID:
+> Contains FCC ID: 2AEMI-E404X
 
  **To be provided at a later date**
 
@@ -756,10 +747,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC:
-
- * 8595A-SARAU201 (For 3G E series using the U201 module)
- * 8595A-2AGQN4NNN (For LTE E series module using the R410 module)
+> Contains transmitter module IC: 20127-E404X
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -776,6 +764,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
 |     | 2022-07-28 | RK | Update PWM assignments |
+|     | 2022-09-08 | RK | Update antenna, FCC, and IC |
 
 ### 2022-07-28 PWM changes
 
