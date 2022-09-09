@@ -280,7 +280,7 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | Parameter | Value |
 | --- | --- |
 | Width | 91 mm |
-| Length | 1425 mm |
+| Length | 142.5 mm |
 | Thickness | 15.5 mm | 
 | Weight | 71.8 grams (including PoE module) |
 
@@ -293,4 +293,4 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | 002      | 21 Jan 2020 | RK | Remove mesh |
 | 003      |  3 Feb 2020 | RK | Correct pins for SD card |
 | 004      | 20 Jul 2022 | RK | Correct pins for SD and Ethernet SPI, which are SPI not SPI1 |
-
+| 005      |  9 Sep 2023 | RK | Correct length |
