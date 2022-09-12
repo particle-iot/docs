@@ -92,6 +92,7 @@ The microcontroller is different in E Series and E404X:
 
 On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case for the E404X and Gen 3 (nRF52840). You must not exceed 3.3V on any GPIO pin, including ports such as serial, I2C, and SPI.
 
+
 ### Pins no longer available for GPIO
 
 | Pin | Pin Name | Reason |
@@ -105,6 +106,23 @@ On Gen 2 devices (STM32F205), most pins are 5V tolerant. This is not the case fo
 
 
 You will need to use different pins if you are currently using these pins.
+
+### B0 and B1 should not be used as wake sources
+
+| Pin | Pin Name |
+| :---: | :--- |
+| 33 | B0 |
+| 32 | B1 |
+
+- Pins B0 and B1 should not be used as GPIO wake sources.
+- In ULP sleep mode, when used as an input B0 and B1 should be held at the same logic level even if not used as a wake source.
+- On other devices these pins are used as NFC and the circuitry which protects the MCU from surge voltage can cause leakage voltage between these pins when used as GPIO in both operating and sleep modes.
+
+### Beware of leakage current
+
+If you have circuitry that can disconnect the nRF52840 MCU 3V3 power, beware of situations where current can leak into GPIO pins from an external supply.
+
+For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disconnected power, when MCU 3V3 is powered down current can flow into the GPIO causing the MCU to not fully power down. This can prevent the MCU from resetting when power is reapplied. It will also cause excess power consumption when powered down.
 
 ### SPI
 
@@ -161,8 +179,11 @@ The following SPI data rates are available:
 
 {{!-- END do not edit content above, it is automatically generated e6a3ce62-dfb5-4926-a1b4-5f2fd5048d05 --}}
 
-One the E Series (other than the E404X), Wire and Wire1 are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
-
+- On the E Series (other than the E404X), `Wire` and `Wire1` are the same I2C peripheral and you can only use one at a time, so effectively it only has one I2C port. 
+- On the E Series (other than the E404X), the built-in pull-up on SDA and SCL is approximately 40K and an external pull-up is required.
+- On the E404X, the built-in pull-up on SDA and SCL is approximately 13K. An external pull-up is recommended. 
+- On the E404X, GPIO is 3.3V and is not 5V tolerant. Connecting to a 5V I2C bus requires level shifting.
+- On the E404X, external pull-ups should only be connected to the MCU 3V3 supply. Pulling up to an external supply can cause leakage current into the GPIO pins of the nRF52840 which can prevent it from resetting properly.
 
 ### Serial (UART)
 
@@ -1033,3 +1054,4 @@ Since the E404X uses the same MCU as Gen 3 devices (Boron, B Series SoM, Tracker
 |     | 2022-03-14 | RK | Minor edits; no functional changes |
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
 |     | 2022-07-28 | RK | Update PWM assignments |
+|     | 2022-09-12 | RK | Added notes about I2C pull-ups and leakage current |
