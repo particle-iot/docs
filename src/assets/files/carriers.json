@@ -4193,7 +4193,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -4524,7 +4526,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850",
@@ -5654,7 +5657,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1900",
@@ -5988,7 +5992,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -6202,7 +6207,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -6536,7 +6542,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -6859,7 +6867,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -7196,7 +7205,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -7252,7 +7262,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -7900,7 +7911,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850",
@@ -8146,7 +8158,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -8490,7 +8503,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -9159,7 +9173,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -9322,7 +9337,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1800",
@@ -9409,7 +9425,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -10131,7 +10149,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -10854,7 +10873,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -11265,7 +11285,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -12058,7 +12079,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -12417,7 +12439,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -12542,7 +12565,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850"
@@ -13059,7 +13084,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -13819,7 +13846,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1900",
@@ -16000,7 +16028,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -16477,7 +16506,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -17148,7 +17178,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -17214,7 +17246,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850",
@@ -17349,6 +17382,12 @@
       "carrier": "Vodafone",
       "sunset2G": "2025",
       "sunset3G": "2020",
+      "koreOneNet": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "roamingRestrictions": "hide"
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -18970,7 +19009,7 @@
       ],
       "description": "Kore/Vodafone OneNet",
       "countryInfoLabel": "OneNet",
-      "countryCarrierKey": "koreOneNet"
+      "countryCarrierKey": "koreAllNet"
     },
     {
       "id": 21,
