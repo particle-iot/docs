@@ -371,7 +371,8 @@ If you need a DAC, it's easy to add one via I2C or SPI on your base board.
 
 On Gen 2 devices (STM32), only the WKP pin rising can wake from HIBERNATE sleep mode. 
 
-This restriction does not exist on the E404X and Gen 3 devices; any pin can be used to wake from all sleep modes, rising or falling.
+This restriction does not exist on the E404X and Gen 3 devices; any pin except B0 and B1 can be used to wake from all sleep modes, rising or falling.
+
 
 ### CAN (Controller Area Network)
 

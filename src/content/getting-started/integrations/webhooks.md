@@ -233,6 +233,13 @@ You can also customize the structure of the data that gets sent. In the "Advance
 
 The easiest way to observe webhook activity is to view the Integrations tab in the Particle Console. Double click on the integration you want to view and the page shows the history, recent calls, and recent errors.
 
+Timeout indicates that a response was not received within 20 seconds. There are two different but related timeout errors:
+
+- `ETIMEOUT` occurs when the remote web server did not respond to a request to connect, either because it was down or too busy to respond.
+- `ESOCKETTIMEDOUT` occurs when the remote web server did initially accept the connection, but did not respond to the data we sent it within 20 seconds.
+
+If the webhook server host does not successfully include a response, including timeouts and 5xx (temporary failure) errors, the error count is incremented. If a sufficiently large number of errors occur for a given host name, webhook requests will be slowed down to avoid overloading the server. This is not specific to your account! It the aggregate usage across all users. In this state, requests are counted as "Sleep" and are discarded. These requests will not be retried, as retrying the requests will only increase the load on the server, making it even less likely to succeed. As additional successful requests are made and the ratio of success to failure increases, the number of sleeps will be reduced, eventually to 0.
+
 Additionally, you can view the Events page of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL. 
 
 If the webhook receives a response from the targeted web server with something in the body, a `hook-response` event will also appear in your event stream containing the response. This event will _only_ appear in your event stream if the web service returned something in the `body` of its response to the Particle cloud.
