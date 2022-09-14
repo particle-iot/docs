@@ -272,3 +272,102 @@ The Photon includes the following power inputs:
 - The P1 does not have a built-in voltage regulator or PMIC. 
 - It requires 3.3V at 500 mA.
 
+## Batteries
+
+### Compatible batteries
+
+- The standard Particle LiPo is 1800 mAh at 3.7V = 6.66 Wh.
+- The largest commonly available LiPo of this style is 6600 mAh at 3.7V = 22.2 Wh
+- There are larger multi-cell LiPo batteries, typically made from 18650 cells, that can be connected to the Particle Li+ connector and are compatible with the built-in charger, but the built-in fuel gauge (MAX17043) is not compatible with these batteries so state-of-charge (SoC) information will not be accurate.
+
+There are several criteria that must be met in order to use a battery with your Particle device:
+
+- Nominal voltage. Different devices have different power ranges, and this can affect the type of battery you can use. Cellular devices generally work best with batteries of a nominal voltage of 3.7V to 4.4V.
+- Discharge curve. Different battery chemistries have different characteristics during discharge. At some point, every battery will fall below the minimum allowed for your device, but this is not always linear with battery capacity.
+- Maximum voltage. Note that some batteries may have a voltage higher than their nominal voltage when fully charged. Make sure this does not exceed the limits of your device. If you use a rechargeable battery with an external charger, also be aware of the charge voltage, which is typically higher than the nominal voltage.
+- Capacity. How much energy is stored in the battery, measured in amp-hours (Ah) at the nominal voltage, or watt-hours (Wh), which is the amp-hours multiplied by the voltage.
+- Maximum discharge rate. Many batteries have maximum rate that they can be discharged. This is important because 2G/3G cellular devices can draw up to 2A at 3.7V, which not all batteries can supply.
+- Temperature. There may be different temperatures for operating, charging, and storage temperatures.
+
+#### Example
+
+For example, [this Adafruit battery](https://www.adafruit.com/product/5035) looks to be compatible. 
+
+> Nominal Capacity
+> - Minimum: 9500mAh
+> - Typical: 10050mAh Standard discharge （0.2C) after Standard charge
+
+This looks good. It's significantly larger than the 1800 mAh Particle LiPo.
+
+> Nominal Voltage 3.7V
+
+This is good. It matches the Particle battery and above the minimum required for the Li+ pin of 3.6V.
+
+> Charging Cut-off Voltage 4.2V
+
+This matches the Particle battery charge voltage. The bq24195 PMIC can be programmed to use different charging voltages, within a small range typical for LiPo batteries.
+
+> Discharge Cut-off Voltage 2.5V
+
+LiPo batteries have a circuit that disconnects the output when the voltage drops below a certain level, as the battery can be damaged if discharged to zero. In practice, when the voltage drops below 3.6V the cellular modem will be adversely affected and below 3.0V the MCU will likely turn off, so you probably won't reach this voltage.
+
+> Maximum Constant Charging Current 3000mA
+
+The bq24195 PMIC has a charge current limit of 1500 mA, however charging is typically limited to lower values by the input current limit and software settings. This battery can be safely charged by the Particle device, but it will take longer than the listed charge time of 8 hours because the charge current will lower.
+
+> Maximum Continuous Discharging Current 3000mA
+
+The maximum Particle device discharge current is 2000 mA for 2G/3G cellular, and 500 mA for most other devices, so this is fine.
+
+> Operating Temperature Charge 0～4°C
+
+By default, devices other than the Tracker do not limit charging by temperature. If you plan on using the device below 0°C or above 45°C with this battery, you should turn charging on or off based on temperature.
+
+> Discharge –20～60°C
+
+This temperature range is larger than most Particle devices so this battery should be acceptable.
+
+Note, however, that this is a multi-cell LiPo battery. While it can be charged by the Particle device, the fuel gauge (MAX17043) is not compatible with this battery! Thus the state-of-charge (SoC) information will not be accurate. The fuel gauge chip won't be damaged, but it won't be accurate.
+
+Also note that the wiring of the JST-PH is not standardized! While Adafruit and Sparkfun batteries are wired the same as Particle batteries, this is not the case for many batteries you can purchase on Amazon, eBay, or AliExpress. See the [battery guide](/hardware/power/batteries/) for more information.
+
+### Other battery types
+
+It is possible to use an external battery of a type other than the Li-Po battery used with most Particle device, however there are several caveats:
+
+- The built-in charger will most likely not be usable and you'll need an external charger.
+- The built-in fuel gauge will not be able to monitor your external non-Li-Po battery, so if you need to know the state-of-charge you'll need circuitry to measure it.
+
+You need to select the appropriate device power input, which may be one of:
+
+- VIN. Has the largest input voltage range on most devices.
+- Li+. Has a very limited input range, but is the most efficient, especially when using sleep modes. You need to disable charging in software.
+- USB. An external battery pack with USB output can be used, but beware of sleep modes. Some USB battery packs will turn off if the current being drawn is very low, and sleep mode is typically in the low range. Be sure to test that your power pack does not turn off if you use sleep modes.
+
+
+### Disposable batteries (primary cells)
+
+As a general rule, off-the-shelf disposable batteries such as AA or 9V batteries are a poor choice for powering Particle devices.
+
+#### AA Batteries
+
+A single AA alkaline battery (zinc-chloride) has a nominal voltage of 1.5V and a capacity of 1700 mAh to 2850 mAh. Most devices have a minimum supply voltage of 3.6V so you would need a minimum of 3 batteries in series. 2500 mAh at 1.5V x 3 = 11.25 Wh. While greater than the standard Particle LiPo, this is only enough energy to run most cellular devices for a few days without using sleep modes, or longer if you sleep most of the time.
+
+
+#### 9V Batteries
+
+A single 9V alkaline battery has a typical capacity of 550 mAh at 9V, or 4.95 Wh, less than the capacity of the Particle LiPo. This should power most cellular devices for around 18 hours without using sleep modes, or longer with sleep modes.
+
+The other issue with 9V batteries is that the voltage would require powering by VIN as the voltage exceeds the Li+. However 9V on VIN is only possible on cellular devices with the bq24195 PMIC. Devices such as the Argon and Photon cannot directly accept 9V and an additional voltage regulator would be required.
+
+When using sleep modes, using the VIN input is less efficient than the Li+. When using Li+, the internal buck regulator in the bq24195 is bypassed. When using VIN, the regulator must be used and it has some loss. The loss is miniscule compared to the current used by the cellular mode, but in sleep mode the loss can become noticeable.
+
+While there isn't a standard maximum discharge rate for 9V batteries, the datasheet for the [Energizer 522](https://data.energizer.com/pdfs/522.pdf) battery shows that even at a 50 mA discharge, the battery capacity (mAh) is significantly lowered. A LTE Cat M1 device could draw that as an average, and during cellular transactions ten times that (500 mA), which is clearly above the intended use for this battery.
+
+
+#### LiSOCl2 Batteries
+
+LiSOCl2 (Lithium Thionyl Chloride) primary cell batteries are not generally recommended for cellular devices because the nominal voltage of 3.5V is below the minimum recommended voltage for the cellular modem of 3.6V. 
+
+These batteries are typically 3.5V 19000 mAh in a D-size battery package. It is possible to use two in series connected to VIN on most cellular devices, though this is less efficient if the device is asleep most of the time. The batteries are also quite expensive, and cannot be picked up in most stores.
+
