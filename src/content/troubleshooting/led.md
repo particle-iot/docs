@@ -772,14 +772,18 @@ Some locations that are interrupt service routines:
 - SPI transaction callbacks
 - SparkIntervalTimer library timer callbacks
 
+{{!-- BEGIN shared-blurb 7a43657c-a231-439b-b1bd-f1d4a189dc0c --}}
 Things you should not do from an ISR:
 
 - Any memory allocation or free: new, delete, malloc, free, strdup, etc.
 - Any Particle class function like Particle.publish, Particle.subscribe, etc.
 - Most API functions, with the exception of pinSetFast, pinResetFast, and analogRead.
-- delay or other functions that block
+- delay or other functions that block.
 - Log.info, Log.error, etc.
 - sprintf, Serial.printlnf, etc. with a `%f` (float) value.
+- attachInterrupt and detachInterrupt cannot be called within the ISR.
+- Mutex locks. This includes SPI transactions and I2C lock.
+{{!-- END shared-blurb --}}
 
 ### Solid colors
 

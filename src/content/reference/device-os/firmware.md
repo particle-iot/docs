@@ -14685,6 +14685,8 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
+The `attachInterrpt()` function is not interrupt-safe. Do not call it from within an interrupt service routine (ISR).
+
 ---
 {{note op="start" type="gen3"}}
 All A and D pins (including TX, RX, and SPI) on Gen 3 devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
@@ -14841,8 +14843,18 @@ ISRs are special kinds of functions that have some unique limitations most other
 
 Generally, an ISR should be as short and fast as possible. If your sketch uses multiple ISRs, only one can run at a time, other interrupts will be executed after the current one finishes in an order that depends on the priority they have. `millis()` relies on interrupts to count, so it will never increment inside an ISR. Since `delay()` requires interrupts to work, it will not work if called inside an ISR. Using `delayMicroseconds()` will work as normal.
 
-Typically global variables are used to pass data between an ISR and the main program. To make sure variables shared between an ISR and the main program are updated correctly, declare them as `volatile`.
+{{!-- BEGIN shared-blurb 7a43657c-a231-439b-b1bd-f1d4a189dc0c --}}
+Things you should not do from an ISR:
 
+- Any memory allocation or free: new, delete, malloc, free, strdup, etc.
+- Any Particle class function like Particle.publish, Particle.subscribe, etc.
+- Most API functions, with the exception of pinSetFast, pinResetFast, and analogRead.
+- delay or other functions that block.
+- Log.info, Log.error, etc.
+- sprintf, Serial.printlnf, etc. with a `%f` (float) value.
+- attachInterrupt and detachInterrupt cannot be called within the ISR.
+- Mutex locks. This includes SPI transactions and I2C lock.
+{{!-- END shared-blurb --}}
 
 ### detachInterrupt()
 
@@ -14856,6 +14868,8 @@ detachInterrupt(pin);
 ```
 
 `pin` is the pin number of the interrupt to disable.
+
+The `detachInterrpt()` function is not interrupt-safe. Do not call it from within an interrupt service routine (ISR).
 
 
 ### interrupts()
