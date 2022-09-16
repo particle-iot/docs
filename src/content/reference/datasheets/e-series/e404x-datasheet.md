@@ -57,6 +57,8 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
  * Two on-module U.FL connectors for external antennas
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
+ * Requires Device OS 4.0.0 LTS (or later)
+
 
 <sup>1</sup> Not all bands enabled in software by default
 
@@ -765,6 +767,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-05-06 | RK | Wire1 is not exposed on C4/C5 |
 |     | 2022-07-28 | RK | Update PWM assignments |
 |     | 2022-09-08 | RK | Update antenna, FCC, and IC |
+|     | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 
 ### 2022-07-28 PWM changes
 

@@ -31,6 +31,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * 3GPP Release 14 LTE Cat M1 
  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
  * Embedded Particle EtherSIM
+ * Requires Device OS 4.0.0 LTS (or later)
 
 <sup>1</sup> Not all bands enabled in software by default
 
@@ -700,6 +701,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:---------|:-----|:-------|:---------|
 | 010      | 2022-09-06 | RK | Split out from rest of the Boron line |
 | 011      | 2022-09-07 | RK | Add additional port and pin information |
+| 012      | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 
 ## Known Errata
 

@@ -33,7 +33,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * 3GPP Release 14 LTE Cat M1 
   * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
   * Embedded Particle EtherSIM (B404X)
-  * Requires Device OS 2.3.0 LTS (or later) or 3.2.0 (or later)
+  * Requires Device OS 4.0.0 LTS (or later)
   
 
 <sup>1</sup> Not all bands enabled in software by default
@@ -797,3 +797,4 @@ The bootloader allows you to easily update the user application via several diff
 | 019      | 2022-09-06 | RK | Update certified cellular antenna |
 | 020      | 2022-09-07 | RK | Add additional port and pin information |
 | 021      | 2022-09-16 | RK | Added FCC and IC ID |
+| 022      | 2022-09-16 | RK | Fix minimum Device OS version, is 4.0.0 |
