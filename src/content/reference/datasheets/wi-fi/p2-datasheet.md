@@ -716,6 +716,13 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - WiFi 2.4GHz band 2412-2484MHz 20dBm
 - WiFi 5GHz band 5180-5825MHz 23dBm
 
+### United Kingdom
+
+UKCA Conformity:
+
+Radio Equipment Regulations 2017 (S.I. 2017/1206)
+
+
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -737,6 +744,7 @@ The operating frequency bands and the maximum transmitted power limit are listed
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-08-18 | RK | EU certification statement |
+|     | 2022-09-16 | RK | Added UKCA conformity |
 
 ### D Pin Change (2022-02-25)
 

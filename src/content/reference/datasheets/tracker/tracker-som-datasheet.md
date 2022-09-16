@@ -1128,6 +1128,12 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
 
 
+### United Kingdom
+
+UKCA Conformity:
+
+Radio Equipment Regulations 2017 (S.I. 2017/1206)
+
 ---
 
 ## Country compatibility
@@ -1322,3 +1328,4 @@ The bootloader allows you to easily update the user application via several diff
 | 019      | 2021 Sep 23 | RK | Corrected part number for CAN step-up converter |
 | 020      | 2022 Jul 18 | RK | Correct typo in hot start time on Beidou |
 | 021      | 2022 Aug 29 | RK | Added EU declaration of conformity |
+| 022      | 2022 Sep 16 | RK | Added UKCA conformity |

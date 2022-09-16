@@ -739,6 +739,18 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 ---
 
+## Certification
+
+### FCC (United States)
+
+FCC ID: 2AEMI-B404X
+
+### Industry Canada (IC)
+
+IC: 20127-B404X
+
+---
+
 ## Default settings
 
 The B series comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
@@ -784,3 +796,4 @@ The bootloader allows you to easily update the user application via several diff
 | 018      | 2022-08-29 | RK | Split out from B404 and B402 |
 | 019      | 2022-09-06 | RK | Update certified cellular antenna |
 | 020      | 2022-09-07 | RK | Add additional port and pin information |
+| 021      | 2022-09-16 | RK | Added FCC and IC ID |
