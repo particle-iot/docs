@@ -2988,14 +2988,12 @@ This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mo
 
 Attempts to connect to default network interface for this device, typically Cellular or Wi-Fi. 
 
-For Wi-Fi devices, if there are no credentials stored, this will enter listening mode, blinking dark-blue. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `Network.ready()` to determine the connection status.
+For Wi-Fi devices, if there are no credentials stored, this will enter listening mode, blinking dark blue. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `Network.ready()` to determine the connection status.
 
 ```cpp
 // SYNTAX
 Network.connect();
 ```
-
-On Wi-Fi devices, if there are no Wi-Fi credentials then the call does nothing other than turn on the Wi-Fi module. 
 
 On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
