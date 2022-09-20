@@ -79,6 +79,9 @@
             "note": "recover-account.md",
             "fields": [
                 {
+                    "id": 360056036113
+                },
+                {
                     "id": 360055034734
                 },
                 {
@@ -92,6 +95,9 @@
             "title": "I cannot login due to an error in the login page",
             "ticketForm": 360006636853,
             "fields": [
+                {
+                    "id": 360056036113
+                },
                 {
                     "id": 360055034774
                 },

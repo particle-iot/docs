@@ -1321,6 +1321,13 @@
             ]
         },
         {
+            "id": 8688454802459,
+            "type": "textarea",
+            "title": "Attachments",
+            "description": "",
+            "required": false
+        },
+        {
             "id": 5772592295451,
             "type": "textarea",
             "title": "Check Cellular guides",
@@ -6394,9 +6401,67 @@
                 },
                 {
                     "id": 22020254
+                },
+                {
+                    "id": 8688454802459
                 }
             ],
             "conditions": []
+        },
+        {
+            "id": 360006636853,
+            "title": "I Am Unable to Log In to My Account (incl. 2FA Issues)",
+            "fields": [
+                {
+                    "id": 360056036113
+                },
+                {
+                    "id": 360056120693
+                },
+                {
+                    "id": 360055034734
+                },
+                {
+                    "id": 360055034774
+                },
+                {
+                    "id": 1500000021382
+                },
+                {
+                    "id": 22020244
+                },
+                {
+                    "id": 22020254
+                }
+            ],
+            "conditions": [
+                {
+                    "parent_field_id": 360056120693,
+                    "parent_field_type": "tagger",
+                    "value": "blocked_from_logging_in_due_to_2fa/mfa_issue",
+                    "child_fields": [
+                        {
+                            "id": 360055034734,
+                            "is_required": true
+                        }
+                    ]
+                },
+                {
+                    "parent_field_id": 360056120693,
+                    "parent_field_type": "tagger",
+                    "value": "cannot_log_in__error_in_login_page_",
+                    "child_fields": [
+                        {
+                            "id": 360055034774,
+                            "is_required": false
+                        },
+                        {
+                            "id": 1500000021382,
+                            "is_required": true
+                        }
+                    ]
+                }
+            ]
         },
         {
             "id": 360006631353,

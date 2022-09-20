@@ -400,7 +400,7 @@ $(document).ready(function () {
                     };
 
                     for(const field of fields) {
-                        if (!$(field.valElem).is(':visible')) {
+                        if (!field.value && !$(field.valElem).is(':visible')) {
                             continue;
                         }
 
