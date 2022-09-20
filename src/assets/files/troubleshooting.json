@@ -428,18 +428,8 @@
                 },
                 {
                     "title": "I'd like to create a support ticket",
-                    "page": 121,
+                    "page": 360005653314,
                     "orgRequired": true
-                }
-            ]
-        },
-        {
-            "page": 121,
-            "title": "Cloud support ticket",
-            "ticketForm": 360005653314,
-            "fields": [
-                {
-                    "id": 360056043733
                 }
             ]
         },
