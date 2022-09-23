@@ -18733,6 +18733,63 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+### System.enableFeature
+
+{{api name1="System.enableFeature"}}
+
+```cpp
+// PROTOTYPE
+int enableFeature(HAL_Feature feature)
+
+// EXAMPLE
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+```
+
+Enables a system feature. System feature that are read/write or write only are persistent and saved to configuration flash.
+
+| Feature | Read/Write | Description |
+| :--- | :---: | :--- |
+| FEATURE_RETAINED_MEMORY | Write Only | Preserve retained memory on backup power |
+| FEATURE_WARM_START | Read Only | True if previous retained memory contents were available |
+| FEATURE_CLOUD_UDP | Read Only | True if cloud connection is UDP and the alt keys in the DCT are used |
+| FEATURE_RESET_INFO | Read/Write | Store last reset reason in retained memory |
+| FEATURE_WIFI_POWERSAVE_CLOCK | Write Only | Enable Wi-Fi Powersave clock on TESTMODE/P1S6 pin on P1. Disabling it allows P1S6 to be used as GPIO. |
+| FEATURE_ETHERNET_DETECTION | Read/Write | Enable detection of Ethernet FeatherWing at boot |
+| FEATURE_LED_OVERRIDDEN | Read/Write | Override RGB LED signaling at boot |
+| FEATURE_DISABLE_EXTERNAL_LOW_SPEED_CLOCK | Read/Write | If true, use internal low-speed clock instead of the external crystal clock |
+| FEATURE_DISABLE_LISTENING_MODE | Read/Write | Disable listening mode |
+
+- Use `System.disableFeature()` to disable a feature flag after enabling it (for read/write or write only flags)
+- Use `System.featureEnabled()` to get the current value of the feature flag (for read/write or read only flags)
+- Beware of features such as `FEATURE_DISABLE_LISTENING_MODE`. Enabling the feature disables listening mode, and disabling the feature enables listening mode
+
+
+### System.disableFeature
+
+{{api name1="System.disableFeature"}}
+
+```cpp
+// PROTOTYPE
+int disableFeature(HAL_Feature feature)
+```
+
+Disable a feature flag.
+
+See `System.enableFeature()` for a list of available feature codes.
+
+### System.featureEnabled
+
+{{api name1="System.featureEnabled"}}
+
+```cpp
+// PROTOTYPE
+bool featureEnabled(HAL_Feature feature)
+```
+
+Returns true if the feature is enabled. 
+
+Beware of features such as `FEATURE_DISABLE_LISTENING_MODE`. A value of true means listening mode is disabled, and false means listening mode is not disabled (is enabled).
+
 
 ## System Interrupts
 

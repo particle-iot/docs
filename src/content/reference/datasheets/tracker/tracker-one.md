@@ -113,6 +113,32 @@ Note that CAN bus is differential and consists of two lines:
 
 As the signals are differential you don't need to connect GND for CAN bus, but you do still need to connect it for Serial, I2C, or GPIO.
 
+
+### I/O Characteristics (M8)
+
+The three GPIO and port pins (A3/D3, RX/SDA/D9, TX/SCL/D8) have the following characteristics:
+
+| Symbol | Parameter | Min | Typ | Max | Unit |
+| :---------|:-------|:---:|:---:|:---:|:---: |
+| VIH | Input high voltage | 0.7 xVDD |  | VDD | V |
+| VIL | Input low voltage | VSS |  | 0.3 xVDD | V | 
+| VOH,SD | Output high voltage, standard drive, 0.5 mA, VDD ≥1.7 | VDD - 0.4 |  | VDD | V | 
+| VOH,HDH | Output high voltage, high drive, 5 mA, VDD >= 2.7 V | VDD - 0.4 |  | VDD | V | 
+| VOH,HDL | Output high voltage, high drive, 3 mA, VDD >= 1.7 V  | VDD - 0.4 |  | VDD | V | 
+| VOL,SD | Output low voltage, standard drive, 0.5 mA, VDD ≥1.7 | VSS |  | VSS + 0.4 | V | 
+| VOL,HDH | Output low voltage, high drive, 5 mA, VDD >= 2.7 V | VSS |  | VSS + 0.4 | V | 
+| VOL,HDL | Output low voltage, high drive,3 mA, VDD >= 1.7 V | VSS  |  | VSS + 0.4 | V |  
+| IOL,SD | Current at VSS+0.4 V, output set low, standard drive, VDD≥1.7 | 1 | 2 | 4 | mA | 
+| IOL,HDH | Current at VSS+0.4 V, output set low, high drive, VDD >= 2.7V | 6 | 10 | 15 | mA | 
+| IOL,HDL | Current at VSS+0.4 V, output set low, high drive, VDD >= 1.7V | 3 |  |  | mA | 
+| IOH,SD | Current at VDD-0.4 V, output set high, standard drive, VDD≥1.7 | 1 | 2 | 4 | mA | 
+| IOH,HDH | Current at VDD-0.4 V, output set high, high drive, VDD >= 2.7V | 6 | 9 | 14 | mA | 
+| IOH,HDL | Current at VDD-0.4 V, output set high, high drive, VDD >= 1.7V | 3 |  |  | mA | 
+| RPU | Pull-up resistance | 11 | 13 | 16 | kΩ | 
+| RPD | Pull-down resistance | 11 | 13 | 16 | kΩ | 
+
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/api/input-output/pinsetdrivestrength/) function.
+
 ---
 
 ### Carrier Board Power and I/O Connector
@@ -606,3 +632,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
 | 019      | 2022 Aug 29 | RK | Added EU declaration of conformity |
 | 020      | 2022 Sep 16 | RK | Added UKCA conformity |
+| 021      | 2022 Sep 23 | RK | Added pin drive strengh information |

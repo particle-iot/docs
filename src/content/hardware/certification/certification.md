@@ -673,6 +673,13 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-62479, EN-50663 Test Report](/assets/pdfs/one523-EN62479-test-report.pdf)
 - [RoHS 3.0 Test Reports](/assets/pdfs/one523-rohs.pdf)
 
+## UKCA (United Kingdom)
+
+- [P2](/assets/pdfs/p2-ukca.pdf)
+- B Series SoM B523, B524
+- Tracker One ONE524, ONE523
+- Tracker SoM T524, T523
+
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
