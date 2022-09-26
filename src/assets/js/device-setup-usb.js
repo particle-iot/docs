@@ -2367,6 +2367,7 @@ $(document).ready(function() {
                 minSysVer = apiHelper.semVerToSystemVersion(minimumDeviceOsVersion);
             }
             deviceInfo.targetVersion = apiHelper.systemVersionToSemVer(minSysVer);
+            // console.log('minSysVer=' + minSysVer, deviceInfo.targetVersion);
 
             for(const ver of deviceInfo.platformVersionInfo.versionArray) {
                 if (apiHelper.semVerToSystemVersion(ver) >= minSysVer) {

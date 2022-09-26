@@ -7,9 +7,11 @@ includeDefinitions: [api-helper, api-helper-usb, webdfu, zip, usb-serial]
 
 # Cloud Debug
 
+**In most cases, using the [Particle Web Device Doctor](/tools/doctor/) will be easier than using Cloud Debug directly.**
+
 ## Automatic installation
 
-- The tool below will install cloud debug and Device OS 2.1.0.
+- The tool below will install cloud debug and Device OS.
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
 - It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
@@ -28,7 +30,6 @@ After the status LED stops blinking magenta (red and blue at the same time), you
 ### Manual installation
 
 If you prefer to install manually or do not have a compatible browser or computer, you can follow the manual installation instructions on the [Cloud Debug GitHub](https://github.com/particle-iot/cloud-debug) page.
-
 
 ## Viewing the results
 
