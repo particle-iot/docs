@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle P2 Evaluation Board
 ---
 
-# {{title}}
+# P2 Evaluation Board
 
 **Preliminary pre-release version 2022-04-18**
 

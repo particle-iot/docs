@@ -5,7 +5,7 @@ layout: commonTwo.hbs
 description: Datasheet for the Particle Boron BRN404X, Gen 3 cellular development kit
 ---
 
-# {{title}}
+# Boron BRN404X datasheet
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/brn404x-datasheet.pdf"}}
