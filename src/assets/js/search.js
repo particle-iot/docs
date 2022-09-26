@@ -16,7 +16,7 @@ $(document).ready(function() {
         var data = {
           title: item['title'],
           url: filterUrl(item['url']),
-          body: item.highlight['body']
+          body: item.highlight['body'] || item.body.substring(0, 300),
         };
         return resultTemplate(data);
     };
