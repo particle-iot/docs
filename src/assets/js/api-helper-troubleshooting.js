@@ -374,7 +374,7 @@ $(document).ready(function () {
                     const fieldSpecObj = ticketForms.ticketFields.find(e => e.id == fieldObj.id);
                     if (fieldSpecObj) {
                         if (!fieldObj.value) {
-                            if (!ignoreFields.includes(fieldObj.id)) {
+                            if (!ignoreFields.includes(fieldObj.id) && !fieldObj.hidden) {
                                 addField(fieldSpecObj);
                             }
                         }                    

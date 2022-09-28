@@ -129,6 +129,15 @@
                     "page": 360001073373
                 },
                 {
+                    "page": 227,
+                    "comment": "Submit purchase order",
+                    "orgRequired": true
+                },
+                {
+                    "title": "View billing and data operations usage page in the console",
+                    "url": "https://console.particle.io/billing"
+                },
+                {
                     "title": "Managing billing and subscriptions",
                     "page": 360001730794
                 },
@@ -2797,6 +2806,27 @@
                     "id": 360026994354,
                     "value": "mktg_promo",
                     "comment": "Question popup"
+                }
+            ]
+        },
+        {
+            "page": 227,
+            "title": "I'd like to submit a purchase order",
+            "ticketForm": "360001730794",
+            "fields": [
+                {
+                    "id": 360026632133,
+                    "value": "i_would_like_to_submit_a_purchase_order",
+                    "comment": "Question popup"
+                },
+                {
+                    "id": 360025997694,
+                    "comment": "PO number",
+                    "hidden": true
+                },
+                {
+                    "id": 8688454802459,
+                    "comment": "Attachments"
                 }
             ]
         }
