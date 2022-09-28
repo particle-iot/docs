@@ -3127,12 +3127,6 @@
                     "default": false
                 },
                 {
-                    "name": "I would like to contact the sales team about bulk pricing",
-                    "value": "i_would_like_to_contact_the_sales_team_about_bulk_pricing.",
-                    "id": 360034549374,
-                    "default": false
-                },
-                {
                     "name": "I need my account to be marked as tax-exempt",
                     "value": "i_need_my_account_to_be_marked_as_tax-exempt.",
                     "id": 360034549394,

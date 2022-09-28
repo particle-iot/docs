@@ -676,6 +676,9 @@ $(document).ready(function () {
                     if (buttonObj.orgRequired && !apiHelper.selectedOrg) {
                         continue;
                     }
+                    if (buttonObj.nonOrgRequired && !!apiHelper.selectedOrg) {
+                        continue;
+                    }
                     if (buttonObj.hidden) {
                         continue;
                     }
