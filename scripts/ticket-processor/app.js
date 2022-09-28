@@ -10,16 +10,35 @@ const axios = require('axios');
 // export ZENDESK_AUTH=user@particle.io/token:xxxxxxxxxxx
 // node app.js
 
-let config = {};
-
-// ZENDESK_AUTH - Zendesk auth token, usually of the form: user@particle.io/token:xxxxxxxxxxx
-config.ZENDESK_AUTH = process.env.ZENDESK_AUTH;
-if (!config.ZENDESK_AUTH) {
-    console.log('ZENDESK_AUTH not set in environment');
-    process.exit(1);
+const dataDir = path.join(__dirname, 'data');
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir);
 }
 
-config.ZENDESK_URL = process.env.ZENDESK_URL || 'https://particle.zendesk.com';
+let config = {};
+
+const configPath = path.join(dataDir, 'config.json');
+if (fs.existsSync(configPath)) {
+    try {
+        config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    }
+    catch(e) {        
+    }
+}
+
+
+// ZENDESK_AUTH - Zendesk auth token, usually of the form: user@particle.io/token:xxxxxxxxxxx
+if (!config.ZENDESK_AUTH) {
+    config.ZENDESK_AUTH = process.env.ZENDESK_AUTH;
+    if (!config.ZENDESK_AUTH) {
+        console.log('ZENDESK_AUTH not set in environment');
+        process.exit(1);
+    }    
+}
+
+if (!config.ZENDESK_URL) {
+    config.ZENDESK_URL = process.env.ZENDESK_URL || 'https://particle.zendesk.com';
+}
 
 const axiosInstance = axios.create({
     baseURL: config.ZENDESK_URL,
@@ -28,22 +47,38 @@ const axiosInstance = axios.create({
     }
 });
 
-const dataDir = path.join(__dirname, 'data');
-if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir);
+// How often to check for new tickets (seconds)
+if (!config.checkPeriodSec) {
+    config.checkPeriodSec = 30; 
 }
+
+// console.log('config', config);
 
 let dataJson = {};
 
 const dataJsonPath = path.join(dataDir, 'data.json');
 if (fs.existsSync(dataJsonPath)) {
-    dataJson = JSON.parse(fs.readFileSync(dataJsonPath, 'utf8'));
+    try {
+        dataJson = JSON.parse(fs.readFileSync(dataJsonPath, 'utf8'));
+    }
+    catch(e) {
+
+    }
 }
 
 function saveDataJson() {
     fs.writeFileSync(dataJsonPath, JSON.stringify(dataJson, null, 4));
 }
 
+function unixTimeNow() {
+    return Math.round(new Date().getTime() / 1000);
+}
+
+
+if (!dataJson.nextCheck) {
+    dataJson.nextCheck = unixTimeNow();
+    saveDataJson();
+}
 
 async function processTicketAttachments(ticket, arrayOfTokens) {
 
@@ -55,6 +90,7 @@ async function processTicketAttachments(ticket, arrayOfTokens) {
                 'comment': {
                     'body': 'The original requester attached these files:',
                     'uploads': arrayOfTokens,
+                    'public': false
                 },    
             },
         }
@@ -76,15 +112,24 @@ async function processTicketAttachments(ticket, arrayOfTokens) {
         // console.log('res', res);
     }
     catch(e) {
-        console.log('exception in processTicketAttachments', e);
+        if (e.response.status == 404) {
+            console.log('not found in processTicketAttachments, happens when an attachment has already been processed');
+        }
+        else {
+            console.log('exception in processTicketAttachments', e);
 
-        console.log('e.response.data', JSON.stringify(e.response.data, null, 4));
+        }
+        console.log('e.response.data', JSON.stringify(e.response.data, null, 4));    
     }
 
 }
 
 async function processTicket(ticket) {
     try {
+        let processedAttachments = false;
+
+        // console.log('processing ticket ' + ticket.id);
+
         // console.log('ticket', ticket);
         if (ticket.custom_fields) {
             for(const field of ticket.custom_fields) {
@@ -105,13 +150,18 @@ async function processTicket(ticket) {
 
                     if (arrayOfTokens.length) {
                         await processTicketAttachments(ticket, arrayOfTokens);
+
+                        console.log('processed attachments for ticket ' + ticket.id);
+                        processedAttachments = true;            
                     }
                     else {
                         console.log('no tokens');
                     }
-            
                 }
             }
+        }
+        if (!processedAttachments) {
+            console.log('no attachments ticket ' + ticket.id);
         }
     }
     catch(e) {
@@ -124,8 +174,7 @@ async function processTickets() {
     try {
         if (!dataJson.cursor && !dataJson.startTime) {
             // If startTime is not set, set to 2 minutes ago, Unix epoch time (January 1, 1970), UTC
-            dataJson.startTime = Math.round(new Date().getTime() / 1000);
-            dataJson.startTime -= 1000;
+            dataJson.startTime = unixTimeNow() - 120;
             saveDataJson();
         }
 
@@ -134,12 +183,19 @@ async function processTickets() {
             requestUrl += 'cursor=' + dataJson.cursor;
         }
         else {
-            requestUrl += 'start_time=' + dataJson.startTime;
+            // start_time must be at least 60 seconds ago
+            requestUrl += 'start_time=' + dataJson.startTime + config.checkPeriodSec - 62;
         }
+        // console.log('requestUrl=' + requestUrl);
 
         const res = await axiosInstance.get(requestUrl);
-           
-        dataJson.cursor = res.data.after_cursor;
+        
+        // Update cursor and start time
+        if (res.data.after_cursor) {
+            dataJson.cursor = res.data.after_cursor;
+            console.log('new cursor ' + dataJson.cursor);
+        }
+        dataJson.startTime = unixTimeNow();
         saveDataJson();
 
         // console.log('res.data', res.data);
@@ -152,6 +208,10 @@ async function processTickets() {
         for(const ticket of res.data.tickets) {
             await processTicket(ticket)
         }
+
+        if (res.data.tickets.length == 0) {
+            console.log('no new tickets at ' + new Date().toISOString());
+        }
     }
     catch(e) {
         console.log('uncaught exception in processTickets', e);
@@ -161,8 +221,14 @@ async function processTickets() {
 
 async function run() {
     try {
-        await processTickets();
+        while(true) {
+            if (dataJson.nextCheck <= unixTimeNow()) {
+                dataJson.nextCheck = unixTimeNow() + config.checkPeriodSec;
+                saveDataJson();
 
+                await processTickets();
+            }
+        }
     }
     catch(e) {
         console.log('uncaught exception in run', e);
