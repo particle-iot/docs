@@ -66,6 +66,10 @@ if (fs.existsSync(dataJsonPath)) {
     }
 }
 
+if (!dataJson.processed) {
+    dataJson.processed = [];
+}
+
 function saveDataJson() {
     fs.writeFileSync(dataJsonPath, JSON.stringify(dataJson, null, 4));
 }
@@ -152,7 +156,7 @@ async function processTicket(ticket) {
                         await processTicketAttachments(ticket, arrayOfTokens);
 
                         console.log('processed attachments for ticket ' + ticket.id);
-                        processedAttachments = true;            
+                        processedAttachments = true;       
                     }
                     else {
                         console.log('no tokens');
@@ -172,6 +176,7 @@ async function processTicket(ticket) {
 
 async function processTickets() {
     try {
+
         if (!dataJson.cursor && !dataJson.startTime) {
             // If startTime is not set, set to 2 minutes ago, Unix epoch time (January 1, 1970), UTC
             dataJson.startTime = unixTimeNow() - 120;
@@ -196,7 +201,6 @@ async function processTickets() {
             console.log('new cursor ' + dataJson.cursor);
         }
         dataJson.startTime = unixTimeNow();
-        saveDataJson();
 
         // console.log('res.data', res.data);
 
@@ -206,12 +210,22 @@ async function processTickets() {
         //  custom_fields (array):
         //    id, value
         for(const ticket of res.data.tickets) {
-            await processTicket(ticket)
+            if (!dataJson.processed.includes(ticket.id)) {
+                await processTicket(ticket);
+
+                dataJson.processed.push(ticket.id);        
+            }
         }
 
         if (res.data.tickets.length == 0) {
             console.log('no new tickets at ' + new Date().toISOString());
         }
+
+        if (dataJson.processed.length > 100) {
+            dataJson.processed.splice(0, 100 - dataJson.processed.length);
+        }
+
+        saveDataJson();
     }
     catch(e) {
         console.log('uncaught exception in processTickets', e);
