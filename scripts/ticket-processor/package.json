@@ -1,0 +1,15 @@
+{
+    "name": "ticket-processor",
+    "version": "0.0.1",
+    "description": "tool scan tickets looking for attachments to process",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.27.2"
+    },
+    "engines": {
+        "node": ">=12.14.0"
+    }
+}
