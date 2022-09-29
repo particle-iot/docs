@@ -3,7 +3,35 @@ $(document).ready(function() {
         return;
     }
 
-    apiHelper.ticketSubmit = function(options) {
+    const uploadAttachment = function(options) {
+        // console.log('uploadAttachment', options);
+
+        return new Promise(function(resolve, reject) {      
+
+            const request = {
+                contentType: 'application/binary',
+                data: options.content,
+                dataType: 'json',
+                error: function (jqXHR) {
+                    console.log('error', jqXHR);
+                    reject(jqXHR.status);
+                },
+                headers: {
+                    'Accept': 'application/json'
+                },
+                method: 'POST',
+                processData: false,
+                success: function (resp, textStatus, jqXHR) {
+                    resolve(resp);
+                },
+                url: 'https://particle.zendesk.com/api/v2/uploads?filename=' + encodeURIComponent(options.name),
+            };
+
+            $.ajax(request);      
+        });        
+    }
+
+    const submitTicketRequest = function(options) {
         // options:
         // name, email, subject, body
         return new Promise(function(resolve, reject) {      
@@ -43,6 +71,79 @@ $(document).ready(function() {
 
             $.ajax(request);      
         });
+    }
+
+    /*
+    const submitTicketComment = function(options) {
+        return new Promise(function(resolve, reject) {      
+
+            let zendeskRequestObj = {
+                ticket: {
+                    comment: {
+                        'body': 'Test attachment',
+                        'uploads': [
+                            options.uploadToken,
+                        ]
+                    }
+                }
+            };
+
+            const request = {
+                contentType: 'application/json',
+                data: JSON.stringify(zendeskRequestObj),
+                dataType: 'json',
+                error: function (jqXHR) {
+                    console.log('error', jqXHR);
+                    reject(jqXHR.status);
+                },
+                headers: {
+                    'Accept': 'application/json'
+                },
+                method: 'PUT',
+                success: function (resp, textStatus, jqXHR) {
+                    resolve(resp);
+                },
+                url: 'https://particle.zendesk.com/api/v2/tickets/' + options.ticket,
+            };
+
+            $.ajax(request);      
+        });        
+    }
+    */
+
+    apiHelper.ticketSubmit = async function(options) {
+
+        if (options.ticketAttachments && options.attachmentsField) {
+
+            let attachmentArray = [];
+            let tokenArray = [];
+
+            for(const file of options.ticketAttachments) {
+                const uploadAttachmentResp = await uploadAttachment({
+                    name: file.name,
+                    content: file.content,
+                });
+                // console.log('uploadAttachmentResp', uploadAttachmentResp);
+        
+                attachmentArray.push('Attachment: ' + uploadAttachmentResp.upload.attachment.content_url);
+                tokenArray.push('Token: ' + uploadAttachmentResp.upload.token);
+            }
+            
+            let value = attachmentArray.join('\n') + '\n\n' + tokenArray.join('\n');
+
+            options.customFields.push({
+                id: options.attachmentsField,
+                value,
+            });
+        }
+
+
+        const submitTicketResp = await submitTicketRequest(options);
+        // console.log('submitTicketResp', submitTicketResp);
+
+        // const ticket = submitTicketResp.request.id;
+
+        return submitTicketResp;
     };
 
     apiHelper.showTicketPanel = function(options) {
@@ -162,7 +263,7 @@ $(document).ready(function() {
 
             options.body += $(messageFieldElem).val();
 
-            console.log('options', options);
+            // console.log('options', options);
             
             try {
                 const resp = await apiHelper.ticketSubmit(options);

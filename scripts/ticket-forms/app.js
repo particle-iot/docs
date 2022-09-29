@@ -103,6 +103,8 @@ async function run() {
         const ticketFieldsPath = path.join(dataDir, 'ticket_fields.json');
         if (options.getTicketFields) {
             res = await axiosInstance.get('/api/v2/ticket_fields');
+
+            console.log('updated ticket fields');
             
             data.ticketFields = res.data.ticket_fields;
             fs.writeFileSync(ticketFieldsPath, JSON.stringify(res.data, null, 4));    
@@ -115,7 +117,9 @@ async function run() {
         const ticketFormsPath = path.join(dataDir, 'ticket_forms.json');
         if (options.getTicketFields) {
             res = await axiosInstance.get('/api/v2/ticket_forms');
-            
+
+            console.log('updated ticket forms');
+
             data.ticketForms = res.data.ticket_forms;
             fs.writeFileSync(ticketFormsPath, JSON.stringify(res.data, null, 4));    
         }
