@@ -49,9 +49,8 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
-  * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
-  * ARM TrustZone CryptoCell-310 Cryptographic and security module 
+  * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
+  * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
  * On-module additional 4MB SPI flash

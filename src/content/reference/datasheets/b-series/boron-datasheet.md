@@ -53,8 +53,7 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
-  * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
-  * ARM TrustZone CryptoCell-310 Cryptographic and security module 
+  * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
  * On-board additional 4MB SPI flash

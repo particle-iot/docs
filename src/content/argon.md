@@ -42,8 +42,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - 1MB flash, 256KB RAM
 - Bluetooth LE (BLE) central and peripheral support
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
 

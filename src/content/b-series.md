@@ -51,8 +51,7 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 - 1MB flash, 256KB RAM
 - Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
 
