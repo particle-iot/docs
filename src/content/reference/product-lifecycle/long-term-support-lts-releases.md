@@ -129,7 +129,7 @@ The new LTS (4.x) and developer preview (5.x) releases are based on the latest d
 
 While 4.x and 5.x started from the same place, the 5.0.0-alpha.1 release adds in support for the P2 platform.
 
-Developer preview releases (3.x, for example) do not have an ESM phase, so once 5.0.0 final comes out, there will not be additional updates after 3.3.0.
+Developer preview releases (3.x, for example) do not have an ESM phase, now that 5.0.0 was been released, there will not be additional updates after 3.3.0.
 
 ## Switching Between Release Lines
 
