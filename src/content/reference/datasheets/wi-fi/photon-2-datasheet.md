@@ -355,10 +355,7 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 ### BLE (Bluetooth LE)
 
-{{!-- P2 BLE Central Warning --}}
-
-The Photon 2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
-
+BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
 ### Pins Photon 2 vs. P2
 

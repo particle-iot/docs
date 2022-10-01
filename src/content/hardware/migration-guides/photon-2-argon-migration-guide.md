@@ -315,9 +315,7 @@ There is no software support for I2S on the Photon 2, and while the RTL872x hard
 
 ### BLE (Bluetooth LE)
 
-{{!-- P2 BLE Central Warning --}}
-
-The Photon 2 (and P2) only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
 ### Boot mode pins
 

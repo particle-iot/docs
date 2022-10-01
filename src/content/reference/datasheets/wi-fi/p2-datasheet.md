@@ -398,9 +398,7 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 
 ### BLE (Bluetooth LE)
 
-{{!-- P2 BLE Central Warning --}}
-
-The P2 only supports BLE 5 peripheral mode at this time. BLE central mode is not currently supported.
+BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
 ### Complete module pin listing
 
