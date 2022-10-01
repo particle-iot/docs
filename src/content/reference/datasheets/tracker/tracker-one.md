@@ -139,6 +139,16 @@ The three GPIO and port pins (A3/D3, RX/SDA/D9, TX/SCL/D8) have the following ch
 
 - GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/api/input-output/pinsetdrivestrength/) function.
 
+The Tracker One has a [TI TS3A5018 Quad SPDT Analog Switch](/assets/datasheets/ts3a5018.pdf) on the three GPIO pins (A3, D9/RX/SDA, D8/TX/SCL). The switch is normally open, and is closed when the `CAN_5V` is powered. By default, Tracker Edge enables `CAN_5V` when in normal operating mode and turns it off during sleep, however this behavior can be changed by using `enableIoCanPower()` and `enableIoCanPowerSleep()` in the `TrackerConfiguration` object.
+
+The circuit looks like this:
+
+![](/assets/images/tracker/tracker-io-schematic.png)
+
+Because this is an analog switch, the nRF52840 current limitations, 2 mA in standard drive (the default), and 9 mA in high drive also apply on the M8 side of the analog switch. The switch is rated up to 300 MHz, higher than the highest UART or I2C baud rate. The 3.3V recommended maximum for GPIO also applies on the M8 connector.
+
+The CAN bus has a separate hardware transceiver and is not considered to be GPIO and does not have a 3.3V limitation.
+
 ---
 
 ### Carrier Board Power and I/O Connector
@@ -633,3 +643,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 019      | 2022 Aug 29 | RK | Added EU declaration of conformity |
 | 020      | 2022 Sep 16 | RK | Added UKCA conformity |
 | 021      | 2022 Sep 23 | RK | Added pin drive strengh information |
+| 022      | 2022 Oct 01 | RK | Added additional IO characterstic information |
