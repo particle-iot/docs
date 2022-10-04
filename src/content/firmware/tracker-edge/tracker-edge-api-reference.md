@@ -312,6 +312,38 @@ The `enableIoCanPower()` method controls the behavior of Tracker FW to enable th
 
 The `enableIoCanPowerSleep()` controls behavior before and after sleep. If enabled, the firmware will power down the supply prior to going to sleep. If in combination with enableIoCanPower, it will re-enable the supply on wake.
 
+### disableCharging (set) - TrackerConfiguration
+
+If the application wishes to manually disable charging, these methods can be used. This is not typical, normally the Tracker will manage enabling or disabling charging automatically based on input current available and temperature.
+
+However if the application has knowledge of its external power supply, it may want to fine-tune the charging behavior of the tracker in cases such as:
+
+- The external supply may not be in a state to deliver enough current to the platform
+- At the time it may not be convenient for increased input current
+
+```cpp
+// PROTOTYPE
+TrackerConfiguration& disableCharging(bool disable)
+```
+
+- `disable` set to `true`: Charging is disabled
+- `disable` set to `false`: Charging is enabled (default)
+
+This setting is not saved to flash, you should set it in your application whenever you believe charging should be manually diasbled.
+
+### disableCharging (get) - TrackerConfiguration
+
+```cpp
+// PROTOTYPE
+bool disableCharging() const
+```
+
+Gets the current state of the disable charging feature. The default is not disabled, which is to say charging is enabled.
+
+- `true` Charging is disabled
+- `false` Charging is enabled (default)
+
+
 ## CloudService
 
 The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
