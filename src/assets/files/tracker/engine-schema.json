@@ -154,6 +154,46 @@
         }
       }
     },
+    "store": {
+      "$id": "#/properties/store",
+      "type": "object",
+      "title": "Store and Forward",
+      "description": "Configuration for Store and Forward.",
+      "default": {},
+      "minimumFirmwareVersion": 18,
+      "properties": {
+        "enable": {
+          "$id": "#/properties/store/properties/enable",
+          "type": "boolean",
+          "title": "Store and Forward",
+          "description": "If enabled, the device will store unpublished location publishes to the local filesystem when offline and publish them when back online.",
+          "default": true,
+          "examples": [
+            true
+          ]
+        },
+        "quota": {
+          "$id": "#/properties/store/properties/quota",
+          "type": "integer",
+          "title": "Storage Size Limit",
+          "description": "Size in kilobytes to limit storage on the local filesytem for unpublished messages.",
+          "default": "64",
+          "minimum": 0,
+          "maximum": 4000
+        },
+        "policy": {
+          "$id": "#/properties/store/properties/policy",
+          "type": "string",
+          "title": "Discard Policy",
+          "description": "When storage size limit is exceeded drop_old deletes the oldest logged publish to retry, drop_new deletes the newest",
+          "default": "drop_old",
+          "enum": [
+            "drop_old",
+            "drop_new"
+          ]
+        }
+      }
+    },
     "imu_trig": {
       "$id": "#/properties/imu_trig",
       "type": "object",
@@ -363,6 +403,26 @@
         }
       }
     },
+    "monitoring": {
+      "$id": "#/properties/monitoring",
+      "type": "object",
+      "title": "Device Monitoring",
+      "description": "Configuration for device monitoring specific settings",
+      "default": {},
+      "minimumFirmwareVersion": 18,
+      "properties": {
+        "device_monitor": {
+          "$id": "#/properties/monitoring/device_monitor",
+          "type": "boolean",
+          "title": "Device Monitoring",
+          "description": "If enabled, device will publish metrics and fault details.",
+          "default": false,
+          "examples": [
+            false
+          ]
+        }
+      }
+    },
     "geofence": {
       "$id": "#/properties/geofence",
       "type": "object",
@@ -416,7 +476,6 @@
               "title": "Latitude (Degrees)",
               "description": "Latitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 34
               ],
@@ -429,7 +488,6 @@
               "title": "Longitude (Degrees)",
               "description": "Longitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 121
               ],
@@ -534,7 +592,6 @@
               "title": "Latitude (Degrees)",
               "description": "Latitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 34
               ],
@@ -547,7 +604,6 @@
               "title": "Longitude (Degrees)",
               "description": "Longitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 121
               ],
@@ -652,7 +708,6 @@
               "title": "Latitude (Degrees)",
               "description": "Latitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 34
               ],
@@ -665,7 +720,6 @@
               "title": "Longitude (Degrees)",
               "description": "Longitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 121
               ],
@@ -770,7 +824,6 @@
               "title": "Latitude (Degrees)",
               "description": "Latitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 34
               ],
@@ -783,7 +836,6 @@
               "title": "Longitude (Degrees)",
               "description": "Longitudinal coordinate for the center point of the geofence.",
               "default": 0,
-              "multipleOf": 1e-8,
               "examples": [
                 121
               ],
