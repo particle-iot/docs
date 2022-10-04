@@ -839,6 +839,19 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 
 - **Callback to device with enhanced location data**. If checked, the Particle cloud will send back enhanced geolocation data obtained from Wi-Fi or cellular tower information back to the device. This is useful if your device firmware wants to process this information on device. If you're only tracking location from the cloud, it's not necessary to enable this option.
 
+### Store and forward
+
+![Store and Forward](/assets/images/tracker/store-and-forward.png)
+
+In Tracker Edge v18 and later, it's possible to enable store and forward mode from this panel. If the device is offline, such as from poor cellular connectivity, location publishes are saved to the device flash file system and published when connectivity is restored.
+
+When disabled, location publishes that occur when the device does not have cellular connectivity are discarded. This makes sense if you only want to know where the device is currently, not where it has been in the past.
+
+- **Store and forward** is enabled when the checkbox is checked. 
+
+- **Storage Size Limit** in kilobytes. Default: 64K. While the flash file system is 4 MB, you should not use the entire file system for store and forward. Also, since publishes occur one per second when reconnecting, sending large amount of historical location data will use a lot of data operations and time.
+
+- **Discard Policy** is **drop_old** or **drop_new** which determines whether to discard the oldest or newest location data when the storage size reaches the limit.
 
 #### Motion Settings
 
@@ -885,6 +898,12 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 
 You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/).
 
+
+### Device Monitoring
+
+![Device Monitoring](/assets/images/tracker/device-monitoring.png)
+
+Device Monitoring publishes additional metrics and also fault (crash log) information. This can help troubleshoot problems, however it will use additional data operations.
 
 ### Device Settings
 
