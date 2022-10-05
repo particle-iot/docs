@@ -437,6 +437,12 @@ There is no software support for I2S on the P2, and while the RTL872x hardware s
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
+### Sleep
+
+The P2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+
+The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location as the Argon pin D8, which is also the WKP pin. However, the Argon can wake from `HIBERNATE` on any GPIO, so if you use `HIBERNATE` mode with GPIO wake on other pins, changes will be necessary. One alternative is to use `ULTRA_LOW_POWER` instead of `HIBERNATE` sleep mode on the P2.
+
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
@@ -939,7 +945,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 14 | 30 |
 | Pin Name | RX | D10 |
 | Pin Alternate Name | D10 | WKP |
-| Description | Serial RX, GPIO | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
+| Description | Serial RX, GPIO | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | UART serial | RX Use Serial1 object. | CTS. Use Serial3 object. Flow control optional. |
@@ -1066,7 +1072,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 24 | 30 |
 | Pin Name | D8 | D10 |
 | Pin Alternate Name | WKP | WKP |
-| Description | GPIO, PWM | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
+| Description | GPIO, PWM | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -1120,3 +1126,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-07-14 | RK | No hardware pull-up on MODE pin |
 |     | 2022-07-18 | RK | List which pins have which pull-up or pull-down value |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
+|     | 2022-10-05 | RK | Added HIBERNATE sleep section |

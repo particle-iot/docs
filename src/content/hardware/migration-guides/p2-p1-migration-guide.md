@@ -369,6 +369,12 @@ There is no software support for I2S on the P2 either, and while the RTL872x har
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
+### Sleep
+
+The P2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+
+The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location (pin 30) as the P1 WKP (A7) pin, and the STM32 can only wake from `HIBERNATE` on `WKP` `RISING` so this should not be an issue.
+
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
@@ -664,7 +670,7 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
@@ -1147,3 +1153,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-07-18 | RK | List which pins have which pull-up or pull-down value |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
+|     | 2022-10-05 | RK | Added HIBERNATE sleep section |

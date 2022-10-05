@@ -279,7 +279,7 @@ The Photon 2 supports three UART serial interfaces.
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | Serial2 (TX) | PA[18] |
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | Serial2 (RX) | PA[19] |
-| D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | Serial3 (CTS) | PA[15] |
+| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | Serial3 (CTS) | PA[15] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
@@ -357,6 +357,12 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 BLE Central Mode on the P2 and Photon 2 is only supported in Device OS 5.1.0 and later. Earlier versions only supported BLE Peripheral Mode.
 
+### Sleep
+
+The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+
+The Photon 2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location as the Argon pin D8, which is also the WKP pin.
+
 ### Pins Photon 2 vs. P2
 
 The pins on the Photon 2 map directly the pins with the same name on the P2.
@@ -371,7 +377,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
-| D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) | 30 | PA[15] |
+| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | 30 | PA[15] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
 | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
@@ -421,7 +427,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | D5 | D5 GPIO, Serial2 RX, SPI1 SS | PA[19] |
 | D6 | D6 GPIO, SWCLK. | PB[3] |
 | D7 | D7 GPIO, Blue LED, SWDIO | PA[27] |
-| D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. | PA[15] |
+| D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | PA[15] |
 | VUSB | Power out (when powered by USB) 5 VDC at 1A maximum. Power in with limitations. | &nbsp; |
 | EN | Power supply enable. Connect to GND to power down. Has internal weak (100K) pull-up. | &nbsp; |
 | LI+ | Connected to JST PH LiPo battery connector. 3.7V in or out. | &nbsp; |
@@ -448,6 +454,25 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 ### I/O Characteristics
 
 [To be provided at a later date.]
+
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Peak | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 63.8 | 65.8 | 68.9 | mA |
+| Operating Current (uC on, BLE advertising)  | I<sub>ble_adv</sub> | 62.4 | 66.1 | 73.8 | mA |
+| Operating Current (uC on, radio connected to access point) | I<sub>wifi_conn_ap</sub> | 62.3 | 67.8 | 325 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 549 | 579 | 608 | uA |
+| STOP mode sleep, time wake-up | I<sub>stop_intrtc</sub> | 543 | 572 | 604 | uA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 549 | 579 | 608 | uA |
+| ULP mode sleep, time wake-up | I<sub>ulp_intrtc</sub> | 543 | 572 | 604 | uA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 93.8 | 114 | 133 | uA |
+| HIBERNATE mode sleep, time wake-up | I<sub>hib_intrtc</sub> | 93.3 | 115 | 133 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 
 ## Mechanical specifications
 
@@ -515,9 +540,6 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 
 ## Product handling
 
-### Tape and Reel Info
-
-[To be provided at a later date.]
 
 ### Moisture sensitivity levels
 
@@ -629,6 +651,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-05-04 | RK | USB connector is micro B, not USB C |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
+|     | 2022-09-04 | RK | BLE central mode available, added power consumption |
+|     | 2022-10-05 | RK | Added power consumption |
+
 ## Known Errata
 
 ## Contact

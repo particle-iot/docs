@@ -383,6 +383,12 @@ These pins have a special function at boot. Beware when using these pins as inpu
 
 There are many limitations for interrupts on the STM32F205. All pins can be used for interrupts on Gen 3 devices and the Photon 2.
 
+### Sleep
+
+The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+
+The Photon 2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. The Photon can only wake from `HIBERNATE` on `WKP` `RISING` so this should not be an issue, other than making sure the pins are mapped appropriately.
+
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
@@ -442,7 +448,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | C2 | Serial4 RX (received data), SPI2 MISO, GPIO. | &nbsp; | Not Connected |
 | C3 | Serial4 TX (transmitted data), SPI2 SCK, GPIO. | &nbsp; | Not Connected |
 | C4 | I2C, CAN TX, GPIO. | &nbsp; | Not Connected |
-| C5 | I2C, CAN RX, GPIO. | D10 / WKP | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. |
+| C5 | I2C, CAN RX, GPIO. | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. |
 | D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI |
@@ -872,7 +878,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | WKP | D10 |
 | Pin Alternate Name | A7 | WKP |
-| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. |
+| Description | WKP/A7 Wakeup (active high), analog in, GPIO. | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | n/a |
@@ -952,3 +958,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-04-16 | RK | Major changes to pinmap to align with P2 |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
+|     | 2022-10-05 | RK | Added HIBERNATE sleep section |

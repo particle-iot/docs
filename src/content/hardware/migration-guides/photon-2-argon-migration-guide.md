@@ -338,6 +338,12 @@ All pins can be used for interrupts on Gen 3 devices and the Photon 2.
 
 There is a limit of 8 pin interrupts on the Argon; this limitation does not exist on the Photon 2.
 
+### Sleep
+
+The Photon 2 can wake from `STOP` or `ULTRA_LOW_POWER` sleep mode on any GPIO, `RISING`, `FALLING`, or `CHANGE`.
+
+The Photon 2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`, or `CHANGE`. Pin D10 is the same module pin location as the Argon pin D8, which is also the WKP pin. However, the Argon can wake from `HIBERNATE` on any GPIO, so if you use `HIBERNATE` mode with GPIO wake on other pins, changes will be necessary. One alternative is to use `ULTRA_LOW_POWER` instead of `HIBERNATE` sleep mode on the P2.
+
 ### Internal pull-up or pull-down
 
 Internal (MCU) pull-up and pull-down can be enabled using the `pinMode()` function and `INPUT_PULLUP` or `INPUT_PULLDOWN`.
@@ -646,7 +652,7 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- |
 | Pin Name | D8 | D10 |
 | Pin Alternate Name | WKP | WKP |
-| Description | GPIO, PWM | D10 GPIO. Serial3 CTS. Was D8 on Gen 3. |
+| Description | GPIO, PWM | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogWrite (PWM) | Yes | No |
@@ -716,3 +722,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-04-18 | RK | Major changes to pinmap to align with P2 |
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
+|     | 2022-10-05 | RK | Added HIBERNATE sleep section |

@@ -4713,6 +4713,8 @@ void loop()
 - All GPIO pins (`A0`, `A1`, `A2`, `A5`, `D0`..`D10`, `MOSI`, `MISO`, `SCK`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 - Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
+
+- The drive strength on the P2 and Photon 2 is 16 mA per pin with a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
 {{note op="end"}}
 
 ---
@@ -4779,6 +4781,7 @@ void loop()
 
 - GPIO are **not** 5V tolerant on the P2 and Photon 2. Be sure the input voltage does not exceed 3.3V (typical).
 
+- For the P2 and Photon pin, if you are using an external pull-down resistor, the resistance m be greater than or equal to 1K. It is typically larger than that, but it cannot be smaller.
 {{note op="end"}}
 
 ---
@@ -4823,8 +4826,9 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 ---
 
 {{note op="start" type="gen3"}}
-Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
-On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
+- Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
+- On the P2 and Photon 2, the pin drive strength is always 16 mA.
+- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
 {{note op="end"}}
 
 
@@ -6305,16 +6309,18 @@ Returns the charge voltage register. This is the direct register value from the 
 {{api name1="Serial" name2="Serial1" name3="Serial2" name4="Serial3" name5="Serial4" name6="Serial5"}}
 
 
-| Device       | Serial   | USBSerial1   | Serial1   | Serial2   | Serial4   | Serial5   |
-| :----------- | :------: | :----------: | :-------: | :-------: | :-------: | :-------: |
-| Argon        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
-| Boron        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
-| B Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | 
-| Tracker SoM  | &check;  | &nbsp;       | 2         | &nbsp;    | &nbsp;    | &nbsp;    |
-| Photon       | &check;  | &check;      | &check;   | 1         | &nbsp;    | &nbsp;    |
-| P1           | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &nbsp;    |
-| Electron     | &check;  | &check;      | &check;   | 1         | &check;   | &check;   | 
-| E Series     | &check;  | &check;      | &check;   | &check;   | &check;   | &check;   | 
+| Device       | Serial   | USBSerial1   | Serial1   | Serial2   | Serial3   | Serial4   | Serial5   |
+| :----------- | :------: | :----------: | :-------: | :-------: | :-------: | :-------: | :-------: |
+| Argon        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
+| Boron        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
+| B Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    | 
+| Tracker SoM  | &check;  | &nbsp;       | 2         | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
+| P2           | &check;  | &nbsp;       | &check;   | &check;   | &check;   | &nbsp;    | &nbsp;    |
+| Photon 2     | &check;  | &nbsp;       | &check;   | &check;   | &check;   | &nbsp;    | &nbsp;    |
+| Photon       | &check;  | &check;      | &check;   | 1         | &nbsp;    | &nbsp;    | &nbsp;    |
+| P1           | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
+| Electron     | &check;  | &check;      | &check;   | 1         | &nbsp;    | &check;   | &check;   | 
+| E Series     | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &check;   | &check;   | 
 
 - (1) `Serial2` on the Photon and Electron uses the same pins as the RGB status LED, and cannot be used without 
 physically disconnecting the status LED on the device by removing the LED or current limiting resistors.
@@ -6378,7 +6384,7 @@ The P2 and Photon 2 support three serial interfaces, two with hardware flow cont
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | Serial3 (TX) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Serial3 (RTS) | PA[14] |
@@ -6401,9 +6407,9 @@ The P2 and Photon 2 support three serial interfaces, two with hardware flow cont
 
 ---
 
-{{note op="start" type="gen2"}}
+`Serial2:` On the P2 and Photon 2, this channel is available. It uses the same pins as `SPI1`, so you can only use `Serial2` or `SPI1`, not both.
 
-`Serial2:` On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/reference/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed. If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
+On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/reference/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed. If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
 On the Electron, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. If used for Serial2, the LED or current limiting resistors should be removed. As there are no test pads for these LED pins on the Electron, Serial2 will be difficult to use.
 
@@ -6413,13 +6419,13 @@ Other devices do not support `Serial2`. On the Argon and Boron, the hardware por
 
 To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
+`Serial3`: This channel is optionally available on the P2 and Photon 2 only. It optionally supports hardware flow control. To use Serial3, add `#include "Serial3/Serial3.h"` near the top of your app's main code file.
+
 `Serial4:` This channel is optionally available via the Electron and E Series C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file. This port is not available on other devices.
 
 `Serial5:` This channel is optionally available via the Electron and E Series C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file. This port is not available on other devices.
 
-`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E Series) with Device OS 0.6. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
-
-{{note op="end"}}
+`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E Series) with Device OS 0.6.0. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
 
 ---
 
@@ -6474,7 +6480,7 @@ Serial1.begin(speed, config); //  "
 Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
 Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
 
-// Photon, P1, Electron, and E Series
+// P2, Photon 2, Photon, P1, Electron, and E Series
 #include "Serial2/Serial2.h"
 Serial2.begin(speed);         // RGB-LED green(TX) and blue (RX) pins
 Serial2.begin(speed, config); //  "
@@ -7905,6 +7911,7 @@ The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
 - Multiple devices can generally share a single SPI port
 - SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
 - SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+- SPI1 shares the same pins as Serial2
 
 {{note op="end"}}
 
@@ -10384,8 +10391,8 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-LESC pairing is supported on Device OS 3.1 and later only.
-
+- LESC pairing is supported on Device OS 3.1 and later only.
+- LESC pairing is not supported on the P2 and Photon 2.
 
 #### BLE.startPairing()
 
@@ -10435,7 +10442,8 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-LESC pairing is supported in Device OS 3.1 and later only.
+- LESC pairing is supported on Device OS 3.1 and later only.
+- LESC pairing is not supported on the P2 and Photon 2.
 
 
 #### BLE.setPairingPasskey()
@@ -16393,6 +16401,7 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 | Boron LTE   |    575 uA |    584 uA |    577 uA |    587 uA |    885 uA |   12.1 mA |
 | B402 SoM    |    555 uA |    556 uA |    557 uA |    556 uA |    631 uA |    9.7 mA |
 | B523 SoM    |    538 uA |    537 uA |    537 uA |    537 uA |    604 uA |   23.1 mA |
+| P2          |    579 uA |    572 uA |           |           |           |           |
 | Argon       |    396 uA |    398 uA |    398 uA |    397 uA |    441 uA |   22.2 mA |
 | Electron    |   2.40 mA |   2.53 mA |   6.03 mA |   13.1 mA |       n/a |   28.1 mA |  
 | Photon      |   2.75 mA |   2.82 mA |   7.56 mA |   18.2 mA |       n/a |       n/a |
@@ -16455,9 +16464,11 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 | Boron LTE   |    127 uA |    128 uA |    130 uA |    584 uA |    442 uA |   14.2 mA |
 | B402 SoM    |     48 uA |     47 uA |     48 uA |    557 uA |    130 uA |    9.5 mA |
 | B523 SoM    |     54 uA |     55 uA |     56 uA |    537 uA |    139 uA |   22.8 mA |
+| P2          |    579 uA |    572 uA |           |           |           |           |
 | Argon       |     82 uA |     81 uA |     82 uA |    520 uA |    141 uA |   21.3 mA |
 | Electron    |   2.42 mA |   2.55 mA |       n/a |       n/a |       n/a |       n/a |  
 | Photon      |   2.76 mA |   2.83 mA |       n/a |       n/a |       n/a |       n/a |
+
 
 ---
 
@@ -16483,11 +16494,11 @@ System.sleep(config);
 
 The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. It is the lowest power mode, however there are limited ways you can wake:
 
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | WKP RISING Only | &check; |
-| Time (RTC) | &check; | <sup>1</sup> | 
-| Analog | &nbsp; | &check; | 
+| Wake Mode | Gen 2 | Gen 3 | P2/Photon 2 |
+| :--- | :---: | :---: | :---: |
+| GPIO | WKP RISING Only | &check; | WKP |
+| Time (RTC) | &check; | <sup>1</sup> | &check; |
+| Analog | &nbsp; | &check; | &nbsp; |
 
 <sup>1</sup>Tracker SoM can wake from RTC in HIBERNATE mode. Other Gen 3 devices cannot.
 
@@ -16501,41 +16512,48 @@ Typical power consumption in hibernate sleep mode, based on the wakeup source:
 | Boron LTE   |    106 uA |       n/a |
 | B402 SoM    |     26 uA |       n/a |
 | B523 SoM    |     30 uA |       n/a |
+| P2          |    114 uA |    115 uA |
 | Argon       |     65 uA |       n/a |
 | Electron    |    114 uA |    114 uA |
 | Photon      |    114 uA |    114 uA |
 
-In this mode:
 
-- Real-time clock (RTC) stops (Argon, Boron, B Series SoM).
-- Can wake from: Time or GPIO. On Gen 3 also analog.
-- On wake, device is reset, running setup() again.
-
+In this mode on wake, device is reset, running setup() again.
 
 ---
 
 {{note op="start" type="gen3"}}
-- On the Argon, Boron, and B Series SoM you can only wake by pin, not by time, in HIBERNATE mode.
+- On the Argon, Boron, B Series SoM, and E404X you can only wake by pin, not by time, in HIBERNATE mode.
 
-- On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
+- On the Tracker SoM, Tracker One, and Monitor One, you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
 - You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later on Gen 3 devices.
 
 - Since the difference in current consumption is so small between HIBERNATE and ULTRA_LOW_POWER, using ULTRA_LOW_POWER is a good alternative if you wish to wake based on time on Gen 3 devices. The difference is 106 uA vs. 127 uA on the Boron LTE, for example.
 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
+
+- Gen 3 devices (Argon, Boron, B Series SoM, E404X, Tracker SoM, Tracker One), can wake on analog voltage comparison.
 {{note op="end"}}
 
 ---
 
 {{note op="start" type="P2"}}
+- The P2, Photon 2, and Tracker M can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
+
+- On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
+
 - On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- The P2, Photon 2, and Tracker M do not support wake on analog.
 {{note op="end"}}
 
 ---
 
 {{note op="start" type="gen2"}}
-- On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
+- On the Photon, P1, Electron, and E Series you can only wake on time or `WKP` `RISING` in `HIBERNATE` mode.
 
 - GPIO are put into high impedance state before sleep. However, you can use `pinMode(INPUT)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
 {{note op="end"}}
@@ -16728,6 +16746,13 @@ If you use `INACTIVE_STANDBY`, the modem is kept powered, but the cloud is disco
 
 For more information on using network sleep modes, see [Learn more about sleep modes](/reference/device-os/sleep/).
 
+---
+
+{{note op="start" type="P2"}}
+Wake on network is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
+
+---
 
 ### analog() (SystemSleepConfiguration)
 
@@ -16757,6 +16782,13 @@ The `AnalogInterruptMode` is one of:
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp;  |
 
+---
+
+{{note op="start" type="P2"}}
+Wake on analog is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
+
+---
 
 ### usart (SystemSleepConfiguration)
 
@@ -16781,6 +16813,12 @@ Note: Keeping the USART active in ultra-low power mode significanly increases th
 | Wake from STOP sleep | &check; | &check; |
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
+
+---
+
+{{note op="start" type="P2"}}
+Wake on serial is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
 
 ---
 
@@ -16814,6 +16852,14 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
 
+---
+
+{{note op="start" type="P2"}}
+Wake on BLE is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
+
+---
+
 ### Sleep and GPIO outputs
 
 In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
@@ -16822,11 +16868,11 @@ This can result in unexpected current usage, depending on your design. You shoul
 
 Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
 
-| Sleep mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| STOP | Preserved | Preserved |
-| ULTRA_LOW_POWER | Preserved | Preserved |
-| HIBERNATE  | High-Z | Preserved |
+| Sleep mode | Gen 2 | Gen 3 | P2/Photon 2 |
+| :--- | :---: | :---: | :---: |
+| STOP | Preserved | Preserved | Preserved |
+| ULTRA_LOW_POWER | Preserved | Preserved | Preserved |
+| HIBERNATE  | High-Z | Preserved | Preserved |
 
 
 ## SystemSleepResult Class
@@ -16909,6 +16955,8 @@ Returns the previous style of [`SleepResult`](#sleepresult-). There is also an o
 {{api name1="System.sleep"}}
 
 This API is the previous API for sleep and is less flexible. You should use the [newer sleep APIs](#sleep-sleep-) with Device OS 1.5.0 and later.
+
+Using the current sleep APIs is recommended on all cellular devices. The legacy sleep API does not wait for the cellular modem to power off before going into sleep mode, which may leave the modem on or in a partially on state. The newer sleep APIs correct this. It will not be fixed in the legacy sleep APIs.
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
