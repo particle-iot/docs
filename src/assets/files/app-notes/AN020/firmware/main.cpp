@@ -28,7 +28,7 @@ SensorConfig sensorConfig[NUM_SENSOR_CONFIG] = {
 };
 Sensor_4_20mA sensor;
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 
 void setup()
@@ -36,7 +36,7 @@ void setup()
     Tracker::instance().init();
 
     // Callback to add temperature information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     sensor
         .withNativeADC()
@@ -64,7 +64,7 @@ void loop()
 
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     sensor.writeJSON(writer);
 }

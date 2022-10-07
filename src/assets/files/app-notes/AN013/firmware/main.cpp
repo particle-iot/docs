@@ -39,7 +39,7 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_INFO, {
 // When using the M8 connector, use Wire3 (not Wire)
 MCP23008 gpio(Wire3, 0);
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 unsigned long lastGP0 = 0;
 
@@ -67,7 +67,7 @@ void setup()
     }
 
     // Callback to add temperature information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Connect to the Particle cloud now, since we use SEMI_AUTOMATIC mode
     Particle.connect();
@@ -92,7 +92,7 @@ void loop()
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     // This is all pins in a bitmask. GP0 is bit 0x01, GP7 is bit 0x80.
     uint8_t pinState = gpio.readAllPins();

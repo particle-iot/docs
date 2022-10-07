@@ -261,7 +261,7 @@ This adds new settings to the configuration manager. The registers a new object 
 
 ```cpp
 // Callback to add key press information to the location publish
-Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
 This adds a location generation callback. This is how we add the `keys` to the location publishes.
@@ -312,7 +312,7 @@ if (lastContrast != contrast) {
 If the contrast changes from the cloud, update the DAC to set the new value
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     // keyBuf is always 16 characters long filled with spaces and null terminated for updating the LCD.
     // Make a copy of it so the string will only contain the keys with no trailing spaces.

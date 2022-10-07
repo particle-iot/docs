@@ -187,7 +187,7 @@ sensor
 This is the initialization of the 4-20mA sensor library. It's set to use the native nRF52 ADC (pin A3), with the configuration we defined above.
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void mymyLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     sensor.writeJSON(writer);
 }

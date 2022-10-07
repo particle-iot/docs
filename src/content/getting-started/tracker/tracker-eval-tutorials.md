@@ -102,7 +102,7 @@ void setup()
     Tracker::instance().init();
     
     // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Initialize temperature sensor
     tempSensor.begin();
@@ -139,7 +139,7 @@ In `loop()` we:
 
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     float tempC = validator.getTemperatureC();
     if (!isnan(tempC)) {
@@ -280,7 +280,7 @@ Log.info("hasSensor=%d", hasSensor);
 - In our location callback, add the temperature, pressure, and humidity data.
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, 
+void myLocationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context)
 {
     if (hasSensor) {

@@ -57,7 +57,7 @@ const std::chrono::milliseconds debugLevelPeriod = 2s;
 
 
 int readLevel();
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -68,7 +68,7 @@ void setup()
     Tracker::instance().init();
 
     // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Turn on CAN_5V power
     pinMode(CAN_PWR, OUTPUT);
@@ -127,7 +127,7 @@ int readLevel() {
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     writer.name("level").value(readLevel());
 }

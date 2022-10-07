@@ -222,7 +222,7 @@ We need to initialize global objects for the GPIO expander and ADC. The ADS1015 
 
 
 ```cpp
-Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
 Since we add the level to location events, we need to register a callback.
@@ -282,7 +282,7 @@ int readLevel() {
 This is how we read the level sensor. Turn on the boost converter, wait a moment for it to settle, read the ADC value, then turn off the boost converter.
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     writer.name("level").value(readLevel());
 }

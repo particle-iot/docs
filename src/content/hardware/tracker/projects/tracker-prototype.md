@@ -131,7 +131,7 @@ tempSensor.begin(0x60, Wire3);
 This sets the multi-function pins to I2C mode and initializes the library. The constant 0x60 is the I2C address of the sensor. Note the use of `Wire3` instead of just `Wire`. On the Tracker SoM this uses the multifunction pins for I2C instead of D0 and D1. While you can use D0 and D1 for I2C on the Tracker SoM and Tracker SoM evaluation board, you cannot on the Tracker One as pins D0 and D1 are not available and not exposed on the M8 connector.
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, 
+void myLocationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context)
 {
     if (tempSensor.available()) {

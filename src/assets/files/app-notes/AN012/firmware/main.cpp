@@ -46,7 +46,7 @@ bool haveTemperatures = false;
 bool doScan = true;
 
 int scanFunction(String cmd); // forward declaration
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 
 
@@ -69,7 +69,7 @@ void setup()
     doScan = true;
 
     // Callback to add temperature information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Particle function to rescan the 1-Wire bus
     Particle.function("scan", scanFunction);
@@ -146,7 +146,7 @@ int scanFunction(String cmd) {
     return 0;
 }
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     if (haveTemperatures) {
         for(size_t ii = 0; ii < deviceList.getDeviceCount(); ii++) {

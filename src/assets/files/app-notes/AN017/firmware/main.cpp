@@ -83,7 +83,7 @@ int idleRPM = 1600;
 // Object for the CAN library. Note: The Tracker SoM has the CAN chip connected to SPI1 not SPI!
 MCP_CAN canInterface(CAN_CS, SPI1);   
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -95,7 +95,7 @@ void setup()
     Tracker::instance().init();
 
     // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Set up configuration settings
     static ConfigObject engineDesc("engine", {
@@ -253,7 +253,7 @@ void loop()
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     int nonIdleMean = nonIdleSamples ? (nonIdleSum / nonIdleSamples) : 0;
   

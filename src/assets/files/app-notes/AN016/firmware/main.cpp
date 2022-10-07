@@ -77,7 +77,7 @@ char gnssBuf[17];
 int contrast = 24; 
 int lastContrast = contrast;
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -94,7 +94,7 @@ void setup()
     Tracker::instance().configService.registerModule(contrastDesc);
 
     // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Set up MAX7306 keypad/LCD driver
 	keyDriver.withKeyMapping(&keyMapper);
@@ -208,7 +208,7 @@ void loop()
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     // keyBuf is always 16 characters long filled with spaces and null terminated for updating the LCD.
     // Make a copy of it so the string will only contain the keys with no trailing spaces.

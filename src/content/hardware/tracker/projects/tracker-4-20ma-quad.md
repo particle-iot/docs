@@ -237,7 +237,7 @@ The parameters to `withADS1015()` are:
 
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     sensor.writeJSON(writer);
 }

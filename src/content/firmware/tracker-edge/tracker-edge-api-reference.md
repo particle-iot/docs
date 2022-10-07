@@ -173,7 +173,7 @@ Use this to access the [`CloudService`](/firmware/tracker-edge/tracker-edge-api-
 TrackerLocation location;
 
 // EXAMPLE
-Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
 Use this to access the [`TrackerLocation`](/firmware/tracker-edge/tracker-edge-api-reference/#Trackerlocation) object. Note that there are two different services, `LocationService` and `TrackerLocation`.
@@ -410,13 +410,13 @@ int regLocGenCallback(
     const void *context=nullptr);
 
 // EXAMPLE
-void locationGenerationCallback(JSONWriter &writer, 
+void myLocationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
     Tracker::instance().init();
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     Particle.connect();
 }
@@ -426,7 +426,7 @@ void loop()
     Tracker::instance().loop();
 }
 
-void locationGenerationCallback(JSONWriter &writer, 
+void myLocationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context)
 {
     writer.name("speed").value(point.speed, 2);

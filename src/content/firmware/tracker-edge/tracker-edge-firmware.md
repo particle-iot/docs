@@ -219,12 +219,12 @@ It's easy to add additional data to the location event. For example, if you want
 
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
     Tracker::instance().init();
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     Particle.connect();
 }
@@ -234,7 +234,7 @@ void loop()
     Tracker::instance().loop();
 }
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     writer.name("speed").value(point.speed, 2);
 }
@@ -244,7 +244,7 @@ void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const 
 Note the additions:
 
 - Calls `Tracker::instance().location.regLocGenCallback()` to register a location generation callback in `setup()`.
-- Adds a new function `locationGenerationCallback()`.
+- Adds a new function `myLocationGenerationCallback()`.
 - In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/api/json/jsonwriter/).
 
 If you look at the location event, you can see the new field for `speed` (in meters/second):

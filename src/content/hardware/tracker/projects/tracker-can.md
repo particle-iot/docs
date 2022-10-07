@@ -186,7 +186,7 @@ This is the library interface to the CAN controller chip. Of note:
 Tracker::instance().init();
 
 // Callback to add key press information to the location publish
-Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
 Initialize the Tracker Edge library and register a callback function to be called to add information to location publishes.

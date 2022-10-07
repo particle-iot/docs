@@ -98,7 +98,7 @@ Tracker::instance().init();
 
 // Register a location callback so we can add temperature and humidity information
 // to location publishes
-Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 ```
 
 In `setup()` initialize the Tracker firmware and add a callback for when the location publishes occur.
@@ -128,7 +128,7 @@ Tracker::instance().loop();
 Make sure you give the Tracker edge firmware processor time on every call to `loop()`.
 
 ```cpp
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     double temp, humid;
 

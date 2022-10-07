@@ -177,7 +177,7 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context);
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context);
 void prepareSleepCallback(TrackerSleepContext context);
 void wakeCallback(TrackerSleepContext context);
 
@@ -188,7 +188,7 @@ void setup()
     Tracker::instance().init();
 
     // Register callbacks
-    TrackerLocation::instance().regLocGenCallback(locationGenerationCallback);
+    TrackerLocation::instance().regLocGenCallback(myLocationGenerationCallback);
     TrackerSleep::instance().registerSleepPrepare(prepareSleepCallback);
     TrackerSleep::instance().registerWake(wakeCallback);
 }
@@ -199,7 +199,7 @@ void loop()
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     // Called when we're generating a location
     if (!temps.empty()) {
