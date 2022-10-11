@@ -45,14 +45,14 @@ Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 devic
 
 ### Cellular antenna dimensions
 
-| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU |
-| :--- | ---: | ---: | ---: |
+| Dimension | PARANTC41EA & PARANTC41TY | ANTCW2EA & ANTCW2TY | ANT-FLXU & ANT-FLXU-50 |
+| :--- | :---: | :---: | :---: |
 | Length | 122.1mm | 97.0mm | 96.0mm |
 | Width | 12.8mm | 21.0mm | 21.0mm |
 | Thickness | 0.2mm | 0.2mm | 0.2mm |
 | Cable Length | 183mm | 160mm | 150mm |
 
-PARANTC41EA is slightly longer than ANTCW2EA. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
+PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
 - Do not bend more the 90 degrees. Right angle turns are acceptable, but do not fold the antenna over on itself.
 - The antenna should not be creased when it is bent into position. A crease can damage the internal structure of the antenna.
@@ -60,8 +60,7 @@ PARANTC41EA is slightly longer than ANTCW2EA. The antenna can be bent when being
 - All portions of the antenna should maintain proper spacing from electronics, grounded metal, or active metal.
     - Recommended: 12mm
     - Minimum: 8mm
-- Ideally when placing the antenna it should not have a bend in it, but following the above guidelines, there should be minimal performance degradation. A ball-park estimate is 10% degradation in performance if guidelines are followed, but this can only be validated on a case by case basis with testing in the lab.
-
+- Ideally when placing the antenna it should not have a bend in it, but following the above guidelines, there should be minimal performance degradation.
 
 
 ### Compatible devices (Cellular)
