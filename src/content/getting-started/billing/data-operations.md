@@ -34,7 +34,7 @@ Blocks are a maximum number of Data Operations and devices per month in the Grow
 
 - Up to {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month 
 - Up to {{growthTierDevices}} devices
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 - Price varies for Wi-Fi, Cellular, and Tracker
 - Add as many blocks are you need
 

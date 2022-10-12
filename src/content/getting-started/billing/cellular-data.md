@@ -31,7 +31,7 @@ Particle provides a number of devices with cellular connectivity including the T
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 - Email support
 
 #### Enterprise plan
@@ -91,7 +91,7 @@ If the transmission is not acknowledged, it is possible that up to two more atte
 
 For cellular devices, there is a data limit depending on your tier. For the Free plan, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
 
-In the growth plan, {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker) is included for each block purchased, per month.
+In the growth plan, {{growthTierDataOperationsCellularData}} of cellular data per month is included for each block purchased, per month.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
