@@ -16,7 +16,7 @@ includeDefinitions: [api-helper,api-helper-extras,api-helper-projects,zip]
 
 Modbus is an open-sourced client-server protocol developed in 1979. Modbus is a common communication standard used in industrial automation, where it is used to enable communication between PLCs, motor controllers, sensors, upstream SCADA systems, and more. 
 
-Modbus is a multi-drop communication bus, meaning there can be multiple devices connected to a single network. The device requesting the data is called the Modbus Client (master) and the device receiving and/or returning data is the Modbus Server (slave). Each Server device connected via Modbus will have its own unique Server Address. In a typical Modbus network, there is one Client and up to 247 Servers that can be connected. In the example application highlighted in this whitepaper, the Particle device is the Client and will be controlling the Modbus network.
+Modbus is a multi-drop communication bus, meaning there can be multiple devices connected to a single network. The device requesting the data is called the Modbus Client (master) and the device receiving and/or returning data is the Modbus Server (slave). Each Server device connected via Modbus will have its own unique Server Address. In a typical Modbus network, there is one Client and up to 247 Servers that can be connected. In the example application highlighted in this page, the Particle device is the Client and will be controlling the Modbus network.
 
 Modbus has many benefits, but the main benefit is reliable communication that can be transmitted over large distances by using RS-485. RS-485 is a differential communication standard that provides far superior noise immunity when compared to RS-232. This allows for much longer transmission lines which is key for industrial applications like motor control, system monitoring, power meters, and sensors like temperature, humidity, and pressure. 
 
@@ -76,14 +76,11 @@ Coils were originally for relays and solenoids, but could be other types of writ
 | 23 (0x17) | Read Write Multiple Registers |
 
 
-## Example Application 
+## Example Hardware
 
 The goal of this application is to implement a Modbus RTU network using the Particle Platform as the Modbus client along with publishing the data from the modbus to the cloud.
 
-
-## Hardware
-
-The Particle platform in the application is the [B SoM, B404](/b-series/) and the Modbus server is a [temperature and humidity sensor](https://www.dfrobot.com/product-2279.html). To interface with Modbus over RS-485, typically a Physical Layer Device (PHY) is needed to translate 3.3V TTL level UART lines with the RS-485 bus. This is achieved by using the [RS485 Click 3.3V](https://www.mikroe.com/rs485-33v-click) in combination with the [Mikroe SoM Shield](https://www.mikroe.com/click-shield-for-particle-gen-3). Below is a visual representation of the Modbus network along with a picture of the example application.
+The Particle platform in this application is the [B Series SoM, B404](/b-series/) and the Modbus server is a [temperature and humidity sensor](https://www.dfrobot.com/product-2279.html). To interface with Modbus over RS-485, typically a Physical Layer Device (PHY) is needed to translate 3.3V TTL level UART lines with the RS-485 bus. This is achieved by using the [RS485 Click 3.3V](https://www.mikroe.com/rs485-33v-click) in combination with the [Mikroe SoM Shield](https://www.mikroe.com/click-shield-for-particle-gen-3). Below is a visual representation of the Modbus network along with a picture of the example application.
 
 ![Circuit diagram](/assets/images/tutorials/modbus1.png)
 
@@ -91,7 +88,7 @@ The Particle platform in the application is the [B SoM, B404](/b-series/) and th
 
 This temperature and humidity sensor operates from 12V to 36V and an external power supply is needed to power the sensor. 
 
-There are many different Modbus temperature/humidity sensors. [This one](https://www.amazon.com/gp/product/B07VNFDQRJ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) has the advantage of working from 5 to 30VDC, so it can be powered from the +5V output of the Mikroe SoM shield.
+There are many different Modbus temperature/humidity sensors. [This one](https://www.amazon.com/gp/product/B07VNFDQRJ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) has the advantage of working from 5 to 30VDC, so it can be powered from the +5V output of the Mikroe SoM shield when powered by USB.
 
 ![Circuit diagram](/assets/images/tutorials/modbus3.png)
 
@@ -102,7 +99,7 @@ Additional pinout information for the Mikroe SoM shield can be found in the [Mik
 The PHY device typically gives access to a transmit pin which disables the received enable functionality during a transmit event. Note that Modbus RTU is a half-duplex protocol meaning only one device on the bus can transmit data at one point in time. If the transmit pin is not enabled and the Client is transmitting, data sent will be mirrored into the receive buffer.
 
 
-## Firmware
+## Example Firmware
 
 Here is the project firmware:
 
@@ -111,7 +108,7 @@ Here is the project firmware:
 
 The goal of the firmware is to implement Modbus RTU in a simple way. This is achieved by leveraging the [ModbusMaster](/reference/device-os/libraries/m/ModbusMaster/) library which is a community library that was a port from an existing Arduino library. The example code will read the temperature and humidity from the sensor and publish the data to the cloud.
 
-To use this library, you need to initialize communication by selecting the serial port used (serial1) and setting the server address (1 in this example). This is achieved by using ModbusMaster `node()` and this should be done before the setup() and loop() functions. Next, you need to initialize the serial port and this is done by `node.begin()`. This not only initializes Modbus communication, but it also sets the baud rate. 
+To use this library, you need to initialize communication by selecting the serial port used (`Serial1`) and setting the server address (1 in this example). This is achieved by using ModbusMaster `node()` and this should be done before the setup() and loop() functions. Next, you need to initialize the serial port and this is done by `node.begin()`. This not only initializes Modbus communication, but it also sets the baud rate. 
 
 ```cpp
 node.begin(BAUD);			//set baud rate for modbus
@@ -129,7 +126,7 @@ To enable the transmit pin use `node.enableTXpin()` and call this function in th
 node.enableTXpin(RT);		//TX enable pin of RS485 driver
 ```
 
-#### getSensorValue()
+### getSensorValue()
 
 To read the temperature and humidity from the sensor,  a function was created, `getSensorValue()`, which handles getting the current temperature and humidity values. This function is simple and uses `readHoldingRegisters()`. To start the read at the correct register address for the temperature and humidity pass an address of 0 and read two 2 registers worth with the humidity register being the first of the two. The library has error codes built-in to ensure that the transaction was successful so you will want to check the function against the value `node.ku8MBSuccess`. 
 
@@ -145,10 +142,10 @@ int getSensorValues()
 	// - the number of registers to read (1, 2, ...)
 
 	// Some sensors have the temperature and humidity in holding register 0 and 1. If so, use this version:
-	// result = node.readHoldingRegisters(0x0000,2);
+	result = node.readHoldingRegisters(0x0000,2);
 
 	// Some sensors have the temperature and humidity in input registers 1 and 2. If so, use this version:
-	result = node.readInputRegisters(1, 2);
+	// result = node.readInputRegisters(1, 2);
 	
 	// If you get Modbus Read Error 0x02 (ku8MBIllegalDataAddress), you probably have the wrong register 
 	// or input/holding selection for your sensor.
@@ -230,6 +227,50 @@ int setHumidityWindow(String value)
 }
 ```
 
+The remaining functions, `setTemperatureWindow()`, `temperatureSetpoint()`, `humiditySetpoint()`, `setPublishFrequency()`, and `setWarningFrequency()` work in the same way.
+
+
+## Changing settings
+
+The six functions allow you to easily set the values from [the Particle console](https://console.particle.io/) or from the API. Note that this is mainly for demonstration purposes and the settings are not saved. They will revert to the default values when the device is reset.
+
+![Options](/assets/images/tutorials/modbus-options.png)
+
+For example, by increasing the temperature and humidity windows, I was able to eliminate the warning and the temperature and humidity were listed as valid.
+
+![Adjusted settings](/assets/images/tutorials/modbus-adjust.png)
+
+
+## Publishing sensor and warning information
+
+The `publishSensorValues()` function looks like this. 
+
+```
+void publishSensorValues()
+{
+	//! create JSON buffer and write values to it
+	JsonWriterStatic<256> jw;
+	{
+		JsonWriterAutoObject obj(&jw);
+		jw.insertKeyValue("Temperature", curTemp);
+		jw.insertKeyValue("Humidity", curHum);
+		jw.insertKeyValue("Time", Time.format(TIME_FORMAT_ISO8601_FULL));
+	}
+
+	Log.info("%s %s", sensorEventName, jw.getBuffer());
+
+	//! send publish only if cloud is connected
+	if (Particle.connected() == TRUE)
+	{
+		Particle.publish(sensorEventName, jw.getBuffer());
+	}
+}
+```
+
+The data that is published is formatted using JSON format to minimize data operations. This format is machine-readable and mostly human readable. You can learn more about JSON in the [JSON tutorial](/firmware/best-practices/json/).
+
+It uses the [JSONParserGeneratorRK](/reference/device-os/libraries/j/JsonParserGeneratorRK/) library to simplify the formatting of the data. 
+
 The `publishWarning()` function looks like this:
 
 ```cpp
@@ -264,31 +305,6 @@ void publishWarningMessage(int errorCode)
 }
 ```
 
-The remaining functions, `setTemperatureWindow()`, `temperatureSetpoint()`, `humiditySetpoint()`, `setPublishFrequency()`, and `setWarningFrequency()` work in the same way.
-
-
-#### setWarningFrequency()
-
-This function is used to set the frequency of the warning message published. This frequency of publish is only used when _either_ the temperature and humidity values read from the sensor fail outside the defined operating range.
-
-By default the value is set to 60 seconds and this value can be modified by passing a new value via the Warning Publish Frequency cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current frequency publish value.
-
-
-
-## Changing settings
-
-The six functions allow you to easily set the values from [the Particle console](https://console.particle.io/) or from the API. Note that this is mainly for demonstration purposes and the settings are not saved. They will revert to the default values when the device is reset.
-
-![Options](/assets/images/tutorials/modbus-options.png)
-
-For example, by increasing the temperature and humidity windows, I was able to eliminate the warning and the temperature and humidity were listed as valid.
-
-![Adjusted settings](/assets/images/tutorials/modbus-adjust.png)
-
-
-
-## Publishing sensor and warning information
-
 When events are published by the device they look like this in the console:
 
 ![Good](/assets/images/tutorials/modbus-good.png)
@@ -307,8 +323,6 @@ If you are viewing the USB serial debug log, the messages look like this:
 0000114022 [app] INFO: modbus-sensor {"Temperature":102.200000,"Humidity":22.000000,"Time":"2022-10-12T12:20:45Z"}
 0000174111 [app] INFO: modbus-sensor {"Temperature":102.200000,"Humidity":22.000000,"Time":"2022-10-12T12:21:45Z"}
 ```
-
-The data that is published is formatted using JSON format to minimize data operations. This format is machine-readable and mostly human readable. You can learn more about JSON in the [JSON tutorial](/firmware/best-practices/json/).
 
 
 ## License
