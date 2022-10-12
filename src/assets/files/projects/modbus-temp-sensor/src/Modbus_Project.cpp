@@ -38,13 +38,32 @@ int tempSet = 75;		//temperature setpoint, preset to 75°F
 int humWindow = 5;		//humidity window, preset to +/- 5%
 int tempWindow = 5;		//temperature window, preset to +/- 5°F
 
-int senFreq = 60;		//sensor publish frequency, preset to 60 seconds
-int warFreq = 20;		//warning publish frequency, preset to 20 seconds
+int senFreq = 60;		//sensor publish frequency (in seconds), preset to 60 seconds
+int warFreq = 60;		//warning publish frequency (in seconds), preset to 60 seconds
+
+/********************************************************************/
+//! /brief Other settings
+
+// Name of published event with temperature/humidity information
+const char *sensorEventName = "modbus-sensor";
+
+// Name of the published event for error/warning messages. This is typically the
+// same as the sensorEventName, but could be different if you prefer.
+const char *errorEventName = sensorEventName;
+
+// How often to check the sensor. Default: Every 1 second
+const std::chrono::milliseconds checkInterval = 1s; //check sensor every 1 second
 
 /********************************************************************/
 //! /brief particle platform initialization
 SYSTEM_MODE(AUTOMATIC);         //connect app to cloud automatically
-SYSTEM_THREAD(DISABLED);        //SYSTEM_THREAD(ENABLED) breaks app and the cloud will miss temp/hum reading
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler;
+
+// To enable more debugging, use this version instead of the one above:
+// SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
 
 /********************************************************************/
 //! /brief modbus initialization
@@ -61,24 +80,21 @@ int setWarningFrequency(String value);
 
 int getSensorValues();
 void publishSensorValues();
-void publishWarningMessage();
+void publishWarningMessage(int errorCode = 0);
 
 /********************************************************************/
 //! /brief setup loop, only runs once at inital startup
 void setup() 
 {
     //! setup cloud functions, best practice to do first in setup loop
- 	Particle.function("Humidity Window", setHumidityWindow);     		//set humidity window
-	Particle.function("Temperature Window", setTemperatureWindow);		//set temperature window
+ 	Particle.function("HumWindow", setHumidityWindow);     		//set humidity window
+	Particle.function("TempWindow", setTemperatureWindow);		//set temperature window
 
-	Particle.function("Humidity Set Point", humiditySetpoint);					//set humidity set point
-	Particle.function("Temperature Set Point (°F)", temperatureSetpoint);		//set temperature set point
+	Particle.function("HumSetPoint", humiditySetpoint);					//set humidity set point
+	Particle.function("TempSetPoint", temperatureSetpoint);		//set temperature set point
 
-	Particle.function("Sensor Publish Frequency (sec)", setPublishFrequency);		//set senor publish frequency (seconds) 
-	Particle.function("Warning Publish Frequency (sec)", setWarningFrequency);		//set warning publish frequency (seconds)
-
-	//! sets up baud rate for serial port
-	Serial.begin(BAUD);         //set baud rate for usb serial
+	Particle.function("SensorPublish", setPublishFrequency);		//set senor publish frequency (seconds) 
+	Particle.function("WarningPublish", setWarningFrequency);		//set warning publish frequency (seconds)
 
     //! initialize Modbus communication baud rate and TX pin
 	node.begin(BAUD);			//set baud rate for modbus
@@ -90,44 +106,54 @@ void setup()
 //! /brief main code loop, runs continuously
 void loop() 
 {
-	//! get current temp and humidity and check for modbus comm error
-	if (getSensorValues() == SUCCESS)		//get current temp and humidity
-	{
-		//! check for whether temp and humdity is outside of window
-		if ((curTemp <(tempSet-tempWindow)) || (curTemp > (tempSet+tempWindow)) || (curHum < (humSet-humWindow)) || (curHum > (humSet+humWindow)))		
+	static unsigned long lastCheck = 0;
+	static unsigned long lastSend = 0;
+	static unsigned long lastWarning = 0;
+
+	if (millis() - lastCheck >= checkInterval.count()) {
+		lastCheck = millis();
+
+		//! get current temp and humidity and check for modbus comm error
+		if (getSensorValues() == SUCCESS)		//get current temp and humidity
 		{
-			//! publish data at set interval
-			if ((Time.second() % warFreq) == 0)      //modulo for warning publish interval
+			//! check for whether temp and humdity is outside of window
+			if ((curTemp <(tempSet-tempWindow)) || (curTemp > (tempSet+tempWindow)) || (curHum < (humSet-humWindow)) || (curHum > (humSet+humWindow)))		
 			{
-				//! publish warning message with sensor data
-				publishWarningMessage();		//send warning message
+				if (millis() - lastWarning >= (warFreq * 1000))
+				{
+					lastWarning = millis();
+
+					//! publish warning message with sensor data
+					publishWarningMessage();		//send warning message
+				}
+			}
+
+			//! temp/humidity within window
+			else
+			{
+				//! publish data at set interval
+				if (millis() - lastSend >= (senFreq * 1000))
+				{
+					lastSend = millis();
+
+					//! publish sensor data
+					publishSensorValues();		//send temp and humidity 
+				}
 			}
 		}
 
-		//! temp/humidity within window
+		//! modbus error occurred
 		else
 		{
-			//! publish data at set interval
-			if ((Time.second() % senFreq) == 0)       //modulo for sensor publish interval
+			//! publish data at set interval (same as warning interval)
+			if (millis() - lastWarning >= (warFreq * 1000))
 			{
-				//! publish sensor data
-				publishSensorValues();		//send temp and humidity 
+				lastWarning = millis();
+				publishWarningMessage(result);		//send warning message
 			}
 		}
-	}
 
-	//! modbus error occurred
-	else
-	{
-		//! publish data at set interval (same as warning interval)
-		if ((Time.second() % warFreq) == 0)       //modulo for modbus warning, same as temp/hum warning frequency
-        {
-			//! send error message
-			Particle.publish("Error Message:", String::format("%#02x", result));
-		}
 	}
-
-	delay(1s);      //delay between sensor readings
 }
 
 /********************************************************************/
@@ -138,9 +164,19 @@ int getSensorValues()
 	uint16_t data[2];		//create a 2 element array of 16 bit ints 
 	double tempC;			//variable for temp in celcius
 	
-	//! get temp and humidity from modbus sensor, humdity register starts @ address 0 and we want to read two 16-bit registers
-	result = node.readHoldingRegisters(0x0000,2);
+	// readHoldingRegisters and readInputRegisters take two parameters: 
+	// - the register to start reading from
+	// - the number of registers to read (1, 2, ...)
+
+	// Some sensors have the temperature and humidity in holding register 0 and 1. If so, use this version:
+	// result = node.readHoldingRegisters(0x0000,2);
+
+	// Some sensors have the temperature and humidity in input registers 1 and 2. If so, use this version:
+	result = node.readInputRegisters(1, 2);
 	
+	// If you get Modbus Read Error 0x02 (ku8MBIllegalDataAddress), you probably have the wrong register 
+	// or input/holding selection for your sensor.
+
 	//! read was successful
 	if (result == node.ku8MBSuccess) 
 	{
@@ -155,13 +191,7 @@ int getSensorValues()
 		curTemp = (tempC * 1.8) + 32;		//convert celsuis to fahrenheit
 
 		//debug serial messages
-			Serial.print("Humidity = ");
-			Serial.print(String::format("%.1f", curHum));
-			Serial.println("%");
-
-			Serial.print("Temperature = ");
-			Serial.print(String::format("%.1f", curTemp));
-			Serial.println("°F");
+		Log.trace("Hum=%.1f (%% RH), Temp=%.1f (C) =%.1f (F)", curHum, tempC, curTemp);
 
 		return SUCCESS;		//return success code		
 	} 
@@ -170,9 +200,7 @@ int getSensorValues()
 	else 
 	{
 		//debug serial messages
-			Serial.print("Failed, Response Code: ");
-			Serial.print(result, HEX); 
-			Serial.println("");
+		Log.info("Modbus Read Error 0x%02x", result);
 
 		return FAIL;		//return fail code
 	}
@@ -193,6 +221,7 @@ int setHumidityWindow(String value)
 	else
 	{
 		humWindow = value.toInt();		//set new volue to global variable
+		Log.info("humWindow=%d", humWindow);
 		return humWindow;				//return new value
 	}
 }
@@ -212,6 +241,7 @@ int setTemperatureWindow(String value)
 	else
 	{
 		tempWindow = value.toInt();		//set new volue to global variable
+		Log.info("tempWindow=%d", tempWindow);
 		return tempWindow;				//return new value
 	}
 }
@@ -231,6 +261,7 @@ int temperatureSetpoint(String value)
 	else
 	{
 		tempSet = value.toInt();		//set new volue to global variable
+		Log.info("tempSet=%d", tempSet);
 		return tempSet;					//return new value
 	}
 }
@@ -250,12 +281,13 @@ int humiditySetpoint(String value)
 	else
 	{
 		humSet = value.toInt();		//set new volue to global variable
+		Log.info("humSet=%d", humSet);
 		return humSet;				//return new value
 	}
 }
 
 /********************************************************************/
-//! /brief function for changing the sensor publish frequency
+//! /brief function for changing the sensor publish frequency in seconds
 //! @param value is a string used for changing the frequency, value should be a whole integer or null. Example value = 60
 int setPublishFrequency(String value)
 {
@@ -269,6 +301,7 @@ int setPublishFrequency(String value)
 	else
 	{
 		senFreq = value.toInt();		//set new volue to global variable
+		Log.info("senFreq=%d", senFreq);
 		return senFreq;					//return new value
 	}
 }
@@ -288,6 +321,7 @@ int setWarningFrequency(String value)
 	else
 	{
 		warFreq = value.toInt();		//set new volue to global variable
+		Log.info("warFreq=%d", warFreq);
 		return warFreq;					//return new value
 	}
 }
@@ -296,53 +330,53 @@ int setWarningFrequency(String value)
 //! /brief function to publish the sensor state to cloud in JSON
 void publishSensorValues() 
 {
+	//! create JSON buffer and write values to it
+	JsonWriterStatic<256> jw;		//creates a 256 byte buffer to write JSON to
+	{
+		JsonWriterAutoObject obj(&jw);						//creates an object to pass JSON          
+		jw.insertKeyValue("Temperature", curTemp);		//set field for temperature
+		jw.insertKeyValue("Humidity", curHum);			//set field for humidity
+		jw.insertKeyValue("Time", Time.format(TIME_FORMAT_ISO8601_FULL));			//set field for time stamp
+		}
+
+	Log.info("%s %s", sensorEventName, jw.getBuffer());
+	
     //! send publish only if cloud is connected
     if(Particle.connected() == TRUE)
     {
-        //! create JSON buffer and write values to it
-		JsonWriterStatic<256> jw;		//creates a 256 byte buffer to write JSON to
-        {
-            JsonWriterAutoObject obj(&jw);						//creates an object to pass JSON          
-            jw.insertKeyValue("Temperature (°F)", curTemp);		//set field for temperature
-			jw.insertKeyValue("Humidity (%)", curHum);			//set field for humidity
-            jw.insertKeyValue("Time", Time.timeStr());			//set field for time stamp
-         }
-
-        //! Publish data packet consuming 1 of the pooled Cloud Data Operations (DOPs)
-        Particle.publish("Sensor Status", jw.getBuffer(), PRIVATE );
+        Particle.publish(sensorEventName, jw.getBuffer() );
     }
 
-	//! device isn't connected to the cloud
-	else
-    {
-        //TODO Store and forward if offline
-    }
 }
 
 /********************************************************************/
 //! /brief function to publish the sensor state to cloud in JSON
-void publishWarningMessage() 
+void publishWarningMessage(int errorCode) 
 {
+	//! create JSON buffer and write values to it
+	JsonWriterStatic<256> jw;		//creates a 256 byte buffer to write JSON to
+	{
+		JsonWriterAutoObject obj(&jw);
+		
+		if (errorCode == 0) 
+		{
+			jw.insertKeyValue("Warning", "Out of Range");		//set field for warning message
+			jw.insertKeyValue("Temperature", curTemp);			//set field for temperature
+			jw.insertKeyValue("Humidity", curHum);				//set field for humidity
+		}
+		else {
+			jw.insertKeyValue("Warning", "Modbus Read Error");  //set field for warning message
+			jw.insertKeyValue("ErrorCode", errorCode);
+		}
+		jw.insertKeyValue("Time", Time.format(TIME_FORMAT_ISO8601_FULL));				//set field for time stamp
+		}
+
+	Log.info("%s %s", errorEventName, jw.getBuffer());
+
     //! send publish only if cloud is connected
     if(Particle.connected() == TRUE)
     {
-        //! create JSON buffer and write values to it
-		JsonWriterStatic<256> jw;		//creates a 256 byte buffer to write JSON to
-        {
-            JsonWriterAutoObject obj(&jw);																		//creates an object to pass JSON
-            jw.insertKeyValue("Warning", "Ambient Temperature/Humidity Outside of Setpoint +/- Window");		//set field for warning message
-			jw.insertKeyValue("Temperature", curTemp);														    //set field for temperature
-			jw.insertKeyValue("Humidity", curHum);															    //set field for humidity
-            jw.insertKeyValue("Time", Time.timeStr());															//set field for time stamp
-         }
-
-        //! Publish data packet consuming 1 of the pooled Cloud Data Operations (DOPs)
-        Particle.publish("Temp/Hum Warning", jw.getBuffer(), PRIVATE );
+        Particle.publish(errorEventName, jw.getBuffer() );
     }
 
-	//! device isn't connected to the cloud
-	else
-    {
-        //TODO Store and forward if offline
-    }
 }

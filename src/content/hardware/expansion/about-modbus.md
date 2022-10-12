@@ -89,10 +89,13 @@ The Particle platform in the application is the [B SoM, B404](/b-series/) and th
 
 ![Circuit picture](/assets/images/tutorials/modbus2.jpg)
 
-Note that the temperature and humidity sensor operates from 12V to 36V and an external power supply is needed to power the sensor. Also, in addition to the typical UART RX/TX interface, an additional transmit pin is required to ensure flow of protocol and this pin is controlled by the firmware.
+This temperature and humidity sensor operates from 12V to 36V and an external power supply is needed to power the sensor. 
+
+There are many different Modbus temperature/humidity sensors. [This one](https://www.amazon.com/gp/product/B07VNFDQRJ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) has the advantage of working from 5 to 30VDC, so it can be powered from the +5V output of the Mikroe SoM shield.
+
+![Circuit diagram](/assets/images/tutorials/modbus3.png)
 
 Additional pinout information for the Mikroe SoM shield can be found in the [Mikroe guide](/hardware/expansion/mikroe/#gen-3-som-shield).
-
 
 ### Transmit Pin
 
@@ -137,9 +140,19 @@ int getSensorValues()
 	uint16_t data[2];		//create a 2 element array of 16 bit ints 
 	double tempC;			//variable for temp in celcius
 	
-	//! get temp and humidity from modbus sensor, humdity register starts @ address 0 and we want to read two 16-bit registers
-	result = node.readHoldingRegisters(0x0000,2);
+	// readHoldingRegisters and readInputRegisters take two parameters: 
+	// - the register to start reading from
+	// - the number of registers to read (1, 2, ...)
+
+	// Some sensors have the temperature and humidity in holding register 0 and 1. If so, use this version:
+	// result = node.readHoldingRegisters(0x0000,2);
+
+	// Some sensors have the temperature and humidity in input registers 1 and 2. If so, use this version:
+	result = node.readInputRegisters(1, 2);
 	
+	// If you get Modbus Read Error 0x02 (ku8MBIllegalDataAddress), you probably have the wrong register 
+	// or input/holding selection for your sensor.
+
 	//! read was successful
 	if (result == node.ku8MBSuccess) 
 	{
@@ -154,13 +167,7 @@ int getSensorValues()
 		curTemp = (tempC * 1.8) + 32;		//convert celsuis to fahrenheit
 
 		//debug serial messages
-			Serial.print("Humidity = ");
-			Serial.print(String::format("%.1f", curHum));
-			Serial.println("%");
-
-			Serial.print("Temperature = ");
-			Serial.print(String::format("%.1f", curTemp));
-			Serial.println("°F");
+		Log.trace("Hum=%.1f (%% RH), Temp=%.1f (C) =%.1f (F)", curHum, tempC, curTemp);
 
 		return SUCCESS;		//return success code		
 	} 
@@ -169,23 +176,38 @@ int getSensorValues()
 	else 
 	{
 		//debug serial messages
-			Serial.print("Failed, Response Code: ");
-			Serial.print(result, HEX); 
-			Serial.println("");
+		Log.info("Modbus Read Error 0x%02x", result);
 
 		return FAIL;		//return fail code
 	}
 }
 ```
 
-### Particle Cloud and Functions
+Depending on your sensor, the data may be stored different registers.
+
+If your Modbus sensor stores the data in holding register 0 and 1, use this code:
+
+```cpp
+result = node.readHoldingRegisters(0x0000,2);
+```
+
+If your Modbus sensor stores the data in input register 1 and 2, use this code:
+
+```cpp
+result = node.readInputRegisters(1, 2);
+```
+
+The USB serial debug log can help you debug. If you get read error 0x02, you are probably reading the wrong register.
+
+```
+Modbus Read Error 0x02
+```
+
+### Particle cloud and functions
 
 There are 6 Particle functions defined in the example code and each function is used as a way to modify various parameters ranging from temperature/humidity set points, to publish frequencies. These functions are initialized in the setup() loop using [Particle.function()](/reference/device-os/api/cloud-functions/particle-function/).
 
-
-#### setHumidityWindow()
-
-This function is used to set the humidity window. The value passed through in conjunction with the humidity set point (via `humiditySetpoint()`) is used to determine whether the value read from the humidity sensor is outside the range. If outside the range, a warning message is sent to the Particle Cloud via `publishWarning()` and the frequency is published based on the value set by `setWarningFrequency()`. If the value is within the range, the current value is sent to the Particle Cloud via `publishSensor()` and the publish frequency is based on the value set by `setPublishFrequency()`.
+For example, the `setHumidityWindow` function is used to set the humidity window. The value passed through in conjunction with the humidity set point (via `humiditySetpoint()`) is used to determine whether the value read from the humidity sensor is outside the range. If outside the range, a warning message is sent to the Particle Cloud via `publishWarning()` and the frequency is published based on the value set by `setWarningFrequency()`. If the value is within the range, the current value is sent to the Particle Cloud via `publishSensor()` and the publish frequency is based on the value set by `setPublishFrequency()`.
 
 By default the humidity window is set to +/- 5% and this value can be modified by passing a new value via the Humidity Window cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current humidity window value.
 
@@ -195,14 +217,15 @@ int setHumidityWindow(String value)
 	//! null case, return current value
     if (value == NULL)
 	{
-		return humWindow;		//return current value
+		return humWindow;
 	}
 
 	//! update to new value passed and return new value
 	else
 	{
-		humWindow = value.toInt();		//set new volue to global variable
-		return humWindow;				//return new value
+		humWindow = value.toInt();
+		Log.info("humWindow=%d", humWindow);
+		return humWindow;
 	}
 }
 ```
@@ -210,70 +233,82 @@ int setHumidityWindow(String value)
 The `publishWarning()` function looks like this:
 
 ```cpp
-void publishWarningMessage() 
+void publishWarningMessage(int errorCode) 
 {
+	//! create JSON buffer and write values to it
+	JsonWriterStatic<256> jw;
+	{
+		JsonWriterAutoObject obj(&jw);
+		
+		if (errorCode == 0) 
+		{
+			jw.insertKeyValue("Warning", "Out of Range");
+			jw.insertKeyValue("Temperature", curTemp);
+			jw.insertKeyValue("Humidity", curHum);
+		}
+		else {
+			jw.insertKeyValue("Warning", "Modbus Read Error");
+			jw.insertKeyValue("ErrorCode", errorCode);
+		}
+		jw.insertKeyValue("Time", Time.format(TIME_FORMAT_ISO8601_FULL));
+		}
+
+	Log.info("%s %s", errorEventName, jw.getBuffer());
+
     //! send publish only if cloud is connected
     if(Particle.connected() == TRUE)
     {
-        //! create JSON buffer and write values to it
-		JsonWriterStatic<256> jw;		//creates a 256 byte buffer to write JSON to
-        {
-            JsonWriterAutoObject obj(&jw);																		//creates an object to pass JSON
-            jw.insertKeyValue("Warning", "Ambient Temperature/Humidity Outside of Setpoint +/- Window");		//set field for warning message
-			jw.insertKeyValue("Temperature", curTemp);														//set field for temperature
-			jw.insertKeyValue("Humidity", curHum);															//set field for humidity
-            jw.insertKeyValue("Time", Time.timeStr());															//set field for time stamp
-         }
-
-        //! Publish data packet consuming 1 of the pooled Cloud Data Operations (DOPs)
-        Particle.publish("Temp/Hum Warning", jw.getBuffer(), PRIVATE );
+        Particle.publish(errorEventName, jw.getBuffer() );
     }
 
-	//! device isn't connected to the cloud
-	else
-    {
-        //TODO Store and forward if offline
-    }
 }
 ```
 
-#### setTemperatureWindow()
-
-This function is used to set the temperature window. The value passed through in conjunction with the temperature set point (via `temperatureSetpoint()`) is used to determine whether the value read from the temperature sensor is outside the range. If outside the range, a warning message is sent to the Particle Cloud via `publishWarning()` and the frequency is based on the value set by `setWarningFrequency()`. If the value is within the range, the current value is sent to the Particle Cloud via `publishSensor()` and the publish frequency is based on the value set by `setPublishFrequency()`.
-
-By default the temperature window is set to +/- 5°F and this value can be modified by passing a new value via the Temperature Window cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current temperature value.
-
-
-#### temperatureSetpoint()
-
-This function is used to set the temperature set point. The value passed through in conjunction with the temperature window (via `setTempWindow()`) is used to determine whether the value read from the temperature sensor is outside the range. If outside the range, a warning message is sent to the Particle Cloud via `publishWarning()` and the frequency is based on the value set by `setWarningFrequency()`. If the value is within the range, the current value is sent to the Particle Cloud via `publishSensor()` and the publish frequency is based on the value set by `setPublishFrequency()`.
-
-By default the temperature set point is set to 75°F and this value can be modified by passing a new value via the Temperature Set Point cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current temperature set point value.
-
-
-#### humiditySetpoint()
-
-This function is used to set the humidity set point. The value passed through in conjunction with the humidity window (via `setTempWindow()`) is used to determine whether the value read from the humidity sensor is outside the range. If outside the range, a warning message is sent to the Particle Cloud via `publishWarning()` and the frequency is based on the value set by `setWarningFrequency()`. If the value is within the range, the current value is sent to the Particle Cloud via `publishSensor()` and the publish frequency is based on the value set by `setPublishFrequency()`.
-
-By default the humidity set point is set to 40% and this value can be modified by passing a new value via the Temperature Set Point cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current temperature set point value.
-
-
-#### setPublishFrequency()
-
-This function is used to set the frequency of the sensor message published. This frequency of publish is only used when _both_ the temperature and humidity values read from the sensor are within the defined operating range.
-
-By default the value is set to 60 seconds and this value can be modified by passing a new value via the Sensor Publish Frequency cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current frequency publish value.
-
-This function uses the [JsonParserGeneratorRK](/reference/device-os/libraries/j/JsonParserGeneratorRK/) library is used to concatenate multiple values or messages to be published into one [Particle.publish()](/reference/device-os/api/cloud-functions/particle-publish/). Using this library limits the number of Data Operations.
+The remaining functions, `setTemperatureWindow()`, `temperatureSetpoint()`, `humiditySetpoint()`, `setPublishFrequency()`, and `setWarningFrequency()` work in the same way.
 
 
 #### setWarningFrequency()
 
 This function is used to set the frequency of the warning message published. This frequency of publish is only used when _either_ the temperature and humidity values read from the sensor fail outside the defined operating range.
 
-By default the value is set to 20 seconds and this value can be modified by passing a new value via the Warning Publish Frequency cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current frequency publish value.
+By default the value is set to 60 seconds and this value can be modified by passing a new value via the Warning Publish Frequency cloud function. When a new value is sent, the value returned will be the new value if the function was successful. Passing a null or blank through the function returns the current frequency publish value.
 
-This function uses the [JsonParserGeneratorRK](/reference/device-os/libraries/j/JsonParserGeneratorRK/) library is used to concatenate multiple values or messages to be published into one [particle.Publish()](/reference/device-os/api/cloud-functions/particle-publish/). Using this library limits the number of Data Operations.
+
+
+## Changing settings
+
+The six functions allow you to easily set the values from [the Particle console](https://console.particle.io/) or from the API. Note that this is mainly for demonstration purposes and the settings are not saved. They will revert to the default values when the device is reset.
+
+![Options](/assets/images/tutorials/modbus-options.png)
+
+For example, by increasing the temperature and humidity windows, I was able to eliminate the warning and the temperature and humidity were listed as valid.
+
+![Adjusted settings](/assets/images/tutorials/modbus-adjust.png)
+
+
+
+## Publishing sensor and warning information
+
+When events are published by the device they look like this in the console:
+
+![Good](/assets/images/tutorials/modbus-good.png)
+
+Temperature or humidity out of range:
+
+![Warning](/assets/images/tutorials/modbus-warning.png)
+
+
+If you are viewing the USB serial debug log, the messages look like this:
+
+```
+0000060092 [app] INFO: modbus-sensor {"Warning":"Out of Range","Temperature":102.200000,"Humidity":22.000000,"Time":"2022-10-12T12:19:51Z"}
+0000109362 [app] INFO: humWindow=50
+0000113543 [app] INFO: tempWindow=50
+0000114022 [app] INFO: modbus-sensor {"Temperature":102.200000,"Humidity":22.000000,"Time":"2022-10-12T12:20:45Z"}
+0000174111 [app] INFO: modbus-sensor {"Temperature":102.200000,"Humidity":22.000000,"Time":"2022-10-12T12:21:45Z"}
+```
+
+The data that is published is formatted using JSON format to minimize data operations. This format is machine-readable and mostly human readable. You can learn more about JSON in the [JSON tutorial](/firmware/best-practices/json/).
 
 
 ## License
