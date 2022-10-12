@@ -250,6 +250,11 @@
         "href": "/hardware/expansion/about-serial/"
       },
       {
+        "dir": "about-modbus",
+        "title": "About Modbus",
+        "href": "/hardware/expansion/about-modbus/"
+      },
+      {
         "dir": "prototyping",
         "title": "Prototyping",
         "href": "/hardware/expansion/prototyping/"
