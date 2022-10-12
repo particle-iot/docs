@@ -16121,11 +16121,20 @@ void loop() {
  */
 ```
 
+{{note op="start" type="P2"}}
+On the P2, Photon 2, and Tracker M, retained memory is not available. The flash file system can be used in some applications as an alternative.
+{{note op="end"}}
+
+
 ### Enabling Backup RAM (SRAM)
 
 {{api name1="FEATURE_RETAINED_MEMORY"}}
 
-Backup RAM is disabled by default, since it does require some maintenance power
+- On Gen 3 devices (B Series SoM, Boron, Argon, Tracker SoM, Tracker One, E404X), retained memory is always enabled, regagrdless of the feature flag.
+
+- On the P2, Photon 2, and Tracker M, retained memory is not available.
+
+- On Gen 2 devices (E Series, Photon, P1), backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
 5uA or less on VIN and 9uA or less on VBAT.
 
