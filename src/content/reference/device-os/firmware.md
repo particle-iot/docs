@@ -17724,6 +17724,9 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
 | 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
 
+- `reset` and `reset_pending` are only called when the system initiates a reset, such as after an OTA code flash. You will not get these events if you manually call `System.reset() from your code.
+- `button_click` may be called from an interrupt context (ISR) so you should limit what you handle from a `button_click` to things like updating a global variable.
+
 ## System Modes
 
 {{api name1="SYSTEM_MODE"}}
