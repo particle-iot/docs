@@ -22,7 +22,17 @@
                     <select class="apiHelperSelect versionAfterSelect">
                         <option value="-">Show all versions</option>
                     </select>
-
+            </div>
+            <div style="margin: 10px 20px 10px 0px">
+                <label><input type="checkbox" class="showSearchTips">Show search tips</label>
+            </div>
+            <div style="margin: 10px 0px 10px 0px; display: none;" class="searchTips">
+                <ul>
+                    <li>Search for entries containing <b>>timeout</b> but not containing <b>ble</b>: <b>+timeout -ble</b>
+                    <li>Search for entries containing <b>connect</b>, favoring entries tagged <b>Gen 3</b>: <b>connect tags:Gen 3</b>
+                    <li>Wildcards using * are supported
+                    <li>Many more options supported by <a href="https://lunrjs.com/guides/searching.html" target="_blank">lunr</a>
+                </ul>
             </div>
         </div>
     </div>

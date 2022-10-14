@@ -8,6 +8,8 @@ $(document).ready(function() {
     let lunrIndex;
     const urlParams = new URLSearchParams(window.location.search);
 
+    const defaultSearchAfter = 'v1.4.4';
+
 
     const doSetup = function() {
         $('.apiHelperReleaseNotes').each(function() {
@@ -72,7 +74,7 @@ $(document).ready(function() {
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '100px');
+                        $(tdElem).css('width', '90px');
                         if (entry.tags) {
                             $(tdElem).text(entry.tags.join(' '));
                         }
@@ -101,9 +103,15 @@ $(document).ready(function() {
                     }
                     if (options.showVersion) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '60px');
-                        if (entry.prs) {
-                            $(tdElem).text(entry.version);
+                        $(tdElem).css('width', '70px');
+                        if (entry.version) {
+                            const releaseObj = releaseNotesJson.releases[entry.version];
+                            
+                            const aElem = document.createElement('a');
+                            $(aElem).attr('href', releaseObj.url);
+                            $(aElem).text(entry.version);
+
+                            $(tdElem).append(aElem)
                         }
                         $(trElem).append(tdElem);
                     }
@@ -174,6 +182,15 @@ $(document).ready(function() {
                     }
 
                     renderList(sectionData, {showVersion:false});
+
+                    {
+                        const divElem = document.createElement('div');
+                        const aElem = document.createElement('a');
+                        $(aElem).attr('href', releaseObj.url);
+                        $(aElem).text('View full release notes on Github');
+                        $(divElem).append(aElem);
+                        $(outputElem).append(divElem);    
+                    }
                 }
                 else
                 if (mode == 'rel2') {
@@ -256,7 +273,6 @@ $(document).ready(function() {
                             items.push(entry);
                         }
                         dedupeList(items);
-                        console.log('items', items);
     
                         renderOneList(items, {showVersion:true});    
                     }
@@ -273,9 +289,13 @@ $(document).ready(function() {
             
                 $(thisPartial).find('.versionSelect').append(optionElem);
 
-                $(thisPartial).find('.version1Select').append(optionElem.cloneNode(true));
+                const parsed = apiHelper.parseVersionStr(ver);
+                if (!parsed.pre) {
+                    $(thisPartial).find('.version1Select').append(optionElem.cloneNode(true));
 
-                $(thisPartial).find('.versionAfterSelect').append(optionElem.cloneNode(true));
+                    $(thisPartial).find('.versionAfterSelect').append(optionElem.cloneNode(true));    
+                }
+
                 
             }
 
@@ -288,7 +308,7 @@ $(document).ready(function() {
                 renderPage();
             });
 
-            $(thisPartial).find('.version1Select').on('change', function() {
+            const buildMenuVersion2 = function() {
                 const ver = $(thisPartial).find('.version1Select').val();
                 if (ver != '-') {
                     $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
@@ -297,16 +317,24 @@ $(document).ready(function() {
                     $(thisPartial).find('.version2Select').empty();
                     for(const curVer of versions) {
                         const verKey = 'v' + curVer;
-                        const optionElem = document.createElement('option');
-                        $(optionElem).text(curVer);
-                        $(optionElem).attr('value', verKey);
-                    
-                        $(thisPartial).find('.version2Select').append(optionElem);
+
+                        const parsed = apiHelper.parseVersionStr(ver);
+                        if (!parsed.pre) {
+                            const optionElem = document.createElement('option');
+                            $(optionElem).text(curVer);
+                            $(optionElem).attr('value', verKey);
+                        
+                            $(thisPartial).find('.version2Select').append(optionElem);
+                        }
                         if (verKey == ver) {
                             break;
                         }
-                    }        
+                    }    
                 }
+            }
+
+            $(thisPartial).find('.version1Select').on('change', function() {
+                buildMenuVersion2();
                 renderPage();
             });
             $(thisPartial).find('.version2Select').on('change', function() {
@@ -350,6 +378,18 @@ $(document).ready(function() {
                 renderPage();
             });
 
+            $(thisPartial).find('.showSearchTips').on('click', function() {
+                const checked = $(this).prop('checked');
+                if (checked) {
+                    $(thisPartial).find('.searchTips').show();
+                }
+                else {
+                    $(thisPartial).find('.searchTips').hide();
+                }
+            });
+
+
+
 
             if (urlParams) {
                 const mode = urlParams.get('mode');
@@ -372,6 +412,8 @@ $(document).ready(function() {
                         $(thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
                                 
                         $(thisPartial).find('.version1Select').val(ver1);
+                        buildMenuVersion2();
+
                         $(thisPartial).find('.version2Select').val(ver2);
                         renderPage();
                     }
@@ -390,6 +432,11 @@ $(document).ready(function() {
                     }
                 }
             }
+
+            if (defaultSearchAfter && $(thisPartial).find('.versionAfterSelect').val() == '-') {
+                $(thisPartial).find('.versionAfterSelect').val(defaultSearchAfter);
+            }
+        
         });
 
     };
@@ -399,7 +446,7 @@ $(document).ready(function() {
         .then(function(data) {
             releaseNotesJson = data;
 
-            console.log('releaseNotesJson', releaseNotesJson);
+            // console.log('releaseNotesJson', releaseNotesJson);
 
             lunrIndex = lunr(function() {
                 const lunrThis = this;
