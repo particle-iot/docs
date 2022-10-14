@@ -14,12 +14,81 @@ $(document).ready(function() {
     
             const versions = [];
 
+            const renderOneList = function(items, options = {}) {
+                const outputElem = $(thisPartial).find('.apiHelperOutput');
+
+                const tableElem = document.createElement('table');
+                $(tableElem).css('margin', '20px 0px 20px 0px');
+
+                const tbodyElem = document.createElement('tbody');
+
+                let textWidth = 500;
+                if (options.showVersion) {
+                    textWidth -= 60;
+                }
+
+                for(const entry of items) {
+                    const trElem = document.createElement('tr');
+
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', textWidth + 'px');
+                        $(tdElem).text(entry.text);
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', '100px');
+                        if (entry.tags) {
+                            $(tdElem).text(entry.tags.join(' '));
+                        }
+                        $(trElem).append(tdElem);
+                    }
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', '100px');
+                        if (entry.prs) {
+                            $(tdElem).text(entry.prs.join(' '));
+                        }
+                        $(trElem).append(tdElem);
+                    }
+                    if (options.showVersion) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', '60px');
+                        if (entry.prs) {
+                            $(tdElem).text(entry.version);
+                        }
+                        $(trElem).append(tdElem);
+                    }
+                    
+                    $(tbodyElem).append(trElem);
+                }
+
+                $(tableElem).append(tbodyElem);
+
+                $(outputElem).append(tableElem);            }
+
+
+            const renderList = function(sectionData, options = {}) {
+                const outputElem = $(thisPartial).find('.apiHelperOutput');
+
+                for(const section in sectionData) {
+                    const sectionElem = document.createElement('h3');
+                    $(sectionElem).text(section);
+                    $(outputElem).append(sectionElem);
+
+
+                    renderOneList(sectionData[section], options);
+                }
+
+            }
+
             const renderPage = function() {
                 const outputElem = $(thisPartial).find('.apiHelperOutput');
         
                 $(outputElem).empty();
         
-                const mode = $(thisPartial).find('input:radio[name=mode]').val();
+                const mode = $(thisPartial).find('input:radio[name=mode]:checked').val();
                 console.log('render mode=' + mode);
 
                 if (mode == 'releaseNotes1') {
@@ -31,7 +100,9 @@ $(document).ready(function() {
 
                     let sectionData = {};
 
-                    for(const entry of releaseObj.entries) {
+                    for(let entry of releaseObj.entries) {
+                        entry.version = ver;
+
                         if (!sectionData[entry.section]) {
                             sectionData[entry.section] = [];
                         }
@@ -39,54 +110,27 @@ $(document).ready(function() {
                         sectionData[entry.section].push(entry);
                     }
 
-                    for(const section in sectionData) {
-                        const sectionElem = document.createElement('h3');
-                        $(sectionElem).text(section);
-                        $(outputElem).append(sectionElem);
+                    renderList(sectionData, {showVersion:true});
+                }
+                else 
+                if (mode == 'search') {
+                    const searchText = $(thisPartial).find('.searchInput').val();
 
-                        const tableElem = document.createElement('table');
-                        $(tableElem).css('margin', '20px 0px 20px 0px');
+                    let items = [];
 
-                        const tbodyElem = document.createElement('tbody');
+                    const searchResults = lunrIndex.search(searchText);
+                    console.log('searchResults', searchResults);
+                    for(const res of searchResults) {
+                        const parts = res.ref.split('/');
+                        const ver = parts[0]
+                        const index = parseInt(parts[1]);
 
-                        for(const entry of sectionData[section]) {
-                            const trElem = document.createElement('tr');
+                        let entry = releaseNotesJson.releases[ver].entries[index];
+                        entry.version = ver;
 
-                            {
-                                const tdElem = document.createElement('td');
-                                $(tdElem).css('width', '500px');
-                                $(tdElem).text(entry.text);
-                                $(trElem).append(tdElem);
-                            }
-                            {
-                                const tdElem = document.createElement('td');
-                                $(tdElem).css('width', '100px');
-                                if (entry.tags) {
-                                    $(tdElem).text(entry.tags.join(' '));
-                                }
-                                $(trElem).append(tdElem);
-                            }
-                            {
-                                const tdElem = document.createElement('td');
-                                $(tdElem).css('width', '100px');
-                                if (entry.prs) {
-                                    $(tdElem).text(entry.prs.join(' '));
-                                }
-                                $(trElem).append(tdElem);
-                            }
-                            
-                            $(tbodyElem).append(trElem);
-                        }
-
-                        $(tableElem).append(tbodyElem);
-
-                        $(outputElem).append(tableElem);
-
+                        items.push(entry);
                     }
-
-/*
-*/
-
+                    renderOneList(items, {showVersion:true});
                 }
             };
         
@@ -110,12 +154,21 @@ $(document).ready(function() {
             $(thisPartial).find('.versionSelect').on('change', function() {
                 const ver = $(thisPartial).find('.versionSelect').val();
                 if (ver != '-') {
-                    $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').trigger('click');
+                    $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                    $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').prop('checked', true);
                 }
                 renderPage();
             });
 
             $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').on('change', renderPage);
+
+            $(thisPartial).find('.searchInput').on('input', function() {
+                $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                $(thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
+                renderPage();
+            });
+
+
 
             // console.log(lunrIndex.search('ble'));
         });
