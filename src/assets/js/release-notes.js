@@ -60,7 +60,7 @@ $(document).ready(function() {
 
                 let textWidth = 500;
                 if (options.showVersion) {
-                    textWidth -= 60;
+                    textWidth -= 80;
                 }
 
                 for(const entry of items) {
@@ -82,7 +82,7 @@ $(document).ready(function() {
                     }
                     {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '100px');
+                        $(tdElem).css('width', '90px');
                         if (entry.prs) {
                             for(const pr of entry.prs) {
                                 const aElem = document.createElement('a');
@@ -103,7 +103,7 @@ $(document).ready(function() {
                     }
                     if (options.showVersion) {
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('width', '70px');
+                        $(tdElem).css('width', '80px');
                         if (entry.version) {
                             const releaseObj = releaseNotesJson.releases[entry.version];
                             
