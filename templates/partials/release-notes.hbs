@@ -1,13 +1,22 @@
 <div class="apiHelperReleaseNotes">
     <div class="apiHelper">
         <div class="apiHelperBox">
-            <div>
+            <div style="margin: 10px 0px 10px 0px">
                 <label><input type="radio" name="mode" value="releaseNotes1"/> Release notes for version </label>
                     <select class="apiHelperSelect versionSelect">
                         <option value="-">Select version to display</option>
                     </select>
             </div>
-            <div>
+            <div style="margin: 10px 0px 10px 0px">
+                <label><input type="radio" name="mode" value="releaseNotes2"/> Cumulative release notes from version </label>
+                    <select class="apiHelperSelect version1Select">
+                        <option value="-">Select version to display</option>
+                    </select>
+                     to 
+                    <select class="apiHelperSelect version2Select">
+                    </select>
+            </div>
+            <div style="margin: 10px 0px 10px 0px">
                 <label><input type="radio" name="mode" value="search"/> Search release notes </label>
                     <input type="text" class="searchInput" />
             </div>

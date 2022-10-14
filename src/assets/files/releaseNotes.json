@@ -809,9 +809,7 @@
                     "text": "Refactor system describe/info JSON generation to reduce size and remove invalid modules from it"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / R510"
-                    ],
+                    "tags": [],
                     "prs": [
                         2373
                     ],
@@ -830,9 +828,7 @@
                     "text": "BLE: fix unintialized `scan_phys` in default scan parameters, preventing scanning from working unless `BLE.setScanPhy()` is manually set"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2342
                     ],
@@ -982,9 +978,7 @@
                     "text": "AB1805 native watchdog support"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2317,
                         2319,
@@ -1356,9 +1350,7 @@
                     "text": "Update LTE signal strength/quality parameters (RSRP/RSRQ) mapping to percentages"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Quectel"
-                    ],
+                    "tags": [],
                     "prs": [
                         2300
                     ],
@@ -1548,9 +1540,7 @@
                     "text": "Use `PIN_INVALID` when initializing SPI peripheral to avoid overriding the pin mode of the default CS pin on reinitialization"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2279
                     ],
@@ -1578,9 +1568,7 @@
                     "text": "Fix Sleep 2.0 APIs taking up to 10 minutes to power-off the cellular modem while it's attempting network registration"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2289
                     ],
@@ -2820,9 +2808,7 @@
                     "text": "Refactor system describe/info JSON generation to reduce size and remove invalid modules from it"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / R510"
-                    ],
+                    "tags": [],
                     "prs": [
                         2373
                     ],
@@ -2841,9 +2827,7 @@
                     "text": "BLE: fix unintialized `scan_phys` in default scan parameters, preventing scanning from working unless `BLE.setScanPhy()` is manually set"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2342
                     ],
@@ -2993,9 +2977,7 @@
                     "text": "AB1805 native watchdog support"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2317,
                         2319,
@@ -3367,9 +3349,7 @@
                     "text": "Update LTE signal strength/quality parameters (RSRP/RSRQ) mapping to percentages"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Quectel"
-                    ],
+                    "tags": [],
                     "prs": [
                         2300
                     ],
@@ -3559,9 +3539,7 @@
                     "text": "Use `PIN_INVALID` when initializing SPI peripheral to avoid overriding the pin mode of the default CS pin on reinitialization"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2279
                     ],
@@ -3589,9 +3567,7 @@
                     "text": "Fix Sleep 2.0 APIs taking up to 10 minutes to power-off the cellular modem while it's attempting network registration"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2289
                     ],
@@ -4212,9 +4188,7 @@
                     "text": "Fix LED behavior in case of network loss before cloud connection is established"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2211
                     ],
@@ -4926,9 +4900,7 @@
                     "text": "Optional feature to use HSE/LSI as RTC clock source instead of LSE (external 32KHz XTAL)"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / R510"
-                    ],
+                    "tags": [],
                     "prs": [
                         2373
                     ],
@@ -5019,9 +4991,7 @@
                     "text": "Refactor system describe/info JSON generation to reduce size and remove invalid modules from it"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / R510"
-                    ],
+                    "tags": [],
                     "prs": [
                         2373
                     ],
@@ -5068,9 +5038,7 @@
                     "text": "BLE: fix unintialized `scan_phys` in default scan parameters, preventing scanning from working unless `BLE.setScanPhy()` is manually set"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2342
                     ],
@@ -5276,9 +5244,7 @@
                     "text": "Refactor system describe/info JSON generation to reduce size and remove invalid modules from it"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / R510"
-                    ],
+                    "tags": [],
                     "prs": [
                         2373
                     ],
@@ -5297,9 +5263,7 @@
                     "text": "BLE: fix unintialized `scan_phys` in default scan parameters, preventing scanning from working unless `BLE.setScanPhy()` is manually set"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2342
                     ],
@@ -5502,9 +5466,7 @@
             "published_at": "2021-09-16T03:58:32Z",
             "entries": [
                 {
-                    "tags": [
-                        "Boron / B SoM / Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2317,
                         2319,
@@ -5593,9 +5555,7 @@
                     "text": "Make sure to close all sockets when deinitializing WICED WLAN connectivity subsystem"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2321
                     ],
@@ -5626,9 +5586,7 @@
                     "text": "Do not reset the DTLS session on socket errors"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2342
                     ],
@@ -5790,9 +5748,7 @@
                     "text": "Do not reset the DTLS session on socket errors"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2342
                     ],
@@ -5916,9 +5872,7 @@
                     "text": "AB1805 native watchdog support"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2317,
                         2319,
@@ -6184,9 +6138,7 @@
             "published_at": "2021-06-24T19:58:15Z",
             "entries": [
                 {
-                    "tags": [
-                        "Boron / B SoM / Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2317,
                         2319,
@@ -6266,9 +6218,7 @@
                     "text": "Make sure to close all sockets when deinitializing WICED WLAN connectivity subsystem"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2321
                     ],
@@ -6399,9 +6349,7 @@
                     "text": "AB1805 native watchdog support"
                 },
                 {
-                    "tags": [
-                        "Boron / B SoM / Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2317,
                         2319,
@@ -6694,9 +6642,7 @@
                     "text": "Update ICCID/IMSI to APN map with a new Kore ICCID prefix"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Quectel"
-                    ],
+                    "tags": [],
                     "prs": [
                         2300
                     ],
@@ -6866,9 +6812,7 @@
                     "text": "Fix Sleep 2.0 APIs taking up to 10 minutes to power-off the cellular modem while it's attempting network registration"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2289
                     ],
@@ -7026,9 +6970,7 @@
                     "text": "Update ICCID/IMSI to APN map with a new Kore ICCID prefix"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Quectel"
-                    ],
+                    "tags": [],
                     "prs": [
                         2300
                     ],
@@ -7180,9 +7122,7 @@
                     "text": "Fix Sleep 2.0 APIs taking up to 10 minutes to power-off the cellular modem while it's attempting network registration"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2289
                     ],
@@ -7491,9 +7431,7 @@
                     "text": "Update LTE signal strength/quality parameters (RSRP/RSRQ) mapping to percentages"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Quectel"
-                    ],
+                    "tags": [],
                     "prs": [
                         2300
                     ],
@@ -7683,9 +7621,7 @@
                     "text": "Use `PIN_INVALID` when initializing SPI peripheral to avoid overriding the pin mode of the default CS pin on reinitialization"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2279
                     ],
@@ -7713,9 +7649,7 @@
                     "text": "Fix Sleep 2.0 APIs taking up to 10 minutes to power-off the cellular modem while it's attempting network registration"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2289
                     ],
@@ -7929,9 +7863,7 @@
                     "text": "System power management improvements"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Quectel"
-                    ],
+                    "tags": [],
                     "prs": [
                         2300
                     ],
@@ -7949,9 +7881,7 @@
                     "text": "Use `PIN_INVALID` when initializing SPI peripheral to avoid overriding the pin mode of the default CS pin on reinitialization"
                 },
                 {
-                    "tags": [
-                        "Argon / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2279
                     ],
@@ -7979,9 +7909,7 @@
                     "text": "Fix Sleep 2.0 APIs taking up to 10 minutes to power-off the cellular modem while it's attempting network registration"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2289
                     ],
@@ -8634,9 +8562,7 @@
                     "text": "Add `os_queue_peek()` and make sure that queues and semaphores can be accessed from ISRs"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -8644,9 +8570,7 @@
                     "text": "Proactively attempt to recover from a number of failed cellular registration states"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -8883,9 +8807,7 @@
                     "text": "Restore original `BASEPRI` when exiting FreeRTOS critical section"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -8893,9 +8815,7 @@
                     "text": "Do not use packet buffers from pool in TX path"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -8969,9 +8889,7 @@
                     "text": "Hide unsupported WiFi wiring APIs"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2112
                     ],
@@ -9147,9 +9065,7 @@
                     "text": "Fix LED behavior in case of network loss before cloud connection is established"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2211
                     ],
@@ -9358,9 +9274,7 @@
                     "text": "Move PWM-capable pins from the PWM peripheral shared with RGB pins when possible"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -9793,9 +9707,7 @@
                     "text": "Configure PMIC and FuelGauge interrupt pins as `INPUT_PULLUP`"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -9803,9 +9715,7 @@
                     "text": "Do not use packet buffers from pool in TX path"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -10207,9 +10117,7 @@
                     "text": "Add `os_queue_peek()` and make sure that queues and semaphores can be accessed from ISRs"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -10217,9 +10125,7 @@
                     "text": "Proactively attempt to recover from a number of failed cellular registration states"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -10366,9 +10272,7 @@
                     "text": "Restore original `BASEPRI` when exiting FreeRTOS critical section"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -10376,9 +10280,7 @@
                     "text": "Do not use packet buffers from pool in TX path"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -10452,9 +10354,7 @@
                     "text": "Hide unsupported WiFi wiring APIs"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2112
                     ],
@@ -10592,9 +10492,7 @@
                     "text": "Move PWM-capable pins from the PWM peripheral shared with RGB pins when possible"
                 },
                 {
-                    "tags": [
-                        "Gen 3 / Cellular"
-                    ],
+                    "tags": [],
                     "prs": [
                         2150
                     ],
@@ -11098,9 +10996,7 @@
                     "text": "Increase registration timeout to 10 minutes"
                 },
                 {
-                    "tags": [
-                        "Electron / Boron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2083
                     ],
@@ -11205,9 +11101,7 @@
                     "text": "Compatibility CellularSignal `rssi` and `qual` values generation for LTE devices using `AT+UCGED`"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Asset Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2078
                     ],
@@ -11340,9 +11234,7 @@
                     "text": "Increase registration timeout to 10 minutes"
                 },
                 {
-                    "tags": [
-                        "Electron / Boron"
-                    ],
+                    "tags": [],
                     "prs": [
                         2083
                     ],
@@ -11437,9 +11329,7 @@
                     "text": "Compatibility CellularSignal `rssi` and `qual` values generation for LTE devices using `AT+UCGED`"
                 },
                 {
-                    "tags": [
-                        "B5 SoM / Asset Tracker"
-                    ],
+                    "tags": [],
                     "prs": [
                         2078
                     ],
@@ -11625,9 +11515,7 @@
                     "text": "B5 SoM platform support"
                 },
                 {
-                    "tags": [
-                        "Boron/Electron/B5 SoM"
-                    ],
+                    "tags": [],
                     "prs": [
                         1992
                     ],
@@ -11724,9 +11612,7 @@
                     "text": "Adds `SystemPowerFeature::DISABLE` to disable system power management"
                 },
                 {
-                    "tags": [
-                        "Boron/B SoM/B5 SoM"
-                    ],
+                    "tags": [],
                     "prs": [
                         2062
                     ],
@@ -12566,9 +12452,7 @@
                     "text": "B5 SoM platform support"
                 },
                 {
-                    "tags": [
-                        "Boron/Electron/B5 SoM"
-                    ],
+                    "tags": [],
                     "prs": [
                         1992
                     ],
@@ -12924,9 +12808,7 @@
             "published_at": "2019-11-25T21:33:50Z",
             "entries": [
                 {
-                    "tags": [
-                        "Photon/P1/Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1970
                     ],
@@ -12998,9 +12880,7 @@
                     "text": "Disables usage of `AT+UDNSRN` on 2G/3G Electrons in favor of a standalone socket-based DNS client"
                 },
                 {
-                    "tags": [
-                        "Electron, Boron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1921
                     ],
@@ -13175,9 +13055,7 @@
                     "text": "Adds support for serial number, NCP type and mobile secret in STM32F2 OTP area  [#1931](https://github.com/particle-iot/device-os/pull/1931/files)"
                 },
                 {
-                    "tags": [
-                        "Electron, Boron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1921
                     ],
@@ -15609,25 +15487,19 @@
                     "text": "NFC (beta) support  [ **[Docs]** ](https://docs.particle.io/reference/device-os/firmware/boron/#nfc)"
                 },
                 {
-                    "tags": [
-                        " **Read more about new BLE and NFC announcement here!** "
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://blog.particle.io/2019/06/26/bluetooth-5-and-nfc-for-iot-now-available-on-particle-third-generation-devices/)"
                 },
                 {
-                    "tags": [
-                        " **Check out our getting started with BLE and NFC blog post here!** "
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://blog.particle.io/2019/06/26/get-started-with-ble-and-nfc/)"
                 },
                 {
-                    "tags": [
-                        " **Check out our Argon and BLE temperature sensor blog post here!** "
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://blog.particle.io/2019/06/26/argon-ble-smartphone/)"
@@ -16295,9 +16167,7 @@
                     "text": "Runtime power management IC detection"
                 },
                 {
-                    "tags": [
-                        "photon/p1/electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1700
                     ],
@@ -16854,9 +16724,7 @@
                     "text": "Runtime power management IC detection"
                 },
                 {
-                    "tags": [
-                        "photon/p1/electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1700
                     ],
@@ -17828,9 +17696,7 @@
                     "text": "A number of networking-related fixes v2"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1537
                     ],
@@ -17848,9 +17714,7 @@
                     "text": "Adds support for SARA-R410 to the Cellular HAL"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1578
                     ],
@@ -17868,9 +17732,7 @@
                     "text": "Memory usage optimizations ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1640
                     ],
@@ -17990,9 +17852,7 @@
                     "text": "Fix heap bounds build for system part1"
                 },
                 {
-                    "tags": [
-                        "Photon/P1/Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1517
                     ],
@@ -18000,9 +17860,7 @@
                     "text": "Recursive logging freezes the application thread while the LogHandler is trying to acquire a lock on the resource"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1496
                     ],
@@ -18088,9 +17946,7 @@
                     "text": "eDRX & Power Saving mode disabled by default"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1577
                     ],
@@ -18158,9 +18014,7 @@
                     "text": "Power Manager Watchdog Timer Fix ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1528
                     ],
@@ -18168,9 +18022,7 @@
                     "text": "Wait for Wiring Thread to start ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1622
                     ],
@@ -18178,9 +18030,7 @@
                     "text": "Do not disable interrupts on every system loop iteration ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1600,
                         1650
@@ -18377,9 +18227,7 @@
             "published_at": "2018-12-20T22:03:41Z",
             "entries": [
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1640
                     ],
@@ -18397,9 +18245,7 @@
                     "text": "Memory usage optimizations ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1600,
                         1650
@@ -18408,9 +18254,7 @@
                     "text": "Fixes SOS in 0.8.0-rc.11 and also ensures button and OOM events are handled synchronously. Previously in multi-threaded applications the button handling may have been delayed to run within the application thread.  Now it is always handled immediately and should be noted that it is called from an ISR, so it is not advised to dynamically allocate memory in button event handlers. () ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1622
                     ],
@@ -18418,9 +18262,7 @@
                     "text": "Do not disable interrupts on every system loop iteration ()"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1528
                     ],
@@ -19007,9 +18849,7 @@
             "published_at": "2018-09-29T19:13:52Z",
             "entries": [
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1578
                     ],
@@ -19027,9 +18867,7 @@
                     "text": "adds 1 retry for UDP/TCP socket send in case of error [ch18789]"
                 },
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1577
                     ],
@@ -19197,9 +19035,7 @@
             "published_at": "2018-05-04T21:42:37Z",
             "entries": [
                 {
-                    "tags": [
-                        "Electron/Photon/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         1537
                     ],
@@ -19282,9 +19118,7 @@
                     "text": "A number of networking-related fixes v2"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1496
                     ],
@@ -19292,9 +19126,7 @@
                     "text": "WKP pin needs to be disabled as a wakeup source on boot to allow its normal operation"
                 },
                 {
-                    "tags": [
-                        "Photon/P1/Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1517
                     ],
@@ -19319,9 +19151,7 @@
             "published_at": "2018-03-26T18:08:13Z",
             "entries": [
                 {
-                    "tags": [
-                        "Photon/Electron"
-                    ],
+                    "tags": [],
                     "prs": [
                         1496
                     ],
@@ -19935,9 +19765,7 @@
                     "text": "Downgrade bootloader when downgrading from 0.7.0 or newer."
                 },
                 {
-                    "tags": [
-                        "KRACK WPA2 security fix"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "BUGFIXES",
                     "text": "(https://github.com/spark/firmware/pull/1419)"
@@ -19964,9 +19792,7 @@
                     "text": "Downgrade bootloader when downgrading from 0.7.0 or newer."
                 },
                 {
-                    "tags": [
-                        "KRACK WPA2 security fix"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "BUGFIXES",
                     "text": "(https://github.com/spark/firmware/pull/1418)"
@@ -21420,9 +21246,7 @@
                     "text": "System Reset Reason [#403](https://github.com/spark/firmware/issues/403) [Docs](https://docs.particle.io/reference/firmware/electron/#reset-reason)"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         902
                     ],
@@ -22074,9 +21898,7 @@
                     "text": "System Reset Reason [#403](https://github.com/spark/firmware/issues/403) [Docs](https://prerelease-docs.particle.io/reference/firmware/electron/#reset-reason)"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron/P1"
-                    ],
+                    "tags": [],
                     "prs": [
                         902
                     ],
@@ -22796,18 +22618,13 @@
                     "text": "Cellular [Local IP API](https://docs.particle.io/reference/firmware/electron/#localip-)"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "Stack overflow detection with SOS code [13-blinks](https://docs.particle.io/guide/getting-started/modes/photon/#red-flash-sos)"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron",
-                        "SPI Slave support"
-                    ],
+                    "tags": [],
                     "prs": [
                         882
                     ],
@@ -22823,9 +22640,7 @@
                     "text": "Atomic writes in [EEPROM emulation](https://docs.particle.io/reference/firmware/electron/#eeprom)"
                 },
                 {
-                    "tags": [
-                        "Application Watchdog"
-                    ],
+                    "tags": [],
                     "prs": [
                         860
                     ],
@@ -22833,9 +22648,7 @@
                     "text": "(https://docs.particle.io/reference/firmware/photon/#application-watchdog)"
                 },
                 {
-                    "tags": [
-                        "Serial.availableForWrite()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#availableforwrite-) and [Serial.blockOnOverrun()](https://docs.particle.io/reference/firmware/photon/#blockonoverrun-) [#798](https://github.com/spark/firmware/issues/798)"
@@ -22851,9 +22664,7 @@
                     "text": "SoftAP HTTP server can serve application pages."
                 },
                 {
-                    "tags": [
-                        "Timer::isActive()"
-                    ],
+                    "tags": [],
                     "prs": [
                         950
                     ],
@@ -22907,8 +22718,7 @@
                 },
                 {
                     "tags": [
-                        "Electron",
-                        "SLEEP_NETWORK_STANDBY on System.sleep()"
+                        "Electron"
                     ],
                     "prs": [
                         845
@@ -23133,18 +22943,13 @@
                     "text": "Cellular [Local IP API](https://docs.particle.io/reference/firmware/electron/#localip-)"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "Stack overflow detection with SOS code [13-blinks](https://docs.particle.io/guide/getting-started/modes/photon/#red-flash-sos)"
                 },
                 {
-                    "tags": [
-                        "Photon/Electron",
-                        "SPI Slave support"
-                    ],
+                    "tags": [],
                     "prs": [
                         882
                     ],
@@ -23168,9 +22973,7 @@
                     "text": "Software Watchdog"
                 },
                 {
-                    "tags": [
-                        "Serial.availableForWrite()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#availableforwrite-) and [Serial.blockOnOverrun()](https://docs.particle.io/reference/firmware/photon/#blockonoverrun-) [#798](https://github.com/spark/firmware/issues/798)"
@@ -23234,8 +23037,7 @@
                 },
                 {
                     "tags": [
-                        "Electron",
-                        "SLEEP_NETWORK_STANDBY on System.sleep()"
+                        "Electron"
                     ],
                     "prs": [
                         845
@@ -23409,17 +23211,13 @@
                     "text": "Support for CAN Bus  Thanks @monkbroc  and @bspranger!"
                 },
                 {
-                    "tags": [
-                        "blockOnOverrun()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(%28https://docs.particle.io/reference/firmware/photon/#blockonoverrun-%29) on hardware serial to allow applications to disable the default flow control."
                 },
                 {
-                    "tags": [
-                        "availableForWrite()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(%28https://docs.particle.io/reference/firmware/photon/#availableforwrite-%29) on hardware serial to allow applications to implement flow control. [#798](https://github.com/spark/firmware/issues/798)"
@@ -23435,9 +23233,7 @@
                     "text": "(https://docs.particle.io/reference/firmware/photon/#wifi-bssid-) to retrieve the 6-byte MAC address of the connected AP."
                 },
                 {
-                    "tags": [
-                        "attachInterrupt()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#attachinterrupt-) configurable interrupt priority [#806](https://github.com/spark/firmware/issues/806)"
@@ -23452,8 +23248,7 @@
                 },
                 {
                     "tags": [
-                        "photon",
-                        "WiFi.getCredentials()"
+                        "photon"
                     ],
                     "prs": [],
                     "section": "FEATURES",
@@ -23490,9 +23285,7 @@
                     "text": "System events for individual button clicks and a run of button clicks. [#818](https://github.com/spark/firmware/issues/818)"
                 },
                 {
-                    "tags": [
-                        "System.freeMemory()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "ENHANCEMENTS",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#system-freememory-) shows an accurate value for free memory rather than the highwater mark for the heap."
@@ -23536,9 +23329,7 @@
                     "text": "Serial, Serial1, SPI and EEPROM global objects guaranteed to be initialized before use. (Prevents White breathing LED if Serial used in a global instance constructor.)"
                 },
                 {
-                    "tags": [
-                        "Software Timers"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "ENHANCEMENTS",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#software-timers) have an option for one-shot timers, and support class member function callbacks."
@@ -23759,25 +23550,19 @@
             "published_at": "2015-10-20T22:10:52Z",
             "entries": [
                 {
-                    "tags": [
-                        "Software Timers"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#software-timers)"
                 },
                 {
-                    "tags": [
-                        "pulseIn(pin, value)"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#pulsein-) now available for all devices."
                 },
                 {
-                    "tags": [
-                        "WiFi.dnsServerIP()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/core/#wifi-dnsserverip-) and [WiFi.dhcpServerIP()](https://docs.particle.io/reference/firmware/core/#wifi-dhcpserverip-)"
@@ -23791,17 +23576,13 @@
                     "text": "(https://docs.particle.io/reference/firmware/core/#serialevent-)"
                 },
                 {
-                    "tags": [
-                        "GCC virtual device"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://github.com/spark/firmware/tree/develop/hal/src/gcc#device-configuration)"
                 },
                 {
-                    "tags": [
-                        "System.version()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/photon/#system-version-) to retrieve the version of system firmware [#688](https://github.com/spark/firmware/issues/688)"
@@ -23962,9 +23743,7 @@
                     "text": "Variables stored in [Backup RAM](https://docs.particle.io/reference/firmware/photon/#backup-ram)"
                 },
                 {
-                    "tags": [
-                        "printf/printlnf"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/core/#printf-) on `Print` classes - `Serial`, `Serial1`, `TCP`, `UDP`"
@@ -24000,9 +23779,7 @@
                     "text": "(https://docs.particle.io/reference/firmware/core/#system-cycle-counter) to retrieve the current MCU cycle counter for precise timing."
                 },
                 {
-                    "tags": [
-                        "System.enterSafeMode()"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://docs.particle.io/reference/firmware/core/#system-entersafemode-) to restart the device in safe mode."
@@ -24182,9 +23959,7 @@
                     "text": "Flexible time output with `Time.format()` [#572](https://github.com/spark/firmware/issues/572)"
                 },
                 {
-                    "tags": [
-                        "Recipes and Tips"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "ENHANCEMENTS",
                     "text": "(docs/build.md#recipes-and-tips) section in the build documentation."
@@ -24629,9 +24404,7 @@
                     "text": "LED flashes high-speed green when requesting an IP address via DHCP."
                 },
                 {
-                    "tags": [
-                        "Photon/TCPServer"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "BUGFIXES",
                     "text": "- `TCPClient.connected()` was not returning `false` when the socket was asynchronously disconnected."
@@ -24726,9 +24499,7 @@
                     "text": "`attachSystemInterrupt()` allows hooking key system interrupts in user code."
                 },
                 {
-                    "tags": [
-                        "DMA-driven SPI master"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "FEATURES",
                     "text": "(https://github.com/spark/docs/pull/49)"
@@ -25049,17 +24820,13 @@
                     "text": "Time now set by the Cloud when Core handshakes"
                 },
                 {
-                    "tags": [
-                        "EEPROM emulation"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "Changes",
                     "text": "(https://github.com/spark/core-firmware/pull/176)"
                 },
                 {
-                    "tags": [
-                        "`tone()` and `noTone()`"
-                    ],
+                    "tags": [],
                     "prs": [],
                     "section": "Changes",
                     "text": "(https://github.com/spark/core-firmware/pull/177)"

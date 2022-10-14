@@ -215,7 +215,9 @@ async function processReleases() {
                         if (endIndex > 0) {
                             const tag = entry.substring(1, endIndex);
                             // console.log('tag=' + tag);
-                            tags.push(tag);
+                            if (tag.length < 15 && tag.indexOf('**') < 0) {
+                                tags.push(tag);
+                            }
     
                             entry = entry.substring(endIndex + 1).trim();
                         }

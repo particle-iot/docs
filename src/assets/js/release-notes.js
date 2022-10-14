@@ -14,6 +14,14 @@ $(document).ready(function() {
     
             const versions = [];
 
+
+            for(const releaseName in releaseNotesJson.releases) {
+                if (releaseName.startsWith('v')) {
+                    versions.push(releaseName.substring(1));
+                }
+            }
+
+            versions.sort(apiHelper.versionSort);
             const renderOneList = function(items, options = {}) {
                 const outputElem = $(thisPartial).find('.apiHelperOutput');
 
@@ -66,7 +74,8 @@ $(document).ready(function() {
 
                 $(tableElem).append(tbodyElem);
 
-                $(outputElem).append(tableElem);            }
+                $(outputElem).append(tableElem);            
+            }
 
 
             const renderList = function(sectionData, options = {}) {
@@ -80,7 +89,19 @@ $(document).ready(function() {
 
                     renderOneList(sectionData[section], options);
                 }
+            }
 
+            const dedupeList = function(items) {
+                
+                for(let ii = 0; ii < items.length; ii++) {
+                    for(let jj = 0; jj < ii; jj++) {
+                        if (items[jj].text == items[ii].text && items[ii].version.startsWith(items[jj].version)) {
+                            items.splice(jj, 1);
+                            ii--;
+                            break;
+                        }
+                    }
+                }   
             }
 
             const renderPage = function() {
@@ -89,7 +110,6 @@ $(document).ready(function() {
                 $(outputElem).empty();
         
                 const mode = $(thisPartial).find('input:radio[name=mode]:checked').val();
-                console.log('render mode=' + mode);
 
                 if (mode == 'releaseNotes1') {
                     const ver = $(thisPartial).find('.versionSelect').val();
@@ -110,38 +130,81 @@ $(document).ready(function() {
                         sectionData[entry.section].push(entry);
                     }
 
+                    renderList(sectionData, {showVersion:false});
+                }
+                else
+                if (mode == 'releaseNotes2') {
+                    const ver1 = $(thisPartial).find('.version1Select').val();
+                    if (ver1 == '-') {
+                        return;
+                    }
+                    const ver2 = $(thisPartial).find('.version2Select').val();
+
+                    let includeVer = false;
+
+                    let sectionData = {};
+
+                    for(const curVer of versions) {
+                        const verKey = 'v' + curVer;
+                        
+                        if (!includeVer) {
+                            if (verKey == ver2) {
+                                includeVer = true;
+                            }
+                        }
+
+                        if (includeVer) {
+                            const releaseObj = releaseNotesJson.releases[verKey];
+                            for(let entry of releaseObj.entries) {
+                                entry.version = verKey;
+        
+                                if (!sectionData[entry.section]) {
+                                    sectionData[entry.section] = [];
+                                }
+                                
+                                sectionData[entry.section].push(entry);
+                            }                            
+                        }
+
+                        if (includeVer) {
+                            if (verKey == ver1) {
+                                 break;
+                            }
+                        }
+                    }
+
+                    for(const sectionKey in sectionData) {
+                        dedupeList(sectionData[sectionKey]);
+                    }
+
                     renderList(sectionData, {showVersion:true});
                 }
                 else 
                 if (mode == 'search') {
                     const searchText = $(thisPartial).find('.searchInput').val();
 
-                    let items = [];
+                    if (searchText.length >= 2) {
+                        let items = [];
 
-                    const searchResults = lunrIndex.search(searchText);
-                    console.log('searchResults', searchResults);
-                    for(const res of searchResults) {
-                        const parts = res.ref.split('/');
-                        const ver = parts[0]
-                        const index = parseInt(parts[1]);
-
-                        let entry = releaseNotesJson.releases[ver].entries[index];
-                        entry.version = ver;
-
-                        items.push(entry);
+                        const searchResults = lunrIndex.search(searchText);
+                        for(const res of searchResults) {
+                            const parts = res.ref.split('/');
+                            const ver = parts[0]
+                            const index = parseInt(parts[1]);
+    
+                            let entry = releaseNotesJson.releases[ver].entries[index];
+                            entry.version = ver;
+    
+                            items.push(entry);
+                        }
+                        dedupeList(items);
+    
+                        renderOneList(items, {showVersion:true});    
                     }
-                    renderOneList(items, {showVersion:true});
                 }
             };
         
 
-            for(const releaseName in releaseNotesJson.releases) {
-                if (releaseName.startsWith('v')) {
-                    versions.push(releaseName.substring(1));
-                }
-            }
-
-            versions.sort(apiHelper.versionSort);
             
             for(const ver of versions) {
                 const optionElem = document.createElement('option');
@@ -149,6 +212,8 @@ $(document).ready(function() {
                 $(optionElem).attr('value', 'v' + ver);
             
                 $(thisPartial).find('.versionSelect').append(optionElem);
+
+                $(thisPartial).find('.version1Select').append(optionElem.cloneNode(true));
             }
 
             $(thisPartial).find('.versionSelect').on('change', function() {
@@ -160,6 +225,32 @@ $(document).ready(function() {
                 renderPage();
             });
 
+            $(thisPartial).find('.version1Select').on('change', function() {
+                const ver = $(thisPartial).find('.version1Select').val();
+                if (ver != '-') {
+                    $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                    $(thisPartial).find('input:radio[name=mode][value=releaseNotes2]').prop('checked', true);
+
+                    $(thisPartial).find('.version2Select').empty();
+                    for(const curVer of versions) {
+                        const verKey = 'v' + curVer;
+                        const optionElem = document.createElement('option');
+                        $(optionElem).text(curVer);
+                        $(optionElem).attr('value', verKey);
+                    
+                        $(thisPartial).find('.version2Select').append(optionElem);
+                        if (verKey == ver) {
+                            break;
+                        }
+                    }        
+                }
+                renderPage();
+            });
+            $(thisPartial).find('.version2Select').on('change', function() {
+                renderPage();
+            });
+
+                
             $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').on('change', renderPage);
 
             $(thisPartial).find('.searchInput').on('input', function() {
