@@ -258,7 +258,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         newFile.columns = 'two';
         newFile.collection = [];
         newFile.description = lib.id + ' (' + lib.kind + ')';
-        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, showdown]';
+        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, lunr, showdown]';
         newFile.infoFile = '/assets/files/libraries/' + lib.id + '.json';
         newFile.contents = Buffer.from(md);
 
@@ -294,7 +294,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         newFile.columns = 'two';
         newFile.collection = [];
         newFile.description = 'Library search';
-        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, showdown]';
+        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library, lunr, showdown]';
         newFile.contents = Buffer.from(md);
 
         // Generate navigation

@@ -150,7 +150,7 @@ async function fetchPulls() {
 async function processReleases() {
 
     for(const release of releasesJson.releases) {
-        console.log('name=' + release.name + ' tag_name=' + release.tag_name);
+        // console.log('name=' + release.name + ' tag_name=' + release.tag_name);
         // console.log('body', release.body);
     
         let section2 = '', section3;
@@ -264,8 +264,6 @@ async function processPulls() {
 
     let sectionKeys = [];
 
-    console.log('releasesJson.pulls.length=' + releasesJson.pulls.length);
-
     for(const pull of releasesJson.pulls) {
 
         let pullsObj = {
@@ -325,7 +323,7 @@ async function run() {
     }
     
     if (!argv.noProcess) {
-        // await processReleases();
+        await processReleases();
         await processPulls();
 
         // Save JSON if changed
