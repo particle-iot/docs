@@ -6,6 +6,7 @@ $(document).ready(function() {
 
     let releaseNotesJson;
     let lunrIndex;
+    const urlParams = new URLSearchParams(window.location.search);
 
 
     const doSetup = function() {
@@ -149,11 +150,15 @@ $(document).ready(function() {
         
                 const mode = $(thisPartial).find('input:radio[name=mode]:checked').val();
 
-                if (mode == 'releaseNotes1') {
+                let searchParams = new URLSearchParams();
+                searchParams.set('mode', mode);
+
+                if (mode == 'rel1') {
                     const ver = $(thisPartial).find('.versionSelect').val();
                     if (ver == '-') {
                         return;
                     }
+                    searchParams.set('ver', ver);
                     const releaseObj = releaseNotesJson.releases[ver];
 
                     let sectionData = {};
@@ -171,12 +176,15 @@ $(document).ready(function() {
                     renderList(sectionData, {showVersion:false});
                 }
                 else
-                if (mode == 'releaseNotes2') {
+                if (mode == 'rel2') {
                     const ver1 = $(thisPartial).find('.version1Select').val();
                     if (ver1 == '-') {
                         return;
                     }
                     const ver2 = $(thisPartial).find('.version2Select').val();
+
+                    searchParams.set('ver1', ver1);
+                    searchParams.set('ver2', ver2);
 
                     let includeVer = false;
 
@@ -220,10 +228,14 @@ $(document).ready(function() {
                 else 
                 if (mode == 'search') {
                     const searchText = $(thisPartial).find('.searchInput').val();
-
+                
                     const afterVer = $(thisPartial).find('.versionAfterSelect').val();
 
                     if (searchText.length >= 2) {
+
+                        searchParams.set('text', searchText);
+                        searchParams.set('ver', afterVer);
+
                         let items = [];
 
                         const searchResults = lunrIndex.search(searchText);
@@ -249,6 +261,7 @@ $(document).ready(function() {
                         renderOneList(items, {showVersion:true});    
                     }
                 }
+                window.history.pushState({}, '', '?' + searchParams.toString());
             };
         
 
@@ -270,7 +283,7 @@ $(document).ready(function() {
                 const ver = $(thisPartial).find('.versionSelect').val();
                 if (ver != '-') {
                     $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                    $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').prop('checked', true);
+                    $(thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
                 }
                 renderPage();
             });
@@ -279,7 +292,7 @@ $(document).ready(function() {
                 const ver = $(thisPartial).find('.version1Select').val();
                 if (ver != '-') {
                     $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
-                    $(thisPartial).find('input:radio[name=mode][value=releaseNotes2]').prop('checked', true);
+                    $(thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
 
                     $(thisPartial).find('.version2Select').empty();
                     for(const curVer of versions) {
@@ -301,7 +314,7 @@ $(document).ready(function() {
             });
 
                 
-            $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').on('change', renderPage);
+            $(thisPartial).find('input:radio[name=mode][value=rel1]').on('change', renderPage);
 
             let keyTimer;
 
@@ -337,6 +350,46 @@ $(document).ready(function() {
                 renderPage();
             });
 
+
+            if (urlParams) {
+                const mode = urlParams.get('mode');
+                if (mode == 'rel1') {
+                    const ver = urlParams.get('ver');
+                    if (ver) {
+                        $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                        $(thisPartial).find('input:radio[name=mode][value=rel1]').prop('checked', true);
+        
+                        $(thisPartial).find('.versionSelect').val(ver);
+                        renderPage();
+                    }
+                }
+                else
+                if (mode == 'rel2') {
+                    const ver1 = urlParams.get('ver1');
+                    const ver2 = urlParams.get('ver2');
+                    if (ver1 && ver2) {
+                        $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                        $(thisPartial).find('input:radio[name=mode][value=rel2]').prop('checked', true);
+                                
+                        $(thisPartial).find('.version1Select').val(ver1);
+                        $(thisPartial).find('.version2Select').val(ver2);
+                        renderPage();
+                    }
+                }
+                else
+                if (mode == 'search') {
+                    const text = urlParams.get('text');
+                    const ver = urlParams.get('ver') || '-';
+                    if (text && ver) {
+                        $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
+                        $(thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
+
+                        $(thisPartial).find('.searchInput').val(text);
+                        $(thisPartial).find('.versionAfterSelect').val(ver);
+                        renderPage();
+                    }
+                }
+            }
         });
 
     };
