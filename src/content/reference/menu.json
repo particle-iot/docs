@@ -73,6 +73,11 @@
         "href": "/reference/device-os/versions/"
       },
       {
+        "dir": "release-notes",
+        "title": "Release notes",
+        "href": "/reference/device-os/release-notes/"
+      },
+      {
         "dir": "libraries",
         "isSection": true,
         "insertLoc": "libraries",

@@ -43,7 +43,7 @@ apiHelper.getDeviceRestoreInfo = function() {
 apiHelper.parseVersionStr = function(verStr) {
     let result = {};
 
-    // Remove and leading non-numbers
+    // Remove any leading non-numbers
     while(true) {
         const c = verStr.charAt(0);
         if (c >= '0' && c <= '9') {
@@ -79,24 +79,64 @@ apiHelper.parseVersionStr = function(verStr) {
         switch(parts[3]) {
             case 'rc':
                 result.rc = result.pre;
+                result.preAdj = result.pre * 400;
                 break;
 
             case 'alpha':
                 result.alpha = result.pre;
+                result.preAdj = result.pre * 200;
                 break;
 
             case 'beta':
                 result.beta = result.pre;
+                result.preAdj = result.pre * 300;
                 break;
 
             case 'test':
                 result.test = result.pre;
+                result.preAdj = result.pre * 100;
                 break;
         }
     }
 
     return result;
 };
+
+// Sort by version number (newest/largest first)
+apiHelper.versionSort = function(a, b) {
+    const aa = apiHelper.parseVersionStr(a);
+    const bb = apiHelper.parseVersionStr(b);
+
+    let cmp;
+
+    cmp = bb.major - aa.major;;
+    if (cmp) {
+        return cmp;
+    }
+
+    cmp = bb.minor - aa.minor;;
+    if (cmp) {
+        return cmp;
+    }
+
+    cmp = aa.patch != bb.patch;
+    if (cmp) {
+        return cmp;
+    }
+
+    if (aa.pre && !bb.pre) {
+        return +1;
+    }
+    if (!aa.pre && bb.pre) {
+        return -1;
+    }
+
+    cmp = bb.preAdj - aa.preAdj;
+
+    return cmp;
+};
+
+
 
 apiHelper.getReleaseAndLatestRcVersionOnly = function() {
     return new Promise(async function(resolve, reject) {
