@@ -86,8 +86,10 @@ $(document).ready(function() {
                                 $(aElem).text(pr);                              
                                 
                                 const pullObj = releaseNotesJson.pulls[pr.toString()];
-                                $(aElem).attr('href', pullObj.url);
-                                $(aElem).attr('title', pullObj.title);                                
+                                if (pullObj) {
+                                    $(aElem).attr('href', pullObj.url);
+                                    $(aElem).attr('title', pullObj.title);                                    
+                                }
                                 
                                 $(tdElem).append(aElem);
                                 $(tdElem).append(document.createTextNode(' ')); 
@@ -219,6 +221,8 @@ $(document).ready(function() {
                 if (mode == 'search') {
                     const searchText = $(thisPartial).find('.searchInput').val();
 
+                    const afterVer = $(thisPartial).find('.versionAfterSelect').val();
+
                     if (searchText.length >= 2) {
                         let items = [];
 
@@ -227,6 +231,12 @@ $(document).ready(function() {
                             const parts = res.ref.split('/');
                             const ver = parts[0]
                             const index = parseInt(parts[1]);
+
+                            if (afterVer != '-') {
+                                if (apiHelper.versionSort(ver, afterVer) > 0) {
+                                    continue;
+                                }
+                            }
     
                             let entry = releaseNotesJson.releases[ver].entries[index];
                             entry.version = ver;
@@ -234,6 +244,7 @@ $(document).ready(function() {
                             items.push(entry);
                         }
                         dedupeList(items);
+                        console.log('items', items);
     
                         renderOneList(items, {showVersion:true});    
                     }
@@ -250,6 +261,9 @@ $(document).ready(function() {
                 $(thisPartial).find('.versionSelect').append(optionElem);
 
                 $(thisPartial).find('.version1Select').append(optionElem.cloneNode(true));
+
+                $(thisPartial).find('.versionAfterSelect').append(optionElem.cloneNode(true));
+                
             }
 
             $(thisPartial).find('.versionSelect').on('change', function() {
@@ -317,6 +331,12 @@ $(document).ready(function() {
                     renderPage();
                 }
             });
+
+            $(thisPartial).find('.versionAfterSelect').on('change', function() {
+                clearKeyTimer();
+                renderPage();
+            });
+
         });
 
     };
