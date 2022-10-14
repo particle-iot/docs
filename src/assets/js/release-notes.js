@@ -28,6 +28,31 @@ $(document).ready(function() {
                 const tableElem = document.createElement('table');
                 $(tableElem).css('margin', '20px 0px 20px 0px');
 
+                const theadElem = document.createElement('thead');
+                const trElem = document.createElement('tr');
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Description');
+                    $(trElem).append(thElem);
+                }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Tags');
+                    $(trElem).append(thElem);
+                }
+                {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Pull Request');
+                    $(trElem).append(thElem);
+                }
+                if (options.showVersion) {
+                    const thElem = document.createElement('th');
+                    $(thElem).text('Version');
+                    $(trElem).append(thElem);
+                }
+                $(theadElem).append(trElem);
+                $(tableElem).append(theadElem);
+
                 const tbodyElem = document.createElement('tbody');
 
                 let textWidth = 500;
@@ -56,7 +81,18 @@ $(document).ready(function() {
                         const tdElem = document.createElement('td');
                         $(tdElem).css('width', '100px');
                         if (entry.prs) {
-                            $(tdElem).text(entry.prs.join(' '));
+                            for(const pr of entry.prs) {
+                                const aElem = document.createElement('a');
+                                $(aElem).text(pr);                              
+                                
+                                const pullObj = releaseNotesJson.pulls[pr.toString()];
+                                $(aElem).attr('href', pullObj.url);
+                                $(aElem).attr('title', pullObj.title);                                
+                                
+                                $(tdElem).append(aElem);
+                                $(tdElem).append(document.createTextNode(' ')); 
+                            }
+                            // $(tdElem).text(entry.prs.join(' '));
                         }
                         $(trElem).append(tdElem);
                     }
@@ -253,15 +289,34 @@ $(document).ready(function() {
                 
             $(thisPartial).find('input:radio[name=mode][value=releaseNotes1]').on('change', renderPage);
 
+            let keyTimer;
+
+            const clearKeyTimer = function() {
+                if (keyTimer) {
+                    clearTimeout(keyTimer);
+                    keyTimer = 0;
+                }
+            }
+
             $(thisPartial).find('.searchInput').on('input', function() {
                 $(thisPartial).find('input:radio[name=mode]').prop('checked', false);
                 $(thisPartial).find('input:radio[name=mode][value=search]').prop('checked', true);
+
+                clearKeyTimer();
+                keyTimer = setTimeout(renderPage, 750);
+            });
+
+            $(thisPartial).find('.searchInput').on('blur', function() {
+                clearKeyTimer();
                 renderPage();
             });
 
-
-
-            // console.log(lunrIndex.search('ble'));
+            $(thisPartial).find('.searchInput').on('keydown', function(ev) {
+                if (ev.key == 'Enter') {
+                    clearKeyTimer();
+                    renderPage();
+                }
+            });
         });
 
     };
