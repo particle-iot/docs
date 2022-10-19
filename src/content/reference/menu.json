@@ -270,6 +270,16 @@
           "href": "/reference/datasheets/tracker/tracker-one/"
         },
         {
+          "dir": "monitor-one-datasheet",
+          "title": "Monitor One Datasheet",
+          "href": "/reference/datasheets/tracker/monitor-one-datasheet/"
+        },
+        {
+          "dir": "tracker-m-datasheet",
+          "title": "Tracker M Datasheet",
+          "href": "/reference/datasheets/tracker/tracker-m-datasheet/"
+        },
+        {
           "dir": "tracker-m8-accessories",
           "title": "M8 Accessories",
           "href": "/reference/datasheets/tracker/tracker-m8-accessories/"
