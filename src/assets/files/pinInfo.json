@@ -15,7 +15,12 @@
           "num": 2,
           "name": "NC",
           "morePins": [
-            3, 4, 5, 6, 7, 8
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
           ]
         },
         {
@@ -56,7 +61,7 @@
         },
         {
           "num": 13,
-          "name": "A7",
+          "name": "TSOM_A7",
           "altName": "D7",
           "desc": "A7 Analog in, GPIO D7, PWM, SPI SS, WKP",
           "isIO": true,
@@ -76,7 +81,7 @@
         },
         {
           "num": 14,
-          "name": "A6",
+          "name": "TSOM_A6",
           "altName": "D6",
           "desc": "A6 Analog in, GPIO D6, PWM, SPI (SCK)",
           "isIO": true,
@@ -97,7 +102,7 @@
         },
         {
           "num": 15,
-          "name": "A5",
+          "name": "TSOM_A5",
           "altName": "D5",
           "desc": "A5 Analog in, GPIO D5, PWM, SPI MISO",
           "isIO": true,
@@ -118,7 +123,7 @@
         },
         {
           "num": 16,
-          "name": "A4",
+          "name": "TSOM_A4",
           "altName": "D4",
           "desc": "A4 Analog in, GPIO D4, PWM, SPI MOSI",
           "isIO": true,
@@ -143,7 +148,15 @@
           "desc": "Ground.",
           "isPower": true,
           "morePins": [
-            21, 22, 26, 28, 30, 32, 37, 41, 44
+            21,
+            22,
+            26,
+            28,
+            30,
+            32,
+            37,
+            41,
+            44
           ],
           "somPin": 1
         },
@@ -156,11 +169,13 @@
         },
         {
           "num": 19,
-          "name": "RUN"
+          "name": "RUN",
+          "desc": "Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN."
         },
         {
           "num": 20,
-          "name": "PGOOD"
+          "name": "PGOOD",
+          "desc": "LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation."
         },
         {
           "num": 23,
@@ -244,7 +259,7 @@
           "num": 35,
           "name": "TSOM_A2_BUTTON",
           "altName": "D2",
-          "desc": "A2 Analog in, GPIO D2, PWM, Serial1 CTS",
+          "desc": "External user button, A2 Analog in, GPIO D2, PWM, Serial1 CTS",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -265,7 +280,7 @@
           "num": 36,
           "name": "TSOM_A3_BATT_TEMP",
           "altName": "D3",
-          "desc": "A3 Analog in, GPIO D3, PWM, Serial1 RTS",
+          "desc": "Battery temperature sensor, A3 Analog in, GPIO D3, PWM, Serial1 RTS",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -397,7 +412,7 @@
           "hardwarePin"
         ]
       },
-      "mcu": "nRF52840"    
+      "mcu": "nRF52840"
     },
     {
       "id": 0,

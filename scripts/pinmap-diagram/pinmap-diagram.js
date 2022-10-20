@@ -1451,6 +1451,82 @@ const svg = require('./svg');
         await diagram.generate(options);
     }
 
+
+    diagram.generateMonitorOneExpansion = async function(generateOptions) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Monitor One Expansion',
+            // 104 818 
+            deviceImage: path.join(generateOptions.topDir, 'src/assets/images/monitor-one-expansion-blank.svg'),
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/monitor-one-expansion.svg'),
+            // scale to make height 500px
+            deviceImageTransform: 'translate(245,0) scale(2.6)',
+            width: 1200,
+            height: 800,
+            background: 'white',
+            pins: [
+                {   // Left side
+                    num: 1,
+                    x: 250,
+                    y: 202,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 24,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 60,
+                            keys: ['name'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 25,
+                    x: 674,
+                    y: 685,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 24,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            width: 60,
+                            keys: ['name'],
+                        },
+                        {
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial'],
+                        },
+                        {
+                            keys: ['spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options);
+    }
+
+
     
     diagram.generateAll = async function (generateOptions) {
         // generateOptions:
@@ -1504,6 +1580,8 @@ const svg = require('./svg');
             outputFile: 'photon-2-argon-pwm-comparison.svg',
             feature: 'analogWritePWM',
         }, generateOptions));    
+
+        await diagram.generateMonitorOneExpansion(generateOptions);
     }
 
     diagram.buildP2Eval = function(pinInfo) {
