@@ -121,7 +121,7 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, `Wire` (A0 and A1) is used in I2C mode by the user RGB LED and temperature sensor. Pins A0 and A1 cannot be used as GPIO or analog inputs.
+- On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED temperature sensor. Pins A0 and A1 cannot be used as GPIO.
 - On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
 
 ### ADC
@@ -172,8 +172,8 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, `Wire` (A0 and A1) is used in I2C mode by the user RGB LED and temperature sensor. Pins A0 and A1 cannot be used as GPIO or analog inputs.
-- On the Monitor One (and Tracker SoM), `Wire` and `Wire3` are two different I2C peripherals and can be used at the same time.
+- On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED temperature sensor. Pins A0 and A1 cannot be used as GPIO.
+    - On the Monitor One (and Tracker SoM), `Wire` and `Wire3` are two different I2C peripherals and can be used at the same time.
 - On the Monitor One (and Tracker SoM), `Wire3` and `Serial1` share the same pins and only one can be used at a time.
 
 ### Serial (UART)

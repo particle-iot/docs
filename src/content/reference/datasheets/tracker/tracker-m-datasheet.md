@@ -19,6 +19,28 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 
 
+## Expansion card connectors
+
+### 8-pin expansion connector
+
+| Pin   | Name | Description |
+| :---: | :--- | :--- |
+| 1     | GND  | Ground |
+| 2     | VIN  | 6 to 90 VDC |
+| 3     | CAN+ | CAN interface (+, P, or H) |
+| 4     | CAN- | Can interface (-, N, or L) |
+| 5     | FET  | Power control FET output |
+| 6     | GNSS_WHEEL | |
+| 7     | GNSS_DIR | |
+| 8     | GND  | Ground |
+
+
+
+### 3-pin battery connector
+
+This connects to the LiPo battery pack and battery thermistor.
+
+
 
 {{imageOverlay src="/assets/images/tracker-m-expansion1.svg" alt="Expansion card pinout" class="full-width"}}
 
@@ -43,15 +65,14 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 | P2_RX/D9 / D9 | Serial1 RX (received data), GPIO | &nbsp; | PA[8] |
 | P2_TX/D8 / D8 | Serial1 TX (transmitted data), GPIO | &nbsp; | PA[7] |
 | P2_A5_FET_CONTROL / D14 | A5 Analog in, GPIO, PWM. | &nbsp; | PB[4] |
-| P2_S2_SCK / D17 | S2 GPIO, SPI SCK, Serial3 RTS. | &nbsp; | PA[14] |
+| P2_S2_SCK / D17 | S2 GPIO, SPI SCK | &nbsp; | PA[14] |
 | P2_S1_SDI / D16 | S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX. | &nbsp; | PA[13] |
 | P2_S0_SDO / D15 | S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX. | &nbsp; | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, `Wire` (A0 and A1) is used in I2C mode by the user RGB LED and temperature sensor. Pins A0 and A1 cannot be used as GPIO or analog inputs.
-- On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
+- On the Tracker M, pins D0 and D1 are used in I2C mode by the temperature sensor. Pins D0 and D1 cannot be used as GPIO.
 
 ### ADC
 
@@ -67,7 +88,6 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, you should not use A2 and A3 as analog inputs as they are used by the external user button and battery temperature thermistor.
 
 
 ### SPI
@@ -76,7 +96,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| P2_S2_SCK / D17 | S2 GPIO, SPI SCK, Serial3 RTS. | SPI (SCK) | &nbsp; | PA[14] |
+| P2_S2_SCK / D17 | S2 GPIO, SPI SCK | SPI (SCK) | &nbsp; | PA[14] |
 | P2_S1_SDI / D16 | S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX. | SPI (MISO) | &nbsp; | PA[13] |
 | P2_S0_SDO / D15 | S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX. | SPI (MOSI) | &nbsp; | PA[12] |
 
@@ -97,9 +117,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, `Wire` (A0 and A1) is used in I2C mode by the user RGB LED and temperature sensor. Pins A0 and A1 cannot be used as GPIO or analog inputs.
-- On the Monitor One (and Tracker SoM), `Wire` and `Wire3` are two different I2C peripherals and can be used at the same time.
-- On the Monitor One (and Tracker SoM), `Wire3` and `Serial1` share the same pins and only one can be used at a time.
+- On the Tracker M, pins D0 and D1 are used in I2C mode by the temperature sensor. Pins D0 and D1 cannot be used as GPIO.
 
 ### Serial (UART)
 
@@ -109,14 +127,13 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 | :--- | :--- | :--- | :--- | :--- |
 | P2_RX/D9 / D9 | Serial1 RX (received data), GPIO | Serial1 (RX)  | &nbsp; | PA[8] |
 | P2_TX/D8 / D8 | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | &nbsp; | PA[7] |
-| P2_S2_SCK / D17 | S2 GPIO, SPI SCK, Serial3 RTS. | Serial3 (RTS) | &nbsp; | PA[14] |
 | P2_S1_SDI / D16 | S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX. | Serial3 (RX) | &nbsp; | PA[13] |
 | P2_S0_SDO / D15 | S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX. | Serial3 (TX) | &nbsp; | PA[12] |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One (and Tracker SoM), `Wire3` and `Serial1` share the same pins and only one can be used at a time.
+
 
 ### PWM
 
@@ -132,5 +149,4 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, you should not use A2 and A3 as PWM outputs as they are used by the external user button and battery temperature thermistor.
-- All pins on the same hardware timer (PWM0, PWM1, or PWM2) must share the same frequency but can have different duty cycles.
+- If SPI is not used, the pins can be used for GPIO or Serial.
