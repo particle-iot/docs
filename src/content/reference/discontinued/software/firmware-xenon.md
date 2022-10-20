@@ -9172,7 +9172,7 @@ size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
 
 Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
 
-The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
+The first two bytes of the company data are typically the unique company identifier assigned by the Bluetooth SIG. You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
 
 The special value of 0xffff is reserved for internal use and testing. 
 
