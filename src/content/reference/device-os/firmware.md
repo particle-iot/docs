@@ -11259,7 +11259,7 @@ Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and 
 
 If `BlePhy::BLE_PHYS_CODED` advertising PHY is set, it's possible to provide up to 255 (`BLE_MAX_ADV_DATA_LEN_EXT_CONNECTABLE`) of advertising data.
 
-The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
+The first two bytes of the company data are typically the unique company identifier assigned by the Bluetooth SIG. You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
 
 The special value of 0xffff is reserved for internal use and testing. 
 
@@ -17723,9 +17723,6 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 | 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
 | 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
-
-- `reset` and `reset_pending` are only called when the system initiates a reset, such as after an OTA code flash. You will not get these events if you manually call `System.reset() from your code.
-- `button_click` may be called from an interrupt context (ISR) so you should limit what you handle from a `button_click` to things like updating a global variable.
 
 ## System Modes
 

@@ -20,7 +20,7 @@ Please see the link above and questions below for more details.
 
 ## What Is A Block?
 
-A **block** is a bundle of an additional 720k Data Operations and support for an additional 100 devices. A block is further inclusive to 540 MB of cellular data for cellular devices and 1.5 GB for Tracker devices. 
+A **block** is a bundle of an additional 720k Data Operations and support for an additional 100 devices. A block is further inclusive to 540 MB of cellular data for cellular devices. 
 
 ## What Is a Data Operation And How Can I Keep Track Of My Consumption?
 
@@ -114,7 +114,7 @@ For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP da
 For cellular devices, there is a data limit depending on your pricing plan. The following cellular data limits are pooled across all devices and include all data usage including Data Operations, OTA updates, messaging overhead, and messaging to 3rd-party services:
 
 * Free Plan: 100 MB cellular data per month
-* Growth Plan: 540 MB cellular data per block per month (1.5 GB for Tracker)
+* Growth Plan: 540 MB cellular data per block per month
 * Enterprise Plan: varies by pricing tier, [contact Particle Sales](http://particle.io/sales) to learn more
 
 ## How Can I Optimize My Data Operation Consumption?

@@ -164,11 +164,6 @@ In the Growth and Enterprise plans, usage is divided by the class of devices. Fo
 
 ![Wi-Fi and Cellular Usage](/assets/images/console/wifi-cellular-usage.png)
 
-
-Also Tracker devices, which have higher data allocations than other cellular devices:
-
-<div align="center"><img src="/assets/images/console/tracker-usage.png" class="small"></div>
-
 These panels turn yellow at 70% of your plan limits, and red when the limits have been reached.
 
 
@@ -693,7 +688,7 @@ Products can be prototyped in the Free plan at no charge. However, there is a li
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, for each block purchased
 - Email support
 
 In the Growth plan, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
