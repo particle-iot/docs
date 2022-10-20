@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="800" >
-  <rect x="0" y="0" width="1200" height="800" fill="white" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="980" height="800" >
+  <rect x="0" y="0" width="980" height="800" fill="white" >
   </rect>
   <g transform="translate(245,0) scale(2.6)" >
       <svg width="167" height="294" viewBox="0 0 167 294" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
@@ -1573,18 +1573,6 @@ TSOM_A0_SDA    </text>
     </rect>
     <text x="91.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Wire (SDA)    </text>
-    <line x1="119" y1="0" x2="182" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="182" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
-    </rect>
-    <text x="209.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-ADC1    </text>
-    <line x1="237" y1="0" x2="241" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="241" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
-    </rect>
-    <text x="268.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM0    </text>
   </g>
   <g transform="translate(674,496) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1599,18 +1587,6 @@ TSOM_A1_SCL    </text>
     </rect>
     <text x="91.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Wire (SCL)    </text>
-    <line x1="119" y1="0" x2="182" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="182" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
-    </rect>
-    <text x="209.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-ADC0    </text>
-    <line x1="237" y1="0" x2="241" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="241" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
-    </rect>
-    <text x="268.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM0    </text>
   </g>
   <g transform="translate(674,475) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -1619,13 +1595,7 @@ PWM0    </text>
     </rect>
     <text x="30" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 TSOM_A2_BUTTON    </text>
-    <line x1="60" y1="0" x2="123" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="123" y="-8" width="55" height="16" stroke="black" fill="#9695CA" >
-    </rect>
-    <text x="150.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Serial1 CTS    </text>
-    <line x1="178" y1="0" x2="182" y2="0" stroke="black" stroke-width="1" >
+    <line x1="60" y1="0" x2="182" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="182" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
     </rect>
@@ -1645,13 +1615,7 @@ PWM0    </text>
     </rect>
     <text x="30" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 TSOM_A3_BATT_TEMP    </text>
-    <line x1="60" y1="0" x2="123" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="123" y="-8" width="55" height="16" stroke="black" fill="#9695CA" >
-    </rect>
-    <text x="150.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-Serial1 RTS    </text>
-    <line x1="178" y1="0" x2="182" y2="0" stroke="black" stroke-width="1" >
+    <line x1="60" y1="0" x2="182" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="182" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
     </rect>

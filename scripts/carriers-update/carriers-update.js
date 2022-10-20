@@ -2286,11 +2286,16 @@ const generatorConfig = require('./generator-config');
                     title: 'Timer',
                 });    
             }
+            if (options.showSomPin) {
+                tableOptions.columns.push({
+                    key: 'somPin',
+                    title: 'SoM Pin'
+                });    
+            }
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'
             });
-
             let tableData = [];
             for(const pin of pins) {
                 let rowData = Object.assign({}, pin);
@@ -2336,7 +2341,6 @@ const generatorConfig = require('./generator-config');
                 key: 'boot',
                 title: 'Description'
             });
-
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'

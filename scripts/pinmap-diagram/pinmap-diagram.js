@@ -72,9 +72,11 @@ const svg = require('./svg');
             });    
         }
         
-        draw.g({
-            transform: options.deviceImageTransform,
-        }).svg({}, options.deviceImage);
+        if (options.deviceImage) {
+            draw.g({
+                transform: options.deviceImageTransform,
+            }).svg({}, options.deviceImage);    
+        }
 
         for(const p of options.pins) {
             
@@ -166,6 +168,9 @@ const svg = require('./svg');
                                 }
                                 else 
                                 if (typeof text === 'number') {
+                                    if (options.numAdjust) {
+                                        text += options.numAdjust;
+                                    }
                                     text = text.toString();
                                 }
                                         
@@ -1461,7 +1466,7 @@ const svg = require('./svg');
             outputPath: path.join(generateOptions.topDir, 'src/assets/images/monitor-one-expansion.svg'),
             // scale to make height 500px
             deviceImageTransform: 'translate(245,0) scale(2.6)',
-            width: 1200,
+            width: 980,
             height: 800,
             background: 'white',
             pins: [
@@ -1527,6 +1532,159 @@ const svg = require('./svg');
     }
 
 
+
+    diagram.generateTrackerMExpansion = async function(generateOptions) {
+        
+        let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Tracker M Expansion',
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/tracker-m-expansion1.svg'),
+            width: 980,
+            height: 800,
+            background: 'white',
+            numAdjust: -100,
+            pins: [
+                {   // Left side
+                    num: 101,
+                    x: 400,
+                    y: 50,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 30,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            keys: ['num'],
+                        },
+                        {
+                            width: 90,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 80,
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial','spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 131,
+                    x: 450,
+                    y: 659,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 30,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            keys: ['num'],
+                        },
+                        {
+                            width: 90,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 80,
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial', 'spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options);
+
+
+        options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
+            platformName: 'Tracker M Expansion',
+            outputPath: path.join(generateOptions.topDir, 'src/assets/images/tracker-m-expansion2.svg'),
+            width: 980,
+            height: 800,
+            background: 'white',
+            numAdjust: -200,
+            pins: [
+                {   // Left side
+                    num: 201,
+                    x: 400,
+                    y: 50,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: 21,
+                    count: 30,
+                    xDir: -1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            keys: ['num'],
+                        },
+                        {
+                            width: 90,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 80,
+                            keys: ['isPower', 'isControl', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['serial','spi'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                    ],
+                },
+                {   // Right side
+                    num: 231,
+                    x: 450,
+                    y: 659,
+                    numDelta: 1,
+                    xDelta: 0,
+                    yDelta: -21,
+                    count: 30,
+                    xDir: 1,
+                    yDir: 0,
+                    columns: [
+                        {
+                            keys: ['num'],
+                        },
+                        {
+                            width: 90,
+                            keys: ['name'],
+                        },
+                        {
+                            width: 80,
+                            keys: ['isPower', 'isControl', 'i2c', 'swd'],
+                        },
+                        {
+                            keys: ['serial', 'spi', 'hardwareADC'],
+                        },
+                        {
+                            keys: ['analogWritePWM'],
+                        },
+                    ],
+                },
+            ]
+        });
+
+        await diagram.generate(options);
+        
+    }
+
+
     
     diagram.generateAll = async function (generateOptions) {
         // generateOptions:
@@ -1582,6 +1740,8 @@ const svg = require('./svg');
         }, generateOptions));    
 
         await diagram.generateMonitorOneExpansion(generateOptions);
+
+        await diagram.generateTrackerMExpansion(generateOptions);
     }
 
     diagram.buildP2Eval = function(pinInfo) {
