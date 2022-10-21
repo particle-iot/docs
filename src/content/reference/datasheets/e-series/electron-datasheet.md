@@ -744,7 +744,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | ELC314 | 2G, 3G | Flow |
-| Saudi Arabia | ELC314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | ELC314 | 2G, 3G | Telenor, VIP |
 | Sint Maarten | ELC314 | 2G, 3G | TelCell |
 | Slovakia | ELC314 | 2G, 3G | O2, Orange, Telekom |

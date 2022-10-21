@@ -682,7 +682,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Saint Kitts and Nevis | E314 | 2G, 3G | Flow |
 | Saint Lucia | E314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | E314 | 2G, 3G | Flow |
-| Saudi Arabia | E314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | E314 | 2G, 3G | Telenor, VIP |
 | Sint Maarten | E314 | 2G, 3G | TelCell |
 | Slovakia | E314 | 2G, 3G | O2, Orange, Telekom |

@@ -836,10 +836,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Saint Kitts and Nevis | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Saint Lucia | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Saint Vincent and the Grenadines | Flow | &check; | &check; | &nbsp; | &nbsp; |
-| Saudi Arabia | Al Jawal | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Saudi Arabia | Mobily | &nbsp; | &check; | &check; | &nbsp; |
-| Saudi Arabia | STC | &nbsp; | &check; | &check; | &nbsp; |
-| Saudi Arabia | Zain | &check; | &check; | &check; | &nbsp; |
 | Serbia | Telenor | &check; | &check; | &check; | &nbsp; |
 | Serbia | VIP | &check; | &check; | &check; | &nbsp; |
 | Seychelles | Airtel | &check; | &nbsp; | &check; | &nbsp; |

@@ -214,9 +214,6 @@ This document describes the expansion of available countries for LTE Cat 1, made
 | Romania | Vodafone | &nbsp; |
 | Rwanda | Airtel | &check; |
 | Rwanda | MTN | &check; |
-| Saudi Arabia | Mobily | &check; |
-| Saudi Arabia | STC | &check; |
-| Saudi Arabia | Zain | &check; |
 | Serbia | Telenor | &nbsp; |
 | Serbia | VIP | &nbsp; |
 | Seychelles | Airtel | &check; |

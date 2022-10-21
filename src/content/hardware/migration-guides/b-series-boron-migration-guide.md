@@ -161,7 +161,6 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 | Qatar | B524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | B524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
 | Rwanda | B524 | 2G, 3G, Cat1 | Airtel, MTN |
-| Saudi Arabia | B524 | 2G, 3G, Cat1 | Mobily, STC, Zain |
 | Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | B524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | B524 | 2G, 3G, Cat1 | TelCell |

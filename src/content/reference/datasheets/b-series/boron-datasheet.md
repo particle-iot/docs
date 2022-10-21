@@ -587,7 +587,6 @@ The complete schematic and board files are open source and available on Particle
 | Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
 | Saint Lucia | BRN314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | BRN314 | 2G, 3G | Flow |
-| Saudi Arabia | BRN314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | BRN314 | 2G, 3G | Telenor, VIP |
 | Sint Maarten | BRN314 | 2G, 3G | TelCell |
 | Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |

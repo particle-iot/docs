@@ -15349,18 +15349,6 @@
     {
       "country": "Saudi Arabia",
       "carrier": "Al Jawal",
-      "telefonicaBundle2018": {
-        "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -15380,29 +15368,13 @@
         "3G-1",
         "LTE-3",
         "LTE-38"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Saudi Arabia",
       "carrier": "STC",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.1
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -15419,29 +15391,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
-      "telefonicaBundle2018": {
-        "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -15453,7 +15402,8 @@
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowLTE": true
+        "allowLTE": true,
+        "prohibited": true
       }
     },
     {
@@ -39868,40 +39818,47 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Saudi Arabia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "YES",
-      "expansion": "2022-05-18"
+      "recommendation": "NR",
+      "expansion": "2022-05-18",
+      "roamingRestrictions": "hide",
+      "reason": "Roaming and registration restrictions"
     },
     {
       "country": "Saudi Arabia",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Saudi Arabia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "YES",
-      "expansion": "2022-05-18"
+      "recommendation": "NR",
+      "expansion": "2022-05-18",
+      "roamingRestrictions": "hide",
+      "reason": "Roaming and registration restrictions"
     },
     {
       "country": "Saudi Arabia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Saudi Arabia",
@@ -39915,32 +39872,38 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
       "modem": "R510",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
     },
     {
       "country": "Saudi Arabia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Saudi Arabia",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Saudi Arabia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "roamingRestrictions": "hide",
+      "reason": "Roaming and registration restrictions"
     },
     {
       "country": "Saudi Arabia",
@@ -39953,7 +39916,8 @@
       "country": "Saudi Arabia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Senegal",

@@ -1224,7 +1224,6 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | Qatar | T524 | 2G, 3G, Cat1 | Ooredoo, Vodafone |
 | Romania | T524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
 | Rwanda | T524 | 2G, 3G, Cat1 | Airtel, MTN |
-| Saudi Arabia | T524 | 2G, 3G, Cat1 | Mobily, STC, Zain |
 | Serbia | T524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Seychelles | T524 | 2G, 3G, Cat1 | Airtel |
 | Sint Maarten | T524 | 2G, 3G, Cat1 | TelCell |
