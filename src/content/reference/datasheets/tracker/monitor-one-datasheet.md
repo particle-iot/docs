@@ -20,42 +20,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 {{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width"}}
 
 
-The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios.
-
-
-{{!-- BEGIN shared-blurb 742666de-f91d-45c6-b17c-915bac5f5ea6 --}}
-
-| | Tracker SoM | Tracker M | Tracker One | Monitor One |
-| :--- | :---: | :---: | :---: | :---: |
-| Style | SMD Module | Module | All-in-one | All-in-one |
-| Enclosure | - | - | Included | Included |
-| MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
-| CPU Speed | 60 MHz | 200 MHz | 60 MHz | 60 MHz |
-| Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
-| Base board | Your design | Included | Included | Included |
-| Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
-| GNSS Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
-| Cellular Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
-| USB Connector | Your design | Micro B | USB C | Micro B (Int)<sup>3</sup> |
-| System RGB LED | Your design | Included | Included | Included |
-| External user button | n/a | n/a | | &check; |
-| User RGB LEDs | | | | 2 |)
-| SETUP and MODE buttons | Your design | On board | Inside Enclosure | Inside Enclosure |
-| External power | 3.9 - 17 VDC | 6 - 90 VDC | 6 - 30 VDC | 6 - 90 VDC |
-| SPI | &check; | Expansion card | | Expansion card |
-| I2C | &check; | Expansion card | M8 | Expansion card |
-| Serial | &check; | Expansion card | M8 | Expansion card |
-| Internal temperature sensor | Your design | &check; | &check; | &check; |
-| Battery temperature sensor | n/a | &check; | n/a | &check; |
-| Controlling charging by temperature | Your design | In hardware | In software | In software |
-
-<sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
-
-<sup>2</sup>Both internal and external GNSS and cellular antennas are supported, however the antenna style must be decided in advance as there in no software antenna switch.
-
-<sup>3</sup>There is no external MCU USB connector on the Monitor One.
-{{!-- END shared-blurb --}}
-
+The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
 ## External Features
 
@@ -299,3 +264,53 @@ M12 8-pin female, panel mount connector to B8B-PH female
 
 - On the Monitor One, the expansion card connector allows the use the I2C, Serial, and SPI at the same time
 - On the Tracker One, you must choose between using the M8 for either serial or I2C. SPI is not available.
+
+
+## Tracker feature comparison
+
+
+{{!-- BEGIN shared-blurb 742666de-f91d-45c6-b17c-915bac5f5ea6 --}}
+
+| | Tracker SoM | Tracker M | Tracker One | Monitor One |
+| :--- | :---: | :---: | :---: | :---: |
+| Style | SMD Module | Module | All-in-one | All-in-one |
+| Enclosure | - | - | Included | Included |
+| MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
+| CPU Speed | 60 MHz | 200 MHz | 60 MHz | 60 MHz |
+| Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
+| Base board | Your design | Included | Included | Included |
+| Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
+| GNSS Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
+| Cellular Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
+| USB Connector | Your design | Micro B | USB C | Micro B (Int)<sup>3</sup> |
+| System RGB LED | Your design | Included | Included | Included |
+| External user button | n/a | n/a | | &check; |
+| User RGB LEDs | | | | 2 |
+| SETUP and MODE buttons | Your design | On board | Inside Enclosure | Inside Enclosure |
+| External power | 3.9 - 17 VDC | 6 - 90 VDC | 6 - 30 VDC | 6 - 90 VDC |
+| SPI | &check; | Expansion card | | Expansion card |
+| I2C | &check; | Expansion card | M8 | Expansion card |
+| Serial | &check; | Expansion card | M8 | Expansion card |
+| Internal temperature sensor | Your design | &check; | &check; | &check; |
+| Battery temperature sensor | n/a | &check; | n/a | &check; |
+| Controlling charging by temperature | Your design | In hardware | In software | In software |
+
+<sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
+
+<sup>2</sup>Both internal and external GNSS and cellular antennas are supported, however the antenna style must be decided in advance as there in no software antenna switch.
+
+<sup>3</sup>There is no external MCU USB connector on the Monitor One.
+{{!-- END shared-blurb --}}
+
+
+### Dimensions
+
+| Dimensions | Metric | SAE      |
+| :--------- | -----: |  ------: |
+| Width      | 121 mm |   4 3/4" |
+| Height     | 220 mm |   8 5/8" |
+| Depth      |  69 mm | 2 11/16" |
+
+{{imageOverlay src="/assets/images/monitor-one/front-dim.png" alt="Dimensions" class="full-width"}}
+
+{{imageOverlay src="/assets/images/monitor-one/side-dim.png" alt="Dimensions" class="full-width"}}
