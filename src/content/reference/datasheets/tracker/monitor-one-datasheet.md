@@ -11,58 +11,65 @@ description: Monitor One Datasheet
 {{downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Preliminary pre-release version 2022-10-19**
+**Pre-release draft 2022-10-21. Do not distribute!**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
+![Front view](/assets/images/monitor-one/front-on-post.jpg)
 
+The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios.
+
+
+{{!-- BEGIN shared-blurb 742666de-f91d-45c6-b17c-915bac5f5ea6 --}}
 
 | | Tracker SoM | Tracker M | Tracker One | Monitor One |
 | :--- | :---: | :---: | :---: | :---: |
 | Style | SMD Module | Module | All-in-one | All-in-one |
 | Enclosure | - | - | Included | Included |
 | MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
+| CPU Speed | 60 MHz | 200 MHz | 60 MHz | 60 MHz |
+| Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
 | Base board | Your design | Included | Included | Included |
 | Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
 | GNSS Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
 | Cellular Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
-| USB Connector | Your design | Micro B | USB C | USB C |
+| USB Connector | Your design | Micro B | USB C | Micro B (Int)<sup>3</sup> |
 | System RGB LED | Your design | Included | Included | Included |
+| External user button | n/a | n/a | | &check; |
+| User RGB LEDs | | | | 2 |)
 | SETUP and MODE buttons | Your design | On board | Inside Enclosure | Inside Enclosure |
 | External power | 3.9 - 17 VDC | 6 - 90 VDC | 6 - 30 VDC | 6 - 90 VDC |
-| SPI | &check; | ??? | | Expansion card |
-| I2C | &check; | ??? | M8 | Expansion card |
-| Serial | &check; | ??? | M8 | Expansion card |
-| External user button | n/a | n/a | | &check; |
-| User RGB LEDs | | | | 2 |
-| Temperature sensor | Your design | &check; | &check; | &check; |
-| Battery temperature sensor | n/a | ??? | n/a | &check; |
-| Controlling charging by temperature | Your design | ??? | In software | In hardware |
+| SPI | &check; | Expansion card | | Expansion card |
+| I2C | &check; | Expansion card | M8 | Expansion card |
+| Serial | &check; | Expansion card | M8 | Expansion card |
+| Internal temperature sensor | Your design | &check; | &check; | &check; |
+| Battery temperature sensor | n/a | &check; | n/a | &check; |
+| Controlling charging by temperature | Your design | In hardware | In software | In software |
 
 <sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
 
 <sup>2</sup>Both internal and external GNSS and cellular antennas are supported, however the antenna style must be decided in advance as there in no software antenna switch.
 
-
-## Internal connectors
-
-- LiPo Battery connector (3-pin JST-PH, for battery with thermistor
-- MCU USB (Micro B, vertical)
-- User LED 1 and User LED 2
-- User Button (externally accessible)
-- RGB Status LED
-- GNSS Antenna (internal) 
-- GNSS Antenna connector U.FL
-- Cellular antenna
-- Cellular antenna connector U.FL
-- SWD debugging connector
-- VIN connector (JST-PH, 2 pin)
-- Expansion card area
+<sup>3</sup>There is no external MCU USB connector on the Monitor One.
+{{!-- END shared-blurb --}}
 
 
 ## External Features
+
+![External features](/assets/images/monitor-one/post-corner-labeled.png)
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | System RGB LED |
+|  2 | GNSS antenna (internal) |
+|  3 | Cellular antenna (internal) |
+|  4 | External connectors (on bottom) |
+|  5 | Magnetic or screw-down mounting bracket |
+|  6 | User RGB LEDs (2) |
+|  7 | User button (externally accessible) |
+
 
 ### User Button
 
@@ -80,11 +87,50 @@ A waterproof button is available from the outside of the enclosure.
 
 ### Connectors
 
-The bottom plate of the Monitor One can be customized. 
+![Bottom connectors](/assets/images/monitor-one/bottom-connectors-labeled.png)
 
-- M12 connectors (2)
-- GNSS antenna (SMA)
-- Cellular antenna (SMA)
+The bottom plate of the Monitor One can be customized with different connectors for your application.
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | Cellular antenna (SMA) |
+|  2 | M12 connector (8-pin) |
+|  3 | M12 connector (4-pin) |
+|  4 | GNSS antenna (SMA) |
+|  5 | Mounting plate attachment screw |
+
+
+## Mounting
+
+
+
+
+## Internal connectors
+
+{{imageOverlay src="/assets/images/monitor-one/base-board-labeled.png" alt="Base board features" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+|  1 | MCU USB Connector (Micro B) |
+|  2 | User RGB LEDs (2, externally visible) |
+|  3 | User Button (externally accessible) |
+|  4 | System RGB LED (externally visible) |
+|  5 | GNSS antenna (internal, optional) | 
+|  6 | GNSS antenna U.FL connector |
+|  7 | Cellular antenna (internal) |
+|  8 | Cellular antenna U.FL connector |
+|  9 | Expansion card headers (2) |
+| 10 | SWD debugging connector |
+| 11 | Wi-Fi geolocation antenna U.FL connector |
+| 12 | MODE and SETUP buttons |
+| 13 | VIN connector |
+| 14 | Expansion card to external connector cable |
+| 15 | LiPo battery connector |
+| 16 | Cellular antenna SMA connector (external) |
+| 17 | Expansion card external connector #1 (M12, 8-pin) |
+| 18 | Expansion card external connector #2 (M12) |
+| 19 | GNSS antenna SMA connector (external) |
+| 20 | Tracker SoM module |
 
 
 
@@ -219,13 +265,7 @@ M12 8-pin female, panel mount connector to B8B-PH female
 
 
 
-## Monitor One vs. Tracker One 
-
-### External connectors
-
-
-
-### GPIO Pins
+### GPIO and Ports vs. Tracker One
 
 | Pin   | Monitor One | Tracker One |
 | :---: | :---: | :---: |
@@ -234,12 +274,11 @@ M12 8-pin female, panel mount connector to B8B-PH female
 | A2    | External Button | GNSS lock indicator |
 | A3    | Battery Temperature | M8 Analog in, GPIO |
 | A4    | Analog in, GPIO, PWM, SPI MOSI<sup>1</sup> | Not available |
-| A5    | Analog in, GPIO, PWM, SPI
- MISO<sup>1</sup> | Not available |
+| A5    | Analog in, GPIO, PWM, SPI MISO<sup>1</sup> | Not available |
 | A6    | Analog in, GPIO, PWM, SPI SCK<sup>1</sup> | Not available |
 | A7    | Analog in, GPIO, PWM, SPI SS, WKP | Not available |
-| TX    | Serial TX or GPIO<sup>1</sup> | MCU serial TX, GPIO D8, Wire3 SCL |
-| RX    | Serial RX or GPIO<sup>1</sup> | MCU serial RX, GPIO D9, Wire3 SDA |
+| TX    | MCU serial TX, GPIO D8, Wire3 SCL<sup>1</sup> | MCU serial TX, GPIO D8, Wire3 SCL |
+| RX    | MCU serial RX, GPIO D9, Wire3 SDA<sup>1</sup> | MCU serial RX, GPIO D9, Wire3 SDA |
 
 <sup>1</sup>Available on expansion card connector (internal)
 

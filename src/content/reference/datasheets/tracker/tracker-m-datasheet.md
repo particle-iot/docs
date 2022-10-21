@@ -11,7 +11,7 @@ description: Tracker M Datasheet
 {{downloadButton url="/assets/pdfs/datasheets/tracker-m-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Preliminary pre-release version 2022-10-19**
+**Pre-release draft 2022-10-21. Do not distribute!**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change. The Tracker M design has not been finalized so changes are likely.
