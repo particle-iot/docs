@@ -17,7 +17,8 @@ description: Monitor One Datasheet
 This is an preliminary pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
-![Front view](/assets/images/monitor-one/front-on-post.jpg)
+{{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width"}}
+
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios.
 
@@ -58,7 +59,8 @@ The Monitor One is an off-the-shelf complete design, like the Tracker One. The M
 
 ## External Features
 
-![External features](/assets/images/monitor-one/post-corner-labeled.png)
+{{imageOverlay src="/assets/images/monitor-one/post-corner-labeled.png" alt="External features" class="full-width"}}
+
 
 | Label | Feature |
 | :---: | :--- |
@@ -87,7 +89,8 @@ A waterproof button is available from the outside of the enclosure.
 
 ### Connectors
 
-![Bottom connectors](/assets/images/monitor-one/bottom-connectors-labeled.png)
+{{imageOverlay src="/assets/images/monitor-one/bottom-connectors-labeled.png" alt="Bottom Connectors" class="full-width"}}
+
 
 The bottom plate of the Monitor One can be customized with different connectors for your application.
 
@@ -102,7 +105,19 @@ The bottom plate of the Monitor One can be customized with different connectors 
 
 ## Mounting
 
+The Monitor One is intended to be mounted in the orientation shown at the top of the page, with the connectors facing down. You can also mount it with the mounting plate facing down as the GNSS antenna is angled to allow it to work in either orientation.
 
+When using external cellular and GNSS antennas you can orient the Monitor One in any direction.
+
+The mounting plate contains two magnets that allow it to be easily mounted on a metal surface, or to a metal plate affixed to a non-metal surface, such as the wood post shown above.
+
+{{imageOverlay src="/assets/images/monitor-one/back-view.jpg" alt="Back View" class="full-width"}}
+
+The mounting plate is removable from the back of the unit after removing the screw on the bottom, near the expansion connectors.
+
+Once removed, you can screw or bolt the mounting plate to a surface and reattach the Monitor One. This is good for rough conditions and to help prevent theft.
+
+{{imageOverlay src="/assets/images/monitor-one/mounting-plate.jpg" alt="Mounting plate" class="full-width"}}
 
 
 ## Internal connectors

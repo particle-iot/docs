@@ -175,7 +175,7 @@ function collapseDrag(ev, id) {
 }
 
 function showOverlay(imgPath) {
-	var html = '<img src="' + imgPath + '" onclick="hideOverlay()" class="imageOverlay" style="cursor:zoom-out"/>';
+	var html = '<img src="' + imgPath + '" onclick="hideOverlay()" class="imageOverlay no-darken" style="cursor:zoom-out"/>';
 
 	$('body').keydown(function(ev) {
 		hideOverlay();
