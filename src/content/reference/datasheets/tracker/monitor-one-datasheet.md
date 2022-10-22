@@ -82,7 +82,25 @@ The mounting plate is removable from the back of the unit after removing the scr
 
 Once removed, you can screw or bolt the mounting plate to a surface and reattach the Monitor One. This is good for rough conditions and to help prevent theft.
 
-{{imageOverlay src="/assets/images/monitor-one/mounting-plate.jpg" alt="Mounting plate" class="full-width"}}
+
+| Dimensions | Metric | SAE      |
+| :--------- | -----: |  ------: |
+| Top, width between mounting holes | 28 mm | 1 3/32" |
+| Bottom, width between mounting holes | 46 mm | 1 13/16" |
+| Height between mounting holes | 140 mm | 5 1/2" |
+
+{{imageOverlay src="/assets/images/monitor-one/bracket-dim.png" alt="Mounting bracket holes" class="full-width"}}
+
+| Dimensions | Metric | SAE      |
+| :--------- | -----: |  ------: |
+| Bolt/screw head hole diameter | 12.46 mm | 31/64" |
+| Bolt/screw head maximum height | 4.0 mm | 5/32" |
+| Bolt/screw hole diameter | 4.33 mm | 11/64" |
+| Bolt/screw shaft to surface | 3.65 mm | 9/64" |
+| Recommended bolt | M4 | 8 |
+
+
+{{imageOverlay src="/assets/images/monitor-one/hole-dim.png" alt="Mounting bracket screw hole dimensions" class="full-width"}}
 
 
 ## Internal connectors
