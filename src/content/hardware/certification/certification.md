@@ -243,7 +243,7 @@ Additional FCC Test Reports:
 Cellular certification:
 
 - FCC ID: [2AEMI-BRN402](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=86FVMi%2FyRce7yQ4d9ekA2g%3D%3D&fcc_id=2AEMI-BRN402)
-- [Certificate of Conformity](/assets/pdfs/boron402-cellular-fcc.pdf) (updated 2021-12-03)
+- [Certificate of Conformity](/assets/pdfs/boron402-cellular-fcc.pdf) (updated 2022-10-24, wrong document was previously linked)
 
 NFC certification:
 
