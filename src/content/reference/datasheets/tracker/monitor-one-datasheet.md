@@ -11,7 +11,7 @@ description: Monitor One Datasheet
 {{downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Pre-release draft 2022-10-21. Do not distribute!**
+**Pre-release draft 2022-10-24 for review only. Do not distribute!**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change.
@@ -142,7 +142,7 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 Tracker M is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
 
 - Expansion card size: 50mm x 90mm (approximately 2" x 3.5")
-- Connector: 24-pin 0.1" headers (two, one on each long side)
+- Connectors: 24-pin 0.1" headers (two, one on each long side)
 - Male header pins on the bottom of expansion card
 - Attachment: 4 screws to standoffs (M3 screw recommended)
 

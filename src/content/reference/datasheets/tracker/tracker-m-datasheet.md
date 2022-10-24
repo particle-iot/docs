@@ -11,11 +11,18 @@ description: Tracker M Datasheet
 {{downloadButton url="/assets/pdfs/datasheets/tracker-m-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Pre-release draft 2022-10-21. Do not distribute!**
+**Pre-release draft 2022-10-24 for review only. Do not distribute!**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change. The Tracker M design has not been finalized so changes are likely.
 {{box op="end"}}
+
+
+The Tracker M will typically be used as a complete off-the-shelf design, like the Tracker One, particularly in micro-mobility and light electric vehicle applications. Unlike the Tracker One, it is a miniaturized set of circuit boards that are designed fit within your existing equipment enclosures. 
+
+
+
+
 
 
 
