@@ -17,7 +17,7 @@
         },
         {
           "title": "Cellular carriers",
-          "detail": "Carriers and country coverage for different Particledevices",
+          "detail": "Carriers and country coverage for different Particle devices",
           "href": "/reference/cellular/cellular-carriers/"
         },
         {
@@ -272,12 +272,14 @@
         {
           "dir": "monitor-one-datasheet",
           "title": "Monitor One Datasheet",
-          "href": "/reference/datasheets/tracker/monitor-one-datasheet/"
+          "href": "/reference/datasheets/tracker/monitor-one-datasheet/",
+          "hidden": true
         },
         {
           "dir": "tracker-m-datasheet",
           "title": "Tracker M Datasheet",
-          "href": "/reference/datasheets/tracker/tracker-m-datasheet/"
+          "href": "/reference/datasheets/tracker/tracker-m-datasheet/",
+          "hidden": true
         },
         {
           "dir": "tracker-m8-accessories",

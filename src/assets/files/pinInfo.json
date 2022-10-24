@@ -281,6 +281,7 @@
           "num": 38,
           "name": "CAN_N",
           "desc": "CAN Data- or CANL",
+          "can": "CAN_N",
           "isIO": true,
           "somPin": 64
         },
@@ -288,6 +289,7 @@
           "num": 39,
           "name": "CAN_P",
           "desc": "CAN Data+ or CANH",
+          "can": "CAN_P",
           "isIO": true,
           "somPin": 65
         },
@@ -295,6 +297,7 @@
           "num": 40,
           "name": "CAN_5V",
           "desc": "5V power out, 0.8A maximum. Can be controlled by software.",
+          "can": "CAN_5V",
           "isPower": true,
           "somPin": 66
         },
@@ -989,6 +992,7 @@
             157,
             208,
             209,
+            210,
             310,
             214,
             215,
@@ -1037,7 +1041,7 @@
         },
         {
           "num": 112,
-          "name": "A1",
+          "name": "P2_A1",
           "altName": "D12",
           "desc": "A1 Analog in, GPIO",
           "isIO": true,

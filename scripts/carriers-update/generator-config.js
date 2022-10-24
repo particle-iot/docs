@@ -1005,6 +1005,43 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'a3c5f7f2-c933-4f71-9936-6373090a5d7e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'can',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    noMCU: true
+                }); 
+            } 
+        },
+        {
+            guid:'eb58b0f8-264c-4d09-8a26-d653ddc84b5a', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'Monitor One Expansion',
+                    specialPinFn: function(num) {
+                        let pinNum = num;
+
+                        let prefix = '';
+                        if (pinNum <= 24) {
+                            prefix = 'Left ';
+                        }
+                        else {
+                            pinNum -= 24;
+                            prefix = 'Right ';
+                        }
+
+                        return prefix + pinNum.toString();
+                    },
+                }); 
+            } 
+        },
+
 
         // datasheets/tracker/tracker-m-datasheet.md
         {
@@ -1079,6 +1116,31 @@ const path = require('path');
                     noInterface: true,
                     noPinNumbers: true,
                     showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'8a89ce75-a226-4cba-8662-72930b0cac76', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'Tracker M Expansion',
+                    specialPinFn: function(num) {
+                        const hundreds = Math.floor(num / 100);
+                        const pinNum = num % 100;
+
+                        let prefix = '';
+                        switch(hundreds) {
+                            case 1:
+                                prefix = 'Left ';
+                                break;
+                            case 2:
+                                prefix = 'Right ';
+                                break;
+                        }
+
+                        return prefix + pinNum.toString();
+                    },
                 }); 
             } 
         },

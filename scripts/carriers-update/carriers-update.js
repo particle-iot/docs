@@ -1779,6 +1779,10 @@ const generatorConfig = require('./generator-config');
                 let rowData = Object.assign({}, pin);
                 rowData.pinName = getPinNameWithAlt(pin);
                 
+                if (options.specialPinFn) {
+                    rowData.num = options.specialPinFn(pin.num);
+                }
+
                 tableData.push(rowData);
             }
 
@@ -2292,10 +2296,13 @@ const generatorConfig = require('./generator-config');
                     title: 'SoM Pin'
                 });    
             }
-            tableOptions.columns.push({
-                key: 'hardwarePin',
-                title: 'MCU'
-            });
+            if (!options.noMCU) {
+                tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });    
+            }
+
             let tableData = [];
             for(const pin of pins) {
                 let rowData = Object.assign({}, pin);

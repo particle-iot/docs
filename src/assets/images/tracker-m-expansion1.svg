@@ -129,7 +129,7 @@ ADC_4    </text>
     <rect x="-149" y="-8" width="90" height="16" stroke="black" fill="#6D6E71" >
     </rect>
     <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
-A1    </text>
+P2_A1    </text>
     <line x1="-149" y1="0" x2="-153" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="-233" y="-8" width="80" height="16" stroke="black" fill="#98CD67" >

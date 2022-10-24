@@ -22,6 +22,11 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
+## Block Diagra
+
+{{imageOverlay src="/assets/images/monitor-one/block-diagram.png" alt="Block diagram" class="full-width"}}
+
+
 ## External Features
 
 {{imageOverlay src="/assets/images/monitor-one/post-corner-labeled.png" alt="External features" class="full-width"}}
@@ -33,10 +38,10 @@ The Monitor One is an off-the-shelf complete design, like the Tracker One. The M
 |  2 | GNSS antenna (internal) |
 |  3 | Cellular antenna (internal) |
 |  4 | External connectors (on bottom) |
-|  5 | Magnetic or screw-down mounting bracket |
+|  5 | Magnetic or bolt-down mounting bracket |
 |  6 | User RGB LEDs (2) |
 |  7 | User button (externally accessible) |
-
+|  8 | Wi-Fi geolocation antenna (internal) |
 
 ### User Button
 
@@ -97,7 +102,7 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 | Bolt/screw head maximum height | 4.0 mm | 5/32" |
 | Bolt/screw hole diameter | 4.33 mm | 11/64" |
 | Bolt/screw shaft to surface | 3.65 mm | 9/64" |
-| Recommended bolt | M4 | 8 |
+| Recommended bolt | M4 | #8 |
 
 
 {{imageOverlay src="/assets/images/monitor-one/hole-dim.png" alt="Mounting bracket screw hole dimensions" class="full-width"}}
@@ -129,12 +134,12 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 | 18 | Expansion card external connector #2 (M12) |
 | 19 | GNSS antenna SMA connector (external) |
 | 20 | Tracker SoM module |
-
+| 21 | Wi-Fi geolocation antenna (internal, not pictured) |
 
 
 ## Expansion card interface
 
-Unlike the Tracker One, the Tracker M is designed for expansion, with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
+Tracker M is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
 
 - Expansion card size: 2" x 3.5"
 - Connector: 24-pin 0.1" headers (two, one on each long side)
@@ -167,6 +172,7 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 - On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED temperature sensor. Pins A0 and A1 cannot be used as GPIO.
 - On the Monitor One, you should not use A2 and A3 as GPIO or analog inputs as they are used by the external user button and battery temperature thermistor.
+- All GPIO are 3.3V and are not 5V tolerant.
 
 ### ADC
 
@@ -216,9 +222,11 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-- On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED temperature sensor. Pins A0 and A1 cannot be used as GPIO.
-    - On the Monitor One (and Tracker SoM), `Wire` and `Wire3` are two different I2C peripherals and can be used at the same time.
+- On the Monitor One, pins A0 and A1 are used in I2C mode by the user RGB LED and temperature sensor. Pins A0 and A1 cannot be used as GPIO.
+- On the Monitor One (and Tracker SoM), `Wire` and `Wire3` are two different I2C peripherals and can be used at the same time.
 - On the Monitor One (and Tracker SoM), `Wire3` and `Serial1` share the same pins and only one can be used at a time.
+- I2C is 3.3V only and is not 5V tolerant.
+- There are 4.7K pull-up resistors on `TSOM_A0_SDA` and `TSOM_A1_SCL` to 3.3V on the base board.
 
 ### Serial (UART)
 
@@ -233,6 +241,9 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 {{!-- END do not edit content above, it is automatically generated --}}
 
 - On the Monitor One (and Tracker SoM), `Wire3` and `Serial1` share the same pins and only one can be used at a time.
+- Hardware flow control is not available on the Monitor One.
+- Serial pins are 3.3V only and are not 5V tolerant. 
+- Additional interface chips are required for other serial standards such as RS232 and RS485.
 
 ### PWM
 
@@ -255,12 +266,89 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 - On the Monitor One, you should not use A2 and A3 as PWM outputs as they are used by the external user button and battery temperature thermistor.
 - All pins on the same hardware timer (PWM0, PWM1, or PWM2) must share the same frequency but can have different duty cycles.
 
+
+### CAN
+
+{{!-- BEGIN do not edit content below, it is automatically generated a3c5f7f2-c933-4f71-9936-6373090a5d7e --}}
+
+| Pin Name | Description | Interface | SoM Pin |
+| :--- | :--- | :--- | :--- |
+| CAN_N | CAN Data- or CANL | CAN_N | 64 |
+| CAN_P | CAN Data+ or CANH | CAN_P | 65 |
+| CAN_5V | 5V power out, 0.8A maximum. Can be controlled by software. | CAN_5V | 66 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+The CAN transceiver is included on the Tracker SoM. However if you implement CAN on your expansion card, you will probably want to protection circuitry; this is done way to do it, and is the same design used on the Tracker One.
+
+{{imageOverlay src="/assets/images/monitor-one/can-schematic.png" alt="CAN schematic" class="full-width"}}
+
+Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, these provide the 120 ohm CAN termination, if you need it in your design.
+
 ### M12 8-pin expansion connector
 
 One recommended option for connecting your Monitor One to external devices is using 
 
 M12 8-pin female, panel mount connector to B8B-PH female
 
+### All expansion card pins
+
+{{!-- BEGIN do not edit content below, it is automatically generated eb58b0f8-264c-4d09-8a26-d653ddc84b5a --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :--- |
+| Left 1 | GNSS_PULSE | GNSS time pulse output. Can be used for a GPS fix LED. | &nbsp; |
+| Left 2 | NC | &nbsp; | &nbsp; |
+| Left 3 | NC | &nbsp; | &nbsp; |
+| Left 4 | NC | &nbsp; | &nbsp; |
+| Left 5 | NC | &nbsp; | &nbsp; |
+| Left 6 | NC | &nbsp; | &nbsp; |
+| Left 7 | NC | &nbsp; | &nbsp; |
+| Left 8 | NC | &nbsp; | &nbsp; |
+| Left 9 | NFC2_VIN_EN | VIN enable | P0.10 |
+| Left 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.9 |
+| Left 11 | TSOM_MODE | MODE button (active low) | P1.13 |
+| Left 12 | TSOM_RESET | RESET button (active low) | P0.8 |
+| Left 13 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | P0.5 |
+| Left 14 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | P0.4 |
+| Left 15 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | P0.29 |
+| Left 16 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | P0.29 |
+| Left 17 | GND | Ground. | &nbsp; |
+| Left 18 | 3V3 | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. | &nbsp; |
+| Left 19 | RUN | Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN. | &nbsp; |
+| Left 20 | PGOOD | LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation. | &nbsp; |
+| Left 21 | GND | Ground. | &nbsp; |
+| Left 22 | GND | Ground. | &nbsp; |
+| Left 23 | VIN | Power input, 6 - 90 VDC | &nbsp; |
+| Left 24 | VIN | Power input, 6 - 90 VDC | &nbsp; |
+| Right 1 | LI+ | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. | &nbsp; |
+| Right 2 | GND | Ground. | &nbsp; |
+| Right 3 | TSOM_USB_VBUS | nRF52 USB power input. Can be used as a 5V power supply instead of VIN. | &nbsp; |
+| Right 4 | GND | Ground. | &nbsp; |
+| Right 5 | TSOM_VIN | Tracker SoM power input 5V-12V DC. | &nbsp; |
+| Right 6 | GND | Ground. | &nbsp; |
+| Right 7 | 5V | 5V power output when powered by VIN or USB | &nbsp; |
+| Right 8 | GND | Ground. | &nbsp; |
+| Right 9 | TSOM_A0_SDA / D0 | Wire SDA | P0.03 |
+| Right 10 | TSOM_A1_SCL / D1 | Wire SCL | P0.02 |
+| Right 11 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | P0.28 |
+| Right 12 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | P0.30 |
+| Right 13 | GND | Ground. | &nbsp; |
+| Right 14 | CAN_N | CAN Data- or CANL | &nbsp; |
+| Right 15 | CAN_P | CAN Data+ or CANH | &nbsp; |
+| Right 16 | CAN_5V | 5V power out, 0.8A maximum. Can be controlled by software. | &nbsp; |
+| Right 17 | GND | Ground. | &nbsp; |
+| Right 18 | TSOM_USB_N | nRF52 MCU USB interface D-. | &nbsp; |
+| Right 19 | TSOM_USB_P | nRF52 MCU USB interface D+. | &nbsp; |
+| Right 20 | GND | Ground. | &nbsp; |
+| Right 21 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | P0.8 |
+| Right 22 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | P0.06 |
+| Right 23 | RTC_BAT | RTC/Watchdog battery +. Connect to GND if not using. | &nbsp; |
+| Right 24 | RTC_EXTI | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3. | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
 
 
 ### GPIO and Ports vs. Tracker One
