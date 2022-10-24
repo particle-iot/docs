@@ -266,7 +266,6 @@ This connects to the LiPo battery pack and battery thermistor.
 | Right 58 | VIN | &nbsp; | &nbsp; |
 | Right 59 | VIN | &nbsp; | &nbsp; |
 | Right 60 | VIN | &nbsp; | &nbsp; |
-| 10 | GND | Ground. | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

@@ -1024,20 +1024,6 @@ const path = require('path');
                 return updater.generatePinInfo({
                     style: 'modulePins',
                     platformNew: 'Monitor One Expansion',
-                    specialPinFn: function(num) {
-                        let pinNum = num;
-
-                        let prefix = '';
-                        if (pinNum <= 24) {
-                            prefix = 'Left ';
-                        }
-                        else {
-                            pinNum -= 24;
-                            prefix = 'Right ';
-                        }
-
-                        return prefix + pinNum.toString();
-                    },
                 }); 
             } 
         },

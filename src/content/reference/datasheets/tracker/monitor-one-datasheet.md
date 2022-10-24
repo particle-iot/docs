@@ -22,12 +22,12 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
-## Block Diagra
+## Block diagram
 
 {{imageOverlay src="/assets/images/monitor-one/block-diagram.png" alt="Block diagram" class="full-width"}}
 
 
-## External Features
+## External features
 
 {{imageOverlay src="/assets/images/monitor-one/post-corner-labeled.png" alt="External features" class="full-width"}}
 
@@ -43,7 +43,7 @@ The Monitor One is an off-the-shelf complete design, like the Tracker One. The M
 |  7 | User button (externally accessible) |
 |  8 | Wi-Fi geolocation antenna (internal) |
 
-### User Button
+### User button
 
 A waterproof button is available from the outside of the enclosure.
 
@@ -141,15 +141,19 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 
 Tracker M is designed with easy-to-use expansion headers and an enclosure with sufficient space inside for an expansion card, and for additional expansion connector through the wall of enclosure.
 
-- Expansion card size: 2" x 3.5"
+- Expansion card size: 50mm x 90mm (approximately 2" x 3.5")
 - Connector: 24-pin 0.1" headers (two, one on each long side)
 - Male header pins on the bottom of expansion card
-- Attachment: 4 screw holes to standoffs
+- Attachment: 4 screws to standoffs (M3 screw recommended)
 
 Pre-built expansion cards will be available, including a prototyping breadboard expansion card. You can also design and fabricate your own.
 
 
 {{imageOverlay src="/assets/images/monitor-one-expansion.svg" alt="Expansion card pinout" class="full-width"}}
+
+### Expansion card dimensions
+
+{{imageOverlay src="/assets/images/monitor-one/expansion-dim.png" alt="Expansion card dimensions" class="full-width"}}
 
 
 ### GPIO
@@ -298,65 +302,104 @@ M12 8-pin female, panel mount connector to B8B-PH female
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| Left 1 | GNSS_PULSE | GNSS time pulse output. Can be used for a GPS fix LED. | &nbsp; |
-| Left 2 | NC | &nbsp; | &nbsp; |
-| Left 3 | NC | &nbsp; | &nbsp; |
-| Left 4 | NC | &nbsp; | &nbsp; |
-| Left 5 | NC | &nbsp; | &nbsp; |
-| Left 6 | NC | &nbsp; | &nbsp; |
-| Left 7 | NC | &nbsp; | &nbsp; |
-| Left 8 | NC | &nbsp; | &nbsp; |
-| Left 9 | NFC2_VIN_EN | VIN enable | P0.10 |
-| Left 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.9 |
-| Left 11 | TSOM_MODE | MODE button (active low) | P1.13 |
-| Left 12 | TSOM_RESET | RESET button (active low) | P0.8 |
-| Left 13 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | P0.5 |
-| Left 14 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | P0.4 |
-| Left 15 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | P0.29 |
-| Left 16 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | P0.29 |
-| Left 17 | GND | Ground. | &nbsp; |
-| Left 18 | 3V3 | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. | &nbsp; |
-| Left 19 | RUN | Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN. | &nbsp; |
-| Left 20 | PGOOD | LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation. | &nbsp; |
-| Left 21 | GND | Ground. | &nbsp; |
-| Left 22 | GND | Ground. | &nbsp; |
-| Left 23 | VIN | Power input, 6 - 90 VDC | &nbsp; |
-| Left 24 | VIN | Power input, 6 - 90 VDC | &nbsp; |
-| Right 1 | LI+ | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. | &nbsp; |
-| Right 2 | GND | Ground. | &nbsp; |
-| Right 3 | TSOM_USB_VBUS | nRF52 USB power input. Can be used as a 5V power supply instead of VIN. | &nbsp; |
-| Right 4 | GND | Ground. | &nbsp; |
-| Right 5 | TSOM_VIN | Tracker SoM power input 5V-12V DC. | &nbsp; |
-| Right 6 | GND | Ground. | &nbsp; |
-| Right 7 | 5V | 5V power output when powered by VIN or USB | &nbsp; |
-| Right 8 | GND | Ground. | &nbsp; |
-| Right 9 | TSOM_A0_SDA / D0 | Wire SDA | P0.03 |
-| Right 10 | TSOM_A1_SCL / D1 | Wire SCL | P0.02 |
-| Right 11 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | P0.28 |
-| Right 12 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | P0.30 |
-| Right 13 | GND | Ground. | &nbsp; |
-| Right 14 | CAN_N | CAN Data- or CANL | &nbsp; |
-| Right 15 | CAN_P | CAN Data+ or CANH | &nbsp; |
-| Right 16 | CAN_5V | 5V power out, 0.8A maximum. Can be controlled by software. | &nbsp; |
-| Right 17 | GND | Ground. | &nbsp; |
-| Right 18 | TSOM_USB_N | nRF52 MCU USB interface D-. | &nbsp; |
-| Right 19 | TSOM_USB_P | nRF52 MCU USB interface D+. | &nbsp; |
-| Right 20 | GND | Ground. | &nbsp; |
-| Right 21 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | P0.8 |
-| Right 22 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | P0.06 |
-| Right 23 | RTC_BAT | RTC/Watchdog battery +. Connect to GND if not using. | &nbsp; |
-| Right 24 | RTC_EXTI | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3. | &nbsp; |
+| 1 | GNSS_PULSE | GNSS time pulse output. Can be used for a GPS fix LED. | &nbsp; |
+| 2 | NC | &nbsp; | &nbsp; |
+| 3 | NC | &nbsp; | &nbsp; |
+| 4 | NC | &nbsp; | &nbsp; |
+| 5 | NC | &nbsp; | &nbsp; |
+| 6 | NC | &nbsp; | &nbsp; |
+| 7 | NC | &nbsp; | &nbsp; |
+| 8 | NC | &nbsp; | &nbsp; |
+| 9 | NFC2_VIN_EN | VIN enable | P0.10 |
+| 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.9 |
+| 11 | TSOM_MODE | MODE button (active low) | P1.13 |
+| 12 | TSOM_RESET | RESET button (active low) | P0.8 |
+| 13 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | P0.5 |
+| 14 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | P0.4 |
+| 15 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | P0.29 |
+| 16 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | P0.29 |
+| 17 | GND | Ground. | &nbsp; |
+| 18 | 3V3 | 3.3V out, 1000 mA maximum including nRF52 and other peripherals. | &nbsp; |
+| 19 | RUN | Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN. | &nbsp; |
+| 20 | PGOOD | LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation. | &nbsp; |
+| 21 | GND | Ground. | &nbsp; |
+| 22 | GND | Ground. | &nbsp; |
+| 23 | VIN | Power input, 6 - 90 VDC | &nbsp; |
+| 24 | VIN | Power input, 6 - 90 VDC | &nbsp; |
+| 25 | LI+ | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. | &nbsp; |
+| 26 | GND | Ground. | &nbsp; |
+| 27 | TSOM_USB_VBUS | nRF52 USB power input. Can be used as a 5V power supply instead of VIN. | &nbsp; |
+| 28 | GND | Ground. | &nbsp; |
+| 29 | TSOM_VIN | Tracker SoM power input 5V-12V DC. | &nbsp; |
+| 30 | GND | Ground. | &nbsp; |
+| 31 | 5V | 5V power output when powered by VIN or USB | &nbsp; |
+| 32 | GND | Ground. | &nbsp; |
+| 33 | TSOM_A0_SDA / D0 | Wire SDA | P0.03 |
+| 34 | TSOM_A1_SCL / D1 | Wire SCL | P0.02 |
+| 35 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | P0.28 |
+| 36 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | P0.30 |
+| 37 | GND | Ground. | &nbsp; |
+| 38 | CAN_N | CAN Data- or CANL | &nbsp; |
+| 39 | CAN_P | CAN Data+ or CANH | &nbsp; |
+| 40 | CAN_5V | 5V power out, 0.8A maximum. Can be controlled by software. | &nbsp; |
+| 41 | GND | Ground. | &nbsp; |
+| 42 | TSOM_USB_N | nRF52 MCU USB interface D-. | &nbsp; |
+| 43 | TSOM_USB_P | nRF52 MCU USB interface D+. | &nbsp; |
+| 44 | GND | Ground. | &nbsp; |
+| 45 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | P0.8 |
+| 46 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | P0.06 |
+| 47 | RTC_BAT | RTC/Watchdog battery +. Connect to GND if not using. | &nbsp; |
+| 48 | RTC_EXTI | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3. | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
 
+### I/O Characteristics
+
+The GPIO pins on the expansion connector have the following specifications, from the nRF52840 datasheet:
+
+| Symbol | Parameter | Min | Typ | Max | Unit |
+| :---------|:-------|:---:|:---:|:---:|:---: |
+| VIH | Input high voltage | 0.7 xVDD |  | VDD | V |
+| VIL | Input low voltage | VSS |  | 0.3 xVDD | V | 
+| VOH,SD | Output high voltage, standard drive, 0.5 mA, VDD ≥1.7 | VDD - 0.4 |  | VDD | V | 
+| VOH,HDH | Output high voltage, high drive, 5 mA, VDD >= 2.7 V | VDD - 0.4 |  | VDD | V | 
+| VOH,HDL | Output high voltage, high drive, 3 mA, VDD >= 1.7 V  | VDD - 0.4 |  | VDD | V | 
+| VOL,SD | Output low voltage, standard drive, 0.5 mA, VDD ≥1.7 | VSS |  | VSS + 0.4 | V | 
+| VOL,HDH | Output low voltage, high drive, 5 mA, VDD >= 2.7 V | VSS |  | VSS + 0.4 | V | 
+| VOL,HDL | Output low voltage, high drive,3 mA, VDD >= 1.7 V | VSS  |  | VSS + 0.4 | V |  
+| IOL,SD | Current at VSS+0.4 V, output set low, standard drive, VDD≥1.7 | 1 | 2 | 4 | mA | 
+| IOL,HDH | Current at VSS+0.4 V, output set low, high drive, VDD >= 2.7V | 6 | 10 | 15 | mA | 
+| IOL,HDL | Current at VSS+0.4 V, output set low, high drive, VDD >= 1.7V | 3 |  |  | mA | 
+| IOH,SD | Current at VDD-0.4 V, output set high, standard drive, VDD≥1.7 | 1 | 2 | 4 | mA | 
+| IOH,HDH | Current at VDD-0.4 V, output set high, high drive, VDD >= 2.7V | 6 | 9 | 14 | mA | 
+| IOH,HDL | Current at VDD-0.4 V, output set high, high drive, VDD >= 1.7V | 3 |  |  | mA | 
+| RPU | Pull-up resistance | 11 | 13 | 16 | kΩ | 
+| RPD | Pull-down resistance | 11 | 13 | 16 | kΩ | 
+
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/api/input-output/pinsetdrivestrength/) function.
+
+### GPIO and port leakage current warning
+
+Be careful when you are connecting GPIO or ports such as serial that may have power when the Monitor One is not powered, such as when using shipping mode.
+
+If you have current flowing into GPIO or ports of the nRF52840 when it is powered down, it can cause it to enter a state where it cannot be reawaked without removing all power from it, including the internal LiPo battery. This may be difficult if you've sealed your Monitor One enclosure.
+
+The Tracker One has a [TI TS3A5018 Quad SPDT Analog Switch](/assets/datasheets/ts3a5018.pdf) on the three GPIO pins (A3, D9/RX/SDA, D8/TX/SCL) to prevent this. The switch is normally open, and is closed when the `CAN_5V` is powered. By default, Tracker Edge enables `CAN_5V` when in normal operating mode and turns it off during sleep, however this behavior can be changed by using `enableIoCanPower()` and `enableIoCanPowerSleep()` in the `TrackerConfiguration` object.
+
+The Tracker One circuit looks like this, and you may want to implement something similar if you are in a scenario where you have externally powered peripherals.
+
+![](/assets/images/tracker/tracker-io-schematic.png)
+
+This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
+
 ### GPIO and Ports vs. Tracker One
 
 | Pin   | Monitor One | Tracker One |
 | :---: | :---: | :---: |
-| A0    | I2C SDA<sup>1</sup | Internal Thermistor |
-| A1    | I2C SCL<sup>1</sup | User Button (not accessible) |
+| A0    | I2C SDA<sup>1</sup> | Internal Thermistor |
+| A1    | I2C SCL<sup>1</sup> | User Button (not accessible) |
 | A2    | External Button | GNSS lock indicator |
 | A3    | Battery Temperature | M8 Analog in, GPIO |
 | A4    | Analog in, GPIO, PWM, SPI MOSI<sup>1</sup> | Not available |
@@ -380,7 +423,7 @@ M12 8-pin female, panel mount connector to B8B-PH female
 | | Tracker SoM | Tracker M | Tracker One | Monitor One |
 | :--- | :---: | :---: | :---: | :---: |
 | Style | SMD Module | Module | All-in-one | All-in-one |
-| Enclosure | - | - | Included | Included |
+| Enclosure | Your design | Your design | Included | Included |
 | MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
 | CPU Speed | 60 MHz | 200 MHz | 60 MHz | 60 MHz |
 | Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
@@ -388,13 +431,16 @@ M12 8-pin female, panel mount connector to B8B-PH female
 | Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
 | GNSS Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
 | Cellular Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
+| Wi-Fi geolocation antenna | Your design | Int/Ext<sup>5</sup> | Internal | Internal |
+| BLE Antenna | Your design | Int/Ext<sup>5</sup>  | Internal | Internal<sup>4</sup> |
+| NFC Tag | Your design | n/a | Included | n/a |
 | USB Connector | Your design | Micro B | USB C | Micro B (Int)<sup>3</sup> |
 | System RGB LED | Your design | Included | Included | Included |
 | External user button | n/a | n/a | | &check; |
 | User RGB LEDs | | | | 2 |
 | SETUP and MODE buttons | Your design | On board | Inside Enclosure | Inside Enclosure |
 | External power | 3.9 - 17 VDC | 6 - 90 VDC | 6 - 30 VDC | 6 - 90 VDC |
-| SPI | &check; | Expansion card | | Expansion card |
+| SPI | &check; | Expansion card | n/a | Expansion card |
 | I2C | &check; | Expansion card | M8 | Expansion card |
 | Serial | &check; | Expansion card | M8 | Expansion card |
 | Internal temperature sensor | Your design | &check; | &check; | &check; |
@@ -403,20 +449,87 @@ M12 8-pin female, panel mount connector to B8B-PH female
 
 <sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
 
-<sup>2</sup>Both internal and external GNSS and cellular antennas are supported, however the antenna style must be decided in advance as there in no software antenna switch.
+<sup>2</sup>Both internal and external GNSS and cellular are supported, however the antenna style must be decided in advance as there in no software antenna switch.
 
 <sup>3</sup>There is no external MCU USB connector on the Monitor One.
+
+<sup>4</sup>The Monitor One uses the Tracker SoM BLE chip antenna on the board and does not include a separate BLE antenna, but one could be added using the BLE U.FL connector.
+
+<sup>5</sup>The Tracker M uses a shared antenna for BLE and Wi-Fi geolocation. You can use the built-in trace antenna or an external 2.4 GHz/5 GHz dual-band antenna, selectable in software.
+
 {{!-- END shared-blurb --}}
 
 
-### Dimensions
+
+## Mechanical specifications
+
+### Operating Temperature
+
+To be provided at a later date.
+
+
+### Dimensions and weight
 
 | Dimensions | Metric | SAE      |
 | :--------- | -----: |  ------: |
 | Width      | 121 mm |   4 3/4" |
 | Height     | 220 mm |   8 5/8" |
 | Depth      |  69 mm | 2 11/16" |
+| Weight     | 775 g  |  27.3 oz |
 
 {{imageOverlay src="/assets/images/monitor-one/front-dim.png" alt="Dimensions" class="full-width"}}
 
 {{imageOverlay src="/assets/images/monitor-one/side-dim.png" alt="Dimensions" class="full-width"}}
+
+### Power consumption
+
+To be provided at a later date.
+
+
+## Country compatibility
+
+To be provided at a later date.
+
+
+---
+
+## Ordering Information
+
+To be provided at a later date.
+
+
+
+---
+
+## Certification
+
+To be provided at a later date.
+
+
+## Product Handling
+
+### ESD Precautions
+
+The Monitor One contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
+
+### Battery Warning
+
+**CAUTION**
+
+RISK OF EXPLOSION IF BATTERY IS REPLACED BY AN INCORRECT TYPE.
+DISPOSE OF USED BATTERIES ACCORDING TO THE INSTRUCTIONS.
+
+### Disposal
+
+![WEEE](/assets/images/weee.png)
+
+This device must be treated as Waste Electrical & Electronic Equipment (WEEE) when disposed of.
+
+Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
+
+
+## Revision history
+
+| Date | Author | Comments |
+|:-----|:-------|:---------|
+| 2022-10-24 | RK | For internal review only |
