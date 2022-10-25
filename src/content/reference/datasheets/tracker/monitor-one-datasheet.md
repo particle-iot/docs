@@ -19,7 +19,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 {{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width"}}
 
-*The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and have other minor differences.*
+*The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
@@ -156,6 +156,39 @@ Pre-built expansion cards will be available, including a prototyping breadboard 
 
 {{imageOverlay src="/assets/images/monitor-one/expansion-dim.png" alt="Expansion card dimensions" class="full-width"}}
 
+### Expansion card location
+
+{{imageOverlay src="/assets/images/monitor-one/expansion-board-labeled.png" alt="Expansion card location" class="full-width"}}
+
+| Label | Feature |
+| :---: | :--- |
+| 14 | Expansion card to external connector cable (M8 to PHR8) |
+| 17 | Expansion card external connector #1 (M12, 8-pin) |
+| 22 | Location of expansion card (green outline) |
+
+The enclosure typically has a panel-mount M12 8 pin female connector in location 17 in the picture above. This is connected via a short cable to a PHR-8 female connector that attaches to your expansion card. The picture above shows the cable but a board is not installed in the picture.
+
+The functions of the pins on the M12 8-pin connector are dependent on your base board, but the following pinouts are recommended:
+
+| Conn P1 (M12) | Conn P2 (PHR-8) | Function | 
+| :---: | :---: | :--- |
+| 1 | 8 | |
+| 2 | 1 | VIN |
+| 3 | 3 | CAN_P |
+| 4 | 4 | CAN_N |
+| 5 | 5 |  |
+| 6 | 6 |  |
+| 7 | 7 |  |
+| 8 | 2 | Ground |
+| Round | Rectangular | |
+| Enclosure | Expansion Card | |
+
+{{imageOverlay src="/assets/images/monitor-one/m8-phr8-cable.png" alt="M8 to PHR-8 cable" class="full-width"}}
+
+Note: wire color may vary from this graphic.
+
+- Cable length: 75mm
+- Wire gauge: 24 AWG
 
 ### GPIO
 
@@ -290,12 +323,6 @@ The CAN transceiver is included on the Tracker SoM. However if you implement CAN
 {{imageOverlay src="/assets/images/monitor-one/can-schematic.png" alt="CAN schematic" class="full-width"}}
 
 Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, these provide the 120 ohm CAN termination, if you need it in your design.
-
-### M12 8-pin expansion connector
-
-One recommended option for connecting your Monitor One to external devices is using 
-
-M12 8-pin female, panel mount connector to B8B-PH female
 
 ### All expansion card pins
 

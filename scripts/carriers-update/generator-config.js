@@ -1139,10 +1139,10 @@ const path = require('path');
                         let prefix = '';
                         switch(hundreds) {
                             case 1:
-                                prefix = 'Left ';
+                                prefix = 'Top ';
                                 break;
                             case 2:
-                                prefix = 'Right ';
+                                prefix = 'Bot ';
                                 break;
                         }
 
