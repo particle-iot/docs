@@ -34,6 +34,16 @@ const svg = require('./svg');
 
         diagram.expandMorePins(diagram.platformInfo.pins);
 
+        if (options.pinIncludeFn) {
+            for(let ii = 0; ii < diagram.platformInfo.pins.length; ii++) {
+                if (!options.pinIncludeFn(diagram.platformInfo.pins[ii])) {
+                    // Remove
+                    diagram.platformInfo.pins.splice(ii, 1);
+                    ii--;
+                }
+            }
+        }
+
         if (options.removeLiPin) {
             for(let p of diagram.platformInfo.pins) {
                 if (p.name == 'LI+') {
@@ -1616,9 +1626,12 @@ const svg = require('./svg');
             height: 800,
             background: 'white',
             numAdjust: -200,
+            pinIncludeFn: function(pin) {
+                return pin.num >= 100 && pin.num < 300;
+            },
             pins: [
                 {   // Left side
-                    num: 201,
+                    num: 101,
                     x: 400,
                     y: 50,
                     numDelta: 1,

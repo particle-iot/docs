@@ -19,12 +19,13 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 {{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width"}}
 
+*The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and have other minor differences.*
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
 ## Block diagram
 
-{{imageOverlay src="/assets/images/monitor-one/block-diagram.png" alt="Block diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/block-diagram2.png" alt="Block diagram" class="full-width"}}
 
 
 ## External features

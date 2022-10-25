@@ -1448,9 +1448,19 @@ const generatorConfig = require('./generator-config');
             }
         } 
 
-        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
         if (!platformInfoNew) {
             return '';
+        }
+
+        if (options.pinIncludeFn) {
+            for(let ii = 0; ii < platformInfoNew.pins.length; ii++) {
+                if (!options.pinIncludeFn(platformInfoNew.pins[ii])) {
+                    // Remove
+                    platformInfoNew.pins.splice(ii, 1);
+                    ii--;
+                }
+            }
         }
 
         let platformInfoOld;

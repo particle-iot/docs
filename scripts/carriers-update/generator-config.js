@@ -1041,6 +1041,9 @@ const path = require('path');
                     noPinNumbers: true,
                     noInterface: true,
                     showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                 }); 
             } 
         },
@@ -1053,6 +1056,9 @@ const path = require('path');
                     interface: 'hardwareADC',
                     noPinNumbers: true,
                     showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                 }); 
             } 
         },
@@ -1065,6 +1071,9 @@ const path = require('path');
                     interface: 'spi',
                     noPinNumbers: true,
                     showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                 }); 
             } 
         },
@@ -1077,6 +1086,9 @@ const path = require('path');
                     interface: 'i2c',
                     noPinNumbers: true,
                     showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                 }); 
             } 
         },
@@ -1089,6 +1101,9 @@ const path = require('path');
                     interface: 'serial',
                     noPinNumbers: true,
                     showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                 }); 
             } 
         },
@@ -1102,6 +1117,9 @@ const path = require('path');
                     noInterface: true,
                     noPinNumbers: true,
                     showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                 }); 
             } 
         },
@@ -1111,6 +1129,9 @@ const path = require('path');
                 return updater.generatePinInfo({
                     style: 'modulePins',
                     platformNew: 'Tracker M Expansion',
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
                     specialPinFn: function(num) {
                         const hundreds = Math.floor(num / 100);
                         const pinNum = num % 100;

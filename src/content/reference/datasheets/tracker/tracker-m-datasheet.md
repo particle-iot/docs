@@ -21,37 +21,80 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 The Tracker M will typically be used as a complete off-the-shelf design, like the Tracker One, particularly in micro-mobility and light electric vehicle applications. Unlike the Tracker One, it is a miniaturized set of circuit boards that are designed fit within your existing equipment enclosures. 
 
 
+## Block diagram
+
+{{imageOverlay src="/assets/images/tracker-m/block-diagram.png" alt="Block diagram" class="full-width"}}
+
+The Tracker M module contains the following functional units:
+
+- P2 module (MCU, BLE, and Wi-Fi geolocation)
+- Cellular modem
+- GNSS (GPS) 
+- Fuel gauge (battery level monitoring)
+- PMIC (Power Management IC and charge controller)
+- Temperature sensor
+
+In most cases, you will use the standard expansion card which contains:
+
+- IMU (accelerometer)
+- CAN controller, transceiver, and protection circuity
+- MCU USB connector, for development and debugging
+- SWD debugging, for debugging and optionally for factory firmware flashing
+- RESET and MODE buttons
+- System RGB LED for troubleshooting
+- LiPo battery connector with battery thermistor
+- On-board GNSS antenna (optional)
+- External connections (listed below)
+
+The following antennas are available
+
+- Cellular (LTE)
+- GNSS (dual band, can be mounted on the expansion card, or external)
+- Wi-Fi geolocation and BLE
 
 
+## External connection
 
-
-
-## Expansion card connectors
-
-### 8-pin expansion connector
+The Tracker M is intended to connect to your equipment using the 8-pin external connection:
 
 | Pin   | Name | Description |
 | :---: | :--- | :--- |
 | 1     | GND  | Ground |
 | 2     | VIN  | 6 to 90 VDC |
 | 3     | CAN+ | CAN interface (+, P, or H) |
-| 4     | CAN- | Can interface (-, N, or L) |
+| 4     | CAN- | CAN interface (-, N, or L) |
 | 5     | FET  | Power control FET output |
 | 6     | GNSS_WHEEL | |
 | 7     | GNSS_DIR | |
 | 8     | GND  | Ground |
 
 
+Power is supplied by GND and VIN, from 6 to 90 VDC. It is acceptable to connect it directly to a vehicle power supply with no additional conditioning.
 
-### 3-pin battery connector
+The CAN (controller access network) interface can interact with other equipment with a CAN interface, or an engine control unit (ECU).
 
-This connects to the LiPo battery pack and battery thermistor.
+The FET output allows control of an external device. In a micromobility device, it might disable the motor, for example, or engage a locking device.
+
+The GNSS_WHEEL and GNSS_DIR are additional inputs to the dead reckoning support in the GNSS to allow for more accurate dead reckoning when there is no GNSS (GPS, etc.) or Wi-Fi geolocation signal. For example, in tunnels. While dead reckoning can be used only with the GNSS accelerometer, wheel motion sensors can improve accuracy.
 
 
+## Expansion card
+
+In most cases, you will use the standard expansion card. It is also possible to develop your own expansion card.
 
 {{imageOverlay src="/assets/images/tracker-m-expansion1.svg" alt="Expansion card pinout" class="full-width"}}
 
 {{imageOverlay src="/assets/images/tracker-m-expansion2.svg" alt="Expansion card pinout" class="full-width"}}
+
+The connectors on the Tracker M module are:
+
+| | Description |
+| :--- | :--- |
+| Manufacturer |  Hirose Electric Co. Ltd. |
+| Part Number | DF40C-60DP-0.4V(51) |
+| Description | 60 Position Connector Plug, Outer Shroud Contacts Surface Mount Gold |
+
+Note that the Tracker M is intended to be mounted on the bottom side of the expansion card, so the expansion card faces up and the Tracker M is on the bottom.
 
 
 ### GPIO

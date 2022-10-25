@@ -937,6 +937,79 @@
       "name": "Tracker M Expansion",
       "pins": [
         {
+          "num": 33,
+          "name": "P2_S6_CS2",
+          "desc": "CS Expander CS1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[31]",
+          "mcuPin": 65,
+          "p2pin": 33
+        },
+        {
+          "num": 44,
+          "name": "P2_S3_CS0",
+          "desc": "CS Expander CS0",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[26]",
+          "mcuPin": 63,
+          "p2pin": 44
+        },
+        {
+          "num": 45,
+          "name": "P2_D2_RTS",
+          "desc": "Serial2 RTS for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (RTS)|RTS. Use Serial2 object.",
+          "hardwarePin": "PA[16]",
+          "mcuPin": 29,
+          "p2pin": 45
+        },
+        {
+          "num": 48,
+          "name": "P2_S5_CS1",
+          "desc": "CS Expander CS1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[29]",
+          "mcuPin": 64,
+          "p2pin": 48
+        },
+        {
+          "num": 51,
+          "name": "P2_D3_CTS",
+          "desc": "Serial2 CTS for cellular modem",
+          "isIO": true,
+          "serial": "Serial2 (CTS)|CTS. Use Serial2 object.",
+          "hardwarePin": "PA[17]",
+          "mcuPin": 30,
+          "p2pin": 51
+        },
+        {
+          "num": 52,
+          "name": "P2_D4_TX",
+          "desc": "Serial2 TX for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (TX)|TX. Use Serial2 object.",
+          "hardwarePin": "PA[18]",
+          "mcuPin": 31,
+          "p2pin": 52
+        },
+        {
+          "num": 53,
+          "name": "P2_D5_RX",
+          "desc": "Serial2 RX for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (RX)|RX. Use Serial2 object.",
+          "hardwarePin": "PA[19]",
+          "mcuPin": 32,
+          "p2pin": 53
+        },
+        {
           "num": 101,
           "name": "GPB0",
           "desc": "IOEX GPB0, CAN_VDD_EN",
