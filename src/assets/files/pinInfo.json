@@ -1010,40 +1010,164 @@
           "p2pin": 53
         },
         {
+          "num": 71,
+          "name": "IOEX_RST",
+          "desc": "IOEX_RST, DEMUX Y1",
+          "isIO": true,
+          "demux": "Y1"
+        },
+        {
+          "num": 72,
+          "name": "IOEX_CS",
+          "desc": "IOEX_CS, DEMUX Y2",
+          "isIO": true,
+          "demux": "Y2"
+        },
+        {
+          "num": 80,
+          "name": "FUEL_INT",
+          "desc": "FUEL_INT, interrupt from battery fuel gauge, IOEX GPA0",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPA0"
+        },
+        {
+          "num": 81,
+          "name": "DCDC_EN",
+          "desc": "DCDC_EN, IOEX GPA1",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA1"
+        },
+        {
+          "num": 82,
+          "name": "GNSS_PWR_EN",
+          "desc": "GNSS_PWR_EN, IOEX GPA2",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA2"
+        },
+        {
+          "num": 83,
+          "name": "2V8_IO",
+          "desc": "2V8_IO_EN, IOEX GPA3",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA3"
+        },
+        {
+          "num": 84,
+          "name": "SHT_ALERT",
+          "desc": "SHT_ALERT, alert signal from temperature sensor, IOEX GPA4",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA4"
+        },
+        {
+          "num": 85,
+          "name": "GNSS_RST",
+          "desc": "GNSS_RST, IOEX GPA5",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA5"
+        },
+        {
+          "num": 86,
+          "name": "PGOOD",
+          "desc": "PGOOD, DCDC power good, IOEX GPA6",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPA6"
+        },
+        {
+          "num": 87,
+          "name": "P2_CELL_DTR",
+          "desc": "P2_CELL_DTR, IOEX GPA7",
+          "isIO": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA7"
+        },
+        {
+          "num": 94,
+          "name": "CELL_RST",
+          "desc": "CELL_RST, IOEX GPB4",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPB4"
+        },
+        {
+          "num": 95,
+          "name": "CELL_PWR",
+          "desc": "CELL_PWR, IOEX GPB5",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPB5"
+        },
+        {
+          "num": 96,
+          "name": "CELL_STATUS",
+          "desc": "CELL_STATUS, IOEX GPB6",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPB6"
+        },
+        {
+          "num": 97,
+          "name": "GNSS_GEOFENCE",
+          "desc": "GNSS_GEOFENCE, IOEX GPB7",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPB7"
+        },
+        {
           "num": 101,
-          "name": "GPB0",
-          "desc": "IOEX GPB0, CAN_VDD_EN",
+          "name": "CAN_VDD_EN",
+          "desc": "CAN_VDD_EN, CAN 5V supply enableIOEX GPB0",
           "isIO": true,
           "is5VTolerant": false,
-          "digitalRead": true,
-          "digitalWrite": true
+          "digitalWrite": true,
+          "ioex": "GPB0"
         },
         {
           "num": 102,
-          "name": "GPB1",
-          "desc": "IOEX GPB1, CAN_STBY",
+          "name": "CAN_STBY",
+          "desc": "CAN_STBY, IOEX GPB1",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
-          "digitalWrite": true
+          "digitalWrite": true,
+          "ioex": "GPB1"
         },
         {
           "num": 103,
-          "name": "GPB2",
-          "desc": "IOEX GPB2, CAN_INT",
+          "name": "CAN_INT",
+          "desc": "CAN_INT, interrupt from CAN controller, IOEX GPB2",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
-          "digitalWrite": true
+          "ioex": "GPB2"
         },
         {
           "num": 104,
-          "name": "GPB3",
-          "desc": "IOEX GPB3, SENSOR_INT1",
+          "name": "SENSOR_INT1",
+          "desc": "SENSOR_INT1, IOEX GPB3",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
-          "digitalWrite": true
+          "ioex": "GPB3"
         },
         {
           "num": 105,
@@ -1325,8 +1449,10 @@
           "num": 131,
           "name": "P2_VBAT_MEAS",
           "desc": "Battery voltage measurement (optional).",
-          "isPower": true,
-          "showInTable": false,
+          "isIO": true,
+          "is5VTolerant": false,
+          "analogRead": false,
+          "hardwareADC": "ADC_7",
           "mcuPin": 48,
           "p2pin": 12
         },
@@ -1377,27 +1503,32 @@
         {
           "num": 145,
           "name": "Y7",
-          "desc": "IMU Y7"
+          "desc": "IMU Y7",
+          "demux": "Y7"
         },
         {
           "num": 146,
           "name": "Y6",
-          "desc": "IMU Y6"
+          "desc": "IMU Y6",
+          "demux": "Y6"
         },
         {
           "num": 147,
           "name": "Y5",
-          "desc": "IMU Y5"
+          "desc": "IMU Y5",
+          "demux": "Y5"
         },
         {
           "num": 148,
           "name": "Y4",
-          "desc": "IMU Y4"
+          "desc": "IMU Y4",
+          "demux": "Y4"
         },
         {
           "num": 149,
           "name": "Y3",
-          "desc": "IMU Y3"
+          "desc": "IMU Y3",
+          "demux": "Y3"
         },
         {
           "num": 153,

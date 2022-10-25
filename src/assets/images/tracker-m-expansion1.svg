@@ -13,7 +13,7 @@
     <rect x="-149" y="-8" width="90" height="16" stroke="black" fill="#6D6E71" >
     </rect>
     <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
-GPB0    </text>
+CAN_VDD_EN    </text>
   </g>
   <g transform="translate(400,71) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -27,7 +27,7 @@ GPB0    </text>
     <rect x="-149" y="-8" width="90" height="16" stroke="black" fill="#6D6E71" >
     </rect>
     <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
-GPB1    </text>
+CAN_STBY    </text>
   </g>
   <g transform="translate(400,92) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -41,7 +41,7 @@ GPB1    </text>
     <rect x="-149" y="-8" width="90" height="16" stroke="black" fill="#6D6E71" >
     </rect>
     <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
-GPB2    </text>
+CAN_INT    </text>
   </g>
   <g transform="translate(400,113) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -55,7 +55,7 @@ GPB2    </text>
     <rect x="-149" y="-8" width="90" height="16" stroke="black" fill="#6D6E71" >
     </rect>
     <text x="-104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
-GPB3    </text>
+SENSOR_INT1    </text>
   </g>
   <g transform="translate(400,134) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >
@@ -462,12 +462,12 @@ Serial1 (TX)    </text>
     </rect>
     <text x="104" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 P2_VBAT_MEAS    </text>
-    <line x1="149" y1="0" x2="153" y2="0" stroke="black" stroke-width="1" >
+    <line x1="149" y1="0" x2="237" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="153" y="-8" width="80" height="16" stroke="black" fill="#CE3234" >
+    <rect x="237" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
     </rect>
-    <text x="193" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
-P2_VBAT_MEAS    </text>
+    <text x="264.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+ADC_7    </text>
   </g>
   <g transform="translate(450,638) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >

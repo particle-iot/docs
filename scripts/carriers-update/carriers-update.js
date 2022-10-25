@@ -1448,19 +1448,26 @@ const generatorConfig = require('./generator-config');
             }
         } 
 
+        const sortTableData = function(tableData) {
+            if (options.tableSortFn) {
+                tableData.sort(options.tableSortFn);
+            }    
+        }
+
         let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
         if (!platformInfoNew) {
             return '';
         }
+        platformInfoNew = Object.assign({}, platformInfoNew);
 
         if (options.pinIncludeFn) {
+            let tempPins = [];
             for(let ii = 0; ii < platformInfoNew.pins.length; ii++) {
-                if (!options.pinIncludeFn(platformInfoNew.pins[ii])) {
-                    // Remove
-                    platformInfoNew.pins.splice(ii, 1);
-                    ii--;
+                if (options.pinIncludeFn(platformInfoNew.pins[ii])) {
+                    tempPins.push(platformInfoNew.pins[ii]);
                 }
             }
+            platformInfoNew.pins = tempPins;
         }
 
         let platformInfoOld;
@@ -1795,6 +1802,8 @@ const generatorConfig = require('./generator-config');
 
                 tableData.push(rowData);
             }
+
+            sortTableData(tableData);
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -2246,6 +2255,7 @@ const generatorConfig = require('./generator-config');
                 }
 
             }
+            sortTableData(tableData);
         
 
             md += updater.generateTable(tableOptions, tableData);
@@ -2306,6 +2316,12 @@ const generatorConfig = require('./generator-config');
                     title: 'SoM Pin'
                 });    
             }
+            if (options.showP2pin) {
+                tableOptions.columns.push({
+                    key: 'p2pin',
+                    title: 'P2 Pin'
+                });    
+            }
             if (!options.noMCU) {
                 tableOptions.columns.push({
                     key: 'hardwarePin',
@@ -2321,6 +2337,7 @@ const generatorConfig = require('./generator-config');
                 
                 tableData.push(rowData);
             }
+            sortTableData(tableData);
 
             md += updater.generateTable(tableOptions, tableData);
         }

@@ -103,10 +103,8 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
-| GPB0 | IOEX GPB0, CAN_VDD_EN | &nbsp; | &nbsp; |
-| GPB1 | IOEX GPB1, CAN_STBY | &nbsp; | &nbsp; |
-| GPB2 | IOEX GPB2, CAN_INT | &nbsp; | &nbsp; |
-| GPB3 | IOEX GPB3, SENSOR_INT1 | &nbsp; | &nbsp; |
+| CAN_VDD_EN | CAN_VDD_EN, CAN 5V supply enableIOEX GPB0 | &nbsp; | &nbsp; |
+| CAN_STBY | CAN_STBY, IOEX GPB1 | &nbsp; | &nbsp; |
 | P2_A0 / D11 | A0 Analog in, GPIO | &nbsp; | PB[1] |
 | P2_A1 / D12 | A1 Analog in, GPIO | &nbsp; | PB[2] |
 | P2_A2 / D13 | A2 Analog in, PWM, GPIO | &nbsp; | PB[7] |
@@ -208,10 +206,10 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| Left 1 | GPB0 | IOEX GPB0, CAN_VDD_EN | &nbsp; |
-| Left 2 | GPB1 | IOEX GPB1, CAN_STBY | &nbsp; |
-| Left 3 | GPB2 | IOEX GPB2, CAN_INT | &nbsp; |
-| Left 4 | GPB3 | IOEX GPB3, SENSOR_INT1 | &nbsp; |
+| Left 1 | CAN_VDD_EN | CAN_VDD_EN, CAN 5V supply enableIOEX GPB0 | &nbsp; |
+| Left 2 | CAN_STBY | CAN_STBY, IOEX GPB1 | &nbsp; |
+| Left 3 | CAN_INT | CAN_INT, interrupt from CAN controller, IOEX GPB2 | &nbsp; |
+| Left 4 | SENSOR_INT1 | SENSOR_INT1, IOEX GPB3 | &nbsp; |
 | Left 5 | GND | Ground. | &nbsp; |
 | Left 10 | GND | Ground. | &nbsp; |
 | Left 11 | P2_A0 / D11 | A0 Analog in, GPIO | PB[1] |
@@ -319,3 +317,93 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 
 
 {{!-- END do not edit content above, it is automatically generated --}}
+
+
+
+### I/O Expander (IOEX)
+
+The large number of peripheral chips on the Tracker M exceed the number of available GPIO on the P2. A MCP23S17 SPI I/O Expander is used to provide 16 additional GPIO pins. These can be accessed using the standard `digitalRead()` and `digitalWrite()` Device OS API calls.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 474c33ef-b42d-40a3-af86-ddbb3e26bcaf --}}
+
+| Pin Name | Description | Interface |
+| :--- | :--- | :--- |
+| FUEL_INT | FUEL_INT, interrupt from battery fuel gauge, IOEX GPA0 | GPA0 |
+| DCDC_EN | DCDC_EN, IOEX GPA1 | GPA1 |
+| GNSS_PWR_EN | GNSS_PWR_EN, IOEX GPA2 | GPA2 |
+| 2V8_IO | 2V8_IO_EN, IOEX GPA3 | GPA3 |
+| SHT_ALERT | SHT_ALERT, alert signal from temperature sensor, IOEX GPA4 | GPA4 |
+| GNSS_RST | GNSS_RST, IOEX GPA5 | GPA5 |
+| PGOOD | PGOOD, DCDC power good, IOEX GPA6 | GPA6 |
+| P2_CELL_DTR | P2_CELL_DTR, IOEX GPA7 | GPA7 |
+| CAN_VDD_EN | CAN_VDD_EN, CAN 5V supply enableIOEX GPB0 | GPB0 |
+| CAN_STBY | CAN_STBY, IOEX GPB1 | GPB1 |
+| CAN_INT | CAN_INT, interrupt from CAN controller, IOEX GPB2 | GPB2 |
+| SENSOR_INT1 | SENSOR_INT1, IOEX GPB3 | GPB3 |
+| CELL_RST | CELL_RST, IOEX GPB4 | GPB4 |
+| CELL_PWR | CELL_PWR, IOEX GPB5 | GPB5 |
+| CELL_STATUS | CELL_STATUS, IOEX GPB6 | GPB6 |
+| GNSS_GEOFENCE | GNSS_GEOFENCE, IOEX GPB7 | GPB7 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+
+
+### CS DEMUX
+
+The large number of SPI peripherals on the Tracker M and expansion card exceed the number of available GPIO on the P2.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 646ae9fe-b07b-4b5b-8184-fba1cab1fdee --}}
+
+| Pin Name | Description | Interface |
+| :--- | :--- | :--- |
+| IOEX_RST | IOEX_RST, DEMUX Y1 | Y1 |
+| IOEX_CS | IOEX_CS, DEMUX Y2 | Y2 |
+| Y3 | IMU Y3 | Y3 |
+| Y4 | IMU Y4 | Y4 |
+| Y5 | IMU Y5 | Y5 |
+| Y6 | IMU Y6 | Y6 |
+| Y7 | IMU Y7 | Y7 |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
+### MCU pin listing
+
+{{!-- BEGIN do not edit content below, it is automatically generated 3ca6e91c-b5bc-4f7d-9442-160b6c08b235 --}}
+
+| Pin Name | Description | P2 Pin | MCU |
+| :--- | :--- | :--- | :--- |
+| P2_A0 / D11 | A0 Analog in, GPIO | 50 | PB[1] |
+| P2_A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
+| P2_A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
+| P2_A5_FET_CONTROL / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
+| P2_D0_SDA | I2C SDA | 36 | PB[6] |
+| P2_D1_SCL | I2C SCL | 35 | PB[5] |
+| P2_D2_RTS | Serial2 RTS for cellular modem | 45 | PA[16] |
+| P2_D3_CTS | Serial2 CTS for cellular modem | 51 | PA[17] |
+| P2_D4_TX | Serial2 TX for cellular modem | 52 | PA[18] |
+| P2_D5_RX | Serial2 RX for cellular modem | 53 | PA[19] |
+| P2_D6_SWDCLK | D6 GPIO, SWCLK | 55 | PB[3] |
+| P2_D7_SWDIO | D7 GPIO, SWDIO | 54 | PA[27] |
+| P2_MODE | MODE button. Pin number constant is BTN. Pull low when button is pressed. | 46 | PA[4] |
+| P2_RESET | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | 34 | CHIP_EN |
+| P2_RGB_B | RGB LED Blue | 31 | PB[22] |
+| P2_RGB_G | RGB LED Green | 32 | PB[23] |
+| P2_RGB_R | RGB LED Red | 29 | PA[30] |
+| P2_RX/D9 / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
+| P2_S0_SDO / D15 | S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX. | 40 | PA[12] |
+| P2_S1_SDI / D16 | S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX. | 41 | PA[13] |
+| P2_S2_SCK / D17 | S2 GPIO, SPI SCK | 42 | PA[14] |
+| P2_S3_CS0 | CS Expander CS0 | 44 | PB[26] |
+| P2_S5_CS1 | CS Expander CS1 | 48 | PB[29] |
+| P2_S6_CS2 | CS Expander CS1 | 33 | PB[31] |
+| P2_TX/D8 / D8 | Serial1 TX (transmitted data), GPIO | 64 | PA[7] |
+| P2_USB_N | MCU USB Data- | 62 | PA[25] |
+| P2_USB_P | MCU USB Data+ | 61 | PA[26] |
+| P2_VBAT_MEAS | Battery voltage measurement (optional). | 12 | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+

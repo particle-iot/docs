@@ -1151,6 +1151,58 @@ const path = require('path');
                 }); 
             } 
         },
+        {
+            guid:'474c33ef-b42d-40a3-af86-ddbb3e26bcaf',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'ioex',
+                    noPinNumbers: true,
+                    showSomPin: false,
+                    noMCU: true,
+                    tableSortFn: function(a, b) {
+                        return a.ioex.localeCompare(b.ioex);
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'646ae9fe-b07b-4b5b-8184-fba1cab1fdee',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'demux',
+                    noPinNumbers: true,
+                    showSomPin: false,
+                    noMCU: true,
+                    tableSortFn: function(a, b) {
+                        return a.demux.localeCompare(b.demux);
+                    },
+                }); 
+            } 
+        },
+        {
+            guid: '3ca6e91c-b5bc-4f7d-9442-160b6c08b235',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({ // MCU pins
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'mcuPin',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    showP2pin: true,
+                    tableSortFn: function(a, b) {
+                        return a.name.localeCompare(b.name);
+                    },
+                }); 
+            } 
+        },
+
+
+        
+        
 
         // datasheets/wi-fi/p2-photon-migration-guide.md
         {
