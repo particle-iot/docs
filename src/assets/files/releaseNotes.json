@@ -24908,6 +24908,539 @@
             "published_at": "2014-03-25T21:52:53Z",
             "entries": [],
             "prs": []
+        },
+        "v4.0.1-rc.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v4.0.1-rc.1",
+            "tag_name": "v4.0.1-rc.1",
+            "name": "v4.0.1-rc.1 (Argon/Boron/B SoM/B5 SoM/Tracker/E SoM X)",
+            "prerelease": true,
+            "created_at": "2022-10-25T04:11:17Z",
+            "published_at": "2022-10-26T17:05:02Z",
+            "entries": [
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2536
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "ApplicationWatchdog: fixes potential 2x timeout required to fire"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2538
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix BLE control request channel sending malformed packets"
+                },
+                {
+                    "tags": [],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "Fix issue with platform_ncp_get_info(0) for quectel platforms [#2532](https://github.com/particle-iot/device-os/pull/2532/)"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2530
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Secures DCT initialization from getting interrupted between creating DCT file and filling it with 0xff to default state"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2543
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Use new `prtcl` compile/clean commands for internal CI builds"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2545
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Increase timeouts for internal CI builds on windows"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2540
+                    ],
+                    "section": "INTERNAL",
+                    "text": "HAL wiring api calls to access exflash read/write functions for OTP flash page"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2539
+                    ],
+                    "section": "INTERNAL",
+                    "text": "wifi: add generic 'world' country code as not every country code is exposed through API"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2446
+                    ],
+                    "section": "BREAKING CHANGES",
+                    "text": "Deprecate/remove the PRODUCT_ID macro . Users may now use the same binary for multiple Products that share the same device Platform and Functionality. Including this macro will cause a build error and show the following message:"
+                },
+                {
+                    "tags": [
+                        "deprecation",
+                        "gen2"
+                    ],
+                    "prs": [
+                        2442
+                    ],
+                    "section": "DEPRECATION",
+                    "text": "supply secure"
+                },
+                {
+                    "tags": [
+                        "deprecation"
+                    ],
+                    "prs": [
+                        2445
+                    ],
+                    "section": "DEPRECATION",
+                    "text": "Adds warning to some deprecated API's that will be removed in Device OS 5.x"
+                },
+                {
+                    "tags": [
+                        "deprecation"
+                    ],
+                    "prs": [
+                        2446
+                    ],
+                    "section": "DEPRECATION",
+                    "text": "PRODUCT_ID macro"
+                },
+                {
+                    "tags": [
+                        "deprecation"
+                    ],
+                    "prs": [
+                        2447
+                    ],
+                    "section": "DEPRECATION",
+                    "text": "remove setup_done flag and add deprecation notice"
+                },
+                {
+                    "tags": [
+                        "ota"
+                    ],
+                    "prs": [
+                        2344
+                    ],
+                    "section": "FEATURES",
+                    "text": "new API System.updateStatus()"
+                },
+                {
+                    "tags": [
+                        "esomx"
+                    ],
+                    "prs": [
+                        2443,
+                        2459,
+                        2505,
+                        2495
+                    ],
+                    "section": "FEATURES",
+                    "text": "Adds support for new platform esomx"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2456
+                    ],
+                    "section": "FEATURES",
+                    "text": "Determine flash part at runtime"
+                },
+                {
+                    "tags": [
+                        "gen3",
+                        "quectel"
+                    ],
+                    "prs": [
+                        2458
+                    ],
+                    "section": "FEATURES",
+                    "text": "Adds support for BG95-M1, BG95-MF, BG77, and EG91-NAX"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2526,
+                        2529
+                    ],
+                    "section": "FEATURES",
+                    "text": "`System.hardwareInfo()` API"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2440
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "wifi: add dhcp dns info to wifi config"
+                },
+                {
+                    "tags": [
+                        "ota"
+                    ],
+                    "prs": [
+                        2344
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Additional state for firmware update checks"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2441
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Use a custom content type with CID packets when resuming the session"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2448
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes hardfault during low level USB peripheral initialization under an atomic section"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2451
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Device unable to enter listening mode with button press"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2419
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Return relevant error from control request to enter listening mode"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2452
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: fix power leak on Boron"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2467
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "port newlib stdin/stdout/stderr memory leak workaround"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2504
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fixes `interrupts()` API: should not clear pending interrupts"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2519,
+                        2520,
+                        2524
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Ensure that RTOS context switch is performed in tight `delay(1)` loops"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2449
+                    ],
+                    "section": "INTERNAL",
+                    "text": "minor update sc-101315/device-os-manifest"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2434
+                    ],
+                    "section": "INTERNAL",
+                    "text": "chore/ci-less-frequent-cross-platform-build-checks"
+                },
+                {
+                    "tags": [
+                        "docs"
+                    ],
+                    "prs": [
+                        2431
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update dependencies for ARM GCC 10.2.1"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2420
+                    ],
+                    "section": "INTERNAL",
+                    "text": "suppress certain reviewed GCC warnings [sc-100940]"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2418
+                    ],
+                    "section": "INTERNAL",
+                    "text": "feature/sc-100324/ci-build-cross-platform"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2454
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Wi-Fi resolve test improvements"
+                },
+                {
+                    "tags": [
+                        "workbench"
+                    ],
+                    "prs": [
+                        2457
+                    ],
+                    "section": "INTERNAL",
+                    "text": "update-device-os-workbench-manifest-json"
+                },
+                {
+                    "tags": [
+                        "ci"
+                    ],
+                    "prs": [
+                        2455
+                    ],
+                    "section": "INTERNAL",
+                    "text": "test-build-system-tune-timeouts"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2462
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Allow overriding the platform ID on the GCC platform"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2464
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Enable OTA updates on the GCC platform"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2483
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix GCC platform on some versions of GCC; Fix building of wiring/api tests on CI"
+                },
+                {
+                    "tags": [
+                        "workbench"
+                    ],
+                    "prs": [
+                        2465
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update workbench buildscripts to 1.11.0"
+                },
+                {
+                    "tags": [
+                        "workbench"
+                    ],
+                    "prs": [
+                        2471
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Stop ignoring device os scripts directory"
+                },
+                {
+                    "tags": [
+                        "workbench"
+                    ],
+                    "prs": [
+                        2489
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Remove redundant toolchain overrides"
+                },
+                {
+                    "tags": [
+                        "wifi"
+                    ],
+                    "prs": [
+                        2473,
+                        2485
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add stubs to allow setting common country code and channel plan in P2"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2463
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Change PWM pins to better match e-series pinout for E SoM X. Fix other tests"
+                },
+                {
+                    "tags": [
+                        "tests"
+                    ],
+                    "prs": [
+                        2466
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Misc changes to tests from 5.x"
+                },
+                {
+                    "tags": [
+                        "tests",
+                        "esomx"
+                    ],
+                    "prs": [
+                        2494
+                    ],
+                    "section": "INTERNAL",
+                    "text": "disable RGB pwm channel(s) when running pwm tests"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2496
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Streamline `.bundleignore` between 5.x and 4.x codebases"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2510
+                    ],
+                    "section": "INTERNAL",
+                    "text": "branch pattern changes for `test-build-system`"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2514
+                    ],
+                    "section": "INTERNAL",
+                    "text": "fixes race condition with `wiring/no_fixture` `TIME_17`"
+                }
+            ],
+            "prs": [
+                2344,
+                2418,
+                2419,
+                2420,
+                2431,
+                2434,
+                2440,
+                2441,
+                2442,
+                2443,
+                2445,
+                2446,
+                2447,
+                2448,
+                2449,
+                2451,
+                2452,
+                2454,
+                2455,
+                2456,
+                2457,
+                2458,
+                2459,
+                2462,
+                2463,
+                2464,
+                2465,
+                2466,
+                2467,
+                2471,
+                2473,
+                2483,
+                2485,
+                2489,
+                2494,
+                2495,
+                2496,
+                2504,
+                2505,
+                2510,
+                2514,
+                2519,
+                2520,
+                2524,
+                2526,
+                2529,
+                2530,
+                2536,
+                2538,
+                2539,
+                2540,
+                2543,
+                2545
+            ]
         }
     },
     "pulls": {
@@ -36590,6 +37123,99 @@
             "state": "open",
             "created_at": "2022-10-13T18:14:09Z",
             "detail": "We are proactively testing support for the BG95-M6 modem"
+        },
+        "2556": {
+            "url": "https://github.com/particle-iot/device-os/pull/2556",
+            "number": 2556,
+            "title": "4.0.1-rc.1 Release",
+            "state": "closed",
+            "created_at": "2022-10-17T19:09:55Z"
+        },
+        "2557": {
+            "url": "https://github.com/particle-iot/device-os/pull/2557",
+            "number": 2557,
+            "title": "[gen3][rtl872x]increase i2c buffer for tracker[m]. fix acquireWireBuffer",
+            "state": "closed",
+            "created_at": "2022-10-18T16:27:57Z"
+        },
+        "2558": {
+            "url": "https://github.com/particle-iot/device-os/pull/2558",
+            "number": 2558,
+            "title": "Move no_fixture_i2c to correct dir and symlink to integration/wiring",
+            "state": "closed",
+            "created_at": "2022-10-18T18:24:34Z",
+            "detail": "I created a new test suite for `no_fixture_i2c`. I made this in `user/tests/integration/wiring/no_fixture_i2c/` rather than `user/tests/wiring/no_fixture_i2c` and then symlinking it to the `integration/wiring` directory."
+        },
+        "2559": {
+            "url": "https://github.com/particle-iot/device-os/pull/2559",
+            "number": 2559,
+            "title": "Fix no_fixture_i2c for esomx,boron,bsom platforms",
+            "state": "closed",
+            "created_at": "2022-10-18T22:38:45Z",
+            "detail": "`no_fixture_i2c` tests were only validated against `p2` and `tracker` platforms. Unfortunately other platforms fail the tests."
+        },
+        "2560": {
+            "url": "https://github.com/particle-iot/device-os/pull/2560",
+            "number": 2560,
+            "title": "Wait for blockwise requests to complete when connecting to the cloud",
+            "state": "open",
+            "created_at": "2022-10-19T14:06:06Z",
+            "detail": "`Particle.connected()` may return `true` while the handshake is still in progress if the system/application Describe message is being sent as a blockwise request."
+        },
+        "2561": {
+            "url": "https://github.com/particle-iot/device-os/pull/2561",
+            "number": 2561,
+            "title": "P2: Fixes the conflict between Flash API and XIP",
+            "state": "open",
+            "created_at": "2022-10-21T06:06:53Z",
+            "detail": "When the user app is writing or erasing the Flash with the Flash API, in the meanwhile,  the system thread is trying to read a lot of data via XIP e.g. CRC32 calculation, we'll see a crash on P2."
+        },
+        "2562": {
+            "url": "https://github.com/particle-iot/device-os/pull/2562",
+            "number": 2562,
+            "title": "[p2] WiFi bugfixes",
+            "state": "closed",
+            "created_at": "2022-10-23T20:04:53Z",
+            "detail": "- Adds support for WPA2/WPA3 mixed APs\n- Fixes race condition in `RealtekNcpClient::getNetworkInfo()` when calling into Realtek SDK without a lock with network threads potentially doing the same. This occasionally causes a crash."
+        },
+        "2563": {
+            "url": "https://github.com/particle-iot/device-os/pull/2563",
+            "number": 2563,
+            "title": "Update nanopb to 0.4.5",
+            "state": "closed",
+            "created_at": "2022-10-24T12:01:52Z",
+            "detail": "This PR updates nanopb to 0.4.5 and regenerates the precompiled protocol files."
+        },
+        "2564": {
+            "url": "https://github.com/particle-iot/device-os/pull/2564",
+            "number": 2564,
+            "title": "[CI] fixes",
+            "state": "closed",
+            "created_at": "2022-10-24T16:13:34Z",
+            "detail": "1. Fixes a problem with Slack notifications (there is a limit of 10 section items)\n2. Fixes issue with Artifacts build step for branches whose name starts with letters after `t` e.g. `w`.\n\nTested in #2560"
+        },
+        "2566": {
+            "url": "https://github.com/particle-iot/device-os/pull/2566",
+            "number": 2566,
+            "title": "Fix/i2c tests all platforms 4.x",
+            "state": "closed",
+            "created_at": "2022-10-24T20:40:19Z"
+        },
+        "2567": {
+            "url": "https://github.com/particle-iot/device-os/pull/2567",
+            "number": 2567,
+            "title": "[TrackerM] Prevent connection over wifi when configured in SCAN_ONLY mode",
+            "state": "open",
+            "created_at": "2022-10-25T12:56:58Z",
+            "detail": "TrackerM attempts to connect over wifi as well (as cellular), with wifi running in scan-only mode. This is seen only when wifi credentials are provided on the device."
+        },
+        "2568": {
+            "url": "https://github.com/particle-iot/device-os/pull/2568",
+            "number": 2568,
+            "title": "Turn off cell modem on Tracker M sleep",
+            "state": "open",
+            "created_at": "2022-10-25T17:51:34Z",
+            "detail": "`system_sleep_network_suspend` is effectively a no-op on P2 platforms, but this should only apply to the WiFi interface."
         }
     }
 }

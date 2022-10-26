@@ -419,7 +419,7 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 | Style | SMD Module | Module | All-in-one | All-in-one |
 | Enclosure | Your design | Your design | Included | Included |
 | MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
-| CPU Speed | 60 MHz | 200 MHz | 60 MHz | 60 MHz |
+| CPU Speed | 60 MHz | 200 MHz | 64 MHz | 64 MHz |
 | Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
 | Base board | Your design | Included | Included | Included |
 | Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
@@ -443,7 +443,7 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 
 <sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
 
-<sup>2</sup>Both internal and external GNSS and cellular are supported, however the antenna style must be decided in advance as there in no software antenna switch.
+<sup>2</sup>Both internal and external GNSS and cellular are supported by physically changing the antenna connector inside the enclosure.
 
 <sup>3</sup>There is no external MCU USB connector on the Monitor One.
 
