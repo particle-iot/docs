@@ -8,7 +8,7 @@ description: Monitor One Datasheet
 # Monitor One Datasheet
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf"}}
+{{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
 {{/unless}} {{!-- pdf-generation --}}
 
 **Pre-release draft 2022-10-24 for review only. Do not distribute!**
@@ -23,10 +23,20 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
+- **Ready to go** with IP67-rated enclosure.
+- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 90 VDC power input.
+- **Internal or external antennas** for cellular and GNSS.
+- **Temperature sensors** within the enclosure, and also a battery pack temperature sensor.
+- **Expansion cards** allow for custom features.
+- **RGB LEDs** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
+- **User button**, waterproof and accessible from outside the enclosure.
+
+
 ## Block diagram
 
 {{imageOverlay src="/assets/images/monitor-one/block-diagram2.png" alt="Block diagram" class="full-width"}}
 
+Details about the Tracker SoM that is contained within the Monitor One can be found in the [Tracker SoM Datasheet](/reference/datasheets/tracker/tracker-som-datasheet/).
 
 ## External features
 
@@ -73,6 +83,7 @@ The bottom plate of the Monitor One can be customized with different connectors 
 |  4 | GNSS antenna (SMA) |
 |  5 | Mounting plate attachment screw |
 
+By default the Monitor One uses the internal cellular and GNSS antennas, but can be switched to using the external connectors inside the enclosure.
 
 ## Mounting
 
@@ -318,7 +329,7 @@ Note: wire color may vary from this graphic.
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
-The CAN transceiver is included on the Tracker SoM. However if you implement CAN on your expansion card, you will probably want to protection circuitry; this is done way to do it, and is the same design used on the Tracker One.
+The CAN transceiver is included on the Tracker SoM. However if you implement CAN on your expansion card, you will probably want to add protection circuitry. This circuit is present on the Monitor One CAN expansion card and also on the Tracker One.
 
 {{imageOverlay src="/assets/images/monitor-one/can-schematic.png" alt="CAN schematic" class="full-width"}}
 
@@ -453,7 +464,7 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 | Style | SMD Module | Module | All-in-one | All-in-one |
 | Enclosure | Your design | Your design | Included | Included |
 | MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
-| CPU Speed | 60 MHz | 200 MHz | 60 MHz | 60 MHz |
+| CPU Speed | 60 MHz | 200 MHz | 64 MHz | 64 MHz |
 | Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
 | Base board | Your design | Included | Included | Included |
 | Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
@@ -477,7 +488,7 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 
 <sup>1</sup>On the Tracker One, the M8 can be configured for GPIO, I2C (SDA and SCL), or Serial (RX and TX) on two pins.
 
-<sup>2</sup>Both internal and external GNSS and cellular are supported, however the antenna style must be decided in advance as there in no software antenna switch.
+<sup>2</sup>Both internal and external GNSS and cellular are supported by physically changing the antenna connector inside the enclosure.
 
 <sup>3</sup>There is no external MCU USB connector on the Monitor One.
 
