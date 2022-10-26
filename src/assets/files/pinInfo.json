@@ -2,6 +2,403 @@
   "platforms": [
     {
       "id": 0,
+      "name": "Monitor One Expansion",
+      "pins": [
+        {
+          "num": 1,
+          "name": "GNSS_PULSE",
+          "desc": "GNSS time pulse output. Can be used for a GPS fix LED.",
+          "isIO": true,
+          "somPin": 7
+        },
+        {
+          "num": 2,
+          "name": "NC",
+          "morePins": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "num": 9,
+          "name": "NFC2_VIN_EN",
+          "desc": "VIN enable",
+          "is5VTolerant": false,
+          "isNFC": false,
+          "hardwarePin": "P0.10",
+          "somPin": 27
+        },
+        {
+          "num": 10,
+          "name": "NFC1_PERIPH_INT",
+          "desc": "Peripheral interrupt (active low)",
+          "is5VTolerant": false,
+          "isNFC": false,
+          "hardwarePin": "P0.9",
+          "somPin": 26
+        },
+        {
+          "num": 11,
+          "name": "TSOM_MODE",
+          "desc": "MODE button (active low)",
+          "isControl": true,
+          "is5VTolerant": false,
+          "hardwarePin": "P1.13",
+          "somPin": 32
+        },
+        {
+          "num": 12,
+          "name": "TSOM_RESET",
+          "desc": "RESET button (active low)",
+          "isControl": true,
+          "is5VTolerant": false,
+          "hardwarePin": "P0.8",
+          "somPin": 33
+        },
+        {
+          "num": 13,
+          "name": "TSOM_A7",
+          "altName": "D7",
+          "desc": "A7 Analog in, GPIO D7, PWM, SPI SS, WKP",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.5",
+          "hardwareADC": "ADC3",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "somPin": 38
+        },
+        {
+          "num": 14,
+          "name": "TSOM_A6",
+          "altName": "D6",
+          "desc": "A6 Analog in, GPIO D6, PWM, SPI (SCK)",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.4",
+          "hardwareADC": "ADC2",
+          "hardwareTimer": "PWM1",
+          "spi": "SPI (SCK)|SCK. Use SPI object.",
+          "internalPull": "13K",
+          "somPin": 39
+        },
+        {
+          "num": 15,
+          "name": "TSOM_A5",
+          "altName": "D5",
+          "desc": "A5 Analog in, GPIO D5, PWM, SPI MISO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "spi": "SPI (MISO)|MISO. Use SPI object.",
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.29",
+          "hardwareADC": "ADC5",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "somPin": 40
+        },
+        {
+          "num": 16,
+          "name": "TSOM_A4",
+          "altName": "D4",
+          "desc": "A4 Analog in, GPIO D4, PWM, SPI MOSI",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "spi": "SPI (MOSI)|MOSI. Use SPI object.",
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.29",
+          "hardwareADC": "ADC7",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "somPin": 41
+        },
+        {
+          "num": 17,
+          "name": "GND",
+          "desc": "Ground.",
+          "isPower": true,
+          "morePins": [
+            21,
+            22,
+            26,
+            28,
+            30,
+            32,
+            37,
+            41,
+            44
+          ],
+          "somPin": 1
+        },
+        {
+          "num": 18,
+          "name": "3V3",
+          "desc": "3.3V out, 1000 mA maximum including nRF52 and other peripherals.",
+          "isPower": true,
+          "somPin": 45
+        },
+        {
+          "num": 19,
+          "name": "RUN",
+          "desc": "Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN."
+        },
+        {
+          "num": 20,
+          "name": "PGOOD",
+          "desc": "LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation."
+        },
+        {
+          "num": 23,
+          "name": "VIN",
+          "desc": "Power input, 6 - 90 VDC",
+          "isPower": true,
+          "morePins": [
+            24
+          ]
+        },
+        {
+          "num": 25,
+          "name": "LI+",
+          "desc": "Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS.",
+          "isPower": true,
+          "somPin": 53
+        },
+        {
+          "num": 27,
+          "name": "TSOM_USB_VBUS",
+          "desc": "nRF52 USB power input. Can be used as a 5V power supply instead of VIN.",
+          "isUSB": true,
+          "somPin": 51
+        },
+        {
+          "num": 29,
+          "name": "TSOM_VIN",
+          "desc": "Tracker SoM power input 5V-12V DC.",
+          "isPower": true,
+          "somPin": 49
+        },
+        {
+          "num": 31,
+          "name": "5V",
+          "desc": "5V power output when powered by VIN or USB",
+          "isPower": true
+        },
+        {
+          "num": 33,
+          "name": "TSOM_A0_SDA",
+          "altName": "D0",
+          "desc": "Wire SDA",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SDA)|SDA. Use Wire object.",
+          "hardwarePin": "P0.03",
+          "internalPull": "13K",
+          "somPin": 55
+        },
+        {
+          "num": 34,
+          "name": "TSOM_A1_SCL",
+          "altName": "D1",
+          "desc": "Wire SCL",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SCL)|SCL. Use Wire object.",
+          "hardwarePin": "P0.02",
+          "internalPull": "13K",
+          "somPin": 56
+        },
+        {
+          "num": 35,
+          "name": "TSOM_A2_BUTTON",
+          "altName": "D2",
+          "desc": "External user button, A2 Analog in, GPIO D2, PWM",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A0, A1, A2, A3 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.28",
+          "hardwareADC": "ADC4",
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K",
+          "somPin": 57
+        },
+        {
+          "num": 36,
+          "name": "TSOM_A3_BATT_TEMP",
+          "altName": "D3",
+          "desc": "Battery temperature sensor, A3 Analog in, GPIO D3, PWM",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A0, A1, A2, A3 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.30",
+          "hardwareADC": "ADC6",
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K",
+          "somPin": 58
+        },
+        {
+          "num": 38,
+          "name": "CAN_N",
+          "desc": "CAN Data- or CANL",
+          "can": "CAN_N",
+          "isIO": true,
+          "somPin": 64
+        },
+        {
+          "num": 39,
+          "name": "CAN_P",
+          "desc": "CAN Data+ or CANH",
+          "can": "CAN_P",
+          "isIO": true,
+          "somPin": 65
+        },
+        {
+          "num": 40,
+          "name": "CAN_5V",
+          "desc": "5V power out, 0.8A maximum. Can be controlled by software.",
+          "can": "CAN_5V",
+          "isPower": true,
+          "somPin": 66
+        },
+        {
+          "num": 42,
+          "name": "TSOM_USB_N",
+          "desc": "nRF52 MCU USB interface D-.",
+          "isUSB": true,
+          "somPin": 68
+        },
+        {
+          "num": 43,
+          "name": "TSOM_USB_P",
+          "desc": "nRF52 MCU USB interface D+.",
+          "isUSB": true,
+          "somPin": 69
+        },
+        {
+          "num": 45,
+          "name": "RX",
+          "altName": "D9",
+          "desc": "Serial1 RX, GPIO D9, PWM, Wire3 SDA",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "i2c": "Wire3 (SDA)|SDA. Use Wire3 object.",
+          "serial": "Serial1 RX|RX Use Serial1 object.",
+          "tone": "D8, D9 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.8",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "somPin": 71
+        },
+        {
+          "num": 46,
+          "name": "TX",
+          "altName": "D8",
+          "desc": "Serial1 TX, GPIO D8, PWM, Wire3 SCL",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "i2c": "Wire3 (SCL)|SCL. Use Wire3 object.",
+          "serial": "Serial1 TX|TX Use Serial1 object.",
+          "tone": "D8, D9 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.06",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "somPin": 72
+        },
+        {
+          "num": 47,
+          "name": "RTC_BAT",
+          "desc": "RTC/Watchdog battery +. Connect to GND if not using.",
+          "isPower": true,
+          "somPin": 73
+        },
+        {
+          "num": 48,
+          "name": "RTC_EXTI",
+          "desc": "RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3.",
+          "isControl": true,
+          "somPin": 74
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      },
+      "mcu": "nRF52840"
+    },
+    {
+      "id": 0,
       "name": "Photon 2",
       "pins": [
         {
@@ -529,6 +926,802 @@
             "dac",
             "serial",
             "i2s"
+          ],
+          "hardwarePin"
+        ]
+      },
+      "mcu": "RTL8721D"
+    },
+    {
+      "id": 0,
+      "name": "Tracker M Expansion",
+      "pins": [
+        {
+          "num": 33,
+          "name": "P2_S6_CS2",
+          "desc": "CS Expander CS1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[31]",
+          "mcuPin": 65,
+          "p2pin": 33
+        },
+        {
+          "num": 44,
+          "name": "P2_S3_CS0",
+          "desc": "CS Expander CS0",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[26]",
+          "mcuPin": 63,
+          "p2pin": 44
+        },
+        {
+          "num": 45,
+          "name": "P2_D2_RTS",
+          "desc": "Serial2 RTS for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (RTS)|RTS. Use Serial2 object.",
+          "hardwarePin": "PA[16]",
+          "mcuPin": 29,
+          "p2pin": 45
+        },
+        {
+          "num": 48,
+          "name": "P2_S5_CS1",
+          "desc": "CS Expander CS1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[29]",
+          "mcuPin": 64,
+          "p2pin": 48
+        },
+        {
+          "num": 51,
+          "name": "P2_D3_CTS",
+          "desc": "Serial2 CTS for cellular modem",
+          "isIO": true,
+          "serial": "Serial2 (CTS)|CTS. Use Serial2 object.",
+          "hardwarePin": "PA[17]",
+          "mcuPin": 30,
+          "p2pin": 51
+        },
+        {
+          "num": 52,
+          "name": "P2_D4_TX",
+          "desc": "Serial2 TX for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (TX)|TX. Use Serial2 object.",
+          "hardwarePin": "PA[18]",
+          "mcuPin": 31,
+          "p2pin": 52
+        },
+        {
+          "num": 53,
+          "name": "P2_D5_RX",
+          "desc": "Serial2 RX for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (RX)|RX. Use Serial2 object.",
+          "hardwarePin": "PA[19]",
+          "mcuPin": 32,
+          "p2pin": 53
+        },
+        {
+          "num": 71,
+          "name": "IOEX_RST",
+          "desc": "IOEX_RST, DEMUX Y1",
+          "isIO": true,
+          "demux": "Y1"
+        },
+        {
+          "num": 72,
+          "name": "IOEX_CS",
+          "desc": "IOEX_CS, DEMUX Y2",
+          "isIO": true,
+          "demux": "Y2"
+        },
+        {
+          "num": 80,
+          "name": "FUEL_INT",
+          "desc": "FUEL_INT, interrupt from battery fuel gauge, IOEX GPA0",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPA0"
+        },
+        {
+          "num": 81,
+          "name": "DCDC_EN",
+          "desc": "DCDC_EN, IOEX GPA1",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA1"
+        },
+        {
+          "num": 82,
+          "name": "GNSS_PWR_EN",
+          "desc": "GNSS_PWR_EN, IOEX GPA2",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA2"
+        },
+        {
+          "num": 83,
+          "name": "2V8_IO",
+          "desc": "2V8_IO_EN, IOEX GPA3",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA3"
+        },
+        {
+          "num": 84,
+          "name": "SHT_ALERT",
+          "desc": "SHT_ALERT, alert signal from temperature sensor, IOEX GPA4",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA4"
+        },
+        {
+          "num": 85,
+          "name": "GNSS_RST",
+          "desc": "GNSS_RST, IOEX GPA5",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA5"
+        },
+        {
+          "num": 86,
+          "name": "PGOOD",
+          "desc": "PGOOD, DCDC power good, IOEX GPA6",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPA6"
+        },
+        {
+          "num": 87,
+          "name": "P2_CELL_DTR",
+          "desc": "P2_CELL_DTR, IOEX GPA7",
+          "isIO": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA7"
+        },
+        {
+          "num": 94,
+          "name": "CELL_RST",
+          "desc": "CELL_RST, IOEX GPB4",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPB4"
+        },
+        {
+          "num": 95,
+          "name": "CELL_PWR",
+          "desc": "CELL_PWR, IOEX GPB5",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPB5"
+        },
+        {
+          "num": 96,
+          "name": "CELL_STATUS",
+          "desc": "CELL_STATUS, IOEX GPB6",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPB6"
+        },
+        {
+          "num": 97,
+          "name": "GNSS_GEOFENCE",
+          "desc": "GNSS_GEOFENCE, IOEX GPB7",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPB7"
+        },
+        {
+          "num": 101,
+          "name": "CAN_VDD_EN",
+          "desc": "CAN_VDD_EN, CAN 5V supply enableIOEX GPB0",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalWrite": true,
+          "ioex": "GPB0"
+        },
+        {
+          "num": 102,
+          "name": "CAN_STBY",
+          "desc": "CAN_STBY, IOEX GPB1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "ioex": "GPB1"
+        },
+        {
+          "num": 103,
+          "name": "CAN_INT",
+          "desc": "CAN_INT, interrupt from CAN controller, IOEX GPB2",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "ioex": "GPB2"
+        },
+        {
+          "num": 104,
+          "name": "SENSOR_INT1",
+          "desc": "SENSOR_INT1, IOEX GPB3",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "ioex": "GPB3"
+        },
+        {
+          "num": 105,
+          "name": "GND",
+          "classicAdapter": "GND",
+          "desc": "Ground.",
+          "isPower": true,
+          "morePins": [
+            110,
+            114,
+            118,
+            123,
+            128,
+            136,
+            142,
+            144,
+            152,
+            154,
+            157,
+            208,
+            209,
+            210,
+            214,
+            215,
+            216,
+            220,
+            221,
+            224,
+            225,
+            228,
+            229,
+            231,
+            232,
+            233,
+            236,
+            237,
+            240,
+            241,
+            244,
+            245,
+            246,
+            247,
+            251,
+            252,
+            253
+          ]
+        },
+        {
+          "num": 111,
+          "name": "P2_A0",
+          "altName": "D11",
+          "desc": "A0 Analog in, GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[1]",
+          "hardwareADC": "ADC_4",
+          "mcuPin": 41,
+          "internalPull": "2.1K",
+          "p2pin": 50
+        },
+        {
+          "num": 112,
+          "name": "P2_A1",
+          "altName": "D12",
+          "desc": "A1 Analog in, GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[2]",
+          "hardwareADC": "ADC_5",
+          "mcuPin": 42,
+          "internalPull": "2.1K",
+          "p2pin": 43
+        },
+        {
+          "num": 113,
+          "name": "P2_A2",
+          "altName": "D13",
+          "desc": "A2 Analog in, PWM, GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[7]",
+          "hardwareADC": "ADC_3",
+          "mcuPin": 47,
+          "internalPull": "42K",
+          "p2pin": 49
+        },
+        {
+          "num": 115,
+          "name": "P2_RGB_G",
+          "desc": "RGB LED Green",
+          "isLED": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[23]",
+          "mcuPin": 61,
+          "p2pin": 32
+        },
+        {
+          "num": 116,
+          "name": "P2_RGB_B",
+          "desc": "RGB LED Blue",
+          "isLED": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[22]",
+          "mcuPin": 60,
+          "p2pin": 31
+        },
+        {
+          "num": 117,
+          "name": "P2_RGB_R",
+          "desc": "RGB LED Red",
+          "isLED": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PA[30]",
+          "mcuPin": 36,
+          "p2pin": 29
+        },
+        {
+          "num": 119,
+          "name": "P2_RESET",
+          "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation.",
+          "isControl": true,
+          "is5VTolerant": false,
+          "hardwarePin": "CHIP_EN",
+          "mcuPin": 6,
+          "p2pin": 34
+        },
+        {
+          "num": 120,
+          "name": "P2_MODE",
+          "desc": "MODE button. Pin number constant is BTN. Pull low when button is pressed.",
+          "isControl": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PA[4]",
+          "mcuPin": 3,
+          "p2pin": 46
+        },
+        {
+          "num": 121,
+          "name": "P2_D6_SWDCLK",
+          "desc": "D6 GPIO, SWCLK",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
+          "hardwarePin": "PB[3]",
+          "mcuPin": 43,
+          "internalPull": "42K",
+          "p2pin": 55
+        },
+        {
+          "num": 122,
+          "name": "P2_D7_SWDIO",
+          "desc": "D7 GPIO, SWDIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": "Yes.",
+          "digitalWrite": "Yes. On the Photon this is the blue D7 LED.",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
+          "hardwarePin": "PA[27]",
+          "mcuPin": 33,
+          "internalPull": "42K",
+          "p2pin": 54
+        },
+        {
+          "num": 124,
+          "name": "NC",
+          "desc": "Leave unconnected",
+          "morePins": [
+            150,
+            151
+          ]
+        },
+        {
+          "num": 125,
+          "name": "P2_USB_P",
+          "desc": "MCU USB Data+",
+          "isUSB": true,
+          "is5VTolerant": true,
+          "hardwarePin": "PA[26]",
+          "mcuPin": 39,
+          "p2pin": 61
+        },
+        {
+          "num": 126,
+          "name": "P2_USB_N",
+          "desc": "MCU USB Data-",
+          "isUSB": true,
+          "is5VTolerant": true,
+          "hardwarePin": "PA[25]",
+          "mcuPin": 40,
+          "p2pin": 62
+        },
+        {
+          "num": 127,
+          "name": "P2_USB_VBUS",
+          "isUSB": true,
+          "is5VTolerant": true
+        },
+        {
+          "num": 129,
+          "name": "P2_RX/D9",
+          "altName": "D9",
+          "desc": "Serial1 RX (received data), GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "serial": "Serial1 (RX) |RX. Use Serial1 object.",
+          "hardwarePin": "PA[8]",
+          "mcuPin": 8,
+          "internalPull": "42K",
+          "p2pin": 63
+        },
+        {
+          "num": 130,
+          "name": "P2_TX/D8",
+          "altName": "D8",
+          "desc": "Serial1 TX (transmitted data), GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "serial": "Serial1 (TX)|TX. Use Serial1 object.",
+          "hardwarePin": "PA[7]",
+          "boot": "Low at boot triggers ISP flash download",
+          "mcuPin": 7,
+          "internalPull": "42K",
+          "p2pin": 64
+        },
+        {
+          "num": 131,
+          "name": "P2_VBAT_MEAS",
+          "desc": "Battery voltage measurement (optional).",
+          "isIO": true,
+          "is5VTolerant": false,
+          "analogRead": false,
+          "hardwareADC": "ADC_7",
+          "mcuPin": 48,
+          "p2pin": 12
+        },
+        {
+          "num": 132,
+          "name": "CELL_USB_BOOT"
+        },
+        {
+          "num": 133,
+          "name": "CELL_VBUS"
+        },
+        {
+          "num": 134,
+          "name": "CELL_USB_N"
+        },
+        {
+          "num": 135,
+          "name": "CELL_USB_P"
+        },
+        {
+          "num": 137,
+          "name": "GNSS_TXD"
+        },
+        {
+          "num": 138,
+          "name": "GNSS_RXD"
+        },
+        {
+          "num": 139,
+          "name": "GNSS_DIR"
+        },
+        {
+          "num": 140,
+          "name": "GNSS_WHEELTICK"
+        },
+        {
+          "num": 141,
+          "name": "+2V8",
+          "desc": "2.8V power",
+          "isPower": true
+        },
+        {
+          "num": 143,
+          "name": "+1V8",
+          "desc": "1.8V power",
+          "isPower": true
+        },
+        {
+          "num": 145,
+          "name": "Y7",
+          "desc": "IMU Y7",
+          "demux": "Y7"
+        },
+        {
+          "num": 146,
+          "name": "Y6",
+          "desc": "IMU Y6",
+          "demux": "Y6"
+        },
+        {
+          "num": 147,
+          "name": "Y5",
+          "desc": "IMU Y5",
+          "demux": "Y5"
+        },
+        {
+          "num": 148,
+          "name": "Y4",
+          "desc": "IMU Y4",
+          "demux": "Y4"
+        },
+        {
+          "num": 149,
+          "name": "Y3",
+          "desc": "IMU Y3",
+          "demux": "Y3"
+        },
+        {
+          "num": 153,
+          "name": "P2_A5_FET_CONTROL",
+          "altName": "D14",
+          "desc": "A5 Analog in, GPIO, PWM.",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[4]",
+          "hardwareADC": "ADC_0",
+          "mcuPin": 44,
+          "internalPull": "42K",
+          "p2pin": 23
+        },
+        {
+          "num": 155,
+          "name": "P2_D1_SCL",
+          "desc": "I2C SCL",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
+          "hardwarePin": "PB[5]",
+          "mcuPin": 45,
+          "internalPull": "22K",
+          "p2pin": 35
+        },
+        {
+          "num": 156,
+          "name": "P2_D0_SDA",
+          "desc": "I2C SDA",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
+          "hardwarePin": "PB[6]",
+          "mcuPin": 46,
+          "internalPull": "22K",
+          "p2pin": 36
+        },
+        {
+          "num": 158,
+          "name": "P2_S2_SCK",
+          "altName": "D17",
+          "desc": "S2 GPIO, SPI SCK",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "spi": "SPI (SCK)|SCK. Use SPI object.",
+          "hardwarePin": "PA[14]",
+          "mcuPin": 27,
+          "internalPull": "2.1K",
+          "p2pin": 42
+        },
+        {
+          "num": 159,
+          "name": "P2_S1_SDI",
+          "altName": "D16",
+          "desc": "S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX.",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "spi": "SPI (MISO)|MISO. Use SPI object.",
+          "serial": "Serial3 (RX)|RX. Use Serial3 object.",
+          "hardwarePin": "PA[13]",
+          "mcuPin": 26,
+          "internalPull": "2.1K",
+          "p2pin": 41
+        },
+        {
+          "num": 160,
+          "name": "P2_S0_SDO",
+          "altName": "D15",
+          "desc": "S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX.",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "spi": "SPI (MOSI)|MOSI. Use SPI object.",
+          "serial": "Serial3 (TX)|TX. Use Serial3 object.",
+          "hardwarePin": "PA[12]",
+          "mcuPin": 25,
+          "internalPull": "2.1K",
+          "p2pin": 40
+        },
+        {
+          "num": 201,
+          "name": "VIN",
+          "isPower": true,
+          "morePins": [
+            202,
+            203,
+            258,
+            259,
+            260
+          ]
+        },
+        {
+          "num": 211,
+          "name": "LI+",
+          "isPower": true,
+          "morePins": [
+            212,
+            213,
+            248,
+            249,
+            250
+          ]
+        },
+        {
+          "num": 217,
+          "name": "TS",
+          "desc": "PMIC TS (temperature sensor) pin"
+        },
+        {
+          "num": 218,
+          "name": "3V3",
+          "isPower": true,
+          "morePins": [
+            219,
+            242,
+            243
+          ]
+        },
+        {
+          "num": 222,
+          "name": "PMID",
+          "desc": "PMIC PMID power output",
+          "isPower": true,
+          "morePins": [
+            223,
+            238,
+            239
+          ]
+        },
+        {
+          "num": 226,
+          "name": "5V",
+          "isPower": true,
+          "morePins": [
+            227,
+            234,
+            235
+          ]
+        },
+        {
+          "num": 230,
+          "name": "VCC",
+          "desc": "3.7V cellular modem supply",
+          "isPower": true
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
           ],
           "hardwarePin"
         ]
@@ -6857,7 +8050,7 @@
           "num": 53,
           "name": "LI+",
           "desc": "Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS.",
-          "isUSB": true
+          "isPower": true
         },
         {
           "num": 55,

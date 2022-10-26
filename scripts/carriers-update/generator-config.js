@@ -930,6 +930,280 @@ const path = require('path');
             }             
         },
 
+        // datasheets/tracker/monitor-one-datasheet.md
+        {
+            guid: '9b3cae8d-ceee-4ec3-b8f3-d281501feb5e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({ // GPIO
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'digitalWrite',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    noInterface: true,
+                    showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'7dcbd294-4979-41bf-8e70-252fdb227e06',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'291a5a48-7c53-4243-b1d5-db4fa8a8b7ff',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'d8395668-3997-4528-9701-303a37ea1a6e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'4ab733fc-0cd1-4ad5-a55e-1d986eab4205',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'010c5e58-e69f-468f-9d6c-3c7c6df851b5',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'hardwareTimer',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                }); 
+            } 
+        },
+        {
+            guid:'a3c5f7f2-c933-4f71-9936-6373090a5d7e',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Monitor One Expansion',
+                    interface: 'can',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    noMCU: true
+                }); 
+            } 
+        },
+        {
+            guid:'eb58b0f8-264c-4d09-8a26-d653ddc84b5a', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'Monitor One Expansion',
+                }); 
+            } 
+        },
+
+
+        // datasheets/tracker/tracker-m-datasheet.md
+        {
+            guid: '58de1b4d-5c09-41bd-8d67-cef17d1ae475',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({ // GPIO
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'digitalWrite',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    noInterface: true,
+                    showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'ad9f1e40-1d9e-4fc3-9789-34453572592c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'hardwareADC',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'34aac488-6adf-4a08-b708-e27db809932b',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'spi',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'b989915a-a028-4c9e-a421-22e513f03a2c',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'i2c',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'95735a1e-8452-4055-b4fb-abc03c0aa4b8',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'serial',
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'0d196639-9ee4-4bc5-b5d1-ad2f4c6f1b52',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'analogWritePWM',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    showSomPin: true,
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'8a89ce75-a226-4cba-8662-72930b0cac76', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'modulePins',
+                    platformNew: 'Tracker M Expansion',
+                    pinIncludeFn: function(pin) {
+                        return pin.num >= 100 && pin.num < 300;
+                    },
+                    specialPinFn: function(num) {
+                        const hundreds = Math.floor(num / 100);
+                        const pinNum = num % 100;
+
+                        let prefix = '';
+                        switch(hundreds) {
+                            case 1:
+                                prefix = 'Top ';
+                                break;
+                            case 2:
+                                prefix = 'Bot ';
+                                break;
+                        }
+
+                        return prefix + pinNum.toString();
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'474c33ef-b42d-40a3-af86-ddbb3e26bcaf',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'ioex',
+                    noPinNumbers: true,
+                    showSomPin: false,
+                    noMCU: true,
+                    tableSortFn: function(a, b) {
+                        return a.ioex.localeCompare(b.ioex);
+                    },
+                }); 
+            } 
+        },
+        {
+            guid:'646ae9fe-b07b-4b5b-8184-fba1cab1fdee',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'demux',
+                    noPinNumbers: true,
+                    showSomPin: false,
+                    noMCU: true,
+                    tableSortFn: function(a, b) {
+                        return a.demux.localeCompare(b.demux);
+                    },
+                }); 
+            } 
+        },
+        {
+            guid: '3ca6e91c-b5bc-4f7d-9442-160b6c08b235',
+            generatorFn:function(updater){
+                return updater.generatePinInfo({ // MCU pins
+                    style: 'interfacePins',
+                    platformNew: 'Tracker M Expansion',
+                    interface: 'mcuPin',
+                    noInterface: true,
+                    noPinNumbers: true,
+                    showP2pin: true,
+                    tableSortFn: function(a, b) {
+                        return a.name.localeCompare(b.name);
+                    },
+                }); 
+            } 
+        },
+
+
+        
+        
+
         // datasheets/wi-fi/p2-photon-migration-guide.md
         {
             guid:'3729b0b4-4058-454e-aef8-0ca5c2526bd52', 

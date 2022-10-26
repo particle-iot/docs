@@ -1448,9 +1448,26 @@ const generatorConfig = require('./generator-config');
             }
         } 
 
-        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        const sortTableData = function(tableData) {
+            if (options.tableSortFn) {
+                tableData.sort(options.tableSortFn);
+            }    
+        }
+
+        let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
         if (!platformInfoNew) {
             return '';
+        }
+        platformInfoNew = Object.assign({}, platformInfoNew);
+
+        if (options.pinIncludeFn) {
+            let tempPins = [];
+            for(let ii = 0; ii < platformInfoNew.pins.length; ii++) {
+                if (options.pinIncludeFn(platformInfoNew.pins[ii])) {
+                    tempPins.push(platformInfoNew.pins[ii]);
+                }
+            }
+            platformInfoNew.pins = tempPins;
         }
 
         let platformInfoOld;
@@ -1779,8 +1796,14 @@ const generatorConfig = require('./generator-config');
                 let rowData = Object.assign({}, pin);
                 rowData.pinName = getPinNameWithAlt(pin);
                 
+                if (options.specialPinFn) {
+                    rowData.num = options.specialPinFn(pin.num);
+                }
+
                 tableData.push(rowData);
             }
+
+            sortTableData(tableData);
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -2232,6 +2255,7 @@ const generatorConfig = require('./generator-config');
                 }
 
             }
+            sortTableData(tableData);
         
 
             md += updater.generateTable(tableOptions, tableData);
@@ -2286,10 +2310,24 @@ const generatorConfig = require('./generator-config');
                     title: 'Timer',
                 });    
             }
-            tableOptions.columns.push({
-                key: 'hardwarePin',
-                title: 'MCU'
-            });
+            if (options.showSomPin) {
+                tableOptions.columns.push({
+                    key: 'somPin',
+                    title: 'SoM Pin'
+                });    
+            }
+            if (options.showP2pin) {
+                tableOptions.columns.push({
+                    key: 'p2pin',
+                    title: 'P2 Pin'
+                });    
+            }
+            if (!options.noMCU) {
+                tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });    
+            }
 
             let tableData = [];
             for(const pin of pins) {
@@ -2299,6 +2337,7 @@ const generatorConfig = require('./generator-config');
                 
                 tableData.push(rowData);
             }
+            sortTableData(tableData);
 
             md += updater.generateTable(tableOptions, tableData);
         }
@@ -2336,7 +2375,6 @@ const generatorConfig = require('./generator-config');
                 key: 'boot',
                 title: 'Description'
             });
-
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'
