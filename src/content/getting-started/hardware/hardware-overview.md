@@ -334,7 +334,7 @@ The available models include:
 {{> carrier-family-map family="b series"}}
 
 
-- [B404 datasheet](/reference/datasheets/b-series/b404x-b404-b402-datasheet/)
+- [B404 datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 

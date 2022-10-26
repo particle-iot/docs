@@ -155,7 +155,6 @@ function processTroubleshooting() {
 };
 
 processTroubleshooting();
-process.exit(0); // TEMPORARY
 
 processDir(contentRoot);
 processNextMdFile();

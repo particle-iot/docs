@@ -53,7 +53,7 @@ The available models include:
 
 ### Datasheets
 
-- [B404X/B404/B402 datasheet](/reference/datasheets/b-series/b404x-b404-b402-datasheet/)
+- [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
 - [B524/B523 datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
 - [B Series evaluation board](/reference/datasheets/b-series/b-series-eval-board/)
 

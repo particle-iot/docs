@@ -82,7 +82,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Azure IoT Hub Integration](/getting-started/integrations/community-integrations/azure-iot-hub/)
 - [Webhooks Tutorial](/getting-started/integrations/webhooks/)
 - [InfluxData Tutorial](/getting-started/integrations/community-integrations/influxdata/)
-- [Maker Kit Tutorials](/getting-started/hardware-tutorials/maker-kit/)
+- [Maker Kit Tutorials](/archives/maker-kit/)
 - [E Series Eval Kit Tutorials](/getting-started/hardware-tutorials/e-series-eval-kit/)
 - [Poor Man's CAN Bus](https://github.com/monkbroc/poor-man-can)
 - [Particle Webhooks Intermediate Tutorial](https://github.com/rickkas7/particle-webhooks)

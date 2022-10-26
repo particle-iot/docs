@@ -4894,7 +4894,7 @@ P1.1
 P1.10
 P1.11
 P0.05
- - src/content/reference/datasheets/b-series/b404x-b404-b402-datasheet.md
+ - src/content/reference/datasheets/b-series/b404x-datasheet.md
 VIH
 xVDD
 VOH
@@ -5226,13 +5226,13 @@ v0.9
 20px
 64px
 44px
- - src/content/troubleshooting/device-restore/device-restore-usb.md
+ - src/content/tools/device-restore/device-restore-usb.md
 99-particle
- - src/content/troubleshooting/developer-tools/web-ide-exporter.md
+ - src/content/tools/developer-tools/web-ide-exporter.md
 export.zip
- - src/content/troubleshooting/developer-tools/lookup.md
+ - src/content/tools/developer-tools/lookup.md
 2D
- - src/content/troubleshooting/developer-tools/usb-serial.md
+ - src/content/tools/developer-tools/usb-serial.md
 WebSerial
  - src/content/reference/tracker/can-bus.md
 Kbits

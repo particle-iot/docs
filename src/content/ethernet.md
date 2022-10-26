@@ -13,7 +13,7 @@ The Ethernet FeatherWing is the fastest way to add wired connectivity to your Ar
 
 {{box op="start" cssClass="boxedSideBySide"}}
 **Tutorials**
-- [Quick start](/quickstart/ethernet/)
+- [Quick start](/hardware/ethernet/ethernet/)
 
 - Code examples
 {{box op="switch"}}
