@@ -11,13 +11,13 @@ description: Monitor One Datasheet
 {{!-- downloadButton url="/assets/pdfs/datasheets/monitor-one-datasheet.pdf" --}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Pre-release draft 2022-10-24 for review only. Do not distribute!**
+**Pre-release draft 2022-10-27 for review only. Do not distribute or share this URL!**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change.
 {{box op="end"}}
 
-{{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/front-on-post.jpg" alt="Front view" class="full-width no-darken"}}
 
 *The pictures in this preliminary datasheet are of a pre-release unit. The production units will be a different color, and may have other minor differences.*
 
@@ -120,7 +120,7 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 {{imageOverlay src="/assets/images/monitor-one/hole-dim.png" alt="Mounting bracket screw hole dimensions" class="full-width"}}
 
 
-## Internal connectors
+## Internal features
 
 {{imageOverlay src="/assets/images/monitor-one/base-board-labeled.png" alt="Base board features" class="full-width"}}
 
@@ -429,7 +429,8 @@ The Tracker One has a [TI TS3A5018 Quad SPDT Analog Switch](/assets/datasheets/t
 
 The Tracker One circuit looks like this, and you may want to implement something similar if you are in a scenario where you have externally powered peripherals.
 
-![](/assets/images/tracker/tracker-io-schematic.png)
+{{imageOverlay src="/assets/images/tracker/tracker-io-schematic.png" alt="CAN Protection Circuitry" class="full-width"}}
+
 
 This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 

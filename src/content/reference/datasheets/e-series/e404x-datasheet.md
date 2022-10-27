@@ -21,7 +21,7 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 ### Overview
 
-The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 micro-controller shared with other Gen 3 devices such as the Boron and B Series SoM. It is only intended for use in the United States, Canada, and Mexico.
+The E404X is a LTE Cat M1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 microcontroller shared with other Gen 3 devices such as the Boron and B Series SoM. It is only intended for use in the United States, Canada, and Mexico.
 
 It is a SMD module designed to be reflowed to your own custom base board and is the same size and has a nearly identical pin-out to the E Series module.
 

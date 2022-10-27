@@ -33,7 +33,7 @@ void setup() {
 
 ### Overview
 
-Particle's Internet of Things hardware development kit, the Photon, provides everything you need to build a connected product. Particle combines a powerful ARM Cortex M3 micro-controller with a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero).
+Particle's Internet of Things hardware development kit, the Photon, provides everything you need to build a connected product. Particle combines a powerful ARM Cortex M3 microcontroller with a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero).
 
 To get you started quickly, Particle adds a rock solid 3.3VDC SMPS power supply, RF and user interface components to the PØ on a small single-sided PCB called the Photon. The design is open source, so when you're ready to integrate the Photon into your product, you can.
 

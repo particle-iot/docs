@@ -8,17 +8,17 @@ description: Tracker M Datasheet
 # Tracker M Datasheet
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/tracker-m-datasheet.pdf"}}
+{{!-- downloadButton url="/assets/pdfs/datasheets/tracker-m-datasheet.pdf" --}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**Pre-release draft 2022-10-24 for review only. Do not distribute!**
+**Pre-release draft 2022-10-27 for review only. Do not distribute or share this URL!**
 
 {{box op="start" cssClass="boxed warningBox"}}
 This is an preliminary pre-release datasheet and the contents are subject to change. The Tracker M design has not been finalized so changes are likely.
 {{box op="end"}}
 
 
-The Tracker M will typically be used as a complete off-the-shelf design, like the Tracker One, particularly in micro-mobility and light electric vehicle applications. Unlike the Tracker One, it is a miniaturized set of circuit boards that are designed fit within your existing equipment enclosures. 
+The Tracker M will typically be used as a complete off-the-shelf design, like the Tracker One, particularly in micromobility and light electric vehicle applications. Unlike the Tracker One, it is a miniaturized set of circuit boards that are designed fit within your existing equipment enclosures. 
 
 
 ## Block diagram
@@ -52,6 +52,25 @@ The following antennas are available
 - GNSS (dual band, can be mounted on the expansion card, or external)
 - Wi-Fi geolocation and BLE
 
+
+## MCU
+
+The P2 is a SMD module with a microcontroller, 2.4 GHz and 5 GHz Wi-Fi, and BLE.
+
+- 802.11a/b/g/n Wi-Fi, 2.4 GHz and 5 GHz
+  - Integrated PCB antenna
+  - Integrated U.FL connector for external antenna
+  - Integrated RF switch
+- BLE 5 using same antenna as Wi-Fi
+- Realtek RTL8721DM MCU
+  - ARM Cortex M23 CPU, 200 MHz
+- 2048 KB (2 MB) user application maximum size
+- 3072 KB (3 MB) of RAM available to user applications
+- 2 MB flash file system
+- FCC, IC, and CE certified
+
+
+## Interfaces
 
 ## External connection
 
@@ -464,7 +483,14 @@ To be provided at a later date.
 
 ### Dimensions and weight
 
-To be provided at a later date.
+| Dimensions | Metric  | SAE      |
+| :--------- | ------: |  ------: |
+| Width      | 25.5 mm |    7/8 " |
+| Length     | 87.0 mm |  3 5/16" |
+
+{{imageOverlay src="/assets/images/tracker-m/dimensions.png" alt="Dimensions" class="full-width"}}
+
+Thickness and weight to be provided at a later date.
 
 ### Power consumption
 
