@@ -467,6 +467,7 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 | MCU | nRF52840 | RTL8721DM | nRF52840 | nRF52840 |
 | CPU Speed | 60 MHz | 200 MHz | 64 MHz | 64 MHz |
 | Maximum user binary | 256 KB | 2 MB | 256 KB | 256 KB |
+| Flash file system<sup>6</sup> | 4 MB | 2 MB | 4 MB | 4 MB |
 | Base board | Your design | Included | Included | Included |
 | Expansion connector | Your design | 8-pin | M8 8-pin | Multiple options |
 | GNSS Antenna | Your design | Int/Ext<sup>2</sup> | Internal | Int/Ext<sup>2</sup> |
@@ -496,6 +497,8 @@ This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
 <sup>4</sup>The Monitor One uses the Tracker SoM BLE chip antenna on the board and does not include a separate BLE antenna, but one could be added using the BLE U.FL connector.
 
 <sup>5</sup>The Tracker M uses a shared antenna for BLE and Wi-Fi geolocation. You can use the built-in trace antenna or an external 2.4 GHz/5 GHz dual-band antenna, selectable in software.
+
+<sup>6</sup>A small portion of the flash file system is used by the system, and a configurable portion can be used for store and forward, to optionally allow location publishes to be saved when the device is offline to be uploaded later. The remainder of the flash file system can be used by user applications.
 
 {{!-- END shared-blurb --}}
 

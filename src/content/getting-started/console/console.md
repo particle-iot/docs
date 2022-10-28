@@ -1155,7 +1155,7 @@ If you click the **...** button on the right side of the product device list, th
 
 Cellular devices with Particle SIM cards, either built-in (MFF2) or plastic nano SIM cards (4FF), show up in this list. The cellular usage by these SIM cards count against the cellular data limit for the user account that owns the product.
 
-If the 45 MB per month limit is exceeded for the free sandbox account, the account is paused until the next billing cycle.
+If the 100 MB per month limit is exceeded for the free sandbox account, the account is paused until the next billing cycle.
 
 ![Product SIMs - sandbox](/assets/images/console/sandbox-product-sims.png)
 
