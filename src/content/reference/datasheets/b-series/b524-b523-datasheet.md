@@ -573,9 +573,10 @@ The full text of the EU declaration of conformity is available at the following 
 The operating frequency bands and the maximum transmitted power limit are listed below:
 
 - BLE 2402-2480MHz, 10dBm
-- Wi-Fi 2.4GHz band 2412-2484MHz, 21.5dBm
 - LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
 - WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
+- EGSM900 880~915 925~960 MHz (35dBm)
+- DCS1800 1710~1785 1805~1880 MHz (32dBm)
 
 
 ### United Kingdom
@@ -739,3 +740,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 013      | 11-Aug-2022 | RK | Correct typo in 3V3 explanation |
 | 014      | 29-Aug-2022 | RK | Added EU declaration of conformity |
 | 015      | 16-Sep-2022 | RK | Added UKCA conformity |
+| 016      | 31-Oct-2022 | RK | Updated EU operating frequencies |

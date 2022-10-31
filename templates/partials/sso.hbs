@@ -28,9 +28,21 @@
                             <td class="apiHelperProductSelectorLabel">Username (Email):</td>
                             <td><input class="apiHelperLocalLoginUsernameInput" type="text"/></td>
                         </tr>
-                        <tr class="apiHelperLocalLoginPasswordRow">
+                        <tr class="apiHelperLocalLoginUsernameRow">
                             <td class="apiHelperProductSelectorLabel">Password:</td>
                             <td><input class="apiHelperLocalLoginPasswordInput" type="password"/></td>
+                        </tr>
+                        <tr class="apiHelperLocalLoginUsernameRow">
+                            <td class="apiHelperProductSelectorLabel">Maximum time to stay logged in:</td>
+                            <td><select class="apiHelperLocalLoginTokenDuration apiHelperSelect">
+                                    <option value="3600" selected>1 Hour</option>
+                                    <option value="14400">4 Hours</option>
+                                    <option value="28000">8 Hours</option>
+                                    <option value="86400">1 Day</option>
+                                    <option value="604800">7 Days</option>
+                                    <option value="2592000">30 Days</option>
+                                    <option value="7776000">90 Days</option>
+                                </select></td>
                         </tr>
                         <tr class="apiHelperLocalLoginAccessTokenRow">
                             <td class="apiHelperProductSelectorLabel">Access token:</td>

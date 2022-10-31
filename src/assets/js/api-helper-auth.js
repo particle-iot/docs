@@ -2,6 +2,7 @@
 $(document).ready(function() {
     const eventCategory = 'Docs SSO';
 
+    const localTokenSafety = 600; // amount of time in seconds before expiration to stop using it
     let auth = null;
     let localAuth;
 
@@ -66,15 +67,17 @@ $(document).ready(function() {
     }
 
     const checkLogin = async function() {
-        const cookie = Cookies.get('ember_simple_auth_session');
-        if (cookie) {
-            try {
-                const json = JSON.parse(cookie);
-                if (json.authenticated && json.authenticated.username) {
-                    auth = json.authenticated;
+        if (window.location.hostname.endsWith('particle.io')) {
+            const cookie = Cookies.get('ember_simple_auth_session');
+            if (cookie) {
+                try {
+                    const json = JSON.parse(cookie);
+                    if (json.authenticated && json.authenticated.username) {
+                        auth = json.authenticated;
+                    }
                 }
-            }
-            catch(e) {
+                catch(e) {
+                }
             }
         }
         if (!auth) {
@@ -95,6 +98,9 @@ $(document).ready(function() {
         if (localLoginString) {
             try {
                 localAuth = JSON.parse(localLoginString);
+                if (!localAuth.expires || localAuth.expires < Math.floor(Date.now() / 1000)) {
+                    localAuth = null;
+                }
             }
             catch(e) {
             }
@@ -297,8 +303,8 @@ $(document).ready(function() {
         const logInUsingRowElem = $(pageLoginElem).find('.apiHelperLocalLoginLogInUsingRow');
         const usernameRowElem = $(pageLoginElem).find('.apiHelperLocalLoginUsernameRow');
         const usernameInputElem = $(pageLoginElem).find('.apiHelperLocalLoginUsernameInput');
-        const passwordRowElem = $(pageLoginElem).find('.apiHelperLocalLoginPasswordRow');
         const passwordInputElem = $(pageLoginElem).find('.apiHelperLocalLoginPasswordInput');
+        const tokenDurationElem = $(pageLoginElem).find('.apiHelperLocalLoginTokenDuration');
         const accessTokenRowElem = $(pageLoginElem).find('.apiHelperLocalLoginAccessTokenRow');
         const accessTokenInputElem = $(pageLoginElem).find('.apiHelperLocalLoginAccessTokenInput');
         const pageLoginButtonElem = $(pageLoginElem).find('.apiHelperLocalLoginLoginButton');
@@ -335,14 +341,12 @@ $(document).ready(function() {
             
             switch(radioVal) {
                 case 'userPass':
-                    $(usernameRowElem).show();
-                    $(passwordRowElem).show();
+                    $(usernameRowElem).show(); // Also password and token duration
                     $(accessTokenRowElem).hide();
                     $(usernameInputElem).focus();   
                     break;
                 case 'token':
                     $(usernameRowElem).hide();
-                    $(passwordRowElem).hide();
                     $(accessTokenRowElem).show();
                     $(accessTokenInputElem).focus();   
                     break;
@@ -365,11 +369,13 @@ $(document).ready(function() {
                     // Attempt to log into the Particle cloud
                     apiHelper.localLogin.username = $(usernameInputElem).val();
                     apiHelper.localLogin.tokenLogin = false;
+                    const localTokenLength = parseInt($(tokenDurationElem).val());
+                    apiHelper.localLogin.expires = localTokenLength + Math.floor(Date.now() / 1000) - localTokenSafety;
                     $.ajax({
                         data: {
                             'client_id': 'particle',
                             'client_secret': 'particle',
-                            'expires_in': 3600,
+                            'expires_in': localTokenLength,
                             'grant_type': 'password',
                             'password': $(passwordInputElem).val(),
                             'username': $(usernameInputElem).val()
