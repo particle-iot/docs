@@ -7,7 +7,7 @@
   "attributes": {
     "name": "idDHT22",
     "version": "0.0.4",
-    "installs": 8391,
+    "installs": 8433,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "NOTICE: This library has been deprecated! Please use the PIETTETCH_DHT libray instead",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
+            "example": false
           }
         }
       },

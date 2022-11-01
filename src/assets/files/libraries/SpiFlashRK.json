@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SpiFlashRK",
     "version": "0.0.9",
-    "installs": 12370,
+    "installs": 13985,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for SPI NOR flash chips",
@@ -86,6 +86,70 @@
             "3-unittest-large": true
           },
           "boron": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "boron": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "bsom": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "b5som": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "tracker": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "p2": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "boron": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "bsom": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "b5som": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "tracker": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "esomx": {
             "1-unittest-SpiFlashRK": true,
             "2-unittest-winbond": true,
             "3-unittest-large": true

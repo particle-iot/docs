@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CloudConfigRK",
     "version": "0.0.2",
-    "installs": 913,
+    "installs": 1359,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Store configuration settings locally with the ability to set from the cloud",
@@ -130,6 +130,118 @@
             "08-googlesheets": true
           },
           "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "bsom": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "b5som": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "tracker": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "p2": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "boron": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "bsom": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "b5som": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "tracker": {
+            "01-function": true,
+            "02-function-eeprom": true,
+            "03-function-file": true,
+            "04-static": true,
+            "06-subscribe": true,
+            "07-devicenotes": true,
+            "08-googlesheets": true
+          },
+          "esomx": {
             "01-function": true,
             "02-function-eeprom": true,
             "03-function-file": true,

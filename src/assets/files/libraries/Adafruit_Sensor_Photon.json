@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Sensor_Photon",
     "version": "1.0.5",
-    "installs": 605,
+    "installs": 614,
     "license": "Apache",
     "author": "Aaron Jimenez",
     "sentence": "Adafruit's common sensor library",
@@ -62,6 +62,46 @@
             "Adafruit_Sensor": false
           },
           "boron": {
+            "Adafruit_Sensor": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Adafruit_Sensor": false
+          },
+          "boron": {
+            "Adafruit_Sensor": false
+          },
+          "bsom": {
+            "Adafruit_Sensor": false
+          },
+          "b5som": {
+            "Adafruit_Sensor": false
+          },
+          "tracker": {
+            "Adafruit_Sensor": false
+          },
+          "p2": {
+            "Adafruit_Sensor": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Adafruit_Sensor": false
+          },
+          "boron": {
+            "Adafruit_Sensor": false
+          },
+          "bsom": {
+            "Adafruit_Sensor": false
+          },
+          "b5som": {
+            "Adafruit_Sensor": false
+          },
+          "tracker": {
+            "Adafruit_Sensor": false
+          },
+          "esomx": {
             "Adafruit_Sensor": false
           }
         }

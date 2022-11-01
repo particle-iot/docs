@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Sensor",
     "version": "1.0.2",
-    "installs": 336730,
+    "installs": 340701,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Required for all Adafruit Unified Sensor based libraries.",

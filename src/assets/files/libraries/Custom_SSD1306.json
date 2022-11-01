@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Custom_SSD1306",
     "version": "1.0.3",
-    "installs": 3540,
+    "installs": 3597,
     "author": "Tomais Williamson",
     "sentence": "A wrapper for the SSD1306 series of OLED displays",
     "architectures": [],
@@ -59,6 +59,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

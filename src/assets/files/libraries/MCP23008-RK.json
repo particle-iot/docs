@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23008-RK",
     "version": "0.0.4",
-    "installs": 2450,
+    "installs": 2692,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 8-port I2C GPIO Expander MCP23008",
@@ -98,6 +98,82 @@
           },
           "boron": {
             "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": true,
+            "04-interrupts-class": true
+          },
+          "p2": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": true,
+            "04-interrupts-class": true
+          },
+          "esomx": {
+            "01-simple-gpio": false,
             "02-really-simple-output": true,
             "03-interrupts": false,
             "04-interrupts-class": true

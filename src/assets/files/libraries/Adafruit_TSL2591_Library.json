@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TSL2591_Library",
     "version": "1.1.0",
-    "installs": 1779,
+    "installs": 1805,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the TSL2591 digital luminosity (light) sensors.",
@@ -76,6 +76,58 @@
             "tsl2591_interrupt": true
           },
           "boron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "boron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "bsom": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "b5som": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "tracker": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "p2": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "boron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "bsom": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "b5som": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "tracker": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "esomx": {
             "tsl2591": true,
             "tsl2591_interrupt": true
           }

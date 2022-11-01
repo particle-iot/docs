@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_AMG88xx",
     "version": "0.0.0",
-    "installs": 2735,
+    "installs": 2862,
     "author": "Dean Miller",
     "architectures": [],
     "visibility": "public",
@@ -113,6 +113,106 @@
             "usage": false
           },
           "boron": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "boron": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "bsom": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "b5som": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "tracker": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "p2": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "boron": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "bsom": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "b5som": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "tracker": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "esomx": {
             "amg88xx_interrupt": true,
             "amg88xx_test": true,
             "pixels_test": true,

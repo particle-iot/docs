@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HMC5883",
     "version": "1.0.8",
-    "installs": 3629,
+    "installs": 3678,
     "license": "",
     "author": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit HMC5883L 3-Axis Magnetometer Breakout library using Adafruit's Unified Sensor Library. Ported to Particle by Ben Artin <ben@artins.org>",
@@ -60,6 +60,46 @@
             "magsensor": false
           },
           "boron": {
+            "magsensor": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "magsensor": false
+          },
+          "boron": {
+            "magsensor": false
+          },
+          "bsom": {
+            "magsensor": false
+          },
+          "b5som": {
+            "magsensor": false
+          },
+          "tracker": {
+            "magsensor": false
+          },
+          "p2": {
+            "magsensor": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "magsensor": false
+          },
+          "boron": {
+            "magsensor": false
+          },
+          "bsom": {
+            "magsensor": false
+          },
+          "b5som": {
+            "magsensor": false
+          },
+          "tracker": {
+            "magsensor": false
+          },
+          "esomx": {
             "magsensor": false
           }
         }

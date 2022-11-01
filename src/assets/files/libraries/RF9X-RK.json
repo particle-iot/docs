@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RF9X-RK",
     "version": "0.0.5",
-    "installs": 9597,
+    "installs": 9960,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Port of the RadioHead RF95/96/97/98 LoRa Packet radio driver for Particle",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",
@@ -99,6 +99,82 @@
             "2-encrypted-client": true,
             "3-reliable-datagram-server": true,
             "4-reliable-datagram-client": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "boron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "bsom": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "b5som": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "tracker": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "p2": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "boron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "bsom": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "b5som": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "tracker": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "esomx": {
+            "1-encrypted-server": false,
+            "2-encrypted-client": false,
+            "3-reliable-datagram-server": false,
+            "4-reliable-datagram-client": false
           }
         }
       },

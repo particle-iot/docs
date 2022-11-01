@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MH-Z19B-CO2-Sensor-Serial",
     "version": "1.0.2",
-    "installs": 3601,
+    "installs": 3884,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "Read and control the MH-Z19B CO2 Module.",
@@ -66,6 +66,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

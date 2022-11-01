@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Keypad",
     "version": "1.2.0",
-    "installs": 975,
+    "installs": 983,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Keypad",
@@ -120,6 +120,106 @@
             "Example6_KeyCode": true
           },
           "boron": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "boron": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "bsom": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "b5som": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "tracker": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "p2": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "boron": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "bsom": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "b5som": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "tracker": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "esomx": {
             "Example1_ReadButton": true,
             "Example2_ReadWithTime": true,
             "Example3_ChangeI2CAddress": false,

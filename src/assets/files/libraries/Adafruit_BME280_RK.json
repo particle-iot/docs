@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280_RK",
     "version": "1.0.9",
-    "installs": 9945,
+    "installs": 10331,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for BME280 sensors.",
@@ -87,6 +87,70 @@
             "spi_bme280": true
           },
           "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "bsom": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "b5som": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "tracker": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "p2": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "bsom": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "b5som": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "tracker": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "esomx": {
             "i2c_Wire1": true,
             "i2c_bme280": true,
             "spi_bme280": true

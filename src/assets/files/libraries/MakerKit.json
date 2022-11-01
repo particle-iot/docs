@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MakerKit",
     "version": "1.2.0",
-    "installs": 7981,
+    "installs": 8049,
     "license": "BSD",
     "author": "Owen Smithyman",
     "sentence": "A library with examples for each Particle Maker Kit tutorial.",
@@ -97,6 +97,82 @@
             "4_temp_logger": false
           },
           "boron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "boron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "bsom": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "b5som": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "tracker": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "p2": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "boron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "bsom": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "b5som": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "tracker": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "esomx": {
             "1_servo_gong": false,
             "2_next_bus_alert": false,
             "3_conf_rm_monitor": false,

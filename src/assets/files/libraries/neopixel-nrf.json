@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-nrf",
     "version": "0.0.16",
-    "installs": 462,
+    "installs": 491,
     "license": "LGPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core, Particle Photon, P1, Electron and RedBear Duo",
@@ -87,6 +87,70 @@
             "a-rainbow": true,
             "extra-examples": true,
             "rgbw-strandtest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "boron": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "p2": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "boron": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "esomx": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
           }
         }
       },

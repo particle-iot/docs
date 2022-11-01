@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PollingTimer",
     "version": "1.3.0",
-    "installs": 8878,
+    "installs": 10340,
     "license": "Apache 2",
     "author": "dgarrett@acm.org",
     "sentence": "A simple software timer implemetion.",
@@ -88,6 +88,70 @@
             "debounce": true,
             "interval": true,
             "timeout": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "bsom": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "b5som": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "tracker": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "p2": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "bsom": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "b5som": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "tracker": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "esomx": {
+            "debounce": false,
+            "interval": false,
+            "timeout": false
           }
         }
       },

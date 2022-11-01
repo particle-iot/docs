@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DFRobotDFPlayerMini",
     "version": "1.0.1",
-    "installs": 12520,
+    "installs": 12654,
     "license": "GPL",
     "author": "DFRobot",
     "maintainer": "Angelo <angelo.qiao@dfrobot.com>",
@@ -89,6 +89,70 @@
             "Usage": false
           },
           "boron": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "boron": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "bsom": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "b5som": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "tracker": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "p2": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "boron": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "bsom": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "b5som": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "tracker": {
+            "FullFunction": false,
+            "GetStarted": false,
+            "Usage": false
+          },
+          "esomx": {
             "FullFunction": false,
             "GetStarted": false,
             "Usage": false

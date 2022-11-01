@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Keypad_Particle",
     "version": "1.0.0",
-    "installs": 18814,
+    "installs": 19416,
     "author": "Mark Stanley, Alexander Brevig",
     "sentence": "A Particle port of the Keypad Arduino library by Mark Stanley and Alexander Brevig.",
     "architectures": [],
@@ -71,6 +71,58 @@
           },
           "boron": {
             "Detect_Key": true,
+            "Secret_Code": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "boron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "bsom": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "b5som": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "tracker": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "p2": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "boron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "bsom": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "b5som": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "tracker": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "esomx": {
+            "Detect_Key": false,
             "Secret_Code": false
           }
         }

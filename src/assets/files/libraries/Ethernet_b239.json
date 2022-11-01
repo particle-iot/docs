@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Ethernet_b239",
     "version": "0.0.10",
-    "installs": 791,
+    "installs": 803,
     "license": "BSD",
     "author": "peekay123 <john@doe.io>",
     "sentence": "Arduino port of Ethernet library",
@@ -62,6 +62,46 @@
             "example": false
           },
           "boron": {
+            "example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
             "example": false
           }
         }

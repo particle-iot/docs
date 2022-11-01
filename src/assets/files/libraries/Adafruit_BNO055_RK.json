@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BNO055_RK",
     "version": "1.1.8",
-    "installs": 5397,
+    "installs": 5764,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit BNO055 Absolute Orientation Sensor.",
@@ -65,6 +65,46 @@
             "sensorapi": true
           },
           "boron": {
+            "sensorapi": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "sensorapi": true
+          },
+          "boron": {
+            "sensorapi": true
+          },
+          "bsom": {
+            "sensorapi": true
+          },
+          "b5som": {
+            "sensorapi": true
+          },
+          "tracker": {
+            "sensorapi": true
+          },
+          "p2": {
+            "sensorapi": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "sensorapi": true
+          },
+          "boron": {
+            "sensorapi": true
+          },
+          "bsom": {
+            "sensorapi": true
+          },
+          "b5som": {
+            "sensorapi": true
+          },
+          "tracker": {
+            "sensorapi": true
+          },
+          "esomx": {
             "sensorapi": true
           }
         }

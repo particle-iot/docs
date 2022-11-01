@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DustSensor",
     "version": "1.0.0",
-    "installs": 1044,
+    "installs": 1051,
     "author": "blackcj",
     "architectures": [],
     "visibility": "public",
@@ -58,6 +58,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

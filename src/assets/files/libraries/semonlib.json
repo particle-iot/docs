@@ -7,7 +7,7 @@
   "attributes": {
     "name": "semonlib",
     "version": "0.0.1",
-    "installs": 3720,
+    "installs": 3862,
     "author": "Chris Guy <chris_guy_84@hotmail.com>",
     "sentence": "Spark port of open energy monitor emonlib",
     "url": "https://github.com/newbray/semonlib",

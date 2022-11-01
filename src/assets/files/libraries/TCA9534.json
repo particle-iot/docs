@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TCA9534",
     "version": "0.2.1",
-    "installs": 1342,
+    "installs": 1347,
     "license": "MIT",
     "author": "David Dressner <dressner95@gmail.com>",
     "maintainer": "David Dressner <dressner95@gmail.com>",
@@ -71,6 +71,46 @@
             "TCA_example": true
           },
           "boron": {
+            "TCA_example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "TCA_example": true
+          },
+          "boron": {
+            "TCA_example": true
+          },
+          "bsom": {
+            "TCA_example": true
+          },
+          "b5som": {
+            "TCA_example": true
+          },
+          "tracker": {
+            "TCA_example": true
+          },
+          "p2": {
+            "TCA_example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "TCA_example": true
+          },
+          "boron": {
+            "TCA_example": true
+          },
+          "bsom": {
+            "TCA_example": true
+          },
+          "b5som": {
+            "TCA_example": true
+          },
+          "tracker": {
+            "TCA_example": true
+          },
+          "esomx": {
             "TCA_example": true
           }
         }

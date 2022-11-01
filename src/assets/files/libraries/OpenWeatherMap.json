@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OpenWeatherMap",
     "version": "1.1.0",
-    "installs": 2267,
+    "installs": 2304,
     "license": "MIT",
     "author": "Daniel Klose <d.klose@walbert-schmitz.de>",
     "maintainer": "Daniel Klose <d.klose@walbert-schmitz.de>",
@@ -63,6 +63,46 @@
             "getAllData-example": false
           },
           "boron": {
+            "getAllData-example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "getAllData-example": false
+          },
+          "boron": {
+            "getAllData-example": false
+          },
+          "bsom": {
+            "getAllData-example": false
+          },
+          "b5som": {
+            "getAllData-example": false
+          },
+          "tracker": {
+            "getAllData-example": false
+          },
+          "p2": {
+            "getAllData-example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "getAllData-example": false
+          },
+          "boron": {
+            "getAllData-example": false
+          },
+          "bsom": {
+            "getAllData-example": false
+          },
+          "b5som": {
+            "getAllData-example": false
+          },
+          "tracker": {
+            "getAllData-example": false
+          },
+          "esomx": {
             "getAllData-example": false
           }
         }

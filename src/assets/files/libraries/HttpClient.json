@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HttpClient",
     "version": "0.0.5",
-    "installs": 311515,
+    "installs": 320013,
     "license": "MIT",
     "author": "Nils Mattisson <nils.mattisson@gmail.com>",
     "sentence": "A work in progress Http Client Library for the Spark Core and Arduino.",
@@ -62,6 +62,46 @@
             "application": true
           },
           "boron": {
+            "application": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "p2": {
+            "application": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "esomx": {
             "application": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AES_GCM",
     "version": "1.0.0",
-    "installs": 1438,
+    "installs": 1459,
     "license": "Apache-2",
     "author": "Jidesh Veeramachaneni",
     "sentence": "An AES GCM Library based on mbedtls 2.16.0.",
@@ -77,6 +77,58 @@
             "mbedtls_self_tests": false
           },
           "boron": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "boron": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "bsom": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "b5som": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "tracker": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "p2": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "boron": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "bsom": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "b5som": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "tracker": {
+            "AES_GCM": false,
+            "mbedtls_self_tests": false
+          },
+          "esomx": {
             "AES_GCM": false,
             "mbedtls_self_tests": false
           }

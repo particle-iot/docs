@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PololuHighPowerStepperDriver",
     "version": "1.0.0",
-    "installs": 635,
+    "installs": 647,
     "author": "Pololu",
     "sentence": "Pololu High-Power Stepper Motor Driver library for Particle",
     "paragraph": "This is a library for Particle devices that helps interface with Pololu High-Power Stepper Motor Drivers.",
@@ -74,6 +74,58 @@
             "BasicSteppingSPI": true
           },
           "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "bsom": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "b5som": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "tracker": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "p2": {
+            "BasicStepping": false,
+            "BasicSteppingSPI": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "bsom": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "b5som": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "tracker": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "esomx": {
             "BasicStepping": true,
             "BasicSteppingSPI": true
           }

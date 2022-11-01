@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SHTC3",
     "version": "1.0.0",
-    "installs": 466,
+    "installs": 488,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for SHTC3 temperature & humidity sensor.",
@@ -65,6 +65,46 @@
             "SHTC3test": false
           },
           "boron": {
+            "SHTC3test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SHTC3test": false
+          },
+          "boron": {
+            "SHTC3test": false
+          },
+          "bsom": {
+            "SHTC3test": false
+          },
+          "b5som": {
+            "SHTC3test": false
+          },
+          "tracker": {
+            "SHTC3test": false
+          },
+          "p2": {
+            "SHTC3test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SHTC3test": false
+          },
+          "boron": {
+            "SHTC3test": false
+          },
+          "bsom": {
+            "SHTC3test": false
+          },
+          "b5som": {
+            "SHTC3test": false
+          },
+          "tracker": {
+            "SHTC3test": false
+          },
+          "esomx": {
             "SHTC3test": false
           }
         }

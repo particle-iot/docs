@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JsonStreamingParser",
     "version": "1.0.5",
-    "installs": 1576,
+    "installs": 1599,
     "license": "MIT",
     "author": "Nick Thomson <particledev@undergrid.org.uk>",
     "sentence": "A very memory efficient library to parse (large) JSON objects on embedded devices",
@@ -62,6 +62,46 @@
             "Example": true
           },
           "boron": {
+            "Example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example": true
+          },
+          "boron": {
+            "Example": true
+          },
+          "bsom": {
+            "Example": true
+          },
+          "b5som": {
+            "Example": true
+          },
+          "tracker": {
+            "Example": true
+          },
+          "p2": {
+            "Example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example": true
+          },
+          "boron": {
+            "Example": true
+          },
+          "bsom": {
+            "Example": true
+          },
+          "b5som": {
+            "Example": true
+          },
+          "tracker": {
+            "Example": true
+          },
+          "esomx": {
             "Example": true
           }
         }

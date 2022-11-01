@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20",
     "version": "0.1.14",
-    "installs": 221521,
+    "installs": 227144,
     "license": "MIT",
     "author": "ScruffR (based on Lucas Figg's lib) ",
     "sentence": "DSB18XX Lib for Particle devices",
@@ -75,6 +75,58 @@
           "boron": {
             "ds18b20_MultiDrop": true,
             "ds18b20_SingleDrop": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "bsom": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "b5som": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "tracker": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "p2": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "bsom": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "b5som": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "tracker": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "esomx": {
+            "ds18b20_MultiDrop": false,
+            "ds18b20_SingleDrop": false
           }
         }
       },

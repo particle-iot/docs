@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SharpDustSensor",
     "version": "1.0.0",
-    "installs": 948,
+    "installs": 971,
     "license": "MIT",
     "author": "Aron Rubin <aronrubin@gmail.com>",
     "sentence": "Library for the Sharp Dust Sensor GP2Y10.",
@@ -62,6 +62,46 @@
             "SimpleExample": false
           },
           "boron": {
+            "SimpleExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SimpleExample": false
+          },
+          "boron": {
+            "SimpleExample": false
+          },
+          "bsom": {
+            "SimpleExample": false
+          },
+          "b5som": {
+            "SimpleExample": false
+          },
+          "tracker": {
+            "SimpleExample": false
+          },
+          "p2": {
+            "SimpleExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SimpleExample": false
+          },
+          "boron": {
+            "SimpleExample": false
+          },
+          "bsom": {
+            "SimpleExample": false
+          },
+          "b5som": {
+            "SimpleExample": false
+          },
+          "tracker": {
+            "SimpleExample": false
+          },
+          "esomx": {
             "SimpleExample": false
           }
         }

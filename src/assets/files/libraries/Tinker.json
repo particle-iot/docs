@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Tinker",
     "version": "1.0.1",
-    "installs": 7317,
+    "installs": 7482,
     "license": "GPL",
     "author": "Christian Vallières",
     "sentence": "Control Spark unused pins with Tinker interface in your project.",
@@ -62,6 +62,46 @@
             "Tinker": true
           },
           "boron": {
+            "Tinker": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Tinker": true
+          },
+          "boron": {
+            "Tinker": true
+          },
+          "bsom": {
+            "Tinker": true
+          },
+          "b5som": {
+            "Tinker": true
+          },
+          "tracker": {
+            "Tinker": true
+          },
+          "p2": {
+            "Tinker": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Tinker": true
+          },
+          "boron": {
+            "Tinker": true
+          },
+          "bsom": {
+            "Tinker": true
+          },
+          "b5som": {
+            "Tinker": true
+          },
+          "tracker": {
+            "Tinker": true
+          },
+          "esomx": {
             "Tinker": true
           }
         }

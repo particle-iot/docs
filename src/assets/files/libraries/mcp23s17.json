@@ -7,7 +7,7 @@
   "attributes": {
     "name": "mcp23s17",
     "version": "0.2.0",
-    "installs": 755,
+    "installs": 772,
     "license": "The MIT License (MIT)",
     "author": "Zachary J. Fields <zachary_fields@yahoo.com>",
     "sentence": "A C++ wrapper for the Microchip MCP23S17.",
@@ -63,6 +63,46 @@
             "Blink": true
           },
           "boron": {
+            "Blink": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Blink": true
+          },
+          "boron": {
+            "Blink": true
+          },
+          "bsom": {
+            "Blink": true
+          },
+          "b5som": {
+            "Blink": true
+          },
+          "tracker": {
+            "Blink": false
+          },
+          "p2": {
+            "Blink": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Blink": true
+          },
+          "boron": {
+            "Blink": true
+          },
+          "bsom": {
+            "Blink": true
+          },
+          "b5som": {
+            "Blink": true
+          },
+          "tracker": {
+            "Blink": false
+          },
+          "esomx": {
             "Blink": true
           }
         }

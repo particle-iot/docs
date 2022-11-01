@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT-TLS",
     "version": "0.2.25",
-    "installs": 72210,
+    "installs": 74169,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT-TLS",
@@ -117,6 +117,58 @@
           "boron": {
             "a1-example": false,
             "a2-example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "p2": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "bsom": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "b5som": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "tracker": {
+            "a1-example": false,
+            "a2-example": true
+          },
+          "esomx": {
+            "a1-example": true,
+            "a2-example": true
           }
         }
       },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "tsl2561",
     "version": "1.2.1",
-    "installs": 4778,
+    "installs": 4948,
     "license": "GPL v3",
     "author": "Jaafar Benabdallah",
     "sentence": "Migrated to libs v2 format and added more comments and description",
@@ -60,6 +60,46 @@
             "demo_tsl2561": true
           },
           "boron": {
+            "demo_tsl2561": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "demo_tsl2561": true
+          },
+          "boron": {
+            "demo_tsl2561": true
+          },
+          "bsom": {
+            "demo_tsl2561": true
+          },
+          "b5som": {
+            "demo_tsl2561": true
+          },
+          "tracker": {
+            "demo_tsl2561": true
+          },
+          "p2": {
+            "demo_tsl2561": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "demo_tsl2561": true
+          },
+          "boron": {
+            "demo_tsl2561": true
+          },
+          "bsom": {
+            "demo_tsl2561": true
+          },
+          "b5som": {
+            "demo_tsl2561": true
+          },
+          "tracker": {
+            "demo_tsl2561": true
+          },
+          "esomx": {
             "demo_tsl2561": true
           }
         }

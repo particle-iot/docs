@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit-CAP1188",
     "version": "0.1.0",
-    "installs": 896,
+    "installs": 924,
     "license": "MIT License",
     "author": "Mauricio Sanchez <design@sanchezmauricio.com>",
     "sentence": "Allows the Photon to talk to the CAP1188 Adafruit board through I2C. Analog values functionality implemented as well setting the level of sensitivity",
@@ -62,6 +62,46 @@
             "example": false
           },
           "boron": {
+            "example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
             "example": false
           }
         }

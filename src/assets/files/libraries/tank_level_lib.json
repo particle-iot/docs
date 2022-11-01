@@ -7,7 +7,7 @@
   "attributes": {
     "name": "tank_level_lib",
     "version": "1.0.0",
-    "installs": 298,
+    "installs": 330,
     "author": "bill",
     "architectures": [],
     "visibility": "public",
@@ -58,6 +58,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

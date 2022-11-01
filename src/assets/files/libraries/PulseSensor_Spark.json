@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PulseSensor_Spark",
     "version": "1.5.4",
-    "installs": 14111,
+    "installs": 14195,
     "license": "CreativeCommons",
     "author": "Joel Murphy, Yury Gitman, ported by Paul Kourany",
     "sentence": "PulseSensor Amped library v1.4 for Particle devices",
@@ -62,6 +62,46 @@
             "PulseSensorAmped_Arduino_1dot4": false
           },
           "boron": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "boron": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "bsom": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "b5som": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "tracker": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "p2": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "boron": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "bsom": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "b5som": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "tracker": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "esomx": {
             "PulseSensorAmped_Arduino_1dot4": false
           }
         }

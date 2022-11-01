@@ -7,7 +7,7 @@
   "attributes": {
     "name": "psyslog",
     "version": "0.1.0",
-    "installs": 1002,
+    "installs": 1011,
     "license": "MIT",
     "author": "Hans Nielsen <hans@stackallocated.com>",
     "sentence": "A UDP syslog library for sending log data to remote servers",
@@ -62,6 +62,46 @@
             "example_logger": true
           },
           "boron": {
+            "example_logger": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example_logger": true
+          },
+          "boron": {
+            "example_logger": false
+          },
+          "bsom": {
+            "example_logger": false
+          },
+          "b5som": {
+            "example_logger": false
+          },
+          "tracker": {
+            "example_logger": true
+          },
+          "p2": {
+            "example_logger": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example_logger": true
+          },
+          "boron": {
+            "example_logger": false
+          },
+          "bsom": {
+            "example_logger": false
+          },
+          "b5som": {
+            "example_logger": false
+          },
+          "tracker": {
+            "example_logger": true
+          },
+          "esomx": {
             "example_logger": false
           }
         }

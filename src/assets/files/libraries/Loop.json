@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Loop",
     "version": "1.0.0",
-    "installs": 662,
+    "installs": 672,
     "license": "MIT",
     "author": "Kevron Rees",
     "sentence": "Advanced Looping library with timeouts and stuff",
@@ -75,6 +75,58 @@
           "boron": {
             "loop_example": false,
             "test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "loop_example": false,
+            "test": true
+          },
+          "boron": {
+            "loop_example": false,
+            "test": true
+          },
+          "bsom": {
+            "loop_example": false,
+            "test": true
+          },
+          "b5som": {
+            "loop_example": false,
+            "test": true
+          },
+          "tracker": {
+            "loop_example": false,
+            "test": true
+          },
+          "p2": {
+            "loop_example": false,
+            "test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "loop_example": false,
+            "test": true
+          },
+          "boron": {
+            "loop_example": false,
+            "test": true
+          },
+          "bsom": {
+            "loop_example": false,
+            "test": true
+          },
+          "b5som": {
+            "loop_example": false,
+            "test": true
+          },
+          "tracker": {
+            "loop_example": false,
+            "test": true
+          },
+          "esomx": {
+            "loop_example": false,
+            "test": true
           }
         }
       },

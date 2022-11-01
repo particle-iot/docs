@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MFRC522",
     "version": "0.1.4",
-    "installs": 48554,
+    "installs": 49242,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "MFRC522 RFID library for Particle devices",
@@ -84,6 +84,70 @@
             "ReadAndWrite": false
           },
           "boron": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "boron": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "bsom": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "b5som": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "tracker": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "p2": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "boron": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "bsom": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "b5som": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "tracker": {
+            "DumpInfo": false,
+            "MifareClassicValueBlock": false,
+            "ReadAndWrite": false
+          },
+          "esomx": {
             "DumpInfo": false,
             "MifareClassicValueBlock": false,
             "ReadAndWrite": false

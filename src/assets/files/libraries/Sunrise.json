@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sunrise",
     "version": "0.1.7",
-    "installs": 18446,
+    "installs": 18637,
     "license": "GNU",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "Sunrise/Sunset Time ported for Spark Core",
@@ -62,6 +62,46 @@
             "sunriseExample": false
           },
           "boron": {
+            "sunriseExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "sunriseExample": false
+          },
+          "boron": {
+            "sunriseExample": false
+          },
+          "bsom": {
+            "sunriseExample": false
+          },
+          "b5som": {
+            "sunriseExample": false
+          },
+          "tracker": {
+            "sunriseExample": false
+          },
+          "p2": {
+            "sunriseExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "sunriseExample": false
+          },
+          "boron": {
+            "sunriseExample": false
+          },
+          "bsom": {
+            "sunriseExample": false
+          },
+          "b5som": {
+            "sunriseExample": false
+          },
+          "tracker": {
+            "sunriseExample": false
+          },
+          "esomx": {
             "sunriseExample": false
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ClosedCube_SHT31D",
     "version": "0.1.1",
-    "installs": 1720,
+    "installs": 1835,
     "license": "MIT",
     "author": "Garrett Hawes <hawesg@gmail.com>",
     "sentence": "A more complete SHT-3X(30/31/35) library.",
@@ -109,6 +109,94 @@
             "whoiam": false
           },
           "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "bsom": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "b5som": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "tracker": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "p2": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "bsom": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "b5som": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "tracker": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "esomx": {
             "periodicmode": false,
             "periodicmode-2-sensors": false,
             "reset": false,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SF_CCS811",
     "version": "1.2.0",
-    "installs": 5748,
+    "installs": 5797,
     "author": "Bre Tuck",
     "architectures": [],
     "visibility": "public",
@@ -69,6 +69,58 @@
             "usage": false
           },
           "boron": {
+            "BasicReadings": true,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "boron": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "bsom": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "b5som": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "tracker": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "p2": {
+            "BasicReadings": true,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "boron": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "bsom": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "b5som": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "tracker": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "esomx": {
             "BasicReadings": true,
             "usage": false
           }

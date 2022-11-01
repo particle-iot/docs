@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP9808",
     "version": "0.1.2",
-    "installs": 18523,
+    "installs": 19330,
     "license": "GPLv3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "Library to support MCP9808 high precision temperature sensor",
@@ -62,6 +62,46 @@
             "MCP9808": true
           },
           "boron": {
+            "MCP9808": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MCP9808": true
+          },
+          "boron": {
+            "MCP9808": true
+          },
+          "bsom": {
+            "MCP9808": true
+          },
+          "b5som": {
+            "MCP9808": true
+          },
+          "tracker": {
+            "MCP9808": true
+          },
+          "p2": {
+            "MCP9808": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MCP9808": true
+          },
+          "boron": {
+            "MCP9808": true
+          },
+          "bsom": {
+            "MCP9808": true
+          },
+          "b5som": {
+            "MCP9808": true
+          },
+          "tracker": {
+            "MCP9808": true
+          },
+          "esomx": {
             "MCP9808": true
           }
         }

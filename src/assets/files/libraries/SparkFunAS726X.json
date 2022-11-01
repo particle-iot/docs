@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunAS726X",
     "version": "1.0.0",
-    "installs": 597,
+    "installs": 623,
     "author": "Andrew England",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "A library to drive the AMS AS726X NIR/VIS Spectrum Sensor",
@@ -87,6 +87,70 @@
             "Example3_BulbReadings": false
           },
           "boron": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "boron": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "bsom": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "b5som": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "tracker": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "p2": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "boron": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "bsom": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "b5som": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "tracker": {
+            "Example1_BasicReadings": false,
+            "Example2_SensorSettings": false,
+            "Example3_BulbReadings": false
+          },
+          "esomx": {
             "Example1_BasicReadings": false,
             "Example2_SensorSettings": false,
             "Example3_BulbReadings": false

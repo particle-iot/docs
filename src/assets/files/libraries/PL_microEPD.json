@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PL_microEPD",
     "version": "1.0.12",
-    "installs": 2672,
+    "installs": 2701,
     "license": "BSD-3-clause",
     "author": "Robert Poser <paperino.display@gmail.com>",
     "maintainer": "Robert Poser <paperino.display@gmail.com>",
@@ -128,6 +128,106 @@
             "_06_WakeOnTap": false
           },
           "boron": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "boron": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "bsom": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "b5som": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "tracker": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "p2": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "boron": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "bsom": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "b5som": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "tracker": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "esomx": {
             "_01_HelloWorld": false,
             "_02_GFXdemo": false,
             "_03_4GLs": false,

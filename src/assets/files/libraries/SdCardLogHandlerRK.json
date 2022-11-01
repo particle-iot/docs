@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SdCardLogHandlerRK",
     "version": "0.1.0",
-    "installs": 21701,
+    "installs": 22461,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "LogHandler for writing log messages to an micro SD card using the SdFat library",
@@ -86,6 +86,70 @@
             "3-print": true
           },
           "boron": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-categories": true,
+            "3-print": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-categories": true,
             "3-print": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Accelerometer_MMA7660",
     "version": "0.0.1",
-    "installs": 651,
+    "installs": 673,
     "license": "MIT",
     "author": "Frankie Chu <xuguang.shao@seeed.cc>",
     "sentence": "accelerometer_MMA7760",
@@ -60,6 +60,46 @@
             "MMA7660FC_Demo": true
           },
           "boron": {
+            "MMA7660FC_Demo": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MMA7660FC_Demo": true
+          },
+          "boron": {
+            "MMA7660FC_Demo": true
+          },
+          "bsom": {
+            "MMA7660FC_Demo": true
+          },
+          "b5som": {
+            "MMA7660FC_Demo": true
+          },
+          "tracker": {
+            "MMA7660FC_Demo": true
+          },
+          "p2": {
+            "MMA7660FC_Demo": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MMA7660FC_Demo": true
+          },
+          "boron": {
+            "MMA7660FC_Demo": true
+          },
+          "bsom": {
+            "MMA7660FC_Demo": true
+          },
+          "b5som": {
+            "MMA7660FC_Demo": true
+          },
+          "tracker": {
+            "MMA7660FC_Demo": true
+          },
+          "esomx": {
             "MMA7660FC_Demo": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove-I2C-Touch-Sensor",
     "version": "1.0.0",
-    "installs": 439,
+    "installs": 465,
     "license": "The LGPL License V2.1.",
     "author": "SeeeedStudio--lg",
     "architectures": [],
@@ -59,6 +59,46 @@
             "i2c_touch": true
           },
           "boron": {
+            "i2c_touch": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "i2c_touch": true
+          },
+          "boron": {
+            "i2c_touch": true
+          },
+          "bsom": {
+            "i2c_touch": true
+          },
+          "b5som": {
+            "i2c_touch": true
+          },
+          "tracker": {
+            "i2c_touch": true
+          },
+          "p2": {
+            "i2c_touch": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "i2c_touch": true
+          },
+          "boron": {
+            "i2c_touch": true
+          },
+          "bsom": {
+            "i2c_touch": true
+          },
+          "b5som": {
+            "i2c_touch": true
+          },
+          "tracker": {
+            "i2c_touch": true
+          },
+          "esomx": {
             "i2c_touch": true
           }
         }

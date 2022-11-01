@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JSMNSpark",
     "version": "0.0.1",
-    "installs": 717,
+    "installs": 725,
     "license": "Choose a license",
     "author": "Paul Kourany <pkourany@gmail.com>, Menan Vadivel<menan.vadivel@gmail.com>,JSMN",
     "sentence": "Briefly describe this library",
@@ -62,6 +62,46 @@
             "JSMNDemo": false
           },
           "boron": {
+            "JSMNDemo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "JSMNDemo": false
+          },
+          "boron": {
+            "JSMNDemo": false
+          },
+          "bsom": {
+            "JSMNDemo": false
+          },
+          "b5som": {
+            "JSMNDemo": false
+          },
+          "tracker": {
+            "JSMNDemo": false
+          },
+          "p2": {
+            "JSMNDemo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "JSMNDemo": false
+          },
+          "boron": {
+            "JSMNDemo": false
+          },
+          "bsom": {
+            "JSMNDemo": false
+          },
+          "b5som": {
+            "JSMNDemo": false
+          },
+          "tracker": {
+            "JSMNDemo": false
+          },
+          "esomx": {
             "JSMNDemo": false
           }
         }

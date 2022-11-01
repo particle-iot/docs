@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sd-card-library-photon-compat",
     "version": "0.0.1",
-    "installs": 2067,
+    "installs": 2104,
     "license": "GPL v3",
     "author": "Jeshua Maxey <me@jeshua.co>",
     "sentence": "SD Card Library compatible with Particle Photon(forked from https://github.com/technobly/SparkCore-SD)",
@@ -95,6 +95,82 @@
             "Spark-SpeedTest": false
           },
           "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "bsom": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "b5som": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "tracker": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "p2": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "bsom": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "b5som": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "tracker": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "esomx": {
             "Spark-CardInfo": false,
             "Spark-DataLogger": false,
             "Spark-ReadWrite": false,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PubNub",
     "version": "0.0.2",
-    "installs": 3415,
+    "installs": 3423,
     "license": "Choose a license",
     "author": "PubNub",
     "sentence": "PubNub Arduino Library",
@@ -62,6 +62,46 @@
             "placeholder": false
           },
           "boron": {
+            "placeholder": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "placeholder": false
+          },
+          "boron": {
+            "placeholder": false
+          },
+          "bsom": {
+            "placeholder": false
+          },
+          "b5som": {
+            "placeholder": false
+          },
+          "tracker": {
+            "placeholder": false
+          },
+          "p2": {
+            "placeholder": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "placeholder": false
+          },
+          "boron": {
+            "placeholder": false
+          },
+          "bsom": {
+            "placeholder": false
+          },
+          "b5som": {
+            "placeholder": false
+          },
+          "tracker": {
+            "placeholder": false
+          },
+          "esomx": {
             "placeholder": false
           }
         }

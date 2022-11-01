@@ -7,7 +7,7 @@
   "attributes": {
     "name": "speaker",
     "version": "1.2.0",
-    "installs": 2945,
+    "installs": 3132,
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Generate audio output for a speaker",
     "url": "https://github.com/monkbroc/particle-speaker",
@@ -82,6 +82,70 @@
             "sawtooth": false
           },
           "boron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "boron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "bsom": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "b5som": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "tracker": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "p2": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "boron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "bsom": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "b5som": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "tracker": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "esomx": {
             "playFromFlash": false,
             "playWavFromSD": false,
             "sawtooth": false

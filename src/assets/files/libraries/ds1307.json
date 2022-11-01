@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ds1307",
     "version": "0.0.1",
-    "installs": 5818,
+    "installs": 6492,
     "license": "Public Domain",
     "author": "JeeLabs, Technobly",
     "sentence": "DS-1307 RTC library",
@@ -62,6 +62,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit-MotorShield-V2",
     "version": "1.0.0",
-    "installs": 22892,
+    "installs": 23714,
     "license": "BSD",
     "author": "TJ Hunter <tjhunter@gmail.com>",
     "sentence": "A library for the Adafruit Motor Shield V2 for Particle devices",
@@ -69,6 +69,46 @@
             "adafruit-motorshielf-example": false
           },
           "boron": {
+            "adafruit-motorshielf-example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "adafruit-motorshielf-example": false
+          },
+          "boron": {
+            "adafruit-motorshielf-example": false
+          },
+          "bsom": {
+            "adafruit-motorshielf-example": false
+          },
+          "b5som": {
+            "adafruit-motorshielf-example": false
+          },
+          "tracker": {
+            "adafruit-motorshielf-example": false
+          },
+          "p2": {
+            "adafruit-motorshielf-example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "adafruit-motorshielf-example": false
+          },
+          "boron": {
+            "adafruit-motorshielf-example": false
+          },
+          "bsom": {
+            "adafruit-motorshielf-example": false
+          },
+          "b5som": {
+            "adafruit-motorshielf-example": false
+          },
+          "tracker": {
+            "adafruit-motorshielf-example": false
+          },
+          "esomx": {
             "adafruit-motorshielf-example": false
           }
         }

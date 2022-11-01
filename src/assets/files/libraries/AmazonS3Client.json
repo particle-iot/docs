@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonS3Client",
     "version": "0.0.1",
-    "installs": 1430,
+    "installs": 1465,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon S3 Client for Spark Core.",
@@ -62,6 +62,46 @@
             "application": true
           },
           "boron": {
+            "application": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "p2": {
+            "application": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "esomx": {
             "application": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JsonParserGeneratorRK",
     "version": "0.1.5",
-    "installs": 116343,
+    "installs": 122671,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "JSON parser and generator for Particle devices",
@@ -134,6 +134,70 @@
             "3-subscription": true
           },
           "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "bsom": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "b5som": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "tracker": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "p2": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "bsom": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "b5som": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "tracker": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "esomx": {
             "1-parser": true,
             "2-generator": true,
             "3-subscription": true

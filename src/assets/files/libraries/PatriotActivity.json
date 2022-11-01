@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotActivity",
     "version": "5.0.0",
-    "installs": 695,
+    "installs": 703,
     "license": "MIT",
     "author": "Ron Lisle",
     "sentence": "Allow Alexa to set a state not associated with an actual hardware device.",
@@ -65,6 +65,46 @@
             "activity": false
           },
           "boron": {
+            "activity": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "activity": false
+          },
+          "boron": {
+            "activity": false
+          },
+          "bsom": {
+            "activity": false
+          },
+          "b5som": {
+            "activity": false
+          },
+          "tracker": {
+            "activity": false
+          },
+          "p2": {
+            "activity": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "activity": false
+          },
+          "boron": {
+            "activity": false
+          },
+          "bsom": {
+            "activity": false
+          },
+          "b5som": {
+            "activity": false
+          },
+          "tracker": {
+            "activity": false
+          },
+          "esomx": {
             "activity": false
           }
         }

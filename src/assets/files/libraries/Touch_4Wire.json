@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Touch_4Wire",
     "version": "0.9.5",
-    "installs": 5846,
+    "installs": 5873,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit 4-Wire-Touchscreen library (Compatible with Core 0.3.4ff, Photon/P1 0.4.3ff)",
@@ -74,6 +74,58 @@
           },
           "boron": {
             "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "p2": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "esomx": {
+            "BreakoutTouchPaint": true,
             "TouchScreenDemo": true
           }
         }

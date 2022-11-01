@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SignalMQTT",
     "version": "1.1.1",
-    "installs": 1957,
+    "installs": 1991,
     "license": "MIT",
     "author": "Yan Sarazin <yan@mysignal.io>",
     "maintainer": "Yan Sarazin <yan@mysignal.io>",

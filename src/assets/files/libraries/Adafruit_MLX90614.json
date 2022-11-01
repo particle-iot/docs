@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MLX90614",
     "version": "1.0.1",
-    "installs": 15951,
+    "installs": 16437,
     "license": "BSD",
     "author": "Adafruit",
     "maintainer": "@jspiro",
@@ -67,6 +67,46 @@
             "mlxtest": true
           },
           "boron": {
+            "mlxtest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mlxtest": true
+          },
+          "boron": {
+            "mlxtest": true
+          },
+          "bsom": {
+            "mlxtest": true
+          },
+          "b5som": {
+            "mlxtest": true
+          },
+          "tracker": {
+            "mlxtest": true
+          },
+          "p2": {
+            "mlxtest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mlxtest": true
+          },
+          "boron": {
+            "mlxtest": true
+          },
+          "bsom": {
+            "mlxtest": true
+          },
+          "b5som": {
+            "mlxtest": true
+          },
+          "tracker": {
+            "mlxtest": true
+          },
+          "esomx": {
             "mlxtest": true
           }
         }

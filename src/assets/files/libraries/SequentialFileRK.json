@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SequentialFileRK",
     "version": "0.0.2",
-    "installs": 3912,
+    "installs": 4607,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library for managing sequentially numbered files on the flash file system on Particle Gen 3 devices",
@@ -75,6 +75,58 @@
             "2-test-suite": true
           },
           "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-test-suite": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-test-suite": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-test-suite": true
           }

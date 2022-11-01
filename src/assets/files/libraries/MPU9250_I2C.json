@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MPU9250_I2C",
     "version": "0.0.3",
-    "installs": 2659,
+    "installs": 2726,
     "author": "Juan David Velasquez Rosero <jdvr1994@hotmail.com>",
     "sentence": "An Implementation of Mpu9250 Library for the Particle Photon",
     "url": "https://github.com/jdvr1994/MPU9250PhotonLibrary",
@@ -61,6 +61,46 @@
             "readsensors": false
           },
           "boron": {
+            "readsensors": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "readsensors": false
+          },
+          "boron": {
+            "readsensors": false
+          },
+          "bsom": {
+            "readsensors": false
+          },
+          "b5som": {
+            "readsensors": false
+          },
+          "tracker": {
+            "readsensors": false
+          },
+          "p2": {
+            "readsensors": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "readsensors": false
+          },
+          "boron": {
+            "readsensors": false
+          },
+          "bsom": {
+            "readsensors": false
+          },
+          "b5som": {
+            "readsensors": false
+          },
+          "tracker": {
+            "readsensors": false
+          },
+          "esomx": {
             "readsensors": false
           }
         }

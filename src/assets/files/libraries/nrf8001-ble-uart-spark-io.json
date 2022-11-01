@@ -7,7 +7,7 @@
   "attributes": {
     "name": "nrf8001-ble-uart-spark-io",
     "version": "0.6.6",
-    "installs": 902,
+    "installs": 938,
     "license": "MIT",
     "author": "Nordic Semiconductor ASA",
     "sentence": "A library for using the Nordic Semiconductor nRF8001 board as a BLE UART or as BLE mesh entry point. Can be used to send WiFi credentials to the Spark Core from a phone. See GitHub repository for instructions on wiring.",
@@ -75,6 +75,58 @@
           "boron": {
             "ble-mesh-cloud": true,
             "nrf8001-ble-uart": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "boron": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "bsom": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "b5som": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "tracker": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "p2": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "boron": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "bsom": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "b5som": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "tracker": {
+            "ble-mesh-cloud": true,
+            "nrf8001-ble-uart": true
+          },
+          "esomx": {
+            "ble-mesh-cloud": false,
+            "nrf8001-ble-uart": false
           }
         }
       },

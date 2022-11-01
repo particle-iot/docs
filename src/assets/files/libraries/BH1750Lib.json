@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BH1750Lib",
     "version": "0.0.5",
-    "installs": 9071,
+    "installs": 9436,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Davide Gironi <davide.gironi@gmail.com>",
     "sentence": "A Spark.io for the BH1750FVI IC.",
@@ -62,6 +62,46 @@
             "BH1750LibSample": false
           },
           "boron": {
+            "BH1750LibSample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BH1750LibSample": false
+          },
+          "boron": {
+            "BH1750LibSample": false
+          },
+          "bsom": {
+            "BH1750LibSample": false
+          },
+          "b5som": {
+            "BH1750LibSample": false
+          },
+          "tracker": {
+            "BH1750LibSample": false
+          },
+          "p2": {
+            "BH1750LibSample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BH1750LibSample": false
+          },
+          "boron": {
+            "BH1750LibSample": false
+          },
+          "bsom": {
+            "BH1750LibSample": false
+          },
+          "b5som": {
+            "BH1750LibSample": false
+          },
+          "tracker": {
+            "BH1750LibSample": false
+          },
+          "esomx": {
             "BH1750LibSample": false
           }
         }

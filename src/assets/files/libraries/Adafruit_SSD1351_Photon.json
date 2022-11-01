@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1351_Photon",
     "version": "0.0.7",
-    "installs": 12019,
+    "installs": 12043,
     "license": "BSD",
     "author": "Nathan Friedly <nathan@nfriedly.com>",
     "sentence": "Fork of Adafruit's SSD1351 Color OLED driver library",
@@ -62,6 +62,46 @@
             "OLED_test": false
           },
           "boron": {
+            "OLED_test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "OLED_test": false
+          },
+          "boron": {
+            "OLED_test": false
+          },
+          "bsom": {
+            "OLED_test": false
+          },
+          "b5som": {
+            "OLED_test": false
+          },
+          "tracker": {
+            "OLED_test": false
+          },
+          "p2": {
+            "OLED_test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "OLED_test": false
+          },
+          "boron": {
+            "OLED_test": false
+          },
+          "bsom": {
+            "OLED_test": false
+          },
+          "b5som": {
+            "OLED_test": false
+          },
+          "tracker": {
+            "OLED_test": false
+          },
+          "esomx": {
             "OLED_test": false
           }
         }

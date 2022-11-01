@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD_Ethernet_Overlay",
     "version": "1.0.1",
-    "installs": 3169,
+    "installs": 3205,
     "license": "MIT",
     "author": "Travis Elliott w NCD.io",
     "sentence": "Library for use with NCD Particle Ethernet Overlay.",
@@ -66,6 +66,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIS3MDL_magnetometer",
     "version": "1.0.0",
-    "installs": 1442,
+    "installs": 1545,
     "author": "Pololu <inbox@pololu.com>",
     "sentence": "LIS3MDL magnetometer library",
     "paragraph": "This is a library ported from Arduino IDE that helps interface with ST's LIS3MDL magnetometer.",
@@ -73,6 +73,58 @@
             "Serial": true
           },
           "boron": {
+            "Calibrate": true,
+            "Serial": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "boron": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "bsom": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "b5som": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "tracker": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "p2": {
+            "Calibrate": true,
+            "Serial": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "boron": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "bsom": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "b5som": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "tracker": {
+            "Calibrate": true,
+            "Serial": true
+          },
+          "esomx": {
             "Calibrate": true,
             "Serial": true
           }

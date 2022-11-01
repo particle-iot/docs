@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MelodySpeaker",
     "version": "1.0.0",
-    "installs": 2479,
+    "installs": 2486,
     "license": "MIT",
     "author": "Stan Borkowski",
     "sentence": "Particle Photon Library for playing mono-tone melodies.",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "application": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "p2": {
+            "application": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "esomx": {
+            "application": false
           }
         }
       },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TimeLord",
     "version": "0.0.1",
-    "installs": 6759,
+    "installs": 7207,
     "license": "mixed; be aware this contains a patchwork of code",
     "author": "Rob Cermak; based on https://github.com/probonopd/TimeLord",
     "sentence": "Port of an Arduino library with many time and date related functions.",
@@ -74,6 +74,58 @@
             "usage": false
           },
           "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "bsom": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "b5som": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "tracker": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "p2": {
+            "SunriseSunset": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "bsom": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "b5som": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "tracker": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "esomx": {
             "SunriseSunset": false,
             "usage": false
           }

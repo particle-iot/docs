@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WaveshareEPaper29b",
     "version": "0.0.2",
-    "installs": 1584,
+    "installs": 1616,
     "license": "MIT",
     "author": "Yehui from Waveshare (port ScruffR)",
     "sentence": "Support for the Waveshare 2.9\" EPaper Module B (white/black/red)",
@@ -119,6 +119,58 @@
           "boron": {
             "EPaper29b": false,
             "EPaper29bRotate": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "boron": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "bsom": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "b5som": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "tracker": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "p2": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "boron": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "bsom": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "b5som": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "tracker": {
+            "EPaper29b": false,
+            "EPaper29bRotate": true
+          },
+          "esomx": {
+            "EPaper29b": false,
+            "EPaper29bRotate": false
           }
         }
       },

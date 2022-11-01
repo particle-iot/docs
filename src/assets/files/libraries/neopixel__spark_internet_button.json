@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel__spark_internet_button",
     "version": "0.0.5",
-    "installs": 951,
+    "installs": 980,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly, Gregoryfenton",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core Spark Internet Button",
@@ -73,6 +73,58 @@
             "extra-examples": false
           },
           "boron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "p2": {
+            "a-rainbow": false,
+            "extra-examples": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "bsom": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "b5som": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "tracker": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "esomx": {
             "a-rainbow": false,
             "extra-examples": false
           }

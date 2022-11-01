@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Jib_BME680",
     "version": "1.0.8",
-    "installs": 946,
+    "installs": 971,
     "license": "MIT License",
     "author": "Kaga, Jib218",
     "sentence": "Library for running Adafruit BME680 on Particle Photon via I2C. Possibility to adjust Gas Sensor.",
@@ -62,6 +62,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

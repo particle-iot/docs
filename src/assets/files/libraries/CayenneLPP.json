@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CayenneLPP",
     "version": "1.0.2",
-    "installs": 351,
+    "installs": 376,
     "author": "Electronic Cats",
     "maintainer": "Electronic Cats <hola@electroniccats.com>",
     "sentence": "CayenneLPP Arduino Library.",
@@ -76,6 +76,58 @@
             "WeatherStation_LMIC": false
           },
           "boron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "boron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "bsom": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "b5som": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "tracker": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "p2": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "boron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "bsom": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "b5som": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "tracker": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "esomx": {
             "Basic_library_TTN": false,
             "WeatherStation_LMIC": false
           }

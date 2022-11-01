@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Rfid",
     "version": "1.1.6",
-    "installs": 1794,
+    "installs": 1848,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic RFID Reader",
@@ -109,6 +109,94 @@
             "Example5_I2CScanner": true
           },
           "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "bsom": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "b5som": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "tracker": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "p2": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "bsom": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "b5som": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "tracker": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "esomx": {
             "Example1_Read_Tag_Basics": true,
             "Example2_Read_Tag_Interrupt": true,
             "Example3_Get_All_Available_Tags": true,

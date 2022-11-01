@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Temperature_Alarm",
     "version": "1.0.0",
-    "installs": 721,
+    "installs": 730,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for article SI7020_I2CBZ_Temp_Alarm on controleverything.com",
@@ -62,6 +62,46 @@
             "application": true
           },
           "boron": {
+            "application": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "p2": {
+            "application": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          },
+          "bsom": {
+            "application": true
+          },
+          "b5som": {
+            "application": true
+          },
+          "tracker": {
+            "application": true
+          },
+          "esomx": {
             "application": true
           }
         }

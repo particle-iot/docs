@@ -7,7 +7,7 @@
   "attributes": {
     "name": "beta-cube-library-v3",
     "version": "0.3.0",
-    "installs": 2352,
+    "installs": 2375,
     "license": "MIT",
     "author": "Alex Hornstein & Owen Trueblood (Text by Hape, included in library by Werner Moecke)",
     "sentence": "Controls an LED Cube",
@@ -128,6 +128,118 @@
             "text": false
           },
           "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "p2": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "esomx": {
             "blink": false,
             "fireworks": false,
             "js-streaming": false,

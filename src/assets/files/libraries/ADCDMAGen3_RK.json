@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADCDMAGen3_RK",
     "version": "0.0.2",
-    "installs": 2040,
+    "installs": 2110,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Analog to digital conversion using DMA for Particle Gen 3 devices (Argon, Boron, Xenon)",
@@ -212,6 +212,118 @@
           "boron": {
             "01-simple": true,
             "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "p2": {
+            "01-simple": false,
+            "02-audio-over-tcp": false,
+            "03-one-shot-freq-counter": false,
+            "04-continuous-freq-counter": false,
+            "05-dtmf": false,
+            "06-dtmf-two-channel": false,
+            "07-mixed": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "boron": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "bsom": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "b5som": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "tracker": {
+            "01-simple": true,
+            "02-audio-over-tcp": true,
+            "03-one-shot-freq-counter": true,
+            "04-continuous-freq-counter": true,
+            "05-dtmf": true,
+            "06-dtmf-two-channel": true,
+            "07-mixed": true
+          },
+          "esomx": {
+            "01-simple": true,
+            "02-audio-over-tcp": false,
             "03-one-shot-freq-counter": true,
             "04-continuous-freq-counter": true,
             "05-dtmf": true,

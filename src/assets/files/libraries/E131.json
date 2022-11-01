@@ -7,7 +7,7 @@
   "attributes": {
     "name": "E131",
     "version": "1.0.1",
-    "installs": 912,
+    "installs": 938,
     "author": "AdmiralTriggerHappy",
     "sentence": "A Library to read E13.1 (sACN) data",
     "url": "the URL of the project, like https://github.com/AdmiralTriggerHappy/E131",
@@ -64,6 +64,46 @@
             "usage": true
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": false
           }
         }

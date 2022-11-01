@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PCD8544_mfGFX",
     "version": "1.1.1",
-    "installs": 516,
+    "installs": 542,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada / Paul Kourany",
     "sentence": "Adafruit_PCD8544 Nokia 5110 LCD display library for mfGFX",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "Noika5110": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          },
+          "bsom": {
+            "Noika5110": true
+          },
+          "b5som": {
+            "Noika5110": true
+          },
+          "tracker": {
+            "Noika5110": true
+          },
+          "p2": {
+            "Noika5110": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          },
+          "bsom": {
+            "Noika5110": true
+          },
+          "b5som": {
+            "Noika5110": true
+          },
+          "tracker": {
+            "Noika5110": true
+          },
+          "esomx": {
+            "Noika5110": false
           }
         }
       },

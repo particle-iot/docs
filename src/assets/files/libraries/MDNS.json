@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MDNS",
     "version": "2.0.0",
-    "installs": 20816,
+    "installs": 21055,
     "license": "MIT",
     "author": "Mark Hornsby <me@markhornsby.uk>",
     "sentence": "Support for multicast name and DNS service registration",
@@ -61,6 +61,46 @@
             "mdns": true
           },
           "boron": {
+            "mdns": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "p2": {
+            "mdns": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "esomx": {
             "mdns": false
           }
         }

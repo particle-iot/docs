@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_RTClib_RK",
     "version": "1.2.1",
-    "installs": 11106,
+    "installs": 11323,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "paragraph": "A fork of Adafruit's port (https://github.com/adafruit/RTClib) of Jeelab's fantastic RTC library ported to Particle by rickkas7",
@@ -130,6 +130,118 @@
             "softrtc": true
           },
           "boron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "boron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "bsom": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "b5som": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "tracker": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "p2": {
+            "datecalc": false,
+            "ds1307": false,
+            "ds1307SqwPin": false,
+            "ds1307nvram": false,
+            "ds3231": false,
+            "pcf8523": false,
+            "softrtc": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "boron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "bsom": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "b5som": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "tracker": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true
+          },
+          "esomx": {
             "datecalc": true,
             "ds1307": true,
             "ds1307SqwPin": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMMA8452Q",
     "version": "1.0.1",
-    "installs": 37177,
+    "installs": 37364,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A Particle library for the SparkFun MMA8452Q 3-axis I2C accelerometer.",
@@ -62,6 +62,46 @@
             "MMA8452Q-Serial_Example": true
           },
           "boron": {
+            "MMA8452Q-Serial_Example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "boron": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "bsom": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "b5som": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "tracker": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "p2": {
+            "MMA8452Q-Serial_Example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "boron": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "bsom": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "b5som": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "tracker": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "esomx": {
             "MMA8452Q-Serial_Example": true
           }
         }

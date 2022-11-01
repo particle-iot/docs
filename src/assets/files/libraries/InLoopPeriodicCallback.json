@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InLoopPeriodicCallback",
     "version": "1.0.2",
-    "installs": 1187,
+    "installs": 1194,
     "license": "GPL3",
     "author": "rvnash",
     "sentence": "Class to periodic callbacks from within the loop() function.",
@@ -61,6 +61,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

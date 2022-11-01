@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AnalogSmoother",
     "version": "1.0.0",
-    "installs": 647,
+    "installs": 683,
     "license": "MIT",
     "author": "Nicholas Cox, nickcox1008@gmail.com",
     "maintainer": "Nicholas Cox <https://github.com/knickers>",
@@ -67,6 +67,46 @@
             "graph": true
           },
           "boron": {
+            "graph": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          },
+          "bsom": {
+            "graph": true
+          },
+          "b5som": {
+            "graph": true
+          },
+          "tracker": {
+            "graph": true
+          },
+          "p2": {
+            "graph": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          },
+          "bsom": {
+            "graph": true
+          },
+          "b5som": {
+            "graph": true
+          },
+          "tracker": {
+            "graph": true
+          },
+          "esomx": {
             "graph": true
           }
         }

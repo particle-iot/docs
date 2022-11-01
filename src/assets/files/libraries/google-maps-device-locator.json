@@ -7,7 +7,7 @@
   "attributes": {
     "name": "google-maps-device-locator",
     "version": "0.0.7",
-    "installs": 179782,
+    "installs": 185181,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for using Google Maps Device Locator Integration",
@@ -66,6 +66,46 @@
             "simple": true
           },
           "boron": {
+            "simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "p2": {
+            "simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "simple": true
+          },
+          "boron": {
+            "simple": true
+          },
+          "bsom": {
+            "simple": true
+          },
+          "b5som": {
+            "simple": true
+          },
+          "tracker": {
+            "simple": true
+          },
+          "esomx": {
             "simple": true
           }
         }

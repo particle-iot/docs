@@ -7,7 +7,7 @@
   "attributes": {
     "name": "libroomba",
     "version": "1.0.0",
-    "installs": 698,
+    "installs": 706,
     "author": "Steven Wheeler <steventwheeler@gmail.com>",
     "architectures": [],
     "visibility": "public",
@@ -59,6 +59,46 @@
           },
           "boron": {
             "remote": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "remote": true
+          },
+          "boron": {
+            "remote": true
+          },
+          "bsom": {
+            "remote": true
+          },
+          "b5som": {
+            "remote": true
+          },
+          "tracker": {
+            "remote": true
+          },
+          "p2": {
+            "remote": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "remote": true
+          },
+          "boron": {
+            "remote": true
+          },
+          "bsom": {
+            "remote": true
+          },
+          "b5som": {
+            "remote": true
+          },
+          "tracker": {
+            "remote": true
+          },
+          "esomx": {
+            "remote": false
           }
         }
       },

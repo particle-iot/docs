@@ -7,7 +7,7 @@
   "attributes": {
     "name": "liquid-crystal-spi",
     "version": "0.0.1",
-    "installs": 1009,
+    "installs": 1021,
     "license": "GNU GPLv3",
     "author": "David A. Mellis, Limor Fried, Tom Igoe, Juan Hernandez, Technobly",
     "sentence": "A Hardware and Software SPI driven LiquidCrystal library for Spark Core.",
@@ -84,6 +84,70 @@
             "lcd-software-spi": false
           },
           "boron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "boron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "bsom": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "b5som": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "tracker": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "p2": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "boron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "bsom": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "b5som": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "tracker": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "esomx": {
             "lcd-backlight-spi": false,
             "lcd-hardware-spi": false,
             "lcd-software-spi": false

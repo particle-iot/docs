@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_STMPE610_RK",
     "version": "1.0.1",
-    "installs": 18050,
+    "installs": 18358,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit STMPE610/811 resistive touch screen controllers. Ported by rickkas7.",
@@ -66,6 +66,46 @@
           },
           "boron": {
             "TouchTest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          },
+          "bsom": {
+            "TouchTest": true
+          },
+          "b5som": {
+            "TouchTest": true
+          },
+          "tracker": {
+            "TouchTest": true
+          },
+          "p2": {
+            "TouchTest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          },
+          "bsom": {
+            "TouchTest": true
+          },
+          "b5som": {
+            "TouchTest": true
+          },
+          "tracker": {
+            "TouchTest": true
+          },
+          "esomx": {
+            "TouchTest": false
           }
         }
       },

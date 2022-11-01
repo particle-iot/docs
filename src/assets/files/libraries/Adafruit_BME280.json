@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280",
     "version": "1.1.5",
-    "installs": 149775,
+    "installs": 153184,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, Markus Haack (https://github.com/mhaack)",
     "sentence": "Adafruit BME280 Library",
@@ -77,6 +77,58 @@
             "bme280test": true
           },
           "boron": {
+            "advancedsettings": true,
+            "bme280test": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "boron": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "bsom": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "b5som": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "tracker": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "p2": {
+            "advancedsettings": true,
+            "bme280test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "boron": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "bsom": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "b5som": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "tracker": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "esomx": {
             "advancedsettings": true,
             "bme280test": true
           }

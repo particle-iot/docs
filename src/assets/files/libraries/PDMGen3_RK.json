@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PDMGen3_RK",
     "version": "0.0.1",
-    "installs": 687,
+    "installs": 1037,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "PDM (pulse density modulation) library for Particle Gen 3 devices (Argon, Boron, Xenon)",
@@ -82,6 +82,58 @@
           "boron": {
             "1-audio-over-tcp": true,
             "2-audio-over-tcp-16bit": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "boron": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "p2": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "boron": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "esomx": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
           }
         }
       },

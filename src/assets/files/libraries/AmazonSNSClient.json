@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonSNSClient",
     "version": "0.0.1",
-    "installs": 2372,
+    "installs": 2396,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon SNS Client for Spark Core.",
@@ -62,6 +62,46 @@
             "application": false
           },
           "boron": {
+            "application": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "p2": {
+            "application": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "esomx": {
             "application": false
           }
         }

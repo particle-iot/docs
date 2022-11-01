@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Preferences",
     "version": "2.0.0",
-    "installs": 602,
+    "installs": 616,
     "author": "Volodymyr Shymanskyy",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
     "sentence": "Preferences library for ESP8266 and Particle Gen3 devices, with ESP32-compatible API",
@@ -81,6 +81,58 @@
           "boron": {
             "Prefs2Struct": true,
             "StartCounter": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "bsom": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "b5som": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "tracker": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "p2": {
+            "Prefs2Struct": false,
+            "StartCounter": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "boron": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "bsom": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "b5som": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "tracker": {
+            "Prefs2Struct": true,
+            "StartCounter": true
+          },
+          "esomx": {
+            "Prefs2Struct": false,
+            "StartCounter": false
           }
         }
       },

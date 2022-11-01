@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Wasm3",
     "version": "0.5.0",
-    "installs": 32346,
+    "installs": 32356,
     "license": "MIT",
     "author": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>, Steven Massey <soundandform@gmail.com>",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
@@ -175,6 +175,94 @@
             "Wasm_Fibonacci": true
           },
           "boron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "boron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "bsom": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "b5som": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "tracker": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "p2": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "boron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "bsom": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "b5som": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "tracker": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "esomx": {
             "Wasm_Blink": false,
             "Wasm_CoreMark": false,
             "Wasm_Dino_ESP32_TDisplay": false,

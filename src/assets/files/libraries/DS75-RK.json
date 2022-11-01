@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS75-RK",
     "version": "0.0.1",
-    "installs": 371,
+    "installs": 405,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for DS75 temperature sensor",
@@ -75,6 +75,58 @@
             "2-thermostat-interrupt": true
           },
           "boron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-thermostat-interrupt": true
           }

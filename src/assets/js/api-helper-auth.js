@@ -98,8 +98,10 @@ $(document).ready(function() {
         if (localLoginString) {
             try {
                 localAuth = JSON.parse(localLoginString);
-                if (!localAuth.expires || localAuth.expires < Math.floor(Date.now() / 1000)) {
-                    localAuth = null;
+                if (!localAuth.tokenLogin) {
+                    if (!localAuth.expires || localAuth.expires < Math.floor(Date.now() / 1000)) {
+                        localAuth = null;
+                    }    
                 }
             }
             catch(e) {

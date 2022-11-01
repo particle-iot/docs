@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TCS34725",
     "version": "1.0.0",
-    "installs": 19990,
+    "installs": 20975,
     "license": "BSD",
     "author": "Krishnaraj Varma",
     "sentence": "Spark Core library for the TCS34725 sensor",
@@ -62,6 +62,46 @@
             "TCS34725": true
           },
           "boron": {
+            "TCS34725": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "TCS34725": true
+          },
+          "boron": {
+            "TCS34725": true
+          },
+          "bsom": {
+            "TCS34725": true
+          },
+          "b5som": {
+            "TCS34725": true
+          },
+          "tracker": {
+            "TCS34725": true
+          },
+          "p2": {
+            "TCS34725": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "TCS34725": true
+          },
+          "boron": {
+            "TCS34725": true
+          },
+          "bsom": {
+            "TCS34725": true
+          },
+          "b5som": {
+            "TCS34725": true
+          },
+          "tracker": {
+            "TCS34725": true
+          },
+          "esomx": {
             "TCS34725": true
           }
         }

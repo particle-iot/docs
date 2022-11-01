@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureIotHubClient",
     "version": "2.1.0",
-    "installs": 7006,
+    "installs": 7204,
     "license": "MIT",
     "author": "Dave Glover",
     "sentence": "Azure IoT Hub Client library.",
@@ -76,6 +76,58 @@
             "AzureIotHub-Simple": false
           },
           "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "bsom": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "b5som": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "tracker": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "p2": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "bsom": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "b5som": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "tracker": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "esomx": {
             "AzureIotHub-Full": false,
             "AzureIotHub-Simple": false
           }

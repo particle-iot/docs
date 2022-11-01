@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ProbeCube_blynk",
     "version": "0.3.8",
-    "installs": 823,
+    "installs": 837,
     "license": "MIT",
     "author": "Lafudoci",
     "sentence": "forked from vshymanskyy/blynk-library-spark",
@@ -62,6 +62,46 @@
             "Particle": false
           },
           "boron": {
+            "Particle": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Particle": false
+          },
+          "boron": {
+            "Particle": false
+          },
+          "bsom": {
+            "Particle": false
+          },
+          "b5som": {
+            "Particle": false
+          },
+          "tracker": {
+            "Particle": false
+          },
+          "p2": {
+            "Particle": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Particle": false
+          },
+          "boron": {
+            "Particle": false
+          },
+          "bsom": {
+            "Particle": false
+          },
+          "b5som": {
+            "Particle": false
+          },
+          "tracker": {
+            "Particle": false
+          },
+          "esomx": {
             "Particle": false
           }
         }

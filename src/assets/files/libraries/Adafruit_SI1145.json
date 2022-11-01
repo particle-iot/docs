@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SI1145",
     "version": "0.0.1",
-    "installs": 11889,
+    "installs": 12273,
     "license": "BSD",
     "author": "Garrett Bartley",
     "sentence": "Spark Core library for the SI1145 sensors in the Adafruit shop",
@@ -62,6 +62,46 @@
             "si1145test": true
           },
           "boron": {
+            "si1145test": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "si1145test": true
+          },
+          "boron": {
+            "si1145test": true
+          },
+          "bsom": {
+            "si1145test": true
+          },
+          "b5som": {
+            "si1145test": true
+          },
+          "tracker": {
+            "si1145test": true
+          },
+          "p2": {
+            "si1145test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "si1145test": true
+          },
+          "boron": {
+            "si1145test": true
+          },
+          "bsom": {
+            "si1145test": true
+          },
+          "b5som": {
+            "si1145test": true
+          },
+          "tracker": {
+            "si1145test": true
+          },
+          "esomx": {
             "si1145test": true
           }
         }

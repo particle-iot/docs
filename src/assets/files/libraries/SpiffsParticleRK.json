@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SpiffsParticleRK",
     "version": "0.0.8",
-    "installs": 9401,
+    "installs": 10988,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle port for the spiffs (SPI flash file system) library",
@@ -130,6 +130,118 @@
             "7-large-files-SpiffsParticleRK": true
           },
           "boron": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": false,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "boron": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "bsom": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "b5som": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "tracker": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "p2": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": false,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": false,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "boron": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "bsom": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "b5som": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "tracker": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "esomx": {
             "1-simple-SpiffsParticleRK": true,
             "2-self-test-SpiffsParticleRK": true,
             "3-stop-sleep-SpiffsParticleRK": false,

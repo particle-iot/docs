@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SmsWebhookRK",
     "version": "0.0.2",
-    "installs": 1081,
+    "installs": 1491,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Library for Particle devices to easily send SMS via a webhook to Twilio",
@@ -64,6 +64,46 @@
             "01-simple": true
           },
           "boron": {
+            "01-simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01-simple": true
+          },
+          "boron": {
+            "01-simple": true
+          },
+          "bsom": {
+            "01-simple": true
+          },
+          "b5som": {
+            "01-simple": true
+          },
+          "tracker": {
+            "01-simple": true
+          },
+          "p2": {
+            "01-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-simple": true
+          },
+          "boron": {
+            "01-simple": true
+          },
+          "bsom": {
+            "01-simple": true
+          },
+          "b5som": {
+            "01-simple": true
+          },
+          "tracker": {
+            "01-simple": true
+          },
+          "esomx": {
             "01-simple": true
           }
         }

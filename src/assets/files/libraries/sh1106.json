@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sh1106",
     "version": "0.0.2",
-    "installs": 8691,
+    "installs": 8933,
     "license": "MIT",
     "author": "Dan Milligan modified by Dustin Sellinger ",
     "sentence": "A library for the SH1106 chipset via I2C",
@@ -62,6 +62,46 @@
             "SH1106": true
           },
           "boron": {
+            "SH1106": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SH1106": true
+          },
+          "boron": {
+            "SH1106": true
+          },
+          "bsom": {
+            "SH1106": true
+          },
+          "b5som": {
+            "SH1106": true
+          },
+          "tracker": {
+            "SH1106": true
+          },
+          "p2": {
+            "SH1106": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SH1106": true
+          },
+          "boron": {
+            "SH1106": true
+          },
+          "bsom": {
+            "SH1106": true
+          },
+          "b5som": {
+            "SH1106": true
+          },
+          "tracker": {
+            "SH1106": true
+          },
+          "esomx": {
             "SH1106": true
           }
         }

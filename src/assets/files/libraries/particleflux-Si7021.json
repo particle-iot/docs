@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particleflux-Si7021",
     "version": "1.2.1",
-    "installs": 569,
+    "installs": 579,
     "license": "MIT",
     "author": "Stefan Linke",
     "sentence": "Si 7021 Temperature and Humidity Sensor",
@@ -85,6 +85,70 @@
             "usage": true
           },
           "boron": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "boron": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "bsom": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "b5som": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "tracker": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "p2": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "boron": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "bsom": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "b5som": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "tracker": {
+            "simple": true,
+            "tiny": true,
+            "usage": true
+          },
+          "esomx": {
             "simple": true,
             "tiny": true,
             "usage": true

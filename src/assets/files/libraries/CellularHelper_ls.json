@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CellularHelper_ls",
     "version": "0.0.5",
-    "installs": 486,
+    "installs": 522,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Handy utility for the Electron cellular modem",
@@ -75,6 +75,58 @@
             "2-show-carriers": false
           },
           "boron": {
+            "1-simple": true,
+            "2-show-carriers": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": false,
+            "2-show-carriers": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "p2": {
+            "1-simple": false,
+            "2-show-carriers": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": false,
+            "2-show-carriers": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-show-carriers": true
           }

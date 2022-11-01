@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TM1638",
     "version": "1.0.0",
-    "installs": 1566,
+    "installs": 1577,
     "author": "rjbatista",
     "sentence": "A library for interacting an arduino with a TM1638/TM1640",
     "url": "https://github.com/rjbatista/tm1638-library",
@@ -61,6 +61,46 @@
             "tm1638qyf_functions_example": true
           },
           "boron": {
+            "tm1638qyf_functions_example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "tm1638qyf_functions_example": true
+          },
+          "boron": {
+            "tm1638qyf_functions_example": true
+          },
+          "bsom": {
+            "tm1638qyf_functions_example": true
+          },
+          "b5som": {
+            "tm1638qyf_functions_example": true
+          },
+          "tracker": {
+            "tm1638qyf_functions_example": true
+          },
+          "p2": {
+            "tm1638qyf_functions_example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "tm1638qyf_functions_example": true
+          },
+          "boron": {
+            "tm1638qyf_functions_example": true
+          },
+          "bsom": {
+            "tm1638qyf_functions_example": true
+          },
+          "b5som": {
+            "tm1638qyf_functions_example": true
+          },
+          "tracker": {
+            "tm1638qyf_functions_example": true
+          },
+          "esomx": {
             "tm1638qyf_functions_example": true
           }
         }

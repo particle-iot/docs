@@ -7,7 +7,7 @@
   "attributes": {
     "name": "beta-cube-library",
     "version": "0.2.0",
-    "installs": 1048,
+    "installs": 1081,
     "license": "MIT",
     "author": "Alex Hornstein & Owen Trueblood",
     "sentence": "Controls an LED Cube",
@@ -106,6 +106,94 @@
             "streaming": false
           },
           "boron": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "p2": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "esomx": {
             "blink": false,
             "fireworks": false,
             "line": false,

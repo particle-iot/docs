@@ -1197,18 +1197,16 @@ $(document).ready(function() {
         const actionButtonElem = $(thisPartial).find('.actionButton');
         const statusElem = $(thisPartial).find('.apiHelperStatus');
         const logDivElem = $(thisPartial).find('.logDiv');
+        const logTextAreaElem = $(thisPartial).find('.logDiv > textarea');
 
         const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
         const deviceTableElem = $(deviceTableDivElem).find('table');
         const deviceTableBodyElem = $(deviceTableElem).find('tbody');
 
-        const simTableDivElem = $(thisPartial).find('.simTableDiv');
-        const simTableElem = $(simTableDivElem).find('table');
-        const simTableBodyElem = $(simTableElem).find('tbody');
-
         const executeButtonElem = $(thisPartial).find('.executeButton');
         const sandboxUnclaimWarningElem = $(thisPartial).find('.sandboxUnclaimWarning');
         
+
         const setStatus = function(s) {
             $(statusElem).text(s);
         }
@@ -1224,7 +1222,6 @@ $(document).ready(function() {
             productIndex: {},
             productDevices: {}
         };
-        let teamMap = {};
 
         const checkDeviceList = function() {
             const deviceListRaw = $(deviceTextAreaElem).val();
@@ -1249,20 +1246,9 @@ $(document).ready(function() {
 
             if (options.productId && options.removeFromProduct) {
                 for(const deviceId in deviceInfoMap) {
-                    const removeElem = deviceInfoMap[deviceId].removeElem;
                     if (!deviceInfoMap[deviceId].notFound) {
                         enableExecute = true;
-                        $(removeElem).text('');
                     }
-                    else {
-                        $(removeElem).text('No');
-                    }
-                }
-            }
-            else {
-                for(const deviceId in deviceInfoMap) {
-                    const removeElem = deviceInfoMap[deviceId].removeElem;
-                    $(removeElem).text('No');
                 }
             }
 
@@ -1270,7 +1256,6 @@ $(document).ready(function() {
 
             if (options.unclaimDevice) {
                 let hasDevice = false;
-                let nonTeamOwner = false;
 
                 for(const deviceId in deviceInfoMap) {
                     const unclaimElem = deviceInfoMap[deviceId].unclaimElem;
@@ -1279,10 +1264,6 @@ $(document).ready(function() {
                         enableExecute = true;
                         hasDevice = true;
                         $(unclaimElem).text('');
-
-                        if (options.productId && !teamMap[deviceInfoMap[deviceId].owner]) {
-                            nonTeamOwner = true;
-                        }
                     }
                     else {
                         $(unclaimElem).text('No');
@@ -1292,9 +1273,6 @@ $(document).ready(function() {
                 if (!options.productId && hasDevice) {
                     $(sandboxUnclaimWarningElem).show();
                 }            
-                if (nonTeamOwner) {
-                    // Show warning pane here                    
-                }
             }
             else {
 
@@ -1348,37 +1326,29 @@ $(document).ready(function() {
             $(deviceTableBodyElem).html('');
             $(deviceTableDivElem).show();
 
-            $(simTableBodyElem).html('');
-
             try {
-                // 
-                setStatus('Getting device and SIM lists...');
-                let accountDeviceList = await apiHelper.getAllDevices({
-                    productId: options.productId,
-                    owner: options.username
-                });
 
-                let accountSimList = await apiHelper.getAllSims({
-                    productId: options.productId,
-                });
-                console.log('accountSimList', accountSimList);
-    
-                if (options.productId) {
-                    const teamList = (await apiHelper.particle.listTeamMembers({auth: apiHelper.auth.access_token, product: options.productId})).body.team;
-                    for(const t of teamList) {
-                        teamMap[t.username] = t;
-                    }
-                }
-                else {
-                    teamMap = {};
-                }
 
-                let isCellular = false;
                 let hasSim = false;
 
                 // 
                 for(const deviceId of options.deviceList) {
-                    let deviceInfo = accountDeviceList.find(e => e.id == deviceId);
+                    let deviceInfo;
+
+                    try {
+                        if (options.productId) {
+                            // Unclaim product device
+                            deviceInfo = (await apiHelper.particle.getDevice({ deviceId, product:options.productId, auth: apiHelper.auth.access_token })).body;
+                        }
+                        else {
+                            // Unclaim developer device
+                            deviceInfo = (await apiHelper.particle.getDevice({ deviceId, auth: apiHelper.auth.access_token })).body;
+                        }        
+                    }
+                    catch(e) {
+                        console.log('exception getting deviceInfo for ' + deviceId);
+                    }
+
                     if (!deviceInfo) {
                         deviceInfo = {
                             id: deviceId,
@@ -1391,50 +1361,23 @@ $(document).ready(function() {
 
                         deviceInfo.deviceId = deviceInfo.id;
                         
-                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'remove', 'unclaim', 'removeStatus']);
+                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'iccid']);
 
                         if (deviceInfo.notFound) {
                             if (options.productId) {
-                                $(deviceInfo.removeStatusElem).text('Device not found in product');
+                                // $(deviceInfo.removeStatusElem).text('Device not found in product');
                             }
                             else {
-                                $(deviceInfo.removeStatusElem).text('Device not found in sandbox');                                
+                                // $(deviceInfo.removeStatusElem).text('Device not found in sandbox');                                
                             }
+                        }
+                        if (deviceInfo.cellular && deviceInfo.iccid) {
+                            hasSim = true;
                         }
                                                                 
                         $(deviceTableBodyElem).append(rowElem);
 
                         deviceInfoMap[deviceId] = deviceInfo;        
-                    }
-
-                    if (deviceInfo.cellular && deviceInfo.iccid) {
-                        isCellular = true;
-
-                        $(simTableDivElem).show();
-                        
-                        let simInfo = accountSimList.find(e => e.iccid == deviceInfo.iccid);
-                        if (!simInfo) {
-                            simInfo = {
-                                iccid: deviceInfo.iccid,
-                                notFound: true
-                            }
-                        }
-
-                        const rowElem = simInfo.rowElem = document.createElement('tr');
-
-                        addColumns(simInfo, ['iccid', 'release', 'removeStatus']);
-
-                        if (simInfo.notFound) {
-                            $(simInfo.removeStatusElem).text('SIM not found in product');
-                        }
-                        else {
-                            hasSim = true;
-                        }
-
-                        $(simTableBodyElem).append(rowElem);
-                        
-
-                        simInfoMap[deviceInfo.iccid] = simInfo;
                     }
                 }
 
@@ -1445,6 +1388,9 @@ $(document).ready(function() {
                     $(releaseSimRowElem).hide();
                 }
                 setStatus('Device and SIM check complete!');
+
+                $(logTextAreaElem).val('');
+                $(logDivElem).hide();
 
                 ga('send', 'event', gaCategory, 'Check Success');
 
@@ -1457,9 +1403,17 @@ $(document).ready(function() {
 
         };
 
+        const appendLogLine = function(s) {
+            const old = $(logTextAreaElem).val();
+
+            $(logTextAreaElem).val(old + s + '\n');
+        }
+
         const executeOperations = async function(options) {
             try {
                 let hasErrors = false;
+
+                $(logDivElem).show();
 
                 let stats = {};
 
@@ -1470,7 +1424,47 @@ $(document).ready(function() {
                     stats.sandbox = true;
                 }
 
+                const deviceCount = Object.keys(deviceInfoMap).length;
+                let deviceNum = 1;
+
                 for(const deviceId in deviceInfoMap) {
+                    setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
+                    deviceNum++;
+
+                    appendLogLine(deviceId + ' (' + deviceInfoMap[deviceId].name + ')');
+
+                    if (deviceInfoMap[deviceId].notFound) {
+                        if (options.productId) {
+                            appendLogLine('  Not found in product  ' + options.productId + ' ****');
+                        }
+                        else {
+                            appendLogLine('  Not found in developer sandbox ' + ' ****');
+                        }
+                        continue;
+                    }
+
+                    const iccid = deviceInfoMap[deviceId].iccid;
+                    if (options.releaseSim && iccid) {
+                        try {
+                            if (options.productId) {
+                                // Remove product SIM
+                                await apiHelper.particle.removeSIM({ iccid, product:options.productId, auth: apiHelper.auth.access_token });
+                            }
+                            else {
+                                // Remove developer SIM
+                                await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
+                            }
+                            stats.release = stats.release ? stats.release + 1 : 1;
+                            appendLogLine('  Release SIM success ' + iccid);
+                        }
+                        catch(e) {
+                            console.log('exception', e);
+                            appendLogLine('  Release SIM failed ' + iccid + ' *****');
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
+                        }
+    
+                    }
                     if (options.unclaimDevice && deviceInfoMap[deviceId].owner) {
                         const unclaimElem = deviceInfoMap[deviceId].unclaimElem;
 
@@ -1483,12 +1477,14 @@ $(document).ready(function() {
                                 // Unclaim developer device
                                 await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
                             }    
+                            appendLogLine('  Unclaim success ' + deviceInfoMap[deviceId].owner);
                             stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
-                            $(unclaimElem).html('&#x2705'); // green check
+                            // $(unclaimElem).html('&#x2705'); // green check
                         }
                         catch(e) {
                             console.log('exception', e);
-                            $(unclaimElem).html('&#x274c'); // red x
+                            appendLogLine('  Unclaim failed ' + deviceInfoMap[deviceId].owner + ' ****');
+                            // $(unclaimElem).html('&#x274c'); // red x
                             hasErrors = true;
                             stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
@@ -1496,52 +1492,23 @@ $(document).ready(function() {
 
                     if (options.productId && options.removeFromProduct) {
                         // Remove from product
-                        const removeElem = deviceInfoMap[deviceId].removeElem;
                         try {
                             await apiHelper.particle.removeDevice({ deviceId, product:options.productId, auth: apiHelper.auth.access_token });
 
-                            $(removeElem).html('&#x2705'); // green check
+                            appendLogLine('  Remove from product ' + options.productId + ' success ');
                             stats.remove = stats.remove ? stats.remove + 1 : 1;
                         }
                         catch(e) {
                             console.log('exception', e);
-                            $(removeElem).html('&#x274c'); // red x
+                            appendLogLine('  Remove from product ' + options.productId + ' failed ' + ' ****');
                             hasErrors = true;
                             stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
                     }
-
+                    
 
                 }                
-
-                for(const iccid in simInfoMap) {
-                    if (options.releaseSim && !simInfoMap[iccid].notFound) {
-                        // Release SIM
-                        const releaseElem = simInfoMap[iccid].releaseElem;
-                        const removeStatusElem = simInfoMap[iccid].removeStatusElem;
-
-                        try {
-                            if (options.productId) {
-                                // Remove product SIM
-                                await apiHelper.particle.removeSIM({ iccid, product:options.productId, auth: apiHelper.auth.access_token });
-                            }
-                            else {
-                                // Remove developer SIM
-                                await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
-                            }
-                            stats.release = stats.release ? stats.release + 1 : 1;
-                            $(removeStatusElem).text('Released')
-                            $(releaseElem).html('&#x2705'); // green check
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            $(removeStatusElem).text('Released')
-                            $(releaseElem).html('&#x274c'); // red x
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-                    }                    
-                }                
+             
                 if (!hasErrors) {
                     setStatus('All operations completed successfully!');
                 } 
@@ -1603,7 +1570,6 @@ $(document).ready(function() {
 
         $(actionButtonElem).on('click', function() {
     
-            $(logDivElem).text('');
             $(actionButtonElem).prop('disabled', true);
 
             checkOperations(getOptions());

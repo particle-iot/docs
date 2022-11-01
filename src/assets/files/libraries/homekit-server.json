@@ -7,7 +7,7 @@
   "attributes": {
     "name": "homekit-server",
     "version": "0.0.1",
-    "installs": 305,
+    "installs": 342,
     "architectures": [],
     "visibility": "public",
     "mine": false
@@ -57,6 +57,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

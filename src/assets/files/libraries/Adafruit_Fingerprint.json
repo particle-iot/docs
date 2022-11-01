@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Fingerprint",
     "version": "1.0.3",
-    "installs": 3593,
+    "installs": 3648,
     "license": "BSD License",
     "author": "Paul Kourany",
     "sentence": "Adafruit Fingerprint Sensor library",
@@ -85,6 +85,70 @@
             "fingerprint": false
           },
           "boron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "boron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "bsom": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "b5som": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "tracker": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "p2": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "boron": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "bsom": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "b5som": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "tracker": {
+            "blank": true,
+            "enroll": false,
+            "fingerprint": false
+          },
+          "esomx": {
             "blank": true,
             "enroll": false,
             "fingerprint": false

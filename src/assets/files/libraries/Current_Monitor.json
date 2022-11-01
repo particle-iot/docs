@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Current_Monitor",
     "version": "0.0.5",
-    "installs": 1527,
+    "installs": 1554,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of ControlEverything Current Monitoring products compatible with Particle Interface modules.",
@@ -73,6 +73,58 @@
             "Current-Limit-Breaker": false
           },
           "boron": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "boron": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "bsom": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "b5som": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "tracker": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "p2": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "boron": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "bsom": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "b5som": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "tracker": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "esomx": {
             "1-Channel-Event-Trip": false,
             "Current-Limit-Breaker": false
           }

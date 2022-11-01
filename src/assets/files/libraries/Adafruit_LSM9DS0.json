@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LSM9DS0",
     "version": "1.0.2",
-    "installs": 1468,
+    "installs": 1489,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for LSM9DS0 9-DOF sensor board.",
@@ -76,6 +76,58 @@
             "sensorapi": false
           },
           "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "p2": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "boron": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "bsom": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "b5som": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "tracker": {
+            "lsm9doftest": false,
+            "sensorapi": false
+          },
+          "esomx": {
             "lsm9doftest": false,
             "sensorapi": false
           }

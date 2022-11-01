@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sunset",
     "version": "1.1.7",
-    "installs": 8264,
+    "installs": 8661,
     "license": "GPLV2",
     "author": "Peter Buelow <goballstate@gmail.com>",
     "maintainer": "Peter Buelow <goballstate@gmail.com>",
@@ -135,6 +135,58 @@
             "particle": false
           },
           "boron": {
+            "esp": false,
+            "particle": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "esp": false,
+            "particle": false
+          },
+          "boron": {
+            "esp": false,
+            "particle": false
+          },
+          "bsom": {
+            "esp": false,
+            "particle": false
+          },
+          "b5som": {
+            "esp": false,
+            "particle": false
+          },
+          "tracker": {
+            "esp": false,
+            "particle": false
+          },
+          "p2": {
+            "esp": false,
+            "particle": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "esp": false,
+            "particle": false
+          },
+          "boron": {
+            "esp": false,
+            "particle": false
+          },
+          "bsom": {
+            "esp": false,
+            "particle": false
+          },
+          "b5som": {
+            "esp": false,
+            "particle": false
+          },
+          "tracker": {
+            "esp": false,
+            "particle": false
+          },
+          "esomx": {
             "esp": false,
             "particle": false
           }

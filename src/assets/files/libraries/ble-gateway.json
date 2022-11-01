@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ble-gateway",
     "version": "0.0.1",
-    "installs": 450,
+    "installs": 468,
     "license": "MIT",
     "author": "Mariano Goluboff",
     "sentence": "Connect to different BLE peripherals.",
@@ -85,6 +85,70 @@
           },
           "boron": {
             "masterbuilt-smoker": false,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "boron": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "bsom": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "b5som": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "tracker": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "p2": {
+            "masterbuilt-smoker": false,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "boron": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "bsom": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "b5som": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "tracker": {
+            "masterbuilt-smoker": true,
+            "tracker-bike_speed-heartrate": false,
+            "veepeak": false
+          },
+          "esomx": {
+            "masterbuilt-smoker": true,
             "tracker-bike_speed-heartrate": false,
             "veepeak": false
           }

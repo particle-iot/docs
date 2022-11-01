@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SHT1x",
     "version": "1.0.4",
-    "installs": 28614,
+    "installs": 29137,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Anurag Chugh <lithiumhead@gmail.com>",
     "sentence": "SHT1x Temperature / Humidity Sensor Library for Spark Core",
@@ -62,6 +62,46 @@
             "example": true
           },
           "boron": {
+            "example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
             "example": true
           }
         }

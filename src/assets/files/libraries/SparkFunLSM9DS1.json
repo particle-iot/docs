@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunLSM9DS1",
     "version": "1.1.3",
-    "installs": 34403,
+    "installs": 34420,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the LSM9DS1 9DoF.",
@@ -73,6 +73,58 @@
             "LSM9DS1_Basic_SPI": false
           },
           "boron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "boron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "bsom": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "b5som": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "tracker": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "p2": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "boron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "bsom": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "b5som": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "tracker": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "esomx": {
             "LSM9DS1_Basic_I2C": false,
             "LSM9DS1_Basic_SPI": false
           }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AssetTracker",
     "version": "0.0.10",
-    "installs": 145607,
+    "installs": 146210,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions to make the Asset Tracker for Electron easy to use!",
@@ -88,6 +88,70 @@
             "3_WakeOnMove": false
           },
           "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "bsom": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "b5som": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "tracker": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "p2": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "boron": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "bsom": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "b5som": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "tracker": {
+            "1_GPS_Features": false,
+            "2_Accelerometer": false,
+            "3_WakeOnMove": false
+          },
+          "esomx": {
             "1_GPS_Features": false,
             "2_Accelerometer": false,
             "3_WakeOnMove": false

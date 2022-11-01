@@ -7,7 +7,7 @@
   "attributes": {
     "name": "carloop",
     "version": "2.1.0",
-    "installs": 69370,
+    "installs": 69678,
     "license": "MIT",
     "author": "Julien Vanier <julien@carloop.io>",
     "sentence": "Carloop.io library for the Particle platform",
@@ -84,6 +84,70 @@
             "socketcan_serial": false
           },
           "boron": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "boron": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "bsom": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "b5som": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "tracker": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "p2": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "boron": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "bsom": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "b5som": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "tracker": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "esomx": {
             "carloop_minimal": false,
             "obd_blink": false,
             "socketcan_serial": false

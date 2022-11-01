@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialCommandParserRK",
     "version": "0.0.8",
-    "installs": 664,
+    "installs": 885,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Code for presenting a simple command line from a Particle device over USB or UART serial.",
@@ -130,6 +130,118 @@
             "7-cmd-options-test": true
           },
           "boron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": false,
+            "7-cmd-options-test": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": true,
+            "7-cmd-options-test": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-line-editing": true,
+            "3-line-editing-uart": true,
+            "4-print-message": true,
+            "5-log-handler": true,
+            "6-tcp-server": false,
+            "7-cmd-options-test": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-line-editing": true,
             "3-line-editing-uart": true,

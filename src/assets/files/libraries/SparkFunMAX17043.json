@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMAX17043",
     "version": "1.1.2",
-    "installs": 69677,
+    "installs": 71046,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the MAX17043 LiPo fuel gauge.",
@@ -62,6 +62,46 @@
             "MAX17043_Simple": true
           },
           "boron": {
+            "MAX17043_Simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MAX17043_Simple": true
+          },
+          "boron": {
+            "MAX17043_Simple": true
+          },
+          "bsom": {
+            "MAX17043_Simple": true
+          },
+          "b5som": {
+            "MAX17043_Simple": true
+          },
+          "tracker": {
+            "MAX17043_Simple": true
+          },
+          "p2": {
+            "MAX17043_Simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MAX17043_Simple": true
+          },
+          "boron": {
+            "MAX17043_Simple": true
+          },
+          "bsom": {
+            "MAX17043_Simple": true
+          },
+          "b5som": {
+            "MAX17043_Simple": true
+          },
+          "tracker": {
+            "MAX17043_Simple": true
+          },
+          "esomx": {
             "MAX17043_Simple": true
           }
         }

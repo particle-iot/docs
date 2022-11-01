@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sht20",
     "version": "1.0.0",
-    "installs": 7115,
+    "installs": 7682,
     "architectures": [],
     "visibility": "public",
     "mine": false
@@ -57,6 +57,46 @@
             "DFRobot_SHT20_test": true
           },
           "boron": {
+            "DFRobot_SHT20_test": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "DFRobot_SHT20_test": true
+          },
+          "boron": {
+            "DFRobot_SHT20_test": true
+          },
+          "bsom": {
+            "DFRobot_SHT20_test": true
+          },
+          "b5som": {
+            "DFRobot_SHT20_test": true
+          },
+          "tracker": {
+            "DFRobot_SHT20_test": true
+          },
+          "p2": {
+            "DFRobot_SHT20_test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "DFRobot_SHT20_test": true
+          },
+          "boron": {
+            "DFRobot_SHT20_test": true
+          },
+          "bsom": {
+            "DFRobot_SHT20_test": true
+          },
+          "b5som": {
+            "DFRobot_SHT20_test": true
+          },
+          "tracker": {
+            "DFRobot_SHT20_test": true
+          },
+          "esomx": {
             "DFRobot_SHT20_test": true
           }
         }

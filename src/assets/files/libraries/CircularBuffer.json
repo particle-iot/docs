@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CircularBuffer",
     "version": "1.3.3",
-    "installs": 1149,
+    "installs": 1831,
     "author": "AgileWare",
     "maintainer": "Roberto Lo Giacco <rlogiacco@gmail.com>",
     "sentence": "Arduino circular buffer library",
@@ -145,6 +145,130 @@
             "Test": false
           },
           "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "bsom": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "b5som": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "tracker": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "p2": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "bsom": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "b5som": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "tracker": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "esomx": {
             "CircularBuffer": false,
             "EventLogging": false,
             "Interrupts": false,

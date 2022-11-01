@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EchoPhotonBridge",
     "version": "0.7.5",
-    "installs": 5174,
+    "installs": 5354,
     "license": "Attribution-NonCommercial-ShareAlike 4.0 International CC BY-NC-SA 4.0",
     "author": "Jeremy Proffitt <proffitt.jeremy@gmail.com>",
     "sentence": "Interface Your Photon to Amazon Echo/Alexa Home Automation",
@@ -74,6 +74,58 @@
             "usage": false
           },
           "boron": {
+            "garage candles": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "garage candles": false,
+            "usage": false
+          },
+          "boron": {
+            "garage candles": false,
+            "usage": false
+          },
+          "bsom": {
+            "garage candles": false,
+            "usage": false
+          },
+          "b5som": {
+            "garage candles": false,
+            "usage": false
+          },
+          "tracker": {
+            "garage candles": false,
+            "usage": false
+          },
+          "p2": {
+            "garage candles": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "garage candles": false,
+            "usage": false
+          },
+          "boron": {
+            "garage candles": false,
+            "usage": false
+          },
+          "bsom": {
+            "garage candles": false,
+            "usage": false
+          },
+          "b5som": {
+            "garage candles": false,
+            "usage": false
+          },
+          "tracker": {
+            "garage candles": false,
+            "usage": false
+          },
+          "esomx": {
             "garage candles": false,
             "usage": false
           }

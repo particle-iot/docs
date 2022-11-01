@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD1Relay",
     "version": "0.0.2",
-    "installs": 7231,
+    "installs": 7429,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 1 channel Particle compatible Relay Controller",
@@ -84,6 +84,70 @@
             "duct-relay": true
           },
           "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "p2": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "esomx": {
             "CloudControl": false,
             "Loop_Test": false,
             "duct-relay": true

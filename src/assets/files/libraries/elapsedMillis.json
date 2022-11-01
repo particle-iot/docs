@@ -7,7 +7,7 @@
   "attributes": {
     "name": "elapsedMillis",
     "version": "0.0.2",
-    "installs": 73482,
+    "installs": 74898,
     "license": "Unknown",
     "author": "Paul Kourany/PJRC.COM",
     "sentence": "elapsedMillis for Particle devices",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "elapsedMillisDemo": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "elapsedMillisDemo": true
+          },
+          "boron": {
+            "elapsedMillisDemo": true
+          },
+          "bsom": {
+            "elapsedMillisDemo": true
+          },
+          "b5som": {
+            "elapsedMillisDemo": true
+          },
+          "tracker": {
+            "elapsedMillisDemo": true
+          },
+          "p2": {
+            "elapsedMillisDemo": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "elapsedMillisDemo": true
+          },
+          "boron": {
+            "elapsedMillisDemo": true
+          },
+          "bsom": {
+            "elapsedMillisDemo": true
+          },
+          "b5som": {
+            "elapsedMillisDemo": true
+          },
+          "tracker": {
+            "elapsedMillisDemo": true
+          },
+          "esomx": {
+            "elapsedMillisDemo": false
           }
         }
       },

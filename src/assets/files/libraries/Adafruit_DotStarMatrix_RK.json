@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_DotStarMatrix_RK",
     "version": "1.0.3",
-    "installs": 1201,
+    "installs": 1288,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit_GFX-compatible library for DotStar grids. Ported by rickkas7.",
@@ -65,6 +65,46 @@
           },
           "boron": {
             "dotstar_wing": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "dotstar_wing": true
+          },
+          "boron": {
+            "dotstar_wing": true
+          },
+          "bsom": {
+            "dotstar_wing": false
+          },
+          "b5som": {
+            "dotstar_wing": false
+          },
+          "tracker": {
+            "dotstar_wing": false
+          },
+          "p2": {
+            "dotstar_wing": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "dotstar_wing": true
+          },
+          "boron": {
+            "dotstar_wing": true
+          },
+          "bsom": {
+            "dotstar_wing": false
+          },
+          "b5som": {
+            "dotstar_wing": false
+          },
+          "tracker": {
+            "dotstar_wing": false
+          },
+          "esomx": {
+            "dotstar_wing": false
           }
         }
       },

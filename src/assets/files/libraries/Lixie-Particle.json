@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Lixie-Particle",
     "version": "1.4.1",
-    "installs": 256,
+    "installs": 274,
     "license": "GNU v3",
     "author": "Connor Nishijima",
     "sentence": "Allows for easy writing to Lixie Digit displays!",
@@ -108,6 +108,94 @@
             "scoreboard": false
           },
           "boron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "boron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "bsom": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "b5som": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "tracker": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "p2": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "boron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "bsom": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "b5som": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "tracker": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "esomx": {
             "FPS_test": false,
             "counter": false,
             "counter_multi": false,

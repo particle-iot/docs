@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_APDS9960_Particle",
     "version": "0.0.3",
-    "installs": 2720,
+    "installs": 2787,
     "author": "adafruit",
     "architectures": [],
     "visibility": "public",
@@ -83,6 +83,70 @@
             "color_sensor": true,
             "gesture_sensor": true,
             "proximity_sensor": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "boron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "bsom": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "b5som": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "tracker": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "p2": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "boron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "bsom": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "b5som": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "tracker": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "esomx": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": true
           }
         }
       },

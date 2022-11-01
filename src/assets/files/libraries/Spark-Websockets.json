@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Spark-Websockets",
     "version": "0.0.7",
-    "installs": 5742,
+    "installs": 6039,
     "license": "MIT",
     "author": "Ivan Davletshin <ekbduffy@gmail.com> and Austin Kurpuis",
     "sentence": "Spark Library to work with websockets",
@@ -62,6 +62,46 @@
             "test": false
           },
           "boron": {
+            "test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          },
+          "bsom": {
+            "test": false
+          },
+          "b5som": {
+            "test": false
+          },
+          "tracker": {
+            "test": false
+          },
+          "p2": {
+            "test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          },
+          "bsom": {
+            "test": false
+          },
+          "b5som": {
+            "test": false
+          },
+          "tracker": {
+            "test": false
+          },
+          "esomx": {
             "test": false
           }
         }

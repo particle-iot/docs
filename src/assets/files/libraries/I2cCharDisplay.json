@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2cCharDisplay",
     "version": "1.0.3",
-    "installs": 2660,
+    "installs": 2684,
     "license": "MIT",
     "author": "Gary Muhonen <gary@dcity.org>",
     "sentence": "I2C LCD and OLED Character Display Library.",
@@ -66,6 +66,46 @@
             "I2cCharDisplayDemo": true
           },
           "boron": {
+            "I2cCharDisplayDemo": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "I2cCharDisplayDemo": true
+          },
+          "boron": {
+            "I2cCharDisplayDemo": true
+          },
+          "bsom": {
+            "I2cCharDisplayDemo": true
+          },
+          "b5som": {
+            "I2cCharDisplayDemo": true
+          },
+          "tracker": {
+            "I2cCharDisplayDemo": true
+          },
+          "p2": {
+            "I2cCharDisplayDemo": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "I2cCharDisplayDemo": true
+          },
+          "boron": {
+            "I2cCharDisplayDemo": true
+          },
+          "bsom": {
+            "I2cCharDisplayDemo": true
+          },
+          "b5som": {
+            "I2cCharDisplayDemo": true
+          },
+          "tracker": {
+            "I2cCharDisplayDemo": true
+          },
+          "esomx": {
             "I2cCharDisplayDemo": true
           }
         }

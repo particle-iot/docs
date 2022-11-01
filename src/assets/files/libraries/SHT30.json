@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SHT30",
     "version": "0.0.2",
-    "installs": 3650,
+    "installs": 3791,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "This Library is intended for use with SHT30 Mini module on the Particle Core/Photon platform.",
@@ -62,6 +62,46 @@
             "Sample": false
           },
           "boron": {
+            "Sample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Sample": false
+          },
+          "boron": {
+            "Sample": false
+          },
+          "bsom": {
+            "Sample": false
+          },
+          "b5som": {
+            "Sample": false
+          },
+          "tracker": {
+            "Sample": false
+          },
+          "p2": {
+            "Sample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Sample": false
+          },
+          "boron": {
+            "Sample": false
+          },
+          "bsom": {
+            "Sample": false
+          },
+          "b5som": {
+            "Sample": false
+          },
+          "tracker": {
+            "Sample": false
+          },
+          "esomx": {
             "Sample": false
           }
         }

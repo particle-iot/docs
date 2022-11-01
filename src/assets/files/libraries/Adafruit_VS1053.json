@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_VS1053",
     "version": "0.0.1",
-    "installs": 4031,
+    "installs": 4205,
     "author": "Adafruit",
     "maintainer": "ScruffR <community.particle.io>",
     "sentence": "This is a library for the Adafruit VS1053 Codec Breakout and Music Maker Shields",
@@ -144,6 +144,130 @@
           },
           "boron": {
             "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "boron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "bsom": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "b5som": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "tracker": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "p2": {
+            "ParticleTest": false,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "boron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "bsom": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "b5som": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "tracker": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "esomx": {
+            "ParticleTest": false,
             "feather_midi": false,
             "feather_player": false,
             "player_gpiotest": false,

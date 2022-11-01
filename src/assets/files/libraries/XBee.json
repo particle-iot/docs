@@ -7,7 +7,7 @@
   "attributes": {
     "name": "XBee",
     "version": "0.0.10",
-    "installs": 3844,
+    "installs": 3928,
     "license": "n/a",
     "author": "someone_else",
     "sentence": "A library for XBee on Spark Core",

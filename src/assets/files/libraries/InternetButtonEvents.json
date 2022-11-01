@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InternetButtonEvents",
     "version": "1.0.1",
-    "installs": 838,
+    "installs": 848,
     "license": "MIT",
     "author": "dwcares",
     "sentence": "Provides clean, debounced, button and click events for the Particle Internet Button",
@@ -65,6 +65,46 @@
             "example": false
           },
           "boron": {
+            "example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
             "example": false
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceNameHelperRK",
     "version": "0.0.1",
-    "installs": 6292,
+    "installs": 8593,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for accessing the Particle device name easily",
@@ -108,6 +108,94 @@
             "05-file": true
           },
           "boron": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "boron": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "bsom": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "b5som": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "tracker": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "p2": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "boron": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "bsom": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "b5som": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "tracker": {
+            "01-eeprom": true,
+            "02-retained": true,
+            "03-no-save": true,
+            "04-recheck": true,
+            "05-file": true
+          },
+          "esomx": {
             "01-eeprom": true,
             "02-retained": true,
             "03-no-save": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_LPS25HB_Arduino_Library",
     "version": "1.1.0",
-    "installs": 781,
+    "installs": 821,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the <a href=\"https://www.sparkfun.com/products/14767\">SparkFun Qwiic Pressure Sensor - LPS25HB</a>.",
@@ -110,6 +110,94 @@
             "Example5_FIFO_Average": true
           },
           "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "p2": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "esomx": {
             "Example1_Basic_Readings": true,
             "Example2_I2C_Configuration": true,
             "Example3_Check_Connection": true,

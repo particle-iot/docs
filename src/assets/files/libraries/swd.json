@@ -7,7 +7,7 @@
   "attributes": {
     "name": "swd",
     "version": "0.1.4",
-    "installs": 1303,
+    "installs": 1355,
     "license": "LGPLv3",
     "author": "mdma <mat dot mcgowan+particle at gmail dot com>",
     "sentence": "Implements the SWD protocol and STM32F2xx flash operations. This allows one device to program another by connecting 2 data lines.",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "Norwegian_Blue": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Norwegian_Blue": true
+          },
+          "boron": {
+            "Norwegian_Blue": true
+          },
+          "bsom": {
+            "Norwegian_Blue": true
+          },
+          "b5som": {
+            "Norwegian_Blue": true
+          },
+          "tracker": {
+            "Norwegian_Blue": true
+          },
+          "p2": {
+            "Norwegian_Blue": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Norwegian_Blue": true
+          },
+          "boron": {
+            "Norwegian_Blue": true
+          },
+          "bsom": {
+            "Norwegian_Blue": true
+          },
+          "b5som": {
+            "Norwegian_Blue": true
+          },
+          "tracker": {
+            "Norwegian_Blue": true
+          },
+          "esomx": {
+            "Norwegian_Blue": false
           }
         }
       },

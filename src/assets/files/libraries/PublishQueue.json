@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueue",
     "version": "0.0.11",
-    "installs": 6400,
+    "installs": 6435,
     "license": "MIT",
     "author": "Tiago Andrade e Silva <tiagonmas@hotmail.com>",
     "sentence": "Delays the calling of cloud events (Particle.publish) so it does not pass the limits defined by Particle",
@@ -62,6 +62,46 @@
             "publishqueue": false
           },
           "boron": {
+            "publishqueue": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "publishqueue": false
+          },
+          "boron": {
+            "publishqueue": false
+          },
+          "bsom": {
+            "publishqueue": false
+          },
+          "b5som": {
+            "publishqueue": false
+          },
+          "tracker": {
+            "publishqueue": false
+          },
+          "p2": {
+            "publishqueue": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "publishqueue": false
+          },
+          "boron": {
+            "publishqueue": false
+          },
+          "bsom": {
+            "publishqueue": false
+          },
+          "b5som": {
+            "publishqueue": false
+          },
+          "tracker": {
+            "publishqueue": false
+          },
+          "esomx": {
             "publishqueue": false
           }
         }

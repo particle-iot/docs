@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_GFX_RK",
     "version": "1.5.8",
-    "installs": 122203,
+    "installs": 126972,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit GFX graphics core library, this is the 'core' class that all our other graphics libraries derive from. Ported by rickkas7.",
@@ -65,6 +65,46 @@
             "readme": true
           },
           "boron": {
+            "readme": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "readme": true
+          },
+          "boron": {
+            "readme": true
+          },
+          "bsom": {
+            "readme": true
+          },
+          "b5som": {
+            "readme": true
+          },
+          "tracker": {
+            "readme": true
+          },
+          "p2": {
+            "readme": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "readme": true
+          },
+          "boron": {
+            "readme": true
+          },
+          "bsom": {
+            "readme": true
+          },
+          "b5som": {
+            "readme": true
+          },
+          "tracker": {
+            "readme": true
+          },
+          "esomx": {
             "readme": true
           }
         }

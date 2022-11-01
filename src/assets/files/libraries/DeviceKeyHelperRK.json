@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceKeyHelperRK",
     "version": "0.0.4",
-    "installs": 3764,
+    "installs": 3776,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions to save and restore the device keys on Particle device",
@@ -64,6 +64,46 @@
             "1-simple-DeviceKeyHelperRK": true
           },
           "boron": {
+            "1-simple-DeviceKeyHelperRK": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "p2": {
+            "1-simple-DeviceKeyHelperRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "boron": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "bsom": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "b5som": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "tracker": {
+            "1-simple-DeviceKeyHelperRK": true
+          },
+          "esomx": {
             "1-simple-DeviceKeyHelperRK": true
           }
         }

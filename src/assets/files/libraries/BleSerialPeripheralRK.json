@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BleSerialPeripheralRK",
     "version": "0.0.1",
-    "installs": 2295,
+    "installs": 2325,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library to simplify using the BLE UART peripheral",
@@ -64,6 +64,46 @@
             "1-simple-BleSerialPeripheralRK": true
           },
           "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "bsom": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "b5som": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "tracker": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "p2": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "bsom": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "b5som": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "tracker": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "esomx": {
             "1-simple-BleSerialPeripheralRK": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RelayShield",
     "version": "0.0.6",
-    "installs": 53312,
+    "installs": 53896,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions to make the Photon Relay Shield even easier!",
@@ -87,6 +87,70 @@
             "1_Blink_a_Relay": true,
             "2_Control_All_Relays": false,
             "3_Internet_Relays": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "boron": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "bsom": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "b5som": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "tracker": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "p2": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "boron": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "bsom": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "b5som": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "tracker": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "esomx": {
+            "1_Blink_a_Relay": false,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": false
           }
         }
       },

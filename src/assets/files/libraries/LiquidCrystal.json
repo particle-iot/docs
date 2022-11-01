@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal",
     "version": "0.0.3",
-    "installs": 106928,
+    "installs": 108639,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "LiquidCrystal on Spark Core",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "Spark-HelloSparky": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Spark-HelloSparky": true
+          },
+          "boron": {
+            "Spark-HelloSparky": true
+          },
+          "bsom": {
+            "Spark-HelloSparky": true
+          },
+          "b5som": {
+            "Spark-HelloSparky": true
+          },
+          "tracker": {
+            "Spark-HelloSparky": true
+          },
+          "p2": {
+            "Spark-HelloSparky": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Spark-HelloSparky": true
+          },
+          "boron": {
+            "Spark-HelloSparky": true
+          },
+          "bsom": {
+            "Spark-HelloSparky": true
+          },
+          "b5som": {
+            "Spark-HelloSparky": true
+          },
+          "tracker": {
+            "Spark-HelloSparky": true
+          },
+          "esomx": {
+            "Spark-HelloSparky": false
           }
         }
       },

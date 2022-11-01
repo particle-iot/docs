@@ -7,7 +7,7 @@
   "attributes": {
     "name": "opcn2",
     "version": "1.3.1",
-    "installs": 2681,
+    "installs": 2687,
     "license": "MIT",
     "author": "David H Hagan <dhagan@mit.edu>",
     "sentence": "A simple library to operate the Alphasense OPC-N2 using a Particle Photon/Electron",
@@ -84,6 +84,70 @@
             "wifi-opc": true
           },
           "boron": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "boron": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "bsom": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "b5som": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "tracker": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "p2": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "boron": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "bsom": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "b5som": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "tracker": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "esomx": {
             "run-the-opc": true,
             "tests": true,
             "wifi-opc": true

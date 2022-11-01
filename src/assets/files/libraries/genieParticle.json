@@ -7,7 +7,7 @@
   "attributes": {
     "name": "genieParticle",
     "version": "1.0.0",
-    "installs": 9569,
+    "installs": 9597,
     "license": "GNU Lesser General Public License",
     "author": "4D Systems Pty Ltd",
     "sentence": "4D Systems Visi-Genie library for Partile Proton",
@@ -84,6 +84,70 @@
             "genieParticle_WriteStr_Demo": false
           },
           "boron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "boron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "bsom": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "b5som": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "tracker": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "p2": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "boron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "bsom": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "b5som": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "tracker": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "esomx": {
             "genieParticle_Demo": false,
             "genieParticle_Demo_MultiScreen": false,
             "genieParticle_WriteStr_Demo": false

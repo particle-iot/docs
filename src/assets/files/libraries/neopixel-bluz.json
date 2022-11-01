@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-bluz",
     "version": "1.0.0",
-    "installs": 530,
+    "installs": 555,
     "license": "MIT",
     "author": "Eric Barch <ericb@ericbarch.com>",
     "sentence": "A library to drive WS2812(B) Adafruit Neopixels.",
@@ -62,6 +62,46 @@
             "neo": false
           },
           "boron": {
+            "neo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "neo": false
+          },
+          "boron": {
+            "neo": false
+          },
+          "bsom": {
+            "neo": false
+          },
+          "b5som": {
+            "neo": false
+          },
+          "tracker": {
+            "neo": false
+          },
+          "p2": {
+            "neo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "neo": false
+          },
+          "boron": {
+            "neo": false
+          },
+          "bsom": {
+            "neo": false
+          },
+          "b5som": {
+            "neo": false
+          },
+          "tracker": {
+            "neo": false
+          },
+          "esomx": {
             "neo": false
           }
         }

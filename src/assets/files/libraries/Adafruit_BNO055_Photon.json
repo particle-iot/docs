@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BNO055_Photon",
     "version": "0.1.6",
-    "installs": 6690,
+    "installs": 6915,
     "author": "KTOWN_for_Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -102,6 +102,94 @@
             "sensorapi": true
           },
           "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "bsom": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "b5som": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "tracker": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "p2": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "bsom": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "b5som": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "tracker": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "esomx": {
             "BNO055": true,
             "bunny": true,
             "rawdata": true,

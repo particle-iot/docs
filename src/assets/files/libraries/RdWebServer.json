@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RdWebServer",
     "version": "1.0.17",
-    "installs": 2034,
+    "installs": 2480,
     "license": "MIT",
     "author": "Rob Dobson",
     "sentence": "Simple web server supporting REST API and static files",
@@ -87,6 +87,70 @@
             "Particle_RdWebServerTest": true
           },
           "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "bsom": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "b5som": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "tracker": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "p2": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "bsom": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "b5som": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "tracker": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "esomx": {
             "Particle_RdWebServerPostTest": false,
             "Particle_RdWebServerRateTest": false,
             "Particle_RdWebServerTest": false

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "gbjFilterExponential",
     "version": "1.1.0",
-    "installs": 1045,
+    "installs": 1053,
     "license": "MIT",
     "author": "Libor Gabaj <libor.gabaj@gmail.com>",
     "maintainer": "Libor Gabaj <libor.gabaj@gmail.com>",
@@ -70,6 +70,46 @@
             "analog_input_filtering": false
           },
           "boron": {
+            "analog_input_filtering": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "analog_input_filtering": false
+          },
+          "boron": {
+            "analog_input_filtering": false
+          },
+          "bsom": {
+            "analog_input_filtering": false
+          },
+          "b5som": {
+            "analog_input_filtering": false
+          },
+          "tracker": {
+            "analog_input_filtering": false
+          },
+          "p2": {
+            "analog_input_filtering": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "analog_input_filtering": false
+          },
+          "boron": {
+            "analog_input_filtering": false
+          },
+          "bsom": {
+            "analog_input_filtering": false
+          },
+          "b5som": {
+            "analog_input_filtering": false
+          },
+          "tracker": {
+            "analog_input_filtering": false
+          },
+          "esomx": {
             "analog_input_filtering": false
           }
         }

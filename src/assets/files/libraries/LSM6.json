@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LSM6",
     "version": "1.0.0",
-    "installs": 952,
+    "installs": 964,
     "author": "Pololu",
     "maintainer": "Pololu <inbox@pololu.com>",
     "sentence": "LSM6 accelerometer and gyro library",
@@ -65,6 +65,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

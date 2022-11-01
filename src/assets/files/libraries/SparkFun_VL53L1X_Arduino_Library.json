@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VL53L1X_Arduino_Library",
     "version": "1.2.9",
-    "installs": 2695,
+    "installs": 3162,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic 4m Distance Sensor - VL53L1X",
@@ -121,6 +121,106 @@
             "Example7_Calibration": true
           },
           "boron": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "boron": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "bsom": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "b5som": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "tracker": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "p2": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "boron": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "bsom": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "b5som": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "tracker": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "esomx": {
             "Example1_ReadDistance": true,
             "Example2_SetDistanceMode": true,
             "Example3_StatusAndRate": true,

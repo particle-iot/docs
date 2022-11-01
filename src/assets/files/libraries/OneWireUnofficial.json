@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OneWireUnofficial",
     "version": "1.4.0",
-    "installs": 8143,
+    "installs": 8282,
     "license": "MIT",
     "author": "Hotaman",
     "sentence": "Dallas 1-Wire protocol support with examples",
@@ -73,6 +73,58 @@
             "DS18x20_Temperature": false
           },
           "boron": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "boron": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "bsom": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "b5som": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "tracker": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "p2": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "boron": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "bsom": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "b5som": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "tracker": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "esomx": {
             "Address_Scanner": false,
             "DS18x20_Temperature": false
           }

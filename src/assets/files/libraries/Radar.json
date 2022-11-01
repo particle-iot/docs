@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Radar",
     "version": "1.0.0",
-    "installs": 796,
+    "installs": 851,
     "author": "Pinak",
     "architectures": [],
     "visibility": "public",
@@ -58,6 +58,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": true
           }
         }

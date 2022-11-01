@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Manchester",
     "version": "1.0.2",
-    "installs": 2386,
+    "installs": 2453,
     "license": "Unspecified",
     "author": "Paul Kourany",
     "sentence": "Manchester library for 315/433MHz radios",
@@ -117,6 +117,106 @@
             "ManchesterTX_Check": false
           },
           "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "bsom": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "b5som": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "tracker": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "p2": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "bsom": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "b5som": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "tracker": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "esomx": {
             "ManchesterRX_Array": false,
             "ManchesterRX_Basic": false,
             "ManchesterRX_Check": false,

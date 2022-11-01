@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Encoder",
     "version": "2.0.0",
-    "installs": 14774,
+    "installs": 15937,
     "author": "Paul Stoffregen",
     "maintainer": "Paul Stoffregen, Julien Vanier <jvanier@gmail.com>",
     "sentence": "Counts quadrature pulses from rotary & linear position encoders.",
@@ -91,6 +91,70 @@
             "Basic": true,
             "SpeedTest": false,
             "TwoKnobs": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "boron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "bsom": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "b5som": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "tracker": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "p2": {
+            "Basic": false,
+            "SpeedTest": false,
+            "TwoKnobs": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "boron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "bsom": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "b5som": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "tracker": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "esomx": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": false
           }
         }
       },

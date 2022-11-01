@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Isolated_ISE_Probe_Interface",
     "version": "1.0.0",
-    "installs": 271,
+    "installs": 279,
     "author": "uFire",
     "maintainer": "justin@ufire.co",
     "sentence": "An isolated Ion Specific Electrode Probe Interface",
@@ -65,6 +65,46 @@
             "SAMD21": true
           },
           "boron": {
+            "SAMD21": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SAMD21": true
+          },
+          "boron": {
+            "SAMD21": true
+          },
+          "bsom": {
+            "SAMD21": true
+          },
+          "b5som": {
+            "SAMD21": true
+          },
+          "tracker": {
+            "SAMD21": true
+          },
+          "p2": {
+            "SAMD21": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SAMD21": true
+          },
+          "boron": {
+            "SAMD21": true
+          },
+          "bsom": {
+            "SAMD21": true
+          },
+          "b5som": {
+            "SAMD21": true
+          },
+          "tracker": {
+            "SAMD21": true
+          },
+          "esomx": {
             "SAMD21": true
           }
         }

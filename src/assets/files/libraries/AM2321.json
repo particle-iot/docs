@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AM2321",
     "version": "0.9.0",
-    "installs": 848,
+    "installs": 865,
     "license": "MIT",
     "author": "Ed Wios <edwintam@iostation.com>",
     "sentence": "AM2321 temperature and humidity sensor library for Spark Core",
@@ -63,6 +63,46 @@
           },
           "boron": {
             "AM2321Example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "AM2321Example": true
+          },
+          "boron": {
+            "AM2321Example": true
+          },
+          "bsom": {
+            "AM2321Example": true
+          },
+          "b5som": {
+            "AM2321Example": true
+          },
+          "tracker": {
+            "AM2321Example": true
+          },
+          "p2": {
+            "AM2321Example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "AM2321Example": true
+          },
+          "boron": {
+            "AM2321Example": true
+          },
+          "bsom": {
+            "AM2321Example": true
+          },
+          "b5som": {
+            "AM2321Example": true
+          },
+          "tracker": {
+            "AM2321Example": true
+          },
+          "esomx": {
+            "AM2321Example": false
           }
         }
       },

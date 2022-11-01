@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AES_128_CBC_RK",
     "version": "0.0.1",
-    "installs": 1998,
+    "installs": 2102,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Implementation of AES 128 CBC hash algorithm for Particle devices",
@@ -64,6 +64,46 @@
             "1-test": true
           },
           "boron": {
+            "1-test": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-test": true
+          },
+          "boron": {
+            "1-test": true
+          },
+          "bsom": {
+            "1-test": true
+          },
+          "b5som": {
+            "1-test": true
+          },
+          "tracker": {
+            "1-test": true
+          },
+          "p2": {
+            "1-test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-test": true
+          },
+          "boron": {
+            "1-test": true
+          },
+          "bsom": {
+            "1-test": true
+          },
+          "b5som": {
+            "1-test": true
+          },
+          "tracker": {
+            "1-test": true
+          },
+          "esomx": {
             "1-test": true
           }
         }

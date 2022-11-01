@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ADS1X15",
     "version": "0.1.2",
-    "installs": 42060,
+    "installs": 43809,
     "license": "BSD",
     "author": "Koos du Preez <kdupreez@hotmail.com>",
     "sentence": "Library for ADS1x15 series of 12-bit and 16-bit Analog to Digital converter breakout boards",
@@ -85,6 +85,70 @@
           },
           "boron": {
             "comparator": true,
+            "differential": true,
+            "singleended": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "boron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "bsom": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "b5som": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "tracker": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "p2": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "boron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "bsom": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "b5som": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "tracker": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "esomx": {
+            "comparator": false,
             "differential": true,
             "singleended": true
           }

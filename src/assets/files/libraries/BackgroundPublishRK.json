@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BackgroundPublishRK",
     "version": "0.0.2",
-    "installs": 3990,
+    "installs": 4666,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for publishing from a background thread on Particle devices",
@@ -115,6 +115,58 @@
             "2-tester": true
           },
           "boron": {
+            "1-simple": true,
+            "2-tester": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-tester": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-tester": true
           }

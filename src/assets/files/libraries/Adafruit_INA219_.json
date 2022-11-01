@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_INA219_",
     "version": "1.0.1",
-    "installs": 1615,
+    "installs": 2102,
     "license": "MIT License",
     "author": "Nathan Matos<than.matos@gmail.com>",
     "sentence": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle(2021)",
@@ -68,6 +68,46 @@
             "get-current": false
           },
           "boron": {
+            "get-current": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "get-current": false
+          },
+          "boron": {
+            "get-current": false
+          },
+          "bsom": {
+            "get-current": false
+          },
+          "b5som": {
+            "get-current": false
+          },
+          "tracker": {
+            "get-current": false
+          },
+          "p2": {
+            "get-current": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "get-current": false
+          },
+          "boron": {
+            "get-current": false
+          },
+          "bsom": {
+            "get-current": false
+          },
+          "b5som": {
+            "get-current": false
+          },
+          "tracker": {
+            "get-current": false
+          },
+          "esomx": {
             "get-current": false
           }
         }

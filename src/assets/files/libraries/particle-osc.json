@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-osc",
     "version": "0.0.3",
-    "installs": 848,
+    "installs": 860,
     "license": "See LICENSE file",
     "author": "Tekin Suleyman <tekin@tekin.co.uk>",
     "sentence": "OSC encoding library for the Particle platform",
@@ -62,6 +62,46 @@
             "ip-reporter": false
           },
           "boron": {
+            "ip-reporter": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ip-reporter": false
+          },
+          "boron": {
+            "ip-reporter": false
+          },
+          "bsom": {
+            "ip-reporter": false
+          },
+          "b5som": {
+            "ip-reporter": false
+          },
+          "tracker": {
+            "ip-reporter": false
+          },
+          "p2": {
+            "ip-reporter": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ip-reporter": false
+          },
+          "boron": {
+            "ip-reporter": false
+          },
+          "bsom": {
+            "ip-reporter": false
+          },
+          "b5som": {
+            "ip-reporter": false
+          },
+          "tracker": {
+            "ip-reporter": false
+          },
+          "esomx": {
             "ip-reporter": false
           }
         }

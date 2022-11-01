@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotRelay",
     "version": "3.0.0",
-    "installs": 542,
+    "installs": 550,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support a relay connected to a GPIO.",
@@ -76,6 +76,58 @@
             "timedRelay": false
           },
           "boron": {
+            "relay": false,
+            "timedRelay": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "boron": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "bsom": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "b5som": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "tracker": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "p2": {
+            "relay": false,
+            "timedRelay": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "boron": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "bsom": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "b5som": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "tracker": {
+            "relay": false,
+            "timedRelay": false
+          },
+          "esomx": {
             "relay": false,
             "timedRelay": false
           }

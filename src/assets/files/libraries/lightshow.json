@@ -7,7 +7,7 @@
   "attributes": {
     "name": "lightshow",
     "version": "0.0.5",
-    "installs": 303,
+    "installs": 311,
     "license": "MIT",
     "author": "Jeremy Calloway <xntricweb@gmail.com>",
     "sentence": "A neopixel helper library to show off some pretty colors.",
@@ -73,6 +73,58 @@
             "_lightshow-with-blynk": false
           },
           "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "bsom": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "b5som": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "tracker": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "p2": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "bsom": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "b5som": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "tracker": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "esomx": {
             "_basic_lightshow": false,
             "_lightshow-with-blynk": false
           }

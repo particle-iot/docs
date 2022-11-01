@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CS_gasads1115",
     "version": "1.0.1",
-    "installs": 434,
+    "installs": 569,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -80,6 +80,70 @@
             "usage": false
           },
           "boron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "boron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "bsom": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "b5som": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "tracker": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "p2": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "boron": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "bsom": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "b5som": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "tracker": {
+            "differential": true,
+            "singleended": true,
+            "usage": false
+          },
+          "esomx": {
             "differential": true,
             "singleended": true,
             "usage": false

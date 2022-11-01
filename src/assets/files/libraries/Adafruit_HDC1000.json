@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HDC1000",
     "version": "1.0.6",
-    "installs": 2900,
+    "installs": 2919,
     "license": "BSD",
     "author": "Adafruit info@adafruit.com",
     "sentence": "v2 library for HDC1000 and HDC1008 sensors, designed specifically to work with the HDC1008 breakout in the Adafruit shop, modified for Photon/Electron",
@@ -73,6 +73,58 @@
             "HDCMonitorExample": false
           },
           "boron": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "boron": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "bsom": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "b5som": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "tracker": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "p2": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "boron": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "bsom": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "b5som": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "tracker": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "esomx": {
             "HDC1000test": false,
             "HDCMonitorExample": false
           }

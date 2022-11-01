@@ -7,7 +7,7 @@
   "attributes": {
     "name": "measurement",
     "version": "0.4.0",
-    "installs": 689,
+    "installs": 761,
     "license": "MIT",
     "author": "Douglas Johnson <particle@douglasjohnson.org>",
     "sentence": "Measurements are tagged and timed values such as temperature.",

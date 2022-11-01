@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Fingerprint_FPS_GT511C3",
     "version": "1.0.6",
-    "installs": 2031,
+    "installs": 2043,
     "author": "Josh Hawley",
     "sentence": "A library for controlling the GT-511CS3 Fingerprint Scanner",
     "architectures": [],
@@ -81,6 +81,70 @@
             "FPS_IDFinger": false
           },
           "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "bsom": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "b5som": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "tracker": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "p2": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "bsom": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "b5som": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "tracker": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "esomx": {
             "FPS_Blink": false,
             "FPS_Enroll": false,
             "FPS_IDFinger": false

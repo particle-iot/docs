@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoT",
     "version": "5.1.0",
-    "installs": 6174,
+    "installs": 6482,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Control your Photon projects using MQTT events from other Photons, Alexa and iOS devices",
@@ -109,6 +109,94 @@
             "unitTest": false
           },
           "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "bsom": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "b5som": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "tracker": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "p2": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "bsom": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "b5som": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "tracker": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "esomx": {
             "myEventHandler": false,
             "starter": false,
             "switchAndLED": false,

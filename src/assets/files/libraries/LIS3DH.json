@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIS3DH",
     "version": "0.2.8",
-    "installs": 81883,
+    "installs": 83654,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "LIS3DH accelerometer driver",
@@ -121,6 +121,106 @@
             "6_SPI1": true
           },
           "boron": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "boron": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "bsom": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "b5som": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "tracker": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "p2": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "boron": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "bsom": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "b5som": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "tracker": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "esomx": {
             "1_WakeOnMove": true,
             "2_Samples": true,
             "3_I2C": true,

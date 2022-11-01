@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD4Relay",
     "version": "0.0.2",
-    "installs": 24711,
+    "installs": 25179,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 4 channel Spark compatible Relay Controller",
@@ -73,6 +73,58 @@
             "NCD4RelaySample": true
           },
           "boron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "boron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "bsom": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "b5som": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "tracker": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "p2": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "boron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "bsom": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "b5som": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "tracker": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "esomx": {
             "CloudControl": true,
             "NCD4RelaySample": true
           }

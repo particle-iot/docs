@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IRTransmitter",
     "version": "0.1.0",
-    "installs": 6025,
+    "installs": 6135,
     "license": "",
     "author": "AnalysIR",
     "sentence": "Simple IR Transmitter library for the Particle Photon. Full credit goes to: AnalysIR (http://www.analysir.com/blog/2015/06/10/simple-infrared-pwm-on-arduino-part-2-raw-ir-signals/)",
@@ -62,6 +62,46 @@
             "BasicUsageExample": false
           },
           "boron": {
+            "BasicUsageExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BasicUsageExample": false
+          },
+          "boron": {
+            "BasicUsageExample": false
+          },
+          "bsom": {
+            "BasicUsageExample": false
+          },
+          "b5som": {
+            "BasicUsageExample": false
+          },
+          "tracker": {
+            "BasicUsageExample": false
+          },
+          "p2": {
+            "BasicUsageExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BasicUsageExample": false
+          },
+          "boron": {
+            "BasicUsageExample": false
+          },
+          "bsom": {
+            "BasicUsageExample": false
+          },
+          "b5som": {
+            "BasicUsageExample": false
+          },
+          "tracker": {
+            "BasicUsageExample": false
+          },
+          "esomx": {
             "BasicUsageExample": false
           }
         }

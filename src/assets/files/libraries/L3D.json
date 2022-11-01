@@ -7,7 +7,7 @@
   "attributes": {
     "name": "L3D",
     "version": "1.1.2",
-    "installs": 8015,
+    "installs": 8266,
     "license": "MIT",
     "author": "Alex Hornstein <alex@lookingglassfactory.com>",
     "sentence": "A library for controlling the L3D cube with a particle photon.",
@@ -98,6 +98,82 @@
             "shell": false
           },
           "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "bsom": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "b5som": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "tracker": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "p2": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "bsom": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "b5som": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "tracker": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "esomx": {
             "demo": false,
             "helloCube": false,
             "pulsingBackground": false,

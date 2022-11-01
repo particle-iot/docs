@@ -7,7 +7,7 @@
   "attributes": {
     "name": "coap",
     "version": "0.2.4",
-    "installs": 1096,
+    "installs": 1136,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/CoAP/",
@@ -72,6 +72,58 @@
             "coaptest": false
           },
           "boron": {
+            "coapserver": false,
+            "coaptest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "boron": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "bsom": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "b5som": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "tracker": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "p2": {
+            "coapserver": false,
+            "coaptest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "boron": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "bsom": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "b5som": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "tracker": {
+            "coapserver": false,
+            "coaptest": false
+          },
+          "esomx": {
             "coapserver": false,
             "coaptest": false
           }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "barometer",
     "version": "0.0.1",
-    "installs": 350,
+    "installs": 358,
     "author": "Hozan",
     "architectures": [],
     "visibility": "public",
@@ -69,6 +69,58 @@
             "usage": true
           },
           "boron": {
+            "HP20x_demo": false,
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "boron": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "bsom": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "b5som": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "tracker": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "p2": {
+            "HP20x_demo": false,
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "boron": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "bsom": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "b5som": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "tracker": {
+            "HP20x_demo": false,
+            "usage": true
+          },
+          "esomx": {
             "HP20x_demo": false,
             "usage": true
           }

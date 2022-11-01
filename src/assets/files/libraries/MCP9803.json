@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP9803",
     "version": "0.0.2",
-    "installs": 966,
+    "installs": 971,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "This Library is intended for use with MCP9803 Mini module on the Particle Core/Photon platform.",
@@ -73,6 +73,58 @@
             "mcp9803-example": true
           },
           "boron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "boron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "bsom": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "b5som": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "tracker": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "p2": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "boron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "bsom": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "b5som": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "tracker": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "esomx": {
             "duct-thermostat": false,
             "mcp9803-example": true
           }

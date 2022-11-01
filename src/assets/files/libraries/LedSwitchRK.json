@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LedSwitchRK",
     "version": "0.0.2",
-    "installs": 273,
+    "installs": 281,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Handy library for the SparkFun tactile switch with LED with debouncing",
@@ -89,6 +89,70 @@
             "1-single-LedSwitchRK": true,
             "2-multiple-LedSwitchRK": true,
             "3-multi-tap-LedSwitchRK": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "boron": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "bsom": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "b5som": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "tracker": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "p2": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "boron": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "bsom": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "b5som": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "tracker": {
+            "1-single-LedSwitchRK": true,
+            "2-multiple-LedSwitchRK": true,
+            "3-multi-tap-LedSwitchRK": true
+          },
+          "esomx": {
+            "1-single-LedSwitchRK": false,
+            "2-multiple-LedSwitchRK": false,
+            "3-multi-tap-LedSwitchRK": false
           }
         }
       },

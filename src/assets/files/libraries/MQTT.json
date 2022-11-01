@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT",
     "version": "0.4.32",
-    "installs": 496893,
+    "installs": 514598,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT/",
@@ -150,6 +150,82 @@
             "threadtest": true
           },
           "boron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "boron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "bsom": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "b5som": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "tracker": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "p2": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "boron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "bsom": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "b5som": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "tracker": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "esomx": {
             "mqttSwitchBroker": true,
             "mqttqostest": true,
             "mqtttest": true,

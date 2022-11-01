@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BLE_Group",
     "version": "0.4.0",
-    "installs": 5684,
+    "installs": 5758,
     "license": "LGPL",
     "author": "Mariano Goluboff <mariano@particle.io>",
     "sentence": "Create a group of Gen3 Particle devices that can communicate locally over BLE publish/subscribe.",
@@ -131,6 +131,70 @@
             "pingpong": true
           },
           "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "bsom": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "b5som": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "tracker": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "p2": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "bsom": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "b5som": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "tracker": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "esomx": {
             "diagnostics": true,
             "heartbeat": true,
             "pingpong": true

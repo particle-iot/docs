@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotLight",
     "version": "5.1.0",
-    "installs": 2518,
+    "installs": 2699,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support lights.",
@@ -68,6 +68,46 @@
             "light": false
           },
           "boron": {
+            "light": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "light": false
+          },
+          "boron": {
+            "light": false
+          },
+          "bsom": {
+            "light": false
+          },
+          "b5som": {
+            "light": false
+          },
+          "tracker": {
+            "light": false
+          },
+          "p2": {
+            "light": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "light": false
+          },
+          "boron": {
+            "light": false
+          },
+          "bsom": {
+            "light": false
+          },
+          "b5som": {
+            "light": false
+          },
+          "tracker": {
+            "light": false
+          },
+          "esomx": {
             "light": false
           }
         }

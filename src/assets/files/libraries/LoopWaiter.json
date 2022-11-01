@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LoopWaiter",
     "version": "1.0.2",
-    "installs": 297,
+    "installs": 301,
     "license": "MIT",
     "author": "Jidesh Veeramachaneni",
     "sentence": "A header only timer library to simplify waiting without using delay.",
@@ -65,6 +65,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

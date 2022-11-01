@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LocalTimeRK",
     "version": "0.0.9",
-    "installs": 3859,
+    "installs": 4488,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickkas7.com>",
     "sentence": "Timezone and DST handling for Particle devices",
@@ -139,6 +139,58 @@
             "2-schedule": true
           },
           "boron": {
+            "1-simple": true,
+            "2-schedule": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "p2": {
+            "1-simple": true,
+            "2-schedule": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "bsom": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "b5som": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "tracker": {
+            "1-simple": true,
+            "2-schedule": true
+          },
+          "esomx": {
             "1-simple": true,
             "2-schedule": true
           }

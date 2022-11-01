@@ -7,7 +7,7 @@
   "attributes": {
     "name": "simple-storage",
     "version": "1.0.0",
-    "installs": 830,
+    "installs": 854,
     "license": "MIT",
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Load and store configuration from the EEPROM",
@@ -74,6 +74,58 @@
             "migration": true
           },
           "boron": {
+            "basic": true,
+            "migration": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "basic": true,
+            "migration": true
+          },
+          "boron": {
+            "basic": true,
+            "migration": true
+          },
+          "bsom": {
+            "basic": true,
+            "migration": true
+          },
+          "b5som": {
+            "basic": true,
+            "migration": true
+          },
+          "tracker": {
+            "basic": true,
+            "migration": true
+          },
+          "p2": {
+            "basic": true,
+            "migration": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "basic": true,
+            "migration": true
+          },
+          "boron": {
+            "basic": true,
+            "migration": true
+          },
+          "bsom": {
+            "basic": true,
+            "migration": true
+          },
+          "b5som": {
+            "basic": true,
+            "migration": true
+          },
+          "tracker": {
+            "basic": true,
+            "migration": true
+          },
+          "esomx": {
             "basic": true,
             "migration": true
           }

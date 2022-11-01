@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MMA7660-Accelerometer",
     "version": "0.0.3",
-    "installs": 468,
+    "installs": 477,
     "license": "MIT",
     "author": "Seeed Technology Inc / Frankie Chu / Julian Adenauer",
     "sentence": "Library for 3-Axis Digital Accelerometer MMA7660 included in the Grove Starter Kit for Photon",
@@ -61,6 +61,46 @@
             "AccelerometerTest": true
           },
           "boron": {
+            "AccelerometerTest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "AccelerometerTest": true
+          },
+          "boron": {
+            "AccelerometerTest": true
+          },
+          "bsom": {
+            "AccelerometerTest": true
+          },
+          "b5som": {
+            "AccelerometerTest": true
+          },
+          "tracker": {
+            "AccelerometerTest": true
+          },
+          "p2": {
+            "AccelerometerTest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "AccelerometerTest": true
+          },
+          "boron": {
+            "AccelerometerTest": true
+          },
+          "bsom": {
+            "AccelerometerTest": true
+          },
+          "b5som": {
+            "AccelerometerTest": true
+          },
+          "tracker": {
+            "AccelerometerTest": true
+          },
+          "esomx": {
             "AccelerometerTest": true
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "chrismayu_am2320",
     "version": "1.0.1",
-    "installs": 450,
+    "installs": 482,
     "author": "someone",
     "sentence": "UPdated",
     "architectures": [],
@@ -70,6 +70,58 @@
             "usage": false
           },
           "boron": {
+            "readAM2320": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "boron": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "bsom": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "b5som": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "tracker": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "p2": {
+            "readAM2320": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "boron": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "bsom": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "b5som": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "tracker": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "esomx": {
             "readAM2320": false,
             "usage": false
           }

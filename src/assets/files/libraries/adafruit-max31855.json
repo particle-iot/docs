@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-max31855",
     "version": "0.0.3",
-    "installs": 4288,
+    "installs": 4316,
     "license": "BSD",
     "author": "Adafruit, Technobly, Mumblepins",
     "sentence": "Adafruit MAX31885 Library ported to Spark Core. Added hardware SPI mode and added calibration.",
@@ -73,6 +73,58 @@
             "serial-thermocouple": true
           },
           "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "bsom": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "b5som": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "tracker": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "p2": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "bsom": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "b5som": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "tracker": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "esomx": {
             "lcd-thermocouple": false,
             "serial-thermocouple": true
           }

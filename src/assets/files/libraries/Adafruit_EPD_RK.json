@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_EPD_RK",
     "version": "2.3.1",
-    "installs": 4724,
+    "installs": 4824,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "ePaper display driver 1.0.2 ported to Particle by rickkas7",
@@ -65,6 +65,46 @@
           },
           "boron": {
             "FeatherWingTest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "FeatherWingTest": true
+          },
+          "boron": {
+            "FeatherWingTest": true
+          },
+          "bsom": {
+            "FeatherWingTest": true
+          },
+          "b5som": {
+            "FeatherWingTest": true
+          },
+          "tracker": {
+            "FeatherWingTest": true
+          },
+          "p2": {
+            "FeatherWingTest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "FeatherWingTest": true
+          },
+          "boron": {
+            "FeatherWingTest": true
+          },
+          "bsom": {
+            "FeatherWingTest": true
+          },
+          "b5som": {
+            "FeatherWingTest": true
+          },
+          "tracker": {
+            "FeatherWingTest": true
+          },
+          "esomx": {
+            "FeatherWingTest": false
           }
         }
       },

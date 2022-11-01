@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ArduinoJson",
     "version": "6.19.4",
-    "installs": 377956,
+    "installs": 385260,
     "license": "MIT",
     "author": "Benoit Blanchon <blog.benoitblanchon.fr>",
     "maintainer": "Benoit Blanchon <blog.benoitblanchon.fr>",
@@ -582,6 +582,154 @@
             "StringExample": false
           },
           "boron": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "p2": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "bsom": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "b5som": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "tracker": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "esomx": {
             "JsonConfigFile": false,
             "JsonFilterExample": false,
             "JsonGeneratorExample": true,

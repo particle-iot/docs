@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sparkfun_MLX90614",
     "version": "1.0.0",
-    "installs": 326,
+    "installs": 353,
     "author": "DraNard",
     "architectures": [],
     "visibility": "public",
@@ -102,6 +102,94 @@
             "usage": false
           },
           "boron": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "boron": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "bsom": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "b5som": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "tracker": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "p2": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "boron": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "bsom": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "b5som": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "tracker": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "esomx": {
             "MLX90614_Get_ID": false,
             "MLX90614_Serial_Demo": false,
             "MLX90614_Set_Address": false,

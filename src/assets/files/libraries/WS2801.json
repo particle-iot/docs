@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WS2801",
     "version": "1.0.0",
-    "installs": 4354,
+    "installs": 4378,
     "license": "MIT",
     "author": "Will Dages",
     "sentence": "Spark Library for WS2801 LEDs (Ported from Adafruit's WS2801 Arduino Library by Technobly / BDub, put into this repo in the Spark Library format by Will Dages",
@@ -62,6 +62,46 @@
             "app": false
           },
           "boron": {
+            "app": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "app": false
+          },
+          "boron": {
+            "app": false
+          },
+          "bsom": {
+            "app": false
+          },
+          "b5som": {
+            "app": false
+          },
+          "tracker": {
+            "app": false
+          },
+          "p2": {
+            "app": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "app": false
+          },
+          "boron": {
+            "app": false
+          },
+          "bsom": {
+            "app": false
+          },
+          "b5som": {
+            "app": false
+          },
+          "tracker": {
+            "app": false
+          },
+          "esomx": {
             "app": false
           }
         }

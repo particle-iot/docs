@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2CSlaveRK",
     "version": "0.0.1",
-    "installs": 2567,
+    "installs": 2943,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Makes I2C master-slave pairs more easily between two Particle devices",
@@ -75,6 +75,58 @@
             "1-slave-simple": true
           },
           "boron": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "boron": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "bsom": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "b5som": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "tracker": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "p2": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "boron": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "bsom": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "b5som": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "tracker": {
+            "1-master-simple": true,
+            "1-slave-simple": true
+          },
+          "esomx": {
             "1-master-simple": true,
             "1-slave-simple": true
           }

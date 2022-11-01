@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RGBPixelClock",
     "version": "1.1.3",
-    "installs": 1466,
+    "installs": 1496,
     "license": "MIT license",
     "author": "Paul Kourany @peekay123",
     "sentence": "RGBPongClock for RGB Pixel Clock Kit",
@@ -62,6 +62,46 @@
             "1_RGBPongClock": false
           },
           "boron": {
+            "1_RGBPongClock": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1_RGBPongClock": false
+          },
+          "boron": {
+            "1_RGBPongClock": false
+          },
+          "bsom": {
+            "1_RGBPongClock": false
+          },
+          "b5som": {
+            "1_RGBPongClock": false
+          },
+          "tracker": {
+            "1_RGBPongClock": false
+          },
+          "p2": {
+            "1_RGBPongClock": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_RGBPongClock": false
+          },
+          "boron": {
+            "1_RGBPongClock": false
+          },
+          "bsom": {
+            "1_RGBPongClock": false
+          },
+          "b5som": {
+            "1_RGBPongClock": false
+          },
+          "tracker": {
+            "1_RGBPongClock": false
+          },
+          "esomx": {
             "1_RGBPongClock": false
           }
         }

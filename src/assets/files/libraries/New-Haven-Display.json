@@ -7,7 +7,7 @@
   "attributes": {
     "name": "New-Haven-Display",
     "version": "1.1.4",
-    "installs": 354,
+    "installs": 381,
     "license": "Public Domain",
     "author": "Chip McClelland",
     "sentence": "Simple Library for the New Haven NHD0420CW-Ax3 Display",
@@ -65,6 +65,46 @@
             "usage": true
           },
           "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
             "usage": true
           }
         }

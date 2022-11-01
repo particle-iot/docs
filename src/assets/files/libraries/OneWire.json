@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OneWire",
     "version": "2.0.4",
-    "installs": 670788,
+    "installs": 690919,
     "license": "MIT",
     "author": "Hotaman, Julien Vanier <julien@particle.io>",
     "sentence": "Dallas 1-Wire protocol with support for DS18B20, DS1820, DS1822",
@@ -79,6 +79,58 @@
           "boron": {
             "Address_Scanner": true,
             "DS18x20_Temperature": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "boron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "bsom": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "b5som": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "tracker": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "p2": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "boron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "bsom": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "b5som": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "tracker": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "esomx": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
           }
         }
       },

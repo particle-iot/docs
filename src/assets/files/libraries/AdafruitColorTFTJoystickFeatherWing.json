@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitColorTFTJoystickFeatherWing",
     "version": "0.0.1",
-    "installs": 1385,
+    "installs": 1416,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Adafruit Mini Color TFT with Joystick FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitColorTFTJoystickFeatherWing",
@@ -75,6 +75,58 @@
           "boron": {
             "2-tft-basic": true,
             "3-tft-graphicstest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "bsom": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "b5som": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "tracker": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "p2": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "bsom": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "b5som": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "tracker": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "esomx": {
+            "2-tft-basic": false,
+            "3-tft-graphicstest": false
           }
         }
       },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TTCP_V3.3.1",
     "version": "0.1.0",
-    "installs": 310,
+    "installs": 316,
     "license": "MIT",
     "author": "hirotakaster, zhongjin",
     "sentence": "TTCP protocol support version 3.3.1 with examples",
@@ -62,6 +62,46 @@
             "mqtttest": false
           },
           "boron": {
+            "mqtttest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mqtttest": false
+          },
+          "boron": {
+            "mqtttest": false
+          },
+          "bsom": {
+            "mqtttest": false
+          },
+          "b5som": {
+            "mqtttest": false
+          },
+          "tracker": {
+            "mqtttest": false
+          },
+          "p2": {
+            "mqtttest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mqtttest": false
+          },
+          "boron": {
+            "mqtttest": false
+          },
+          "bsom": {
+            "mqtttest": false
+          },
+          "b5som": {
+            "mqtttest": false
+          },
+          "tracker": {
+            "mqtttest": false
+          },
+          "esomx": {
             "mqtttest": false
           }
         }

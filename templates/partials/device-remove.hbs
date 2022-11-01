@@ -38,22 +38,7 @@
                         <th>Device ID</th>
                         <th>Device Name</th>
                         <th>Claimed To</th>
-                        <th>Remove</th>
-                        <th>Unclaim</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="simTableDiv" style="display:none">
-            <table class="apiHelperTableNoMargin">
-                <thead>
-                    <tr>
                         <th>ICCID</th>
-                        <th>Release</th>
-                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,7 +70,12 @@
             </table>
         </div>
         <div class="apiHelperStatus"></div>
-        <div class="logDiv"></div>
+        <div class="logDiv" style="display:none">
+            <p>Log:</p>
+            <textarea rows="20" cols="80">
+
+            </textarea>
+        </div>
         <div class="sandboxUnclaimWarning" style="display:none">
             <p>Warning!<br/>
             If you unclaim sandbox devices you can only claim them again if they are online and breathing cyan.

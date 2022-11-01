@@ -7,7 +7,7 @@
   "attributes": {
     "name": "VisiGenieSpark",
     "version": "1.0.0",
-    "installs": 1255,
+    "installs": 1275,
     "license": "GNU Lesser General Public License",
     "author": "4D Systems Pty Ltd/ Paul Kourany",
     "sentence": "4D Systems Visi-Genie library for Spark",
@@ -73,6 +73,58 @@
             "genieSpark_Demo_MultiScreen": false
           },
           "boron": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "boron": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "bsom": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "b5som": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "tracker": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "p2": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "boron": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "bsom": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "b5som": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "tracker": {
+            "genieSpark_Demo": false,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "esomx": {
             "genieSpark_Demo": false,
             "genieSpark_Demo_MultiScreen": false
           }

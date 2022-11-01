@@ -7,7 +7,7 @@
   "attributes": {
     "name": "movingAvg",
     "version": "2.1.0",
-    "installs": 6402,
+    "installs": 7156,
     "author": "Jack Christensen <jack.christensen@outlook.com>",
     "maintainer": "Jack Christensen <jack.christensen@outlook.com>",
     "sentence": "A simple Arduino library for calculating moving averages.",
@@ -98,6 +98,82 @@
             "tmp36": true
           },
           "boron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "boron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "bsom": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "b5som": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "tracker": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "p2": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "boron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "bsom": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "b5som": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "tracker": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "esomx": {
             "mcp9800": false,
             "mcp9808": false,
             "photoCell": true,

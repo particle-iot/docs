@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AppleMidi",
     "version": "0.0.1",
-    "installs": 300,
+    "installs": 321,
     "license": "MIT - I think",
     "author": "Bob Race <boberace@hotmail.com>",
     "sentence": "This is an attempt to copy the Arduino-AppleMidi-Library to Spark Core 'no clue what I am doing' ",

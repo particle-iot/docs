@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HC-SR04",
     "version": "1.0.1",
-    "installs": 29081,
+    "installs": 29592,
     "license": "GPL3",
     "author": "rnash",
     "sentence": "Class to drive the HC-SR04 range finder.",
@@ -61,6 +61,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

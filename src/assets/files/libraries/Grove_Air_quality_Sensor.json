@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_Air_quality_Sensor",
     "version": "1.0.1",
-    "installs": 13277,
+    "installs": 13702,
     "license": "MIT",
     "author": "Seeed Studio",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
@@ -83,6 +83,58 @@
             "usage": false
           },
           "boron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "boron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "bsom": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "b5som": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "tracker": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "p2": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "boron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "bsom": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "b5som": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "tracker": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "esomx": {
             "Grove_Air_Quality_Sensor": true,
             "usage": false
           }

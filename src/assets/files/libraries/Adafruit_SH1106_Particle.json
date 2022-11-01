@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SH1106_Particle",
     "version": "00.00.00",
-    "installs": 786,
+    "installs": 884,
     "license": "Whatever Adafruit uses",
     "author": "Adafruit, wonho-maker, Paul Kourney, Gerrit Coetzee",
     "sentence": "Port of wonho-maker's SH1106 port of Adafruit's SSD1306 OLED library based on Paul Kourney's port of the same libray. Anyway, you can run your SSH1106 OLED's now. Don't know which boards this doesn't work for.",
@@ -84,6 +84,70 @@
             "usage": false
           },
           "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "p2": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "esomx": {
             "sh1106_128x64_i2c": false,
             "sh1106_128x64_spi": false,
             "usage": false

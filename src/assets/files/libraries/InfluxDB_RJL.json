@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InfluxDB_RJL",
     "version": "0.1.0",
-    "installs": 986,
+    "installs": 1084,
     "license": "LGPL",
     "author": "Richard Lyon <richardlyon@fastmail.com>",
     "sentence": "InfluxDB library for Particle",
@@ -63,6 +63,46 @@
             "usage": false
           },
           "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
             "usage": false
           }
         }

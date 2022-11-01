@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LIS3DH",
     "version": "1.0.3",
-    "installs": 61086,
+    "installs": 61674,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit LIS3DH Accelerometer.",
@@ -87,6 +87,70 @@
             "tapdemo": false
           },
           "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "bsom": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "b5som": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "tracker": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "p2": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "bsom": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "b5som": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "tracker": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "esomx": {
             "acceldemo": false,
             "adcdemo": false,
             "tapdemo": false

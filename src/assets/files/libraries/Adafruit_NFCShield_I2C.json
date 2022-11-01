@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_NFCShield_I2C",
     "version": "0.0.1",
-    "installs": 869,
+    "installs": 898,
     "license": "MIT (whichever is stated in README file)",
     "author": "Adafruit with Rahat modifications",
     "sentence": "Adafruit's NFC library modded for Particle Photon",

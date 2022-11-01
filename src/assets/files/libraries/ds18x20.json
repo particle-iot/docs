@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ds18x20",
     "version": "0.0.4",
-    "installs": 10130,
+    "installs": 10231,
     "license": "GPL",
     "author": "MORA99 <jkn@air-port.dk>",
     "sentence": "DS18B20/DS18S20 library with support for multiple sensors",
@@ -62,6 +62,46 @@
             "onewiretemp": false
           },
           "boron": {
+            "onewiretemp": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "onewiretemp": false
+          },
+          "boron": {
+            "onewiretemp": false
+          },
+          "bsom": {
+            "onewiretemp": false
+          },
+          "b5som": {
+            "onewiretemp": false
+          },
+          "tracker": {
+            "onewiretemp": false
+          },
+          "p2": {
+            "onewiretemp": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "onewiretemp": false
+          },
+          "boron": {
+            "onewiretemp": false
+          },
+          "bsom": {
+            "onewiretemp": false
+          },
+          "b5som": {
+            "onewiretemp": false
+          },
+          "tracker": {
+            "onewiretemp": false
+          },
+          "esomx": {
             "onewiretemp": false
           }
         }

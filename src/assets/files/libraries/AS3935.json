@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AS3935",
     "version": "0.2.1",
-    "installs": 1443,
+    "installs": 1514,
     "license": "Apache-2.0",
     "author": "Phil Fenstermacher <phillip.fenstermacher@gmail.com>",
     "sentence": "A library to communicate with and control an AS3935 lightning sensor over I2C.",
@@ -63,6 +63,46 @@
             "serial-detector": true
           },
           "boron": {
+            "serial-detector": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "serial-detector": true
+          },
+          "boron": {
+            "serial-detector": true
+          },
+          "bsom": {
+            "serial-detector": true
+          },
+          "b5som": {
+            "serial-detector": true
+          },
+          "tracker": {
+            "serial-detector": true
+          },
+          "p2": {
+            "serial-detector": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "serial-detector": true
+          },
+          "boron": {
+            "serial-detector": true
+          },
+          "bsom": {
+            "serial-detector": true
+          },
+          "b5som": {
+            "serial-detector": true
+          },
+          "tracker": {
+            "serial-detector": true
+          },
+          "esomx": {
             "serial-detector": true
           }
         }

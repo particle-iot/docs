@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SHT31",
     "version": "1.0.1",
-    "installs": 6388,
+    "installs": 6730,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Arduino library to control Grove SHT31 Temp Humi Sensor.",
@@ -70,6 +70,46 @@
             "getTempAndHumidity": false
           },
           "boron": {
+            "getTempAndHumidity": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "getTempAndHumidity": false
+          },
+          "boron": {
+            "getTempAndHumidity": false
+          },
+          "bsom": {
+            "getTempAndHumidity": false
+          },
+          "b5som": {
+            "getTempAndHumidity": false
+          },
+          "tracker": {
+            "getTempAndHumidity": false
+          },
+          "p2": {
+            "getTempAndHumidity": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "getTempAndHumidity": false
+          },
+          "boron": {
+            "getTempAndHumidity": false
+          },
+          "bsom": {
+            "getTempAndHumidity": false
+          },
+          "b5som": {
+            "getTempAndHumidity": false
+          },
+          "tracker": {
+            "getTempAndHumidity": false
+          },
+          "esomx": {
             "getTempAndHumidity": false
           }
         }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "New_Ping",
     "version": "1.8.1",
-    "installs": 5461,
+    "installs": 5670,
     "author": "Tim Eckel",
     "maintainer": "eliteio",
     "sentence": "A library that makes working with ultrasonic sensors easy.",
@@ -97,6 +97,82 @@
             "TimerExample": false
           },
           "boron": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "boron": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "bsom": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "b5som": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "tracker": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "p2": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "boron": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "bsom": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "b5som": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "tracker": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "esomx": {
             "NewPing15Sensors": false,
             "NewPingEventTimer": false,
             "NewPingExample": false,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Print64",
     "version": "0.0.1",
-    "installs": 316,
+    "installs": 327,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Library for 64-bit number to ASCII conversion",
@@ -64,6 +64,46 @@
             "1-simple": true
           },
           "boron": {
+            "1-simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
             "1-simple": true
           }
         }

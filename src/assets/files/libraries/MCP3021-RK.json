@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP3021-RK",
     "version": "0.0.1",
-    "installs": 1361,
+    "installs": 1467,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for MCP3021 10-bit I2C ADC",
@@ -64,6 +64,46 @@
             "1-simple": true
           },
           "boron": {
+            "1-simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
             "1-simple": true
           }
         }

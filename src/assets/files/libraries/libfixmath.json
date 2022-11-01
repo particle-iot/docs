@@ -7,7 +7,7 @@
   "attributes": {
     "name": "libfixmath",
     "version": "0.0.2",
-    "installs": 7644,
+    "installs": 8079,
     "license": "MIT",
     "author": "nrobinson2000",
     "sentence": "An Implementation of libfixmath for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",
@@ -62,6 +62,46 @@
             "unittests": true
           },
           "boron": {
+            "unittests": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "unittests": true
+          },
+          "boron": {
+            "unittests": true
+          },
+          "bsom": {
+            "unittests": true
+          },
+          "b5som": {
+            "unittests": true
+          },
+          "tracker": {
+            "unittests": true
+          },
+          "p2": {
+            "unittests": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "unittests": true
+          },
+          "boron": {
+            "unittests": true
+          },
+          "bsom": {
+            "unittests": true
+          },
+          "b5som": {
+            "unittests": true
+          },
+          "tracker": {
+            "unittests": true
+          },
+          "esomx": {
             "unittests": true
           }
         }

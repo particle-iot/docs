@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uber-library-example",
     "version": "0.0.7",
-    "installs": 280,
+    "installs": 291,
     "license": "MIT",
     "author": "Joe Goggins <joe@spark.io>",
     "sentence": "A simple library that illustrates coding conventions of a Spark Library",
@@ -75,6 +75,58 @@
           "boron": {
             "blink-an-led": true,
             "blink-an-led-slower": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "boron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "bsom": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "b5som": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "tracker": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "p2": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "boron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "bsom": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "b5som": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "tracker": {
+            "blink-an-led": true,
+            "blink-an-led-slower": true
+          },
+          "esomx": {
+            "blink-an-led": false,
+            "blink-an-led-slower": false
           }
         }
       },

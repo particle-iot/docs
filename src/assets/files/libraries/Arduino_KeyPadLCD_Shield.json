@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino_KeyPadLCD_Shield",
     "version": "0.0.12",
-    "installs": 1600,
+    "installs": 1628,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly, ScruffR",
     "sentence": "Library to use the Arduino KeyPad LCD Shield on Particle devices and the Particle Shield shield (based on LiquidCrystal lib)",
@@ -62,6 +62,46 @@
             "KeyPadLCD_Menu": false
           },
           "boron": {
+            "KeyPadLCD_Menu": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "KeyPadLCD_Menu": false
+          },
+          "boron": {
+            "KeyPadLCD_Menu": false
+          },
+          "bsom": {
+            "KeyPadLCD_Menu": false
+          },
+          "b5som": {
+            "KeyPadLCD_Menu": false
+          },
+          "tracker": {
+            "KeyPadLCD_Menu": false
+          },
+          "p2": {
+            "KeyPadLCD_Menu": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "KeyPadLCD_Menu": false
+          },
+          "boron": {
+            "KeyPadLCD_Menu": false
+          },
+          "bsom": {
+            "KeyPadLCD_Menu": false
+          },
+          "b5som": {
+            "KeyPadLCD_Menu": false
+          },
+          "tracker": {
+            "KeyPadLCD_Menu": false
+          },
+          "esomx": {
             "KeyPadLCD_Menu": false
           }
         }

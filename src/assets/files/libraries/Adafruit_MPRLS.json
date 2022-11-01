@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MPRLS",
     "version": "1.0.0",
-    "installs": 15076,
+    "installs": 15114,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -69,6 +69,58 @@
             "usage": false
           },
           "boron": {
+            "mprls_simpletest": true,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "boron": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "bsom": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "b5som": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "tracker": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "p2": {
+            "mprls_simpletest": true,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "boron": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "bsom": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "b5som": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "tracker": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "esomx": {
             "mprls_simpletest": true,
             "usage": false
           }

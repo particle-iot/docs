@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino_LSM9DS1",
     "version": "1.0.0",
-    "installs": 645,
+    "installs": 669,
     "author": "Arduino <info@arduino.cc>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
     "sentence": "Allows you to read the accelerometer, magnetometer and gyroscope values from the LSM9DS1 IMU for Particle Devices.",
@@ -87,6 +87,70 @@
             "SimpleMagnetometer": true
           },
           "boron": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "boron": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "bsom": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "b5som": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "tracker": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "p2": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "boron": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "bsom": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "b5som": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "tracker": {
+            "SimpleAccelerometer": true,
+            "SimpleGyroscope": true,
+            "SimpleMagnetometer": true
+          },
+          "esomx": {
             "SimpleAccelerometer": true,
             "SimpleGyroscope": true,
             "SimpleMagnetometer": true

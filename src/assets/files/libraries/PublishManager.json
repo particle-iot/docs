@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishManager",
     "version": "1.0.0",
-    "installs": 2340,
+    "installs": 2360,
     "license": "MIT",
     "author": "Ben Veenema <bveenema@gmail.com>",
     "sentence": "Caches Particle.publish events until the Cloud is available and limits to 1 publish/sec.",
@@ -106,6 +106,94 @@
             "StaticBuffer": true
           },
           "boron": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "boron": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "bsom": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "b5som": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "tracker": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "p2": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "boron": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "bsom": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "b5som": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "tracker": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "esomx": {
             "BasicExample-TimeDelayOnly": true,
             "CacheBeforeCloudConnect": true,
             "CustomCacheSize": true,

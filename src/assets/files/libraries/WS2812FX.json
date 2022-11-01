@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WS2812FX",
     "version": "0.0.1",
-    "installs": 4944,
+    "installs": 5280,
     "license": "MIT",
     "author": "Justin Kolberg",
     "sentence": "A port of the WS2812FX library (by Harm Aldick, https://github.com/kitesurfer1404/WS2812FX) for the Particle platform.",
@@ -62,6 +62,46 @@
             "demo": false
           },
           "boron": {
+            "demo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "demo": false
+          },
+          "boron": {
+            "demo": false
+          },
+          "bsom": {
+            "demo": false
+          },
+          "b5som": {
+            "demo": false
+          },
+          "tracker": {
+            "demo": false
+          },
+          "p2": {
+            "demo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "demo": false
+          },
+          "boron": {
+            "demo": false
+          },
+          "bsom": {
+            "demo": false
+          },
+          "b5som": {
+            "demo": false
+          },
+          "tracker": {
+            "demo": false
+          },
+          "esomx": {
             "demo": false
           }
         }

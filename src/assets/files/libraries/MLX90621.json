@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MLX90621",
     "version": "0.0.13",
-    "installs": 317,
+    "installs": 336,
     "license": "Public",
     "author": "Max Ritter",
     "sentence": "Library for interfacing with MLX90621 temp sensor array",
@@ -62,6 +62,46 @@
             "readTemperatures": true
           },
           "boron": {
+            "readTemperatures": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "readTemperatures": true
+          },
+          "boron": {
+            "readTemperatures": true
+          },
+          "bsom": {
+            "readTemperatures": true
+          },
+          "b5som": {
+            "readTemperatures": true
+          },
+          "tracker": {
+            "readTemperatures": true
+          },
+          "p2": {
+            "readTemperatures": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "readTemperatures": true
+          },
+          "boron": {
+            "readTemperatures": true
+          },
+          "bsom": {
+            "readTemperatures": true
+          },
+          "b5som": {
+            "readTemperatures": true
+          },
+          "tracker": {
+            "readTemperatures": true
+          },
+          "esomx": {
             "readTemperatures": true
           }
         }

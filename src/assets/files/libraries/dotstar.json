@@ -7,7 +7,7 @@
   "attributes": {
     "name": "dotstar",
     "version": "0.0.5",
-    "installs": 76967,
+    "installs": 78785,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "An Implementation of Adafruit's DotStar Library for Particle devices",
@@ -72,6 +72,46 @@
           },
           "boron": {
             "1-strandtest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-strandtest": true
+          },
+          "boron": {
+            "1-strandtest": true
+          },
+          "bsom": {
+            "1-strandtest": false
+          },
+          "b5som": {
+            "1-strandtest": false
+          },
+          "tracker": {
+            "1-strandtest": false
+          },
+          "p2": {
+            "1-strandtest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-strandtest": true
+          },
+          "boron": {
+            "1-strandtest": true
+          },
+          "bsom": {
+            "1-strandtest": false
+          },
+          "b5som": {
+            "1-strandtest": false
+          },
+          "tracker": {
+            "1-strandtest": false
+          },
+          "esomx": {
+            "1-strandtest": false
           }
         }
       },

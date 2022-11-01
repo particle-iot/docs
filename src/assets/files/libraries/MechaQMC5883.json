@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MechaQMC5883",
     "version": "0.0.1",
-    "installs": 339,
+    "installs": 356,
     "author": "keepworking",
     "sentence": "Alternative version of HMC5883L",
     "paragraph": "If the HMC5883L library isn't working, you may actually have a QMC5883L",
@@ -73,6 +73,58 @@
             "raw": true
           },
           "boron": {
+            "azimuth": true,
+            "raw": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "azimuth": true,
+            "raw": true
+          },
+          "boron": {
+            "azimuth": true,
+            "raw": true
+          },
+          "bsom": {
+            "azimuth": true,
+            "raw": true
+          },
+          "b5som": {
+            "azimuth": true,
+            "raw": true
+          },
+          "tracker": {
+            "azimuth": true,
+            "raw": true
+          },
+          "p2": {
+            "azimuth": true,
+            "raw": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "azimuth": true,
+            "raw": true
+          },
+          "boron": {
+            "azimuth": true,
+            "raw": true
+          },
+          "bsom": {
+            "azimuth": true,
+            "raw": true
+          },
+          "b5som": {
+            "azimuth": true,
+            "raw": true
+          },
+          "tracker": {
+            "azimuth": true,
+            "raw": true
+          },
+          "esomx": {
             "azimuth": true,
             "raw": true
           }

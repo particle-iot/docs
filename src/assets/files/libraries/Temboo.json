@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Temboo",
     "version": "1.2.8",
-    "installs": 497,
+    "installs": 503,
     "license": "Apache License, Version 2.0",
     "author": "Temboo, Spark port by Karl Kaiser <karl@bentuino.com>",
     "sentence": "Temboo Library for Spark, for details about Temboo service visit temboo.com",
@@ -73,6 +73,58 @@
             "application_gxls": true
           },
           "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "bsom": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "b5som": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "tracker": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "p2": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "bsom": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "b5som": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "tracker": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "esomx": {
             "application_gmail": true,
             "application_gxls": true
           }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkTime",
     "version": "0.0.6",
-    "installs": 82170,
+    "installs": 84540,
     "license": "MIT",
     "author": "Brian Ogilvie <bko@pobox.com>",
     "sentence": "A Spark Library for NTP time",
@@ -73,6 +73,58 @@
             "timentemp": false
           },
           "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "bsom": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "b5som": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "tracker": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "p2": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "bsom": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "b5som": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "tracker": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "esomx": {
             "SparkTimeExample": true,
             "timentemp": false
           }

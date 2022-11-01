@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ST7735",
     "version": "0.0.1",
-    "installs": 34762,
+    "installs": 36574,
     "license": "Choose a license",
     "author": "Someone <menan.vadivel@gmail.com>",
     "sentence": "Ported Adafruit_ST7735 library",
@@ -62,6 +62,46 @@
             "example": false
           },
           "boron": {
+            "example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "p2": {
+            "example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          },
+          "bsom": {
+            "example": false
+          },
+          "b5som": {
+            "example": false
+          },
+          "tracker": {
+            "example": false
+          },
+          "esomx": {
             "example": false
           }
         }

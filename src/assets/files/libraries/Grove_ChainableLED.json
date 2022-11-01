@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_ChainableLED",
     "version": "1.0.2",
-    "installs": 45095,
+    "installs": 46549,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Particle library to control Grove_ChainableLED.",
@@ -67,6 +67,46 @@
           },
           "boron": {
             "CycleThroughColors": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CycleThroughColors": true
+          },
+          "boron": {
+            "CycleThroughColors": true
+          },
+          "bsom": {
+            "CycleThroughColors": true
+          },
+          "b5som": {
+            "CycleThroughColors": true
+          },
+          "tracker": {
+            "CycleThroughColors": true
+          },
+          "p2": {
+            "CycleThroughColors": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CycleThroughColors": true
+          },
+          "boron": {
+            "CycleThroughColors": true
+          },
+          "bsom": {
+            "CycleThroughColors": true
+          },
+          "b5som": {
+            "CycleThroughColors": true
+          },
+          "tracker": {
+            "CycleThroughColors": true
+          },
+          "esomx": {
+            "CycleThroughColors": false
           }
         }
       },

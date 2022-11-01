@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADAFRUIT_ST7565",
     "version": "0.0.3",
-    "installs": 946,
+    "installs": 957,
     "license": "GNU GENERAL PUBLIC LICENSE",
     "author": "Someone <email@somesite.com>",
     "sentence": "Adafruit ST7565 Library",
@@ -62,6 +62,46 @@
             "LCDTest_ST7565": false
           },
           "boron": {
+            "LCDTest_ST7565": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          },
+          "bsom": {
+            "LCDTest_ST7565": false
+          },
+          "b5som": {
+            "LCDTest_ST7565": false
+          },
+          "tracker": {
+            "LCDTest_ST7565": false
+          },
+          "p2": {
+            "LCDTest_ST7565": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          },
+          "bsom": {
+            "LCDTest_ST7565": false
+          },
+          "b5som": {
+            "LCDTest_ST7565": false
+          },
+          "tracker": {
+            "LCDTest_ST7565": false
+          },
+          "esomx": {
             "LCDTest_ST7565": false
           }
         }

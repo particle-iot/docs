@@ -7,7 +7,7 @@
   "attributes": {
     "name": "azure_iothub_client",
     "version": "0.0.3",
-    "installs": 1386,
+    "installs": 1417,
     "license": "MIT",
     "author": "dcristo@microsoft.com",
     "sentence": "Experimental port - Azure IoTHub client",
