@@ -575,8 +575,8 @@ The operating frequency bands and the maximum transmitted power limit are listed
 - BLE 2402-2480MHz, 10dBm
 - LTE B1 B3 B7 B8 B20 B28 704.5-959.3MHz 1710.7-2687.5 MHz, 25dBm
 - WCDMA 882.4-957.6 MHz 1922.6-2167.4 MHz, 25dBm
-- EGSM900 880~915 925~960 MHz (35dBm)
-- DCS1800 1710~1785 1805~1880 MHz (32dBm)
+- EGSM900 880-915 925-960 MHz (35dBm)
+- DCS1800 1710-1785 1805-1880 MHz (32dBm)
 
 
 ### United Kingdom
