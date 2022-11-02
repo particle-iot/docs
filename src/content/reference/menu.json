@@ -501,6 +501,11 @@
         "dir": "tan008",
         "title": "TAN008 - B404 Manufacturing Firmware 2.3.0",
         "href": "/reference/technical-advisory-notices/tan008/"
+      },
+      {
+        "dir": "tan009",
+        "title": "TAN009 - SARA-R410M Intermittent Increased Connection Time",
+        "href": "/reference/technical-advisory-notices/tan009/"
       }
     ],
     {
