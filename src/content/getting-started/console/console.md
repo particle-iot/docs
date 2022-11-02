@@ -900,6 +900,8 @@ You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker
 
 Device Monitoring publishes additional metrics and also fault (crash log) information. This can help troubleshoot problems, however it will use additional data operations.
 
+See the [Memfault Integration](/getting-started/integrations/community-integrations/memfault/) for more information.
+
 ### Device Settings
 
 Geofence settings are only configurable per-device, not in the fleet settings.
