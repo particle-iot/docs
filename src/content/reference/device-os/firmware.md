@@ -495,7 +495,9 @@ Publish an event with the given name and data.
 
 The data must be a string in the ASCII or UTF-8 character set. If you have an integer or floating point value, you'll need to convert it to a string first.
 
-You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex, Base 64, or Base 85 encoding.
+You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex or Base 64 encoding. 
+
+While Base85 (Ascii85) provides a more dense encoding than Base64, it is not recommended if you are publishing data to be sent to an external server by a webhook. The Base85 alphabet includes the left curly bracket, and the `\{{` sequence is recognized as a mustache template delimiter during webhook processing, causing the data to be corrupted. The backslash can also cause unexpected data transformation.
 
 ---
 
@@ -20986,7 +20988,7 @@ The Particle JSON library is based on [JSMN](https://github.com/zserge/jsmn) for
 - The JSON encoded data consists only of 7-bit ASCII characters. Control characters are escaped.
 - There are types of data for bool, int, double, string, object, and array.
 - Objects and arrays can contain nested objects and arrays, as well as primitive types (bool, int, double, string).
-- There is no binary blob in JSON, you need to encode the data in something like Base64, Base85, or hex encoding.
+- There is no binary blob in JSON, you need to encode the data in something like Base64 or hex encoding.
 - You can't encode circular structures with JSON.
 
 ### JSONWriter

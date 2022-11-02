@@ -341,6 +341,11 @@
           "dir": "weather",
           "title": "Weather API",
           "href": "/getting-started/integrations/community-integrations/weather/"
+        },
+        {
+          "dir": "memfault",
+          "title": "Memfault",
+          "href": "/getting-started/integrations/community-integrations/memfault/"
         }
       ]
     ],
