@@ -47,11 +47,11 @@ The main part of the design includes the M.2 (NGFF) SoM connector, micro USB con
 
 ![Schematic Main](/assets/images/som-first-board/schematic-main.png)
 
-The rest of the design is the power supply. It uses a MP2122 dual voltage regulator to produce 3.3V (for the nRF52840) and 3.8V (for the cellular modem). You can supply it with 3.6V to 6.0V from USB or an external power supply. You can also remove some jumpers to substitute a different power supply for testing.
+The rest of the design is the power supply. It uses a MP2122A dual voltage regulator to produce 3.3V (for the nRF52840) and 3.8V (for the cellular modem). You can supply it with 3.6V to 6.0V from USB or an external power supply. You can also remove some jumpers to substitute a different power supply for testing.
 
 ![Schematic Power](/assets/images/som-first-board/schematic-power.png)
 
-The MP2122 can supply 2A to satisfy all current cellular modules. The B402 only requires 500 mA, but it's best to include enough power in case you want to switch modules in the future.
+The MP2122A can supply 2A to satisfy all current cellular modules. The B402 only requires 500 mA, but it's best to include enough power in case you want to switch modules in the future.
 
 This is the Eagle board design for the USB SoM base board:
 
@@ -89,7 +89,7 @@ This design uses an [Amphenol FCI 10118194-0001LF](https://www.digikey.com/produ
 
 ### Power Supply
 
-This design uses a [Monolithic Power Systems MP2122GJ-Z](https://www.digikey.com/product-detail/en/monolithic-power-systems-inc/MP2122GJ-Z/1589-1872-1-ND/5291939) dual 2A adjustable switching regulator. 
+This design uses a [Monolithic Power Systems MP2122AGJ-Z](https://www.digikey.com/en/products/detail/monolithic-power-systems-inc/MP2122AGJ-Z/14296797) dual 2A adjustable switching regulator, or the older MP2122GJ-Z (no "A").
 
 Each output is controlled by a voltage divider (two resistors), has an inductor (4.7 uH), and an output capacitor (22 uF). There's also a 22 uF input capacitor.
 
@@ -162,7 +162,7 @@ Some of the pictures are taken using a 3mm hole for a M3 x 6mm screw and M3 nut.
 | 2 | 4.5mm tactile switch | [E-Switch TL3305AF160QG](https://www.digikey.com/product-detail/en/e-switch/TL3305AF160QG/EG5350CT-ND/5816195) | $0.20 |
 | 1 | USB micro B connector | [Amphenol FCI 10118194-0001LF](https://www.digikey.com/products/en?keywords=609-4618-1-nd) | $0.42 | 
 | 1 | RGB LED 4PLCC | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) | $0.19 |
-| 1 | MP2122 Regulator | [Monolithic Power Systems MP2122GJ-Z](https://www.digikey.com/product-detail/en/monolithic-power-systems-inc/MP2122GJ-Z/1589-1872-1-ND/5291939) | $2.51 |
+| 1 | MP2122A Regulator | [Monolithic Power Systems MP2122AGJ-Z](https://www.digikey.com/en/products/detail/monolithic-power-systems-inc/MP2122AGJ-Z/14296797) | $2.38 |
 | 1 | M.2 connector | [TE Connectivity 2199230-4](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916) | $1.42 |
 | 1 | M.2 standoff | [JAE 	SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) | $1.25 |
 | 1 | M2*3 screw w/4mm head | [example](https://www.amazon.com/gp/product/B07NZ32TRB/ref=ppx_yo_dt_b_asin_title_o00_s00) | |
@@ -178,7 +178,7 @@ When using the M.2 connector you will almost certainly need a stencil. I ordered
 
 ![Stencil](/assets/images/som-first-board/board-2.jpg)
 
-Since I used a 5 mil stainless steel stencil I frequently end up with too much solder paste on some of the tight pins. For example, here on the MP2122. It's a good idea to clean this up; I use a small dental-style scraper tool for this.
+Since I used a 5 mil stainless steel stencil I frequently end up with too much solder paste on some of the tight pins. For example, here on the MP2122A. It's a good idea to clean this up; I use a small dental-style scraper tool for this.
 
 ![Solder paste](/assets/images/som-first-board/board-3.jpg)
 
