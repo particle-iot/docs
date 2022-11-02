@@ -505,7 +505,8 @@
       {
         "dir": "tan009",
         "title": "TAN009 - SARA-R410M Intermittent Increased Connection Time",
-        "href": "/reference/technical-advisory-notices/tan009/"
+        "href": "/reference/technical-advisory-notices/tan009/",
+        "hidden": true
       }
     ],
     {
