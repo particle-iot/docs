@@ -39,6 +39,60 @@ apiHelper.getDeviceRestoreInfo = function() {
     });
 };
 
+apiHelper.getPlatformInfo = async function(platformId) {
+    if (!deviceRestoreInfo) {
+        await apiHelper.getDeviceRestoreInfo();
+    }
+
+    return deviceRestoreInfo.platforms.find(e => e.id == platformId);
+}
+
+apiHelper.getPlatformTitle = async function(platformId) {
+    const info = await apiHelper.getPlatformInfo(platformId);
+    if (info) {
+        return info.title;
+    }
+    else {
+        return 'Unknown (' + platformId + ')';
+    }
+}
+
+apiHelper.getPlatformName = async function(platformId) {
+    const info = await apiHelper.getPlatformInfo(platformId);
+    if (info) {
+        return info.name;
+    }
+    else {
+        return platformId.toString();
+    }
+}
+
+// Sorts the results from getPlatformName putting the real results first A-Z, then
+// the numeric (unknown/deprecated) platforms after it in numerical order
+apiHelper.platformNameSort = function(a, b) {
+    const isNum = function(s) {
+        const code = s.charCodeAt(0);
+        return code >= 0x30 && code <= 0x39;
+    };
+    const isNumA = isNum(a);
+    const isNumB = isNum(b);
+
+    if (isNumA && !isNumB) {
+        return +1;
+    }
+    else
+    if (!isNumA && isNumB) {
+        return -1;
+    }
+    else
+    if (isNumA && isNumB) {
+        return parseInt(a) - parseInt(b);
+    }
+    else {
+        return a.localeCompare(b);
+    }
+}
+
 // Parses a semver (like '3.0.0-rc.1' and returns the broken out parts)
 apiHelper.parseVersionStr = function(verStr) {
     let result = {};
