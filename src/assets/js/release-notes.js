@@ -9,14 +9,15 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(window.location.search);
 
     const defaultSearchAfter = 'v1.4.4';
-
+    const gaCategory = 'Release Note Search';
 
     const doSetup = function() {
         $('.apiHelperReleaseNotes').each(function() {
             const thisPartial = $(this);
     
-            const versions = [];
+            ga('send', 'event', gaCategory, 'Visit');
 
+            const versions = [];
 
             for(const releaseName in releaseNotesJson.releases) {
                 if (releaseName.startsWith('v')) {
@@ -167,6 +168,9 @@ $(document).ready(function() {
                         return;
                     }
                     searchParams.set('ver', ver);
+
+                    ga('send', 'event', gaCategory, 'View Version', ver);
+
                     const releaseObj = releaseNotesJson.releases[ver];
 
                     let sectionData = {};
@@ -202,6 +206,8 @@ $(document).ready(function() {
 
                     searchParams.set('ver1', ver1);
                     searchParams.set('ver2', ver2);
+
+                    ga('send', 'event', gaCategory, 'View Cumulative', ver1 + '-' + ver2);
 
                     let includeVer = false;
 
@@ -256,6 +262,13 @@ $(document).ready(function() {
                         let items = [];
 
                         const searchResults = lunrIndex.search(searchText);
+                        if (searchResults.length > 0) {
+                            ga('send', 'event', gaCategory, 'Success', searchText);
+                        }
+                        else {
+                            ga('send', 'event', gaCategory, 'No Results', searchFor);                            
+                        }
+
                         for(const res of searchResults) {
                             const parts = res.ref.split('/');
                             const ver = parts[0]
