@@ -7,6 +7,8 @@ description: Particle Photon, Gen 2 Wi-Fi development kit
 # Particle Photon: Wi-Fi
 ![Image of the Photon](/assets/images/photon-kit.jpg)
 
+**The Photon has been discontinued. The Argon or Photon 2 are recommended substitutes.**
+
 The Photon is a $19 tiny Wi-Fi IoT device for creating connected projects and products for the Internet of Things. It's easy to use, it's powerful, and it's connected to the cloud. The board is powered by a Cypress Wi-Fi chip alongside a powerful STM32 ARM Cortex M3 microcontroller.
 
 
@@ -47,13 +49,5 @@ The Photon is a $19 tiny Wi-Fi IoT device for creating connected projects and pr
 
 
 
-
-
-
-<div align="center">
-<br />
-
-<a href="https://store.particle.io/products/photon" target="_blank" class="button">BUY A PHOTON</a>
-</div>
 
 {{box op="end"}}
