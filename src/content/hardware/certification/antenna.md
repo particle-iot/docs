@@ -389,7 +389,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 	
 <sup>1</sup>The Tracker One includes an BLE antenna inside the case, however it's a different antenna than the Particle 2.4 GHz Antenna (ANT-FLXV2). A separate antenna is used because the Tracker SoM is mounted on the bottom side of the Tracker Carrier Board, so signals to the chip antenna would be adversely affected.
 
-<sup>4</sup>The P2 is certified with the built-in trace antenna. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz). An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+<sup>4</sup>The P2 and Photon 2 certified with the built-in trace antenna, and also the PARANTWM1EA and PARANTWM1TY external antennas. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz).
 
 ### Not compatible (BLE)
 
@@ -411,7 +411,7 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 
 ## NFC
 
-Particle Gen 3 devices can optionally be used in NFC tag mode. This can only be ready by a device such as a smartphone app; it cannot read tags.
+Particle Gen 3 devices can optionally be used in NFC tag mode. This can only be read by a device such as a smartphone app; it cannot read tags.
 
 The Particle NFC Antenna is available in the [retail](https://store.particle.io/products/nfc-antenna) and wholesale stores. 
 
