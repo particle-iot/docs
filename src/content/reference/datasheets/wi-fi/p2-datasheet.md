@@ -50,12 +50,18 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 - The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance when using the trace antenna.
 - Device operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
-### FCC Approved Antennas
+### Approved Antennas
 
-| Antenna Type | Manufacturer | MFG. Part # | Gain |
-|-|-|-|-|
-| External antenna | Wistron NeWeb Corporation | 95XEAK15.G53| 1.55dBi |
-| Internal PCB Antenna | Included | - | 2.41dBi |
+In addition to the built-in trace antenna, the following optional external antenna is certified for use with the P2:
+
+| Antenna | SKU  | 
+| :------ | :--- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY |
+
+This antenna is used for both Wi-Fi and BLE. In order to use an external antenna, it must be selected in software.
+
+A different dual-band antenna can be used but this will likely require both intentional and unintentional radiator certification.
 
 ---
 
@@ -750,6 +756,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-08-18 | RK | EU certification statement |
 |     | 2022-09-16 | RK | Added UKCA conformity |
+|     | 2022-11-08 | RK | Added external antenna |
 
 
 ## Known Errata

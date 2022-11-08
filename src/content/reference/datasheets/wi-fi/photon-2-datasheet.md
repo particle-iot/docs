@@ -90,12 +90,18 @@ However, if you have circuitry that is powered by a separate, external power sup
 - The antenna is selected in software. The default is the PCB trace antenna.
 - A single antenna is used for both Wi-Fi and BLE.
 
-### FCC Approved Antennas
+### Approved Antennas
 
-| Antenna Type | Manufacturer | MFG. Part # | Gain |
-|-|-|-|-|
-| Dipole antenna | LumenRadio | 104-1001 | 2.15dBi |
-| PCB Antenna | Included | - | - |
+In addition to the built-in trace antenna, the following optional external antenna is certified for use with the Photon 2:
+
+| Antenna | SKU  | 
+| :------ | :--- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY |
+
+This antenna is used for both Wi-Fi and BLE. In order to use an external antenna, it must be selected in software.
+
+A different dual-band antenna can be used but this will likely require both intentional and unintentional radiator certification.
 
 ---
 
@@ -653,6 +659,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-09-04 | RK | BLE central mode available, added power consumption |
 |     | 2022-10-05 | RK | Added power consumption |
+|     | 2022-11-08 | RK | Added external antenna |
 
 ## Known Errata
 

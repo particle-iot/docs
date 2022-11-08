@@ -149,6 +149,7 @@ function toPDF() {
         const coverPath = `${paths.covers}/${fileName}.html`;
         const commandArgs = [
             `wkhtmltopdf`,
+            `--enable-local-file-access`,
             `--dpi 300`,
             existsSync(coverPath) ? `cover ${coverPath}` : '',
             `toc --xsl-style-sheet ${paths.xsl}`,

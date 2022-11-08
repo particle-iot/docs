@@ -215,6 +215,8 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x1] | PARANTWM1EA | |
+| Particle P2/Photon2 Wi-Fi Antenna 2.4/5GHz, [x50] |PARANTWM1TY | |
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 | Tracker One Wi-Fi Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-wifi.pdf) |
@@ -281,7 +283,7 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 
 [This antenna from Adafruit](https://www.adafruit.com/product/944) is compatible and can be substituted when an external dipole ("duck") antenna is desired on the Photon and P1 while using the existing Particle certification. Note that a [RP-SMA to U.FL adapter](https://www.adafruit.com/product/852) is required to use this antenna.
 
-<sup>4</sup>The P2 is certified with the built-in trace antenna. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz). An external dual-band antenna can be connected to the U.FL connector and selcted in software. This will require additional certification with your external antenna.
+<sup>4</sup>The P2 and Photon 2 certified with the built-in trace antenna, and also the PARANTWM1EA and PARANTWM1TY external antennas. The antenna is used for both Wi-Fi (2.4 GHz and 5 GHz) as well as BLE (2.4 GHz).
 
 ### Not compatible (Wi-Fi)
 
