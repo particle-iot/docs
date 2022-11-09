@@ -38,7 +38,7 @@
           "desc": "Peripheral interrupt (active low)",
           "is5VTolerant": false,
           "isNFC": false,
-          "hardwarePin": "P0.9",
+          "hardwarePin": "P0.09",
           "somPin": 26
         },
         {
@@ -56,7 +56,7 @@
           "desc": "RESET button (active low)",
           "isControl": true,
           "is5VTolerant": false,
-          "hardwarePin": "P0.8",
+          "hardwarePin": "P0.08",
           "somPin": 33
         },
         {
@@ -73,7 +73,7 @@
           "analogWritePWM": true,
           "tone": "A4, A5, A5, A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
           "hardwareTimer": "PWM1",
           "internalPull": "13K",
@@ -93,7 +93,7 @@
           "analogWritePWM": true,
           "tone": "A4, A5, A5, A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM1",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
@@ -331,7 +331,7 @@
           "serial": "Serial1 RX|RX Use Serial1 object.",
           "tone": "D8, D9 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.8",
+          "hardwarePin": "P0.08",
           "hardwareTimer": "PWM2",
           "internalPull": "13K",
           "somPin": 71
@@ -4381,7 +4381,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
@@ -4400,7 +4400,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
@@ -4830,7 +4830,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
@@ -4849,7 +4849,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
@@ -5277,7 +5277,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
@@ -5296,7 +5296,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
@@ -5782,7 +5782,7 @@
           "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
-          "hardwarePin": "P0.6",
+          "hardwarePin": "P0.06",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
         },
@@ -6406,7 +6406,7 @@
           "desc": "NFC Antenna 1",
           "is5VTolerant": false,
           "isNFC": true,
-          "hardwarePin": "P0.9",
+          "hardwarePin": "P0.09",
           "somPin": "SOM3"
         },
         {
@@ -6468,7 +6468,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
           "somPin": "ADC0",
@@ -6498,7 +6498,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM2",
           "somPin": "ADC1",
@@ -6697,7 +6697,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
           "hardwareTimer": "PWM2",
           "somPin": "RESERVED",
@@ -6724,7 +6724,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.2",
+          "hardwarePin": "P0.02",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
           "somPin": "RESERVED",
@@ -7101,7 +7101,7 @@
           "desc": "NFC Antenna 1",
           "is5VTolerant": false,
           "isNFC": true,
-          "hardwarePin": "P0.9",
+          "hardwarePin": "P0.09",
           "somPin": "SOM3"
         },
         {
@@ -7163,7 +7163,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
           "somPin": "ADC0",
@@ -7193,7 +7193,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM2",
           "somPin": "ADC1",
@@ -7392,7 +7392,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
           "hardwareTimer": "PWM2",
           "somPin": "RESERVED",
@@ -7419,7 +7419,7 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.2",
+          "hardwarePin": "P0.02",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
           "somPin": "RESERVED",
@@ -7439,7 +7439,7 @@
           "tone": false,
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.7",
+          "hardwarePin": "P0.07",
           "somPin": "CS",
           "internalPull": "13K"
         },
@@ -7458,7 +7458,7 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MISO)|MISO. Use SPI object.",
-          "hardwarePin": "P1.8",
+          "hardwarePin": "P1.08",
           "somPin": "MISO",
           "internalPull": "13K"
         },
@@ -7477,7 +7477,7 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-          "hardwarePin": "P1.9",
+          "hardwarePin": "P1.09",
           "somPin": "MOSI",
           "internalPull": "13K"
         },
@@ -7523,7 +7523,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P1.1",
+          "hardwarePin": "P1.01",
           "somPin": "GPIO0",
           "internalPull": "13K"
         },
@@ -7550,7 +7550,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P1.3",
+          "hardwarePin": "P1.03",
           "somPin": "GPIO1",
           "internalPull": "13K"
         },
@@ -7629,7 +7629,7 @@
           "tone": "D4, D5, and D6 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.4",
+          "hardwarePin": "P1.04",
           "somPin": "PWM2",
           "internalPull": "13K"
         },
@@ -7876,7 +7876,7 @@
           "desc": "NFC Antenna 1",
           "is5VTolerant": false,
           "isNFC": true,
-          "hardwarePin": "P0.9"
+          "hardwarePin": "P0.09"
         },
         {
           "num": 27,
@@ -7927,7 +7927,7 @@
           "desc": "RESET button, does not require pull-up, GND resets.",
           "isControl": true,
           "is5VTolerant": false,
-          "hardwarePin": "P0.8"
+          "hardwarePin": "P0.08"
         },
         {
           "num": 38,
@@ -7943,7 +7943,7 @@
           "analogWritePWM": true,
           "tone": "A4, A5, A5, A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
           "hardwareTimer": "PWM1",
           "internalPull": "13K"
@@ -7962,7 +7962,7 @@
           "analogWritePWM": true,
           "tone": "A4, A5, A5, A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM1",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
@@ -8178,7 +8178,7 @@
           "serial": "Serial1 RX|RX Use Serial1 object.",
           "tone": "D8, D9 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.8",
+          "hardwarePin": "P0.08",
           "hardwareTimer": "PWM2",
           "internalPull": "13K"
         },

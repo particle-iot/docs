@@ -450,18 +450,18 @@ Pin numbers match the triangular numbers in the graphic above.
 | PMIC_INT | PMIC Interrupt | P0.26 | 
 | LOW_BAT_UC | Fuel Gauge Interrupt | IOEX 0.0 |
 | RTC_INT | Real-time clock Interrupt | P0.27 |
-| BGRST | Cellular module reset | P0.7 |
-| BGPWR | Cellular module power | P0.8 |
+| BGRST | Cellular module reset | P0.07 |
+| BGPWR | Cellular module power | P0.08 |
 | BGVINT | Cellular power on detect  | P1.14 |
 | BGDTR | Cellular module DTR | IOEX 1.5 |
-| CAN_INT | CAN interrupt | P1.9 |
+| CAN_INT | CAN interrupt | P1.09|
 | CAN_RST | CAN reset | IOEX 1.6 |
 | CAN_PWR | 5V boost converter enable | IOEX 1.7 |
 | CAN_STBY | CAN standby mode | IOEX 0.2 |
 | CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
 | CAN_RTS1 | CAN RTS1 | IOEX 1.2 |
 | CAN_RTS2 | CAN RTS2 | IOEX 1.3 |
-| SEN_INT | IMU interrupt | P1.7 |
+| SEN_INT | IMU interrupt | P1.07|
 | ANT_SW1 | BLE antenna switch | P1.15 |
 | GPS_PWR | u-blox GNSS power | IOEX 0.6 | 
 | GPS_INT | u-blox GNSS interrupt | IOEX 0.7 | 
@@ -708,7 +708,7 @@ CAN GPIO:
 
 | Name | Description | Location | 
 | :---: | :--- | :---: |
-| CAN_INT | CAN interrupt | P1.9 |
+| CAN_INT | CAN interrupt | P1.09|
 | CAN_RST | CAN reset (LOW = reset for 100 milliseconds) | IOEX 1.6 |
 | CAN_PWR | 5V boost converter enable (HIGH = on) | IOEX 1.7 |
 | CAN_STBY | CAN standby mode (HIGH = standby) | IOEX 0.2 |

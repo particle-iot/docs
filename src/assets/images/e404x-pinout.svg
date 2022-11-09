@@ -888,7 +888,7 @@ PWM2    </text>
     <rect x="-413" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
     </rect>
     <text x="-385.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-P0.6    </text>
+P0.06    </text>
   </g>
   <g transform="translate(420,536.3999999999996) " >
     <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="1" >

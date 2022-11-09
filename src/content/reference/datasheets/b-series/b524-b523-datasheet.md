@@ -209,18 +209,18 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 14 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |	
 | 15 | GND | GND | POWER | | System ground. |
 | 16 | VUSB | VUSB | POWER | | System power in, USB detect pin for nRF52840. 5V on this pin enables the USB interface. |
-| 17 | NFC1 | SOM3<sup>3</sup> | NFC input | P0.9 | 	NFC antenna connection. | 
+| 17 | NFC1 | SOM3<sup>3</sup> | NFC input | P0.09 | 	NFC antenna connection. | 
 | 18 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 19 | NFC2 | SOM4<sup>3</sup> | NFC input	 | P0.10 | NFC antenna connection. |
 | 20 | D1 | SCL | IO | P0.27 | I2C SCL, and digital only GPIO. | 
 | 21 | GND | GND | POWER | | System ground. |
 | 22 | D0 | SDA | IO | P0.26 | I2C SDA, and digital only GPIO.|
-| 23 | A0 | ADC0 | IO | P0.3 | Analog input ADC0<sup>2</sup>, and digital GPIO. |
+| 23 | A0 | ADC0 | IO | P0.03 | Analog input ADC0<sup>2</sup>, and digital GPIO. |
 | 32 | MODE | MODE | IO | P0.25 | Connected to the MODE button input, and digital only GPIO.|
-| 33 | A1 | ADC1 | IO | P0.4 | Analog input ADC1<sup>2</sup>, and digital GPIO. |
+| 33 | A1 | ADC1 | IO | P0.04 | Analog input ADC1<sup>2</sup>, and digital GPIO. |
 | 34 | RESET | RESET | I | | Active-low reset input. |
 | 35 | A2 | ADC2 | IO | P0.28| Analog input ADC2<sup>2</sup>, and digital GPIO. |
-| 36 | D9 | TX | IO | P0.6 | Primarily used as UART TX, but can also be used as a digital GPIO. |
+| 36 | D9 | TX | IO | P0.06 | Primarily used as UART TX, but can also be used as a digital GPIO. |
 | 37 | A3 | ADC3 | IO | P0.29| Analog input ADC3<sup>2</sup>, and digital GPIO. |
 | 38 | D10 | RX | IO | P0.08 | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
 | 39 | AGND | AGND | POWER | | System analog ground. |
@@ -229,14 +229,14 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 42 | D2 | RESERVED<sup>3</sup> | IO | P1.02 | UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
 | 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
-| 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
+| 45 | A6 | RESERVED<sup>3</sup> | IO | P0.05| Analog input ADC6<sup>2</sup>, and digital GPIO. |
 | 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
-| 47 | A7 | RESERVED<sup>3</sup> | IO | P0.2 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
-| 48 | D8 | CS | IO | P0.7 | SPI interface CS, and digital only GPIO. | 
+| 47 | A7 | RESERVED<sup>3</sup> | IO | P0.02 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
+| 48 | D8 | CS | IO | P0.07 | SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| | System analog ground.|
-| 50 | D11 | MISO | IO | P1.8 | SPI interface MISO, and digital only GPIO.|
+| 50 | D11 | MISO | IO | P1.08| SPI interface MISO, and digital only GPIO.|
 | 51 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
-| 52 | D12 | MOSI | IO | P1.9 | SPI interface MOSI, and digital only GPIO.| 
+| 52 | D12 | MOSI | IO | P1.09| SPI interface MOSI, and digital only GPIO.| 
 | 53 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 54 | D13 | SCK | IO | P0.11| SPI interface SCK, and digital only GPIO. |
 | 55 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
@@ -246,15 +246,15 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 59 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 60 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 61 | RGBR | RED | IO | P0.16| Red pin of the RGB LED. | 
-| 62 | D22 | GPIO0 | IO | P1.1 | GPIO0, digital only. |
+| 62 | D22 | GPIO0 | IO | P1.01 | GPIO0, digital only. |
 | 63 | RGBG | GREEN | IO | P0.15 | Green pin of the RGB LED.|
-| 64 | D23 | GPIO1 | IO | P1.3 | GPIO1, digital only.|	
+| 64 | D23 | GPIO1 | IO | P1.03| GPIO1, digital only.|	
 | 65 | RGBB | BLUE | IO | P0.14 | Blue pin of the RGB LED.|
 | 66 | D4 | PWM0 | IO | P0.12 | SPI1 MISO, Digital only GPIO, and PWM0. |
 | 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from cellular modem. |
 | 68 | D5 | PWM1 | IO | P0.24| Digital only GPIO, and PWM1. |
 | 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
-| 70 | D6 | PWM2 | IO | P1.4 | Digital only GPIO, and PWM2.|
+| 70 | D6 | PWM2 | IO | P1.04| Digital only GPIO, and PWM2.|
 | 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 | 72 | D7 | PWM3 | IO | P0.13| Digital only GPIO, and PWM3.|
 | 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |

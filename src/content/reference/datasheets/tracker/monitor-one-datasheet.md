@@ -207,13 +207,13 @@ Note: wire color may vary from this graphic.
 
 | Pin Name | Description | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- |
-| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.5 |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.4 |
+| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | 38 | P0.05 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | 40 | P0.29 |
 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | 41 | P0.29 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | 58 | P0.30 |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | 71 | P0.8 |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | 71 | P0.08 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | 72 | P0.06 |
 
 
@@ -229,8 +229,8 @@ Note: wire color may vary from this graphic.
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | ADC3 | 38 | P0.5 |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | ADC2 | 39 | P0.4 |
+| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | ADC3 | 38 | P0.05 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | ADC2 | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | ADC5 | 40 | P0.29 |
 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | ADC7 | 41 | P0.29 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | ADC4 | 57 | P0.28 |
@@ -248,7 +248,7 @@ Note: wire color may vary from this graphic.
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | SPI (SCK) | 39 | P0.4 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | SPI (SCK) | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | SPI (MISO) | 40 | P0.29 |
 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | SPI (MOSI) | 41 | P0.29 |
 
@@ -265,7 +265,7 @@ Note: wire color may vary from this graphic.
 | :--- | :--- | :--- | :--- | :--- |
 | TSOM_A0_SDA / D0 | Wire SDA | Wire (SDA) | 55 | P0.03 |
 | TSOM_A1_SCL / D1 | Wire SCL | Wire (SCL) | 56 | P0.02 |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | Wire3 (SDA) | 71 | P0.8 |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | Wire3 (SDA) | 71 | P0.08 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | Wire3 (SCL) | 72 | P0.06 |
 
 
@@ -283,7 +283,7 @@ Note: wire color may vary from this graphic.
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | Serial1 RX | 71 | P0.8 |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | Serial1 RX | 71 | P0.08 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | Serial1 TX | 72 | P0.06 |
 
 
@@ -300,13 +300,13 @@ Note: wire color may vary from this graphic.
 
 | Pin Name | Description | Interface | SoM Pin | MCU |
 | :--- | :--- | :--- | :--- | :--- |
-| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | PWM1 | 38 | P0.5 |
-| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | PWM1 | 39 | P0.4 |
+| TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | PWM1 | 38 | P0.05 |
+| TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | PWM1 | 39 | P0.04 |
 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | PWM1 | 40 | P0.29 |
 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | PWM1 | 41 | P0.29 |
 | TSOM_A2_BUTTON / D2 | External user button, A2 Analog in, GPIO D2, PWM | PWM0 | 57 | P0.28 |
 | TSOM_A3_BATT_TEMP / D3 | Battery temperature sensor, A3 Analog in, GPIO D3, PWM | PWM0 | 58 | P0.30 |
-| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | PWM2 | 71 | P0.8 |
+| RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | PWM2 | 71 | P0.08 |
 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | PWM2 | 72 | P0.06 |
 
 
@@ -350,11 +350,11 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 | 7 | NC | &nbsp; | &nbsp; |
 | 8 | NC | &nbsp; | &nbsp; |
 | 9 | NFC2_VIN_EN | VIN enable | P0.10 |
-| 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.9 |
+| 10 | NFC1_PERIPH_INT | Peripheral interrupt (active low) | P0.09 |
 | 11 | TSOM_MODE | MODE button (active low) | P1.13 |
-| 12 | TSOM_RESET | RESET button (active low) | P0.8 |
-| 13 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | P0.5 |
-| 14 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | P0.4 |
+| 12 | TSOM_RESET | RESET button (active low) | P0.08 |
+| 13 | TSOM_A7 / D7 | A7 Analog in, GPIO D7, PWM, SPI SS, WKP | P0.05 |
+| 14 | TSOM_A6 / D6 | A6 Analog in, GPIO D6, PWM, SPI (SCK) | P0.04 |
 | 15 | TSOM_A5 / D5 | A5 Analog in, GPIO D5, PWM, SPI MISO | P0.29 |
 | 16 | TSOM_A4 / D4 | A4 Analog in, GPIO D4, PWM, SPI MOSI | P0.29 |
 | 17 | GND | Ground. | &nbsp; |
@@ -385,7 +385,7 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 | 42 | TSOM_USB_N | nRF52 MCU USB interface D-. | &nbsp; |
 | 43 | TSOM_USB_P | nRF52 MCU USB interface D+. | &nbsp; |
 | 44 | GND | Ground. | &nbsp; |
-| 45 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | P0.8 |
+| 45 | RX / D9 | Serial1 RX, GPIO D9, PWM, Wire3 SDA | P0.08 |
 | 46 | TX / D8 | Serial1 TX, GPIO D8, PWM, Wire3 SCL | P0.06 |
 | 47 | RTC_BAT | RTC/Watchdog battery +. Connect to GND if not using. | &nbsp; |
 | 48 | RTC_EXTI | RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3. | &nbsp; |
