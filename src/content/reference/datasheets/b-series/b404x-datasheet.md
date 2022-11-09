@@ -164,14 +164,14 @@ For maximum cross-module flexibility, you should try to use only the common pins
 
 | Pin Name | Module Pin |   |   |   |   | MCU |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | 23 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.3 |
-| A1 / D18 | 33 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.4 |
+| A0 / D19 | 23 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.03 |
+| A1 / D18 | 33 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.04 |
 | A2 / D17 | 35 | ADC4 | &nbsp; | &nbsp; | &nbsp; | P0.28 |
 | A3 / D16 | 37 | ADC5 | &nbsp; | &nbsp; | &nbsp; | P0.29 |
 | A4 / D15 | 41 | ADC6 | &nbsp; | &nbsp; | &nbsp; | P0.30 |
 | A5 / D14 | 43 | ADC7 | &nbsp; | &nbsp; | &nbsp; | P0.31 |
-| A6 | 45 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.5 |
-| A7 | 47 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.2 |
+| A6 | 45 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.05 |
+| A7 | 47 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.02 |
 | Cellular Modem USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Cellular Modem USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | Cellular Modem VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -190,7 +190,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | MOSI / D12 | 52 | &nbsp; | &nbsp; | SPI (MOSI) | &nbsp; | P1.13 |
 | NC | 14 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | NC | 75 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| NFC1 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.9 |
+| NFC1 | 17 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.09 |
 | NFC2 | 19 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.10 |
 | RGBB | 65 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.15 |
 | RGBG | 63 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | P0.14 |
@@ -217,14 +217,14 @@ The B404X supports 8 ADC inputs.
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC1 | P0.3 |
-| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC2 | P0.4 |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | ADC1 | P0.03 |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | ADC2 | P0.04 |
 | 35 | A2 / D17 | A2 Analog in, GPIO | ADC4 | P0.28 |
 | 37 | A3 / D16 | A3 Analog in, GPIO | ADC5 | P0.29 |
 | 41 | A4 / D15 | A4 Analog in, GPIO | ADC6 | P0.30 |
 | 43 | A5 / D14 | A5 Analog in, GPIO | ADC7 | P0.31 |
-| 45 | A6 | A6 Analog in, PWM, GPIO | ADC3 | P0.5 |
-| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | ADC0 | P0.2 |
+| 45 | A6 | A6 Analog in, PWM, GPIO | ADC3 | P0.05 |
+| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | ADC0 | P0.02 |
 
 
 {{!-- END do not edit content above, it is automatically generated  --}}
@@ -310,10 +310,10 @@ The B404X supports PWM (pulse-width modulation) on the following pins:
 
 | Pin | Pin Name | Description | Timer | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PWM2 | P0.3 |
-| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PWM2 | P0.4 |
-| 45 | A6 | A6 Analog in, PWM, GPIO | PWM2 | P0.5 |
-| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | PWM2 | P0.2 |
+| 23 | A0 / D19 | A0 Analog in, GPIO, PWM | PWM2 | P0.03 |
+| 33 | A1 / D18 | A1 Analog in, GPIO, PWM | PWM2 | P0.04 |
+| 45 | A6 | A6 Analog in, PWM, GPIO | PWM2 | P0.05 |
+| 47 | A7 | A7 Analog in, GPIO, Ethernet Reset | PWM2 | P0.02 |
 | 66 | D4 | SPI1 MISO, PWM, GPIO | PWM1 | P1.08 |
 | 68 | D5 | PWM, GPIO | PWM1 | P1.10 |
 | 70 | D6 | PWM, GPIO | PWM1 | P1.11 |
@@ -410,30 +410,30 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 | 14 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |	
 | 15 | GND | GND | POWER | | System ground. |
 | 16 | VUSB | VUSB | POWER | | System power in, USB detect pin for nRF52840. 5V on this pin enables the USB interface. |
-| 17 | NFC1 | SOM3<sup>3</sup> | NFC input | P0.9 | 	NFC antenna connection. | 
+| 17 | NFC1 | SOM3<sup>3</sup> | NFC input | P0.09 | 	NFC antenna connection. | 
 | 18 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 19 | NFC2 | SOM4<sup>3</sup> | NFC input	 | P0.10 | NFC antenna connection. |
 | 20 | D1 | SCL | IO | P0.27 | I2C SCL, and digital only GPIO. | 
 | 21 | GND | GND | POWER | | System ground. |
 | 22 | D0 | SDA | IO | P0.26 | I2C SDA, and digital only GPIO.|
-| 23 | A0 | ADC0 | IO | P0.3 | Analog input ADC0<sup>2</sup>, and digital GPIO. |
+| 23 | A0 | ADC0 | IO | P0.03 | Analog input ADC0<sup>2</sup>, and digital GPIO. |
 | 32 | MODE | MODE | IO | P0.11 | Connected to the MODE button input, and digital only GPIO.|
-| 33 | A1 | ADC1 | IO | P0.4 | Analog input ADC1<sup>2</sup>, and digital GPIO. |
+| 33 | A1 | ADC1 | IO | P0.04 | Analog input ADC1<sup>2</sup>, and digital GPIO. |
 | 34 | RESET | RESET | I | | Active-low reset input. |
 | 35 | A2 | ADC2 | IO | P0.28| Analog input ADC2<sup>2</sup>, and digital GPIO. |
-| 36 | D9 | TX | IO | P0.6 | Primarily used as UART TX, but can also be used as a digital GPIO. |
+| 36 | D9 | TX | IO | P0.06 | Primarily used as UART TX, but can also be used as a digital GPIO. |
 | 37 | A3 | ADC3 | IO | P0.29| Analog input ADC3<sup>2</sup>, and digital GPIO. |
 | 38 | D10 | RX | IO | P0.08 | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
 | 39 | AGND | AGND | POWER | | System analog ground. |
-| 40 | D3 | RESERVED<sup>3</sup> |IO | P1.1 | UART flow control CTS, SCL1 (Wire1), SPI1 MOSI, digital only GPIO. |
+| 40 | D3 | RESERVED<sup>3</sup> |IO | P1.01 | UART flow control CTS, SCL1 (Wire1), SPI1 MOSI, digital only GPIO. |
 | 41 | A4 | RESERVED<sup>3</sup> |IO | P0.30 | Analog input ADC4<sup>2</sup>, and digital GPIO. |
-| 42 | D2 | RESERVED<sup>3</sup> | IO | P1.2 | UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
+| 42 | D2 | RESERVED<sup>3</sup> | IO | P1.02| UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
 | 44 | u-blox USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
-| 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
+| 45 | A6 | RESERVED<sup>3</sup> | IO | P0.05| Analog input ADC6<sup>2</sup>, and digital GPIO. |
 | 46 | u-blox USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
-| 47 | A7 | RESERVED<sup>3</sup> | IO | P0.2 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
-| 48 | D8 | CS | IO | P1.3 | SPI interface CS, and digital only GPIO. | 
+| 47 | A7 | RESERVED<sup>3</sup> | IO | P0.02 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
+| 48 | D8 | CS | IO | P1.03| SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| | System analog ground.|
 | 50 | D11 | MISO | IO | P1.14 | SPI interface MISO, and digital only GPIO.|
 | 51 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
@@ -449,9 +449,9 @@ The RST pin does have an internal weak pull-up, but you may want to add external
 | 61 | RGBR | RED | IO | P0.13| Red pin of the RGB LED. | 
 | 62 | D22 | GPIO0 | IO | P0.24 | GPIO0, digital only. |
 | 63 | RGBG | GREEN | IO | P0.14 | Green pin of the RGB LED.|
-| 64 | D23 | GPIO1 | IO | P1.9 | GPIO1, digital only.|	
+| 64 | D23 | GPIO1 | IO | P1.09| GPIO1, digital only.|	
 | 65 | RGBB | BLUE | IO | P0.15 | Blue pin of the RGB LED.|
-| 66 | D4 | PWM0 | IO | P1.8 | SPI1 MISO, Digital only GPIO, and PWM0. |
+| 66 | D4 | PWM0 | IO | P1.08| SPI1 MISO, Digital only GPIO, and PWM0. |
 | 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from cellular modem. |
 | 68 | D5 | PWM1 | IO | P1.10| Digital only GPIO, and PWM1. |
 | 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |

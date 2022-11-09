@@ -208,8 +208,8 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 
 | Pin Name |   |   |   |   | MCU |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| A0 / D19 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.3 |
-| A1 / D18 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.4 |
+| A0 / D19 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.03 |
+| A1 / D18 | ADC1 | &nbsp; | &nbsp; | &nbsp; | P0.04 |
 | A2 / D17 | ADC2 | &nbsp; | &nbsp; | &nbsp; | P0.28 |
 | A3 / D16 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.29 |
 | A4 / D15 | ADC4 | &nbsp; | &nbsp; | &nbsp; | P0.30 |
@@ -240,8 +240,8 @@ The Boron supports 6 ADC inputs.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | A0 Analog in, GPIO, PWM | ADC0 | P0.3 |
-| A1 / D18 | A1 Analog in, GPIO, PWM | ADC1 | P0.4 |
+| A0 / D19 | A0 Analog in, GPIO, PWM | ADC0 | P0.03 |
+| A1 / D18 | A1 Analog in, GPIO, PWM | ADC1 | P0.04 |
 | A2 / D17 | A2 Analog in, GPIO, PWM | ADC2 | P0.28 |
 | A3 / D16 | A3 Analog in, GPIO, PWM | ADC3 | P0.29 |
 | A4 / D15 | A4 Analog in, GPIO, PWM | ADC4 | P0.30 |
@@ -328,8 +328,8 @@ The Boron supports PWM (pulse-width modulation) on the following pins:
 
 | Pin Name | Description | Timer | MCU |
 | :--- | :--- | :--- | :--- |
-| A0 / D19 | A0 Analog in, GPIO, PWM | PWM2 | P0.3 |
-| A1 / D18 | A1 Analog in, GPIO, PWM | PWM2 | P0.4 |
+| A0 / D19 | A0 Analog in, GPIO, PWM | PWM2 | P0.03 |
+| A1 / D18 | A1 Analog in, GPIO, PWM | PWM2 | P0.04 |
 | A2 / D17 | A2 Analog in, GPIO, PWM | PWM2 | P0.28 |
 | A3 / D16 | A3 Analog in, GPIO, PWM | PWM2 | P0.29 |
 | A4 / D15 | A4 Analog in, GPIO, PWM | PWM3 | P0.30 |

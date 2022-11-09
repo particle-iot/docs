@@ -353,7 +353,7 @@ It cannot be programmed by the ST-LINK/V2.
 | 13 | USBDATA+ | USB Data+. Cannot be used as GPIO. | D+ |
 | 14 | USBDATA- | USB Data-. Cannot be used as GPIO. | D- |
 | 15 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
-| 16 | TX | Serial1 TX (transmitted data), GPIO D8, PWM. | P0.6 |
+| 16 | TX | Serial1 TX (transmitted data), GPIO D8, PWM. | P0.06 |
 | 17 | RX | Serial1 RX (received data), GPIO D9, PWM. | P0.08 |
 | 18 | GND | Ground. Be sure to connect all GND pins. | &nbsp; |
 | 19 | A7 / WKP | A7 analog in, WKP (wakeup), GPIO D17. | P0.05 |
