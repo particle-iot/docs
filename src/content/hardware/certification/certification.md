@@ -629,14 +629,15 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 - [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
 - [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
-- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2021-09-16)
+- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2022-11-09)
 - [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf) (updated 2021-09-16)
-- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2021-09-16)
-- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC) (updated 2021-09-16)
-- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf) (updated 2021-09-16)
-- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM) (updated 2021-09-16)
-- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf) (updated 2021-09-16)
-- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950) (updated 2021-09-16)
+- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2022-11-09)
+- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC) (updated 2022-11-09)
+- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf) (updated 2022-11-09)
+- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM) (updated 2022-11-09)
+- [EN 301 908 Variant Radio Test Report](/assets/pdfs/b524-EN301-908-test-report) (updated 2022-11-09)
+- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf) (updated 2022-11-09)
+- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950) (updated 2022-11-09)
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf) (updated 2021-09-16)
 
 
@@ -676,7 +677,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 ## UKCA (United Kingdom)
 
 - [P2](/assets/pdfs/p2-ukca.pdf)
-- B Series SoM B523, B524
+- [B Series SoM B523, B524](/assets/pdfs/b523-EN301-489-test-report)
 - Tracker One ONE524, ONE523
 - Tracker SoM T524, T523
 
