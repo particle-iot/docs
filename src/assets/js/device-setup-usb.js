@@ -2751,6 +2751,15 @@ $(document).ready(function() {
                 await flashDevice();
 
                 if (mode == 'doctor' || mode == 'setup') {
+                    if (setupOptions.ethernet) {
+                        reqObj = {
+                            op: 'connect',
+                        };
+                        await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+        
+                        waitDeviceOnline();        
+                    }
+                    else
                     if (deviceInfo.wifi) {
                         configureWiFi();                              
                     }
