@@ -27,6 +27,8 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/)
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
 - [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
+- [TAN009 - SARA-R410 Intermittent Increased Connection Time](/reference/technical-advisory-notices/tan009/)
+- [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
 
 ### Electron/E Series
 
@@ -47,3 +49,5 @@ Technical Advisory Notices are issued for hardware issues and typically include:
 - [TAN005 - SARA-R410-02B-03](/reference/technical-advisory-notices/tan005-sara-r410-02b-03/)
 - [TAN006 - Tracker SoM GNSS Interface](/reference/technical-advisory-notices/tan006-tracker-som-gnss-interface/)
 - [TAN008 - B404 Manufacturing Firmware 2.3.0](/reference/technical-advisory-notices/tan008/)
+- [TAN009 - SARA-R410 Intermittent Increased Connection Time](/reference/technical-advisory-notices/tan009/)
+- [TAN010 - SARA-R410 SIM Initialization](/reference/technical-advisory-notices/tan010/)
