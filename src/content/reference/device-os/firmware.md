@@ -24279,7 +24279,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
-|v2.3.x default releases|[v2.3.0](https://github.com/particle-iot/device-os/releases/tag/v2.3.0)|-|-|-|-|-|-|
+|v2.3.x default releases|[v2.3.0](https://github.com/particle-iot/device-os/releases/tag/v2.3.0)|[v2.3.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.1)|-|-|-|-|-|
 |v2.3.x prereleases|[v2.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.0-rc.1)|-|-|-|-|-|-|
 |v2.2.x default releases|[v2.2.0](https://github.com/particle-iot/device-os/releases/tag/v2.2.0)|-|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
@@ -24328,7 +24328,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v2.3.x default releases|[v2.3.0](/reference/device-os/firmware/?fw_ver=2.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.3.x default releases|[v2.3.0](/reference/device-os/firmware/?fw_ver=2.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|[v2.3.1](/reference/device-os/firmware/?fw_ver=2.3.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.3.x prereleases|[v2.3.0-rc.1](/reference/device-os/firmware/?fw_ver=2.3.0-rc.1&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x default releases|[v2.2.0](/reference/device-os/firmware/?fw_ver=2.2.0&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
@@ -24364,7 +24364,7 @@ CLI VERSION is compatable with FIRMWARE VERSION
 v3.5.0  = 4.0.0, 5.0.1, 5.1.0, 4.0.1-rc.1
 v3.4.0  = 5.0.0
 v3.3.3  = 4.0.0-beta.1
-v3.1.0  = 2.3.0, 3.3.0-rc.1, 3.3.0
+v3.1.0  = 2.3.0, 3.3.0-rc.1, 3.3.0, 2.3.1
 v2.16.0 = 3.2.0-rc.1, 3.2.0
 v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
