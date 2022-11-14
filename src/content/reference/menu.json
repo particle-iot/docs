@@ -504,8 +504,14 @@
       },
       {
         "dir": "tan009",
-        "title": "TAN009 - SARA-R410M Intermittent Increased Connection Time",
+        "title": "TAN009 - SARA-R410 Intermittent Increased Connection Time",
         "href": "/reference/technical-advisory-notices/tan009/",
+        "hidden": true
+      },
+      {
+        "dir": "tan010",
+        "title": "TAN010 - SARA-R410 SIM Initialization",
+        "href": "/reference/technical-advisory-notices/tan010/",
         "hidden": true
       }
     ],
