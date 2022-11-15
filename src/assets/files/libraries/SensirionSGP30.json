@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SensirionSGP30",
     "version": "1.0.4",
-    "installs": 4380,
+    "installs": 4383,
     "author": "Michael Guntli",
     "sentence": "Library for Sensirion SGP30 Indoor Quality Sensor",
     "paragraph": "Forked from Adafruit_SGP30 and ported to Particle Platform",

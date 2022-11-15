@@ -7,7 +7,7 @@
   "attributes": {
     "name": "tank_level_lib",
     "version": "1.0.0",
-    "installs": 330,
+    "installs": 334,
     "author": "bill",
     "architectures": [],
     "visibility": "public",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ard-boost",
     "version": "0.0.3",
-    "installs": 307,
+    "installs": 309,
     "license": "Boost Software License, Version 1.0.",
     "author": "Vladimir Talybin",
     "sentence": "Boost library port.",

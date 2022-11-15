@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HttpClient2",
     "version": "0.1.3",
-    "installs": 472,
+    "installs": 553,
     "license": "MIT",
     "author": "Pauli Jokela <pauli.jokela@didstopia.com>",
     "sentence": "A fork of a work in progress Http Client Library for the Spark Core and Arduino, originally by nmattisson.",

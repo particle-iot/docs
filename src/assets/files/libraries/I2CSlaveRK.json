@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2CSlaveRK",
     "version": "0.0.1",
-    "installs": 2943,
+    "installs": 2948,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Makes I2C master-slave pairs more easily between two Particle devices",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ProbeCube_blynk",
     "version": "0.3.8",
-    "installs": 837,
+    "installs": 839,
     "license": "MIT",
     "author": "Lafudoci",
     "sentence": "forked from vshymanskyy/blynk-library-spark",

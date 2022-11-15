@@ -7,7 +7,7 @@
   "attributes": {
     "name": "idDHT22",
     "version": "0.0.4",
-    "installs": 8433,
+    "installs": 8438,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "NOTICE: This library has been deprecated! Please use the PIETTETCH_DHT libray instead",

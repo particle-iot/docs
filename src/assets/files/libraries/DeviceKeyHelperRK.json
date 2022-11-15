@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceKeyHelperRK",
     "version": "0.0.4",
-    "installs": 3776,
+    "installs": 3777,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions to save and restore the device keys on Particle device",

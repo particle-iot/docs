@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HX8357_RK",
     "version": "1.0.10",
-    "installs": 8328,
+    "installs": 8398,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit HX8357 3.5\" display library. Port of version 1.0.8 by rickkas7",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "tsl2561",
     "version": "1.2.1",
-    "installs": 4948,
+    "installs": 4951,
     "license": "GPL v3",
     "author": "Jaafar Benabdallah",
     "sentence": "Migrated to libs v2 format and added more comments and description",

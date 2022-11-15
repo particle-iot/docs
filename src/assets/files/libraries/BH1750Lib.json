@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BH1750Lib",
     "version": "0.0.5",
-    "installs": 9436,
+    "installs": 9571,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Davide Gironi <davide.gironi@gmail.com>",
     "sentence": "A Spark.io for the BH1750FVI IC.",

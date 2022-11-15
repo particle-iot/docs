@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OneWireUnofficial",
     "version": "1.4.0",
-    "installs": 8282,
+    "installs": 8304,
     "license": "MIT",
     "author": "Hotaman",
     "sentence": "Dallas 1-Wire protocol support with examples",

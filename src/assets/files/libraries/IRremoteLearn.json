@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IRremoteLearn",
     "version": "0.0.1",
-    "installs": 3590,
+    "installs": 3594,
     "license": "GPL",
     "author": "Brett Walach <technobly@gmail.com>",
     "sentence": "IR Remote Control for Learner IR receivers",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thingspeak-webhooks",
     "version": "0.0.11",
-    "installs": 1598,
+    "installs": 1605,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",

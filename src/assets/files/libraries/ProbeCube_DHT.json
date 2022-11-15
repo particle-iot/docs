@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ProbeCube_DHT",
     "version": "1.0.2",
-    "installs": 4406,
+    "installs": 4408,
     "license": "MIT License",
     "author": "Lafudoci",
     "sentence": "Forked from russgrue/Adafruit_DHT_Library",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "flashee-eeprom",
     "version": "0.1.8",
-    "installs": 9552,
+    "installs": 9560,
     "license": "GPLv3",
     "author": "mdma <mat dot mcgowan+spark at gmail dot com>",
     "sentence": "Provides EEPROM-like access to the external flash on the spark. The library takes care of performing page erases and emulates the byte-level erase feature of eeprom.",

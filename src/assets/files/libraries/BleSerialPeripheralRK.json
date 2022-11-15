@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BleSerialPeripheralRK",
     "version": "0.0.1",
-    "installs": 2325,
+    "installs": 2486,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library to simplify using the BLE UART peripheral",

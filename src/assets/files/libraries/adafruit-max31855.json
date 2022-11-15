@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-max31855",
     "version": "0.0.3",
-    "installs": 4316,
+    "installs": 4318,
     "license": "BSD",
     "author": "Adafruit, Technobly, Mumblepins",
     "sentence": "Adafruit MAX31885 Library ported to Spark Core. Added hardware SPI mode and added calibration.",

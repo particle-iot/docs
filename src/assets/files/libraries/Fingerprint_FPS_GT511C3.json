@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Fingerprint_FPS_GT511C3",
     "version": "1.0.6",
-    "installs": 2043,
+    "installs": 2080,
     "author": "Josh Hawley",
     "sentence": "A library for controlling the GT-511CS3 Fingerprint Scanner",
     "architectures": [],

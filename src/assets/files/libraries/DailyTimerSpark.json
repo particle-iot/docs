@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DailyTimerSpark",
     "version": "0.1.3",
-    "installs": 15311,
+    "installs": 15322,
     "license": "MIT",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "Library that allow you to create daily timers",

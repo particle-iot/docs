@@ -89385,6 +89385,46 @@
             "boron": {
               "CarbonLibrary": false
             }
+          },
+          "5.0.1": {
+            "argon": {
+              "CarbonLibrary": false
+            },
+            "boron": {
+              "CarbonLibrary": false
+            },
+            "bsom": {
+              "CarbonLibrary": false
+            },
+            "b5som": {
+              "CarbonLibrary": false
+            },
+            "tracker": {
+              "CarbonLibrary": false
+            },
+            "p2": {
+              "CarbonLibrary": false
+            }
+          },
+          "4.0.0": {
+            "argon": {
+              "CarbonLibrary": false
+            },
+            "boron": {
+              "CarbonLibrary": false
+            },
+            "bsom": {
+              "CarbonLibrary": false
+            },
+            "b5som": {
+              "CarbonLibrary": false
+            },
+            "tracker": {
+              "CarbonLibrary": false
+            },
+            "esomx": {
+              "CarbonLibrary": false
+            }
           }
         },
         "added": "2022-06-17T10:16:54.119Z"

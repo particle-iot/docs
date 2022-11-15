@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle-GPS",
     "version": "1.0.4",
-    "installs": 62622,
+    "installs": 63002,
     "license": "GPL-3.0",
     "author": "Daniel Porrey <Daniel.Porrey@hotmail.com>",
     "sentence": "A library to communicate with serial GPS devices on the Particle Electron and Photon.",

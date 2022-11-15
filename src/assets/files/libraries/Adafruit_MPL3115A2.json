@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MPL3115A2",
     "version": "1.0.1",
-    "installs": 7986,
+    "installs": 7990,
     "license": "BSD",
     "author": "Garrett Bartley",
     "sentence": "Spark Core library for the MPL3115A2 sensors in the Adafruit shop",

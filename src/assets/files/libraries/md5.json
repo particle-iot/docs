@@ -7,7 +7,7 @@
   "attributes": {
     "name": "md5",
     "version": "0.0.1",
-    "installs": 4897,
+    "installs": 4924,
     "license": "See LICENSE",
     "author": "Rob Dancer <robd@pipcc.com>",
     "sentence": "md5 library",

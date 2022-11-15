@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BMP085",
     "version": "1.0.3",
-    "installs": 23765,
+    "installs": 23795,
     "author": "Adafruit",
     "sentence": "A powerful but easy to use BMP085/BMP180 Library",
     "paragraph": "A powerful but easy to use BMP085/BMP180 Library",

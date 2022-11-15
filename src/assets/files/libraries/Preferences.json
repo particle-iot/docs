@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Preferences",
     "version": "2.0.0",
-    "installs": 616,
+    "installs": 617,
     "author": "Volodymyr Shymanskyy",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
     "sentence": "Preferences library for ESP8266 and Particle Gen3 devices, with ESP32-compatible API",

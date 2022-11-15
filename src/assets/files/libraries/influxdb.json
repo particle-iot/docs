@@ -7,7 +7,7 @@
   "attributes": {
     "name": "influxdb",
     "version": "0.0.2",
-    "installs": 660,
+    "installs": 677,
     "license": "MIT",
     "author": "Wojtek Siudzinski <admin@suda.pl>",
     "sentence": "InfluxDB data writer library",

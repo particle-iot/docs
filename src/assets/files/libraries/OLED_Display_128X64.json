@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OLED_Display_128X64",
     "version": "1.0.0",
-    "installs": 10758,
+    "installs": 10951,
     "license": "MIT",
     "author": "Seeed Studio",
     "maintainer": "Brandon Satrom <brandon@particle.io>",

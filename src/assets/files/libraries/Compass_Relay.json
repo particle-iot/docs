@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Compass_Relay",
     "version": "1.0.0",
-    "installs": 315,
+    "installs": 317,
     "license": "GNU",
     "author": "Travis Elliott <travis@controleverything.com>",
     "sentence": "Library serves as example for article Compass_Relay on controleverything.com",

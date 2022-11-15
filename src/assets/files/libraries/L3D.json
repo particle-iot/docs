@@ -7,7 +7,7 @@
   "attributes": {
     "name": "L3D",
     "version": "1.1.2",
-    "installs": 8266,
+    "installs": 8267,
     "license": "MIT",
     "author": "Alex Hornstein <alex@lookingglassfactory.com>",
     "sentence": "A library for controlling the L3D cube with a particle photon.",

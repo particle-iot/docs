@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2Cdev",
     "version": "0.0.3",
-    "installs": 2733,
+    "installs": 2740,
     "license": "GNU",
     "author": "Gymneus",
     "url": "https://github.com/kraken-down/i2cdev",

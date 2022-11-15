@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Alphanumeric_Display_Arduino_Library",
     "version": "1.1.2",
-    "installs": 357,
+    "installs": 359,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Holtek HT16K33 LED Driver with an Alphanumeric Display.",

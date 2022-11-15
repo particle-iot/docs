@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InLoopPeriodicCallback",
     "version": "1.0.2",
-    "installs": 1194,
+    "installs": 1195,
     "license": "GPL3",
     "author": "rvnash",
     "sentence": "Class to periodic callbacks from within the loop() function.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HighPowerStepperDriver",
     "version": "1.0.0",
-    "installs": 499,
+    "installs": 501,
     "author": "Pololu",
     "maintainer": "rkast @ github, reach out to me on the project repository for questions or concerns",
     "sentence": "High-Power Stepper Motor Driver library for Particle",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "movingAvg",
     "version": "2.1.0",
-    "installs": 7156,
+    "installs": 7257,
     "author": "Jack Christensen <jack.christensen@outlook.com>",
     "maintainer": "Jack Christensen <jack.christensen@outlook.com>",
     "sentence": "A simple Arduino library for calculating moving averages.",
