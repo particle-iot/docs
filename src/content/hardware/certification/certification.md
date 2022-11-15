@@ -660,25 +660,25 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 #### Tracker One ONE523 and ONE524
 
 - [Summary](/assets/pdfs/one523-ce-summary.pdf)
-- [EN 300 328 Test Report](/assets/pdfs/one523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
-- [EN 300 330 Test Report](/assets/pdfs/one523-EN300-330-test-report.pdf) (NFC)
+- [EN 300 328 Test Report](/assets/pdfs/one523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2022-11-15)
+- [EN 300 330 Test Report](/assets/pdfs/one523-EN300-330-test-report.pdf) (NFC) (updated 2022-11-15)
 - [EN 303 413 Test Report](/assets/pdfs/one523-EN303-413-test-report.pdf)
-- [EN 301 489 Test Report](/assets/pdfs/one523-EN301-489-test-report.pdf)
-- [EN 301 511 Test Report](/assets/pdfs/one523-EN301-511-test-report.pdf) (GSM)
-- [EN 301 908 Test Report](/assets/pdfs/one523-EN301-908-test-report.pdf)
-- [EN-55032, EN 55035, EN 301 498 Test Report](/assets/pdfs/one523-EN-55032-test-report.pdf)
+- [EN 301 489 Test Report](/assets/pdfs/one523-EN301-489-test-report.pdf) (updated 2022-11-15)
+- [EN 301 511 Test Report](/assets/pdfs/one523-EN301-511-test-report.pdf) (GSM) (updated 2022-11-15)
+- [EN 301 908 Test Report](/assets/pdfs/one523-EN301-908-test-report.pdf) (updated 2022-11-15)
+- [EN-55032, EN 55035, EN 301 498 Test Report](/assets/pdfs/one523-EN-55032-test-report.pdf) (updated 2022-11-15)
 - [EN-60950-1 Test Report](/assets/pdfs/one523-EN-60950-1-test-report.pdf)
-- [EN-62311 Test Report](/assets/pdfs/one523-EN62311-test-report.pdf)
-- [EN-62311, EN-50665 Test Report](/assets/pdfs/one523-EN50665-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/one523-EN62311-test-report.pdf) (updated 2022-11-15)
+- [EN-62311, EN-50665 Test Report](/assets/pdfs/one523-EN50665-test-report.pdf) (updated 2022-11-15)
 - [EN-62638-1 Test Report](/assets/pdfs/one523-EN-62638-1-test-report.pdf)
-- [EN-62479, EN-50663 Test Report](/assets/pdfs/one523-EN62479-test-report.pdf)
+- [EN-62479, EN-50663 Test Report](/assets/pdfs/one523-EN62479-test-report.pdf) (updated 2022-11-15)
 - [RoHS 3.0 Test Reports](/assets/pdfs/one523-rohs.pdf)
 
 ## UKCA (United Kingdom)
 
 - [P2](/assets/pdfs/p2-ukca.pdf)
-- [B Series SoM B523, B524](/assets/pdfs/b523-EN301-489-test-report.pdf)
-- Tracker One ONE524, ONE523
+- [B Series SoM B523, B524](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
+- [Tracker One ONE524, ONE523](/assets/pdfs/one523-ukca.pdf) (updated 2022-11-15)
 - Tracker SoM T524, T523
 
 
