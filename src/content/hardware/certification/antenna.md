@@ -23,13 +23,16 @@ The following cellular antennas are available:
 | :----- | :--- | :------ | :---- |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
-| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
-| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series<sup>1</sup>, E Series<sup>2</sup> | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series<sup>1</sup>, E Series<sup>2</sup> | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1<sup>2</sup> | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron<sup>1</sup> and Electron/E Series LTE M1<sup>2</sup> | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
 | Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
+
+- <sup>1</sup>Except for the B404X and BRN404X
+- <sup>2</sup>Except for the E404X
 
 
 ### Cellular antenna substitution
@@ -43,14 +46,18 @@ In the United States, you can generally substitute an antenna that is of the sam
 
 Note that the ANT-ELEC should not be used with any LTE Cat 1 or LTE Cat M1 device because it does not support some bands used by LTE.
 
+
 ### Cellular antenna dimensions
 
-| Dimension | PARANTC41EA & PARANTC41TY | ANTCW2EA & ANTCW2TY | ANT-FLXU & ANT-FLXU-50 |
-| :--- | :---: | :---: | :---: |
-| Length | 122.1mm | 97.0mm | 96.0mm |
-| Width | 12.8mm | 21.0mm | 21.0mm |
-| Thickness | 0.2mm | 0.2mm | 0.2mm |
-| Cable Length | 183mm | 160mm | 150mm |
+{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
+
+| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| :--- | :---: | :---: | :---: | :---: |
+| Tray SKU | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
+| Length | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
+| Width | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
+| Cable Length | 183mm | 160mm | 150mm | 164mm |
 
 PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
@@ -62,6 +69,7 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
     - Minimum: 8mm
 - Ideally when placing the antenna it should not have a bend in it, but following the above guidelines, there should be minimal performance degradation.
 
+{{!-- END shared-blurb --}}
 
 ### Compatible devices (Cellular)
 

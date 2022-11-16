@@ -537,7 +537,7 @@ const path = require('path');
                     groupFn:function(groupObj) {
                         return groupObj.modem != 'EG91-E';
                     }
-                }); 
+                });                 
             } 
         },
         // datasheets/asset-tracking/tracker-one.md
@@ -593,6 +593,180 @@ const path = require('path');
                 }); 
             } 
         },
+        // datasheets/boron/b-series-electron-migration-guide.md
+        {
+            guid:'4ca93c19-3cd8-4edf-ae24-d5a3ab433844', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    mapBy: 'name',
+                    showPinNum: true,
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },   
+        {
+            guid:'adfc129f-947d-4e22-b703-a6710d77a5a3', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    port: 'digitalWrite',
+                    label: 'GPIO',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                    checkmark: true,
+                }); 
+            }
+        },
+        {
+            guid:'fa06b028-2b43-4832-9c98-41329ed4cd78', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },
+        {
+            guid:'1d4ebec9-df9d-457f-acf8-9305a870c888', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },
+        {
+            guid:'090c9e42-91dc-4531-8c51-3ed6e4b8ade0', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },
+        {
+            guid:'598e5ada-284b-4648-b553-1580a0020f38', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                    includeHardwareTimer: true,
+                }); 
+            } 
+        },             
+        {
+            guid:'d4215285-8a57-4639-991b-8551b6f2c3e2', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'Electron',
+                    port: 'can',
+                    label: 'CAN',
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    checkmark: false,
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            } 
+        }, 
+
+        {
+            guid:'175f09c2-2761-42e2-acbf-f7e0ea730d20', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'Electron U260',
+                            modem: 'U260',
+                            sim: 1,
+                            recommendationMap: {
+                                'NRND': '&check;', // Green Check
+                            },
+                        },
+                        {
+                            title: 'Electron U270',
+                            modem: 'U270',
+                            sim: 1,
+                            recommendationMap: {
+                                'NRND': '&check;',
+                            },
+                        },
+                        {
+                            title: 'Electron LTE',
+                            modem: 'R410',
+                            sim: 3,
+                        },
+                        {
+                            title: 'B404X',
+                            modem: 'R510',
+                            sim: 4,
+                        },
+                        {
+                            title: 'B524',
+                            modem: 'EG91-E',
+                            sim: 4,
+                        },
+                    ],
+                });            
+            },     
+        },
+        {
+            guid:'fb53409a-8f87-44fa-91e0-5c82ee1feb5c', 
+            generatorFn:function(updater) {
+                return updater.generateAntCell({
+                    filterFn: function(skuObj) {
+                        if (skuObj.family == 'electron' || skuObj.family == 'b series') {
+                            if (skuObj.name.startsWith('ASSET')) {
+                                return true;
+                            }
+                            else {
+                                // Leave in list
+                                return false;
+                            }
+                        }
+                        else {
+                            return true;
+                        }
+                    },
+                });
+            }
+        },
+
+        
         // datasheets/boron/b-series-boron-migration-guide.md
         {
             guid:'b28329f3-7067-4ae1-aafa-c48b75d77674',

@@ -915,6 +915,10 @@ const svg = require('./svg');
         await diagram.generate(options);
     };
 
+
+    diagram.generateBSeries = async function(generateOptions) {        
+    };
+
     diagram.generatePhoton2 = async function(generateOptions) {
         
         let options = Object.assign(Object.assign(Object.assign({}, generateOptions, diagram.optionsCommon)), {
@@ -1713,6 +1717,8 @@ const svg = require('./svg');
         await diagram.generateESeries(generateOptions);
 
         await diagram.generateE404X(generateOptions);
+
+        await diagram.generateBSeries(generateOptions);
 
         await diagram.generateP2(Object.assign({
             platformName: 'P1'

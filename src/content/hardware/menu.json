@@ -184,6 +184,16 @@
         "href": "/hardware/migration-guides/b-series-boron-migration-guide/"
       },
       {
+        "dir": "b-series-e-series-migration-guide",
+        "title": "B Series from E Series Migration Guide",
+        "href": "/hardware/migration-guides/b-series-e-series-migration-guide/"
+      },
+      {
+        "dir": "b-series-electron-migration-guide",
+        "title": "B Series from Electron Migration Guide",
+        "href": "/hardware/migration-guides/b-series-electron-migration-guide/"
+      },
+      {
         "dir": "e404x-migration-guide",
         "title": "E404X migration guide",
         "href": "/hardware/migration-guides/e404x-migration-guide/"
