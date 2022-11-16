@@ -50,6 +50,7 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 - The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance when using the trace antenna.
 - Device operation in the 5150-5250 MHz band is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
+
 ### Approved Antennas
 
 In addition to the built-in trace antenna, the following optional external antenna is certified for use with the P2:
@@ -558,6 +559,13 @@ The P2 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 A P1/P2 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern).
 
+When laying out your board:
+
+- The area in the component keep-out (1) must be free of ground plane, traces, and components on the top or bottom of the board. This will be enforced by Eagle CAD.
+- Avoid having a strip of ground plane next to the antenna (2). This is easy to do accidentally, and should be avoided.
+- When possible, avoid ground plane in area (3). If you need to put traces or components in this area, it can be done if there is no convenient alternative, but it's best to keep the area close to the antenna as empty as possible for best RF performance.
+
+![P2 Keepout](/assets/images/p2-keepout.png)
 
 {{!-- ## Reference Design Schematic --}}
 
@@ -757,7 +765,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-08-18 | RK | EU certification statement |
 |     | 2022-09-16 | RK | Added UKCA conformity |
 |     | 2022-11-08 | RK | Added external antenna |
-
+|     | 2022-11-16 | RK | Added additional board layout tips |
 
 ## Known Errata
 
