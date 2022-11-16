@@ -1005,10 +1005,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
 | I2S interface | I2S3_MCK | n/a |
 #### Module Pin 56 (RESET)
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | RESET|
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
+|   | E Series | E404X |
+| :--- | :--- | :--- |
+| Pin Name | RESET | RESET |
+| Pin Alternate Name | RST | n/a |
+| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
 #### Module Pin 57 (STAT)
 | | Unchanged between E Series and E404X |
 | :--- | :--- |

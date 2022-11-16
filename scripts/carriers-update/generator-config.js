@@ -766,6 +766,162 @@ const path = require('path');
             }
         },
 
+        // datasheets/boron/b-series-e-series-migration-guide.md
+        {
+            guid:'611f8e2a-7c24-434a-a98e-007c3aa3dd83', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'full-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    mapBy: 'name',
+                    showPinNum: true,
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },   
+        {
+            guid:'4d946a4a-17ba-4ac3-82f9-d5031762a08a', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    port: 'digitalWrite',
+                    label: 'GPIO',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                    checkmark: true,
+                }); 
+            }
+        },
+        {
+            guid:'40cba6f3-2c1b-4ede-a8b5-5d15846c582c', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    port: 'spi',
+                    label: 'SPI',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },
+        {
+            guid:'238303fc-ef64-4bfe-b28a-bc20c294eb00', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    port: 'serial',
+                    label: 'Serial',
+                    useShortName: true,
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },
+        {
+            guid:'178a8aef-c0c8-4aec-ab3c-44db240c7b7e', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    port: 'analogRead',
+                    label: 'ADC',
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            }
+        },
+        {
+            guid:'1dc0b0d0-7736-4b3e-8e83-1cceaaff6df6', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    port: 'analogWritePWM',
+                    label: 'PWM',
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    platformNewTitle: 'B Series SoM',
+                    includeHardwareTimer: true,
+                }); 
+            } 
+        },             
+        {
+            guid:'07265ded-150d-46ee-bd3f-c0f28278d76f', 
+            generatorFn:function(updater){
+                return updater.generatePinInfo({
+                    style: 'port-comparison',
+                    platformNew: 'B4xx SoM',
+                    platformOld: 'E Series',
+                    port: 'can',
+                    label: 'CAN',
+                    noPinNumbers: true,
+                    mapBy: 'name',
+                    checkmark: false,
+                    platformNewTitle: 'B Series SoM',
+                }); 
+            } 
+        }, 
+
+        {
+            guid:'8f096cfa-f769-4e93-aabd-6cd19831602f', 
+            generatorFn:function(updater){
+                return updater.generateCountryComparison({
+                    models: [
+                        {
+                            title: 'E310',
+                            modem: 'U201',
+                            sim: 1,
+                        },
+                        {
+                            title: 'E313',
+                            modem: 'U201',
+                            sim: 2,
+                        },
+                        {
+                            title: 'B404X',
+                            modem: 'R510',
+                            sim: 4,
+                        },
+                        {
+                            title: 'B524',
+                            modem: 'EG91-E',
+                            sim: 4,
+                        },
+                    ],
+                });            
+            },     
+        },
+        {
+            guid:'9fdb2282-d2a5-491d-9e00-6af5cde622f9', 
+            generatorFn:function(updater) {
+                return updater.generateAntCell({
+                    filterFn: function(skuObj) {
+                        if (skuObj.family == 'e series' || skuObj.family == 'b series') {
+                            // Leave in list
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    },
+                });
+            }
+        },
         
         // datasheets/boron/b-series-boron-migration-guide.md
         {

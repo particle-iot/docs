@@ -3675,6 +3675,7 @@
         {
           "num": 56,
           "name": "RESET",
+          "altName": "RST",
           "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation.",
           "isControl": true,
           "is5VTolerant": false,

@@ -4,12 +4,6 @@ columns: two
 layout: commonTwo.hbs
 description: B Series from Electron Migration Guide
 ---
----
-title: B Series from Electron Migration Guide
-columns: two
-layout: commonTwo.hbs
-description: B Series from Electron Migration Guide
----
 
 # {{title}}
 
@@ -21,6 +15,8 @@ The B Series SoM (system-on-a-module) is a 3rd-generation cellular device. It pl
 Many of the extra features on the Electron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
 
 Additionally, the extra width vs. the Electron (0.7" DIP) form-factor makes it possible to include a LTE Cat 1 with 2G/3G fallback cellular modem, such as the Quectel EG91-E on the B524. This modem is too wide to fit in the Electron form-factor.
+
+All Electron models have been deprecated. It is recommended that you migrate to the B Series SoM, and it is required to get LTE Cat 1 with 2G/3G fallback support in Europe, Australia, and New Zealand.
 
 | Feature | Electron | B Series SoM | SoM Base Board |
 | --- | :---: | :---: | :---: |
@@ -454,28 +450,6 @@ These are differences in pins that support PWM between the Electron and B Series
 
 {{!-- END do not edit content above, it is automatically generated--}}
 
-{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
-
-| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
-| :--- | :---: | :---: | :---: | :---: |
-| Tray SKU | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
-| Length | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
-| Width | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
-| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
-| Cable Length | 183mm | 160mm | 150mm | 164mm |
-
-PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
-
-- Do not bend more the 90 degrees. Right angle turns are acceptable, but do not fold the antenna over on itself.
-- The antenna should not be creased when it is bent into position. A crease can damage the internal structure of the antenna.
-- The antenna should always be affixed along its entire length. Do not affix a portion of the antenna and leave a portion free floating.
-- All portions of the antenna should maintain proper spacing from electronics, grounded metal, or active metal.
-    - Recommended: 12mm
-    - Minimum: 8mm
-- Ideally when placing the antenna it should not have a bend in it, but following the above guidelines, there should be minimal performance degradation.
-
-{{!-- END shared-blurb --}}
-
 #### PWM - Gen 3
 
 On Gen 3 devices, the PWM frequency is from 5 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
@@ -555,19 +529,6 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to other Gen 3 devices.
 
-
-{{!-- BEGIN do not edit content below, it is automatically generated d4215285-8a57-4639-991b-8551b6f2c3e2 --}}
-
-| Electron Pin Name | Electron CAN | B Series SoM Pin Name | B Series SoM CAN |
-| :--- | :--- | :--- | :--- |
-| C4 | &check; | &nbsp; | &nbsp; |
-| C5 | &check; | &nbsp; | &nbsp; |
-| D1 | &check; | D1 | &nbsp; |
-| D2 | &check; | D2 | &nbsp; |
-
-
-{{!-- END do not edit content above, it is automatically generated --}}
-
 ### I2S (Sound)
 
 - The Electron theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
@@ -627,7 +588,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 
 ### USB
 
-- The Electron has a Micro USB B connector. The B Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting/
+- The Electron has a Micro USB B connector. The B Series SoM does not have a USB connector. It is recommended that you add one to your base board for programming and troubleshooting.
 - Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is not available on Gen 3.
 - Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
