@@ -194,6 +194,8 @@ gulp.task('transfrom md to pdf', () => gulp.src(paths.md)
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
     .pipe(ignore.include(filterUnchanged))
     .pipe(replace(/{{imageOverlay (.*)}}/g, '<img $1>')) // Convert imageOverlay to img tags
+    .pipe(replace(/{{migration-guide (.*)}}/g, '')) 
+    .pipe(replace(/{{title (.*)}}/g, '')) 
     .pipe(replace(/{{box (.*)}}/g, '')) // Strip out box helper
     .pipe(replace(/{{api (.*)}}/g, '')) 
     .pipe(replace(/{{since (.*)}}/g, sinceHandler)) 

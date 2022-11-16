@@ -161,9 +161,9 @@ The software for prototyping and production devices is similar. It's often possi
 
 #### B Series SoM (Gen 3 Cellular)
 
-{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
 ![B Series](/assets/images/b-series/b-series-top.png)
 
+{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
@@ -288,9 +288,9 @@ While cellular hardware is initially more expensive, the total cost to onboard a
 
 #### B Series SoM (Production Gen 3 Cellular)
 
-{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
 ![B Series](/assets/images/b-series/b-series-top.png)
 
+{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.

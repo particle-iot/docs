@@ -7,9 +7,9 @@ description: Learn about migrating from the Boron to the B Series
 
 # {{title}}
 
-{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
-![B Series](/assets/images/b-series/b-series-top.png)
+{{migration-guide leftImg="/assets/images/boron/boron-top.png" rightImg="/assets/images/b-series/b-series-top.png"}}
 
+{{!-- BEGIN shared-blurb b69a2546-9baa-11ec-b909-0242ac120002 --}}
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 Many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.

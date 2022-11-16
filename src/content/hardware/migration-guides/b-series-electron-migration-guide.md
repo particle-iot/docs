@@ -7,8 +7,7 @@ description: B Series from Electron Migration Guide
 
 # {{title}}
 
-
-![B Series](/assets/images/b-series/b-series-top.png)
+{{migration-guide leftImg="/assets/images/electron/illustrations/electron-v20.png" rightImg="/assets/images/b-series/b-series-top.png"}}
 
 The B Series SoM (system-on-a-module) is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 

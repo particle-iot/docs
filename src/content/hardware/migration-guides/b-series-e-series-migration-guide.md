@@ -7,8 +7,8 @@ description: B Series from E Series Migration Guide
 
 # {{title}}
 
+{{migration-guide leftImg="/assets/images/e-series/illustrations/e0-top.png" rightImg="/assets/images/b-series/b-series-top.png"}}
 
-![B Series](/assets/images/b-series/b-series-top.png)
 
 The B Series SoM (system-on-a-module) is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 

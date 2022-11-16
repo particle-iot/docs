@@ -17,6 +17,8 @@ This is an preliminary pre-release migration guide and the contents are subject 
 {{downloadButton url="/assets/pdfs/datasheets/photon-2-photon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
+{{migration-guide leftImg="/assets/images/photon_vector2_600.png" rightImg="/assets/images/photon2-rendering.png"}}
+
 The Photon 2 is a development module with a microcontroller and Wi-Fi networking. The form-factor is similar to the Argon (Adafruit Feather), but
 the Photon 2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash that can support larger applications.
 

@@ -17,7 +17,7 @@ This is an pre-release migration guide and the contents are subject to change.
 {{downloadButton url="/assets/pdfs/datasheets/p2-photon-migration-guide.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-![P2 Rendering](/assets/images/p2-rendering.png)
+{{migration-guide leftImg="/assets/images/photon_vector2_600.png" rightImg="/assets/images/p2-rendering.png"}}
 
 The Particle P2 module is the next generation Wi-Fi module from Particle. It is footprint compatible with our prior module, the P1, but is built on an upgraded chipset, supporting advanced features such as 5 GHz Wi-Fi, a 200MHz CPU, and built-in Bluetooth BLE 5.0.
 
