@@ -25441,6 +25441,161 @@
                 2543,
                 2545
             ]
+        },
+        "v3.3.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v3.3.1",
+            "tag_name": "v3.3.1",
+            "name": "v3.3.1 (Photon/P1/Electron/Argon/Boron/B SoM/B5 SoM/Tracker)",
+            "prerelease": true,
+            "created_at": "2022-11-10T18:27:49Z",
+            "published_at": "2022-11-14T20:10:20Z",
+            "entries": [
+                {
+                    "tags": [
+                        "Boron / B SoM"
+                    ],
+                    "prs": [
+                        2571
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "R410 PPP crash in network phase workaround"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2573
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "R410 initialization SIM failure workaround"
+                }
+            ],
+            "prs": [
+                2571,
+                2573
+            ]
+        },
+        "v2.3.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v2.3.1",
+            "tag_name": "v2.3.1",
+            "name": "v2.3.1 (Photon/P1/Electron/Argon/Boron/B SoM/B5 SoM/Tracker)",
+            "prerelease": true,
+            "created_at": "2022-11-10T05:33:38Z",
+            "published_at": "2022-11-14T19:42:28Z",
+            "entries": [
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2573
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "R410 initialization SIM failure workaround"
+                },
+                {
+                    "tags": [
+                        "Boron / B SoM"
+                    ],
+                    "prs": [
+                        2571
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "R410 PPP crash in network phase workaround"
+                }
+            ],
+            "prs": [
+                2571,
+                2573
+            ]
+        },
+        "v4.0.1": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v4.0.1",
+            "tag_name": "v4.0.1",
+            "name": "v4.0.1 (Argon/Boron/B SoM/B5 SoM/Tracker/E SoM X)",
+            "prerelease": false,
+            "created_at": "2022-11-09T21:51:39Z",
+            "published_at": "2022-11-14T21:21:24Z",
+            "entries": [
+                {
+                    "tags": [
+                        "wiring"
+                    ],
+                    "prs": [
+                        2536
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "ApplicationWatchdog: fixes potential 2x timeout required to fire"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2538
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix BLE control request channel sending malformed packets"
+                },
+                {
+                    "tags": [],
+                    "prs": [],
+                    "section": "BUGFIXES",
+                    "text": "Fix issue with platform_ncp_get_info(0) for quectel platforms [#2532](https://github.com/particle-iot/device-os/pull/2532/)"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2530
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Secures DCT initialization from getting interrupted between creating DCT file and filling it with 0xff to default state"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2543
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Use new `prtcl` compile/clean commands for internal CI builds"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2545
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Increase timeouts for internal CI builds on windows"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2540
+                    ],
+                    "section": "INTERNAL",
+                    "text": "HAL wiring api calls to access exflash read/write functions for OTP flash page"
+                },
+                {
+                    "tags": [
+                        "hal"
+                    ],
+                    "prs": [
+                        2539
+                    ],
+                    "section": "INTERNAL",
+                    "text": "wifi: add generic 'world' country code as not every country code is exposed through API"
+                }
+            ],
+            "prs": [
+                2530,
+                2536,
+                2538,
+                2539,
+                2540,
+                2543,
+                2545
+            ]
         }
     },
     "pulls": {
@@ -37216,6 +37371,100 @@
             "state": "open",
             "created_at": "2022-10-25T17:51:34Z",
             "detail": "`system_sleep_network_suspend` is effectively a no-op on P2 platforms, but this should only apply to the WiFi interface."
+        },
+        "2569": {
+            "url": "https://github.com/particle-iot/device-os/pull/2569",
+            "number": 2569,
+            "title": "[rtl872x] prebootloader: enable BOR with lowest available thresholds",
+            "state": "closed",
+            "created_at": "2022-10-28T23:01:59Z"
+        },
+        "2570": {
+            "url": "https://github.com/particle-iot/device-os/pull/2570",
+            "number": 2570,
+            "title": "Server key rotation",
+            "state": "open",
+            "created_at": "2022-11-01T12:48:20Z"
+        },
+        "2571": {
+            "url": "https://github.com/particle-iot/device-os/pull/2571",
+            "number": 2571,
+            "title": "[Boron / B SoM] R410 PPP crash in network phase workaround",
+            "state": "closed",
+            "created_at": "2022-11-02T01:40:11Z"
+        },
+        "2572": {
+            "url": "https://github.com/particle-iot/device-os/pull/2572",
+            "number": 2572,
+            "title": "Fix i2c hal deadlock",
+            "state": "closed",
+            "created_at": "2022-11-02T17:42:16Z",
+            "detail": "James reported a trackerm device that would not breathe cyan when running on battery power. The device appeared deadlocked. After investigation, the deadlock was traced to the i2c HAL mutex. The power management thread held the I2C mutex and the user application thread was blocked waiting on it. However, the scheduler was disabled so the power management thread could never execute and release the lock, resulting in a deadlock."
+        },
+        "2573": {
+            "url": "https://github.com/particle-iot/device-os/pull/2573",
+            "number": 2573,
+            "title": "[Cellular] R410 initialization SIM failure workaround",
+            "state": "closed",
+            "created_at": "2022-11-03T18:32:32Z",
+            "detail": "Under unknown circumstances with some SIMs R410-based devices may encounter a problem executing `AT+IFC` or some other unrelated to SIM management/registration AT commands, which causes `CME ERROR` to be reported."
+        },
+        "2574": {
+            "url": "https://github.com/particle-iot/device-os/pull/2574",
+            "number": 2574,
+            "title": "Backports for 4.0.1",
+            "state": "closed",
+            "created_at": "2022-11-09T18:52:38Z"
+        },
+        "2575": {
+            "url": "https://github.com/particle-iot/device-os/pull/2575",
+            "number": 2575,
+            "title": "Release 4.0.1",
+            "state": "closed",
+            "created_at": "2022-11-09T22:12:14Z"
+        },
+        "2576": {
+            "url": "https://github.com/particle-iot/device-os/pull/2576",
+            "number": 2576,
+            "title": "Backports for v2.3.1",
+            "state": "closed",
+            "created_at": "2022-11-09T22:55:33Z"
+        },
+        "2577": {
+            "url": "https://github.com/particle-iot/device-os/pull/2577",
+            "number": 2577,
+            "title": "Release 3.3.1",
+            "state": "closed",
+            "created_at": "2022-11-10T18:23:59Z"
+        },
+        "2578": {
+            "url": "https://github.com/particle-iot/device-os/pull/2578",
+            "number": 2578,
+            "title": "Protobuf defs refactor / fixes submessage encoding after nanopb 0.4.5 upgrade",
+            "state": "closed",
+            "created_at": "2022-11-11T18:35:59Z",
+            "detail": "As title says. This PR decouples protobuf stuff refactoring from #2570 as well as resolves a breaking change introduced in nanopb 0.4.0 (after #2563) requiring to set `has_xxx` field when encoding submessages."
+        },
+        "2579": {
+            "url": "https://github.com/particle-iot/device-os/pull/2579",
+            "number": 2579,
+            "title": "Bump minimatch from 3.0.4 to 3.1.2 in /user/tests/integration",
+            "state": "closed",
+            "created_at": "2022-11-11T23:48:23Z"
+        },
+        "2580": {
+            "url": "https://github.com/particle-iot/device-os/pull/2580",
+            "number": 2580,
+            "title": "Updates for Tracker M proto 3",
+            "state": "open",
+            "created_at": "2022-11-15T22:14:20Z"
+        },
+        "2581": {
+            "url": "https://github.com/particle-iot/device-os/pull/2581",
+            "number": 2581,
+            "title": "[freertos] multi-step priority disinheritance",
+            "state": "open",
+            "created_at": "2022-11-16T03:08:00Z"
         }
     }
 }
