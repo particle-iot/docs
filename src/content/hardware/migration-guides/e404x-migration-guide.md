@@ -398,7 +398,7 @@ The E series supported CAN on pins D1/D2 or C4/C5. There is no CAN on the E404X 
 ### I2S (Sound)
 
 - The E Series theoretically had I2S sound available on pins D1 and D2, however there has never been support for it in Device OS.
-- I2S is available on Gen 3 devices including the P404X on any GPIO pins using a 3rd-party library.
+- I2S is available on Gen 3 devices including the E404X on any GPIO pins using a 3rd-party library.
 
 
 ### Interrupts
@@ -1005,10 +1005,11 @@ No pin functions have been added to previously unused (NC) pins.
 | Description | MODE button, has internal pull-up. Pin number constant is BTN. | MODE button, has internal pull-up. Pin number constant is BTN. |
 | I2S interface | I2S3_MCK | n/a |
 #### Module Pin 56 (RESET)
-| | Unchanged between E Series and E404X |
-| :--- | :--- |
-| Pin Name | RESET|
-| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation.|
+|   | E Series | E404X |
+| :--- | :--- | :--- |
+| Pin Name | RESET | RESET |
+| Pin Alternate Name | RST | n/a |
+| Description | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | Hardware reset. Pull low to reset; can leave unconnected in normal operation. |
 #### Module Pin 57 (STAT)
 | | Unchanged between E Series and E404X |
 | :--- | :--- |

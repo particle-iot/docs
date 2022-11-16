@@ -26695,7 +26695,13 @@ PC7    </text>
     </rect>
     <text x="59" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 RESET    </text>
-    <line x1="84" y1="0" x2="122" y2="0" stroke="black" stroke-width="1" >
+    <line x1="84" y1="0" x2="88" y2="0" stroke="black" stroke-width="1" >
+    </line>
+    <rect x="88" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    </rect>
+    <text x="103" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+RST    </text>
+    <line x1="118" y1="0" x2="122" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="122" y="-8" width="55" height="16" stroke="black" fill="#F6F06B" >
     </rect>

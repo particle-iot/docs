@@ -296,9 +296,9 @@ In addition to using the Tracker One assembled module, the following application
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 
 
-
 ## Software Differences
 
+{{!-- BEGIN shared-blurb e5b77a80-8a7a-4bd6-a7b6-8685fb87ed43 --}}
 ### User firmware binary size
 
 One major advantage of Gen 3 devices is that user firmware binaries in Device OS 3.1.0 and later can be up to 256 Kbytes, instead of 128 Kbytes in earlier version of Device OS and on Gen 2 devices. The larger firmware binary support will not be added to Gen 2 in the future, and will only be available on Gen 3 devices.
@@ -313,10 +313,13 @@ On Gen 3 devices, over-the-air (OTA) updates have two features that can improve 
 
 - Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
 - Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
+{{!-- END shared-blurb --}}
+
 
 
 ## Hardware differences
 
+{{!-- BEGIN shared-blurb a9c89833-bb97-4788-ae9a-99d3974a2d89 --}}
 
 ### MCU
 
@@ -336,9 +339,11 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 - <sup>1</sup>8 MB on the Tracker SoM. Most of this space is reserved by the system and only a portion if it is available to user applications as a flash file system.
 - Not all RAM is available to user applications. The Device OS firmware uses a portion of it.
 
+{{!-- END shared-blurb --}}
+
 ### BLE (Bluetooth LE)
 
-- Bluetooth LE (BLE 5.0) is supported on Gen 3 devices but not Gen 2.
+- Bluetooth LE (BLE 5.0) is supported on the B Series SoM and Gen 3 devices but not Gen 2.
 
 ### NFC Tag
 
@@ -352,6 +357,7 @@ The [MCP23008](https://github.com/rickkas7/MCP23008-RK) is an 8-port GPIO expand
 
 The application note [AN013 Tracker GPIO](/hardware/tracker/projects/tracker-gpio/) shows how you can add additional GPIO to your Tracker One using the external M8 connector. It includes both 3.3V and 5V design options, as well. The techniques work on other Gen 3 devices as well.
 
+
 ### 5V tolerance
 
 The other difference in the GPIO between Gen 2 and Gen 3 is with 5V tolerance. While both devices are 3.3V devices and only will drive 3.3V, the I/O pins on Gen 2 devices (with the exception of A3 and A6) are 5V tolerant. This allows a Gen 2 device to connect to some 5V peripherals directly.
@@ -360,15 +366,16 @@ The other difference in the GPIO between Gen 2 and Gen 3 is with 5V tolerance. W
 
 Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a 5V GPIO expander.
 
-
 ### Serial (UART)
+
+{{!-- BEGIN shared-blurb f1cc7f9f-ad76-4621-a1f8-cf4b1fa395c8 --}}
 
 There are more UART ports on the Gen 2 devices than Gen 3. If you need more hardware serial ports, the best option is to use the [SC16IS740](https://github.com/rickkas7/SC16IS740RK) or its relatives like the SC16IS750. These devices connect by I2C or SPI, and you can add multiple ports this way.
 
 #### Serial Baud Rates
 
 | Baud Rate | Gen 2 | Gen 3 |
-| ------: | | :---: | :---: |
+| ------: | :---: | :---: |
 |    1200 | &check; | &check; |
 |    2400 | &check; | &check; |
 |    4800 | &check; | &check; |
@@ -382,7 +389,7 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 |  230400 | &check; | &check; |
 |  250000 | &nbsp;  | &check; |
 |  460800 | &nbsp;  | &check; |
-|  921600  | &nbsp; | &check; |
+|  921600 | &nbsp;  | &check; |
 | 1000000 | &nbsp;  | &check; |
 
 #### Serial configurations
@@ -407,17 +414,34 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 
 - Using an I2C or SPI UART like the SC16IS750 is also a good way to add support for other bit length, parity, and stop bit options on Gen 3 devices.
 
+{{!-- END shared-blurb --}}
+
+
+
 ### PWM (pulse width modulation)
 
-#### PWM - Gen 2
+{{!-- BEGIN shared-blurb 2fd8bba2-0bda-44c3-822d-0fb0ad30118e --}}
 
-On Gen 2 devices, the PWM frequency is from 1 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
+| Dimension | PARANTC41EA | ANTCW2EA | ANT-FLXU | ANTELEC | 
+| :--- | :---: | :---: | :---: | :---: |
+| Tray SKU | PARANTC41TY | ANTCW2TY | ANT-FLXU-50 | ANTELEC50 |
+| Length | 122.1mm | 97.0mm | 96.0mm | 80.0mm |
+| Width | 12.8mm | 21.0mm | 21.0mm | 20.0mm |
+| Thickness | 0.2mm | 0.2mm | 0.2mm | 0.2mm |
+| Cable Length | 183mm | 160mm | 150mm | 164mm |
 
-On the Electron and E Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna can be bent when being placed inside an enclosure. There are a couple restrictions to ensure good performance:
 
-The PWM frequency must be the same for pins in the same timer group.
+- Do not bend more the 90 degrees. Right angle turns are acceptable, but do not fold the antenna over on itself.
+- The antenna should not be creased when it is bent into position. A crease can damage the internal structure of the antenna.
+- The antenna should always be affixed along its entire length. Do not affix a portion of the antenna and leave a portion free floating.
+- All portions of the antenna should maintain proper spacing from electronics, grounded metal, or active metal.
+    - Recommended: 12mm
+    - Minimum: 8mm
+- Ideally when placing the antenna it should not have a bend in it, but following the above guidelines, there should be minimal performance degradation.
 
-On the Electron and E Series, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+{{!-- END shared-blurb --}}
+
 
 #### PWM - Gen 3
 
@@ -446,6 +470,10 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 - Group 1: D0, D1, D2, D3
 
 It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](/reference/device-os/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
+
+
+
+{{!-- BEGIN shared-blurb 0ad42255-7fdf-47d2-af7a-0e4dcff59790 --}}
 
 ### Interrupts
 
@@ -480,6 +508,9 @@ Shared on the Electron/E Series (only one pin for each bullet item can be used a
 
 There is a limit of 8 pins with interrupt handlers, however the selection of pins is not restricted.
 
+{{!-- END shared-blurb --}}
+
+
 ### DAC
 
 - Gen 2 devices have two DAC (digital-to-analog converter), on pins A3 and A6. 
@@ -500,11 +531,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 - The Tracker SoM only has one available SPI port.
 - In most cases, you can share a single SPI bus with many peripherals.
 
-### CAN Bus
-
-- Gen 3 devices do not support CAN on the MCU.
-- The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
-- Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to other Gen 3 devices.
+{{!-- BEGIN shared-blurb 28cd19b2-4f01-444b-8189-ba6191e6ebdd --}}
 
 ### Sleep Modes
 
@@ -520,6 +547,10 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 - The RTC on Gen 3 devices is not really a real-time clock. It's basically just a counter, and some advanced wakeup features are not possible on Gen 3 devices. These features were not enabled by Device OS on Gen 2 devices, either, so this is generally not an issue.
 - On Gen 3 devices, in `HIBERNATE` sleep mode the RTC does not run, so it is not possible to wake by time, and the system clock will not be set until you connect to the cloud again. `ULTRA_LOW_POWER` is recommended instead.
 - The Tracker SoM has a separate real-time clock and watchdog (AM1805) chip allowing it to wake from `HIBERNATE` based on time.
+
+{{!-- END shared-blurb --}}
+
+{{!-- BEGIN shared-blurb 585f8962-e24a-4de2-8bbc-a45a02439350 --}}
 
 ### SWD/JTAG
 
@@ -541,6 +572,8 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 This is not an issue with Gen 3 devices that have dedicated SWD pins.
 
 If you are relying on this behavior for external circuits, you should instead use a hardware pull-up or pull-down on Gen 3 devices. The pins default to high-impedance state, and this means they will stay in this state when in the bootloader, DFU mode, and safe mode.
+
+{{!-- END shared-blurb --}}
 
 ### PMIC and Fuel Gauge
 
