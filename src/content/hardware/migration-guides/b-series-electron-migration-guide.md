@@ -233,44 +233,44 @@ There are fewer available GPIO pins on the B Series SoM than the Electron. If yo
 
 {{!-- BEGIN do not edit content below, it is automatically generated adfc129f-947d-4e22-b703-a6710d77a5a3 --}}
 
-| Electron Pin Name | Electron GPIO | B Series SoM Pin Name | B Series SoM GPIO |
-| :--- | :--- | :--- | :--- |
-| A0 | &check; | A0 / D19 | &check; |
-| A1 | &check; | A1 / D18 | &check; |
-| A2 | &check; | A2 / D17 | &check; |
-| A3 | &check; | A3 / D16 | &check; |
-| A4 | &check; | A4 / D15 | &check; |
-| A5 | &check; | A5 / D14 | &check; |
-| B0 | &check; | &nbsp; | &nbsp; |
-| B1 | &check; | &nbsp; | &nbsp; |
-| B2 | &check; | &nbsp; | &nbsp; |
-| B3 | &check; | &nbsp; | &nbsp; |
-| B4 | &check; | &nbsp; | &nbsp; |
-| B5 | &check; | &nbsp; | &nbsp; |
-| C0 | &check; | &nbsp; | &nbsp; |
-| C1 | &check; | &nbsp; | &nbsp; |
-| C2 | &check; | &nbsp; | &nbsp; |
-| C3 | &check; | &nbsp; | &nbsp; |
-| C4 | &check; | &nbsp; | &nbsp; |
-| C5 | &check; | &nbsp; | &nbsp; |
-| D0 | &check; | D0 | &check; |
-| D1 | &check; | D1 | &check; |
-| D2 | &check; | D2 | &check; |
-| &nbsp; | &nbsp; | D22 | &check; |
-| &nbsp; | &nbsp; | D23 | &check; |
-| D3 | &check; | D3 | &check; |
-| D4 | &check; | D4 | &check; |
-| D5 | &check; | D5 | &check; |
-| D6 | &check; | D6 | &check; |
-| D7 | Yes. Note that this controls the on-board blue LED. | D7 | &check; |
-| &nbsp; | &nbsp; | D8 | &check; |
-| DAC / A6 | &check; | A6 | &check; |
-| &nbsp; | &nbsp; | MISO / D11 | &check; |
-| &nbsp; | &nbsp; | MOSI / D12 | &check; |
-| RX | &check; | RX / D10 | &check; |
-| &nbsp; | &nbsp; | SCK / D13 | &check; |
-| TX | &check; | TX / D9 | &check; |
-| WKP / A7 | &check; | A7 | &check; |
+| Electron Pin Name | Electron GPIO | B Series SoM Pin | B Series SoM Pin Name | B Series SoM GPIO |
+| :--- | :--- | :---: | :--- | :--- |
+| A0 | &check; | 23 | A0 / D19 | &check; |
+| A1 | &check; | 33 | A1 / D18 | &check; |
+| A2 | &check; | 35 | A2 / D17 | &check; |
+| A3 | &check; | 37 | A3 / D16 | &check; |
+| A4 | &check; | 41 | A4 / D15 | &check; |
+| A5 | &check; | 43 | A5 / D14 | &check; |
+| B0 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B1 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B2 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B3 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B4 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B5 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| C0 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| C1 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| C2 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| C3 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| C4 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| C5 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | &check; | 22 | D0 | &check; |
+| D1 | &check; | 20 | D1 | &check; |
+| D2 | &check; | 42 | D2 | &check; |
+| &nbsp; | &nbsp; | 62 | D22 | &check; |
+| &nbsp; | &nbsp; | 64 | D23 | &check; |
+| D3 | &check; | 40 | D3 | &check; |
+| D4 | &check; | 66 | D4 | &check; |
+| D5 | &check; | 68 | D5 | &check; |
+| D6 | &check; | 70 | D6 | &check; |
+| D7 | Yes. Note that this controls the on-board blue LED. | 72 | D7 | &check; |
+| &nbsp; | &nbsp; | 48 | D8 | &check; |
+| DAC / A6 | &check; | 45 | A6 | &check; |
+| &nbsp; | &nbsp; | 50 | MISO / D11 | &check; |
+| &nbsp; | &nbsp; | 52 | MOSI / D12 | &check; |
+| RX | &check; | 38 | RX / D10 | &check; |
+| &nbsp; | &nbsp; | 54 | SCK / D13 | &check; |
+| TX | &check; | 36 | TX / D9 | &check; |
+| WKP / A7 | &check; | 47 | A7 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -304,23 +304,23 @@ For example, if you have 3V3 disconnect circuitry but have pull-ups to non-disco
 
 {{!-- BEGIN do not edit content below, it is automatically generated fa06b028-2b43-4832-9c98-41329ed4cd78 --}}
 
-| Electron Pin Name | Electron SPI | B Series SoM Pin Name | B Series SoM SPI |
-| :--- | :--- | :--- | :--- |
-| A2 | SPI (SS) | A2 / D17 | &nbsp; |
-| A3 | SPI (SCK) | A3 / D16 | &nbsp; |
-| A4 | SPI (MISO) | A4 / D15 | &nbsp; |
-| A5 | SPI (MOSI) | A5 / D14 | &nbsp; |
-| C1 | SPI2 (MOSI) | &nbsp; | &nbsp; |
-| C2 | SPI2 (MISO) | &nbsp; | &nbsp; |
-| C3 | SPI2 (SCK) | &nbsp; | &nbsp; |
-| D2 | SPI1 (MOSI) | D2 | SPI1 (SCK) |
-| D3 | SPI1 (MISO) | D3 | SPI1 (MOSI) |
-| D4 | SPI1 (SCK) | D4 | SPI1 (MISO) |
-| D5 | SPI1 (SS) | D5 | &nbsp; |
-| &nbsp; | &nbsp; | D8 | SPI (SS) |
-| &nbsp; | &nbsp; | MISO / D11 | SPI (MISO) |
-| &nbsp; | &nbsp; | MOSI / D12 | SPI (MOSI) |
-| &nbsp; | &nbsp; | SCK / D13 | SPI (SCK) |
+| Electron Pin Name | Electron SPI | B Series SoM Pin | B Series SoM Pin Name | B Series SoM SPI |
+| :--- | :--- | :---: | :--- | :--- |
+| A2 | SPI (SS) | 35 | A2 / D17 | &nbsp; |
+| A3 | SPI (SCK) | 37 | A3 / D16 | &nbsp; |
+| A4 | SPI (MISO) | 41 | A4 / D15 | &nbsp; |
+| A5 | SPI (MOSI) | 43 | A5 / D14 | &nbsp; |
+| C1 | SPI2 (MOSI) | &nbsp; | &nbsp; | &nbsp; |
+| C2 | SPI2 (MISO) | &nbsp; | &nbsp; | &nbsp; |
+| C3 | SPI2 (SCK) | &nbsp; | &nbsp; | &nbsp; |
+| D2 | SPI1 (MOSI) | 42 | D2 | SPI1 (SCK) |
+| D3 | SPI1 (MISO) | 40 | D3 | SPI1 (MOSI) |
+| D4 | SPI1 (SCK) | 66 | D4 | SPI1 (MISO) |
+| D5 | SPI1 (SS) | 68 | D5 | &nbsp; |
+| &nbsp; | &nbsp; | 48 | D8 | SPI (SS) |
+| &nbsp; | &nbsp; | 50 | MISO / D11 | SPI (MISO) |
+| &nbsp; | &nbsp; | 52 | MOSI / D12 | SPI (MOSI) |
+| &nbsp; | &nbsp; | 54 | SCK / D13 | SPI (SCK) |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -378,16 +378,16 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 
 {{!-- BEGIN do not edit content below, it is automatically generated 1d4ebec9-df9d-457f-acf8-9305a870c888 --}}
 
-| Electron Pin Name | Electron Serial | B Series SoM Pin Name | B Series SoM Serial |
-| :--- | :--- | :--- | :--- |
-| C0 | USART5_RX | &nbsp; | &nbsp; |
-| C1 | USART5_TX | &nbsp; | &nbsp; |
-| C2 | USART4_RX | &nbsp; | &nbsp; |
-| C3 | USART4_TX | &nbsp; | &nbsp; |
-| D2 | &nbsp; | D2 | Serial1 RTS |
-| D3 | &nbsp; | D3 | Serial1 CTS |
-| RX | Serial1 (RX) | RX / D10 | Serial1 RX |
-| TX | Serial1 (TX) | TX / D9 | Serial1 TX |
+| Electron Pin Name | Electron Serial | B Series SoM Pin | B Series SoM Pin Name | B Series SoM Serial |
+| :--- | :--- | :---: | :--- | :--- |
+| C0 | USART5_RX | &nbsp; | &nbsp; | &nbsp; |
+| C1 | USART5_TX | &nbsp; | &nbsp; | &nbsp; |
+| C2 | USART4_RX | &nbsp; | &nbsp; | &nbsp; |
+| C3 | USART4_TX | &nbsp; | &nbsp; | &nbsp; |
+| D2 | &nbsp; | 42 | D2 | Serial1 RTS |
+| D3 | &nbsp; | 40 | D3 | Serial1 CTS |
+| RX | Serial1 (RX) | 38 | RX / D10 | Serial1 RX |
+| TX | Serial1 (TX) | 36 | TX / D9 | Serial1 TX |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -398,20 +398,20 @@ The B Series SoM does not have an many ADC ports as the Electron. You can add ad
 
 {{!-- BEGIN do not edit content below, it is automatically generated 090c9e42-91dc-4531-8c51-3ed6e4b8ade0 --}}
 
-| Electron Pin Name | Electron ADC | B Series SoM Pin Name | B Series SoM ADC |
-| :--- | :--- | :--- | :--- |
-| A0 | &check; | A0 / D19 | &check; |
-| A1 | &check; | A1 / D18 | &check; |
-| A2 | &check; | A2 / D17 | &check; |
-| A3 | &check; | A3 / D16 | &check; |
-| A4 | &check; | A4 / D15 | &check; |
-| A5 | &check; | A5 / D14 | &check; |
-| B2 | &check; | &nbsp; | &nbsp; |
-| B3 | &check; | &nbsp; | &nbsp; |
-| B4 | &check; | &nbsp; | &nbsp; |
-| B5 | &check; | &nbsp; | &nbsp; |
-| DAC / A6 | &check; | A6 | &check; |
-| WKP / A7 | &check; | A7 | &check; |
+| Electron Pin Name | Electron ADC | B Series SoM Pin | B Series SoM Pin Name | B Series SoM ADC |
+| :--- | :--- | :---: | :--- | :--- |
+| A0 | &check; | 23 | A0 / D19 | &check; |
+| A1 | &check; | 33 | A1 / D18 | &check; |
+| A2 | &check; | 35 | A2 / D17 | &check; |
+| A3 | &check; | 37 | A3 / D16 | &check; |
+| A4 | &check; | 41 | A4 / D15 | &check; |
+| A5 | &check; | 43 | A5 / D14 | &check; |
+| B2 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B3 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B4 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| B5 | &check; | &nbsp; | &nbsp; | &nbsp; |
+| DAC / A6 | &check; | 45 | A6 | &check; |
+| WKP / A7 | &check; | 47 | A7 | &check; |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}
@@ -422,30 +422,30 @@ These are differences in pins that support PWM between the Electron and B Series
 
 {{!-- BEGIN do not edit content below, it is automatically generated 598e5ada-284b-4648-b553-1580a0020f38' --}}
 
-| Electron Pin Name | Electron PWM | B Series SoM Pin Name | B Series SoM PWM | B Series SoM Hardware Timer |
-| :--- | :--- | :--- | :--- | :--- |
-| A0 | &nbsp; | A0 / D19 | &check; | PWM2 |
-| A1 | &nbsp; | A1 / D18 | &check; | PWM2 |
-| A4 | &check; | A4 / D15 | &nbsp; | &nbsp; |
-| A5 | &check; | A5 / D14 | &nbsp; | &nbsp; |
-| B0 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| B1 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| B2 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| B3 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| C4 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| C5 | &check; | &nbsp; | &nbsp; | &nbsp; |
-| D0 | &check; | D0 | &nbsp; | &nbsp; |
-| D1 | &check; | D1 | &nbsp; | &nbsp; |
-| D2 | &check; | D2 | &nbsp; | &nbsp; |
-| D3 | &check; | D3 | &nbsp; | &nbsp; |
-| D4 | &nbsp; | D4 | &check; | PWM1 |
-| D5 | &nbsp; | D5 | &check; | PWM1 |
-| D6 | &nbsp; | D6 | &check; | PWM1 |
-| D7 | &nbsp; | D7 | &check; | PWM0 |
-| DAC / A6 | &nbsp; | A6 | &check; | PWM2 |
-| RX | &check; | RX / D10 | &nbsp; | &nbsp; |
-| TX | &check; | TX / D9 | &nbsp; | &nbsp; |
-| WKP / A7 | &check; | A7 | &check; | PWM2 |
+| Electron Pin Name | Electron PWM | B Series SoM Pin | B Series SoM Pin Name | B Series SoM PWM | B Series SoM Hardware Timer |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| A0 | &nbsp; | 23 | A0 / D19 | &check; | PWM2 |
+| A1 | &nbsp; | 33 | A1 / D18 | &check; | PWM2 |
+| A4 | &check; | 41 | A4 / D15 | &nbsp; | &nbsp; |
+| A5 | &check; | 43 | A5 / D14 | &nbsp; | &nbsp; |
+| B0 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| B1 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| B2 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| B3 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| C4 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| C5 | &check; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| D0 | &check; | 22 | D0 | &nbsp; | &nbsp; |
+| D1 | &check; | 20 | D1 | &nbsp; | &nbsp; |
+| D2 | &check; | 42 | D2 | &nbsp; | &nbsp; |
+| D3 | &check; | 40 | D3 | &nbsp; | &nbsp; |
+| D4 | &nbsp; | 66 | D4 | &check; | PWM1 |
+| D5 | &nbsp; | 68 | D5 | &check; | PWM1 |
+| D6 | &nbsp; | 70 | D6 | &check; | PWM1 |
+| D7 | &nbsp; | 72 | D7 | &check; | PWM0 |
+| DAC / A6 | &nbsp; | 45 | A6 | &check; | PWM2 |
+| RX | &check; | 38 | RX / D10 | &nbsp; | &nbsp; |
+| TX | &check; | 36 | TX / D9 | &nbsp; | &nbsp; |
+| WKP / A7 | &check; | 47 | A7 | &check; | PWM2 |
 
 
 {{!-- END do not edit content above, it is automatically generated--}}

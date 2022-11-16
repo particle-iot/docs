@@ -2225,6 +2225,13 @@ const generatorConfig = require('./generator-config');
                     align: 'center',
                 });    
             }
+            if (options.oldPinNumber) {
+                tableOptions.columns.push({
+                    key: 'oldNum',
+                    title: oldTitle + ' Pin',
+                    align: 'center',
+                });    
+            }
             tableOptions.columns.push({
                 key: 'oldPinName',
                 title: oldTitle + ' Pin Name'
@@ -2234,6 +2241,13 @@ const generatorConfig = require('./generator-config');
                 title: oldTitle + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });    
+            if (options.newPinNumber) {
+                tableOptions.columns.push({
+                    key: 'newNum',
+                    title: newTitle + ' Pin',
+                    align: 'center',
+                });    
+            }
             tableOptions.columns.push({
                 key: 'newPinName',
                 title: newTitle + ' Pin Name'
@@ -2258,10 +2272,12 @@ const generatorConfig = require('./generator-config');
                         num: m.num
                     };
                     if (m.old) {
+                        rowData.oldNum = m.old.num;
                         rowData.oldPinName = getPinNameWithAlt(m.old);
                         rowData.oldPort = portColumnValue(m.old[options.port]);
                     }
                     if (m.new) {
+                        rowData.newNum = m.new.num;
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
                         rowData.newHardwareTimer = m.new.hardwareTimer;
