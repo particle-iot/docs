@@ -641,7 +641,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf) (updated 2021-09-16)
 
 
-#### Tracker SoM T523
+#### Tracker SoM T523 and T524
 
 - [Summary](/assets/pdfs/t523-ce-summary.pdf)
 - [EMC Test Report](/assets/pdfs/t523-ce-emc-test-report.pdf)
@@ -679,7 +679,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [P2](/assets/pdfs/p2-ukca.pdf)
 - [B Series SoM B523, B524](/assets/pdfs/b524-ukca.pdf) (updated 2022-11-09)
 - [Tracker One ONE524, ONE523](/assets/pdfs/one523-ukca.pdf) (updated 2022-11-15)
-- Tracker SoM T524, T523
+- [Tracker SoM T524, T523](/assets/pdfs/t524-ukca.pdf) (updated 2022-11-16)
 
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
