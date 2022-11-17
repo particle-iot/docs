@@ -7176,7 +7176,7 @@ Returns:
 
 {{api name1="Serial.lock" name2="Serial1.lock"}}
 
-The USB and UART serial objects do not have built-in thread-safety. If you want to read or write the object from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
+The USB serial objects does not have built-in thread-safety. If you want to read or write the object from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
 A call to lock `lock()` must be balanced with a call to `unlock()` and not be nested. To make sure every lock is released, it's good practice to use `WITH_LOCK` like this:
 
@@ -7191,6 +7191,8 @@ void loop()
 ```
 
 Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlock can occur.
+
+The UART serial objects such as `Serial1` allow multiple threads to read and write at the byte level. They do not support WITH_LOCK, however, so if you need to control access at the line, transaction, block, etc. level you need to implement an external mutex.
 
 ### unlock()
 

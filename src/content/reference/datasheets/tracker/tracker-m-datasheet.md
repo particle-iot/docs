@@ -72,29 +72,30 @@ The P2 is a SMD module with a microcontroller, 2.4 GHz and 5 GHz Wi-Fi, and BLE.
 
 ## Interfaces
 
-## External connection
+## External connection - CAN expansion card
 
-The Tracker M is intended to connect to your equipment using the 8-pin external connection:
+The Tracker M is intended to connect to your equipment from the expansion card.
 
-| Pin   | Name | Description |
-| :---: | :--- | :--- |
-| 1     | GND  | Ground |
-| 2     | VIN  | 6 to 90 VDC |
-| 3     | CAN+ | CAN interface (+, P, or H) |
-| 4     | CAN- | CAN interface (-, N, or L) |
-| 5     | FET  | Power control FET output |
-| 6     | GNSS_WHEEL | |
-| 7     | GNSS_DIR | |
-| 8     | GND  | Ground |
+On the CAN expansion card, this is done using solder pads:
 
+| Name | Description |
+| :--- | :--- |
+| VIN  | 6 to 90 VDC |
+| GND  | Ground |
+| CAN+ | CAN interface (+, P, or H) |
+| CAN- | CAN interface (-, N, or L) |
+| TXD  | Serial1 TX (transmitted data), GPIO |
+| RXD  | Serial1 RX (received data), GPIO |
+| TS   | Battery thermistor |
+| LI+  | LiPo battery |
+| GND  | Ground |
+| D10  | Wake interrupt (active low, open-collector) |
+| A1   | A2 Analog in, PWM, GPIO | 
+| GND  | Ground |
 
 Power is supplied by GND and VIN, from 6 to 90 VDC. It is acceptable to connect it directly to a vehicle power supply with no additional conditioning.
 
 The CAN (controller access network) interface can interact with other equipment with a CAN interface, or an engine control unit (ECU).
-
-The FET output allows control of an external device. In a micromobility device, it might disable the motor, for example, or engage a locking device.
-
-The GNSS_WHEEL and GNSS_DIR are additional inputs to the dead reckoning support in the GNSS to allow for more accurate dead reckoning when there is no GNSS (GPS, etc.) or Wi-Fi geolocation signal. For example, in tunnels. While dead reckoning can be used only with the GNSS accelerometer, wheel motion sensors can improve accuracy.
 
 
 ## Expansion card
@@ -489,7 +490,7 @@ To be provided at a later date.
 | Dimensions | Metric  | SAE      |
 | :--------- | ------: |  ------: |
 | Width      | 25.5 mm |    7/8 " |
-| Length     | 87.0 mm |  3 5/16" |
+| Length     | 86.0 mm |   3 3/8" |
 
 {{imageOverlay src="/assets/images/tracker-m/dimensions.png" alt="Dimensions" class="full-width"}}
 
@@ -547,3 +548,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | Date | Author | Comments |
 |:-----|:-------|:---------|
 | 2022-10-24 | RK | For internal review only |
+| 2022-11-17 | RK | Updated length and dimensions graphic |
