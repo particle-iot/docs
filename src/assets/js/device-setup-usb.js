@@ -1890,7 +1890,7 @@ $(document).ready(function() {
             }
             
 
-            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+            usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
             
             if (!usbDevice.isInDfuMode) {
                 // Control requests are not supported if the device is still in DFU mode
@@ -3393,7 +3393,7 @@ $(document).ready(function() {
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
-                usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+                usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
 
                 // TODO: Try this with a device with old Device OS, not sure whether this step
                 // fails or the next one, but if the Device OS doesn't support control requests

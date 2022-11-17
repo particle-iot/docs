@@ -248,7 +248,7 @@ $(document).ready(function () {
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
-                usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+                usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
         
                 // Find available versions for this device
                 platformVersionInfo = apiHelper.getRestoreVersions(usbDevice);
@@ -395,7 +395,7 @@ $(document).ready(function () {
                         if (nativeUsbDevice) {
                             setStatus('Updating NCP...');
         
-                            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+                            usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
         
                             restoreResult = await dfuDeviceRestore(usbDevice, ncpOptions);
                         }
@@ -411,7 +411,7 @@ $(document).ready(function () {
                         if (nativeUsbDevice) {
                             setStatus('Entering shipping mode...');
         
-                            usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+                            usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
         
                             const reqObj = {
                                 cmd: 'enter_shipping'
@@ -495,7 +495,7 @@ $(document).ready(function () {
                 const usbDevice = await navigator.usb.requestDevice({ filters: filters })
                 // console.log('device', usbDevice);
         
-                const dev = await ParticleUsb.openDeviceById(usbDevice, {});
+                const dev = await ParticleUsb.openNativeUsbDevice(usbDevice, {});
                 // console.log('dev', dev);
         
                 const typeIdStr = dev.type + ' ' + dev.id;
