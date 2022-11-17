@@ -1631,10 +1631,9 @@ $(document).ready(function() {
                         deviceInfo.iccid = respObj.iccid;
 
                         // 
-                        let canTowerScan = true;
-                        if (respObj.model.startsWith('SARA-R4') || respObj.mfg == 'Quectel') {
-                            // console.log('no tower scan available');
-                            canTowerScan = false;
+                        let canTowerScan = false;
+                        if (respObj.model.startsWith('SARA-U') || respObj.model.startsWith('SARA-G')) {
+                            canTowerScan = true;
                         }
                         
                         if (canTowerScan) {
