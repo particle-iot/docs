@@ -161,7 +161,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | I2C | 1 | I/O |
 | UART | 3 | I/O |
 | USB | 1 | I/O |
-| PWM | 6 | O |
+| PWM | 5 | O |
 
 
 ### Pin markings
@@ -216,7 +216,7 @@ The P2 supports six ADC inputs.
 | :---: | :--- | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | ADC_0 | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
+| 36 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
 | 43 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
 | 50 | A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
@@ -295,7 +295,7 @@ The P2 supports one I2C (two-wire serial interface) port.
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | Wire (SCL) | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | Wire (SDA) | PB[6] |
+| 36 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | Wire (SDA) | PB[6] |
 
 
 {{!-- END do not edit content above, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
@@ -316,7 +316,6 @@ The P2 supports PWM (pulse-width modulation) on the following pins:
 | :---: | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
@@ -457,7 +456,7 @@ The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`
 | 33 | S6 / D21 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | PB[31] |
 | 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
+| 36 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | PB[6] |
 | 37 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
 | 38 | NC | No connection. Do not connect anything to this pin. | &nbsp; |
 | 39 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
@@ -766,6 +765,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-09-16 | RK | Added UKCA conformity |
 |     | 2022-11-08 | RK | Added external antenna |
 |     | 2022-11-16 | RK | Added additional board layout tips |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |
 
 ## Known Errata
 

@@ -4947,7 +4947,6 @@ On the P2 and Photon 2, all PWM pins and the RGB LED share the same PWM timer an
 | :---: | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
@@ -5111,7 +5110,7 @@ The P2 and Photon 2 have four dedicated ADC pins, and two shared pins. If you ar
 | :---: | :--- | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | ADC_0 | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
+| 36 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
 | 43 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
 | 50 | A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |

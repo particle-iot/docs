@@ -210,7 +210,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | I2C | 1 | I/O |
 | UART | 3 | I/O |
 | USB | 1 | I/O |
-| PWM | 6 | O |
+| PWM | 5 | O |
 
 
 ### Pin markings
@@ -259,7 +259,7 @@ The Photon 2 supports six ADC inputs.
 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
 | A2 / D13 | A2 Analog in, GPIO, PWM. | ADC_3 | PB[7] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | ADC_0 | PB[4] |
-| D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
+| D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
 
 
@@ -333,7 +333,7 @@ The Photon 2 supports one I2C (two-wire serial interface) port.
 
 | Pin Name | Description | Interface | MCU |
 | :--- | :--- | :--- | :--- |
-| D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | Wire (SDA) | PB[6] |
+| D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | Wire (SDA) | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | Wire (SCL) | PB[5] |
 
 
@@ -381,7 +381,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | A1 / D12 | A1 Analog in, GPIO | A1 / D12 | A1 Analog in, GPIO | 43 | PB[2] |
 | A2 / D13 | A2 Analog in, GPIO, PWM. | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, Was A3 on Gen 3. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
-| D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | 30 | PA[15] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
@@ -425,7 +425,7 @@ The pins on the Photon 2 map directly the pins with the same name on the P2.
 | MISO / D16 | D16 GPIO, S1 GPIO, PWM, SPI MISO, Serial3 RX. | PA[13] |
 | RX / D9 | Serial1 RX (received data), GPIO | PA[8] |
 | TX / D8 | Serial1 TX (transmitted data), GPIO | PA[7] |
-| D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
+| D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | PB[6] |
 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | PA[16] |
 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | PA[17] |
@@ -660,6 +660,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-09-04 | RK | BLE central mode available, added power consumption |
 |     | 2022-10-05 | RK | Added power consumption |
 |     | 2022-11-08 | RK | Added external antenna |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |
 
 ## Known Errata
 
