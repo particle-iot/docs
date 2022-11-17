@@ -511,6 +511,11 @@
         "dir": "tan010",
         "title": "TAN010 - SARA-R410 SIM Initialization",
         "href": "/reference/technical-advisory-notices/tan010/"
+      },
+      {
+        "dir": "tan011",
+        "title": "TAN011 - Tracker SoM default application firmware issue",
+        "href": "/reference/technical-advisory-notices/tan011/"
       }
     ],
     {
