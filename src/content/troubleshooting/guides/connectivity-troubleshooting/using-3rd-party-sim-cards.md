@@ -160,7 +160,8 @@ void loop() {
 
 ```
 
-* Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE. Just deactivating the SIM in software won't completely disable the external SIM and will cause connection failures.
+* Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE BRN402 and BRN404. Just deactivating the SIM in software won't completely disable the external SIM and will cause connection failures, and is a limitation of the SARA-R410 cellular modem on these devices.
+* The BRN310, BRN314, and BRN404X can switch to the internal SIM even with an external SIM card present in the 4FF slot.
 * This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
 * Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).
 
