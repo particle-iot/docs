@@ -940,25 +940,25 @@ PARANTC41EA/PARANTC41TY are slightly longer than ANTCW2EA/ANTCW2TY. The antenna 
 | CAN interface | CAN1_RX|
 | Internal pull-up or pull-down resistance | 40K|
 | Input is 5V Tolerant | Yes|
-#### Cellular Modem USBD-
+#### CELL USBD-
 | | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 46|
-| Pin Name | Cellular Modem USBD-|
+| Pin Name | CELL USBD-|
 | Description | Cellular Modem USB Data-|
 | Input is 5V Tolerant | Yes|
-#### Cellular Modem USBD+
+#### CELL USBD+
 | | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 44|
-| Pin Name | Cellular Modem USBD+|
+| Pin Name | CELL USBD+|
 | Description | Cellular Modem USB Data+|
 | Input is 5V Tolerant | Yes|
-#### Cellular Modem VBUS
+#### CELL VBUS
 | | Added to B Series SoM |
 | :--- | :--- |
 | Pin Number | 74|
-| Pin Name | Cellular Modem VBUS|
+| Pin Name | CELL VBUS|
 | Description | USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.|
 | Input is 5V Tolerant | Yes|
 #### D0

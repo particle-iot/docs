@@ -150,7 +150,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ### Pinout diagram
 
-{{imageOverlay src="/assets/images/b-series/b-series-pinout.png" alt="Pinout"}}
+{{imageOverlay src="/assets/images/b4-som.svg" alt="Pinout"}}
 
 Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
 
@@ -172,9 +172,9 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | A5 / D14 | 43 | ADC7 | &nbsp; | &nbsp; | &nbsp; | P0.31 |
 | A6 | 45 | ADC3 | &nbsp; | &nbsp; | &nbsp; | P0.05 |
 | A7 | 47 | ADC0 | &nbsp; | &nbsp; | &nbsp; | P0.02 |
-| Cellular Modem USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Cellular Modem USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Cellular Modem VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL USBD- | 46 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL USBD+ | 44 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| CELL VBUS | 74 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | D0 | 22 | &nbsp; | Wire (SDA) | &nbsp; | &nbsp; | P0.26 |
 | D1 | 20 | &nbsp; | Wire (SCL) | &nbsp; | &nbsp; | P0.27 |
 | D2 | 42 | &nbsp; | Wire1 (SDA) | SPI1 (SCK) | Serial1 RTS | P1.02 |
@@ -336,8 +336,8 @@ The B404X supports a USB interface for programming the device and for USB serial
 | 11 | USBDATA+ | USB Data+ | &nbsp; |
 | 13 | USBDATA- | USB Data- | &nbsp; |
 | 16 | VUSB | USB VUSB power pin | &nbsp; |
-| 44 | Cellular Modem USBD+ | Cellular Modem USB Data+ | &nbsp; |
-| 46 | Cellular Modem USBD- | Cellular Modem USB Data- | &nbsp; |
+| 44 | CELL USBD+ | Cellular Modem USB Data+ | &nbsp; |
+| 46 | CELL USBD- | Cellular Modem USB Data- | &nbsp; |
 
 
 {{!-- END do not edit content above, it is automatically generated --}}

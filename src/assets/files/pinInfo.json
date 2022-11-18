@@ -6679,7 +6679,7 @@
         },
         {
           "num": 44,
-          "name": "Cellular Modem USBD+",
+          "name": "CELL USBD+",
           "desc": "Cellular Modem USB Data+",
           "isUSB": true,
           "is5VTolerant": true,
@@ -6706,7 +6706,7 @@
         },
         {
           "num": 46,
-          "name": "Cellular Modem USBD-",
+          "name": "CELL USBD-",
           "desc": "Cellular Modem USB Data-",
           "isUSB": true,
           "is5VTolerant": true,
@@ -6973,7 +6973,7 @@
         },
         {
           "num": 74,
-          "name": "Cellular Modem VBUS",
+          "name": "CELL VBUS",
           "desc": "USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.",
           "is5VTolerant": true,
           "somPin": "SOM2"
@@ -7374,7 +7374,7 @@
         },
         {
           "num": 44,
-          "name": "Cellular Modem USBD+",
+          "name": "CELL USBD+",
           "desc": "Cellular Modem USB Data+",
           "isUSB": true,
           "is5VTolerant": true,
@@ -7401,7 +7401,7 @@
         },
         {
           "num": 46,
-          "name": "Cellular Modem USBD-",
+          "name": "CELL USBD-",
           "desc": "Cellular Modem USB Data-",
           "isUSB": true,
           "is5VTolerant": true,
@@ -7668,7 +7668,7 @@
         },
         {
           "num": 74,
-          "name": "Cellular Modem VBUS",
+          "name": "CELL VBUS",
           "desc": "USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.",
           "is5VTolerant": true,
           "somPin": "SOM2"

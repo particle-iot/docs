@@ -165,7 +165,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ### Pinout diagram
 
-{{imageOverlay src="/assets/images/b-series/b-series-pinout.png" alt="Pinout"}}
+{{imageOverlay src="/assets/images/b4-som.svg" alt="Pinout"}}
 
 Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
 
