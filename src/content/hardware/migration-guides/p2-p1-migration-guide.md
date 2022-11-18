@@ -280,7 +280,7 @@ The pins that support PWM are different on the P1 and P2.
 | 30 | WKP / A7 | &check; | D10 / WKP | &nbsp; |
 | 33 | P1S6 | &check; | S6 / D21 | &nbsp; |
 | 35 | D1 | &check; | D1 / A4 | &check; |
-| 36 | D0 | &check; | D0 / A3 | &check; |
+| 36 | D0 | &check; | D0 / A3 | &nbsp; |
 | 40 | P1S0 | &check; | S0 / D15 | &check; |
 | 41 | P1S1 | &check; | S1 / D16 | &check; |
 | 45 | D2 | &check; | D2 | &nbsp; |
@@ -736,12 +736,12 @@ The following pins were NC on the P1 but are used on the P2.
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | D0 GPIO, I2C | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
 | I2C interface | SDA. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes |
 | Internal pull-up or pull-down resistance | 40K | 22K |
@@ -1156,3 +1156,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |

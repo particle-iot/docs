@@ -405,10 +405,9 @@ The pins that support PWM are different on the Argon and P2.
 | Argon Pin Name | Argon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
 | A1 / D18 | &check; | A1 / D12 | &nbsp; |
-| A3 / D16 | &check; | D0 / A3 | &check; |
+| A3 / D16 | &check; | D0 / A3 | &nbsp; |
 | A4 / D15 | &check; | D1 / A4 | &check; |
 | A5 / D14 | &check; | A5 / D14 | &check; |
-| D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
 | SCK / D13 | &nbsp; | A2 / D13 | &check; |
 | A2 / D17 | &check; | S2 / D17 | &nbsp; |
@@ -563,7 +562,7 @@ This mapping is good for most situations. A3 and A4 cannot be used as ADC, but I
 | A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
-| D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | I2C SCL, GPIO | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D2 | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
 | D3 | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
@@ -594,7 +593,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | A3 / D16 | A3 Analog in, GPIO, PWM | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | 44 | PB[26] |
 | A4 / D15 | A4 Analog in, GPIO, PWM | S4 / D19 | S4 GPIO. (Was P1S4 on P1.) | 47 | PA[0] |
 | A5 / D14 | A5 Analog in, GPIO, PWM, SPI SS | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
-| D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D0 | I2C SDA, GPIO | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | I2C SCL, GPIO | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D2 | SPI1 SCK, Wire1 SDA, Serial1 RTS, PWM, GPIO | D4 | D4 GPIO, Serial2 TX, SPI1 SCK | 52 | PA[18] |
 | D3 | SPI1 MOSI, Wire1 SCL, Serial1 CTS, PWM, GPIO | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
@@ -656,12 +655,12 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 8 | 36 |
 | Pin Name | A3 | D0 |
 | Pin Alternate Name | D16 | A3 |
-| Description | A3 Analog in, GPIO, PWM | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | A3 Analog in, GPIO, PWM | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | A0, A1, A2, and A3 must have the same frequency. | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | A0, A1, A2, and A3 must have the same frequency. | No |
 | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 22K |
@@ -701,12 +700,10 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | Pin Number | 16 | 36 |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | I2C SDA, GPIO | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | I2C SDA, GPIO | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
 | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 22K |
@@ -1128,3 +1125,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-07-18 | RK | List which pins have which pull-up or pull-down value |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |

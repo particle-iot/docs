@@ -372,10 +372,9 @@ The pins that support PWM are different on the Photon and P2.
 | Photon Pin Name | Photon PWM | P2 Pin Name | P2 PWM |
 | :--- | :--- | :--- | :--- |
 | A2 | &nbsp; | A2 / D13 | &check; |
-| A3 | &nbsp; | D0 / A3 | &check; |
 | A4 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D1 / A4 | &check; |
 | A5 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | A5 / D14 | &check; |
-| D0 | &check; | D0 / A3 | &check; |
+| D0 | &check; | D0 / A3 | &nbsp; |
 | D1 | &check; | D1 / A4 | &check; |
 | D2 | Yes. D2 and A5 share the same PWM channel and the PWM duty cycle is set for both. | D2 | &nbsp; |
 | D3 | Yes. D3 and A4 share the same PWM channel and the PWM duty cycle is set for both. | D3 | &nbsp; |
@@ -582,7 +581,7 @@ In this mapping, the SPI pins are preserved from Photon to P2 at the expense of 
 | A3 | A3 True analog out, analog in, GPIO. | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | 42 | PA[14] |
 | A4 | A4 Analog in, GPIO, SPI MISO. | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | 41 | PA[13] |
 | A5 | A5 Analog in, GPIO, SPI MOSI. | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | 40 | PA[12] |
-| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
 | D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
@@ -612,7 +611,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | A2 | A2 Analog in, GPIO, SPI SS | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A3 | A3 True analog out, analog in, GPIO. | A2 / D13 | A2 Analog in, PWM, GPIO | 49 | PB[7] |
 | A5 | A5 Analog in, GPIO, SPI MOSI. | A5 / D14 | A5 Analog in, GPIO, PWM. | 23 | PB[4] |
-| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | 36 | PB[6] |
+| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | 36 | PB[6] |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | 35 | PB[5] |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | 45 | PA[16] |
 | D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | 51 | PA[17] |
@@ -699,13 +698,11 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 9 | 36 |
 | Pin Name | A3 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
 | Supports analogWrite (DAC) | Yes | No |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
 | SPI interface | SCK. Use SPI object. | n/a |
 | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
@@ -749,12 +746,12 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | Pin Number | 13 | 36 |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C SDA | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | D0 GPIO, I2C SDA | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
 | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes |
 | Internal pull-up or pull-down resistance | 40K | 22K |
@@ -1179,3 +1176,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |

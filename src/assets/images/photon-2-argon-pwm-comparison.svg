@@ -1650,13 +1650,7 @@ D0    </text>
     </rect>
     <text x="49" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 A3    </text>
-    <line x1="64" y1="0" x2="68" y2="0" stroke="black" stroke-width="1" >
-    </line>
-    <rect x="68" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
-    </rect>
-    <text x="95.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
-PWM    </text>
-    <line x1="123" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
+    <line x1="64" y1="0" x2="210" y2="0" stroke="black" stroke-width="1" >
     </line>
     <rect x="210" y="-8" width="30" height="16" stroke="black" fill="#FFFFFF" >
     </rect>

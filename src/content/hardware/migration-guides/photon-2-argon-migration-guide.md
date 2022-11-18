@@ -286,7 +286,6 @@ The pins that support PWM are different on the Argon and Photon 2.
 | A5 / D14 | &check; | S3 / D18 | &nbsp; |
 | MOSI / D12 | &nbsp; | MOSI / D15 | &check; |
 | MISO / D11 | &nbsp; | MISO / D16 | &check; |
-| D0 | &nbsp; | D0 / A3 | &check; |
 | D1 | &nbsp; | D1 / A4 | &check; |
 | D2 | &check; | D2 | &nbsp; |
 | D3 | &check; | D3 | &nbsp; |
@@ -547,12 +546,10 @@ The Photon 2 does not have NFC Tag support. The Argon does.
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | I2C SDA, GPIO | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | I2C SDA, GPIO | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
 | I2C interface | SDA. Use Wire object. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. You can only have 8 active interrupt pins. | Yes |
 | Internal pull-up or pull-down resistance | 13K | 22K |
@@ -725,3 +722,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |

@@ -271,10 +271,9 @@ The pins that support PWM are different on the Photon and Photon 2.
 | Photon Pin Name | Photon PWM | Photon 2 Pin Name | Photon 2 PWM |
 | :--- | :--- | :--- | :--- |
 | A2 | &nbsp; | A2 / D13 | &check; |
-| A3 | &nbsp; | D0 / A3 | &check; |
 | A4 | &check; | D1 / A4 | &check; |
 | A5 | &check; | A5 / D14 | &check; |
-| D0 | &check; | D0 / A3 | &check; |
+| D0 | &check; | D0 / A3 | &nbsp; |
 | D1 | &check; | D1 / A4 | &check; |
 | D2 | &check; | D2 | &nbsp; |
 | D3 | &check; | D3 | &nbsp; |
@@ -451,7 +450,7 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | C3 | Serial4 TX (transmitted data), SPI2 SCK, GPIO. | &nbsp; | Not Connected |
 | C4 | I2C, CAN TX, GPIO. | &nbsp; | Not Connected |
 | C5 | I2C, CAN RX, GPIO. | D10 / WKP | D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3. |
-| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| D0 | D0 GPIO, I2C SDA | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In |
 | D1 | D0 GPIO, I2C SCL, CAN TX | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In |
 | D2 | D2 GPIO, SPI1 MOSI, CAN RX | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI |
 | D3 | D3 GPIO, SPI1 MISO | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO |
@@ -534,13 +533,11 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | A3 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | A3 True analog out, analog in, GPIO. | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | Yes | Yes |
 | Supports analogWrite (DAC) | Yes | No |
-| Supports analogWrite (PWM) | No | Yes |
-| Supports tone | No | Yes |
 | SPI interface | SCK. Use SPI object. | n/a |
 | I2C interface | n/a | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | Yes. D2, A0, and A3 share the same interrupt handler. | Yes |
@@ -581,12 +578,12 @@ Pins B0 - B5 and C0 - C5 are not available if plugging into a Photon socket, as 
 | :--- | :--- | :--- |
 | Pin Name | D0 | D0 |
 | Pin Alternate Name | n/a | A3 |
-| Description | D0 GPIO, I2C SDA | D0 GPIO, PWM, I2C SDA, A3 Analog In |
+| Description | D0 GPIO, I2C SDA | D0 GPIO, I2C SDA, A3 Analog In |
 | Supports digitalRead | Yes | Yes |
 | Supports digitalWrite | Yes | Yes |
 | Supports analogRead | No | Yes |
-| Supports analogWrite (PWM) | Yes | Yes |
-| Supports tone | Yes | Yes |
+| Supports analogWrite (PWM) | Yes | No |
+| Supports tone | Yes | No |
 | I2C interface | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant. | SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. |
 | Supports attachInterrupt | No | Yes |
 | Internal pull-up or pull-down resistance | 40K | 22K |
@@ -961,3 +958,4 @@ Most third-party libraries are believed to be compatible. The exceptions include
 |     | 2022-08-12 | RK | Added listing of pins used at boot |
 |     | 2022-08-12 | RK | Warning about BLE central mode not available |
 |     | 2022-10-05 | RK | Added HIBERNATE sleep section |
+|     | 2022-11-17 | RK | Pin D0 does not have PWM |
