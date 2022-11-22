@@ -586,8 +586,8 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 - [Summary](/assets/pdfs/argon-ce-summary.pdf) (updated 2021-08)
 - [EMC Test Report](/assets/pdfs/argon-ce-emc-test-report.pdf) (updated 2021-08)
-- [RED Mesh Test Report](/assets/pdfs/argon-mesh-ce-test-report.pdf) (updated 2021-08)
-- [RED Wi-Fi Test Report](/assets/pdfs/argon-wifi-ce-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/argon-mesh-ce-test-report.pdf)
+- [RED Wi-Fi Test Report](/assets/pdfs/argon-wifi-ce-test-report.pdf) (updated 2021-08)
 - [RED NFC Test Report](/assets/pdfs/argon-nfc-ce-test-report.pdf)
 - [EN-60950 Test Report](/assets/pdfs/argon-EN60950-test-report.pdf)
 - [EN-62311 Test Report](/assets/pdfs/argon-EN62311-test-report.pdf) (updated 2021-08)
