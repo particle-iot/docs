@@ -637,9 +637,9 @@ $(document).ready(function() {
     apiHelper.particle = new Particle();
 
     if ($('.codeboxFlashDeviceSpan').length > 0) {
-        
+    
+        $('.apiHelper').first().on('apiHelperLoggedIn', function() {
 
-        if (apiHelper.auth) {
             $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
             $('.codeboxFlashDeviceSpan').show();
 
@@ -695,15 +695,11 @@ $(document).ready(function() {
                     }
                 });   
             });
-
- 
-
    
-        }
-        else {
-            $('.codeboxFlashDeviceSpan').hide();
-        }
-
+        });
+    }
+    else {
+        $('.codeboxFlashDeviceSpan').hide();
     }
 
 

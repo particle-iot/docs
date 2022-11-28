@@ -183,6 +183,7 @@ $(document).ready(function() {
         if (typeof apiHelper != 'undefined') {
             if (auth) {
                 apiHelper.auth = auth;
+                $('.apiHelper').trigger('apiHelperLoggedIn');
             }
             else {
                 delete apiHelper.auth;
