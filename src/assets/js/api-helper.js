@@ -161,21 +161,28 @@ apiHelper.versionSort = function(a, b) {
     const aa = apiHelper.parseVersionStr(a);
     const bb = apiHelper.parseVersionStr(b);
 
+    // console.log('a', aa);
+    // console.log('b', bb);
+
     let cmp;
 
-    cmp = bb.major - aa.major;;
+    cmp = bb.major - aa.major;
     if (cmp) {
         return cmp;
     }
 
-    cmp = bb.minor - aa.minor;;
+    cmp = bb.minor - aa.minor;
     if (cmp) {
         return cmp;
     }
 
-    cmp = aa.patch != bb.patch;
+    cmp = bb.patch - aa.patch;
     if (cmp) {
         return cmp;
+    }
+
+    if (!aa.pre && !bb.pre) {
+        return 0;
     }
 
     if (aa.pre && !bb.pre) {

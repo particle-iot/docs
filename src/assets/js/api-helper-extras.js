@@ -2489,6 +2489,115 @@ $(document).ready(function() {
 
     });
 
+    $('.apiHelperFlashTinker').each(async  function() {
+        const thisPartial = $(this);
+
+        const flashTinkerDeviceSelectElem = $(thisPartial).find('.flashTinkerDeviceSelect');
+        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+
+        let devInfo = {};
+                
+        apiHelper.deviceList(flashTinkerDeviceSelectElem, {
+            deviceFilter: function(dev) {
+                if (dev.online) {
+                    devInfo[dev.id] = dev;
+                }
+                return dev.online;
+            },
+            getTitle: function(dev) {
+                let result;
+
+                if (dev.name) {
+                    result = dev.name;
+                }
+                else {
+                    result = dev.id;
+                }
+                result += (dev.online ? '' : ' (offline)');
+                return result;
+            },                    
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: function(elem) {
+                const newVal = $(elem).val();
+                if (newVal != 'select') {
+                    $(flashTinkerButtonElem).removeAttr('disabled');
+                }
+                else {
+                    $(flashTinkerButtonElem).attr('disabled', 'disabled');      
+                }            
+            }
+        });   
+
+        $(flashTinkerButtonElem).on('click', async function() {
+            let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
+
+            const deviceId = $(flashTinkerDeviceSelectElem).val();
+
+            const deviceInfoObj = devInfo[deviceId];
+
+            // 
+            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == deviceInfoObj.platform_id);
+
+            const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
+
+            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceInfoObj.system_firmware_version) >= 0);
+
+            const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
+
+            const zipUrl = baseUrl + '.zip';
+
+            setStatus('Downloading restore image...');
+        
+            const zipFs = new zip.fs.FS();
+        
+            try {
+                await zipFs.importHttpContent(zipUrl);
+            }
+            catch(e) {
+                setStatus('Error getting restore image, cannot flash device');
+                return;
+            }   
+
+            let zipEntry = zipFs.find('tinker.bin');
+            if (!zipEntry) {
+                zipEntry = zipFs.find('tracker-edge.bin');
+            }
+
+            
+            let partBinary = await zipEntry.getUint8Array();
+            
+            let formData = new FormData();
+
+            let blob = new Blob([partBinary], {type:'application/octet-stream'});
+            formData.append('file', blob, 'firmware.bin');
+            
+            $.ajax({
+                data: formData,
+                contentType: false,
+                error: function(err) {
+                    setStatus('Error flashing device');
+                },
+                method: 'PUT',
+                processData: false,
+                success: function (resp) {
+                    setStatus(resp.status);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 8000);
+                },
+                url: 'https://api.particle.io/v1/devices/' + deviceId + "?access_token=" + apiHelper.auth.access_token,
+            });    
+
+
+        });
+
+    });
 
 });
 
