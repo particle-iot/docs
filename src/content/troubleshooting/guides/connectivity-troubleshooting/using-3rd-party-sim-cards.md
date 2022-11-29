@@ -13,7 +13,9 @@ There are two different kinds of SIM cards, depending on the device.
 - Nano (4FF) SIM card holder that accepts a physical SIM card
 - MFF2 embedded SMD SIM soldered to the device
 
-The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as the Particle SIM card, except in an SMD form-factor. It cannot be reprogrammed to support other carriers. This only devices that have a 4FF SIM card slot can be used with a 3rd-party SIM card.
+Only devices that have a 4FF SIM card slot can be used with a 3rd-party SIM card.
+
+The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as the Particle SIM card, except in an SMD form-factor. It cannot be reprogrammed to support other carriers. 
 
 | Device | Model | Nano SIM Card | MFF2 SMD SIM | 
 | --- | :--- | :---: | :---: | 
