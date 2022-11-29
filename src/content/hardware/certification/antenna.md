@@ -88,24 +88,24 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | GA|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | End of life|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXU | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | PARANTC41EA | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | PARANTC41EA | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXU | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | PARANTC41EA | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | PARANTC41EA | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | PARANTC41EA | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | PARANTC41EA | &nbsp; | GA|
 | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
 | E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
 | E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
@@ -348,24 +348,24 @@ These devices include Bluetooth LE (BLE) capabilities.
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | In development|
+| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | End of life|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXV2 | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXV2 | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
 | Photon 2, Kit [x1] | PHN2MEA | &check; | 4 | &nbsp; | In development|
@@ -449,24 +449,24 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &check; | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &check; | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &check; | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | End of life|
 | Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | NRND-US|
 | Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | &nbsp; | Deprecated|
 | Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | &nbsp; | GA|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | &nbsp; | In development|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | &nbsp; | GA|
 | Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | &check; | &check; | Deprecated|
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | Deprecated|
 | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | &check; | &check; | GA|

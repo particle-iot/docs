@@ -31,9 +31,9 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 | &check; | GA | |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | In development | |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | &check; | In development | |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | In development | |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | &check; | GA | |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | BRN404|
 | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 |  | NRND | BRN404KIT|
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | NRND-US | |
@@ -100,10 +100,10 @@ The available models include:
 | SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | In development | |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | In development | |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | NRND | B524MEA|
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | Deprecated | B404MTY|
@@ -296,8 +296,8 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 3 | Deprecated | B404MTY |
 | NORAM | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | R410 | &check; | 3 | GA | &nbsp; |
 | NORAM | B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &check; | 3 | Deprecated | &nbsp; |
-| NORAM | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | R510 | &check; | 3 | In development | &nbsp; |
-| NORAM | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | R510 | &check; | 3 | In development | &nbsp; |
+| NORAM | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | R510 | &check; | 3 | GA | &nbsp; |
+| NORAM | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 3 | NRND | BRN404 |
 | NORAM | BRN402-AQKT | Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | R410 | &nbsp; | 3 | End of life | &nbsp; |
 | NORAM | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | R410 | &nbsp; | 3 | NRND | BRN404KIT |
@@ -305,9 +305,9 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | NORAM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | R410 | &check; | 3 | GA | &nbsp; |
 | NORAM | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | R410 | &check; | 3 | GA | &nbsp; |
 | NORAM | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | R410 | &check; | 3 | Deprecated | &nbsp; |
-| NORAM | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | R510 | &check; | 3 | In development | &nbsp; |
-| NORAM | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | R510 | &check; | 3 | In development | &nbsp; |
-| NORAM | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | R510 | &check; | 3 | In development | &nbsp; |
+| NORAM | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | R510 | &check; | 3 | GA | &nbsp; |
+| NORAM | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | R510 | &check; | 3 | GA | &nbsp; |
+| NORAM | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | R510 | &check; | 3 | GA | &nbsp; |
 | NORAM | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | R410 | &nbsp; | 2 | End of life | E404KIT |
 | NORAM | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | R410 | &nbsp; | 2 | End of life | E404MOD1 |
 | NORAM | E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | R410 | &nbsp; | 2 | Deprecated | E404TRAY50 |
@@ -391,11 +391,11 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | R410 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | 2 | Deprecated | ELC404EA |
 | R410 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | 2 | Deprecated | ELC404TY |
 | R410 | ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | 2 | NRND-US | &nbsp; |
-| R510 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| R510 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | 3 | In development | &nbsp; |
-| R510 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| R510 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &check; | 3 | In development | &nbsp; |
-| R510 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | 3 | In development | &nbsp; |
+| R510 | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
+| R510 | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
+| R510 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | 3 | GA | &nbsp; |
+| R510 | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &check; | 3 | GA | &nbsp; |
+| R510 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | 3 | GA | &nbsp; |
 | R510 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | 3 | In development | &nbsp; |
 | U201 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &nbsp; | 3 | End of life | BRN314KIT |
 | U201 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &nbsp; | 3 | Deprecated | BRN314TRAY50 |
@@ -438,8 +438,8 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
 | EtherSIM | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | GA | &nbsp; |
 | EtherSIM | B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | Deprecated | &nbsp; |
-| EtherSIM | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | 3 | In development | &nbsp; |
-| EtherSIM | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | 3 | In development | &nbsp; |
+| EtherSIM | B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | 3 | GA | &nbsp; |
+| EtherSIM | B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | EG91-E | 3 | GA | &nbsp; |
 | EtherSIM | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | EG91-E | 3 | GA | &nbsp; |
 | EtherSIM | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | 3 | NRND-US | &nbsp; |
@@ -447,9 +447,9 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | EtherSIM | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | 3 | GA | &nbsp; |
 | EtherSIM | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | R410 | 3 | GA | &nbsp; |
 | EtherSIM | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | 3 | Deprecated | &nbsp; |
-| EtherSIM | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | 3 | In development | &nbsp; |
-| EtherSIM | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | 3 | In development | &nbsp; |
-| EtherSIM | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | 3 | In development | &nbsp; |
+| EtherSIM | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | 3 | GA | &nbsp; |
+| EtherSIM | BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | 3 | GA | &nbsp; |
+| EtherSIM | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | 3 | GA | &nbsp; |
 | EtherSIM | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | 2 | NRND-US | &nbsp; |
 | EtherSIM | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | 2 | NRND-US | &nbsp; |
 | EtherSIM | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | 2 | Deprecated | &nbsp; |
@@ -611,9 +611,9 @@ Some Particle devices are compatible with [3rd-party SIM cards](/troubleshooting
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | GA | &nbsp; |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &check; | R410 | 3 | GA | &nbsp; |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404 |
 | BRN402KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404KIT |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | U201 | 3 | NRND-US | &nbsp; |
@@ -764,16 +764,16 @@ The following SKUs have LTE Cat M1 cellular modems:
 | SKU | Description | Region | EtherSIM | Modem | Gen | Lifecycle | Replacement |
 | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | GA | &nbsp; |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R410 | 3 | GA | &nbsp; |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &check; | R410 | 3 | GA | &nbsp; |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | GA | &nbsp; |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &check; | BG96-MC | 3 | GA | &nbsp; |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &check; | R510 | 3 | In development | &nbsp; |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | NRND | B404MEA |
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | R410 | 3 | NRND | BRN404 |

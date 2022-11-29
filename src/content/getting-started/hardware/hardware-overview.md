@@ -117,8 +117,8 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 | ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | GA |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | GA |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | In development |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | In development |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | GA |
 | PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | In development |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
 
@@ -343,11 +343,11 @@ The available models include:
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | GA |
 | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | GA |
 | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | In development |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
@@ -393,9 +393,9 @@ The available models include:
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | In development |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | In development |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | &check; | NRND-US |
 
 
@@ -729,9 +729,9 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 | ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | GA |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | GA |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | In development |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | In development |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | In development |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | GA |
 | PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | In development |
 | PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | In development |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
@@ -776,10 +776,15 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | ARGN-H | Argon [x1] | Global | &nbsp; | &nbsp; | GA |
 | ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | &nbsp; | GA |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | &nbsp; | &check; | GA |
 | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | &nbsp; | &nbsp; | GA |
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 | FWNG-ETH | Particle Ethernet FeatherWing, [x1] | Global | &nbsp; | &nbsp; | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | &nbsp; | &nbsp; | GA |
@@ -788,11 +793,6 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
 | T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &nbsp; | &check; | GA |
 | T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | In development |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | In development |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | In development |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
 | PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
 | PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | In development |

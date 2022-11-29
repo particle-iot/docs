@@ -19470,7 +19470,7 @@
     {
       "name": "B404XMEA",
       "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
       "simPlans": [
@@ -19494,7 +19494,7 @@
     {
       "name": "B404XMTY",
       "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
       "sim": 4,
@@ -20013,7 +20013,7 @@
     {
       "name": "BRN404X",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
       "simPlans": [
@@ -20038,7 +20038,7 @@
     {
       "name": "BRN404XKIT",
       "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
       "simPlans": [
@@ -20063,7 +20063,7 @@
     {
       "name": "BRN404XTRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
       "sim": 4,

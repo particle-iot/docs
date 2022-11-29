@@ -628,10 +628,10 @@ Both require an external cellular antenna.
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | In development|
+| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | GA|
 | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
 | E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
 | E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
@@ -1602,11 +1602,11 @@ Most common third-party libraries work on both devices. The exceptions are libra
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | GA |
 | B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | GA |
 | B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | In development |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b28329f3-7067-4ae1-aafa-c48b75d77674 --}}
