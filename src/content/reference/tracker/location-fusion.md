@@ -23,11 +23,13 @@ Wi-Fi geolocation does not connect to the Wi-Fi access points. Most access point
 
 - Handing enhanced location events from device firmware is in the [Tracker Edge reference](/firmware/tracker-edge/tracker-edge-api-reference/#regenhancedloccallback-trackerlocation).
 
-The approximate resolution of the various technologies is:
+The best-case and worse-case resolution of the various technologies is:
 
 | Technology | Best-Case | Worst-Case | 
 | :--- | :--- | :--- |
-| GNSS | 1.5 meters | 100 kilometers |
+| GNSS | 1.8 meters | 100 kilometers |
 | Wi-Fi | 24 meters |  | 
 | Cellular Tower | 123 meters | 10 kilometers |
+
+The worse-case GNSS precision is theoretical, based on visibility of a minimum number of satellites, combined with multi-path interference. Practically speaking, when there is a GNSS lock, the reported location is generally within 500 meters (1640 feet, or 1/3 of a mile) of the actual location, and often within 10 meters.
 
