@@ -5,43 +5,69 @@ columns: two
 ---
 
 # {{{title}}}
-The following article is divided into the following sections:
 
-* 3rd Party SIM Overview
-* About ICCIDs
-* About SIM PINs
-* Finding Your APN
-* Setting Up A 3rd-Party SIM Card - Boron
-* Setting Up A 3rd-Party SIM Card - Electron
-* Claiming A Boron Or An Electron Manually
-* About Keep-Alive
-* More Troubleshooting Tips
+## SIM card overview
 
-## 3rd Party SIM Overview
+There are two different kinds of SIM cards, depending on the device.
 
-The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access. You can optionally substitute a 3rd-party SIM card.
+- Nano (4FF) SIM card holder that accepts a physical SIM card
+- MFF2 embedded SMD SIM soldered to the device
 
-The **E Series** and **B Series** does not have a SIM card slot and cannot use a 3rd-party SIM card. It uses a MFF2 embedded SIM card, which is basically a regular SIM card in a small SMD form-factor and soldered to the board.
+The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as the Particle SIM card, except in an SMD form-factor. It cannot be reprogrammed to support other carriers. This only devices that have a 4FF SIM card slot can be used with a 3rd-party SIM card.
 
-The **Boron** has both a MFF2 embedded SIM card (the default) and a nano SIM card slot for a 3rd-party SIM card. You need to tell the device which one you want to use, however.
+| Device | Model | Nano SIM Card | MFF2 SMD SIM | 
+| --- | :--- | :---: | :---: | 
+| Boron 2G/3G | BRN314 BRN310 | &check; | &check; |
+| Boron LTE  | BRN404 BRN402 | &check; | &check; |
+| B Series B402 SoM (Cat M1) | B404X B404 B402 | &nbsp; | &check; |
+| B Series B523 SoM (Cat 1) | B524 B523 | &nbsp; | &check; |
+| Tracker SoM (LTE Cat M1) | T404 T402 | &nbsp; | &check; |
+| Tracker SoM (LTE Cat 1 and 2G/3G) | T524 T523 | &nbsp; | &check; |
+| Electron 2G | G350 | &check; | &nbsp; |
+| Electron 3G | U260 | &check; | &nbsp; |
+| Electron 3G | U270 |  &check; | &nbsp; |
+| Electron Global | ELC314 | &check; | &nbsp; |
+| Electron LTE (Cat M1) | ELC404X ELC404 ELC402 | &nbsp; | &check; |
+| E Series 2G/3G | E314 E310 | &nbsp; | &check; |
+| E Series LTE (Cat M1) | E404X E404 E402 | &nbsp; | &check; |
+
+
+### General considerations
+- In the growth tier, the price per block for device count and data operations is the same whether you are using a Particle SIM or a 3rd-party SIM card.
+- Enterprise contracts cannot be made with 3rd-party SIM cards.
+- Technical support is not available for devices with 3rd-party SIM cards.
+
+### LTE Cat M1 considerations
+
+- The Boron LTE (BRN404X, BRN404, BRN402) has a 4FF nano SIM card slot, but using a 3rd-party SIM card is not recommended.
+- Only cellular bands used in the United States, Canada, and Mexico are enabled in Device OS which will prevent connecting in Europe and other locations.
+- The Boron LTE is not CE certified, and cannot legally be used in the European Union.
+- Some carriers, such Verizon in the United States, require additional certification of the device and IMEI registration to be able to use their LTE Cat M1 network. This certification has not been done for Boron LTE devices and they will likely be banned from the network within a day or two of first connecting.
+
+### B Series SoM not compatible
+
+- Even though the B Series SoM has pins on the M.2 connector marked for use by a SIM card, this feature cannot be used! There is no SIM switch on the B Series SoM and in order to use these pins, you'd have to rework the SoM itself to disconnect the MFF2 SIM and connect the pins on the M.2 connector instead. This is not practical and not recommended.
+
+
+## Setup
 
 Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](/getting-started/developer-tools/cli/).
 
 All SIMs, including 3rd-party SIMs, must be activated. The method for activating varies by carrier; you might do this from a web site or with a phone call. If you're using the SIM that was in your phone, it's already activated. Being activated or not is part of the state of the SIM and doesn't depend on what device it's being used in.
 
-Activation is different than claiming an Electron or other Particle device, which adds the device to your account. Claiming is discussed below.
+Activation is different than claiming a Particle device, which adds the device to your account. Claiming is discussed below.
 
 **Note about support:** 3rd Party SIMs bypass the MVNO infrastructure of Particle's partners, severely limiting the visibility that Particle Technical Support Engineers have with respect to connectivity and configuration. For this reason, the Technical Support team does not provide technical support for connectivity issues on 3rd Party SIMs.
 
 ## About ICCIDs
 
-Every SIM card has an ICCID ("integrated circuit card identifier") that uniquely identifies the card. The number is usually 19 or 20 digits long and is usually printed on the card, though some carriers only print part of the number on the card.
+Every SIM card has an ICCID ("integrated circuit card identifier") that uniquely identifies the card. The number is usually 19 to 21 digits long and is usually printed on the card, though some carriers only print part of the number on the card.
 
-Assuming your phone accepts nano-sized SIM cards (iPhone 5 and later, for example), your phone can show the ICCID. On the iPhone, it's in Settings - General - About - ICCID.
+Assuming your phone accepts nano-sized SIM cards, your phone can show the ICCID. On the iPhone, it's in Settings - General - About - ICCID.
 
 The location varies on Android phones, and sometimes it's called the SIM ID or SIM Number instead of ICCID. There are other numbers like the IMSI and IMEI that are different, and shorter.
 
-You can also easily find out the ICCID using the Particle CLI. Connect the Electron by USB to your computer. Hold down the MODE button until the main status LED blinks blue, then release. Issue the command:
+You can also easily find out the ICCID using the Particle CLI. Connect the Particle device by USB to your computer. Hold down the MODE button until the main status LED blinks blue, then release. Issue the command:
 
 ```
 particle identify
@@ -49,19 +75,28 @@ particle identify
 
 ## About SIM PINs
 
-The Electron and Boron do not currently support SIM cards with a PIN. If your SIM card requires a PIN, even if it's 0000, you must remove the PIN before it will work in the Electron.
+The Electron and Boron do not currently support SIM cards with a PIN. If your SIM card requires a PIN, even if it's 0000, you must remove the PIN before it will work in a Particle device.
 
 The easiest way to remove a SIM PIN is from a phone. On the iPhone, it's in Settings - Phone - SIM PIN.
 
 ## Finding Your APN
 
-The APN ("Access Point Name") specifies how the Electron should connect to the Internet. The setting varies by carrier, and sometimes by country. If you're searching Google for your APN, be aware that some carriers may list separate WAP APN or MMS APNs; you want to use the Generic or Internet APN.
+The APN ("Access Point Name") specifies how the Particle device should connect to the Internet. The setting varies by carrier, and sometimes by country. If you're searching Google for your APN, be aware that some carriers may list separate WAP APN or MMS APNs; you want to use the Generic or Internet APN.
 
 There is no set structure to an APN. Here are some examples: broadband, internet, three.co.uk.
 
-If you have set your APN correctly the Electron should proceed through the normal states: breathing white, blinking green, blinking cyan, fast blinking cyan, and finally to breathing cyan, even before you've claimed the Electron. In fact, the Electron must be in breathing cyan to complete the claiming process.
+If you have set your APN correctly the Particle device should proceed through the normal states: breathing white, blinking green, blinking cyan, fast blinking cyan, and finally to breathing cyan, even before you've claimed the Particle device. In fact, the Particle device must be in breathing cyan to complete the claiming process.
 
 Some carriers may also require a username and password. Note those, if they are required, as well.
+
+## Device Type
+
+The instructions vary between the Boron and Electron. Select the device you want to configure here:
+
+{{collapse op="cellularDevice"}}
+
+
+{{collapse op="start" cellularDevice="Boron"}}
 
 ## Boron - Setting Up A 3rd-party SIM Card
 
@@ -139,31 +174,13 @@ particle device add YOUR_DEVICE_ID
 ```  
 particle device rename YOUR_DEVICE_ID "New Name"  
 ```
-* To restore the use of the embedded MFF2 Particle SIM card use this program instead:
 
-```cpp
-#include "Particle.h"
-
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-void setup() {
-	Cellular.setActiveSim(INTERNAL_SIM);
-	Cellular.clearCredentials();
-
-	// This is just so you know the operation is complete
-	pinMode(D7, OUTPUT);
-	digitalWrite(D7, HIGH);
-}
-
-void loop() {
-}
-
-```
 
 * Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE BRN402 and BRN404. Just deactivating the SIM in software won't completely disable the external SIM and will cause connection failures, and is a limitation of the SARA-R410 cellular modem on these devices.
 * The BRN310, BRN314, and BRN404X can switch to the internal SIM even with an external SIM card present in the 4FF slot.
 * This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
 * Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).
+* If you are adding the code above to switch the active SIM from your code, you must power down the cellular modem after changing the setting before you will be able to connect.
 
 #### The APN setting is persistent on the Boron
 
@@ -211,7 +228,15 @@ The Boron 2G/3G uses the 5-band u-blox SARA-U201 cellular modem and can be used 
 
 Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
 
-The embedded MFF2 Particle SIM card on the Boron LTE is only supported in the United States, Canada, and Mexico at this time. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
+The embedded MFF2 Particle SIM card on the Boron LTE is only supported in the United States, Canada, and Mexico at this time. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work. In particular, you will likely have to update:
+
+- The MNO provide (AT+UMNOPROF) for the carrier you are using.
+- Update manual band selection (AT+UBANDSEL) for the bands required in your location.
+- Since you need to update cellular modem settings before connecting you will need to use `SYSTEM_THREAD(ENABLED)`.
+
+{{collapse op="end"}}
+
+{{collapse op="start" cellularDevice="Electron"}}
 
 ## Electron - Setting Up A 3rd-party SIM Card
 
@@ -465,7 +490,8 @@ Be sure to edit the `cellular_credentials_set`line with the APN for your SIM car
 Put the Electron in DFU mode ([blinking yellow](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
 
 ```
-particle compile electron --target 0.4.8 tinker.ino --saveTo firmware.bin
+particle update
+particle compile electron --target 2.3.0 tinker.ino --saveTo firmware.bin
 particle flash --usb firmware.bin
 
 ```
@@ -506,21 +532,8 @@ The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G 
 
 The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
 
-#### E Series E310
 
-The E Series E310 uses the 5-band u-blox SARA-U201 cellular modem and can be used for 2G and 3G world-wide:
-
-* In the Americas, it can use 2G and 3G on 850 MHz and 1900 MHz
-* In Europe, Asia, and Africa it can use 900/1800 MHz for 2G and 900/2100 MHz for 3G.
-* In places with a mix, like Australia, it can use combinations like 850/2100.
-* In places that no longer have 2G service, like Australia, Korea, Japan, and Singapore, it will of course only use 3G.
-
-
-#### E Series E402
-
-Note that the E Series LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
-
-The embedded MFF2 Particle SIM card on the E Series E402 only supports AT&T, and only in the United States.
+{{collapse op="end"}}
 
 ## Claiming A Boron Or An Electron Manually
 
@@ -534,6 +547,15 @@ particle identify
 
 The device ID is different from your SIM ICCID.
 
+#### Claiming from the CLI
+
+With the device in breathing cyan mode, issue the CLI command:
+
+```
+particle device add YOUR_DEVICE_ID
+```
+
+
 #### Claiming from Particle Build (Web IDE)
 
 Click the devices icon in the lower left corner of the [Particle Web IDE](https://build.particle.io) window.
@@ -542,17 +564,7 @@ Click the devices icon in the lower left corner of the [Particle Web IDE](https:
 
 At the bottom of your list of devices is **Add New Device** button. Click that and enter the device ID.
 
-#### Claiming from Particle Dev (Atom IDE)
 
-Using Particle Dev on Windows or Mac, select **Claim Device...** from the **Particle** menu and enter the device ID.
-
-#### Claiming from the CLI
-
-With the device in breathing cyan mode, issue the CLI command:
-
-```
-particle device add YOUR_DEVICE_ID
-```
 
 ## About Keep-Alive
 
@@ -598,31 +610,6 @@ Find the longest interval where the calls still work, and that's what you should
 
 For the Electron, also note that the keep-alive settings is only in device OS 0.5.0 and later, so if you have the original factory default firmware 0.4.8 you'll need to upgrade the Device OS.
 
-In Device OS 0.6.2 through 0.8.0-rc.3, there is an issue where the Particle.keepAlive value does not stay properly set. The workaround is as follows:
-
-Create a global variable, such as:
-
-```
-bool hasSetKeepAlive = false;
-
-```
-
-And add this to your loop:
-
-```
-	if (Particle.connected()) {
-		if (!hasSetKeepAlive) {
-			hasSetKeepAlive = true;
-			Particle.keepAlive(120);
-		}
-	}
-	else {
-		hasSetKeepAlive = false;		
-	}
-
-```
-
-Basically, you need to set the keep alive only after successfully connected to the Particle cloud, and every time you've disconnected.
 
 ## More troubleshooting tips
 

@@ -1102,7 +1102,7 @@ The keep-alive for cellular devices duration varies by mobile network operator. 
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
-For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
+For Ethernet, you will probably want to set a keepAlive to 25 seconds, like the Argon. In some cases, it could be raised to 2 to 5 minutes; this is dependent on how quickly the Internet router at the site releases port-forwarded back-channel.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 

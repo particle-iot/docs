@@ -26,12 +26,12 @@ var collapseConfig = {
 	},
 	'cellularDevice':{
 		'prompt':'Select the type of cellular device you have:',
-		'defaultValue':'Electron',
+		'defaultValue':'Boron',
 		'cssClass':'collapseCellularDevice',
 		'op':'cellularDevice',
 		'options':[
-			{'title':'Electron or E Series', 'tag':'Electron'},
 			{'title':'Boron', 'tag':'Boron'}
+			{'title':'Electron or E Series', 'tag':'Electron'},
 		]				
 	},
 	'hardwareTutorial':{
