@@ -44,7 +44,7 @@ The MFF2 embedded SIM card is not a programmed eSIM. It's basically the same as 
 - The Boron LTE (BRN404X, BRN404, BRN402) has a 4FF nano SIM card slot, but using a 3rd-party SIM card is not recommended.
 - Only cellular bands used in the United States, Canada, and Mexico are enabled in Device OS which will prevent connecting in Europe and other locations.
 - The Boron LTE is not CE certified, and cannot legally be used in the European Union.
-- Some carriers, such Verizon in the United States, require additional certification of the device and IMEI registration to be able to use their LTE Cat M1 network. This certification has not been done for Boron LTE devices and they will likely be banned from the network within a day or two of first connecting.
+- Some carriers, such as Verizon in the United States, require additional certification of the device and IMEI registration to be able to use their LTE Cat M1 network. This certification has not been done for Boron LTE devices and they will likely be banned from the network within a day or two of first connecting.
 
 ### B Series SoM not compatible
 
