@@ -30,8 +30,8 @@ var collapseConfig = {
 		'cssClass':'collapseCellularDevice',
 		'op':'cellularDevice',
 		'options':[
-			{'title':'Boron', 'tag':'Boron'}
-			{'title':'Electron or E Series', 'tag':'Electron'},
+			{'title':'Boron', 'tag':'Boron'},
+			{'title':'Electron or E Series', 'tag':'Electron'}
 		]				
 	},
 	'hardwareTutorial':{
