@@ -95,5 +95,5 @@ If you have questions about any of the information presented in this product dep
 
 ### 6\. Related documentation
 
-1. [Supply Secure blog post](https://blog.particle.io/particle-supply-secure-hardware-portfolio/)
+1. [Supply Secure blog post](https://www.particle.io/blog/particle-supply-secure-hardware-portfolio/)
 1. [Supply Secure FAQ](/reference/product-lifecycle/supply-secure-faq/) document

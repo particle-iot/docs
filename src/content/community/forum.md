@@ -27,7 +27,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [GitHub Organization](https://github.com/particle-iot)
 - [Device OS Firmware Release Notes](/reference/device-os/api/device-os-versions/github-release-notes/)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
-- [Particle Blog](https://blog.particle.io)
+- [Particle Blog](https://www.particle.io/blog)
 - [Particle Store](https://store.particle.io)
 
 ## Tools and SDKs

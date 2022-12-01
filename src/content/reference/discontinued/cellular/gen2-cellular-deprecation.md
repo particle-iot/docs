@@ -6,7 +6,7 @@ columns: two
 
 # {{title}}
 
-Due to the [global silicon chip shortage](https://blog.particle.io/how-we-are-supporting-our-customers-through-the-global-silicon-shortage/) causing the inability to obtain certain key components there will be some changes in the available product SKUs.
+Due to the [global silicon chip shortage](https://www.particle.io/blog/how-we-are-supporting-our-customers-through-the-global-silicon-shortage/) causing the inability to obtain certain key components there will be some changes in the available product SKUs.
 
 The STM32F2xx microcontroller (MCU) has become unavailable for purchase in the necessary quantities, thus certain SKUs will be deprecated.
 

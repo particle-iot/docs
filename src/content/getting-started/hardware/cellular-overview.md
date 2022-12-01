@@ -873,7 +873,7 @@ The list below is not complete; you should check with the carrier in your area t
 
 ### United States
 
-For an overview of the status of the 2G/3G sunset in the United States, see the [April 2022 Particle blog post](https://blog.particle.io/april-2022-3g-sunset-status/).
+For an overview of the status of the 2G/3G sunset in the United States, see the [April 2022 Particle blog post](https://www.particle.io/blog/april-2022-3g-sunset-status/).
 
 AT&T deactivated their 2G network at the end of 2016. Electron 2G devices can only use T-Mobile at this time.
 
