@@ -19092,7 +19092,8 @@
       "leadTime": "16 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ADPT"
     },
     {
       "name": "ACC-DEBUG",
@@ -19100,14 +19101,16 @@
       "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "DEBG"
     },
     {
       "name": "ACC-POE",
       "desc": "Power-over-Ethernet Module",
       "lifecycle": "End of life",
       "accessory": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "APOE"
     },
     {
       "name": "ARG-AQKT",
@@ -19136,7 +19139,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "inStock": "yes",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P011"
     },
     {
       "name": "ARG-LDKT",
@@ -19158,7 +19162,8 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P013"
     },
     {
       "name": "ARG-STRTKT",
@@ -19187,7 +19192,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "inStock": "yes",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P010"
     },
     {
       "name": "ARGN-H",
@@ -19216,7 +19222,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10
+      "maxOrder": 10,
+      "prefix": "ARNH"
     },
     {
       "name": "ARGNKIT",
@@ -19245,7 +19252,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10
+      "maxOrder": 10,
+      "prefix": "ARNK"
     },
     {
       "name": "ARGNTRAY50",
@@ -19273,7 +19281,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "ARNT"
     },
     {
       "name": "ASSET2GV2",
@@ -19295,7 +19304,8 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "A35K"
     },
     {
       "name": "ASSET3G260V2",
@@ -19317,7 +19327,8 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "A26K"
     },
     {
       "name": "ASSET3G270V2",
@@ -19339,7 +19350,8 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "A27K"
     },
     {
       "name": "B402MEA",
@@ -19371,7 +19383,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P006"
     },
     {
       "name": "B402MTY",
@@ -19403,7 +19416,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P007"
     },
     {
       "name": "B404MEA",
@@ -19434,7 +19448,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P033"
     },
     {
       "name": "B404MTY",
@@ -19465,7 +19480,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P033"
     },
     {
       "name": "B404XMEA",
@@ -19489,7 +19505,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": true,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P042"
     },
     {
       "name": "B404XMTY",
@@ -19513,7 +19530,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P042"
     },
     {
       "name": "B523MEA",
@@ -19546,7 +19564,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P019"
     },
     {
       "name": "B523MTY",
@@ -19579,7 +19598,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P020"
     },
     {
       "name": "B524MEA",
@@ -19610,7 +19630,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P034"
     },
     {
       "name": "B524MTY",
@@ -19641,7 +19662,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P034"
     },
     {
       "name": "BAT1800",
@@ -19657,7 +19679,8 @@
       "lifecycle": "End of life",
       "accessory": true,
       "multiple": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "BA50"
     },
     {
       "name": "BRN310KIT",
@@ -19686,7 +19709,8 @@
       "nfcAntExt": true,
       "nfcAntExtInc": false,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B31K"
     },
     {
       "name": "BRN310TRAY50",
@@ -19720,7 +19744,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B31T"
     },
     {
       "name": "BRN314KIT",
@@ -19754,7 +19779,8 @@
       "allocation": false,
       "batteryInc": true,
       "batteryConn": true,
-      "maxOrder": 5
+      "maxOrder": 5,
+      "prefix": "P027"
     },
     {
       "name": "BRN314TRAY50",
@@ -19786,7 +19812,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P027"
     },
     {
       "name": "BRN402",
@@ -19819,7 +19846,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B40H"
     },
     {
       "name": "BRN402-AQKT",
@@ -19845,7 +19873,8 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P012"
     },
     {
       "name": "BRN402KIT",
@@ -19878,7 +19907,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B40K"
     },
     {
       "name": "BRN402TRAY50",
@@ -19911,7 +19941,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B40T"
     },
     {
       "name": "BRN404",
@@ -19943,7 +19974,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P028"
     },
     {
       "name": "BRN404KIT",
@@ -19976,7 +20008,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10
+      "maxOrder": 10,
+      "prefix": "P028"
     },
     {
       "name": "BRN404TRAY50",
@@ -20008,7 +20041,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P028"
     },
     {
       "name": "BRN404X",
@@ -20033,7 +20067,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P044"
     },
     {
       "name": "BRN404XKIT",
@@ -20058,7 +20093,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P044"
     },
     {
       "name": "BRN404XTRAY50",
@@ -20083,7 +20119,8 @@
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P044"
     },
     {
       "name": "E260KIT",
@@ -20104,7 +20141,8 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E26K"
     },
     {
       "name": "E260TRAY50",
@@ -20124,7 +20162,8 @@
       "skuRegion": "americas",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E26T"
     },
     {
       "name": "E270KIT",
@@ -20145,7 +20184,8 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E27K"
     },
     {
       "name": "E270TRAY50",
@@ -20165,7 +20205,8 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E27T"
     },
     {
       "name": "E310KIT",
@@ -20187,7 +20228,8 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E31K"
     },
     {
       "name": "E310MOD1",
@@ -20208,7 +20250,8 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E31M"
     },
     {
       "name": "E310TRAY50",
@@ -20234,7 +20277,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E31T"
     },
     {
       "name": "E313EA",
@@ -20254,7 +20298,8 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P005"
     },
     {
       "name": "E313TRAY50",
@@ -20274,7 +20319,8 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P005"
     },
     {
       "name": "E314KIT",
@@ -20302,7 +20348,8 @@
       "allocation": false,
       "batteryInc": true,
       "batteryConn": true,
-      "noProduction": true
+      "noProduction": true,
+      "prefix": "P029"
     },
     {
       "name": "E314MOD1",
@@ -20329,7 +20376,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryConn": true,
-      "noProduction": true
+      "noProduction": true,
+      "prefix": "P029"
     },
     {
       "name": "E314TRAY50",
@@ -20356,7 +20404,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryConn": true,
-      "noProduction": true
+      "noProduction": true,
+      "prefix": "P029"
     },
     {
       "name": "E350KIT",
@@ -20375,7 +20424,8 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "batteryConn": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "E35K"
     },
     {
       "name": "E350TRAY50",
@@ -20395,7 +20445,8 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E35T"
     },
     {
       "name": "E402KIT",
@@ -20417,7 +20468,8 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E40K"
     },
     {
       "name": "E402MOD1",
@@ -20438,7 +20490,8 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E40M"
     },
     {
       "name": "E402TRAY50",
@@ -20465,7 +20518,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E40T"
     },
     {
       "name": "E404KIT",
@@ -20492,7 +20546,8 @@
       "leadTime": "56 weeks",
       "allocation": true,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P030"
     },
     {
       "name": "E404MOD1",
@@ -20518,7 +20573,8 @@
       "retail": true,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P030"
     },
     {
       "name": "E404TRAY50",
@@ -20544,7 +20600,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P030"
     },
     {
       "name": "E404XTRAY50",
@@ -20569,7 +20626,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P052"
     },
     {
       "name": "ELC314TY",
@@ -20594,7 +20652,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P035"
     },
     {
       "name": "ELC402EA",
@@ -20615,7 +20674,8 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E4DK"
     },
     {
       "name": "ELC402TY",
@@ -20642,7 +20702,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E4DT"
     },
     {
       "name": "ELC404TY",
@@ -20668,7 +20729,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P036"
     },
     {
       "name": "FWNG-ETH",
@@ -20683,7 +20745,8 @@
       "leadTime": "16 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ETHW"
     },
     {
       "name": "FWNG-INA219",
@@ -20736,7 +20799,8 @@
       "leadTime": "16 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "TRPW"
     },
     {
       "name": "M2EVAL",
@@ -20751,7 +20815,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "P008"
     },
     {
       "name": "M8CAB3VEA",
@@ -20879,7 +20944,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryInc": true,
-      "maxOrder": 2
+      "maxOrder": 2,
+      "prefix": "P024"
     },
     {
       "name": "ONE402MTY",
@@ -20916,7 +20982,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P024"
     },
     {
       "name": "ONE404MEA",
@@ -20953,7 +21020,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "inStock": "no",
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P031"
     },
     {
       "name": "ONE404MTY",
@@ -20989,7 +21057,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P031"
     },
     {
       "name": "ONE523MEA",
@@ -21028,7 +21097,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "batteryInc": true,
-      "maxOrder": 5
+      "maxOrder": 5,
+      "prefix": "P025"
     },
     {
       "name": "ONE523MTY",
@@ -21067,7 +21137,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "inStock": "yes",
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P025"
     },
     {
       "name": "ONE524MEA",
@@ -21104,7 +21175,8 @@
       "leadTime": "56 weeks",
       "allocation": false,
       "inStock": "no",
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P032"
     },
     {
       "name": "ONE524MTY",
@@ -21140,7 +21212,8 @@
       "retail": false,
       "leadTime": "56 weeks",
       "allocation": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P032"
     },
     {
       "name": "ONEM8CABEA",
@@ -21215,7 +21288,8 @@
       "wifiAntInt": false,
       "wifiAntIntInc": false,
       "wifiAntExt": true,
-      "wifiAntExtInc": false
+      "wifiAntExtInc": false,
+      "prefix": "P0MD"
     },
     {
       "name": "P0REEL",
@@ -21257,7 +21331,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "36 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P1MD"
     },
     {
       "name": "P1REEL",
@@ -21303,7 +21378,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "36 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P046"
     },
     {
       "name": "P2REEL",
@@ -21328,7 +21404,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "50 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P046"
     },
     {
       "name": "PHN2MEA",
@@ -21353,7 +21430,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "36 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P051"
     },
     {
       "name": "PHN2MTY",
@@ -21378,7 +21456,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "50 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P051"
     },
     {
       "name": "PHNTRAYH",
@@ -21399,7 +21478,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "54 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "PHHT"
     },
     {
       "name": "PHNTRAYNOH",
@@ -21420,7 +21500,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "54 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "PHNT"
     },
     {
       "name": "PHOTONH",
@@ -21441,7 +21522,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "54 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "PHHM"
     },
     {
       "name": "PHOTONKIT",
@@ -21456,7 +21538,8 @@
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
-      "wifiAntExtInc": false
+      "wifiAntExtInc": false,
+      "prefix": "PHHK"
     },
     {
       "name": "PHOTONNOH",
@@ -21471,7 +21554,8 @@
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
-      "wifiAntExtInc": false
+      "wifiAntExtInc": false,
+      "prefix": "PHNM"
     },
     {
       "name": "PROGSHIELD",
@@ -21479,7 +21563,8 @@
       "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "PRGS"
     },
     {
       "name": "PWRSHIELDH",
@@ -21487,14 +21572,16 @@
       "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "PWRH"
     },
     {
       "name": "RLYSHIELD",
       "desc": "Relay Shield",
       "lifecycle": "End of life",
       "accessory": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "RLYS"
     },
     {
       "name": "SIMBLANK50",
@@ -21509,7 +21596,8 @@
       "leadTime": "8 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "SM50"
     },
     {
       "name": "SIMBLANKV2",
@@ -21524,7 +21612,8 @@
       "leadTime": "8 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ESM1"
     },
     {
       "name": "SIMBLANKV2_50",
@@ -21539,7 +21628,8 @@
       "leadTime": "8 weeks",
       "allocation": false,
       "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ESM5"
     },
     {
       "name": "SIMTELE",
@@ -21554,7 +21644,8 @@
       "leadTime": "8 weeks",
       "allocation": false,
       "inStock": "low",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "SMTE"
     },
     {
       "name": "SNSR-GRVKIT",
@@ -21588,7 +21679,8 @@
       "skuRegion": "americas",
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "S26K"
     },
     {
       "name": "SNSRKIT3G270",
@@ -21607,7 +21699,8 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "S27K"
     },
     {
       "name": "SPKBTTN",
@@ -21615,7 +21708,8 @@
       "lifecycle": "End of life",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "PBTN"
     },
     {
       "name": "T402MEA",
@@ -21653,7 +21747,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P024"
     },
     {
       "name": "T402MKIT",
@@ -21691,7 +21786,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P024"
     },
     {
       "name": "T402MTY",
@@ -21729,7 +21825,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P024"
     },
     {
       "name": "T404MEA",
@@ -21766,7 +21863,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P031"
     },
     {
       "name": "T404MKIT",
@@ -21803,7 +21901,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P031"
     },
     {
       "name": "T404MTY",
@@ -21840,7 +21939,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P031"
     },
     {
       "name": "T523MEA",
@@ -21879,7 +21979,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P025"
     },
     {
       "name": "T523MKIT",
@@ -21918,7 +22019,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P025"
     },
     {
       "name": "T523MTY",
@@ -21957,7 +22059,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P025"
     },
     {
       "name": "T524MEA",
@@ -21994,7 +22097,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P032"
     },
     {
       "name": "T524MKIT",
@@ -22031,7 +22135,8 @@
       "wholesale": true,
       "retail": true,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P032"
     },
     {
       "name": "T524MTY",
@@ -22068,7 +22173,8 @@
       "wholesale": true,
       "retail": false,
       "leadTime": "56 weeks",
-      "allocation": true
+      "allocation": true,
+      "prefix": "P032"
     }
   ],
   "skuClass": [
