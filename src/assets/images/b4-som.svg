@@ -10,19 +10,19 @@
 2    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 VCC    </text>
@@ -36,19 +36,19 @@ VCC    </text>
 4    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 VCC    </text>
@@ -62,19 +62,19 @@ VCC    </text>
 6    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 VCC    </text>
@@ -88,19 +88,19 @@ VCC    </text>
 8    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VCC    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 VCC    </text>
@@ -114,19 +114,19 @@ VCC    </text>
 10    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 3V3    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 3V3    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 3V3    </text>
@@ -140,19 +140,19 @@ VCC    </text>
 12    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 3V3    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 3V3    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 3V3    </text>
@@ -166,15 +166,15 @@ VCC    </text>
 14    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(500,142) " >
@@ -186,15 +186,15 @@ NC    </text>
 16    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VUSB    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 VUSB    </text>
   </g>
   <g transform="translate(500,158) " >
@@ -206,15 +206,15 @@ VUSB    </text>
 18    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(500,174) " >
@@ -226,25 +226,25 @@ NC    </text>
 20    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SCL    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D1    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#70C9F2" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B0E5C9" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Wire (SCL)    </text>
     <line x1="-251" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.27    </text>
@@ -258,25 +258,25 @@ P0.27    </text>
 22    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SDA    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D0    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#70C9F2" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B0E5C9" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Wire (SDA)    </text>
     <line x1="-251" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.26    </text>
@@ -290,31 +290,31 @@ P0.26    </text>
 32    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MODE    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MODE    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D20    </text>
     <line x1="-192" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#F6F06B" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#FFE949" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MODE    </text>
     <line x1="-251" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.11    </text>
@@ -328,19 +328,19 @@ P0.11    </text>
 34    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESET    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RST    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#F6F06B" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#FFE949" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RST    </text>
@@ -354,31 +354,31 @@ RST    </text>
 36    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 TX    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 TX    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D9    </text>
     <line x1="-192" y1="0" x2="-255" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#9695CA" >
+    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#AFE4EE" >
     </rect>
     <text x="-282.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Serial1 TX    </text>
     <line x1="-310" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.06    </text>
@@ -392,31 +392,31 @@ P0.06    </text>
 38    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RX    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RX    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D10    </text>
     <line x1="-192" y1="0" x2="-255" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#9695CA" >
+    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#AFE4EE" >
     </rect>
     <text x="-282.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Serial1 RX    </text>
     <line x1="-310" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.08    </text>
@@ -430,37 +430,37 @@ P0.08    </text>
 40    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D3    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#70C9F2" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B0E5C9" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Wire1 (SCL)    </text>
     <line x1="-251" y1="0" x2="-255" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#9695CA" >
+    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#AFE4EE" >
     </rect>
     <text x="-282.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Serial1 CTS    </text>
     <line x1="-310" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI1 (MOSI)    </text>
     <line x1="-369" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.01    </text>
@@ -474,37 +474,37 @@ P1.01    </text>
 42    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D2    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#70C9F2" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#B0E5C9" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Wire1 (SDA)    </text>
     <line x1="-251" y1="0" x2="-255" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#9695CA" >
+    <rect x="-310" y="-8" width="55" height="16" stroke="black" fill="#AFE4EE" >
     </rect>
     <text x="-282.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 Serial1 RTS    </text>
     <line x1="-310" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI1 (SCK)    </text>
     <line x1="-369" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.02    </text>
@@ -518,15 +518,15 @@ P1.02    </text>
 44    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM0    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 CELL USBD+    </text>
   </g>
   <g transform="translate(500,382) " >
@@ -538,15 +538,15 @@ CELL USBD+    </text>
 46    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM1    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 CELL USBD-    </text>
   </g>
   <g transform="translate(500,398) " >
@@ -558,25 +558,25 @@ CELL USBD-    </text>
 48    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 CS    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D8    </text>
     <line x1="-158" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI (SS)    </text>
     <line x1="-369" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.03    </text>
@@ -590,31 +590,31 @@ P1.03    </text>
 50    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MISO    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MISO    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D11    </text>
     <line x1="-192" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI (MISO)    </text>
     <line x1="-369" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.14    </text>
@@ -628,31 +628,31 @@ P1.14    </text>
 52    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MOSI    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 MOSI    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D12    </text>
     <line x1="-192" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI (MOSI)    </text>
     <line x1="-369" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.13    </text>
@@ -666,31 +666,31 @@ P1.13    </text>
 54    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SCK    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SCK    </text>
     <line x1="-158" y1="0" x2="-162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-192" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D13    </text>
     <line x1="-192" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI (SCK)    </text>
     <line x1="-369" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.15    </text>
@@ -704,19 +704,19 @@ P1.15    </text>
 56    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="-158" y1="0" x2="-196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="-251" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="-223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -730,15 +730,15 @@ GND    </text>
 58    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(500,494) " >
@@ -750,15 +750,15 @@ NC    </text>
 60    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(500,510) " >
@@ -770,19 +770,19 @@ NC    </text>
 62    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO0    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D22    </text>
     <line x1="-158" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.24    </text>
@@ -796,19 +796,19 @@ P0.24    </text>
 64    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GPIO1    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D23    </text>
     <line x1="-158" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.09    </text>
@@ -822,31 +822,31 @@ P1.09    </text>
 66    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PWM0    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D4    </text>
     <line x1="-158" y1="0" x2="-314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#CCCCCC" >
+    <rect x="-369" y="-8" width="55" height="16" stroke="black" fill="#36CE7E" >
     </rect>
     <text x="-341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SPI1 (MISO)    </text>
     <line x1="-369" y1="0" x2="-373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM1    </text>
     <line x1="-428" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.08    </text>
@@ -860,25 +860,25 @@ P1.08    </text>
 68    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PWM1    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D5    </text>
     <line x1="-158" y1="0" x2="-373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM1    </text>
     <line x1="-428" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.10    </text>
@@ -892,25 +892,25 @@ P1.10    </text>
 70    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PWM2    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D6    </text>
     <line x1="-158" y1="0" x2="-373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM1    </text>
     <line x1="-428" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.11    </text>
@@ -924,25 +924,25 @@ P1.11    </text>
 72    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 PWM3    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D7    </text>
     <line x1="-158" y1="0" x2="-373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="-428" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="-400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM0    </text>
     <line x1="-428" y1="0" x2="-432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="-487" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="-459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P1.12    </text>
@@ -956,15 +956,15 @@ P1.12    </text>
 74    </text>
     <line x1="-30" y1="0" x2="-34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="-94" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="-64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM2    </text>
     <line x1="-94" y1="0" x2="-98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="-158" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="-128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 CELL VBUS    </text>
   </g>
   <g transform="translate(530,30) " >
@@ -976,19 +976,19 @@ CELL VBUS    </text>
 1    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1002,19 +1002,19 @@ GND    </text>
 3    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1028,19 +1028,19 @@ GND    </text>
 5    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1054,19 +1054,19 @@ GND    </text>
 7    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1080,19 +1080,19 @@ GND    </text>
 9    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1106,15 +1106,15 @@ GND    </text>
 11    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 USB D+    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 USBDATA+    </text>
   </g>
   <g transform="translate(530,126) " >
@@ -1126,15 +1126,15 @@ USBDATA+    </text>
 13    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 USB D-    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 USBDATA-    </text>
   </g>
   <g transform="translate(530,142) " >
@@ -1146,19 +1146,19 @@ USBDATA-    </text>
 15    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1172,19 +1172,19 @@ GND    </text>
 17    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM3    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NFC1    </text>
     <line x1="158" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.09    </text>
@@ -1198,19 +1198,19 @@ P0.09    </text>
 19    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM4    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NFC2    </text>
     <line x1="158" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.10    </text>
@@ -1224,19 +1224,19 @@ P0.10    </text>
 21    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="black" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#01131D" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 GND    </text>
@@ -1250,37 +1250,37 @@ GND    </text>
 23    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC0    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A0    </text>
     <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D19    </text>
     <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC1    </text>
     <line x1="369" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM2    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.03    </text>
@@ -1294,37 +1294,37 @@ P0.03    </text>
 33    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC1    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A1    </text>
     <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D18    </text>
     <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC2    </text>
     <line x1="369" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM2    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.04    </text>
@@ -1338,31 +1338,31 @@ P0.04    </text>
 35    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC2    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A2    </text>
     <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D17    </text>
     <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC4    </text>
     <line x1="369" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.28    </text>
@@ -1376,31 +1376,31 @@ P0.28    </text>
 37    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC3    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A3    </text>
     <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D16    </text>
     <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC5    </text>
     <line x1="369" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.29    </text>
@@ -1414,19 +1414,19 @@ P0.29    </text>
 39    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 AGND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 AGND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 AGND    </text>
@@ -1440,31 +1440,31 @@ AGND    </text>
 41    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A4    </text>
     <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D15    </text>
     <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC6    </text>
     <line x1="369" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.30    </text>
@@ -1478,31 +1478,31 @@ P0.30    </text>
 43    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A5    </text>
     <line x1="158" y1="0" x2="162" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="162" y="-8" width="30" height="16" stroke="black" fill="#5CECFF" >
     </rect>
-    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="177" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 D14    </text>
     <line x1="192" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC7    </text>
     <line x1="369" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.31    </text>
@@ -1516,31 +1516,31 @@ P0.31    </text>
 45    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A6    </text>
     <line x1="158" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC3    </text>
     <line x1="369" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM2    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.05    </text>
@@ -1554,31 +1554,31 @@ P0.05    </text>
 47    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 A7    </text>
     <line x1="158" y1="0" x2="314" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#98CD67" >
+    <rect x="314" y="-8" width="55" height="16" stroke="black" fill="#BA70C6" >
     </rect>
     <text x="341.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 ADC0    </text>
     <line x1="369" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM2    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.02    </text>
@@ -1592,19 +1592,19 @@ P0.02    </text>
 49    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 AGND    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 AGND    </text>
     <line x1="158" y1="0" x2="196" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#CE3234" >
+    <rect x="196" y="-8" width="55" height="16" stroke="black" fill="#B80023" >
     </rect>
     <text x="223.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 AGND    </text>
@@ -1618,15 +1618,15 @@ AGND    </text>
 51    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(530,430) " >
@@ -1638,15 +1638,15 @@ NC    </text>
 53    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(530,446) " >
@@ -1658,15 +1658,15 @@ NC    </text>
 55    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(530,462) " >
@@ -1678,15 +1678,15 @@ NC    </text>
 57    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(530,478) " >
@@ -1698,15 +1698,15 @@ NC    </text>
 59    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RESERVED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
   <g transform="translate(530,494) " >
@@ -1718,25 +1718,25 @@ NC    </text>
 61    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RED    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RGBR    </text>
     <line x1="158" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM0    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.13    </text>
@@ -1750,25 +1750,25 @@ P0.13    </text>
 63    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 GREEN    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RGBG    </text>
     <line x1="158" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM0    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.14    </text>
@@ -1782,25 +1782,25 @@ P0.14    </text>
 65    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 BLUE    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 RGBB    </text>
     <line x1="158" y1="0" x2="373" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#FACBCD" >
+    <rect x="373" y="-8" width="55" height="16" stroke="black" fill="#007580" >
     </rect>
-    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
+    <text x="400.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
 PWM0    </text>
     <line x1="428" y1="0" x2="432" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#FFFFFF" >
+    <rect x="432" y="-8" width="55" height="16" stroke="black" fill="#BBBDC4" >
     </rect>
     <text x="459.5" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 P0.15    </text>
@@ -1814,15 +1814,15 @@ P0.15    </text>
 67    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM5    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SIM_VCC    </text>
   </g>
   <g transform="translate(530,558) " >
@@ -1834,15 +1834,15 @@ SIM_VCC    </text>
 69    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM6    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SIM_RST    </text>
   </g>
   <g transform="translate(530,574) " >
@@ -1854,15 +1854,15 @@ SIM_RST    </text>
 71    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM7    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SIM_CLK    </text>
   </g>
   <g transform="translate(530,590) " >
@@ -1874,15 +1874,15 @@ SIM_CLK    </text>
 73    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM8    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SIM_DATA    </text>
   </g>
   <g transform="translate(530,606) " >
@@ -1894,15 +1894,15 @@ SIM_DATA    </text>
 75    </text>
     <line x1="30" y1="0" x2="34" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF997A" >
+    <rect x="34" y="-8" width="60" height="16" stroke="black" fill="#FF9F61" >
     </rect>
     <text x="64" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 SOM9    </text>
     <line x1="94" y1="0" x2="98" y2="0" stroke="black" stroke-width="1" >
     </line>
-    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#6D6E71" >
+    <rect x="98" y="-8" width="60" height="16" stroke="black" fill="#00E1FF" >
     </rect>
-    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="white" >
+    <text x="128" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, Helvetica, sans-serif" font-size="8px" fill="black" >
 NC    </text>
   </g>
 </svg>
