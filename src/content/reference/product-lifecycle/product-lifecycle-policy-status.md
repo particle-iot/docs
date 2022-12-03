@@ -39,9 +39,9 @@ Upon changing the lifecycle status of a hardware SKU from GA or NRND to Deprecat
 | Gen 3 | 2G, 3G | BRN310TRAY50 | Boron 2G/3G (Global), Tray \[x50\]           | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
 | Gen 3 | LTE M1 | B402MTY      | B Series LTE CAT-M1 (NorAm), Tray \[x50\]    | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
 | Gen 3 | LTE M1 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray \[x50\]       | 3/15/22      | Deprecated     | 6/30/22  | 3/31/25        |
-| Gen 2 | 2G, 3G | E260TRAY50   | Electron 2G/3G (Americas/Aus), Tray \[x50\]  |              | End of Sale    |          | 3/31/25        |
-| Gen 2 | 2G, 3G | E270TRAY50   | Electron 2G/3G (EMEA), Tray \[x50\]          |              | End of Sale    |          | 3/31/25        |
-| Gen 2 | 2G     | E350TRAY50   | Electron 2G (Global), Tray \[x50\]           |              | End of Sale    |          | 3/31/25        |
+| Gen 2 | 2G, 3G | E260TRAY50   | Electron 2G/3G (Americas/Aus), Tray \[x50\]  |              | Deprecated     |          | 3/31/25        |
+| Gen 2 | 2G, 3G | E270TRAY50   | Electron 2G/3G (EMEA), Tray \[x50\]          |              | Deprecated     |          | 3/31/25        |
+| Gen 2 | 2G     | E350TRAY50   | Electron 2G (Global), Tray \[x50\]           |              | Deprecated     |          | 3/31/25        |
 | Gen 3 | Mesh   | XENNTRAY50   | Xenon in Trays                               |              | End of Support | 4/20/20  | 12/31/20       |
 
 ## Software products

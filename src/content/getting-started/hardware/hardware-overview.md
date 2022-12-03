@@ -28,8 +28,14 @@ If you want an off-the-shelf device can requires little or no hardware design, t
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | GA |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | GA |
+| ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | GA |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | GA |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | GA |
+| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | In development |
+| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | In development |
+| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | In development |
+| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b7083b52-4bd3-47a6-85e8-396922c41b33 --}}
@@ -65,6 +71,10 @@ If you are interested in measuring temperature and humidity, an [external sensor
 
 | SKU | Description | Lifecycle |
 | :--- | :--- | :--- |
+| M8CABEA | M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1] | GA |
+| M8CABRAEA | M8 Accessory Cable (Right Angle), [x1] | GA |
+| M8CABRATY | M8 Accessory Cable (Right Angle), [x40] | GA |
+| M8CABTY | M8 Accessory Cable (Straight), [x40] | GA |
 | M8CONNEA | M8 Connector (Straight), [x1] | GA |
 | M8CONNTY | M8 Connector (Straight), [x40] | GA |
 | M8TEMPHUMIEA | M8 Sensor Temperature/Humidity (Straight), [x1] | GA |
@@ -73,8 +83,8 @@ If you are interested in measuring temperature and humidity, an [external sensor
 | ONEM8CABRAEA | M8 Accessory Cable 5V Power 3.3V Logic Right Angle), [x1] | GA |
 | ONEM8CABRATY | M8 Accessory Cable 5V Power 3.3V Logic (Right Angle), [x40] | GA |
 | ONEM8CABTY | M8 Accessory Cable 5V Power 3.3V Logic Straight), [x40] | GA |
-| M8CAB3VEA | M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1] | Sampling |
-| M8CAB3VTY | M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40] | Sampling |
+| M8CAB3VEA | M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1] | In development |
+| M8CAB3VTY | M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40] | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 6a02fd77-1222-4208-8da5-45c9290c5f6d --}}
@@ -112,15 +122,10 @@ If you're not sure whether you want cellular or Wi-Fi, see [Cellular or Wi-Fi](#
 
 | SKU | Description | Region | Battery Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :--- |
-| ARG-STRTKT | Argon Starter Kit [x1] | Global | &nbsp; | GA |
-| ARGN-H | Argon [x1] | Global | &nbsp; | GA |
-| ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | GA |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | GA |
-| PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | In development |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | In development |
+| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 455bf1d0-0230-4074-bfa7-99ce6e4f6245 --}}
@@ -342,11 +347,10 @@ The available models include:
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | GA |
+| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 
@@ -391,12 +395,9 @@ The available models include:
 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | &check; | NRND-US |
 
 
 {{!-- END do not edit content above, it is automatically generated 518869dc-61de-43db-add1-f0d57956c4e0 --}}
@@ -433,12 +434,20 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | &check; | &check; | GA |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &check; | &check; | GA |
-| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &nbsp; | &check; | GA |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
+| ONE404MEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | &check; | GA |
+| ONE404MTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | &check; | GA |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | &check; | GA |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | EMEAA | &check; | &check; | GA |
+| ONE404XMEA | Tracker One LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &check; | &check; | In development |
+| ONE404XMTY | Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | NORAM | &check; | &check; | In development |
+| ONE524XMEA | Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &check; | &check; | In development |
+| ONE524XMTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | &check; | &check; | In development |
+| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | In development |
+| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | In development |
+| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
+| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | In development |
+| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | In development |
+| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated b9f495c6-80bc-49d7-a4b7-cb210f89fb65 --}}
@@ -486,10 +495,6 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | &check; | NRND-US |
-| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | &nbsp; | &check; | NRND-US |
-| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | &check; | &check; | NRND-US |
-| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | NRND-US |
 
 
 {{!-- END do not edit content above, it is automatically generated 5e188545-21ff-4ef8-9510-155caea7014e --}}
@@ -608,10 +613,6 @@ The Argon in a Gen 3 Wi-Fi device in a prototyping form-factor (pins on the bott
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | GA |
-| ARG-STRTKT | Argon Starter Kit [x1] | Global | GA |
-| ARGN-H | Argon [x1] | Global | GA |
-| ARGNKIT | Argon, Starter Kit  [x1] | Global | GA |
 
 
 {{!-- END do not edit content above, it is automatically generated a1f313d4-5b1a-409e-b03c-32ebec003b10--}}
@@ -702,7 +703,8 @@ The P1 is intended for production use. It is an older Gen 2 models as is depreca
 | :--- | :--- | :--- | :--- |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | GA |
-| PHN2MEA | Photon 2, Kit [x1] | Global | In development |
+| PHN2KIT | Photon 2, Kit [x1] | Global | In development |
+| PHN2MEA | Photon 2, [x1] | Global | In development |
 | PHN2MTY | Photon 2, Tray [x50] | Global | In development |
 
 
@@ -724,17 +726,12 @@ These modules are pin-compatible in the Feather form-factor, so you can make two
 
 | SKU | Description | Region | Battery Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :--- |
-| ARG-STRTKT | Argon Starter Kit [x1] | Global | &nbsp; | GA |
-| ARGN-H | Argon [x1] | Global | &nbsp; | GA |
-| ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | GA |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | GA |
-| PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | In development |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | In development |
+| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | In development |
 | PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | In development |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | NRND-US |
 
 
 {{!-- END do not edit content above, it is automatically generated a4c0c80f-3745-4b3c-b6dd-e774c4c71ad5 --}}
@@ -772,31 +769,27 @@ The following pins are used by Ethernet. These cannot be reconfigured.
 
 | SKU | Description | Region | Battery Inc | Cell Ant Inc | Lifecycle |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| ARG-STRTKT | Argon Starter Kit [x1] | Global | &nbsp; | &nbsp; | GA |
-| ARGN-H | Argon [x1] | Global | &nbsp; | &nbsp; | GA |
-| ARGNKIT | Argon, Starter Kit  [x1] | Global | &nbsp; | &nbsp; | GA |
-| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | &nbsp; | &check; | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | &nbsp; | &nbsp; | GA |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
+| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | GA |
+| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | &nbsp; | &check; | GA |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &nbsp; | GA |
 | BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | &nbsp; | &check; | GA |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | NORAM | &nbsp; | &check; | GA |
 | BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | &nbsp; | &nbsp; | GA |
 | FWNG-ETH | Particle Ethernet FeatherWing, [x1] | Global | &nbsp; | &nbsp; | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | &nbsp; | &nbsp; | GA |
 | P2MOD10 | P2 Wi-Fi Module, Cut tape [x10] | Global | &nbsp; | &nbsp; | GA |
 | P2REEL | P2 Wi-Fi Module, Reel [x600] | Global | &nbsp; | &nbsp; | GA |
-| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | &nbsp; | &check; | GA |
-| T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | GA |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | EMEAA | &nbsp; | &check; | GA |
-| T524MKIT | Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | GA |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
-| PHN2MEA | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
+| PHN2KIT | Photon 2, Kit [x1] | Global | &nbsp; | &nbsp; | In development |
+| PHN2MEA | Photon 2, [x1] | Global | &nbsp; | &nbsp; | In development |
 | PHN2MTY | Photon 2, Tray [x50] | Global | &nbsp; | &nbsp; | In development |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | &check; | &check; | NRND-US |
+| T404XMEA | Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | NORAM | &nbsp; | &check; | In development |
+| T404XMKIT | Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | &nbsp; | &check; | In development |
+| T404XMTY | Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | NORAM | &nbsp; | &nbsp; | In development |
+| T524XMEA | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | EMEAA | &nbsp; | &check; | In development |
+| T524XMKIT | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | EMEAA | &nbsp; | &check; | In development |
+| T524XMTY | Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | &nbsp; | &check; | In development |
 
 
 {{!-- END do not edit content above, it is automatically generated 2de596b8-2889-4df7-86d1-910d5551b34f --}}

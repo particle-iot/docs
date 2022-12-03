@@ -193,11 +193,10 @@ If you want to migrate from the Electron or E Series to the B Series SoM, see [G
 
 | SKU | Description | Region | Lifecycle |
 | :--- | :--- | :--- | :--- |
-| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | GA |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | GA |
-| B524MEA | B Series LTE CAT-1/3G/2G (EMEAA) [x1] | EMEAA | GA |
-| B524MTY | B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | EMEAA | GA |
+| B404XMEA | B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | GA |
+| B404XMTY | B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | GA |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | EMEAA | GA |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | EMEAA | GA |
 | M2EVAL | Particle M.2 SoM Evaluation Board [x1] | Global | GA |
 
 

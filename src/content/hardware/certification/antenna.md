@@ -79,80 +79,90 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 
 | Device | SKU  | Included | Antenna | Alternate | Lifecycle |
 | :----- | :--- | :--------: | :------: | :--------: | :-------: |
-| Asset Tracker 2G | ASSET2GV2 | &check; | ANT-ELEC | &nbsp; | End of life|
-| Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | ANT-ELEC | &nbsp; | End of life|
-| Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | ANT-ELEC | &nbsp; | End of life|
-| B Series LTE CAT-1/3G/2G (EMEAA) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
+| Asset Tracker 2G | ASSET2GV2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
+| Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
+| Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | ANT-ELEC | &nbsp; | Deprecated|
+| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | ANTCW2EA | &nbsp; | GA|
+| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | NRND|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | GA|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | PARANTC41EA | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | PARANTC41EA | &nbsp; | GA|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | End of life|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | NRND-US|
-| Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXU | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | PARANTC41EA | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXU | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXU | &nbsp; | GA|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXU | &nbsp; | NRND|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXU | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404XKIT | &check; | PARANTC41EA | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | BRN404TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXU | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXU | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXU | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | PARANTC41EA | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXU | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXU | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &nbsp; | ANT-FLXU | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &nbsp; | PARANTC41EA | &nbsp; | GA|
-| E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
-| E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
-| E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series 2G/3G (Global - E313), [x1] | E313EA | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
+| E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | E310KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E Series 2G/3G (Global - E310), [x1] | E310MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E Series 2G/3G (Global - E310), Tray [x50] | E310TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E Series 2G/3G (Global - E313), [x1] | E313EA | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
 | E Series 2G/3G (Global - E313), Tray [x50] | E313TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | End of life|
-| E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
-| E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND-US|
-| E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | E314KIT | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E Series 2G/3G (Global - E314), [x1] | E314MOD1 | &check; | ANTELEC | ANTCW2EA<sup>2</sup> | Deprecated|
+| E Series 2G/3G (Global - E314), Tray [x50] | E314TRAY50 | &nbsp; | ANTELEC | ANTCW2EA<sup>2</sup> | NRND|
+| E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | E404XTRAY50 | &nbsp; | PARANTC41EA | &nbsp; | In development|
-| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | End of life|
-| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E404KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
-| E Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | End of life|
-| E Series LTE CAT-M1 (NorAm), [x1] | E404MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
-| E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| E Series LTE CAT-M1 (NorAm), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC | &nbsp; | End of life|
-| Electron 2G Kit (Global) | E350KIT | &check; | ANTELEC | &nbsp; | End of life|
-| Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | ANTELEC | &nbsp; | End of life|
-| Electron 2G/3G (Americas/Aus), Tray [x50] | E260TRAY50 | &nbsp; | ANTELEC | &nbsp; | End of life|
-| Electron 2G/3G (EMEA) Starter Kit, [x1] | E270KIT | &check; | ANTELEC | &nbsp; | End of life|
-| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | &nbsp; | ANTELEC | &nbsp; | End of life|
-| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | ANT-FLXU | &nbsp; | Deprecated|
-| Electron 3G (Americas/Aus) Sensor Kit, [x1] | SNSRKIT3G260 | &check; | ANT-ELEC | &nbsp; | End of life|
-| Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | SNSRKIT3G270 | &check; | ANT-ELEC | &nbsp; | End of life|
+| E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | E402KIT | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| E Series LTE CAT-M1 (NorAm), [x1] | E402MOD1 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
+| E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC | &nbsp; | Deprecated|
+| Electron 2G Kit (Global) | E350KIT | &check; | ANTELEC | &nbsp; | Deprecated|
+| Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | ANTELEC | &nbsp; | Deprecated|
+| Electron 2G/3G (Americas/Aus), Tray [x50] | E260TRAY50 | &nbsp; | ANTELEC | &nbsp; | Deprecated|
+| Electron 2G/3G (EMEA) Starter Kit, [x1] | E270KIT | &check; | ANTELEC | &nbsp; | Deprecated|
+| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | &nbsp; | ANTELEC | &nbsp; | NRND|
+| Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | ANT-FLXU | &nbsp; | NRND|
+| Electron 3G (Americas/Aus) Sensor Kit, [x1] | SNSRKIT3G260 | &check; | ANT-ELEC | &nbsp; | Deprecated|
+| Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1] | SNSRKIT3G270 | &check; | ANT-ELEC | &nbsp; | NRND|
+| Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | Deprecated|
-| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC404TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND-US|
-| Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | &check; | 1 | &nbsp; | Deprecated|
-| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | 1 | &nbsp; | Deprecated|
-| Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | &check; | 1 | &nbsp; | GA|
+| Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524XMEA | &check; | 1 | &nbsp; | In development|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | 1 | &nbsp; | GA|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | 1 | &nbsp; | NRND|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE524XMTY | &check; | 1 | &nbsp; | In development|
+| Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | 1 | &nbsp; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe), [x1] | ONE523MEA | &check; | 1 | &nbsp; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | 1 | &nbsp; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE404MEA | &check; | 1 | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404MEA | &check; | 1 | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404XMEA | &check; | 1 | &nbsp; | In development|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404MTY | &check; | 1 | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404XMTY | &check; | 1 | &nbsp; | In development|
+| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | 1 | &nbsp; | Deprecated|
 | Tracker One LTE M1 (NorAm), Bulk [x40] | ONE402MTY | &check; | 1 | &nbsp; | Deprecated|
-| Tracker One LTE M1 (NorAm), Bulk [x40] | ONE404MTY | &check; | 1 | &nbsp; | Deprecated|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | T524MKIT | &check; | ANTCW2EA | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | T524MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | T524MTY | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524MKIT | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524XMKIT | &check; | ANTCW2EA | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524XMEA | &check; | ANTCW2EA | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524MTY | &check; | ANTCW2EA | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524XMTY | &check; | ANTCW2EA | &nbsp; | In development|
 | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | T523MKIT | &check; | ANTCW2EA | &nbsp; | NRND|
-| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | ANTCW2EA | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
 | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | T523MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | ANTCW2EA | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T404MKIT | &check; | ANTCW2EA | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | ANTCW2EA | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm), [x1] | T404MEA | &check; | ANTCW2EA | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &nbsp; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404MKIT | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404XMKIT | &check; | ANTCW2EA | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404XMEA | &check; | ANTCW2EA | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404XMTY | &nbsp; | ANTCW2EA | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | ANTCW2EA | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated 95bdb290-775f-11eb-9439-0242ac130002 --}}
@@ -172,7 +182,7 @@ These devices do not have a cellular modem and therefore do not need a cellular 
 | :----- | :--- |
 | Argon | ARG-AQKT, ARG-LDKT, ARG-STRTKT, ARGN-H, ARGNKIT, ARGNTRAY50|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2MEA, PHN2MTY|
+| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2KIT, PHN2MEA, PHN2MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 57d69268-776d-11eb-9439-0242ac130002 --}}
@@ -236,45 +246,56 @@ The Particle 2.4 GHz Wi-Fi antenna is available in the [retail](https://store.pa
 
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
-| Argon [x1] | ARGN-H | &nbsp; | ANT-FLXV2 | &check; | GA|
-| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &nbsp; | ANT-FLXV2 | &check; | GA|
-| Argon Leak Detection Kit [x1] | ARG-LDKT | &nbsp; | ANT-FLXV2 | &check; | End of life|
-| Argon Starter Kit [x1] | ARG-STRTKT | &nbsp; | ANT-FLXV2 | &check; | GA|
-| Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | GA|
-| Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
-| P0 Wi-Fi Module, Cut tape [x10] | P0MOD10 | &nbsp; | true | &nbsp; | End of life|
+| Argon [x1] | ARGN-H | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon Leak Detection Kit [x1] | ARG-LDKT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
+| Argon Starter Kit [x1] | ARG-STRTKT | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon, Starter Kit  [x1] | ARGNKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| Argon, Tray [x50] | ARGNTRAY50 | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| P0 Wi-Fi Module, Cut tape [x10] | P0MOD10 | &nbsp; | true | &nbsp; | Deprecated|
 | P0 Wi-Fi Module, Reel [x2000] | P0REEL | &nbsp; | true | &nbsp; | Deprecated|
 | P1 Wi-Fi Module, Cut tape [x10] | P1MOD10 | trace | 3 | &nbsp; | NRND|
-| P1 Wi-Fi Module, Reel [x500] | P1REEL | trace | 3 | &nbsp; | Deprecated|
+| P1 Wi-Fi Module, Reel [x500] | P1REEL | trace | 3 | &nbsp; | NRND|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | trace | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | trace | 4 | &nbsp; | GA|
-| Photon 2, Kit [x1] | PHN2MEA | trace | 4 | &nbsp; | In development|
+| Photon 2, [x1] | PHN2MEA | trace | 4 | &nbsp; | In development|
+| Photon 2, Kit [x1] | PHN2KIT | trace | 4 | &nbsp; | In development|
 | Photon 2, Tray [x50] | PHN2MTY | trace | 4 | &nbsp; | In development|
-| Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | End of life|
-| Photon with Headers, [x1] | PHOTONH | chip | 3 | &nbsp; | GA|
-| Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | Deprecated|
-| Photon without Headers, Dev board Kit [x1] | PHOTONNOH | chip | 3 | &nbsp; | End of life|
-| Photon without Headers, Tray [x50] | PHNTRAYNOH | chip | 3 | &nbsp; | Deprecated|
-| Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | 1 | &nbsp; | &nbsp; | Deprecated|
-| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | 1 | &nbsp; | &nbsp; | Deprecated|
-| Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | 1 | &nbsp; | &nbsp; | GA|
+| Photon with Headers Starter Kit, [x1] | PHOTONKIT | chip | 3 | &nbsp; | Deprecated|
+| Photon with Headers, [x1] | PHOTONH | chip | 3 | &nbsp; | Deprecated|
+| Photon with Headers, Tray [x50] | PHNTRAYH | chip | 3 | &nbsp; | NRND|
+| Photon without Headers, Dev board Kit [x1] | PHOTONNOH | chip | 3 | &nbsp; | Deprecated|
+| Photon without Headers, Tray [x50] | PHNTRAYNOH | chip | 3 | &nbsp; | NRND|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524XMEA | 1 | &nbsp; | &nbsp; | In development|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | 1 | &nbsp; | &nbsp; | GA|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | 1 | &nbsp; | &nbsp; | NRND|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE524XMTY | 1 | &nbsp; | &nbsp; | In development|
+| Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | 1 | &nbsp; | &nbsp; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe), [x1] | ONE523MEA | 1 | &nbsp; | &nbsp; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | 1 | &nbsp; | &nbsp; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE404MEA | 1 | &nbsp; | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404MEA | 1 | &nbsp; | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404XMEA | 1 | &nbsp; | &nbsp; | In development|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404MTY | 1 | &nbsp; | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404XMTY | 1 | &nbsp; | &nbsp; | In development|
+| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | 1 | &nbsp; | &nbsp; | Deprecated|
 | Tracker One LTE M1 (NorAm), Bulk [x40] | ONE402MTY | 1 | &nbsp; | &nbsp; | Deprecated|
-| Tracker One LTE M1 (NorAm), Bulk [x40] | ONE404MTY | 1 | &nbsp; | &nbsp; | Deprecated|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | T524MKIT | &nbsp; | ANT-FLXV2 | &check; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | T524MEA | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | T524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524MKIT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524XMKIT | &nbsp; | ANT-FLXV2 | &check; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524MEA | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524XMEA | &nbsp; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | In development|
 | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | T523MKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
-| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | T523MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &nbsp; | ANT-FLXV2 | &check; | NRND|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T404MKIT | &nbsp; | ANT-FLXV2 | &check; | GA|
-| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm), [x1] | T404MEA | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404MKIT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404XMKIT | &nbsp; | ANT-FLXV2 | &check; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404MEA | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404XMEA | &nbsp; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &nbsp; | ANT-FLXV2 | &check; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated 04ed49fe-7766-11eb-9439-0242ac130002 --}}
@@ -336,60 +357,71 @@ These devices include Bluetooth LE (BLE) capabilities.
 
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
-| Argon [x1] | ARGN-H | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | ANT-FLXV2 | &nbsp; | End of life|
-| Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (EMEAA) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
-| B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
+| Argon [x1] | ARGN-H | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Argon Starter Kit [x1] | ARG-STRTKT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon, Starter Kit  [x1] | ARGNKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Argon, Tray [x50] | ARGNTRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
+| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &nbsp; | ANT-FLXV2 | &check; | NRND|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &nbsp; | ANT-FLXV2 | &check; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &nbsp; | ANT-FLXV2 | &check; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | End of life|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | NRND-US|
-| Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXV2 | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXV2 | &nbsp; | GA|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404XKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | BRN404TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | ANT-FLXV2 | &nbsp; | GA|
 | P2 Wi-Fi Module, Cut tape [x10] | P2MOD10 | &check; | 4 | &nbsp; | GA|
 | P2 Wi-Fi Module, Reel [x600] | P2REEL | &check; | 4 | &nbsp; | GA|
-| Photon 2, Kit [x1] | PHN2MEA | &check; | 4 | &nbsp; | In development|
+| Photon 2, [x1] | PHN2MEA | &check; | 4 | &nbsp; | In development|
+| Photon 2, Kit [x1] | PHN2KIT | &check; | 4 | &nbsp; | In development|
 | Photon 2, Tray [x50] | PHN2MTY | &check; | 4 | &nbsp; | In development|
-| Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | &check; | &nbsp; | &nbsp; | Deprecated|
-| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &nbsp; | &nbsp; | Deprecated|
-| Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | &check; | &nbsp; | &nbsp; | GA|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524XMEA | &check; | &nbsp; | &nbsp; | In development|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &nbsp; | &nbsp; | GA|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &nbsp; | &nbsp; | NRND|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE524XMTY | &check; | &nbsp; | &nbsp; | In development|
+| Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &nbsp; | &nbsp; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe), [x1] | ONE523MEA | &check; | &nbsp; | &nbsp; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | &nbsp; | &nbsp; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE404MEA | &check; | &nbsp; | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404MEA | &check; | &nbsp; | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404XMEA | &check; | &nbsp; | &nbsp; | In development|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404MTY | &check; | &nbsp; | &nbsp; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404XMTY | &check; | &nbsp; | &nbsp; | In development|
+| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | &nbsp; | &nbsp; | Deprecated|
 | Tracker One LTE M1 (NorAm), Bulk [x40] | ONE402MTY | &check; | &nbsp; | &nbsp; | Deprecated|
-| Tracker One LTE M1 (NorAm), Bulk [x40] | ONE404MTY | &check; | &nbsp; | &nbsp; | Deprecated|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | T524MKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | T524MEA | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | T524MTY | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524MKIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524XMKIT | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524MEA | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524XMEA | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524MTY | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524XMTY | &check; | ANT-FLXV2 | &nbsp; | In development|
 | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | T523MKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
 | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | T523MTY | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T404MKIT | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | ANT-FLXV2 | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm), [x1] | T404MEA | &check; | ANT-FLXV2 | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404MKIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404XMKIT | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404MEA | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404XMEA | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404MTY | &check; | ANT-FLXV2 | &nbsp; | NRND|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404XMTY | &check; | ANT-FLXV2 | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | ANT-FLXV2 | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | ANT-FLXV2 | &nbsp; | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated 54f1ecbe-7768-11eb-9439-0242ac130002 --}}
@@ -437,56 +469,66 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 
 | Device | SKU  | Compatible | Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :-------: |
-| Argon [x1] | ARGN-H | &check; | &nbsp; | GA|
-| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | &nbsp; | GA|
-| Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | &nbsp; | End of life|
-| Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | GA|
-| Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | GA|
-| Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-1/3G/2G (EMEAA) [x1] | B524MEA | &check; | &nbsp; | GA|
-| B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
+| Argon [x1] | ARGN-H | &check; | &nbsp; | NRND|
+| Argon Air Quality Monitor Kit [x1] | ARG-AQKT | &check; | &nbsp; | NRND|
+| Argon Leak Detection Kit [x1] | ARG-LDKT | &check; | &nbsp; | Deprecated|
+| Argon Starter Kit [x1] | ARG-STRTKT | &check; | &nbsp; | NRND|
+| Argon, Starter Kit  [x1] | ARGNKIT | &check; | &nbsp; | NRND|
+| Argon, Tray [x50] | ARGNTRAY50 | &check; | &nbsp; | NRND|
+| B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1] | B524MEA | &check; | &nbsp; | GA|
+| B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50] | B524MTY | &check; | &nbsp; | GA|
 | B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | &nbsp; | NRND|
 | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | B523MTY | &check; | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404MEA | &check; | &nbsp; | NRND|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | B404XMEA | &check; | &nbsp; | GA|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404MTY | &check; | &nbsp; | Deprecated|
+| B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), [x1] | B402MEA | &check; | &nbsp; | NRND|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404MEA | &check; | &nbsp; | GA|
-| B Series LTE CAT-M1 (NorAm), [x1] | B404XMEA | &check; | &nbsp; | GA|
 | B Series LTE CAT-M1 (NorAm), Tray [x50] | B402MTY | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404MTY | &check; | &nbsp; | Deprecated|
-| B Series LTE CAT-M1 (NorAm), Tray [x50] | B404XMTY | &check; | &nbsp; | GA|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | End of life|
-| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | NRND-US|
-| Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | &nbsp; | Deprecated|
-| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | &nbsp; | End of life|
-| Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | BRN404XKIT | &check; | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | &nbsp; | GA|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN310KIT | &check; | &nbsp; | NRND|
+| Boron 2G/3G (Global) Starter Kit, [x1] | BRN314KIT | &check; | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN310TRAY50 | &check; | &nbsp; | NRND|
+| Boron 2G/3G (Global), Tray [x50] | BRN314TRAY50 | &check; | &nbsp; | NRND|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404KIT | &check; | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1] | BRN404XKIT | &check; | &nbsp; | GA|
+| Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | BRN404TRAY50 | &check; | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1] | BRN402-AQKT | &check; | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN402 | &check; | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), [x1] | BRN404 | &check; | &nbsp; | Deprecated|
 | Boron LTE CAT-M1 (NorAm), [x1] | BRN404X | &check; | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | &nbsp; | NRND|
-| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN404KIT | &check; | &nbsp; | GA|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | &nbsp; | Deprecated|
-| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404TRAY50 | &check; | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), Starter Kit [x1] | BRN402KIT | &check; | &nbsp; | Deprecated|
+| Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN402TRAY50 | &check; | &nbsp; | NRND|
 | Boron LTE CAT-M1 (NorAm), Tray [x50] | BRN404XTRAY50 | &check; | &nbsp; | GA|
-| Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | &check; | &check; | Deprecated|
-| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | Deprecated|
-| Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | &check; | &check; | GA|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524XMEA | &check; | &check; | In development|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &check; | GA|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | NRND|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE524XMTY | &check; | &check; | In development|
+| Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &check; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe), [x1] | ONE523MEA | &check; | &check; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | &check; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE404MEA | &check; | &check; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404MEA | &check; | &check; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404XMEA | &check; | &check; | In development|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404MTY | &check; | &check; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404XMTY | &check; | &check; | In development|
+| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | &check; | Deprecated|
 | Tracker One LTE M1 (NorAm), Bulk [x40] | ONE402MTY | &check; | &check; | Deprecated|
-| Tracker One LTE M1 (NorAm), Bulk [x40] | ONE404MTY | &check; | &check; | Deprecated|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | T524MKIT | &check; | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | T524MEA | &check; | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | T524MTY | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524MKIT | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524XMKIT | &check; | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524MEA | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524XMEA | &check; | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524MTY | &check; | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524XMTY | &check; | &nbsp; | In development|
 | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | T523MKIT | &check; | &nbsp; | NRND|
-| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | &nbsp; | Deprecated|
 | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | T523MTY | &check; | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T404MKIT | &check; | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm), [x1] | T404MEA | &check; | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404MKIT | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404XMKIT | &check; | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404MEA | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404XMEA | &check; | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404MTY | &check; | &nbsp; | NRND|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404XMTY | &check; | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | &nbsp; | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated 2b1c34c8-776b-11eb-9439-0242ac130002 --}}
@@ -505,7 +547,7 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313EA, E313TRAY50, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50, E404XTRAY50|
 | Electron | ASSET2GV2, ASSET3G260V2, ASSET3G270V2, E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350KIT, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY, SNSRKIT3G260, SNSRKIT3G270|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH, PHOTONKIT, PHOTONNOH|
-| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2MEA, PHN2MTY|
+| P Series | P0MOD10, P0REEL, P1MOD10, P1REEL, P2MOD10, P2REEL, PHN2KIT, PHN2MEA, PHN2MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 6b9301fa-776e-11eb-9439-0242ac130002 --}}
@@ -532,29 +574,39 @@ The following devices have GNSS capabilities:
 
 | Device | SKU  | Compatible | Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :-------: |
-| Asset Tracker 2G | ASSET2GV2 | &check; | &check; | End of life|
-| Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | End of life|
-| Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | End of life|
-| Tracker One CAT1/3G/2G (EMEAA), Bulk [x40] | ONE524MTY | &check; | &check; | Deprecated|
-| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | Deprecated|
-| Tracker One LTE CAT1/3G/2G (EMEAA), [x1] | ONE524MEA | &check; | &check; | GA|
+| Asset Tracker 2G | ASSET2GV2 | &check; | &check; | Deprecated|
+| Asset Tracker 3G (Americas/Aus) | ASSET3G260V2 | &check; | &check; | Deprecated|
+| Asset Tracker 3G (Eur/Asia/Afr) | ASSET3G270V2 | &check; | &check; | Deprecated|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524XMEA | &check; | &check; | In development|
+| Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40] | ONE524MTY | &check; | &check; | GA|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | NRND|
+| Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE524XMTY | &check; | &check; | In development|
+| Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | ONE524MEA | &check; | &check; | GA|
 | Tracker One LTE CAT1/3G/2G (Europe), [x1] | ONE523MEA | &check; | &check; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | &check; | NRND|
-| Tracker One LTE M1 (NorAm), [x1] | ONE404MEA | &check; | &check; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404MEA | &check; | &check; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), [x1] | ONE404XMEA | &check; | &check; | In development|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404MTY | &check; | &check; | GA|
+| Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40] | ONE404XMTY | &check; | &check; | In development|
+| Tracker One LTE M1 (NorAm), [x1] | ONE402MEA | &check; | &check; | Deprecated|
 | Tracker One LTE M1 (NorAm), Bulk [x40] | ONE402MTY | &check; | &check; | Deprecated|
-| Tracker One LTE M1 (NorAm), Bulk [x40] | ONE404MTY | &check; | &check; | Deprecated|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1] | T524MKIT | &check; | &check; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1] | T524MEA | &check; | &nbsp; | GA|
-| Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50] | T524MTY | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524MKIT | &check; | &check; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1] | T524XMKIT | &check; | &check; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524MEA | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1] | T524XMEA | &check; | &nbsp; | In development|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524MTY | &check; | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50] | T524XMTY | &check; | &nbsp; | In development|
 | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | T523MKIT | &check; | &check; | NRND|
-| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | &nbsp; | NRND|
+| Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | T523MEA | &check; | &nbsp; | Deprecated|
 | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | T523MTY | &check; | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | &check; | NRND|
-| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T404MKIT | &check; | &check; | GA|
-| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | &nbsp; | NRND|
-| Tracker SoM LTE M1 (NorAm), [x1] | T404MEA | &check; | &nbsp; | GA|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | &nbsp; | Deprecated|
-| Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404MKIT | &check; | &check; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | T404XMKIT | &check; | &check; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404MEA | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), [x1] | T404XMEA | &check; | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404MTY | &check; | &nbsp; | NRND|
+| Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50] | T404XMTY | &check; | &nbsp; | In development|
+| Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | T402MKIT | &check; | &check; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), [x1] | T402MEA | &check; | &nbsp; | Deprecated|
+| Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | &nbsp; | NRND|
 
 
 {{!-- END do not edit content above, it is automatically generated dd897350-776b-11eb-9439-0242ac130002 --}}
