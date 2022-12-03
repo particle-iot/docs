@@ -39,18 +39,64 @@ apiHelper.getDeviceRestoreInfo = function() {
     });
 };
 
+let carriersJsonRequests;
+let carriersJson;
+
+apiHelper.getCarriersJson = async function() {
+    return new Promise(function(resolve, reject) {
+        if (carriersJsonRequests == undefined) {
+            carriersJsonRequests = [];
+
+            fetch('/assets/files/carriers.json')
+            .then(response => response.json())
+            .then(function(res) {
+                carriersJson = res;
+    
+                // Resolve any promises waiting for this data
+                while(carriersJsonRequests.length) {
+                    carriersJsonRequests.pop()(res);
+                }
+            });
+        }
+
+        if (carriersJson) {
+            resolve(carriersJson);
+        }
+        else {
+            carriersJsonRequests.push(resolve);
+        }
+    });
+}
+
+apiHelper.getDeviceConstants = async function() {
+    const res = await apiHelper.getCarriersJson();    
+    if (res) {
+        return res.deviceConstants;
+    } 
+    else {
+        return null;
+    }
+}
+
+
 apiHelper.getPlatformInfo = async function(platformId) {
-    if (!deviceRestoreInfo) {
-        await apiHelper.getDeviceRestoreInfo();
+    const deviceConstants = await apiHelper.getDeviceConstants();
+    if (deviceConstants) {
+        for(const key in deviceConstants) {
+            if (deviceConstants[key].id == platformId) {
+                return deviceConstants[key];
+            }    
+        }    
     }
 
-    return deviceRestoreInfo.platforms.find(e => e.id == platformId);
+    return null;
 }
+
 
 apiHelper.getPlatformTitle = async function(platformId) {
     const info = await apiHelper.getPlatformInfo(platformId);
     if (info) {
-        return info.title;
+        return info.displayName;
     }
     else {
         return 'Unknown (' + platformId + ')';
@@ -66,6 +112,26 @@ apiHelper.getPlatformName = async function(platformId) {
         return platformId.toString();
     }
 }
+
+apiHelper.getSkuFromSerial = async function(serialNumber) {
+    if (!serialNumber) {
+        return null;
+    }
+    
+    const carriers = await apiHelper.getCarriersJson();    
+    if (!carriers) {
+        return null;
+    }
+    for(const skuObj of carriers.skus) {
+        if (skuObj.prefix) {
+            if (serialNumber.startsWith(skuObj.prefix)) {
+                return skuObj.name;
+            }
+        }
+    }
+    return null;
+}
+
 
 // Sorts the results from getPlatformName putting the real results first A-Z, then
 // the numeric (unknown/deprecated) platforms after it in numerical order
