@@ -1910,7 +1910,7 @@ $(document).ready(function() {
             getTableDataOptions.convertDates = (xlsxData.options.dateFormat != 'iso');
             getTableDataOptions.export = true;
 
-            xlsxData.tableData = awaitgetTableData(xlsxData.configObj, getTableDataOptions);
+            xlsxData.tableData = await getTableData(xlsxData.configObj, getTableDataOptions);
 
             let conversionOptions = {
                 header: xlsxData.tableData.keys
