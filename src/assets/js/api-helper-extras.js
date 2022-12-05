@@ -1691,7 +1691,7 @@ $(document).ready(function() {
             }
         };
 
-        const getTableData = function(configObj, options) {
+        const getTableData = async function(configObj, options) {
 
             let tableData = {
                 keys:[],
@@ -1734,6 +1734,21 @@ $(document).ready(function() {
                     }
 
                     for(const key of tableData.keys) {
+                        if (key.startsWith('_')) {
+                            // Internal converted field
+                            switch(key) {
+                                case '_platformName':
+                                    d[key] = await apiHelper.getPlatformName(deviceInfo['platform_id']);
+                                    break;
+                                case '_sku': 
+                                    d[key] = await apiHelper.getSkuFromSerial(deviceInfo['serial_number']);
+                                    if (!d[key]) {
+                                        d[key] = 'unknown';
+                                    }
+                                    break;
+                            }
+                        }
+                        else
                         if (typeof deviceInfo[key] !== 'undefined') {
                             if (Array.isArray(deviceInfo[key])) {
                                 // Occurs for groups and functions
@@ -1764,9 +1779,9 @@ $(document).ready(function() {
             return tableData;
         } 
 
-        const refreshTable = function(configObj) {            
+        const refreshTable = async function(configObj) {            
             // 
-            const tableData = getTableData(configObj, getOptions());
+            const tableData = await getTableData(configObj, getOptions());
 
             $(deviceTableHeadElem).html('');
             {
@@ -1835,7 +1850,7 @@ $(document).ready(function() {
 
                 setStatus('Device list retrieved!');
 
-                refreshTable($(fieldSelectorElem).data('getConfigObj')());
+                await refreshTable($(fieldSelectorElem).data('getConfigObj')());
 
                 ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
             }
@@ -1861,7 +1876,7 @@ $(document).ready(function() {
         });
 
         $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
-            refreshTable(config);
+            await refreshTable(config);
             updateSearchParam();
         });
 
@@ -1877,7 +1892,7 @@ $(document).ready(function() {
             updateSearchParam();
         });
 
-        const getXlsxData = function(options) {
+        const getXlsxData = async function(options) {
             if (!options) {
                 options = {};
             }
@@ -1895,7 +1910,7 @@ $(document).ready(function() {
             getTableDataOptions.convertDates = (xlsxData.options.dateFormat != 'iso');
             getTableDataOptions.export = true;
 
-            xlsxData.tableData = getTableData(xlsxData.configObj, getTableDataOptions);
+            xlsxData.tableData = await getTableData(xlsxData.configObj, getTableDataOptions);
 
             let conversionOptions = {
                 header: xlsxData.tableData.keys
@@ -1989,13 +2004,13 @@ $(document).ready(function() {
             return xlsxData;
         }
 
-        $(downloadButtonElem).on('click', function() {
-            getXlsxData({toFile: true});
+        $(downloadButtonElem).on('click', async function() {
+            await getXlsxData({toFile: true});
 
         });
 
-        $(copyButtonElem).on('click', function() {
-            getXlsxData({toClipboard: true});
+        $(copyButtonElem).on('click', async function() {
+            await getXlsxData({toClipboard: true});
             
         });
 
