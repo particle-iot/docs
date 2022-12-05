@@ -528,7 +528,8 @@ Photon 2 modules are available from [store.particle.io](https://store.particle.i
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| PHN2MEA | Photon 2, Kit [x1] | Global | In development | |
+| PHN2KIT | Photon 2, Kit [x1] | Global | In development | |
+| PHN2MEA | Photon 2, [x1] | Global | In development | |
 | PHN2MTY | Photon 2, Tray [x50] | Global | In development | |
 
 

@@ -19085,29 +19085,28 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global",
       "prefix": "ADPT"
     },
     {
       "name": "ACC-DEBUG",
       "desc": "Particle Debugger, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
-      "prefix": "DEBG"
+      "prefix": "DEBG",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "ACC-POE",
       "desc": "Power-over-Ethernet Module",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "skuRegion": "global",
       "prefix": "APOE"
@@ -19115,7 +19114,7 @@
     {
       "name": "ARG-AQKT",
       "desc": "Argon Air Quality Monitor Kit [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19132,20 +19131,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "batteryConn": true,
-      "prefix": "P011"
+      "prefix": "P011",
+      "platformId": 12
     },
     {
       "name": "ARG-LDKT",
       "desc": "Argon Leak Detection Kit [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19163,12 +19159,13 @@
       "nfcAntExt": true,
       "nfcAntExtInc": false,
       "batteryConn": true,
-      "prefix": "P013"
+      "prefix": "P013",
+      "platformId": 12
     },
     {
       "name": "ARG-STRTKT",
       "desc": "Argon Starter Kit [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19185,20 +19182,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "batteryConn": true,
-      "prefix": "P010"
+      "prefix": "P010",
+      "platformId": 12
     },
     {
       "name": "ARGN-H",
       "desc": "Argon [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19215,20 +19209,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10,
-      "prefix": "ARNH"
+      "prefix": "ARNH",
+      "platformId": 12
     },
     {
       "name": "ARGNKIT",
       "desc": "Argon, Starter Kit  [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19245,20 +19236,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10,
-      "prefix": "ARNK"
+      "prefix": "ARNK",
+      "platformId": 12
     },
     {
       "name": "ARGNTRAY50",
       "desc": "Argon, Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "3",
@@ -19275,19 +19263,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "ARNT"
+      "prefix": "ARNT",
+      "platformId": 12
     },
     {
       "name": "ASSET2GV2",
       "desc": "Asset Tracker 2G",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -19305,12 +19291,13 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "batteryConn": true,
-      "prefix": "A35K"
+      "prefix": "A35K",
+      "platformId": 10
     },
     {
       "name": "ASSET3G260V2",
       "desc": "Asset Tracker 3G (Americas/Aus)",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -19328,12 +19315,13 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "batteryConn": true,
-      "prefix": "A26K"
+      "prefix": "A26K",
+      "platformId": 10
     },
     {
       "name": "ASSET3G270V2",
       "desc": "Asset Tracker 3G (Eur/Asia/Afr)",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -19351,7 +19339,8 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "batteryConn": true,
-      "prefix": "A27K"
+      "prefix": "A27K",
+      "platformId": 10
     },
     {
       "name": "B402MEA",
@@ -19377,14 +19366,12 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P006"
+      "prefix": "P006",
+      "platformId": 23
     },
     {
       "name": "B402MTY",
@@ -19410,19 +19397,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P007"
+      "prefix": "P007",
+      "platformId": 23
     },
     {
       "name": "B404MEA",
-      "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -19442,18 +19424,16 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P033"
+      "prefix": "P033",
+      "platformId": 23
     },
     {
       "name": "B404MTY",
-      "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
@@ -19474,18 +19454,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P033"
+      "prefix": "P033",
+      "platformId": 23
     },
     {
       "name": "B404XMEA",
-      "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
@@ -19506,11 +19481,16 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "prefix": "P042"
+      "prefix": "P042",
+      "platformId": 23,
+      "batteryConn": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "B404XMTY",
-      "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
@@ -19531,7 +19511,12 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "prefix": "P042"
+      "prefix": "P042",
+      "platformId": 23,
+      "batteryConn": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false
     },
     {
       "name": "B523MEA",
@@ -19558,14 +19543,12 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P019"
+      "prefix": "P019",
+      "platformId": 25
     },
     {
       "name": "B523MTY",
@@ -19592,18 +19575,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P020"
+      "prefix": "P020",
+      "platformId": 25
     },
     {
       "name": "B524MEA",
-      "desc": "B Series LTE CAT-1/3G/2G (EMEAA) [x1]",
+      "desc": "B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "sim": 4,
@@ -19624,18 +19602,16 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P034"
+      "prefix": "P034",
+      "platformId": 25
     },
     {
       "name": "B524MTY",
-      "desc": "B Series LTE CAT-1/3G/2G (EMEAA), Tray [x50]",
+      "desc": "B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "multiple": true,
@@ -19656,19 +19632,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P034"
+      "prefix": "P034",
+      "platformId": 25
     },
     {
       "name": "BAT1800",
       "desc": "Li-Po Battery, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global"
@@ -19676,7 +19650,7 @@
     {
       "name": "BATT18MOD50",
       "desc": "Li-Po Battery, [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": true,
       "skuRegion": "global",
@@ -19685,7 +19659,7 @@
     {
       "name": "BRN310KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "BRN314KIT",
       "modem": "U201",
       "sim": 2,
@@ -19710,12 +19684,16 @@
       "nfcAntExtInc": false,
       "batteryInc": true,
       "batteryConn": true,
-      "prefix": "B31K"
+      "prefix": "B31K",
+      "platformId": 13,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "BRN310TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "BRN314TRAY50",
       "modem": "U201",
       "multiple": true,
@@ -19738,19 +19716,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "B31T"
+      "prefix": "B31T",
+      "platformId": 13
     },
     {
       "name": "BRN314KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "NRND",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -19771,21 +19747,18 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
       "batteryConn": true,
-      "maxOrder": 5,
-      "prefix": "P027"
+      "prefix": "P027",
+      "platformId": 13
     },
     {
       "name": "BRN314TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -19806,19 +19779,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P027"
+      "prefix": "P027",
+      "platformId": 13
     },
     {
       "name": "BRN402",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404",
       "modem": "R410",
       "sim": 3,
@@ -19840,19 +19811,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "B40H"
+      "prefix": "B40H",
+      "platformId": 13
     },
     {
       "name": "BRN402-AQKT",
       "desc": "Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 3,
       "simPlans": [
@@ -19874,12 +19840,13 @@
       "nfcAntExt": true,
       "nfcAntExtInc": false,
       "batteryConn": true,
-      "prefix": "P012"
+      "prefix": "P012",
+      "platformId": 13
     },
     {
       "name": "BRN402KIT",
       "desc": "Boron LTE CAT-M1 (NorAm), Starter Kit [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404KIT",
       "modem": "R410",
       "sim": 3,
@@ -19901,19 +19868,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "B40K"
+      "prefix": "B40K",
+      "platformId": 13
     },
     {
       "name": "BRN402TRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "BRN404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -19935,19 +19897,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "B40T"
+      "prefix": "B40T",
+      "platformId": 13
     },
     {
       "name": "BRN404",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -19968,19 +19928,14 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P028"
+      "prefix": "P028",
+      "platformId": 13
     },
     {
       "name": "BRN404KIT",
-      "desc": "Boron LTE CAT-M1 (NorAm), Starter Kit [x1]",
-      "lifecycle": "GA",
+      "desc": "Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1]",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20001,19 +19956,13 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10,
-      "prefix": "P028"
+      "prefix": "P028",
+      "platformId": 13
     },
     {
       "name": "BRN404TRAY50",
-      "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
@@ -20035,14 +19984,9 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P028"
+      "prefix": "P028",
+      "platformId": 13
     },
     {
       "name": "BRN404X",
@@ -20068,11 +20012,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "prefix": "P044"
+      "prefix": "P044",
+      "platformId": 13,
+      "batteryConn": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "BRN404XKIT",
-      "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
+      "desc": "Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1]",
       "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
@@ -20094,7 +20043,12 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "prefix": "P044"
+      "prefix": "P044",
+      "platformId": 13,
+      "batteryConn": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "BRN404XTRAY50",
@@ -20120,12 +20074,17 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "prefix": "P044"
+      "prefix": "P044",
+      "platformId": 13,
+      "batteryConn": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false
     },
     {
       "name": "E260KIT",
       "desc": "Electron 2G/3G (Americas/Aus) Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "U260",
       "sim": 1,
@@ -20142,12 +20101,13 @@
       "cellAntInc": true,
       "batteryInc": true,
       "batteryConn": true,
-      "prefix": "E26K"
+      "prefix": "E26K",
+      "platformId": 10
     },
     {
       "name": "E260TRAY50",
       "desc": "Electron 2G/3G (Americas/Aus), Tray [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "U260",
       "multiple": true,
@@ -20163,12 +20123,13 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "batteryConn": true,
-      "prefix": "E26T"
+      "prefix": "E26T",
+      "platformId": 10
     },
     {
       "name": "E270KIT",
       "desc": "Electron 2G/3G (EMEA) Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "U270",
       "sim": 1,
@@ -20185,12 +20146,13 @@
       "cellAntInc": true,
       "batteryInc": true,
       "batteryConn": true,
-      "prefix": "E27K"
+      "prefix": "E27K",
+      "platformId": 10
     },
     {
       "name": "E270TRAY50",
       "desc": "Electron 2G/3G (EMEA), Tray [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "ELC314TY",
       "modem": "U270",
       "multiple": true,
@@ -20206,12 +20168,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "batteryConn": true,
-      "prefix": "E27T"
+      "prefix": "E27T",
+      "platformId": 10,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false
     },
     {
       "name": "E310KIT",
       "desc": "E Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "E314KIT",
       "modem": "U201",
       "sim": 1,
@@ -20229,12 +20195,16 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryInc": true,
       "batteryConn": true,
-      "prefix": "E31K"
+      "prefix": "E31K",
+      "platformId": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "E310MOD1",
       "desc": "E Series 2G/3G (Global - E310), [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "E314MOD1",
       "modem": "U201",
       "sim": 1,
@@ -20251,12 +20221,13 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
-      "prefix": "E31M"
+      "prefix": "E31M",
+      "platformId": 10
     },
     {
       "name": "E310TRAY50",
       "desc": "E Series 2G/3G (Global - E310), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 1,
@@ -20271,19 +20242,17 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "E31T"
+      "prefix": "E31T",
+      "platformId": 10
     },
     {
       "name": "E313EA",
       "desc": "E Series 2G/3G (Global - E313), [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 2,
       "simPlans": [
@@ -20299,7 +20268,8 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
-      "prefix": "P005"
+      "prefix": "P005",
+      "platformId": 10
     },
     {
       "name": "E313TRAY50",
@@ -20320,12 +20290,13 @@
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
-      "prefix": "P005"
+      "prefix": "P005",
+      "platformId": 10
     },
     {
       "name": "E314KIT",
       "desc": "E Series 2G/3G (Global - E314) Evaluation Kit, [x1]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "NRND",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -20340,21 +20311,18 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
       "batteryConn": true,
-      "noProduction": true,
-      "prefix": "P029"
+      "prefix": "P029",
+      "platformId": 10
     },
     {
       "name": "E314MOD1",
       "desc": "E Series 2G/3G (Global - E314), [x1]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -20369,20 +20337,14 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "noProduction": true,
-      "prefix": "P029"
+      "prefix": "P029",
+      "platformId": 10
     },
     {
       "name": "E314TRAY50",
       "desc": "E Series 2G/3G (Global - E314), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20397,20 +20359,17 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "noProduction": true,
-      "prefix": "P029"
+      "prefix": "P029",
+      "platformId": 10
     },
     {
       "name": "E350KIT",
       "desc": "Electron 2G Kit (Global)",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -20425,12 +20384,13 @@
       "cellAntInc": true,
       "batteryConn": true,
       "batteryInc": true,
-      "prefix": "E35K"
+      "prefix": "E35K",
+      "platformId": 10
     },
     {
       "name": "E350TRAY50",
       "desc": "Electron 2G (Global), Tray [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "G350",
       "multiple": true,
@@ -20446,12 +20406,13 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "batteryConn": true,
-      "prefix": "E35T"
+      "prefix": "E35T",
+      "platformId": 10
     },
     {
       "name": "E402KIT",
       "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "E404KIT",
       "modem": "R410",
       "sim": 3,
@@ -20469,12 +20430,16 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryInc": true,
       "batteryConn": true,
-      "prefix": "E40K"
+      "prefix": "E40K",
+      "platformId": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "E402MOD1",
       "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "E404MOD1",
       "modem": "R410",
       "sim": 3,
@@ -20491,12 +20456,13 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
-      "prefix": "E40M"
+      "prefix": "E40M",
+      "platformId": 10
     },
     {
       "name": "E402TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "E404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -20512,19 +20478,17 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "E40T"
+      "prefix": "E40T",
+      "platformId": 10
     },
     {
       "name": "E404KIT",
-      "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "NRND-US",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20539,20 +20503,18 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryInc": true,
       "batteryConn": true,
-      "prefix": "P030"
+      "prefix": "P030",
+      "platformId": 10
     },
     {
       "name": "E404MOD1",
-      "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND-US",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20567,18 +20529,16 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P030"
+      "prefix": "P030",
+      "platformId": 10
     },
     {
       "name": "E404TRAY50",
-      "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
@@ -20594,14 +20554,9 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P030"
+      "prefix": "P030",
+      "platformId": 10
     },
     {
       "name": "E404XTRAY50",
@@ -20620,19 +20575,17 @@
       "skuRegion": "noram",
       "cellAnt": "PARANTC41EA",
       "cellAntInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P052"
+      "prefix": "P052",
+      "platformId": 10
     },
     {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20646,14 +20599,12 @@
       "skuRegion": "global",
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P035"
+      "prefix": "P035",
+      "platformId": 10
     },
     {
       "name": "ELC402EA",
@@ -20675,12 +20626,13 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
-      "prefix": "E4DK"
+      "prefix": "E4DK",
+      "platformId": 10
     },
     {
       "name": "ELC402TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "ELC404TY",
       "modem": "R410",
       "multiple": true,
@@ -20696,19 +20648,17 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "E4DT"
+      "prefix": "E4DT",
+      "platformId": 10
     },
     {
       "name": "ELC404TY",
-      "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "desc": "Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -20723,14 +20673,9 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryConn": true,
-      "prefix": "P036"
+      "prefix": "P036",
+      "platformId": 10
     },
     {
       "name": "FWNG-ETH",
@@ -20738,23 +20683,22 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global",
       "prefix": "ETHW"
     },
     {
       "name": "FWNG-INA219",
       "desc": "Adafruit INA219 FeatherWing, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "FWNG-OLED",
@@ -20762,13 +20706,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global"
     },
     {
@@ -20777,13 +20717,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "low",
       "skuRegion": "global"
     },
     {
@@ -20792,13 +20728,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global",
       "prefix": "TRPW"
     },
@@ -20808,44 +20740,78 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global",
       "prefix": "P008"
     },
     {
       "name": "M8CAB3VEA",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1]",
-      "lifecycle": "Sampling",
+      "lifecycle": "In development",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
       "skuRegion": "global"
     },
     {
       "name": "M8CAB3VTY",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40]",
-      "lifecycle": "Sampling",
+      "lifecycle": "In development",
       "accessory": true,
       "multiple": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CABEA",
+      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "prefix": "己出貨430PCS，暫不能改",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CABRAEA",
+      "desc": "M8 Accessory Cable (Right Angle), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "prefix": "己出貨500PCS，暫不能改",
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CABRATY",
+      "desc": "M8 Accessory Cable (Right Angle), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "skuRegion": "global"
+    },
+    {
+      "name": "M8CABTY",
+      "desc": "M8 Accessory Cable (Straight), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
       "skuRegion": "global"
     },
     {
@@ -20854,13 +20820,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "10 weeks",
-      "allocation": false,
-      "inStock": "no",
       "skuRegion": "global"
     },
     {
@@ -20869,13 +20831,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "10 weeks",
-      "allocation": false,
-      "inStock": "no",
       "skuRegion": "global"
     },
     {
@@ -20884,13 +20842,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": false,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
       "skuRegion": "global"
     },
     {
@@ -20899,19 +20853,15 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
       "skuRegion": "global"
     },
     {
       "name": "ONE402MEA",
       "desc": "Tracker One LTE M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "ONE404MEA",
       "modem": "BG96-MC",
       "sim": 3,
@@ -20937,15 +20887,9 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
-      "maxOrder": 2,
-      "prefix": "P024"
+      "prefix": "P024",
+      "platformId": 26
     },
     {
       "name": "ONE402MTY",
@@ -20976,18 +20920,13 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryInc": true,
-      "prefix": "P024"
+      "prefix": "P024",
+      "platformId": 26
     },
     {
       "name": "ONE404MEA",
-      "desc": "Tracker One LTE M1 (NorAm), [x1]",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "BG96-MC",
       "sim": 4,
@@ -21013,20 +20952,17 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "no",
       "batteryInc": true,
-      "prefix": "P031"
+      "prefix": "P031",
+      "platformId": 26
     },
     {
       "name": "ONE404MTY",
-      "desc": "Tracker One LTE M1 (NorAm), Bulk [x40]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40]",
+      "lifecycle": "GA",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -21051,14 +20987,82 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryInc": true,
-      "prefix": "P031"
+      "prefix": "P031",
+      "platformId": 26
+    },
+    {
+      "name": "ONE404XMEA",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "modem": "BG96-MC",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "both",
+      "skuRegion": "noram",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P047"
+    },
+    {
+      "name": "ONE404XMTY",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P047"
     },
     {
       "name": "ONE523MEA",
@@ -21090,20 +21094,17 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
-      "maxOrder": 5,
-      "prefix": "P025"
+      "prefix": "P025",
+      "platformId": 26
     },
     {
       "name": "ONE523MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "ONE524MTY",
       "modem": "EG91-EX",
       "sim": 2,
@@ -21130,19 +21131,16 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "batteryInc": true,
-      "prefix": "P025"
+      "prefix": "P025",
+      "platformId": 26
     },
     {
       "name": "ONE524MEA",
-      "desc": "Tracker One LTE CAT1/3G/2G (EMEAA), [x1]",
+      "desc": "Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "sim": 4,
@@ -21168,20 +21166,17 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "no",
       "batteryInc": true,
-      "prefix": "P032"
+      "prefix": "P032",
+      "platformId": 26
     },
     {
       "name": "ONE524MTY",
-      "desc": "Tracker One CAT1/3G/2G (EMEAA), Bulk [x40]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40]",
+      "lifecycle": "GA",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -21206,14 +21201,82 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryInc": true,
-      "prefix": "P032"
+      "prefix": "P032",
+      "platformId": 26
+    },
+    {
+      "name": "ONE524XMEA",
+      "desc": "Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "both",
+      "skuRegion": "emeaa",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P048"
+    },
+    {
+      "name": "ONE524XMTY",
+      "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P048"
     },
     {
       "name": "ONEM8CABEA",
@@ -21278,7 +21341,7 @@
     {
       "name": "P0MOD10",
       "desc": "P0 Wi-Fi Module, Cut tape [x10]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21289,7 +21352,8 @@
       "wifiAntIntInc": false,
       "wifiAntExt": true,
       "wifiAntExtInc": false,
-      "prefix": "P0MD"
+      "prefix": "P0MD",
+      "platformId": 6
     },
     {
       "name": "P0REEL",
@@ -21305,12 +21369,8 @@
       "wifiAntIntInc": false,
       "wifiAntExt": true,
       "wifiAntExtInc": false,
-      "moq": 1,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "35 weeks",
-      "allocation": true
+      "prefix": "",
+      "platformId": 6
     },
     {
       "name": "P1MOD10",
@@ -21326,18 +21386,16 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 10,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "36 weeks",
-      "allocation": true,
-      "prefix": "P1MD"
+      "prefix": "P1MD",
+      "platformId": 8
     },
     {
       "name": "P1REEL",
       "desc": "P1 Wi-Fi Module, Reel [x500]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21348,12 +21406,11 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 500,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "50 weeks",
-      "allocation": true
+      "prefix": "",
+      "platformId": 8
     },
     {
       "name": "P2MOD10",
@@ -21373,13 +21430,11 @@
       "bleAntIntInc": true,
       "bleAntExt": "4",
       "bleAntExtInc": false,
-      "moq": 10,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "36 weeks",
-      "allocation": true,
-      "prefix": "P046"
+      "prefix": "P046",
+      "platformId": 32
     },
     {
       "name": "P2REEL",
@@ -21399,16 +21454,14 @@
       "bleAntIntInc": true,
       "bleAntExt": "4",
       "bleAntExtInc": false,
-      "moq": 600,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "50 weeks",
-      "allocation": true,
-      "prefix": "P046"
+      "prefix": "P046",
+      "platformId": 32
     },
     {
-      "name": "PHN2MEA",
+      "name": "PHN2KIT",
       "desc": "Photon 2, Kit [x1]",
       "lifecycle": "In development",
       "multiple": false,
@@ -21425,13 +21478,35 @@
       "bleAntIntInc": true,
       "bleAntExt": "4",
       "bleAntExtInc": false,
-      "moq": 10,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "prefix": "P051",
+      "platformId": 32
+    },
+    {
+      "name": "PHN2MEA",
+      "desc": "Photon 2, [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "36 weeks",
-      "allocation": true,
-      "prefix": "P051"
+      "prefix": "P051",
+      "platformId": 32
     },
     {
       "name": "PHN2MTY",
@@ -21451,18 +21526,16 @@
       "bleAntIntInc": true,
       "bleAntExt": "4",
       "bleAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "50 weeks",
-      "allocation": true,
-      "prefix": "P051"
+      "prefix": "P051",
+      "platformId": 32
     },
     {
       "name": "PHNTRAYH",
       "desc": "Photon with Headers, Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21473,18 +21546,16 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "54 weeks",
-      "allocation": true,
-      "prefix": "PHHT"
+      "prefix": "PHHT",
+      "platformId": 6
     },
     {
       "name": "PHNTRAYNOH",
       "desc": "Photon without Headers, Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21495,18 +21566,16 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "54 weeks",
-      "allocation": true,
-      "prefix": "PHNT"
+      "prefix": "PHNT",
+      "platformId": 6
     },
     {
       "name": "PHOTONH",
       "desc": "Photon with Headers, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21517,18 +21586,13 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "54 weeks",
-      "allocation": true,
-      "prefix": "PHHM"
+      "prefix": "PHHM",
+      "platformId": 6
     },
     {
       "name": "PHOTONKIT",
       "desc": "Photon with Headers Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21539,12 +21603,13 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "prefix": "PHHK"
+      "prefix": "PHHK",
+      "platformId": 6
     },
     {
       "name": "PHOTONNOH",
       "desc": "Photon without Headers, Dev board Kit [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21555,21 +21620,25 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "prefix": "PHNM"
+      "prefix": "PHNM",
+      "platformId": 6
     },
     {
       "name": "PROGSHIELD",
       "desc": "Programmer Shield, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
-      "prefix": "PRGS"
+      "prefix": "PRGS",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "PWRSHIELDH",
       "desc": "Power Shield with Headers, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
@@ -21578,7 +21647,7 @@
     {
       "name": "RLYSHIELD",
       "desc": "Relay Shield",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "skuRegion": "global",
       "prefix": "RLYS"
@@ -21589,13 +21658,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
-      "retail": true,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "yes",
+      "retail": false,
       "skuRegion": "global",
       "prefix": "SM50"
     },
@@ -21605,13 +21670,9 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global",
       "prefix": "ESM1"
     },
@@ -21621,29 +21682,18 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "no",
       "skuRegion": "global",
       "prefix": "ESM5"
     },
     {
       "name": "SIMTELE",
       "desc": "SIM Card, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "low",
       "skuRegion": "global",
       "prefix": "SMTE"
     },
@@ -21653,19 +21703,15 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
       "skuRegion": "global"
     },
     {
       "name": "SNSRKIT3G260",
       "desc": "Electron 3G (Americas/Aus) Sensor Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -21680,12 +21726,13 @@
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
       "batteryConn": true,
-      "prefix": "S26K"
+      "prefix": "S26K",
+      "platformId": 10
     },
     {
       "name": "SNSRKIT3G270",
       "desc": "Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -21700,21 +21747,26 @@
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
       "batteryConn": true,
-      "prefix": "S27K"
+      "prefix": "S27K",
+      "platformId": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true
     },
     {
       "name": "SPKBTTN",
       "desc": "Internet Button, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
-      "prefix": "PBTN"
+      "prefix": "PBTN",
+      "platformId": 6
     },
     {
       "name": "T402MEA",
       "desc": "Tracker SoM LTE M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T404MEA",
       "modem": "BG96-MC",
       "sim": 3,
@@ -21742,18 +21794,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P024"
+      "prefix": "P024",
+      "platformId": 26
     },
     {
       "name": "T402MKIT",
       "desc": "Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T404MKIT",
       "modem": "BG96-MC",
       "sim": 3,
@@ -21781,18 +21828,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P024"
+      "prefix": "P024",
+      "platformId": 26
     },
     {
       "name": "T402MTY",
       "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "T404MTY",
       "modem": "BG96-MC",
       "multiple": true,
@@ -21820,18 +21862,16 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P024"
+      "prefix": "P024",
+      "platformId": 26
     },
     {
       "name": "T404MEA",
-      "desc": "Tracker SoM LTE M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "sim": 4,
       "simPlans": [
@@ -21858,18 +21898,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P031"
+      "prefix": "P031",
+      "platformId": 26
     },
     {
       "name": "T404MKIT",
-      "desc": "Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "sim": 4,
       "simPlans": [
@@ -21896,18 +21931,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P031"
+      "prefix": "P031",
+      "platformId": 26
     },
     {
       "name": "T404MTY",
-      "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "NRND",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -21934,18 +21964,124 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P031"
+      "prefix": "P031",
+      "platformId": 26
+    },
+    {
+      "name": "T404XMEA",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P047"
+    },
+    {
+      "name": "T404XMKIT",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "eval",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": true,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P047"
+    },
+    {
+      "name": "T404XMTY",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": false,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "platformId": 26,
+      "prefix": "P047"
     },
     {
       "name": "T523MEA",
       "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T524MEA",
       "modem": "EG91-EX",
       "sim": 2,
@@ -21974,13 +22110,8 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P025"
+      "prefix": "P025",
+      "platformId": 26
     },
     {
       "name": "T523MKIT",
@@ -22014,13 +22145,11 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P025"
+      "prefix": "P025",
+      "platformId": 26
     },
     {
       "name": "T523MTY",
@@ -22054,18 +22183,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P025"
+      "prefix": "P025",
+      "platformId": 26
     },
     {
       "name": "T524MEA",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (EMEAA), [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "sim": 4,
       "simPlans": [
@@ -22092,18 +22216,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P032"
+      "prefix": "P032",
+      "platformId": 26
     },
     {
       "name": "T524MKIT",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (EMEAA) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "sim": 4,
       "simPlans": [
@@ -22130,18 +22249,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P032"
+      "prefix": "P032",
+      "platformId": 26
     },
     {
       "name": "T524MTY",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (EMEAA), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "lifecycle": "NRND",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -22168,13 +22282,119 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "prefix": "P032"
+      "prefix": "P032",
+      "platformId": 26
+    },
+    {
+      "name": "T524XMEA",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P048"
+    },
+    {
+      "name": "T524XMKIT",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "eval",
+      "skuRegion": "emeaa",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": true,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P048"
+    },
+    {
+      "name": "T524XMTY",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "platformId": 26,
+      "prefix": "P048"
     }
   ],
   "skuClass": [
@@ -44583,5 +44803,996 @@
       "id": "poss",
       "description": "There may be roaming restrictions"
     }
-  ]
+  ],
+  "deviceConstants": {
+    "core": {
+      "id": 0,
+      "name": "core",
+      "displayName": "Core",
+      "generation": 1,
+      "baseMcu": "stm32f1xx",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": true,
+      "usb": {
+        "vendorId": "0x1d50",
+        "productId": "0x607d"
+      },
+      "dfu": {
+        "vendorId": "0x1d50",
+        "productId": "0x607f",
+        "segments": {
+          "factoryReset": {
+            "address": "0x00020000",
+            "alt": 1
+          }
+        }
+      }
+    },
+    "gcc": {
+      "id": 3,
+      "name": "gcc",
+      "displayName": "GCC",
+      "generation": -1,
+      "baseMcu": "gcc",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "photon": {
+      "id": 6,
+      "name": "photon",
+      "displayName": "Photon",
+      "generation": 2,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 1,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc006"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd006",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x080e0000",
+            "alt": 0
+          }
+        }
+      }
+    },
+    "p1": {
+      "id": 8,
+      "name": "p1",
+      "displayName": "P1",
+      "generation": 2,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 1,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc008"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd008",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x080e0000",
+            "alt": 0
+          }
+        }
+      }
+    },
+    "electron": {
+      "id": 10,
+      "name": "electron",
+      "displayName": "Electron",
+      "generation": 2,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "cellular",
+        "udp"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 1,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 3,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00a"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00a",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x080a0000",
+            "alt": 0
+          },
+          "transport": {
+            "address": "2977",
+            "alt": 1,
+            "size": 1
+          }
+        }
+      }
+    },
+    "esp32": {
+      "id": 11,
+      "name": "esp32",
+      "displayName": "ESP32",
+      "generation": -1,
+      "baseMcu": "esp32xx",
+      "features": [
+        "wifi",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "argon": {
+      "id": 12,
+      "name": "argon",
+      "displayName": "Argon",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "wifi",
+        "udp",
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "ncpFirmware",
+          "storage": "externalMcu"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00c"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00c",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "boron": {
+      "id": 13,
+      "name": "boron",
+      "displayName": "Boron",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "cellular",
+        "udp",
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00d"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00d",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "xenon": {
+      "id": 14,
+      "name": "xenon",
+      "displayName": "Xenon",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00e"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00e",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "esomx": {
+      "id": 15,
+      "name": "esomx",
+      "displayName": "E SoM X",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00f"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00f",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "asom": {
+      "id": 22,
+      "name": "asom",
+      "displayName": "A SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "wifi",
+        "mesh",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "ncpFirmware",
+          "storage": "externalMcu"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc016"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd016",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "bsom": {
+      "id": 23,
+      "name": "bsom",
+      "displayName": "B SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "mesh",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc017"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd017",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "xsom": {
+      "id": 24,
+      "name": "xsom",
+      "displayName": "X SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc018"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd018",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "b5som": {
+      "id": 25,
+      "name": "b5som",
+      "displayName": "B5 SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "mesh",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc019"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd019",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00600000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "tracker": {
+      "id": 26,
+      "name": "tracker",
+      "displayName": "Asset Tracker",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "udp",
+        "ble",
+        "gnss",
+        "trackerServices"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "ncpFirmware",
+          "storage": "externalMcu"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc01a"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd01a",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00600000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "trackerm": {
+      "id": 28,
+      "name": "trackerm",
+      "displayName": "Tracker M",
+      "generation": 3,
+      "baseMcu": "rtl872x",
+      "features": [
+        "som",
+        "cellular",
+        "udp",
+        "ble",
+        "gnss",
+        "trackerServices"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "index": 0,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "bootloader",
+          "index": 1,
+          "storage": "internalFlash",
+          "encrypted": true
+        },
+        {
+          "type": "bootloader",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc01c",
+        "quirks": {
+          "controlOutTransfersRequireDataStage": true
+        }
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd01c",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ]
+      }
+    },
+    "raspi": {
+      "id": 31,
+      "name": "raspi",
+      "displayName": "Raspberry Pi",
+      "generation": -1,
+      "baseMcu": "raspi",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "p2": {
+      "id": 32,
+      "name": "p2",
+      "displayName": "P2",
+      "generation": 3,
+      "baseMcu": "rtl872x",
+      "features": [
+        "wifi",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "index": 0,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "bootloader",
+          "index": 1,
+          "storage": "internalFlash",
+          "encrypted": true
+        },
+        {
+          "type": "bootloader",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc020",
+        "quirks": {
+          "controlOutTransfersRequireDataStage": true
+        }
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd020",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ]
+      }
+    },
+    "oak": {
+      "id": 82,
+      "name": "oak",
+      "displayName": "Oak",
+      "generation": -1,
+      "baseMcu": "esp8266",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "duo": {
+      "id": 88,
+      "name": "duo",
+      "displayName": "Duo",
+      "generation": -1,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "bluz": {
+      "id": 103,
+      "name": "bluz",
+      "displayName": "Bluz",
+      "generation": -1,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    }
+  }
 }

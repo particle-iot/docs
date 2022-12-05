@@ -362,12 +362,12 @@ Argon are available from [store.particle.io](https://store.particle.io/) in sing
 
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | :--- | :--- | :--- | :--- |
-| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | GA | |
-| ARG-STRTKT | Argon Starter Kit [x1] | Global | GA | |
-| ARGN-H | Argon [x1] | Global | GA | |
-| ARGNKIT | Argon, Starter Kit  [x1] | Global | GA | |
-| ARGNTRAY50 | Argon, Tray [x50] | Global | Deprecated | |
-| ARG-LDKT | Argon Leak Detection Kit [x1] | Global | End of life | |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | NRND | |
+| ARG-STRTKT | Argon Starter Kit [x1] | Global | NRND | |
+| ARGN-H | Argon [x1] | Global | NRND | |
+| ARGNKIT | Argon, Starter Kit  [x1] | Global | NRND | |
+| ARGNTRAY50 | Argon, Tray [x50] | Global | NRND | |
+| ARG-LDKT | Argon Leak Detection Kit [x1] | Global | Deprecated | |
 
 
 {{!-- END do not edit content above, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
