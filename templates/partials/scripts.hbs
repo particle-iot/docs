@@ -43,6 +43,10 @@
 {{#contains includeDefinitions 'api-helper-cloud'}}
 <script src='/assets/js/api-helper-cloud.js'></script>
 {{/contains}}
+{{#contains includeDefinitions 'api-helper-table'}}
+<!-- Must be loaded before modules that implement tables -->
+<script src='/assets/js/api-helper-table.js'></script>
+{{/contains}}
 {{#contains includeDefinitions 'api-helper-config'}}
 <script src='/assets/js/api-helper-config.js'></script>
 {{/contains}}

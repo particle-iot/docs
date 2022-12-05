@@ -3,7 +3,7 @@ title: List devices
 columns: two
 layout: commonTwo.hbs
 description: List devices and export lists
-includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, xlsx]
+includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, api-helper-table, xlsx]
 ---
 
 # {{title}}

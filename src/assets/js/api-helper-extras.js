@@ -1599,7 +1599,7 @@ $(document).ready(function() {
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
         const actionButtonElem = $(thisPartial).find('.actionButton');
 
-        const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
+        const deviceTableDivElem = $(thisPartial).find('.tableDiv');
         const deviceTableElem = $(deviceTableDivElem).find('table');
         const deviceTableHeadElem = $(deviceTableElem).find('thead');
         const deviceTableBodyElem = $(deviceTableElem).find('tbody');
@@ -1624,6 +1624,10 @@ $(document).ready(function() {
             return;
         }
 
+        
+        console.log('load list devices');
+
+
         let deviceList;
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -1642,6 +1646,117 @@ $(document).ready(function() {
             }
 
         }
+
+        const tableConfigObj = {
+            "fields": [
+                {
+                    "title": "Device ID",
+                    "key": "id",
+                    "checked": true,
+                    "width": 24
+                },
+                {
+                    "title": "Device Name",
+                    "key": "name",
+                    "checked": true,
+                    "width": 15
+                },
+                {
+                    "title": "ICCID",
+                    "key": "iccid" ,
+                    "checked": true,
+                    "width": 20
+                },
+                {
+                    "title": "IMEI",
+                    "key": "imei",
+                    "width": 16
+                },
+                {
+                    "title": "Serial",
+                    "key": "serial_number",
+                    "width": 18
+                },
+                {
+                    "title": "Wi-Fi MAC Address",
+                    "key": "mac_wifi",
+                    "width": 14
+                },
+                {
+                    "title": "Groups",
+                    "key": "groups",
+                    "width": 15
+                },
+                {
+                    "title": "Owner",
+                    "key": "owner",
+                    "width": 16
+                },
+                {
+                    "title": "Last Heard",
+                    "key": "last_heard"
+                },
+                {
+                    "title": "Last Handshake",
+                    "key": "last_handshake_at"
+                },
+                {
+                    "title": "Last IP",
+                    "key": "last_ip_address"
+                },
+                {
+                    "title": "Online",
+                    "key": "online"
+                },
+                {
+                    "title": "Status",
+                    "key": "status"
+                },
+                {
+                    "title": "Device OS Version",
+                    "key": "system_firmware_version"
+                },
+                {
+                    "title": "Product ID",
+                    "key": "product_id"
+                },
+                {
+                    "title": "Platform ID",
+                    "key": "platform_id"
+                },
+                {
+                    "title": "Firmware Version",
+                    "key": "firmware_version"
+                },
+                {
+                    "title": "Desired Firmware Version",
+                    "key": "desired_firmware_version"
+                },
+                {
+                    "title": "Dev",
+                    "key": "development"
+                },
+                {
+                    "title": "Quarantined",
+                    "key": "quarantined"
+                },
+                {
+                    "title": "Denied",
+                    "key": "denied"
+                },
+                {
+                    "title": "Notes",
+                    "key": "notes"
+                }
+            ]
+        };
+        
+        $(fieldSelectorElem).data('setConfigObj')(tableConfigObj);
+        $(fieldSelectorElem).data('loadUrlParams')(urlParams);
+        
+
+        // 
+        console.log('after load fields');
 
         const setStatus = function(s) {
             $(statusElem).text(s);
@@ -1672,9 +1787,10 @@ $(document).ready(function() {
             try {
                 const options = getOptions();
 
-                let urlConfig = $(fieldSelectorElem).data('getUrlConfigObj')();
+                let urlConfig = {};
+                $(fieldSelectorElem).data('getUrlConfigObj')(urlConfig);
 
-                urlConfig = Object.assign($(productOrSandboxSelectorElem).data('getUrlConfigObj')(), urlConfig);
+                $(productOrSandboxSelectorElem).data('getUrlConfigObj')(urlConfig);
                 
                 urlConfig.format = options.format;
                 urlConfig.header = options.header;
@@ -2017,288 +2133,6 @@ $(document).ready(function() {
 
     });
 
-    $('.apiHelperFieldSelector').each(function() {
-        const thisPartial = $(this);
-
-        const configElem = $(thisPartial).find('textarea');
-        const configText = configElem.text();
-        // console.log('configText', configText);
-        let configObj = JSON.parse(configText);
-        $(configElem).replaceWith('');
-
-        for(const field of configObj.fields) {
-            if (!field.width) {
-                field.width = '10';
-            }
-        }
-
-        // console.log('configObj', configObj);
-
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('k0')) {
-            let newFields = [];
-
-            for(let index = 0; ; index++) {
-                let key = urlParams.get('k' + index);
-                if (!key) {
-                    break;
-                }
-                let checked = false;    
-                if (key.startsWith('*')) {
-                    checked = true;
-                    key = key.substring(1);
-                }
-
-                const field = configObj.fields.find(f => f.key == key);
-                if (field) {
-                    field.checked = checked;
-                    const customTitle = urlParams.get('t' + index);
-                    if (customTitle) {
-                        field.customTitle = customTitle;
-                    }
-                    const customWidth = urlParams.get('w' + index);
-                    if (customWidth) {
-                        field.customWidth = customWidth;
-                    }
-                    newFields.push(field);
-                }
-            }
-
-            for(const field of configObj.fields) {
-                const inNew = !!newFields.find(f => f.key == field.key);
-                if (!inNew) {
-                    field.checked = false;
-                    newFields.push(field);
-                }
-            }
-
-            // Add in other non-selected fields
-            configObj.fields = newFields;
-        }
-
-
-        const refreshTable = function() {   
-            $(thisPartial).trigger('fieldSelectorUpdate', [configObj]);
-        };
-
-        const moveField = function(fromKey, toKey, afterTarget) {
-            let fromIndex = -1;
-            let toIndex = -1;
-            for(let ii = 0; ii < configObj.fields.length; ii++) {
-                if (configObj.fields[ii].key == fromKey) {
-                    fromIndex = ii;
-                }
-                if (configObj.fields[ii].key == toKey) {
-                    toIndex = ii;
-                }
-            }
-
-            if (fromIndex == toIndex || fromIndex < 0 || toIndex < 0) {
-                return;
-            }
-
-            // Reorder items in the DOM
-            $(configObj.fields[fromIndex].trElem).detach();
-            if (afterTarget) {
-                $(configObj.fields[toIndex].trElem).after(configObj.fields[fromIndex].trElem);
-
-            }
-            else {
-                $(configObj.fields[toIndex].trElem).before(configObj.fields[fromIndex].trElem);
-
-            }
-
-            // Reorder items in array
-            const fromArrayItem = configObj.fields[fromIndex];
-            configObj.fields.splice(fromIndex, 1);
-            if (toIndex > fromIndex) {
-                toIndex--;
-            }
-            if (afterTarget) {
-                toIndex++;
-            }
-            configObj.fields.splice(toIndex, 0, fromArrayItem);
-
-            //console.log('fields', configObj.fields);
-            refreshTable();
-            
-        };
-
-        const tableElem = document.createElement('table');
-        {
-            $(tableElem).addClass('apiHelperTableNoMargin');
-
-            {
-                const theadElem = document.createElement('thead');
-                const trElem = document.createElement('tr');
-
-                {
-                    // Drag to reorder
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Reorder');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Include');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Column Name');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Key');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Width');
-                    $(trElem).append(thElem);
-                }
-
-                $(theadElem).append(trElem);
-
-                $(tableElem).append(theadElem);
-            }
-
-            const tbodyElem = document.createElement('tbody');
-
-            for(const field of configObj.fields) {
-                const trElem = field.trElem = document.createElement('tr');
-
-                let tdElem;
-
-                // Drag icon
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-                const imgElem = document.createElement('img');
-                $(imgElem).attr('src', '/assets/images/drag-handle-black.png');
-                $(imgElem).attr('width', '20');
-                $(imgElem).attr('height', '20');
-                $(imgElem).attr('style', 'margin:0px !important');
-                $(imgElem).attr('draggable', 'true');
-                $(imgElem).on('dragstart', function(ev) {
-                    ev.originalEvent.dataTransfer.setData('text', field.key);
-                });
-                $(tdElem).append(imgElem);
-                trElem.append(tdElem);
-
-                // Checkbox
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-
-                const checkboxElem = document.createElement('input');
-                $(checkboxElem).prop('type', 'checkbox');
-                if (field.checked) {
-                    $(checkboxElem).prop('checked', 'checked');
-                }
-                $(checkboxElem).on('click', function() {
-                    refreshTable();
-                });
-                $(tdElem).append(checkboxElem);
-                trElem.append(tdElem);
-
-                field.isChecked = function() {
-                    return $(checkboxElem).prop('checked');
-                };
-
-                // Field Name
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-
-                const titleInputElem = document.createElement('input');
-                $(titleInputElem).attr('type', 'text');
-                $(titleInputElem).attr('value', field.customTitle ? field.customTitle : field.title);
-                $(titleInputElem).on('blur', function() {
-                    field.customTitle = $(titleInputElem).val();
-                    refreshTable();
-                });
-                $(tdElem).append(titleInputElem);
-                trElem.append(tdElem);
-
-                // Key
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-                $(tdElem).text(field.key);
-                $(tdElem).on('click', function() {
-                    $(checkboxElem).trigger('click');
-                });
-                trElem.append(tdElem);
-
-                // Width
-                tdElem = document.createElement('td');
-                const widthInputElem = document.createElement('input');
-                $(widthInputElem).attr('type', 'text');
-                $(widthInputElem).attr('value', field.customWidth ? field.customWidth : field.width); 
-                $(widthInputElem).attr('size', '5'); 
-                $(widthInputElem).on('blur', function() {
-                    field.customWidth = $(widthInputElem).val();                    
-                    refreshTable();
-                });
-                $(tdElem).append(widthInputElem);
-                trElem.append(tdElem);
-
-
-                $(trElem).on('dragover', function(ev) {
-                    const key = ev.originalEvent.dataTransfer.getData("text");                    
-                    if (key != field.key) {
-                        ev.preventDefault();
-                    }
-                });
-                $(trElem).on('drop', function(ev) {
-                    const key = ev.originalEvent.dataTransfer.getData("text");                    
-                    console.log('ev', ev);
-
-                    const targetClientHeight = ev.currentTarget.clientHeight;
-                    const afterTarget = (ev.originalEvent.offsetY >= (targetClientHeight / 2));
-
-                    moveField(key, field.key, afterTarget);
-                });
-    
-
-                $(tbodyElem).append(trElem);
-            }
-
-            $(tableElem).append(tbodyElem);
-        }
-
-        $(thisPartial).append(tableElem);
-
-        $(thisPartial).data('getConfigObj', function() {
-            return configObj;
-        });
-
-        $(thisPartial).data('getUrlConfigObj', function() {
-            let resultObj = {};
-            let index = 0;
-
-            for(const field of configObj.fields) {
-
-                resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
-                    
-                if (field.customTitle && field.customTitle != field.title) {
-                    resultObj['t' + index] = field.customTitle;
-                }
-
-                if (field.customWidth && field.customWidth != field.width) {
-                    resultObj['w' + index] = field.customWidth;
-                }
-
-                index++;
-            }
-            return resultObj;
-        });
-
-        $(thisPartial).data('loadUrlConfig', function(urlConfig) {
-            
-        });
-
-
-    });
-
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
 
@@ -2343,6 +2177,7 @@ $(document).ready(function() {
                 // Not fully loaded yet
                 return;
             }
+            console.log('updateProductList');
 
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
@@ -2487,9 +2322,7 @@ $(document).ready(function() {
 
         $(thisPartial).data('getOptions', getOptions);
         
-        $(thisPartial).data('getUrlConfigObj', function() {
-            let resultObj = {};
-
+        $(thisPartial).data('getUrlConfigObj', function(resultObj) {
             resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
@@ -2503,8 +2336,6 @@ $(document).ready(function() {
             else {
                 resultObj.productId = 0;
             }
-
-            return resultObj;
         });
 
     });
