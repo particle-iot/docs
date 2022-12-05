@@ -1724,6 +1724,11 @@ $(document).ready(function() {
                 for(const deviceInfo of deviceList) {
                     let d = {};
 
+                    if (options.isSandbox && deviceInfo.product_id != deviceInfo.platform_id) {
+                        // Listing sandbox devices and this is a product device
+                        continue;
+                    }
+
                     if (options.export && options.format == 'iccid' && !deviceInfo['iccid']) {
                         continue;
                     }
