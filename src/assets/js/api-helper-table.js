@@ -28,6 +28,8 @@ $(document).ready(function() {
             options.header = $(includeHeaderCheckboxElem).prop('checked');
             options.dateFormat = $(dateFormatSelectElem).val();
 
+            $(copyButtonElem).prop('disabled', (options.format == 'xlsx'));
+
         });
         
         $(thisPartial).data('setConfigObj', function(configObjIn) {
@@ -79,6 +81,7 @@ $(document).ready(function() {
 
         $(thisPartial).data('refreshTable', function(tableDataIn, options) {
             tableData = tableDataIn;
+            console.log('tableData', tableData);
 
             $(tableHeadElem).html('');
             {
@@ -124,6 +127,7 @@ $(document).ready(function() {
 
 
         const getXlsxData = async function(options) {
+            console.log('getXlsxData options', options);
             if (!options) {
                 options = {};
             }
@@ -133,13 +137,14 @@ $(document).ready(function() {
             let xlsxData = {};
 
             xlsxData.options = {};
-            getOptions(xlsxData.options);
+            $(thisPartial).data('getOptions')(xlsxData.options);
 
             xlsxData.configObj = $(thisPartial).data('getConfigObj')();
 
             xlsxData.options.convertDates = (xlsxData.options.dateFormat != 'iso');
             xlsxData.options.export = true;
 
+            console.log('getXlsxData tableData', tableData);
             xlsxData.tableData = tableData;
 
             let conversionOptions = {
@@ -200,7 +205,9 @@ $(document).ready(function() {
                 case 'xlsx':
                     // toFile/toClipboard is ignored; cannot create 
                     XLSX.writeFile(xlsxData.workbook, options.fileName);
-                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
+                    if (configObj.gaCategory) {
+                        ga('send', 'event', configObj.gaCategory, 'Download', JSON.stringify(stats));
+                    }
                     break;
 
                 case 'deviceId':
@@ -222,28 +229,53 @@ $(document).ready(function() {
                     document.execCommand("copy");
                     document.body.removeChild(t);
 
-                    ga('send', 'event', gaCategory, 'Clipboard', JSON.stringify(stats));
+                    if (configObj.gaCategory) {
+                        ga('send', 'event', configObj.gaCategory, 'Clipboard', JSON.stringify(stats));
+                    }
                 }
                 if (options.toFile) {
                     let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
                     saveAs(blob, options.fileName);	        
-                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
+                    if (configObj.gaCategory) {
+                        ga('send', 'event', configObj.gaCategory, 'Download', JSON.stringify(stats));
+                    }
                 }
             }
 
             return xlsxData;
         }
 
+        console.log('registering button handlers', thisPartial);
+
         $(downloadButtonElem).on('click', async function() {
+            console.log('download button');
             await getXlsxData({toFile: true});
 
         });
 
-        $(copyButtonElem).on('click', async function() {
+        $(copyButtonElem).on('click', async function(event) {
+            console.log('copy button');
             await getXlsxData({toClipboard: true});
             
         });
 
+        $(formatSelectElem).on('change', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+        $(dateFormatSelectElem).on('change', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        $(includeHeaderCheckboxElem).on('click', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        /*
+        $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
+            await refreshTable(config);
+            $(thisPartial).trigger('updateSearchParam');
+        });
+*/
     });
 
 
@@ -257,7 +289,6 @@ $(document).ready(function() {
         const fieldSelectorTableDivElem = $(thisPartial).find('.fieldSelectorTableDiv');
         
         // console.log('configObj', configObj);
-        console.log('load field selector');
 
 
         const refreshTable = function() {   
@@ -269,11 +300,11 @@ $(document).ready(function() {
         const moveField = function(fromKey, toKey, afterTarget) {
             let fromIndex = -1;
             let toIndex = -1;
-            for(let ii = 0; ii < configObj.fields.length; ii++) {
-                if (configObj.fields[ii].key == fromKey) {
+            for(let ii = 0; ii < configObj.fieldSelector.fields.length; ii++) {
+                if (configObj.fieldSelector.fields[ii].key == fromKey) {
                     fromIndex = ii;
                 }
-                if (configObj.fields[ii].key == toKey) {
+                if (configObj.fieldSelector.fields[ii].key == toKey) {
                     toIndex = ii;
                 }
             }
@@ -283,28 +314,28 @@ $(document).ready(function() {
             }
 
             // Reorder items in the DOM
-            $(configObj.fields[fromIndex].trElem).detach();
+            $(configObj.fieldSelector.fields[fromIndex].trElem).detach();
             if (afterTarget) {
-                $(configObj.fields[toIndex].trElem).after(configObj.fields[fromIndex].trElem);
+                $(configObj.fieldSelector.fields[toIndex].trElem).after(configObj.fieldSelector.fields[fromIndex].trElem);
 
             }
             else {
-                $(configObj.fields[toIndex].trElem).before(configObj.fields[fromIndex].trElem);
+                $(configObj.fieldSelector.fields[toIndex].trElem).before(configObj.fieldSelector.fields[fromIndex].trElem);
 
             }
 
             // Reorder items in array
-            const fromArrayItem = configObj.fields[fromIndex];
-            configObj.fields.splice(fromIndex, 1);
+            const fromArrayItem = configObj.fieldSelector.fields[fromIndex];
+            configObj.fieldSelector.fields.splice(fromIndex, 1);
             if (toIndex > fromIndex) {
                 toIndex--;
             }
             if (afterTarget) {
                 toIndex++;
             }
-            configObj.fields.splice(toIndex, 0, fromArrayItem);
+            configObj.fieldSelector.fields.splice(toIndex, 0, fromArrayItem);
 
-            //console.log('fields', configObj.fields);
+            //console.log('fields', configObj.fieldSelector.fields);
             refreshTable();
             
         };
@@ -312,13 +343,16 @@ $(document).ready(function() {
         $(thisPartial).data('setConfigObj', function(configObjIn) {
             configObj = configObjIn;
 
-            if (!configObj.fields || configObj.fields.length == 0) {
+            if (!configObj.fieldSelector.fields || configObj.fieldSelector.fields.length == 0) {
+                return;
+            }
+            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
                 return;
             }
 
             $(thisPartial).show();
 
-            for(const field of configObj.fields) {
+            for(const field of configObj.fieldSelector.fields) {
                 if (!field.width) {
                     field.width = '10';
                 }
@@ -367,7 +401,7 @@ $(document).ready(function() {
 
                 const tbodyElem = document.createElement('tbody');
 
-                for(const field of configObj.fields) {
+                for(const field of configObj.fieldSelector.fields) {
                     const trElem = field.trElem = document.createElement('tr');
 
                     let tdElem;
@@ -475,9 +509,13 @@ $(document).ready(function() {
         });
 
         $(thisPartial).data('getUrlConfigObj', function(resultObj) {
+            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
+                return;
+            }
+
             let index = 0;
 
-            for(const field of configObj.fields) {
+            for(const field of configObj.fieldSelector.fields) {
 
                 resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
                     
@@ -496,6 +534,10 @@ $(document).ready(function() {
 
         
         $(thisPartial).data('loadUrlParams', function(urlParams) {
+            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
+                return;
+            }
+
             if (!urlParams.has('k0')) {
                 return;
             }
@@ -512,7 +554,7 @@ $(document).ready(function() {
                     key = key.substring(1);
                 }
 
-                const field = configObj.fields.find(f => f.key == key);
+                const field = configObj.fieldSelector.fields.find(f => f.key == key);
                 if (field) {
                     field.checked = checked;
                     const customTitle = urlParams.get('t' + index);
@@ -527,7 +569,7 @@ $(document).ready(function() {
                 }
             }
 
-            for(const field of configObj.fields) {
+            for(const field of configObj.fieldSelector.fields) {
                 const inNew = !!newFields.find(f => f.key == field.key);
                 if (!inNew) {
                     field.checked = false;
@@ -535,7 +577,7 @@ $(document).ready(function() {
                 }
             }
 
-            configObj.fields = newFields;                
+            configObj.fieldSelector.fields = newFields;                
         });
 
 

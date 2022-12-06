@@ -21,7 +21,7 @@
           "href": "/tools/device-restore/device-restore-usb/"
         }
       ]
-    }, 
+    },
     {
       "title": "Device Doctor",
       "dir": "doctor",
@@ -71,6 +71,11 @@
       {
         "dir": "list-devices",
         "href": "/tools/cloud-tools/list-devices/"
+      },
+      {
+        "dir": "import-devices",
+        "title": "Import devices",
+        "href": "/tools/cloud-tools/import-devices/"
       },
       {
         "dir": "integration-copy",

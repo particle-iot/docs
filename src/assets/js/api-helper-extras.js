@@ -1600,409 +1600,116 @@ $(document).ready(function() {
 
     });
 
-    $('.apiHelperListDevices').each(function() {
+    $('.apiHelperFlashTinker').each(async  function() {
         const thisPartial = $(this);
-        const gaCategory = 'listDevices';
 
-        const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
-        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
-        const actionButtonElem = $(thisPartial).find('.actionButton');
-
-        const deviceTableDivElem = $(thisPartial).find('.tableDiv');
-        const deviceTableElem = $(deviceTableDivElem).find('table');
-        const deviceTableHeadElem = $(deviceTableElem).find('thead');
-        const deviceTableBodyElem = $(deviceTableElem).find('tbody');
-        
-        const statusElem = $(thisPartial).find('.apiHelperStatus');
-
-        const progressDivElem = $(thisPartial).find('.progressDiv');
-        const progressElem = $(progressDivElem).find('progress');
-
-        const downloadDivElem = $(thisPartial).find('.downloadDiv');
-        const formatSelectElem = $(thisPartial).find('.formatSelect');
-        const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
-        const dateFormatSelectElem = $(thisPartial).find('.dateFormatSelect');
-        const downloadButtonElem = $(thisPartial).find('.downloadButton');
-        const copyButtonElem = $(thisPartial).find('.copyButton');
-
-        /// const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
-
-        if (!apiHelper.auth) {
-            // Not logged in
-            $(thisPartial).hide();
-            return;
-        }
-
-        
-        console.log('load list devices');
-
-
-        let deviceList;
-
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams) {
-            const formatParam = urlParams.get('format');
-            if (formatParam) {
-                $(formatSelectElem).val(formatParam);
-            }
-            const headerParam = urlParams.get('header');
-            if (headerParam !== null) {
-                $(includeHeaderCheckboxElem).prop('checked', !!headerParam);
-            }
-            const dateFormatParam = urlParams.get('dateFormat');
-            if (dateFormatParam) {
-                $(dateFormatSelectElem).val(dateFormatParam);
-            }
-
-        }
-
-        const tableConfigObj = {
-            "fields": [
-                {
-                    "title": "Device ID",
-                    "key": "id",
-                    "checked": true,
-                    "width": 24
-                },
-                {
-                    "title": "Device Name",
-                    "key": "name",
-                    "checked": true,
-                    "width": 15
-                },
-                {
-                    "title": "ICCID",
-                    "key": "iccid" ,
-                    "checked": true,
-                    "width": 20
-                },
-                {
-                    "title": "IMEI",
-                    "key": "imei",
-                    "width": 16
-                },
-                {
-                    "title": "Serial",
-                    "key": "serial_number",
-                    "width": 18
-                },
-                {
-                    "title": "SKU",
-                    "key": "_sku",
-                    "width": 10
-                },
-                {
-                    "title": "Wi-Fi MAC Address",
-                    "key": "mac_wifi",
-                    "width": 14
-                },
-                {
-                    "title": "Groups",
-                    "key": "groups",
-                    "width": 15
-                },
-                {
-                    "title": "Owner",
-                    "key": "owner",
-                    "width": 16
-                },
-                {
-                    "title": "Last Heard",
-                    "key": "last_heard"
-                },
-                {
-                    "title": "Last Handshake",
-                    "key": "last_handshake_at"
-                },
-                {
-                    "title": "Last IP",
-                    "key": "last_ip_address"
-                },
-                {
-                    "title": "Online",
-                    "key": "online"
-                },
-                {
-                    "title": "Status",
-                    "key": "status"
-                },
-                {
-                    "title": "Device OS Version",
-                    "key": "system_firmware_version"
-                },
-                {
-                    "title": "Product ID",
-                    "key": "product_id"
-                },
-                {
-                    "title": "Platform ID",
-                    "key": "platform_id"
-                },
-                {
-                    "title": "Platform Name",
-                    "key": "_platformName"
-                },
-                {
-                    "title": "Firmware Version",
-                    "key": "firmware_version"
-                },
-                {
-                    "title": "Desired Firmware Version",
-                    "key": "desired_firmware_version"
-                },
-                {
-                    "title": "Dev",
-                    "key": "development"
-                },
-                {
-                    "title": "Quarantined",
-                    "key": "quarantined"
-                },
-                {
-                    "title": "Denied",
-                    "key": "denied"
-                },
-                {
-                    "title": "Notes",
-                    "key": "notes"
-                }
-            ],
-            exportOptions: {
-                showControl: true,
-                showDateOptions: true,
-                additionalFormats: [
-                    {
-                        title: 'Device ID Only (*.txt)',
-                        key: 'deviceId',
-                    },
-                    {
-                        title: 'ICCID Only (*.txt)',
-                        key: 'iccid',
-                    },
-                ],
-            }
-        };
-        
-        $(thisPartial).data('setConfigObj')(tableConfigObj);
-        $(thisPartial).data('loadUrlParams')(urlParams);
-        
-
-        // 
-        console.log('after load fields');
+        const flashTinkerDeviceSelectElem = $(thisPartial).find('.flashTinkerDeviceSelect');
+        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
 
         const setStatus = function(s) {
-            $(statusElem).text(s);
+            $(apiHelperStatusElem).text(s);
         }
 
-        const getOptions = function(options) {
-            
-            $(productOrSandboxSelectorElem).data('getOptions')(options);
-            $(thisPartial).data('getOptions')(options);
-
-            options.username = apiHelper.auth.username;
-            options.accessToken = apiHelper.auth.access_token;
-        }
-
-        const clearDeviceList = function() {
-            $(thisPartial).data('clearList')();
-        };
-
-        const updateSearchParam = function() {
-    
-            try {
-                let options = {};
-                getOptions(options);
-
-                let urlConfig = {};
-                $(thisPartial).data('getUrlConfigObj')(urlConfig);
-
-                $(productOrSandboxSelectorElem).data('getUrlConfigObj')(urlConfig);
+        let devInfo = {};
                 
-                urlConfig.format = options.format;
-                urlConfig.header = options.header;
-                urlConfig.dateFormat = options.dateFormat;
-                
-                const searchStr = $.param(urlConfig);
-    
-                history.pushState(null, '', '?' + searchStr);     
+        apiHelper.deviceList(flashTinkerDeviceSelectElem, {
+            deviceFilter: function(dev) {
+                if (dev.online) {
+                    devInfo[dev.id] = dev;
+                }
+                return dev.online;
+            },
+            getTitle: function(dev) {
+                let result;
 
-                $(copyButtonElem).prop('disabled', (options.format == 'xlsx'));
+                if (dev.name) {
+                    result = dev.name;
+                }
+                else {
+                    result = dev.id;
+                }
+                result += (dev.online ? '' : ' (offline)');
+                return result;
+            },                    
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: function(elem) {
+                const newVal = $(elem).val();
+                if (newVal != 'select') {
+                    $(flashTinkerButtonElem).removeAttr('disabled');
+                }
+                else {
+                    $(flashTinkerButtonElem).attr('disabled', 'disabled');      
+                }            
             }
-            catch(e) {
-                console.log('exception', e);
-            }
-        };
+        });   
 
-        const getTableData = async function(configObj, options) {
+        $(flashTinkerButtonElem).on('click', async function() {
+            let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
 
-            let tableData = {
-                keys:[],
-                titles:[],
-                widths:[],
-                indexFor: {}
-            }
-            
-            if (options.export && options.format == 'deviceId') {
-                tableData.keys.push('id');
-            }
-            else
-            if (options.export && options.format == 'iccid') {
-                tableData.keys.push('iccid');                
-            }
-            else {
-                for(field of configObj.fields) {
-                    if (field.isChecked()) {
-                        tableData.keys.push(field.key);
-                        tableData.titles.push(field.customTitle ? field.customTitle : field.title);
-                        tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
-                        tableData.indexFor[field.key] = tableData.keys.length - 1;
-                    }
-                }    
-            }
+            const deviceId = $(flashTinkerDeviceSelectElem).val();
 
-            if (deviceList) {
-                tableData.data = [];
+            const deviceInfoObj = devInfo[deviceId];
 
-                for(const deviceInfo of deviceList) {
-                    let d = {};
-
-                    if (options.isSandbox && deviceInfo.product_id != deviceInfo.platform_id) {
-                        // Listing sandbox devices and this is a product device
-                        continue;
-                    }
-
-                    if (options.export && options.format == 'iccid' && !deviceInfo['iccid']) {
-                        continue;
-                    }
-
-                    for(const key of tableData.keys) {
-                        if (key.startsWith('_')) {
-                            // Internal converted field
-                            switch(key) {
-                                case '_platformName':
-                                    d[key] = await apiHelper.getPlatformName(deviceInfo['platform_id']);
-                                    break;
-                                case '_sku': 
-                                    d[key] = await apiHelper.getSkuFromSerial(deviceInfo['serial_number']);
-                                    if (!d[key]) {
-                                        d[key] = 'unknown';
-                                    }
-                                    break;
-                            }
-                        }
-                        else
-                        if (typeof deviceInfo[key] !== 'undefined') {
-                            if (Array.isArray(deviceInfo[key])) {
-                                // Occurs for groups and functions
-                                d[key] = deviceInfo[key].join(' ');
-    
-                                // TODO: Also handle object for variables. Maybe boolean as we well
-                            }
-                            else {
-                                let value = deviceInfo[key];
-
-                                if (options.convertDates) {
-                                    if (key == 'last_heard' || key == 'last_handshake_at' ) {
-                                        value = new Date(value);
-                                    }
-                                }
-
-                                d[key] = value;
-                            }
-                        }
-                    }
-                    tableData.data.push(d);
-                }    
-            }
-
-            // TODO: Filtering of desired rows
-            // TODO: Date formatting
-
-            return tableData;
-        } 
-
-        const refreshTable = async function(configObj) {            
             // 
-            let options = {};
-            getOptions(options);
+            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == deviceInfoObj.platform_id);
 
-            const tableData = await getTableData(configObj, options);
+            const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
 
-            $(thisPartial).data('refreshTable')(tableData, options);
+            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceInfoObj.system_firmware_version) >= 0);
 
-        };
+            const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
 
-        const getDeviceList = async function(options) {
-            $(deviceTableBodyElem).html('');
-            $(deviceTableDivElem).show();
+            const zipUrl = baseUrl + '.zip';
 
+            setStatus('Downloading restore image...');
+        
+            const zipFs = new zip.fs.FS();
+        
             try {
-                let stats = {
-                    product: (options.productId != 0)
-                };
-
-                // 
-                setStatus('Getting device list...');
-                $(progressDivElem).show();
-
-                deviceList = await apiHelper.getAllDevices({
-                    productId: options.productId,
-                    owner: options.username,
-                    progressElem: progressElem
-                });
-
-                $(progressDivElem).hide();
-
-                stats.count = deviceList.length;
-
-                setStatus('Device list retrieved!');
-
-                await refreshTable($(thisPartial).data('getConfigObj')());
-
-                ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
+                await zipFs.importHttpContent(zipUrl);
             }
             catch(e) {
-                console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Get Devices Error');
+                setStatus('Error getting restore image, cannot flash device');
+                return;
+            }   
+
+            let zipEntry = zipFs.find('tinker.bin');
+            if (!zipEntry) {
+                zipEntry = zipFs.find('tracker-edge.bin');
             }
 
-        };
+            
+            let partBinary = await zipEntry.getUint8Array();
+            
+            let formData = new FormData();
 
-        $(actionButtonElem).on('click', function() {
-            let options = {};
-            getOptions(options);
-            getDeviceList(options);
+            let blob = new Blob([partBinary], {type:'application/octet-stream'});
+            formData.append('file', blob, 'firmware.bin');
+            
+            $.ajax({
+                data: formData,
+                contentType: false,
+                error: function(err) {
+                    setStatus('Error flashing device');
+                },
+                method: 'PUT',
+                processData: false,
+                success: function (resp) {
+                    setStatus(resp.status);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 8000);
+                },
+                url: 'https://api.particle.io/v1/devices/' + deviceId + "?access_token=" + apiHelper.auth.access_token,
+            });    
+
+
         });
-
-        $(productSelectElem).on('change', function() {
-            clearDeviceList();
-            updateSearchParam();
-        });
-
-        $(thisPartial).on('updateProductList', async function(event, options) {
-            clearDeviceList();
-            updateSearchParam();
-        });
-
-        $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
-            await refreshTable(config);
-            updateSearchParam();
-        });
-
-
-        $(formatSelectElem).on('change', function() {
-            updateSearchParam();
-        });
-        $(dateFormatSelectElem).on('change', function() {
-            updateSearchParam();
-        });
-
-        $(includeHeaderCheckboxElem).on('click', function() {
-            updateSearchParam();
-        });
-
 
     });
+
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
@@ -2020,10 +1727,15 @@ $(document).ready(function() {
             return;
         }
 
+        let noSandbox = !!$(thisPartial).data('no-sandbox');
+        if (noSandbox) {
+            $(devOrProductRowElem).hide();
+        }
+
         let orgs;
 
         const getOptions = function(options) {
-            const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            const devOrProduct = (noSandbox ? 'product' : $(devOrProductRowElem).find('input:checked').val());
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
             let productId = 0;
@@ -2046,7 +1758,6 @@ $(document).ready(function() {
                 // Not fully loaded yet
                 return;
             }
-            console.log('updateProductList');
 
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
@@ -2207,116 +1918,6 @@ $(document).ready(function() {
             else {
                 resultObj.productId = 0;
             }
-        });
-
-    });
-
-    $('.apiHelperFlashTinker').each(async  function() {
-        const thisPartial = $(this);
-
-        const flashTinkerDeviceSelectElem = $(thisPartial).find('.flashTinkerDeviceSelect');
-        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
-        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
-
-        const setStatus = function(s) {
-            $(apiHelperStatusElem).text(s);
-        }
-
-        let devInfo = {};
-                
-        apiHelper.deviceList(flashTinkerDeviceSelectElem, {
-            deviceFilter: function(dev) {
-                if (dev.online) {
-                    devInfo[dev.id] = dev;
-                }
-                return dev.online;
-            },
-            getTitle: function(dev) {
-                let result;
-
-                if (dev.name) {
-                    result = dev.name;
-                }
-                else {
-                    result = dev.id;
-                }
-                result += (dev.online ? '' : ' (offline)');
-                return result;
-            },                    
-            hasRefresh: true,
-            hasSelectDevice: true,
-            onChange: function(elem) {
-                const newVal = $(elem).val();
-                if (newVal != 'select') {
-                    $(flashTinkerButtonElem).removeAttr('disabled');
-                }
-                else {
-                    $(flashTinkerButtonElem).attr('disabled', 'disabled');      
-                }            
-            }
-        });   
-
-        $(flashTinkerButtonElem).on('click', async function() {
-            let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
-
-            const deviceId = $(flashTinkerDeviceSelectElem).val();
-
-            const deviceInfoObj = devInfo[deviceId];
-
-            // 
-            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == deviceInfoObj.platform_id);
-
-            const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
-
-            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceInfoObj.system_firmware_version) >= 0);
-
-            const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
-
-            const zipUrl = baseUrl + '.zip';
-
-            setStatus('Downloading restore image...');
-        
-            const zipFs = new zip.fs.FS();
-        
-            try {
-                await zipFs.importHttpContent(zipUrl);
-            }
-            catch(e) {
-                setStatus('Error getting restore image, cannot flash device');
-                return;
-            }   
-
-            let zipEntry = zipFs.find('tinker.bin');
-            if (!zipEntry) {
-                zipEntry = zipFs.find('tracker-edge.bin');
-            }
-
-            
-            let partBinary = await zipEntry.getUint8Array();
-            
-            let formData = new FormData();
-
-            let blob = new Blob([partBinary], {type:'application/octet-stream'});
-            formData.append('file', blob, 'firmware.bin');
-            
-            $.ajax({
-                data: formData,
-                contentType: false,
-                error: function(err) {
-                    setStatus('Error flashing device');
-                },
-                method: 'PUT',
-                processData: false,
-                success: function (resp) {
-                    setStatus(resp.status);
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 8000);
-                },
-                url: 'https://api.particle.io/v1/devices/' + deviceId + "?access_token=" + apiHelper.auth.access_token,
-            });    
-
-
         });
 
     });
