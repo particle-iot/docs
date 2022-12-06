@@ -42,6 +42,7 @@ $(document).ready(function() {
             gaCategory,
             fieldSelector: {
                 showControl: true,
+                height: '300px',
                 fields: [
                     {
                         title: 'Device ID',

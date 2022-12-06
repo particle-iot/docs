@@ -3,7 +3,6 @@ $(document).ready(function() {
     $('.apiHelperTable').each(function() {
         const thisPartial = $(this);
 
-        const fieldSelectorDivElem = $(thisPartial).find('.fieldSelectorDiv');
         const exportOptionsDivElem = $(thisPartial).find('.exportOptionsDiv');
         const tableDivElem = $(thisPartial).find('.tableDiv');
         const tableHeadElem = $(tableDivElem).find('thead');
@@ -37,17 +36,12 @@ $(document).ready(function() {
 
             $(fieldSelectorElem).data('setConfigObj')(configObjIn);
 
-
             if (configObj.exportOptions) {
                 console.log('exportOptions', configObj.exportOptions);
 
                 // showControl (boolean)
                 // showDateOptions (boolean)
                 // additionalFormats (array)
-
-                if (configObj.exportOptions.showControl) {
-                    $(exportOptionsDivElem).show();   
-                }
 
                 for(const obj of configObj.exportOptions.additionalFormats) {
                     const optionElem = document.createElement('option');
@@ -63,14 +57,27 @@ $(document).ready(function() {
         });
 
         $(thisPartial).data('getUrlConfigObj', function(resultObj) {
-            $(fieldSelectorElem).data('getUrlConfigObj')(resultObj);
-
+            $(fieldSelectorElem).data('getUrlConfigObj')(resultObj);            
         });
 
 
         
         $(thisPartial).data('loadUrlParams', function(urlParams) {
             $(fieldSelectorElem).data('loadUrlParams')(urlParams);
+
+            let value = urlParams.get('format');
+            if (value) {
+                $(formatSelectElem).val(value);
+            }
+            value = urlParams.get('header');
+            if (value !== null) {
+                $(includeHeaderCheckboxElem).prop('checked', !!value);   
+            }
+            value = urlParams.get('dateFormat');
+            if (value) {
+                $(dateFormatSelectElem).val(value);
+            }
+
         });
 
         $(thisPartial).data('clearList', function() {
@@ -83,7 +90,7 @@ $(document).ready(function() {
             tableData = tableDataIn;
             console.log('tableData', tableData);
 
-            $(tableHeadElem).html('');
+            $(tableHeadElem).empty();
             {
                 const rowElem = document.createElement('tr');
                 let col = 0;
@@ -95,11 +102,14 @@ $(document).ready(function() {
                 $(tableHeadElem).append(rowElem);
             }
     
-            $(tableBodyElem).html('');
+            $(tableBodyElem).empty();
     
             if (tableData.data) {
                 $(downloadDivElem).show();
-    
+                if (configObj.exportOptions.showControl) {
+                    $(exportOptionsDivElem).show();   
+                }
+
                 for(const d of tableData.data) {
                     const rowElem = document.createElement('tr');
     
@@ -122,6 +132,7 @@ $(document).ready(function() {
             }
             else {
                 $(downloadDivElem).hide();
+                $(exportOptionsDivElem).hide();   
             }
         });
 
@@ -286,6 +297,8 @@ $(document).ready(function() {
 
         let configObj;
 
+        // const fieldSelectorDivElem = $(thisPartial).find('.fieldSelectorDiv');
+
         const fieldSelectorTableDivElem = $(thisPartial).find('.fieldSelectorTableDiv');
         
         // console.log('configObj', configObj);
@@ -340,25 +353,7 @@ $(document).ready(function() {
             
         };
 
-        $(thisPartial).data('setConfigObj', function(configObjIn) {
-            configObj = configObjIn;
-
-            if (!configObj.fieldSelector.fields || configObj.fieldSelector.fields.length == 0) {
-                return;
-            }
-            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
-                return;
-            }
-
-            $(thisPartial).show();
-
-            for(const field of configObj.fieldSelector.fields) {
-                if (!field.width) {
-                    field.width = '10';
-                }
-            }
-
-
+        const updateTable = function() {
             const tableElem = document.createElement('table');
             {
                 $(tableElem).addClass('apiHelperTableNoMargin');
@@ -502,6 +497,33 @@ $(document).ready(function() {
 
             $(fieldSelectorTableDivElem).html(tableElem);
         
+        }
+
+        $(thisPartial).data('setConfigObj', function(configObjIn) {
+            configObj = configObjIn;
+
+            if (!configObj.fieldSelector.fields || configObj.fieldSelector.fields.length == 0) {
+                return;
+            }
+            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
+                return;
+            }
+
+            if (configObj.fieldSelector.height) {
+                $(fieldSelectorTableDivElem).css('height', configObj.fieldSelector.height);
+                $(fieldSelectorTableDivElem).css('overflow-y', 'auto');
+            }
+
+            $(thisPartial).show();
+
+            for(const field of configObj.fieldSelector.fields) {
+                if (!field.width) {
+                    field.width = '10';
+                }
+            }
+
+            updateTable();
+            
         });
 
         $(thisPartial).data('getConfigObj', function() {
@@ -537,6 +559,8 @@ $(document).ready(function() {
             if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
                 return;
             }
+
+            console.log('fieldSelector loadUrlParams');
 
             if (!urlParams.has('k0')) {
                 return;
@@ -578,6 +602,7 @@ $(document).ready(function() {
             }
 
             configObj.fieldSelector.fields = newFields;                
+            updateTable();
         });
 
 
