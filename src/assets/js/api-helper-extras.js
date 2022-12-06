@@ -1525,8 +1525,8 @@ $(document).ready(function() {
             }
         }
 
-        const getOptions = function() {
-            let options = $(thisPartial).data('getOptions')();
+        const getOptions = function(options) {
+            $(thisPartial).data('getOptions')(options);
 
             options.removeFromProduct = (options.productId != 0) && $(removeFromProductElem).prop('checked'),
             options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
@@ -1534,8 +1534,6 @@ $(document).ready(function() {
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
             options.deviceList = deviceList;
-
-            return options;
         }
 
         $(thisPartial).on('updateProductList', async function(event, options) {
@@ -1553,13 +1551,19 @@ $(document).ready(function() {
 
 
         $(removeFromProductElem).on('click', function() {
-            checkExecuteButton(getOptions());
+            let options = {};
+            getOptions(options);
+            checkExecuteButton(options);
         })
         $(unclaimDeviceElem).on('click', function() {
-            checkExecuteButton(getOptions());
+            let options = {};
+            getOptions(options);
+            checkExecuteButton(options);
         })
         $(releaseSimElem).on('click', function() {
-            checkExecuteButton(getOptions());
+            let options = {};
+            getOptions(options);
+            checkExecuteButton(options);
         })
 
         
@@ -1569,19 +1573,24 @@ $(document).ready(function() {
         });
 
         $(actionButtonElem).on('click', function() {
+            let options = {};
+            getOptions(options);
     
             $(actionButtonElem).prop('disabled', true);
 
-            checkOperations(getOptions());
+            checkOperations(options);
         });
 
         $(executeButtonElem).on('click', function() {
+            let options = {};
+            getOptions(options);
+
             $(executeButtonElem).prop('disabled', true);
     
             // Hide all warning panes
             $(sandboxUnclaimWarningElem).hide();
 
-            executeOperations(getOptions());
+            executeOperations(options);
         });
 
         $(productSelectElem).on('click', function() {
@@ -1616,7 +1625,7 @@ $(document).ready(function() {
         const downloadButtonElem = $(thisPartial).find('.downloadButton');
         const copyButtonElem = $(thisPartial).find('.copyButton');
 
-        const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
+        /// const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
 
         if (!apiHelper.auth) {
             // Not logged in
@@ -1678,6 +1687,11 @@ $(document).ready(function() {
                     "width": 18
                 },
                 {
+                    "title": "SKU",
+                    "key": "_sku",
+                    "width": 10
+                },
+                {
                     "title": "Wi-Fi MAC Address",
                     "key": "mac_wifi",
                     "width": 14
@@ -1725,6 +1739,10 @@ $(document).ready(function() {
                     "key": "platform_id"
                 },
                 {
+                    "title": "Platform Name",
+                    "key": "_platformName"
+                },
+                {
                     "title": "Firmware Version",
                     "key": "firmware_version"
                 },
@@ -1748,11 +1766,25 @@ $(document).ready(function() {
                     "title": "Notes",
                     "key": "notes"
                 }
-            ]
+            ],
+            exportOptions: {
+                showControl: true,
+                showDateOptions: true,
+                additionalFormats: [
+                    {
+                        title: 'Device ID Only (*.txt)',
+                        key: 'deviceId',
+                    },
+                    {
+                        title: 'ICCID Only (*.txt)',
+                        key: 'iccid',
+                    },
+                ],
+            }
         };
         
-        $(fieldSelectorElem).data('setConfigObj')(tableConfigObj);
-        $(fieldSelectorElem).data('loadUrlParams')(urlParams);
+        $(thisPartial).data('setConfigObj')(tableConfigObj);
+        $(thisPartial).data('loadUrlParams')(urlParams);
         
 
         // 
@@ -1762,33 +1794,27 @@ $(document).ready(function() {
             $(statusElem).text(s);
         }
 
-        const getOptions = function() {
+        const getOptions = function(options) {
             
-            let options = $(productOrSandboxSelectorElem).data('getOptions')();
-
-            options.format = $(formatSelectElem).val();
-            options.header = $(includeHeaderCheckboxElem).prop('checked');
-            options.dateFormat = $(dateFormatSelectElem).val();
+            $(productOrSandboxSelectorElem).data('getOptions')(options);
+            $(thisPartial).data('getOptions')(options);
 
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
-
-            return options;
         }
 
         const clearDeviceList = function() {
-            $(deviceTableBodyElem).html('');
-            $(deviceTableDivElem).hide();
-            $(downloadDivElem).hide();
+            $(thisPartial).data('clearList')();
         };
 
         const updateSearchParam = function() {
     
             try {
-                const options = getOptions();
+                let options = {};
+                getOptions(options);
 
                 let urlConfig = {};
-                $(fieldSelectorElem).data('getUrlConfigObj')(urlConfig);
+                $(thisPartial).data('getUrlConfigObj')(urlConfig);
 
                 $(productOrSandboxSelectorElem).data('getUrlConfigObj')(urlConfig);
                 
@@ -1897,48 +1923,13 @@ $(document).ready(function() {
 
         const refreshTable = async function(configObj) {            
             // 
-            const tableData = await getTableData(configObj, getOptions());
+            let options = {};
+            getOptions(options);
 
-            $(deviceTableHeadElem).html('');
-            {
-                const rowElem = document.createElement('tr');
-                let col = 0;
-                for(const title of tableData.titles) {
-                    const thElem = document.createElement('th');
-                    $(thElem).text(title);
-                    $(rowElem).append(thElem);
-                }
-                $(deviceTableHeadElem).append(rowElem);
-            }
+            const tableData = await getTableData(configObj, options);
 
-            $(deviceTableBodyElem).html('');
+            $(thisPartial).data('refreshTable')(tableData, options);
 
-            if (tableData.data) {
-                $(downloadDivElem).show();
-
-                for(const d of tableData.data) {
-                    const rowElem = document.createElement('tr');
-    
-                    for(let col = 0; col < tableData.keys.length; col++) {
-                        const key = tableData.keys[col];
-
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', tableData.widths[col] + 'ch');
-        
-                        if (d[key]) {
-                            $(tdElem).text(d[key]);
-                        }
-        
-                        $(rowElem).append(tdElem);
-                    }
-    
-                    $(deviceTableBodyElem).append(rowElem);
-    
-                }
-            }
-            else {
-                $(downloadDivElem).hide();
-            }
         };
 
         const getDeviceList = async function(options) {
@@ -1966,7 +1957,7 @@ $(document).ready(function() {
 
                 setStatus('Device list retrieved!');
 
-                await refreshTable($(fieldSelectorElem).data('getConfigObj')());
+                await refreshTable($(thisPartial).data('getConfigObj')());
 
                 ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
             }
@@ -1978,7 +1969,9 @@ $(document).ready(function() {
         };
 
         $(actionButtonElem).on('click', function() {
-            getDeviceList(getOptions());
+            let options = {};
+            getOptions(options);
+            getDeviceList(options);
         });
 
         $(productSelectElem).on('change', function() {
@@ -2008,128 +2001,6 @@ $(document).ready(function() {
             updateSearchParam();
         });
 
-        const getXlsxData = async function(options) {
-            if (!options) {
-                options = {};
-            }
-            if (!options.sheetName) {
-                options.sheetName = 'Devices';
-            }
-            let xlsxData = {};
-
-            xlsxData.options = getOptions();
-
-            xlsxData.configObj = $(fieldSelectorElem).data('getConfigObj')();
-
-            let getTableDataOptions = getOptions();
-
-            getTableDataOptions.convertDates = (xlsxData.options.dateFormat != 'iso');
-            getTableDataOptions.export = true;
-
-            xlsxData.tableData = await getTableData(xlsxData.configObj, getTableDataOptions);
-
-            let conversionOptions = {
-                header: xlsxData.tableData.keys
-            };
-            if (!xlsxData.options.header) {
-                conversionOptions.skipHeader = true;
-            }
-            if (xlsxData.options.dateFormat != 'iso') {
-                conversionOptions.dateNF = xlsxData.options.dateFormat;
-            }
-
-            if (!options.fileName) {
-                switch(xlsxData.options.format) {
-                    case 'deviceId':
-                        options.fileName = 'devices.txt';
-                        conversionOptions.skipHeader = true;
-                        break;
-
-                    case 'iccid':
-                        options.fileName = 'iccids.txt';
-                        conversionOptions.skipHeader = true;
-                        break;
-
-                    default:
-                        options.fileName = 'devices.' + xlsxData.options.format;
-                        break;
-                }
-            }
-            let stats = {
-                format: xlsxData.options.format,
-                cols: xlsxData.tableData.keys.length,
-                count: xlsxData.tableData.data.length
-            };
-
-
-            xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
-
-            xlsxData.workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(xlsxData.workbook, xlsxData.worksheet, options.sheetName);
-
-            if (xlsxData.options.header) {
-                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableData.titles], { origin: "A1" });
-            }
-
-            // Columns widths
-            if (!xlsxData.worksheet['!cols']) {
-                xlsxData.worksheet['!cols'] = [];
-            }
-            for(let ii = 0; ii < xlsxData.tableData.widths.length; ii++) {
-                if (!xlsxData.worksheet['!cols'][ii]) {
-                    xlsxData.worksheet['!cols'][ii] = {};
-                }
-                xlsxData.worksheet['!cols'][ii].wch = xlsxData.tableData.widths[ii];
-            }
-
-            switch(xlsxData.options.format) {
-                case 'xlsx':
-                    // toFile/toClipboard is ignored; cannot create 
-                    XLSX.writeFile(xlsxData.workbook, options.fileName);
-                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
-                    break;
-
-                case 'deviceId':
-                case 'iccid':
-                case 'csv':
-                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet);
-                    break;
-
-                case 'tsv':
-                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet, {FS:'\t'});
-                    break;
-            }
-            if (xlsxData.textOut) {
-                if (options.toClipboard) {
-                    var t = document.createElement('textarea');
-                    document.body.appendChild(t);
-                    $(t).text(xlsxData.textOut);
-                    t.select();
-                    document.execCommand("copy");
-                    document.body.removeChild(t);
-
-                    ga('send', 'event', gaCategory, 'Clipboard', JSON.stringify(stats));
-                }
-                if (options.toFile) {
-                    let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
-                    saveAs(blob, options.fileName);	        
-                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
-                }
-            }
-
-            return xlsxData;
-        }
-
-        $(downloadButtonElem).on('click', async function() {
-            await getXlsxData({toFile: true});
-
-        });
-
-        $(copyButtonElem).on('click', async function() {
-            await getXlsxData({toClipboard: true});
-            
-        });
-
 
     });
 
@@ -2151,7 +2022,7 @@ $(document).ready(function() {
 
         let orgs;
 
-        const getOptions = function() {
+        const getOptions = function(options) {
             const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
@@ -2161,15 +2032,13 @@ $(document).ready(function() {
                 productId = $(productSelectElem).val();
             }
 
-            let options = {                
-                isSandbox: (devOrProduct == 'dev'),
-                hasOrgs: orgs.length > 0,
-                devOrProduct, // 'dev' (sandbox non-product) or 'product'
-                sandboxOrg,   // 'sandbox' product or 'org' product
-                productId,    // 0 if sandbox
-            };
+            options.isSandbox = (devOrProduct == 'dev');
+            options.hasOrgs = orgs.length > 0;
+            options.devOrProduct = devOrProduct; // 'dev' (sandbox non-product) or 'product'
+            options.sandboxOrg = sandboxOrg;   // 'sandbox' product or 'org' product
+            options.productId = productId;    // 0 if sandbox
+        
 
-            return options;
         }
 
         const updateProductList = async function() {
@@ -2268,7 +2137,9 @@ $(document).ready(function() {
                 urlParams = null;
             }
 
-            $(thisPartial).trigger('updateProductList', [getOptions()]);
+            let options = {};
+            getOptions(options);
+            $(thisPartial).trigger('updateProductList', [options]);
         }
 
         $(devOrProductRowElem).find('input').each(function() {

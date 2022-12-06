@@ -6,7 +6,10 @@ $(document).ready(function() {
         const fieldSelectorDivElem = $(thisPartial).find('.fieldSelectorDiv');
         const exportOptionsDivElem = $(thisPartial).find('.exportOptionsDiv');
         const tableDivElem = $(thisPartial).find('.tableDiv');
+        const tableHeadElem = $(tableDivElem).find('thead');
+        const tableBodyElem = $(tableDivElem).find('tbody');
         
+
         const downloadDivElem = $(thisPartial).find('.downloadDiv');
         const formatSelectElem = $(thisPartial).find('.formatSelect');
         const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
@@ -17,11 +20,40 @@ $(document).ready(function() {
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
 
         let configObj;
+        let tableData;
 
+        $(thisPartial).data('getOptions', function(options) {
+            // Download format options
+            options.format = $(formatSelectElem).val();
+            options.header = $(includeHeaderCheckboxElem).prop('checked');
+            options.dateFormat = $(dateFormatSelectElem).val();
+
+        });
+        
         $(thisPartial).data('setConfigObj', function(configObjIn) {
             configObj = configObjIn;
 
             $(fieldSelectorElem).data('setConfigObj')(configObjIn);
+
+
+            if (configObj.exportOptions) {
+                console.log('exportOptions', configObj.exportOptions);
+
+                // showControl (boolean)
+                // showDateOptions (boolean)
+                // additionalFormats (array)
+
+                if (configObj.exportOptions.showControl) {
+                    $(exportOptionsDivElem).show();   
+                }
+
+                for(const obj of configObj.exportOptions.additionalFormats) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', obj.key);
+                    $(optionElem).text(obj.title);
+                    $(formatSelectElem).append(optionElem);
+                }
+            }
         });
 
         $(thisPartial).data('getConfigObj', function() {
@@ -37,6 +69,179 @@ $(document).ready(function() {
         
         $(thisPartial).data('loadUrlParams', function(urlParams) {
             $(fieldSelectorElem).data('loadUrlParams')(urlParams);
+        });
+
+        $(thisPartial).data('clearList', function() {
+            $(tableBodyElem).empty();
+            $(tableDivElem).hide();
+            $(downloadDivElem).hide();
+        });
+
+        $(thisPartial).data('refreshTable', function(tableDataIn, options) {
+            tableData = tableDataIn;
+
+            $(tableHeadElem).html('');
+            {
+                const rowElem = document.createElement('tr');
+                let col = 0;
+                for(const title of tableData.titles) {
+                    const thElem = document.createElement('th');
+                    $(thElem).text(title);
+                    $(rowElem).append(thElem);
+                }
+                $(tableHeadElem).append(rowElem);
+            }
+    
+            $(tableBodyElem).html('');
+    
+            if (tableData.data) {
+                $(downloadDivElem).show();
+    
+                for(const d of tableData.data) {
+                    const rowElem = document.createElement('tr');
+    
+                    for(let col = 0; col < tableData.keys.length; col++) {
+                        const key = tableData.keys[col];
+    
+                        const tdElem = document.createElement('td');
+                        $(tdElem).css('width', tableData.widths[col] + 'ch');
+        
+                        if (d[key]) {
+                            $(tdElem).text(d[key]);
+                        }
+        
+                        $(rowElem).append(tdElem);
+                    }
+    
+                    $(tableBodyElem).append(rowElem);
+    
+                }
+            }
+            else {
+                $(downloadDivElem).hide();
+            }
+        });
+
+
+        const getXlsxData = async function(options) {
+            if (!options) {
+                options = {};
+            }
+            if (!options.sheetName) {
+                options.sheetName = 'Devices';
+            }
+            let xlsxData = {};
+
+            xlsxData.options = {};
+            getOptions(xlsxData.options);
+
+            xlsxData.configObj = $(thisPartial).data('getConfigObj')();
+
+            xlsxData.options.convertDates = (xlsxData.options.dateFormat != 'iso');
+            xlsxData.options.export = true;
+
+            xlsxData.tableData = tableData;
+
+            let conversionOptions = {
+                header: xlsxData.tableData.keys
+            };
+            if (!xlsxData.options.header) {
+                conversionOptions.skipHeader = true;
+            }
+            if (xlsxData.options.dateFormat != 'iso') {
+                conversionOptions.dateNF = xlsxData.options.dateFormat;
+            }
+
+            if (!options.fileName) {
+                switch(xlsxData.options.format) {
+                    case 'deviceId':
+                        options.fileName = 'devices.txt';
+                        conversionOptions.skipHeader = true;
+                        break;
+
+                    case 'iccid':
+                        options.fileName = 'iccids.txt';
+                        conversionOptions.skipHeader = true;
+                        break;
+
+                    default:
+                        options.fileName = 'devices.' + xlsxData.options.format;
+                        break;
+                }
+            }
+            let stats = {
+                format: xlsxData.options.format,
+                cols: xlsxData.tableData.keys.length,
+                count: xlsxData.tableData.data.length
+            };
+
+
+            xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
+
+            xlsxData.workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(xlsxData.workbook, xlsxData.worksheet, options.sheetName);
+
+            if (xlsxData.options.header) {
+                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableData.titles], { origin: "A1" });
+            }
+
+            // Columns widths
+            if (!xlsxData.worksheet['!cols']) {
+                xlsxData.worksheet['!cols'] = [];
+            }
+            for(let ii = 0; ii < xlsxData.tableData.widths.length; ii++) {
+                if (!xlsxData.worksheet['!cols'][ii]) {
+                    xlsxData.worksheet['!cols'][ii] = {};
+                }
+                xlsxData.worksheet['!cols'][ii].wch = xlsxData.tableData.widths[ii];
+            }
+
+            switch(xlsxData.options.format) {
+                case 'xlsx':
+                    // toFile/toClipboard is ignored; cannot create 
+                    XLSX.writeFile(xlsxData.workbook, options.fileName);
+                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
+                    break;
+
+                case 'deviceId':
+                case 'iccid':
+                case 'csv':
+                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet);
+                    break;
+
+                case 'tsv':
+                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet, {FS:'\t'});
+                    break;
+            }
+            if (xlsxData.textOut) {
+                if (options.toClipboard) {
+                    var t = document.createElement('textarea');
+                    document.body.appendChild(t);
+                    $(t).text(xlsxData.textOut);
+                    t.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(t);
+
+                    ga('send', 'event', gaCategory, 'Clipboard', JSON.stringify(stats));
+                }
+                if (options.toFile) {
+                    let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
+                    saveAs(blob, options.fileName);	        
+                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
+                }
+            }
+
+            return xlsxData;
+        }
+
+        $(downloadButtonElem).on('click', async function() {
+            await getXlsxData({toFile: true});
+
+        });
+
+        $(copyButtonElem).on('click', async function() {
+            await getXlsxData({toClipboard: true});
+            
         });
 
     });
