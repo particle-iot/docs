@@ -27,7 +27,8 @@ $(document).ready(function() {
             options.header = $(includeHeaderCheckboxElem).prop('checked');
             options.dateFormat = $(dateFormatSelectElem).val();
 
-            $(copyButtonElem).prop('disabled', (options.format == 'xlsx'));
+            $(copyButtonElem).prop('disabled', !tableData || !tableData.data || (options.format == 'xlsx'));
+
 
         });
         
@@ -37,17 +38,22 @@ $(document).ready(function() {
             $(fieldSelectorElem).data('setConfigObj')(configObjIn);
 
             if (configObj.exportOptions) {
-                console.log('exportOptions', configObj.exportOptions);
 
                 // showControl (boolean)
                 // showDateOptions (boolean)
                 // additionalFormats (array)
 
-                for(const obj of configObj.exportOptions.additionalFormats) {
-                    const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', obj.key);
-                    $(optionElem).text(obj.title);
-                    $(formatSelectElem).append(optionElem);
+                if (configObj.exportOptions.showControl) {
+                    $(exportOptionsDivElem).show();   
+                }
+
+                if (configObj.exportOptions.additionalFormats) {
+                    for(const obj of configObj.exportOptions.additionalFormats) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', obj.key);
+                        $(optionElem).text(obj.title);
+                        $(formatSelectElem).append(optionElem);
+                    }    
                 }
             }
         });
@@ -84,11 +90,12 @@ $(document).ready(function() {
             $(tableBodyElem).empty();
             $(tableDivElem).hide();
             $(downloadDivElem).hide();
+            $(downloadButtonElem).attr('disabled', true);
+            $(copyButtonElem).attr('disabled', true);
         });
 
         $(thisPartial).data('refreshTable', function(tableDataIn, options) {
             tableData = tableDataIn;
-            console.log('tableData', tableData);
 
             $(tableHeadElem).empty();
             {
@@ -106,9 +113,6 @@ $(document).ready(function() {
     
             if (tableData.data) {
                 $(downloadDivElem).show();
-                if (configObj.exportOptions.showControl) {
-                    $(exportOptionsDivElem).show();   
-                }
 
                 for(const d of tableData.data) {
                     const rowElem = document.createElement('tr');
@@ -126,13 +130,17 @@ $(document).ready(function() {
                         $(rowElem).append(tdElem);
                     }
     
-                    $(tableBodyElem).append(rowElem);
-    
+                    $(tableBodyElem).append(rowElem);    
                 }
+
+                $(downloadButtonElem).attr('disabled', false);
+                $(copyButtonElem).attr('disabled', (options.format == 'xlsx'));    
             }
             else {
                 $(downloadDivElem).hide();
                 $(exportOptionsDivElem).hide();   
+                $(downloadButtonElem).attr('disabled', true);
+                $(copyButtonElem).attr('disabled', true);
             }
         });
 
@@ -255,8 +263,6 @@ $(document).ready(function() {
 
             return xlsxData;
         }
-
-        console.log('registering button handlers', thisPartial);
 
         $(downloadButtonElem).on('click', async function() {
             console.log('download button');
@@ -559,8 +565,6 @@ $(document).ready(function() {
             if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
                 return;
             }
-
-            console.log('fieldSelector loadUrlParams');
 
             if (!urlParams.has('k0')) {
                 return;
