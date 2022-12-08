@@ -17,38 +17,45 @@ $(document).ready(function() {
         const copyButtonElem = $(thisPartial).find('.copyButton');
 
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
+        let fieldSelectorObj;
 
-        let configObj;
         let tableData;
 
-        $(thisPartial).data('getOptions', function(options) {
+
+        const tableObj = {
+        };
+        $(thisPartial).data('table', tableObj);
+
+
+
+        tableObj.getOptions = function(options) {
             // Download format options
             options.format = $(formatSelectElem).val();
             options.header = $(includeHeaderCheckboxElem).prop('checked');
             options.dateFormat = $(dateFormatSelectElem).val();
 
             $(copyButtonElem).prop('disabled', !tableData || !tableData.data || (options.format == 'xlsx'));
-
-
-        });
+        }
         
-        $(thisPartial).data('setConfigObj', function(configObjIn) {
-            configObj = configObjIn;
+        tableObj.setConfig = function(configObjIn) {
+            tableObj.tableConfig = configObjIn;
 
-            $(fieldSelectorElem).data('setConfigObj')(configObjIn);
+            fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
+            console.log('setConfig fieldSelectorObj', fieldSelectorObj);
+            fieldSelectorObj.setConfigObj(configObjIn);
 
-            if (configObj.exportOptions) {
+            if (tableObj.tableConfig.exportOptions) {
 
                 // showControl (boolean)
                 // showDateOptions (boolean)
                 // additionalFormats (array)
 
-                if (configObj.exportOptions.showControl) {
+                if (tableObj.tableConfig.exportOptions.showControl) {
                     $(exportOptionsDivElem).show();   
                 }
 
-                if (configObj.exportOptions.additionalFormats) {
-                    for(const obj of configObj.exportOptions.additionalFormats) {
+                if (tableObj.tableConfig.exportOptions.additionalFormats) {
+                    for(const obj of tableObj.tableConfig.exportOptions.additionalFormats) {
                         const optionElem = document.createElement('option');
                         $(optionElem).attr('value', obj.key);
                         $(optionElem).text(obj.title);
@@ -56,20 +63,22 @@ $(document).ready(function() {
                     }    
                 }
             }
-        });
+            if (tableObj.tableConfig.tableOptions) {
+                if (tableObj.tableConfig.tableOptions.showAlways) {
+                    $(tableDivElem).show();
+                }
+            }
+        }
 
-        $(thisPartial).data('getConfigObj', function() {
-            return configObj;
-        });
+        tableObj.getUrlConfigObj = function(resultObj) {
 
-        $(thisPartial).data('getUrlConfigObj', function(resultObj) {
-            $(fieldSelectorElem).data('getUrlConfigObj')(resultObj);            
-        });
+            fieldSelectorObj.getUrlConfigObj(resultObj);            
+        }
 
 
         
-        $(thisPartial).data('loadUrlParams', function(urlParams) {
-            $(fieldSelectorElem).data('loadUrlParams')(urlParams);
+        tableObj.loadUrlParams = function(urlParams) {
+            fieldSelectorObj.loadUrlParams(urlParams);
 
             let value = urlParams.get('format');
             if (value) {
@@ -84,18 +93,20 @@ $(document).ready(function() {
                 $(dateFormatSelectElem).val(value);
             }
 
-        });
+        }
 
-        $(thisPartial).data('clearList', function() {
+        tableObj.clearList = function() {
             $(tableBodyElem).empty();
             $(tableDivElem).hide();
             $(downloadDivElem).hide();
             $(downloadButtonElem).attr('disabled', true);
             $(copyButtonElem).attr('disabled', true);
-        });
+        };
 
-        $(thisPartial).data('refreshTable', function(tableDataIn, options) {
+        tableObj.refreshTable =function(tableDataIn, options) {
             tableData = tableDataIn;
+
+            console.log('refreshTable', tableData);
 
             $(tableHeadElem).empty();
             {
@@ -112,6 +123,7 @@ $(document).ready(function() {
             $(tableBodyElem).empty();
     
             if (tableData.data) {
+                $(tableDivElem).show();
                 $(downloadDivElem).show();
 
                 for(const d of tableData.data) {
@@ -142,7 +154,7 @@ $(document).ready(function() {
                 $(downloadButtonElem).attr('disabled', true);
                 $(copyButtonElem).attr('disabled', true);
             }
-        });
+        }
 
 
         const getXlsxData = async function(options) {
@@ -156,9 +168,9 @@ $(document).ready(function() {
             let xlsxData = {};
 
             xlsxData.options = {};
-            $(thisPartial).data('getOptions')(xlsxData.options);
+            tableObj.getOptions(xlsxData.options);
 
-            xlsxData.configObj = $(thisPartial).data('getConfigObj')();
+            xlsxData.configObj = tableObj.tableConfig;
 
             xlsxData.options.convertDates = (xlsxData.options.dateFormat != 'iso');
             xlsxData.options.export = true;
@@ -224,8 +236,8 @@ $(document).ready(function() {
                 case 'xlsx':
                     // toFile/toClipboard is ignored; cannot create 
                     XLSX.writeFile(xlsxData.workbook, options.fileName);
-                    if (configObj.gaCategory) {
-                        ga('send', 'event', configObj.gaCategory, 'Download', JSON.stringify(stats));
+                    if (tableObj.tableConfig.gaCategory) {
+                        ga('send', 'event', tableObj.tableConfig.gaCategory, 'Download', JSON.stringify(stats));
                     }
                     break;
 
@@ -248,15 +260,15 @@ $(document).ready(function() {
                     document.execCommand("copy");
                     document.body.removeChild(t);
 
-                    if (configObj.gaCategory) {
-                        ga('send', 'event', configObj.gaCategory, 'Clipboard', JSON.stringify(stats));
+                    if (tableObj.tableConfig.gaCategory) {
+                        ga('send', 'event', tableObj.tableConfig.gaCategory, 'Clipboard', JSON.stringify(stats));
                     }
                 }
                 if (options.toFile) {
                     let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
                     saveAs(blob, options.fileName);	        
-                    if (configObj.gaCategory) {
-                        ga('send', 'event', configObj.gaCategory, 'Download', JSON.stringify(stats));
+                    if (tableObj.tableConfig.gaCategory) {
+                        ga('send', 'event', tableObj.tableConfig.gaCategory, 'Download', JSON.stringify(stats));
                     }
                 }
             }
@@ -301,29 +313,29 @@ $(document).ready(function() {
 
         const apiHelperTableElem = $(thisPartial).parents('.apiHelperTable');
 
-        let configObj;
+        const fieldSelectorObj = {};
+        $(thisPartial).data('fieldSelector', fieldSelectorObj);
 
         // const fieldSelectorDivElem = $(thisPartial).find('.fieldSelectorDiv');
 
         const fieldSelectorTableDivElem = $(thisPartial).find('.fieldSelectorTableDiv');
         
-        // console.log('configObj', configObj);
 
-
+        // Only used internally
         const refreshTable = function() {   
             // Trigger an event in the containing apiHelperTable element to refresh its table based on the 
             // field selector settings.
-            $(apiHelperTableElem).trigger('fieldSelectorUpdate', [configObj]);
+            $(apiHelperTableElem).trigger('fieldSelectorUpdate', [fieldSelectorObj.configObj]);
         };
 
         const moveField = function(fromKey, toKey, afterTarget) {
             let fromIndex = -1;
             let toIndex = -1;
-            for(let ii = 0; ii < configObj.fieldSelector.fields.length; ii++) {
-                if (configObj.fieldSelector.fields[ii].key == fromKey) {
+            for(let ii = 0; ii < fieldSelectorObj.configObj.fieldSelector.fields.length; ii++) {
+                if (fieldSelectorObj.configObj.fieldSelector.fields[ii].key == fromKey) {
                     fromIndex = ii;
                 }
-                if (configObj.fieldSelector.fields[ii].key == toKey) {
+                if (fieldSelectorObj.configObj.fieldSelector.fields[ii].key == toKey) {
                     toIndex = ii;
                 }
             }
@@ -333,28 +345,28 @@ $(document).ready(function() {
             }
 
             // Reorder items in the DOM
-            $(configObj.fieldSelector.fields[fromIndex].trElem).detach();
+            $(fieldSelectorObj.configObj.fieldSelector.fields[fromIndex].trElem).detach();
             if (afterTarget) {
-                $(configObj.fieldSelector.fields[toIndex].trElem).after(configObj.fieldSelector.fields[fromIndex].trElem);
+                $(fieldSelectorObj.configObj.fieldSelector.fields[toIndex].trElem).after(fieldSelectorObj.configObj.fieldSelector.fields[fromIndex].trElem);
 
             }
             else {
-                $(configObj.fieldSelector.fields[toIndex].trElem).before(configObj.fieldSelector.fields[fromIndex].trElem);
+                $(fieldSelectorObj.configObj.fieldSelector.fields[toIndex].trElem).before(fieldSelectorObj.configObj.fieldSelector.fields[fromIndex].trElem);
 
             }
 
             // Reorder items in array
-            const fromArrayItem = configObj.fieldSelector.fields[fromIndex];
-            configObj.fieldSelector.fields.splice(fromIndex, 1);
+            const fromArrayItem = fieldSelectorObj.configObj.fieldSelector.fields[fromIndex];
+            fieldSelectorObj.configObj.fieldSelector.fields.splice(fromIndex, 1);
             if (toIndex > fromIndex) {
                 toIndex--;
             }
             if (afterTarget) {
                 toIndex++;
             }
-            configObj.fieldSelector.fields.splice(toIndex, 0, fromArrayItem);
+            fieldSelectorObj.configObj.fieldSelector.fields.splice(toIndex, 0, fromArrayItem);
 
-            //console.log('fields', configObj.fieldSelector.fields);
+            //console.log('fields', fieldSelectorObj.configObj.fieldSelector.fields);
             refreshTable();
             
         };
@@ -402,7 +414,7 @@ $(document).ready(function() {
 
                 const tbodyElem = document.createElement('tbody');
 
-                for(const field of configObj.fieldSelector.fields) {
+                for(const field of fieldSelectorObj.configObj.fieldSelector.fields) {
                     const trElem = field.trElem = document.createElement('tr');
 
                     let tdElem;
@@ -505,24 +517,24 @@ $(document).ready(function() {
         
         }
 
-        $(thisPartial).data('setConfigObj', function(configObjIn) {
-            configObj = configObjIn;
+        fieldSelectorObj.setConfigObj = function(configObjIn) {
+            fieldSelectorObj.configObj = configObjIn;
 
-            if (!configObj.fieldSelector.fields || configObj.fieldSelector.fields.length == 0) {
+            if (!fieldSelectorObj.configObj.fieldSelector.fields || fieldSelectorObj.configObj.fieldSelector.fields.length == 0) {
                 return;
             }
-            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
+            if (!fieldSelectorObj.configObj.fieldSelector || !fieldSelectorObj.configObj.fieldSelector.showControl) {
                 return;
             }
 
-            if (configObj.fieldSelector.height) {
-                $(fieldSelectorTableDivElem).css('height', configObj.fieldSelector.height);
+            if (fieldSelectorObj.configObj.fieldSelector.height) {
+                $(fieldSelectorTableDivElem).css('height', fieldSelectorObj.configObj.fieldSelector.height);
                 $(fieldSelectorTableDivElem).css('overflow-y', 'auto');
             }
 
             $(thisPartial).show();
 
-            for(const field of configObj.fieldSelector.fields) {
+            for(const field of fieldSelectorObj.configObj.fieldSelector.fields) {
                 if (!field.width) {
                     field.width = '10';
                 }
@@ -530,20 +542,16 @@ $(document).ready(function() {
 
             updateTable();
             
-        });
+        }
 
-        $(thisPartial).data('getConfigObj', function() {
-            return configObj;
-        });
-
-        $(thisPartial).data('getUrlConfigObj', function(resultObj) {
-            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
+        fieldSelectorObj.getUrlConfigObj = function(resultObj) {
+            if (!fieldSelectorObj.configObj.fieldSelector || !fieldSelectorObj.configObj.fieldSelector.showControl) {
                 return;
             }
 
             let index = 0;
 
-            for(const field of configObj.fieldSelector.fields) {
+            for(const field of fieldSelectorObj.configObj.fieldSelector.fields) {
 
                 resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
                     
@@ -557,12 +565,12 @@ $(document).ready(function() {
 
                 index++;
             }
-        });
+        }
 
 
         
-        $(thisPartial).data('loadUrlParams', function(urlParams) {
-            if (!configObj.fieldSelector || !configObj.fieldSelector.showControl) {
+        fieldSelectorObj.loadUrlParams = function(urlParams) {
+            if (!fieldSelectorObj.configObj.fieldSelector || !fieldSelectorObj.configObj.fieldSelector.showControl) {
                 return;
             }
 
@@ -582,7 +590,7 @@ $(document).ready(function() {
                     key = key.substring(1);
                 }
 
-                const field = configObj.fieldSelector.fields.find(f => f.key == key);
+                const field = fieldSelectorObj.configObj.fieldSelector.fields.find(f => f.key == key);
                 if (field) {
                     field.checked = checked;
                     const customTitle = urlParams.get('t' + index);
@@ -597,7 +605,7 @@ $(document).ready(function() {
                 }
             }
 
-            for(const field of configObj.fieldSelector.fields) {
+            for(const field of fieldSelectorObj.configObj.fieldSelector.fields) {
                 const inNew = !!newFields.find(f => f.key == field.key);
                 if (!inNew) {
                     field.checked = false;
@@ -605,9 +613,9 @@ $(document).ready(function() {
                 }
             }
 
-            configObj.fieldSelector.fields = newFields;                
+            fieldSelectorObj.configObj.fieldSelector.fields = newFields;                
             updateTable();
-        });
+        }
 
 
     });

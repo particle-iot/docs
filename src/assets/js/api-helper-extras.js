@@ -1723,6 +1723,9 @@ $(document).ready(function() {
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
         const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
 
+        let productSelector = {};
+        $(thisPartial).data('productSelector', productSelector);
+
         if (!apiHelper.auth) {
             return;
         }
@@ -1732,9 +1735,8 @@ $(document).ready(function() {
             $(devOrProductRowElem).hide();
         }
 
-        let orgs;
 
-        const getOptions = function(options) {
+        productSelector.getOptions = function(options) {
             const devOrProduct = (noSandbox ? 'product' : $(devOrProductRowElem).find('input:checked').val());
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
@@ -1745,7 +1747,7 @@ $(document).ready(function() {
             }
 
             options.isSandbox = (devOrProduct == 'dev');
-            options.hasOrgs = orgs.length > 0;
+            options.hasOrgs = productSelector.orgs.length > 0;
             options.devOrProduct = devOrProduct; // 'dev' (sandbox non-product) or 'product'
             options.sandboxOrg = sandboxOrg;   // 'sandbox' product or 'org' product
             options.productId = productId;    // 0 if sandbox
@@ -1754,7 +1756,7 @@ $(document).ready(function() {
         }
 
         const updateProductList = async function() {
-            if (!orgs) {
+            if (!productSelector.orgs) {
                 // Not fully loaded yet
                 return;
             }
@@ -1788,7 +1790,7 @@ $(document).ready(function() {
 
             const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
-            if (orgs.length) {
+            if (productSelector.orgs.length) {
                 // Has organizations
 
                 switch(devOrProduct) {
@@ -1849,7 +1851,7 @@ $(document).ready(function() {
             }
 
             let options = {};
-            getOptions(options);
+            productSelector.getOptions(options);
             $(thisPartial).trigger('updateProductList', [options]);
         }
 
@@ -1872,7 +1874,7 @@ $(document).ready(function() {
         apiHelper.getOrgs().then(async function(orgsData) {
             // No orgs: orgsData.organizations empty array
             // Object in array orgsData.organizations: id, slug, name
-            orgs = orgsData.organizations;
+            productSelector.orgs = orgsData.organizations;
 
             if (orgsData.organizations.length > 0) {
 
@@ -1901,14 +1903,12 @@ $(document).ready(function() {
             await updateProductList();
         });
 
-
-        $(thisPartial).data('getOptions', getOptions);
         
-        $(thisPartial).data('getUrlConfigObj', function(resultObj) {
+        productSelector.getUrlConfigObj = function(resultObj) {
             resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
 
-            if (orgs && orgs.length) {
+            if (productSelector.orgs && productSelector.orgs.length) {
                 resultObj.org = $(orgSelectElem).val();
             }
  
@@ -1918,7 +1918,7 @@ $(document).ready(function() {
             else {
                 resultObj.productId = 0;
             }
-        });
+        };
 
     });
 

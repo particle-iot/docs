@@ -28,6 +28,8 @@ $(document).ready(function() {
 
         const urlParams = new URLSearchParams(window.location.search);
 
+        const tableObj = $(thisPartial).data('table');
+        const productSelectorObj = $(productOrSandboxSelectorElem).data('productSelector');
 
         const tableConfigObj = {
             gaCategory,
@@ -161,8 +163,8 @@ $(document).ready(function() {
             }
         };
         
-        $(thisPartial).data('setConfigObj')(tableConfigObj);
-        $(thisPartial).data('loadUrlParams')(urlParams);
+        tableObj.setConfig(tableConfigObj);
+        tableObj.loadUrlParams(urlParams);
         
 
         const setStatus = function(s) {
@@ -171,15 +173,15 @@ $(document).ready(function() {
 
         const getOptions = function(options) {
             
-            $(productOrSandboxSelectorElem).data('getOptions')(options);
-            $(thisPartial).data('getOptions')(options);
+            productSelectorObj.getOptions(options);
+            tableObj.getOptions(options);
 
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
         }
 
         const clearDeviceList = function() {
-            $(thisPartial).data('clearList')();
+            tableObj.clearList();
         };
 
         const getTableData = async function(configObj, options) {
@@ -271,19 +273,19 @@ $(document).ready(function() {
         } 
 
         // This gets the options, table data, and refreshes the actual table based on the new settings
-        const refreshTable = async function(configObj) {            
+        const refreshTable = async function() {            
             // 
             let options = {};
             getOptions(options);
 
-            const tableData = await getTableData(configObj, options);
+            const tableData = await getTableData(tableConfigObj, options);
 
-            $(thisPartial).data('refreshTable')(tableData, options);
+            tableObj.refreshTable(tableData, options);
 
         };
 
         const getDeviceList = async function(options) {
-            $(thisPartial).data('clearList')();
+            tableObj.clearList();
 
             try {
                 let stats = {
@@ -306,7 +308,7 @@ $(document).ready(function() {
 
                 setStatus('Device list retrieved!');
 
-                await refreshTable($(thisPartial).data('getConfigObj')());
+                await refreshTable();
 
                 ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
             }
@@ -337,8 +339,8 @@ $(document).ready(function() {
         // This is triggered when the field selector updates, which requires that the table be refreshed
         // and the URL search parameters update, which needs to be done from the outer container
         // because it may include information in addition to the table itself.
-        $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
-            await refreshTable(config);
+        $(thisPartial).on('fieldSelectorUpdate', async function(event) {
+            await refreshTable();
             $(thisPartial).trigger('updateSearchParam');
         });
 
@@ -349,9 +351,9 @@ $(document).ready(function() {
                 getOptions(options);
 
                 let urlConfig = {};
-                $(thisPartial).data('getUrlConfigObj')(urlConfig);
+                tableObj.getUrlConfigObj(urlConfig);
 
-                $(productOrSandboxSelectorElem).data('getUrlConfigObj')(urlConfig);
+                productSelectorObj.getUrlConfigObj(urlConfig);
                 
                 urlConfig.format = options.format;
                 urlConfig.header = options.header;
@@ -371,7 +373,7 @@ $(document).ready(function() {
     });
 
 
-
+/*
     $('.apiHelperImportDevices').each(function() {
         const thisPartial = $(this);
         const gaCategory = 'importDevices';
@@ -649,7 +651,7 @@ $(document).ready(function() {
 
     });
 
-
+*/
 
 
 });
