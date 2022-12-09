@@ -160,7 +160,21 @@ $(document).ready(function() {
                         key: 'iccid',
                     },
                 ],
-            }
+            },
+            tableKeysOverride: function(options) {
+
+                // Implement this to return keys other than the ones that are checked.
+                // This is done for Device List export Device ID only or ICCID only, for example
+                if (options.export && options.format == 'deviceId') {
+                    return ['id'];
+                }
+                else
+                if (options.export && options.format == 'iccid') {
+                    return ['iccid'];                
+                }
+
+                return null;
+            },
         };
         
         tableObj.setConfig(tableConfigObj);
@@ -184,13 +198,17 @@ $(document).ready(function() {
             tableObj.clearList();
         };
 
-        const getTableData = async function(configObj, options) {
+        const getTableData = async function(options) {
+
+            if (!options) {
+                options = {};
+                getOptions(options);
+            }
 
             let tableData = {
                 keys:[],
                 titles:[],
                 widths:[],
-                indexFor: {}
             }
             
             if (options.export && options.format == 'deviceId') {
@@ -201,12 +219,11 @@ $(document).ready(function() {
                 tableData.keys.push('iccid');                
             }
             else {
-                for(field of configObj.fieldSelector.fields) {
-                    if (!configObj.fieldSelector.showControl || field.isChecked()) {
+                for(field of tableConfigObj.fieldSelector.fields) {
+                    if (!tableConfigObj.fieldSelector.showControl || field.isChecked()) {
                         tableData.keys.push(field.key);
                         tableData.titles.push(field.customTitle ? field.customTitle : field.title);
                         tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
-                        tableData.indexFor[field.key] = tableData.keys.length - 1;
                     }
                 }    
             }
@@ -278,7 +295,7 @@ $(document).ready(function() {
             let options = {};
             getOptions(options);
 
-            const tableData = await getTableData(tableConfigObj, options);
+            const tableData = await getTableData(options);
 
             tableObj.refreshTable(tableData, options);
 

@@ -103,16 +103,57 @@ $(document).ready(function() {
             $(copyButtonElem).attr('disabled', true);
         };
 
+        const getTableFormat = function(options) {
+            if (!options) {
+                options = {};
+            }
+
+            let tableFormat  = {
+                keys:[],
+                titles:[],
+                widths:[],
+            };
+
+            let tableKeysOverride;
+            if (tableObj.tableConfig.tableKeysOverride) {
+                tableKeysOverride = tableObj.tableConfig.tableKeysOverride(options);
+            }
+            if (tableKeysOverride) {
+                for(const key of tableKeysOverride) {
+                    tableFormat.keys.push(key);
+                    for(const field of tableObj.tableConfig.fieldSelector.fields) {
+                        if (field.key == key) {
+                            tableFormat.titles.push(field.customTitle ? field.customTitle : field.title);
+                            tableFormat.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
+                            break;    
+                        }
+                    }
+                }
+            }
+            else {
+                for(const field of tableObj.tableConfig.fieldSelector.fields) {
+                    if (!tableObj.tableConfig.fieldSelector.showControl || field.isChecked()) {
+                        tableFormat.keys.push(field.key);
+                        tableFormat.titles.push(field.customTitle ? field.customTitle : field.title);
+                        tableFormat.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
+                    }
+                }  
+            }
+            return tableFormat;
+        }
+
         tableObj.refreshTable =function(tableDataIn, options) {
             tableData = tableDataIn;
 
             console.log('refreshTable', tableData);
 
+            const tableFormat = getTableFormat();
+
             $(tableHeadElem).empty();
             {
                 const rowElem = document.createElement('tr');
                 let col = 0;
-                for(const title of tableData.titles) {
+                for(const title of tableFormat.titles) {
                     const thElem = document.createElement('th');
                     $(thElem).text(title);
                     $(rowElem).append(thElem);
@@ -129,11 +170,11 @@ $(document).ready(function() {
                 for(const d of tableData.data) {
                     const rowElem = document.createElement('tr');
     
-                    for(let col = 0; col < tableData.keys.length; col++) {
-                        const key = tableData.keys[col];
+                    for(let col = 0; col < tableFormat.keys.length; col++) {
+                        const key = tableFormat.keys[col];
     
                         const tdElem = document.createElement('td');
-                        $(tdElem).css('width', tableData.widths[col] + 'ch');
+                        $(tdElem).css('width', tableFormat.widths[col] + 'ch');
         
                         if (d[key]) {
                             $(tdElem).text(d[key]);
@@ -167,6 +208,8 @@ $(document).ready(function() {
             }
             let xlsxData = {};
 
+            const tableFormat = getTableFormat();
+
             xlsxData.options = {};
             tableObj.getOptions(xlsxData.options);
 
@@ -179,7 +222,7 @@ $(document).ready(function() {
             xlsxData.tableData = tableData;
 
             let conversionOptions = {
-                header: xlsxData.tableData.keys
+                header: tableFormat.keys,
             };
             if (!xlsxData.options.header) {
                 conversionOptions.skipHeader = true;
@@ -207,7 +250,7 @@ $(document).ready(function() {
             }
             let stats = {
                 format: xlsxData.options.format,
-                cols: xlsxData.tableData.keys.length,
+                cols: tableFormat.keys.length,
                 count: xlsxData.tableData.data.length
             };
 
@@ -218,7 +261,7 @@ $(document).ready(function() {
             XLSX.utils.book_append_sheet(xlsxData.workbook, xlsxData.worksheet, options.sheetName);
 
             if (xlsxData.options.header) {
-                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableData.titles], { origin: "A1" });
+                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [tableFormat.titles], { origin: "A1" });
             }
 
             // Columns widths
@@ -229,7 +272,7 @@ $(document).ready(function() {
                 if (!xlsxData.worksheet['!cols'][ii]) {
                     xlsxData.worksheet['!cols'][ii] = {};
                 }
-                xlsxData.worksheet['!cols'][ii].wch = xlsxData.tableData.widths[ii];
+                xlsxData.worksheet['!cols'][ii].wch = tableFormat.widths[ii];
             }
 
             switch(xlsxData.options.format) {
