@@ -206,28 +206,8 @@ $(document).ready(function() {
             }
 
             let tableData = {
-                keys:[],
-                titles:[],
-                widths:[],
             }
             
-            if (options.export && options.format == 'deviceId') {
-                tableData.keys.push('id');
-            }
-            else
-            if (options.export && options.format == 'iccid') {
-                tableData.keys.push('iccid');                
-            }
-            else {
-                for(field of tableConfigObj.fieldSelector.fields) {
-                    if (!tableConfigObj.fieldSelector.showControl || field.isChecked()) {
-                        tableData.keys.push(field.key);
-                        tableData.titles.push(field.customTitle ? field.customTitle : field.title);
-                        tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
-                    }
-                }    
-            }
-
             if (deviceList) {
                 tableData.data = [];
 
@@ -243,7 +223,8 @@ $(document).ready(function() {
                         continue;
                     }
 
-                    for(const key of tableData.keys) {
+                    for(const field of tableConfigObj.fieldSelector.fields) {
+                        const key = field.key;
                         if (key.startsWith('_')) {
                             // Internal converted field
                             switch(key) {

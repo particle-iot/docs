@@ -106,6 +106,7 @@ $(document).ready(function() {
         const getTableFormat = function(options) {
             if (!options) {
                 options = {};
+                tableObj.getOptions(options);
             }
 
             let tableFormat  = {
@@ -116,7 +117,10 @@ $(document).ready(function() {
 
             let tableKeysOverride;
             if (tableObj.tableConfig.tableKeysOverride) {
+                console.log('tableKeysOverride options', options);
+
                 tableKeysOverride = tableObj.tableConfig.tableKeysOverride(options);
+                console.log('tableKeysOverride result', tableKeysOverride);
             }
             if (tableKeysOverride) {
                 for(const key of tableKeysOverride) {
@@ -147,7 +151,7 @@ $(document).ready(function() {
 
             console.log('refreshTable', tableData);
 
-            const tableFormat = getTableFormat();
+            const tableFormat = getTableFormat(options);
 
             $(tableHeadElem).empty();
             {
@@ -208,8 +212,6 @@ $(document).ready(function() {
             }
             let xlsxData = {};
 
-            const tableFormat = getTableFormat();
-
             xlsxData.options = {};
             tableObj.getOptions(xlsxData.options);
 
@@ -218,11 +220,14 @@ $(document).ready(function() {
             xlsxData.options.convertDates = (xlsxData.options.dateFormat != 'iso');
             xlsxData.options.export = true;
 
+            xlsxData.tableFormat = getTableFormat(xlsxData.options);
+            console.log('tableFormat', xlsxData.tableFormat);
+
             console.log('getXlsxData tableData', tableData);
             xlsxData.tableData = tableData;
 
             let conversionOptions = {
-                header: tableFormat.keys,
+                header: xlsxData.tableFormat.keys,
             };
             if (!xlsxData.options.header) {
                 conversionOptions.skipHeader = true;
@@ -250,9 +255,11 @@ $(document).ready(function() {
             }
             let stats = {
                 format: xlsxData.options.format,
-                cols: tableFormat.keys.length,
+                cols: xlsxData.tableFormat.keys.length,
                 count: xlsxData.tableData.data.length
             };
+
+            console.log('conversionOptions', JSON.stringify(conversionOptions, null, 4));
 
 
             xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
@@ -261,18 +268,18 @@ $(document).ready(function() {
             XLSX.utils.book_append_sheet(xlsxData.workbook, xlsxData.worksheet, options.sheetName);
 
             if (xlsxData.options.header) {
-                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [tableFormat.titles], { origin: "A1" });
+                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableFormat.titles], { origin: "A1" });
             }
 
             // Columns widths
             if (!xlsxData.worksheet['!cols']) {
                 xlsxData.worksheet['!cols'] = [];
             }
-            for(let ii = 0; ii < xlsxData.tableData.widths.length; ii++) {
+            for(let ii = 0; ii < xlsxData.tableFormat.widths.length; ii++) {
                 if (!xlsxData.worksheet['!cols'][ii]) {
                     xlsxData.worksheet['!cols'][ii] = {};
                 }
-                xlsxData.worksheet['!cols'][ii].wch = tableFormat.widths[ii];
+                xlsxData.worksheet['!cols'][ii].wch = xlsxData.tableFormat.widths[ii];
             }
 
             switch(xlsxData.options.format) {
