@@ -175,6 +175,35 @@ $(document).ready(function() {
 
                 return null;
             },
+            generateFilename: function(options) {
+                let fileName;
+
+                switch(options.format) {
+                    case 'deviceId':
+                        fileName = 'devices.txt';
+                        break;
+
+                    case 'iccid':
+                        fileName = 'iccids.txt';
+                        // TODO: Need to filter out empty rows for this option
+                        break;
+
+                    default:
+                        fileName = 'devices.' + options.format;
+                        break;
+                }
+                return fileName;
+            },
+            filterData: function(filteredObj, xlsxData) {
+                if (xlsxData.options.format == 'iccid') {
+                    if (!filteredObj.iccid) {
+                        // Remove from array
+                        return true;
+                    }
+                }
+
+                return false;
+            },
         };
         
         tableObj.setConfig(tableConfigObj);

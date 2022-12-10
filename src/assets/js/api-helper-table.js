@@ -203,7 +203,6 @@ $(document).ready(function() {
 
 
         const getXlsxData = async function(options) {
-            console.log('getXlsxData options', options);
             if (!options) {
                 options = {};
             }
@@ -221,10 +220,23 @@ $(document).ready(function() {
             xlsxData.options.export = true;
 
             xlsxData.tableFormat = getTableFormat(xlsxData.options);
-            console.log('tableFormat', xlsxData.tableFormat);
+            xlsxData.tableData = {
+                data: [],
+            };
+            for(const obj of tableData.data) {
+                const filteredObj = {};
+                for(const key of xlsxData.tableFormat.keys) {
+                    filteredObj[key] = obj[key];
+                }
+                if (tableObj.tableConfig.filterData) {
+                    if (tableObj.tableConfig.filterData(filteredObj, xlsxData)) {
+                        continue;
+                    }
+                }
+                xlsxData.tableData.data.push(filteredObj);
+            }    
 
-            console.log('getXlsxData tableData', tableData);
-            xlsxData.tableData = tableData;
+
 
             let conversionOptions = {
                 header: xlsxData.tableFormat.keys,
@@ -236,30 +248,21 @@ $(document).ready(function() {
                 conversionOptions.dateNF = xlsxData.options.dateFormat;
             }
 
+            // TODO: Refactor this to put it in the caller 
             if (!options.fileName) {
-                switch(xlsxData.options.format) {
-                    case 'deviceId':
-                        options.fileName = 'devices.txt';
-                        conversionOptions.skipHeader = true;
-                        break;
-
-                    case 'iccid':
-                        options.fileName = 'iccids.txt';
-                        conversionOptions.skipHeader = true;
-                        break;
-
-                    default:
-                        options.fileName = 'devices.' + xlsxData.options.format;
-                        break;
+                if (tableObj.tableConfig.generateFilename) {
+                    options.fileName = tableObj.tableConfig.generateFilename(xlsxData.options);
                 }
             }
+            if (!options.fileName) {
+                options.fileName = 'export.' + xlsxData.options.format;
+            }
+
             let stats = {
                 format: xlsxData.options.format,
                 cols: xlsxData.tableFormat.keys.length,
                 count: xlsxData.tableData.data.length
             };
-
-            console.log('conversionOptions', JSON.stringify(conversionOptions, null, 4));
 
 
             xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
