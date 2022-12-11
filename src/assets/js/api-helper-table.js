@@ -39,9 +39,14 @@ $(document).ready(function() {
         
         tableObj.setConfig = function(configObjIn) {
             tableObj.tableConfig = configObjIn;
+            tableObj.sort = {
+                indicatorElements: {},
+                rowElems: [],
+                // sortBy
+                // sortDir
+            };
 
             fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
-            console.log('setConfig fieldSelectorObj', fieldSelectorObj);
             fieldSelectorObj.setConfigObj(configObjIn);
 
             if (tableObj.tableConfig.exportOptions) {
@@ -117,10 +122,7 @@ $(document).ready(function() {
 
             let tableKeysOverride;
             if (tableObj.tableConfig.tableKeysOverride) {
-                console.log('tableKeysOverride options', options);
-
                 tableKeysOverride = tableObj.tableConfig.tableKeysOverride(options);
-                console.log('tableKeysOverride result', tableKeysOverride);
             }
             if (tableKeysOverride) {
                 for(const key of tableKeysOverride) {
@@ -146,10 +148,58 @@ $(document).ready(function() {
             return tableFormat;
         }
 
+        tableObj.sortBy = function(key) {
+
+            if (key == tableObj.sort.sortBy) {
+                // Change direction
+                tableObj.sort.sortDir = -tableObj.sort.sortDir;
+                console.log('sortBy key=' + key + ' sortDir=' + tableObj.sort.sortDir);
+            }
+            else {
+                // Change sort criteria
+                console.log('sortBy key=' + key);
+                tableObj.sort.sortBy = key;
+                tableObj.sort.sortDir = 1;
+            }
+
+            let sortDirStr;
+            if (tableObj.sort.sortDir < 0) {
+                sortDirStr = 'ion-chevron-down';
+            }
+            else {
+                sortDirStr = 'ion-chevron-up';
+            }
+
+            $(tableHeadElem).find('.sortDirection').removeClass('ion-chevron-up').removeClass('ion-chevron-down');
+            $(tableObj.sort.indicatorElements[key]).addClass(sortDirStr);
+
+            tableObj.sort.rows = [];
+            for(let ii = 0; ii < tableData.data.length; ii++) {
+                tableObj.sort.rows[ii] = ii;
+            }
+
+            tableObj.sort.rows.sort(function(a, b) {
+                if (!tableData.data[a][key] && tableData.data[b][key]) {
+                    return -1;
+                }
+                if (tableData.data[a][key] && !tableData.data[b][key]) {
+                    return 1;
+                }
+                if (!tableData.data[a][key] && !tableData.data[b][key]) {
+                    return 0;
+                }
+                
+                return tableData.data[a][key].localeCompare(tableData.data[b][key]);
+            });          
+
+            $(tableBodyElem).empty();
+            for(let ii = 0; ii < tableObj.sort.rows.length; ii++) {
+                $(tableBodyElem).append(tableObj.sort.rowElems[tableObj.sort.rows[ii]]);    
+            }
+        };
+
         tableObj.refreshTable =function(tableDataIn, options) {
             tableData = tableDataIn;
-
-            console.log('refreshTable', tableData);
 
             const tableFormat = getTableFormat(options);
 
@@ -157,10 +207,23 @@ $(document).ready(function() {
             {
                 const rowElem = document.createElement('tr');
                 let col = 0;
-                for(const title of tableFormat.titles) {
+                for(let ii = 0; ii < tableFormat.titles.length; ii++) {
+                    const title = tableFormat.titles[ii];
+                    const key = tableFormat.keys[ii];
+
                     const thElem = document.createElement('th');
-                    $(thElem).text(title);
+                    $(thElem).append(document.createTextNode(title + ' '));
+
+                    const iElem = document.createElement('i');
+                    $(iElem).addClass('sortDirection');
+                    $(thElem).append(iElem);
+                    tableObj.sort.indicatorElements[key] = iElem;
+                    
                     $(rowElem).append(thElem);
+
+                    $(thElem).on('click', function() {
+                        tableObj.sortBy(key);                    
+                    });
                 }
                 $(tableHeadElem).append(rowElem);
             }
@@ -170,6 +233,8 @@ $(document).ready(function() {
             if (tableData.data) {
                 $(tableDivElem).show();
                 $(downloadDivElem).show();
+
+                tableObj.sort.rowElems = [];
 
                 for(const d of tableData.data) {
                     const rowElem = document.createElement('tr');
@@ -187,6 +252,7 @@ $(document).ready(function() {
                         $(rowElem).append(tdElem);
                     }
     
+                    tableObj.sort.rowElems.push(rowElem);
                     $(tableBodyElem).append(rowElem);    
                 }
 
@@ -223,7 +289,9 @@ $(document).ready(function() {
             xlsxData.tableData = {
                 data: [],
             };
-            for(const obj of tableData.data) {
+            for(let ii = 0; ii < tableData.data.length; ii++) {
+                const obj = tableObj.sort.rowElems ? tableData.data[tableObj.sort.rows[ii]] : tableData.data[ii];
+
                 const filteredObj = {};
                 for(const key of xlsxData.tableFormat.keys) {
                     filteredObj[key] = obj[key];
@@ -330,15 +398,12 @@ $(document).ready(function() {
         }
 
         $(downloadButtonElem).on('click', async function() {
-            console.log('download button');
             await getXlsxData({toFile: true});
 
         });
 
         $(copyButtonElem).on('click', async function(event) {
-            console.log('copy button');
-            await getXlsxData({toClipboard: true});
-            
+            await getXlsxData({toClipboard: true});            
         });
 
         $(formatSelectElem).on('change', function() {
@@ -419,7 +484,6 @@ $(document).ready(function() {
             }
             fieldSelectorObj.configObj.fieldSelector.fields.splice(toIndex, 0, fromArrayItem);
 
-            //console.log('fields', fieldSelectorObj.configObj.fieldSelector.fields);
             refreshTable();
             
         };
@@ -551,7 +615,6 @@ $(document).ready(function() {
                     });
                     $(trElem).on('drop', function(ev) {
                         const key = ev.originalEvent.dataTransfer.getData("text");                    
-                        console.log('ev', ev);
 
                         const targetClientHeight = ev.currentTarget.clientHeight;
                         const afterTarget = (ev.originalEvent.offsetY >= (targetClientHeight / 2));
