@@ -33,6 +33,14 @@ $(document).ready(function() {
             options.format = $(formatSelectElem).val();
             options.header = $(includeHeaderCheckboxElem).prop('checked');
             options.dateFormat = $(dateFormatSelectElem).val();
+            if (tableObj.sort) {
+                if (tableObj.sort.sortBy) {
+                    options.sortBy = tableObj.sort.sortBy;
+                }
+                if (tableObj.sort.sortDir) {
+                    options.sortDir = tableObj.sort.sortDir;
+                }
+            }
 
             $(copyButtonElem).prop('disabled', !tableData || !tableData.data || (options.format == 'xlsx'));
         }
@@ -45,7 +53,7 @@ $(document).ready(function() {
                 // sortBy
                 // sortDir
             };
-
+            
             fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
             fieldSelectorObj.setConfigObj(configObjIn);
 
@@ -76,6 +84,14 @@ $(document).ready(function() {
         }
 
         tableObj.getUrlConfigObj = function(resultObj) {
+            let options = {};
+            tableObj.getOptions(options);
+
+            resultObj.format = options.format;
+            resultObj.header = options.header;
+            resultObj.dateFormat = options.dateFormat;
+            resultObj.sortBy = options.sortBy;
+            resultObj.sortDir = options.sortDir;
 
             fieldSelectorObj.getUrlConfigObj(resultObj);            
         }
@@ -97,7 +113,16 @@ $(document).ready(function() {
             if (value) {
                 $(dateFormatSelectElem).val(value);
             }
+                
+            value = urlParams.get('sortBy');
+            if (value) {
+                tableObj.sort.sortBy = value;
+            }
 
+            value = urlParams.get('sortDir');
+            if (value) {
+                tableObj.sort.sortDir = parseInt(value);
+            }
         }
 
         tableObj.clearList = function() {
@@ -150,16 +175,21 @@ $(document).ready(function() {
 
         tableObj.sortBy = function(key) {
 
-            if (key == tableObj.sort.sortBy) {
-                // Change direction
-                tableObj.sort.sortDir = -tableObj.sort.sortDir;
-                console.log('sortBy key=' + key + ' sortDir=' + tableObj.sort.sortDir);
+            if (key) {
+                if (key == tableObj.sort.sortBy) {
+                    // Change direction
+                    tableObj.sort.sortDir = -tableObj.sort.sortDir;
+                    console.log('sortBy key=' + key + ' sortDir=' + tableObj.sort.sortDir);
+                }
+                else {
+                    // Change sort criteria
+                    tableObj.sort.sortBy = key;
+                    tableObj.sort.sortDir = 1;
+                }    
+                $(thisPartial).trigger('updateSearchParam');
             }
             else {
-                // Change sort criteria
-                console.log('sortBy key=' + key);
-                tableObj.sort.sortBy = key;
-                tableObj.sort.sortDir = 1;
+                key = tableObj.sort.sortBy;
             }
 
             let sortDirStr;
@@ -179,17 +209,28 @@ $(document).ready(function() {
             }
 
             tableObj.sort.rows.sort(function(a, b) {
+                let sort = 0;
+
                 if (!tableData.data[a][key] && tableData.data[b][key]) {
-                    return -1;
+                    sort = -1;
                 }
+                else
                 if (tableData.data[a][key] && !tableData.data[b][key]) {
-                    return 1;
+                    sort = 1;
                 }
+                else
                 if (!tableData.data[a][key] && !tableData.data[b][key]) {
-                    return 0;
+                    sort = 0;
+                }
+                else {
+                    sort = tableData.data[a][key].localeCompare(tableData.data[b][key]);
                 }
                 
-                return tableData.data[a][key].localeCompare(tableData.data[b][key]);
+                if (tableObj.sort.sortDir < 0) {
+                    sort = -sort;
+                }
+
+                return sort;
             });          
 
             $(tableBodyElem).empty();
@@ -264,6 +305,9 @@ $(document).ready(function() {
                 $(exportOptionsDivElem).hide();   
                 $(downloadButtonElem).attr('disabled', true);
                 $(copyButtonElem).attr('disabled', true);
+            }
+            if (tableObj.sort.sortBy) {
+                tableObj.sortBy();
             }
         }
 

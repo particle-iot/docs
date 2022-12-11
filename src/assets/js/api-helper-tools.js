@@ -381,11 +381,7 @@ $(document).ready(function() {
                 tableObj.getUrlConfigObj(urlConfig);
 
                 productSelectorObj.getUrlConfigObj(urlConfig);
-                
-                urlConfig.format = options.format;
-                urlConfig.header = options.header;
-                urlConfig.dateFormat = options.dateFormat;
-                
+                                
                 const searchStr = $.param(urlConfig);
     
                 history.pushState(null, '', '?' + searchStr);     
