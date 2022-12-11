@@ -12,6 +12,7 @@ $(document).ready(function() {
         const downloadDivElem = $(thisPartial).find('.downloadDiv');
         const formatSelectElem = $(thisPartial).find('.formatSelect');
         const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
+        const omitEmptyCheckboxElem = $(thisPartial).find('.omitEmptyCheckbox');
         const dateFormatSelectElem = $(thisPartial).find('.dateFormatSelect');
         const downloadButtonElem = $(thisPartial).find('.downloadButton');
         const copyButtonElem = $(thisPartial).find('.copyButton');
@@ -36,9 +37,15 @@ $(document).ready(function() {
             if (tableObj.sort) {
                 if (tableObj.sort.sortBy) {
                     options.sortBy = tableObj.sort.sortBy;
+                    if (tableObj.sort.sortDir) {
+                        options.sortDir = tableObj.sort.sortDir;
+                    }
+                    $(omitEmptyCheckboxElem).prop('disabled', false);
+                    options.omitEmpty = $(omitEmptyCheckboxElem).prop('checked');
                 }
-                if (tableObj.sort.sortDir) {
-                    options.sortDir = tableObj.sort.sortDir;
+                else {
+                    $(omitEmptyCheckboxElem).prop('disabled', true);
+                    options.omitEmpty = false;    
                 }
             }
 
@@ -92,6 +99,7 @@ $(document).ready(function() {
             resultObj.dateFormat = options.dateFormat;
             resultObj.sortBy = options.sortBy;
             resultObj.sortDir = options.sortDir;
+            resultObj.omitEmpty = options.omitEmpty;
 
             fieldSelectorObj.getUrlConfigObj(resultObj);            
         }
@@ -122,6 +130,11 @@ $(document).ready(function() {
             value = urlParams.get('sortDir');
             if (value) {
                 tableObj.sort.sortDir = parseInt(value);
+            }
+
+            value = urlParams.get('omitEmpty');
+            if (value !== null) {
+                $(omitEmptyCheckboxElem).prop('checked', !!value);   
             }
         }
 
@@ -174,6 +187,8 @@ $(document).ready(function() {
         }
 
         tableObj.sortBy = function(key) {
+            let options = {};
+            tableObj.getOptions(options);
 
             if (key) {
                 if (key == tableObj.sort.sortBy) {
@@ -205,7 +220,9 @@ $(document).ready(function() {
 
             tableObj.sort.rows = [];
             for(let ii = 0; ii < tableData.data.length; ii++) {
-                tableObj.sort.rows[ii] = ii;
+                if (!options.omitEmpty || tableData.data[ii][key]) {
+                    tableObj.sort.rows.push(ii);
+                }
             }
 
             tableObj.sort.rows.sort(function(a, b) {
@@ -459,6 +476,11 @@ $(document).ready(function() {
 
         $(includeHeaderCheckboxElem).on('click', function() {
             $(thisPartial).trigger('updateSearchParam');
+        });
+
+        $(omitEmptyCheckboxElem).on('click', function() {
+            $(thisPartial).trigger('updateSearchParam');
+            tableObj.sortBy();
         });
 
         /*
