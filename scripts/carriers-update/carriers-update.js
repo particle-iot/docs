@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { update } = require('lodash');
 const path = require('path');
 
 const generatorConfig = require('./generator-config');
@@ -611,6 +612,11 @@ const generatorConfig = require('./generator-config');
                 }
                 else
                 if (d[c.key]) {
+                    if (c.map && c.map[d[c.key]]) {
+                        line += '| ' + c.map[d[c.key]] + ' ';
+                        continue;
+                    }
+
                     if (c.capitalizeValue) {
                         line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1) + ' ';
                     }
@@ -628,6 +634,118 @@ const generatorConfig = require('./generator-config');
 
         return md;
     };
+
+    updater.generateUsbCable = function(options = {}) {
+        let tableData = [];
+
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (skuObj.usb === false) {
+                // No USB required
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden SKU
+                return;
+            }
+            if (skuObj.multiple) {
+                // Omit tray SKUs
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            tableData.push(skuObj);
+        });
+
+        tableData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'usb',
+                    title: 'USB Cable',
+                    map: {
+                        'micro-b': 'Micro B',
+                        'c': 'USB-C',
+                    },
+                },
+            ]
+        };
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+
+
+    }
+
+
+    updater.generateBatteryRequired = function(options = {}) {
+        let tableData = [];
+
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.gen) {
+                // Not a device
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden SKU
+                return;
+            }
+            if (skuObj.multiple) {
+                // Omit tray SKUs
+                return;
+            }
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+            tableData.push(skuObj);
+        });
+
+        tableData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'batteryRequired',
+                    title: 'Battery Required',
+                    checkmark: true,
+                    align: 'center',
+                },
+            ]
+        };
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+
+
+    }
+
 
     updater.generateSkuList = function(options) {
         let skus = [];
