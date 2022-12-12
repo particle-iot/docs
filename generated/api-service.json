@@ -1790,7 +1790,7 @@
     "url": "/v1/serial_numbers/:serial_number",
     "title": "Look up device identification from a serial number",
     "group": "Devices_17",
-    "description": "<p>Return the device ID and SIM card ICCD (if applicable) for a device by serial number.</p>",
+    "description": "<p>Return the device ID and SIM card ICCD (if applicable) for a device by serial number. This API can look up devices that you have not yet added to your product and is rate limited to 50 requests per hour. Once you've imported your devices to your product you should instead use the list devices in a product API and filter on serial number. No special rate limits apply to that API.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
