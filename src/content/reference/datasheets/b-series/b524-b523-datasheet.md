@@ -297,6 +297,34 @@ Unlike the Boron, the B523 module does not have an on-module RGB system status L
 
 A detailed explanation of different color codes of the RGB system LED can be found [here](/troubleshooting/led/).
 
+### PMIC Notes
+
+{{!-- BEGIN shared-blurb 93112786-2815-408c-b064-ec7e9c629200 --}}
+When using the B Series SoM with a bq24195 PMIC, note the following:
+
+By default, the bq24195 sets the input current limit, which affects powering by VIN and VUSB, to 100 mA. This affects the VSYS output of the PMIC, which powers both the cellular modem and 3V3 supply, and is not enough to power the B Series SoM in normal operation.
+
+If your device has the default firmware (Tinker), it will attempt to connect to the cloud, brown out due to insufficient current, then the device will reset. This may result in what appears to be the status LED blinking white, but is actually rolling reboot caused by brownout.
+
+A factory new B Series SoM does not enable the PMIC setup. To enable the use of the bq21415, you must enable the system power feature [PMIC_DETECTION](/reference/device-os/api/power-manager/systempowerfeature/#systempowerfeature-pmic_detection) in your code. This defaults to off because the B Series SoM can be used without a PMIC, or with a different PMIC, and also requires I2C on D0/D1, and some base boards may use those pins as GPIO.
+
+Because the input current limit does not affect the battery input (Li+), for troubleshooting purposes it can be helpful to attach a battery to help rule out input current limit issues. It's also possible to supply 3.7V via a bench power supply to the battery input, instead of VIN. 
+
+The input current limit can result in a situation where you can't bring up a B Series SoM because it browns out continuously, but also cannot flash code to it to stop if from browning out. There are two general solutions:
+
+- Attach a battery or supply by Li+ when bringing up a board.
+- Use SWD/JTAG and reset halt the MCU. This will prevent it from connecting to the cloud, so you can flash Device OS and firmware to it by SWD.
+
+The input current limit is actually controlled by three factors:
+
+- The [power source max current setting](/reference/device-os/api/power-manager/powersourcemaxcurrent/) in the PMIC. The default is 900 mA. It can be set to 100, 150, 500, 900, 1200, 1500, 2000, or 3000 mA.
+- It is also limited by the hardware ILIM resistor. On Particle devices with a built-in PMIC, this is set to 1590 mA, but if you are implementing your own PMIC hardware, you can adjust this higher.
+- When connected by USB, it will use DPDM, current negotiation via the USB DP (D+) and DM (D-) lines. 
+
+Note that some 2A tablet chargers and multi-port USB power supplies supply 2A but do not implement DPDM; these will be treated as if VIN was used, and you must set the power source current, otherwise the input current will be limited to 900 mA, which is not enough to power a 2G/3G cellular modem without an attached battery.
+
+{{!-- END shared-blurb --}}
+
 ## Technical specifications
 
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
@@ -741,3 +769,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 014      | 29-Aug-2022 | RK | Added EU declaration of conformity |
 | 015      | 16-Sep-2022 | RK | Added UKCA conformity |
 | 016      | 31-Oct-2022 | RK | Updated EU operating frequencies |
+| 017      | 10-Dec-2022 | RK | Added PMIC notes |
