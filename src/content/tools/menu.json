@@ -75,7 +75,8 @@
       {
         "dir": "import-devices",
         "title": "Import devices",
-        "href": "/tools/cloud-tools/import-devices/"
+        "href": "/tools/cloud-tools/import-devices/",
+        "hidden": true
       },
       {
         "dir": "integration-copy",
