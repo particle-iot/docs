@@ -1525,8 +1525,8 @@ $(document).ready(function() {
             }
         }
 
-        const getOptions = function() {
-            let options = $(thisPartial).data('getOptions')();
+        const getOptions = function(options) {
+            $(thisPartial).data('getOptions')(options);
 
             options.removeFromProduct = (options.productId != 0) && $(removeFromProductElem).prop('checked'),
             options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
@@ -1534,8 +1534,6 @@ $(document).ready(function() {
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
             options.deviceList = deviceList;
-
-            return options;
         }
 
         $(thisPartial).on('updateProductList', async function(event, options) {
@@ -1553,13 +1551,19 @@ $(document).ready(function() {
 
 
         $(removeFromProductElem).on('click', function() {
-            checkExecuteButton(getOptions());
+            let options = {};
+            getOptions(options);
+            checkExecuteButton(options);
         })
         $(unclaimDeviceElem).on('click', function() {
-            checkExecuteButton(getOptions());
+            let options = {};
+            getOptions(options);
+            checkExecuteButton(options);
         })
         $(releaseSimElem).on('click', function() {
-            checkExecuteButton(getOptions());
+            let options = {};
+            getOptions(options);
+            checkExecuteButton(options);
         })
 
         
@@ -1569,943 +1573,30 @@ $(document).ready(function() {
         });
 
         $(actionButtonElem).on('click', function() {
+            let options = {};
+            getOptions(options);
     
             $(actionButtonElem).prop('disabled', true);
 
-            checkOperations(getOptions());
+            checkOperations(options);
         });
 
         $(executeButtonElem).on('click', function() {
+            let options = {};
+            getOptions(options);
+
             $(executeButtonElem).prop('disabled', true);
     
             // Hide all warning panes
             $(sandboxUnclaimWarningElem).hide();
 
-            executeOperations(getOptions());
+            executeOperations(options);
         });
 
         $(productSelectElem).on('click', function() {
             checkDeviceList();
         });
 
-
-    });
-
-    $('.apiHelperListDevices').each(function() {
-        const thisPartial = $(this);
-        const gaCategory = 'listDevices';
-
-        const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
-        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
-        const actionButtonElem = $(thisPartial).find('.actionButton');
-
-        const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
-        const deviceTableElem = $(deviceTableDivElem).find('table');
-        const deviceTableHeadElem = $(deviceTableElem).find('thead');
-        const deviceTableBodyElem = $(deviceTableElem).find('tbody');
-        
-        const statusElem = $(thisPartial).find('.apiHelperStatus');
-
-        const progressDivElem = $(thisPartial).find('.progressDiv');
-        const progressElem = $(progressDivElem).find('progress');
-
-        const downloadDivElem = $(thisPartial).find('.downloadDiv');
-        const formatSelectElem = $(thisPartial).find('.formatSelect');
-        const includeHeaderCheckboxElem = $(thisPartial).find('.includeHeaderCheckbox');
-        const dateFormatSelectElem = $(thisPartial).find('.dateFormatSelect');
-        const downloadButtonElem = $(thisPartial).find('.downloadButton');
-        const copyButtonElem = $(thisPartial).find('.copyButton');
-
-        const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
-
-        if (!apiHelper.auth) {
-            // Not logged in
-            $(thisPartial).hide();
-            return;
-        }
-
-        let deviceList;
-
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams) {
-            const formatParam = urlParams.get('format');
-            if (formatParam) {
-                $(formatSelectElem).val(formatParam);
-            }
-            const headerParam = urlParams.get('header');
-            if (headerParam !== null) {
-                $(includeHeaderCheckboxElem).prop('checked', !!headerParam);
-            }
-            const dateFormatParam = urlParams.get('dateFormat');
-            if (dateFormatParam) {
-                $(dateFormatSelectElem).val(dateFormatParam);
-            }
-
-        }
-
-        const setStatus = function(s) {
-            $(statusElem).text(s);
-        }
-
-        const getOptions = function() {
-            
-            let options = $(productOrSandboxSelectorElem).data('getOptions')();
-
-            options.format = $(formatSelectElem).val();
-            options.header = $(includeHeaderCheckboxElem).prop('checked');
-            options.dateFormat = $(dateFormatSelectElem).val();
-
-            options.username = apiHelper.auth.username;
-            options.accessToken = apiHelper.auth.access_token;
-
-            return options;
-        }
-
-        const clearDeviceList = function() {
-            $(deviceTableBodyElem).html('');
-            $(deviceTableDivElem).hide();
-            $(downloadDivElem).hide();
-        };
-
-        const updateSearchParam = function() {
-    
-            try {
-                const options = getOptions();
-
-                let urlConfig = $(fieldSelectorElem).data('getUrlConfigObj')();
-
-                urlConfig = Object.assign($(productOrSandboxSelectorElem).data('getUrlConfigObj')(), urlConfig);
-                
-                urlConfig.format = options.format;
-                urlConfig.header = options.header;
-                urlConfig.dateFormat = options.dateFormat;
-                
-                const searchStr = $.param(urlConfig);
-    
-                history.pushState(null, '', '?' + searchStr);     
-
-                $(copyButtonElem).prop('disabled', (options.format == 'xlsx'));
-            }
-            catch(e) {
-                console.log('exception', e);
-            }
-        };
-
-        const getTableData = async function(configObj, options) {
-
-            let tableData = {
-                keys:[],
-                titles:[],
-                widths:[],
-                indexFor: {}
-            }
-            
-            if (options.export && options.format == 'deviceId') {
-                tableData.keys.push('id');
-            }
-            else
-            if (options.export && options.format == 'iccid') {
-                tableData.keys.push('iccid');                
-            }
-            else {
-                for(field of configObj.fields) {
-                    if (field.isChecked()) {
-                        tableData.keys.push(field.key);
-                        tableData.titles.push(field.customTitle ? field.customTitle : field.title);
-                        tableData.widths.push(parseInt(field.customWidth ? field.customWidth : field.width));
-                        tableData.indexFor[field.key] = tableData.keys.length - 1;
-                    }
-                }    
-            }
-
-            if (deviceList) {
-                tableData.data = [];
-
-                for(const deviceInfo of deviceList) {
-                    let d = {};
-
-                    if (options.isSandbox && deviceInfo.product_id != deviceInfo.platform_id) {
-                        // Listing sandbox devices and this is a product device
-                        continue;
-                    }
-
-                    if (options.export && options.format == 'iccid' && !deviceInfo['iccid']) {
-                        continue;
-                    }
-
-                    for(const key of tableData.keys) {
-                        if (key.startsWith('_')) {
-                            // Internal converted field
-                            switch(key) {
-                                case '_platformName':
-                                    d[key] = await apiHelper.getPlatformName(deviceInfo['platform_id']);
-                                    break;
-                                case '_sku': 
-                                    d[key] = await apiHelper.getSkuFromSerial(deviceInfo['serial_number']);
-                                    if (!d[key]) {
-                                        d[key] = 'unknown';
-                                    }
-                                    break;
-                            }
-                        }
-                        else
-                        if (typeof deviceInfo[key] !== 'undefined') {
-                            if (Array.isArray(deviceInfo[key])) {
-                                // Occurs for groups and functions
-                                d[key] = deviceInfo[key].join(' ');
-    
-                                // TODO: Also handle object for variables. Maybe boolean as we well
-                            }
-                            else {
-                                let value = deviceInfo[key];
-
-                                if (options.convertDates) {
-                                    if (key == 'last_heard' || key == 'last_handshake_at' ) {
-                                        value = new Date(value);
-                                    }
-                                }
-
-                                d[key] = value;
-                            }
-                        }
-                    }
-                    tableData.data.push(d);
-                }    
-            }
-
-            // TODO: Filtering of desired rows
-            // TODO: Date formatting
-
-            return tableData;
-        } 
-
-        const refreshTable = async function(configObj) {            
-            // 
-            const tableData = await getTableData(configObj, getOptions());
-
-            $(deviceTableHeadElem).html('');
-            {
-                const rowElem = document.createElement('tr');
-                let col = 0;
-                for(const title of tableData.titles) {
-                    const thElem = document.createElement('th');
-                    $(thElem).text(title);
-                    $(rowElem).append(thElem);
-                }
-                $(deviceTableHeadElem).append(rowElem);
-            }
-
-            $(deviceTableBodyElem).html('');
-
-            if (tableData.data) {
-                $(downloadDivElem).show();
-
-                for(const d of tableData.data) {
-                    const rowElem = document.createElement('tr');
-    
-                    for(let col = 0; col < tableData.keys.length; col++) {
-                        const key = tableData.keys[col];
-
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', tableData.widths[col] + 'ch');
-        
-                        if (d[key]) {
-                            $(tdElem).text(d[key]);
-                        }
-        
-                        $(rowElem).append(tdElem);
-                    }
-    
-                    $(deviceTableBodyElem).append(rowElem);
-    
-                }
-            }
-            else {
-                $(downloadDivElem).hide();
-            }
-        };
-
-        const getDeviceList = async function(options) {
-            $(deviceTableBodyElem).html('');
-            $(deviceTableDivElem).show();
-
-            try {
-                let stats = {
-                    product: (options.productId != 0)
-                };
-
-                // 
-                setStatus('Getting device list...');
-                $(progressDivElem).show();
-
-                deviceList = await apiHelper.getAllDevices({
-                    productId: options.productId,
-                    owner: options.username,
-                    progressElem: progressElem
-                });
-
-                $(progressDivElem).hide();
-
-                stats.count = deviceList.length;
-
-                setStatus('Device list retrieved!');
-
-                await refreshTable($(fieldSelectorElem).data('getConfigObj')());
-
-                ga('send', 'event', gaCategory, 'Get Devices Success', JSON.stringify(stats));
-            }
-            catch(e) {
-                console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Get Devices Error');
-            }
-
-        };
-
-        $(actionButtonElem).on('click', function() {
-            getDeviceList(getOptions());
-        });
-
-        $(productSelectElem).on('change', function() {
-            clearDeviceList();
-            updateSearchParam();
-        });
-
-        $(thisPartial).on('updateProductList', async function(event, options) {
-            clearDeviceList();
-            updateSearchParam();
-        });
-
-        $(thisPartial).on('fieldSelectorUpdate', async function(event, config) {
-            await refreshTable(config);
-            updateSearchParam();
-        });
-
-
-        $(formatSelectElem).on('change', function() {
-            updateSearchParam();
-        });
-        $(dateFormatSelectElem).on('change', function() {
-            updateSearchParam();
-        });
-
-        $(includeHeaderCheckboxElem).on('click', function() {
-            updateSearchParam();
-        });
-
-        const getXlsxData = async function(options) {
-            if (!options) {
-                options = {};
-            }
-            if (!options.sheetName) {
-                options.sheetName = 'Devices';
-            }
-            let xlsxData = {};
-
-            xlsxData.options = getOptions();
-
-            xlsxData.configObj = $(fieldSelectorElem).data('getConfigObj')();
-
-            let getTableDataOptions = getOptions();
-
-            getTableDataOptions.convertDates = (xlsxData.options.dateFormat != 'iso');
-            getTableDataOptions.export = true;
-
-            xlsxData.tableData = await getTableData(xlsxData.configObj, getTableDataOptions);
-
-            let conversionOptions = {
-                header: xlsxData.tableData.keys
-            };
-            if (!xlsxData.options.header) {
-                conversionOptions.skipHeader = true;
-            }
-            if (xlsxData.options.dateFormat != 'iso') {
-                conversionOptions.dateNF = xlsxData.options.dateFormat;
-            }
-
-            if (!options.fileName) {
-                switch(xlsxData.options.format) {
-                    case 'deviceId':
-                        options.fileName = 'devices.txt';
-                        conversionOptions.skipHeader = true;
-                        break;
-
-                    case 'iccid':
-                        options.fileName = 'iccids.txt';
-                        conversionOptions.skipHeader = true;
-                        break;
-
-                    default:
-                        options.fileName = 'devices.' + xlsxData.options.format;
-                        break;
-                }
-            }
-            let stats = {
-                format: xlsxData.options.format,
-                cols: xlsxData.tableData.keys.length,
-                count: xlsxData.tableData.data.length
-            };
-
-
-            xlsxData.worksheet = XLSX.utils.json_to_sheet(xlsxData.tableData.data, conversionOptions);
-
-            xlsxData.workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(xlsxData.workbook, xlsxData.worksheet, options.sheetName);
-
-            if (xlsxData.options.header) {
-                XLSX.utils.sheet_add_aoa(xlsxData.worksheet, [xlsxData.tableData.titles], { origin: "A1" });
-            }
-
-            // Columns widths
-            if (!xlsxData.worksheet['!cols']) {
-                xlsxData.worksheet['!cols'] = [];
-            }
-            for(let ii = 0; ii < xlsxData.tableData.widths.length; ii++) {
-                if (!xlsxData.worksheet['!cols'][ii]) {
-                    xlsxData.worksheet['!cols'][ii] = {};
-                }
-                xlsxData.worksheet['!cols'][ii].wch = xlsxData.tableData.widths[ii];
-            }
-
-            switch(xlsxData.options.format) {
-                case 'xlsx':
-                    // toFile/toClipboard is ignored; cannot create 
-                    XLSX.writeFile(xlsxData.workbook, options.fileName);
-                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
-                    break;
-
-                case 'deviceId':
-                case 'iccid':
-                case 'csv':
-                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet);
-                    break;
-
-                case 'tsv':
-                    xlsxData.textOut = XLSX.utils.sheet_to_csv(xlsxData.worksheet, {FS:'\t'});
-                    break;
-            }
-            if (xlsxData.textOut) {
-                if (options.toClipboard) {
-                    var t = document.createElement('textarea');
-                    document.body.appendChild(t);
-                    $(t).text(xlsxData.textOut);
-                    t.select();
-                    document.execCommand("copy");
-                    document.body.removeChild(t);
-
-                    ga('send', 'event', gaCategory, 'Clipboard', JSON.stringify(stats));
-                }
-                if (options.toFile) {
-                    let blob = new Blob([xlsxData.textOut], {type:'text/' + xlsxData.options.format});
-                    saveAs(blob, options.fileName);	        
-                    ga('send', 'event', gaCategory, 'Download', JSON.stringify(stats));
-                }
-            }
-
-            return xlsxData;
-        }
-
-        $(downloadButtonElem).on('click', async function() {
-            await getXlsxData({toFile: true});
-
-        });
-
-        $(copyButtonElem).on('click', async function() {
-            await getXlsxData({toClipboard: true});
-            
-        });
-
-
-    });
-
-    $('.apiHelperFieldSelector').each(function() {
-        const thisPartial = $(this);
-
-        const configElem = $(thisPartial).find('textarea');
-        const configText = configElem.text();
-        // console.log('configText', configText);
-        let configObj = JSON.parse(configText);
-        $(configElem).replaceWith('');
-
-        for(const field of configObj.fields) {
-            if (!field.width) {
-                field.width = '10';
-            }
-        }
-
-        // console.log('configObj', configObj);
-
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('k0')) {
-            let newFields = [];
-
-            for(let index = 0; ; index++) {
-                let key = urlParams.get('k' + index);
-                if (!key) {
-                    break;
-                }
-                let checked = false;    
-                if (key.startsWith('*')) {
-                    checked = true;
-                    key = key.substring(1);
-                }
-
-                const field = configObj.fields.find(f => f.key == key);
-                if (field) {
-                    field.checked = checked;
-                    const customTitle = urlParams.get('t' + index);
-                    if (customTitle) {
-                        field.customTitle = customTitle;
-                    }
-                    const customWidth = urlParams.get('w' + index);
-                    if (customWidth) {
-                        field.customWidth = customWidth;
-                    }
-                    newFields.push(field);
-                }
-            }
-
-            for(const field of configObj.fields) {
-                const inNew = !!newFields.find(f => f.key == field.key);
-                if (!inNew) {
-                    field.checked = false;
-                    newFields.push(field);
-                }
-            }
-
-            // Add in other non-selected fields
-            configObj.fields = newFields;
-        }
-
-
-        const refreshTable = function() {   
-            $(thisPartial).trigger('fieldSelectorUpdate', [configObj]);
-        };
-
-        const moveField = function(fromKey, toKey, afterTarget) {
-            let fromIndex = -1;
-            let toIndex = -1;
-            for(let ii = 0; ii < configObj.fields.length; ii++) {
-                if (configObj.fields[ii].key == fromKey) {
-                    fromIndex = ii;
-                }
-                if (configObj.fields[ii].key == toKey) {
-                    toIndex = ii;
-                }
-            }
-
-            if (fromIndex == toIndex || fromIndex < 0 || toIndex < 0) {
-                return;
-            }
-
-            // Reorder items in the DOM
-            $(configObj.fields[fromIndex].trElem).detach();
-            if (afterTarget) {
-                $(configObj.fields[toIndex].trElem).after(configObj.fields[fromIndex].trElem);
-
-            }
-            else {
-                $(configObj.fields[toIndex].trElem).before(configObj.fields[fromIndex].trElem);
-
-            }
-
-            // Reorder items in array
-            const fromArrayItem = configObj.fields[fromIndex];
-            configObj.fields.splice(fromIndex, 1);
-            if (toIndex > fromIndex) {
-                toIndex--;
-            }
-            if (afterTarget) {
-                toIndex++;
-            }
-            configObj.fields.splice(toIndex, 0, fromArrayItem);
-
-            //console.log('fields', configObj.fields);
-            refreshTable();
-            
-        };
-
-        const tableElem = document.createElement('table');
-        {
-            $(tableElem).addClass('apiHelperTableNoMargin');
-
-            {
-                const theadElem = document.createElement('thead');
-                const trElem = document.createElement('tr');
-
-                {
-                    // Drag to reorder
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Reorder');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Include');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Column Name');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Key');
-                    $(trElem).append(thElem);
-                }
-                {
-                    const thElem = document.createElement('th');
-                    $(thElem).text('Width');
-                    $(trElem).append(thElem);
-                }
-
-                $(theadElem).append(trElem);
-
-                $(tableElem).append(theadElem);
-            }
-
-            const tbodyElem = document.createElement('tbody');
-
-            for(const field of configObj.fields) {
-                const trElem = field.trElem = document.createElement('tr');
-
-                let tdElem;
-
-                // Drag icon
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-                const imgElem = document.createElement('img');
-                $(imgElem).attr('src', '/assets/images/drag-handle-black.png');
-                $(imgElem).attr('width', '20');
-                $(imgElem).attr('height', '20');
-                $(imgElem).attr('style', 'margin:0px !important');
-                $(imgElem).attr('draggable', 'true');
-                $(imgElem).on('dragstart', function(ev) {
-                    ev.originalEvent.dataTransfer.setData('text', field.key);
-                });
-                $(tdElem).append(imgElem);
-                trElem.append(tdElem);
-
-                // Checkbox
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-
-                const checkboxElem = document.createElement('input');
-                $(checkboxElem).prop('type', 'checkbox');
-                if (field.checked) {
-                    $(checkboxElem).prop('checked', 'checked');
-                }
-                $(checkboxElem).on('click', function() {
-                    refreshTable();
-                });
-                $(tdElem).append(checkboxElem);
-                trElem.append(tdElem);
-
-                field.isChecked = function() {
-                    return $(checkboxElem).prop('checked');
-                };
-
-                // Field Name
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-
-                const titleInputElem = document.createElement('input');
-                $(titleInputElem).attr('type', 'text');
-                $(titleInputElem).attr('value', field.customTitle ? field.customTitle : field.title);
-                $(titleInputElem).on('blur', function() {
-                    field.customTitle = $(titleInputElem).val();
-                    refreshTable();
-                });
-                $(tdElem).append(titleInputElem);
-                trElem.append(tdElem);
-
-                // Key
-                tdElem = document.createElement('td');
-                $(tdElem).attr('style', 'vertical-align: middle !important');
-                $(tdElem).text(field.key);
-                $(tdElem).on('click', function() {
-                    $(checkboxElem).trigger('click');
-                });
-                trElem.append(tdElem);
-
-                // Width
-                tdElem = document.createElement('td');
-                const widthInputElem = document.createElement('input');
-                $(widthInputElem).attr('type', 'text');
-                $(widthInputElem).attr('value', field.customWidth ? field.customWidth : field.width); 
-                $(widthInputElem).attr('size', '5'); 
-                $(widthInputElem).on('blur', function() {
-                    field.customWidth = $(widthInputElem).val();                    
-                    refreshTable();
-                });
-                $(tdElem).append(widthInputElem);
-                trElem.append(tdElem);
-
-
-                $(trElem).on('dragover', function(ev) {
-                    const key = ev.originalEvent.dataTransfer.getData("text");                    
-                    if (key != field.key) {
-                        ev.preventDefault();
-                    }
-                });
-                $(trElem).on('drop', function(ev) {
-                    const key = ev.originalEvent.dataTransfer.getData("text");                    
-                    console.log('ev', ev);
-
-                    const targetClientHeight = ev.currentTarget.clientHeight;
-                    const afterTarget = (ev.originalEvent.offsetY >= (targetClientHeight / 2));
-
-                    moveField(key, field.key, afterTarget);
-                });
-    
-
-                $(tbodyElem).append(trElem);
-            }
-
-            $(tableElem).append(tbodyElem);
-        }
-
-        $(thisPartial).append(tableElem);
-
-        $(thisPartial).data('getConfigObj', function() {
-            return configObj;
-        });
-
-        $(thisPartial).data('getUrlConfigObj', function() {
-            let resultObj = {};
-            let index = 0;
-
-            for(const field of configObj.fields) {
-
-                resultObj['k' + index] = (field.isChecked() ? '*' : '') + field.key;
-                    
-                if (field.customTitle && field.customTitle != field.title) {
-                    resultObj['t' + index] = field.customTitle;
-                }
-
-                if (field.customWidth && field.customWidth != field.width) {
-                    resultObj['w' + index] = field.customWidth;
-                }
-
-                index++;
-            }
-            return resultObj;
-        });
-
-        $(thisPartial).data('loadUrlConfig', function(urlConfig) {
-            
-        });
-
-
-    });
-
-    $('.apiHelperProductOrSandboxSelector').each(function() {
-        const thisPartial = $(this);
-
-        let urlParams = new URLSearchParams(window.location.search);
-
-        const devOrProductRowElem = $(thisPartial).find('.devOrProductRow');
-        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
-        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
-        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
-        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
-        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
-
-        if (!apiHelper.auth) {
-            return;
-        }
-
-        let orgs;
-
-        const getOptions = function() {
-            const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
-            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
-
-            let productId = 0;
- 
-            if (devOrProduct == 'product') {
-                productId = $(productSelectElem).val();
-            }
-
-            let options = {                
-                isSandbox: (devOrProduct == 'dev'),
-                hasOrgs: orgs.length > 0,
-                devOrProduct, // 'dev' (sandbox non-product) or 'product'
-                sandboxOrg,   // 'sandbox' product or 'org' product
-                productId,    // 0 if sandbox
-            };
-
-            return options;
-        }
-
-        const updateProductList = async function() {
-            if (!orgs) {
-                // Not fully loaded yet
-                return;
-            }
-
-            $(orgSelectorRowElem).hide();
-            $(sandboxOrgRowElem).hide();    
-            
-            if (urlParams) {
-                const devOrProductParam = urlParams.get('devOrProduct');
-                if (devOrProductParam) {
-                    $(devOrProductRowElem).find('input[value="' + devOrProductParam + '"]').prop('checked', true);
-                }
-                const sandboxOrgParam = urlParams.get('sandboxOrg')
-                if (sandboxOrgParam) {
-                    $(sandboxOrgRowElem).find('input[value="' + sandboxOrgParam + '"]').prop('checked', true);
-                }
-            }
-
-            const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
-            switch(devOrProduct) {
-                case 'product':
-                    $(productSelectorRowElem).show();
-                    break;
-
-                case 'dev':
-                    $(productSelectorRowElem).hide();
-                    $(orgSelectorRowElem).hide();
-                    $(sandboxOrgRowElem).hide();
-                    break;                    
-            }
-
-            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
-
-            if (orgs.length) {
-                // Has organizations
-
-                switch(devOrProduct) {
-                    case 'dev':
-                        // No sandbox or organization popups
-                        break;
-
-                    case 'product':
-                        $(sandboxOrgRowElem).show();
-                        switch(sandboxOrg) {
-                            case 'sandbox':
-                                break;
-
-                            case 'org':
-                                $(orgSelectorRowElem).show();
-                                break;
-                        }               
-                        break;
-                }
-            }
-
-            let productsData;
-
-            if (sandboxOrg == 'sandbox') {
-                productsData = await apiHelper.getProducts();
-            }
-            else {
-                const orgId = $(orgSelectElem).val();
-                if (!orgId) {
-                    return;
-                }
-                productsData = await apiHelper.getOrgProducts(orgId);
-            }
-            
-            productsData.products.sort(function (a, b) {
-                return a.name.localeCompare(b.name);
-            });
-
-            $(productSelectElem).html('');
-
-            for(const product of productsData.products) {
-                const optionElem = document.createElement('option');
-                $(optionElem).attr('value', product.id);
-                $(optionElem).text(product.name + ' (' + product.id + ')');
-                $(productSelectElem).append(optionElem);
-            }
-
-            if (urlParams) {
-                const productIdParam = urlParams.get('productId');
-                if (productIdParam) {
-                    const productId = parseInt(productIdParam);
-                    if (productId) {
-                        $(productSelectElem).val(productId);
-                    }
-                }
-                
-                urlParams = null;
-            }
-
-            $(thisPartial).trigger('updateProductList', [getOptions()]);
-        }
-
-        $(devOrProductRowElem).find('input').each(function() {
-            const radioElem = $(this);
-            $(radioElem).on('click', async function() {
-                await updateProductList();
-            });
-        });
-
-        $(sandboxOrgRowElem).find('input').each(function() {
-            const radioElem = $(this);
-            $(radioElem).on('click', async function() {
-                await updateProductList();
-            });
-        });
-
-        $(orgSelectElem).on('change', updateProductList);
-
-        apiHelper.getOrgs().then(async function(orgsData) {
-            // No orgs: orgsData.organizations empty array
-            // Object in array orgsData.organizations: id, slug, name
-            orgs = orgsData.organizations;
-
-            if (orgsData.organizations.length > 0) {
-
-                for (let org of orgsData.organizations) {
-                    const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', org.id);
-                    $(optionElem).text(org.name);
-
-                    $(orgSelectElem).append(optionElem);        
-                }
-                if (urlParams) {
-                    const orgId = urlParams.get('org');
-                    if (orgId) {
-                        $(orgSelectElem).val(orgId);
-                    }
-                }
-
-            }
-            else {
-                // No orgs
-                // $(sandboxOrgRowElem).find('input[value=org]:radio').prop('disabled', true);
-                $(orgSelectorRowElem).hide();
-                $(sandboxOrgRowElem).hide();
-            }
-
-            await updateProductList();
-        });
-
-
-        $(thisPartial).data('getOptions', getOptions);
-        
-        $(thisPartial).data('getUrlConfigObj', function() {
-            let resultObj = {};
-
-            resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
-            resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
-
-            if (orgs && orgs.length) {
-                resultObj.org = $(orgSelectElem).val();
-            }
- 
-            if (resultObj.devOrProduct == 'product') {
-                resultObj.productId = $(productSelectElem).val();
-            }
-            else {
-                resultObj.productId = 0;
-            }
-
-            return resultObj;
-        });
 
     });
 
@@ -2616,6 +1707,218 @@ $(document).ready(function() {
 
 
         });
+
+    });
+
+
+    $('.apiHelperProductOrSandboxSelector').each(function() {
+        const thisPartial = $(this);
+
+        let urlParams = new URLSearchParams(window.location.search);
+
+        const devOrProductRowElem = $(thisPartial).find('.devOrProductRow');
+        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
+        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
+        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
+        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
+
+        let productSelector = {};
+        $(thisPartial).data('productSelector', productSelector);
+
+        if (!apiHelper.auth) {
+            return;
+        }
+
+        let noSandbox = !!$(thisPartial).data('no-sandbox');
+        if (noSandbox) {
+            $(devOrProductRowElem).hide();
+        }
+
+
+        productSelector.getOptions = function(options) {
+            const devOrProduct = (noSandbox ? 'product' : $(devOrProductRowElem).find('input:checked').val());
+            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+
+            let productId = 0;
+ 
+            if (devOrProduct == 'product') {
+                productId = $(productSelectElem).val();
+            }
+
+            options.isSandbox = (devOrProduct == 'dev');
+            options.hasOrgs = productSelector.orgs.length > 0;
+            options.devOrProduct = devOrProduct; // 'dev' (sandbox non-product) or 'product'
+            options.sandboxOrg = sandboxOrg;   // 'sandbox' product or 'org' product
+            options.productId = productId;    // 0 if sandbox
+        
+
+        }
+
+        const updateProductList = async function() {
+            if (!productSelector.orgs) {
+                // Not fully loaded yet
+                return;
+            }
+
+            $(orgSelectorRowElem).hide();
+            $(sandboxOrgRowElem).hide();    
+            
+            if (urlParams) {
+                const devOrProductParam = urlParams.get('devOrProduct');
+                if (devOrProductParam) {
+                    $(devOrProductRowElem).find('input[value="' + devOrProductParam + '"]').prop('checked', true);
+                }
+                const sandboxOrgParam = urlParams.get('sandboxOrg')
+                if (sandboxOrgParam) {
+                    $(sandboxOrgRowElem).find('input[value="' + sandboxOrgParam + '"]').prop('checked', true);
+                }
+            }
+
+            const devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            switch(devOrProduct) {
+                case 'product':
+                    $(productSelectorRowElem).show();
+                    break;
+
+                case 'dev':
+                    $(productSelectorRowElem).hide();
+                    $(orgSelectorRowElem).hide();
+                    $(sandboxOrgRowElem).hide();
+                    break;                    
+            }
+
+            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+
+            if (productSelector.orgs.length) {
+                // Has organizations
+
+                switch(devOrProduct) {
+                    case 'dev':
+                        // No sandbox or organization popups
+                        break;
+
+                    case 'product':
+                        $(sandboxOrgRowElem).show();
+                        switch(sandboxOrg) {
+                            case 'sandbox':
+                                break;
+
+                            case 'org':
+                                $(orgSelectorRowElem).show();
+                                break;
+                        }               
+                        break;
+                }
+            }
+
+            let productsData;
+
+            if (sandboxOrg == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            $(productSelectElem).html('');
+
+            for(const product of productsData.products) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', product.id);
+                $(optionElem).text(product.name + ' (' + product.id + ')');
+                $(productSelectElem).append(optionElem);
+            }
+
+            if (urlParams) {
+                const productIdParam = urlParams.get('productId');
+                if (productIdParam) {
+                    const productId = parseInt(productIdParam);
+                    if (productId) {
+                        $(productSelectElem).val(productId);
+                    }
+                }
+                
+                urlParams = null;
+            }
+
+            let options = {};
+            productSelector.getOptions(options);
+            $(thisPartial).trigger('updateProductList', [options]);
+        }
+
+        $(devOrProductRowElem).find('input').each(function() {
+            const radioElem = $(this);
+            $(radioElem).on('click', async function() {
+                await updateProductList();
+            });
+        });
+
+        $(sandboxOrgRowElem).find('input').each(function() {
+            const radioElem = $(this);
+            $(radioElem).on('click', async function() {
+                await updateProductList();
+            });
+        });
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        apiHelper.getOrgs().then(async function(orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            productSelector.orgs = orgsData.organizations;
+
+            if (orgsData.organizations.length > 0) {
+
+                for (let org of orgsData.organizations) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', org.id);
+                    $(optionElem).text(org.name);
+
+                    $(orgSelectElem).append(optionElem);        
+                }
+                if (urlParams) {
+                    const orgId = urlParams.get('org');
+                    if (orgId) {
+                        $(orgSelectElem).val(orgId);
+                    }
+                }
+
+            }
+            else {
+                // No orgs
+                // $(sandboxOrgRowElem).find('input[value=org]:radio').prop('disabled', true);
+                $(orgSelectorRowElem).hide();
+                $(sandboxOrgRowElem).hide();
+            }
+
+            await updateProductList();
+        });
+
+        
+        productSelector.getUrlConfigObj = function(resultObj) {
+            resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
+            resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+
+            if (productSelector.orgs && productSelector.orgs.length) {
+                resultObj.org = $(orgSelectElem).val();
+            }
+ 
+            if (resultObj.devOrProduct == 'product') {
+                resultObj.productId = $(productSelectElem).val();
+            }
+            else {
+                resultObj.productId = 0;
+            }
+        };
 
     });
 

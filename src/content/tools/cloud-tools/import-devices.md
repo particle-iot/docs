@@ -1,8 +1,8 @@
 ---
-title: List devices
+title: Import devices
 columns: two
 layout: commonTwo.hbs
-description: List devices and export lists
+description: Import devices into a product
 includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, api-helper-table, api-helper-tools, xlsx]
 ---
 
@@ -10,4 +10,4 @@ includeDefinitions: [api-helper, api-helper-cloud, api-helper-extras, api-helper
 
 {{> sso}}
 
-{{> list-devices}}
+{{> import-devices}}

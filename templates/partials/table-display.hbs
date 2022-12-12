@@ -1,0 +1,68 @@
+<div>
+    <!-- dependencies: apiHelper, apiHelperTable, xlsx -->
+    <!-- be sure to add class apiHelperTable to the container for this partial! -->
+    <div class="apiHelperFieldSelector" style="display:none">            
+        <div style="padding-top: 20px;">Fields to include:</div>
+        <div class="fieldSelectorTableDiv"></div>
+    </div>
+    <div class="exportOptionsDiv" style="display:none">            
+        <table class="apiHelperTableNoMargin">
+            <tbody>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Format</td>
+                    <td>
+                        <select class="formatSelect apiHelperSelect">
+                            <option value="xlsx" selected>Excel spreadsheet (.xlsx)</option>
+                            <option value="csv">Comma-separated values (.csv)</option>
+                            <option value="tsv">Tab-separated values (.tsv)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Date Format</td>
+                    <td>
+                        <select class="dateFormatSelect apiHelperSelect">
+                            <option value="iso" selected>ISO 8601 (cloud format)</option>
+                            <option value="m/d/yy">m/d/yy (may be localized by Excel)</option>
+                            <option value="d-mmm-yy">d-mmm-yy</option>
+                            <option value="d-mmm">d-mmm</option>
+                            <option value="mmm-yy">mmm-yy</option>
+                            <option value="m/d/yy h:mm">m/d/yy h:mm</option>
+                            <option value="h:mm:ss">h:mm:ss</option>
+                        </select>                                                             
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label><input class="includeHeaderCheckbox" type="checkbox" checked/>Include header row</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label><input class="omitEmptyCheckbox" type="checkbox"/>Omit row if sort by field is empty</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="apiHelperButton downloadButton" disabled>Download data</button> &nbsp;&nbsp;
+                        <button class="apiHelperButton copyButton" disabled>Copy data to clipboard</button>
+                    </td>                
+                </tr>
+            </tbody>
+        </table>      
+    </div>
+    <div class="tableDiv">
+        <div style="width: 670px; overflow-x: auto;">
+            <table class="apiHelperTableNoMargin">
+                <thead>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="downloadDiv" style="display:none; padding-top: 10px;">
+        <p style="font-size: x-small;">Excel and csv download provided by <a href="https://sheetjs.com/">SheetJS</a>. 
+            Data conversion is done entirely within your browser and not uploaded to any external services.</p>
+    </div>
+</div>

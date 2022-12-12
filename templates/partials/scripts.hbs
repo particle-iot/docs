@@ -43,6 +43,10 @@
 {{#contains includeDefinitions 'api-helper-cloud'}}
 <script src='/assets/js/api-helper-cloud.js'></script>
 {{/contains}}
+{{#contains includeDefinitions 'api-helper-table'}}
+<!-- Must be loaded before modules that implement tables -->
+<script src='/assets/js/api-helper-table.js'></script>
+{{/contains}}
 {{#contains includeDefinitions 'api-helper-config'}}
 <script src='/assets/js/api-helper-config.js'></script>
 {{/contains}}
@@ -74,6 +78,9 @@
 {{/contains}}
 {{#contains includeDefinitions 'api-helper-sim'}}
 <script src='/assets/js/api-helper-sim.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-tools'}}
+<script src='/assets/js/api-helper-tools.js'></script>
 {{/contains}}
 {{#contains includeDefinitions 'api-helper-tickets'}}
 <script src='/assets/js/api-helper-tickets.js'></script>
