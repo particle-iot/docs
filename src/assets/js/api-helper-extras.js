@@ -1939,8 +1939,11 @@ $(document).ready(function() {
         const newExistingRadioElem = $(thisPartial).find('input[name="newExisting"]');
         const newRadioElem = $(thisPartial).find('input[name="newExisting"][value="new"]');
         const existingRadioElem = $(thisPartial).find('input[name="newExisting"][value="existing"]');
-        const newExistingRadioCheckedElem = $(thisPartial).find('input[name="newExisting"]:checked');
-        
+        const newExistingRadioCheckedVal = function() {
+            $(thisPartial).find('input[name="newExisting"]:checked').val();
+        }
+
+
         const createProductRowElem = $(thisPartial).find('.createProductRow');
         const createProductButtonElem = $(thisPartial).find('.createProductButton');
 
@@ -1951,6 +1954,17 @@ $(document).ready(function() {
 
         if (!apiHelper.auth) {
             return;
+        }
+
+        productSelector.settings = {};
+        const savedSettings = localStorage.getItem('manualSetup');
+        if (savedSettings) {
+            try {
+                productSelector.settings = JSON.parse(savedSettings);
+            }
+            catch(e) {
+
+            }
         }
 
         productSelector.getOptions = function(options) {
@@ -1979,7 +1993,7 @@ $(document).ready(function() {
             }
 
             // new or existing
-            options.newExisting = $(newExistingRadioCheckedElem).val();
+            options.newExisting = newExistingRadioCheckedVal();
 
             if (options.newExisting == 'new') {
                 options.productName = $(productNameInputElem).val();
@@ -1991,8 +2005,16 @@ $(document).ready(function() {
             return options;
         }
 
+        productSelector.saveSettings = function() {
+            productSelector.settings.createOrSelectProduct = {};
+
+            productSelector.getOptions(productSelector.settings.createOrSelectProduct);
+
+            localStorage.setItem('manualSetup', JSON.stringify(productSelector.settings));
+        }
+
         const updateNewExistingButton = function() {
-            const newExisting = $(newExistingRadioCheckedElem).val();
+            const newExisting = newExistingRadioCheckedVal();
             if (newExisting == 'new') {
                 $(createProductRowElem).show();
 
@@ -2061,9 +2083,17 @@ $(document).ready(function() {
             for(const product of productsData.products) {
                 if (product.platform_id == platformId) {
                     const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', product.id);
+                    $(optionElem).attr('value', product.id.toString());
                     $(optionElem).text(product.name + ' (' + product.id + ')');
                     $(productSelectElem).append(optionElem);    
+
+                    if (productSelector.settings && productSelector.settings.createOrSelectProduct && productSelector.settings.createOrSelectProduct.productId == product.id) {
+                        $(productSelectElem).val(product.id.toString());
+                        $(newExistingRadioElem).prop('checked', false);
+                        $(existingRadioElem).prop('checked', true);
+                        $(createProductRowElem).hide();
+                    }
+
                 }
             }
             $(productSelectorRowElem).show();
@@ -2133,6 +2163,11 @@ $(document).ready(function() {
                 $(platformSelectElem).append(optionElem);    
             }
 
+            if (productSelector.settings && productSelector.settings.createOrSelectProduct && productSelector.settings.createOrSelectProduct.platformId) {
+                $(platformSelectElem).val(productSelector.settings.createOrSelectProduct.platformId.toString());
+                $(platformSelectElem).trigger('change');
+            }
+
         });
 
         $(createProductButtonElem).on('click', function() {
@@ -2164,6 +2199,34 @@ $(document).ready(function() {
                 success: function (resp, textStatus, jqXHR) {
                     // ga('send', 'event', simpleGetConfig.gaAction, 'Success');
                     console.log('success', resp);
+                    // ok: boolean
+                    // product: object
+                    //      id: int product ID
+                    //      platform_id
+                    //      name
+                    //      slug
+                    //      description
+                    //      settings: object
+                    //      groups: array
+                    //      device_count: integer
+                    if (resp.ok) {
+                        // Add to popup and select
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', resp.product.id.toString());
+                        $(optionElem).text(resp.product.name + ' (' + resp.product.id + ') (newly created)');
+                        $(productSelectElem).append(optionElem);    
+
+                        $(productSelectElem).val(resp.product.id.toString());
+                        $(newExistingRadioElem).prop('checked', false);
+                        $(existingRadioElem).prop('checked', true);
+                        $(productNameInputElem).val('');
+                        $(createProductRowElem).hide();
+
+                        productSelector.saveSettings();
+                    }
+                    else {
+                        console.log('request failed', resp);
+                    }
                 },
                 url: 'https://api.particle.io/v1/user/products/'
             };
@@ -2183,7 +2246,13 @@ $(document).ready(function() {
         $(productSelectElem).on('change', function() {
             $(newExistingRadioElem).prop('checked', false);
             $(existingRadioElem).prop('checked', true);
+            productSelector.saveSettings();
         });
+
+        $(existingRadioElem).on('click', function() {
+            productSelector.saveSettings();
+        });
+
 
         $(platformSelectElem).on('change', async function() {
 
