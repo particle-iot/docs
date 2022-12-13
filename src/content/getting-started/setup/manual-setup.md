@@ -158,7 +158,7 @@ Note that these instructions are intended to be used to set up individual develo
 
 {{collapse op="end"}}
 
-## Create a product
+## Create or select a product
 
 Particle devices can be used in a product, or as sandbox developer devices. Even if you are not planning on creating a commercial product, using a product makes it possible to:
 
@@ -166,12 +166,94 @@ Particle devices can be used in a product, or as sandbox developer devices. Even
 - Flash code on wake from sleep
 - Allow controlled access to your devices by other users, if desired
 - Group devices
+- Easy migration to growth if you exceed the free plan limits
+
+Using a product in the free plan is still free. You can have any combination of Wi-Fi and cellular devices in the free plan whether the devices are developer or product devices.
+
+### Interactive - Create or select a product
+
+{{> create-or-select-product}}
+
+### Console - Create or select a product
+
+### CLI - Create or select a product
+
+## Get a device identifier
+
+In order to add your device to your product, you will need either:
+
+- The Device ID of the device (24-character hexadecimal).
+- The Serial Number of the device. On most devices, this is printed on a sticker on the device or package.
+
+
+### Interactive - Get a device identifier
+
+
+
+### CLI - Get a device identifier
 
 
 ## Add your device to your product
 
+Adding a cellular device to a product also activates its SIM. If you skip this step, a cellular device may end up blinking green forever because it won't be able to connect to the cellular network.
+
+
+### Interactive - Add your device to your product
+
+### Console - Add your device to your product
+
+### CLI - Add your device to your product
+
+
 ## Claim your device
 
+Claiming a device is separate from adding your device to a product. It makes your account the owner of the device, which allows to to so certain things like flash code directly to your device. Claiming is not always necessary; Tracker devices using Tracker Edge often run as unclaimed product devices. However, if you are going to be writing and testing firmware on devices, you almost certainly will need to claim the device.
+
+### Interactive - Claim your device
+
+### Console - Claim your device
+
+### CLI - Claim your device
+
+
+## Mark as development device
+
+In addition to claiming a device, it's useful to mark the device as a development device. The main purpose is to allow you to manage your own firmware flashing for the device, so you can directly program testing firmware and other custom firmware to your device. If you do not mark the device as a development device, the cloud will immediately replace your custom firmware with the default product firmware, which is probably not what you want.
+
+### Interactive - Mark as development device
+
+### Console - Mark as development device
+
+### CLI - Mark as development device
+
+
 ## Configure Wi-Fi
+
+This step is not necessary for cellular devices (including the Tracker, which uses Wi-Fi only for geolocation), and you can [skip to the next step](#test-your-device).
+
+For Wi-Fi devices you will need to set the Wi-Fi credentials. You can do this using the Particle CLI.
+
+- Make sure the device is connected to your computer using a USB cable. Make sure it's a data cable, not just a charging cable.
+
+- If the device is not currently in listening mode (blinking dark blue), you can put it in listening mode using one of the following methods:
+
+Using the Particle CLI:
+
+```
+particle usb start-listening
+```
+
+Alternatively, hold down the MODE (or SETUP) button until the status LED blinks dark blue. 
+
+- Configure Wi-Fi:
+
+```
+particle serial wifi
+```
+
+This will interactively prompt for the SSID and password to use to connect to your Wi-Fi network.
+
+After configuring Wi-Fi, the device should progress through the normal connection steps: blinking green, blinking cyan (light blue), fast blinking cyan, then breathing cyan.
+
 
 ## Test your device

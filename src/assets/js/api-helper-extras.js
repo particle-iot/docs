@@ -1711,6 +1711,7 @@ $(document).ready(function() {
     });
 
 
+
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
 
@@ -1903,7 +1904,6 @@ $(document).ready(function() {
             await updateProductList();
         });
 
-        
         productSelector.getUrlConfigObj = function(resultObj) {
             resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
@@ -1921,6 +1921,190 @@ $(document).ready(function() {
         };
 
     });
+
+    $('.apiHelperCreateOrSelectProduct').each(function() {
+        const thisPartial = $(this);
+
+        const platformSelectElem = $(thisPartial).find('.apiHelperPlatformSelect');
+        const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');
+
+        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
+        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
+        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
+        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
+
+        const productNameInputElem = $(thisPartial).find('.productNameInput');
+
+        let carriersJson;
+
+        let productSelector = {};
+        $(thisPartial).data('productSelector', productSelector);
+
+        if (!apiHelper.auth) {
+            return;
+        }
+
+
+        const updateProductList = async function() {
+            if (!productSelector.orgs) {
+                // Not fully loaded yet
+                return;
+            }
+
+            $(orgSelectorRowElem).hide();
+            $(sandboxOrgRowElem).hide();    
+            
+            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+
+            if (productSelector.orgs.length) {
+                // Has organizations
+
+                $(sandboxOrgRowElem).show();
+                switch(sandboxOrg) {
+                    case 'sandbox':
+                        break;
+
+                    case 'org':
+                        $(orgSelectorRowElem).show();
+                        break;
+                }               
+            }
+
+            let productsData;
+
+            if (sandboxOrg == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            $(productSelectElem).html('');
+
+            for(const product of productsData.products) {
+                const optionElem = document.createElement('option');
+                $(optionElem).attr('value', product.id);
+                $(optionElem).text(product.name + ' (' + product.id + ')');
+                $(productSelectElem).append(optionElem);
+            }
+
+            $(thisPartial).trigger('updateProductList');
+        }
+
+        $(sandboxOrgRowElem).find('input').each(function() {
+            const radioElem = $(this);
+            $(radioElem).on('click', async function() {
+                await updateProductList();
+            });
+        });
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        apiHelper.getOrgs().then(async function(orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            productSelector.orgs = orgsData.organizations;
+
+            if (orgsData.organizations.length > 0) {
+
+                for (let org of orgsData.organizations) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', org.id);
+                    $(optionElem).text(org.name);
+
+                    $(orgSelectElem).append(optionElem);        
+                }
+
+
+            }
+            else {
+                // No orgs
+                // $(sandboxOrgRowElem).find('input[value=org]:radio').prop('disabled', true);
+                $(orgSelectorRowElem).hide();
+                $(sandboxOrgRowElem).hide();
+            }
+
+            await updateProductList();
+        });
+
+        apiHelper.getCarriersJson().then(function(carriersJsonIn) {
+            carriersJson = carriersJsonIn;
+
+
+            let platforms = [];
+            
+            for(const platformName in carriersJson.deviceConstants) {
+                const platformObj = carriersJson.deviceConstants[platformName];
+                if (platformObj.productEligible) {
+                    platforms.push(platformName);
+                }
+            }
+            platforms.sort(function(a, b) {
+                return carriersJson.deviceConstants[a].displayName.localeCompare(carriersJson.deviceConstants[b].displayName);
+            })
+
+            for(const platformName of platforms) {
+                const platformObj = carriersJson.deviceConstants[platformName];
+                const optionElem = document.createElement('option');
+                $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
+                $(optionElem).attr('value', platformObj.id.toString());
+                $(platformSelectElem).append(optionElem);    
+            }
+
+        });
+
+        $(platformSelectElem).on('change', function() {
+
+            const value = $(this).val();
+
+            const firstOptionElem = $(this).find('option').first();
+            if ($(firstOptionElem).val() == '-') {
+                $(firstOptionElem).remove();
+            }
+
+            
+            $(deviceTypeSKUsElem).empty();
+
+
+            const platformId = parseInt(value);
+
+            let skus = [];
+
+            for(const skuObj of carriersJson.skus) {
+                if (skuObj.lifecycle == 'Hidden') {
+                    // Hidden SKU
+                    continue;
+                }
+                if (skuObj.multiple) {
+                    // Omit tray SKUs
+                    continue;
+                }
+                if (skuObj.platformId == platformId) {
+                    skus.push(skuObj.name);                        
+                }
+            }
+
+            skus.sort();
+
+            $(deviceTypeSKUsElem).text(skus.join(', '));
+        
+            
+
+        });
+
+        
+
+    });
+
 
 });
 
