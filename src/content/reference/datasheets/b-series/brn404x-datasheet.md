@@ -62,7 +62,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Block diagram
  
-{{imageOverlay src="/assets/images/boron/boron-block-diagram.png" large="/assets/images/boron/boron-block-diagram-large.png" alt="Block Diagram" class="full-width"}}
+{{imageOverlay src="/assets/images/boron/brn404x-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -110,22 +110,152 @@ There are two options for the BLE antenna on the Boron. It comes with an on-boar
 
 ### FCC approved antennas
 
-**BLE**
+#### Certified Cellular Antenna
 
-The following antenna is optional, as the Boron comes with an on-board chip antenna for BLE. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
-
-|Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
-|:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
-|Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
-
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
-
-**Cellular**
-
+{{!-- BEGIN shared-blurb 4118f060-06af-4943-b51a-a2961f9d1e88 --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Antenna Type | Dipole | |
+| Radiation Properties | Omnidirectional | |
+| Maximum Input Power | 5 | watts |
+| Polarization | Linear | |
+| Impedance | 50 | ohms |
+
+Antenna parameters in frequency ranges:
+
+| Parameter | 698 MHz - 894 MHz | 1700 MHz - 2690 MHz | Unit |
+| :--- | :---: | :---: | :--- |
+| Peak Gain | 2.46 | 3.86 | dBi |
+| Efficiency | 65.46 | 54.95 | % |
+| Average Gain | 1 | 0.98 | |
+
+Antenna parameters in specific frequency bands:
+
+| Parameter | 698 MHz | 894 MHz | 1700 MHz | 2170 MHz | 2690 MHz | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Max VSWR | 1.6 | 1.8 | 1.7 | 2.8 | 2.5 | |
+| Max Return Loss | -12 | -10 | -11 | -6 | -7 | dB |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 122.1 x 12.8 x 0.2 | mm |
+| Material | Flexible polymer | |
+| Connector and cable | U.FL and 1.13mm mini coax | |
+| Cable length | 183 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -40°C to 85°C |
+| Storage temperature | -40°C to 85°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
+
+
+#### Certified BLE Antenna 
+
+The Boron 404X contains an onboard chip antenna for Bluetooth LE (BLE). You can optionally use an external 2.4 GHz BLE antenna.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Built-in chip antenna | | [Datasheet](/assets/datasheets/AT5020-E3R0HBAN)  |
+| Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
+| Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+
+|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
+|:-------------|:-----------|:-----------|:-----------|:----------|
+| 2400-2500 MHz | Chip Antenna | ACX | AT5020-E3R0HBA | 0dBi peak |
+| 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
+
+**Built-in chip antenna**
+
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Manufacturer | ACX | |
+| Model | AT5020-E3R0HBA | |
+| Antenna Type | Chip | |
+| Impedance | 50 | ohms |
+| Peak Gain | 0 | dBi |
+| Average Gain | -1.5 | dBi |
+| Max VSWR | 2 | |
+
+**Particle external antenna ANT-FLXV2**
+{{!-- BEGIN shared-blurb 7c41f4d6-9679-493a-aea9-61dfee3c2066 --}}
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Antenna Type | Dipole | |
+| Radiation Properties | Omnidirectional | |
+| Polarization | Vertical | |
+| Impedance | 50 | ohms |
+| Peak Gain | 2.0 | dBi |
+| Max VSWR | < 2.0 | |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 45.1 x 7.4 x 1.0 | mm |
+| Material | PCB | |
+| Connector and cable | U.FL and 1.13mm mini coax | |
+| Cable length | 120 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -20°C to 75°C |
+| Storage temperature | -20°C to 75°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
+
+
+#### Certified NFC Antenna
+
+{{!-- BEGIN shared-blurb 86c73bb3-0686-431e-a7b9-1ac0a47170e0 --}}
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- | 
+| Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
+
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Frequency | 13.56 MHz |
+| Communication Distance (max) | 52 | mm |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 35 x 35 | mm |
+| Connector and cable | U.FL and 1.13mm mini coax | |
+| Cable length | 100 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -20°C to 85°C |
+| Storage temperature | -20°C to 85°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
 
 ### Peripherals and GPIO
 
@@ -441,18 +571,31 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, depending on the model.
 
-#### Nordic Semiconductor nRF52840 for BLE.
+#### Nordic Semiconductor nRF52840 for BLE
 
+{{!-- BEGIN shared-blurb a084ed37-28ae-47ae-8d1d-63e95a0f7d6d --}}
 | Feature | Description|
 | :-------|:---------- |
+| Feature | Bluetooth LE 5 |
 |Operating Frequencies| 2360 to 2500 MHz|
 |Output Power| Programmable -20dBm to +8dBm|
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
+{{!-- END shared-blurb --}}
+
+#### Nordic Semiconductor nRF52840 for NFC Tag
+
+{{!-- BEGIN shared-blurb b8bb013e-9b2f-443b-874e-842e94850e62 --}}
+| Feature | Description|
+| :-------|:---------- |
+| Feature | NFC Tag-A |
+| Frequency | 13.56 MHz |
+{{!-- END shared-blurb --}}
 
 
 #### u-blox SARA-R510S-01B
 
+{{!-- BEGIN shared-blurb 2f821871-252e-4acd-8002-11854b95faa6 --}}
 | Parameter | Value | FCC Certified | 
 | --- | --- | :---: | 
 | Protocol stack | 3GPP Release 14 | |
@@ -479,6 +622,7 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 - Not all bands are enabled in software by default. 
 - FCC Certification in the United States only tests bands in use in the United States.
 - Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+{{!-- END shared-blurb --}}
 
 
 ### I/O Characteristics 
@@ -701,6 +845,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 010      | 2022-09-06 | RK | Split out from rest of the Boron line |
 | 011      | 2022-09-07 | RK | Add additional port and pin information |
 | 012      | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
+| 013      | 2022-12-13 | RK | Update block diagram and antenna information |
 
 ## Known Errata
 

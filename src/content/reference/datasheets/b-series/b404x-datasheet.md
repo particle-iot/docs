@@ -90,10 +90,129 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
 
 #### Certified Cellular Antenna
 
+{{!-- BEGIN shared-blurb 4118f060-06af-4943-b51a-a2961f9d1e88 --}}
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
 | Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
 | Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Antenna Type | Dipole | |
+| Radiation Properties | Omnidirectional | |
+| Maximum Input Power | 5 | watts |
+| Polarization | Linear | |
+| Impedance | 50 | ohms |
+
+Antenna parameters in frequency ranges:
+
+| Parameter | 698 MHz - 894 MHz | 1700 MHz - 2690 MHz | Unit |
+| :--- | :---: | :---: | :--- |
+| Peak Gain | 2.46 | 3.86 | dBi |
+| Efficiency | 65.46 | 54.95 | % |
+| Average Gain | 1 | 0.98 | |
+
+Antenna parameters in specific frequency bands:
+
+| Parameter | 698 MHz | 894 MHz | 1700 MHz | 2170 MHz | 2690 MHz | Unit |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| Max VSWR | 1.6 | 1.8 | 1.7 | 2.8 | 2.5 | |
+| Max Return Loss | -12 | -10 | -11 | -6 | -7 | dB |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 122.1 x 12.8 x 0.2 | mm |
+| Material | Flexible polymer | |
+| Connector and cable | U.FL and 1.13mm mini coax | |
+| Cable length | 183 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -40°C to 85°C |
+| Storage temperature | -40°C to 85°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
+
+
+#### Certified BLE Antenna 
+
+The following antenna is optional and can be omitted if you do not wish to use BLE. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
+| Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
+
+{{!-- BEGIN shared-blurb 7c41f4d6-9679-493a-aea9-61dfee3c2066 --}}
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Antenna Type | Dipole | |
+| Radiation Properties | Omnidirectional | |
+| Polarization | Vertical | |
+| Impedance | 50 | ohms |
+| Peak Gain | 2.0 | dBi |
+| Max VSWR | < 2.0 | |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 45.1 x 7.4 x 1.0 | mm |
+| Material | PCB | |
+| Connector | U.FL (IPEX) |
+| Cable | Mini-coax 1.13mm | |
+| Cable length | 120 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -20°C to 75°C |
+| Storage temperature | -20°C to 75°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
+
+
+#### Certified NFC Antenna
+
+{{!-- BEGIN shared-blurb 86c73bb3-0686-431e-a7b9-1ac0a47170e0 --}}
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- | 
+| Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
+
+General antenna parameters:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Frequency | 13.56 MHz |
+| Communication Distance (max) | 52 | mm |
+
+Mechanical:
+
+| Parameter | Value | Unit |
+| :--- | :--- | :--- |
+| Dimensions | 35 x 35 | mm |
+| Connector and cable | U.FL and 1.13mm mini coax | |
+| Cable length | 100 | mm |
+
+Environmental:
+
+| Parameter | Value |
+| :--- | :---: |
+| Operating temperature | -20°C to 85°C |
+| Storage temperature | -20°C to 85°C |
+| ROHS Compliant | &check; |
+{{!-- END shared-blurb --}}
 
 
 #### General Antenna Guidance
@@ -610,15 +729,32 @@ peak values indicate the absolute minimum capacity of the power supply necessary
 
 The B Series SoM has two radio modules.
 
-#### nRF52840
-- Bluetooth® 5, 2.4 GHz
-  - 95 dBm sensitivity in 1 Mbps Bluetooth® low energy mode
-  - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
-  - 20 to +8 dBm TX power, configurable in 4 dB steps
+
+#### Nordic Semiconductor nRF52840 for BLE
+
+{{!-- BEGIN shared-blurb a084ed37-28ae-47ae-8d1d-63e95a0f7d6d --}}
+| Feature | Description|
+| :-------|:---------- |
+| Feature | Bluetooth LE 5 |
+|Operating Frequencies| 2360 to 2500 MHz|
+|Output Power| Programmable -20dBm to +8dBm|
+|PLL channel spacing| 1 MHz|
+|On the air data rate| 125 to 2000 kbps|
+{{!-- END shared-blurb --}}
+
+#### Nordic Semiconductor nRF52840 for NFC Tag
+
+{{!-- BEGIN shared-blurb b8bb013e-9b2f-443b-874e-842e94850e62 --}}
+| Feature | Description|
+| :-------|:---------- |
+| Feature | NFC Tag-A |
+| Frequency | 13.56 MHz |
+{{!-- END shared-blurb --}}
 
 
 #### u-blox SARA-R510S-01B
 
+{{!-- BEGIN shared-blurb 2f821871-252e-4acd-8002-11854b95faa6 --}}
 | Parameter | Value | FCC Certified | 
 | --- | --- | :---: | 
 | Protocol stack | 3GPP Release 14 | |
@@ -641,10 +777,11 @@ The B Series SoM has two radio modules.
 | | Band 1 (2100 MHz)  | &nbsp; |
 | Power class | Class 3 (23 dBm) | &nbsp; |
 
-- LTE Cat M1 for United States, Canada, and Mexico
+- LTE Cat M1 for United States, Canada, and Mexico.
 - Not all bands are enabled in software by default. 
 - FCC Certification in the United States only tests bands in use in the United States.
 - Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+{{!-- END shared-blurb --}}
 
 ---
 
@@ -877,3 +1014,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 022      | 2022-09-16 | RK | Fix minimum Device OS version, is 4.0.0 |
 | 023      | 2022-09-26 | RK | Added FCC and IC labeling requirements |
 | 024      | 2022-12-10 | RK | Added PMIC notes |
+| 025      | 2022-12-13 | RK | Update block diagram and antenna information |
