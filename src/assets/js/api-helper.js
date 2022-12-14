@@ -466,6 +466,11 @@ apiHelper.cachedResult = function() {
 
     cachedResult.queries = {};
 
+    cachedResult.clear = function() {
+        const cacheKey = JSON.stringify(opts);
+
+        cachedResult.queries[cacheKey].result = null;
+    };
 
     cachedResult.get = function(opts) {
         return new Promise(function(resolve, reject) {
@@ -475,7 +480,7 @@ apiHelper.cachedResult = function() {
                 cachedResult.queries[cacheKey] = {opts};
             }
 
-            if (cachedResult.queries[cacheKey].result && !opts.ignoreCache) {
+            if (cachedResult.queries[cacheKey].result) {
                 resolve(cachedResult.queries[cacheKey].result);
             }
             else
@@ -514,7 +519,7 @@ apiHelper.getProducts = async function(options = {}) {
     if (!apiHelper.auth) {
         return { products: [] };
     }
-    return await apiHelper.getProductsCache.get(Object.assign({
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -522,16 +527,21 @@ apiHelper.getProducts = async function(options = {}) {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/user/products/'
-    }, options));    
+    };
+    if (options.clearCache) {
+        apiHelper.getProductsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getProductsCache.get(reqOptions);    
 };
 
 apiHelper.getOrgsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgs = async function() {
+apiHelper.getOrgs = async function(options = {}) {
     if (!apiHelper.auth) {
         return { organizations: [] };
     }
-    return await apiHelper.getOrgsCache.get({
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -539,14 +549,19 @@ apiHelper.getOrgs = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/'
-    });
+    };
+    if (options.clearCache) {
+        apiHelper.getOrgsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getOrgsCache.get(reqOptions);
 };
 
 
 apiHelper.getOrgProductsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgProducts = async function(org) {
-    return await apiHelper.getOrgProductsCache.get({
+apiHelper.getOrgProducts = async function(org, options = {}) {a
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -554,7 +569,12 @@ apiHelper.getOrgProducts = async function(org) {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/' + org + '/products/'
-    });    
+    };
+    if (options.clearCache) {
+        apiHelper.getOrgProductsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getOrgProductsCache.get(reqOptions);    
 };
 
 
