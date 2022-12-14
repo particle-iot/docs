@@ -1944,11 +1944,19 @@ $(document).ready(function() {
             return manualSettings.settings;
         };
 
-        manualSettings.get = function() {
+        manualSettings.get = function(options) {
             if (!manualSettings.settings) {
                 manualSettings.load()
             }
-            return manualSettings.settings;
+            if (!options.key) {
+                return manualSettings.settings;
+            }
+            else {
+                if (!manualSettings.settings[options.key]) {
+                    manualSettings.settings[options.key] = {};
+                }
+                return manualSettings.settings[options.key];
+            }
         };
 
         manualSettings.save = function() {
@@ -2048,11 +2056,8 @@ $(document).ready(function() {
         }
 
         productSelector.saveSettings = function() {
-            let settings = apiHelper.manualSettings.get();
-            if (!settings.createOrSelectProduct) {
-                settings.createOrSelectProduct = {};
-            }
-            productSelector.getOptions(settings.createOrSelectProduct);
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+            productSelector.getOptions(settings);
             apiHelper.manualSettings.save();
         }
 
@@ -2133,8 +2138,8 @@ $(document).ready(function() {
                     $(optionElem).text(product.name + ' (' + product.id + ')');
                     $(productSelectElem).append(optionElem);    
 
-                    let settings = apiHelper.manualSettings.get();
-                    if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId == product.id) {
+                    let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+                    if (settings.productId == product.id) {
                         $(productSelectElem).val(product.id.toString());
                         $(newExistingRadioElem).prop('checked', false);
                         $(existingRadioElem).prop('checked', true);
@@ -2215,9 +2220,9 @@ $(document).ready(function() {
                 $(platformSelectElem).append(optionElem);    
             }
 
-            let settings = apiHelper.manualSettings.get();
-            if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.platformId) {
-                $(platformSelectElem).val(settings.createOrSelectProduct.platformId.toString());
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+            if (settings.platformId) {
+                $(platformSelectElem).val(settings.platformId.toString());
                 $(platformSelectElem).trigger('change');
             }
 
