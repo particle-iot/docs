@@ -1967,7 +1967,6 @@ $(document).ready(function() {
         }
 
         $(document).on(manualSettings.settingsChangeEventName, function(event, settings) {
-            console.log('settings change', settings);
             manualSettings.settings = settings;
         });
 
@@ -1987,7 +1986,6 @@ $(document).ready(function() {
             return $(sandboxOrgRowElem).find('input:checked').val();
         };
         const sandboxOrgRadioSelect = function(value) {
-            console.log('sandboxOrgRadioSelect value=' + value);
             $(sandboxOrgRowElem).find('input[type="radio"]').prop('checked', false);
             $(sandboxOrgRowElem).find('input[value="' + value + '"]').prop('checked', true);            
         };
@@ -2194,7 +2192,6 @@ $(document).ready(function() {
                 }
                 let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
                 if (settings.orgId) {
-                    console.log('load org=' + settings.orgId);
                     sandboxOrgRadioSelect('org');
                     $(orgSelectElem).val(settings.orgId);                    
                 }
@@ -2255,6 +2252,14 @@ $(document).ready(function() {
 
             setStatus('Creating product...');
 
+            let url;
+            if (options.sandboxOrg == 'org') {
+                url = 'https://api.particle.io/v1/orgs/' + options.orgId + '/products/';
+            }
+            else {
+                url = 'https://api.particle.io/v1/user/products/';
+            }
+
             const request = {                
                 contentType: 'application/json',
                 data: JSON.stringify(requestDataObj),
@@ -2303,7 +2308,7 @@ $(document).ready(function() {
                         console.log('request failed', resp);
                     }
                 },
-                url: 'https://api.particle.io/v1/user/products/'
+                url,
             };
 
             $.ajax(request);
