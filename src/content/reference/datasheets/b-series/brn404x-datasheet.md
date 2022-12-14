@@ -168,7 +168,7 @@ The Boron 404X contains an onboard chip antenna for Bluetooth LE (BLE). You can 
 
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- |
-| Built-in chip antenna | | [Datasheet](/assets/datasheets/AT5020-E3R0HBAN)  |
+| Built-in chip antenna | | [Datasheet](/assets/datasheets/AT5020-E3R0HBAN.pdf)  |
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
 
