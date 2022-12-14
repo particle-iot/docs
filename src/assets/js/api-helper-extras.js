@@ -371,6 +371,7 @@ $(document).ready(function() {
         const listOrgProducts = function(index) {
             if (index >= orgList.length) {
                 displayList();
+                setStatus('');
                 return;
             }
 
@@ -1940,14 +1941,19 @@ $(document).ready(function() {
         const newRadioElem = $(thisPartial).find('input[name="newExisting"][value="new"]');
         const existingRadioElem = $(thisPartial).find('input[name="newExisting"][value="existing"]');
         const newExistingRadioCheckedVal = function() {
-            $(thisPartial).find('input[name="newExisting"]:checked').val();
+            return $(thisPartial).find('input[name="newExisting"]:checked').val();
         }
+        const refreshProductsElem = $(thisPartial).find('.refreshProducts');
 
-
-        const createProductRowElem = $(thisPartial).find('.createProductRow');
         const createProductButtonElem = $(thisPartial).find('.createProductButton');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');
 
         let carriersJson;
+
+        const setStatus = function(s) {
+            $(statusMessageElem).text(s);
+        }
+        setStatus('Loading...');
 
         let productSelector = {};
         $(thisPartial).data('productSelector', productSelector);
@@ -2015,9 +2021,8 @@ $(document).ready(function() {
 
         const updateNewExistingButton = function() {
             const newExisting = newExistingRadioCheckedVal();
+            console.log('updateNewExistingButton newExisting=' + newExisting);
             if (newExisting == 'new') {
-                $(createProductRowElem).show();
-
                 if ($(productNameInputElem).val().trim().length) {
                     $(createProductButtonElem).prop('disabled', false);
                 }
@@ -2026,11 +2031,11 @@ $(document).ready(function() {
                 }                                
             }
             else {
-                $(createProductRowElem).hide();
+                $(createProductButtonElem).prop('disabled', true);
             }    
         }
 
-        const updateProductList = async function() {
+        const updateProductList = async function(options = {}) {
             if (!productSelector.orgs) {
                 // Not fully loaded yet
                 return;
@@ -2063,8 +2068,10 @@ $(document).ready(function() {
 
             let productsData;
 
+            setStatus('Getting products...');
+
             if (sandboxOrg == 'sandbox') {
-                productsData = await apiHelper.getProducts();
+                productsData = await apiHelper.getProducts(options);
             }
             else {
                 const orgId = $(orgSelectElem).val();
@@ -2091,7 +2098,7 @@ $(document).ready(function() {
                         $(productSelectElem).val(product.id.toString());
                         $(newExistingRadioElem).prop('checked', false);
                         $(existingRadioElem).prop('checked', true);
-                        $(createProductRowElem).hide();
+                        $(createProductButtonElem).prop('disabled', true);
                     }
 
                 }
@@ -2099,6 +2106,8 @@ $(document).ready(function() {
             $(productSelectorRowElem).show();
 
             updateNewExistingButton();
+
+            setStatus('');
 
             $(thisPartial).trigger('updateProductList');
         }
@@ -2116,6 +2125,8 @@ $(document).ready(function() {
             // No orgs: orgsData.organizations empty array
             // Object in array orgsData.organizations: id, slug, name
             productSelector.orgs = orgsData.organizations;
+
+            setStatus('Getting organizations...');
 
             if (orgsData.organizations.length > 0) {
 
@@ -2142,7 +2153,6 @@ $(document).ready(function() {
         apiHelper.getCarriersJson().then(function(carriersJsonIn) {
             carriersJson = carriersJsonIn;
 
-
             let platforms = [];
             
             for(const platformName in carriersJson.deviceConstants) {
@@ -2168,12 +2178,13 @@ $(document).ready(function() {
                 $(platformSelectElem).trigger('change');
             }
 
+            setStatus('');
+
         });
 
         $(createProductButtonElem).on('click', function() {
             // 
             const options = productSelector.getOptions();
-            console.log('createProduct', options);
 
             let requestDataObj = {
                 product: {
@@ -2181,7 +2192,8 @@ $(document).ready(function() {
                     platform_id: options.platformId,
                 },
             };
-            console.log('requestDataObj', requestDataObj);
+
+            setStatus('Creating product...');
 
             const request = {                
                 contentType: 'application/json',
@@ -2190,6 +2202,7 @@ $(document).ready(function() {
                 error: function (jqXHR) {
                     // ga('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
                     console.log('error', jqXHR);
+                    setStatus('Product creation failed');
                 },
                 headers: {
                     'Authorization': 'Bearer ' + apiHelper.auth.access_token,
@@ -2220,11 +2233,13 @@ $(document).ready(function() {
                         $(newExistingRadioElem).prop('checked', false);
                         $(existingRadioElem).prop('checked', true);
                         $(productNameInputElem).val('');
-                        $(createProductRowElem).hide();
+                        $(createProductButtonElem).prop('disabled', true);
 
                         productSelector.saveSettings();
+                        setStatus('Product ' + resp.product.name + ' successfully created');
                     }
                     else {
+                        setStatus('Product creation failed');
                         console.log('request failed', resp);
                     }
                 },
@@ -2249,10 +2264,19 @@ $(document).ready(function() {
             productSelector.saveSettings();
         });
 
+        $(newRadioElem).on('click', function() {
+            updateNewExistingButton();
+        });
+
         $(existingRadioElem).on('click', function() {
+            updateNewExistingButton();
             productSelector.saveSettings();
         });
 
+
+        $(refreshProductsElem).on('click', async function() {
+            await updateProductList({ignoreCache:true});
+        });
 
         $(platformSelectElem).on('change', async function() {
 

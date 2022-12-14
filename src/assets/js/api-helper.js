@@ -475,7 +475,7 @@ apiHelper.cachedResult = function() {
                 cachedResult.queries[cacheKey] = {opts};
             }
 
-            if (cachedResult.queries[cacheKey].result) {
+            if (cachedResult.queries[cacheKey].result && !opts.ignoreCache) {
                 resolve(cachedResult.queries[cacheKey].result);
             }
             else
@@ -510,11 +510,11 @@ apiHelper.cachedResult = function() {
 
 apiHelper.getProductsCache = apiHelper.cachedResult();
 
-apiHelper.getProducts = async function() {
+apiHelper.getProducts = async function(options = {}) {
     if (!apiHelper.auth) {
         return { products: [] };
     }
-    return await apiHelper.getProductsCache.get({
+    return await apiHelper.getProductsCache.get(Object.assign({
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -522,7 +522,7 @@ apiHelper.getProducts = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/user/products/'
-    });    
+    }, options));    
 };
 
 apiHelper.getOrgsCache = apiHelper.cachedResult();
