@@ -1983,6 +1983,14 @@ $(document).ready(function() {
         const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');
 
         const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
+        const sandboxOrgRadioCheckedVal = function() {
+            return $(sandboxOrgRowElem).find('input:checked').val();
+        };
+        const sandboxOrgRadioSelect = function(value) {
+            console.log('sandboxOrgRadioSelect value=' + value);
+            $(sandboxOrgRowElem).find('input[type="radio"]').prop('checked', false);
+            $(sandboxOrgRowElem).find('input[value="' + value + '"]').prop('checked', true);            
+        };
         const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
         const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
         const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
@@ -2033,7 +2041,7 @@ $(document).ready(function() {
                 // Has organizations
 
                 // sandbox or org
-                options.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+                options.sandboxOrg = sandboxOrgRadioCheckedVal();
                 if (options.sandboxOrg == 'org') {
                     options.orgId = $(orgSelectElem).val();
                 }
@@ -2093,7 +2101,7 @@ $(document).ready(function() {
             $(orgSelectorRowElem).hide();
             $(sandboxOrgRowElem).hide();    
             
-            const sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
+            const sandboxOrg = sandboxOrgRadioCheckedVal();
 
             if (productSelector.orgs.length) {
                 // Has organizations
@@ -2184,8 +2192,12 @@ $(document).ready(function() {
 
                     $(orgSelectElem).append(optionElem);        
                 }
-
-
+                let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+                if (settings.orgId) {
+                    console.log('load org=' + settings.orgId);
+                    sandboxOrgRadioSelect('org');
+                    $(orgSelectElem).val(settings.orgId);                    
+                }
             }
             else {
                 // No orgs

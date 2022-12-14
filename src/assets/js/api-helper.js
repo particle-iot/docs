@@ -560,7 +560,7 @@ apiHelper.getOrgs = async function(options = {}) {
 
 apiHelper.getOrgProductsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgProducts = async function(org, options = {}) {a
+apiHelper.getOrgProducts = async function(org, options = {}) {
     const reqOptions = {
         dataType: 'json',
         headers: {
