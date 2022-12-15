@@ -213,7 +213,8 @@ Mechanical:
 | :--- | :--- | :--- |
 | Dimensions | 45.1 x 7.4 x 1.0 | mm |
 | Material | PCB | |
-| Connector and cable | U.FL and 1.13mm mini coax | |
+| Connector | U.FL (IPEX) |
+| Cable | Mini-coax 1.13mm | |
 | Cable length | 120 | mm |
 
 Environmental:

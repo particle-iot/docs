@@ -525,11 +525,11 @@ To be added.
 
 | Phase | Temperatures and Rates |
 | -:|:- |
-| A-B. | Ambient~150°C, Heating rate: < 3°C/s |
-| B-C. | 150~200°C, soak time: 60~120 s |
-| C-D. | 200~245°C, Heating rate: < 3°C/s |
-| D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
-| D-E. | 245~220°C, Cooling rate: < 1°C/s |
+| A-B. | Ambient - 150°C, Heating rate: < 3°C/s |
+| B-C. | 150 - 200°C, soak time: 60 - 120 s |
+| C-D. | 200 - 245°C, Heating rate: < 3°C/s |
+| D.   | Peak temp.: 235 - 245°C, Time above 220°C: 40 - 90 s |
+| D-E. | 245 - 220°C, Cooling rate: < 1°C/s |
 
 ## Ordering information
 

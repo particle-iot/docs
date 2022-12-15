@@ -14,7 +14,7 @@
   "b-series/b404x-datasheet.md": "6de5875e0660bfef54bad2c78bcc9a96",
   "b-series/b524-b523-datasheet.md": "c4c3eadadfe25fc2d5ba0979372536cb",
   "b-series/boron-datasheet.md": "d5aba232532194228e5feaab19632d4c",
-  "b-series/brn404x-datasheet.md": "fc3d10b19a68df6fa7b8f69ced2672ff",
+  "b-series/brn404x-datasheet.md": "5973940e4a3f8b4c04835726ae9212c2",
   "boron/b-series-boron-migration-guide.md": "f6b3c0460a1edfd9f379cdc8405dc252",
   "boron/b-series-eval-board.md": "4c227f250c98436e1b4fa46a7af6325c",
   "boron/b402-datasheet.md": "6eab506630cf9d0216c44750490bde95",
@@ -58,9 +58,9 @@
   "tracker/tracker-som-datasheet.md": "48650fc69fcd843993e383f7fe25f6b8",
   "tracker/tracker-som-eval-board.md": "a196708440dc18271f5cb2ef1af13159",
   "wi-fi/argon-datasheet.md": "333b3f427697a393bb43180da3a7f838",
-  "wi-fi/p1-datasheet.md": "4f33d49049c8f5e69ca09df1afaee9e0",
+  "wi-fi/p1-datasheet.md": "d25e6710e1959fbaae79f592127ca59a",
   "wi-fi/p2-argon-migration-guide.md": "655478980a5c181440823a6ab05ce713",
-  "wi-fi/p2-datasheet.md": "6971ed65ae95c899b7d8e6832c3c3277",
+  "wi-fi/p2-datasheet.md": "0cadac6ff607ed441902908286a2c0af",
   "wi-fi/p2-eval-board.md": "cec47ef1a5cdbf80582cd67128b4d252",
   "wi-fi/p2-migration-guide.md": "c3b5c031859decc75778e6850cce1e57",
   "wi-fi/p2-p1-migration-guide.md": "96bffb1323209b76664a00a71d2ff1d8",
@@ -68,5 +68,5 @@
   "wi-fi/photon-2-argon-migration-guide.md": "d8066bcbff652f8049740c3903999301",
   "wi-fi/photon-2-datasheet.md": "991159510ea661b483b1fabb07f92c1c",
   "wi-fi/photon-2-photon-migration-guide.md": "97f56bbc70806aef69d9f0ea7f1d08ee",
-  "wi-fi/photon-datasheet.md": "f5d7721227e1fe89c23e0508737fa611"
+  "wi-fi/photon-datasheet.md": "2e31fd236bc25e0d57047ad528847bff"
 }
