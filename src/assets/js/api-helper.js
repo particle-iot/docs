@@ -132,6 +132,24 @@ apiHelper.getSkuFromSerial = async function(serialNumber) {
     return null;
 }
 
+apiHelper.getSkuObjFromSerial = async function(serialNumber) {
+    if (!serialNumber) {
+        return null;
+    }
+    
+    const carriers = await apiHelper.getCarriersJson();    
+    if (!carriers) {
+        return null;
+    }
+    for(const skuObj of carriers.skus) {
+        if (skuObj.prefix) {
+            if (serialNumber.startsWith(skuObj.prefix)) {
+                return skuObj;
+            }
+        }
+    }
+    return null;
+}
 
 // Sorts the results from getPlatformName putting the real results first A-Z, then
 // the numeric (unknown/deprecated) platforms after it in numerical order

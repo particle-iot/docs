@@ -1932,11 +1932,16 @@ $(document).ready(function() {
         manualSettings.load = function() {
             manualSettings.settings = {};
 
-
             const savedSettings = localStorage.getItem(manualSettings.settingsKey);
             if (savedSettings) {
                 try {
                     manualSettings.settings = JSON.parse(savedSettings);
+                    if (manualSettings.settings.username != apiHelper.auth.username) {
+                        manualSettings.settings = {};
+                    }
+                    else {
+                        $('.apiHelperManualSetup').trigger(manualSettings.settingsChangeEventName, [manualSettings.settings]);
+                    }
                 }
                 catch(e) {
                 }
@@ -1944,7 +1949,7 @@ $(document).ready(function() {
             return manualSettings.settings;
         };
 
-        manualSettings.get = function(options) {
+        manualSettings.get = function(options = {}) {
             if (!manualSettings.settings) {
                 manualSettings.load()
             }
@@ -1959,7 +1964,16 @@ $(document).ready(function() {
             }
         };
 
+        manualSettings.setKeyObject = function(key, obj) {
+            manualSettings.get({key});
+
+            manualSettings.settings[key] = Object.assign(manualSettings.settings[key], obj);
+
+            manualSettings.save();
+        };
+
         manualSettings.save = function() {
+            manualSettings.settings.username = apiHelper.auth.username;
 
             localStorage.setItem(manualSettings.settingsKey, JSON.stringify(manualSettings.settings));
 
@@ -1973,6 +1987,67 @@ $(document).ready(function() {
         return manualSettings;
     }();
 
+    $('.apiHelperAddDeviceToProduct').each(function() {
+        const thisPartial = $(this);
+
+        const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
+        const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');
+        const deviceIdTextElem = $(thisPartial).find('.deviceIdText');
+        const addDeviceButtonElem = $(thisPartial).find('.addDeviceButton');
+
+        
+        // const Elem = $(thisPartial).find('.');
+
+        const setStatus = function(s) {
+            $(statusMessageElem).text(s);
+        }
+
+        const updateSettings = function(settings = apiHelper.manualSettings.get()) {
+
+            if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
+                $(productIsSelectedElem).show();
+                $(selectedProductCellElem).text(settings.createOrSelectProduct.productName + ' (' + settings.createOrSelectProduct.productId + ')');
+                setStatus('');
+            } 
+            else {
+                $(productIsSelectedElem).hide();
+                setStatus('Select the product to add the device to (above)');
+            }
+        }
+        updateSettings();
+
+        $(deviceIdTextElem).on('change', function() {
+            const textToAdd = $(deviceIdTextElem).val();
+            if (textToAdd.length) {
+                $(addDeviceButtonElem).prop('disabled', false);
+            }
+            else {
+                $(addDeviceButtonElem).prop('disabled', true);
+            }
+        });
+        $(deviceIdTextElem).on('keydown', function(ev) {
+            if (ev.key == 'Enter') {
+                $(addDeviceButtonElem).trigger('click');
+                ev.preventDefault();
+            }
+        });
+        $(addDeviceButtonElem).on('click', function() {
+            const textToAdd = $(deviceIdTextElem).val().trim();
+            if (textToAdd.length == 0) {
+                return;
+            }
+
+        });
+
+        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            console.log('settings update', settings);
+            updateSettings(settings);
+        });
+
+
+
+    });
 
 
     $('.apiHelperCreateOrSelectProduct').each(function() {
@@ -2021,8 +2096,6 @@ $(document).ready(function() {
             return;
         }
 
-
-
         productSelector.getOptions = function(options) {
             if (!options) {
                 options = {};
@@ -2056,6 +2129,10 @@ $(document).ready(function() {
             }
             else {
                 options.productId = parseInt($(productSelectElem).val());
+                const productObj = productSelector.productsData.products.find(e => e.id == options.productId);
+                if (productObj) {
+                    options.productName = productObj.name;
+                }
             }
 
             return options;
@@ -2115,29 +2192,27 @@ $(document).ready(function() {
                 }               
             }
 
-            let productsData;
-
             setStatus('Getting products...');
 
             if (sandboxOrg == 'sandbox') {
-                productsData = await apiHelper.getProducts();
+                productSelector.productsData = await apiHelper.getProducts();
             }
             else {
                 const orgId = $(orgSelectElem).val();
                 if (!orgId) {
                     return;
                 }
-                productsData = await apiHelper.getOrgProducts(orgId);
+                productSelector.productsData = await apiHelper.getOrgProducts(orgId);
             }
             
-            productsData.products.sort(function (a, b) {
+            productSelector.productsData.products.sort(function (a, b) {
                 return a.name.localeCompare(b.name);
             });
 
             const lastSelected = $(productSelectElem).val();
             $(productSelectElem).empty();
 
-            for(const product of productsData.products) {
+            for(const product of productSelector.productsData.products) {
                 if (product.platform_id == platformId) {
                     const optionElem = document.createElement('option');
                     $(optionElem).attr('value', product.id.toString());
@@ -2341,6 +2416,16 @@ $(document).ready(function() {
         $(refreshProductsElem).on('click', async function() {
             await updateProductList({clearCache:true});
         });
+
+        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            if (settings && settings.deviceSelect && settings.deviceSelect.platformId) {
+                $(platformSelectElem).val(settings.deviceSelect.platformId.toString());
+                $(platformSelectElem).trigger('change');    
+            }
+    
+        });
+
+
 
         $(platformSelectElem).on('change', async function() {
 

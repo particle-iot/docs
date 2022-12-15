@@ -3,7 +3,7 @@ title: Manual setup
 columns: two
 layout: commonTwo.hbs
 description: Manual setup
-includeDefinitions: [api-helper, api-helper-extras]
+includeDefinitions: [api-helper, api-helper-extras, api-helper-usb]
 ---
 
 # {{title}}
@@ -158,6 +158,41 @@ Note that these instructions are intended to be used to set up individual develo
 
 {{collapse op="end"}}
 
+
+## Get a device identifier
+
+In order to add your device to your product, you will need either:
+
+- The Device ID of the device (24-character hexadecimal).
+- The Serial Number of the device. On most devices, this is printed on a sticker on the device or package.
+
+
+### Interactive - Get a device identifier
+
+{{> usb-device-info }}
+
+
+### CLI - Get a device identifier
+
+- If the device is not currently in listening mode (blinking dark blue), you can put it in listening mode using one of the following methods:
+
+Using the Particle CLI:
+
+```
+particle usb start-listening
+```
+
+Alternatively, hold down the MODE (or SETUP) button until the status LED blinks dark blue. 
+
+- Use the Particle CLI command:
+
+```
+particle identify
+```
+
+This will output information about the device including the Device ID and Serial Number.
+
+
 ## Create or select a product
 
 Particle devices can be used in a product, or as sandbox developer devices. Even if you are not planning on creating a commercial product, using a product makes it possible to:
@@ -178,27 +213,13 @@ Using a product in the free plan is still free. You can have any combination of 
 
 ### CLI - Create or select a product
 
-## Get a device identifier
-
-In order to add your device to your product, you will need either:
-
-- The Device ID of the device (24-character hexadecimal).
-- The Serial Number of the device. On most devices, this is printed on a sticker on the device or package.
-
-
-### Interactive - Get a device identifier
-
-
-
-### CLI - Get a device identifier
-
-
 ## Add your device to your product
 
 Adding a cellular device to a product also activates its SIM. If you skip this step, a cellular device may end up blinking green forever because it won't be able to connect to the cellular network.
 
-
 ### Interactive - Add your device to your product
+
+{{> add-device-to-product }}
 
 ### Console - Add your device to your product
 
