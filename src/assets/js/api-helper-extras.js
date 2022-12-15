@@ -4,6 +4,25 @@ $(document).ready(function() {
         return;
     }
 
+    const trochees = [
+        'aardvark', 'bacon', 'badger', 'banjo', 'bobcat', 'boomer', 'captain', 'chicken', 'cowboy', 'cracker',
+        'cranky', 'crazy', 'dentist', 'doctor', 'dozen', 'easter', 'ferret', 'gerbil', 'hacker', 'hamster', 'hindu',
+        'hobo', 'hoosier', 'hunter', 'jester', 'jetpack', 'kitty', 'laser', 'lawyer', 'mighty', 'monkey', 'morphing',
+        'mutant', 'narwhal', 'ninja', 'normal', 'penguin', 'pirate', 'pizza', 'plumber', 'power', 'puppy', 'ranger',
+        'raptor', 'robot', 'scraper', 'scrapple', 'station', 'tasty', 'trochee', 'turkey', 'turtle', 'vampire',
+        'wombat', 'zombie'];
+
+
+    apiHelper.getRandomTrochee = function() {
+        const arr = trochees;
+        const parts = [];
+        for (let i = 0; i < 2; i++) {
+            const a = Math.floor(Math.random() * arr.length);
+            parts.push(arr[a]);
+        }
+        return parts.join('_');
+    };
+
     if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
@@ -1995,17 +2014,60 @@ $(document).ready(function() {
         const statusMessageElem = $(thisPartial).find('.statusMessage');
         const deviceIdTextElem = $(thisPartial).find('.deviceIdText');
         const addDeviceButtonElem = $(thisPartial).find('.addDeviceButton');
+        const deviceInstructionsElem = $(thisPartial).find('.deviceInstructions');
+        const claimDeviceCheckboxElem = $(thisPartial).find('.claimDeviceCheckbox');
+        const markDevelopmentCheckboxElem = $(thisPartial).find('.markDevelopmentCheckbox');
+        const nameDeviceCheckboxElem = $(thisPartial).find('.nameDeviceCheckbox');
+        const deviceNameTextElem = $(thisPartial).find('.deviceNameText');
+        const addResultElem = $(thisPartial).find('.addResult');
+        const claimResultElem = $(thisPartial).find('.claimResult');
+        const markDevelopmentResultElem = $(thisPartial).find('.markDevelopmentResult');
+        const nameResultElem = $(thisPartial).find('.nameResult');
+        const allResultsElem = $(thisPartial).find('.allResults');
+
 
         
+
+        const deviceIdRE = /([A-Fa-f0-9]{24})/;
+        
+        let productId;
+
         // const Elem = $(thisPartial).find('.');
 
         const setStatus = function(s) {
             $(statusMessageElem).text(s);
         }
 
+        const updateButton = async function() {
+            const text = $(deviceIdTextElem).val().trim();
+
+            if (text.match(deviceIdRE)) {
+                // Is a Device ID                
+                setStatus('Appears to be a Device ID, can attempt to add');
+                $(addDeviceButtonElem).prop('disabled', false);
+                $(deviceInstructionsElem).hide();
+            }
+            else {
+                // Is it a serial number?
+                const skuObj = await apiHelper.getSkuObjFromSerial(text);
+                if (skuObj) {
+                    // Looks like a serial number
+                    setStatus('Appears to be a serial number, can attempt to add');
+                    $(addDeviceButtonElem).prop('disabled', false);
+                    $(deviceInstructionsElem).hide();
+                }
+                else {
+                    setStatus('');
+                    $(addDeviceButtonElem).prop('disabled', true);
+                    $(deviceInstructionsElem).show();
+                }
+            }
+        }
+
         const updateSettings = function(settings = apiHelper.manualSettings.get()) {
 
             if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
+                productId = settings.createOrSelectProduct.productId;
                 $(productIsSelectedElem).show();
                 $(selectedProductCellElem).text(settings.createOrSelectProduct.productName + ' (' + settings.createOrSelectProduct.productId + ')');
                 setStatus('');
@@ -2014,31 +2076,154 @@ $(document).ready(function() {
                 $(productIsSelectedElem).hide();
                 setStatus('Select the product to add the device to (above)');
             }
+            if (settings && settings.deviceSelect && settings.deviceSelect.deviceId) {
+                $(deviceIdTextElem).val(settings.deviceSelect.deviceId);
+                updateButton();
+            }
         }
         updateSettings();
 
-        $(deviceIdTextElem).on('change', function() {
-            const textToAdd = $(deviceIdTextElem).val();
-            if (textToAdd.length) {
-                $(addDeviceButtonElem).prop('disabled', false);
-            }
-            else {
-                $(addDeviceButtonElem).prop('disabled', true);
-            }
-        });
+        // Defined in api-helper.extras.js
+        $(deviceNameTextElem).val(apiHelper.getRandomTrochee());
+
+
         $(deviceIdTextElem).on('keydown', function(ev) {
             if (ev.key == 'Enter') {
                 $(addDeviceButtonElem).trigger('click');
                 ev.preventDefault();
             }
         });
-        $(addDeviceButtonElem).on('click', function() {
-            const textToAdd = $(deviceIdTextElem).val().trim();
-            if (textToAdd.length == 0) {
+
+        $(addDeviceButtonElem).on('click', async function() {
+            let text = $(deviceIdTextElem).val().trim();
+            if (text.length == 0 || !productId) {
                 return;
             }
+            let isDeviceId = false;
+            
+            if (text.match(deviceIdRE)) {
+                text = text.toLowerCase();
+                isDeviceId = true;
+            }
+            else {
+                const spaceOffset = text.indexOf(' ');
+                if (spaceOffset > 0) {
+                    text = text.substring(0, spaceOffset);
+                }    
+            }
+            $(deviceIdTextElem).val(text);
 
+            $(allResultsElem).text('');
+
+            $(addDeviceButtonElem).prop('disabled', true);
+
+            setStatus('Adding device to product ' + productId + '...');
+
+            const res = await apiHelper.particle.addDeviceToProduct({ 
+                deviceId: text,
+                product: productId,
+                auth: apiHelper.auth.access_token 
+            });
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+                console.log('res', res);
+
+                let deviceId;
+
+                if (isDeviceId) {
+                    deviceId = text;
+
+                    setStatus('Adding device to product ' + productId + ' succeeded');
+                    $(addResultElem).text('\u2705'); // green check
+                }
+                else {
+                    setStatus('Checking product for newly added device...');
+                    const deviceResult = await apiHelper.getAllDevices({productId});
+
+                    console.log('deviceResult', deviceResult);
+
+                    // Array of device objects:
+                    //   id, name, iccid, serial_number, etc.
+                    for(const d of deviceResult) {
+                        if (d.serial_number == text) {
+                            deviceId = d.id;
+                        }
+                    }
+
+                    // TODO: If this is an Electron (platform = 10) and iccid is not set, need to
+                    // activate the SIM separately
+
+                    setStatus('Adding device to product ' + productId + ' succeeded');
+                    $(addResultElem).text('\u2705'); // green check
+                }
+
+                if ($(claimDeviceCheckboxElem).prop('checked')) {
+                    const claimRes = await apiHelper.particle.claimDevice({
+                        deviceId,
+                        auth: apiHelper.auth.access_token     
+                    });
+                    console.log('claimRes', claimRes);
+
+                    $(claimResultElem).text((claimRes.statusCode == 200) ? '\u2705': '\u274C'); 
+                }
+                if ($(markDevelopmentCheckboxElem).prop('checked')) {
+                    const markDevelopmentRes = await apiHelper.particle.markAsDevelopmentDevice({
+                        deviceId,
+                        product: productId,
+                        development: true,
+                        auth: apiHelper.auth.access_token     
+                    });
+
+                    console.log('markDevelopmentRes', markDevelopmentRes);
+                    $(markDevelopmentResultElem).text((markDevelopmentRes.statusCode == 200) ? '\u2705': '\u274C'); 
+                }
+                if ($(nameDeviceCheckboxElem).prop('checked')) {
+                    const name = $(deviceNameTextElem).val().trim();
+
+                    const nameRes = await apiHelper.particle.renameDevice({
+                        deviceId,
+                        product: productId,
+                        name,
+                        auth: apiHelper.auth.access_token     
+                    });
+
+                    console.log('nameRes', nameRes);
+                    $(nameResultElem).text((nameRes.statusCode == 200) ? '\u2705': '\u274C'); 
+                }
+
+                const infoRes = await apiHelper.particle.getDevice({
+                    deviceId: text,
+                    product: productId,
+                    auth: apiHelper.auth.access_token     
+                });
+                console.log('infoRes', infoRes);
+
+                // infoRes.body contains the device object
+                //   id, name, iccid, serial_number, etc.
+
+            }
+            else {
+                setStatus('Adding device to product ' + productId + ' failed');
+                $(addResultElem).text('\u274C'); // Red X
+            }
+
+            $(addDeviceButtonElem).prop('disabled', false);
+
+            
         });
+        $(deviceIdTextElem).on('input', async function() {
+            await updateButton();
+        });
+
+        $(deviceNameTextElem).on('input', function() {
+            const text = $(deviceNameTextElem).val().trim();
+            if (text.length > 0) {
+                $(nameDeviceCheckboxElem).prop('checked', true);
+            }
+            else {
+                $(nameDeviceCheckboxElem).prop('checked', false);
+            }
+        });
+
 
         $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             console.log('settings update', settings);

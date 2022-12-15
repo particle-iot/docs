@@ -3291,29 +3291,11 @@ $(document).ready(function() {
         const nameDevice = async function() {
             setSetupStep('setupStepNameDevice');
 
-            const trochees = [
-                'aardvark', 'bacon', 'badger', 'banjo', 'bobcat', 'boomer', 'captain', 'chicken', 'cowboy', 'cracker',
-                'cranky', 'crazy', 'dentist', 'doctor', 'dozen', 'easter', 'ferret', 'gerbil', 'hacker', 'hamster', 'hindu',
-                'hobo', 'hoosier', 'hunter', 'jester', 'jetpack', 'kitty', 'laser', 'lawyer', 'mighty', 'monkey', 'morphing',
-                'mutant', 'narwhal', 'ninja', 'normal', 'penguin', 'pirate', 'pizza', 'plumber', 'power', 'puppy', 'ranger',
-                'raptor', 'robot', 'scraper', 'scrapple', 'station', 'tasty', 'trochee', 'turkey', 'turtle', 'vampire',
-                'wombat', 'zombie'];
-        
-        
-            const getRandomTrochee = function() {
-                const arr = trochees;
-                const parts = [];
-                for (let i = 0; i < 2; i++) {
-                    const a = Math.floor(Math.random() * arr.length);
-                    parts.push(arr[a]);
-                }
-                return parts.join('_');
-            };
-
             const nameInputElem = $(thisElem).find('.nameInput');
             const setNameButtonElem = $(thisElem).find('.setName');
 
-            $(nameInputElem).val(getRandomTrochee());
+            // Defined in api-helper.extras.js
+            $(nameInputElem).val(apiHelper.getRandomTrochee());
             $(nameInputElem).focus();
             $(nameInputElem).select();
             

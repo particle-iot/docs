@@ -166,25 +166,28 @@ In order to add your device to your product, you will need either:
 - The Device ID of the device (24-character hexadecimal).
 - The Serial Number of the device. On most devices, this is printed on a sticker on the device or package.
 
+The CLI commands to claim a device and name a device require a Device ID. If you add a device to a product using the serial number, the console will show the Device ID corresponding to that serial number. The interactive tool below also does this.
 
 ### Interactive - Get a device identifier
 
-{{> usb-device-info }}
+This tool will get information about your device connected to your computer by USB:
 
+{{> usb-device-info }}
 
 ### CLI - Get a device identifier
 
-- If the device is not currently in listening mode (blinking dark blue), you can put it in listening mode using one of the following methods:
+If the device is not currently in listening mode (blinking dark blue), you can put it in listening mode using one of the following methods:
 
-Using the Particle CLI:
-
+- Using the Particle CLI:
+</p><div style="padding-left: 4px;"><p>
 ```
 particle usb start-listening
 ```
+</p></div><p>
 
-Alternatively, hold down the MODE (or SETUP) button until the status LED blinks dark blue. 
+- Alternatively, hold down the MODE (or SETUP) button until the status LED blinks dark blue.
 
-- Use the Particle CLI command:
+Then use the Particle CLI command:
 
 ```
 particle identify
@@ -209,9 +212,25 @@ Using a product in the free plan is still free. You can have any combination of 
 
 {{> create-or-select-product}}
 
-### Console - Create or select a product
+### Console - Create a product
 
-### CLI - Create or select a product
+- Go to the [Particle console](https://console.particle.io/). 
+
+- Select **Products** in the left-hand icon bar.
+
+- Click **New Product** in the upper right corner of the window.
+
+- Fill in the fields and create the new product. Note the product ID of your new product. It's shown next to the key icon at the top of the window..
+
+### Console - Find an existing product
+
+- Go to the [Particle console](https://console.particle.io/). 
+
+- Select **Products** in the left-hand icon bar.
+
+- Note the Product ID in the grid of products in your account.
+
+- If you want to add to an organization product, select the Organization using the popup at the top of the window first.
 
 ## Add your device to your product
 
@@ -221,32 +240,81 @@ Adding a cellular device to a product also activates its SIM. If you skip this s
 
 {{> add-device-to-product }}
 
+The options for claim, mark as development, and name device are explained below.
+
 ### Console - Add your device to your product
+
+- Go to the [Particle console](https://console.particle.io/). 
+
+- Select **Products** in the left-hand icon bar, then the product you want to add your device to.
+
+- Select **Devices** (within the product, not at the top level).
+
+- Click **Add Devices** and **Add One Device**.
+
+- Enter the Device ID or Serial Number to add.
 
 ### CLI - Add your device to your product
 
+```
+particle product device add <product_id> <device_id>
+```
 
 ## Claim your device
 
 Claiming a device is separate from adding your device to a product. It makes your account the owner of the device, which allows to to so certain things like flash code directly to your device. Claiming is not always necessary; Tracker devices using Tracker Edge often run as unclaimed product devices. However, if you are going to be writing and testing firmware on devices, you almost certainly will need to claim the device.
 
-### Interactive - Claim your device
-
-### Console - Claim your device
-
 ### CLI - Claim your device
+
+This command looks similar to the one to add a device to a product, but it serves a different purpose: claiming a device to user account.
+
+```
+particle device add <device_id>
+```
 
 
 ## Mark as development device
 
 In addition to claiming a device, it's useful to mark the device as a development device. The main purpose is to allow you to manage your own firmware flashing for the device, so you can directly program testing firmware and other custom firmware to your device. If you do not mark the device as a development device, the cloud will immediately replace your custom firmware with the default product firmware, which is probably not what you want.
 
-### Interactive - Mark as development device
-
 ### Console - Mark as development device
 
-### CLI - Mark as development device
+- Go to the [Particle console](https://console.particle.io/). 
 
+- Select **Products** in the left-hand icon bar, then the product you want to add your device to.
+
+- Select **Devices** (within the product, not at the top level).
+
+- Click the **...** button to show the menu, and then select **Mark as development**.
+
+There is no Particle CLI command to mark as a development device.
+
+## Name your device
+
+Naming your device makes it easier to identify devices in the console, but is not required.
+
+You should avoid using a name as a unique identifier for devices in your product, as it's not always set and not guaranteed to be unique. You should instead use the Device ID when identifying devices in a database or back-end service.
+
+### Console - Name your device
+
+- Go to the [Particle console](https://console.particle.io/). 
+
+- Select **Products** in the left-hand icon bar, then the product you want to add your device to.
+
+- Select **Devices** (within the product, not at the top level).
+
+- Click on the Device ID for the device you want to rename to open the Device Information window.
+
+- Click **Edit** in the upper right corner of the window.
+
+- Edit the name and click **Save**.
+
+
+### CLI - Name your device
+
+```
+particle device rename <device_id> <device_name>
+```
 
 ## Configure Wi-Fi
 
@@ -254,19 +322,21 @@ This step is not necessary for cellular devices (including the Tracker, which us
 
 For Wi-Fi devices you will need to set the Wi-Fi credentials. You can do this using the Particle CLI.
 
-- Make sure the device is connected to your computer using a USB cable. Make sure it's a data cable, not just a charging cable.
+Make sure the device is connected to your computer using a USB cable. Make sure it's a data cable, not just a charging cable.
 
-- If the device is not currently in listening mode (blinking dark blue), you can put it in listening mode using one of the following methods:
+If the device is not currently in listening mode (blinking dark blue), you can put it in listening mode using one of the following methods:
 
-Using the Particle CLI:
-
+- Using the Particle CLI:
+</p><div style="padding-left: 4px;"><p>
 ```
 particle usb start-listening
 ```
+</p></div><p>
 
-Alternatively, hold down the MODE (or SETUP) button until the status LED blinks dark blue. 
+- Alternatively, hold down the MODE (or SETUP) button until the status LED blinks dark blue.
 
-- Configure Wi-Fi:
+
+Configure Wi-Fi:
 
 ```
 particle serial wifi
@@ -275,6 +345,3 @@ particle serial wifi
 This will interactively prompt for the SSID and password to use to connect to your Wi-Fi network.
 
 After configuring Wi-Fi, the device should progress through the normal connection steps: blinking green, blinking cyan (light blue), fast blinking cyan, then breathing cyan.
-
-
-## Test your device
