@@ -5,6 +5,7 @@ $(document).ready(function() {
     const localTokenSafety = 600; // amount of time in seconds before expiration to stop using it
     let auth = null;
     let localAuth;
+    let orgInfo;
 
     const handleLogin = function() {
         ga('send', 'event', eventCategory, 'Login Started');
@@ -228,7 +229,6 @@ $(document).ready(function() {
     const checkOrgs = async function() {
         const selectOrg = $('.apiHelperSSO').data('select-org');
         if (selectOrg) {
-            let orgInfo;
             try {
                 orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
                 if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username) {
@@ -248,12 +248,42 @@ $(document).ready(function() {
             };
     
             if (!orgInfo.orgList && apiHelper.auth) {
-                // Fetch organization list
                 try {
+                    // Fetch organization list
                     orgInfo.username = apiHelper.auth.username;
                     orgInfo.orgList = await apiHelper.getOrgs();
+
+                    // Fetch service agreements
+                    orgInfo.agreements = {};
+
+                    for(const org of orgInfo.orgList.organizations) {
+                        
+                        await new Promise(function(resolve) {
+                            $.ajax({
+                                dataType: 'json',
+                                data: {
+                                    'access_token': apiHelper.localLogin.access_token
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    orgInfo.agreements[org.id] = resp.data;
+                                    for(const obj of resp.data) {
+                                        const agreementType = obj.attributes.agreement_type;
+                                        if (agreementType == 'enterprise') {
+                                            orgInfo.isEnterprise = true;
+                                        }
+                                    }
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/orgs/' + org.id + '/service_agreements/',
+                            });
+                    
+    
+                        });
+                    }
                 }
                 catch(e) {
+                    console.log('exception fetching org', e);
                 }
             }
             if (orgInfo.orgList) {
@@ -278,6 +308,21 @@ $(document).ready(function() {
                             id: orgId,
                             name: orgInfo.orgList.organizations.find(e => e.id == orgId).name,
                         }    
+
+                        $('.apiHelperContentGuard').each(function() {
+                            const guardedElem = $(this);
+                            const guardMode = $(guardedElem).data('mode');
+
+                            if (guardMode == 'orgRequired') {
+                                $(guardedElem).show()
+                            }
+                            else if (guardMode == 'enterpriseRequired') {
+                                if (orgInfo.isEnterprise) {
+                                    $(guardedElem).show()
+                                }
+                            }        
+                        });
+                        
                     }
                     updateSelectedOrg();
                     
