@@ -132,6 +132,24 @@ apiHelper.getSkuFromSerial = async function(serialNumber) {
     return null;
 }
 
+apiHelper.getSkuObjFromSerial = async function(serialNumber) {
+    if (!serialNumber) {
+        return null;
+    }
+    
+    const carriers = await apiHelper.getCarriersJson();    
+    if (!carriers) {
+        return null;
+    }
+    for(const skuObj of carriers.skus) {
+        if (skuObj.prefix) {
+            if (serialNumber.startsWith(skuObj.prefix)) {
+                return skuObj;
+            }
+        }
+    }
+    return null;
+}
 
 // Sorts the results from getPlatformName putting the real results first A-Z, then
 // the numeric (unknown/deprecated) platforms after it in numerical order
@@ -466,6 +484,11 @@ apiHelper.cachedResult = function() {
 
     cachedResult.queries = {};
 
+    cachedResult.clear = function() {
+        const cacheKey = JSON.stringify(opts);
+
+        cachedResult.queries[cacheKey].result = null;
+    };
 
     cachedResult.get = function(opts) {
         return new Promise(function(resolve, reject) {
@@ -510,11 +533,11 @@ apiHelper.cachedResult = function() {
 
 apiHelper.getProductsCache = apiHelper.cachedResult();
 
-apiHelper.getProducts = async function() {
+apiHelper.getProducts = async function(options = {}) {
     if (!apiHelper.auth) {
         return { products: [] };
     }
-    return await apiHelper.getProductsCache.get({
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -522,16 +545,21 @@ apiHelper.getProducts = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/user/products/'
-    });    
+    };
+    if (options.clearCache) {
+        apiHelper.getProductsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getProductsCache.get(reqOptions);    
 };
 
 apiHelper.getOrgsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgs = async function() {
+apiHelper.getOrgs = async function(options = {}) {
     if (!apiHelper.auth) {
         return { organizations: [] };
     }
-    return await apiHelper.getOrgsCache.get({
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -539,14 +567,19 @@ apiHelper.getOrgs = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/'
-    });
+    };
+    if (options.clearCache) {
+        apiHelper.getOrgsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getOrgsCache.get(reqOptions);
 };
 
 
 apiHelper.getOrgProductsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgProducts = async function(org) {
-    return await apiHelper.getOrgProductsCache.get({
+apiHelper.getOrgProducts = async function(org, options = {}) {
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -554,7 +587,12 @@ apiHelper.getOrgProducts = async function(org) {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/' + org + '/products/'
-    });    
+    };
+    if (options.clearCache) {
+        apiHelper.getOrgProductsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getOrgProductsCache.get(reqOptions);    
 };
 
 

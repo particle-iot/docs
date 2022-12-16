@@ -19089,7 +19089,9 @@
       "wholesale": true,
       "retail": true,
       "skuRegion": "global",
-      "prefix": "ADPT"
+      "prefix": "ADPT",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ACC-DEBUG",
@@ -19101,7 +19103,9 @@
       "prefix": "DEBG",
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ACC-POE",
@@ -19109,7 +19113,9 @@
       "lifecycle": "Deprecated",
       "accessory": true,
       "skuRegion": "global",
-      "prefix": "APOE"
+      "prefix": "APOE",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ARG-AQKT",
@@ -19136,7 +19142,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P011",
-      "platformId": 12
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARG-LDKT",
@@ -19160,7 +19168,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P013",
-      "platformId": 12
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARG-STRTKT",
@@ -19187,7 +19197,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P010",
-      "platformId": 12
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARGN-H",
@@ -19214,7 +19226,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "ARNH",
-      "platformId": 12
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARGNKIT",
@@ -19241,7 +19255,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "ARNK",
-      "platformId": 12
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARGNTRAY50",
@@ -19268,7 +19284,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "ARNT",
-      "platformId": 12
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ASSET2GV2",
@@ -19292,7 +19310,9 @@
       "gnssAntExtInc": false,
       "batteryConn": true,
       "prefix": "A35K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "ASSET3G260V2",
@@ -19316,7 +19336,9 @@
       "gnssAntExtInc": false,
       "batteryConn": true,
       "prefix": "A26K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "ASSET3G270V2",
@@ -19340,7 +19362,9 @@
       "gnssAntExtInc": false,
       "batteryConn": true,
       "prefix": "A27K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "B402MEA",
@@ -19371,7 +19395,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P006",
-      "platformId": 23
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B402MTY",
@@ -19399,7 +19425,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P007",
-      "platformId": 23
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404MEA",
@@ -19429,7 +19457,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P033",
-      "platformId": 23
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404MTY",
@@ -19456,7 +19486,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P033",
-      "platformId": 23
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404XMEA",
@@ -19486,7 +19518,9 @@
       "batteryConn": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404XMTY",
@@ -19516,7 +19550,9 @@
       "batteryConn": true,
       "enterprise": true,
       "wholesale": true,
-      "retail": false
+      "retail": false,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B523MEA",
@@ -19548,7 +19584,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P019",
-      "platformId": 25
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "B523MTY",
@@ -19577,7 +19615,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P020",
-      "platformId": 25
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "B524MEA",
@@ -19607,7 +19647,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P034",
-      "platformId": 25
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "B524MTY",
@@ -19637,7 +19679,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "P034",
-      "platformId": 25
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "BAT1800",
@@ -19645,7 +19689,9 @@
       "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "BATT18MOD50",
@@ -19654,7 +19700,9 @@
       "accessory": true,
       "multiple": true,
       "skuRegion": "global",
-      "prefix": "BA50"
+      "prefix": "BA50",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "BRN310KIT",
@@ -19688,7 +19736,9 @@
       "platformId": 13,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN310TRAY50",
@@ -19721,7 +19771,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "B31T",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN314KIT",
@@ -19753,7 +19805,9 @@
       "batteryInc": true,
       "batteryConn": true,
       "prefix": "P027",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN314TRAY50",
@@ -19784,7 +19838,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "P027",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN402",
@@ -19813,7 +19869,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "B40H",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN402-AQKT",
@@ -19841,7 +19899,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P012",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN402KIT",
@@ -19870,7 +19930,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "B40K",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN402TRAY50",
@@ -19902,7 +19964,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "B40T",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404",
@@ -19930,7 +19994,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P028",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404KIT",
@@ -19958,7 +20024,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P028",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404TRAY50",
@@ -19986,7 +20054,9 @@
       "nfcAntExtInc": false,
       "batteryConn": true,
       "prefix": "P028",
-      "platformId": 13
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404X",
@@ -20017,7 +20087,9 @@
       "batteryConn": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404XKIT",
@@ -20048,7 +20120,9 @@
       "batteryConn": true,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404XTRAY50",
@@ -20079,7 +20153,9 @@
       "batteryConn": true,
       "enterprise": true,
       "wholesale": true,
-      "retail": false
+      "retail": false,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "E260KIT",
@@ -20102,7 +20178,9 @@
       "batteryInc": true,
       "batteryConn": true,
       "prefix": "E26K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E260TRAY50",
@@ -20124,7 +20202,9 @@
       "cellAntInc": false,
       "batteryConn": true,
       "prefix": "E26T",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E270KIT",
@@ -20147,7 +20227,9 @@
       "batteryInc": true,
       "batteryConn": true,
       "prefix": "E27K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E270TRAY50",
@@ -20172,7 +20254,9 @@
       "platformId": 10,
       "enterprise": true,
       "wholesale": true,
-      "retail": false
+      "retail": false,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E310KIT",
@@ -20199,7 +20283,9 @@
       "platformId": 10,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E310MOD1",
@@ -20222,7 +20308,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "E31M",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E310TRAY50",
@@ -20247,7 +20335,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "E31T",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E313EA",
@@ -20269,7 +20359,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "P005",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E313TRAY50",
@@ -20291,7 +20383,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "P005",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E314KIT",
@@ -20317,7 +20411,9 @@
       "batteryInc": true,
       "batteryConn": true,
       "prefix": "P029",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E314MOD1",
@@ -20339,7 +20435,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "P029",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E314TRAY50",
@@ -20364,7 +20462,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "P029",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E350KIT",
@@ -20385,7 +20485,9 @@
       "batteryConn": true,
       "batteryInc": true,
       "prefix": "E35K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E350TRAY50",
@@ -20407,7 +20509,9 @@
       "cellAntInc": false,
       "batteryConn": true,
       "prefix": "E35T",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E402KIT",
@@ -20434,7 +20538,9 @@
       "platformId": 10,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "E402MOD1",
@@ -20457,7 +20563,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "E40M",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E402TRAY50",
@@ -20483,7 +20591,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "E40T",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E404KIT",
@@ -20509,7 +20619,9 @@
       "batteryInc": true,
       "batteryConn": true,
       "prefix": "P030",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "E404MOD1",
@@ -20534,7 +20646,9 @@
       "retail": true,
       "batteryConn": true,
       "prefix": "P030",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E404TRAY50",
@@ -20556,7 +20670,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "P030",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E404XTRAY50",
@@ -20580,7 +20696,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "P052",
-      "platformId": 10
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ELC314TY",
@@ -20604,7 +20722,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "P035",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "ELC402EA",
@@ -20627,7 +20747,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "E4DK",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ELC402TY",
@@ -20653,7 +20775,9 @@
       "retail": false,
       "batteryConn": true,
       "prefix": "E4DT",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ELC404TY",
@@ -20675,7 +20799,9 @@
       "cellAntAlt": "ANTCW2EA",
       "batteryConn": true,
       "prefix": "P036",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "FWNG-ETH",
@@ -20687,7 +20813,9 @@
       "wholesale": true,
       "retail": true,
       "skuRegion": "global",
-      "prefix": "ETHW"
+      "prefix": "ETHW",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-INA219",
@@ -20698,7 +20826,9 @@
       "skuRegion": "global",
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-OLED",
@@ -20709,7 +20839,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-PWRLY",
@@ -20720,7 +20852,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-TRP",
@@ -20732,7 +20866,9 @@
       "wholesale": true,
       "retail": true,
       "skuRegion": "global",
-      "prefix": "TRPW"
+      "prefix": "TRPW",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M2EVAL",
@@ -20744,7 +20880,9 @@
       "wholesale": true,
       "retail": true,
       "skuRegion": "global",
-      "prefix": "P008"
+      "prefix": "P008",
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "M8CAB3VEA",
@@ -20755,7 +20893,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CAB3VTY",
@@ -20766,7 +20906,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CABEA",
@@ -20778,7 +20920,9 @@
       "wholesale": true,
       "retail": true,
       "prefix": "己出貨430PCS，暫不能改",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CABRAEA",
@@ -20790,7 +20934,9 @@
       "wholesale": true,
       "retail": true,
       "prefix": "己出貨500PCS，暫不能改",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CABRATY",
@@ -20801,7 +20947,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CABTY",
@@ -20812,7 +20960,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CONNEA",
@@ -20823,7 +20973,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CONNTY",
@@ -20834,7 +20986,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8TEMPHUMIEA",
@@ -20845,7 +20999,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8TEMPHUMITY",
@@ -20856,7 +21012,9 @@
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONE402MEA",
@@ -20889,7 +21047,9 @@
       "gnssAntIntInc": true,
       "batteryInc": true,
       "prefix": "P024",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE402MTY",
@@ -20922,7 +21082,9 @@
       "gnssAntIntInc": true,
       "batteryInc": true,
       "prefix": "P024",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE404MEA",
@@ -20957,7 +21119,9 @@
       "retail": true,
       "batteryInc": true,
       "prefix": "P031",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE404MTY",
@@ -20992,7 +21156,9 @@
       "retail": false,
       "batteryInc": true,
       "prefix": "P031",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE404XMEA",
@@ -21027,7 +21193,9 @@
       "gnssAntIntInc": true,
       "batteryInc": true,
       "platformId": 26,
-      "prefix": "P047"
+      "prefix": "P047",
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE404XMTY",
@@ -21062,7 +21230,9 @@
       "retail": false,
       "batteryInc": true,
       "platformId": 26,
-      "prefix": "P047"
+      "prefix": "P047",
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE523MEA",
@@ -21099,7 +21269,9 @@
       "retail": true,
       "batteryInc": true,
       "prefix": "P025",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE523MTY",
@@ -21136,7 +21308,9 @@
       "retail": false,
       "batteryInc": true,
       "prefix": "P025",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE524MEA",
@@ -21171,7 +21345,9 @@
       "retail": true,
       "batteryInc": true,
       "prefix": "P032",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE524MTY",
@@ -21206,7 +21382,9 @@
       "retail": false,
       "batteryInc": true,
       "prefix": "P032",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE524XMEA",
@@ -21241,7 +21419,9 @@
       "retail": true,
       "batteryInc": true,
       "platformId": 26,
-      "prefix": "P048"
+      "prefix": "P048",
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE524XMTY",
@@ -21276,7 +21456,9 @@
       "retail": false,
       "batteryInc": true,
       "platformId": 26,
-      "prefix": "P048"
+      "prefix": "P048",
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONEM8CABEA",
@@ -21291,7 +21473,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "low",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONEM8CABRAEA",
@@ -21306,7 +21490,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONEM8CABRATY",
@@ -21321,7 +21507,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONEM8CABTY",
@@ -21336,7 +21524,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P0MOD10",
@@ -21353,7 +21543,9 @@
       "wifiAntExt": true,
       "wifiAntExtInc": false,
       "prefix": "P0MD",
-      "platformId": 6
+      "platformId": 6,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P0REEL",
@@ -21370,7 +21562,9 @@
       "wifiAntExt": true,
       "wifiAntExtInc": false,
       "prefix": "",
-      "platformId": 6
+      "platformId": 6,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P1MOD10",
@@ -21390,7 +21584,9 @@
       "wholesale": true,
       "retail": true,
       "prefix": "P1MD",
-      "platformId": 8
+      "platformId": 8,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P1REEL",
@@ -21410,7 +21606,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "",
-      "platformId": 8
+      "platformId": 8,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P2MOD10",
@@ -21434,7 +21632,9 @@
       "wholesale": true,
       "retail": true,
       "prefix": "P046",
-      "platformId": 32
+      "platformId": 32,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P2REEL",
@@ -21458,7 +21658,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "P046",
-      "platformId": 32
+      "platformId": 32,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "PHN2KIT",
@@ -21482,7 +21684,9 @@
       "wholesale": false,
       "retail": false,
       "prefix": "P051",
-      "platformId": 32
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHN2MEA",
@@ -21506,7 +21710,9 @@
       "wholesale": true,
       "retail": true,
       "prefix": "P051",
-      "platformId": 32
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHN2MTY",
@@ -21530,7 +21736,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "P051",
-      "platformId": 32
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHNTRAYH",
@@ -21550,7 +21758,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "PHHT",
-      "platformId": 6
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHNTRAYNOH",
@@ -21570,7 +21780,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "PHNT",
-      "platformId": 6
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHOTONH",
@@ -21587,7 +21799,9 @@
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
       "prefix": "PHHM",
-      "platformId": 6
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHOTONKIT",
@@ -21604,7 +21818,9 @@
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
       "prefix": "PHHK",
-      "platformId": 6
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHOTONNOH",
@@ -21621,7 +21837,9 @@
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
       "prefix": "PHNM",
-      "platformId": 6
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PROGSHIELD",
@@ -21633,7 +21851,9 @@
       "prefix": "PRGS",
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "PWRSHIELDH",
@@ -21642,7 +21862,9 @@
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
-      "prefix": "PWRH"
+      "prefix": "PWRH",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "RLYSHIELD",
@@ -21650,7 +21872,9 @@
       "lifecycle": "Deprecated",
       "accessory": true,
       "skuRegion": "global",
-      "prefix": "RLYS"
+      "prefix": "RLYS",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMBLANK50",
@@ -21662,7 +21886,9 @@
       "wholesale": true,
       "retail": false,
       "skuRegion": "global",
-      "prefix": "SM50"
+      "prefix": "SM50",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMBLANKV2",
@@ -21674,7 +21900,9 @@
       "wholesale": true,
       "retail": true,
       "skuRegion": "global",
-      "prefix": "ESM1"
+      "prefix": "ESM1",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMBLANKV2_50",
@@ -21686,7 +21914,9 @@
       "wholesale": true,
       "retail": false,
       "skuRegion": "global",
-      "prefix": "ESM5"
+      "prefix": "ESM5",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMTELE",
@@ -21695,7 +21925,9 @@
       "accessory": true,
       "multiple": false,
       "skuRegion": "global",
-      "prefix": "SMTE"
+      "prefix": "SMTE",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SNSR-GRVKIT",
@@ -21706,7 +21938,9 @@
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SNSRKIT3G260",
@@ -21727,7 +21961,9 @@
       "cellAntInc": true,
       "batteryConn": true,
       "prefix": "S26K",
-      "platformId": 10
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "SNSRKIT3G270",
@@ -21751,7 +21987,9 @@
       "platformId": 10,
       "enterprise": false,
       "wholesale": true,
-      "retail": true
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "SPKBTTN",
@@ -21761,7 +21999,9 @@
       "multiple": false,
       "skuRegion": "global",
       "prefix": "PBTN",
-      "platformId": 6
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "T402MEA",
@@ -21795,7 +22035,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "prefix": "P024",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T402MKIT",
@@ -21829,7 +22071,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": true,
       "prefix": "P024",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "T402MTY",
@@ -21866,7 +22110,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "P024",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T404MEA",
@@ -21899,7 +22145,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "prefix": "P031",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T404MKIT",
@@ -21932,7 +22180,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": true,
       "prefix": "P031",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "T404MTY",
@@ -21968,7 +22218,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "P031",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T404XMEA",
@@ -22004,7 +22256,9 @@
       "wholesale": true,
       "retail": true,
       "platformId": 26,
-      "prefix": "P047"
+      "prefix": "P047",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T404XMKIT",
@@ -22040,7 +22294,9 @@
       "wholesale": true,
       "retail": true,
       "platformId": 26,
-      "prefix": "P047"
+      "prefix": "P047",
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "T404XMTY",
@@ -22076,7 +22332,9 @@
       "wholesale": true,
       "retail": false,
       "platformId": 26,
-      "prefix": "P047"
+      "prefix": "P047",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T523MEA",
@@ -22111,7 +22369,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "prefix": "P025",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T523MKIT",
@@ -22149,7 +22409,9 @@
       "wholesale": true,
       "retail": true,
       "prefix": "P025",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "T523MTY",
@@ -22184,7 +22446,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "prefix": "P025",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T524MEA",
@@ -22217,7 +22481,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": false,
       "prefix": "P032",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T524MKIT",
@@ -22250,7 +22516,9 @@
       "gnssAntExt": true,
       "gnssAntExtInc": true,
       "prefix": "P032",
-      "platformId": 26
+      "platformId": 26,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "T524MTY",
@@ -22286,7 +22554,9 @@
       "wholesale": true,
       "retail": false,
       "prefix": "P032",
-      "platformId": 26
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T524XMEA",
@@ -22322,7 +22592,9 @@
       "wholesale": true,
       "retail": true,
       "platformId": 26,
-      "prefix": "P048"
+      "prefix": "P048",
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T524XMKIT",
@@ -22358,7 +22630,9 @@
       "wholesale": true,
       "retail": true,
       "platformId": 26,
-      "prefix": "P048"
+      "prefix": "P048",
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "T524XMTY",
@@ -22394,7 +22668,9 @@
       "wholesale": true,
       "retail": false,
       "platformId": 26,
-      "prefix": "P048"
+      "prefix": "P048",
+      "usb": false,
+      "batteryRequired": true
     }
   ],
   "skuClass": [

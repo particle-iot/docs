@@ -4,6 +4,25 @@ $(document).ready(function() {
         return;
     }
 
+    const trochees = [
+        'aardvark', 'bacon', 'badger', 'banjo', 'bobcat', 'boomer', 'captain', 'chicken', 'cowboy', 'cracker',
+        'cranky', 'crazy', 'dentist', 'doctor', 'dozen', 'easter', 'ferret', 'gerbil', 'hacker', 'hamster', 'hindu',
+        'hobo', 'hoosier', 'hunter', 'jester', 'jetpack', 'kitty', 'laser', 'lawyer', 'mighty', 'monkey', 'morphing',
+        'mutant', 'narwhal', 'ninja', 'normal', 'penguin', 'pirate', 'pizza', 'plumber', 'power', 'puppy', 'ranger',
+        'raptor', 'robot', 'scraper', 'scrapple', 'station', 'tasty', 'trochee', 'turkey', 'turtle', 'vampire',
+        'wombat', 'zombie'];
+
+
+    apiHelper.getRandomTrochee = function() {
+        const arr = trochees;
+        const parts = [];
+        for (let i = 0; i < 2; i++) {
+            const a = Math.floor(Math.random() * arr.length);
+            parts.push(arr[a]);
+        }
+        return parts.join('_');
+    };
+
     if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
@@ -371,6 +390,7 @@ $(document).ready(function() {
         const listOrgProducts = function(index) {
             if (index >= orgList.length) {
                 displayList();
+                setStatus('');
                 return;
             }
 
@@ -1711,6 +1731,7 @@ $(document).ready(function() {
     });
 
 
+
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
 
@@ -1903,7 +1924,6 @@ $(document).ready(function() {
             await updateProductList();
         });
 
-        
         productSelector.getUrlConfigObj = function(resultObj) {
             resultObj.devOrProduct = $(devOrProductRowElem).find('input:checked').val();
             resultObj.sandboxOrg = $(sandboxOrgRowElem).find('input:checked').val();
@@ -1921,6 +1941,727 @@ $(document).ready(function() {
         };
 
     });
+
+    apiHelper.manualSettings = function() {
+        let manualSettings = {
+            settingsKey: 'manualSetup',
+            settingsChangeEventName: 'manualSetupSettingsChange',
+        };
+
+        manualSettings.load = function() {
+            manualSettings.settings = {};
+
+            const savedSettings = localStorage.getItem(manualSettings.settingsKey);
+            if (savedSettings) {
+                try {
+                    manualSettings.settings = JSON.parse(savedSettings);
+                    if (manualSettings.settings.username != apiHelper.auth.username) {
+                        manualSettings.settings = {};
+                    }
+                    else {
+                        $('.apiHelperManualSetup').trigger(manualSettings.settingsChangeEventName, [manualSettings.settings]);
+                    }
+                }
+                catch(e) {
+                }
+            }
+            return manualSettings.settings;
+        };
+
+        manualSettings.get = function(options = {}) {
+            if (!manualSettings.settings) {
+                manualSettings.load()
+            }
+            if (!options.key) {
+                return manualSettings.settings;
+            }
+            else {
+                if (!manualSettings.settings[options.key]) {
+                    manualSettings.settings[options.key] = {};
+                }
+                return manualSettings.settings[options.key];
+            }
+        };
+
+        manualSettings.setKeyObject = function(key, obj) {
+            manualSettings.get({key});
+
+            manualSettings.settings[key] = Object.assign(manualSettings.settings[key], obj);
+
+            manualSettings.save();
+        };
+
+        manualSettings.save = function() {
+            manualSettings.settings.username = apiHelper.auth.username;
+
+            localStorage.setItem(manualSettings.settingsKey, JSON.stringify(manualSettings.settings));
+
+            $('.apiHelperManualSetup').trigger(manualSettings.settingsChangeEventName, [manualSettings.settings]);
+        }
+
+        $(document).on(manualSettings.settingsChangeEventName, function(event, settings) {
+            manualSettings.settings = settings;
+        });
+
+        return manualSettings;
+    }();
+
+    $('.apiHelperAddDeviceToProduct').each(function() {
+        const thisPartial = $(this);
+
+        const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
+        const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');
+        const deviceIdTextElem = $(thisPartial).find('.deviceIdText');
+        const addDeviceButtonElem = $(thisPartial).find('.addDeviceButton');
+        const deviceInstructionsElem = $(thisPartial).find('.deviceInstructions');
+        const claimDeviceCheckboxElem = $(thisPartial).find('.claimDeviceCheckbox');
+        const markDevelopmentCheckboxElem = $(thisPartial).find('.markDevelopmentCheckbox');
+        const nameDeviceCheckboxElem = $(thisPartial).find('.nameDeviceCheckbox');
+        const deviceNameTextElem = $(thisPartial).find('.deviceNameText');
+        const addResultElem = $(thisPartial).find('.addResult');
+        const claimResultElem = $(thisPartial).find('.claimResult');
+        const markDevelopmentResultElem = $(thisPartial).find('.markDevelopmentResult');
+        const nameResultElem = $(thisPartial).find('.nameResult');
+        const allResultsElem = $(thisPartial).find('.allResults');
+
+
+        
+
+        const deviceIdRE = /([A-Fa-f0-9]{24})/;
+        
+        let productId;
+
+        // const Elem = $(thisPartial).find('.');
+
+        const setStatus = function(s) {
+            $(statusMessageElem).text(s);
+        }
+
+        const updateButton = async function() {
+            const text = $(deviceIdTextElem).val().trim();
+
+            if (text.match(deviceIdRE)) {
+                // Is a Device ID                
+                setStatus('Appears to be a Device ID, can attempt to add');
+                $(addDeviceButtonElem).prop('disabled', false);
+                $(deviceInstructionsElem).hide();
+            }
+            else {
+                // Is it a serial number?
+                const skuObj = await apiHelper.getSkuObjFromSerial(text);
+                if (skuObj) {
+                    // Looks like a serial number
+                    setStatus('Appears to be a serial number, can attempt to add');
+                    $(addDeviceButtonElem).prop('disabled', false);
+                    $(deviceInstructionsElem).hide();
+                }
+                else {
+                    setStatus('');
+                    $(addDeviceButtonElem).prop('disabled', true);
+                    $(deviceInstructionsElem).show();
+                }
+            }
+        }
+
+        const updateSettings = function(settings = apiHelper.manualSettings.get()) {
+
+            if (settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
+                productId = settings.createOrSelectProduct.productId;
+                $(productIsSelectedElem).show();
+                $(selectedProductCellElem).text(settings.createOrSelectProduct.productName + ' (' + settings.createOrSelectProduct.productId + ')');
+                setStatus('');
+            } 
+            else {
+                $(productIsSelectedElem).hide();
+                setStatus('Select the product to add the device to (above)');
+            }
+            if (settings && settings.deviceSelect && settings.deviceSelect.deviceId) {
+                $(deviceIdTextElem).val(settings.deviceSelect.deviceId);
+                updateButton();
+            }
+        }
+        updateSettings();
+
+        // Defined in api-helper.extras.js
+        $(deviceNameTextElem).val(apiHelper.getRandomTrochee());
+
+
+        $(deviceIdTextElem).on('keydown', function(ev) {
+            if (ev.key == 'Enter') {
+                $(addDeviceButtonElem).trigger('click');
+                ev.preventDefault();
+            }
+        });
+
+        $(addDeviceButtonElem).on('click', async function() {
+            let text = $(deviceIdTextElem).val().trim();
+            if (text.length == 0 || !productId) {
+                return;
+            }
+            let isDeviceId = false;
+            
+            if (text.match(deviceIdRE)) {
+                text = text.toLowerCase();
+                isDeviceId = true;
+            }
+            else {
+                const spaceOffset = text.indexOf(' ');
+                if (spaceOffset > 0) {
+                    text = text.substring(0, spaceOffset);
+                }    
+            }
+            $(deviceIdTextElem).val(text);
+
+            $(allResultsElem).text('');
+
+            $(addDeviceButtonElem).prop('disabled', true);
+
+            setStatus('Adding device to product ' + productId + '...');
+
+            const res = await apiHelper.particle.addDeviceToProduct({ 
+                deviceId: text,
+                product: productId,
+                auth: apiHelper.auth.access_token 
+            });
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+                console.log('res', res);
+
+                let deviceId;
+
+                if (isDeviceId) {
+                    deviceId = text;
+
+                    setStatus('Adding device to product ' + productId + ' succeeded');
+                    $(addResultElem).text('\u2705'); // green check
+                }
+                else {
+                    setStatus('Checking product for newly added device...');
+                    const deviceResult = await apiHelper.getAllDevices({productId});
+
+                    console.log('deviceResult', deviceResult);
+
+                    // Array of device objects:
+                    //   id, name, iccid, serial_number, etc.
+                    for(const d of deviceResult) {
+                        if (d.serial_number == text) {
+                            deviceId = d.id;
+                        }
+                    }
+
+                    // TODO: If this is an Electron (platform = 10) and iccid is not set, need to
+                    // activate the SIM separately
+
+                    setStatus('Adding device to product ' + productId + ' succeeded');
+                    $(addResultElem).text('\u2705'); // green check
+                }
+
+                if ($(claimDeviceCheckboxElem).prop('checked')) {
+                    const claimRes = await apiHelper.particle.claimDevice({
+                        deviceId,
+                        auth: apiHelper.auth.access_token     
+                    });
+                    console.log('claimRes', claimRes);
+
+                    $(claimResultElem).text((claimRes.statusCode == 200) ? '\u2705': '\u274C'); 
+                }
+                if ($(markDevelopmentCheckboxElem).prop('checked')) {
+                    const markDevelopmentRes = await apiHelper.particle.markAsDevelopmentDevice({
+                        deviceId,
+                        product: productId,
+                        development: true,
+                        auth: apiHelper.auth.access_token     
+                    });
+
+                    console.log('markDevelopmentRes', markDevelopmentRes);
+                    $(markDevelopmentResultElem).text((markDevelopmentRes.statusCode == 200) ? '\u2705': '\u274C'); 
+                }
+                if ($(nameDeviceCheckboxElem).prop('checked')) {
+                    const name = $(deviceNameTextElem).val().trim();
+
+                    const nameRes = await apiHelper.particle.renameDevice({
+                        deviceId,
+                        product: productId,
+                        name,
+                        auth: apiHelper.auth.access_token     
+                    });
+
+                    console.log('nameRes', nameRes);
+                    $(nameResultElem).text((nameRes.statusCode == 200) ? '\u2705': '\u274C'); 
+                }
+
+                const infoRes = await apiHelper.particle.getDevice({
+                    deviceId: text,
+                    product: productId,
+                    auth: apiHelper.auth.access_token     
+                });
+                console.log('infoRes', infoRes);
+
+                // infoRes.body contains the device object
+                //   id, name, iccid, serial_number, etc.
+
+            }
+            else {
+                setStatus('Adding device to product ' + productId + ' failed');
+                $(addResultElem).text('\u274C'); // Red X
+            }
+
+            $(addDeviceButtonElem).prop('disabled', false);
+
+            
+        });
+        $(deviceIdTextElem).on('input', async function() {
+            await updateButton();
+        });
+
+        $(deviceNameTextElem).on('input', function() {
+            const text = $(deviceNameTextElem).val().trim();
+            if (text.length > 0) {
+                $(nameDeviceCheckboxElem).prop('checked', true);
+            }
+            else {
+                $(nameDeviceCheckboxElem).prop('checked', false);
+            }
+        });
+
+
+        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            console.log('settings update', settings);
+            updateSettings(settings);
+        });
+
+
+
+    });
+
+
+    $('.apiHelperCreateOrSelectProduct').each(function() {
+        const thisPartial = $(this);
+
+        const platformSelectElem = $(thisPartial).find('.apiHelperPlatformSelect');
+        const deviceTypeSKUsElem = $(thisPartial).find('.deviceTypeSKUs');
+
+        const sandboxOrgRowElem = $(thisPartial).find('.sandboxOrgRow');
+        const sandboxOrgRadioCheckedVal = function() {
+            return $(sandboxOrgRowElem).find('input:checked').val();
+        };
+        const sandboxOrgRadioSelect = function(value) {
+            $(sandboxOrgRowElem).find('input[type="radio"]').prop('checked', false);
+            $(sandboxOrgRowElem).find('input[value="' + value + '"]').prop('checked', true);            
+        };
+        const orgSelectorRowElem = $(thisPartial).find('.orgSelectorRow');
+        const productSelectorRowElem = $(thisPartial).find('.productSelectorRow');
+        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisPartial).find('.apiHelperOrgSelect');
+
+        const productNameInputElem = $(thisPartial).find('.productNameInput');
+
+        const newExistingRadioElem = $(thisPartial).find('input[name="newExisting"]');
+        const newRadioElem = $(thisPartial).find('input[name="newExisting"][value="new"]');
+        const existingRadioElem = $(thisPartial).find('input[name="newExisting"][value="existing"]');
+        const newExistingRadioCheckedVal = function() {
+            return $(thisPartial).find('input[name="newExisting"]:checked').val();
+        }
+        const refreshProductsElem = $(thisPartial).find('.refreshProducts');
+
+        const createProductButtonElem = $(thisPartial).find('.createProductButton');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');
+
+        let carriersJson;
+
+        const setStatus = function(s) {
+            $(statusMessageElem).text(s);
+        }
+        setStatus('Loading...');
+
+        let productSelector = {};
+        $(thisPartial).data('productSelector', productSelector);
+
+        if (!apiHelper.auth) {
+            return;
+        }
+
+        productSelector.getOptions = function(options) {
+            if (!options) {
+                options = {};
+            }
+            const platformIdStr = $(platformSelectElem).val();
+            if (platformIdStr == '-') {
+                // No settings selected yet
+                return options;
+            }
+
+            options.platformId = parseInt(platformIdStr);
+
+            if (productSelector.orgs.length) {
+                // Has organizations
+
+                // sandbox or org
+                options.sandboxOrg = sandboxOrgRadioCheckedVal();
+                if (options.sandboxOrg == 'org') {
+                    options.orgId = $(orgSelectElem).val();
+                }
+            }
+            else {
+                options.sandboxOrg = 'sandbox';
+            }
+
+            // new or existing
+            options.newExisting = newExistingRadioCheckedVal();
+
+            if (options.newExisting == 'new') {
+                options.productName = $(productNameInputElem).val();
+            }
+            else {
+                options.productId = parseInt($(productSelectElem).val());
+                const productObj = productSelector.productsData.products.find(e => e.id == options.productId);
+                if (productObj) {
+                    options.productName = productObj.name;
+                }
+            }
+
+            return options;
+        }
+
+        productSelector.saveSettings = function() {
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+            productSelector.getOptions(settings);
+            apiHelper.manualSettings.save();
+        }
+
+        const updateNewExistingButton = function() {
+            const newExisting = newExistingRadioCheckedVal();
+
+            if (newExisting == 'new') {
+                if ($(productNameInputElem).val().trim().length) {
+                    $(createProductButtonElem).prop('disabled', false);
+                }
+                else {
+                    $(createProductButtonElem).prop('disabled', true);
+                }                                
+            }
+            else {
+                $(createProductButtonElem).prop('disabled', true);
+            }    
+        }
+
+        const updateProductList = async function(options = {}) {
+            if (!productSelector.orgs) {
+                // Not fully loaded yet
+                return;
+            }
+
+            const platformIdStr = $(platformSelectElem).val();
+            if (platformIdStr == '-') {
+                // No platform selected
+                return;
+            }
+            const platformId = parseInt(platformIdStr);
+
+            $(orgSelectorRowElem).hide();
+            $(sandboxOrgRowElem).hide();    
+            
+            const sandboxOrg = sandboxOrgRadioCheckedVal();
+
+            if (productSelector.orgs.length) {
+                // Has organizations
+
+                $(sandboxOrgRowElem).show();
+                switch(sandboxOrg) {
+                    case 'sandbox':
+                        break;
+
+                    case 'org':
+                        $(orgSelectorRowElem).show();
+                        break;
+                }               
+            }
+
+            setStatus('Getting products...');
+
+            if (sandboxOrg == 'sandbox') {
+                productSelector.productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productSelector.productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            
+            productSelector.productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            const lastSelected = $(productSelectElem).val();
+            $(productSelectElem).empty();
+
+            for(const product of productSelector.productsData.products) {
+                if (product.platform_id == platformId) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', product.id.toString());
+                    $(optionElem).text(product.name + ' (' + product.id + ')');
+                    $(productSelectElem).append(optionElem);    
+
+                    let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+                    if (settings.productId == product.id) {
+                        $(productSelectElem).val(product.id.toString());
+                        $(newExistingRadioElem).prop('checked', false);
+                        $(existingRadioElem).prop('checked', true);
+                        $(createProductButtonElem).prop('disabled', true);
+                    }
+
+                }
+            }
+            if (lastSelected) {
+                $(productSelectElem).val(lastSelected);
+            }
+
+            $(productSelectorRowElem).show();
+
+            updateNewExistingButton();
+
+            setStatus('');
+
+            $(thisPartial).trigger('updateProductList');
+        }
+
+        $(sandboxOrgRowElem).find('input').each(function() {
+            const radioElem = $(this);
+            $(radioElem).on('click', async function() {
+                await updateProductList();
+            });
+        });
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        apiHelper.getOrgs().then(async function(orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            productSelector.orgs = orgsData.organizations;
+
+            if (orgsData.organizations.length > 0) {
+
+                for (let org of orgsData.organizations) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', org.id);
+                    $(optionElem).text(org.name);
+
+                    $(orgSelectElem).append(optionElem);        
+                }
+                let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+                if (settings.orgId) {
+                    sandboxOrgRadioSelect('org');
+                    $(orgSelectElem).val(settings.orgId);                    
+                }
+            }
+            else {
+                // No orgs
+                // $(sandboxOrgRowElem).find('input[value=org]:radio').prop('disabled', true);
+                $(orgSelectorRowElem).hide();
+                $(sandboxOrgRowElem).hide();
+            }
+
+            await updateProductList();
+        });
+
+        apiHelper.getCarriersJson().then(function(carriersJsonIn) {
+            carriersJson = carriersJsonIn;
+
+            let platforms = [];
+            
+            for(const platformName in carriersJson.deviceConstants) {
+                const platformObj = carriersJson.deviceConstants[platformName];
+                if (platformObj.productEligible) {
+                    platforms.push(platformName);
+                }
+            }
+            platforms.sort(function(a, b) {
+                return carriersJson.deviceConstants[a].displayName.localeCompare(carriersJson.deviceConstants[b].displayName);
+            })
+
+            for(const platformName of platforms) {
+                const platformObj = carriersJson.deviceConstants[platformName];
+                const optionElem = document.createElement('option');
+                $(optionElem).text(platformObj.displayName + ' (' + platformObj.id + ')');
+                $(optionElem).attr('value', platformObj.id.toString());
+                $(platformSelectElem).append(optionElem);    
+            }
+
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+            if (settings.platformId) {
+                $(platformSelectElem).val(settings.platformId.toString());
+                $(platformSelectElem).trigger('change');
+            }
+
+            setStatus('');
+
+        });
+
+        $(createProductButtonElem).on('click', function() {
+            // 
+            const options = productSelector.getOptions();
+
+            let requestDataObj = {
+                product: {
+                    name: options.productName,
+                    platform_id: options.platformId,
+                },
+            };
+
+            setStatus('Creating product...');
+
+            let url;
+            if (options.sandboxOrg == 'org') {
+                url = 'https://api.particle.io/v1/orgs/' + options.orgId + '/products/';
+            }
+            else {
+                url = 'https://api.particle.io/v1/user/products/';
+            }
+
+            const request = {                
+                contentType: 'application/json',
+                data: JSON.stringify(requestDataObj),
+                dataType: 'json',
+                error: function (jqXHR) {
+                    // ga('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    console.log('error', jqXHR);
+                    setStatus('Product creation failed');
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'POST',
+                success: function (resp, textStatus, jqXHR) {
+                    // ga('send', 'event', simpleGetConfig.gaAction, 'Success');
+                    console.log('success', resp);
+                    // ok: boolean
+                    // product: object
+                    //      id: int product ID
+                    //      platform_id
+                    //      name
+                    //      slug
+                    //      description
+                    //      settings: object
+                    //      groups: array
+                    //      device_count: integer
+                    if (resp.ok) {
+                        // Add to popup and select
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', resp.product.id.toString());
+                        $(optionElem).text(resp.product.name + ' (' + resp.product.id + ') (newly created)');
+                        $(productSelectElem).append(optionElem);    
+
+                        $(productSelectElem).val(resp.product.id.toString());
+                        $(newExistingRadioElem).prop('checked', false);
+                        $(existingRadioElem).prop('checked', true);
+                        $(productNameInputElem).val('');
+                        $(createProductButtonElem).prop('disabled', true);
+
+                        productSelector.saveSettings();
+                        setStatus('Product ' + resp.product.name + ' successfully created');
+                    }
+                    else {
+                        setStatus('Product creation failed');
+                        console.log('request failed', resp);
+                    }
+                },
+                url,
+            };
+
+            $.ajax(request);
+
+        });
+
+        $(productNameInputElem).on('input', function() {
+            $(newExistingRadioElem).prop('checked', false);
+            $(newRadioElem).prop('checked', true);
+
+            updateNewExistingButton();
+        });
+
+        $(productSelectElem).on('change', function() {
+            $(newExistingRadioElem).prop('checked', false);
+            $(existingRadioElem).prop('checked', true);
+            productSelector.saveSettings();
+        });
+
+        $(newRadioElem).on('click', function() {
+            updateNewExistingButton();
+        });
+
+        $(existingRadioElem).on('click', function() {
+            updateNewExistingButton();
+            productSelector.saveSettings();
+        });
+
+
+        $(refreshProductsElem).on('click', async function() {
+            await updateProductList({clearCache:true});
+        });
+
+        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            if (settings && settings.deviceSelect && settings.deviceSelect.platformId) {
+                $(platformSelectElem).val(settings.deviceSelect.platformId.toString());
+                $(platformSelectElem).trigger('change');    
+            }
+    
+        });
+
+
+
+        $(platformSelectElem).on('change', async function() {
+
+            const value = $(this).val();
+
+            const firstOptionElem = $(this).find('option').first();
+            if ($(firstOptionElem).val() == '-') {
+                $(firstOptionElem).remove();
+            }
+
+            
+            $(deviceTypeSKUsElem).empty();
+
+
+            const platformId = parseInt(value);
+
+            let skus = [];
+
+            for(const skuObj of carriersJson.skus) {
+                if (skuObj.lifecycle == 'Hidden') {
+                    // Hidden SKU
+                    continue;
+                }
+                if (skuObj.multiple) {
+                    // Omit tray SKUs
+                    continue;
+                }
+                if (skuObj.platformId == platformId) {
+                    skus.push(skuObj.name);                        
+                }
+            }
+
+            skus.sort();
+
+            $(deviceTypeSKUsElem).text(skus.join(', '));
+        
+            for(const platformName in carriersJson.deviceConstants) {
+                const platformObj = carriersJson.deviceConstants[platformName];
+                if (platformObj.id == platformId) {
+                    $(productNameInputElem).val('test-' + platformObj.name + '-' + Math.floor(Math.random() * 99999));
+                }
+            }
+
+            await updateProductList();
+
+        });
+
+        
+
+    });
+
 
 });
 

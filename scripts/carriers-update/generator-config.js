@@ -29,6 +29,20 @@ const path = require('path');
             } 
         },
 
+        // Manual setup
+        {
+            guid: '58997959-6743-4757-8081-18a46c2f6abf', 
+            generatorFn:function(updater) {
+                return updater.generateUsbCable(); 
+            }             
+        },
+        {
+            guid: '4db96e4d-e7bd-4f43-a5dc-2c1db07fd338', 
+            generatorFn:function(updater) {
+                return updater.generateBatteryRequired(); 
+            }             
+        },
+
         // Electron datasheet
         {
             guid:'ab31991a-76c5-11eb-9439-0242ac130002', 

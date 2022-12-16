@@ -1,0 +1,41 @@
+<div class="apiHelperCreateOrSelectProduct apiHelperManualSetup"> 
+    <!-- api-helper, api-helper-extras, api-helper-usb -->
+    <table class="apiHelperTableNoMargin">
+        <tbody>
+            <tr>
+                <td class="apiHelperProductSelectorLabel">Device type</td><td><select class="apiHelperPlatformSelect apiHelperSelect">
+                    <option value="-">Select device platform</option>
+                    </select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="deviceTypeSKUs"></td>
+            </tr>
+            <tr class="sandboxOrgRow" style="display:none">
+                <td colspan="2" class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                <label><input type="radio" name="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                <label><input type="radio" name="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr class="orgSelectorRow" style="display:none">
+                <td class="apiHelperProductSelectorLabel" style="padding-left: 4px;">Organization</td>
+                <td><select class="apiHelperOrgSelect apiHelperSelect"></select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr class="productSelectorRow" style="display:none">
+                <td class="apiHelperProductSelectorLabel"><label><input type="radio" name="newExisting" value="new" checked />New Product</label> named</td>
+                <td><input type="text" size="20" class="productNameInput"  style="padding-top: 7px;"/></td>
+                <td><button class="createProductButton">Create product</button></td>
+            </tr>
+            <tr class="productSelectorRow" style="display:none">
+                <td class="apiHelperProductSelectorLabel"><label><input type="radio" name="newExisting" value="existing" />Existing Product</label></td>
+                <td><select class="apiHelperProductSelect apiHelperSelect" style="padding-top: 5px;"></select></td>
+                <td><button class="refreshProducts">Refresh product list</button></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="statusMessage"></td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>            
+</div>
