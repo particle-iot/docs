@@ -4604,6 +4604,9 @@ STARTUP(disable());
 
 - On the P2, make sure you do not hold down pins D8 or D7 at boot as this will cause the MCU to enter download or test mode and will not operate correctly.
 
+- On the P2, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
+
+
 If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
 | Photon 2, P2 | Ethernet FeatherWing Pin  |

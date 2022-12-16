@@ -239,7 +239,7 @@ Note that the Tracker M is intended to be mounted on the bottom side of the expa
 | Top 14 | GND | Ground. | &nbsp; |
 | Top 15 | P2_RGB_G | RGB LED Green | PB[23] |
 | Top 16 | P2_RGB_B | RGB LED Blue | PB[22] |
-| Top 17 | P2_RGB_R | RGB LED Red | PA[30] |
+| Top 17 | P2_RGB_R | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | PA[30] |
 | Top 18 | GND | Ground. | &nbsp; |
 | Top 19 | P2_RESET | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
 | Top 20 | P2_MODE | MODE button. Pin number constant is BTN. Pull low when button is pressed. | PA[4] |
@@ -412,7 +412,7 @@ The large number of SPI peripherals on the Tracker M and expansion card exceed t
 | P2_RESET | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | 34 | CHIP_EN |
 | P2_RGB_B | RGB LED Blue | 31 | PB[22] |
 | P2_RGB_G | RGB LED Green | 32 | PB[23] |
-| P2_RGB_R | RGB LED Red | 29 | PA[30] |
+| P2_RGB_R | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | 29 | PA[30] |
 | P2_RX/D9 / D9 | Serial1 RX (received data), GPIO | 63 | PA[8] |
 | P2_S0_SDO / D15 | S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX. | 40 | PA[12] |
 | P2_S1_SDI / D16 | S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX. | 41 | PA[13] |

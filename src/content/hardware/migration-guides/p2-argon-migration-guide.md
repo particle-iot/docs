@@ -531,7 +531,7 @@ The following pins did not exist on the Argon but are available on the P2.
 | 2 | 3V3_RF | 3.3V power to RF module |
 | 31 | RGBB | RGB LED Blue |
 | 32 | RGBG | RGB LED Green |
-| 29 | RGBR | RGB LED Red |
+| 29 | RGBR | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. |
 | 63 | RX / D9 | Serial1 RX (received data), GPIO |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) |
 | 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) |
@@ -929,7 +929,7 @@ If you need to use SPI1 on the D pins, this mapping is required. The D pins are 
 | :--- | :--- |
 | Pin Number | 29|
 | Pin Name | RGBR|
-| Description | RGB LED Red|
+| Description | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.|
 | Supports attachInterrupt | Yes|
 #### RST
 |   | Argon | P2 |

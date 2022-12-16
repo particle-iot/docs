@@ -1300,7 +1300,7 @@
         {
           "num": 117,
           "name": "P2_RGB_R",
-          "desc": "RGB LED Red",
+          "desc": "RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.",
           "isLED": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -8407,7 +8407,7 @@
         {
           "num": 29,
           "name": "RGBR",
-          "desc": "RGB LED Red",
+          "desc": "RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.",
           "isLED": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -8969,7 +8969,7 @@
           "num": 7,
           "p2pin": 29,
           "name": "RGBR",
-          "desc": "RGB LED Red",
+          "desc": "RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.",
           "isLED": true,
           "is5VTolerant": false,
           "attachInterrupt": true,

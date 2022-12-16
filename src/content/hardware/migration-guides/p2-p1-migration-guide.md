@@ -664,7 +664,7 @@ The following pins were NC on the P1 but are used on the P2.
 |   | P1 | P2 |
 | :--- | :--- | :--- |
 | Pin Name | RGBR | RGBR |
-| Description | RGB LED Red | RGB LED Red |
+| Description | RGB LED Red | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. |
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
 #### Module Pin 30 (WKP / D10)

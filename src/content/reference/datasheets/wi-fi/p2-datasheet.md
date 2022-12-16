@@ -206,6 +206,8 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 {{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
 
+- On the P2, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
+
 ### ADC (Analog to Digital Converter)
 
 The P2 supports six ADC inputs.
@@ -360,13 +362,14 @@ The use of the RGB LED is optional, however it is highly recommended as troubles
 
 | Pin | Pin Name | Description | MCU |
 | :---: | :--- | :--- | :--- |
-| 29 | RGBR | RGB LED Red | PA[30] |
+| 29 | RGBR | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | PA[30] |
 | 31 | RGBB | RGB LED Blue | PB[22] |
 | 32 | RGBG | RGB LED Green | PB[23] |
 
 
 {{!-- END do not edit content above, it is automatically generated e5794e03-d007-4420-be1f-b62ca2788442 --}}
 
+- On the P2, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
 
 ### Boot mode pins
 
@@ -449,7 +452,7 @@ The P2 can only wake from `HIBERNATE` sleep mode on pin D10, `RISING`, `FALLING`
 | 26 | 3V3 | 3.3V power to MCU | &nbsp; |
 | 27 | 3V3 | 3.3V power to MCU | &nbsp; |
 | 28 | GND | Ground. Be sure you connect all P1 ground pins. | &nbsp; |
-| 29 | RGBR | RGB LED Red | PA[30] |
+| 29 | RGBR | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. | PA[30] |
 | 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | PA[15] |
 | 31 | RGBB | RGB LED Blue | PB[22] |
 | 32 | RGBG | RGB LED Green | PB[23] |
@@ -766,6 +769,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-11-08 | RK | Added external antenna |
 |     | 2022-11-16 | RK | Added additional board layout tips |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
+|     | 2022-12-16 | RK | Added warning about using RGBR as GPIO because of the 10K pull-up |
 
 ## Known Errata
 

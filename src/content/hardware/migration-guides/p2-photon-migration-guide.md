@@ -921,7 +921,7 @@ In this mapping, there are two more ADC pins, but primary SPI on the A pins cann
 | :--- | :--- | :--- |
 | Pin Number | 27 | 29 |
 | Pin Name | RGBR | RGBR |
-| Description | RGB LED Red | RGB LED Red |
+| Description | RGB LED Red | RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot. |
 | Supports attachInterrupt | n/a | Yes |
 | Input is 5V Tolerant | No, if LED is connected. | No |
 #### RST
