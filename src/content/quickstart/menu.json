@@ -1,6 +1,11 @@
 {
   "items": [
     {
+      "dir": "setup-next-steps",
+      "title": "Setup next steps",
+      "href": "/quickstart/setup-next-steps/"
+    },
+    {
       "dir": "argon",
       "title": "Argon",
       "href": "/quickstart/argon/"
