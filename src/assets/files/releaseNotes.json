@@ -25596,6 +25596,40 @@
                 2543,
                 2545
             ]
+        },
+        "v4.0.2": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v4.0.2",
+            "tag_name": "v4.0.2",
+            "name": "v4.0.2 (Argon/Boron/B SoM/B5 SoM/Tracker/E SoM X)",
+            "prerelease": false,
+            "created_at": "2022-12-13T17:57:06Z",
+            "published_at": "2022-12-15T23:36:00Z",
+            "entries": [
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2597
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Use OTP Feature flag to change ADC reference source"
+                },
+                {
+                    "tags": [
+                        "boron"
+                    ],
+                    "prs": [
+                        2588
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Use the internal ADC reference on some Gen 3 platforms"
+                }
+            ],
+            "prs": [
+                2588,
+                2597
+            ]
         }
     },
     "pulls": {
@@ -37465,6 +37499,184 @@
             "title": "[freertos] multi-step priority disinheritance",
             "state": "open",
             "created_at": "2022-11-16T03:08:00Z"
+        },
+        "2582": {
+            "url": "https://github.com/particle-iot/device-os/pull/2582",
+            "number": 2582,
+            "title": "[rtl872x] fixes pinResetFast clearing too many pins and improves speed [sc-109756]",
+            "state": "closed",
+            "created_at": "2022-11-17T00:00:37Z",
+            "detail": "- pinResetFast() clears too many pins due to masking error on rtl872x platform\n- pinSetFast/pinResetFast/pinReadFast/digitalWriteFast API's are slow"
+        },
+        "2583": {
+            "url": "https://github.com/particle-iot/device-os/pull/2583",
+            "number": 2583,
+            "title": "Allow setting the ICCID of a virtual device",
+            "state": "closed",
+            "created_at": "2022-11-17T12:51:58Z",
+            "detail": "We'd like to be able to set the ICCID of a virtual device for testing purposes."
+        },
+        "2584": {
+            "url": "https://github.com/particle-iot/device-os/pull/2584",
+            "number": 2584,
+            "title": "Fix/pick release versions",
+            "state": "closed",
+            "created_at": "2022-11-18T00:09:23Z"
+        },
+        "2585": {
+            "url": "https://github.com/particle-iot/device-os/pull/2585",
+            "number": 2585,
+            "title": "[tests] Modify pins for trackerM spix tests",
+            "state": "closed",
+            "created_at": "2022-11-18T00:21:21Z"
+        },
+        "2586": {
+            "url": "https://github.com/particle-iot/device-os/pull/2586",
+            "number": 2586,
+            "title": "rtl872x: sleep improvements",
+            "state": "closed",
+            "created_at": "2022-11-18T06:02:51Z",
+            "detail": "1. P2 may consume high current after entered sleep mode\n2. Trackerm doesn't turn off cellular modme after entered sleep mode"
+        },
+        "2587": {
+            "url": "https://github.com/particle-iot/device-os/pull/2587",
+            "number": 2587,
+            "title": "System setup and BLE threading improvements",
+            "state": "closed",
+            "created_at": "2022-11-18T19:50:37Z",
+            "detail": "1. System events are blocked due to blocking function `serialReadLine()` when device resides in system setup mode\n2. P2-specific:\n     1) we may destroy the BLE adv timer in its handler\n     2) We may try exiting the BLE events thread relying on a BLE event queue when it is the current thread, which may cause deadlock.\n     3) BLE adv state may not set reliably"
+        },
+        "2588": {
+            "url": "https://github.com/particle-iot/device-os/pull/2588",
+            "number": 2588,
+            "title": "[boron] Use the internal ADC reference on some Gen 3 platforms",
+            "state": "closed",
+            "created_at": "2022-11-29T07:23:44Z",
+            "detail": "There are a number of Gen 3 devices that should use the internal 0.6V ADC reference as opposed to the default VCC (3.3V)."
+        },
+        "2589": {
+            "url": "https://github.com/particle-iot/device-os/pull/2589",
+            "number": 2589,
+            "title": "[Quectel] Account for \"eMTC\" type while obtaining signal values",
+            "state": "closed",
+            "created_at": "2022-11-29T09:37:12Z",
+            "detail": "Signal values on certain Cat-M1 radios are invalid. Example: BG95-M1 / TrackerM"
+        },
+        "2590": {
+            "url": "https://github.com/particle-iot/device-os/pull/2590",
+            "number": 2590,
+            "title": "[test] Add thresholds for trackerM for slo tests",
+            "state": "closed",
+            "created_at": "2022-11-29T10:31:43Z",
+            "detail": "As title says"
+        },
+        "2591": {
+            "url": "https://github.com/particle-iot/device-os/pull/2591",
+            "number": 2591,
+            "title": "[test] bump fastpin max limit to 10%",
+            "state": "closed",
+            "created_at": "2022-11-29T15:57:59Z",
+            "detail": "wiring/no_fixture Fast Pin test requiring a bit more overhead on HIL tests"
+        },
+        "2592": {
+            "url": "https://github.com/particle-iot/device-os/pull/2592",
+            "number": 2592,
+            "title": "Use compatible pins for PWM tests on TrackerM",
+            "state": "closed",
+            "created_at": "2022-11-30T05:02:14Z",
+            "detail": "Technically D1 is not an ideal choice to use for PWM / Servo / Tone inputs on the Tracker M, since it will always be set as I2C clock pin. Additionally, remove D1 as a PWM pin in pinmap_defines\n![image](https://user-images.githubusercontent.com/48732259/204711015-a6db56d9-1c0c-457d-a9e6-bb75517f3011.png)"
+        },
+        "2593": {
+            "url": "https://github.com/particle-iot/device-os/pull/2593",
+            "number": 2593,
+            "title": "[freertos] checkout particle branch",
+            "state": "closed",
+            "created_at": "2022-11-30T05:32:02Z",
+            "detail": "- freertos submodule pointing to deleted commit"
+        },
+        "2594": {
+            "url": "https://github.com/particle-iot/device-os/pull/2594",
+            "number": 2594,
+            "title": "[rtl872x] hal: remove an assert in read()/peek() and instead adjust read/peek size",
+            "state": "closed",
+            "created_at": "2022-11-30T20:31:19Z",
+            "detail": "As title says."
+        },
+        "2595": {
+            "url": "https://github.com/particle-iot/device-os/pull/2595",
+            "number": 2595,
+            "title": "Feature: supports hardware watchdog",
+            "state": "open",
+            "created_at": "2022-12-01T09:02:11Z"
+        },
+        "2596": {
+            "url": "https://github.com/particle-iot/device-os/pull/2596",
+            "number": 2596,
+            "title": "[rtl872x] Fixes a deadlock when requiring to enable RSIP",
+            "state": "closed",
+            "created_at": "2022-12-01T10:34:20Z",
+            "detail": "Temprorarily enabling RSIP for reading encrypted data from flash requires as a safety-measure disabling interrupts. Reading the flash requires acquiring a mutex, which will not work under disabled interrupts/scheduling."
+        },
+        "2597": {
+            "url": "https://github.com/particle-iot/device-os/pull/2597",
+            "number": 2597,
+            "title": "Use OTP Feature flag to change ADC reference source",
+            "state": "closed",
+            "created_at": "2022-12-01T21:36:12Z",
+            "detail": "There are potentially many different platforms that may end up using the richtek DCDC part with the excessive ripple voltage. For already shipped `BRN404X` platforms, the `HW_VERSION` OTP field can be used to identify them. For other SKUs, we need a different method."
+        },
+        "2598": {
+            "url": "https://github.com/particle-iot/device-os/pull/2598",
+            "number": 2598,
+            "title": "[rtl872x] exflash: revert dcache invalidate calls after writes/erasures",
+            "state": "closed",
+            "created_at": "2022-12-02T23:04:28Z"
+        },
+        "2599": {
+            "url": "https://github.com/particle-iot/device-os/pull/2599",
+            "number": 2599,
+            "title": "Free memory from rtl sdk in SystemISRTaskQueue",
+            "state": "closed",
+            "created_at": "2022-12-07T19:51:43Z",
+            "detail": "See ticket [here](https://app.shortcut.com/particle/story/112961/deadlock-on-p2-trackerm-when-blocking-on-mutex-with-interrupts-disabled)"
+        },
+        "2600": {
+            "url": "https://github.com/particle-iot/device-os/pull/2600",
+            "number": 2600,
+            "title": "[rtl872x] fixes System.ticks()",
+            "state": "closed",
+            "created_at": "2022-12-09T06:39:41Z",
+            "detail": "- System.ticks() returns 0 currently on  P2 and TrackerM platforms.\n- System.ticksDelay() also doesn't work.\n- System.ticksPerMicrosecond() is wrong."
+        },
+        "2601": {
+            "url": "https://github.com/particle-iot/device-os/pull/2601",
+            "number": 2601,
+            "title": "Release 4.0.2",
+            "state": "closed",
+            "created_at": "2022-12-13T17:59:46Z"
+        },
+        "2602": {
+            "url": "https://github.com/particle-iot/device-os/pull/2602",
+            "number": 2602,
+            "title": "[TrackerM] Collect cellular properties with system info",
+            "state": "closed",
+            "created_at": "2022-12-14T19:11:51Z",
+            "detail": "Currently running `particle serial identify` on TrackerM doesn't provide cellular info\n```\n $ particle serial identify\n\nYour device id is 0a10aced202194944a001be0\nYour system firmware version is 5.1.0\n```"
+        },
+        "2603": {
+            "url": "https://github.com/particle-iot/device-os/pull/2603",
+            "number": 2603,
+            "title": "[trackerm/p2] Fix USART/DMA deadlock",
+            "state": "open",
+            "created_at": "2022-12-15T01:03:31Z",
+            "detail": "TrackerM devices eventually deadlock after running for a few hours. The issue was traced to the cellular USART RX DMA transfer. On some transfers, the DMA controller does not report the final block of bytes was transferred from the USART to memory. As a result, we wait in a loop that will never complete."
+        },
+        "2604": {
+            "url": "https://github.com/particle-iot/device-os/pull/2604",
+            "number": 2604,
+            "title": "[rtl872x] Support IO wakeup sources through IO expander.",
+            "state": "open",
+            "created_at": "2022-12-15T12:33:00Z"
         }
     }
 }
