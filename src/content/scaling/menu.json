@@ -25,7 +25,8 @@
     {
       "dir": "enterprise",
       "title": "Enterprise Hub",
-      "href": "/scaling/enterprise/"
+      "href": "/scaling/enterprise/",
+      "hidden": true
     },
     {
       "dir": "quick-start-guide",
