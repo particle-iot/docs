@@ -229,6 +229,8 @@ $(document).ready(function() {
     const checkOrgs = async function() {
         const selectOrg = $('.apiHelperSSO').data('select-org');
         if (selectOrg) {
+            let showContent = false;
+
             try {
                 orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
                 if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username) {
@@ -314,15 +316,16 @@ $(document).ready(function() {
                             const guardMode = $(guardedElem).data('mode');
 
                             if (guardMode == 'orgRequired') {
+                                showContent = true;
                                 $(guardedElem).show()
                             }
                             else if (guardMode == 'enterpriseRequired') {
                                 if (orgInfo.isEnterprise) {
+                                    showContent = true;
                                     $(guardedElem).show()
                                 }
                             }        
-                        });
-                        
+                        });                        
                     }
                     updateSelectedOrg();
                     
@@ -335,6 +338,9 @@ $(document).ready(function() {
                 }
                 saveOrgInfo();
             }    
+            if (!showContent) {
+                $('.apiHelperContentGuardElse').show();
+            }
         }
         else {
             $('.apiHelperSsoSelectOrg').hide();
