@@ -338,6 +338,16 @@ $(document).ready(function() {
                 }
                 saveOrgInfo();
             }    
+
+            $('.apiHelperContentGuard').each(function() {
+                const guardedElem = $(this);
+                const guardMode = $(guardedElem).data('mode');
+
+                if (guardMode == 'loggedIn' && apiHelper.auth) {
+                    showContent = true;
+                    $(guardedElem).show()
+                }
+            });
             if (!showContent) {
                 $('.apiHelperContentGuardElse').show();
             }
