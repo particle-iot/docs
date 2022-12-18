@@ -396,7 +396,6 @@ $(document).ready(function() {
     });
 
 
-/*
     $('.apiHelperImportDevices').each(function() {
         const thisPartial = $(this);
         const gaCategory = 'importDevices';
@@ -467,7 +466,6 @@ $(document).ready(function() {
         
     });
 
-*/
 
 
 });

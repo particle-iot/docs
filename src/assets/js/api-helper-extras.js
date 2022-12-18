@@ -2006,6 +2006,111 @@ $(document).ready(function() {
         return manualSettings;
     }();
 
+
+    // Select or create a device group
+    $('.apiHelperDeviceGroup').each(function() {
+        const thisPartial = $(this);
+
+        let productId;
+
+        const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
+        // const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
+
+        const groupSelectElem = $(thisPartial).find('.groupSelect');
+        const newGroupTextElem = $(thisPartial).find('.newGroupText');
+        const newGroupButtonElem = $(thisPartial).find('.newGroupButton');
+        const newGroupFirmwareSelectElem = $(thisPartial).find('.newGroupFirmwareSelect');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');
+
+        const setStatus = function(s = '') {
+            $(statusMessageElem).text(s);
+        }
+
+        // 
+        const updateSettings = async function(settings = apiHelper.manualSettings.get()) {
+            if (apiHelper.auth && settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
+                productId = settings.createOrSelectProduct.productId;
+                console.log('productId', productId);
+                $(productIsSelectedElem).show();
+
+                // Fetch device groups
+                const productRes = await apiHelper.particle.getProduct({ 
+                    product: productId,
+                    auth: apiHelper.auth.access_token 
+                });
+                console.log('productRes', productRes);
+                // body.product.
+                //  id, name, description, device_count, groups[], etc.
+                
+                const firmwareRes = await apiHelper.particle.listProductFirmware({ 
+                    product: productId,
+                    auth: apiHelper.auth.access_token 
+                });
+                console.log('firmwareRes', firmwareRes);
+                // body: array of objects:
+                //  version, title, description, device_count, name (filename), groups, product_default, immediate, mandatory, uploaded_by, uploaded_on, _id,
+
+
+                $(groupSelectElem).empty();
+                for(const groupName of productRes.body.product.groups) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', groupName);
+                    $(optionElem).text(groupName);
+
+                    $(groupSelectElem).append(optionElem);
+                }
+
+                $(newGroupFirmwareSelectElem).empty();
+                for(const firmwareObj of firmwareRes.body) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', firmwareObj.version.toString());
+                    $(optionElem).text(firmwareObj.title + (firmwareObj.product_default ? ' (product default)' : ''));
+                    if (firmwareObj.product_default) {
+                        $(optionElem).attr('selected', 'selected');
+                    }
+                    $(newGroupFirmwareSelectElem).append(optionElem);
+                }
+            } 
+            else {
+                $(productIsSelectedElem).hide();
+            }
+        }
+        updateSettings();
+
+        $(newGroupTextElem).on('input', function() {
+            const groupName = $(newGroupTextElem).val().trim();
+            if (productId && groupName.length) {
+                // The name of the group. Must only contain lowercase letters, numbers, dashes, and underscores.
+                // TODO: There's a maximum length, enforce that here as well, once I figure out what it is
+                const validRE = /^[-a-z0-9_]+$/;
+                if (groupName.match(validRE)) {
+                    $(newGroupButtonElem).prop('disabled', false);
+                    setStatus('');
+                }
+                else {
+                    $(newGroupButtonElem).prop('disabled', true);
+                    setStatus('Group name can only contain lowercase letters, numbers, dashes, and underscores');
+                }
+            }
+            else {
+                $(newGroupButtonElem).prop('disabled', true);
+            }
+        });
+
+        $(newGroupButtonElem).on('click', function() {
+            $(newGroupButtonElem).prop('disabled', true);
+
+            const groupName = $(newGroupTextElem).val().trim();
+
+        });
+
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            updateSettings(settings);
+        });
+
+    });
+
+
     $('.apiHelperAddDeviceToProduct').each(function() {
         const thisPartial = $(this);
 
@@ -2225,7 +2330,7 @@ $(document).ready(function() {
         });
 
 
-        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             console.log('settings update', settings);
             updateSettings(settings);
         });
@@ -2602,7 +2707,7 @@ $(document).ready(function() {
             await updateProductList({clearCache:true});
         });
 
-        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             if (settings && settings.deviceSelect && settings.deviceSelect.platformId) {
                 $(platformSelectElem).val(settings.deviceSelect.platformId.toString());
                 $(platformSelectElem).trigger('change');    
