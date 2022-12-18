@@ -401,14 +401,30 @@ $(document).ready(function() {
         const gaCategory = 'importDevices';
 
         const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
-        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
+        const productSelectorElem = $(thisPartial).find('.apiHelperCreateOrSelectProduct');
         const actionButtonElem = $(thisPartial).find('.actionButton');
+
+        const deviceGroupElem = $(thisPartial).find('.apiHelperDeviceGroup');
+
+
+        const claimLoggedInCheckboxElem = $(thisPartial).find('.claimLoggedInCheckbox');
+        const claimTokenCheckboxElem = $(thisPartial).find('.claimTokenCheckbox');
+        const claimTokenInputElem = $(thisPartial).find('.claimTokenInput');
+
+        // const Elem = $(thisPartial).find('.');
+
         
         const statusElem = $(thisPartial).find('.apiHelperStatus');
 
         const progressDivElem = $(thisPartial).find('.progressDiv');
         const progressElem = $(progressDivElem).find('progress');
 
+        const setStatus = function(s = '') {
+            $(statusElem).text(s);
+        }
+
+
+        
         if (!apiHelper.auth) {
             // Not logged in
             $(thisPartial).hide();
@@ -417,6 +433,12 @@ $(document).ready(function() {
 
         const urlParams = new URLSearchParams(window.location.search);
 
+        const tableObj = $(thisPartial).data('table');
+
+        const productSelectorObj = $(productSelectorElem).data('productSelector');
+        productSelectorObj.loadUrlParams(urlParams);
+
+        const deviceGroup = $(deviceGroupElem).data('deviceGroup');
 
         const tableConfigObj = {
             gaCategory,
@@ -463,7 +485,109 @@ $(document).ready(function() {
                 showAlways: true,
             },
         };
+
+        tableObj.setConfig(tableConfigObj);
+        // tableObj.loadUrlParams(urlParams);
+
+        const getOptions = function(options = {}) {
+            
+            productSelectorObj.getOptions(options);
+            // tableObj.getOptions(options);
+
+
+
+            // options.username = apiHelper.auth.username;
+            // options.accessToken = apiHelper.auth.access_token;
+
+            return options
+        }
+
+
+        $(claimLoggedInCheckboxElem).on('click', function() {
+            const checked = $(this).prop('checked');
+            if (checked) {
+                $(claimTokenCheckboxElem).prop('checked', false);        
+            }
+        });
+        $(claimTokenCheckboxElem).on('click', function() {
+            const checked = $(this).prop('checked');
+            if (checked) {
+                $(claimLoggedInCheckboxElem).prop('checked', false);        
+            }
+
+        });
+
+        let tokenInputTimer;
+
+        const tokenInputMakePassword = function() {
+            $(claimTokenInputElem).prop('type', 'password');    
+        }
+
+        $(claimTokenInputElem).on('input', function() {
+            const text = $(claimTokenInputElem).val().trim();
+            
+            if (tokenInputTimer) {
+                clearTimeout(tokenInputTimer);
+                tokenInputTimer = 0;
+            }
+            if (text.length == 0) {
+                $(claimTokenCheckboxElem).prop('checked', false);        
+            }
+            else {
+                // Token is 40 characters, hexadecimal
+                const tokenRE = /^[A-Fa-f0-9]{40}$/;
+                if (text.match(tokenRE)) {
+                    $(claimLoggedInCheckboxElem).prop('checked', false);        
+                    $(claimTokenCheckboxElem).prop('checked', true);        
+                    setStatus('');
+                }
+                else {
+                    setStatus('Access tokens must be 40 hexadecimal characters');
+                }
+
+                $(claimTokenInputElem).prop('type', 'text');    
+                tokenInputTimer = setTimeout(tokenInputMakePassword, 2000);
+            }
+        });
         
+        $(claimTokenInputElem).on('blur', function() {
+            if (tokenInputTimer) {
+                clearTimeout(tokenInputTimer);
+                tokenInputTimer = 0;
+            }
+            tokenInputMakePassword();
+        });
+
+        // This is triggered by the product selector when the product list changes
+        $(thisPartial).on('updateProductList', async function(event, options) {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+                // This is triggered to update the URL search parameters when settings change
+        $(thisPartial).on('updateSearchParam', function() {
+            // console.log('import devices updateSearchParam');
+            try {
+                let options = {};
+                getOptions(options);
+
+                let urlConfig = {};
+                // tableObj.getUrlConfigObj(urlConfig);
+
+                productSelectorObj.getUrlConfigObj(urlConfig);
+                
+                if (deviceGroup) {
+                    deviceGroup.getUrlConfigObj(urlConfig);
+                }
+
+                const searchStr = $.param(urlConfig);
+    
+                history.pushState(null, '', '?' + searchStr);     
+            }
+            catch(e) {
+                console.log('exception', e);
+            }
+        });
+
     });
 
 

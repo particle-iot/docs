@@ -2013,6 +2013,25 @@ $(document).ready(function() {
         let checkboxList = {};
         $(thisPartial).data('checkboxList', checkboxList);
 
+        checkboxList.urlKey = 'cb';
+
+        checkboxList.getOptions = function(options = {}) {
+
+            return options;
+        }
+
+        checkboxList.getUrlConfigObj = function(urlConfig) {
+            const array = checkboxList.getSelectedItems();
+            
+            for(let ii = 0; ii < array.length; ii++) {
+                urlConfig[checkboxList.urlKey + ii] = array[ii];
+            }
+        }
+
+        checkboxList.loadUrlParams = function(urlParams) {
+            checkboxList.urlParams = urlParams;
+        }
+
         checkboxList.resize = function() {
             // Remove explicit widths
             $(thisPartial).find('div').each(function() {
@@ -2049,6 +2068,10 @@ $(document).ready(function() {
                 $(checkboxElem).prop('checked', true);
             }
 
+            $(checkboxElem).on('click', function() {
+                $(thisPartial).trigger('updateSearchParam'); 
+            });
+
             $(labelElem).append(checkboxElem);
             $(labelElem).append(document.createTextNode(itemName));
             
@@ -2063,6 +2086,21 @@ $(document).ready(function() {
             for(const itemName of array) {
                 checkboxList.addItem(itemName, options);
             }
+
+            if (checkboxList.urlParams) {
+
+                for(let ii = 0; ; ii++) {
+                    const value = checkboxList.urlParams.get(checkboxList.urlKey + ii);
+                    if (!value) {
+                        break;
+                    }
+                    checkboxList.selectItem(value);
+                }
+    
+                checkboxList.urlParams = null;
+            }
+
+
             checkboxList.resize();
         };
 
@@ -2117,12 +2155,25 @@ $(document).ready(function() {
         const createNewGroupDivElem = $(thisPartial).find('.createNewGroupDiv');
         const newGroupDescriptionTextElem = $(thisPartial).find('.newGroupDescriptionText');
     
-        const checkboxList = $(groupListDivElem).data('checkboxList');
+        let deviceGroup = {};
+        $(thisPartial).data('deviceGroup'. deviceGroup)
 
-        // const Elem = $(thisPartial).find('.');
-    
-        const setStatus = function(s = '') {
-            $(statusMessageElem).text(s);
+        deviceGroup.checkboxList = $(groupListDivElem).data('checkboxList');
+
+        deviceGroup.checkboxList.urlKey = 'g';
+
+        deviceGroup.getOptions = function(options = {}) {
+            deviceGroup.checkboxList(options);
+            return options;
+        }
+        
+        deviceGroup.getUrlConfigObj = function(urlConfig) {
+            deviceGroup.checkboxList.getUrlConfigObj(urlConfig);
+
+        }
+
+        deviceGroup.loadUrlParams = function(urlParams) {
+            deviceGroup.checkboxList.loadUrlParams(urlParams);
         }
 
 
@@ -2164,7 +2215,7 @@ $(document).ready(function() {
 
                 $(groupListDivElem).empty();
                 for(const groupName of groups) {
-                    checkboxList.addItem(groupName);
+                    deviceGroup.checkboxList.addItem(groupName);
                 } 
             }
             else {
@@ -2243,7 +2294,7 @@ $(document).ready(function() {
             // Release firmware to group
 
             // Add to popup
-            checkboxList.addItem(groupName, {checked:true});
+            deviceGroup.checkboxList.addItem(groupName, {checked:true});
             groups.push(groupName);
     
             $(newGroupButtonElem).prop('disabled', false);
@@ -2263,8 +2314,6 @@ $(document).ready(function() {
                 $(newGroupFirmwareSelectElem).hide();
             }
         });
-
-
 
         $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             updateSettings(settings);
@@ -2589,6 +2638,34 @@ $(document).ready(function() {
 
             return options;
         }
+
+        const urlConfigFields = ['platformId', 'orgId', 'sandboxOrg', 'productId'];
+
+        productSelector.getUrlConfigObj = function(resultObj) {
+
+            const options = productSelector.getOptions();
+
+            for(const field of urlConfigFields) {
+                resultObj[field] = options[field];
+            }
+
+        };
+
+
+        productSelector.loadUrlParams = function(urlParams) {
+            productSelector.urlParams = urlParams;
+
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+
+            for(const field of urlConfigFields) {
+                const value = urlParams.get(field);
+                if (value) {
+                    settings[field] = value;
+                }
+            }
+
+            apiHelper.manualSettings.save();
+        };
 
         productSelector.saveSettings = function() {
             let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});

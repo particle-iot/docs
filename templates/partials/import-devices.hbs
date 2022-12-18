@@ -3,13 +3,19 @@
     <div class="apiHelperBox">
         {{> create-or-select-product}}
         {{> device-group }}
+        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+            <div style="width: 135px;">Claim device</div>
+            <div style="width: 550px;">
+                <div><label><input type="checkbox" class="claimLoggedInCheckbox" />Claim to the logged in account <span></span></label></div>
+                <div><label><input type="checkbox" class="claimTokenCheckbox"/>Claim to an account using access token</label>
+                    <input type="text" size="20" class="claimTokenInput" /></div>
+            </div>
+        </div>
         <table class="apiHelperTableNoMargin">
             <tbody>
                 <tr>
-                    <td colspan="2">
-                        <button class="apiHelperButton actionButton">List Devices</button>
-                    </td>                
-                    <td>&nbsp;</td>
+                    <td>Claim Device</td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>    
