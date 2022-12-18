@@ -225,6 +225,25 @@ button {
 
 };
 
+button.smallButton {
+  .STYLE_button_sm();
+  border-radius: 0px;
+  height: 20px;
+  color: @COLOR_Midnight_500;
+  padding-left: 8px;
+  padding-right: 8px;
+  &:enabled {
+      background-color: @COLOR_ParticleBlue_500;
+  }
+  &:hover:enabled {
+      text-decoration: underline;
+  }
+  &:disabled {
+      background-color: @COLOR_ParticleBlue_800;
+  }
+
+};
+
 @media (max-width: 480px) {
   body,
   td,

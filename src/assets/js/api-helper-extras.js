@@ -2007,6 +2007,96 @@ $(document).ready(function() {
     }();
 
 
+    $('.apiHelperCheckboxList').each(function() {
+        const thisPartial = $(this);
+
+        let checkboxList = {};
+        $(thisPartial).data('checkboxList', checkboxList);
+
+        checkboxList.resize = function() {
+            // Remove explicit widths
+            $(thisPartial).find('div').each(function() {
+                const itemElem = $(this);
+                $(itemElem).css('width', '');
+            });
+
+            // Measure
+            let maxWidth = 0;
+            $(thisPartial).find('div').each(function() {
+                const itemElem = $(this);
+                const width = $(itemElem).width();
+                if (width > maxWidth) {
+                    maxWidth = width;
+                }
+            });
+
+            // Assign to widest width
+            $(thisPartial).find('div').each(function() {
+                const itemElem = $(this);
+                $(itemElem).css('width', (maxWidth + 10) + 'px');
+            });
+        };
+
+        checkboxList.addItem = function(itemName, options = {}) {
+            const divElem = document.createElement('div');
+            const labelElem = document.createElement('label');
+
+            const checkboxElem = document.createElement('input');
+            $(checkboxElem).attr('type', 'checkbox');
+            $(checkboxElem).data('itemName', itemName);
+
+            if (options.checked) {
+                $(checkboxElem).prop('checked', true);
+            }
+
+            $(labelElem).append(checkboxElem);
+            $(labelElem).append(document.createTextNode(itemName));
+            
+            $(divElem).append(labelElem);
+            $(divElem).append(document.createElement('br'));
+
+            $(thisPartial).append(divElem);            
+            checkboxList.resize();
+        };
+
+        checkboxList.addArray = function(array, options = {}) {
+            for(const itemName of array) {
+                checkboxList.addItem(itemName, options);
+            }
+            checkboxList.resize();
+        };
+
+        checkboxList.selectItem = function(itemName) {
+            $(thisPartial).find('input').each(function() {
+                const itemElem = $(this);
+                if ($(itemElem).data('itemName') == itemName) {
+                    $(itemElem).prop('checked', true);
+                }
+            });
+        };
+
+        checkboxList.getSelectedItems = function(itemName) {
+            let array = [];
+
+            $(thisPartial).find('input').each(function() {
+                const itemElem = $(this);
+                if ($(itemElem).prop('checked')) {
+                    const itemName = $(itemElem).data('itemName');
+                    array.push(itemName);
+                }
+            });
+
+            return array;
+        };
+
+
+        checkboxList.empty = function() {
+            $(thisPartial).empty();
+        };
+
+
+    });
+
     // Select or create a device group
     $('.apiHelperDeviceGroup').each(function() {
         const thisPartial = $(this);
@@ -2017,7 +2107,7 @@ $(document).ready(function() {
         const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
         // const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
 
-        const groupSelectElem = $(thisPartial).find('.groupSelect');
+        const groupListDivElem = $(thisPartial).find('.groupListDiv');
         const newGroupTextElem = $(thisPartial).find('.newGroupText');
         const newGroupButtonElem = $(thisPartial).find('.newGroupButton');
         const newGroupFirmwareSelectElem = $(thisPartial).find('.newGroupFirmwareSelect');
@@ -2027,14 +2117,13 @@ $(document).ready(function() {
         const createNewGroupDivElem = $(thisPartial).find('.createNewGroupDiv');
         const newGroupDescriptionTextElem = $(thisPartial).find('.newGroupDescriptionText');
     
-
+        const checkboxList = $(groupListDivElem).data('checkboxList');
 
         // const Elem = $(thisPartial).find('.');
     
         const setStatus = function(s = '') {
             $(statusMessageElem).text(s);
         }
-
 
 
         // 
@@ -2072,13 +2161,10 @@ $(document).ready(function() {
                 //  id, name, description, device_count, groups[], etc.
 
                 groups = productRes.body.product.groups;
-                $(groupSelectElem).empty();
-                for(const groupName of groups) {
-                    const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', groupName);
-                    $(optionElem).text(groupName);
 
-                    $(groupSelectElem).append(optionElem);
+                $(groupListDivElem).empty();
+                for(const groupName of groups) {
+                    checkboxList.addItem(groupName);
                 } 
             }
             else {
@@ -2157,11 +2243,7 @@ $(document).ready(function() {
             // Release firmware to group
 
             // Add to popup
-            const optionElem = document.createElement('option');
-            $(optionElem).attr('value', groupName);
-            $(optionElem).attr('selected', 'selected');
-            $(optionElem).text(groupName);
-            $(groupSelectElem).append(optionElem);
+            checkboxList.addItem(groupName, {checked:true});
             groups.push(groupName);
     
             $(newGroupButtonElem).prop('disabled', false);
