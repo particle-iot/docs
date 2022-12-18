@@ -147,6 +147,15 @@ textarea.usbSerialConsoleTextArea:focus {
 	background-color: @super-dark-gray;
 };
 
+.apiHelperGroupedBoxOuter {
+    padding: 8px;
+    margin: 4px;
+    border-style: dotted;
+    border-width: 1px;
+};
+.apiHelperGroupedTitle {
+    margin: 4px;
+};
 
 @media (prefers-color-scheme: dark) {
     div.apiHelper, div.codeboxBanner {
@@ -167,6 +176,13 @@ textarea.usbSerialConsoleTextArea:focus {
     .apiHelperGiantButtonSelected {
         background-color: @COLOR_ParticleBlue_700;
     }
+    .apiHelperGroupedBoxOuter {
+        color: @COLOR_Gray_400;
+    }
+    .apiHelperGroupedBoxInner {
+        // This is the default color in body, defined in basics.less
+        color: @COLOR_Gray_100;
+    }    
 }
 
 
@@ -189,4 +205,12 @@ textarea.usbSerialConsoleTextArea:focus {
     .apiHelperGiantButtonSelected {
         background-color: @COLOR_ParticleBlue_700;
     }
+    .apiHelperGroupedBoxOuter {
+        color: @COLOR_Midnight_300;
+    }
+    .apiHelperGroupedBoxInner {
+        // This is the default color in body, defined in basics.less
+        color: @COLOR_Midnight_500;
+    };
+    
 }

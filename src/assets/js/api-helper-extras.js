@@ -2012,6 +2012,7 @@ $(document).ready(function() {
         const thisPartial = $(this);
 
         let productId;
+        let groups;
 
         const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
         // const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
@@ -2021,45 +2022,35 @@ $(document).ready(function() {
         const newGroupButtonElem = $(thisPartial).find('.newGroupButton');
         const newGroupFirmwareSelectElem = $(thisPartial).find('.newGroupFirmwareSelect');
         const statusMessageElem = $(thisPartial).find('.statusMessage');
+        const newGroupSetFirmwareCheckboxElem = $(thisPartial).find('.newGroupSetFirmwareCheckbox');
+        const showNewGroupButton = $(thisPartial).find('.showNewGroupButton');
+        const createNewGroupDivElem = $(thisPartial).find('.createNewGroupDiv');
+        const newGroupDescriptionTextElem = $(thisPartial).find('.newGroupDescriptionText');
+    
 
+
+        // const Elem = $(thisPartial).find('.');
+    
         const setStatus = function(s = '') {
             $(statusMessageElem).text(s);
         }
+
+
 
         // 
         const updateSettings = async function(settings = apiHelper.manualSettings.get()) {
             if (apiHelper.auth && settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
                 productId = settings.createOrSelectProduct.productId;
-                console.log('productId', productId);
                 $(productIsSelectedElem).show();
 
-                // Fetch device groups
-                const productRes = await apiHelper.particle.getProduct({ 
-                    product: productId,
-                    auth: apiHelper.auth.access_token 
-                });
-                console.log('productRes', productRes);
-                // body.product.
-                //  id, name, description, device_count, groups[], etc.
                 
                 const firmwareRes = await apiHelper.particle.listProductFirmware({ 
                     product: productId,
                     auth: apiHelper.auth.access_token 
                 });
-                console.log('firmwareRes', firmwareRes);
+                // console.log('firmwareRes', firmwareRes);
                 // body: array of objects:
                 //  version, title, description, device_count, name (filename), groups, product_default, immediate, mandatory, uploaded_by, uploaded_on, _id,
-
-
-                $(groupSelectElem).empty();
-                for(const groupName of productRes.body.product.groups) {
-                    const optionElem = document.createElement('option');
-                    $(optionElem).attr('value', groupName);
-                    $(optionElem).text(groupName);
-
-                    $(groupSelectElem).append(optionElem);
-                }
-
                 $(newGroupFirmwareSelectElem).empty();
                 for(const firmwareObj of firmwareRes.body) {
                     const optionElem = document.createElement('option');
@@ -2070,12 +2061,33 @@ $(document).ready(function() {
                     }
                     $(newGroupFirmwareSelectElem).append(optionElem);
                 }
-            } 
+
+                // Fetch device groups
+                const productRes = await apiHelper.particle.getProduct({ 
+                    product: productId,
+                    auth: apiHelper.auth.access_token 
+                });
+                // console.log('productRes', productRes);
+                // body.product.
+                //  id, name, description, device_count, groups[], etc.
+
+                groups = productRes.body.product.groups;
+                $(groupSelectElem).empty();
+                for(const groupName of groups) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', groupName);
+                    $(optionElem).text(groupName);
+
+                    $(groupSelectElem).append(optionElem);
+                } 
+            }
             else {
                 $(productIsSelectedElem).hide();
             }
         }
         updateSettings();
+
+    
 
         $(newGroupTextElem).on('input', function() {
             const groupName = $(newGroupTextElem).val().trim();
@@ -2084,8 +2096,13 @@ $(document).ready(function() {
                 // TODO: There's a maximum length, enforce that here as well, once I figure out what it is
                 const validRE = /^[-a-z0-9_]+$/;
                 if (groupName.match(validRE)) {
-                    $(newGroupButtonElem).prop('disabled', false);
-                    setStatus('');
+                    if (!groups.includes(groupName)) {
+                        $(newGroupButtonElem).prop('disabled', false);
+                        setStatus('');    
+                    }
+                    else {
+                        setStatus('Group name already exists');    
+                    }
                 }
                 else {
                     $(newGroupButtonElem).prop('disabled', true);
@@ -2097,12 +2114,75 @@ $(document).ready(function() {
             }
         });
 
-        $(newGroupButtonElem).on('click', function() {
+        $(showNewGroupButton).on('click', function() {
+            $(showNewGroupButton).hide();
+            $(createNewGroupDivElem).show();
+        });
+
+        $(newGroupButtonElem).on('click', async function() {
             $(newGroupButtonElem).prop('disabled', true);
 
             const groupName = $(newGroupTextElem).val().trim();
+            const description = $(newGroupDescriptionTextElem).val();
+
+            // Create a group
+            let requestData = {
+                name: groupName,
+                description,
+            };
+
+            await new Promise(function(resolve, reject) {
+                let request = {
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestData),
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        console.log('error', jqXHR);
+                        reject(jqXHR);
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    success: function (resp, textStatus, jqXHR) {
+                        console.log('resp', resp);
+                        resolve();
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/groups',
+                }
+                $.ajax(request);
+            });
+
+            // Release firmware to group
+
+            // Add to popup
+            const optionElem = document.createElement('option');
+            $(optionElem).attr('value', groupName);
+            $(optionElem).attr('selected', 'selected');
+            $(optionElem).text(groupName);
+            $(groupSelectElem).append(optionElem);
+            groups.push(groupName);
+    
+            $(newGroupButtonElem).prop('disabled', false);
+            $(newGroupTextElem).val('');
+
+            $(showNewGroupButton).show();
+            $(createNewGroupDivElem).hide();
 
         });
+
+        $(newGroupSetFirmwareCheckboxElem).on('click', function() {
+            const setVersion = $(newGroupSetFirmwareCheckboxElem).prop('checked');
+            if (setVersion) {
+                $(newGroupFirmwareSelectElem).show();
+            }
+            else {
+                $(newGroupFirmwareSelectElem).hide();
+            }
+        });
+
+
 
         $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             updateSettings(settings);
