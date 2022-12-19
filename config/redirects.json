@@ -1724,6 +1724,7 @@
   "/device-restore-jtag": "/tools/device-restore/device-restore-jtag",
   "/device-restore-usb": "/tools/device-restore/device-restore-usb",
   "/diagnostics": "/getting-started/console/fleet-health",
+  "/enterprise": "/scaling/enterprise",
   "/ethernet-featherwing": "/datasheets/accessories/gen3-accessories/#ethernet-featherwing",
   "/examples": "/tutorials",
   "/faq": "/support/particle-devices-faq/finding-device-id",
