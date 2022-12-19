@@ -25630,6 +25630,410 @@
                 2588,
                 2597
             ]
+        },
+        "v5.2.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.2.0",
+            "tag_name": "v5.2.0",
+            "name": "v5.2.0 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/P2)",
+            "prerelease": true,
+            "created_at": "2022-12-16T20:24:05Z",
+            "published_at": "2022-12-19T18:23:27Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2555
+                    ],
+                    "section": "FEATURES",
+                    "text": "Initial support for BG95-M6 modem"
+                },
+                {
+                    "tags": [
+                        "TrackerM"
+                    ],
+                    "prs": [
+                        2602
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Collect cellular properties with system info"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2600
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "fixes System.ticks()"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2587
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "System setup and BLE threading improvements"
+                },
+                {
+                    "tags": [
+                        "rtl872x",
+                        "freertos",
+                        "experimental"
+                    ],
+                    "prs": [
+                        2581
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "multi-step priority disinheritance"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2586
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "sleep improvements"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2582
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "fixes pinResetFast clearing too many pins and improves speed"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2569
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "prebootloader: enable BOR with lowest available thresholds"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2603
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix USART/DMA deadlock"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2599
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Free memory from rtl sdk in SystemISRTaskQueue"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2598
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "exflash: revert dcache invalidate calls after writes/erasures"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2596
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes a deadlock when requiring to enable RSIP"
+                },
+                {
+                    "tags": [
+                        "gen3"
+                    ],
+                    "prs": [
+                        2597
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Use OTP Feature flag to change ADC reference source"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2594
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: remove an assert in read()/peek() and instead adjust read/peek size"
+                },
+                {
+                    "tags": [
+                        "boron"
+                    ],
+                    "prs": [
+                        2588
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Use the internal ADC reference on BRN404X"
+                },
+                {
+                    "tags": [
+                        "p2"
+                    ],
+                    "prs": [
+                        2561
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fixes the conflict between Flash API and XIP"
+                },
+                {
+                    "tags": [
+                        "Quectel"
+                    ],
+                    "prs": [
+                        2589
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Account for \"eMTC\" type while obtaining signal values"
+                },
+                {
+                    "tags": [
+                        "Boron / B SoM"
+                    ],
+                    "prs": [
+                        2571
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "R410 PPP crash in network phase workaround"
+                },
+                {
+                    "tags": [
+                        "Cellular"
+                    ],
+                    "prs": [
+                        2573
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "R410 initialization SIM failure workaround"
+                },
+                {
+                    "tags": [
+                        "gen3",
+                        "p2"
+                    ],
+                    "prs": [
+                        2572
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix i2c hal deadlock"
+                },
+                {
+                    "tags": [
+                        "TrackerM"
+                    ],
+                    "prs": [
+                        2567
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Prevent connection over wifi when configured in SCAN_ONLY mode"
+                },
+                {
+                    "tags": [
+                        "p2"
+                    ],
+                    "prs": [
+                        2562
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "WiFi bugfixes"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2551
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Fix acquireWireBuffer for platforms where system initializes I2C before user app"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2552
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE Central connection failure when peer disconnects"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2592
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Use compatible pins for PWM tests on TrackerM"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2591
+                    ],
+                    "section": "INTERNAL",
+                    "text": "bump fastpin max limit to 10%"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2590
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Add thresholds for trackerM for slo tests"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2585
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Modify pins for trackerM spix tests"
+                },
+                {
+                    "tags": [
+                        "trackerm"
+                    ],
+                    "prs": [
+                        2580
+                    ],
+                    "section": "INTERNAL",
+                    "text": "TrackerM EVT v0.0.3 pinmap update"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2583
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Allow setting the ICCID of a virtual device"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2578
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Protobuf defs refactor / fixes submessage encoding after nanopb 0.4.5 upgrade"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2563
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update nanopb to 0.4.5"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2559
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix no_fixture_i2c for esomx,boron,bsom platforms"
+                },
+                {
+                    "tags": [
+                        "CI"
+                    ],
+                    "prs": [
+                        2564
+                    ],
+                    "section": "INTERNAL",
+                    "text": "fixes"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2558
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Move no_fixture_i2c to correct dir and symlink to integration/wiring"
+                },
+                {
+                    "tags": [
+                        "trackerm"
+                    ],
+                    "prs": [
+                        2550
+                    ],
+                    "section": "INTERNAL",
+                    "text": "TrackerM EVT v0.0.2 pinmap update"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2545
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Increase timeouts for internal CI builds on windows"
+                }
+            ],
+            "prs": [
+                2545,
+                2550,
+                2551,
+                2552,
+                2555,
+                2558,
+                2559,
+                2561,
+                2562,
+                2563,
+                2564,
+                2567,
+                2569,
+                2571,
+                2572,
+                2573,
+                2578,
+                2580,
+                2581,
+                2582,
+                2583,
+                2585,
+                2586,
+                2587,
+                2588,
+                2589,
+                2590,
+                2591,
+                2592,
+                2594,
+                2596,
+                2597,
+                2598,
+                2599,
+                2600,
+                2602,
+                2603
+            ]
         }
     },
     "pulls": {
@@ -37677,6 +38081,13 @@
             "title": "[rtl872x] Support IO wakeup sources through IO expander.",
             "state": "open",
             "created_at": "2022-12-15T12:33:00Z"
+        },
+        "2605": {
+            "url": "https://github.com/particle-iot/device-os/pull/2605",
+            "number": 2605,
+            "title": "Device OS 5.2.0 Release",
+            "state": "closed",
+            "created_at": "2022-12-16T19:06:43Z"
         }
     }
 }

@@ -79,8 +79,8 @@ async function generateSystemVersionInfo(options, files, done) {
                 }
             }
         }
-        processUrl('https://raw.githubusercontent.com/particle-iot/device-os/develop/system/system-versions.md');
-        processUrl('https://raw.githubusercontent.com/particle-iot/device-os/develop-4.x/system/system-versions.md');
+        await processUrl('https://raw.githubusercontent.com/particle-iot/device-os/develop/system/system-versions.md');
+        await processUrl('https://raw.githubusercontent.com/particle-iot/device-os/develop-4.x/system/system-versions.md');
         
         
         // Sort versions
@@ -99,6 +99,9 @@ async function generateSystemVersionInfo(options, files, done) {
                 contents: Buffer.from(versionInfoStr, 'utf8')
             };
             files[versionInfoJsonRelativePath] = fileArrayData;
+        }
+        else {
+            // console.log('versionInfo.json unchanged');
         }
 
         oldVersionUpdate.updated = Math.floor(Date.now() / 1000);
