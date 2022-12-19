@@ -400,9 +400,10 @@ $(document).ready(function() {
         const thisPartial = $(this);
         const gaCategory = 'importDevices';
 
-        const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
+        //const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
+        //const actionButtonElem = $(thisPartial).find('.actionButton');
+
         const productSelectorElem = $(thisPartial).find('.apiHelperCreateOrSelectProduct');
-        const actionButtonElem = $(thisPartial).find('.actionButton');
 
         const deviceGroupElem = $(thisPartial).find('.apiHelperDeviceGroup');
 
@@ -438,7 +439,7 @@ $(document).ready(function() {
         const productSelectorObj = $(productSelectorElem).data('productSelector');
         productSelectorObj.loadUrlParams(urlParams);
 
-        const deviceGroup = $(deviceGroupElem).data('deviceGroup');
+        let deviceGroup = $(deviceGroupElem).data('deviceGroup');
 
         const tableConfigObj = {
             gaCategory,
@@ -494,7 +495,8 @@ $(document).ready(function() {
             productSelectorObj.getOptions(options);
             // tableObj.getOptions(options);
 
-
+            options.claimLogin = $(claimLoggedInCheckboxElem).prop('checked');
+            options.claimToken = $(claimTokenCheckboxElem).prop('checked');
 
             // options.username = apiHelper.auth.username;
             // options.accessToken = apiHelper.auth.access_token;
@@ -508,13 +510,14 @@ $(document).ready(function() {
             if (checked) {
                 $(claimTokenCheckboxElem).prop('checked', false);        
             }
+            $(thisPartial).trigger('updateSearchParam');
         });
         $(claimTokenCheckboxElem).on('click', function() {
             const checked = $(this).prop('checked');
             if (checked) {
                 $(claimLoggedInCheckboxElem).prop('checked', false);        
             }
-
+            $(thisPartial).trigger('updateSearchParam');
         });
 
         let tokenInputTimer;
@@ -563,9 +566,26 @@ $(document).ready(function() {
             $(thisPartial).trigger('updateSearchParam');
         });
 
-                // This is triggered to update the URL search parameters when settings change
-        $(thisPartial).on('updateSearchParam', function() {
-            // console.log('import devices updateSearchParam');
+        const urlConfigFields = ['claimLogin', 'claimToken'];
+
+        {
+            let value = urlParams.get('claimLogin');
+            if (value) {
+                $(claimLoggedInCheckboxElem).prop('checked', true);
+            }
+            value = urlParams.get('claimToken');
+            if (value) {
+                $(claimLoggedInCclaimTokenCheckboxElemheckboxElem).prop('checked', true);
+                if (typeof value == 'string') {
+                    $(claimTokenInputElem).val(value);
+                }
+            }
+            deviceGroup.loadUrlParams(urlParams);
+        }
+
+        // This is triggered to update the URL search parameters when settings change
+        $(document).on('updateSearchParam', function() {
+            console.log('import devices updateSearchParam');
             try {
                 let options = {};
                 getOptions(options);
@@ -575,8 +595,12 @@ $(document).ready(function() {
 
                 productSelectorObj.getUrlConfigObj(urlConfig);
                 
-                if (deviceGroup) {
-                    deviceGroup.getUrlConfigObj(urlConfig);
+                deviceGroup.getUrlConfigObj(urlConfig);
+
+                for(const field of urlConfigFields) {
+                    if (options[field]) {
+                        urlConfig[field] = options[field];
+                    }
                 }
 
                 const searchStr = $.param(urlConfig);

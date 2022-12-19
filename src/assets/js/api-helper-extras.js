@@ -2156,7 +2156,7 @@ $(document).ready(function() {
         const newGroupDescriptionTextElem = $(thisPartial).find('.newGroupDescriptionText');
     
         let deviceGroup = {};
-        $(thisPartial).data('deviceGroup'. deviceGroup)
+        $(thisPartial).data('deviceGroup', deviceGroup)
 
         deviceGroup.checkboxList = $(groupListDivElem).data('checkboxList');
 
@@ -2173,6 +2173,7 @@ $(document).ready(function() {
         }
 
         deviceGroup.loadUrlParams = function(urlParams) {
+            // This saves the urlParams in the checkbox list. addArray checks the saved urlParams
             deviceGroup.checkboxList.loadUrlParams(urlParams);
         }
 
@@ -2213,10 +2214,10 @@ $(document).ready(function() {
 
                 groups = productRes.body.product.groups;
 
-                $(groupListDivElem).empty();
-                for(const groupName of groups) {
-                    deviceGroup.checkboxList.addItem(groupName);
-                } 
+                deviceGroup.checkboxList.empty(); 
+                // addArray checks urlParams to see if the items should be checked
+                deviceGroup.checkboxList.addArray(groups);
+
             }
             else {
                 $(productIsSelectedElem).hide();
@@ -2313,6 +2314,10 @@ $(document).ready(function() {
             else {
                 $(newGroupFirmwareSelectElem).hide();
             }
+        });
+
+        $(thisPartial).on('updateSearchParam', function(event) {
+            console.log('apiHelperDeviceGroup updateSearchParam');
         });
 
         $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
@@ -2646,7 +2651,9 @@ $(document).ready(function() {
             const options = productSelector.getOptions();
 
             for(const field of urlConfigFields) {
-                resultObj[field] = options[field];
+                if (options[field]) {
+                    resultObj[field] = options[field];
+                }
             }
 
         };
