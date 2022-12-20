@@ -20,8 +20,6 @@ $(document).ready(function() {
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
         let fieldSelectorObj;
 
-        let tableData;
-
 
         const tableObj = {
         };
@@ -49,7 +47,7 @@ $(document).ready(function() {
                 }
             }
 
-            $(copyButtonElem).prop('disabled', !tableData || !tableData.data || (options.format == 'xlsx'));
+            $(copyButtonElem).prop('disabled', !tableObj.tableData || !tableObj.tableData.data || (options.format == 'xlsx'));
         }
         
         tableObj.setConfig = function(configObjIn) {
@@ -219,8 +217,8 @@ $(document).ready(function() {
             $(tableObj.sort.indicatorElements[key]).addClass(sortDirStr);
 
             tableObj.sort.rows = [];
-            for(let ii = 0; ii < tableData.data.length; ii++) {
-                if (!options.omitEmpty || tableData.data[ii][key]) {
+            for(let ii = 0; ii < tableObj.tableData.data.length; ii++) {
+                if (!options.omitEmpty || tableObj.tableData.data[ii][key]) {
                     tableObj.sort.rows.push(ii);
                 }
             }
@@ -228,19 +226,19 @@ $(document).ready(function() {
             tableObj.sort.rows.sort(function(a, b) {
                 let sort = 0;
 
-                if (!tableData.data[a][key] && tableData.data[b][key]) {
+                if (!tableObj.tableData.data[a][key] && tableObj.tableData.data[b][key]) {
                     sort = -1;
                 }
                 else
-                if (tableData.data[a][key] && !tableData.data[b][key]) {
+                if (tableObj.tableData.data[a][key] && !tableObj.tableData.data[b][key]) {
                     sort = 1;
                 }
                 else
-                if (!tableData.data[a][key] && !tableData.data[b][key]) {
+                if (!tableObj.tableData.data[a][key] && !tableObj.tableData.data[b][key]) {
                     sort = 0;
                 }
                 else {
-                    sort = tableData.data[a][key].localeCompare(tableData.data[b][key]);
+                    sort = tableObj.tableData.data[a][key].localeCompare(tableObj.tableData.data[b][key]);
                 }
                 
                 if (tableObj.sort.sortDir < 0) {
@@ -256,8 +254,65 @@ $(document).ready(function() {
             }
         };
 
-        tableObj.refreshTable =function(tableDataIn, options) {
-            tableData = tableDataIn;
+    
+        tableObj.addRow = function(obj, options = {}) {
+            if (!tableObj.sort.rowElems) {
+                tableObj.sort.rowElems = [];
+            }
+
+            const rowElem = document.createElement('tr');
+
+            const tableFormat = getTableFormat(options);
+
+            console.log('addRow', obj);
+
+            for(let col = 0; col < tableFormat.keys.length; col++) {
+                const key = tableFormat.keys[col];
+
+                const tdElem = document.createElement('td');
+                $(tdElem).css('width', tableFormat.widths[col] + 'ch');
+
+                if (obj[key]) {
+                    $(tdElem).text(obj[key]);
+                }
+
+                $(rowElem).append(tdElem);
+            }
+
+            $(tableBodyElem).append(rowElem);
+
+            if (options.addToTableData) {
+                if (!tableObj.tableData) {
+                    tableObj.tableData = {};
+                }
+                if (!tableObj.tableData.data) {
+                    tableObj.tableData.data = [];
+                }
+                tableObj.tableData.data.push(obj);
+            }
+
+            if (options.sort) {
+                if (tableObj.sort.sortBy) {
+                    tableObj.sortBy();
+                }    
+            }
+
+            // Don't need to update sort.rows because it's rebuilt during sort (because filtering may apply)
+
+            $(downloadButtonElem).attr('disabled', false);
+            $(copyButtonElem).attr('disabled', (options.format == 'xlsx'));    
+
+        }
+
+        tableObj.addRows = function(array, options) {
+        
+            for(const obj of array) {
+                tableObj.addRow(obj, options);
+            }
+        }
+
+        tableObj.refreshTable = function(tableDataIn, options) {
+            tableObj.tableData = tableDataIn;
 
             const tableFormat = getTableFormat(options);
 
@@ -288,34 +343,15 @@ $(document).ready(function() {
     
             $(tableBodyElem).empty();
     
-            if (tableData.data) {
+            if (tableObj.tableData.data) {
                 $(tableDivElem).show();
                 $(downloadDivElem).show();
 
                 tableObj.sort.rowElems = [];
 
-                for(const d of tableData.data) {
-                    const rowElem = document.createElement('tr');
-    
-                    for(let col = 0; col < tableFormat.keys.length; col++) {
-                        const key = tableFormat.keys[col];
-    
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', tableFormat.widths[col] + 'ch');
-        
-                        if (d[key]) {
-                            $(tdElem).text(d[key]);
-                        }
-        
-                        $(rowElem).append(tdElem);
-                    }
-    
-                    tableObj.sort.rowElems.push(rowElem);
-                    $(tableBodyElem).append(rowElem);    
+                for(const d of tableObj.tableData.data) {
+                    tableObj.addRow(d, options);
                 }
-
-                $(downloadButtonElem).attr('disabled', false);
-                $(copyButtonElem).attr('disabled', (options.format == 'xlsx'));    
             }
             else {
                 $(downloadDivElem).hide();
@@ -350,8 +386,8 @@ $(document).ready(function() {
             xlsxData.tableData = {
                 data: [],
             };
-            for(let ii = 0; ii < tableData.data.length; ii++) {
-                const obj = tableObj.sort.rowElems ? tableData.data[tableObj.sort.rows[ii]] : tableData.data[ii];
+            for(let ii = 0; ii < tableObj.tableData.data.length; ii++) {
+                const obj = tableObj.sort.rowElems ? tableData.data[tableObj.sort.rows[ii]] : tableObj.tableData.data[ii];
 
                 const filteredObj = {};
                 for(const key of xlsxData.tableFormat.keys) {

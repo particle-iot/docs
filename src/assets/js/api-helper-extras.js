@@ -2348,8 +2348,6 @@ $(document).ready(function() {
 
 
         
-
-        const deviceIdRE = /([A-Fa-f0-9]{24})/;
         
         let productId;
 
@@ -2362,26 +2360,22 @@ $(document).ready(function() {
         const updateButton = async function() {
             const text = $(deviceIdTextElem).val().trim();
 
-            if (text.match(deviceIdRE)) {
+            if (apiHelper.isDeviceId(text)) {
                 // Is a Device ID                
                 setStatus('Appears to be a Device ID, can attempt to add');
                 $(addDeviceButtonElem).prop('disabled', false);
                 $(deviceInstructionsElem).hide();
             }
+            else if (apiHelper.isSerialNumber(text)) {
+                // Looks like a serial number
+                setStatus('Appears to be a serial number, can attempt to add');
+                $(addDeviceButtonElem).prop('disabled', false);
+                $(deviceInstructionsElem).hide();
+            }
             else {
-                // Is it a serial number?
-                const skuObj = await apiHelper.getSkuObjFromSerial(text);
-                if (skuObj) {
-                    // Looks like a serial number
-                    setStatus('Appears to be a serial number, can attempt to add');
-                    $(addDeviceButtonElem).prop('disabled', false);
-                    $(deviceInstructionsElem).hide();
-                }
-                else {
-                    setStatus('');
-                    $(addDeviceButtonElem).prop('disabled', true);
-                    $(deviceInstructionsElem).show();
-                }
+                setStatus('');
+                $(addDeviceButtonElem).prop('disabled', true);
+                $(deviceInstructionsElem).show();
             }
         }
 
@@ -2422,7 +2416,7 @@ $(document).ready(function() {
             }
             let isDeviceId = false;
             
-            if (text.match(deviceIdRE)) {
+            if (apiHelper.isDeviceId(text)) {
                 text = text.toLowerCase();
                 isDeviceId = true;
             }

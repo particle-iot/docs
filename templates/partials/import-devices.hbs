@@ -1,6 +1,7 @@
 <!-- Required includeDefinitions: [api-helper, api-helper-extras, api-helper-tools, xlsx] -->
 <div class="apiHelper apiHelperImportDevices apiHelperTable apiHelperLoggedIn">
     <div class="apiHelperBox">
+        <div style="margin: 12px 2px 12px 6px; border-top: 1px;">Import settings</div>
         {{> create-or-select-product}}
         {{> device-group }}
         <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
@@ -11,18 +12,25 @@
                     <input type="text" size="20" class="claimTokenInput" /></div>
             </div>
         </div>
-        <table class="apiHelperTableNoMargin">
-            <tbody>
-                <tr>
-                    <td>Claim Device</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>    
+        <div style="margin: 12px 2px 12px 6px;">Add devices:</div>
+        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+            <div style="width: 135px;">Add from file</div>
+            <div style="width: 550px;" class="fileDropZone">
+                <button class="selectFileButton">Select File</button> or drag-and-drop file here
+            </div>
+        </div>
+        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+            <div style="width: 135px;">Manual entry</div>
+            <div style="width: 550px;">
+                <input type="text" size="60" class="manualEntryInput" /> &nbsp;
+                <button class="addButton">Add</button>
+            </div>
+        </div>
         <div class="apiHelperStatus"></div>
         <div class="progressDiv" style="display:none">
             <progress value="0" max="100"></progress>
         </div>
+        <div class="statusMessage"></div>
         {{> table-display }}
     </div>
 </div>

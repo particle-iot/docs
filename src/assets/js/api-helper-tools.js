@@ -412,6 +412,11 @@ $(document).ready(function() {
         const claimTokenCheckboxElem = $(thisPartial).find('.claimTokenCheckbox');
         const claimTokenInputElem = $(thisPartial).find('.claimTokenInput');
 
+        const selectFileButtonElem = $(thisPartial).find('.selectFileButton');
+        const fileDropZoneElem = $(thisPartial).find('.fileDropZone');
+        const manualEntryInputElem = $(thisPartial).find('.manualEntryInput');
+        const addButtonElem = $(thisPartial).find('.addButton');
+
         // const Elem = $(thisPartial).find('.');
 
         
@@ -444,38 +449,38 @@ $(document).ready(function() {
         const tableConfigObj = {
             gaCategory,
             fieldSelector: {
-                showControl: false,
+                showControl: false,                
                 fields: [
                     {
                         title: 'Device ID',
-                        key: 'id',
-                        checked: true,
+                        key: 'deviceId',
                         width: 24
                     },
                     {
                         title: 'Device Name',
                         key: 'name',
-                        checked: true,
                         width: 15
                     },
                     {
                         title: 'ICCID',
                         key: 'iccid' ,
-                        checked: true,
                         width: 20
                     },
                     {
                         title: 'Serial',
-                        key: 'serial_number',
-                        checked: true,
+                        key: 'serial',
                         width: 20
                     },
                     {
-                        title: 'SKU',
-                        key: '_sku',
-                        checked: true,
-                        width: 10
-                    }
+                        title: 'Added',
+                        key: 'added',
+                        width: 10,
+                    },
+                    {
+                        title: 'Claimed',
+                        key: 'claimed',
+                        width: 10,
+                    },
                 ],
             },
             exportOptions: {
@@ -489,6 +494,7 @@ $(document).ready(function() {
 
         tableObj.setConfig(tableConfigObj);
         // tableObj.loadUrlParams(urlParams);
+        tableObj.refreshTable([], {});
 
         const getOptions = function(options = {}) {
             
@@ -610,6 +616,37 @@ $(document).ready(function() {
             catch(e) {
                 console.log('exception', e);
             }
+        });
+
+        
+
+        const parseManualInput = async function() {
+            const text = $(manualEntryInputElem).val();
+
+            const parsed = await apiHelper.parseDeviceLine(text);
+            if (parsed) {
+                console.log('parsed', parsed);
+                $(manualEntryInputElem).val('');
+
+                tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
+            }
+        };
+
+        $(manualEntryInputElem).on('keydown', async function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+    
+            ev.preventDefault();
+            await parseManualInput();
+        });
+
+        $(manualEntryInputElem).on('blur', async function() {
+            await parseManualInput();
+        });
+
+        $(addButtonElem).on('click', async function() {
+            await parseManualInput();
         });
 
     });
