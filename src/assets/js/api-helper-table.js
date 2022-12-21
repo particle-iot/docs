@@ -384,8 +384,7 @@ $(document).ready(function() {
             xlsxData.tableData = {
                 data: [],
             };
-            console.log('tableObj', tableObj);
-
+            
             for(let ii = 0; ii < tableObj.tableData.data.length; ii++) {
                 const obj = tableObj.sort.rows ? tableObj.tableData.data[tableObj.sort.rows[ii]] : tableObj.tableData.data[ii];
 

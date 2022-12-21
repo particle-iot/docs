@@ -462,6 +462,8 @@ $(document).ready(function() {
 
         let deviceGroup = $(deviceGroupElem).data('deviceGroup');
 
+        let deviceList;
+
         const tableConfigObj = {
             gaCategory,
             fieldSelector: {
@@ -500,6 +502,11 @@ $(document).ready(function() {
                     {
                         title: 'Named',
                         key: 'named',
+                        width: 10,
+                    },
+                    {
+                        title: 'Development',
+                        key: 'development',
                         width: 10,
                     },
                 ],
@@ -759,7 +766,55 @@ $(document).ready(function() {
         });
 
 
-        $(prepareButtonElem).on('click', function() {
+        $(prepareButtonElem).on('click', async function() {
+            // Download the device list for the product
+            const options = getOptions();
+
+            setStatus('Retrieving product device list...');
+            deviceList = await apiHelper.getAllDevices({productId:options.productId});
+            console.log('deviceList', deviceList);
+            console.log('tableObj.tableData', tableObj.tableData);
+            for(let tableDeviceObj of tableObj.tableData.data) {
+                let deviceObj = deviceList.find(e => (e.id == tableDeviceObj.deviceId));
+                if (!deviceObj) {
+                    deviceObj = deviceList.find(e => (e.serial_number == tableDeviceObj.serial));
+                }
+                if (!deviceObj) {
+                    deviceObj = deviceList.find(e => (e.iccid == tableDeviceObj.iccid));
+                }
+
+                if (deviceObj) {
+                    console.log('found tableDeviceObj', tableDeviceObj);
+                    console.log('deviceObj', deviceObj);
+
+                    if (!tableDeviceObj.deviceId && deviceObj.id) {
+                        tableDeviceObj.deviceId = deviceObj.id;
+                    }
+                    if (!tableDeviceObj.serial && deviceObj.serial_number) {
+                        tableDeviceObj.serial = deviceObj.serial_number;
+                    }
+                    if (!tableDeviceObj.iccid && deviceObj.iccid) {
+                        tableDeviceObj.iccid = deviceObj.iccid;
+                    }
+                    if (!tableDeviceObj.name && deviceObj.name) {
+                        tableDeviceObj.name = deviceObj.name;                        
+                    }
+                    if (!tableDeviceObj.claimed && deviceObj.owner) {
+                        tableDeviceObj.claimed = deviceObj.owner;
+                    }
+                    if (!tableDeviceObj.development && deviceObj.development) {
+                        tableDeviceObj.development = '\u2705'; // green check
+                    }
+                    if (!tableDeviceObj.added) {
+                        tableDeviceObj.added = '\u2705'; // green check
+                    }
+                }
+
+            }
+
+            tableObj.refreshTable(tableObj.tableData);
+
+            setStatus('Ready to import');
 
         });
         $(importButtonElem).on('click', function() {

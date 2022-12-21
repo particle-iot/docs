@@ -16,7 +16,7 @@
             <div style="width: 135px;">Name devices</div>
             <div style="width: 550px;">
                 <div><label><input type="radio" name="nameDevices" value="none" checked/>Do not set name</label></div>
-                <div><label><input type="radio" name="nameDevices" value="manual"/>Set manually below</label></div>
+                <!-- <div><label><input type="radio" name="nameDevices" value="manual"/>Set manually below</label></div> -->
                 <div><label><input type="radio" name="nameDevices" value="sequential"/>Sequentially with prefix </label> &nbsp;
                     <input type="text" size="15" class="nameDevicePrefix" /></div>
                 <div><label><input type="radio" name="nameDevices" value="serial" />Use serial number for name</label></div>
@@ -48,14 +48,14 @@
         <div class="progressDiv" style="display:none">
             <progress value="0" max="100"></progress>
         </div>
-        <div class="statusMessage"></div>
         {{> table-display }}
         <div>
-            <div style="padding: 16px 0px 6px 2px;"><button class="prepareButton" disabled>Prepare to import</button> (no changes will be made during this step)</div>
-            <div style="padding: 6px 0px 6px 2px;"><button class="importButton" disabled>Import</button></div>
-            <div style="padding: 6px 0px 6px 2px;"><button class="downloadButton" disabled>Download results</button></div>
+            <div style="padding: 16px 0px 6px 2px;"><button class="prepareButton" disabled>Prepare to import</button> &nbsp;
+            <button class="importButton" disabled>Import</button> &nbsp;&nbsp;
+            <button class="downloadButton" disabled>Download results</button></div>
             <div style="padding: 16px 0px 6px 2px;"><button class="clearButton" disabled>Clear Device List</button></div>
         </div>
+        <div class="statusMessage"></div>
     </div>
 </div>
 
