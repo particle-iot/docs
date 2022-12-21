@@ -264,8 +264,6 @@ $(document).ready(function() {
 
             const tableFormat = getTableFormat(options);
 
-            console.log('addRow', obj);
-
             for(let col = 0; col < tableFormat.keys.length; col++) {
                 const key = tableFormat.keys[col];
 

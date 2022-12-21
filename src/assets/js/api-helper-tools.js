@@ -414,12 +414,18 @@ $(document).ready(function() {
 
         const selectFileButtonElem = $(thisPartial).find('.selectFileButton');
         const fileDropZoneElem = $(thisPartial).find('.fileDropZone');
+        const importFileInputElem = $(thisPartial).find('.importFileInput');
         const manualEntryInputElem = $(thisPartial).find('.manualEntryInput');
         const addButtonElem = $(thisPartial).find('.addButton');
 
         const markDevelopmentCheckboxElem = $(thisPartial).find('.markDevelopmentCheckbox');
-        
+        const nameDevicePrefixElem = $(thisPartial).find('.nameDevicePrefix');
 
+        const prepareButtonElem = $(thisPartial).find('.prepareButton');
+        const importButtonElem = $(thisPartial).find('.importButton');
+        const clearButtonElem = $(thisPartial).find('.clearButton');
+
+                
         // const Elem = $(thisPartial).find('.');
 
         
@@ -432,7 +438,14 @@ $(document).ready(function() {
             $(statusElem).text(s);
         }
 
-
+        const getNameRadio = function() {
+            return $(thisPartial).find('input[name="nameDevices"]:checked').val();
+        }
+        const setNameRadio = function(value) {
+            console.log('setNameRadio', value);
+            $(thisPartial).find('input[name="nameDevices"]').prop('checked', false);
+            $(thisPartial).find('input[name="nameDevices"][value="' + value + '"]').prop('checked', true);
+        }
         
         if (!apiHelper.auth) {
             // Not logged in
@@ -514,6 +527,11 @@ $(document).ready(function() {
 
             options.development = $(markDevelopmentCheckboxElem).prop('checked');
 
+            options.name = getNameRadio();
+            if (options.name == 'sequential') {
+                options.namePrefix = $(nameDevicePrefixElem).val();
+            }
+
             // options.username = apiHelper.auth.username;
             // options.accessToken = apiHelper.auth.access_token;
 
@@ -581,13 +599,22 @@ $(document).ready(function() {
             $(thisPartial).trigger('updateSearchParam');
         });
 
+        $(thisPartial).find('input[name="nameDevices"]').on('click', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+
+        $(nameDevicePrefixElem).on('input', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+        
         // This is triggered by the product selector when the product list changes
         $(thisPartial).on('updateProductList', async function(event, options) {
             $(thisPartial).trigger('updateSearchParam');
         });
 
 
-        const urlConfigFields = ['claimLogin', 'claimToken'];
+        const urlConfigFields = ['claimLogin', 'claimToken', 'name', 'namePrefix', 'development'];
 
         {
             let value = urlParams.get('claimLogin');
@@ -601,6 +628,24 @@ $(document).ready(function() {
                     $(claimTokenInputElem).val(value);
                 }
             }
+            value = urlParams.get('development');
+            if (value) {
+                $(markDevelopmentCheckboxElem).prop('checked', true);
+            }
+
+            value = urlParams.get('name');
+            if (value) {
+                setNameRadio(value);
+                if (value == 'sequential') {
+                    value = urlParams.get('namePrefix');
+                    if (value) {
+                        $(nameDevicePrefixElem).val(value);
+                    }
+                }
+    
+            }
+
+
             deviceGroup.loadUrlParams(urlParams);
         }
 
@@ -632,18 +677,63 @@ $(document).ready(function() {
                 console.log('exception', e);
             }
         });
-
         
+        $(selectFileButtonElem).on('click', function() {
+            $(importFileInputElem).trigger('click');
+        });
+
+        const processFilesArray = function(files, index) {
+            if (index < files.length) {
+                let fileReader = new FileReader();
+                fileReader.onload = async function() {
+                    for(let line of fileReader.result.split(/[\r\n]/)) {
+                        line = line.trim();
+                        if (line.length > 0) {
+                            const parsed = await apiHelper.parseDeviceLine(line);
+                            if (parsed) {
+                                tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
+                                $(prepareButtonElem).prop('disabled', false);
+                            }                
+                        }
+                    }
+                    processFilesArray(files, index + 1);
+                };
+                fileReader.readAsText(files[index]);                         
+            }
+        };
+
+        $(importFileInputElem).on('change', function() {
+            processFilesArray(this.files, 0);
+        });
+
+        $(fileDropZoneElem).on('dragenter', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        $(fileDropZoneElem).on('dragover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        $(fileDropZoneElem).on('drop', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            const files = e.originalEvent.dataTransfer.files;
+            if (files) {
+                processFilesArray(files, 0);
+            }
+        });
+
 
         const parseManualInput = async function() {
             const text = $(manualEntryInputElem).val();
 
             const parsed = await apiHelper.parseDeviceLine(text);
             if (parsed) {
-                console.log('parsed', parsed);
                 $(manualEntryInputElem).val('');
 
                 tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
+                $(prepareButtonElem).prop('disabled', false);
             }
         };
 
@@ -663,6 +753,20 @@ $(document).ready(function() {
         $(addButtonElem).on('click', async function() {
             await parseManualInput();
         });
+
+
+        $(prepareButtonElem).on('click', function() {
+
+        });
+        $(importButtonElem).on('click', function() {
+
+        });
+        $(clearButtonElem).on('click', function() {
+            tableObj.refreshTable([]);
+            $(prepareButtonElem).prop('disabled', true);
+            $(importButtonElem).prop('disabled', true);
+        });
+
 
     });
 

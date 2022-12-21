@@ -15,11 +15,12 @@
         <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
             <div style="width: 135px;">Name devices</div>
             <div style="width: 550px;">
-                <div><label><input type="radio" value="manual" checked/>Set manually (or unnamed)</label></div>
-                <div><label><input type="radio" class="sequential"/>Sequentially with prefix </label> &nbsp;
-                    <input type="text" size="10" class="namePrefix" /></div>
-                <div><label><input type="radio" value="serial" />Use serial number for name</label></div>
-                <div><label><input type="radio" value="random" />Random words</label></div>
+                <div><label><input type="radio" name="nameDevices" value="none" checked/>Do not set name</label></div>
+                <div><label><input type="radio" name="nameDevices" value="manual"/>Set manually below</label></div>
+                <div><label><input type="radio" name="nameDevices" value="sequential"/>Sequentially with prefix </label> &nbsp;
+                    <input type="text" size="15" class="nameDevicePrefix" /></div>
+                <div><label><input type="radio" name="nameDevices" value="serial" />Use serial number for name</label></div>
+                <div><label><input type="radio" name="nameDevices" value="random" />Random words</label></div>
             </div>
         </div>
         <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
@@ -33,6 +34,7 @@
             <div style="width: 135px;">Add from file</div>
             <div style="width: 550px;" class="fileDropZone">
                 <button class="selectFileButton">Select File</button> or drag-and-drop file here
+                <input type="file" class="importFileInput" style="display:none" />
             </div>
         </div>
         <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
@@ -48,6 +50,11 @@
         </div>
         <div class="statusMessage"></div>
         {{> table-display }}
+        <div>
+            <div style="padding: 16px 0px 6px 2px;"><button class="prepareButton" disabled>Prepare to import</button> (no changes will be made during this step)</div>
+            <div style="padding: 6px 0px 6px 2px;"><button class="importButton" disabled>Import</button></div>
+            <div style="padding: 6px 0px 6px 2px;"><button class="clearButton" disabled>Clear Device List</button></div>
+        </div>
     </div>
 </div>
 
