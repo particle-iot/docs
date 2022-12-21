@@ -1,0 +1,18 @@
+{
+    "name": "fake-data",
+    "description": "Tool to generate fake data files for testing",
+    "version": "0.0.1",
+    "private": true,
+    "license": "MIT",
+    "author": "rick@particle.io",
+    "engines": {
+        "node": ">=12"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "luhn": "^2.4.1",
+        "yargs": "^17.6.2"
+    }
+}

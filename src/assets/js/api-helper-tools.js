@@ -417,6 +417,9 @@ $(document).ready(function() {
         const manualEntryInputElem = $(thisPartial).find('.manualEntryInput');
         const addButtonElem = $(thisPartial).find('.addButton');
 
+        const markDevelopmentCheckboxElem = $(thisPartial).find('.markDevelopmentCheckbox');
+        
+
         // const Elem = $(thisPartial).find('.');
 
         
@@ -481,6 +484,11 @@ $(document).ready(function() {
                         key: 'claimed',
                         width: 10,
                     },
+                    {
+                        title: 'Named',
+                        key: 'named',
+                        width: 10,
+                    },
                 ],
             },
             exportOptions: {
@@ -503,6 +511,8 @@ $(document).ready(function() {
 
             options.claimLogin = $(claimLoggedInCheckboxElem).prop('checked');
             options.claimToken = $(claimTokenCheckboxElem).prop('checked');
+
+            options.development = $(markDevelopmentCheckboxElem).prop('checked');
 
             // options.username = apiHelper.auth.username;
             // options.accessToken = apiHelper.auth.access_token;
@@ -567,10 +577,15 @@ $(document).ready(function() {
             tokenInputMakePassword();
         });
 
+        $(markDevelopmentCheckboxElem).on('click', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
         // This is triggered by the product selector when the product list changes
         $(thisPartial).on('updateProductList', async function(event, options) {
             $(thisPartial).trigger('updateSearchParam');
         });
+
 
         const urlConfigFields = ['claimLogin', 'claimToken'];
 
