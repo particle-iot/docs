@@ -278,7 +278,8 @@ $(document).ready(function() {
             }
 
             $(tableBodyElem).append(rowElem);
-
+            tableObj.sort.rowElems.push(tableObj.sort.rowElems.length);
+            
             if (options.addToTableData) {
                 if (!tableObj.tableData) {
                     tableObj.tableData = {};
@@ -295,7 +296,6 @@ $(document).ready(function() {
                 }    
             }
 
-            // Don't need to update sort.rows because it's rebuilt during sort (because filtering may apply)
 
             $(downloadButtonElem).attr('disabled', false);
             $(copyButtonElem).attr('disabled', (options.format == 'xlsx'));    
@@ -363,7 +363,7 @@ $(document).ready(function() {
         }
 
 
-        const getXlsxData = async function(options) {
+        tableObj.getXlsxData = async function(options) {
             if (!options) {
                 options = {};
             }
@@ -384,8 +384,10 @@ $(document).ready(function() {
             xlsxData.tableData = {
                 data: [],
             };
+            console.log('tableObj', tableObj);
+
             for(let ii = 0; ii < tableObj.tableData.data.length; ii++) {
-                const obj = tableObj.sort.rowElems ? tableData.data[tableObj.sort.rows[ii]] : tableObj.tableData.data[ii];
+                const obj = tableObj.sort.rows ? tableObj.tableData.data[tableObj.sort.rows[ii]] : tableObj.tableData.data[ii];
 
                 const filteredObj = {};
                 for(const key of xlsxData.tableFormat.keys) {
@@ -493,12 +495,12 @@ $(document).ready(function() {
         }
 
         $(downloadButtonElem).on('click', async function() {
-            await getXlsxData({toFile: true});
+            await tableObj.getXlsxData({toFile: true});
 
         });
 
         $(copyButtonElem).on('click', async function(event) {
-            await getXlsxData({toClipboard: true});            
+            await tableObj.getXlsxData({toClipboard: true});            
         });
 
         $(formatSelectElem).on('change', function() {

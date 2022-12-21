@@ -423,9 +423,9 @@ $(document).ready(function() {
 
         const prepareButtonElem = $(thisPartial).find('.prepareButton');
         const importButtonElem = $(thisPartial).find('.importButton');
+        const downloadButtonElem = $(thisPartial).find('.downloadButton');
         const clearButtonElem = $(thisPartial).find('.clearButton');
 
-                
         // const Elem = $(thisPartial).find('.');
 
         
@@ -724,6 +724,10 @@ $(document).ready(function() {
             }
         });
 
+        $(downloadButtonElem).on('click', async function() {
+            await tableObj.getXlsxData({toFile: true});
+
+        });
 
         const parseManualInput = async function() {
             const text = $(manualEntryInputElem).val();
