@@ -843,11 +843,17 @@ $(document).ready(function() {
         const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
         
         const decodeJsonCheckboxElem = $(thisPartial).find('.decodeJsonCheckbox');        
+        const omitRawDataCheckboxElem = $(thisPartial).find('.omitRawDataCheckbox');
 
         const startButtonElem = $(thisPartial).find('.startButton');
         const pauseResumeButtonElem = $(thisPartial).find('.pauseResumeButton');
+        const clearButtonElem = $(thisPartial).find('.clearButton');
+
+
+        
         
         // const Elem = $(thisPartial).find('.');
+
 
 
         const statusElem = $(thisPartial).find('.apiHelperStatus');
@@ -923,10 +929,62 @@ $(document).ready(function() {
             eventViewer.tableObj.getOptions(options);
 
             eventViewer.decodeJson = options.decodeJson = $(decodeJsonCheckboxElem).prop('checked');
+            eventViewer.omitRaw = options.omitRaw = $(omitRawDataCheckboxElem).prop('checked');
 
-            // options.username = apiHelper.auth.username;
-            // options.accessToken = apiHelper.auth.access_token;
+    
             return options;
+        }
+
+        eventViewer.processEvent = function(data) {
+            let addedField = false;
+
+            if (eventViewer.decodeJson) {
+                try {
+                    const dataJson = JSON.parse(data.data);
+
+                    const processObject = function(obj, path) {
+                        for(const key in obj) {
+                            const newPath = path.length ? path + '.' + key : key;
+
+                            if (typeof obj[key] == 'object' && !Array.isArray(obj[key])) {
+                                processObject(obj[key], newPath);
+                            }
+                            else {
+                                if (!eventViewer.tableObj.fieldSelectorObj.getFieldByKey(newPath)) {
+                                    eventViewer.tableObj.fieldSelectorObj.addField({
+                                        title: newPath,
+                                        key: newPath,
+                                        checked: true,
+                                    });
+                                    addedField = true;
+                                }
+                                if (Array.isArray(obj[key])) {
+                                    data[newPath] = JSON.stringify(obj[key]);
+
+                                }
+                                else {
+                                    data[newPath] = obj[key];                                                
+                                }
+
+                            }
+
+                        }                                    
+                    }
+                    processObject(dataJson, '');
+
+                    if (eventViewer.omitRaw) {
+                        delete data.data;
+                    }
+                }
+                catch(e) {                            
+                    // console.log('exception parsing data json', e);
+                }
+
+            }
+            eventViewer.tableObj.addRow(data, {show: true, addToTableData: true, sort: true});    
+            if (addedField) {
+                eventViewer.refreshTable();
+            }
         }
 
         eventViewer.startStream = function() {
@@ -941,7 +999,6 @@ $(document).ready(function() {
             if (options.productId) {
                 eventStreamOptions.product = options.productId;
             }
-            console.log('eventStreamOptions', eventStreamOptions);
 
             apiHelper.particle.getEventStream(eventStreamOptions).then(function(stream) {
                 eventViewer.stream = stream;
@@ -950,39 +1007,15 @@ $(document).ready(function() {
 
                 stream.on('event', function(data) {
                     try {
-                        // TODO: Save data to a different array when paused eventViewer.paused
-                        let addedField = false;
-
-                        if (eventViewer.decodeJson) {
-                            try {
-                                const dataJson = JSON.parse(data.data);
-                                for(const key in dataJson) {
-                                    if (!eventViewer.tableObj.fieldSelectorObj.getFieldByKey(key)) {
-                                        eventViewer.tableObj.fieldSelectorObj.addField({
-                                            title: key,
-                                            key: key,
-                                            checked: true,
-                                        });
-                                        addedField = true;
-                                    }
-                                    if (typeof dataJson[key] == 'object') {
-                                        data[key] = JSON.stringify(dataJson[key]);
-                                    }
-                                    else {
-                                        data[key] = dataJson[key];
-                                    }
-                                }
-                            }
-                            catch(e) {                            
-                                console.log('exception parsing data json', e);
-                            }
-    
+                        if (!eventViewer.paused) {
+                            eventViewer.processEvent(data);
                         }
-                        eventViewer.tableObj.addRow(data, {show: true, addToTableData: true, sort: true});    
-                        if (addedField) {
-                            eventViewer.refreshTable();
+                        else {
+                            if (!eventViewer.pausedEvents) {
+                                eventViewer.pausedEvents = [];
+                            }
+                            eventViewer.pausedEvents.push(data);
                         }
-
                     }
                     catch(e) {
                         console.log('exception in event handler', e);
@@ -1000,6 +1033,17 @@ $(document).ready(function() {
         };
 
         $(decodeJsonCheckboxElem).on('click', function() {
+            const checked = $(decodeJsonCheckboxElem).prop('checked');
+            if (checked) {
+                $(omitRawDataCheckboxElem).prop('disabled', false);
+            }
+            else {
+                $(omitRawDataCheckboxElem).prop('disabled', true);
+            }
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        $(omitRawDataCheckboxElem).on('click', function() {
             $(thisPartial).trigger('updateSearchParam');
         });
 
@@ -1008,6 +1052,7 @@ $(document).ready(function() {
             eventViewer.paused = false;
             $(startButtonElem).prop('disabled', true);
             $(pauseResumeButtonElem).prop('disabled', false);
+            $(clearButtonElem).prop('disabled', false);
         });
 
         $(pauseResumeButtonElem).on('click', function() {
@@ -1015,11 +1060,22 @@ $(document).ready(function() {
                 // Was paused and the button was "Resume" so now we're resumed
                 $(pauseResumeButtonElem).text('Pause');
                 eventViewer.paused = false;
+
+                if (eventViewer.pausedEvents) {
+                    for(const data of eventViewer.pausedEvents) {
+                        eventViewer.processEvent(data);
+                    }
+                    eventViewer.pausedEvents = null;
+                }
             }
             else {
                 $(pauseResumeButtonElem).text('Resume');
                 eventViewer.paused = true;
             }
+        });
+
+        $(clearButtonElem).on('click', function() {
+            eventViewer.tableObj.refreshTable([], {});
         });
 
         // This is triggered by the product selector when the product list changes
@@ -1047,6 +1103,8 @@ $(document).ready(function() {
                 eventViewer.productSelectorObj.getUrlConfigObj(urlConfig);
                                 
                 urlConfig.decodeJson = options.decodeJson;
+                urlConfig.urlConfig = options.omitRaw;
+
 
                 const searchStr = $.param(urlConfig);
     
@@ -1061,6 +1119,10 @@ $(document).ready(function() {
             let value = urlParams.get('decodeJson');
             if (value) {
                 $(decodeJsonCheckboxElem).prop('checked', true);
+            }
+            value = urlParams.get('omitRaw');
+            if (value) {
+                $(omitRawDataCheckboxElem).prop('checked', true);
             }
         }
 
