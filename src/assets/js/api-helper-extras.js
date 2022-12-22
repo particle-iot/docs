@@ -1756,6 +1756,13 @@ $(document).ready(function() {
             $(devOrProductRowElem).hide();
         }
 
+        productSelector.show = function() {
+            $(thisPartial).show();
+        }
+
+        productSelector.hide = function() {
+            $(thisPartial).hide();
+        }
 
         productSelector.getOptions = function(options) {
             const devOrProduct = (noSandbox ? 'product' : $(devOrProductRowElem).find('input:checked').val());

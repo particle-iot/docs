@@ -18,7 +18,6 @@ $(document).ready(function() {
         const copyButtonElem = $(thisPartial).find('.copyButton');
 
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
-        let fieldSelectorObj;
 
 
         const tableObj = {
@@ -59,8 +58,8 @@ $(document).ready(function() {
                 // sortDir
             };
             
-            fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
-            fieldSelectorObj.setConfigObj(configObjIn);
+            tableObj.fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
+            tableObj.fieldSelectorObj.setConfigObj(configObjIn);
 
             if (tableObj.tableConfig.exportOptions) {
 
@@ -99,13 +98,13 @@ $(document).ready(function() {
             resultObj.sortDir = options.sortDir;
             resultObj.omitEmpty = options.omitEmpty;
 
-            fieldSelectorObj.getUrlConfigObj(resultObj);            
+            tableObj.fieldSelectorObj.getUrlConfigObj(resultObj);            
         }
 
 
         
         tableObj.loadUrlParams = function(urlParams) {
-            fieldSelectorObj.loadUrlParams(urlParams);
+            tableObj.fieldSelectorObj.loadUrlParams(urlParams);
 
             let value = urlParams.get('format');
             if (value) {
@@ -344,6 +343,9 @@ $(document).ready(function() {
             if (tableObj.tableData.data) {
                 $(tableDivElem).show();
                 $(downloadDivElem).show();
+                if (tableObj.tableConfig.exportOptions && tableObj.tableConfig.exportOptions.showControl) {
+                    $(exportOptionsDivElem).show();   
+                }
 
                 tableObj.sort.rowElems = [];
 
@@ -760,6 +762,15 @@ $(document).ready(function() {
             updateTable();
             
         }
+
+        fieldSelectorObj.getFieldByKey = function(key) {
+            return fieldSelectorObj.configObj.fieldSelector.fields.find(e => e.key == key);
+        }
+
+        fieldSelectorObj.addField = function(obj) {
+            fieldSelectorObj.configObj.fieldSelector.fields.push(obj);
+            fieldSelectorObj.setConfigObj(fieldSelectorObj.configObj);
+        };
 
         fieldSelectorObj.getUrlConfigObj = function(resultObj) {
             if (!fieldSelectorObj.configObj.fieldSelector || !fieldSelectorObj.configObj.fieldSelector.showControl) {

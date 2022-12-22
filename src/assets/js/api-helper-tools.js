@@ -835,5 +835,238 @@ $(document).ready(function() {
     });
 
 
+    $('.apiHelperEventViewer2').each(function() {
+        const thisPartial = $(this);
+
+        const gaCategory = 'eventViewer2';
+
+        const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
+        
+        const decodeJsonCheckboxElem = $(thisPartial).find('.decodeJsonCheckbox');        
+
+        const startButtonElem = $(thisPartial).find('.startButton');
+        const pauseResumeButtonElem = $(thisPartial).find('.pauseResumeButton');
+        
+        // const Elem = $(thisPartial).find('.');
+
+
+        const statusElem = $(thisPartial).find('.apiHelperStatus');
+
+        if (!apiHelper.auth) {
+            // Not logged in
+            $(thisPartial).hide();
+            return;
+        }
+
+        let eventViewer = {};
+        $(thisPartial).data('eventViewer', eventViewer);
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        eventViewer.tableObj = $(thisPartial).data('table');
+        eventViewer.productSelectorObj = $(productOrSandboxSelectorElem).data('productSelector');
+
+        const tableConfigObj = {
+            gaCategory,
+            fieldSelector: {
+                showControl: true,
+                height: '200px',
+                fields: [
+                    {
+                        title: 'Event name',
+                        key: 'name',
+                        checked: true,
+                        width: 15
+                    },
+                    {
+                        title: 'Event data',
+                        key: 'data',
+                        checked: true,
+                        width: 40
+                    },
+                    {
+                        title: 'Published',
+                        key: 'published_at',
+                        checked: true,
+                        width: 20
+                    },
+                    {
+                        title: 'Device ID',
+                        key: 'coreid',
+                        checked: true,
+                        width: 24
+                    },
+
+                ],
+            },
+            exportOptions: {
+                showControl: true,
+                showDateOptions: true,
+            },
+            tableOptions: {
+                showAlways: true,
+            },
+        };
+        
+        eventViewer.tableObj.setConfig(tableConfigObj);
+        eventViewer.tableObj.loadUrlParams(urlParams);
+        eventViewer.tableObj.refreshTable([], {});
+
+
+        const setStatus = function(s) {
+            $(statusElem).text(s);
+        }
+
+        const getOptions = function(options = {}) {
+            
+            eventViewer.productSelectorObj.getOptions(options);
+            eventViewer.tableObj.getOptions(options);
+
+            eventViewer.decodeJson = options.decodeJson = $(decodeJsonCheckboxElem).prop('checked');
+
+            // options.username = apiHelper.auth.username;
+            // options.accessToken = apiHelper.auth.access_token;
+            return options;
+        }
+
+        eventViewer.startStream = function() {
+            const options = getOptions();
+
+            let eventStreamOptions = {
+                auth: apiHelper.auth.access_token
+            };
+            if (options.isSandbox) {
+                eventStreamOptions.deviceId = 'mine';
+            }
+            if (options.productId) {
+                eventStreamOptions.product = options.productId;
+            }
+            console.log('eventStreamOptions', eventStreamOptions);
+
+            apiHelper.particle.getEventStream(eventStreamOptions).then(function(stream) {
+                eventViewer.stream = stream;
+                
+                eventViewer.productSelectorObj.hide();
+
+                stream.on('event', function(data) {
+                    try {
+                        // TODO: Save data to a different array when paused eventViewer.paused
+                        let addedField = false;
+
+                        if (eventViewer.decodeJson) {
+                            try {
+                                const dataJson = JSON.parse(data.data);
+                                for(const key in dataJson) {
+                                    if (!eventViewer.tableObj.fieldSelectorObj.getFieldByKey(key)) {
+                                        eventViewer.tableObj.fieldSelectorObj.addField({
+                                            title: key,
+                                            key: key,
+                                            checked: true,
+                                        });
+                                        addedField = true;
+                                    }
+                                    if (typeof dataJson[key] == 'object') {
+                                        data[key] = JSON.stringify(dataJson[key]);
+                                    }
+                                    else {
+                                        data[key] = dataJson[key];
+                                    }
+                                }
+                            }
+                            catch(e) {                            
+                                console.log('exception parsing data json', e);
+                            }
+    
+                        }
+                        eventViewer.tableObj.addRow(data, {show: true, addToTableData: true, sort: true});    
+                        if (addedField) {
+                            eventViewer.refreshTable();
+                        }
+
+                    }
+                    catch(e) {
+                        console.log('exception in event handler', e);
+                    }
+                });
+            });
+
+        };
+
+        eventViewer.refreshTable = async function() {            
+            // 
+            const options = getOptions();
+
+            eventViewer.tableObj.refreshTable(eventViewer.tableObj.tableData, options);
+        };
+
+        $(decodeJsonCheckboxElem).on('click', function() {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        $(startButtonElem).on('click', function() {
+            eventViewer.startStream();
+            eventViewer.paused = false;
+            $(startButtonElem).prop('disabled', true);
+            $(pauseResumeButtonElem).prop('disabled', false);
+        });
+
+        $(pauseResumeButtonElem).on('click', function() {
+            if (eventViewer.paused) {
+                // Was paused and the button was "Resume" so now we're resumed
+                $(pauseResumeButtonElem).text('Pause');
+                eventViewer.paused = false;
+            }
+            else {
+                $(pauseResumeButtonElem).text('Resume');
+                eventViewer.paused = true;
+            }
+        });
+
+        // This is triggered by the product selector when the product list changes
+        $(thisPartial).on('updateProductList', async function(event, options) {
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        // This is triggered when the field selector updates, which requires that the table be refreshed
+        // and the URL search parameters update, which needs to be done from the outer container
+        // because it may include information in addition to the table itself.
+        $(thisPartial).on('fieldSelectorUpdate', async function(event) {
+            await eventViewer.refreshTable();
+            $(thisPartial).trigger('updateSearchParam');
+        });
+
+        // This is triggered to update the URL search parameters when settings change
+        $(thisPartial).on('updateSearchParam', function() {
+            try {
+                let options = {};
+                getOptions(options);
+
+                let urlConfig = {};
+                eventViewer.tableObj.getUrlConfigObj(urlConfig);
+
+                eventViewer.productSelectorObj.getUrlConfigObj(urlConfig);
+                                
+                urlConfig.decodeJson = options.decodeJson;
+
+                const searchStr = $.param(urlConfig);
+    
+                history.pushState(null, '', '?' + searchStr);     
+            }
+            catch(e) {
+                console.log('exception', e);
+            }
+        });
+
+        {
+            let value = urlParams.get('decodeJson');
+            if (value) {
+                $(decodeJsonCheckboxElem).prop('checked', true);
+            }
+        }
+
+
+    });
+
+
 
 });

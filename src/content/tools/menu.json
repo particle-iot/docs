@@ -73,6 +73,12 @@
         "href": "/tools/cloud-tools/list-devices/"
       },
       {
+        "dir": "events",
+        "title": "Event viewer",
+        "href": "/tools/cloud-tools/events/",
+        "hidden": true
+      },
+      {
         "dir": "import-devices",
         "title": "Import devices",
         "href": "/tools/cloud-tools/import-devices/",
