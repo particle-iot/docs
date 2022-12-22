@@ -23,25 +23,27 @@
                 <div><label><input type="radio" name="nameDevices" value="random" />Random words</label></div>
             </div>
         </div>
-        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px; align-items: center;">
             <div style="width: 135px;">Mark development</div>
             <div style="width: 550px;">
                 <div><label><input type="checkbox" class="markDevelopmentCheckbox" />Mark as development device</label></div>
             </div>
         </div>
         <div style="margin: 12px 2px 12px 6px;">Add devices:</div>
-        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px; align-items: center;">
             <div style="width: 135px;">Add from file</div>
             <div style="width: 550px;" class="fileDropZone">
                 <button class="selectFileButton">Select File</button> or drag-and-drop file here
                 <input type="file" class="importFileInput" style="display:none" />
             </div>
         </div>
-        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+        <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px; align-items: center;">
             <div style="width: 135px;">Manual entry</div>
             <div style="width: 550px;">
-                <input type="text" size="60" class="manualEntryInput" /> &nbsp;
-                <button class="addButton">Add</button>
+                <div class="apiHelperTableFlexContainer" style="align-items: center;">
+                    <div><textarea class="manualEntryInput" style="width: 450px; height: 60px; font-size: 9px;"></textarea></div>
+                    <div style="margin: 0px 0px 0px 4px;"><button class="addButton">Add</button></div>
+                </div>
             </div>
         </div>
         <div class="apiHelperStatus"></div>

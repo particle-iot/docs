@@ -689,20 +689,28 @@ $(document).ready(function() {
             $(importFileInputElem).trigger('click');
         });
 
+        const parseMultiLine = async function(text) {
+            let hasDevices = false;
+
+            for(let line of text.split(/[\r\n]/)) {
+                line = line.trim();
+                if (line.length > 0) {
+                    const parsed = await apiHelper.parseDeviceLine(line);
+                    if (parsed) {
+                        tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
+                        $(prepareButtonElem).prop('disabled', false);
+                        hasDevices = true;
+                    }                
+                }
+            }
+            return hasDevices;
+        }
+
         const processFilesArray = function(files, index) {
             if (index < files.length) {
                 let fileReader = new FileReader();
                 fileReader.onload = async function() {
-                    for(let line of fileReader.result.split(/[\r\n]/)) {
-                        line = line.trim();
-                        if (line.length > 0) {
-                            const parsed = await apiHelper.parseDeviceLine(line);
-                            if (parsed) {
-                                tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
-                                $(prepareButtonElem).prop('disabled', false);
-                            }                
-                        }
-                    }
+                    await parseMultiLine(fileReader.result);
                     processFilesArray(files, index + 1);
                 };
                 fileReader.readAsText(files[index]);                         
@@ -739,11 +747,8 @@ $(document).ready(function() {
         const parseManualInput = async function() {
             const text = $(manualEntryInputElem).val();
 
-            const parsed = await apiHelper.parseDeviceLine(text);
-            if (parsed) {
+            if (parseMultiLine(text)) {
                 $(manualEntryInputElem).val('');
-
-                tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
                 $(prepareButtonElem).prop('disabled', false);
             }
         };
