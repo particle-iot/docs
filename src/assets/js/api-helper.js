@@ -177,6 +177,55 @@ apiHelper.platformNameSort = function(a, b) {
     }
 }
 
+
+apiHelper.isDeviceId = function(str) {
+    const deviceIdRE = /^([A-Fa-f0-9]{24})$/;
+
+    return str.match(deviceIdRE) != null;
+};
+
+apiHelper.isSerialNumber = async function(str) {
+    const skuObj = await apiHelper.getSkuObjFromSerial(str);
+    return !!skuObj;
+};
+
+apiHelper.isICCID = function(str) {
+    // Whole token match because otherwise a Device ID matches this
+    const iccidRE = /^([0-9]{18,21})$/;
+
+    return str.match(iccidRE) != null;
+}
+
+apiHelper.parseDeviceLine = async function(line) {
+    let result = null;
+    for(let token of line.split(/[, ]/)) {
+        token = token.trim();
+
+        if (apiHelper.isICCID(token)) {
+            if (!result) {
+                result = {};
+            }
+            result.iccid = token;
+        }
+        else
+        if (apiHelper.isDeviceId(token)) {
+            if (!result) {
+                result = {};
+            }
+            result.deviceId = token;
+        }
+        else
+        if (await apiHelper.isSerialNumber(token)) {
+            if (!result) {
+                result = {};
+            }
+            result.serial = token;
+        }
+        // Possibly add support for mobile secret here
+    }
+    return result;
+}
+
 // Parses a semver (like '3.0.0-rc.1' and returns the broken out parts)
 apiHelper.parseVersionStr = function(verStr) {
     let result = {};

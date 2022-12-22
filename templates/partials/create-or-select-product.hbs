@@ -32,10 +32,12 @@
                 <td><select class="apiHelperProductSelect apiHelperSelect" style="padding-top: 5px;"></select></td>
                 <td><button class="refreshProducts">Refresh product list</button></td>
             </tr>
+{{#if includeStatus}}
             <tr>
                 <td colspan="2" class="statusMessage"></td>
                 <td>&nbsp;</td>
             </tr>
+{{/if}}
         </tbody>
     </table>            
 </div>

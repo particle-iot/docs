@@ -1756,6 +1756,13 @@ $(document).ready(function() {
             $(devOrProductRowElem).hide();
         }
 
+        productSelector.show = function() {
+            $(thisPartial).show();
+        }
+
+        productSelector.hide = function() {
+            $(thisPartial).hide();
+        }
 
         productSelector.getOptions = function(options) {
             const devOrProduct = (noSandbox ? 'product' : $(devOrProductRowElem).find('input:checked').val());
@@ -2006,6 +2013,327 @@ $(document).ready(function() {
         return manualSettings;
     }();
 
+
+    $('.apiHelperCheckboxList').each(function() {
+        const thisPartial = $(this);
+
+        let checkboxList = {};
+        $(thisPartial).data('checkboxList', checkboxList);
+
+        checkboxList.urlKey = 'cb';
+
+        checkboxList.getOptions = function(options = {}) {
+
+            return options;
+        }
+
+        checkboxList.getUrlConfigObj = function(urlConfig) {
+            const array = checkboxList.getSelectedItems();
+            
+            for(let ii = 0; ii < array.length; ii++) {
+                urlConfig[checkboxList.urlKey + ii] = array[ii];
+            }
+        }
+
+        checkboxList.loadUrlParams = function(urlParams) {
+            checkboxList.urlParams = urlParams;
+        }
+
+        checkboxList.resize = function() {
+            // Remove explicit widths
+            $(thisPartial).find('div').each(function() {
+                const itemElem = $(this);
+                $(itemElem).css('width', '');
+            });
+
+            // Measure
+            let maxWidth = 0;
+            $(thisPartial).find('div').each(function() {
+                const itemElem = $(this);
+                const width = $(itemElem).width();
+                if (width > maxWidth) {
+                    maxWidth = width;
+                }
+            });
+
+            // Assign to widest width
+            $(thisPartial).find('div').each(function() {
+                const itemElem = $(this);
+                $(itemElem).css('width', (maxWidth + 10) + 'px');
+            });
+        };
+
+        checkboxList.addItem = function(itemName, options = {}) {
+            const divElem = document.createElement('div');
+            const labelElem = document.createElement('label');
+
+            const checkboxElem = document.createElement('input');
+            $(checkboxElem).attr('type', 'checkbox');
+            $(checkboxElem).data('itemName', itemName);
+
+            if (options.checked) {
+                $(checkboxElem).prop('checked', true);
+            }
+
+            $(checkboxElem).on('click', function() {
+                $(thisPartial).trigger('updateSearchParam'); 
+            });
+
+            $(labelElem).append(checkboxElem);
+            $(labelElem).append(document.createTextNode(itemName));
+            
+            $(divElem).append(labelElem);
+            $(divElem).append(document.createElement('br'));
+
+            $(thisPartial).append(divElem);            
+            checkboxList.resize();
+        };
+
+        checkboxList.addArray = function(array, options = {}) {
+            for(const itemName of array) {
+                checkboxList.addItem(itemName, options);
+            }
+
+            if (checkboxList.urlParams) {
+
+                for(let ii = 0; ; ii++) {
+                    const value = checkboxList.urlParams.get(checkboxList.urlKey + ii);
+                    if (!value) {
+                        break;
+                    }
+                    checkboxList.selectItem(value);
+                }
+    
+                checkboxList.urlParams = null;
+            }
+
+
+            checkboxList.resize();
+        };
+
+        checkboxList.selectItem = function(itemName) {
+            $(thisPartial).find('input').each(function() {
+                const itemElem = $(this);
+                if ($(itemElem).data('itemName') == itemName) {
+                    $(itemElem).prop('checked', true);
+                }
+            });
+        };
+
+        checkboxList.getSelectedItems = function(itemName) {
+            let array = [];
+
+            $(thisPartial).find('input').each(function() {
+                const itemElem = $(this);
+                if ($(itemElem).prop('checked')) {
+                    const itemName = $(itemElem).data('itemName');
+                    array.push(itemName);
+                }
+            });
+
+            return array;
+        };
+
+
+        checkboxList.empty = function() {
+            $(thisPartial).empty();
+        };
+
+
+    });
+
+    // Select or create a device group
+    $('.apiHelperDeviceGroup').each(function() {
+        const thisPartial = $(this);
+
+        let productId;
+        let groups;
+
+        const productIsSelectedElem = $(thisPartial).find('.productIsSelected');
+        // const selectedProductCellElem = $(thisPartial).find('.selectedProductCell');
+
+        const groupListDivElem = $(thisPartial).find('.groupListDiv');
+        const newGroupTextElem = $(thisPartial).find('.newGroupText');
+        const newGroupButtonElem = $(thisPartial).find('.newGroupButton');
+        const newGroupFirmwareSelectElem = $(thisPartial).find('.newGroupFirmwareSelect');
+        const statusMessageElem = $(thisPartial).find('.statusMessage');
+        const newGroupSetFirmwareCheckboxElem = $(thisPartial).find('.newGroupSetFirmwareCheckbox');
+        const showNewGroupButton = $(thisPartial).find('.showNewGroupButton');
+        const createNewGroupDivElem = $(thisPartial).find('.createNewGroupDiv');
+        const newGroupDescriptionTextElem = $(thisPartial).find('.newGroupDescriptionText');
+    
+        let deviceGroup = {};
+        $(thisPartial).data('deviceGroup', deviceGroup)
+
+        deviceGroup.checkboxList = $(groupListDivElem).data('checkboxList');
+
+        deviceGroup.checkboxList.urlKey = 'g';
+
+        deviceGroup.getOptions = function(options = {}) {
+            deviceGroup.checkboxList(options);
+            return options;
+        }
+        
+        deviceGroup.getUrlConfigObj = function(urlConfig) {
+            deviceGroup.checkboxList.getUrlConfigObj(urlConfig);
+
+        }
+
+        deviceGroup.loadUrlParams = function(urlParams) {
+            // This saves the urlParams in the checkbox list. addArray checks the saved urlParams
+            deviceGroup.checkboxList.loadUrlParams(urlParams);
+        }
+
+
+        // 
+        const updateSettings = async function(settings = apiHelper.manualSettings.get()) {
+            if (apiHelper.auth && settings && settings.createOrSelectProduct && settings.createOrSelectProduct.productId) {
+                productId = settings.createOrSelectProduct.productId;
+                $(productIsSelectedElem).show();
+
+                
+                const firmwareRes = await apiHelper.particle.listProductFirmware({ 
+                    product: productId,
+                    auth: apiHelper.auth.access_token 
+                });
+                // console.log('firmwareRes', firmwareRes);
+                // body: array of objects:
+                //  version, title, description, device_count, name (filename), groups, product_default, immediate, mandatory, uploaded_by, uploaded_on, _id,
+                $(newGroupFirmwareSelectElem).empty();
+                for(const firmwareObj of firmwareRes.body) {
+                    const optionElem = document.createElement('option');
+                    $(optionElem).attr('value', firmwareObj.version.toString());
+                    $(optionElem).text(firmwareObj.title + (firmwareObj.product_default ? ' (product default)' : ''));
+                    if (firmwareObj.product_default) {
+                        $(optionElem).attr('selected', 'selected');
+                    }
+                    $(newGroupFirmwareSelectElem).append(optionElem);
+                }
+
+                // Fetch device groups
+                const productRes = await apiHelper.particle.getProduct({ 
+                    product: productId,
+                    auth: apiHelper.auth.access_token 
+                });
+                // console.log('productRes', productRes);
+                // body.product.
+                //  id, name, description, device_count, groups[], etc.
+
+                groups = productRes.body.product.groups;
+
+                deviceGroup.checkboxList.empty(); 
+                // addArray checks urlParams to see if the items should be checked
+                deviceGroup.checkboxList.addArray(groups);
+
+            }
+            else {
+                $(productIsSelectedElem).hide();
+            }
+        }
+        updateSettings();
+
+    
+
+        $(newGroupTextElem).on('input', function() {
+            const groupName = $(newGroupTextElem).val().trim();
+            if (productId && groupName.length) {
+                // The name of the group. Must only contain lowercase letters, numbers, dashes, and underscores.
+                // TODO: There's a maximum length, enforce that here as well, once I figure out what it is
+                const validRE = /^[-a-z0-9_]+$/;
+                if (groupName.match(validRE)) {
+                    if (!groups.includes(groupName)) {
+                        $(newGroupButtonElem).prop('disabled', false);
+                        setStatus('');    
+                    }
+                    else {
+                        setStatus('Group name already exists');    
+                    }
+                }
+                else {
+                    $(newGroupButtonElem).prop('disabled', true);
+                    setStatus('Group name can only contain lowercase letters, numbers, dashes, and underscores');
+                }
+            }
+            else {
+                $(newGroupButtonElem).prop('disabled', true);
+            }
+        });
+
+        $(showNewGroupButton).on('click', function() {
+            $(showNewGroupButton).hide();
+            $(createNewGroupDivElem).show();
+        });
+
+        $(newGroupButtonElem).on('click', async function() {
+            $(newGroupButtonElem).prop('disabled', true);
+
+            const groupName = $(newGroupTextElem).val().trim();
+            const description = $(newGroupDescriptionTextElem).val();
+
+            // Create a group
+            let requestData = {
+                name: groupName,
+                description,
+            };
+
+            await new Promise(function(resolve, reject) {
+                let request = {
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestData),
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        console.log('error', jqXHR);
+                        reject(jqXHR);
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    success: function (resp, textStatus, jqXHR) {
+                        console.log('resp', resp);
+                        resolve();
+                    },
+                    url: 'https://api.particle.io/v1/products/' + productId + '/groups',
+                }
+                $.ajax(request);
+            });
+
+            // Release firmware to group
+
+            // Add to popup
+            deviceGroup.checkboxList.addItem(groupName, {checked:true});
+            groups.push(groupName);
+    
+            $(newGroupButtonElem).prop('disabled', false);
+            $(newGroupTextElem).val('');
+
+            $(showNewGroupButton).show();
+            $(createNewGroupDivElem).hide();
+
+        });
+
+        $(newGroupSetFirmwareCheckboxElem).on('click', function() {
+            const setVersion = $(newGroupSetFirmwareCheckboxElem).prop('checked');
+            if (setVersion) {
+                $(newGroupFirmwareSelectElem).show();
+            }
+            else {
+                $(newGroupFirmwareSelectElem).hide();
+            }
+        });
+
+        $(thisPartial).on('updateSearchParam', function(event) {
+            console.log('apiHelperDeviceGroup updateSearchParam');
+        });
+
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+            updateSettings(settings);
+        });
+
+    });
+
+
     $('.apiHelperAddDeviceToProduct').each(function() {
         const thisPartial = $(this);
 
@@ -2027,8 +2355,6 @@ $(document).ready(function() {
 
 
         
-
-        const deviceIdRE = /([A-Fa-f0-9]{24})/;
         
         let productId;
 
@@ -2041,26 +2367,22 @@ $(document).ready(function() {
         const updateButton = async function() {
             const text = $(deviceIdTextElem).val().trim();
 
-            if (text.match(deviceIdRE)) {
+            if (apiHelper.isDeviceId(text)) {
                 // Is a Device ID                
                 setStatus('Appears to be a Device ID, can attempt to add');
                 $(addDeviceButtonElem).prop('disabled', false);
                 $(deviceInstructionsElem).hide();
             }
+            else if (apiHelper.isSerialNumber(text)) {
+                // Looks like a serial number
+                setStatus('Appears to be a serial number, can attempt to add');
+                $(addDeviceButtonElem).prop('disabled', false);
+                $(deviceInstructionsElem).hide();
+            }
             else {
-                // Is it a serial number?
-                const skuObj = await apiHelper.getSkuObjFromSerial(text);
-                if (skuObj) {
-                    // Looks like a serial number
-                    setStatus('Appears to be a serial number, can attempt to add');
-                    $(addDeviceButtonElem).prop('disabled', false);
-                    $(deviceInstructionsElem).hide();
-                }
-                else {
-                    setStatus('');
-                    $(addDeviceButtonElem).prop('disabled', true);
-                    $(deviceInstructionsElem).show();
-                }
+                setStatus('');
+                $(addDeviceButtonElem).prop('disabled', true);
+                $(deviceInstructionsElem).show();
             }
         }
 
@@ -2101,7 +2423,7 @@ $(document).ready(function() {
             }
             let isDeviceId = false;
             
-            if (text.match(deviceIdRE)) {
+            if (apiHelper.isDeviceId(text)) {
                 text = text.toLowerCase();
                 isDeviceId = true;
             }
@@ -2225,7 +2547,7 @@ $(document).ready(function() {
         });
 
 
-        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             console.log('settings update', settings);
             updateSettings(settings);
         });
@@ -2322,6 +2644,36 @@ $(document).ready(function() {
 
             return options;
         }
+
+        const urlConfigFields = ['platformId', 'orgId', 'sandboxOrg', 'productId'];
+
+        productSelector.getUrlConfigObj = function(resultObj) {
+
+            const options = productSelector.getOptions();
+
+            for(const field of urlConfigFields) {
+                if (options[field]) {
+                    resultObj[field] = options[field];
+                }
+            }
+
+        };
+
+
+        productSelector.loadUrlParams = function(urlParams) {
+            productSelector.urlParams = urlParams;
+
+            let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
+
+            for(const field of urlConfigFields) {
+                const value = urlParams.get(field);
+                if (value) {
+                    settings[field] = value;
+                }
+            }
+
+            apiHelper.manualSettings.save();
+        };
 
         productSelector.saveSettings = function() {
             let settings = apiHelper.manualSettings.get({key:'createOrSelectProduct'});
@@ -2602,7 +2954,7 @@ $(document).ready(function() {
             await updateProductList({clearCache:true});
         });
 
-        $(thisPartial).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
+        $(document).on(apiHelper.manualSettings.settingsChangeEventName, function(event, settings) {
             if (settings && settings.deviceSelect && settings.deviceSelect.platformId) {
                 $(platformSelectElem).val(settings.deviceSelect.platformId.toString());
                 $(platformSelectElem).trigger('change');    

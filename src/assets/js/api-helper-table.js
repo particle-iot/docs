@@ -18,9 +18,6 @@ $(document).ready(function() {
         const copyButtonElem = $(thisPartial).find('.copyButton');
 
         const fieldSelectorElem = $(thisPartial).find('.apiHelperFieldSelector');
-        let fieldSelectorObj;
-
-        let tableData;
 
 
         const tableObj = {
@@ -49,7 +46,7 @@ $(document).ready(function() {
                 }
             }
 
-            $(copyButtonElem).prop('disabled', !tableData || !tableData.data || (options.format == 'xlsx'));
+            $(copyButtonElem).prop('disabled', !tableObj.tableData || !tableObj.tableData.data || (options.format == 'xlsx'));
         }
         
         tableObj.setConfig = function(configObjIn) {
@@ -61,8 +58,8 @@ $(document).ready(function() {
                 // sortDir
             };
             
-            fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
-            fieldSelectorObj.setConfigObj(configObjIn);
+            tableObj.fieldSelectorObj = $(fieldSelectorElem).data('fieldSelector');
+            tableObj.fieldSelectorObj.setConfigObj(configObjIn);
 
             if (tableObj.tableConfig.exportOptions) {
 
@@ -101,13 +98,13 @@ $(document).ready(function() {
             resultObj.sortDir = options.sortDir;
             resultObj.omitEmpty = options.omitEmpty;
 
-            fieldSelectorObj.getUrlConfigObj(resultObj);            
+            tableObj.fieldSelectorObj.getUrlConfigObj(resultObj);            
         }
 
 
         
         tableObj.loadUrlParams = function(urlParams) {
-            fieldSelectorObj.loadUrlParams(urlParams);
+            tableObj.fieldSelectorObj.loadUrlParams(urlParams);
 
             let value = urlParams.get('format');
             if (value) {
@@ -219,8 +216,8 @@ $(document).ready(function() {
             $(tableObj.sort.indicatorElements[key]).addClass(sortDirStr);
 
             tableObj.sort.rows = [];
-            for(let ii = 0; ii < tableData.data.length; ii++) {
-                if (!options.omitEmpty || tableData.data[ii][key]) {
+            for(let ii = 0; ii < tableObj.tableData.data.length; ii++) {
+                if (!options.omitEmpty || tableObj.tableData.data[ii][key]) {
                     tableObj.sort.rows.push(ii);
                 }
             }
@@ -228,19 +225,19 @@ $(document).ready(function() {
             tableObj.sort.rows.sort(function(a, b) {
                 let sort = 0;
 
-                if (!tableData.data[a][key] && tableData.data[b][key]) {
+                if (!tableObj.tableData.data[a][key] && tableObj.tableData.data[b][key]) {
                     sort = -1;
                 }
                 else
-                if (tableData.data[a][key] && !tableData.data[b][key]) {
+                if (tableObj.tableData.data[a][key] && !tableObj.tableData.data[b][key]) {
                     sort = 1;
                 }
                 else
-                if (!tableData.data[a][key] && !tableData.data[b][key]) {
+                if (!tableObj.tableData.data[a][key] && !tableObj.tableData.data[b][key]) {
                     sort = 0;
                 }
                 else {
-                    sort = tableData.data[a][key].localeCompare(tableData.data[b][key]);
+                    sort = tableObj.tableData.data[a][key].localeCompare(tableObj.tableData.data[b][key]);
                 }
                 
                 if (tableObj.sort.sortDir < 0) {
@@ -256,8 +253,63 @@ $(document).ready(function() {
             }
         };
 
-        tableObj.refreshTable =function(tableDataIn, options) {
-            tableData = tableDataIn;
+    
+        tableObj.addRow = function(obj, options = {}) {
+            if (!tableObj.sort.rowElems) {
+                tableObj.sort.rowElems = [];
+            }
+
+            const rowElem = document.createElement('tr');
+
+            const tableFormat = getTableFormat(options);
+
+            for(let col = 0; col < tableFormat.keys.length; col++) {
+                const key = tableFormat.keys[col];
+
+                const tdElem = document.createElement('td');
+                $(tdElem).css('width', tableFormat.widths[col] + 'ch');
+
+                if (obj[key]) {
+                    $(tdElem).text(obj[key]);
+                }
+
+                $(rowElem).append(tdElem);
+            }
+
+            $(tableBodyElem).append(rowElem);
+            tableObj.sort.rowElems.push(tableObj.sort.rowElems.length);
+            
+            if (options.addToTableData) {
+                if (!tableObj.tableData) {
+                    tableObj.tableData = {};
+                }
+                if (!tableObj.tableData.data) {
+                    tableObj.tableData.data = [];
+                }
+                tableObj.tableData.data.push(obj);
+            }
+
+            if (options.sort) {
+                if (tableObj.sort.sortBy) {
+                    tableObj.sortBy();
+                }    
+            }
+
+
+            $(downloadButtonElem).attr('disabled', false);
+            $(copyButtonElem).attr('disabled', (options.format == 'xlsx'));    
+
+        }
+
+        tableObj.addRows = function(array, options) {
+        
+            for(const obj of array) {
+                tableObj.addRow(obj, options);
+            }
+        }
+
+        tableObj.refreshTable = function(tableDataIn, options) {
+            tableObj.tableData = tableDataIn;
 
             const tableFormat = getTableFormat(options);
 
@@ -288,34 +340,18 @@ $(document).ready(function() {
     
             $(tableBodyElem).empty();
     
-            if (tableData.data) {
+            if (tableObj.tableData.data) {
                 $(tableDivElem).show();
                 $(downloadDivElem).show();
+                if (tableObj.tableConfig.exportOptions && tableObj.tableConfig.exportOptions.showControl) {
+                    $(exportOptionsDivElem).show();   
+                }
 
                 tableObj.sort.rowElems = [];
 
-                for(const d of tableData.data) {
-                    const rowElem = document.createElement('tr');
-    
-                    for(let col = 0; col < tableFormat.keys.length; col++) {
-                        const key = tableFormat.keys[col];
-    
-                        const tdElem = document.createElement('td');
-                        $(tdElem).css('width', tableFormat.widths[col] + 'ch');
-        
-                        if (d[key]) {
-                            $(tdElem).text(d[key]);
-                        }
-        
-                        $(rowElem).append(tdElem);
-                    }
-    
-                    tableObj.sort.rowElems.push(rowElem);
-                    $(tableBodyElem).append(rowElem);    
+                for(const d of tableObj.tableData.data) {
+                    tableObj.addRow(d, options);
                 }
-
-                $(downloadButtonElem).attr('disabled', false);
-                $(copyButtonElem).attr('disabled', (options.format == 'xlsx'));    
             }
             else {
                 $(downloadDivElem).hide();
@@ -329,7 +365,7 @@ $(document).ready(function() {
         }
 
 
-        const getXlsxData = async function(options) {
+        tableObj.getXlsxData = async function(options) {
             if (!options) {
                 options = {};
             }
@@ -350,8 +386,9 @@ $(document).ready(function() {
             xlsxData.tableData = {
                 data: [],
             };
-            for(let ii = 0; ii < tableData.data.length; ii++) {
-                const obj = tableObj.sort.rowElems ? tableData.data[tableObj.sort.rows[ii]] : tableData.data[ii];
+            
+            for(let ii = 0; ii < tableObj.tableData.data.length; ii++) {
+                const obj = tableObj.sort.rows ? tableObj.tableData.data[tableObj.sort.rows[ii]] : tableObj.tableData.data[ii];
 
                 const filteredObj = {};
                 for(const key of xlsxData.tableFormat.keys) {
@@ -459,12 +496,12 @@ $(document).ready(function() {
         }
 
         $(downloadButtonElem).on('click', async function() {
-            await getXlsxData({toFile: true});
+            await tableObj.getXlsxData({toFile: true});
 
         });
 
         $(copyButtonElem).on('click', async function(event) {
-            await getXlsxData({toClipboard: true});            
+            await tableObj.getXlsxData({toClipboard: true});            
         });
 
         $(formatSelectElem).on('change', function() {
@@ -725,6 +762,15 @@ $(document).ready(function() {
             updateTable();
             
         }
+
+        fieldSelectorObj.getFieldByKey = function(key) {
+            return fieldSelectorObj.configObj.fieldSelector.fields.find(e => e.key == key);
+        }
+
+        fieldSelectorObj.addField = function(obj) {
+            fieldSelectorObj.configObj.fieldSelector.fields.push(obj);
+            fieldSelectorObj.setConfigObj(fieldSelectorObj.configObj);
+        };
 
         fieldSelectorObj.getUrlConfigObj = function(resultObj) {
             if (!fieldSelectorObj.configObj.fieldSelector || !fieldSelectorObj.configObj.fieldSelector.showControl) {

@@ -1,0 +1,20 @@
+<!-- Required includeDefinitions: [api-helper, api-helper-extras, api-helper-tools, xlsx] -->
+<div class="apiHelper apiHelperEventViewer2 apiHelperTable apiHelperLoggedIn">
+    <div class="apiHelperBox">
+        {{> product-or-sandbox-selector}}
+        <div style="margin: 5px 0px 5px 4px;">
+            <div><label><input type="checkbox" class="decodeJsonCheckbox" checked />Decode JSON in event data</label></div>
+            <div><label><input type="checkbox" class="omitRawDataCheckbox" checked />Omit raw event data when decoded</label></div>
+        </div>
+        <div style="margin: 5px; 0px; 5px; 4px;">
+            <button class="startButton">Start</button> &nbsp;
+            <button class="pauseResumeButton" disabled>Pause</button> &nbsp;
+            <button class="clearButton" disabled>Clear</button>
+        </div>
+        <div class="apiHelperStatus"></div>
+        <div class="progressDiv" style="display:none">
+            <progress value="0" max="100"></progress>
+        </div>
+        {{> table-display }}
+    </div>
+</div>
