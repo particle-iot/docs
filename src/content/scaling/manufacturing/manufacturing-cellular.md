@@ -311,7 +311,7 @@ Be aware of the [Particle API rate limits](/reference/cloud-apis/api/#api-rate-l
 
 The following script is intended as an example for the batch provisioning of a list of devices. It is written in Bash and the first line has a -x that will produce a verbose output for debugging purposes.  In the manufacturing flow it may be necessary to remove this -x in order to capture only the responses from each API endpoint call.
 
-The Bash script will work as-is on Mac and Linux, but on Windows will require [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10), also known as WSL, on Windows 10. It is also possible to use [Cygwin](https://www.cygwin.com/) on earlier versions of Windows.
+The Bash script will work as-is on Mac and Linux, but on Windows will require [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10), also known as WSL, on Windows 10. It is also possible to use [Cygwin](https://cygwin.com/) on earlier versions of Windows.
 
 {{> codebox content="/assets/files/manufacturing/claim_and_group.sh" format="sh" height="400"}}
 

@@ -42,6 +42,7 @@ var ignoreHosts = [
   'devzone.nordicsemi.com', // 403
   'infocenter.nordicsemi.com', // 403
   'www.nordicsemi.com', // 403
+  'cygwin.com', // 403
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
