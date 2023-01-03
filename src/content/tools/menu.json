@@ -75,8 +75,7 @@
       {
         "dir": "events",
         "title": "Event viewer",
-        "href": "/tools/cloud-tools/events/",
-        "hidden": true
+        "href": "/tools/cloud-tools/events/"
       },
       {
         "dir": "import-devices",
