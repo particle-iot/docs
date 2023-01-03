@@ -13,14 +13,14 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 
 {{content-guard op="start" mode="enterpriseRequired"}}
 
-## Quickstart
+## Quick start
 
 &nbsp;
 
 <div>
     <div class="mainGrid" style="padding-bottom:40px;">
         <div class="mainNoPicRect">
-            <a href="x" class="mainGridButton">
+            <a href="/enterprise/scaling/quick-start-guide/organizations/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Organizations</div>
@@ -30,7 +30,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
             </a>
         </div>
         <div class="mainNoPicRect">
-            <a href="x" class="mainGridButton">
+            <a href="/getting-started/console/team-access-controls/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Team Access</div>
@@ -40,7 +40,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
             </a>
         </div>
         <div class="mainNoPicRect">
-            <a href="x" class="mainGridButton">
+            <a href="/enterprise/scaling/quick-start-guide/billing/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Billing</div>
