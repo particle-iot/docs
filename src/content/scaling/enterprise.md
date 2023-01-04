@@ -40,7 +40,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
             </a>
         </div>
         <div class="mainNoPicRect">
-            <a href="/enterprise/scaling/quick-start-guide/billing/" class="mainGridButton">
+            <a href="/scaling/quick-start-guide/billing/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Billing</div>
@@ -73,21 +73,21 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
             </a>
         </div>
         <div class="mainNoPicRect">
-            <a href="x" class="mainGridButton">
+            <a href="/troubleshooting/troubleshooting/?p=11779868461851" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Sample request</div>
-                        <div class="mainNoPicBottom">TBD</div>
+                        <div class="mainNoPicBottom">Request engineering samples of devices.</div>
                     </div>
                 </div>
             </a>
         </div>
         <div class="mainNoPicRect">
-            <a href="x" class="mainGridButton">
+            <a href="https://wholesale.particle.io/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Wholesale store</div>
-                        <div class="mainNoPicBottom">TBD</div>
+                        <div class="mainNoPicBottom">Order accessories not included in your contract.</div>
                     </div>
                 </div>
             </a>
@@ -101,9 +101,10 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 
 ## Purchase order submission
 
-Enterprise customers are required to submit a Blanket Purchase Order for contracted hardware minimums. This Blanket PO is not binding but should include your desired shipment dates and quantities for all hardware contracted to purchase in the first contract year. 
+You can submit your initial blanket PO or order PO using this form:
 
-- [Additional purchase order details](scaling/quick-start-guide/enterprise-order-placement/)
+- Be sure your purchase order matches the details of your contract.
+- [Additional purchase order details](scaling/quick-start-guide/enterprise-order-placement/).
 - [Example purchase order](/assets/images/support/Screen_Shot_2022-01-24_at_11.09.03_AM.png) or [Excel Purchase Order Template](/assets/files/enterprise-order-template.xlsx).
 
 {{> troubleshooting page="227" options="noUpdateUrl,noScroll"}}
