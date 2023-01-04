@@ -20,7 +20,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 <div>
     <div class="mainGrid" style="padding-bottom:40px;">
         <div class="mainNoPicRect">
-            <a href="/enterprise/scaling/quick-start-guide/organizations/" class="mainGridButton">
+            <a href="/scaling/quick-start-guide/organizations/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Organizations</div>
