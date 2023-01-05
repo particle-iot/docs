@@ -30,11 +30,11 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
             </a>
         </div>
         <div class="mainNoPicRect">
-            <a href="/getting-started/console/team-access-controls/" class="mainGridButton">
+            <a href="/getting-started/setup/accounts/" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
-                        <div class="mainNoPicTop">Team Access</div>
-                        <div class="mainNoPicBottom">How to control access to products and features.</div>
+                        <div class="mainNoPicTop">Accounts</div>
+                        <div class="mainNoPicBottom">How to set up accounts and access controls.</div>
                     </div>
                 </div>
             </a>
@@ -63,7 +63,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 <div>
     <div class="mainGrid" style="padding-bottom:40px;">
         <div class="mainNoPicRect">
-            <a href="x" class="mainGridButton">
+            <a href="" class="mainGridButton">
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Returns and replacements</div>
@@ -87,7 +87,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
                 <div class="mainContent">
                     <div class="mainNoPicTopBottom">
                         <div class="mainNoPicTop">Wholesale store</div>
-                        <div class="mainNoPicBottom">Order accessories not included in your contract.</div>
+                        <div class="mainNoPicBottom">Easily order accessories not included in your contract.</div>
                     </div>
                 </div>
             </a>

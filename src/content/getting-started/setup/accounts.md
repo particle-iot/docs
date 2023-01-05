@@ -13,7 +13,7 @@ This document describes best practices for managing accounts and access controls
 
 It's recommended that every developer have their own Particle account. Enabling [two-step authentication](/getting-started/console/two-step-authentication/) is recommended as well.
 
-For users who previously had a personal Particle account but will be working with company devices, it's recommended that they use two separate accounts so the company can deactivate their Particle account if they leave without affecting personal devices.
+For users who previously had a personal Particle account but will be working with company devices, it's recommended that they use two separate accounts so the company can deactivate their work Particle account if they leave without affecting personal devices.
 
 For contractors working on a project, it may be desirable to create a separate account for the shared project, so they can transfer the whole account to the company upon completion of the project. 
 
@@ -21,7 +21,7 @@ If you are using Google Mail, you can create an alias using the plus sign and an
 
 Some non-developers such as those working will billing may need Particle accounts. There is no charge for additional accounts.
 
-In some cases, you will claim all of the devices in a product to a single account. It's recommended that you create a separate account for this, not associated with any single user. Likewise, you may want to set up your product owner account not associated with any single user. An email alias or email group can be used for this purpose. If you are using Google Mail, a Google Group can be used.
+In some cases, you will claim all of the devices in a product to a single account. It's recommended that you create a separate account for this, not associated with any single user. Likewise, you may want to set up your product owner account not associated with any single user. An email alias or email group can be used for this purpose. If you are using Google Mail, a private Google Group can be used.
 
 ## Products
 
@@ -35,9 +35,9 @@ Products allow a number of additional features over developer devices:
 - [Team access controls](/getting-started/console/team-access-controls/), allowing you to grant specific permissions to team members.
 - [Fleet health](/getting-started/console/fleet-health/), for monitoring the status of your fleet of devices.
 
-You can use products of up to 100 devices in the free tier.
+You can use products of up to 100 devices in the free tier, and doing so greatly simplifies migrating to growth or enterprise later.
 
-- Learn more about [product](/getting-started/products/introduction-to-products/) in general.
+- [Learn more about products](/getting-started/products/introduction-to-products/) in general.
 - Learn more about [creating a product](/getting-started/products/creating-a-product/).
 
 ## Team access controls
@@ -53,7 +53,7 @@ ability to take major administrative actions.
 - **Administrator**: Full administrative access, including team
 management and irreversible destructive actions.
 
-At the organization level (growth or enterprise), you can also set access at the organization level, allowing the user access to all products in the organization. 
+In the growth or enterprise tiers, you can also set access at the organization level, allowing the user access to all products in the organization. 
 
 It is also possible to combine both features, so by default employees would have access to all products, but in some cases, such as a contractor working on a specific product, that user would only have access to that single product.
 
@@ -61,6 +61,8 @@ It is also possible to combine both features, so by default employees would have
 
 ## API users
 
-API users allow for very fine-grained access control to specific APIs. Is is often used for external servers to access the Particle APIs for a specific product.
+API users allow for very fine-grained access control to specific APIs. They are often used for external servers to access the Particle APIs for a specific product.
 
 - Learn more about [API users](/reference/cloud-apis/api/#api-users).
+- [API user management tool](/getting-started/cloud/cloud-api/#api-users).
+
