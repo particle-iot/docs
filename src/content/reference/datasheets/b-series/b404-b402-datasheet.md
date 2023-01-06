@@ -74,19 +74,22 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Power
 
+
 #### VCC
 
-VCC is used to supply power to the u-blox SARA-R410M/R410S cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. Make sure that the supply can handle currents of at least 2 A.
+VCC is used to supply power to the u-blox SARA-R410M cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery.
+
+If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V. While you only need 600mA for the B402/B404/B404X, we recommend 2A for compatibility with future SoM modules.
 
 #### 3V3
 
-3V3 is used to supply power to nRF52840, logic ICs, memory, etc.. The 3V3 input voltage range is between 3V to 3.6V DC, but 3.3V is recommended. Make sure that the supply can handle at least 150 mA, however it may need to be larger than that if you have additional 3.3V peripherals on your base board.
+3V3 is used to supply power to nRF52840, logic ICs, memory, etc.. The 3V3 input voltage range is between 3V to 3.6V DC, but 3.3V is recommended. Make sure that the supply can handle a minimum of 150 mA, however we recommend a minimum of 500 mA supplied from your base board to allow for compatibility with future modules. 
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+Your power supply must have a maximum ripple of 120mV peak-to-peak for proper operation of the MCU.
 
 We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
-
-#### VBus
-
-VBus is connected to the USB detect pin of nRF52840 to enables the USB interface. The recommended input voltage range is between 4.35V to 5.5V DC.
 
 ---
 
@@ -618,3 +621,4 @@ The bootloader allows you to easily update the user application via several diff
 | 017      | 11-Aug-2022 | RK | Correct typo in 3V3 explanation |
 | 018      | 29-Aug-2022 | RK | Split out B404X into separate datasheet |
 | 019      | 10-Dec-2022 | RK | Added PMIC notes |
+| 020      | 06-Jan-2022 | RK | Clarify power supply notes for VCC and 3V3 |

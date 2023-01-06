@@ -184,7 +184,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 
 #### ADC
 
-- ADC is limited to 3.3V maximum
+The E404X supports 8 ADC inputs.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ec8e0cf4-a9be-4964-ab24-5e9d8cd3670f --}}
 
@@ -201,6 +201,13 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 
 
 {{!-- END do not edit content above, it is automatically generated ec8e0cf4-a9be-4964-ab24-5e9d8cd3670f --}}
+
+- ADC inputs are single-ended and limited to 0 to 3.3V
+- Resolution is 12 bits
+
+On the B404X, BRN404X, and E404X, the ADC reference is the nRF52840 internal 0.6V reference, with a 1/6 gain from the input pin. This is different than other Gen 3 devices which use 3V3 as the ADC reference. 
+
+This reference and gain combination is a range of 0 to 3.6V for 0 - 4095. This is scaled in software so 3.3V will still be 4095, so there will be a slight loss of resolution.
 
 
 #### UART
@@ -741,6 +748,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-09-08 | RK | Update antenna, FCC, and IC |
 |     | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 |     | 2022-10-12 | RK | Removed power consumption section, was for B404 not E404X |
+|     | 2023-01-06 | RK | Update ADC information |
 
 ### 2022-07-28 PWM changes
 

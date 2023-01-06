@@ -70,11 +70,17 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 #### VCC
 
-VCC is used to supply power to the u-blox SARA-R410M/R410S cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. Make sure that the supply can handle currents of at least 2 A.
+VCC is used to supply power to the u-blox SARA-R510S cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. This can be connected directly to a 3.7V LiPo battery.
+
+If you are not using a battery, or using a battery of a different voltage, you should use a regulator to supply 3.7V to 4.2V. While you only need 600mA for the B404X, we recommend 2A for compatibility with future SoM modules.
 
 #### 3V3
 
-3V3 is used to supply power to nRF52840, logic ICs, memory, etc.. The 3V3 input voltage range is between 3V to 3.6V DC, but 3.3V is recommended. Make sure that the supply can handle at least 150 mA, however it may need to be larger than that if you have additional 3.3V peripherals on your base board.
+3V3 is used to supply power to nRF52840, logic ICs, memory, etc.. The 3V3 input voltage range is between 3V to 3.6V DC, but 3.3V is recommended. Make sure that the supply can handle a minimum of 150 mA, however we recommend a minimum of 500 mA supplied from your base board to allow for compatibility with future modules. 
+
+These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
+
+Your power supply must have a maximum ripple of 120mV peak-to-peak for proper operation of the MCU.
 
 We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
 
@@ -351,6 +357,11 @@ The B404X supports 8 ADC inputs.
 - ADC inputs are single-ended and limited to 0 to 3.3V
 - Resolution is 12 bits
 
+On the B404X, BRN404X, and E404X, the ADC reference is the nRF52840 internal 0.6V reference, with a 1/6 gain from the input pin. This is different than other Gen 3 devices which use 3V3 as the ADC reference. 
+
+This will only affect B404X designs that have a 3V3 voltage that is not 3.3V. Previously, the ADC values would vary with the 3V3 voltage.
+
+This reference and gain combination is a range of 0 to 3.6V for 0 - 4095. This is scaled in software so 3.3V will still be 4095, so there will be a slight loss of resolution.
 
 ### UART serial
 
@@ -1015,3 +1026,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 023      | 2022-09-26 | RK | Added FCC and IC labeling requirements |
 | 024      | 2022-12-10 | RK | Added PMIC notes |
 | 025      | 2022-12-13 | RK | Update block diagram and antenna information |
+| 026      | 2023-01-06 | RK | Clarify power supply notes for VCC and 3V3, ADC |
