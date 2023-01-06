@@ -7,7 +7,7 @@
   "attributes": {
     "name": "pid",
     "version": "2.0.1",
-    "installs": 54922,
+    "installs": 60070,
     "license": "GPLv3",
     "author": "Dan Rice <dan@zoombody.com>",
     "maintainer": "Particle <hello@particle.io>",
@@ -69,8 +69,95 @@
             "PID_Basic": true,
             "PID_RelayOutput": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "electron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "argon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "boron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "boron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "bsom": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "b5som": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "tracker": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "p2": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "boron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "bsom": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "b5som": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "tracker": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "esomx": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.678Z"
     }
   },
   "readme": "# PID control library for Particle\n\n_Adapted from Brett Beauregard's [Arduino PID Library](https://github.com/br3ttb/Arduino-PID-Library)_\n\nFor a thorough explanation of the library's workings, see http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/\n",

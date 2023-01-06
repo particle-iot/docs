@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-TMP102",
     "version": "1.0.0",
-    "installs": 1766,
+    "installs": 1848,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Alex Wende <alex.wende@sparkfun.com>",
     "sentence": "A library to drive the Texas Instruments TMP102 by I2C.",
@@ -53,8 +53,63 @@
           "boron": {
             "SparkFun_TMP102_Breakout_Example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "electron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "argon": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "boron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "boron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "bsom": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "b5som": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "tracker": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "p2": {
+            "SparkFun_TMP102_Breakout_Example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "boron": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "bsom": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "b5som": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "tracker": {
+            "SparkFun_TMP102_Breakout_Example": true
+          },
+          "esomx": {
+            "SparkFun_TMP102_Breakout_Example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.897Z"
     }
   },
   "readme": "SparkFun TMP102 Arduino Library\n======================\n\n[![Breakout Board ISO](https://cdn.sparkfun.com/assets/parts/1/0/5/9/3/13314-01a.jpg)\n\n_[TMP102 Breakout Board (SEN-11931)](https://www.sparkfun.com/products/13314)_\n\nThis is a breakout board for Texas Instruments's TMP102 -- temperature sensor.\n\nRepository Contents\n-------------------\n* **/examples** - Example sketch for the library (.ino). Run this from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Digital_Temperature_Sensor_Breakout_-_TMP102)** - Main repository (including hardware files) for the TMP102 Breakout.\n* **[TMP102 Breakout Hookup Guide](https://learn.sparkfun.com/tutorials/tmp102-hookup-guide)** - Basic hookup guide for the TMP102 Breakout.\n\nProducts that use this Library\n---------------------------------\n\n* [TMP102 Breakout Board (SEN-11931)](https://www.sparkfun.com/products/13314)- TMP102 Breakout board.\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

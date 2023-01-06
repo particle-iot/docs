@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Vedirect",
     "version": "1.0.5",
-    "installs": 307,
+    "installs": 398,
     "author": "Janne Kario",
     "architectures": [],
     "visibility": "public",
@@ -19,7 +19,8 @@
   "versions": {
     "1.0.5": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.096Z"
     }
   },
   "readme": "Initial version of an Arduino library for reading VE.Direct serial\noutput of the Victron Energy charge controllers and battery\nmonitors. A version of this library has been running on Particle\nElectron, ESP8266, ESP32 and Arduino.\n",

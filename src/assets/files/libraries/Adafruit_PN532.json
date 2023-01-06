@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_PN532",
     "version": "0.0.1",
-    "installs": 11070,
+    "installs": 14204,
     "license": "MIT (whichever is stated in README file)",
     "author": "Adafruit ons",
     "sentence": "Adafruit's NFC library modded for Particle Photon",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.745Z"
     }
   },
   "readme": "AdafruitPN532_Library\n=====================\n\nAdafruit PN532 NFC reader library ported for Spark with Hardware/Software SPI support\n",

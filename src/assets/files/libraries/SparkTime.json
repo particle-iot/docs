@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkTime",
     "version": "0.0.6",
-    "installs": 80463,
+    "installs": 84563,
     "license": "MIT",
     "author": "Brian Ogilvie <bko@pobox.com>",
     "sentence": "A Spark Library for NTP time",
@@ -58,8 +58,79 @@
             "SparkTimeExample": true,
             "timentemp": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "electron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "bsom": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "b5som": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "tracker": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "p2": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "bsom": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "b5som": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "tracker": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "esomx": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.663Z"
     }
   },
   "readme": "SparkTime\n=========\n\nNTP Time Client Code for the Spark Core\n",

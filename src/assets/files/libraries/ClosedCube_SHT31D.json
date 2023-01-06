@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ClosedCube_SHT31D",
     "version": "0.1.1",
-    "installs": 1635,
+    "installs": 1844,
     "license": "MIT",
     "author": "Garrett Hawes <hawesg@gmail.com>",
     "sentence": "A more complete SHT-3X(30/31/35) library.",
@@ -85,8 +85,127 @@
             "singleshotmode": false,
             "whoiam": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "electron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "argon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "bsom": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "b5som": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "tracker": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "p2": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "bsom": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "b5som": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "tracker": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          },
+          "esomx": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": false,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.902Z"
     }
   },
   "readme": "Particle Photon Library for\nClosedCube SHT31-D (SHT35 and SHT30) I2C Digital Humidity and Temperature Sensor Breakout\n=====================================================================================================\n\nYou can see some documentation on the [wiki](https://github.com/hawesg/SHT31D_Particle_Photon_ClosedCube/wiki) please check back as they are a work in progress.\n\nNote: The library supports SHT30 (low-cost) and SHT35 (high-end) sensor versions as well.\n\n---\n### Where to Buy?\nThis library was ported from excellent work by ClosedCube their SHT breakout boards can be purchased from\n<a href=\"https://www.tindie.com/stores/closedcube/?ref=offsite_badges&utm_source=sellers_closedcube&utm_medium=badges&utm_campaign=badge_medium\">Tindie</a>\n",

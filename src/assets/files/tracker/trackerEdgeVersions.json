@@ -1,5 +1,13 @@
 [
   {
+    "version": 18,
+    "bin": "tracker-edge-18@3.3.0.bin",
+    "target": "3.3.0",
+    "zip": "v18.zip",
+    "v": "v18",
+    "title": "Tracker Edge v18 (Device OS 3.3.0)"
+  },
+  {
     "version": 17,
     "bin": "tracker-edge-17@3.2.0.bin",
     "target": "3.2.0",

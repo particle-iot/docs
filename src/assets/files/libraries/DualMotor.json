@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DualMotor",
     "version": "0.0.2",
-    "installs": 408,
+    "installs": 429,
     "license": "GNU GPLv3",
     "author": "Refik Can MALLI",
     "sentence": "Custom DualMotor Library",
@@ -23,7 +23,8 @@
   "versions": {
     "0.0.2": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.060Z"
     }
   },
   "readme": "# DualMotor\nCustom DualMotorShield Library\n",

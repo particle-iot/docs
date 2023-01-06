@@ -1,30 +1,32 @@
 {
     "items":[
         {
-            "title":"Home",
-            "link":"/"
+            "title": "Getting Started",
+            "href": "/getting-started/"
         },
         {
-            "dir":"quickstart"
+            "title": "Reference",
+            "href": "/reference/"
         },
         {
-            "dir":"tutorials"
+            "title": "Hardware",
+            "href": "/hardware/"
         },
         {
-            "dir":"reference"
+            "title": "Firmware",
+            "href": "/firmware/"
         },
         {
-            "dir":"datasheets"
+            "title": "Scaling",
+            "href": "/scaling/"
         },
         {
-            "dir":"community"
+            "title": "Tools",
+            "href": "/tools/"
         },
         {
-            "dir":"tools"
-        },
-        {
-            "title":"Support",
-            "link":"https://support.particle.io/hc/en-us/"
+            "title": "Support & Troubleshooting",
+            "href": "/troubleshooting/"
         }
     ]
 }

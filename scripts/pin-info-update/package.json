@@ -1,0 +1,17 @@
+{
+    "name": "pin-info-update",
+    "description": "Tool to fix up the pinInfo.json file",
+    "version": "0.0.1",
+    "private": true,
+    "license": "MIT",
+    "author": "rick@particle.io",
+    "engines": {
+      "node": ">=8"
+    },
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+  }
+  

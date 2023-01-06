@@ -12,10 +12,11 @@ SYSTEM_THREAD(ENABLED);
 
 void setupDone() 
 {
-#if defined(DCT_SETUP_DONE_OFFSET)
+#if defined(DCT_SETUP_DONE_OFFSET) && !defined(SYSTEM_VERSION_v400ALPHA1)
     // On Gen3 devices, set the setup done flag to true so the device exits
     // listening mode. This happens immediately on cellular devices or after
     // valid Wi-Fi credentials have been set on the Argon.
+    // This is only necessary with Device OS 3.x and earlier.
     uint8_t val = 0;
     if(!dct_read_app_data_copy(DCT_SETUP_DONE_OFFSET, &val, sizeof(val)) && val != 1)
     {

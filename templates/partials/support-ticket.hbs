@@ -1,0 +1,41 @@
+<div class="apiHelper apiHelperSupportTicket" style="margin-top: 30px;" data-style="{{style}}">
+    <div class="apiHelperBox">
+        <div class="submitTicketDiv" style="display:none;">
+            <table class="apiHelperTableNoMargin">
+                <tr>
+                    <td>Particle Username</td>
+                    <td class="usernameField"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Organization</td>
+                    <td class="organizationField"></td>
+                    <td></td>
+                </tr>
+                <tr class="subjectRow">
+                    <td>Subject</td>
+                    <td><input type="text" size="40" /></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div>
+                <textarea class="messageField" rows="40" cols="100" style="margin-top: 5px; font-size: 10px;"></textarea>
+                <button class="submitButton" style="margin-top: 5px;">Submit support request</button>
+            </div>
+        </div>
+        <div class="ticketSubmittedDiv" style="display:none;">
+            <p>Your ticket has been submitted. Watch for an email from hello@particle.io. Your ticket number is <span class="ticketNum"></span>.</p>
+        </div>
+        <div class="ticketErrorDiv" style="display:none;">
+            <p>An error occurred submitting your ticket.</p>
+        </div>
+        <div class="loginRequiredDiv" style="display:none;">
+            <p>You must log into your Particle account.</p>
+        </div>
+        <div class="isFreeTierDiv" style="display:none;">
+            <p>Free plan accounts must visit the <a href="https://community.particle.io/">Particle community forums</a> for 
+                support.</p>
+        </div>
+    </div>
+</div>
+

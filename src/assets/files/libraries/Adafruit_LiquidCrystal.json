@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LiquidCrystal",
     "version": "1.0.2",
-    "installs": 11889,
+    "installs": 12446,
     "license": "BSD",
     "author": "Christian Vallières",
     "sentence": "A fork of Adafruit LiquidCrystal library that support i2c / SPI character LCD backpack.",
@@ -58,8 +58,79 @@
             "LiquidCrystal_i2c": true,
             "LiquidCrystal_spi": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "electron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "bsom": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "b5som": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "tracker": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "p2": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "bsom": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "b5som": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "tracker": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "esomx": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.743Z"
     }
   },
   "readme": "# Adafruit_LiquidCrystal\nA fork of Adafruit LiquidCrystal library that support i2c / SPI character LCD backpack.\n",

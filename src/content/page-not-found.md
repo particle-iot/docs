@@ -10,14 +10,6 @@ layout: page-not-found.hbs
     </div>
     <div class="not-found-text">
     <p>The link you followed no longer is part of the Particle Documentation. No worries! You can search for a topic below, or click <a href="/">here</a> to return to the docs homepage.</p>
-      <div class="search">
-        <div class="search-input-wrapper">
-          <i class="ion-search"></i>
-          <input class="st-default-search-input" type="text" placeholder="Search" value=""/>
-        </div>
-        <div class="search-results">
-        </div>
-      </div>
     </div>
   </div>
 </div>

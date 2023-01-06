@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialCommand1",
     "version": "1.1.2",
-    "installs": 288,
+    "installs": 392,
     "license": "open source",
     "author": "JC",
     "sentence": "serical command",
@@ -56,8 +56,63 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.089Z"
     }
   },
   "readme": "SerialCommand\n=============\nA Wiring/Arduino library to tokenize and parse commands received over a serial port. \n\nThe original version of this library was written by [Steven Cogswell](http://husks.wordpress.com) (published May 23, 2011 in his blog post [\"A Minimal Arduino Library for Processing Serial Commands\"](http://husks.wordpress.com/2011/05/23/a-minimal-arduino-library-for-processing-serial-commands/)).\n\nThis is a heavily modified version with smaller footprint and a cleaned up code by Stefan Rado.\n",

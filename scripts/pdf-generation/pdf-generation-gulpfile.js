@@ -31,7 +31,7 @@ process.chdir('../..'); // go back to repo dir
 const paths = {
     build: '_pdf-datasheets-build',
     distrib: 'src/assets/pdfs/datasheets',
-    md: 'src/content/datasheets/**/*.md',
+    md: ['src/content/reference/datasheets/**/*.md', 'src/content/reference/technical-advisory-notices/*.md'],
     assets: 'src/assets/**/*',
     css: 'scripts/pdf-generation/styles/**/*.{css,less}',
     cssEntry: 'scripts/pdf-generation/styles/datasheets.less',
@@ -149,6 +149,7 @@ function toPDF() {
         const coverPath = `${paths.covers}/${fileName}.html`;
         const commandArgs = [
             `wkhtmltopdf`,
+            `--enable-local-file-access`,
             `--dpi 300`,
             existsSync(coverPath) ? `cover ${coverPath}` : '',
             `toc --xsl-style-sheet ${paths.xsl}`,
@@ -193,6 +194,8 @@ gulp.task('transfrom md to pdf', () => gulp.src(paths.md)
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
     .pipe(ignore.include(filterUnchanged))
     .pipe(replace(/{{imageOverlay (.*)}}/g, '<img $1>')) // Convert imageOverlay to img tags
+    .pipe(replace(/{{migration-guide (.*)}}/g, '')) 
+    .pipe(replace(/{{title (.*)}}/g, '')) 
     .pipe(replace(/{{box (.*)}}/g, '')) // Strip out box helper
     .pipe(replace(/{{api (.*)}}/g, '')) 
     .pipe(replace(/{{since (.*)}}/g, sinceHandler)) 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD24Relay",
     "version": "0.0.4",
-    "installs": 736,
+    "installs": 829,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 24 channel Particle compatible Relay Controller with 8 inputs",
@@ -56,8 +56,79 @@
             "CloudControl": false,
             "Loop_Test": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "electron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "p2": {
+            "CloudControl": false,
+            "Loop_Test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "bsom": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "b5som": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "tracker": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "esomx": {
+            "CloudControl": false,
+            "Loop_Test": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.983Z"
     }
   },
   "readme": "# About\n\nThis Library is intended for use with the NCD 24 Channel Particle compatible relay controller.\n\nThe intention of this library is to make use of the NCD 24 channel relay controller with Particle development web IDE as simple as possible for users.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com \n\n###Requirements\n- NCD 24 Channel Particle Compatible Relay board\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the NCD24Relay.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particle's documentation] [ParticleIncludeLibrary] \n\n### Example use\n\nOnce the Library is included in your applicaiton you should see an include statement at the top like this:\n```cpp\n//This #include statement was automatically added by the Particle IDE.\n#include \"NCD24Relay/NCD24Relay.h\"\n```\nNow you need to instanciate an object of the library for use in your application like this:\n```cpp\nNCD24Relay relayController;\n```\n\nHere is an example use case for the class\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"NCD24Relay/NCD24Relay.h\"\nNCD24Relay relayController;\n\nvoid setup() {\nSerial.begin(115200);\nrelayController.setAddress(0, 0, 0);\n}\n\nvoid loop() {\n//Test relays\nfor(int i = 1; i < 25; i++){\nrelayController.turnOnRelay(i);\nint rOnStatus = relayController.readRelayStatus(i);\nSerial.print(\"Relay status after on: \");\nSerial.println(rOnStatus);\ndelay(100);\n}\nfor(int i = 1; i < 25; i++){\nrelayController.turnOffRelay(i);\nint rOffStatus = relayController.readRelayStatus(i);\nSerial.print(\"Relay status after off: \");\nSerial.println(rOffStatus);\ndelay(100);\n}\n\nrelayController.turnOnAllRelays();\ndelay(500);\nrelayController.turnOffAllRelays();\ndelay(500);\n\nfor(int i = 1; i < 25; i++){\nrelayController.toggleRelay(i);\ndelay(100);\nrelayController.toggleRelay(i);\ndelay(100);\n}\nfor(int i = 1; i < 4; i++){\nrelayController.turnOnAllRelays(i);\ndelay(500);\nrelayController.turnOffAllRelays(i);\ndelay(500);\n}\nrelayController.setBankStatus(85, 1);\nint rStatus85 = relayController.readBankStatus(1);\nSerial.print(\"Status after setting relay bank status to 85: \");\nSerial.println(rStatus85);\ndelay(500);\nrelayController.setBankStatus(170, 1);\ndelay(500);\nrelayController.turnOffAllRelays();\ndelay(500);\n}\n```\n\n###Public accessible methods\n```cpp\nvoid setAddress(int a0, int a1);\n```\n>Must be called first before using the object.  This method should also be called any time communication with\n>the controller is lost or broken to recover communication  This method accepts two int arguments.  This\n>tells the Library what address to direct commands to.  a0 and a1 ints are representations of the two\n>jumpers on the 24 channel relay controller which are labeled on the board A0 and A1.  If the jumper is\n>installed then that int in this call should be set to 1.  If it is not installed then the int should be set to \nSo if I have A0 and A1 installed I would call ```relayController.setAddress(1, 1).```\n\n\n```cpp\nvoid turnOnRelay(int Relay);\n```\n>This method accepts one int argument.  Valid int arguments 1-24.  A call to this method will turn on the\n>relay indicated by the passed int argument.\n\n\n```cpp\nvoid turnOffRelay(int Relay);\n```\n>This method accepts one int argument.  Valid int arguments 1-24.  A call to this method will turn off the relay\n>indicated by the passed int argument.\n\n\n```cpp\nvoid turnOnAllRelays();\n```\n>This method does not accept any arguments.  A call to this method will turn on all 24 relays on the\n>controller.\n\n\n```cpp\nvoid turnOffAllRelays();\n```\n>This method does not accept any arguments.  A call to this method will turn off all 24 relays on the\n>controller.\n\n\n```cpp\nvoid turnOnAllRelays(int bank);\n```\n>This method accepts one int argument.  Valid ints are 1-4 for relay banks 1-4 respectively.  If 1 is\n>passed relays 1-8 will be turned on.  If 2 is passed relays 9-16 will be turned on. If 3 is passed relays 17-24 will be turned on.\n\n\n```cpp\nvoid turnOffAllRelays(int bank);\n```\n>This method accepts one int argument.  Valid ints are 1-4 for relay banks 1-4 respectively.  If 1 is\n>passed relays 1-8 will be turned off.  If 2 is passed relays 9-16 will be turned off. If 3 is passed relays 17-24 will be turned off.\n\n\n```cpp\nvoid toggleRelay(int relay);\n```\n>This method accepts one int argument.  Valid int arguments are 1-24.  A call to this method will toggle the\n>status of the relay indicated by the passed int argument.  If the relay was previously off before the method\n>call the relay will turn on and vice versa.\n\n\n```cpp\nvoid setBankStatus(int status, int bank);\n```\n>This method accepts two int arguments.  Valid status int arguments 0-255.  Valid bank arguments 1-3.  A call\n>to this method will set the status of all relays in the specified bank(1-3) to the status byte passed in\nthe second argument(status).  Each relay in the bank(total of 8) are represented as bits in the status\n>argument.\n\n\n```cpp\nvoid setAllRelayStatus(int bank1, int bank2, int bank3, int bank4);\n```\n>This method accepts three int arguments.  Valid bank1 int arguments 0-255.  Valid bank2 int arguments 0-255.  Valid bank3 arguments 0-255.  Valid bank4 arguments 0-255  A\n>call to this method will set the status of all relays in banks 1(total of 8) to the status sent in the bank1 argument, all relays in bank 2(total of 8) to the\n>status int passed in the bank2 argument, all relays in bank 3(total of 8) to the\n>status int passed in the bank3 argument.\n\n\n```cpp\nint readRelayStatus(int relay);\n```\n>This method accepts one int argument and returns one int.  Valid relay int arguments 1-24.  A call to this\n>method will read the status of the given relay passed by the relay argument and return the current on/off\n>status of the given relay.  1 will be returned if the relay is on and 0 will be returned if the relay is off. \n>256 will be returned if an error has occured(generally due to lack of communication with the controller).\n\n\n```cpp\nint readBankStatus(int bank);\n```\n>This method accepts one int argument and returns one int.  Valid bank int arguments 1-3.  A call to this\n>method will read and return the status of all relays in the given bank(passed to method as bank int argument). \n>Each relay in the bank is represented in a bit in the returned int.  Valid returns are 0-255.  256 will be\n>returned if an error has occured(generally due to lack of communciation with controller).\n\n\n```cpp\nint readInputStatus(int input);\n```\n>This method accepts one int argument and returns one int.  Valid input int arguments 1-8.  A call to this\n>method will read the status of the given input passed by the input argumetn and return the current closed/open\n>status of the given input.  1 will be returned if the input is closed and 0 will be returned if the input is open.\n>256 will be returned if an error has occured(generally due to lack of communication with the controller).\n\n\n```cpp\nbyte readAllInputs();\n```\n>This method accepts no arguments and returns one byte.  A call to this\n>method will read and return the status of all 8 inputs on the board. \n>Each input on the board is represented as a bit in the returned byte.  Valid returns are 0-255.  If the input is closed \n>the bit in the byte is set to 1, if the input is open the bit in the byte is set to 0.  256 will be\n>returned if an error has occured(generally due to lack of communciation with controller).\n\n\n###Public accessible variables\n```cpp\nbool initialized;\n```\n>This boolean indicates the current status of the interface connection to the controller.  This variable should\n>be checked often throughout your application.  If communication to the board is lost for any reason this\n>boolean variable will return false.  If all is well it will return true.\n\n\nLicense\n----\n\nGNU\n[ParticleIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/",

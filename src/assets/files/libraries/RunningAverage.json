@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningAverage",
     "version": "0.0.1",
-    "installs": 30623,
+    "installs": 35327,
     "license": "GNU GPL 2.0",
     "author": "Lucas Choate <lucas@ingen-networks.com>",
     "sentence": "RunningAverage keeps a running average of your sampled data without blowing up your memory",
@@ -50,8 +50,63 @@
           "boron": {
             "RunningAverage-Sample": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "RunningAverage-Sample": true
+          },
+          "electron": {
+            "RunningAverage-Sample": true
+          },
+          "argon": {
+            "RunningAverage-Sample": true
+          },
+          "boron": {
+            "RunningAverage-Sample": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "RunningAverage-Sample": true
+          },
+          "boron": {
+            "RunningAverage-Sample": true
+          },
+          "bsom": {
+            "RunningAverage-Sample": true
+          },
+          "b5som": {
+            "RunningAverage-Sample": true
+          },
+          "tracker": {
+            "RunningAverage-Sample": true
+          },
+          "p2": {
+            "RunningAverage-Sample": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "RunningAverage-Sample": true
+          },
+          "boron": {
+            "RunningAverage-Sample": true
+          },
+          "bsom": {
+            "RunningAverage-Sample": true
+          },
+          "b5som": {
+            "RunningAverage-Sample": true
+          },
+          "tracker": {
+            "RunningAverage-Sample": true
+          },
+          "esomx": {
+            "RunningAverage-Sample": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.696Z"
     }
   },
   "readme": "RunningAverage\n================================================\n\nRunningAverage keeps a running average of your sampled data without blowing up your memory \n\n- The library stores N individual values in a circular buffer to calculate the running average.\n- This code has been modified to work on the Spark Core by Lucas Choate\n\n[See the original Arduino Code:](http://playground.arduino.cc/Main/RunningAverage)\n\nOne of the main applications for the Arduino board is reading and logging of sensor data. For instance one monitors pressure every second of the day. As high sample rates often generates \"spikes\" in the graphs one also wants to have an average of the measurements. As the measurements are not static in time what we often need is a running average. This is the average of a certain period and very valuable when doing trend analysis.\n\nSimplest form of a running average can be done by code that builds upon the \"previous\" running average:\n\n```Arduino\nfloat alpha = 0.7; // factor to tune\nvalue = alpha * measurement + (1-alpha) * value;\n```\n\nIf one doesn't want to use floating point math - as this takes up memory and decreases speed - one can do the same completely in the integer domain. The division by 256 in the sample code is a shift-right 8, which is faster than say division by e.g. 100. This is true for every power of 2 as divider and one only must take care the sum of the weigths equals the power of 2. And of course one should take care there is no intermediate overflow (consider using unsigned long)\n\n```Arduino\n#define POWER 256\nint alpha = 178;\nvalue = (alpha * measurement + (POWER - alpha) * value )/ POWER;\n```\n\nIf you need a more accurate running average, in concreto from the last 10 measurements, you need an array (or linked list) to hold them. This array acts as a circular buffer and with every new measurement the oldest one is removed. The running average is calculated as the sum of all elements divided by the number of elements in the array. The code for the running average will be something like this:\n\n```Arduino\nlong runningAverage(int M)\n{\n  static int LM[10];      // LastMeasurements\n  static byte index = 0;\n  static long sum = 0;\n  static byte count = 0;\n\n  // keep sum updated to improve speed.\n  sum -= LM[index];\n  LM[index] = M;\n  sum += LM[index];\n  index = index % LMSIZE;\n  if (count < LMSIZE) count++;\n\n  return sum / count;\n}\n```\n\nDrawback of this code is that the array to hold all values can become quite large. If you have one measurement per second and you want a running average per minute you need an array of 60; an average per hour would need an array of 3600!. That couldn't be done this way on an Arduino as it only has 2K of RAM. However by building a 2 stage average it can be approached quite well (disclaimer: not for all measurements). In psuedo code:\n\n```\nevery second:   rapm = runningAverageMinute(measurement);\nevery minute:   raph = runningAverageHour(rapm);\n```\n\nAs a new internal static array is needed for every runningAverage function, this screams to be implemented as a class.\n\n#RunningAverage library\n\nThe runningAverage library makes a class of the function above so it can be used multiple times in an sketch. It decouples the add() and the avg() function to be a bit more flexible e.g. one can call the average multiple times without adding a thing. Please note that every instance of the class adds its own array to hold measurements, and that this adds up to the memory usage. The interface of the class is kept as small as possible.\n\n##Note: with version 0.2 the names of the methods are all made more descriptive.\n\n```Arduino\n  RunningAverage(int);\t\t// constructor; int=size of internal array;\n  ~RunningAverage();\t\t// destructor;  \n  void clear();\t\t\t// reset all counters\n  void addValue(float);\t\t// add a value (and remove an old one)\n  float getAverage();\t\t// get the running average\n  void fillValue(float, int);\t// fill with n x value\n\n// backwards compatibility\n// clr() clear()\n// add(x) addValue(x)\n// avg() getAverage()\n\n    // new in 0.2.04 version\n    float getElement(uint8_t idx);\n    uint8_t getSize() { return _size; }\n    uint8_t getCount() { return _cnt; }\n```\n\n#Usage\n\nA small sketch shows how it can be used. A random generator is used to mimic a sensor.\n\n```Arduino\n//\n//    FILE: runningAverageTest.pde\n//  AUTHOR: Rob Tillaart\n//    DATE: 2012-12-30\n//\n// PUPROSE: show working of runningAverage\n//\n\n#include \"RunningAverage.h\"\n\nRunningAverage myRA(10);\nint samples = 0;\n\nvoid setup(void) \n{\n  Serial.begin(115200);\n  Serial.println(\"Demo RunningAverage lib\");\n  Serial.print(\"Version: \");\n  Serial.println(RUNNINGAVERAGE_LIB_VERSION);\n  myRA.clear(); // explicitly start clean\n}\n\nvoid loop(void) \n{\n  long rn = random(0, 1000);\n  myRA.addValue(rn * 0.001);\n  samples++;\n  Serial.print(\"Running Average: \");\n  Serial.println(myRA.getAverage(), 3);\n\n  if (samples == 300)\n  {\n    samples = 0;\n    myRA.clear();\n  }\n  delay(100);\n}\n```\n\nIn setup() the myRA is cleared so we can start adding new data.\n\nIn loop() first a random number is generated and converted to a float to be added to myRA. Then the runningAverage is printed to the serial port. One could also display it on some LCD or send over ethernet etc. When 300 items are added myRA is cleared to start over again.\n\n##Notes\n\nTo use the library, make a folder in your SKETCHBOOKPATH\\libaries with the name RunningAverage and put the .h and .cpp there. Optionally make a examples subdirectory to place the sample app.\n\n##History\n\n2011-01-30: initial version\n2011-02-28: fixed missing destructor in .h file\n2011-02-28: removed default constructor;\n2012-??-??: trimValue()Yuval Naveh added trimValue (found on web)\n2012-11-21: refactored\n2012-12-30: added fillValue() + refactored for publishing\n2014-07-03: added memory protection code - if internal array cannot be allocated size becomes 0. This is to solve issue described here - http://forum.arduino.cc/index.php?topic=50473.msg1790086#msg1790086 -\n\n##Todo\n\nTest extensively ...\nTemplate class\nEnjoy tinkering,\nrob.tillaart@removethisgmail.com",

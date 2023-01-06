@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SI7020-A20_CE",
     "version": "1.0.0",
-    "installs": 1634,
+    "installs": 1695,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of www.ControlEverything.com SI7020-A20 temperature sensor Mini module",
@@ -58,8 +58,79 @@
             "1_Reading_Temperature": true,
             "2_Publishing_Temperature": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "electron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "argon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "bsom": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "b5som": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "tracker": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "p2": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "bsom": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "b5som": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "tracker": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "esomx": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.905Z"
     }
   },
   "readme": "# About\n\nThis Library is intended for use with ControlEverything.com [SI7020-A20] [si7020] temperature sensor mini modules.\n\nThe intention of this library is to make use of the ControlEverything SI7020-A20 with Particle development web IDE as simple as possible for users.\n###Developer information\nControlEverything designs and develops peripheral products for the IOT platform market.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controleverything.com \n\n###Requirements\n- [ControlEverything SI7020-A20 temperature sensor mini module][si7020]\n- Particle Photon, Electron, or Core module\n- [ControlEverything Particle platform board with I2C interface][interfaceAdapter]\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary can be imported into an existing application or you can simply use our example code.  This can be done through the Particle WEB IDE(Build).  Click the Community Libraries Icon and search for SI7020-A20_CE.  Once found select that library.  Click Include in App button to add it to an existing application or simply click the Use this example button to use our example code.  If you are adding this library to an existing application select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particles's documentation] [sparkIncludeLibrary] \n\n### Example use\n\nOnce the Library is included in your applicaiton you should see an include statement at the top like this:\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"SI7020-A20_CE/SI7020-A20.h\"\n```\nNow you need to instanciate an object of the library for use in your application like this:\n```cpp\nSI7020_A20 tempSensor;\n```\n\nHere is an example use case for the class\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"SI7020-A20_CE/SI7020-A20.h\"\n\nSI7020_A20 tempSensor;\n\ndouble tempF = 0;\n\nvoid setup() {\nParticle.variable(\"Temperature\", tempF);\n}\n\nvoid loop() {\ntempF = tempSensor.temperatureF();\n}\n```\n\n###Public accessible methods\n```cpp\ndouble temperatureC();\n```\nA call to this function will return a double variable representing the current temperature read by the sensor in degrees Celsius.\n\n\n```cpp\ndouble temperatureF();\n```\nA call to this function will return a double variable representing the current temperature read by the sensor in degrees Fahrenheit.\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:http://docs.spark.io/build/#flash-apps-with-spark-build-using-libraries\n[ceSite]:https://www.controleverything.com/\n[si7020]:https://www.controleverything.com/content/Temperature?sku=SI7020-A20_I2CS\n[interfaceAdapter]:https://www.controleverything.com/products?f[0]=field_assigned_categories%3A6124&f[1]=field_assigned_categories%3A6591\n",

@@ -1,6 +1,6 @@
-div.apiHelper, div.codeboxBanner {
-    background-color: @NC_MORNING_MIST;
-}
+div.apiHelper {
+    .STYLE_body_md_r();
+};
 
 div.apiHelperBox, div.codeboxBannerBox {
     padding: 10px;
@@ -17,17 +17,18 @@ div.apiHelperSmallText {
 
 select.apiHelperSelect {
     height: 27px;
-    background-color:#EFEFEF;
 }
 
 select.apiHelperSelect24 {
     height: 24px;
-    background-color:#EFEFEF;
+}
+
+select.apiHelperSelectMultiple {
+    height: 100px;
 }
 
 select.codeboxFlashDeviceSelect, select.apiHelperConfigSchemaProductSelect {
     height: 24px;
-    background-color:#EFEFEF;
 }
 
 pre.codeboxPre {
@@ -90,6 +91,49 @@ tr.apiHelperSelectedRow {
     font-size: 12px;  
 };
 
+.apiHelperGiantButton {
+    position: relative;
+    width: 80%;
+    padding: 10px 10px 10px 10px;
+    margin: 20px 20px 20px 20px;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+};
+
+.apiHelperGiantButtonDetail {
+    font-size: 11px;
+    padding-top: 3px;
+};
+
+.apiHelperGiantButtonSwatch {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    width: 27px;
+    height: 27px;
+}
+
+.apiHelperTroubleshootingPage {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.apiHelperTroubleshootingField {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.apiHelperTroubleshootingInput {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.apiHelperTroubleshootingDescription {
+    font-size: 10px;
+}
+
 .usbSerialConsoleTextArea {
     width: 99%;
     height: 500px;
@@ -102,3 +146,83 @@ textarea.usbSerialConsoleTextArea:focus {
 	color: @NC_ALMOST_WHITE;
 	background-color: @super-dark-gray;
 };
+
+.apiHelperTableFlexContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+.apiHelperCheckboxList {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.apiHelperGroupedBoxOuter {
+    padding: 8px;
+    margin: 4px;
+    border-style: dotted;
+    border-width: 1px;
+};
+.apiHelperGroupedTitle {
+    margin: 4px;
+};
+
+@media (prefers-color-scheme: dark) {
+    div.apiHelper, div.codeboxBanner {
+        background-color: @COLOR_Midnight_500;
+    }
+    select.apiHelperSelect,
+    select.apiHelperSelect24,
+    select.apiHelperSelectMultiple,
+    select.codeboxFlashDeviceSelect, 
+    select.apiHelperConfigSchemaProductSelect {
+        background-color: @COLOR_Midnight_500;
+        color: @COLOR_Gray_100;
+    }
+    .apiHelperGiantButton {
+        background-color: @COLOR_ParticleBlue_900;
+        color: @COLOR_Gray_100;
+    }
+    .apiHelperGiantButtonSelected {
+        background-color: @COLOR_ParticleBlue_700;
+    }
+    .apiHelperGroupedBoxOuter {
+        color: @COLOR_Gray_400;
+    }
+    .apiHelperGroupedBoxInner {
+        // This is the default color in body, defined in basics.less
+        color: @COLOR_Gray_100;
+    }    
+}
+
+
+@media (prefers-color-scheme: light) {
+    div.apiHelper, div.codeboxBanner {
+        background-color: @NC_MORNING_MIST;
+    }
+    select.apiHelperSelect,
+    select.apiHelperSelect24,
+    select.apiHelperSelectMultiple,
+    select.codeboxFlashDeviceSelect, 
+    select.apiHelperConfigSchemaProductSelect {
+        background-color:#EFEFEF;
+        color: @COLOR_Midnight_500;
+    }
+    .apiHelperGiantButton {
+        background-color: @COLOR_ParticleBlue_400;
+        color: @COLOR_Midnight_500;
+    }
+    .apiHelperGiantButtonSelected {
+        background-color: @COLOR_ParticleBlue_700;
+    }
+    .apiHelperGroupedBoxOuter {
+        color: @COLOR_Midnight_300;
+    }
+    .apiHelperGroupedBoxInner {
+        // This is the default color in body, defined in basics.less
+        color: @COLOR_Midnight_500;
+    };
+    
+}

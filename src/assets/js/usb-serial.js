@@ -55,30 +55,37 @@ usbSerial.newConnection = function(options) {
     conn.connect = async function(connectOptions) {
         let filters = [];
         
-        const wifiDevices = [6, 8, 12, 22];
-        const cellularDevices = [10, 13, 23, 25, 26];
+        const deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
 
         if (connectOptions.showAllDevices) {
             filters.push({ usbVendorId: 0x2b04 }); // Particle devices
         }
         if (connectOptions.showWifiDevices) {
-            for(const platformId of wifiDevices) {
-                filters.push({ usbVendorId: 0x2b04, usbProductId: platformId }); 
+            for(const p of deviceRestoreInfo.platforms) {
+                if (p.wifi) {
+                    filters.push({ usbVendorId: 0x2b04, usbProductId: p.id }); 
+                }
             }            
         }
         if (connectOptions.showCellularDevices) {
-            for(const platformId of cellularDevices) {
-                filters.push({ usbVendorId: 0x2b04, usbProductId: platformId }); 
+            for(const p of deviceRestoreInfo.platforms) {
+                if (p.cellular) {
+                    filters.push({ usbVendorId: 0x2b04, usbProductId: p.id }); 
+                }
             }            
         }
         if (connectOptions.showWifiListeningDevices) {
-            for(const platformId of wifiDevices) {
-                filters.push({ usbVendorId: 0x2b04, usbProductId: 0xc000 | platformId }); 
+            for(const p of deviceRestoreInfo.platforms) {
+                if (p.wifi) {
+                    filters.push({ usbVendorId: 0x2b04, usbProductId: 0xc000 | p.id }); 
+                }
             }            
         }
         if (connectOptions.showCellularListeningDevices) {
-            for(const platformId of cellularDevices) {
-                filters.push({ usbVendorId: 0x2b04, usbProductId: 0xc000 | platformId }); 
+            for(const p of deviceRestoreInfo.platforms) {
+                if (p.cellular) {
+                    filters.push({ usbVendorId: 0x2b04, usbProductId: 0xc000 | p.id }); 
+                }
             }            
         }
         if (!connectOptions.showDebugger) {

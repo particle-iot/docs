@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PS2Communication",
     "version": "0.0.8",
-    "installs": 765,
+    "installs": 805,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic PS/2 communication framework (Core/Photon/P1)",
@@ -50,8 +50,63 @@
           "boron": {
             "PS2Mouse": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "PS2Mouse": false
+          },
+          "electron": {
+            "PS2Mouse": false
+          },
+          "argon": {
+            "PS2Mouse": false
+          },
+          "boron": {
+            "PS2Mouse": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "PS2Mouse": false
+          },
+          "boron": {
+            "PS2Mouse": false
+          },
+          "bsom": {
+            "PS2Mouse": false
+          },
+          "b5som": {
+            "PS2Mouse": false
+          },
+          "tracker": {
+            "PS2Mouse": false
+          },
+          "p2": {
+            "PS2Mouse": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "PS2Mouse": false
+          },
+          "boron": {
+            "PS2Mouse": false
+          },
+          "bsom": {
+            "PS2Mouse": false
+          },
+          "b5som": {
+            "PS2Mouse": false
+          },
+          "tracker": {
+            "PS2Mouse": false
+          },
+          "esomx": {
+            "PS2Mouse": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.982Z"
     }
   },
   "readme": "  PS2Communication.h - PS2Communication library\r\n  Copyright (c) 2009 Free Software Foundation.  All right reserved.\r\n  Rewritten for interrupt and ported for Spark Core and Particle.io devices\r\n  like Photon and Electron by Andreas Rothenwänder (aka ScruffR)\r\n  based on some non-interrupt library from pjrc.com (Paul Stoffregen)\r\n\r\n  This library provides the basic PS/2 communication framework for\r\n  sending single byte \"commands\" and receiving data/responses of a \r\n  PS/2 device.\r\n  One example for communication between Spark Core and a PS/2 mouse is\r\n  provided along with the library.\r\n  \r\n  This library is free software; you can redistribute it and/or\r\n  modify it under the terms of the GNU Lesser General Public\r\n  License as published by the Free Software Foundation; either\r\n  version 2.1 of the License, or (at your option) any later version.\r\n\r\n  This library is distributed in the hope that it will be useful,\r\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\r\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\r\n  Lesser General Public License for more details.\r\n\r\n  You should have received a copy of the GNU Lesser General Public\r\n  License along with this library; if not, write to the Free Software\r\n  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\r\n",

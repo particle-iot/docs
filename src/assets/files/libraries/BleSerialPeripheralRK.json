@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BleSerialPeripheralRK",
     "version": "0.0.1",
-    "installs": 2043,
+    "installs": 2486,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library to simplify using the BLE UART peripheral",
@@ -52,8 +52,63 @@
           "boron": {
             "1-simple-BleSerialPeripheralRK": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple-BleSerialPeripheralRK": false
+          },
+          "electron": {
+            "1-simple-BleSerialPeripheralRK": false
+          },
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "bsom": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "b5som": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "tracker": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "p2": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "boron": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "bsom": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "b5som": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "tracker": {
+            "1-simple-BleSerialPeripheralRK": true
+          },
+          "esomx": {
+            "1-simple-BleSerialPeripheralRK": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.875Z"
     }
   },
   "readme": "# BleSerialPeripheralRK\n\n*Library to simplify using BLE UART peripheral mode on Gen 3 devices*\n\n## Introduction\n\nParticle Gen 3 devices (Argon, Boron, Xenon) running Device OS 1.3.0-rc.1 and later have support for BLE (Bluetooth Low Entergy) in central and peripheral roles. \n\nNordic Semiconductor created a UART peripheral protocol to allow central devices (like mobile phones) to connect to a BLE device and read UART-like data streams. This is supported not only by the nRF Toolbox app, but also some other apps like the Adafruit Bluefruit app.\n\nThere is [a code example in the docs](https://docs.particle.io/tutorials/device-os/bluetooth-le/#uart-peripheral), however this class encapsulates the BLE stuff and makes a Serial-like interface to it. Among the benefits:\n\n- Reading is easy using standard functions like read(), readUntil(), readString(), etc. like you can from Serial, Serial1, etc..\n- Writing is easy and buffered, allowing not only write() to write a byte, but also all of the variations of print(), println(), printf(), printlnf(), etc. that are available when using Serial, etc..\n- All of the BLE stuff is encapsulated so you don't have to worry about it.\n\nDocumentation can be found at: [https://rickkas7.github.io/BleSerialPeripheralRK/index.html](https://rickkas7.github.io/BleSerialPeripheralRK/index.html)\n\nGithub repository: [https://github.com/rickkas7/BleSerialPeripheralRK](https://github.com/rickkas7/BleSerialPeripheralRK)\n\nLicense: MIT \n\n\n## Example\n\nThere is one example in 1-simple-BleSerialPeripheralRK:\n\n```\n#include \"BleSerialPeripheralRK.h\"\n\nSerialLogHandler logHandler;\n\nSYSTEM_THREAD(ENABLED);\n\n// First parameter is the transmit buffer size, second parameter is the receive buffer size\nBleSerialPeripheralStatic<32, 256> bleSerial;\n\nconst unsigned long TRANSMIT_PERIOD_MS = 2000;\nunsigned long lastTransmit = 0;\nint counter = 0;\n\n\nvoid setup() {\n\tSerial.begin();\n\n\t// This must be called from setup()!\n\tbleSerial.setup();\n\n\t// If you don't have any other services to advertise, just call advertise().\n\t// Otherwise, call getServiceUuid() to get the serial service UUID and add that to your\n\t// custom advertising data payload and call BLE.advertise() yourself with all of your necessary\n\t// services added.\n\tbleSerial.advertise();\n}\n\nvoid loop() {\n\t// This must be called from loop() on every call to loop.\n\tbleSerial.loop();\n\n\t// Print out anything we receive\n\tif(bleSerial.available()) {\n\t\tString s = bleSerial.readString();\n\n\t\tLog.info(\"received: %s\", s.c_str());\n\t}\n\n\tif (millis() - lastTransmit >= TRANSMIT_PERIOD_MS) {\n\t\tlastTransmit = millis();\n\n\t\t// Every two seconds, send something to the other side\n\t\tbleSerial.printlnf(\"testing %d\", ++counter);\n\t\tLog.info(\"counter=%d\", counter);\n\t}\n}\n```\n\nAmong the important things:\n\nYou normally instantiate a BleSerialPeripheralStatic object as a global variable. The first number in the <> is the transmit buffer size and the second is the receive buffer size.\n\n```\n// First parameter is the transmit buffer size, second parameter is the receive buffer size\nBleSerialPeripheralStatic<256, 256> bleSerial;\n```\n\nBecause the data is buffered and only sent from loop() the transmit buffer must be larger than the amount of data you intend to sent at once, or the maximum data that will accumulate between calls to loop.\n\nLikewise, since data is read from loop but received asynchronously by BLE, you must have a receive buffer that is large enough to hold any data between times you will be processing it from your loop function.\n\nIf there is a data overflow situation, the data is discarded.\n\nBe sure to call this from your setup() function. \n\n```\nbleSerial.setup();\n```\n\nIf you are only using BLE UART you can call:\n\n```\nbleSerial.advertise();\n```\n\nIf you are advertising multiple services, instead call `bleSerial.getServiceUuid()` to get the UART serial UUID and add it with your own services:\n\n```\nBleAdvertisingData data;\ndata.appendServiceUUID(bleSerial.getServiceUuid());\n// append your own service UUIDs here\nBLE.advertise(&data);\n```\n\nBe sure to call this from loop, as often as possible.\n\n```\nbleSerial.loop();\n```\n\nIn this example we used `bleSerial.readString()` but there are many method of the Stream class to read. Beware of blocking, however. If you are waiting to read a string, you won't be calling `bleSerial.loop()` and data won't be transmitted during that time.\n\nFinally, you can print to BLE serial using all of the standard Stream methods. The example uses `bleSerial.printlnf()` to print a line using `sprintf` formatting.\n\n",

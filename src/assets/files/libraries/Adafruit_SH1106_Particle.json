@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SH1106_Particle",
     "version": "00.00.00",
-    "installs": 601,
+    "installs": 914,
     "license": "Whatever Adafruit uses",
     "author": "Adafruit, wonho-maker, Paul Kourney, Gerrit Coetzee",
     "sentence": "Port of wonho-maker's SH1106 port of Adafruit's SSD1306 OLED library based on Paul Kourney's port of the same libray. Anyway, you can run your SSH1106 OLED's now. Don't know which boards this doesn't work for.",
@@ -66,8 +66,95 @@
             "sh1106_128x64_spi": false,
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "electron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "argon": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "p2": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "bsom": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "b5som": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "tracker": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          },
+          "esomx": {
+            "sh1106_128x64_i2c": false,
+            "sh1106_128x64_spi": false,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.984Z"
     }
   },
   "readme": "#SH1106 Driver for Particle\n*Actual work was done by (forked from): https://github.com/wonho-maker/Adafruit_SH1106\n*Ported By Gerrit Coetzee, gerritcoetzee.com 2017\n*Stack-overflowed heavily from Paul Kourany's port of the Adafruit_SSD1306 library for particle \n\n\nAdafruit_SH1106\n===============\n\nAdafruit graphic library for SH1106 driver lcds.\n\nsome small oled lcd use SH1106 driver.\n\nI change the adafruit SSD1306 to SH1106 \n\nSH1106 driver similar to SSD1306. thus, just change the display() method. \n \nHowever, SH1106 driver don't provide several functions such as scroll commands.\n\n\n Adafruit-GFX-Library\n https://github.com/adafruit/Adafruit-GFX-Library\n",

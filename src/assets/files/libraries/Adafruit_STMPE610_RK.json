@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_STMPE610_RK",
     "version": "1.0.1",
-    "installs": 17686,
+    "installs": 18501,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit STMPE610/811 resistive touch screen controllers. Ported by rickkas7.",
@@ -53,8 +53,63 @@
           "boron": {
             "TouchTest": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "TouchTest": true
+          },
+          "electron": {
+            "TouchTest": true
+          },
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          },
+          "bsom": {
+            "TouchTest": true
+          },
+          "b5som": {
+            "TouchTest": true
+          },
+          "tracker": {
+            "TouchTest": true
+          },
+          "p2": {
+            "TouchTest": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          },
+          "bsom": {
+            "TouchTest": true
+          },
+          "b5som": {
+            "TouchTest": true
+          },
+          "tracker": {
+            "TouchTest": true
+          },
+          "esomx": {
+            "TouchTest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.723Z"
     }
   },
   "readme": "# Adafruit_STMPE610_RK\nPort of the Adafruit STMPE610 touch screen driver for Particle Argon, Boron, and Xenon\n",

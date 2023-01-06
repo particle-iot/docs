@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Artnet",
     "version": "0.0.4",
-    "installs": 2136,
+    "installs": 2328,
     "license": "MIT",
     "author": "Stef Sijben <github@stefsybo.nl>",
     "sentence": "Artnet DMX over Ethernet receiver library",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.876Z"
     }
   },
   "readme": "# Artnet\n\nAn Art-Net library for Particle Photon. May also work for other Particle-based devices.\n\n",

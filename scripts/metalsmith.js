@@ -54,17 +54,18 @@ var carriersUpdate = require('./carriers-update/carriers-update.js');
 var pinmapDiagram = require('./pinmap-diagram/pinmap-diagram.js');
 var trackerEdge = require('./tracker-edge.js');
 var trackerSchema = require('./tracker-schema.js');
-var refCards = require('./refcards.js');
+var deviceOsApi = require('./device-os-api.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 const systemVersion = require('./system-version.js');
 const sharedBlurb = require('./shared-blurb.js');
+const troubleshooting = require('./troubleshooting.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
-  
+
 //disable autolinking
 function noop() { }
 noop.exec = noop;
@@ -144,14 +145,21 @@ exports.metalsmith = function () {
               pinInfo: path.normalize(path.join(__dirname, '..', 'src', 'assets', 'files', 'pinInfo.json')),
             });
         }))
-    // Minify CSS
+    .use(troubleshooting({
+        sourceDir: '../src',
+        jsonFile: 'assets/files/troubleshooting.json',
+        redirectsFile: '../config/redirects.json',
+        ticketFormsFile: 'assets/files/ticketForms.json',
+        pagesCsv: '../config/troubleshootingPages.csv',
+      }))
+        // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
     }))
     // Auto-generate documentation from the API using comments formatted in the apidoc format
     .use(
       apidoc({
-        destFile: 'content/reference/device-cloud/api.md',
+        destFile: 'content/reference/cloud-apis/api.md',
         apis: [
           {
             src: '../../api-service/',
@@ -172,7 +180,7 @@ exports.metalsmith = function () {
     }))
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
-      destFile: 'content/reference/SDKs/javascript.md',
+      destFile: 'content/reference/cloud-apis/javascript.md',
       srcFile: '../../particle-api-js/docs/api.md',
       fragment: 'GENERATED_JAVASCRIPT_DOCS',
       preprocess: javascriptDocsPreprocess,
@@ -218,20 +226,21 @@ exports.metalsmith = function () {
       directory: '../templates/helpers'
     }))
     .use(planLimits({
-      config: '../config/planLimits.json'
+      config: '../src/assets/files/environment.json'
     }))
-    .use(refCards({
+    .use(deviceOsApi({
       contentDir: '../src/content',
       sources: [
         'reference/device-os/firmware.md'
       ],
-      outputDir: 'cards',
+      outputDir: 'reference/device-os/api',
       cardMapping: '../config/card_mapping.json',
       redirects: '../config/redirects.json'
     }))
     .use(libraries({
       sourceDir: '../src/assets/files/libraries',
       searchIndex: '../build/assets/files/librarySearch.json',
+      contentDir: '../src/content',
       redirects: '../config/redirects.json'
     }))
     .use(navMenuGenerator({      
@@ -258,8 +267,10 @@ exports.metalsmith = function () {
       config: '../config/device_features.json'
     }))
     .use(sitemap({
+      contentDir: '../src/content',
       config: '../config/sitemap.json',
       output: '../build/sitemap.xml',
+      troubleshooting: '../src/assets/files/troubleshooting.json',
       baseUrl: 'https://docs.particle.io/'
     }))
     // Create HTML pages with meta http-equiv='refresh' redirects
@@ -373,7 +384,7 @@ exports.server = function (callback) {
           '${source}/assets/files/**/*': true,
           '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
-          '../api-service/src/**/*.js': 'content/reference/device-cloud/api.md',
+          '../api-service/src/**/*.js': 'content/reference/cloud-apis/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true

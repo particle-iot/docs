@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP9803",
     "version": "0.0.2",
-    "installs": 953,
+    "installs": 977,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "This Library is intended for use with MCP9803 Mini module on the Particle Core/Photon platform.",
@@ -58,8 +58,79 @@
             "duct-thermostat": true,
             "mcp9803-example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "electron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "argon": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "boron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "boron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "bsom": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "b5som": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "tracker": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "p2": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "boron": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "bsom": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "b5som": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "tracker": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          },
+          "esomx": {
+            "duct-thermostat": false,
+            "mcp9803-example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.963Z"
     }
   },
   "readme": "# About\n\nThis Library is intended for use with MCP9803 Mini module on the Particle Core/Photon platform.\n\nThe intention of this library is to make use of the MCP9803 mini module with Particle development web IDE as simple as possible for users.\n\nThe MCP9803 Mini Module from ControlEverything may be purchased [here] [mcp9803store].\n\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We specialize in hardware design and manufacturing of sensory input and output control devices.  We pride ourselves as being the industry leader of computer control relay products as well as sensory reading products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controleverything.com\n\n###Requirements\n- [MCP9803 Mini Module][mcp9803store].\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the MCP9803.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particle's documentation] [sparkIncludeLibrary].\n\n### Example use\n\nOnce the Library is included in your applicaiton you should see an include statement at the top like this:\n```cpp\n//This #include statement was automatically added by the Particle IDE.\n#include \"MCP9803/MCP9803.h\"\n```\n\nNow you need to instanciate an object of the library for use in your application like this:\n```cpp\nMCP9803 sensor;\n```\n\nHere is an example use case for the class:\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"mcp9803/MCP9803.h\"\nMCP9803 sensor;\ndouble temperature;\n\nvoid setup() {\nsensor.setAddress(1,0,0);\nParticle.variable(\"temperature\", temperature);\n}\n\nvoid loop() {\ntemperature = sensor.temperature();\nSerial.printf(\"Temperature: %f \\n\", temperature);\ndelay(2000);\n}\n```\n\n###Public accessible methods\n```cpp\nvoid setAddress(int a0, int a1, int a2);\n```\n>Must be called first before using the object.  This method should also be called any time communication with\n>the controller is lost or broken to recover communication  This method accepts three int arguments.  This\n>tells the Library what address to direct commands to.  a0, a1, and a2 ints are representations of the three\n>jumpers on the MCP9803 mini module which are labeled on the board 0, 1, and 2.  If the jumper is\n>installed then that int in this call should be set to 1.  If it is not installed then the int should be set to\nSo if I have A0, A1, and A2 installed I would call ```sensor.setAddress(1, 1, 1).```\n\n\n```cpp\nfloat temperature();\n```\n>This method accepts no arguments.  A call to this method will return the current temperature in degrees Farenheit as a float variable.\n>\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/\n[mcp9803store]:https://www.controleverything.com/content/Temperature?sku=MCP9803_I2CS",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Metro",
     "version": "1.0.1",
-    "installs": 1067,
+    "installs": 1265,
     "license": "MIT",
     "author": "Thomas Ouellet Fredericks",
     "sentence": "Metro library for Arduino or Wiring that facilitates the implementation of recurring timed events.",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.935Z"
     }
   },
   "readme": "METRO\n=====================\n\nMetro library for Arduino or Wiring that facilitates the implementation of recurring timed events\nby Thomas Ouellet Fredericks\nwith contributions from: Paul Bouchier and Benjamin.soelberg, and Alexander Martin\n\nDownload the latest version here : https://github.com/thomasfredericks/Metro-Arduino-Wiring/archive/master.zip\n\nDocumentation can be found here : https://github.com/thomasfredericks/Metro-Arduino-Wiring/wiki\n\nThis fork adds changes the functionality of the timer by implementing multiple varieties of check functions which allow for different behavior.\n\ncheck()\t        -- if the timer is expired, resets the time by updating the base time to the current time\nexpired()\t-- simply checks the timer and returns true or false.\ncheckCatchUp()  -- if the timer is expired, increments the base time by the interval. Reduces buildup of lag.\nrunning()\t-- if the timer is still running, returns true.\n\nForked for Particle.io board use. Scott Beasley 2016.\n",

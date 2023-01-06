@@ -203,6 +203,86 @@ Created by Zach Supalla.
     return href;
   }
 
+  function applyDarkMode() {
+    $(logoElem).prop('src', $(logoElem).data('dark-src'));
+  }
+
+  function applyLightMode() {
+    $(logoElem).prop('src', $(logoElem).data('light-src'));
+  }
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    if (event.matches) {
+      applyDarkMode();
+    } 
+    else {
+      applyLightMode();
+    }
+  });
+
+  const logoElem = $('#logo');
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  if (prefersDarkScheme.matches) {  
+    applyDarkMode();
+  } 
+  else {
+    applyLightMode();
+  }
+
+  const windowResizeHandler = function() {
+
+    if (window.innerWidth < 1200) {
+      $('.sections').css('display', 'none');
+      $('.narrow-top-nav').css('display', 'inline-block');
+    } 
+    else {
+      $('.sections').css('display', 'block');
+      $('.narrow-top-nav').css('display', 'none');
+    }
+
+  
+    // left includes the logo and top nav bar    
+    const leftRect = $('.left')[0].getBoundingClientRect();
+
+    // right includes search and user bar
+    // const rightRect = $('.right')[0].getBoundingClientRect();
+
+    // const sectionsRect = $('.sections')[0].getBoundingClientRect();
+
+    // Returned rects are x, y, width, height, top, button (DOMRect)
+
+    // console.log('leftRect.width=' + leftRect.width + ' rightRect.x=' + rightRect.x + ' rightRect.x-margin=' + (rightRect.x - 270));
+
+    // Is there enough room for the search box?
+    // The constant leaves enough room for a full search box and the "Logged In" banner. Should calculate this.
+    if (leftRect.width > (window.innerWidth - 370) || window.innerHeight < 400) {
+      // Show icon
+      $('.search').css('display', 'none');
+      $('.searchIcon').css('display', 'inline-block');
+    }
+    else {
+      // Show search box
+      $('.search').css('display', 'inline-block');
+      $('.searchIcon').css('display', 'none');
+    }
+
+    if ($('.menubar').length == 0) {
+      // On pages without a left nav, hide the hamburger icon
+      $('.toggle-nav').hide();
+    }
+  
+
+    // narrow-top-nav
+    // none or inline-block
+
+    // sections: none or display: block;
+
+    // search or searchIcon: none or inline-block    
+  };
+  window.addEventListener('resize', windowResizeHandler);
+  windowResizeHandler();
+
+
   var deviceLinks = {{{ json forkList }}};
   var redirects = {{{ json redirectList }}};
 
@@ -221,6 +301,8 @@ Created by Zach Supalla.
 
   {{#if development}}
   // Make sure to scroll the element after live reload
-  Docs.scrollToElement(window.location.hash);
+  if (window.location.hash && !window.location.hash.startsWith("#stq")) {
+    Docs.scrollToElement(window.location.hash);
+  }
   {{/if}}
 })(jQuery);

@@ -53,7 +53,7 @@ $(document).ready(function() {
 
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
         
-                usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
+                usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
 
                 deviceInfo.deviceId = usbDevice.id;
                 deviceInfo.platformId = usbDevice.platformId;

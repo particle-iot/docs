@@ -38,7 +38,7 @@ Before putting the kit together, you’ll need to claim your new Particle device
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ARGON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Argon</a>
 <br />
 </div>
 
@@ -76,7 +76,7 @@ Now, let’s create a new project for the application firmware. The steps below 
 
 1. Open Particle Workbench. 
 
-2. Open the Command Palette using the `CTL+SHIFT+P` (Windows, Linux) or `CMD+SHIFT+P` (macOS, Linux) shortcut.
+2. Open the Command Palette using the `CTL+SHIFT+P` (Windows, Linux) or `CMD+SHIFT+P` (Mac OS, Linux) shortcut.
 
 3. In the text box, type "Particle: Create New Project" and hit enter.
 

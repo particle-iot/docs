@@ -38,6 +38,11 @@ var ignoreHosts = [
   'www.fcc.gov', // tends to time out
   'help.github.com', // 403
   'guides.github.com', // 403
+  'maker.ifttt.com', // Error caused by the automatic link generator
+  'devzone.nordicsemi.com', // 403
+  'infocenter.nordicsemi.com', // 403
+  'www.nordicsemi.com', // 403
+  'cygwin.com', // 403
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.CIRCLE_PULL_REQUEST && process.env.CIRCLE_PULL_REQUEST !== 'false';
@@ -169,7 +174,7 @@ describe('Crawler', function() {
         // If the URL was external, save it in the download state
         saveUrlToCrawlerData(queueItem.url);
       }
-      if (!uriis.external && queueItem.url.includes('cards/libraries')) {
+      if (!uriis.external && queueItem.url.includes('reference/device-os/libraries')) {
         // Don't crawl the library readme pages
         return false;
       }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoT",
     "version": "5.1.0",
-    "installs": 5837,
+    "installs": 6583,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Control your Photon projects using MQTT events from other Photons, Alexa and iOS devices",
@@ -85,8 +85,127 @@
             "switchesAndLEDs": false,
             "unitTest": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "electron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "argon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "bsom": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "b5som": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "tracker": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "p2": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "bsom": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "b5som": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "tracker": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "esomx": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.797Z"
     }
   },
   "readme": "# IoT\n\nA framework for building powerful Photon based IoT projects.\n\n## Welcome to Patriot\n\nThis library makes it quick and easy to implement powerful particle.io Photon\nbased automation projects that combine inputs from sensors, Alexa, and iOS devices.\n\n## Usage\n\nStart creating your Photon based project using any of the Photon examples provided\nin the examples folder.\n\nHere is the switchesAndLEDs example. It includes 4 switches and 4 LEDs.\n\nNote that the switches do not directly control the LEDs. They could, but\nit's much more flexible to have them specify an _activity_, such as watching TV\nor going to sleep.  This is shown in the table below.\n\nEach activity can then control one or more different devices, \neach with individually specified settings, such as 0% to 100% brightness.\n \n\n| Switch | Activity | LED 1 Outside | LED 2 Kitchen | LED 3 Bedroom | LED 4 Bathroom |\n| ------ | -------- | ------------- | ------------- | ------------- | -------------- |\n|   1    | WakeUp   | Low           |  Low          |  On           | On             |\n|   2    | WatchTV  | On            |  Low          |  Low          | Off            |\n|   3    | Cook     | On            |  On           |  Low          | Low            |\n|   4    | Sleep    | Off           |  Off          |  Off          | Low            |\n\n \n```\n#include <IoT>\nIoT *iot;\n\nvoid setup() {\n    iot = IoT::getInstance();\n    iot->setControllerName(\"myPhoton\");\n    iot->begin();\n    \n    iot->addSwitch(kSwitch4Pin, 'WakeUp');\n    iot->addSwitch(kSwitch3Pin, 'WatchTV');\n    iot->addSwitch(kSwitch2Pin, 'Cook');\n    iot->addSwitch(kSwitch1Pin, 'Sleep');\n    \n    iot->addLight(kLed1Pin, 'Outside');\n    iot->addLight(kLed2Pin, 'Kitchen');\n    iot->addLight(kLed3Pin, 'Bedroom');\n    iot->addLight(kLed4Pin, 'Bathroom');\n\n    iot->addBehavior('Outside', new Behavior('Wakeup','>',0, 100));\n    iot->addBehavior('Kitchen', new Behavior('WatchTV','>',0, 100));\n    iot->addBehavior('Bedroom', new Behavior('Cook','>',0, 100));\n    iot->addBehavior('Bathroom', new Behavior('Sleep','>',0, 0));\n\n    iot->exposeControllers();\n    iot->exposeActivities();\n}\n\nvoid loop() {\n    iot->loop(millis());\n}\n```\n\nThe polling of the switches, and fading of the LEDs is performed by the library.\nYour sketch code just needs to call the IoT loop method, passing the current millis()\ntime.\n\nSee the [examples](examples) folder for more examples.\n\n## Documentation\n\nWouldn't it be great if you could quickly prototype an idea using a particle.io\nPhoton, and have it just automatically work with other Photons, Alexa, and iOS apps?\nThat's the main idea behind this library. In addition to providing a lot of common\nhome automation functions, such as controlling LED lights and reading switches\nand other sensors, it includes iOS apps and Alexa skills that can automatically\ndetect when you connect a new device to your network.\n\n### Self Registration\n\nI refer to this automatic detection of new devices as _self registration'.\nEach Photon controller exposes information about itself that allows other\napplications to detect and interact with it.\n\n### Event based interactions\n\nIn addition, the use of _events_ provides a many-to-many network, where new\ndevices can be added without having to modifying any other devices.\n\n### Activities and Behaviors\n\nInstead of directly controlling devices using commands such as \n\"turn the living room lamp on\", each device is controlled by defining\n_behaviors_ that respond to _activities_. So for example, in order to turn\nthe living room light on, you might define an activity called \"Watch TV\",\nand a behavior for that lamp that would turn it on whenever \"Watch TV\" is\nactive.\n\nBy using activities and behaviors, new devices can be added and start working\nwithout modification to other devices. For example, you might add a switch\nthat detects when the TV is turned on. It could then send the \"Watch TV\" event,\nand the living room lamp would immediately respond to it.\n\nOr you could add another lamp controller, and have it respond to the \"Watch TV\" \nactivity also, and you wouldn't have to modify the existing controllers. \n\nThis may sound similar to what HomeKit and other IoT architectures refer to\nas _scenes_. And while might be similar, it is important to understand that \nactivities are not just a grouping of devices. It is anticipated that activities\nwill eventually be able to learn new behaviors. \n\nFor example, let's says that I currently have two outside lights: \"Porch\" and \n\"Awning\". I can control both of these by defining an \"outside\" activity.\nThen when I tell Alexa to \"turn on outside\", both lights will come on.\nWhat happens then when I add another outside light? \nI could update the programming to add the new light to the the \"outside\"\nactivity, but wouldn't it be better if the system could learn to include\nthe new light in the \"outside\" activity. For example, if I set the outside\nactivity, and then always turn on the new light, couldn't the system\nfigure out that I want the new light turned on also when I set \"outside\"?\n\nSo that's the dream, and it will remain to be seen whether we can figure out\nhow to do this. In the mean time, it's important to create activities with\nthat sort of behavior in mind.   \n\n\n### Why Particle.io and Photon?\n\nWhen evaluating the plethora of microcontrollers and communications protocols\navailable, I eventually decided on a few important requirements:\n\n1. Controllers must be over-the-air programmable. \n   I'm mounting light controllers inside the walls or behind switch plates, \n   so I don't want to have tear them out of the wall everything I make a change\n    to their behavior or fix a bug.\n\n2. Wifi.\n   Having the controllers directly connect to Wifi just simplifies everything.\n\n3. Super easy to use.\n    I'd like as much functionality out-of-the-box as possible, so I don't have\n      to create and maintain it. I'd also like great support, and a large user\n      base to help answer questions. And it needs to be reliable. I hate getting\n      into the middle of a project and get diverted to chasing hardware bugs.\n      \nI was initially put off by the $19 price tag on these parts, but everything\nconsidered it's a great deal. I'll probably use at most about 25 of these in\nmy home automation projects, meaning that the total cost of these will be\nroughly $500. Think about how much can be controlled with 25 individual\ncontrollers. Using my own custom PCBs (also posted on this repo), these\n25 controllers can be built-out for $5 to $10 each, bringing the anticipated\ncost of all 25 controllers to around $700.\n\n\n### Creating a new Photon Controller\n\nStart with one of the examples. You can use any of the available IDEs or CLI.\nUse the notes in the examples to connect the correct pins to LEDs, switches, etc.\nThen flash the device. \n\nMonitor events using the particle.io console logs page.\n\nYou can use the particle CLI to generate events, and/or monitor the state\nof exposed variables.\n\nI'll be adding a Hackster.io article about doing this in the near future.\n\n### Companion Alexa Skill and iOS apps \n\nOnce you have created one or more photon based devices, you can access them\nusing either or both an Alexa skill or iOS app.\n\nThe Alexa skill was submitted to Amazon for public release on 3/24/17.\n\nThe source for the iOS apps will be included in this repo when ready.\nCurrently you'll need to build these yourself, including your Particle.io\naccount information where indicated in the sources.\n \n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add IoT_myname` to add the library to a project on your machine or add the IoT_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 Ron Lisle\n\nRefer to the included LICENSE file.\n",

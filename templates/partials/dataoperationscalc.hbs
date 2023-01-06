@@ -70,7 +70,7 @@ dataUnitCalc.update = function() {
 
         if (dataOperations <= freeDataOperations && numDevices <= freeMaxDevices) {
             // Can use free
-            res1 = 'Can use the free tier!'
+            res1 = 'Can use the free plan!'
         }
         else {
             const minBlocksOperations = Math.floor((dataOperations - 1) / dataOperationsPerBlock) + 1;
@@ -78,7 +78,7 @@ dataUnitCalc.update = function() {
 
             const blocks = Math.max(minBlocksOperations, minBlocksDevices);
 
-            res1 = 'Requires growth tier with ' + blocks + ' blocks.'
+            res1 = 'Requires growth plan with ' + blocks + ' blocks.'
         }
 
         res2 = dataUnitCalc.commaValue(dataOperations) + ' data operations per month.';

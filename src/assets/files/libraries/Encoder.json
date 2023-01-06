@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Encoder",
     "version": "2.0.0",
-    "installs": 13913,
+    "installs": 16353,
     "author": "Paul Stoffregen",
     "maintainer": "Paul Stoffregen, Julien Vanier <jvanier@gmail.com>",
     "sentence": "Counts quadrature pulses from rotary & linear position encoders.",
@@ -70,8 +70,95 @@
             "SpeedTest": false,
             "TwoKnobs": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "electron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "argon": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "boron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "boron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "bsom": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "b5som": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "tracker": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "p2": {
+            "Basic": false,
+            "SpeedTest": false,
+            "TwoKnobs": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "boron": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "bsom": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "b5som": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "tracker": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": true
+          },
+          "esomx": {
+            "Basic": true,
+            "SpeedTest": false,
+            "TwoKnobs": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.728Z"
     }
   },
   "readme": "# Encoder Library\n\nEncoder counts pulses from quadrature encoded signals, which are commonly available from rotary knobs, motor or shaft sensors and other position sensors. \n\nhttp://www.pjrc.com/teensy/td_libs_Encoder.html\n\nhttp://www.youtube.com/watch?v=2puhIong-cs\n\n![Encoder Knobs Demo](http://www.pjrc.com/teensy/td_libs_Encoder_1.jpg)\n\n## Particle port\n\nThis port of Paul's encoder library uses interrupts on the Particle Photon, Electron and Core.\n\nCarefully read the [Interrupts section of the firmware\ndocs](https://docs.particle.io/reference/firmware/#interrupts) before\nselecting which pins for the encoder signal. **In particular, do not use\nD0 or A5 on the Photon as an encoder input.**\n\n## License\n\nCopyright (c) 2011,2013 PJRC.COM, LLC - Paul Stoffregen <paul@pjrc.com>\n\nModifications for the Particle platform, copyright (c) 2017 Julien Vanier <jvanier@gmail.com>\n\nReleased under the MIT license\n",

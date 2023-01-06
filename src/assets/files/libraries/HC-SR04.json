@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HC-SR04",
     "version": "1.0.1",
-    "installs": 28007,
+    "installs": 29618,
     "license": "GPL3",
     "author": "rnash",
     "sentence": "Class to drive the HC-SR04 range finder.",
@@ -49,8 +49,63 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.701Z"
     }
   },
   "readme": "# HC-SR04\n\nClass to operate to the HC-SR04 range finder.\n\n## Usage\n\nInstantiate this class specifying which pins the Trig and Echo pins are\nconnected to. And call the function to range find the distance.\n\nPlease see the src/HC-SR04.h file as well as examples/usage/usage.ino for\nan example of how to use this library.\n\n## LICENSE\n\nSee LICENSE\n",

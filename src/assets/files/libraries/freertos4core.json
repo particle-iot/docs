@@ -7,7 +7,7 @@
   "attributes": {
     "name": "freertos4core",
     "version": "0.2.0",
-    "installs": 2836,
+    "installs": 2897,
     "license": "GPLv3",
     "author": "mdma <mat dot mcgowan+spark at gmail dot com>",
     "sentence": "Adds FreeRTOS (multithreading, timers, queues, mutexes etc.) to the Core. Requires system firmware version 0.4.6 or later.",
@@ -50,8 +50,63 @@
           "boron": {
             "timers": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "timers": false
+          },
+          "electron": {
+            "timers": false
+          },
+          "argon": {
+            "timers": false
+          },
+          "boron": {
+            "timers": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "timers": false
+          },
+          "boron": {
+            "timers": false
+          },
+          "bsom": {
+            "timers": false
+          },
+          "b5som": {
+            "timers": false
+          },
+          "tracker": {
+            "timers": false
+          },
+          "p2": {
+            "timers": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "timers": false
+          },
+          "boron": {
+            "timers": false
+          },
+          "bsom": {
+            "timers": false
+          },
+          "b5som": {
+            "timers": false
+          },
+          "tracker": {
+            "timers": false
+          },
+          "esomx": {
+            "timers": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.853Z"
     }
   },
   "readme": "# FreeRTOS on the Core\n\nFreeRTOS is the RTOS used on the Photon and the Electron. This library\nadds FreeRTOS support to the Core.\n\nThis opens up the possibility of using threads, queues, timers, pre-emptive and co-operative\nmultitasking and all the other goodies FreeRTOS provides.\n\nThe library adds between 3-9K to the flash binary size. For some projects,this\nis not an issue, while others need all the flash space they can get, which is why this isn't\nincluded as standard in the Core firmware, but made available as an optional extra.\n\nThe version of FreeRTOS bundled with this library is v8.2.2\n\n# Compatibility\n\nPlease note that code that uses FreeRTOS functions directly will not be compatible with the\nPhoton or the Electron, since these platforms wrap FreeRTOS into higher level libraries.\nIn time, we will provide high-level support for all FreeRTOS features so that code\ncan be written to be compatible across all Particle devices, and independent from\nthe underlying RTOS.\n\n",

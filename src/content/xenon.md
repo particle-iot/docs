@@ -8,7 +8,7 @@ description: Particle Xenon, Gen 3 Particle Mesh (discontinued)
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
 
-**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 The Xenon is a low cost mesh-enabled development kit that can act as either an endpoint or repeater within a Particle Mesh network.
 
@@ -22,12 +22,11 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 - [Quickstart with starter project](/xenon/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
-- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/xenon)
-- [Datasheet](/datasheets/discontinued/xenon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/discontinued/hardware/xenon-datasheet/)
+- [Certification](/hardware/certification/certification/)
   {{box op="end"}}
 
 ## Hardware specifications:
@@ -42,8 +41,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 - 1MB flash, 256KB RAM
 - Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
 
@@ -87,7 +85,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 
 The Xenon is no longer supported by the mobile apps and if you choose to use the Xenon you will need to set it up using USB, and can only use Device OS up to 1.5.2. Later versions of Device OS do not support the Xenon.
 
-- [Mesh Setup over USB](https://support.particle.io/hc/en-us/articles/360039741133)
+- [Mesh Setup over USB](/archives/mesh-setup-over-usb/)
 
 ## 2. Using the Web IDE
 

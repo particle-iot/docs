@@ -39,11 +39,198 @@ apiHelper.getDeviceRestoreInfo = function() {
     });
 };
 
+let carriersJsonRequests;
+let carriersJson;
+
+apiHelper.getCarriersJson = async function() {
+    return new Promise(function(resolve, reject) {
+        if (carriersJsonRequests == undefined) {
+            carriersJsonRequests = [];
+
+            fetch('/assets/files/carriers.json')
+            .then(response => response.json())
+            .then(function(res) {
+                carriersJson = res;
+    
+                // Resolve any promises waiting for this data
+                while(carriersJsonRequests.length) {
+                    carriersJsonRequests.pop()(res);
+                }
+            });
+        }
+
+        if (carriersJson) {
+            resolve(carriersJson);
+        }
+        else {
+            carriersJsonRequests.push(resolve);
+        }
+    });
+}
+
+apiHelper.getDeviceConstants = async function() {
+    const res = await apiHelper.getCarriersJson();    
+    if (res) {
+        return res.deviceConstants;
+    } 
+    else {
+        return null;
+    }
+}
+
+
+apiHelper.getPlatformInfo = async function(platformId) {
+    const deviceConstants = await apiHelper.getDeviceConstants();
+    if (deviceConstants) {
+        for(const key in deviceConstants) {
+            if (deviceConstants[key].id == platformId) {
+                return deviceConstants[key];
+            }    
+        }    
+    }
+
+    return null;
+}
+
+
+apiHelper.getPlatformTitle = async function(platformId) {
+    const info = await apiHelper.getPlatformInfo(platformId);
+    if (info) {
+        return info.displayName;
+    }
+    else {
+        return 'Unknown (' + platformId + ')';
+    }
+}
+
+apiHelper.getPlatformName = async function(platformId) {
+    const info = await apiHelper.getPlatformInfo(platformId);
+    if (info) {
+        return info.name;
+    }
+    else {
+        return platformId.toString();
+    }
+}
+
+apiHelper.getSkuFromSerial = async function(serialNumber) {
+    if (!serialNumber) {
+        return null;
+    }
+    
+    const carriers = await apiHelper.getCarriersJson();    
+    if (!carriers) {
+        return null;
+    }
+    for(const skuObj of carriers.skus) {
+        if (skuObj.prefix) {
+            if (serialNumber.startsWith(skuObj.prefix)) {
+                return skuObj.name;
+            }
+        }
+    }
+    return null;
+}
+
+apiHelper.getSkuObjFromSerial = async function(serialNumber) {
+    if (!serialNumber) {
+        return null;
+    }
+    
+    const carriers = await apiHelper.getCarriersJson();    
+    if (!carriers) {
+        return null;
+    }
+    for(const skuObj of carriers.skus) {
+        if (skuObj.prefix) {
+            if (serialNumber.startsWith(skuObj.prefix)) {
+                return skuObj;
+            }
+        }
+    }
+    return null;
+}
+
+// Sorts the results from getPlatformName putting the real results first A-Z, then
+// the numeric (unknown/deprecated) platforms after it in numerical order
+apiHelper.platformNameSort = function(a, b) {
+    const isNum = function(s) {
+        const code = s.charCodeAt(0);
+        return code >= 0x30 && code <= 0x39;
+    };
+    const isNumA = isNum(a);
+    const isNumB = isNum(b);
+
+    if (isNumA && !isNumB) {
+        return +1;
+    }
+    else
+    if (!isNumA && isNumB) {
+        return -1;
+    }
+    else
+    if (isNumA && isNumB) {
+        return parseInt(a) - parseInt(b);
+    }
+    else {
+        return a.localeCompare(b);
+    }
+}
+
+
+apiHelper.isDeviceId = function(str) {
+    const deviceIdRE = /^([A-Fa-f0-9]{24})$/;
+
+    return str.match(deviceIdRE) != null;
+};
+
+apiHelper.isSerialNumber = async function(str) {
+    const skuObj = await apiHelper.getSkuObjFromSerial(str);
+    return !!skuObj;
+};
+
+apiHelper.isICCID = function(str) {
+    // Whole token match because otherwise a Device ID matches this
+    const iccidRE = /^([0-9]{18,21})$/;
+
+    return str.match(iccidRE) != null;
+}
+
+apiHelper.parseDeviceLine = async function(line) {
+    let result = null;
+    for(let token of line.split(/[, ]/)) {
+        token = token.trim();
+
+        if (apiHelper.isICCID(token)) {
+            if (!result) {
+                result = {};
+            }
+            result.iccid = token;
+        }
+        else
+        if (apiHelper.isDeviceId(token)) {
+            if (!result) {
+                result = {};
+            }
+            result.deviceId = token;
+        }
+        else
+        if (await apiHelper.isSerialNumber(token)) {
+            if (!result) {
+                result = {};
+            }
+            result.serial = token;
+        }
+        // Possibly add support for mobile secret here
+    }
+    return result;
+}
+
 // Parses a semver (like '3.0.0-rc.1' and returns the broken out parts)
 apiHelper.parseVersionStr = function(verStr) {
     let result = {};
 
-    // Remove and leading non-numbers
+    // Remove any leading non-numbers
     while(true) {
         const c = verStr.charAt(0);
         if (c >= '0' && c <= '9') {
@@ -79,24 +266,71 @@ apiHelper.parseVersionStr = function(verStr) {
         switch(parts[3]) {
             case 'rc':
                 result.rc = result.pre;
+                result.preAdj = result.pre * 400;
                 break;
 
             case 'alpha':
                 result.alpha = result.pre;
+                result.preAdj = result.pre * 200;
                 break;
 
             case 'beta':
                 result.beta = result.pre;
+                result.preAdj = result.pre * 300;
                 break;
 
             case 'test':
                 result.test = result.pre;
+                result.preAdj = result.pre * 100;
                 break;
         }
     }
 
     return result;
 };
+
+// Sort by version number (newest/largest first)
+apiHelper.versionSort = function(a, b) {
+    const aa = apiHelper.parseVersionStr(a);
+    const bb = apiHelper.parseVersionStr(b);
+
+    // console.log('a', aa);
+    // console.log('b', bb);
+
+    let cmp;
+
+    cmp = bb.major - aa.major;
+    if (cmp) {
+        return cmp;
+    }
+
+    cmp = bb.minor - aa.minor;
+    if (cmp) {
+        return cmp;
+    }
+
+    cmp = bb.patch - aa.patch;
+    if (cmp) {
+        return cmp;
+    }
+
+    if (!aa.pre && !bb.pre) {
+        return 0;
+    }
+
+    if (aa.pre && !bb.pre) {
+        return +1;
+    }
+    if (!aa.pre && bb.pre) {
+        return -1;
+    }
+
+    cmp = bb.preAdj - aa.preAdj;
+
+    return cmp;
+};
+
+
 
 apiHelper.getReleaseAndLatestRcVersionOnly = function() {
     return new Promise(async function(resolve, reject) {
@@ -299,6 +533,11 @@ apiHelper.cachedResult = function() {
 
     cachedResult.queries = {};
 
+    cachedResult.clear = function() {
+        const cacheKey = JSON.stringify(opts);
+
+        cachedResult.queries[cacheKey].result = null;
+    };
 
     cachedResult.get = function(opts) {
         return new Promise(function(resolve, reject) {
@@ -343,8 +582,11 @@ apiHelper.cachedResult = function() {
 
 apiHelper.getProductsCache = apiHelper.cachedResult();
 
-apiHelper.getProducts = async function() {
-    return await apiHelper.getProductsCache.get({
+apiHelper.getProducts = async function(options = {}) {
+    if (!apiHelper.auth) {
+        return { products: [] };
+    }
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -352,13 +594,21 @@ apiHelper.getProducts = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/user/products/'
-    });    
+    };
+    if (options.clearCache) {
+        apiHelper.getProductsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getProductsCache.get(reqOptions);    
 };
 
 apiHelper.getOrgsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgs = async function() {
-    return await apiHelper.getOrgsCache.get({
+apiHelper.getOrgs = async function(options = {}) {
+    if (!apiHelper.auth) {
+        return { organizations: [] };
+    }
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -366,14 +616,19 @@ apiHelper.getOrgs = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/'
-    });
+    };
+    if (options.clearCache) {
+        apiHelper.getOrgsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getOrgsCache.get(reqOptions);
 };
 
 
 apiHelper.getOrgProductsCache = apiHelper.cachedResult();
 
-apiHelper.getOrgProducts = async function(org) {
-    return await apiHelper.getOrgProductsCache.get({
+apiHelper.getOrgProducts = async function(org, options = {}) {
+    const reqOptions = {
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -381,7 +636,12 @@ apiHelper.getOrgProducts = async function(org) {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/' + org + '/products/'
-    });    
+    };
+    if (options.clearCache) {
+        apiHelper.getOrgProductsCache.clear(reqOptions); 
+    }
+
+    return await apiHelper.getOrgProductsCache.get(reqOptions);    
 };
 
 
@@ -537,9 +797,9 @@ $(document).ready(function() {
     apiHelper.particle = new Particle();
 
     if ($('.codeboxFlashDeviceSpan').length > 0) {
-        
+    
+        $('.apiHelper').first().on('apiHelperLoggedIn', function() {
 
-        if (apiHelper.auth) {
             $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
             $('.codeboxFlashDeviceSpan').show();
 
@@ -595,15 +855,11 @@ $(document).ready(function() {
                     }
                 });   
             });
-
- 
-
    
-        }
-        else {
-            $('.codeboxFlashDeviceSpan').hide();
-        }
-
+        });
+    }
+    else {
+        $('.codeboxFlashDeviceSpan').hide();
     }
 
 

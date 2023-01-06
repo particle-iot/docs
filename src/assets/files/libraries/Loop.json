@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Loop",
     "version": "1.0.0",
-    "installs": 647,
+    "installs": 676,
     "license": "MIT",
     "author": "Kevron Rees",
     "sentence": "Advanced Looping library with timeouts and stuff",
@@ -58,8 +58,79 @@
             "loop_example": false,
             "test": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "loop_example": false,
+            "test": false
+          },
+          "electron": {
+            "loop_example": false,
+            "test": false
+          },
+          "argon": {
+            "loop_example": false,
+            "test": false
+          },
+          "boron": {
+            "loop_example": false,
+            "test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "loop_example": false,
+            "test": true
+          },
+          "boron": {
+            "loop_example": false,
+            "test": true
+          },
+          "bsom": {
+            "loop_example": false,
+            "test": true
+          },
+          "b5som": {
+            "loop_example": false,
+            "test": true
+          },
+          "tracker": {
+            "loop_example": false,
+            "test": true
+          },
+          "p2": {
+            "loop_example": false,
+            "test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "loop_example": false,
+            "test": true
+          },
+          "boron": {
+            "loop_example": false,
+            "test": true
+          },
+          "bsom": {
+            "loop_example": false,
+            "test": true
+          },
+          "b5som": {
+            "loop_example": false,
+            "test": true
+          },
+          "tracker": {
+            "loop_example": false,
+            "test": true
+          },
+          "esomx": {
+            "loop_example": false,
+            "test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.008Z"
     }
   },
   "readme": "# Loop\nAdvanced looping class for arduino[-like] devices with timeouts and callbacks\n",

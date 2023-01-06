@@ -1,0 +1,128 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SH110X_Z",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SH110X_Z/archive/2.1.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SH110X_Z",
+    "version": "2.1.3",
+    "installs": 775,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "SH110X oled driver library for monochrome displays with SH1107 or SH1106G drivers",
+    "paragraph": "SH110X oled driver library for monochrome displays with SH1107 or SH1106G drivers",
+    "category": "Display",
+    "url": "https://github.com/zpm1066/Adafruit_SH110X_Z",
+    "architectures": [
+      "*"
+    ],
+    "dependencies": {
+      "adafruit-gfx-rk-z": "1.6.0"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_SH110X_Z",
+  "versions": {
+    "2.1.3": {
+      "added": "2022-10-31T20:55:51.991Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "bsom": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "b5som": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "tracker": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "p2": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "bsom": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "b5som": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "tracker": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "esomx": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "electron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "argon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "electron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "argon": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          },
+          "boron": {
+            "OLED_featherwing": false,
+            "SH1107_128x128": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "[![Build Status](https://github.com/adafruit/Adafruit_SH110X/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SH110X/actions)\n\nThis is a library for our Monochrome OLEDs based on SH110X drivers\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/category/63_98\n\nThese displays use I2C or SPI to communicate, 2 to 5 pins are required to interface.\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nBSD license, check license.txt for more information. All text above must be included in any redistribution\n\nPreferred installation method is to use the Arduino IDE Library Manager. To download the source from Github instead, click \"Clone or download\" above, then \"Download ZIP.\" After uncompressing, rename the resulting folder Adafruit_SH110X. Check that the Adafruit_SH110X folder contains Adafruit_SH110X.cpp and Adafruit_SH110X.h.\n\nYou will also have to install the **Adafruit GFX library** which provides graphics primitves such as lines, circles, text, etc. This also can be found in the Arduino Library Manager, or you can get the source from https://github.com/adafruit/Adafruit-GFX-Library\n",
+  "allVersions": [
+    "2.1.3"
+  ]
+}

@@ -2,6 +2,403 @@
   "platforms": [
     {
       "id": 0,
+      "name": "Monitor One Expansion",
+      "pins": [
+        {
+          "num": 1,
+          "name": "GNSS_PULSE",
+          "desc": "GNSS time pulse output. Can be used for a GPS fix LED.",
+          "isIO": true,
+          "somPin": 7
+        },
+        {
+          "num": 2,
+          "name": "NC",
+          "morePins": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "num": 9,
+          "name": "NFC2_VIN_EN",
+          "desc": "VIN enable",
+          "is5VTolerant": false,
+          "isNFC": false,
+          "hardwarePin": "P0.10",
+          "somPin": 27
+        },
+        {
+          "num": 10,
+          "name": "NFC1_PERIPH_INT",
+          "desc": "Peripheral interrupt (active low)",
+          "is5VTolerant": false,
+          "isNFC": false,
+          "hardwarePin": "P0.09",
+          "somPin": 26
+        },
+        {
+          "num": 11,
+          "name": "TSOM_MODE",
+          "desc": "MODE button (active low)",
+          "isControl": true,
+          "is5VTolerant": false,
+          "hardwarePin": "P1.13",
+          "somPin": 32
+        },
+        {
+          "num": 12,
+          "name": "TSOM_RESET",
+          "desc": "RESET button (active low)",
+          "isControl": true,
+          "is5VTolerant": false,
+          "hardwarePin": "P0.08",
+          "somPin": 33
+        },
+        {
+          "num": 13,
+          "name": "TSOM_A7",
+          "altName": "D7",
+          "desc": "A7 Analog in, GPIO D7, PWM, SPI SS, WKP",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.05",
+          "hardwareADC": "ADC3",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "somPin": 38
+        },
+        {
+          "num": 14,
+          "name": "TSOM_A6",
+          "altName": "D6",
+          "desc": "A6 Analog in, GPIO D6, PWM, SPI (SCK)",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.04",
+          "hardwareADC": "ADC2",
+          "hardwareTimer": "PWM1",
+          "spi": "SPI (SCK)|SCK. Use SPI object.",
+          "internalPull": "13K",
+          "somPin": 39
+        },
+        {
+          "num": 15,
+          "name": "TSOM_A5",
+          "altName": "D5",
+          "desc": "A5 Analog in, GPIO D5, PWM, SPI MISO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "spi": "SPI (MISO)|MISO. Use SPI object.",
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.29",
+          "hardwareADC": "ADC5",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "somPin": 40
+        },
+        {
+          "num": 16,
+          "name": "TSOM_A4",
+          "altName": "D4",
+          "desc": "A4 Analog in, GPIO D4, PWM, SPI MOSI",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "spi": "SPI (MOSI)|MOSI. Use SPI object.",
+          "tone": "A4, A5, A5, A7 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.29",
+          "hardwareADC": "ADC7",
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K",
+          "somPin": 41
+        },
+        {
+          "num": 17,
+          "name": "GND",
+          "desc": "Ground.",
+          "isPower": true,
+          "morePins": [
+            21,
+            22,
+            26,
+            28,
+            30,
+            32,
+            37,
+            41,
+            44
+          ],
+          "somPin": 1
+        },
+        {
+          "num": 18,
+          "name": "3V3",
+          "desc": "3.3V out, 1000 mA maximum including nRF52 and other peripherals.",
+          "isPower": true,
+          "somPin": 45
+        },
+        {
+          "num": 19,
+          "name": "RUN",
+          "desc": "Pull low to disable LTC7103 regulator. Has 100K pull-up to VIN."
+        },
+        {
+          "num": 20,
+          "name": "PGOOD",
+          "desc": "LTC7103 regulator open drain power good output. Pulled low when regulator is not in regulation."
+        },
+        {
+          "num": 23,
+          "name": "VIN",
+          "desc": "Power input, 6 - 90 VDC",
+          "isPower": true,
+          "morePins": [
+            24
+          ]
+        },
+        {
+          "num": 25,
+          "name": "LI+",
+          "desc": "Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS.",
+          "isPower": true,
+          "somPin": 53
+        },
+        {
+          "num": 27,
+          "name": "TSOM_USB_VBUS",
+          "desc": "nRF52 USB power input. Can be used as a 5V power supply instead of VIN.",
+          "isUSB": true,
+          "somPin": 51
+        },
+        {
+          "num": 29,
+          "name": "TSOM_VIN",
+          "desc": "Tracker SoM power input 5V-12V DC.",
+          "isPower": true,
+          "somPin": 49
+        },
+        {
+          "num": 31,
+          "name": "5V",
+          "desc": "5V power output when powered by VIN or USB",
+          "isPower": true
+        },
+        {
+          "num": 33,
+          "name": "TSOM_A0_SDA",
+          "altName": "D0",
+          "desc": "Wire SDA",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SDA)|SDA. Use Wire object.",
+          "hardwarePin": "P0.03",
+          "internalPull": "13K",
+          "somPin": 55
+        },
+        {
+          "num": 34,
+          "name": "TSOM_A1_SCL",
+          "altName": "D1",
+          "desc": "Wire SCL",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SCL)|SCL. Use Wire object.",
+          "hardwarePin": "P0.02",
+          "internalPull": "13K",
+          "somPin": 56
+        },
+        {
+          "num": 35,
+          "name": "TSOM_A2_BUTTON",
+          "altName": "D2",
+          "desc": "External user button, A2 Analog in, GPIO D2, PWM",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A0, A1, A2, A3 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.28",
+          "hardwareADC": "ADC4",
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K",
+          "somPin": 57
+        },
+        {
+          "num": 36,
+          "name": "TSOM_A3_BATT_TEMP",
+          "altName": "D3",
+          "desc": "Battery temperature sensor, A3 Analog in, GPIO D3, PWM",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": "A0, A1, A2, A3 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.30",
+          "hardwareADC": "ADC6",
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K",
+          "somPin": 58
+        },
+        {
+          "num": 38,
+          "name": "CAN_N",
+          "desc": "CAN Data- or CANL",
+          "can": "CAN_N",
+          "isIO": true,
+          "somPin": 64
+        },
+        {
+          "num": 39,
+          "name": "CAN_P",
+          "desc": "CAN Data+ or CANH",
+          "can": "CAN_P",
+          "isIO": true,
+          "somPin": 65
+        },
+        {
+          "num": 40,
+          "name": "CAN_5V",
+          "desc": "5V power out, 0.8A maximum. Can be controlled by software.",
+          "can": "CAN_5V",
+          "isPower": true,
+          "somPin": 66
+        },
+        {
+          "num": 42,
+          "name": "TSOM_USB_N",
+          "desc": "nRF52 MCU USB interface D-.",
+          "isUSB": true,
+          "somPin": 68
+        },
+        {
+          "num": 43,
+          "name": "TSOM_USB_P",
+          "desc": "nRF52 MCU USB interface D+.",
+          "isUSB": true,
+          "somPin": 69
+        },
+        {
+          "num": 45,
+          "name": "RX",
+          "altName": "D9",
+          "desc": "Serial1 RX, GPIO D9, PWM, Wire3 SDA",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "i2c": "Wire3 (SDA)|SDA. Use Wire3 object.",
+          "serial": "Serial1 RX|RX Use Serial1 object.",
+          "tone": "D8, D9 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.08",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "somPin": 71
+        },
+        {
+          "num": 46,
+          "name": "TX",
+          "altName": "D8",
+          "desc": "Serial1 TX, GPIO D8, PWM, Wire3 SCL",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "i2c": "Wire3 (SCL)|SCL. Use Wire3 object.",
+          "serial": "Serial1 TX|TX Use Serial1 object.",
+          "tone": "D8, D9 must have the same frequency.",
+          "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
+          "hardwarePin": "P0.06",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K",
+          "somPin": 72
+        },
+        {
+          "num": 47,
+          "name": "RTC_BAT",
+          "desc": "RTC/Watchdog battery +. Connect to GND if not using.",
+          "isPower": true,
+          "somPin": 73
+        },
+        {
+          "num": 48,
+          "name": "RTC_EXTI",
+          "desc": "RTC EXTI. Can use as a wake button. Has 100K weak pull-up to 3V3.",
+          "isControl": true,
+          "somPin": 74
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      },
+      "mcu": "nRF52840"
+    },
+    {
+      "id": 0,
       "name": "Photon 2",
       "pins": [
         {
@@ -58,7 +455,8 @@
           "hardwarePin": "PB[1]",
           "hardwareADC": "ADC_4",
           "mcuPin": 41,
-          "p2Pin": 50
+          "p2Pin": 50,
+          "internalPull": "2.1K"
         },
         {
           "num": 6,
@@ -79,7 +477,8 @@
           "hardwarePin": "PB[2]",
           "hardwareADC": "ADC_5",
           "mcuPin": 42,
-          "p2Pin": 43
+          "p2Pin": 43,
+          "internalPull": "2.1K"
         },
         {
           "num": 7,
@@ -100,7 +499,8 @@
           "hardwarePin": "PB[7]",
           "hardwareADC": "ADC_3",
           "mcuPin": 47,
-          "p2Pin": 49
+          "p2Pin": 49,
+          "internalPull": "42K"
         },
         {
           "num": 8,
@@ -123,7 +523,8 @@
           "hardwarePin": "PB[4]",
           "hardwareADC": "ADC_0",
           "mcuPin": 44,
-          "p2Pin": 23
+          "p2Pin": 23,
+          "internalPull": "42K"
         },
         {
           "num": 9,
@@ -145,7 +546,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PA[0]",
           "mcuPin": 2,
-          "p2Pin": 47
+          "p2Pin": 47,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 10,
@@ -168,7 +570,8 @@
           "spi": "SPI (SS)|Default SS for SPI.",
           "hardwarePin": "PB[26]",
           "mcuPin": 63,
-          "p2Pin": 44
+          "p2Pin": 44,
+          "internalPull": "2.1K"
         },
         {
           "num": 11,
@@ -190,7 +593,8 @@
           "serial": "Serial3 (RTS)|RTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[14]",
           "mcuPin": 27,
-          "p2Pin": 42
+          "p2Pin": 42,
+          "internalPull": "2.1K"
         },
         {
           "num": 12,
@@ -212,7 +616,8 @@
           "serial": "Serial3 (TX)|TX. Use Serial3 object.",
           "hardwarePin": "PA[12]",
           "mcuPin": 25,
-          "p2Pin": 40
+          "p2Pin": 40,
+          "internalPull": "2.1K"
         },
         {
           "num": 13,
@@ -234,7 +639,8 @@
           "serial": "Serial3 (RX)|RX. Use Serial3 object.",
           "hardwarePin": "PA[13]",
           "mcuPin": 26,
-          "p2Pin": 41
+          "p2Pin": 41,
+          "internalPull": "2.1K"
         },
         {
           "num": 14,
@@ -255,7 +661,8 @@
           "serial": "Serial1 (RX) |RX. Use Serial1 object.",
           "hardwarePin": "PA[8]",
           "mcuPin": 8,
-          "p2Pin": 63
+          "p2Pin": 63,
+          "internalPull": "42K"
         },
         {
           "num": 15,
@@ -275,8 +682,10 @@
           "attachInterrupt": true,
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA[7]",
+          "boot": "Low at boot triggers ISP flash download",
           "mcuPin": 7,
-          "p2Pin": 64
+          "p2Pin": 64,
+          "internalPull": "42K"
         },
         {
           "num": 16,
@@ -284,21 +693,22 @@
           "altName": "A3",
           "photonName": "D0",
           "classicAdapter": "D0",
-          "desc": "D0 GPIO, PWM, I2C SDA, A3 Analog In",
+          "desc": "D0 GPIO, I2C SDA, A3 Analog In",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": true,
           "analogWriteDAC": false,
-          "analogWritePWM": true,
-          "tone": true,
+          "analogWritePWM": false,
+          "tone": false,
           "attachInterrupt": true,
           "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "hardwareADC": "ADC_2",
           "hardwarePin": "PB[6]",
           "mcuPin": 46,
-          "p2Pin": 36
+          "p2Pin": 36,
+          "internalPull": "22K"
         },
         {
           "num": 17,
@@ -320,7 +730,8 @@
           "hardwareADC": "ADC_1",
           "hardwarePin": "PB[5]",
           "mcuPin": 45,
-          "p2Pin": 35
+          "p2Pin": 35,
+          "internalPull": "22K"
         },
         {
           "num": 18,
@@ -340,7 +751,8 @@
           "serial": "Serial2 (RTS)|RTS. Use Serial2 object. Flow control optional.",
           "hardwarePin": "PA[16]",
           "mcuPin": 29,
-          "p2Pin": 45
+          "p2Pin": 45,
+          "internalPull": "2.1K"
         },
         {
           "num": 19,
@@ -360,7 +772,8 @@
           "serial": "Serial2 (CTS)|CTS. Use Serial2 object. Flow control optional.",
           "hardwarePin": "PA[17]",
           "mcuPin": 30,
-          "p2Pin": 51
+          "p2Pin": 51,
+          "internalPull": "2.1K"
         },
         {
           "num": 20,
@@ -380,7 +793,8 @@
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "hardwarePin": "PA[18]",
           "mcuPin": 31,
-          "p2Pin": 52
+          "p2Pin": 52,
+          "internalPull": "2.1K"
         },
         {
           "num": 21,
@@ -399,7 +813,8 @@
           "serial": "Serial2 (RX)|RX. Use Serial2 object.",
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "hardwarePin": "PA[19]",
-          "p2Pin": 53
+          "p2Pin": 53,
+          "internalPull": "2.1K"
         },
         {
           "num": 22,
@@ -416,9 +831,11 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PB[3]",
           "mcuPin": 43,
-          "p2Pin": 55
+          "p2Pin": 55,
+          "internalPull": "42K"
         },
         {
           "num": 23,
@@ -435,9 +852,11 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
           "hardwarePin": "PA[27]",
           "mcuPin": 33,
-          "p2Pin": 54
+          "p2Pin": 54,
+          "internalPull": "2.1K"
         },
         {
           "num": 24,
@@ -446,7 +865,7 @@
           "altNameBefore2022_04_14": "D8",
           "argonName": "D8",
           "classicAdapter": "C5",
-          "desc": "D10 GPIO. Serial3 CTS. Was D8 on Gen 3.",
+          "desc": "D10 GPIO. Serial3 CTS, WKP. Was D8/WKP on Gen 3.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -458,7 +877,8 @@
           "serial": "Serial3 (CTS)|CTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[15]",
           "mcuPin": 28,
-          "p2Pin": 30
+          "p2Pin": 30,
+          "internalPull": "2.1K"
         },
         {
           "num": 25,
@@ -509,7 +929,804 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "RTL8721D"
+    },
+    {
+      "id": 0,
+      "name": "Tracker M Expansion",
+      "pins": [
+        {
+          "num": 33,
+          "name": "P2_S6_CS2",
+          "desc": "CS Expander CS1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[31]",
+          "mcuPin": 65,
+          "p2pin": 33
+        },
+        {
+          "num": 44,
+          "name": "P2_S3_CS0",
+          "desc": "CS Expander CS0",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[26]",
+          "mcuPin": 63,
+          "p2pin": 44
+        },
+        {
+          "num": 45,
+          "name": "P2_D2_RTS",
+          "desc": "Serial2 RTS for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (RTS)|RTS. Use Serial2 object.",
+          "hardwarePin": "PA[16]",
+          "mcuPin": 29,
+          "p2pin": 45
+        },
+        {
+          "num": 48,
+          "name": "P2_S5_CS1",
+          "desc": "CS Expander CS1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "hardwarePin": "PB[29]",
+          "mcuPin": 64,
+          "p2pin": 48
+        },
+        {
+          "num": 51,
+          "name": "P2_D3_CTS",
+          "desc": "Serial2 CTS for cellular modem",
+          "isIO": true,
+          "serial": "Serial2 (CTS)|CTS. Use Serial2 object.",
+          "hardwarePin": "PA[17]",
+          "mcuPin": 30,
+          "p2pin": 51
+        },
+        {
+          "num": 52,
+          "name": "P2_D4_TX",
+          "desc": "Serial2 TX for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (TX)|TX. Use Serial2 object.",
+          "hardwarePin": "PA[18]",
+          "mcuPin": 31,
+          "p2pin": 52
+        },
+        {
+          "num": 53,
+          "name": "P2_D5_RX",
+          "desc": "Serial2 RX for cellular modem",
+          "isIO": true,
+          "is5VTolerant": false,
+          "serial": "Serial2 (RX)|RX. Use Serial2 object.",
+          "hardwarePin": "PA[19]",
+          "mcuPin": 32,
+          "p2pin": 53
+        },
+        {
+          "num": 71,
+          "name": "IOEX_RST",
+          "desc": "IOEX_RST, DEMUX Y1",
+          "isIO": true,
+          "demux": "Y1"
+        },
+        {
+          "num": 72,
+          "name": "IOEX_CS",
+          "desc": "IOEX_CS, DEMUX Y2",
+          "isIO": true,
+          "demux": "Y2"
+        },
+        {
+          "num": 80,
+          "name": "FUEL_INT",
+          "desc": "FUEL_INT, interrupt from battery fuel gauge, IOEX GPA0",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPA0"
+        },
+        {
+          "num": 81,
+          "name": "DCDC_EN",
+          "desc": "DCDC_EN, IOEX GPA1",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA1"
+        },
+        {
+          "num": 82,
+          "name": "GNSS_PWR_EN",
+          "desc": "GNSS_PWR_EN, IOEX GPA2",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA2"
+        },
+        {
+          "num": 83,
+          "name": "2V8_IO",
+          "desc": "2V8_IO_EN, IOEX GPA3",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA3"
+        },
+        {
+          "num": 84,
+          "name": "SHT_ALERT",
+          "desc": "SHT_ALERT, alert signal from temperature sensor, IOEX GPA4",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA4"
+        },
+        {
+          "num": 85,
+          "name": "GNSS_RST",
+          "desc": "GNSS_RST, IOEX GPA5",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA5"
+        },
+        {
+          "num": 86,
+          "name": "PGOOD",
+          "desc": "PGOOD, DCDC power good, IOEX GPA6",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPA6"
+        },
+        {
+          "num": 87,
+          "name": "P2_CELL_DTR",
+          "desc": "P2_CELL_DTR, IOEX GPA7",
+          "isIO": true,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPA7"
+        },
+        {
+          "num": 94,
+          "name": "CELL_RST",
+          "desc": "CELL_RST, IOEX GPB4",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPB4"
+        },
+        {
+          "num": 95,
+          "name": "CELL_PWR",
+          "desc": "CELL_PWR, IOEX GPB5",
+          "isIO": true,
+          "digitalWrite": true,
+          "is5VTolerant": false,
+          "ioex": "GPB5"
+        },
+        {
+          "num": 96,
+          "name": "CELL_STATUS",
+          "desc": "CELL_STATUS, IOEX GPB6",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPB6"
+        },
+        {
+          "num": 97,
+          "name": "GNSS_GEOFENCE",
+          "desc": "GNSS_GEOFENCE, IOEX GPB7",
+          "isIO": true,
+          "digitalRead": true,
+          "is5VTolerant": false,
+          "ioex": "GPB7"
+        },
+        {
+          "num": 101,
+          "name": "CAN_VDD_EN",
+          "desc": "CAN_VDD_EN, CAN 5V supply enableIOEX GPB0",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalWrite": true,
+          "ioex": "GPB0"
+        },
+        {
+          "num": 102,
+          "name": "CAN_STBY",
+          "desc": "CAN_STBY, IOEX GPB1",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "ioex": "GPB1"
+        },
+        {
+          "num": 103,
+          "name": "CAN_INT",
+          "desc": "CAN_INT, interrupt from CAN controller, IOEX GPB2",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "ioex": "GPB2"
+        },
+        {
+          "num": 104,
+          "name": "SENSOR_INT1",
+          "desc": "SENSOR_INT1, IOEX GPB3",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "ioex": "GPB3"
+        },
+        {
+          "num": 105,
+          "name": "GND",
+          "classicAdapter": "GND",
+          "desc": "Ground.",
+          "isPower": true,
+          "morePins": [
+            110,
+            114,
+            118,
+            123,
+            128,
+            136,
+            142,
+            144,
+            152,
+            154,
+            157,
+            208,
+            209,
+            210,
+            214,
+            215,
+            216,
+            220,
+            221,
+            224,
+            225,
+            228,
+            229,
+            231,
+            232,
+            233,
+            236,
+            237,
+            240,
+            241,
+            244,
+            245,
+            246,
+            247,
+            251,
+            252,
+            253
+          ]
+        },
+        {
+          "num": 111,
+          "name": "P2_A0",
+          "altName": "D11",
+          "desc": "A0 Analog in, GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[1]",
+          "hardwareADC": "ADC_4",
+          "mcuPin": 41,
+          "internalPull": "2.1K",
+          "p2pin": 50
+        },
+        {
+          "num": 112,
+          "name": "P2_A1",
+          "altName": "D12",
+          "desc": "A1 Analog in, GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[2]",
+          "hardwareADC": "ADC_5",
+          "mcuPin": 42,
+          "internalPull": "2.1K",
+          "p2pin": 43
+        },
+        {
+          "num": 113,
+          "name": "P2_A2",
+          "altName": "D13",
+          "desc": "A2 Analog in, PWM, GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[7]",
+          "hardwareADC": "ADC_3",
+          "mcuPin": 47,
+          "internalPull": "42K",
+          "p2pin": 49
+        },
+        {
+          "num": 115,
+          "name": "P2_RGB_G",
+          "desc": "RGB LED Green",
+          "isLED": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[23]",
+          "mcuPin": 61,
+          "p2pin": 32
+        },
+        {
+          "num": 116,
+          "name": "P2_RGB_B",
+          "desc": "RGB LED Blue",
+          "isLED": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[22]",
+          "mcuPin": 60,
+          "p2pin": 31
+        },
+        {
+          "num": 117,
+          "name": "P2_RGB_R",
+          "desc": "RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.",
+          "isLED": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PA[30]",
+          "mcuPin": 36,
+          "p2pin": 29
+        },
+        {
+          "num": 119,
+          "name": "P2_RESET",
+          "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation.",
+          "isControl": true,
+          "is5VTolerant": false,
+          "hardwarePin": "CHIP_EN",
+          "mcuPin": 6,
+          "p2pin": 34
+        },
+        {
+          "num": 120,
+          "name": "P2_MODE",
+          "desc": "MODE button. Pin number constant is BTN. Pull low when button is pressed.",
+          "isControl": true,
+          "is5VTolerant": false,
+          "attachInterrupt": true,
+          "hardwarePin": "PA[4]",
+          "mcuPin": 3,
+          "p2pin": 46
+        },
+        {
+          "num": 121,
+          "name": "P2_D6_SWDCLK",
+          "desc": "D6 GPIO, SWCLK",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
+          "hardwarePin": "PB[3]",
+          "mcuPin": 43,
+          "internalPull": "42K",
+          "p2pin": 55
+        },
+        {
+          "num": 122,
+          "name": "P2_D7_SWDIO",
+          "desc": "D7 GPIO, SWDIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": "Yes.",
+          "digitalWrite": "Yes. On the Photon this is the blue D7 LED.",
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
+          "hardwarePin": "PA[27]",
+          "mcuPin": 33,
+          "internalPull": "42K",
+          "p2pin": 54
+        },
+        {
+          "num": 124,
+          "name": "NC",
+          "desc": "Leave unconnected",
+          "morePins": [
+            150,
+            151
+          ]
+        },
+        {
+          "num": 125,
+          "name": "P2_USB_P",
+          "desc": "MCU USB Data+",
+          "isUSB": true,
+          "is5VTolerant": true,
+          "hardwarePin": "PA[26]",
+          "mcuPin": 39,
+          "p2pin": 61
+        },
+        {
+          "num": 126,
+          "name": "P2_USB_N",
+          "desc": "MCU USB Data-",
+          "isUSB": true,
+          "is5VTolerant": true,
+          "hardwarePin": "PA[25]",
+          "mcuPin": 40,
+          "p2pin": 62
+        },
+        {
+          "num": 127,
+          "name": "P2_USB_VBUS",
+          "isUSB": true,
+          "is5VTolerant": true
+        },
+        {
+          "num": 129,
+          "name": "P2_RX/D9",
+          "altName": "D9",
+          "desc": "Serial1 RX (received data), GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "serial": "Serial1 (RX) |RX. Use Serial1 object.",
+          "hardwarePin": "PA[8]",
+          "mcuPin": 8,
+          "internalPull": "42K",
+          "p2pin": 63
+        },
+        {
+          "num": 130,
+          "name": "P2_TX/D8",
+          "altName": "D8",
+          "desc": "Serial1 TX (transmitted data), GPIO",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "serial": "Serial1 (TX)|TX. Use Serial1 object.",
+          "hardwarePin": "PA[7]",
+          "boot": "Low at boot triggers ISP flash download",
+          "mcuPin": 7,
+          "internalPull": "42K",
+          "p2pin": 64
+        },
+        {
+          "num": 131,
+          "name": "P2_VBAT_MEAS",
+          "desc": "Battery voltage measurement (optional).",
+          "isIO": true,
+          "is5VTolerant": false,
+          "analogRead": false,
+          "hardwareADC": "ADC_7",
+          "mcuPin": 48,
+          "p2pin": 12
+        },
+        {
+          "num": 132,
+          "name": "CELL_USB_BOOT"
+        },
+        {
+          "num": 133,
+          "name": "CELL_VBUS"
+        },
+        {
+          "num": 134,
+          "name": "CELL_USB_N"
+        },
+        {
+          "num": 135,
+          "name": "CELL_USB_P"
+        },
+        {
+          "num": 137,
+          "name": "GNSS_TXD"
+        },
+        {
+          "num": 138,
+          "name": "GNSS_RXD"
+        },
+        {
+          "num": 139,
+          "name": "GNSS_DIR"
+        },
+        {
+          "num": 140,
+          "name": "GNSS_WHEELTICK"
+        },
+        {
+          "num": 141,
+          "name": "+2V8",
+          "desc": "2.8V power",
+          "isPower": true
+        },
+        {
+          "num": 143,
+          "name": "+1V8",
+          "desc": "1.8V power",
+          "isPower": true
+        },
+        {
+          "num": 145,
+          "name": "Y7",
+          "desc": "IMU Y7",
+          "demux": "Y7"
+        },
+        {
+          "num": 146,
+          "name": "Y6",
+          "desc": "IMU Y6",
+          "demux": "Y6"
+        },
+        {
+          "num": 147,
+          "name": "Y5",
+          "desc": "IMU Y5",
+          "demux": "Y5"
+        },
+        {
+          "num": 148,
+          "name": "Y4",
+          "desc": "IMU Y4",
+          "demux": "Y4"
+        },
+        {
+          "num": 149,
+          "name": "Y3",
+          "desc": "IMU Y3",
+          "demux": "Y3"
+        },
+        {
+          "num": 153,
+          "name": "P2_A5_FET_CONTROL",
+          "altName": "D14",
+          "desc": "A5 Analog in, GPIO, PWM.",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": true,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "hardwarePin": "PB[4]",
+          "hardwareADC": "ADC_0",
+          "mcuPin": 44,
+          "internalPull": "42K",
+          "p2pin": 23
+        },
+        {
+          "num": 155,
+          "name": "P2_D1_SCL",
+          "desc": "I2C SCL",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
+          "hardwarePin": "PB[5]",
+          "mcuPin": 45,
+          "internalPull": "22K",
+          "p2pin": 35
+        },
+        {
+          "num": 156,
+          "name": "P2_D0_SDA",
+          "desc": "I2C SDA",
+          "isIO": true,
+          "is5VTolerant": false,
+          "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
+          "hardwarePin": "PB[6]",
+          "mcuPin": 46,
+          "internalPull": "22K",
+          "p2pin": 36
+        },
+        {
+          "num": 158,
+          "name": "P2_S2_SCK",
+          "altName": "D17",
+          "desc": "S2 GPIO, SPI SCK",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": false,
+          "tone": false,
+          "attachInterrupt": true,
+          "spi": "SPI (SCK)|SCK. Use SPI object.",
+          "hardwarePin": "PA[14]",
+          "mcuPin": 27,
+          "internalPull": "2.1K",
+          "p2pin": 42
+        },
+        {
+          "num": 159,
+          "name": "P2_S1_SDI",
+          "altName": "D16",
+          "desc": "S1 GPIO, PWM, SPI SDI/MISO, Serial3 RX.",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "spi": "SPI (MISO)|MISO. Use SPI object.",
+          "serial": "Serial3 (RX)|RX. Use Serial3 object.",
+          "hardwarePin": "PA[13]",
+          "mcuPin": 26,
+          "internalPull": "2.1K",
+          "p2pin": 41
+        },
+        {
+          "num": 160,
+          "name": "P2_S0_SDO",
+          "altName": "D15",
+          "desc": "S0 GPIO, PWM, SPI SDO/MOSI, Serial3 TX.",
+          "isIO": true,
+          "is5VTolerant": false,
+          "digitalRead": true,
+          "digitalWrite": true,
+          "analogRead": false,
+          "analogWriteDAC": false,
+          "analogWritePWM": true,
+          "tone": true,
+          "attachInterrupt": true,
+          "spi": "SPI (MOSI)|MOSI. Use SPI object.",
+          "serial": "Serial3 (TX)|TX. Use Serial3 object.",
+          "hardwarePin": "PA[12]",
+          "mcuPin": 25,
+          "internalPull": "2.1K",
+          "p2pin": 40
+        },
+        {
+          "num": 201,
+          "name": "VIN",
+          "isPower": true,
+          "morePins": [
+            202,
+            203,
+            258,
+            259,
+            260
+          ]
+        },
+        {
+          "num": 211,
+          "name": "LI+",
+          "isPower": true,
+          "morePins": [
+            212,
+            213,
+            248,
+            249,
+            250
+          ]
+        },
+        {
+          "num": 217,
+          "name": "TS",
+          "desc": "PMIC TS (temperature sensor) pin"
+        },
+        {
+          "num": 218,
+          "name": "3V3",
+          "isPower": true,
+          "morePins": [
+            219,
+            242,
+            243
+          ]
+        },
+        {
+          "num": 222,
+          "name": "PMID",
+          "desc": "PMIC PMID power output",
+          "isPower": true,
+          "morePins": [
+            223,
+            238,
+            239
+          ]
+        },
+        {
+          "num": 226,
+          "name": "5V",
+          "isPower": true,
+          "morePins": [
+            227,
+            234,
+            235
+          ]
+        },
+        {
+          "num": 230,
+          "name": "VCC",
+          "desc": "3.7V cellular modem supply",
+          "isPower": true
+        }
+      ],
+      "diagram": {
+        "columns": [
+          "num",
+          "name",
+          [
+            "isPower",
+            "hardwareADC",
+            "i2c"
+          ],
+          [
+            "spi",
+            "swd"
+          ],
+          [],
+          [
+            "hardwareTimer"
+          ],
+          [
+            "serial"
+          ],
+          "hardwarePin"
+        ]
+      },
+      "mcu": "RTL8721D"
     },
     {
       "id": 6,
@@ -547,7 +1764,8 @@
           "hardwarePin": "PA9",
           "hardwareTimer": "TIM1_CH2",
           "modulePinNumber": 39,
-          "modulePinName": "MICRO_UART_TX"
+          "modulePinName": "MICRO_UART_TX",
+          "internalPull": "40K"
         },
         {
           "num": 4,
@@ -566,7 +1784,8 @@
           "hardwarePin": "PA10",
           "hardwareTimer": "TIM1_CH3",
           "modulePinNumber": 38,
-          "modulePinName": "MICRO_UART_RX"
+          "modulePinName": "MICRO_UART_RX",
+          "internalPull": "40K"
         },
         {
           "num": 5,
@@ -586,7 +1805,8 @@
           "hardwareADC": "ADC0",
           "hardwareTimer": "TIM5_CH1",
           "modulePinNumber": 27,
-          "modulePinName": "MICRO_WKUP"
+          "modulePinName": "MICRO_WKUP",
+          "internalPull": "40K"
         },
         {
           "num": 6,
@@ -606,7 +1826,8 @@
           "hardwarePin": "PA4",
           "hardwareADC": "ADC4",
           "modulePinNumber": 22,
-          "modulePinName": "MICRO_SPI_SSN"
+          "modulePinName": "MICRO_SPI_SSN",
+          "internalPull": "40K"
         },
         {
           "num": 7,
@@ -626,7 +1847,8 @@
           "hardwareADC": "ADC7",
           "hardwareTimer": "TIM3_CH2",
           "modulePinNumber": 23,
-          "modulePinName": "MICRO_SPI_MOSI"
+          "modulePinName": "MICRO_SPI_MOSI",
+          "internalPull": "40K"
         },
         {
           "num": 8,
@@ -646,7 +1868,8 @@
           "hardwareADC": "ADC6",
           "hardwareTimer": "TIM3_CH1",
           "modulePinNumber": 25,
-          "modulePinName": "MICRO_SPI_MISO"
+          "modulePinName": "MICRO_SPI_MISO",
+          "internalPull": "40K"
         },
         {
           "num": 9,
@@ -666,7 +1889,8 @@
           "hardwarePin": "PA5",
           "hardwareADC": "ADC5",
           "modulePinNumber": 24,
-          "modulePinName": "MICRO_SPI_SCK"
+          "modulePinName": "MICRO_SPI_SCK",
+          "internalPull": "40K"
         },
         {
           "num": 10,
@@ -685,7 +1909,8 @@
           "hardwarePin": "PC2",
           "hardwareADC": "ADC12",
           "modulePinNumber": 2,
-          "modulePinName": "MICRO_GPIO_6"
+          "modulePinName": "MICRO_GPIO_6",
+          "internalPull": "40K"
         },
         {
           "num": 11,
@@ -703,7 +1928,8 @@
           "hardwarePin": "PC3",
           "hardwareADC": "ADC13",
           "modulePinNumber": 1,
-          "modulePinName": "MICRO_GPIO_7"
+          "modulePinName": "MICRO_GPIO_7",
+          "internalPull": "40K"
         },
         {
           "num": 12,
@@ -721,7 +1947,8 @@
           "hardwarePin": "PC5",
           "hardwareADC": "ADC15",
           "modulePinNumber": 54,
-          "modulePinName": "MICRO_GPIO_8"
+          "modulePinName": "MICRO_GPIO_8",
+          "internalPull": "40K"
         },
         {
           "num": 13,
@@ -740,7 +1967,8 @@
           "hardwarePin": "PB7",
           "hardwareTimer": "TIM4_CH2",
           "modulePinNumber": 4,
-          "modulePinName": "MICRO_GPIO_4"
+          "modulePinName": "MICRO_GPIO_4",
+          "internalPull": "40K"
         },
         {
           "num": 14,
@@ -760,7 +1988,8 @@
           "hardwarePin": "PB6",
           "hardwareTimer": "TIM4_CH1",
           "modulePinNumber": 5,
-          "modulePinName": "MICRO_GPIO_3"
+          "modulePinName": "MICRO_GPIO_3",
+          "internalPull": "40K"
         },
         {
           "num": 15,
@@ -781,7 +2010,8 @@
           "hardwarePin": "PB5",
           "hardwareTimer": "TIM3_CH2",
           "modulePinNumber": 3,
-          "modulePinName": "MICRO_GPIO_5"
+          "modulePinName": "MICRO_GPIO_5",
+          "internalPull": "40K"
         },
         {
           "num": 16,
@@ -798,10 +2028,12 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
           "hardwareTimer": "TIM3_CH1",
           "modulePinNumber": 42,
-          "modulePinName": "MICRO_JTAG_TRSTN"
+          "modulePinName": "MICRO_JTAG_TRSTN",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 17,
@@ -818,10 +2050,12 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SCK",
           "hardwarePin": "PB3",
           "modulePinNumber": 41,
-          "modulePinName": "MICRO_JTAG_TDO"
+          "modulePinName": "MICRO_JTAG_TDO",
+          "internalPull": "40K"
         },
         {
           "num": 18,
@@ -838,10 +2072,12 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
           "hardwarePin": "PA15",
           "modulePinNumber": 43,
-          "modulePinName": "MICRO_JTAG_TDI"
+          "modulePinName": "MICRO_JTAG_TDI",
+          "internalPull": "40K"
         },
         {
           "num": 19,
@@ -857,10 +2093,12 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PA14",
           "modulePinNumber": 40,
-          "modulePinName": "MICRO_JTAG_TCK"
+          "modulePinName": "MICRO_JTAG_TCK",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 20,
@@ -876,10 +2114,12 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA13",
           "modulePinNumber": 44,
-          "modulePinName": "MICRO_JTAG_TMS"
+          "modulePinName": "MICRO_JTAG_TMS",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 22,
@@ -1002,7 +2242,8 @@
           "modulePinNumber",
           "modulePinName"
         ]
-      }
+      },
+      "mcu": "STM32F205"
     },
     {
       "id": 8,
@@ -1128,7 +2369,8 @@
           "hardwarePin": "PA6",
           "hardwareADC": "ADC6",
           "hardwareTimer": "TIM3_CH1",
-          "modulePinName": "MICRO_SPI_MISO"
+          "modulePinName": "MICRO_SPI_MISO",
+          "internalPull": "40K"
         },
         {
           "num": 22,
@@ -1147,7 +2389,8 @@
           "dac": "DAC2|DAC, use analogWrite(A3).",
           "hardwarePin": "PA5",
           "hardwareADC": "ADC5",
-          "modulePinName": "MICRO_SPI_SCK"
+          "modulePinName": "MICRO_SPI_SCK",
+          "internalPull": "40K"
         },
         {
           "num": 23,
@@ -1166,7 +2409,8 @@
           "hardwarePin": "PA7",
           "hardwareADC": "ADC7",
           "hardwareTimer": "TIM3_CH2",
-          "modulePinName": "MICRO_SPI_MOSI"
+          "modulePinName": "MICRO_SPI_MOSI",
+          "internalPull": "40K"
         },
         {
           "num": 24,
@@ -1185,7 +2429,8 @@
           "dac": "DAC1|DAC, use analogWrite(DAC).",
           "hardwarePin": "PA4",
           "hardwareADC": "ADC4",
-          "modulePinName": "MICRO_SPI_SSN"
+          "modulePinName": "MICRO_SPI_SSN",
+          "internalPull": "40K"
         },
         {
           "num": 26,
@@ -1224,7 +2469,8 @@
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
           "hardwareTimer": "TIM5_CH1",
-          "modulePinName": "MICRO_UART2_CTS"
+          "modulePinName": "MICRO_UART2_CTS",
+          "internalPull": "40K"
         },
         {
           "num": 31,
@@ -1263,7 +2509,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PA8",
           "hardwareTimer": "TIM1_CH1",
-          "modulePinName": "TESTMODE"
+          "modulePinName": "TESTMODE",
+          "internalPull": "40K"
         },
         {
           "num": 34,
@@ -1287,11 +2534,12 @@
           "analogWritePWM": true,
           "tone": true,
           "attachInterrupt": "Yes. D1 and A4 share the same interrupt handler.",
-          "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant.",
+          "i2c": "Wire (SCL)|SCL. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant.",
           "can": "CAN2_TX",
           "hardwarePin": "PB6",
           "hardwareTimer": "TIM4_CH1",
-          "modulePinName": "MICRO_I2C1_SCL"
+          "modulePinName": "MICRO_I2C1_SCL",
+          "internalPull": "40K"
         },
         {
           "num": 36,
@@ -1306,10 +2554,11 @@
           "analogWritePWM": true,
           "tone": true,
           "attachInterrupt": false,
-          "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant.",
+          "i2c": "Wire (SDA)|SDA. Use Wire object. There is a 2.1K hardware pull-up on the P1 module. Is 5V tolerant.",
           "hardwarePin": "PB7",
           "hardwareTimer": "TIM4_CH2",
-          "modulePinName": "MICRO_I2C1_SDA"
+          "modulePinName": "MICRO_I2C1_SDA",
+          "internalPull": "40K"
         },
         {
           "num": 38,
@@ -1342,7 +2591,8 @@
           "hardwarePin": "PB0",
           "hardwareADC": "ADC8",
           "hardwareTimer": "TIM3_CH3",
-          "modulePinName": "MICRO_GPIO1"
+          "modulePinName": "MICRO_GPIO1",
+          "internalPull": "40K"
         },
         {
           "num": 41,
@@ -1360,7 +2610,8 @@
           "hardwarePin": "PB1",
           "hardwareADC": "ADC9",
           "hardwareTimer": "TIM3_CH4",
-          "modulePinName": "MICRO_GPIO2"
+          "modulePinName": "MICRO_GPIO2",
+          "internalPull": "40K"
         },
         {
           "num": 42,
@@ -1377,7 +2628,8 @@
           "attachInterrupt": "Yes. WKP/A7, P1S0, and P1S2 share the same interrupt handler.",
           "hardwarePin": "PC0",
           "hardwareADC": "ADC10",
-          "modulePinName": "MICRO_GPIO_3"
+          "modulePinName": "MICRO_GPIO_3",
+          "internalPull": "40K"
         },
         {
           "num": 43,
@@ -1394,7 +2646,8 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "hardwarePin": "PC3",
           "hardwareADC": "ADC13",
-          "modulePinName": "MICRO_GPIO_5"
+          "modulePinName": "MICRO_GPIO_5",
+          "internalPull": "40K"
         },
         {
           "num": 44,
@@ -1411,7 +2664,8 @@
           "attachInterrupt": "Yes. D3, DAC/A6, and P1S3 share the same interrupt handler.",
           "hardwarePin": "PC4",
           "hardwareADC": "ADC14",
-          "modulePinName": "MICRO_GPIO_6"
+          "modulePinName": "MICRO_GPIO_6",
+          "internalPull": "40K"
         },
         {
           "num": 45,
@@ -1431,7 +2685,8 @@
           "i2s": "I2S3_SD",
           "hardwarePin": "PB5",
           "hardwareTimer": "TIM3_CH2",
-          "modulePinName": "MICRO_GPIO_7"
+          "modulePinName": "MICRO_GPIO_7",
+          "internalPull": "40K"
         },
         {
           "num": 46,
@@ -1458,7 +2713,8 @@
           "tone": false,
           "attachInterrupt": "Yes. D7 and P1S4 share the same interrupt handler.",
           "hardwarePin": "PC13",
-          "modulePinName": "MICRO_GPIO_9"
+          "modulePinName": "MICRO_GPIO_9",
+          "internalPull": "40K"
         },
         {
           "num": 48,
@@ -1475,7 +2731,8 @@
           "attachInterrupt": "Yes. P1S1 and P1S5 share the same interrupt handler.",
           "hardwarePin": "PC1",
           "hardwareADC": "ADC11",
-          "modulePinName": "MICRO_GPIO_12"
+          "modulePinName": "MICRO_GPIO_12",
+          "internalPull": "40K"
         },
         {
           "num": 49,
@@ -1493,7 +2750,8 @@
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "PC2",
           "hardwareADC": "ADC12",
-          "modulePinName": "MICRO_GPIO_13"
+          "modulePinName": "MICRO_GPIO_13",
+          "internalPull": "40K"
         },
         {
           "num": 50,
@@ -1510,7 +2768,8 @@
           "attachInterrupt": "Yes. D2, A0, and A3 share the same interrupt handler.",
           "hardwarePin": "PC5",
           "hardwareADC": "ADC15",
-          "modulePinName": "MICRO_GPIO_14"
+          "modulePinName": "MICRO_GPIO_14",
+          "internalPull": "40K"
         },
         {
           "num": 51,
@@ -1527,9 +2786,11 @@
           "attachInterrupt": "Yes. D3, DAC/A6, and P1S3 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
           "hardwareTimer": "TIM3_CH1",
-          "modulePinName": "MICRO_JTAG_TRSTN"
+          "modulePinName": "MICRO_JTAG_TRSTN",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 52,
@@ -1546,9 +2807,11 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SCK",
           "hardwarePin": "PB3",
-          "modulePinName": "MICRO_JTAG_TDO"
+          "modulePinName": "MICRO_JTAG_TDO",
+          "internalPull": "40K"
         },
         {
           "num": 53,
@@ -1565,9 +2828,11 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
           "hardwarePin": "PA15",
-          "modulePinName": "MICRO_JTAG_TDI"
+          "modulePinName": "MICRO_JTAG_TDI",
+          "internalPull": "40K"
         },
         {
           "num": 54,
@@ -1583,9 +2848,11 @@
           "tone": false,
           "attachInterrupt": "Yes. D7 and P1S4 share the same interrupt handler.",
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA13",
-          "modulePinName": "MICRO_JTAG_TMS"
+          "modulePinName": "MICRO_JTAG_TMS",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 55,
@@ -1601,9 +2868,11 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PA14",
-          "modulePinName": "MICRO_JTAG_TCK"
+          "modulePinName": "MICRO_JTAG_TCK",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 56,
@@ -1667,7 +2936,8 @@
           "serial": "Serial1 (RX)|RX. Use Serial1 object.",
           "hardwarePin": "PA10",
           "hardwareTimer": "TIM1_CH3",
-          "modulePinName": "MICRO_UART_RXD"
+          "modulePinName": "MICRO_UART_RXD",
+          "internalPull": "40K"
         },
         {
           "num": 64,
@@ -1685,7 +2955,8 @@
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA9",
           "hardwareTimer": "TIM1_CH2",
-          "modulePinName": "MICRO_UART_TXD"
+          "modulePinName": "MICRO_UART_TXD",
+          "internalPull": "40K"
         }
       ],
       "diagram": {
@@ -1715,7 +2986,8 @@
           "hardwarePin",
           "modulePinName"
         ]
-      }
+      },
+      "mcu": "STM32F205"
     },
     {
       "id": 10,
@@ -1825,7 +3097,8 @@
           "attachInterrupt": "Yes. C3 and TX share the same interrupt handler.",
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA9",
-          "hardwareTimer": "TIM1_CH2"
+          "hardwareTimer": "TIM1_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 17,
@@ -1842,7 +3115,8 @@
           "attachInterrupt": "Yes. C4 and RX share the same interrupt handler.",
           "serial": "Serial1 (RX)|RX. Use Serial1 object.",
           "hardwarePin": "PA10",
-          "hardwareTimer": "TIM1_CH3"
+          "hardwareTimer": "TIM1_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 19,
@@ -1860,7 +3134,8 @@
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
-          "hardwareTimer": "TIM5_CH1"
+          "hardwareTimer": "TIM5_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 20,
@@ -1878,7 +3153,8 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "dac": "DAC1|DAC, use analogWrite(DAC).",
           "hardwarePin": "PA4",
-          "hardwareADC": "ADC4"
+          "hardwareADC": "ADC4",
+          "internalPull": "40K"
         },
         {
           "num": 21,
@@ -1896,7 +3172,8 @@
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
           "hardwarePin": "PA7",
           "hardwareADC": "ADC7",
-          "hardwareTimer": "TIM3_CH2"
+          "hardwareTimer": "TIM3_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 22,
@@ -1914,7 +3191,8 @@
           "spi": "SPI (MISO)|MISO. Use SPI object.",
           "hardwarePin": "PA6",
           "hardwareADC": "ADC6",
-          "hardwareTimer": "TIM3_CH1"
+          "hardwareTimer": "TIM3_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 23,
@@ -1932,7 +3210,8 @@
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "dac": "DAC2|DAC, use analogWrite(A3).",
           "hardwarePin": "PA5",
-          "hardwareADC": "ADC5"
+          "hardwareADC": "ADC5",
+          "internalPull": "40K"
         },
         {
           "num": 24,
@@ -1949,7 +3228,8 @@
           "attachInterrupt": "Yes. A2 and C0 share the same interrupt handler.",
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "PC2",
-          "hardwareADC": "ADC12"
+          "hardwareADC": "ADC12",
+          "internalPull": "40K"
         },
         {
           "num": 25,
@@ -1965,7 +3245,8 @@
           "tone": false,
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "hardwarePin": "PC3",
-          "hardwareADC": "ADC13"
+          "hardwareADC": "ADC13",
+          "internalPull": "40K"
         },
         {
           "num": 26,
@@ -1981,7 +3262,8 @@
           "tone": false,
           "attachInterrupt": "Yes. D2, A0, and A3 share the same interrupt handler.",
           "hardwarePin": "PC5",
-          "hardwareADC": "ADC15"
+          "hardwareADC": "ADC15",
+          "internalPull": "40K"
         },
         {
           "num": 28,
@@ -1997,7 +3279,8 @@
           "tone": false,
           "attachInterrupt": "Yes. B3 and B5 share the same interrupt handler.",
           "hardwarePin": "PC1",
-          "hardwareADC": "ADC11"
+          "hardwareADC": "ADC11",
+          "internalPull": "40K"
         },
         {
           "num": 29,
@@ -2013,7 +3296,8 @@
           "tone": false,
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
           "hardwarePin": "PC0",
-          "hardwareADC": "ADC10"
+          "hardwareADC": "ADC10",
+          "internalPull": "40K"
         },
         {
           "num": 30,
@@ -2030,7 +3314,8 @@
           "attachInterrupt": "Yes. B3 and B5 share the same interrupt handler.",
           "hardwarePin": "PB1",
           "hardwareADC": "ADC9",
-          "hardwareTimer": "TIM3_CH4"
+          "hardwareTimer": "TIM3_CH4",
+          "internalPull": "40K"
         },
         {
           "num": 31,
@@ -2047,7 +3332,8 @@
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
           "hardwarePin": "PB0",
           "hardwareADC": "ADC8",
-          "hardwareTimer": "TIM3_CH3"
+          "hardwareTimer": "TIM3_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 32,
@@ -2063,7 +3349,8 @@
           "tone": true,
           "attachInterrupt": "Yes. D1, A4, and B1 share the same interrupt handler.",
           "hardwarePin": "PC6",
-          "hardwareTimer": "TIM8_CH1"
+          "hardwareTimer": "TIM8_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 33,
@@ -2079,7 +3366,8 @@
           "tone": true,
           "attachInterrupt": "Yes. B0 and C5 share the same interrupt handler.",
           "hardwarePin": "PC8",
-          "hardwareTimer": "TIM8_CH3"
+          "hardwareTimer": "TIM8_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 35,
@@ -2095,8 +3383,10 @@
           "tone": false,
           "attachInterrupt": "No. Shared with BAT_INT_PC13",
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
-          "hardwarePin": "PA13"
+          "hardwarePin": "PA13",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 36,
@@ -2112,8 +3402,10 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
-          "hardwarePin": "PA14"
+          "hardwarePin": "PA14",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 37,
@@ -2130,8 +3422,10 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
-          "hardwarePin": "PA15"
+          "hardwarePin": "PA15",
+          "internalPull": "40K"
         },
         {
           "num": 38,
@@ -2148,8 +3442,10 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SD",
-          "hardwarePin": "PB3"
+          "hardwarePin": "PB3",
+          "internalPull": "40K"
         },
         {
           "num": 39,
@@ -2166,8 +3462,10 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
-          "hardwareTimer": "TIM3_CH1"
+          "hardwareTimer": "TIM3_CH1",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 40,
@@ -2186,7 +3484,8 @@
           "can": "CAN2_RX",
           "i2s": "I2S3_SD",
           "hardwarePin": "PB5",
-          "hardwareTimer": "TIM3_CH2"
+          "hardwareTimer": "TIM3_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 41,
@@ -2204,7 +3503,8 @@
           "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant.",
           "can": "CAN2_TX",
           "hardwarePin": "PB6",
-          "hardwareTimer": "TIM4_CH1"
+          "hardwareTimer": "TIM4_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 42,
@@ -2221,7 +3521,8 @@
           "attachInterrupt": false,
           "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant.",
           "hardwarePin": "PB7",
-          "hardwareTimer": "TIM4_CH2"
+          "hardwareTimer": "TIM4_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 44,
@@ -2239,7 +3540,8 @@
           "i2c": "Wire1 (SCL)|SCL. Use Wire1 object. You can only use Wire or Wire1, not both!",
           "can": "CAN1_RX",
           "hardwarePin": "PB8",
-          "hardwareTimer": "TIM4_CH3"
+          "hardwareTimer": "TIM4_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 45,
@@ -2257,7 +3559,8 @@
           "i2c": "Wire1 (SDA)|SDA. Use Wire1 object. You can only use Wire or Wire1, not both!",
           "can": "CAN1_TX",
           "hardwarePin": "PB9",
-          "hardwareTimer": "TIM4_CH4"
+          "hardwareTimer": "TIM4_CH4",
+          "internalPull": "40K"
         },
         {
           "num": 46,
@@ -2274,7 +3577,8 @@
           "attachInterrupt": "Yes. C3 and TX share the same interrupt handler.",
           "serial": "Serial4 TX|TX. Use Serial4 object.",
           "spi": "SPI2 (SCK)|SCK. Use SPI2 object.",
-          "hardwarePin": "PC10"
+          "hardwarePin": "PC10",
+          "internalPull": "40K"
         },
         {
           "num": 47,
@@ -2291,7 +3595,8 @@
           "attachInterrupt": false,
           "serial": "Serial4 RX|RX. Use Serial4 object.",
           "spi": "SPI2 (MISO)|MISO. Use SPI2 object.",
-          "hardwarePin": "PC11"
+          "hardwarePin": "PC11",
+          "internalPull": "40K"
         },
         {
           "num": 48,
@@ -2308,7 +3613,8 @@
           "attachInterrupt": false,
           "serial": "Serial5_TX|TX. Use Serial5 object.",
           "spi": "SPI2 (MOSI)|MOSI. Use SPI2 object.",
-          "hardwarePin": "PC12"
+          "hardwarePin": "PC12",
+          "internalPull": "40K"
         },
         {
           "num": 49,
@@ -2324,7 +3630,8 @@
           "tone": false,
           "attachInterrupt": "Yes. A2 and C0 share the same interrupt handler.",
           "serial": "Serial5_RX|RX. Use Serial5 object.",
-          "hardwarePin": "PD2"
+          "hardwarePin": "PD2",
+          "internalPull": "40K"
         },
         {
           "num": 52,
@@ -2368,6 +3675,7 @@
         {
           "num": 56,
           "name": "RESET",
+          "altName": "RST",
           "desc": "Hardware reset. Pull low to reset; can leave unconnected in normal operation.",
           "isControl": true,
           "is5VTolerant": false,
@@ -2405,7 +3713,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "STM32F205"
     },
     {
       "id": 10,
@@ -2441,7 +3750,8 @@
           "attachInterrupt": "Yes. C3 and TX share the same interrupt handler.",
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA9",
-          "hardwareTimer": "TIM1_CH2"
+          "hardwareTimer": "TIM1_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 4,
@@ -2458,7 +3768,8 @@
           "attachInterrupt": "Yes. C4 and RX share the same interrupt handler.",
           "serial": "Serial1 (RX)|RX. Use Serial1 object.",
           "hardwarePin": "PA10",
-          "hardwareTimer": "TIM1_CH3"
+          "hardwareTimer": "TIM1_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 5,
@@ -2476,7 +3787,8 @@
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
           "hardwarePin": "PA0",
           "hardwareADC": "ADC0",
-          "hardwareTimer": "TIM5_CH1"
+          "hardwareTimer": "TIM5_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 6,
@@ -2494,7 +3806,8 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "dac": "DAC1|DAC, use analogWrite(DAC).",
           "hardwarePin": "PA4",
-          "hardwareADC": "ADC4"
+          "hardwareADC": "ADC4",
+          "internalPull": "40K"
         },
         {
           "num": 7,
@@ -2512,7 +3825,8 @@
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
           "hardwarePin": "PA7",
           "hardwareADC": "ADC7",
-          "hardwareTimer": "TIM3_CH2"
+          "hardwareTimer": "TIM3_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 8,
@@ -2530,7 +3844,8 @@
           "spi": "SPI (MISO)|MISO. Use SPI object.",
           "hardwarePin": "PA6",
           "hardwareADC": "ADC6",
-          "hardwareTimer": "TIM3_CH1"
+          "hardwareTimer": "TIM3_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 9,
@@ -2548,7 +3863,8 @@
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "dac": "DAC2|DAC, use analogWrite(A3).",
           "hardwarePin": "PA5",
-          "hardwareADC": "ADC5"
+          "hardwareADC": "ADC5",
+          "internalPull": "40K"
         },
         {
           "num": 10,
@@ -2565,7 +3881,8 @@
           "attachInterrupt": "Yes. A2 and C0 share the same interrupt handler.",
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "PC2",
-          "hardwareADC": "ADC12"
+          "hardwareADC": "ADC12",
+          "internalPull": "40K"
         },
         {
           "num": 11,
@@ -2581,7 +3898,8 @@
           "tone": false,
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "hardwarePin": "PC3",
-          "hardwareADC": "ADC13"
+          "hardwareADC": "ADC13",
+          "internalPull": "40K"
         },
         {
           "num": 12,
@@ -2597,7 +3915,8 @@
           "tone": false,
           "attachInterrupt": "Yes. D2, A0, and A3 share the same interrupt handler.",
           "hardwarePin": "PC5",
-          "hardwareADC": "ADC15"
+          "hardwareADC": "ADC15",
+          "internalPull": "40K"
         },
         {
           "num": 13,
@@ -2613,7 +3932,8 @@
           "tone": false,
           "attachInterrupt": "Yes. B3 and B5 share the same interrupt handler.",
           "hardwarePin": "PC1",
-          "hardwareADC": "ADC11"
+          "hardwareADC": "ADC11",
+          "internalPull": "40K"
         },
         {
           "num": 14,
@@ -2629,7 +3949,8 @@
           "tone": false,
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
           "hardwarePin": "PC0",
-          "hardwareADC": "ADC10"
+          "hardwareADC": "ADC10",
+          "internalPull": "40K"
         },
         {
           "num": 15,
@@ -2646,7 +3967,8 @@
           "attachInterrupt": "Yes. B3 and B5 share the same interrupt handler.",
           "hardwarePin": "PB1",
           "hardwareADC": "ADC9",
-          "hardwareTimer": "TIM3_CH4"
+          "hardwareTimer": "TIM3_CH4",
+          "internalPull": "40K"
         },
         {
           "num": 16,
@@ -2663,7 +3985,8 @@
           "attachInterrupt": "Yes. A7 (WKP), B2, and B4 share the same interrupt handler.",
           "hardwarePin": "PB0",
           "hardwareADC": "ADC8",
-          "hardwareTimer": "TIM3_CH3"
+          "hardwareTimer": "TIM3_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 17,
@@ -2679,7 +4002,8 @@
           "tone": true,
           "attachInterrupt": "Yes. D1, A4, and B1 share the same interrupt handler.",
           "hardwarePin": "PC6",
-          "hardwareTimer": "TIM8_CH1"
+          "hardwareTimer": "TIM8_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 18,
@@ -2695,7 +4019,8 @@
           "tone": true,
           "attachInterrupt": "Yes. B0 and C5 share the same interrupt handler.",
           "hardwarePin": "PC8",
-          "hardwareTimer": "TIM8_CH3"
+          "hardwareTimer": "TIM8_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 19,
@@ -2711,7 +4036,8 @@
           "tone": false,
           "attachInterrupt": "Yes. A2 and C0 share the same interrupt handler.",
           "serial": "USART5_RX|RX. Use Serial5 object.",
-          "hardwarePin": "PD2"
+          "hardwarePin": "PD2",
+          "internalPull": "40K"
         },
         {
           "num": 20,
@@ -2728,7 +4054,8 @@
           "attachInterrupt": "No. Shared with RXD_UC.",
           "serial": "USART5_TX|TX. Use Serial5 object.",
           "spi": "SPI2 (MOSI)|MOSI. Use SPI2 object.",
-          "hardwarePin": "PC12"
+          "hardwarePin": "PC12",
+          "internalPull": "40K"
         },
         {
           "num": 21,
@@ -2745,7 +4072,8 @@
           "attachInterrupt": "No. Shared with RI_UC.",
           "serial": "USART4_RX|RX. Use Serial4 object.",
           "spi": "SPI2 (MISO)|MISO. Use SPI2 object.",
-          "hardwarePin": "PC11"
+          "hardwarePin": "PC11",
+          "internalPull": "40K"
         },
         {
           "num": 22,
@@ -2762,7 +4090,8 @@
           "attachInterrupt": "Yes. C3 and TX share the same interrupt handler.",
           "serial": "USART4_TX|TX. Use Serial4 object.",
           "spi": "SPI2 (SCK)|SCK. Use SPI2 object.",
-          "hardwarePin": "PC10"
+          "hardwarePin": "PC10",
+          "internalPull": "40K"
         },
         {
           "num": 23,
@@ -2780,7 +4109,8 @@
           "i2c": "Wire1 (SDA)|SDA. Use Wire1 object. You can only use Wire or Wire1, not both!",
           "can": "CAN1_TX",
           "hardwarePin": "PB9",
-          "hardwareTimer": "TIM4_CH4"
+          "hardwareTimer": "TIM4_CH4",
+          "internalPull": "40K"
         },
         {
           "num": 24,
@@ -2798,7 +4128,8 @@
           "i2c": "Wire1 (SCL)|SCL. Use Wire1 object. You can only use Wire or Wire1, not both!",
           "can": "CAN1_RX",
           "hardwarePin": "PB8",
-          "hardwareTimer": "TIM4_CH3"
+          "hardwareTimer": "TIM4_CH3",
+          "internalPull": "40K"
         },
         {
           "num": 25,
@@ -2815,7 +4146,8 @@
           "attachInterrupt": false,
           "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant.",
           "hardwarePin": "PB7",
-          "hardwareTimer": "TIM4_CH2"
+          "hardwareTimer": "TIM4_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 26,
@@ -2833,7 +4165,8 @@
           "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor. Is 5V tolerant.",
           "can": "CAN2_TX",
           "hardwarePin": "PB6",
-          "hardwareTimer": "TIM4_CH1"
+          "hardwareTimer": "TIM4_CH1",
+          "internalPull": "40K"
         },
         {
           "num": 27,
@@ -2852,7 +4185,8 @@
           "can": "CAN2_RX",
           "i2s": "I2S3_SD",
           "hardwarePin": "PB5",
-          "hardwareTimer": "TIM3_CH2"
+          "hardwareTimer": "TIM3_CH2",
+          "internalPull": "40K"
         },
         {
           "num": 28,
@@ -2869,8 +4203,10 @@
           "attachInterrupt": "Yes. D3 and DAC/A6 share the same interrupt handler.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "jtag": "JTAG RST|JTAG RST. 40K pull-up at boot.",
+          "boot": "JTAG RST. 40K pull-up at boot.",
           "hardwarePin": "PB4",
-          "hardwareTimer": "TIM3_CH1"
+          "hardwareTimer": "TIM3_CH1",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 29,
@@ -2887,8 +4223,10 @@
           "attachInterrupt": "Yes. D4 and A1 share the same interrupt handler.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "jtag": "JTAG TDO|JTAG TDO. Floating at boot.",
+          "boot": "JTAG TDO. Floating at boot.",
           "i2s": "I2S3_SCK",
-          "hardwarePin": "PB3"
+          "hardwarePin": "PB3",
+          "internalPull": "40K"
         },
         {
           "num": 30,
@@ -2905,8 +4243,10 @@
           "attachInterrupt": true,
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "jtag": "JTAG TDI|JTAG TDI. 40K pull-up at boot.",
+          "boot": "JTAG TDI. 40K pull-up at boot.",
           "i2s": "I2S3_WS",
-          "hardwarePin": "PA15"
+          "hardwarePin": "PA15",
+          "internalPull": "40K"
         },
         {
           "num": 31,
@@ -2922,8 +4262,10 @@
           "tone": false,
           "attachInterrupt": true,
           "jtag": "JTAG TCK|JTAG TCK. 40K pull-down at boot.",
+          "boot": "JTAG TCK/SWCLK. 40K pull-down at boot.",
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
-          "hardwarePin": "PA14"
+          "hardwarePin": "PA14",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 32,
@@ -2939,8 +4281,10 @@
           "tone": false,
           "attachInterrupt": "No. Shared with BAT_INT_PC13.",
           "jtag": "JTAG TMS|JTAG TMS. 40K pull-up at boot.",
+          "boot": "JTAG TMS/SWDIO. 40K pull-up at boot.",
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
-          "hardwarePin": "PA13"
+          "hardwarePin": "PA13",
+          "internalPull": "40K. Pull-up applied in bootloader for JTAG."
         },
         {
           "num": 34,
@@ -2988,7 +4332,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "STM32F205"
     },
     {
       "id": 12,
@@ -3037,9 +4382,10 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC0",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 6,
@@ -3055,9 +4401,10 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC1",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 7,
@@ -3075,7 +4422,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC2",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 8,
@@ -3093,7 +4441,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC3",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 9,
@@ -3111,7 +4460,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC4",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 10,
@@ -3130,7 +4480,8 @@
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "P0.31",
           "hardwareADC": "ADC5",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 11,
@@ -3147,7 +4498,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
-          "hardwarePin": "P1.15"
+          "hardwarePin": "P1.15",
+          "internalPull": "13K"
         },
         {
           "num": 12,
@@ -3164,7 +4516,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-          "hardwarePin": "P1.13"
+          "hardwarePin": "P1.13",
+          "internalPull": "13K"
         },
         {
           "num": 13,
@@ -3181,7 +4534,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MISO)|MISO. Use SPI object.",
-          "hardwarePin": "P1.14"
+          "hardwarePin": "P1.14",
+          "internalPull": "13K"
         },
         {
           "num": 14,
@@ -3198,7 +4552,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 RX|RX Use Serial1 object.",
-          "hardwarePin": "P0.08"
+          "hardwarePin": "P0.08",
+          "internalPull": "13K"
         },
         {
           "num": 15,
@@ -3215,7 +4570,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 TX|TX Use Serial1 object.",
-          "hardwarePin": "P0.06"
+          "hardwarePin": "P0.06",
+          "internalPull": "13K"
         },
         {
           "num": 16,
@@ -3231,7 +4587,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SDA)|SDA. Use Wire object.",
-          "hardwarePin": "P0.26"
+          "hardwarePin": "P0.26",
+          "internalPull": "13K"
         },
         {
           "num": 17,
@@ -3247,7 +4604,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SCL)|SCL. Use Wire object.",
-          "hardwarePin": "P0.27"
+          "hardwarePin": "P0.27",
+          "internalPull": "13K"
         },
         {
           "num": 18,
@@ -3266,7 +4624,8 @@
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "serial": "Serial1 RTS|Options RTS hardware flow control for Serial1",
           "hardwareTimer": "PWM3",
-          "hardwarePin": "P1.01"
+          "hardwarePin": "P1.01",
+          "internalPull": "13K"
         },
         {
           "num": 19,
@@ -3285,7 +4644,8 @@
           "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
           "serial": "Serial1 CTS|Options CTS hardware flow control for Serial1",
           "hardwareTimer": "PWM3",
-          "hardwarePin": "P1.02"
+          "hardwarePin": "P1.02",
+          "internalPull": "13K"
         },
         {
           "num": 20,
@@ -3302,7 +4662,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.08"
+          "hardwarePin": "P1.08",
+          "internalPull": "13K"
         },
         {
           "num": 21,
@@ -3318,7 +4679,8 @@
           "tone": "D4, D5, D6, and D7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.10"
+          "hardwarePin": "P1.10",
+          "internalPull": "13K"
         },
         {
           "num": 22,
@@ -3334,7 +4696,8 @@
           "tone": "D4, D5, D6, and D7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.11"
+          "hardwarePin": "P1.11",
+          "internalPull": "13K"
         },
         {
           "num": 23,
@@ -3350,7 +4713,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM0",
-          "hardwarePin": "P1.12"
+          "hardwarePin": "P1.12",
+          "internalPull": "13K"
         },
         {
           "num": 24,
@@ -3367,7 +4731,8 @@
           "tone": "D4, D5, D6, and D7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.03"
+          "hardwarePin": "P1.03",
+          "internalPull": "13K"
         },
         {
           "num": 25,
@@ -3416,7 +4781,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 13,
@@ -3465,9 +4831,10 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC0",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 6,
@@ -3483,9 +4850,10 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC1",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 7,
@@ -3503,7 +4871,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC2",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 8,
@@ -3521,7 +4890,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC3",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 9,
@@ -3539,7 +4909,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC4",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 10,
@@ -3558,7 +4929,8 @@
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "P0.31",
           "hardwareADC": "ADC5",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 11,
@@ -3575,7 +4947,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
-          "hardwarePin": "P1.15"
+          "hardwarePin": "P1.15",
+          "internalPull": "13K"
         },
         {
           "num": 12,
@@ -3592,7 +4965,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-          "hardwarePin": "P1.13"
+          "hardwarePin": "P1.13",
+          "internalPull": "13K"
         },
         {
           "num": 13,
@@ -3609,7 +4983,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MISO)|MISO. Use SPI object.",
-          "hardwarePin": "P1.14"
+          "hardwarePin": "P1.14",
+          "internalPull": "13K"
         },
         {
           "num": 14,
@@ -3626,7 +5001,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 RX|RX Use Serial1 object.",
-          "hardwarePin": "P0.08"
+          "hardwarePin": "P0.08",
+          "internalPull": "13K"
         },
         {
           "num": 15,
@@ -3643,7 +5019,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 TX|TX Use Serial1 object.",
-          "hardwarePin": "P0.06"
+          "hardwarePin": "P0.06",
+          "internalPull": "13K"
         },
         {
           "num": 16,
@@ -3659,7 +5036,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SDA)|SDA. Use Wire object.",
-          "hardwarePin": "P0.26"
+          "hardwarePin": "P0.26",
+          "internalPull": "13K"
         },
         {
           "num": 17,
@@ -3675,7 +5053,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SCL)|SCL. Use Wire object.",
-          "hardwarePin": "P0.27"
+          "hardwarePin": "P0.27",
+          "internalPull": "13K"
         },
         {
           "num": 18,
@@ -3693,7 +5072,8 @@
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "serial": "Serial1 RTS|Optional RTS hardware flow control for Serial1",
           "hardwareTimer": "PWM3",
-          "hardwarePin": "P1.01"
+          "hardwarePin": "P1.01",
+          "internalPull": "13K"
         },
         {
           "num": 19,
@@ -3711,7 +5091,8 @@
           "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
           "serial": "Serial1 CTS|Optional CTS hardware flow control for Serial1",
           "hardwareTimer": "PWM3",
-          "hardwarePin": "P1.02"
+          "hardwarePin": "P1.02",
+          "internalPull": "13K"
         },
         {
           "num": 20,
@@ -3728,7 +5109,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.08"
+          "hardwarePin": "P1.08",
+          "internalPull": "13K"
         },
         {
           "num": 21,
@@ -3744,7 +5126,8 @@
           "tone": "D4, D5, D6, and D7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.10"
+          "hardwarePin": "P1.10",
+          "internalPull": "13K"
         },
         {
           "num": 22,
@@ -3760,7 +5143,8 @@
           "tone": "D4, D5, D6, and D7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.11"
+          "hardwarePin": "P1.11",
+          "internalPull": "13K"
         },
         {
           "num": 23,
@@ -3776,7 +5160,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM0",
-          "hardwarePin": "P1.12"
+          "hardwarePin": "P1.12",
+          "internalPull": "13K"
         },
         {
           "num": 24,
@@ -3793,7 +5178,8 @@
           "tone": "D4, D5, D6, and D7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.03"
+          "hardwarePin": "P1.03",
+          "internalPull": "13K"
         },
         {
           "num": 25,
@@ -3842,7 +5228,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 14,
@@ -3891,9 +5278,10 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC0",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 6,
@@ -3909,9 +5297,10 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A2, and A3 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC1",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 7,
@@ -3929,7 +5318,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC2",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 8,
@@ -3947,7 +5337,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC3",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 9,
@@ -3965,7 +5356,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC4",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 10,
@@ -3984,7 +5376,8 @@
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "P0.31",
           "hardwareADC": "ADC5",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 11,
@@ -4001,7 +5394,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
-          "hardwarePin": "P1.15"
+          "hardwarePin": "P1.15",
+          "internalPull": "13K"
         },
         {
           "num": 12,
@@ -4018,7 +5412,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-          "hardwarePin": "P1.13"
+          "hardwarePin": "P1.13",
+          "internalPull": "13K"
         },
         {
           "num": 13,
@@ -4035,7 +5430,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MISO)|MISO. Use SPI object.",
-          "hardwarePin": "P1.14"
+          "hardwarePin": "P1.14",
+          "internalPull": "13K"
         },
         {
           "num": 14,
@@ -4052,7 +5448,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 RX|RX Use Serial1 object.",
-          "hardwarePin": "P0.08"
+          "hardwarePin": "P0.08",
+          "internalPull": "13K"
         },
         {
           "num": 15,
@@ -4069,7 +5466,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 TX|TX Use Serial1 object.",
-          "hardwarePin": "P0.06"
+          "hardwarePin": "P0.06",
+          "internalPull": "13K"
         },
         {
           "num": 16,
@@ -4085,7 +5483,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SDA)|SDA. Use Wire object.",
-          "hardwarePin": "P0.26"
+          "hardwarePin": "P0.26",
+          "internalPull": "13K"
         },
         {
           "num": 17,
@@ -4101,7 +5500,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SCL)|SCL. Use Wire object.",
-          "hardwarePin": "P0.27"
+          "hardwarePin": "P0.27",
+          "internalPull": "13K"
         },
         {
           "num": 18,
@@ -4120,7 +5520,8 @@
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "serial": "Serial1 RTS|Optional RTS hardware flow control for Serial1",
           "hardwareTimer": "PWM3",
-          "hardwarePin": "P1.01"
+          "hardwarePin": "P1.01",
+          "internalPull": "13K"
         },
         {
           "num": 19,
@@ -4139,7 +5540,8 @@
           "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
           "serial": "Serial1 CTS|Optional CTS hardware flow control for Serial1",
           "hardwareTimer": "PWM3",
-          "hardwarePin": "P1.02"
+          "hardwarePin": "P1.02",
+          "internalPull": "13K"
         },
         {
           "num": 20,
@@ -4157,7 +5559,8 @@
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "serial": "UART2_TX|TX Use Serial2 object.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.08"
+          "hardwarePin": "P1.08",
+          "internalPull": "13K"
         },
         {
           "num": 21,
@@ -4174,7 +5577,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "UART2_RX|RX Use Serial2 object.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.10"
+          "hardwarePin": "P1.10",
+          "internalPull": "13K"
         },
         {
           "num": 22,
@@ -4191,7 +5595,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "UART2_CTS|CTS optionlal flow control. Use Serial2 object.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.11"
+          "hardwarePin": "P1.11",
+          "internalPull": "13K"
         },
         {
           "num": 23,
@@ -4207,7 +5612,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM0",
-          "hardwarePin": "P1.12"
+          "hardwarePin": "P1.12",
+          "internalPull": "13K"
         },
         {
           "num": 24,
@@ -4225,7 +5631,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "UART2_RTS|RTS optionlal flow control. Use Serial2 object.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.03"
+          "hardwarePin": "P1.03",
+          "internalPull": "13K"
         },
         {
           "num": 25,
@@ -4274,7 +5681,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 15,
@@ -4364,7 +5772,7 @@
         {
           "num": 16,
           "name": "TX",
-          "desc": "Serial1 TX (transmitted data), GPIO, PWM.",
+          "desc": "Serial1 TX (transmitted data), GPIO D8, PWM.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4375,13 +5783,14 @@
           "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
-          "hardwarePin": "P0.6",
-          "hardwareTimer": "PWM2"
+          "hardwarePin": "P0.06",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 17,
           "name": "RX",
-          "desc": "Serial1 RX (received data), GPIO, PWM.",
+          "desc": "Serial1 RX (received data), GPIO D9, PWM.",
           "isIO": true,
           "is5VTolerant": true,
           "digitalRead": true,
@@ -4393,13 +5802,14 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 (RX)|RX. Use Serial1 object.",
           "hardwarePin": "P0.08",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 19,
           "name": "A7",
           "altName": "WKP",
-          "desc": "A7 analog in, WKP (wakeup), GPIO.",
+          "desc": "A7 analog in, WKP (wakeup), GPIO D17.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4410,28 +5820,31 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.05",
-          "hardwareADC": "ADC7"
+          "hardwareADC": "ADC7",
+          "internalPull": "13K"
         },
         {
           "num": 20,
           "name": "A6",
-          "desc": "A6 analog in, GPIO.",
+          "desc": "A6 analog in, PWM, GPIO D16.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": true,
           "analogWriteDAC": false,
-          "analogWritePWM": false,
-          "tone": false,
+          "analogWritePWM": true,
+          "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.04",
-          "hardwareADC": "ADC6"
+          "hardwareADC": "ADC6",
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 21,
           "name": "A5",
-          "desc": "A5 Analog in, GPIO, SPI MOSI, PWM.",
+          "desc": "A5 Analog in, GPIO D15, SPI MOSI, PWM.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4444,12 +5857,13 @@
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
           "hardwarePin": "P0.31",
           "hardwareADC": "ADC5",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 22,
           "name": "A4",
-          "desc": "A4 Analog in, GPIO, SPI MISO, PWM.",
+          "desc": "A4 Analog in, GPIO D14, SPI MISO, PWM.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4462,12 +5876,13 @@
           "spi": "SPI (MISO)|MISO. Use SPI object.",
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC4",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 23,
           "name": "A3",
-          "desc": "A3 analog in, GPIO, SPI SCK, PWM",
+          "desc": "A3 analog in, GPIO D13, SPI SCK, PWM",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4480,30 +5895,31 @@
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC3",
-          "hardwareTimer": "PMW2"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 24,
           "name": "A2",
-          "desc": "A2 Analog in, GPIO, SPI SS, PWM",
+          "desc": "A2 Analog in, GPIO D12, SPI SS",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": true,
           "analogWriteDAC": false,
-          "analogWritePWM": true,
-          "tone": true,
+          "analogWritePWM": false,
+          "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC2",
-          "hardwareTimer": "PMW2"
+          "internalPull": "13K"
         },
         {
           "num": 25,
           "name": "A1",
-          "desc": "A1 Analog in, GPIO",
+          "desc": "A1 Analog in, GPIO D11",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4514,12 +5930,13 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.02",
-          "hardwareADC": "ADC1"
+          "hardwareADC": "ADC1",
+          "internalPull": "13K"
         },
         {
           "num": 26,
           "name": "A0",
-          "desc": "A0 Analog in, GPIO",
+          "desc": "A0 Analog in, GPIO D10",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4530,12 +5947,13 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.03",
-          "hardwareADC": "ADC0"
+          "hardwareADC": "ADC0",
+          "internalPull": "13K"
         },
         {
           "num": 30,
           "name": "B3",
-          "desc": "B3, GPIO, PWM",
+          "desc": "B3, GPIO D21, PWM",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4546,28 +5964,30 @@
           "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P1.13",
-          "hardwareTimer": "PWM1"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 31,
           "name": "B2",
-          "desc": "B2, GPIO, PWM",
+          "desc": "B2, GPIO D20, PWM",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": false,
           "analogWriteDAC": false,
-          "analogWritePWM": "Timer is shared with RGB LED; duty cycle can be set but not frequency.",
-          "tone": false,
+          "analogWritePWM": true,
+          "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P1.12",
-          "hardwareTimer": "PWM0"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 32,
           "name": "B1",
-          "desc": "B1, GPIO",
+          "desc": "B1, GPIO D19",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4577,12 +5997,13 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.09"
+          "hardwarePin": "P0.09",
+          "internalPull": "13K"
         },
         {
           "num": 33,
           "name": "B0",
-          "desc": "B0, GPIO",
+          "desc": "B0, GPIO D18",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4592,7 +6013,8 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.10"
+          "hardwarePin": "P0.10",
+          "internalPull": "13K"
         },
         {
           "num": 35,
@@ -4608,6 +6030,7 @@
           "tone": false,
           "attachInterrupt": false,
           "swd": "SWDIO",
+          "boot": "JTAG SWDIO. 40K pull-up at boot.",
           "hardwarePin": "SWDIO"
         },
         {
@@ -4624,6 +6047,7 @@
           "tone": false,
           "attachInterrupt": false,
           "swd": "SWCLK",
+          "boot": "JTAG SWCLK. 40K pull-down at boot.",
           "hardwarePin": "SWCLK"
         },
         {
@@ -4640,7 +6064,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
-          "hardwarePin": "P1.11"
+          "hardwarePin": "P1.11",
+          "internalPull": "13K"
         },
         {
           "num": 38,
@@ -4656,6 +6081,7 @@
           "tone": false,
           "attachInterrupt": false,
           "swd": "SWO",
+          "boot": "JTAG SWO.",
           "hardwarePin": "SWO"
         },
         {
@@ -4672,7 +6098,8 @@
           "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P1.10",
-          "hardwareTimer": "PWM1"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 41,
@@ -4690,7 +6117,8 @@
           "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "serial": "Serial1 (CTS)|CTS flow control (optional). Use Serial1 object.",
           "hardwarePin": "P1.02",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 42,
@@ -4708,42 +6136,47 @@
           "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "serial": "Serial1 (RTS)|RTS flow control (optional). Use Serial1 object.",
           "hardwarePin": "1.01",
-          "hardwareTimer": "PWM3"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 44,
           "name": "C5",
-          "desc": "GPIO C5",
+          "desc": "GPIO D29, PWM",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": false,
           "analogWriteDAC": false,
-          "analogWritePWM": false,
+          "analogWritePWM": "Timer is shared with RGB LED; duty cycle can be set but not frequency.",
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P1.03"
+          "hardwarePin": "P1.03",
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K"
         },
         {
           "num": 45,
           "name": "C4",
-          "desc": "GPIO C4",
+          "desc": "GPIO D28, PWM",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": false,
           "analogWriteDAC": false,
-          "analogWritePWM": false,
-          "tone": false,
+          "analogWritePWM": true,
+          "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.24"
+          "hardwarePin": "P0.24",
+          "hardwareTimer": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 46,
           "name": "C3",
-          "desc": "SPI1 SCK, GPIO.",
+          "desc": "SPI1 SCK, GPIO D27.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4754,12 +6187,13 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
-          "hardwarePin": "P0.12"
+          "hardwarePin": "P0.12",
+          "internalPull": "13K"
         },
         {
           "num": 47,
           "name": "C2",
-          "desc": "SPI1 MISO, GPIO.",
+          "desc": "SPI1 MISO, GPIO D26.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4770,12 +6204,13 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
-          "hardwarePin": "P0.11"
+          "hardwarePin": "P0.11",
+          "internalPull": "13K"
         },
         {
           "num": 48,
           "name": "C1",
-          "desc": "SPI1 MOSI, GPIO.",
+          "desc": "SPI1 MOSI, GPIO D25.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4786,12 +6221,13 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
-          "hardwarePin": "P1.09"
+          "hardwarePin": "P1.09",
+          "internalPull": "13K"
         },
         {
           "num": 49,
           "name": "C0",
-          "desc": "GPIO, PWM.",
+          "desc": "GPIO D24, PWM.",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -4802,7 +6238,8 @@
           "tone": true,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P1.08",
-          "hardwareTimer": "PWM1"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 52,
@@ -4879,7 +6316,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 23,
@@ -4969,7 +6407,7 @@
           "desc": "NFC Antenna 1",
           "is5VTolerant": false,
           "isNFC": true,
-          "hardwarePin": "P0.9",
+          "hardwarePin": "P0.09",
           "somPin": "SOM3"
         },
         {
@@ -4996,7 +6434,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SCL)|SCL. Use Wire object.",
           "hardwarePin": "P0.27",
-          "somPin": "SCL"
+          "somPin": "SCL",
+          "internalPull": "13K"
         },
         {
           "num": 22,
@@ -5013,7 +6452,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SDA)|SDA. Use Wire object.",
           "hardwarePin": "P0.26",
-          "somPin": "SDA"
+          "somPin": "SDA",
+          "internalPull": "13K"
         },
         {
           "num": 23,
@@ -5029,10 +6469,11 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
-          "somPin": "ADC0"
+          "somPin": "ADC0",
+          "internalPull": "13K"
         },
         {
           "num": 32,
@@ -5058,10 +6499,11 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM2",
-          "somPin": "ADC1"
+          "somPin": "ADC1",
+          "internalPull": "13K"
         },
         {
           "num": 34,
@@ -5087,7 +6529,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC4",
-          "somPin": "ADC2"
+          "somPin": "ADC2",
+          "internalPull": "13K"
         },
         {
           "num": 36,
@@ -5105,7 +6548,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 TX|TX Use Serial1 object.",
           "hardwarePin": "P0.06",
-          "somPin": "TX"
+          "somPin": "TX",
+          "internalPull": "13K"
         },
         {
           "num": 37,
@@ -5123,7 +6567,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC5",
-          "somPin": "ADC3"
+          "somPin": "ADC3",
+          "internalPull": "13K"
         },
         {
           "num": 38,
@@ -5141,7 +6586,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 RX|RX Use Serial1 object.",
           "hardwarePin": "P0.08",
-          "somPin": "RX"
+          "somPin": "RX",
+          "internalPull": "13K"
         },
         {
           "num": 39,
@@ -5170,7 +6616,8 @@
           "i2c": "Wire1 (SCL)|SCL. Use Wire1 object.",
           "serial": "Serial1 CTS|Optional CTS hardware flow control for Serial1",
           "hardwarePin": "P1.01",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 41,
@@ -5188,7 +6635,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC6",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 42,
@@ -5207,7 +6655,8 @@
           "serial": "Serial1 RTS|Optional RTS hardware flow control for Serial1",
           "i2c": "Wire1 (SDA)|SDA. Use Wire1 object.",
           "hardwarePin": "P1.02",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 43,
@@ -5225,11 +6674,12 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.31",
           "hardwareADC": "ADC7",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 44,
-          "name": "Cellular Modem USBD+",
+          "name": "CELL USBD+",
           "desc": "Cellular Modem USB Data+",
           "isUSB": true,
           "is5VTolerant": true,
@@ -5248,14 +6698,15 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
           "hardwareTimer": "PWM2",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 46,
-          "name": "Cellular Modem USBD-",
+          "name": "CELL USBD-",
           "desc": "Cellular Modem USB Data-",
           "isUSB": true,
           "is5VTolerant": true,
@@ -5274,10 +6725,11 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.2",
+          "hardwarePin": "P0.02",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 48,
@@ -5294,7 +6746,8 @@
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P1.03",
-          "somPin": "CS"
+          "somPin": "CS",
+          "internalPull": "13K"
         },
         {
           "num": 50,
@@ -5312,7 +6765,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MISO)|MISO. Use SPI object.",
           "hardwarePin": "P1.14",
-          "somPin": "MISO"
+          "somPin": "MISO",
+          "internalPull": "13K"
         },
         {
           "num": 52,
@@ -5330,7 +6784,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
           "hardwarePin": "P1.13",
-          "somPin": "MOSI"
+          "somPin": "MOSI",
+          "internalPull": "13K"
         },
         {
           "num": 54,
@@ -5348,7 +6803,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "hardwarePin": "P1.15",
-          "somPin": "SCK"
+          "somPin": "SCK",
+          "internalPull": "13K"
         },
         {
           "num": 61,
@@ -5374,7 +6830,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.24",
-          "somPin": "GPIO0"
+          "somPin": "GPIO0",
+          "internalPull": "13K"
         },
         {
           "num": 63,
@@ -5400,7 +6857,8 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P1.09",
-          "somPin": "GPIO1"
+          "somPin": "GPIO1",
+          "internalPull": "13K"
         },
         {
           "num": 65,
@@ -5428,7 +6886,8 @@
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "hardwareTimer": "PWM1",
           "hardwarePin": "P1.08",
-          "somPin": "PWM0"
+          "somPin": "PWM0",
+          "internalPull": "13K"
         },
         {
           "num": 67,
@@ -5452,7 +6911,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
           "hardwarePin": "P1.10",
-          "somPin": "PWM1"
+          "somPin": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 69,
@@ -5476,7 +6936,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
           "hardwarePin": "P1.11",
-          "somPin": "PWM2"
+          "somPin": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 71,
@@ -5500,7 +6961,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM0",
           "hardwarePin": "P1.12",
-          "somPin": "PWM3"
+          "somPin": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 73,
@@ -5511,7 +6973,7 @@
         },
         {
           "num": 74,
-          "name": "Cellular Modem VBUS",
+          "name": "CELL VBUS",
           "desc": "USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.",
           "is5VTolerant": true,
           "somPin": "SOM2"
@@ -5549,7 +7011,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 25,
@@ -5639,7 +7102,7 @@
           "desc": "NFC Antenna 1",
           "is5VTolerant": false,
           "isNFC": true,
-          "hardwarePin": "P0.9",
+          "hardwarePin": "P0.09",
           "somPin": "SOM3"
         },
         {
@@ -5666,7 +7129,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SCL)|SCL. Use Wire object.",
           "hardwarePin": "P0.27",
-          "somPin": "SCL"
+          "somPin": "SCL",
+          "internalPull": "13K"
         },
         {
           "num": 22,
@@ -5683,7 +7147,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "i2c": "Wire (SDA)|SDA. Use Wire object.",
           "hardwarePin": "P0.26",
-          "somPin": "SDA"
+          "somPin": "SDA",
+          "internalPull": "13K"
         },
         {
           "num": 23,
@@ -5699,10 +7164,11 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.3",
+          "hardwarePin": "P0.03",
           "hardwareADC": "ADC1",
           "hardwareTimer": "PWM2",
-          "somPin": "ADC0"
+          "somPin": "ADC0",
+          "internalPull": "13K"
         },
         {
           "num": 32,
@@ -5728,10 +7194,11 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM2",
-          "somPin": "ADC1"
+          "somPin": "ADC1",
+          "internalPull": "13K"
         },
         {
           "num": 34,
@@ -5757,7 +7224,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC4",
-          "somPin": "ADC2"
+          "somPin": "ADC2",
+          "internalPull": "13K"
         },
         {
           "num": 36,
@@ -5775,7 +7243,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 TX|TX Use Serial1 object.",
           "hardwarePin": "P0.06",
-          "somPin": "TX"
+          "somPin": "TX",
+          "internalPull": "13K"
         },
         {
           "num": 37,
@@ -5793,7 +7262,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC5",
-          "somPin": "ADC3"
+          "somPin": "ADC3",
+          "internalPull": "13K"
         },
         {
           "num": 38,
@@ -5811,7 +7281,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "serial": "Serial1 RX|RX Use Serial1 object.",
           "hardwarePin": "P0.08",
-          "somPin": "RX"
+          "somPin": "RX",
+          "internalPull": "13K"
         },
         {
           "num": 39,
@@ -5840,7 +7311,8 @@
           "i2c": "Wire1 (SCL)|SCL. Use Wire1 object.",
           "serial": "Serial1 CTS|Optional CTS hardware flow control for Serial1",
           "hardwarePin": "P1.01",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 41,
@@ -5858,7 +7330,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC6",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 42,
@@ -5873,11 +7346,12 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "spi": "SPI1 (SCK)|MOSI. Use SPI1 object.",
+          "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "serial": "Serial1 RTS|Optional RTS hardware flow control for Serial1",
-          "i2c": "Wire1 (SDA)|SCL. Use Wire1 object.",
+          "i2c": "Wire1 (SDA)|SDA. Use Wire1 object.",
           "hardwarePin": "P1.02",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 43,
@@ -5895,11 +7369,12 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.31",
           "hardwareADC": "ADC7",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 44,
-          "name": "Cellular Modem USBD+",
+          "name": "CELL USBD+",
           "desc": "Cellular Modem USB Data+",
           "isUSB": true,
           "is5VTolerant": true,
@@ -5918,14 +7393,15 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
           "hardwareTimer": "PWM2",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 46,
-          "name": "Cellular Modem USBD-",
+          "name": "CELL USBD-",
           "desc": "Cellular Modem USB Data-",
           "isUSB": true,
           "is5VTolerant": true,
@@ -5944,10 +7420,11 @@
           "analogWritePWM": true,
           "tone": "A0, A1, A6, and A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.2",
+          "hardwarePin": "P0.02",
           "hardwareADC": "ADC0",
           "hardwareTimer": "PWM2",
-          "somPin": "RESERVED"
+          "somPin": "RESERVED",
+          "internalPull": "13K"
         },
         {
           "num": 48,
@@ -5963,8 +7440,9 @@
           "tone": false,
           "spi": "SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.7",
-          "somPin": "CS"
+          "hardwarePin": "P0.07",
+          "somPin": "CS",
+          "internalPull": "13K"
         },
         {
           "num": 50,
@@ -5981,8 +7459,9 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MISO)|MISO. Use SPI object.",
-          "hardwarePin": "P1.8",
-          "somPin": "MISO"
+          "hardwarePin": "P1.08",
+          "somPin": "MISO",
+          "internalPull": "13K"
         },
         {
           "num": 52,
@@ -5999,8 +7478,9 @@
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
-          "hardwarePin": "P1.9",
-          "somPin": "MOSI"
+          "hardwarePin": "P1.09",
+          "somPin": "MOSI",
+          "internalPull": "13K"
         },
         {
           "num": 54,
@@ -6018,7 +7498,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "hardwarePin": "P0.11",
-          "somPin": "SCK"
+          "somPin": "SCK",
+          "internalPull": "13K"
         },
         {
           "num": 61,
@@ -6043,8 +7524,9 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P1.1",
-          "somPin": "GPIO0"
+          "hardwarePin": "P1.01",
+          "somPin": "GPIO0",
+          "internalPull": "13K"
         },
         {
           "num": 63,
@@ -6069,8 +7551,9 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P1.3",
-          "somPin": "GPIO1"
+          "hardwarePin": "P1.03",
+          "somPin": "GPIO1",
+          "internalPull": "13K"
         },
         {
           "num": 65,
@@ -6098,7 +7581,8 @@
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "hardwareTimer": "PWM1",
           "hardwarePin": "P0.12",
-          "somPin": "PWM0"
+          "somPin": "PWM0",
+          "internalPull": "13K"
         },
         {
           "num": 67,
@@ -6122,7 +7606,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
           "hardwarePin": "P0.24",
-          "somPin": "PWM1"
+          "somPin": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 69,
@@ -6145,8 +7630,9 @@
           "tone": "D4, D5, and D6 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM1",
-          "hardwarePin": "P1.4",
-          "somPin": "PWM2"
+          "hardwarePin": "P1.04",
+          "somPin": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 71,
@@ -6170,7 +7656,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwareTimer": "PWM0",
           "hardwarePin": "P0.13",
-          "somPin": "PWM3"
+          "somPin": "PWM3",
+          "internalPull": "13K"
         },
         {
           "num": 73,
@@ -6181,7 +7668,7 @@
         },
         {
           "num": 74,
-          "name": "Cellular Modem VBUS",
+          "name": "CELL VBUS",
           "desc": "USB detect pin for R410M. 5V on this pin enables the Cellular Modem USB interface.",
           "is5VTolerant": true,
           "somPin": "SOM2"
@@ -6220,7 +7707,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 26,
@@ -6389,7 +7877,7 @@
           "desc": "NFC Antenna 1",
           "is5VTolerant": false,
           "isNFC": true,
-          "hardwarePin": "P0.9"
+          "hardwarePin": "P0.09"
         },
         {
           "num": 27,
@@ -6440,7 +7928,7 @@
           "desc": "RESET button, does not require pull-up, GND resets.",
           "isControl": true,
           "is5VTolerant": false,
-          "hardwarePin": "P0.8"
+          "hardwarePin": "P0.08"
         },
         {
           "num": 38,
@@ -6456,9 +7944,10 @@
           "analogWritePWM": true,
           "tone": "A4, A5, A5, A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.5",
+          "hardwarePin": "P0.05",
           "hardwareADC": "ADC3",
-          "hardwareTimer": "PWM1"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 39,
@@ -6474,10 +7963,11 @@
           "analogWritePWM": true,
           "tone": "A4, A5, A5, A7 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.4",
+          "hardwarePin": "P0.04",
           "hardwareADC": "ADC2",
           "hardwareTimer": "PWM1",
-          "spi": "SPI (SCK)|SCK. Use SPI object."
+          "spi": "SPI (SCK)|SCK. Use SPI object.",
+          "internalPull": "13K"
         },
         {
           "num": 40,
@@ -6496,7 +7986,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC5",
-          "hardwareTimer": "PWM1"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 41,
@@ -6515,7 +8006,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.29",
           "hardwareADC": "ADC7",
-          "hardwareTimer": "PWM1"
+          "hardwareTimer": "PWM1",
+          "internalPull": "13K"
         },
         {
           "num": 45,
@@ -6559,7 +8051,7 @@
           "num": 53,
           "name": "LI+",
           "desc": "Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS.",
-          "isUSB": true
+          "isPower": true
         },
         {
           "num": 55,
@@ -6578,7 +8070,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.03",
           "hardwareADC": "ADC1",
-          "hardwareTimer": "PWM0"
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K"
         },
         {
           "num": 56,
@@ -6597,7 +8090,8 @@
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.02",
           "hardwareADC": "ADC0",
-          "hardwareTimer": "PWM0"
+          "hardwareTimer": "PWM0",
+          "internalPull": "13K"
         },
         {
           "num": 57,
@@ -6616,7 +8110,8 @@
           "hardwarePin": "P0.28",
           "hardwareADC": "ADC4",
           "hardwareTimer": "PWM0",
-          "serial": "Serial1 CTS"
+          "serial": "Serial1 CTS",
+          "internalPull": "13K"
         },
         {
           "num": 58,
@@ -6635,18 +8130,19 @@
           "hardwarePin": "P0.30",
           "hardwareADC": "ADC6",
           "hardwareTimer": "PWM0",
-          "serial": "Serial1 RTS"
+          "serial": "Serial1 RTS",
+          "internalPull": "13K"
         },
         {
           "num": 64,
           "name": "CAN_N",
-          "desc": "CAN Data-",
+          "desc": "CAN Data- or CANL",
           "isIO": true
         },
         {
           "num": 65,
           "name": "CAN_P",
-          "desc": "CAN Data+",
+          "desc": "CAN Data+ or CANH",
           "isIO": true
         },
         {
@@ -6683,8 +8179,9 @@
           "serial": "Serial1 RX|RX Use Serial1 object.",
           "tone": "D8, D9 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
-          "hardwarePin": "P0.8",
-          "hardwareTimer": "PWM2"
+          "hardwarePin": "P0.08",
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 72,
@@ -6703,7 +8200,8 @@
           "tone": "D8, D9 must have the same frequency.",
           "attachInterrupt": "Yes. You can only have 8 active interrupt pins.",
           "hardwarePin": "P0.06",
-          "hardwareTimer": "PWM2"
+          "hardwareTimer": "PWM2",
+          "internalPull": "13K"
         },
         {
           "num": 73,
@@ -6788,7 +8286,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "nRF52840"
     },
     {
       "id": 32,
@@ -6892,7 +8391,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[4]",
           "hardwareADC": "ADC_0",
-          "mcuPin": 44
+          "mcuPin": 44,
+          "internalPull": "42K"
         },
         {
           "num": 26,
@@ -6907,7 +8407,7 @@
         {
           "num": 29,
           "name": "RGBR",
-          "desc": "RGB LED Red",
+          "desc": "RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.",
           "isLED": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -6919,7 +8419,7 @@
           "name": "D10",
           "altName": "WKP",
           "nameBefore2022_02_25": "D11",
-          "desc": "D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.)",
+          "desc": "D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.)",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -6930,7 +8430,8 @@
           "attachInterrupt": true,
           "serial": "Serial3 (CTS)|CTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[15]",
-          "mcuPin": 28
+          "mcuPin": 28,
+          "internalPull": "2.1K"
         },
         {
           "num": 31,
@@ -6967,6 +8468,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": true,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
           "hardwarePin": "PB[31]",
           "mcuPin": 65
         },
@@ -6996,26 +8498,28 @@
           "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "hardwareADC": "ADC_1",
           "hardwarePin": "PB[5]",
-          "mcuPin": 45
+          "mcuPin": 45,
+          "internalPull": "22K"
         },
         {
           "num": 36,
           "name": "D0",
           "altName": "A3",
-          "desc": "D0 GPIO, PWM, I2C SDA, A3 Analog In",
+          "desc": "D0 GPIO, I2C SDA, A3 Analog In",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": true,
           "analogWriteDAC": false,
-          "analogWritePWM": true,
-          "tone": true,
+          "analogWritePWM": false,
+          "tone": false,
           "attachInterrupt": true,
           "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "hardwareADC": "ADC_2",
           "hardwarePin": "PB[6]",
-          "mcuPin": 46
+          "mcuPin": 46,
+          "internalPull": "22K"
         },
         {
           "num": 40,
@@ -7035,14 +8539,15 @@
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
           "serial": "Serial3 (TX)|TX. Use Serial3 object.",
           "hardwarePin": "PA[12]",
-          "mcuPin": 25
+          "mcuPin": 25,
+          "internalPull": "2.1K"
         },
         {
           "num": 41,
           "name": "S1",
           "altName": "D16",
           "nameBefore2022_02_25": "D17",
-          "desc": "S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)",
+          "desc": "S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.)",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -7055,7 +8560,8 @@
           "spi": "SPI (MISO)|MISO. Use SPI object.",
           "serial": "Serial3 (RX)|RX. Use Serial3 object.",
           "hardwarePin": "PA[13]",
-          "mcuPin": 26
+          "mcuPin": 26,
+          "internalPull": "2.1K"
         },
         {
           "num": 42,
@@ -7075,7 +8581,8 @@
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "serial": "Serial3 (RTS)|RTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[14]",
-          "mcuPin": 27
+          "mcuPin": 27,
+          "internalPull": "2.1K"
         },
         {
           "num": 43,
@@ -7094,7 +8601,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[2]",
           "hardwareADC": "ADC_5",
-          "mcuPin": 42
+          "mcuPin": 42,
+          "internalPull": "2.1K"
         },
         {
           "num": 44,
@@ -7113,7 +8621,8 @@
           "attachInterrupt": true,
           "spi": "SPI (SS)|Default SS for SPI.",
           "hardwarePin": "PB[26]",
-          "mcuPin": 63
+          "mcuPin": 63,
+          "internalPull": "2.1K"
         },
         {
           "num": 45,
@@ -7131,12 +8640,13 @@
           "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
           "serial": "Serial2 (RTS)|RTS. Use Serial2 object. Flow control optional.",
           "hardwarePin": "PA[16]",
-          "mcuPin": 29
+          "mcuPin": 29,
+          "internalPull": "2.1K"
         },
         {
           "num": 46,
           "name": "MODE",
-          "desc": "MODE button, has internal pull-up. Pin number constant is BTN.",
+          "desc": "MODE button. Pin number constant is BTN. External pull-up required!",
           "isControl": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -7158,6 +8668,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": true,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode.",
           "hardwarePin": "PA[0]",
           "mcuPin": 2
         },
@@ -7176,6 +8687,7 @@
           "analogWritePWM": false,
           "tone": false,
           "attachInterrupt": true,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode",
           "hardwarePin": "PB[29]",
           "mcuPin": 64
         },
@@ -7196,7 +8708,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[7]",
           "hardwareADC": "ADC_3",
-          "mcuPin": 47
+          "mcuPin": 47,
+          "internalPull": "42K"
         },
         {
           "num": 50,
@@ -7215,7 +8728,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[1]",
           "hardwareADC": "ADC_4",
-          "mcuPin": 41
+          "mcuPin": 41,
+          "internalPull": "2.1K"
         },
         {
           "num": 51,
@@ -7233,7 +8747,8 @@
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "serial": "Serial2 (CTS)|CTS. Use Serial2 object. Flow control optional.",
           "hardwarePin": "PA[17]",
-          "mcuPin": 30
+          "mcuPin": 30,
+          "internalPull": "2.1K"
         },
         {
           "num": 52,
@@ -7251,7 +8766,8 @@
           "serial": "Serial2 (TX)|TX. Use Serial2 object.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "hardwarePin": "PA[18]",
-          "mcuPin": 31
+          "mcuPin": 31,
+          "internalPull": "2.1K"
         },
         {
           "num": 53,
@@ -7269,7 +8785,8 @@
           "serial": "Serial2 (RX)|RX. Use Serial2 object.",
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "hardwarePin": "PA[19]",
-          "mcuPin": 32
+          "mcuPin": 32,
+          "internalPull": "2.1K"
         },
         {
           "num": 54,
@@ -7285,8 +8802,10 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode.",
           "hardwarePin": "PA[27]",
-          "mcuPin": 33
+          "mcuPin": 33,
+          "internalPull": "42K"
         },
         {
           "num": 55,
@@ -7302,8 +8821,10 @@
           "tone": false,
           "attachInterrupt": true,
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
+          "boot": "SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PB[3]",
-          "mcuPin": 43
+          "mcuPin": 43,
+          "internalPull": "42K"
         },
         {
           "num": 61,
@@ -7340,7 +8861,8 @@
           "attachInterrupt": true,
           "serial": "Serial1 (RX) |RX. Use Serial1 object.",
           "hardwarePin": "PA[8]",
-          "mcuPin": 8
+          "mcuPin": 8,
+          "internalPull": "42K"
         },
         {
           "num": 64,
@@ -7359,7 +8881,9 @@
           "attachInterrupt": true,
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA[7]",
-          "mcuPin": 7
+          "boot": "Low at boot triggers ISP flash download",
+          "mcuPin": 7,
+          "internalPull": "42K"
         }
       ],
       "diagram": {
@@ -7381,7 +8905,8 @@
           ],
           "hardwarePin"
         ]
-      }
+      },
+      "mcu": "RTL8721D"
     },
     {
       "id": 99,
@@ -7432,7 +8957,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[4]",
           "hardwareADC": "ADC_0",
-          "mcuPin": 44
+          "mcuPin": 44,
+          "internalPull": "42K"
         },
         {
           "num": 6,
@@ -7443,7 +8969,7 @@
           "num": 7,
           "p2pin": 29,
           "name": "RGBR",
-          "desc": "RGB LED Red",
+          "desc": "RGB LED Red. Has 10K hardware pull-up. Do not hold low at boot.",
           "isLED": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -7456,7 +8982,7 @@
           "name": "D10",
           "altName": "WKP",
           "nameBefore2022_02_25": "D11",
-          "desc": "D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.)",
+          "desc": "D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.)",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -7467,7 +8993,8 @@
           "attachInterrupt": true,
           "serial": "Serial3 (CTS)|CTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[15]",
-          "mcuPin": 28
+          "mcuPin": 28,
+          "internalPull": "2.1K"
         },
         {
           "num": 9,
@@ -7508,7 +9035,8 @@
           "tone": false,
           "attachInterrupt": true,
           "hardwarePin": "PB[31]",
-          "mcuPin": 65
+          "mcuPin": 65,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 12,
@@ -7538,27 +9066,29 @@
           "i2c": "Wire (SCL)|SCL. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "hardwareADC": "ADC_1",
           "hardwarePin": "PB[5]",
-          "mcuPin": 45
+          "mcuPin": 45,
+          "internalPull": "22K"
         },
         {
           "num": 14,
           "p2pin": 36,
           "name": "D0",
           "altName": "A3",
-          "desc": "D0 GPIO, PWM, I2C SDA, A3 Analog In",
+          "desc": "D0 GPIO, I2C SDA, A3 Analog In",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
           "digitalWrite": true,
           "analogRead": true,
           "analogWriteDAC": false,
-          "analogWritePWM": true,
-          "tone": true,
+          "analogWritePWM": false,
+          "tone": false,
           "attachInterrupt": true,
           "i2c": "Wire (SDA)|SDA. Use Wire object. Use 1.5K to 10K external pull-up resistor.",
           "hardwareADC": "ADC_2",
           "hardwarePin": "PB[6]",
-          "mcuPin": 46
+          "mcuPin": 46,
+          "internalPull": "22K"
         },
         {
           "num": 15,
@@ -7579,7 +9109,8 @@
           "spi": "SPI (MOSI)|MOSI. Use SPI object.",
           "serial": "Serial3 (TX)|TX. Use Serial3 object.",
           "hardwarePin": "PA[12]",
-          "mcuPin": 25
+          "mcuPin": 25,
+          "internalPull": "2.1K"
         },
         {
           "num": 16,
@@ -7587,7 +9118,7 @@
           "name": "S1",
           "altName": "D16",
           "nameBefore2022_02_25": "D17",
-          "desc": "S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.)",
+          "desc": "S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.)",
           "isIO": true,
           "is5VTolerant": false,
           "digitalRead": true,
@@ -7600,7 +9131,8 @@
           "spi": "SPI (MISO)|MISO. Use SPI object.",
           "serial": "Serial3 (RX)|RX. Use Serial3 object.",
           "hardwarePin": "PA[13]",
-          "mcuPin": 26
+          "mcuPin": 26,
+          "internalPull": "2.1K"
         },
         {
           "num": 17,
@@ -7621,7 +9153,8 @@
           "spi": "SPI (SCK)|SCK. Use SPI object.",
           "serial": "Serial3 (RTS)|RTS. Use Serial3 object. Flow control optional.",
           "hardwarePin": "PA[14]",
-          "mcuPin": 27
+          "mcuPin": 27,
+          "internalPull": "2.1K"
         },
         {
           "num": 18,
@@ -7641,7 +9174,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[2]",
           "hardwareADC": "ADC_5",
-          "mcuPin": 42
+          "mcuPin": 42,
+          "internalPull": "2.1K"
         },
         {
           "num": 19,
@@ -7661,7 +9195,8 @@
           "attachInterrupt": true,
           "spi": "SPI (SS)|Default SS for SPI.",
           "hardwarePin": "PB[26]",
-          "mcuPin": 63
+          "mcuPin": 63,
+          "internalPull": "2.1K"
         },
         {
           "num": 20,
@@ -7692,13 +9227,14 @@
           "spi": "SPI1 (MOSI)|MOSI. Use SPI1 object.",
           "serial": "Serial2 (RTS)|RTS. Use Serial2 object. Flow control optional.",
           "hardwarePin": "PA[16]",
-          "mcuPin": 29
+          "mcuPin": 29,
+          "internalPull": "2.1K"
         },
         {
           "num": 23,
           "p2pin": 46,
           "name": "MODE",
-          "desc": "MODE button, has internal pull-up. Pin number constant is BTN.",
+          "desc": "MODE button. Pin number constant is BTN. External pull-up required!",
           "isControl": true,
           "is5VTolerant": false,
           "attachInterrupt": true,
@@ -7722,7 +9258,8 @@
           "tone": false,
           "attachInterrupt": true,
           "hardwarePin": "PA[0]",
-          "mcuPin": 2
+          "mcuPin": 2,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode."
         },
         {
           "num": 25,
@@ -7741,7 +9278,8 @@
           "tone": false,
           "attachInterrupt": true,
           "hardwarePin": "PB[29]",
-          "mcuPin": 64
+          "mcuPin": 64,
+          "internalPull": "22K. No internal pull up or pull down in HIBERNATE sleep mode"
         },
         {
           "num": 26,
@@ -7761,7 +9299,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[7]",
           "hardwareADC": "ADC_3",
-          "mcuPin": 47
+          "mcuPin": 47,
+          "internalPull": "42K"
         },
         {
           "num": 27,
@@ -7781,7 +9320,8 @@
           "attachInterrupt": true,
           "hardwarePin": "PB[1]",
           "hardwareADC": "ADC_4",
-          "mcuPin": 41
+          "mcuPin": 41,
+          "internalPull": "2.1K"
         },
         {
           "num": 28,
@@ -7800,7 +9340,8 @@
           "spi": "SPI1 (MISO)|MISO. Use SPI1 object.",
           "serial": "Serial2 (CTS)|CTS. Use Serial2 object. Flow control optional.",
           "hardwarePin": "PA[17]",
-          "mcuPin": 30
+          "mcuPin": 30,
+          "internalPull": "2.1K"
         },
         {
           "num": 29,
@@ -7819,7 +9360,8 @@
           "serial": "Serial2 (TX)|TX. Use Serial2 object.",
           "spi": "SPI1 (SCK)|SCK. Use SPI1 object.",
           "hardwarePin": "PA[18]",
-          "mcuPin": 31
+          "mcuPin": 31,
+          "internalPull": "2.1K"
         },
         {
           "num": 30,
@@ -7838,7 +9380,8 @@
           "serial": "Serial2 (RX)|RX. Use Serial2 object.",
           "spi": "SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
           "hardwarePin": "PA[19]",
-          "mcuPin": 32
+          "mcuPin": 32,
+          "internalPull": "2.1K"
         },
         {
           "num": 31,
@@ -7856,7 +9399,9 @@
           "attachInterrupt": true,
           "swd": "SWDIO|SWDIO. 40K pull-up at boot.",
           "hardwarePin": "PA[27]",
-          "mcuPin": 33
+          "mcuPin": 33,
+          "internalPull": "42K",
+          "boot": "SWDIO. 40K pull-up at boot. Low at boot triggers MCU test mode."
         },
         {
           "num": 32,
@@ -7874,7 +9419,9 @@
           "attachInterrupt": true,
           "swd": "SWCLK|SWCLK. 40K pull-down at boot.",
           "hardwarePin": "PB[3]",
-          "mcuPin": 43
+          "mcuPin": 43,
+          "internalPull": "42K",
+          "boot": "SWCLK. 40K pull-down at boot."
         },
         {
           "num": 33,
@@ -7905,7 +9452,8 @@
           "attachInterrupt": true,
           "serial": "Serial1 (RX) |RX. Use Serial1 object.",
           "hardwarePin": "PA[8]",
-          "mcuPin": 8
+          "mcuPin": 8,
+          "internalPull": "42K"
         },
         {
           "num": 36,
@@ -7925,7 +9473,9 @@
           "attachInterrupt": true,
           "serial": "Serial1 (TX)|TX. Use Serial1 object.",
           "hardwarePin": "PA[7]",
-          "mcuPin": 7
+          "boot": "Low at boot triggers ISP flash download",
+          "mcuPin": 7,
+          "internalPull": "42K"
         },
         {
           "num": 37,
@@ -7950,7 +9500,8 @@
           "desc": "USB power (5V)",
           "isPower": true
         }
-      ]
+      ],
+      "mcu": "RTL8721D"
     }
   ],
   "details": [
@@ -8099,6 +9650,11 @@
       "searchable": true
     },
     {
+      "tag": "boot",
+      "label": "Signal used at boot",
+      "searchable": true
+    },
+    {
       "tag": "is5VTolerant",
       "label": "Input is 5V Tolerant",
       "searchable": true,
@@ -8175,6 +9731,13 @@
       "searchable": true,
       "sortable": true,
       "showInSearch": true
+    },
+    {
+      "tag": "internalPull",
+      "label": "Internal pull-up or pull-down resistance",
+      "searchable": false,
+      "showInSearch": false,
+      "ifFalse": "None"
     },
     {
       "tag": "isPower",

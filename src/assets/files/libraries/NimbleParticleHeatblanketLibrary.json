@@ -1,0 +1,111 @@
+{
+  "type": "libraries",
+  "id": "NimbleParticleHeatblanketLibrary",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/NimbleParticleHeatblanketLibrary/archive/0.12.1.tar.gz"
+  },
+  "attributes": {
+    "name": "NimbleParticleHeatblanketLibrary",
+    "version": "0.12.1",
+    "installs": 2824,
+    "author": "Ryan Kast",
+    "sentence": "A collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device",
+    "paragraph": "A collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device",
+    "url": "https://github.com/Nimble-IoT/Nimble-Particle-Heatblanket-Library/settings",
+    "repository": "https://github.com/Nimble-IoT/Nimble-Particle-Heatblanket-Library",
+    "architectures": [
+      "particle-photon",
+      "particle-argon"
+    ],
+    "dependencies": {
+      "arduino-json": "6.17.2",
+      "pid": "2.0.1",
+      "running-average": "0.0.1",
+      "mcp342-x": "0.1.1"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NimbleParticleHeatblanketLibrary",
+  "versions": {
+    "0.12.1": {
+      "added": "2022-10-26T18:52:55.074Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# NimbleParticleHeatblanketLibrary\r\n\r\nA Particle library for NimbleParticleHeatblanketLibrary\r\n\r\nA collection of classes and helpers for Nimble based Heatblanket controlling on a Particle device\r\n\r\n## LICENSE\r\nCopyright 2020 Ryan Kast\r\n\r\nLicensed under the <insert your choice of license here> license\r\n",
+  "allVersions": [
+    "0.12.1"
+  ]
+}

@@ -42,7 +42,7 @@ _NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download
 ![Authenticate](/assets/images/workbench/install7.png)
 
 - Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
-- If you are having difficulties, there are [additional tips in the FAQ](https://support.particle.io/hc/en-us/articles/360039251434/#linux-tips).
+- If you are having difficulties, there are [additional tips in the FAQ](/getting-started/developer-tools/workbench-faq/#linux-tips).
 
 ### All Operating Systems
 
@@ -89,7 +89,7 @@ After reload, some more components will be installed and you will be prompted to
 
 To create your first project, you'll start with the Command Palette.
 
-The Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on macOS or `ctrl+shift+p` on Linux and Windows.
+The Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows.
 
 In the Command Palette select **Particle: Create New Project**. The matching is very flexible - you don't have to type that whole thing in or scroll through the list. You could just type **project** and that would typically be the first match.
 
@@ -134,9 +134,9 @@ To compile your program and download the binary, open the Command Palette and se
 
 ## Migrate from the Web IDE
 
-For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
+For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/developer-tools/web-ide-exporter/) to export your projects for use with Workbench.
 
 
 ## Learn More
 
-You can learn more about Workbench features in the [Particle Workbench Tutorial](/tutorials/developer-tools/workbench).
+You can learn more about Workbench features in the [Particle Workbench Tutorial](/getting-started/developer-tools/workbench/).

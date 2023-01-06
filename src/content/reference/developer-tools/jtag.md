@@ -11,13 +11,19 @@ description: Using SWD/JTAG to program Particle Devices
 
 JTAG ("Joint Test Action Group") is a standard for testing and verifying electronic circuit boards. It can be used with Particle devices and this document will describe using it for tasks like programming the device flash.
 
-JTAG can also be used with a source-level debugger, which is a feature of [Particle Workbench](/tutorials/developer-tools/workbench/#debugging-3rd-generation-).
+JTAG can also be used with a source-level debugger, which is a feature of [Particle Workbench](/getting-started/developer-tools/workbench/#debugging-3rd-generation-).
 
 There is a variation known as Serial Wire Debug (SWD). This is an option for Gen 2 devices (STM32, Photon, P1, Electron, and E Series), and the normal method of connection for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It uses only two signal wires plus ground.
 
 All of the JTAG/SWD debuggers can accept an [Intel Hex file](https://en.wikipedia.org/wiki/Intel_HEX) (.hex). One nice thing about .hex files, which are different than the .bin files Particle binaries are distributed in, is that hex files include the address they are to be flashed to. Also, you can combine multiple disjoint binaries into a single hex file, so you only need to flash one file, even on Gen 2 where you must leave a "hole" for the configuration sectors.
 
-You must put the device in DFU mode (blinking yellow) before flashing. It's not using DFU mode, but SWD mode is disabled in normal operating mode and safe mode, but is enabled in DFU mode. Put your Particle device in DFU mode (blinking yellow) by holding down MODE and tapping RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release MODE. If the device is non-responsive with no LED or a dim D7 blue LED, you may still be able to flash it, even though it's not in DFU mode because if there is no valid bootloader SWD is also enabled.
+## Using SWD
+
+On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) you can communicate with the device by SWD/JTAG at any time including normal operating modes.
+
+On the P2 and Gen 2 devices (E Series, Electron, P1, Photon), SWD/JTAG shares pins D6 and D7 which can also be used as GPIO pins. The SWD functionality can be used while user firmware is operating by using compile-time options, however most commonly you will want to put the device in DFU mode first. DFU mode prevents Device OS from booting, and while in the bootloader, SWD will be active.
+
+To put your Particle device in DFU mode (blinking yellow) by holding down MODE and tapping RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release MODE. If the device is non-responsive with no LED or a dim D7 blue LED, you may still be able to flash it, even though it's not in DFU mode because if there is no valid bootloader SWD is also enabled.
 
 ## Restore binaries
 
@@ -55,14 +61,24 @@ If you are downgrading a Boron LTE (BRN402) or B Series SoM B402 from Device OS 
 
 ## Custom hex files
 
-Using the [Hex File Generator](/tools/device-programming/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
+Using the [Hex File Generator](/tools/developer-tools/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
 
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
 
+## Chip Erase
+
+Depending on the device, the behavior of chip erase of the internal flash from SWD/JTAG is very different:
+
+- Boron, B Series SoM, Tracker SoM (Gen 3, nRF52840): Chip erase is safe and fast. You will not lose data. You can also copy the entire internal flash from one device (of the same type) to another.
+
+- P1, Photon, E Series, Electron (Gen 2, STM32F205): Chip erase is not recommended. You will lose all device settings including EEPROM settings, the prefix for the Photon/P1 Wi-Fi network printed on the box, and device keys. The device will not be able to connect to the cloud until the keys are updated in the cloud after chip erase.
+
+- P2, Photon 2 (RTL8721): **Do not chip erase the RTL872x under any circumstances!** Also do not flash anything to address 0 (prebootloader-mbr). The prebootloader-mbr is factory configured for your specific device with the private keys necessary for secure boot. If you erase or overwrite this portion of the flash you will not be able to program or use the device again.
+
 ## Particle Debugger with OpenOCD (via Particle Workbench)
 
-Installing [Particle Workbench](/tutorials/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-Debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle Debugger firmware.
+Installing [Particle Workbench](/getting-started/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-Debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle Debugger firmware.
 
 The only catch is that it's command line, and the commands are very long and somewhat complicated.
 
@@ -201,8 +217,9 @@ With the Particle Debugger (CMSIS-DAP), it can expose what looks like a USB thum
 
 The caveats are: 
 
-- You must first [upgrade the Particle Debugger firmware](/datasheets/accessories/debugger/#upgrading-the-debugger) .
-- You should only use it with Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) as drag-and-drop does not operate reliably with Gen 2 devices.
+- You must first [upgrade the Particle Debugger firmware](/reference/datasheets/accessories/debugger/#upgrading-the-debugger) .
+- You should only use it with Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM)
+- Drag-and-drop does not work with the P2 or Gen 2 devices (E Series, Electron, Photon, P1)
 - It takes about 1 minute to restore a device.
 
 All you need to do is:
@@ -219,18 +236,18 @@ All you need to do is:
 
 ![Particle Debugger](/assets/images/accessories/debugger.png)
 
-You can try the [experimental web browser based Particle Debugger interface](/tools/device-programming/device-restore-jtag/). This experimental feature has numerous caveats, but it's pretty neat.
+You can try the [experimental web browser based Particle Debugger interface](/tools/device-restore/device-restore-jtag/). This experimental feature has numerous caveats, but it's pretty neat.
 
 - This tool is experimental, and may not work properly. It could leave your device in a bad state (but you can fix it with one of the other techniques if it happens).
-- You must [upgrade the firmware on your Particle Debugger](/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
+- You must [upgrade the firmware on your Particle Debugger](/reference/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
 - There is limited browser support on desktop: Chrome, Edge, and Opera. It does not work with Firefox or Safari. 
 - It should work on Mac, Windows, Linux, and Chromebook on supported browsers that support WebUSB.
 - It should work on some Android phones that support USB OTG when using Chrome or Opera browsers that support WebUSB.
 - It does not work on iOS (iPhone or iPad) as the hardware does not support USB OTG.
-- It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on Gen 2.
+- It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on the P2 or Gen 2.
 - It takes about 3 minutes to restore a device.
 
-<a href="/tools/device-programming/device-restore-jtag/" class="button">Web Browser Device Restore</a>
+<a href="/tools/device-restore/device-restore-jtag/" class="button">Web Browser Device Restore</a>
 
 
 ## Particle Debugger with OpenOCD (standalone)
@@ -274,7 +291,7 @@ If you use either non-mini version you'll also need two adapters. The second cab
 nrfjprog -f NRF52 --program boron.hex --chiperase --reset
 ```
 
-This technique cannot be used to program Gen 2 devices, but you can use the Segger tools like J-Flash instead of nrfjprog to program Gen 2 devices with the Segger J-Link.
+This technique cannot be used to program the P2 (RTL8271D) or Gen 2 (STM32F205) devices, but you can use the Segger tools like J-Flash instead of nrfjprog to program Gen 2 devices with the Segger J-Link.
 
 
 ## Segger J-Link with Segger tools
@@ -283,7 +300,27 @@ The Segger J-Link is by far the fastest SWD/JTAG programmer available. If you ar
 
 You can download the standalone J-Link tools for Windows, Mac, or [here](https://www.segger.com/products/debug-probes/j-link/). A license is required to flash devices using the Segger tools.
 
-The Segger tools can be used to program both Gen 2 and Gen 3 devices. The J-Flash is a graphical user interface application that makes it easy flash.
+The Segger tools can be used to program Gen 2, Gen 3, and P2 devices. The J-Flash is a graphical user interface application that makes it easy flash.
+
+### Connecting the Segger J-Link
+
+With the Segger J-Link upright, the notch on the 20-pin JTAG connector will be on the top. The pins are numbered as follows on the debugger:
+
+<table>
+<tr><td></td><td></td><td></td><td></td><td colspan="2" style="text-align:center;">notch</td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:center;">19</td><td style="text-align:center;">17</td><td style="text-align:center;">15</td><td style="text-align:center;">13</td><td style="text-align:center;">11</td><td style="text-align:center;">9</td><td style="text-align:center;">7</td><td style="text-align:center;">5</td><td style="text-align:center;">3</td><td style="text-align:center;">1</td></tr>
+<tr><td style="text-align:center; width:15px;">20</td><td style="text-align:center; width:15px;">18</td><td style="text-align:center; width:15px;">16</td><td style="text-align:center; width:15px;">14</td><td style="text-align:center; width:15px;">12</td><td style="text-align:center; width:15px;">10</td><td style="text-align:center; width:15px;">8</td><td style="text-align:center; width:15px;">6</td><td style="text-align:center; width:15px;">4</td><td style="text-align:center; width:15px;">2</td></tr>
+</table>
+
+Connect them to your P2 or Gen 2 devices as follows:
+
+| Pin   | Function | Particle Pin |
+| :---: | :---: | :---: |
+|  4    | GND | GND |
+|  7    | SWDIO | D7 |
+|  9    | SWCLK | D6 |
+	
+If your board as a 10-pin micro debugging connector, as most Gen 3 devices do, you can use a [JTAG (2x10 2.54mm) to SWD (2x5 1.27mm) Cable Adapter Board](https://www.adafruit.com/product/2094) instead of individual wires.
 
 
 ## ST-LINK/v2 with ST-LINK software for Windows
@@ -355,6 +392,44 @@ What this does:
 | `-c "reset"` | Reset the Particle device after flashing |
 | `-c "exit"` | Exit openocd |
 
+
+## P2 Flashing
+
+The P2 (RTL8721D) software consists of five parts:
+
+| File | Description | Address |
+| :--- | :--- | --: |
+| p2-tinker | Tinker user application binary, can substitute your own | |
+| p2-system-part1 | Device OS system firmware | 0x60000 |
+| p2-bootloader | Bootloader | 0x4000 | 
+| p2-prebootloader-part1 | Pre-bootloader | 0x14000 |
+| p2-prebootloader-mbr | Do not flash this file! | 0x0 |
+
+- **Do not chip erase your P2 or flash the p2-prebootloader-mbr binary!** The p2-prebootloader-mbr is encrypted and is unique for every device as part of the Secure Boot system. If this file is erased you will not be able to boot Device OS on the device. Since the prebootloader-mbr is at address 0x0, make sure you don't accidentally flash a different part to that address, as well.
+- The user firmware binary address will vary. The hex generator will find the appropriate address, as will flashing the firmware by USB.
+- You must always power the P2 externally. Even though it may turn on only connected via the SWD debugger, there will not be sufficient power to successfully program the device.
+
+### P2 with OpenOCD
+
+The P2 requires OpenOCD 0.11.0 or later. Make sure you've updated your Particle Workbench software to the current version to make sure you have the correct version of OpenOCD installed. On the Mac, Homebrew also includes an appropriate version of OpenOCD.
+
+- Download the [flashing script](/assets/files/p2-flash.zip) that will simplify the flashing procedure. Extract the zip file.
+
+- Download the [P2 binary zip file](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) that contains the system, bootloader, etc.. Extract it in the p2-flash directory.
+
+```
+cd p2-flash
+sh flash.sh rtl872x.tcl p2/system-part1.bin 0x60000
+sh flash.sh rtl872x.tcl p2/bootloader.bin 0x4000
+sh flash.sh rtl872x.tcl p2/prebootloader-part1.bin 0x14000
+```
+
+At this point, the device will reboot, but the user firmware binary (tinker) has not been flashed. Since the address varies, it's often easier to flash this using USB in DFU mode:
+
+```
+particle usb dfu
+particle flash --usb p2/tinker.bin
+```
 
 ## Argon and Tracker NCP
 

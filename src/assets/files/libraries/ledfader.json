@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ledfader",
     "version": "1.0.10",
-    "installs": 588,
+    "installs": 625,
     "license": "MIT",
     "author": "fred>",
     "sentence": "A simple library that illustrates coding conventions of a Spark Library",
@@ -50,8 +50,63 @@
           "boron": {
             "Fade": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Fade": true
+          },
+          "electron": {
+            "Fade": true
+          },
+          "argon": {
+            "Fade": true
+          },
+          "boron": {
+            "Fade": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Fade": true
+          },
+          "boron": {
+            "Fade": true
+          },
+          "bsom": {
+            "Fade": true
+          },
+          "b5som": {
+            "Fade": true
+          },
+          "tracker": {
+            "Fade": true
+          },
+          "p2": {
+            "Fade": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Fade": true
+          },
+          "boron": {
+            "Fade": true
+          },
+          "bsom": {
+            "Fade": true
+          },
+          "b5som": {
+            "Fade": true
+          },
+          "tracker": {
+            "Fade": true
+          },
+          "esomx": {
+            "Fade": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.018Z"
     }
   },
   "readme": "# ledfader\n",

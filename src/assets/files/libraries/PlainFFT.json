@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PlainFFT",
     "version": "0.4.5",
-    "installs": 1715,
+    "installs": 1888,
     "license": "MIT",
     "author": "Nikos Kouvelas <nko@eworx.gr>",
     "sentence": "FFT library",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.900Z"
     }
   },
   "readme": "# nikos\nnikos\n",

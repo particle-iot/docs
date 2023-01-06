@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal_I2C_Spark",
     "version": "1.1.0",
-    "installs": 197889,
+    "installs": 214761,
     "license": "GNU",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "LiquidCrystal_I2C ported for Spark Core",
@@ -50,8 +50,63 @@
           "boron": {
             "ClockExample": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "ClockExample": true
+          },
+          "electron": {
+            "ClockExample": true
+          },
+          "argon": {
+            "ClockExample": true
+          },
+          "boron": {
+            "ClockExample": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ClockExample": true
+          },
+          "boron": {
+            "ClockExample": true
+          },
+          "bsom": {
+            "ClockExample": true
+          },
+          "b5som": {
+            "ClockExample": true
+          },
+          "tracker": {
+            "ClockExample": true
+          },
+          "p2": {
+            "ClockExample": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ClockExample": true
+          },
+          "boron": {
+            "ClockExample": true
+          },
+          "bsom": {
+            "ClockExample": true
+          },
+          "b5som": {
+            "ClockExample": true
+          },
+          "tracker": {
+            "ClockExample": true
+          },
+          "esomx": {
+            "ClockExample": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.648Z"
     }
   },
   "readme": "# LiquidCrystal_I2C\nLiquidCrystal_I2C library for Spark Core\n\nI had a lot of difficulty getting the I2C library for Spark Core working without corrupting the display...\n\n\nI modified the library, adding a few delays following the writes and it works for me, now.\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SHTC3",
     "version": "1.0.0",
-    "installs": 377,
+    "installs": 489,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for SHTC3 temperature & humidity sensor.",
@@ -53,8 +53,63 @@
           "boron": {
             "SHTC3test": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SHTC3test": false
+          },
+          "electron": {
+            "SHTC3test": false
+          },
+          "argon": {
+            "SHTC3test": false
+          },
+          "boron": {
+            "SHTC3test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SHTC3test": false
+          },
+          "boron": {
+            "SHTC3test": false
+          },
+          "bsom": {
+            "SHTC3test": false
+          },
+          "b5som": {
+            "SHTC3test": false
+          },
+          "tracker": {
+            "SHTC3test": false
+          },
+          "p2": {
+            "SHTC3test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SHTC3test": false
+          },
+          "boron": {
+            "SHTC3test": false
+          },
+          "bsom": {
+            "SHTC3test": false
+          },
+          "b5som": {
+            "SHTC3test": false
+          },
+          "tracker": {
+            "SHTC3test": false
+          },
+          "esomx": {
+            "SHTC3test": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.049Z"
     }
   },
   "readme": "# Adafruit SHTC3 Temperature and Humidity Sensor Breakout [![Build Status](https://github.com/adafruit/Adafruit_SHTC3/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SHTC3/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/Adafruit_SHTC3/html/index.html)\n\n<a href=\"https://www.adafruit.com/product/4636\"><img src=\"assets/board.jpg?raw=true\" width=\"500px\"></a>\n\nThis is a library for the SHTC3 Digital Humidity + Temp sensor.\n\nIt is designed specifically to work with the SHTC3 Digital in the Adafruit shop:\n\n* https://www.adafruit.com/products/4636\n\nThese sensors use **I2C** to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nCheck out the links above for our tutorials and wiring diagrams\n\n## Installation\n\nUse the Arduino Library Manager to install this library. If you're unfamiliar\nwith how this works, we have a great tutorial on Arduino library installation\nat: http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use\n",

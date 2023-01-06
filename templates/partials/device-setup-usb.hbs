@@ -1,19 +1,6 @@
-<div class="apiHelperDeviceSetupUsb" data-troubleshooting="{{troubleshooting}}">
-    <div class="apiHelper">
-        <div class="apiHelperNotLoggedIn apiHelperBox">
-            <div class="apiHelperCouldSSO apiHelperSmallText" style="display:none">
-                <p>Log in to your Particle account to set up a device</p>
-                <p><button class="apiHelperLoginButton">Login</button></p>
-                <p>Or <a href="https://login.particle.io/signup">create a new account</a> if you don't already have one.</p>
-            </div>
-            <div class="apiHelperFakeAuth apiHelperSmallText" style="display:none">
-                <p>Cannot use Particle Single Sign-On from outside the Particle domain.</p>
-                <p><button class="apiHelperFakeAuthButton">Enter authentication manually</button></p>
-            </div>
-        </div>
-    </div>
-    <div class="apiHelperLoggedIn">
-        <div class="setupProgress">
+<div class="apiHelperDeviceSetupUsb" data-mode="{{mode}}">
+    <div class="apiHelper apiHelperBox deviceSetupLoggedIn" style="display:none">
+        <div class="setupProgress" style="display:none;">
             <table>
                 <thead></thead>
                 <tbody></tbody>
@@ -21,127 +8,205 @@
         </div>
         <div class="setupStep">
             <div class="setupStepSelectDevice" style="display:none">
-                <div class="troubleshootingMode">
-                    <h2>Particle Device Troubleshooting Tool</h2>
-                </div>
                 <div>
                     <p>Connect your Particle device to your computer with a USB cable, click the **Select Device** button, 
                         select your device, and click **Connect**.</p>
                     <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>
                 </div>
-                <div class="troubleshootingMode">
-                    <h3>Other issues</h3>
-                    <div>
-                        <p>I have a Gen 2 device (Photon, P1, Electron, or E Series). The status LED stays off, the buttons do not 
-                            do anything. On the Photon or Electron, the blue LED next to pin D7 is on and dim.<br/>
-                            <button disabled>I have the Dim D7 Issue</button> (this flow is not yet implemented)
-                        </p>
-                    </div>
-                    <div>
-                        <p>The device is hot to the touch, or does not turn on at all.<br/>
-                            <button disabled>I may have a power issue</button> (this flow is not yet implemented)
-                        </p>
-                    </div>
-                    <div>
-                        <p>When I use **Select Device** no devices show up in the device selection dialog.<br/>
-                            <button disabled>No USB device</button> (this flow is not yet implemented)
-                        </p>
-                    </div>
-                    <div class="setupMode">
-                        <p>This tool upgrades the device firmware, activates the SIM (for cellular devices), configures
-                            Wi-Fi (for Wi-Fi devices), and claims the device to your account.
-                        </p>
-                        <p>It is experimental, however if you run into trouble you should be able to
-                            use the <a href="https://docs.particle.io/cli/">Particle CLI</a> to recover the device.
-                        </p>
-                    </div>
+            </div> 
+            <div class="setupStepCheckAccount" style="display:none">
+                <div class="setupStepCheckAccountStart">
+                    <p>Checking the account you have logged in with...</p>
                 </div>
-            </div>
-            <div class="setupStepDimD7" style="display:none">
-                <p>If you have the Dim D7 issue, the bootloader in the device flash memory has become corrupted. 
-                    This requires a SWD/JTAG programmer to repair. 
-                </p>
-                <p></p>
-            </div>
+                <div class="setupStepCheckAccountLimits" style="display:none">
+                    <p>Your developer sandbox account has reached free plan account limits and device operation will be affected.</p>
+                    <p><button class="continueToSelectDevice">Continue anyway</button></p>
+                </div>
+                <div class="setupStepCheckAccountInvalidToken">
+                    <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
+                    <p><button class="loginAgain">Log In Again</button></p>
+                </div>
+            </div>            
             <div class="setupStepCheckDevice" style="display:none">
                 <div class="setupStepCheckDeviceStart">
                     <p>Checking the device you have connected. This normally takes a second, but it could take up to 30 seconds.</p>
                 </div>
                 <div class="setupStepCheckDeviceTracker" style="display:none">
-                    <p>This setup tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
+                    <p>This tool cannot set up Tracker devices, including the Tracker One and Tracker SoM. You should
                         use <a href="https://setup.particle.io">setup.particle.io</a> instead.
                     </p>
                 </div>
                 <div class="setupStepCheckDeviceUnknown" style="display:none">
-                    <p>This setup tool cannot set up this type of device. You should use the Particle mobile apps for iOS
-                        and Android, or the <a href="https://docs.particle.io/cli/">Particle CLI</a>.
+                    <p>This tool cannot set up this type of device. You should use the <a href="https://docs.particle.io/cli/">Particle CLI</a>
+                        or Particle mobile apps for iOS and Android.
                     </p>
                 </div>
-                <div class="setupStepCheckDeviceSIM">
+                <div class="setupStepCheckDeviceSIM" style="display:none">
                     <p>Just a little longer while we check the SIM card in your device...</p>
                 </div>
             </div>
             <div class="setupStepConfirm" style="display:none">
-                <p>This tool will flash Device OS and setup firmware to your device, replacing the 
-                    existing Device OS and user firmware. There is no way to revert to the original firmware 
-                    automatically.</p>
-                <p>Upon successful completion, however, you should be able to program your firmware again 
-                    over-the-air (OTA) or by USB.</p>
-                <p>Proceed with flashing the device and setup?</p>
-
-                <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device and Setup</button></p>
-
+                <div class="doctorMode">
+                    <p>This tool will flash Device OS and doctor firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
                 <div class="setupMode">
-                    <details style="padding-top: 100px">
+                    <p>This tool will flash Device OS and setup firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
+                <div class="restoreMode">
+                    <p>This tool will flash Device OS and the specified user firmware to your device, replacing the 
+                        existing Device OS and user firmware.</p>
+                </div>
+                <div class="setupMode doctorMode">
+                    <p>Upon successful completion you can to program your firmware again 
+                        over-the-air (OTA) or by USB.</p>
+                    <p>A backup file containing your user firmware will be saved to your Downloads folder; 
+                        this can be used to restore the original firmware and a similar version of Device OS if desired.
+                    </p>
+                </div>
+                <div class="trackerProductSettings" style="display:none">
+                    <p>All Tracker devices must be part of a product.<br/>
+                        <label><input type="radio" name="trackerProductType" value="new" checked>Create a new sandbox product</label><span class="trackerProductNamed"> named </span><input type="text" class="trackerProductName" /><br/>
+                        <label><input type="radio" name="trackerProductType" value="existing">Add to an existing product</label></p>
+                    <table class="apiHelperTableNoMargin trackerSetupAddToProductSelector" style="display:none">
+                        <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
+                            <tr class="sandboxOrgRow" style="display:none">
+                                <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                                <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                                <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                                </td><td>&nbsp;</td></tr>
+                            <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                            <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                        </tbody>
+                    </table>
+                    <p><label><input type="checkbox" class="trackerSetupDevelopmentDevice" checked/>Mark as development device</label></p>
+                    <p><label><input type="checkbox" class="trackerSetupNoClaim"/>Do not claim device</label></p>
+                </div>
+                <div class="setupMode">
+                    <p>Proceed with flashing the device and device setup?</p>
+                </div>
+                <div class="doctorMode">
+                    <p>Proceed with flashing the device?</p>
+                </div>
+                <div class="setupMode doctorMode">
+                    <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
+                </div>
+                <div class="restoreFirmwareDiv" style="display:none; padding-top:40px;">
+                <p>It appears that you previously flashed doctor or setup firmware to this device. You can restore 
+                    the original firmware and a similar version of Device OS if you still have the backup 
+                    file available. It should be in your Downloads folder as firmware_<span class="restoreDeviceId"></span>.bin
+                </p>
+                <p><button class="setupRestoreDeviceButton apiHelperButton">Restore firmware from backup file</button><input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></p>
+                </div> <!-- restorePane -->
+                <div class="doctorMode">
+                    <details style="padding-top: 100px" class="doctorModeSettings">
+                        <summary>Advanced Options</summary>
+                        <p class="hasEthernetRow"><label><input type="checkbox" class="doctorUseEthernet"/>Use Ethernet for connectivity</label></p>
+                        <p><label><input type="checkbox" class="doctorSetKeepAliveCheckbox"/>Set keep-alive to </label> <input type="text" size="6" value="120" class="doctorKeepAliveInput" /> seconds</p>
+                    </details>
+                </div>
+                <div class="setupMode">
+                    <details style="padding-top: 100px" class="setupModeSettings">
                         <summary>Advanced Setup Options</summary>
                         <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
-
-                        <p>Device OS Version: <select class="setupDeviceOsVersion apiHelperSelect">
+                        <p><label><input type="checkbox" class="setupForceVersion"/>Specific Device OS version</label> <select class="setupDeviceOsVersion apiHelperSelect">
                         </select></p>
-
                         <p><label><input type="checkbox" class="setupNoClaim"/>Do not claim device</label></p>
-                        
-                        <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
-                        <table class="apiHelperTableNoMargin setupAddToProductSelector" style="display:none">
-                            <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
-                                <tr class="sandboxOrgRow" style="display:none">
-                                    <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
-                                    <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
-                                    <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
-                                    </td><td>&nbsp;</td></tr>
-                                <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
-                                <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
-                            </tbody>
-                        </table>
-
-                        <p class="setupDevelopmentDeviceRow" style="display:none"><label><input type="checkbox" class="setupDevelopmentDevice"/>Mark as development device</label></p>
-
+                        <p class="setupForceClaimRow" style="display:none;"><label><input type="checkbox" class="setupForceClaim"/>Force claim a Wi-Fi device using a claim code</label></p>
+                        <div class="setupAddDeviceToProductDiv">
+                            <p><label><input type="checkbox" class="setupAddToProduct"/>Add device to a product</label></p>
+                            <table class="apiHelperTableNoMargin setupAddToProductSelector" style="display:none">
+                                <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
+                                    <tr class="sandboxOrgRow" style="display:none">
+                                        <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                                        <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                                        <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                                        </td><td>&nbsp;</td></tr>
+                                    <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                                    <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                                </tbody>
+                            </table>
+                            <p class="setupDevelopmentDeviceRow" style="display:none"><label><input type="checkbox" class="setupDevelopmentDevice"/>Mark as development device</label></p>
+                        </div>
                         <p class="setupSimSelectionRow" style="display:none">SIM Select: <select class="setupSimSelect apiHelperSelect">
                             <option value="0">No change</option>
                             <option value="1">Internal SIM (MFF2 SMD Particle SIM)</option>
                             <option value="2">External SIM (4FF)</option>
                         </select></p>
-
+                        <p class="hasEthernetRow"><label><input type="checkbox" class="setupUseEthernet"/>Use Ethernet for connectivity</label></p>
                     </details>
+                </div>
+                <div class="restoreMode">
+                    <table>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel">Restore Type</td>
+                            <td>
+                                <select class="apiHelperUsbRestoreDeviceModeSelect apiHelperSelect">
+                                    <option value="tinker">Tinker (Factory Default)</option>
+                                    <option value="upload">Custom User Firmware Upload</option>
+                                    <!-- <option value="url">Custom User Firmware from URL</option> -->
+                                </select>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreDeviceVersionTr">
+                            <td class="apiHelperProductSelectorLabel">Version</td>
+                            <td><select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect"><option>Select Device OS Version</option></select></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreDeviceFileTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel">Upload File</td>
+                            <td><button class="selectUserBinaryButton apiHelperButton">Select user binary to upload</button><input type="file" id="userBinaryFileSelector" accept=".bin" style="display:none"></td>
+                            <td class="apiHelperProductSelectorLabel"></td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreDeviceUrlTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel">User Firmware URL</td>
+                            <td colspan="2"><input type="text" size="60" class="apiHelperUsbRestoreDeviceUrl" /></td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreSetupBitTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel">Setup Bit</td>
+                            <td><select class="apiHelperUsbRestoreDeviceSetupBit apiHelperSelect">
+                                <option value="unchanged" selected>Leave value unchanged</option>
+                                <option value="done">Mark setup done (run firmware normally)</option>
+                                <option value="notDone">Mark setup not done (go into listening mode)</option>
+                            </select></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="forceUpdate"/>Flash even if system parts are already the correct version</label></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="updateNcpCheckboxTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="updateNcpCheckbox"/>Update NCP (network coprocessor)</label></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="apiHelperUsbRestoreTrackerTr" style="display:none">
+                            <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="shippingModeCheckbox"/>Enter shipping mode when done</label></td>
+                            <td>&nbsp;</td>
+                        </tr>                        
+                    </table>
+                    <p><button class="setupSetupDeviceButton apiHelperButton">Flash Device</button></p>
                 </div>
             </div>
             <div class="setupStepAddToProduct" style="display:none">
                 <p>Adding device to product...</p> 
                 <p>This should only take a few seconds.</p>
             </div>
-            <div class="setupStepCheckSimAndClaiming" style="display:none">
-                <div class="setupStepCheckSimAndClaimingOwnership">
+            <div class="setupStepCheckOwnership" style="display:none">
+                <div class="setupStepCheckOwnershipOwnership">
                     <p>Checking device ownership...</p>
                 </div>
-                <div class="setupStepCheckSimAndClaimingNoDeviceInfo">
-                    <p>If you are setting up this device for the first time, click **Continue Setup**.</p>
-                    <p><button class="setupContinueSetupButton apiHelperButton">Continue Setup</button></p>
+                <div class="setupStepCheckOwnershipNoDeviceInfo">
                     <p>This device could not be found in your account, your products, or any organization products you have access to. 
                         This is normal if you are setting up the device for the first time.</p>
-                    <p>However, it can also happen if the device is part of a product you are not a team member of. This tool 
+                    <p>However, it can also happen if the device is really claimed to another account, or the device is part of a 
+                        product you are not a team member of. This tool 
                         not recommended for use on product devices by non-developers.</p>
+                    <p><label><input type="checkbox" class="doctorClaimDevice" checked/>Attempt to claim device when online</label></p>
+                    <p><button class="setupContinueSetupButton apiHelperButton">Continue</button></p>
                 </div>
-                <div class="setupStepCheckSimAndClaimingCheckAccount">
+                <div class="setupStepCheckOwnershipCheckAccount">
                     <p>Checking account status...</p>
                 </div>
             </div>
@@ -173,7 +238,7 @@
                 <p>Or power down your Boron and insert or reinsert the SIM card, and click **Try Again**</p>
                 <p><button class="externalSimTryAgain">Try Again</button></p> -->
             </div>
-            <div class="setupStepManualDfu" style="display:none">                
+            <div class="setupStepManualDfu" style="display:none">    
                 <p>An error occurred putting your device into DFU mode (blinking yellow).</p>
                 <p>Hold down the MODE (or SETUP) button and tap the RESET button. Continue to hold down MODE while 
                     the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then 
@@ -189,9 +254,8 @@
                     <p>Putting device in DFU (firmware update) mode (blinking yellow). This should only take a few seconds, but can take up to 30 seconds sometimes.</p>
                 </div>
                 <div class="setupStepFlashDeviceAuthorizeDFU" style="display:none">
-                    <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
+                    <p>Your browser requires authorization to reconnect to your device now that it is in DFU mode. This is a normal browser security precaution.</p>
                     <p><button class="reconnectUsb">Reconnect</button></p>
-                    <p>This is normal the first time you program a device by DFU.</p>
                 </div>
                 <div class="setupStepFlashDeviceConnectDFU" style="display:none">
                     <p>Connecting to the device in DFU mode...</p>
@@ -215,6 +279,14 @@
                 <div class="setupStepReconnectingNeedReauthorize" style="display:none">
                     <p>Failed to reconnect to the device by USB. Click the Reconnect button to try again.</p>
                     <p><button class="reconnectUsb">Reconnect</button></p>
+                </div>
+                <div class="setupStepReconnectFailed" style="display:none">
+                    <p>Waiting for the device to finish updating itself and restart...</p>
+                    <p>If the device is still blinking yellow, tap the reset button on the device, then click Continue.</p>
+                    <p><button class="continueFailedReconnect">Continue</button></p>
+                </div>
+                <div class="setupStepWhiteLed" style="display:none">
+                    <p>If the status LED is solid white, not blinking, tap the reset button on the device, then Reconnect</p>
                 </div>
             </div>
             <div class="setupStepNoWiFi" style="display:none">
@@ -249,15 +321,51 @@
                     <tbody>
                     </tbody>
                 </table>
-                <p class="passwordRow">Password: <input type="password" class="passwordInput" /></p>
+                <table class="wifiSettingsTable apiHelperTableNoMargin" style="display:none">
+                    <tbody>
+                        <tr>
+                           <td>Security Type</td> 
+                           <td class="wifiSecurityType"></td> 
+                        </tr>
+                        <tr class="eapTypeRow" style="display:none">
+                           <td>EAP Type</td> 
+                           <td><select class="eapSelect apiHelperSelect">
+                                <option value="0">PEAP/MSCHAPv2</option>
+                                <option value="1">EAP-TLS</option>
+                                </select></td> 
+                        </tr>
+                        <tr class="wifiUsernameRow" style="display:none">
+                            <td>Username (Inner Identity)</td>
+                            <td><input class="wifiUsername" /></td>
+                        </tr>
+                        <tr class="passwordRow" style="display:none">
+                            <td>Password</td>
+                            <td><input class="passwordInput" type="password" /></td>
+                        </tr>
+                        <tr class="privateKeyRow" style="display:none">
+                            <td>Private Key (required)</td>
+                            <td><textarea class="privateKey" rows="8" cols="65" style="font-size:10px;" spellcheck="false"></textarea></td>
+                        </tr>
+                        <tr class="clientCertRow" style="display:none">
+                            <td>Client Certificate (required)</td>
+                            <td><textarea class="clientCert" rows="8" cols="65" style="font-size:10px;" spellcheck="false"></textarea></td>
+                        </tr>
+                        <tr class="outerIdentityRow" style="display:none">
+                            <td>Outer Identity (optional)</td>
+                            <td><input class="outerIdentity" /></td>
+                        </tr>
+                        <tr class="caCertRow" style="display:none">
+                            <td>CA Certificate (Optional)</td>
+                            <td><textarea class="caCert" rows="8" cols="65" style="font-size:10px;" spellcheck="false"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
                 <p><button class="setCredentials">Select Wi-Fi Network</button></p>
-                <div class="showUseExisting">
-                    <p>&nbsp;</p>
-                    <p><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
+                <div class="showUseExisting" style="display:none">
+                    <p style="padding-top:15px"><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
                 </div>
                 <div>
-                    <p>&nbsp;</p>
-                    <p><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                    <p style="padding-top:15px"><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
                 </div>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
@@ -309,8 +417,32 @@
                         <button class="setColorButton">Set Status LED Color</button></p>
                 </div>
             </div>
+            <div class="setupStepDeviceRestoreDone" style="display:none">
+                <p>Device restore complete!</p>
+                <p><button class="reloadPage">Restore another device</button></p>
+            </div>
+            <div class="setupStepShippingMode" style="display:none">
+                <p>Device restore complete! Tracker will enter shipping mode shortly.</p>
+                <p><button class="reloadPage">Restore another device</button></p>
+            </div>
+            <div class="setupStepStartOver" style="display:none">
+                <p><button class="reloadPage">Start over</button></p>
+            </div>
+            <div class="setupStepDfuFailed" style="display:none">
+                <p>DFU flashing failed.</p>
+                <p class="dfuFailedReason"></p>
+                <p><button class="reloadPage">Start over</button></p>
+            </div>
             <div class="setupStepTroubleshootingSuccess" style="display:none">
                 <p>Congratulations, it appears that your device is online and functioning properly now!</p>
+            </div>
+            <div class="setupStepFirmwareReplaced" style="display:none">
+                <p>It appears that your device connected to the cloud, then got a firmware update that erased the setup firmware.
+                    This prevents logs and other diagnostic data from being displayed, but your device should be fully functional.
+                </p>
+            </div>
+            <div class="setupStepRestoreDone" style="display:none">
+                <p>Your original device firmware has been restored.</p>
             </div>
             <div class="setupStepClaimFailed" style="display:none">
                 <p>Claiming the device failed.</p>
@@ -357,6 +489,13 @@
                 will interrupt the normal operation of your device. You may want to do this if your device is stuck on blinking
                 green or you want to troubleshoot intermittent cellular connectivity.</p>
             <p><button class="doTowerScan">Tower Scan</button></p>                
+        </div>
+        <div class="deviceLogWarning" style="display:none">
+            <p>&nbsp;</p>
+            <p>On the Electron and E Series, device debugging logs will not display while the device is connecting to cellular
+                (blinking green). If you are trying to debug connection failures, you may need to use a serial terminal program 
+                or the Particle CLI to view the logs.
+            </p>
         </div>
         <div class="deviceLogs" style="display:none">
             <p>&nbsp;</p>
@@ -407,6 +546,62 @@
                     </tbody>
                 </table>
             </div>
+            <div class="locationInfo" style="display:none">
+                <h3>Location information</h3>
+                <table class="locationInfoTable apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>Device Value</td>
+                            <td>Location Fusion</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="gnssInfo" style="display:none">
+                <h3>GNSS hardware location</h3>
+                <table class="gnssLocationTable apiHelperTableNoMargin">
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <h3>GNSS module information</h3>
+                <table class="gnssInfoTable apiHelperTableNoMargin">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cloudEvents" style="display:none">
+                <h3>Cloud Events</h3>
+                <table class="cloudEventsTable apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <td>Event Name</td>
+                            <td>Event Data</td>
+                            <td>Event Time</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="deviceFirmwareInfo" style="display:none">
+                <h3>Device firmware information</h3>
+                <table class="deviceFirmwareInfoTable apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <td>Module</td>
+                            <td>Valid</td>
+                            <td>Version</td>
+                            <td>Dependencies</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
             <div class="userInfo" style="display:none">
                 <h3>User information</h3>
                 <table class="userInfoTable apiHelperTableNoMargin">
@@ -415,10 +610,14 @@
                 </table>
             </div>
         </div>
+        <div class="ticketButtonDiv" style="display:none" style="padding-top:20px;">
+            <p>Still having trouble? You can create a support ticket for help with this issue.</p>
+            <p><button class="ticketButton">Create support ticket</button></p>
+        </div>
         <div class="setupStatus">
         </div>
         <div class="setupBrowserError" style="display:none">
-            <p>This setup tool can only be used on:</p>
+            <p>This tool can only be used on:</p>
             <ul>
                 <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
                 <li>Edge (version 79 or later</li>
@@ -426,13 +625,8 @@
                 <li>Samsung Internet (version 8.0 or later)</li>
             </ul>
             <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
-            you can use the Particle mobile app for iOS or Android, or the Particle CLI for Windows, 
-            Mac, and Linux, instead.</p>
+            you can use the Particle CLI for Windows, Mac, and Linux, or the Particle mobile app for iOS or Android instead.</p>
         </div>
-    </div>
-    <div class="accessTokenError" style="display:none">
-        <p>Your account access token appears to be invalid; it has probably expired or was invalidated when logging out previously.</p>
-        <p><button class="loginAgain">Log In Again</button></p>
     </div>
 </div>
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sunrise",
     "version": "0.1.7",
-    "installs": 18314,
+    "installs": 18644,
     "license": "GNU",
     "author": "Jim Brower <bulldoglowell@gmail.com>",
     "sentence": "Sunrise/Sunset Time ported for Spark Core",
@@ -50,8 +50,63 @@
           "boron": {
             "sunriseExample": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "sunriseExample": false
+          },
+          "electron": {
+            "sunriseExample": false
+          },
+          "argon": {
+            "sunriseExample": false
+          },
+          "boron": {
+            "sunriseExample": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "sunriseExample": false
+          },
+          "boron": {
+            "sunriseExample": false
+          },
+          "bsom": {
+            "sunriseExample": false
+          },
+          "b5som": {
+            "sunriseExample": false
+          },
+          "tracker": {
+            "sunriseExample": false
+          },
+          "p2": {
+            "sunriseExample": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "sunriseExample": false
+          },
+          "boron": {
+            "sunriseExample": false
+          },
+          "bsom": {
+            "sunriseExample": false
+          },
+          "b5som": {
+            "sunriseExample": false
+          },
+          "tracker": {
+            "sunriseExample": false
+          },
+          "esomx": {
+            "sunriseExample": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.721Z"
     }
   },
   "readme": "# SunriseSunset\nSunriseSunset library for Spark Core\n\nreturns Sunrise, Sunset and Solar Noon times for Spark Core\n",

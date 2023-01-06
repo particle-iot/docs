@@ -7,7 +7,7 @@
   "attributes": {
     "name": "XPT2046_Touch",
     "version": "1.1.7",
-    "installs": 4209,
+    "installs": 4355,
     "license": "MIT",
     "author": "Paul Stoffregen, ported by Volker Ritzka",
     "sentence": "Library for the CPT2046 Touch chip",
@@ -50,8 +50,63 @@
           "boron": {
             "with_serial": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "with_serial": true
+          },
+          "electron": {
+            "with_serial": true
+          },
+          "argon": {
+            "with_serial": true
+          },
+          "boron": {
+            "with_serial": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "with_serial": true
+          },
+          "boron": {
+            "with_serial": true
+          },
+          "bsom": {
+            "with_serial": true
+          },
+          "b5som": {
+            "with_serial": true
+          },
+          "tracker": {
+            "with_serial": true
+          },
+          "p2": {
+            "with_serial": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "with_serial": true
+          },
+          "boron": {
+            "with_serial": true
+          },
+          "bsom": {
+            "with_serial": true
+          },
+          "b5som": {
+            "with_serial": true
+          },
+          "tracker": {
+            "with_serial": true
+          },
+          "esomx": {
+            "with_serial": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.824Z"
     }
   },
   "readme": "# XPT2046 Touch sensor chip for Particle\n\nA Particle library for XPT2046.\n\nPorted from Paul Stoffregen's Arduino version.\n\n\n## Usage\n\nConnect the chip like this\n\nDO --- MISO A4  \nDI --- MOSI A5  \nCLK --- SCK A3  \nSS --  (you will chose this pin in the application)\n\nThe library can use SPI or SPI1.\n\n```\n#include \"XPT2046_touch.h\"\n#define CS_PIN D5    //ChipSelect or SlaveSelect Pin\n#define TIRQ_PIN D1 // interrupt pin\n\nXPT2046_Touchscreen ts(SPI, CS_PIN, TIRQ_PIN);\n\nvoid setup() {\n  ts.begin();\n  ts.setRotation(3); \n  \n  Serial.begin();\n}\n\nvoid loop() {\n    if (ts.touched()) {\n      TS_Point p = ts.getPoint();\n      Serial.print(\"Pressure = \");\n      Serial.print(p.z);\n      Serial.print(\", x = \");\n      Serial.print(p.x);\n      Serial.print(\", y = \");\n      Serial.print(p.y);\n      delay(30);\n      Serial.println();\n }\n}\n```\n\nSee the [examples](examples) folder for more details.\n\nLicensed under the MIT license\n",

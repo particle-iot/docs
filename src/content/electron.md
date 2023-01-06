@@ -16,7 +16,7 @@ The Electron is a tiny development kit for creating 3G cellular-connected electr
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Electron</a>
 </div>
 
 
@@ -24,12 +24,11 @@ The Electron is a tiny development kit for creating 3G cellular-connected electr
 **Learn more:**
 - [Quickstart with starter project](/quickstart/electron/)
 - [Community](https://community.particle.io/)
-- [Support](https://support.particle.io/hc/)
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/electron/)
-- [Datasheet](/datasheets/electron/electron-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/e-series/electron-datasheet/)
+- [Certification](/hardware/certification/certification/)
 {{box op="end"}}
 
 ## Electron 3G hardware specifications
@@ -51,7 +50,7 @@ The Electron comes in three different versions with different u-blox cellular mo
 
 * u-blox SARA U-series (for 3G Electron versions)
 * u-blox SARA G-series (for 2G Electron versions)
-* For availability in specific countries, see the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+* For availability in specific countries, see the [cellular carrier list](/reference/cellular/cellular-carriers/)
 
 
 ### General specification:

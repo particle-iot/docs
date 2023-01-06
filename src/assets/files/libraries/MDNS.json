@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MDNS",
     "version": "2.0.0",
-    "installs": 20364,
+    "installs": 21215,
     "license": "MIT",
     "author": "Mark Hornsby <me@markhornsby.uk>",
     "sentence": "Support for multicast name and DNS service registration",
@@ -49,8 +49,63 @@
           "boron": {
             "mdns": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "mdns": true
+          },
+          "electron": {
+            "mdns": false
+          },
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "p2": {
+            "mdns": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          },
+          "bsom": {
+            "mdns": false
+          },
+          "b5som": {
+            "mdns": false
+          },
+          "tracker": {
+            "mdns": false
+          },
+          "esomx": {
+            "mdns": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.715Z"
     }
   },
   "readme": "spark-core-mdns\n===============\n\nMulticast DNS and DNS-SD for the Spark Core\n",

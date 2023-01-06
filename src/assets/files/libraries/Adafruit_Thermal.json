@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Thermal",
     "version": "0.0.1",
-    "installs": 4024,
+    "installs": 4320,
     "license": "MIT License",
     "author": "Przemysław Grzywacz <nexather@gmail.com>",
     "sentence": "Port of Adafruit_Thermal library to Spark Core",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.823Z"
     }
   },
   "readme": "This is an Arduino library for the Adafruit Thermal Printer.\nPick one up at --> http://www.adafruit.com/products/597\nThese printers use TTL serial to communicate, 2 pins are required.\n\nFull tutorial with wiring diagrams, images, etc. is available at \nhttp://www.ladyada.net/products/thermalprinter/\n\nBefore loading the example code, or even opening the Arduino software,\nplace the Adafruit_Thermal folder in your Arduino library.\n\n////ARDUINO LIBRARY LOCATION////\nOn your Mac:: In (home directory)/Documents/Arduino/Libraries\nOn your PC:: My Documents\\Arduino\\libraries\nOn your Linux box: (home directory)/sketchbook/libraries\n\nAdafruit invests time and resources providing this open source code.\nPlease support Adafruit and open-source hardware by purchasing products\nfrom Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries, based on Thermal\nlibrary from bildr.org \nMIT license, all text above must be included in any redistribution.\n\nThis package was modified by Przemysław Grzywacz <nexather@gmail.com>\nin order to run on Spark Core.\n\nAPI changes:\n- Adafruit_Printer constructor doesn't accept pin numbers anymore.\n- Adafruit_Printer::begin() requires as first argument a pointer\n  to a stream communicating with the printer. It can be for example\n  a pointer to Serial, Serial1 or Serial2.\n- Adafruit_Printer::printBitmap() fromProgMem argument is ignored,\n  I don't know how data in program memory work in Spark Core.\n\nI hope you find this port usefull.\n",

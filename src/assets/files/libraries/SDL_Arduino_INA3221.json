@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SDL_Arduino_INA3221",
     "version": "1.2.1",
-    "installs": 2232,
+    "installs": 4582,
     "author": "SwitchDoc Labs",
     "architectures": [],
     "visibility": "public",
@@ -46,8 +46,63 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.829Z"
     }
   },
   "readme": "SwitchDoc Labs SDL_Arduino_INA3221 Library\n\nSwitchDoc Labs - www.switchdoc.com\n\nVersion 1.2 September 2019 - Added Manufacture ID\n\nThe INA3221 is Triple-Channel, High-SideMeasurement, Shunt and Bus Voltage Monitor with I2C Interface\n\nIt is used in the SwitchDoc Labs Solar Controller Product, SunAirPlus and in a standalone SwitchDoc Labs INA3221 Breakout Board\n\nhttp://www.switchdoc.com/sunairplus-solar-power-controllerdata-collector/\n\n\nThanks to the original Adafruit INA219 library, although very little of it ended up being used  The INA3221 is a much different beast than the INA219.\n\n",

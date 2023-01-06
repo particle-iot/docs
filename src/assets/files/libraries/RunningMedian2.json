@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningMedian2",
     "version": "0.2.16",
-    "installs": 2626,
+    "installs": 4784,
     "author": "Rob dot Tillaart at gmail dot com",
     "maintainer": "Rob Tillaart <rob.tillaart@gmail.com>",
     "sentence": "The library stores the last N individual values in a buffer to select the median.",
@@ -33,7 +33,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.832Z"
     }
   },
   "readme": "# RunningMedian\nArduino library to determine the running median by means of a circular buffer.\n\n## Description\n\nRunning Median looks like a running average with a small but important twist.\nRunning average averages the last N samples while the running median takes \nthe last N samples, sort them and take the middle one, or the average of the middle two.\n\nImportant differences between running average and running median:\n- Running median will return real data (e.g. a real sample from a sensor) \nif one uses an odd size of the buffer (preferred).\nRunning average may return a value that is never sampled.\n- Running median will give zero weight to outliers, and 100% to the middle sample, \nwhereas running average gives the same weight to all samples.\n- Running median will give often constant values for some time.\n- As one knows the values in the buffer one can predict to some extend how much \nthe next samples will change the running median. \n- Running median is a bit harder as one needs to keep the values in order \nto remove the oldest and keep them sorted to be able to select the median.\n",

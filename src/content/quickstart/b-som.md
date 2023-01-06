@@ -66,7 +66,7 @@ To set up the device you'll need an Android or iOS mobile phone and a connection
 | 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
 | 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
 | 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 22 | **SoM connector** | M.2 connector for the Boron SoM. |
+| 22 | **SoM connector** | M.2 connector for the B Series SoM. |
 | 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
 | 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
 | 25 | **Charge LED** | Indicate LiPo is charging. | 
@@ -80,14 +80,14 @@ To begin setting up your B Series SoM, click the button below and follow the ons
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR B SERIES SoM</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your B Series SoM</a>
 <br />
 </div>
 
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your B Series SoM, skip to Step #5.<br /><br />
-2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/hardware/mesh/) for more information.
 
 {{box op="end"}}
 
@@ -95,7 +95,7 @@ To begin setting up your B Series SoM, click the button below and follow the ons
 
 Instead of using the mobile apps, you can set up your B Series SoM using USB. With the SoM Evaluation Board connected by USB to your computer:
 
-- If you have not installed the [Particle CLI](/tutorials/developer-tools/cli/), do so now. 
+- If you have not installed the [Particle CLI](/getting-started/developer-tools/cli/), do so now. 
 
 - The status LED should be blinking dark blue. If not, hold down the MODE button until it is.
 
@@ -138,7 +138,7 @@ To program your Boron, open a new browser tab and go to the <a target="_blank" h
 
 The Web IDE is one of the ways you can write, compile, and deploy code to your Particle devices.
 
-If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](/tutorials/developer-tools/workbench/), a full toolchain integration with Microsoft Visual Studio Code.
+If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](/getting-started/developer-tools/workbench/), a full toolchain integration with Microsoft Visual Studio Code.
 {{box op="end"}}
 
 ---

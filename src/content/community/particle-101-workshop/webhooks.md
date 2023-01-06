@@ -7,6 +7,13 @@ layout: commonTwo.hbs
 
 # Lab 5: Introducing Particle Integrations & IFTTT
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only.
+
+The IFTTT integration has been discontinued and is no longer available.
+{{box op="end"}}
+
+
 | **Project Goal**            | Use a Particle Webhook and IFTTT to push device data into Google Sheets.                                                                                        |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to configure Particle webhooks; Connecting Particle to other services via IFTTT; Building data visualizations in Google Sheets based on device data |
@@ -22,7 +29,7 @@ IFTTT (If This, Then That) is a web-based service that allows you to create inte
 During the flow below, you'll need to connect both your Particle and Google accounts with IFTTT. When prompted, follow the on-screen instructions to do so.
 {{box op="end"}}
 
-1.  Start by heading over to [IFTTT](https://ifttt.com/particle) and either login, or create a new account.
+1.  Start by heading over to IFTTT and either login, or create a new account.
 ![](/assets/images/workshops/particle-101/04/ifttt.png)
 <br /><br />
 2.  After logging in, click your profile picture in the top right of your dashboard and select the *Create* menu option.

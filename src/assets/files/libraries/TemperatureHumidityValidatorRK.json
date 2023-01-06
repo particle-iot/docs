@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TemperatureHumidityValidatorRK",
     "version": "0.0.1",
-    "installs": 1118,
+    "installs": 1244,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Utility class for removing outlier values from DHT11/DHT22 temperature sensor data",
@@ -25,7 +25,8 @@
   "versions": {
     "0.0.1": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.938Z"
     }
   },
   "readme": "# TemperatureHumidityValidatorRK\nUtility class for removing outlier values from DHT11/DHT22 temperature sensor data\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HX8357",
     "version": "0.9.8",
-    "installs": 5468,
+    "installs": 5545,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit HX8357 TFT display library for Particle (Compatible with Core 0.3.4ff and Photon/P1 0.4.3ff)",
@@ -66,8 +66,95 @@
             "GraphicsTest": false,
             "SpiTftBitmap": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "electron": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "p2": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "esomx": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.805Z"
     }
   },
   "readme": "Adafruit_HX8357 Library\r\n======================= \r\n\r\nThis is a library for the Adafruit HX8357 display products\r\n\r\nThis library works with the Adafruit 3.5\" Breakout\r\n  ----> http://www.adafruit.com/products/2050\r\n \r\nCheck out the links above for our tutorials and wiring diagrams.\r\nThese displays use SPI to communicate, 4 or 5 pins are required\r\nto interface (RST is optional).\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada for Adafruit Industries.\r\nMIT license, all text above must be included in any redistribution\r\n\r\nFor Arduino:\r\n------------ \r\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_HX8357. Check that the Adafruit_HX8357 folder contains Adafruit_HX8357.cpp and Adafruit_HX8357.\r\n\r\nPlace the Adafruit_HX8357 library folder your arduinosketchfolder/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE\r\n\r\nAlso requires the Adafruit_GFX library for Arduino.\r\n\r\n\r\nFor Spark Core (ported by ScruffR - Nov. 2014)\r\n----------------------------------------------\r\nTo download go to https://github.com/ScruffR/adafruit_hx8357\r\n\r\nAlso requires the Adafruit_mfGFX library by Paul Kourany.\r\n",

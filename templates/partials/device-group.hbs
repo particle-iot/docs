@@ -1,0 +1,32 @@
+<div class="apiHelperDeviceGroup">
+    <!-- apiHelper, apiHelperExtras -->
+    <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
+        <div style="width: 135px;">Assign to groups</div>
+        <div style="width: 550px;">
+            <div class="groupListDiv apiHelperCheckboxList" style="width: 500px;"></div>
+            <div style="margin: 8px 4px 8px 4px;"><a class="showNewGroupButton">Create new group</a></div>
+        </div>
+    </div>
+    <div class="apiHelperGroupedBoxOuter createNewGroupDiv" style="display:none;">
+        <div class="apiHelperGroupedBoxInner">
+            <div class="apiHelperGroupedTitle">Create a new group</div>
+            <table class="apiHelperTableNoMargin">
+                <tbody>
+                    <tr>
+                        <td>Group name</td>
+                        <td><input type="text" size="15" class="newGroupText" /></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><input type="text" size="50" class="newGroupDescriptionText" /></td>
+                    </tr>
+                    <tr>
+                        <td><label><input type="checkbox" class="newGroupSetFirmwareCheckbox">Set firmware version</label></td>
+                        <td><select class="apiHelperSelect newGroupFirmwareSelect" style="display:none;"></select></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div><button class="newGroupButton" disabled>Create group</button></div>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HTU21D",
     "version": "0.1.0",
-    "installs": 39051,
+    "installs": 39796,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "Library to support HTU21D Humidity & Temperature sensor",
@@ -50,8 +50,63 @@
           "boron": {
             "HTU21D": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "HTU21D": true
+          },
+          "electron": {
+            "HTU21D": true
+          },
+          "argon": {
+            "HTU21D": true
+          },
+          "boron": {
+            "HTU21D": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "HTU21D": true
+          },
+          "boron": {
+            "HTU21D": true
+          },
+          "bsom": {
+            "HTU21D": true
+          },
+          "b5som": {
+            "HTU21D": true
+          },
+          "tracker": {
+            "HTU21D": true
+          },
+          "p2": {
+            "HTU21D": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "HTU21D": true
+          },
+          "boron": {
+            "HTU21D": true
+          },
+          "bsom": {
+            "HTU21D": true
+          },
+          "b5som": {
+            "HTU21D": true
+          },
+          "tracker": {
+            "HTU21D": true
+          },
+          "esomx": {
+            "HTU21D": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.690Z"
     }
   },
   "readme": "# HTU21D\nA Library to add support of HTU21D temperature and humidity sensor to Particle core (Formerly Spark Core).\n\n## Usage\nBefore your setup function\n```C++\n#include \"HTU21D.h\"\nHTU21D htu = HTU21D();\n```\n\nIn your setup function\n```C++\n    // HT21D sensor setup\n    while(! htu.begin()){\n        Serial.println(\"Couldnt find HTU21D\");\n        delay(1000);\n    }\n```\nIn your loop you can now get values like that\n```C++\n    temperature = htu.readTemperature();\n    humidity = htu.readHumidity();\n```\n\n## Options\n### Resolution\nThe sensor offers 2 configurations:\nMaximum resolution : 12bits resolution for Relative humidity and 14bits for temperature\nor 11bit resolution for both temperature and relative humidity\n```C++\n    // Set maximum resolution\n    htu.setResolution(HTU21D_RES_MAX);\n\n    // Set 11bits resolution\n    htu.setResolution(HTU21D_RES_11BITS);\n```\n\n## Contributing\n\n1. Fork it (https://github.com/romainmp/HTU21D/fork)\n2. Create your feature branch (`git checkout -b my-new-feature`)\n3. Commit your changes (`git commit -am 'Add some feature'`)\n4. Push to the branch (`git push origin my-new-feature`)\n5. Create a new Pull Request\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_ChainableLED",
     "version": "1.0.2",
-    "installs": 33256,
+    "installs": 46953,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Particle library to control Grove_ChainableLED.",
@@ -54,8 +54,63 @@
           "boron": {
             "CycleThroughColors": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "CycleThroughColors": true
+          },
+          "electron": {
+            "CycleThroughColors": true
+          },
+          "argon": {
+            "CycleThroughColors": true
+          },
+          "boron": {
+            "CycleThroughColors": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CycleThroughColors": true
+          },
+          "boron": {
+            "CycleThroughColors": true
+          },
+          "bsom": {
+            "CycleThroughColors": true
+          },
+          "b5som": {
+            "CycleThroughColors": true
+          },
+          "tracker": {
+            "CycleThroughColors": true
+          },
+          "p2": {
+            "CycleThroughColors": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CycleThroughColors": true
+          },
+          "boron": {
+            "CycleThroughColors": true
+          },
+          "bsom": {
+            "CycleThroughColors": true
+          },
+          "b5som": {
+            "CycleThroughColors": true
+          },
+          "tracker": {
+            "CycleThroughColors": true
+          },
+          "esomx": {
+            "CycleThroughColors": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.687Z"
     }
   },
   "readme": "ChainableLED\n============\n\nParticle library compatible with Grove Chainable LED and the P9813 chip. It allows controlling a chain of LEDS individually. \n\nSupports both RGB and HSB color spaces for setting the color of each individual LED.\n\nCompatible with [Particle devices](https://www.particle.io/).\n\n[More information on the wiki](https://github.com/pjpmarques/ChainableLED/wiki)\n\n\nInstallation\n============\n1. Grab the latest version from the release section of GitHub.\n(https://github.com/pjpmarques/ChainableLED/releases)\n\n2. Add it to your Particle \"libraries\" directory.\n\n3. It should be ready to use. Examples are included.\n\n\nLibrary Interface\n=================\n```c++\nclass ChainableLED {\npublic:\n  ChainableLED(byte clk_pin, byte data_pin, byte number_of_leds);\n\n  void init();\n  void setColorRGB(byte led, byte red, byte green, byte blue);\n  void setColorHSB(byte led, float hue, float saturation, float brightness);\n}\n```\n",

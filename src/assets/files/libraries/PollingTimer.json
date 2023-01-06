@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PollingTimer",
     "version": "1.3.0",
-    "installs": 8228,
+    "installs": 10364,
     "license": "Apache 2",
     "author": "dgarrett@acm.org",
     "sentence": "A simple software timer implemetion.",
@@ -67,8 +67,95 @@
             "interval": true,
             "timeout": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "electron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "argon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "bsom": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "b5som": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "tracker": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "p2": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "bsom": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "b5som": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "tracker": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "esomx": {
+            "debounce": false,
+            "interval": false,
+            "timeout": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.765Z"
     }
   },
   "readme": "# PollingTimer\n\nA Particle library for PollingTimer\n\n## Usage\n\nSimple timer to track how much time has passed in milliseconds that is\noverflow safe. It has start/stop/expired support, interval alert support, and\neasy debounce support.\n\nThis library should work with any Arduino, but the examples are written\nfor the Particle Photon.\n```\n#include \"PollingTimer.h\"\n\nPollingTimer timer(100);\nPollingTimer interval(50);\nDebouncer debounce(10);\n\nvoid setup() {\n  pinMode(D0, INPUT_PULLDOWN);\n\n  timer.start();\n  interval.start();\n}\n\nvoid loop() {\n  if (timer.expired())\n    Serial.print(\"100 milliseconds have passed!\");\n\n  if (interval.interval())\n    Serial.print(\"50 milliseconds, repeating.\");\n\n  if (debounce.debounce(digitalRead(D0)))\n    Serial.print(\"Button pushed.\");\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nTODO: Describe `PollingTimer`\n\n## Contributing\n\nIt's available at [github.com/DonGar/PollingTimer](https://github.com/DonGar/PollingTimer).\n\nPlease feel free to send me pull requests.\n\n## LICENSE\nCopyright 2017 dgarrett@acm.org\n\nLicensed under the Apache 2 license.\n",

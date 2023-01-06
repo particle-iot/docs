@@ -6,6 +6,10 @@ columns: two
 
 # How to Contribute to Particle's Open Source Repositories
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
+
 Particle is an open-source platform. You might find something you'd like changed, a feature you'd like implemented, or a bug you see a fix for. If so, you can create a pull request or an issue on one of our open-source GitHub repos. Here's a quick run-down of some repos you might want to know about, as well as some information on how to contribute.
 
 ## Open-Source Repos
@@ -23,17 +27,15 @@ Before you contribute to the code base, check out the [`style-guides`](https://g
 The [`firmware`](https://github.com/particle-iot/device-os) repo contains
 the [Device OS](/reference/device-os/firmware/) code that runs on the Core and Photon.
 
-See the [local build tools FAQ](https://support.particle.io/hc/en-us/articles/360039741273/) for steps to build the firmware on your machine.
-
 
 ### CLI
 
-The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/tutorials/developer-tools/cli/).
+The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/getting-started/developer-tools/cli/).
 
 
 ### Particle API JS
 
-The [`particle-api-js`](https://github.com/particle-iot/particle-api-js) repo contains the code used to run [Particle API JS](/reference/SDKs/javascript/), the official Particle JavaScript wrapper.
+The [`particle-api-js`](https://github.com/particle-iot/particle-api-js) repo contains the code used to run [Particle API JS](/reference/cloud-apis/javascript/), the official Particle JavaScript wrapper.
 
 
 ### Mobile
@@ -53,7 +55,7 @@ There are several mobile repos, for both iOS and Android.
 
 ### Particle Dev
 
-The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/reference/discontinued/dev/), our professional, open source, hackable IDE, designed for use with Particle devices.
+The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/getting-started/developer-tools/workbench/), our professional, open source, hackable IDE, designed for use with Particle devices.
 
 
 ### Documentation
@@ -65,9 +67,9 @@ The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open
 
 Particle maintains several open source libraries to be used with official Particle shields. They include:
 
-- [`InternetButton`](https://github.com/particle-iot/InternetButton): the library intended for use with the [Internet Button](/datasheets/accessories/legacy-accessories/#internet-button).
-- [`RelayShield`](https://github.com/particle-iot/RelayShield): the library intended for use with the [Photon Relay Shield](/datasheets/accessories/legacy-accessories/#relay-shield)
-- [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/datasheets/accessories/legacy-accessories/#power-shield)
+- [`InternetButton`](https://github.com/particle-iot/InternetButton): the library intended for use with the [Internet Button](/reference/datasheets/accessories/legacy-accessories/#internet-button).
+- [`RelayShield`](https://github.com/particle-iot/RelayShield): the library intended for use with the [Photon Relay Shield](/reference/datasheets/accessories/legacy-accessories/#relay-shield)
+- [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/reference/datasheets/accessories/legacy-accessories/#power-shield)
 
 
 ### Local Cloud

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoTNodePower",
     "version": "0.0.4",
-    "installs": 1486,
+    "installs": 1509,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",
@@ -29,7 +29,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.918Z"
     }
   },
   "readme": "About\r\n===\r\n\r\nLibrary that uses the I2C bus and Microchip MCP23017 IO expander to control and monitor the power setting of the IoT Node circuitry.\r\nVersion 2 has an error.\r\nVersion 3 added digitalWrite\r\nVersion 4 added setPullUp\r\n",

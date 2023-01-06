@@ -4,6 +4,9 @@ layout: commonTwo.hbs
 columns: two
 ---
 
+{{box op="start" cssClass="boxed warningBox"}}
+This page is no longer maintained and is provided for historical reference only
+{{box op="end"}}
 
 ## Particle Forum
 The [Particle forum](https://community.particle.io) is a place to ask questions, get help from other community members, and share your Particle project and product stories.
@@ -20,24 +23,23 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Particle Docs](/)
 - [Particle Forums](https://community.particle.io/)
 - [Device OS Firmware Reference](/reference/device-os/firmware/)
-- [Cloud API Reference](/reference/device-cloud/api/)
+- [Cloud API Reference](/reference/cloud-apis/api/)
 - [GitHub Organization](https://github.com/particle-iot)
-- [Device OS Firmware Release Notes](/cards/firmware/device-os-versions/github-release-notes/)
-- [FAQ](https://support.particle.io/hc/en-us/articles/360039741093/)
+- [Device OS Firmware Release Notes](/reference/device-os/api/device-os-versions/github-release-notes/)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
-- [Particle Blog](https://blog.particle.io)
+- [Particle Blog](https://www.particle.io/blog)
 - [Particle Store](https://store.particle.io)
 
 ## Tools and SDKs
 
 - [Particle Web IDE](https://build.particle.io)
 - [Particle Console](https://console.particle.io)
-- [Particle Mobile App](/tutorials/developer-tools/tinker/)
-- [Particle CLI](/tutorials/developer-tools/cli/)
-- [JavaScript SDK](/reference/SDKs/javascript/)
-- [iOS SDK](/reference/SDKs/ios/)
-- [Android SDK](/reference/SDKs/android/)
-- [Webhooks](/tutorials/device-cloud/webhooks/)
+- [Particle Mobile App](/archives/tinker/)
+- [Particle CLI](/getting-started/developer-tools/cli/)
+- [JavaScript SDK](/reference/cloud-apis/javascript/)
+- [iOS SDK](/reference/mobile-sdks/ios/)
+- [Android SDK](/reference/mobile-sdks/android/)
+- [Webhooks](/getting-started/integrations/webhooks/)
 
 ## External Resources
 
@@ -55,11 +57,8 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Useful Tools, Docs & FAQs
 
-- [Serial FAQ](/tutorials/learn-more/about-serial/)
-- [I2C FAQ](/tutorials/learn-more/about-i2c/)
-- [Local Builds using GCC-ARM](https://support.particle.io/hc/en-us/articles/360039741273/)
-- [JTAG and SWD Debugging](https://support.particle.io/hc/en-us/articles/360039251414/)
-- [Code Size Tips](https://support.particle.io/hc/en-us/articles/360039741093/)
+- [Serial FAQ](/hardware/expansion/about-serial/)
+- [I2C FAQ](/hardware/expansion/about-i2c/)
 - [Measuring Electron Power Consumption](https://github.com/rickkas7/particle_notes/tree/master/measuring-electron-power)
 - [Tips for Public and Private Particle Events](https://github.com/rickkas7/particle_notes/tree/master/public-private-event-tips)
 - [Using Retained Memory](https://github.com/rickkas7/particle_notes/tree/master/retained-memory-tips)
@@ -78,13 +77,13 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Tutorials
 
-- [Google Cloud Platform Integration](/tutorials/integrations/google-cloud-platform/)
-- [Google Maps Integration](/tutorials/integrations/google-maps/)
-- [Azure IoT Hub Integration](/tutorials/integrations/azure-iot-hub/)
-- [Webhooks Tutorial](/tutorials/device-cloud/webhooks/)
-- [InfluxData Tutorial](/tutorials/integrations/influxdata)
-- [Maker Kit Tutorials](/tutorials/hardware-projects/maker-kit/)
-- [E Series Eval Kit Tutorials](/tutorials/hardware-projects/e-series-eval-kit/)
+- [Google Cloud Platform Integration](/getting-started/integrations/google-cloud-platform/)
+- [Google Maps Integration](/getting-started/integrations/google-maps/)
+- [Azure IoT Hub Integration](/getting-started/integrations/community-integrations/azure-iot-hub/)
+- [Webhooks Tutorial](/getting-started/integrations/webhooks/)
+- [InfluxData Tutorial](/getting-started/integrations/community-integrations/influxdata/)
+- [Maker Kit Tutorials](/archives/maker-kit/)
+- [E Series Eval Kit Tutorials](/getting-started/hardware-tutorials/e-series-eval-kit/)
 - [Poor Man's CAN Bus](https://github.com/monkbroc/poor-man-can)
 - [Particle Webhooks Intermediate Tutorial](https://github.com/rickkas7/particle-webhooks)
 - [Firebase Tutorial](https://github.com/rickkas7/firebase_tutorial)
@@ -97,10 +96,10 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Hardware Datasheets
 
-- [Photon Datasheet](/datasheets/wi-fi/photon-datasheet/)
-- [P1 Datasheet](/datasheets/wi-fi/p1-datasheet/)
-- [Electron Datasheet](/datasheets/electron/electron-datasheet/)
-- [E Series Datasheet](/datasheets/electron/e-series-datasheet/)
+- [Photon Datasheet](/reference/datasheets/wi-fi/photon-datasheet/)
+- [P1 Datasheet](/reference/datasheets/wi-fi/p1-datasheet/)
+- [Electron Datasheet](/reference/datasheets/e-series/electron-datasheet/)
+- [E Series Datasheet](/reference/datasheets/e-series/e-series-datasheet/)
 
 # Popular Libraries
 

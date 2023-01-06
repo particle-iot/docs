@@ -176,7 +176,12 @@ $(document).ready(function() {
 
                     $(getProjectsButtonElem).prop('disabled', false);
                     
-                    sessionStorage.setItem(sessionStorageKey, JSON.stringify(resp.applications));
+                    try {
+                        sessionStorage.setItem(sessionStorageKey, JSON.stringify(resp.applications));
+                    }
+                    catch(e) {
+                        // Failed to save in storage, ignore error
+                    }
                     applications = resp.applications;
                     loadApplications();
                 },

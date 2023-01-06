@@ -14,7 +14,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ARGON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Argon</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -23,12 +23,11 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - [Quickstart with starter project](/quickstart/argon/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
-- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/argon)
-- [Datasheet](/datasheets/wi-fi/argon-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/wi-fi/argon-datasheet/)
+- [Certification](/hardware/certification/certification/)
   {{box op="end"}}
 
 ## Hardware specifications:
@@ -43,8 +42,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - 1MB flash, 256KB RAM
 - Bluetooth LE (BLE) central and peripheral support
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sd-card-library-photon-compat",
     "version": "0.0.1",
-    "installs": 2018,
+    "installs": 2107,
     "license": "GPL v3",
     "author": "Jeshua Maxey <me@jeshua.co>",
     "sentence": "SD Card Library compatible with Particle Photon(forked from https://github.com/technobly/SparkCore-SD)",
@@ -74,8 +74,111 @@
             "Spark-ReadWrite": false,
             "Spark-SpeedTest": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "electron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "bsom": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "b5som": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "tracker": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "p2": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "bsom": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "b5som": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "tracker": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "esomx": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.880Z"
     }
   },
   "readme": "SD Card Library Photon Compat\n===\n\nAn Implementation of the Arduino/Sparkfun SD Card Library for the Particle Photon.\n\nThis library is a fork of the [Spark Core SD library](https://github.com/mumblepins/sd-card-library). The code has been modified so that it will compile for the Particle Photon by following these instructions in [this forum post solution](https://community.particle.io/t/photon-and-sd-card-library-error/14707).\n\n## Pin Diagram\n\nIn my circuits I use Adafruit's microSD card breakout board so I've included both sets of pin configurations.\n\n### SD Card Pin Diagram\n\n![](http://i.imgur.com/G78juSt.png)\n\n### Adafruit MicroSD Breakout\n\n![](http://i.imgur.com/No8R6UP.jpg)\n\n### Pin Connection Table\n\nBlank cells indicate that you ought to configure you hardware and softwae to use the functionality they match to (card detect and 5V). Card detect is not supported by 'naked' SD cards, but is supported on the breakout board.\n\n| SD Card | Breakout  | Photon  |\n|---      |---        |---      |\n| n/a     | CD        |         |\n| SS      | CS        | A2      |\n| MOSI    | DI        | A5      |\n| MISO    | DO        | A4      |\n| SCK     | CLK       | A3      |\n| GND     | GND       | GND     |\n| VCC     | 3V        | 3V      |\n| n/a     | 5V        |         |\n\n### My own circuit\n\n![](https://i.imgur.com/U36RW3n.jpg)",

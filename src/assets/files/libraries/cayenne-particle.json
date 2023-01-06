@@ -7,7 +7,7 @@
   "attributes": {
     "name": "cayenne-particle",
     "version": "0.1.1",
-    "installs": 2825,
+    "installs": 2991,
     "license": "MIT",
     "author": "Eduardo",
     "sentence": "Modified Cayenne Library for particle",
@@ -50,8 +50,63 @@
           "boron": {
             "01_Cayenne": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "01_Cayenne": true
+          },
+          "electron": {
+            "01_Cayenne": true
+          },
+          "argon": {
+            "01_Cayenne": true
+          },
+          "boron": {
+            "01_Cayenne": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01_Cayenne": true
+          },
+          "boron": {
+            "01_Cayenne": true
+          },
+          "bsom": {
+            "01_Cayenne": true
+          },
+          "b5som": {
+            "01_Cayenne": true
+          },
+          "tracker": {
+            "01_Cayenne": true
+          },
+          "p2": {
+            "01_Cayenne": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01_Cayenne": true
+          },
+          "boron": {
+            "01_Cayenne": true
+          },
+          "bsom": {
+            "01_Cayenne": true
+          },
+          "b5som": {
+            "01_Cayenne": true
+          },
+          "tracker": {
+            "01_Cayenne": true
+          },
+          "esomx": {
+            "01_Cayenne": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.851Z"
     }
   },
   "readme": "# Cayenne Particle\n\nUnofficial Particle library for Cayenne IoT. This is a heavily modified version\nof the blynk and Cayenne library to work with the Particle's Photon.\n",

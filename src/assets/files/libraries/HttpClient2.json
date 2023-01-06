@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "HttpClient2",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HttpClient2/archive/0.1.3.tar.gz"
+  },
+  "attributes": {
+    "name": "HttpClient2",
+    "version": "0.1.3",
+    "installs": 553,
+    "license": "MIT",
+    "author": "Pauli Jokela <pauli.jokela@didstopia.com>",
+    "sentence": "A fork of a work in progress Http Client Library for the Spark Core and Arduino, originally by nmattisson.",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/HttpClient2",
+  "versions": {
+    "0.1.3": {
+      "added": "2022-10-31T15:35:04.399Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "p2": {
+            "application": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "esomx": {
+            "application": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "application": false
+          },
+          "electron": {
+            "application": false
+          },
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "application": false
+          },
+          "electron": {
+            "application": false
+          },
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# HttpClient for Particle Photon, P1 etc.\n\n**NOTE:** _This is a fork of the [original HttpClient](https://github.com/nmattisson/HttpClient) with a few fixes here and there for modern Particle development use._\n\nThis is a work in progress Http Client Library for the Spark Core. It is not ready for use other than for people who have very basic needs, or are willing to help with the development. Because of this, it is currently very verbose and makes heavy use of the serial connection so you can see what's going on. That said, if you are reasonably familiar with Arduino or embedded development you might find it useful. I am publishing it in this early stage mostly because I am myself just starting out with C++ and could use all the help I can get. If you find errors or bad code just let me know and I'll work on fixing it!\n\nThere are a couple other options that are probably better suited if you are using a vanilla Arduino and not a Spark Core. First is [Arduino HTTP library](https://github.com/amcewen/HttpClient) from Adrian McEwen. It depends on the Arduino Ethernet API Library though, which may or may not make sense in your implementation. Second there is [HTTPClient](https://github.com/interactive-matter/HTTPClient) from Interactive Matter but it also depends on the same Arduino Ethernet Library. Both of these libraries are orders of magnitude more mature than this one. In the future, it might very well make more sense to reuse a lot of code from these other libraries but to get rid of the dependencies rather than reimplementing things again.\n\n### Example usage\n\n```cpp\n#include \"Particle.h\"\n\n/**\n* Declaring the variables.\n*/\nunsigned int nextTime = 0;    // Next time to contact the server\nHttpClient http;\n\n// Headers currently need to be set at init, useful for API keys etc.\nhttp_header_t headers[] = {\n    //  { \"Content-Type\", \"application/json\" },\n    //  { \"Accept\" , \"application/json\" },\n    { \"Accept\" , \"*/*\"},\n    { NULL, NULL } // NOTE: Always terminate headers will NULL\n};\n\nhttp_request_t request;\nhttp_response_t response;\n\nvoid setup() {\n    Serial.begin(9600);\n}\n\nvoid loop() {\n    if (nextTime > millis()) {\n        return;\n    }\n\n    Serial.println();\n    Serial.println(\"Application>\\tStart of Loop.\");\n    // Request path and body can be set at runtime or at setup.\n    request.hostname = \"www.timeapi.org\";\n    request.port = 80;\n    request.path = \"/utc/now\";\n\n    // The library also supports sending a body with your request:\n    //request.body = \"{\\\"key\\\":\\\"value\\\"}\";\n\n    // Get request\n    http.get(request, response, headers);\n    Serial.print(\"Application>\\tResponse status: \");\n    Serial.println(response.status);\n\n    Serial.print(\"Application>\\tHTTP Response Body: \");\n    Serial.println(response.body);\n\n    nextTime = millis() + 10000;\n}\n\n\n```\n",
+  "allVersions": [
+    "0.1.3",
+    "0.1.2",
+    "0.1.1",
+    "0.1.0"
+  ]
+}

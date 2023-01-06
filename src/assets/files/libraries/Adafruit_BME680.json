@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME680",
     "version": "0.1.2",
-    "installs": 25959,
+    "installs": 30315,
     "license": "MIT License",
     "author": "Kaga",
     "sentence": "Library for running Adafruit BME680 on Particle Photon via I2C",
@@ -50,8 +50,63 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.701Z"
     }
   },
   "readme": "# Adafruit_BME680\n\nThis is a library for the Adafruit BME680 Humidity, Barometric Pressure, Temp and MOX Gas sensor\n\nDesigned specifically to work with the Adafruit BME680 Breakout\n\nhttp://www.adafruit.com/products/3660\n\nWritten by Adafruit Industries (https://github.com/adafruit/Adafruit_BME680) but\nmodified to work with Particle Photon & Core. All credits to them. \n\n## Example Wiring ( I2C )\n\n| BME680 | Particle Photon |\n| --- | ---\n| VIN | 3v3\n| GND | GND\n| SCK | D1\n| SDI | D0\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MAX31856TC",
     "version": "0.0.30",
-    "installs": 3536,
+    "installs": 3721,
     "license": "CC BY-SA 3.0",
     "author": "John Calcote <john.calcote@gmail.com>",
     "sentence": "A library for controlling and reading thermocouple probes using a MAX31856 chip",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.836Z"
     }
   },
   "readme": "This is the GitHub source code repository for the Photon MAX31856 library and example code for Photon.\n\nThis library offers the following features:\na. Returns both the junction (IC) and thermocouple temperatures\nb. Handles negative temperatures\nc. Returns thermocouple error codes, like open and voltage too high/low\nd. Returns an error if the MAX31856 isn’t communicating (wiring issue?)\ne. Automatic initialization of registers after losing power\n\nIn this folder are:\n1. README - this file\n2. firmware folder - the Arduino library and example code for driving the MAX31856\n\nLook for the MAX31856 breakout boards on www.whizoo.com and eBay (madeatrade)\nhttp://stores.ebay.com/madeatrade\n\nLibrary Implementation Details\n==============================\nDRDY and FAULT lines are not used in this driver. DRDY is useful for low-power mode so samples are only taken when needed; this driver assumes power isn't an issue. However, to use this line independently, merely monitor for a high signal on this line and read only when the line goes high. The logic level is reverted after each read. The FAULT line can be used to generate an interrupt in the host processor when a fault occurs.  This library reads the fault register every time a reading is taken, and will return a fault error if there is one.  The MAX31856 has sophisticated usage scenarios involving FAULT.  For example, low and high temperature limits can be set, and the FAULT line triggers when these temperatures are breached. This is beyond the scope of this sample library.  The assumption is that most applications will be polling for temperature readings - but it is good to know these features are supported by the hardware.\n\nThe MAX31856 differs from earlier thermocouple IC's in that it has registers that must be configured before readings can be taken.  This makes it very flexible and powerful, but one concern is power loss to the IC.  The IC should be as close to the cold junction as possible, which might mean there is a cable connecting the breakout board to the host processor.  If this cable is disconnected and reconnected (MAX31856 loses power) then the registers must be reinitialized.  This library detects this condition and will automatically reconfigure the registers.  This simplifies the software running on the host.\n\nA lot of configuration options appear in the .H file.  Of particular note is the line frequency filtering, which defaults to 60Hz (USA and others).  If your line voltage is 50Hz you should set CR0_NOISE_FILTER_50HZ.\n\nThis library handles the full range of temperatures, including negative temperatures.\n\n",

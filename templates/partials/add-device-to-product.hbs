@@ -1,0 +1,41 @@
+<div class="apiHelperAddDeviceToProduct apiHelperManualSetup"> 
+    <!-- api-helper, api-helper-extras, api-helper-usb -->
+    <table class="apiHelperTableNoMargin">
+        <tbody>            
+            <tr class="productIsSelected" style="display:none;">
+                <td>Selected Product</td>
+                <td class="selectedProductCell"></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr class="productIsSelected">
+                <td class="apiHelperProductSelectorLabel">Device to add</td>
+                <td><input type="text" size="40" class="deviceIdText" /></td>
+                <td class="addResult allResults"></td>
+            </tr>
+            <tr class="productIsSelected deviceInstructions">
+                <td colspan="3">Type or paste a Device ID or Serial Number into the field above. You can also insert the full text contents of the data matrix code on the serial number label.</td>
+            </tr>
+            <tr class="productIsSelected">
+                <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="claimDeviceCheckbox" checked/>Claim device your account (recommended)</label></td>
+                <td class="claimResult allResults"></td>
+            </tr>
+            <tr class="productIsSelected">
+                <td class="apiHelperProductSelectorLabel" colspan="2"><label><input type="checkbox" class="markDevelopmentCheckbox" checked/>Mark as development device(recommended)</label></td>
+                <td class="markDevelopmentResult allResults"></td>
+            </tr>
+            <tr class="productIsSelected">
+                <td class="apiHelperProductSelectorLabel"><label><input type="checkbox" class="nameDeviceCheckbox" checked />Name device</label></td>
+                <td><input type="text" size="20" class="deviceNameText" /></td>
+                <td class="nameResult allResults"></td>
+            </tr>
+            <tr class="productIsSelected">
+                <td colspan="2"><button class="addDeviceButton" disabled>Add device to product</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="statusMessage"></td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>            
+</div>

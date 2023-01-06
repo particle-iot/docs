@@ -25,7 +25,9 @@
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(TRACKER_PRODUCT_ID);
+#endif
 PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -81,7 +83,7 @@ int idleRPM = 1600;
 // Object for the CAN library. Note: The Tracker SoM has the CAN chip connected to SPI1 not SPI!
 MCP_CAN canInterface(CAN_CS, SPI1);   
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -93,7 +95,7 @@ void setup()
     Tracker::instance().init();
 
     // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Set up configuration settings
     static ConfigObject engineDesc("engine", {
@@ -251,7 +253,7 @@ void loop()
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     int nonIdleMean = nonIdleSamples ? (nonIdleSum / nonIdleSamples) : 0;
   

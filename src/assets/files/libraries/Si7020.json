@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Si7020",
     "version": "0.0.3",
-    "installs": 3854,
+    "installs": 4072,
     "license": "GNU GPL",
     "author": "Jakub Kaminski teoqba@gmail.com",
     "sentence": "Spark Core library for Si7020 humidity + temperature sensor",
@@ -50,8 +50,63 @@
           "boron": {
             "Si7020_example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Si7020_example": true
+          },
+          "electron": {
+            "Si7020_example": true
+          },
+          "argon": {
+            "Si7020_example": true
+          },
+          "boron": {
+            "Si7020_example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Si7020_example": true
+          },
+          "boron": {
+            "Si7020_example": true
+          },
+          "bsom": {
+            "Si7020_example": true
+          },
+          "b5som": {
+            "Si7020_example": true
+          },
+          "tracker": {
+            "Si7020_example": true
+          },
+          "p2": {
+            "Si7020_example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Si7020_example": true
+          },
+          "boron": {
+            "Si7020_example": true
+          },
+          "bsom": {
+            "Si7020_example": true
+          },
+          "b5som": {
+            "Si7020_example": true
+          },
+          "tracker": {
+            "Si7020_example": true
+          },
+          "esomx": {
+            "Si7020_example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.829Z"
     }
   },
   "readme": "#Si7020 Arduino & Spark Core Library and Breakout board #\n\nThe software is released under GNU License.   \nThe PCB design is released under Creative Commons License.\n\n## Library ##\n\nArduino and Spark Core library for Silicon Labs Si7020 relative humidity and temperature\nsensor. When using Arduino, copy the files from firmware to Arduino IDE library folder. \nThe sensor uses I2C communication. \n\n**USAGE:**  \nSee firmware/examples/Si7020\\_example.ino for basic usage.\n\n## Breakout ##\nBill of materials:\n- 1 x Si7020 [Mouser] (http://www.mouser.com/ProductDetail/Silicon-Labs/Si7020-A10-GM1/?qs=sGAEpiMZZMsrQJTAfdCBRL5%2fWaPBRwpVjGUfQvjZXAsH9hImHflyUA%3d%3d)\n- 2 x resistor 10kΩ [Digikey] (http://www.digikey.com/product-detail/en/ERJ-3GEYJ103V/P10KGCT-ND/134717)\n- 1 x capacitor 0.1uF [Digikey] (http://www.digikey.com/product-detail/en/GRM188R71C104KA01D/490-1532-1-ND/587771)\n- 1 x JST-SH 4pin [Digikey] (http://www.digikey.com/product-detail/en/SM04B-SRSS-TB(LF)(SN)/455-1804-1-ND/926875)\n\nFor the photo of assembled board see PCB/Si7020BB.jpg\n\n## Connecting to Arduino ##\n- VCC - Arduino 3.3V\n- SDA - Arduino pin A4\n- SCL - Arduino pin A5\n- GND - Arduino GND\n\n## Connecting to Spark Core ##\n- VCC - Spark 3.3V\n- SDA - Spark D0\n- SCL - Spark D1\n- GND - Spark GND\n\n",

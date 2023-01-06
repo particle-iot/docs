@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-rf24",
     "version": "0.0.2",
-    "installs": 19346,
+    "installs": 20078,
     "license": "GNU GENERAL PUBLIC LICENSE",
     "author": "Yunzhi Hou <public@stewarthou.me>",
     "sentence": "An implementation of TMRh20's optimized RF24 Library for the Particle Photon.",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.719Z"
     }
   },
   "readme": "# Particle-RF24\n\n## About\n\nAn implementation of [TMRh20's optimized RF24 Library](https://github.com/TMRh20/RF24) for the Particle Photon.\n\nUsed [Technobly's SparkCore-RF24 library](https://github.com/technobly/SparkCore-RF24) as a reference to make sure it is compatible with Particle Photon.\n\n## Design Goals\n\n* Fully API compatibility with [TMRh20's RF24 Library](https://github.com/TMRh20/RF24), can run [RF24's examples](https://github.com/TMRh20/RF24/tree/master/examples) without massive modification.\n* Fully communicationable with other devices runing [TMRh20's RF24 Library](https://github.com/TMRh20/RF24).\n* Fully compatible with [Particle Photon](https://www.particle.io/prototype#photon). (with Electron if I am able to test on the real device)\n* Can be included from Particle Build Web IDE.\n\n## Example Usage\n\nCheck firmware/examples folders. More examples are comming...\n\n## Circuit Diagram\n\nComming soon...\n\n## FAQ\n\n### Q: Why not just fork [TMRh20's RF24 Library](https://github.com/TMRh20/RF24) and add device support for Particle Photon?\n\nA: It is eaiser to port the RF library, because Particle Photon is kind of combination of Arduino and ARM. And it needs special folder structure to make library accessiable from Partible Build Web IDE.\n\n### Q: What if my device is damaged because of this library?\n\nA: 😱 I take no responsibility for any damage and/or injuries to you and/or devices caused by this library!!! Do not use this library in any killing robot 🤖️ or missile launcher 🚀 projects.\n\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Touch_4Wire",
     "version": "0.9.5",
-    "installs": 5808,
+    "installs": 5922,
     "license": "Adafruit",
     "author": "ScruffR / Adafruit",
     "sentence": "Adafruit 4-Wire-Touchscreen library (Compatible with Core 0.3.4ff, Photon/P1 0.4.3ff)",
@@ -58,8 +58,79 @@
             "BreakoutTouchPaint": false,
             "TouchScreenDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "electron": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "p2": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "bsom": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "b5som": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "tracker": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "esomx": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.801Z"
     }
   },
   "readme": "Touch-4Wire Library\r\n=======================\r\n\r\nThis is the 4-wire resistive touch screen firmware for Arduino - and Spark Core.\r\n\r\nFor Arduino\r\n-----------\r\nWorks with all Arduinos and the Mega\r\n\r\n\r\nTo install, click DOWNLOAD SOURCE in the top right corner, and rename the uncompressed folder \"TouchScreen\". See our tutorial at http://www.ladyada.net/library/arduino/libraries.html on Arduino Library installation\r\n\r\nFor Spark Core (ported by ScruffR - Nov. 2014)\r\n----------------------------------------------\r\nTo download go to https://github.com/ScruffR/touch_4wire\r\n\r\n\r\n",

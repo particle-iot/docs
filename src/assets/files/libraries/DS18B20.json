@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20",
     "version": "0.1.14",
-    "installs": 214601,
+    "installs": 228132,
     "license": "MIT",
     "author": "ScruffR (based on Lucas Figg's lib) ",
     "sentence": "DSB18XX Lib for Particle devices",
@@ -58,8 +58,79 @@
             "ds18b20_MultiDrop": true,
             "ds18b20_SingleDrop": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "electron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "bsom": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "b5som": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "tracker": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "p2": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "bsom": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "b5som": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "tracker": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "esomx": {
+            "ds18b20_MultiDrop": false,
+            "ds18b20_SingleDrop": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.644Z"
     }
   },
   "readme": "#DS18B20 Library for Particle Core, Photon and P1\r\nModified DS18BXX Lib copied from\r\nhttps://github.com/krvarma/Dallas_DS18B20_SparkCore\r\nSample application using Particle Photon and Dallas DS18B20 Digital Temperature\r\nSensor.\r\nThe OneWire source code is taken from this link by @tidwelltimj.\r\nI just separated this into two classes OneWire and DS18B20.\r\nThe sample code publishes a variable named tmpinfo with temperature value.\r\n\r\nRequires Particle-OneWire (included) from\r\nhttps://github.com/balbano/OneWire-Particle/tree/master/firmware\r\nWiring:\r\nPower to 3.3/5V\r\nGND to GND\r\nSignal to D2 (with 4.7k pullup resistor)\r\n\r\nUse crcCheck() to verify the sensor was successfully read.\r\n",

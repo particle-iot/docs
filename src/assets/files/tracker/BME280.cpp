@@ -6,7 +6,9 @@
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(PLATFORM_ID);
+#endif
 PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -23,7 +25,7 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
 Adafruit_BME280 bme(Wire3);
 bool hasSensor = false;
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -40,7 +42,7 @@ void setup()
     hasSensor = bme.begin(0x77);
     Log.info("hasSensor=%d", hasSensor);
 
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
 
     Particle.connect();
@@ -51,7 +53,7 @@ void loop()
     Tracker::instance().loop();
 }
 
-void locationGenerationCallback(JSONWriter &writer, 
+void myLocationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context)
 {
     if (hasSensor) {

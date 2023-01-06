@@ -42,3 +42,17 @@ div.sideBySide1 {
 select.carrierListSelect {
 	height: 31px;
 }
+
+@media (prefers-color-scheme: dark) {
+	div.countryPopup {
+		color: @COLOR_Gray_100;
+		background-color: @COLOR_Midnight_500;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	div.countryPopup {
+		color: @COLOR_Midnight_500;
+		background-color: @COLOR_Gray_100;
+	}
+}

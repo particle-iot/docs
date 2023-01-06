@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PDMGen3_RK",
     "version": "0.0.1",
-    "installs": 392,
+    "installs": 1038,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "PDM (pulse density modulation) library for Particle Gen 3 devices (Argon, Boron, Xenon)",
@@ -65,8 +65,79 @@
             "1-audio-over-tcp": true,
             "2-audio-over-tcp-16bit": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "electron": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          },
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "boron": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "boron": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "p2": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "boron": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "bsom": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "b5som": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "tracker": {
+            "1-audio-over-tcp": true,
+            "2-audio-over-tcp-16bit": true
+          },
+          "esomx": {
+            "1-audio-over-tcp": false,
+            "2-audio-over-tcp-16bit": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.015Z"
     }
   },
   "readme": "# PDM library (PDMGen3_RK)\n\n*PDM (pulse-density modulation) library for Particle Gen 3 devices (Argon, Boron, Xenon)*\n\nDigital MEMS microphones are commonly available in I2S and PDM interface. The I2S (sound) interface on the nRF52 unfortunately is not compatible with most I2S microphones. The PDM ([pulse-density modulation](https://en.wikipedia.org/wiki/Pulse-density_modulation)) interface, however, works quite well. \n\nPDM MEMS microphones are generally designed for voice use - not for high fidelity audio. The nRF52 samples it at around 16 kHz, with 12 to 16 bit samples. \n\nAdafruit has two breakout boards:\n\n- [For use in a breadboard](https://www.adafruit.com/product/3492) \n- [With JST-SH connector](https://www.adafruit.com/product/4346)\n\nBoth are US$4.95 and there is [more information available at Adafruit](https://learn.adafruit.com/adafruit-pdm-microphone-breakout/). The boards include a [MP34DT01-M](https://cdn-learn.adafruit.com/assets/assets/000/049/977/original/MP34DT01-M.pdf) (PDF datasheet).\n\nThe pins needed for Adafruit PDM microphones are:\n\n| Breakout Pin | Particle Pin | Description | Color |\n| --- | --- | --- | --- |\n| 3V | 3V3 | Power 3.3V | Red |\n| GND | GND | Ground | Black |\n| SEL | | Left/Right Select | No Connection |\n| CLK | A2 | PDM Clock | Blue | \n| DAT | A3 | PDM Data | Green | \n\n![Breadboard](images/mic.jpg)\n\n- SEL - Left/Right select. If this pin is high, the output is on the falling edge of CLK considered the 'Right' channel. If this pin is low, the output is on the rising edge, a.k.a 'Left' channel. Has a pull-down to default to left so you can leave it unconnected.\n- CLK - PDM clock into breakout board, 1 - 3 MHz square wave required.\n- DAT - PDM data out of breakout board\n\nParticle Gen 3 devices include a Nordic nRF52840 MCU. The nRF52 line includes a [hardware PDM decoder](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fhardware_driver_pdm.html), which is important because it's very processor intensive to decode PDM in software. The hardware decoder combined with DMA (direct memory access) makes it very efficient to read a PDM microphone.\n\n- Full [browsable API documentation](https://rickkas7.github.io/PDMGen3_RK/)\n- Repository: https://github.com/rickkas7/PDMGen3_RK\n- License: MIT\n\n## Examples\n\n### Audio over TCP (8-bit)\n\nThis example sends the data as 16000 Hz, mono, 8-bit data over TCP to a node.js server. The intention is to use this with an Argon over a local Wi-Fi network to a computer on the same network.\n\n- examples/1-audio-over-tcp\n\nWhen you press the MODE button the transmission will begin and the blue D7 LED will turn on. The recording will go for 30 seconds, or until you press the MODE button again. \n\nYou could easily modify the code to record longer, even indefinitely. It likely will not work  with a Boron over cellular as there is no compression of the data and the data rate is too high. It won't work with a Xenon over mesh because TCP is not supported on a mesh-only node, and also the data rate is too high.\n\nTo run the server:\n\n```\ncd server\nnpm install\nnpm start\n```\n\nWhen a client connects it creates a new file in the **out** directory. They're sequentially numbered and in wav format.\n\nMake sure you update the device firmware to specify the IP address of your node.js server!\n\n### Audio over TCP (16-bit)\n\nThis example is basically the same as the previous example but sends the data as 16000 Hz, mono, 16-bit instead of 8-bit. \n\n- examples/2-audio-over-tcp-16bit\n\nThe device firmware sends the data as raw PCM samples, so the server is also modified to generate the appropriate wav files.\n\n### SdFat Wav \n\nWhen you press the MODE button this example records audio to a SD card. Pressing MODE stops recording. Each press creates a new, sequentially numbered file in the **audio** directory on the SD card.\n\n- more-examples/1-sdfat\n\nThis example requires a lot of parts:\n\n- Gen 3 Particle Device (Argon, Boron, or Xenon)\n- SD card reader (connected by SPI)\n- PDM microphone\n\n![Breadboard](images/sdcard.jpg)\n\n\n## Version History\n\n#### 0.0.1 (2019-12-13)\n\n- Initial version\n\n\n\n",

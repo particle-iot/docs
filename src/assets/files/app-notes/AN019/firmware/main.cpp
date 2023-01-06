@@ -24,7 +24,9 @@
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(TRACKER_PRODUCT_ID);
+#endif
 PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -36,14 +38,14 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
 
 MCP9600 tempSensor;
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 
 void setup()
 {
     Tracker::instance().init();
 
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
 	// Turn on CAN power (needed when using M8 connector only)
     pinMode(CAN_PWR, OUTPUT);
@@ -83,7 +85,7 @@ void loop()
     }
 }
 
-void locationGenerationCallback(JSONWriter &writer, 
+void myLocationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context)
 {
     if (tempSensor.available()) {

@@ -1,12 +1,11 @@
 ---
-title: Device OS Versions
+title: Versions and upgrades
 layout: commonTwo.hbs
 columns: two
 description: Device OS versions, upgrades, and downgrades
 ---
 
-Device OS Versions, Upgrades, and Downgrades
-==========
+# {{title}}
 
 ## Introduction
 
@@ -40,6 +39,37 @@ LTS releases are, however, supported by an extended support window which address
 
 LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.0.0 is released, new feature development will occur in the 3.x.x release line with only important bug and security fixes back-ported to 2.x.x.
 
+{{!-- BEGIN shared-blurb d07841d1-c7b6-4d06-b89d-f906d454d2b7 --}}
+## Recommended LTS versions
+
+| Platform | Models | Previous LTS | Test With | Current LTS |
+| :--- | :--- | :--- | :--- | :--- | 
+| B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
+| B Series SoM | B404, B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
+| Boron | BRN404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
+| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+
+### Devices that must stay on 2.x LTS
+
+| Platform | Models | Current LTS |
+| :--- | :--- | :--- |
+| E Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} |
+| Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} |
+| P1 | | {{version mode="latestRelease" line="2"}} |
+| Photon | | {{version mode="latestRelease" line="2"}} |
+
+### Devices that cannot use LTS yet
+
+| Platform | Current Version |
+| :--- | :--- |
+| P2 | {{version mode="latestRelease" line="5"}} |
+
+{{!-- END shared-blurb --}}
+
 ## Upgrading Device OS
 
 ### OTA (over-the-air)
@@ -48,7 +78,7 @@ In general, flashing a version of your user firmware will automatically update t
 
 ### particle update (USB)
 
-Using the [Particle CLI](/tutorials/developer-tools/cli/) allows upgrading to the current default release over USB. This is a common option because it's generally faster than OTA, and does not use your cellular data allowance.
+Using the [Particle CLI](/getting-started/developer-tools/cli/) allows upgrading to the current default release over USB. This is a common option because it's generally faster than OTA, and does not use your cellular data allowance.
 
 - Put the device in DFU mode (blinking yellow) by holding down the MODE button and tapping RESET. Continue to hold down MODE while the device blinks magenta (red and blue at the same time) until it blinks yellow, then release. Or use the CLI:
 
@@ -66,7 +96,7 @@ Note that particle update actually updates Device OS to the version that was the
 
 ### Browser DFU
 
-Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/tools/device-programming/device-restore-usb/) for more information.
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/tools/device-restore/device-restore-usb/) for more information.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
@@ -100,7 +130,7 @@ Note the number of components that need to be flashed varies depending on the de
 - The SoftDevice ("radio stack") is rarely updated.
 - The only devices with an OTA programmable NCP are the Argon and Tracker SoM. The NCP is rarely updated.
 
-To find out the versions of the components on your device, use [`particle serial inspect`](https://support.particle.io/hc/en-us/articles/360057772154).
+To find out the versions of the components on your device, use [`particle serial inspect`](/troubleshooting/guides/device-troubleshooting/using-particle-serial-inspect/).
 
 Some components require DFU mode (`--usb`), blinking yellow. Some require listening mode (`--serial`), blinking dark blue. Some can use either. The recommended ordering of the component upgrades is as follows, as well:
 
@@ -165,7 +195,7 @@ Additional information can be found in the [JTAG and SWD Guide](/reference/devel
 
 ### Using Particle Workbench
 
-In [Particle Workbench](/tutorials/developer-tools/workbench/) you can also choose to upgrade or downgrade Device OS when flashing code.
+In [Particle Workbench](/getting-started/developer-tools/workbench/) you can also choose to upgrade or downgrade Device OS when flashing code.
 
 - Select the version of Device OS from the command palette using **Particle: Configure Project for Device**.
 - Use **Particle: Flash application and Device OS (local)**
@@ -257,7 +287,7 @@ While upgrades to Device OS are automatically handled by Safe Mode (breathing ma
 
 ### USB Downgrade - Browser
 
-Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/tools/device-programming/device-restore-usb/) for more information.
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/tools/device-restore/device-restore-usb/) for more information.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
@@ -281,7 +311,7 @@ The process to downgrade by USB is:
 
 | Release | Notes |
 | :--- | :--- |
-| [3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0) | Feature Release |
+| [3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0) | Developer Preview Release |
 | [2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0) | Latest 2.0 LTS |
 | [2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1) | First 2.0 LTS |
 | [1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2) | Last version before 2.0 LTS |
@@ -436,4 +466,4 @@ particle flash electron7 electron-bootloader@1.5.2+lto.bin
 Using a SWD/JTAG debugger such as the Particle Debugger, ST-LINK, or Segger J-Link, plus 
 [device restore images](/reference/developer-tools/jtag/#restore-binaries) make it restore a device to a known state or downgrade Device OS easily.
 
-With some combinations of browsers, an upgraded Particle Debugger, and a Gen 3 device, you can also do a [JTAG Device Restore](/tools/device-programming/device-restore-jtag/) with no software or app install required.
+With some combinations of browsers, an upgraded Particle Debugger, and a Gen 3 device, you can also do a [JTAG Device Restore](/tools/device-restore/device-restore-jtag/) with no software or app install required.

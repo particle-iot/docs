@@ -14,16 +14,15 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**
-- [B402 Datasheet](/datasheets/boron/b404x-b404-b402-datasheet/)
-- [B523 Datasheet](/datasheets/boron/b524-b523-datasheet/)
-- [Evaluation Board](/datasheets/boron/b-series-eval-board/)
-- [Certification](/datasheets/certifications/certification)
+- [B404X datasheet](/reference/datasheets/b-series/b404x-datasheet/)
+- [B524/B523 Datasheet](/reference/datasheets/b-series/b524-b523-datasheet/)
+- [Evaluation Board](/reference/datasheets/b-series/b-series-eval-board/)
+- [Certification](/hardware/certification/certification/)
 {{box op="switch"}}
 **Learn more:**
-- [Making your first SoM board](/tutorials/hardware-projects/som-first-board/)
-- [More advanced SoM board](/datasheets/app-notes/an001-basic-som-design/)
+- [Making your first SoM board](/hardware/b-series-som/som-first-board/)
+- [More advanced SoM board](/hardware/b-series-som/basic-som-design/)
 - [Community](https://community.particle.io/)
-- [Support](https://support.particle.io/hc/)
 {{box op="end"}}
 
 ## Models
@@ -33,11 +32,12 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 | B404X | u-blox SARA R510S-01B | LTE Cat M1 | United States, Canada, Mexico | 
 | B404  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
 | B402  | u-blox SARA R410M-02B | LTE Cat M1 | United States, Canada, Mexico |
-| B524  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe, Australia, New Zealand |
+| B524  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | EMEAA&dagger; |
 | B523  | Quectel EG91-E        | LTE Cat 1 with 3G and 2G fallback | Europe |
 
+&dagger; Selected countries in Europe, Middle East, Africa, and Asia, including Australia and New Zealand.
 
-<center>[Cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)</center>
+<center>[Cellular carrier list](/reference/cellular/cellular-carriers/)</center>
 
 ## Hardware specifications:
 
@@ -51,8 +51,7 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 - 1MB flash, 256KB RAM
 - Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
 
@@ -71,7 +70,7 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/boron-lte" target="_blank" class="button">BUY A BORON</a>
+<a href="https://store.particle.io/products/boron-lte-cat-m1-noram-with-ethersim-4th-gen" target="_blank" class="button">BUY A BORON</a>
 
 </div>
 -->

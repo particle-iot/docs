@@ -7,7 +7,7 @@
   "attributes": {
     "name": "relay-lib",
     "version": "3.0.0",
-    "installs": 1863,
+    "installs": 2154,
     "license": "MIT",
     "author": "Daniel Sullivan <mumblepins@gmail.com>",
     "sentence": "A simple relay control library",
@@ -58,8 +58,79 @@
             "control-everything-shield-demo": false,
             "relay-shield-demo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "electron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "bsom": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "b5som": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "tracker": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "p2": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "bsom": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "b5som": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "tracker": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "esomx": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.887Z"
     }
   },
   "readme": "About\n===\nBasic relay control library.  Based off of http://awtfy.com/2011/07/14/a-too-simple-arduino-library-for-handling-the-seeeduino-relay-shield-and-generic-relays/\n",

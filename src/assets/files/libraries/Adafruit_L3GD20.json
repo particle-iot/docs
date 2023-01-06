@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_L3GD20",
     "version": "0.1.2",
-    "installs": 541,
+    "installs": 608,
     "license": "Adafruit",
     "author": "kennethlimcp / Adafruit / marksherman",
     "sentence": "Adafruit_L3GD20/H for Particle",
@@ -50,8 +50,63 @@
           "boron": {
             "Adafruit_L3GD20_test": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Adafruit_L3GD20_test": true
+          },
+          "electron": {
+            "Adafruit_L3GD20_test": true
+          },
+          "argon": {
+            "Adafruit_L3GD20_test": true
+          },
+          "boron": {
+            "Adafruit_L3GD20_test": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Adafruit_L3GD20_test": true
+          },
+          "boron": {
+            "Adafruit_L3GD20_test": true
+          },
+          "bsom": {
+            "Adafruit_L3GD20_test": true
+          },
+          "b5som": {
+            "Adafruit_L3GD20_test": true
+          },
+          "tracker": {
+            "Adafruit_L3GD20_test": true
+          },
+          "p2": {
+            "Adafruit_L3GD20_test": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Adafruit_L3GD20_test": true
+          },
+          "boron": {
+            "Adafruit_L3GD20_test": true
+          },
+          "bsom": {
+            "Adafruit_L3GD20_test": true
+          },
+          "b5som": {
+            "Adafruit_L3GD20_test": true
+          },
+          "tracker": {
+            "Adafruit_L3GD20_test": true
+          },
+          "esomx": {
+            "Adafruit_L3GD20_test": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.023Z"
     }
   },
   "readme": "This is a library for the Adafruit Triple-Axis Gyro sensor\n\nDesigned specifically to work with the Adafruit L3GD20/L3GD20H Breakout \n  ----> https://www.adafruit.com/products/1032\n\nThese sensors use I2C or SPI to communicate, 2 pins (I2C) or 4 pins (SPI) \nare required to interface.\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n\nWritten by Kevin Townsend for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_L3GD20. Check that the Adafruit_L3GD20 folder contains Adafruit_L3GD20.cpp and Adafruit_L3GD20.h\n\nPlace the Adafruit_L3GD20 library folder your (arduinosketchfolder)/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.",

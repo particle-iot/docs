@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TimeLord",
     "version": "0.0.1",
-    "installs": 6556,
+    "installs": 7225,
     "license": "mixed; be aware this contains a patchwork of code",
     "author": "Rob Cermak; based on https://github.com/probonopd/TimeLord",
     "sentence": "Port of an Arduino library with many time and date related functions.",
@@ -59,8 +59,79 @@
             "SunriseSunset": false,
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "electron": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "argon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "bsom": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "b5som": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "tracker": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "p2": {
+            "SunriseSunset": false,
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "bsom": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "b5som": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "tracker": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "esomx": {
+            "SunriseSunset": false,
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.788Z"
     }
   },
   "readme": "# TimeLord\n\nMany time and date related functions... Daylight Savings, Moon Phase, Sidereal time, with the SunRise library rolled in.\n\nMirrored from http://swfltek.com/arduino/\n",

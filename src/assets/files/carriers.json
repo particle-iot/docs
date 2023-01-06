@@ -4193,7 +4193,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -4524,7 +4526,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850",
@@ -5654,7 +5657,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1900",
@@ -5988,7 +5992,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -6202,7 +6207,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -6536,7 +6542,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -6800,7 +6808,7 @@
       "bands": [
         "2G-850",
         "2G-1900",
-        "3G-4",
+        "3G-5",
         "LTE-4"
       ],
       "supersim": {
@@ -6859,7 +6867,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -7196,7 +7205,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -7252,7 +7262,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -7900,7 +7911,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850",
@@ -8146,7 +8158,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -8490,7 +8503,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -9159,7 +9173,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -9322,7 +9337,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1800",
@@ -9409,7 +9425,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -10131,7 +10149,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -10854,7 +10873,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -11002,7 +11022,10 @@
       },
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-1",
+        "LTE-3",
+        "LTE-20"
       ]
     },
     {
@@ -11021,7 +11044,9 @@
       },
       "bands": [
         "2G-900",
-        "3G-1"
+        "3G-1",
+        "LTE-3",
+        "LTE-20"
       ]
     },
     {
@@ -11260,7 +11285,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -12053,7 +12079,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -12412,7 +12439,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -12537,7 +12565,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850"
@@ -13054,7 +13084,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -13814,7 +13846,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-1900",
@@ -15316,18 +15349,6 @@
     {
       "country": "Saudi Arabia",
       "carrier": "Al Jawal",
-      "telefonicaBundle2018": {
-        "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -15347,29 +15368,13 @@
         "3G-1",
         "LTE-3",
         "LTE-38"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Saudi Arabia",
       "carrier": "STC",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.1
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -15386,29 +15391,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
-      "telefonicaBundle2018": {
-        "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 4,
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -15420,7 +15402,8 @@
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowLTE": true
+        "allowLTE": true,
+        "prohibited": true
       }
     },
     {
@@ -15995,7 +15978,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -16472,7 +16456,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900",
@@ -17143,7 +17128,9 @@
         "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-900"
@@ -17209,7 +17196,8 @@
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "bands": [
         "2G-850",
@@ -17344,6 +17332,12 @@
       "carrier": "Vodafone",
       "sunset2G": "2025",
       "sunset3G": "2020",
+      "koreOneNet": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "roamingRestrictions": "hide"
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17909,7 +17903,8 @@
       "sunset3G": "2021-12-31",
       "lteM1": true,
       "supersim": {
-        "allow3G": true,
+        "allow2G": false,
+        "allow3G": false,
         "allowCat1": true,
         "allowM1": true,
         "preferredRate": true,
@@ -17917,20 +17912,18 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "koreNORAM": {
         "allowM1": true
       },
       "bands": [
-        "3G-2",
-        "3G-5",
         "LTE-2",
         "LTE-4",
         "LTE-5",
@@ -17942,7 +17935,8 @@
         "LTE-66"
       ],
       "noBands": [
-        "2G"
+        "2G",
+        "3G"
       ]
     },
     {
@@ -18040,38 +18034,37 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
+        "allowM1": 5,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true
       },
       "bands": [
         "2G-1900",
-        "3G-2",
-        "3G-4",
         "LTE-2",
         "LTE-4",
         "LTE-5",
@@ -18438,16 +18431,17 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1"
+        "3G-1",
+        "LTE-4",
+        "LTE-13"
       ],
-      "noBands": [
-        "LTE"
-      ]
+      "noBands": []
     },
     {
       "country": "Virgin Islands (British)",
@@ -18462,6 +18456,7 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "paygRate": 0.15
       },
       "telefonicaBundle2018": {
@@ -18472,21 +18467,23 @@
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "allowCat1": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
+        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
         "2G-850",
         "2G-1900",
-        "3G-1"
+        "3G-1",
+        "LTE-2",
+        "LTE-12"
       ],
-      "noBands": [
-        "LTE"
-      ],
+      "noBands": [],
       "koreOneNet": {
         "allow2G": true,
         "allow3G": true
@@ -18962,7 +18959,7 @@
       ],
       "description": "Kore/Vodafone OneNet",
       "countryInfoLabel": "OneNet",
-      "countryCarrierKey": "koreOneNet"
+      "countryCarrierKey": "koreAllNet"
     },
     {
       "id": 21,
@@ -19088,34 +19085,42 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ADPT",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ACC-DEBUG",
       "desc": "Particle Debugger, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "DEBG",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ACC-POE",
       "desc": "Power-over-Ethernet Module",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "APOE",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ARG-AQKT",
       "desc": "Argon Air Quality Monitor Kit [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19132,19 +19137,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P011",
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARG-LDKT",
       "desc": "Argon Leak Detection Kit [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19161,12 +19166,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P013",
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARG-STRTKT",
       "desc": "Argon Starter Kit [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19183,19 +19192,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P010",
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARGN-H",
       "desc": "Argon [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19212,19 +19221,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10
+      "prefix": "ARNH",
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARGNKIT",
       "desc": "Argon, Starter Kit  [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": false,
       "wifi": true,
       "gen": "3",
@@ -19241,19 +19250,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10
+      "prefix": "ARNK",
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ARGNTRAY50",
       "desc": "Argon, Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "3",
@@ -19270,18 +19279,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "ARNT",
+      "platformId": 12,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ASSET2GV2",
       "desc": "Asset Tracker 2G",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -19298,12 +19308,16 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "A35K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "ASSET3G260V2",
       "desc": "Asset Tracker 3G (Americas/Aus)",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -19320,12 +19334,16 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "A26K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "ASSET3G270V2",
       "desc": "Asset Tracker 3G (Eur/Asia/Afr)",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -19342,7 +19360,11 @@
       "gnssAntIntInc": true,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "A27K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "B402MEA",
@@ -19368,13 +19390,14 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P006",
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B402MTY",
@@ -19400,18 +19423,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P007",
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404MEA",
-      "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -19431,17 +19452,18 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P033",
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404MTY",
-      "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
@@ -19462,17 +19484,15 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P033",
+      "platformId": 23,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404XMEA",
-      "desc": "B Series LTE CAT-M1 (NorAm), [x1]",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
@@ -19485,18 +19505,26 @@
       "gen": "3",
       "skuClass": "production",
       "skuRegion": "noram",
-      "cellAnt": "ANTCW2EA",
+      "cellAnt": "PARANTC41EA",
       "cellAntInc": true,
       "bleAntInt": false,
       "bleAntIntInc": false,
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": true,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P042",
+      "platformId": 23,
+      "batteryConn": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B404XMTY",
-      "desc": "B Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "B Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
@@ -19509,14 +19537,22 @@
       "gen": "3",
       "skuClass": "production",
       "skuRegion": "noram",
-      "cellAnt": "ANTCW2EA",
+      "cellAnt": "PARANTC41EA",
       "cellAntInc": false,
       "bleAntInt": false,
       "bleAntIntInc": false,
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P042",
+      "platformId": 23,
+      "batteryConn": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "B523MEA",
@@ -19543,13 +19579,14 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P019",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "B523MTY",
@@ -19576,17 +19613,15 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P020",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "B524MEA",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe) [x1]",
+      "desc": "B Series LTE CAT-1/3G/2G (Europe, EtherSIM) [x1]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "sim": 4,
@@ -19607,17 +19642,18 @@
       "bleAntExtInc": true,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P034",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "B524MTY",
-      "desc": "B Series LTE CAT-1/3G/2G (Europe), Tray [x50]",
+      "desc": "B Series LTE CAT-1/3G/2G (Europe, EtherSIM), Tray [x50]",
       "lifecycle": "GA",
       "modem": "EG91-E",
       "multiple": true,
@@ -19638,34 +19674,40 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P034",
+      "platformId": 25,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "BAT1800",
       "desc": "Li-Po Battery, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "BATT18MOD50",
       "desc": "Li-Po Battery, [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "BA50",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "BRN310KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "BRN314KIT",
       "modem": "U201",
       "sim": 2,
@@ -19689,12 +19731,19 @@
       "nfcAntExt": true,
       "nfcAntExtInc": false,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B31K",
+      "platformId": 13,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN310TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "BRN314TRAY50",
       "modem": "U201",
       "multiple": true,
@@ -19717,18 +19766,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B31T",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN314KIT",
       "desc": "Boron 2G/3G (Global) Starter Kit, [x1]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "NRND",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -19749,20 +19799,20 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
       "batteryConn": true,
-      "maxOrder": 5
+      "prefix": "P027",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN314TRAY50",
       "desc": "Boron 2G/3G (Global), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -19783,18 +19833,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P027",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "BRN402",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404",
       "modem": "R410",
       "sim": 3,
@@ -19816,18 +19867,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B40H",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN402-AQKT",
       "desc": "Boron LTE CAT-M1 (NorAm) Air Quality Monitor Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 3,
       "simPlans": [
@@ -19848,12 +19897,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P012",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN402KIT",
       "desc": "Boron LTE CAT-M1 (NorAm), Starter Kit [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "BRN404KIT",
       "modem": "R410",
       "sim": 3,
@@ -19875,18 +19928,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B40K",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN402TRAY50",
       "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "BRN404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -19908,18 +19959,19 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "B40T",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404",
       "desc": "Boron LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -19940,18 +19992,16 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P028",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404KIT",
-      "desc": "Boron LTE CAT-M1 (NorAm), Starter Kit [x1]",
-      "lifecycle": "GA",
+      "desc": "Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1]",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -19972,18 +20022,15 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "maxOrder": 10
+      "prefix": "P028",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404TRAY50",
-      "desc": "Boron LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "Boron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
@@ -20005,13 +20052,11 @@
       "bleAntExtInc": false,
       "nfcAntExt": true,
       "nfcAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P028",
+      "platformId": 13,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404X",
@@ -20029,18 +20074,26 @@
       "gen": "3",
       "skuClass": "prototyping",
       "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
+      "cellAnt": "PARANTC41EA",
       "cellAntInc": true,
       "bleAntInt": "chip",
       "bleAntIntInc": true,
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P044",
+      "platformId": 13,
+      "batteryConn": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404XKIT",
-      "desc": "Boron LTE CAT-M1 (NorAm) Starter Kit, [x1]",
+      "desc": "Boron LTE CAT-M1 (NorAm, EtherSIM), Starter Kit [x1]",
       "lifecycle": "GA",
       "modem": "R510",
       "sim": 4,
@@ -20054,14 +20107,22 @@
       "gen": "3",
       "skuClass": "kit",
       "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
+      "cellAnt": "PARANTC41EA",
       "cellAntInc": true,
       "bleAntInt": "chip",
       "bleAntIntInc": true,
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P044",
+      "platformId": 13,
+      "batteryConn": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "BRN404XTRAY50",
@@ -20079,19 +20140,27 @@
       "gen": "3",
       "skuClass": "prototyping",
       "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
+      "cellAnt": "PARANTC41EA",
       "cellAntInc": false,
       "bleAntInt": "chip",
       "bleAntIntInc": true,
       "bleAntExt": "ANT-FLXV2",
       "bleAntExtInc": false,
       "nfcAntExt": true,
-      "nfcAntExtInc": false
+      "nfcAntExtInc": false,
+      "prefix": "P044",
+      "platformId": 13,
+      "batteryConn": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "E260KIT",
       "desc": "Electron 2G/3G (Americas/Aus) Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "U260",
       "sim": 1,
@@ -20107,12 +20176,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E26K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E260TRAY50",
       "desc": "Electron 2G/3G (Americas/Aus), Tray [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "U260",
       "multiple": true,
@@ -20127,12 +20200,16 @@
       "skuRegion": "americas",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E26T",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E270KIT",
       "desc": "Electron 2G/3G (EMEA) Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "U270",
       "sim": 1,
@@ -20148,12 +20225,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E27K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E270TRAY50",
       "desc": "Electron 2G/3G (EMEA), Tray [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "ELC314TY",
       "modem": "U270",
       "multiple": true,
@@ -20168,12 +20249,19 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E27T",
+      "platformId": 10,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E310KIT",
       "desc": "E Series 2G/3G (Global - E310) Evaluation Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "E314KIT",
       "modem": "U201",
       "sim": 1,
@@ -20190,12 +20278,19 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E31K",
+      "platformId": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E310MOD1",
       "desc": "E Series 2G/3G (Global - E310), [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "E314MOD1",
       "modem": "U201",
       "sim": 1,
@@ -20211,12 +20306,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E31M",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E310TRAY50",
       "desc": "E Series 2G/3G (Global - E310), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 1,
@@ -20231,18 +20330,19 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E31T",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E313EA",
       "desc": "E Series 2G/3G (Global - E313), [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 2,
       "simPlans": [
@@ -20257,7 +20357,11 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P005",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E313TRAY50",
@@ -20277,12 +20381,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P005",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E314KIT",
       "desc": "E Series 2G/3G (Global - E314) Evaluation Kit, [x1]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "NRND",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -20297,20 +20405,20 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
       "batteryConn": true,
-      "noProduction": true
+      "prefix": "P029",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E314MOD1",
       "desc": "E Series 2G/3G (Global - E314), [x1]",
-      "lifecycle": "NRND-US",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "sim": 4,
       "simPlans": [
@@ -20325,19 +20433,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "noProduction": true
+      "prefix": "P029",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E314TRAY50",
       "desc": "E Series 2G/3G (Global - E314), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20352,19 +20457,19 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryConn": true,
-      "noProduction": true
+      "prefix": "P029",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "E350KIT",
       "desc": "Electron 2G Kit (Global)",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "G350",
       "sim": 1,
       "simPlans": [
@@ -20378,12 +20483,16 @@
       "cellAnt": "ANTELEC",
       "cellAntInc": true,
       "batteryConn": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "E35K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E350TRAY50",
       "desc": "Electron 2G (Global), Tray [x50]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "ELC314TY",
       "modem": "G350",
       "multiple": true,
@@ -20398,12 +20507,16 @@
       "skuRegion": "global",
       "cellAnt": "ANTELEC",
       "cellAntInc": false,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E35T",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "E402KIT",
       "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "replacement": "E404KIT",
       "modem": "R410",
       "sim": 3,
@@ -20420,12 +20533,19 @@
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E40K",
+      "platformId": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "E402MOD1",
       "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "replacement": "E404MOD1",
       "modem": "R410",
       "sim": 3,
@@ -20441,12 +20561,16 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E40M",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E402TRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "E404TRAY50",
       "modem": "R410",
       "multiple": true,
@@ -20462,18 +20586,19 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E40T",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E404KIT",
-      "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "NRND-US",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20488,19 +20613,20 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
       "batteryInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P030",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "E404MOD1",
-      "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "NRND-US",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "NRND",
       "modem": "R410",
       "sim": 4,
       "simPlans": [
@@ -20515,17 +20641,18 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P030",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "E404TRAY50",
-      "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
       "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
@@ -20541,18 +20668,42 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
+      "batteryConn": true,
+      "prefix": "P030",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "E404XTRAY50",
+      "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "modem": "R510",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "e series",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "PARANTC41EA",
+      "cellAntInc": false,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P052",
+      "platformId": 10,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "modem": "U201",
       "multiple": true,
       "sim": 4,
@@ -20566,13 +20717,14 @@
       "skuRegion": "global",
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P035",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "ELC402EA",
@@ -20593,12 +20745,16 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": true,
       "cellAntAlt": "ANTCW2EA",
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E4DK",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ELC402TY",
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "ELC404TY",
       "modem": "R410",
       "multiple": true,
@@ -20614,18 +20770,19 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "E4DT",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "ELC404TY",
-      "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "NRND-US",
+      "desc": "Electron LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "Deprecated",
       "modem": "R410",
       "multiple": true,
       "sim": 4,
@@ -20640,13 +20797,11 @@
       "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
       "cellAntAlt": "ANTCW2EA",
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "P036",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "FWNG-ETH",
@@ -20654,22 +20809,26 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ETHW",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-INA219",
       "desc": "Adafruit INA219 FeatherWing, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-OLED",
@@ -20677,14 +20836,12 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-PWRLY",
@@ -20692,14 +20849,12 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "low",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "FWNG-TRP",
@@ -20707,14 +20862,13 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "TRPW",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M2EVAL",
@@ -20722,44 +20876,93 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "P008",
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "M8CAB3VEA",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x1]",
-      "lifecycle": "Sampling",
+      "lifecycle": "In development",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CAB3VTY",
       "desc": "M8 Accessory Cable 3.3V Power, 3.3V Logic (Straight), [x40]",
-      "lifecycle": "Sampling",
+      "lifecycle": "In development",
       "accessory": true,
       "multiple": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "M8CABEA",
+      "desc": "M8 Accessory Cable 5V Power 3.3V Logic (Straight), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "prefix": "己出貨430PCS，暫不能改",
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "M8CABRAEA",
+      "desc": "M8 Accessory Cable (Right Angle), [x1]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "prefix": "己出貨500PCS，暫不能改",
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "M8CABRATY",
+      "desc": "M8 Accessory Cable (Right Angle), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "M8CABTY",
+      "desc": "M8 Accessory Cable (Straight), [x40]",
+      "lifecycle": "GA",
+      "accessory": true,
+      "multiple": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CONNEA",
@@ -20767,14 +20970,12 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "10 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8CONNTY",
@@ -20782,14 +20983,12 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "10 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8TEMPHUMIEA",
@@ -20797,14 +20996,12 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": false,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "M8TEMPHUMITY",
@@ -20812,19 +21009,17 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "14 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONE402MEA",
       "desc": "Tracker One LTE M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "ONE404MEA",
       "modem": "BG96-MC",
       "sim": 3,
@@ -20850,14 +21045,11 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
-      "maxOrder": 2
+      "prefix": "P024",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE402MTY",
@@ -20888,17 +21080,15 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P024",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE404MEA",
-      "desc": "Tracker One LTE M1 (NorAm), [x1]",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "BG96-MC",
       "sim": 4,
@@ -20924,19 +21114,19 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P031",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE404MTY",
-      "desc": "Tracker One LTE M1 (NorAm), Bulk [x40]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40]",
+      "lifecycle": "GA",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -20961,13 +21151,88 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P031",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
+    },
+    {
+      "name": "ONE404XMEA",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "modem": "BG96-MC",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "both",
+      "skuRegion": "noram",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P047",
+      "usb": "c",
+      "batteryRequired": false
+    },
+    {
+      "name": "ONE404XMTY",
+      "desc": "Tracker One LTE M1 (NorAm, EtherSIM), Bulk [x40]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P047",
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "ONE523MEA",
@@ -20999,19 +21264,19 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
       "batteryInc": true,
-      "maxOrder": 5
+      "prefix": "P025",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE523MTY",
       "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "ONE524MTY",
       "modem": "EG91-EX",
       "sim": 2,
@@ -21038,18 +21303,18 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P025",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE524MEA",
-      "desc": "Tracker One LTE CAT1/3G/2G (Europe), [x1]",
+      "desc": "Tracker One LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
       "lifecycle": "GA",
       "modem": "EG91-EX",
       "sim": 4,
@@ -21075,19 +21340,19 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P032",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONE524MTY",
-      "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker One CAT1/3G/2G (Europe, EtherSIM), Bulk [x40]",
+      "lifecycle": "GA",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -21112,13 +21377,88 @@
       "nfcAntExtInc": true,
       "gnssAntInt": true,
       "gnssAntIntInc": true,
-      "moq": 40,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true,
-      "batteryInc": true
+      "batteryInc": true,
+      "prefix": "P032",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": true
+    },
+    {
+      "name": "ONE524XMEA",
+      "desc": "Tracker One CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "both",
+      "skuRegion": "emeaa",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P048",
+      "usb": "c",
+      "batteryRequired": true
+    },
+    {
+      "name": "ONE524XMTY",
+      "desc": "Tracker One CAT1/3G/2G (Europe), Bulk [x40]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "1",
+      "cellAntInc": true,
+      "wifiAntInt": "1",
+      "wifiAntIntInc": true,
+      "wifiAntExt": false,
+      "bleAntInt": true,
+      "bleAntIntInc": true,
+      "bleAntExt": false,
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": true,
+      "gnssAntInt": true,
+      "gnssAntIntInc": true,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "batteryInc": true,
+      "platformId": 26,
+      "prefix": "P048",
+      "usb": "c",
+      "batteryRequired": true
     },
     {
       "name": "ONEM8CABEA",
@@ -21133,7 +21473,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "low",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONEM8CABRAEA",
@@ -21148,7 +21490,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONEM8CABRATY",
@@ -21163,7 +21507,9 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "ONEM8CABTY",
@@ -21178,12 +21524,14 @@
       "leadTime": "12 weeks",
       "allocation": false,
       "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P0MOD10",
       "desc": "P0 Wi-Fi Module, Cut tape [x10]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21193,7 +21541,11 @@
       "wifiAntInt": false,
       "wifiAntIntInc": false,
       "wifiAntExt": true,
-      "wifiAntExtInc": false
+      "wifiAntExtInc": false,
+      "prefix": "P0MD",
+      "platformId": 6,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P0REEL",
@@ -21209,17 +21561,15 @@
       "wifiAntIntInc": false,
       "wifiAntExt": true,
       "wifiAntExtInc": false,
-      "moq": 1,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "35 weeks",
-      "allocation": true
+      "prefix": "",
+      "platformId": 6,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P1MOD10",
       "desc": "P1 Wi-Fi Module, Cut tape [x10]",
-      "lifecycle": "GA",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21230,17 +21580,18 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 10,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "36 weeks",
-      "allocation": true
+      "prefix": "P1MD",
+      "platformId": 8,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "P1REEL",
       "desc": "P1 Wi-Fi Module, Reel [x500]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21251,17 +21602,148 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 500,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "50 weeks",
-      "allocation": true
+      "prefix": "",
+      "platformId": 8,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "P2MOD10",
+      "desc": "P2 Wi-Fi Module, Cut tape [x10]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "prefix": "P046",
+      "platformId": 32,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "P2REEL",
+      "desc": "P2 Wi-Fi Module, Reel [x600]",
+      "lifecycle": "GA",
+      "multiple": true,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "production",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "prefix": "P046",
+      "platformId": 32,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "PHN2KIT",
+      "desc": "Photon 2, Kit [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
+      "enterprise": false,
+      "wholesale": false,
+      "retail": false,
+      "prefix": "P051",
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
+    },
+    {
+      "name": "PHN2MEA",
+      "desc": "Photon 2, [x1]",
+      "lifecycle": "In development",
+      "multiple": false,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "prefix": "P051",
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
+    },
+    {
+      "name": "PHN2MTY",
+      "desc": "Photon 2, Tray [x50]",
+      "lifecycle": "In development",
+      "multiple": true,
+      "wifi": true,
+      "gen": "3",
+      "family": "p series",
+      "skuClass": "prototyping",
+      "skuRegion": "global",
+      "wifiAntInt": "trace",
+      "wifiAntIntInc": true,
+      "wifiAntExt": "4",
+      "wifiAntExtInc": false,
+      "bleAntInt": "trace",
+      "bleAntIntInc": true,
+      "bleAntExt": "4",
+      "bleAntExtInc": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "prefix": "P051",
+      "platformId": 32,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHNTRAYH",
       "desc": "Photon with Headers, Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21272,17 +21754,18 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "54 weeks",
-      "allocation": true
+      "prefix": "PHHT",
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHNTRAYNOH",
       "desc": "Photon without Headers, Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "multiple": true,
       "wifi": true,
       "gen": "2",
@@ -21293,17 +21776,18 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "54 weeks",
-      "allocation": true
+      "prefix": "PHNT",
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHOTONH",
       "desc": "Photon with Headers, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21314,17 +21798,15 @@
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
       "wifiAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "54 weeks",
-      "allocation": true
+      "prefix": "PHHM",
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHOTONKIT",
       "desc": "Photon with Headers Starter Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21334,12 +21816,16 @@
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
-      "wifiAntExtInc": false
+      "wifiAntExtInc": false,
+      "prefix": "PHHK",
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PHOTONNOH",
       "desc": "Photon without Headers, Dev board Kit [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "multiple": false,
       "wifi": true,
       "gen": "2",
@@ -21349,30 +21835,46 @@
       "wifiAntInt": "chip",
       "wifiAntIntInc": true,
       "wifiAntExt": "3",
-      "wifiAntExtInc": false
+      "wifiAntExtInc": false,
+      "prefix": "PHNM",
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "PROGSHIELD",
       "desc": "Programmer Shield, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "PRGS",
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "PWRSHIELDH",
       "desc": "Power Shield with Headers, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "PWRH",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "RLYSHIELD",
       "desc": "Relay Shield",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "RLYS",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMBLANK50",
@@ -21380,14 +21882,13 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
-      "retail": true,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "retail": false,
+      "skuRegion": "global",
+      "prefix": "SM50",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMBLANKV2",
@@ -21395,14 +21896,13 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ESM1",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMBLANKV2_50",
@@ -21410,29 +21910,24 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": true,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "no",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "ESM5",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SIMTELE",
       "desc": "SIM Card, [x1]",
-      "lifecycle": "GA",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "8 weeks",
-      "allocation": false,
-      "inStock": "low",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "SMTE",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SNSR-GRVKIT",
@@ -21440,19 +21935,17 @@
       "lifecycle": "GA",
       "accessory": true,
       "multiple": false,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "16 weeks",
-      "allocation": false,
-      "inStock": "yes",
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "SNSRKIT3G260",
       "desc": "Electron 3G (Americas/Aus) Sensor Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "modem": "U260",
       "sim": 1,
       "simPlans": [
@@ -21466,12 +21959,16 @@
       "skuRegion": "americas",
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "S26K",
+      "platformId": 10,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "SNSRKIT3G270",
       "desc": "Electron 3G (Eur/Asia/Afr) Sensor Kit, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "NRND",
       "modem": "U270",
       "sim": 1,
       "simPlans": [
@@ -21485,20 +21982,31 @@
       "skuRegion": "emeaa",
       "cellAnt": "ANT-ELEC",
       "cellAntInc": true,
-      "batteryConn": true
+      "batteryConn": true,
+      "prefix": "S27K",
+      "platformId": 10,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "SPKBTTN",
       "desc": "Internet Button, [x1]",
-      "lifecycle": "End of life",
+      "lifecycle": "Deprecated",
       "accessory": true,
       "multiple": false,
-      "skuRegion": "global"
+      "skuRegion": "global",
+      "prefix": "PBTN",
+      "platformId": 6,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "T402MEA",
       "desc": "Tracker SoM LTE M1 (NorAm), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T404MEA",
       "modem": "BG96-MC",
       "sim": 3,
@@ -21526,17 +22034,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P024",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T402MKIT",
       "desc": "Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T404MKIT",
       "modem": "BG96-MC",
       "sim": 3,
@@ -21564,17 +22070,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P024",
+      "platformId": 26,
+      "usb": "c",
+      "batteryRequired": false
     },
     {
       "name": "T402MTY",
       "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "lifecycle": "NRND",
       "replacement": "T404MTY",
       "modem": "BG96-MC",
       "multiple": true,
@@ -21602,17 +22106,18 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P024",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T404MEA",
-      "desc": "Tracker SoM LTE M1 (NorAm), [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "sim": 4,
       "simPlans": [
@@ -21639,17 +22144,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P031",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T404MKIT",
-      "desc": "Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "Deprecated",
       "modem": "BG96-MC",
       "sim": 4,
       "simPlans": [
@@ -21676,17 +22179,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P031",
+      "platformId": 26,
+      "usb": "micro-b",
+      "batteryRequired": false
     },
     {
       "name": "T404MTY",
-      "desc": "Tracker SoM LTE M1 (NorAm), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "NRND",
       "modem": "BG96-MC",
       "multiple": true,
       "sim": 4,
@@ -21713,17 +22214,132 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P031",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "T404XMEA",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P047",
+      "usb": false,
+      "batteryRequired": false
+    },
+    {
+      "name": "T404XMKIT",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "eval",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": true,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P047",
+      "usb": "micro-b",
+      "batteryRequired": false
+    },
+    {
+      "name": "T404XMTY",
+      "desc": "Tracker SoM LTE M1 (NorAm, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "modem": "BG96-MC",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "noram",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": false,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "platformId": 26,
+      "prefix": "P047",
+      "usb": false,
+      "batteryRequired": false
     },
     {
       "name": "T523MEA",
       "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "replacement": "T524MEA",
       "modem": "EG91-EX",
       "sim": 2,
@@ -21752,12 +22368,10 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P025",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T523MKIT",
@@ -21791,12 +22405,13 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
       "enterprise": false,
       "wholesale": true,
       "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P025",
+      "platformId": 26,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "T523MTY",
@@ -21830,17 +22445,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
-      "enterprise": true,
-      "wholesale": true,
-      "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P025",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T524MEA",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "sim": 4,
       "simPlans": [
@@ -21867,17 +22480,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P032",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
     },
     {
       "name": "T524MKIT",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "Deprecated",
       "modem": "EG91-EX",
       "sim": 4,
       "simPlans": [
@@ -21904,17 +22515,15 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": true,
-      "moq": 1,
-      "enterprise": false,
-      "wholesale": true,
-      "retail": true,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P032",
+      "platformId": 26,
+      "usb": "micro-b",
+      "batteryRequired": true
     },
     {
       "name": "T524MTY",
-      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50]",
-      "lifecycle": "Deprecated",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "lifecycle": "NRND",
       "modem": "EG91-EX",
       "multiple": true,
       "sim": 4,
@@ -21941,12 +22550,127 @@
       "gnssAntInt": false,
       "gnssAntExt": true,
       "gnssAntExtInc": false,
-      "moq": 50,
       "enterprise": true,
       "wholesale": true,
       "retail": false,
-      "leadTime": "56 weeks",
-      "allocation": true
+      "prefix": "P032",
+      "platformId": 26,
+      "usb": false,
+      "batteryRequired": true
+    },
+    {
+      "name": "T524XMEA",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), [x1]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P048",
+      "usb": false,
+      "batteryRequired": true
+    },
+    {
+      "name": "T524XMKIT",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM) Evaluation Kit, [x1]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "multiple": false,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "eval",
+      "skuRegion": "emeaa",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": true,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": true,
+      "enterprise": false,
+      "wholesale": true,
+      "retail": true,
+      "platformId": 26,
+      "prefix": "P048",
+      "usb": "micro-b",
+      "batteryRequired": true
+    },
+    {
+      "name": "T524XMTY",
+      "desc": "Tracker SoM LTE CAT1/3G/2G (Europe, EtherSIM), Tray [x50]",
+      "lifecycle": "In development",
+      "modem": "EG91-EX",
+      "multiple": true,
+      "sim": 4,
+      "simPlans": [
+        40
+      ],
+      "simMff2": true,
+      "family": "tracker",
+      "gen": "3",
+      "skuClass": "production",
+      "skuRegion": "emeaa",
+      "cellAnt": "ANTCW2EA",
+      "cellAntInc": true,
+      "wifiAntInt": false,
+      "wifiAntIntInc": false,
+      "wifiAntExt": "ANT-FLXV2",
+      "wifiAntExtInc": false,
+      "bleAntInt": "chip",
+      "bleAntIntInc": true,
+      "bleAntExt": "ANT-FLXV2",
+      "bleAntExtInc": false,
+      "nfcAntExt": true,
+      "nfcAntExtInc": false,
+      "gnssAntInt": false,
+      "gnssAntExt": true,
+      "gnssAntExtInc": false,
+      "enterprise": true,
+      "wholesale": true,
+      "retail": false,
+      "platformId": 26,
+      "prefix": "P048",
+      "usb": false,
+      "batteryRequired": true
     }
   ],
   "skuClass": [
@@ -21989,7 +22713,7 @@
           "modem": "BG96-MC"
         },
         {
-          "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (Europe) EtherSIM",
+          "name": "Tracker T524/ONE524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "T524",
             "ONE524"
@@ -22039,7 +22763,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R510"
+          "modem": "R510",
+          "mapColor": 0
         },
         {
           "name": "B Series B404 LTE M1 (NorAm) EtherSIM",
@@ -22047,13 +22772,14 @@
             "B404"
           ],
           "region": "noram",
-          "lifecycle": "NRND",
+          "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
-          "name": "B Series B524 LTE CAT1/3G/2G (Europe) EtherSIM",
+          "name": "B Series B524 LTE CAT1/3G/2G (EMEAA) EtherSIM",
           "short": [
             "B524"
           ],
@@ -22061,7 +22787,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "EG91-E"
+          "modem": "EG91-E",
+          "mapColor": 1
         },
         {
           "name": "B Series B402 LTE M1 (NorAm) (before 2021)",
@@ -22072,7 +22799,8 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "B Series B523 LTE CAT1/3G/2G (Europe) (before 2021)",
@@ -22083,7 +22811,8 @@
           "lifecycle": "NRND",
           "sim": 2,
           "simPlan": 20,
-          "modem": "EG91-E"
+          "modem": "EG91-E",
+          "mapColor": 1
         }
       ]
     },
@@ -22100,7 +22829,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R510"
+          "modem": "R510",
+          "mapColor": 0
         },
         {
           "name": "Boron BRN404 LTE M1 (NorAm) EtherSIM",
@@ -22108,10 +22838,11 @@
             "BRN404"
           ],
           "region": "noram",
-          "lifecycle": "NRND",
+          "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "Boron BRN314 2G/3G Global EtherSIM",
@@ -22122,7 +22853,8 @@
           "lifecycle": "GA",
           "sim": 4,
           "simPlan": 40,
-          "modem": "U201"
+          "modem": "U201",
+          "mapColor": 1
         },
         {
           "name": "Boron BRN402 LTE M1 (NorAm) (before 2021)",
@@ -22133,7 +22865,8 @@
           "lifecycle": "NRND",
           "sim": 3,
           "simPlan": 30,
-          "modem": "R410"
+          "modem": "R410",
+          "mapColor": 0
         },
         {
           "name": "Boron BRN310 2G/3G Global (before 2021)",
@@ -22144,7 +22877,8 @@
           "lifecycle": "NRND",
           "sim": 2,
           "simPlan": 20,
-          "modem": "U201"
+          "modem": "U201",
+          "mapColor": 1
         }
       ]
     },
@@ -23010,7 +23744,8 @@
       "country": "Algeria",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Algeria",
@@ -23023,7 +23758,8 @@
       "country": "Algeria",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Algeria",
@@ -23831,8 +24567,8 @@
       "country": "Aruba",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Aruba",
@@ -23845,8 +24581,8 @@
       "country": "Aruba",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Aruba",
@@ -24327,7 +25063,8 @@
       "country": "Bahrain",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bahrain",
@@ -24339,7 +25076,8 @@
       "country": "Bahrain",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bahrain",
@@ -24424,7 +25162,8 @@
       "country": "Bangladesh",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bangladesh",
@@ -24436,7 +25175,8 @@
       "country": "Bangladesh",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Bangladesh",
@@ -25435,7 +26175,8 @@
       "country": "Botswana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Botswana",
@@ -25448,7 +26189,8 @@
       "country": "Botswana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Botswana",
@@ -25644,7 +26386,8 @@
       "country": "Brunei",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Brunei",
@@ -25656,7 +26399,8 @@
       "country": "Brunei",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Brunei",
@@ -25841,7 +26585,8 @@
       "country": "Burkina Faso",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Burkina Faso",
@@ -25854,7 +26599,8 @@
       "country": "Burkina Faso",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Burkina Faso",
@@ -26048,7 +26794,8 @@
       "country": "Cabo Verde",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cabo Verde",
@@ -26061,7 +26808,8 @@
       "country": "Cabo Verde",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cabo Verde",
@@ -26147,7 +26895,8 @@
       "country": "Cambodia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cambodia",
@@ -26159,7 +26908,8 @@
       "country": "Cambodia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cambodia",
@@ -26651,7 +27401,8 @@
       "country": "Chad",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chad",
@@ -26663,7 +27414,8 @@
       "country": "Chad",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chad",
@@ -26751,8 +27503,8 @@
       "country": "Chile",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work with partial band support"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chile",
@@ -26765,8 +27517,8 @@
       "country": "Chile",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work with partial band support"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Chile",
@@ -27060,7 +27812,8 @@
       "country": "Congo (Brazzaville)",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Brazzaville)",
@@ -27072,7 +27825,8 @@
       "country": "Congo (Brazzaville)",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Brazzaville)",
@@ -27157,7 +27911,8 @@
       "country": "Congo (Kinshasa)",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -27169,7 +27924,8 @@
       "country": "Congo (Kinshasa)",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Congo (Kinshasa)",
@@ -27358,7 +28114,8 @@
       "country": "Côte d'Ivoire",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Côte d'Ivoire",
@@ -27371,7 +28128,8 @@
       "country": "Côte d'Ivoire",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Côte d'Ivoire",
@@ -27761,7 +28519,8 @@
       "country": "Cyprus",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cyprus",
@@ -27773,7 +28532,8 @@
       "country": "Cyprus",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Cyprus",
@@ -28356,7 +29116,8 @@
       "country": "Egypt",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Egypt",
@@ -28369,7 +29130,8 @@
       "country": "Egypt",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Egypt",
@@ -28759,7 +29521,8 @@
       "country": "eSwatini",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "eSwatini",
@@ -28772,7 +29535,8 @@
       "country": "eSwatini",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "eSwatini",
@@ -28859,7 +29623,8 @@
       "country": "Ethiopia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ethiopia",
@@ -28872,7 +29637,8 @@
       "country": "Ethiopia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ethiopia",
@@ -29356,8 +30122,8 @@
       "country": "French Guiana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "French Guiana",
@@ -29370,8 +30136,8 @@
       "country": "French Guiana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "French Guiana",
@@ -29458,7 +30224,8 @@
       "country": "Gabon",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Gabon",
@@ -29470,7 +30237,8 @@
       "country": "Gabon",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Gabon",
@@ -29858,7 +30626,8 @@
       "country": "Ghana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ghana",
@@ -29870,7 +30639,8 @@
       "country": "Ghana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Ghana",
@@ -30354,8 +31124,8 @@
       "country": "Guadeloupe",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guadeloupe",
@@ -30763,7 +31533,8 @@
       "country": "Guinea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea",
@@ -30776,7 +31547,8 @@
       "country": "Guinea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea",
@@ -30865,7 +31637,8 @@
       "country": "Guinea-Bissau",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea-Bissau",
@@ -30878,7 +31651,8 @@
       "country": "Guinea-Bissau",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guinea-Bissau",
@@ -30965,8 +31739,8 @@
       "country": "Guyana",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guyana",
@@ -30979,8 +31753,8 @@
       "country": "Guyana",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Guyana",
@@ -31066,8 +31840,8 @@
       "country": "Haiti",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Haiti",
@@ -31370,7 +32144,8 @@
       "country": "Hong Kong",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Hong Kong",
@@ -31383,7 +32158,8 @@
       "country": "Hong Kong",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Hong Kong",
@@ -31771,7 +32547,8 @@
       "country": "Indonesia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Indonesia",
@@ -31783,7 +32560,8 @@
       "country": "Indonesia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Indonesia",
@@ -32277,7 +33055,8 @@
       "country": "Israel",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Israel",
@@ -32289,7 +33068,8 @@
       "country": "Israel",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Israel",
@@ -32770,7 +33550,8 @@
       "country": "Jordan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Jordan",
@@ -32782,7 +33563,8 @@
       "country": "Jordan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Jordan",
@@ -32870,7 +33652,8 @@
       "country": "Kazakhstan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kazakhstan",
@@ -32883,7 +33666,8 @@
       "country": "Kazakhstan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kazakhstan",
@@ -32969,7 +33753,8 @@
       "country": "Kenya",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kenya",
@@ -32981,7 +33766,8 @@
       "country": "Kenya",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kenya",
@@ -33276,7 +34062,8 @@
       "country": "Kuwait",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kuwait",
@@ -33288,7 +34075,8 @@
       "country": "Kuwait",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Kuwait",
@@ -34178,7 +34966,8 @@
       "country": "Macao",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Macao",
@@ -34191,7 +34980,8 @@
       "country": "Macao",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Macao",
@@ -34279,7 +35069,8 @@
       "country": "Madagascar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Madagascar",
@@ -34291,7 +35082,8 @@
       "country": "Madagascar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Madagascar",
@@ -34376,7 +35168,8 @@
       "country": "Malawi",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malawi",
@@ -34388,7 +35181,8 @@
       "country": "Malawi",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malawi",
@@ -34475,7 +35269,8 @@
       "country": "Malaysia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malaysia",
@@ -34487,7 +35282,8 @@
       "country": "Malaysia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Malaysia",
@@ -35602,7 +36398,8 @@
       "country": "Mongolia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mongolia",
@@ -35614,7 +36411,8 @@
       "country": "Mongolia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mongolia",
@@ -35899,7 +36697,8 @@
       "country": "Morocco",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Morocco",
@@ -35912,7 +36711,8 @@
       "country": "Morocco",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Morocco",
@@ -35998,7 +36798,8 @@
       "country": "Mozambique",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mozambique",
@@ -36010,7 +36811,8 @@
       "country": "Mozambique",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Mozambique",
@@ -36096,7 +36898,8 @@
       "country": "Myanmar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Myanmar",
@@ -36109,7 +36912,8 @@
       "country": "Myanmar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Myanmar",
@@ -36198,7 +37002,8 @@
       "country": "Namibia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Namibia",
@@ -36211,7 +37016,8 @@
       "country": "Namibia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Namibia",
@@ -37005,7 +37811,8 @@
       "country": "Nigeria",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Nigeria",
@@ -37017,7 +37824,8 @@
       "country": "Nigeria",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Nigeria",
@@ -37297,7 +38105,8 @@
       "country": "Oman",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Oman",
@@ -37310,7 +38119,8 @@
       "country": "Oman",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Oman",
@@ -37396,7 +38206,8 @@
       "country": "Pakistan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Pakistan",
@@ -37408,7 +38219,8 @@
       "country": "Pakistan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Pakistan",
@@ -37494,7 +38306,8 @@
       "country": "Palestine",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Palestine",
@@ -37507,7 +38320,8 @@
       "country": "Palestine",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Palestine",
@@ -37697,7 +38511,8 @@
       "country": "Papua New Guinea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Papua New Guinea",
@@ -37710,7 +38525,8 @@
       "country": "Papua New Guinea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Papua New Guinea",
@@ -38395,7 +39211,8 @@
       "country": "Qatar",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Qatar",
@@ -38407,7 +39224,8 @@
       "country": "Qatar",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Qatar",
@@ -38797,7 +39615,8 @@
       "country": "Rwanda",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Rwanda",
@@ -38809,7 +39628,8 @@
       "country": "Rwanda",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Rwanda",
@@ -39600,242 +40420,258 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "EG91-E",
+      "sim": 2,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "NR",
+      "expansion": "2022-05-18",
+      "roamingRestrictions": "hide",
+      "reason": "Roaming and registration restrictions"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "recommendation": "NR",
+      "expansion": "2022-05-18",
+      "roamingRestrictions": "hide",
+      "reason": "Roaming and registration restrictions"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "G350",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "R410",
+      "sim": 3,
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "Saudi Arabia",
+      "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm",
+      "roamingRestrictions": "hide"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "U201",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "U201",
+      "sim": 2,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "U201",
+      "sim": 4,
+      "recommendation": "NR",
+      "roamingRestrictions": "hide",
+      "reason": "Roaming and registration restrictions"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "U260",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Saudi Arabia",
+      "modem": "U270",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Senegal",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
-      "country": "Saudi Arabia",
+      "country": "Senegal",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
-      "country": "Saudi Arabia",
+      "country": "Senegal",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
-      "country": "Saudi Arabia",
+      "country": "Senegal",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
-      "country": "Saudi Arabia",
+      "country": "Senegal",
+      "modem": "G350",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Senegal",
+      "modem": "R410",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
+      "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
+      "modem": "R510",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Senegal",
+      "modem": "U201",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Senegal",
+      "modem": "U201",
+      "sim": 2,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Senegal",
+      "modem": "U201",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Senegal",
+      "modem": "U260",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Senegal",
+      "modem": "U270",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Serbia",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Serbia",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG91-E",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Serbia",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Serbia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued"
     },
     {
-      "country": "Saudi Arabia",
-      "modem": "R410",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "R410",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "R510",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "U201",
-      "sim": 1,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "U201",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "U201",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "U260",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Saudi Arabia",
-      "modem": "U270",
-      "sim": 1,
-      "recommendation": "NRND"
-    },
-    {
-      "country": "Senegal",
-      "modem": "BG96-MC",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Senegal",
-      "modem": "BG96-MC",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Senegal",
-      "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "EG91-EX",
-      "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "EG91-EX",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "G350",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "R410",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Senegal",
-      "modem": "R410",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Senegal",
-      "modem": "R510",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Senegal",
-      "modem": "U201",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "U201",
-      "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "U201",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Senegal",
-      "modem": "U260",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Senegal",
-      "modem": "U270",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Serbia",
-      "modem": "BG96-MC",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Serbia",
-      "modem": "BG96-MC",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Serbia",
-      "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Serbia",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Serbia",
-      "modem": "EG91-EX",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Serbia",
-      "modem": "EG91-EX",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Serbia",
-      "modem": "G350",
-      "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
-    },
-    {
       "country": "Serbia",
       "modem": "R410",
       "sim": 3,
@@ -39911,7 +40747,8 @@
       "country": "Seychelles",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Seychelles",
@@ -39923,7 +40760,8 @@
       "country": "Seychelles",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Seychelles",
@@ -40219,8 +41057,8 @@
       "country": "Sint Maarten",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on TelCell"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sint Maarten",
@@ -40233,8 +41071,8 @@
       "country": "Sint Maarten",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on TelCell"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sint Maarten",
@@ -40723,7 +41561,8 @@
       "country": "South Africa",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Africa",
@@ -40735,7 +41574,8 @@
       "country": "South Africa",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Africa",
@@ -40820,7 +41660,8 @@
       "country": "South Korea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Korea",
@@ -40832,7 +41673,8 @@
       "country": "South Korea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Korea",
@@ -40917,7 +41759,8 @@
       "country": "South Sudan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Sudan",
@@ -40929,7 +41772,8 @@
       "country": "South Sudan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "South Sudan",
@@ -41113,7 +41957,8 @@
       "country": "Sri Lanka",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sri Lanka",
@@ -41125,7 +41970,8 @@
       "country": "Sri Lanka",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Sri Lanka",
@@ -41211,8 +42057,8 @@
       "country": "Suriname",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Telesur"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Suriname",
@@ -41225,8 +42071,8 @@
       "country": "Suriname",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work on Telesur"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Suriname",
@@ -41607,7 +42453,8 @@
       "country": "Taiwan",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Taiwan",
@@ -41619,7 +42466,8 @@
       "country": "Taiwan",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Taiwan",
@@ -41807,7 +42655,8 @@
       "country": "Tanzania",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tanzania",
@@ -41819,7 +42668,8 @@
       "country": "Tanzania",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tanzania",
@@ -41904,7 +42754,8 @@
       "country": "Thailand",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Thailand",
@@ -41916,7 +42767,8 @@
       "country": "Thailand",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Thailand",
@@ -42310,7 +43162,8 @@
       "country": "Tunisia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tunisia",
@@ -42323,7 +43176,8 @@
       "country": "Tunisia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Tunisia",
@@ -42630,7 +43484,8 @@
       "country": "Uganda",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Uganda",
@@ -42642,7 +43497,8 @@
       "country": "Uganda",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Uganda",
@@ -43543,7 +44399,8 @@
       "country": "Vietnam",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Vietnam",
@@ -43556,7 +44413,8 @@
       "country": "Vietnam",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Vietnam",
@@ -43951,7 +44809,8 @@
       "country": "Zambia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Zambia",
@@ -43963,7 +44822,8 @@
       "country": "Zambia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "YES",
+      "expansion": "2022-05-18"
     },
     {
       "country": "Zambia",
@@ -44219,5 +45079,996 @@
       "id": "poss",
       "description": "There may be roaming restrictions"
     }
-  ]
+  ],
+  "deviceConstants": {
+    "core": {
+      "id": 0,
+      "name": "core",
+      "displayName": "Core",
+      "generation": 1,
+      "baseMcu": "stm32f1xx",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": true,
+      "usb": {
+        "vendorId": "0x1d50",
+        "productId": "0x607d"
+      },
+      "dfu": {
+        "vendorId": "0x1d50",
+        "productId": "0x607f",
+        "segments": {
+          "factoryReset": {
+            "address": "0x00020000",
+            "alt": 1
+          }
+        }
+      }
+    },
+    "gcc": {
+      "id": 3,
+      "name": "gcc",
+      "displayName": "GCC",
+      "generation": -1,
+      "baseMcu": "gcc",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "photon": {
+      "id": 6,
+      "name": "photon",
+      "displayName": "Photon",
+      "generation": 2,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 1,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc006"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd006",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x080e0000",
+            "alt": 0
+          }
+        }
+      }
+    },
+    "p1": {
+      "id": 8,
+      "name": "p1",
+      "displayName": "P1",
+      "generation": 2,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 1,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc008"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd008",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x080e0000",
+            "alt": 0
+          }
+        }
+      }
+    },
+    "electron": {
+      "id": 10,
+      "name": "electron",
+      "displayName": "Electron",
+      "generation": 2,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "cellular",
+        "udp"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 1,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "index": 3,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00a"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00a",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x080a0000",
+            "alt": 0
+          },
+          "transport": {
+            "address": "2977",
+            "alt": 1,
+            "size": 1
+          }
+        }
+      }
+    },
+    "esp32": {
+      "id": 11,
+      "name": "esp32",
+      "displayName": "ESP32",
+      "generation": -1,
+      "baseMcu": "esp32xx",
+      "features": [
+        "wifi",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "argon": {
+      "id": 12,
+      "name": "argon",
+      "displayName": "Argon",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "wifi",
+        "udp",
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "ncpFirmware",
+          "storage": "externalMcu"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00c"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00c",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "boron": {
+      "id": 13,
+      "name": "boron",
+      "displayName": "Boron",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "cellular",
+        "udp",
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00d"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00d",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "xenon": {
+      "id": 14,
+      "name": "xenon",
+      "displayName": "Xenon",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00e"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00e",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "esomx": {
+      "id": 15,
+      "name": "esomx",
+      "displayName": "E SoM X",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc00f"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd00f",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "asom": {
+      "id": 22,
+      "name": "asom",
+      "displayName": "A SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "wifi",
+        "mesh",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "ncpFirmware",
+          "storage": "externalMcu"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc016"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd016",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "bsom": {
+      "id": 23,
+      "name": "bsom",
+      "displayName": "B SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "mesh",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc017"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd017",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "xsom": {
+      "id": 24,
+      "name": "xsom",
+      "displayName": "X SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "mesh",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc018"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd018",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00200000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "b5som": {
+      "id": 25,
+      "name": "b5som",
+      "displayName": "B5 SoM",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "mesh",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc019"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd019",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00600000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "tracker": {
+      "id": 26,
+      "name": "tracker",
+      "displayName": "Asset Tracker",
+      "generation": 3,
+      "baseMcu": "nrf52840",
+      "features": [
+        "som",
+        "cellular",
+        "udp",
+        "ble",
+        "gnss",
+        "trackerServices"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "radioStack",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "ncpFirmware",
+          "storage": "externalMcu"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc01a"
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd01a",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          },
+          {
+            "type": "externalFlash",
+            "alt": 2
+          }
+        ],
+        "segments": {
+          "factoryReset": {
+            "address": "0x00600000",
+            "alt": 2
+          }
+        }
+      }
+    },
+    "trackerm": {
+      "id": 28,
+      "name": "trackerm",
+      "displayName": "Tracker M",
+      "generation": 3,
+      "baseMcu": "rtl872x",
+      "features": [
+        "som",
+        "cellular",
+        "udp",
+        "ble",
+        "gnss",
+        "trackerServices"
+      ],
+      "billingConnectivity": "cellular",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "index": 0,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "bootloader",
+          "index": 1,
+          "storage": "internalFlash",
+          "encrypted": true
+        },
+        {
+          "type": "bootloader",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc01c",
+        "quirks": {
+          "controlOutTransfersRequireDataStage": true
+        }
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd01c",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ]
+      }
+    },
+    "raspi": {
+      "id": 31,
+      "name": "raspi",
+      "displayName": "Raspberry Pi",
+      "generation": -1,
+      "baseMcu": "raspi",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "p2": {
+      "id": 32,
+      "name": "p2",
+      "displayName": "P2",
+      "generation": 3,
+      "baseMcu": "rtl872x",
+      "features": [
+        "wifi",
+        "udp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": true,
+      "public": true,
+      "firmwareModules": [
+        {
+          "type": "bootloader",
+          "index": 0,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "bootloader",
+          "index": 1,
+          "storage": "internalFlash",
+          "encrypted": true
+        },
+        {
+          "type": "bootloader",
+          "index": 2,
+          "storage": "internalFlash"
+        },
+        {
+          "type": "systemPart",
+          "storage": "internalFlash"
+        },
+        {
+          "type": "userPart",
+          "storage": "internalFlash"
+        }
+      ],
+      "usb": {
+        "vendorId": "0x2b04",
+        "productId": "0xc020",
+        "quirks": {
+          "controlOutTransfersRequireDataStage": true
+        }
+      },
+      "dfu": {
+        "vendorId": "0x2b04",
+        "productId": "0xd020",
+        "storage": [
+          {
+            "type": "internalFlash",
+            "alt": 0
+          }
+        ]
+      }
+    },
+    "oak": {
+      "id": 82,
+      "name": "oak",
+      "displayName": "Oak",
+      "generation": -1,
+      "baseMcu": "esp8266",
+      "features": [
+        "wifi",
+        "tcp"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "duo": {
+      "id": 88,
+      "name": "duo",
+      "displayName": "Duo",
+      "generation": -1,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    },
+    "bluz": {
+      "id": 103,
+      "name": "bluz",
+      "displayName": "Bluz",
+      "generation": -1,
+      "baseMcu": "stm32f2xx",
+      "features": [
+        "wifi",
+        "tcp",
+        "ble"
+      ],
+      "billingConnectivity": "wifi",
+      "productEligible": false,
+      "public": false,
+      "usb": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      },
+      "dfu": {
+        "vendorId": "0x0",
+        "productId": "0x0"
+      }
+    }
+  }
 }

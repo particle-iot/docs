@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Steinhart-Thermistor",
     "version": "2.0.1",
-    "installs": 710,
+    "installs": 766,
     "license": "GPL",
     "author": "Christian Vallières",
     "sentence": "4 coefficients Steinhart version of Thermistor library.",
@@ -54,8 +54,63 @@
           "boron": {
             "Steinhart-Thermistor": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Steinhart-Thermistor": true
+          },
+          "electron": {
+            "Steinhart-Thermistor": true
+          },
+          "argon": {
+            "Steinhart-Thermistor": true
+          },
+          "boron": {
+            "Steinhart-Thermistor": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Steinhart-Thermistor": true
+          },
+          "boron": {
+            "Steinhart-Thermistor": true
+          },
+          "bsom": {
+            "Steinhart-Thermistor": true
+          },
+          "b5som": {
+            "Steinhart-Thermistor": true
+          },
+          "tracker": {
+            "Steinhart-Thermistor": true
+          },
+          "p2": {
+            "Steinhart-Thermistor": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Steinhart-Thermistor": true
+          },
+          "boron": {
+            "Steinhart-Thermistor": true
+          },
+          "bsom": {
+            "Steinhart-Thermistor": true
+          },
+          "b5som": {
+            "Steinhart-Thermistor": true
+          },
+          "tracker": {
+            "Steinhart-Thermistor": true
+          },
+          "esomx": {
+            "Steinhart-Thermistor": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.993Z"
     }
   },
   "readme": "Steinhart-Thermistor v2\n=======================\n\n4 coefficients Steinhart version of Thermistor library.\n\n1/T = A + B**log(R/Rt) + C**log(R/Rt)^2 + D**log(R/Rt)^3\n\nIn the standard Steinhart-Hart equation the C parameter is set to zero.\nHowever, some manufacturers use all 4 coefficients.\n\n## Typical usage\n\nConnect a Thermistor to an Analog pin and use the library to get the temperature.\n\n```\n#include \"Steinhart-Thermistor.h\"\n\nThermistor Thermistor(A0);\n\nvoid setup() {\n\tSerial.begin(9600);\n}\n\nvoid loop() {\n\t//Always call calcResistance() first.\n\t//It's the only function that read the ADC value.\n\t//Otherwise you could get a different value for each temperature unit.\n\t//You can specify a number of samples. Default = 1.\n\tThermistor.calcResistance();\n\tSerial.print(\"Thermistor resistance: \");\n\tSerial.println(Thermistor.getResistance());\n\tSerial.print(\"Volts: \");\n\tSerial.println(Thermistor.getVolts());\n\tSerial.print(\"Analog value at pin: \");\n\tSerial.println(Thermistor.getAval());\t\n\tSerial.print(\"Kelvin: \");\n\tSerial.println(Thermistor.getTempK());\n\tSerial.print(\"Celsius: \");\n\tSerial.println(Thermistor.getTempC());\n\tSerial.print(\"Fahrenheit: \");\n\tSerial.println(Thermistor.getTempF());\n\tdelay(1000);\n}\n```\n\n## Reference\n\n### `Thermistor`\n\n`int pin = A0;\nint resistor = 47500;\ndouble a1 = 5.36924e-4;\ndouble b1 = 1.91396e-4;\ndouble c1 = 0;\ndouble d1 = 6.60399e-8;\nfloat vref = 3.32;\n\nThermistor Thermistor(pin, resistor, a1, b1, c1, d1, vref);`\n\nCreates an object to interact with the thermistor.\n\npin is the analog pin number your thermistor is connected to.\nresistor is the fixed resistor value, for better precision used a multimeter/ohmmeter to mesure the value of the fixed resistor.\na1 is the coefficient A (K^0), from the thermistor datasheet.\nb1 is the coefficient B (K^1), from the thermistor datasheet.\nc1 is the coefficient C (K^2), usually 0 from the thermistor datasheet.\nd1 is the coefficient D (K^3), from the thermistor datasheet.\nvref is the voltage reference, for better precision used a multimeter/voltmeter to mesure voltage pin 3V3 for a Core/Photon/Electron, pin AREF for a Arduino.\n\n### `calcResistance`\n\n`Thermistor.calcResistance();`\n\nAlways call calcResistance() first. \nIt's the only function that read the ADC value.\nOtherwise you would get a different value for each temperature unit.\nYou can specify a number of samples. Default = 3.\n\n### `getAval`\n\n`Thermistor.getAval();`\n\nReturn the calculated average Analog value of ADC pin.\n\n### `getResistance`\n\n`Thermistor.getResistance();`\n\nReturn the calculated average resistance of the thermistor.\n\n### `getTempF`\n\n`Thermistor.getTempF();`\n\nReturn the calculated temperature in Fahrenheit.\n\n### `getTempC`\n\n`Thermistor.getTempC();`\n\nReturn the calculated temperature in Celcius.\n\n### `getTempK`\n\n`Thermistor.getTempK();`\n\nReturn the calculated temperature in Kelvin.\n\n### `getVolts`\n\n`Thermistor.getVolts();`\n\nReturn the average calculated volts value of ADC pin.\n\n## Resource Utilization\n\nAnalog pin of your choice.\n\n## License\n\nGPL\n",

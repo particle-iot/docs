@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle-GPS",
     "version": "1.0.4",
-    "installs": 60266,
+    "installs": 63002,
     "license": "GPL-3.0",
     "author": "Daniel Porrey <Daniel.Porrey@hotmail.com>",
     "sentence": "A library to communicate with serial GPS devices on the Particle Electron and Photon.",
@@ -70,8 +70,95 @@
             "all-data-serialN": true,
             "parse-data": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "electron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "argon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "boron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "boron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "bsom": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "b5som": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "tracker": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "p2": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "boron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "bsom": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "b5som": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "tracker": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "esomx": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.675Z"
     }
   },
   "readme": "# Particle-GPS\r\n\r\nGPS library for the Particle Electron and Photon. Current version is **v1.0.4**. \r\n\r\n##About\r\nInstead of porting libraries written for other platforms, this library was written from scratch using the Particle firmware. This library allows you to easily add additional sentences or support to any serial based GPS.\r\n\r\n##NMEA Output Sentences\r\nThis library will read the following NMEA sentences from the device into a buffer, but only supports parsing for the ones highlighted:\r\n\r\n- **PGTOP** (Status of antenna)\r\n- **GGA** (Time, position and fix type data)\r\n- GSA (GPS receiver operating mode, active satellites used in the\r\nposition solution and DOP values.)\r\n- GSV (The number of GPS satellites in view satellite ID numbers,\r\nelevation, azimuth, and SNR values.)\r\n- **RMC** (Time, date, position, course and speed data. Recommended\r\nMinimum Navigation Information.)\r\n- VTG (Course and speed information relative to the ground.)\r\n\r\nMore parsing will be added in later releases. If you wish to parse additional sentences, or you need to parse custom data, take a look at **Sentence.h** and **Sentence.cpp** to see how to implement an additional parser.\r\n\r\n##Using the Library\r\n###Create the Gps Instance\r\nDefine a **Gps** object in your code and assign the appropriate serial port. In the example below, the serial pins on the **TX** and **RX** pins is used (**Serial1**).\r\n\r\n    Gps _gps = Gps(&Serial1);\r\n\r\n\r\n###Create a Timer\r\nIn order to read the serial port fast enough, a Software Timer is used. The software timer i setup to fire every 1 ms and capture data coming in on the serial pins. The line of code below creates a software timer.\r\n\r\n    Timer _timer = Timer(1, onSerialData);\r\n\r\nIn the callback function, simply call the **onSerialData()** method on the **Gps** object.\r\n\r\n    void onSerialData()\r\n    {\r\n    \t_gps.onSerialData();\r\n    }\r\n\r\n###Initialize the Objects\r\nIn the setup() method, call the begin method on the **Gps** object.\r\n\r\n    _gps.begin(9600);\r\n\r\nAlso call the start() method of the timer.\r\n\r\n    _timer.start();\r\n\r\n###Get the Data\r\nIn the loop method, create an **Nmea** object for the specific data you want to read from the GPS. There are currently three NMEA sentences defined.\r\n\r\n1. Antenna Status ($PGTOP) => Pgtop\r\n2. Global Positioning System Fixed Data ($GPGGA) => Gga\r\n3. Recommended Minimum Navigation Information ($GPRMC) => Rmc4. \r\n\r\n####Reading Antenna Status\r\nFirst create the object passing the **Gps** instance in the constructor.\r\n\r\n    Pgtop pgtop = Pgtop(_gps);\r\n\r\nNext, parse the data and read the values if successful.\r\n\r\n    if (pgtop.parse())\r\n    {    \r\n\t    Serial.println(\"1) Antenna Status ($PGTOP)\");\r\n\t    Serial.println(\"======================================================\");\r\n\t    Serial.print(\"Command ID: \"); Serial.println(pgtop.commandId);\r\n\t    Serial.print(\"Antenna Status: \"); Serial.println(pgtop.reference);\r\n\t    Serial.println(\"\");\r\n    }\r\n\r\n####Global Positioning System Fixed Data\r\nFirst create the object passing the **Gps** instance in the constructor.\r\n\r\n    Gga gga = Gga(_gps);\r\n\r\nNext, parse the data and read the values if successful.\r\n\r\n    if (gga.parse())\r\n    {\r\n\t    Serial.println(\"2) Global Positioning System Fixed Data ($GPGGA)\");\r\n\t    Serial.println(\"======================================================\");\r\n\t    Serial.print(\"UTC Time: \"); Serial.println(gga.utcTime);\r\n\t    Serial.print(\"Latitude: \"); Serial.println(gga.latitude);\r\n\t    Serial.print(\"North/SouthIndicator: \"); Serial.println(gga.northSouthIndicator);\r\n\t    Serial.print(\"Longitude: \"); Serial.println(gga.longitude);\r\n\t    Serial.print(\"East/WestIndicator: \"); Serial.println(gga.eastWestIndicator);\r\n\t    Serial.print(\"Position Fix Indicator: \"); Serial.println(gga.positionFixIndicator);\r\n\t    Serial.print(\"Satellites Used: \"); Serial.println(gga.satellitesUsed);\r\n\t    Serial.print(\"Horizontal Dilution of Precision: \"); Serial.println(gga.hdop);\r\n\t    Serial.print(\"Altitude: \"); Serial.print(gga.altitude); Serial.print(\" \"); Serial.println(gga.altitudeUnit);\r\n\t    Serial.print(\"Geoidal Separation: \"); Serial.print(gga.geoidalSeparation); Serial.print(\" \"); Serial.println(gga.geoidalSeparationUnit);\r\n\t    Serial.print(\"Age of Diff. Corr.: \"); Serial.println(gga.ageOfDiffCorr);\r\n\t    Serial.println(\"\");\r\n    }\r\n\r\n####Recommended Minimum Navigation Information\r\nFirst create the object passing the Gps instance in the constructor.\r\n\r\n    Rmc rmc = Rmc(_gps);\r\n\r\nNext, parse the data and read the values if successful.\r\n\r\n    if (rmc.parse())\r\n    {\r\n\t    Serial.println(\"3) Recommended Minimum Navigation Information ($GPRMC)\");\r\n\t    Serial.println(\"======================================================\");\r\n\t    Serial.print(\"UTC Time: \"); Serial.println(rmc.utcTime);\r\n\t    Serial.print(\"Latitude: \"); Serial.println(rmc.latitude);\r\n\t    Serial.print(\"North/SouthIndicator: \"); Serial.println(rmc.northSouthIndicator);\r\n\t    Serial.print(\"Longitude: \"); Serial.println(rmc.longitude);\r\n\t    Serial.print(\"East/WestIndicator: \"); Serial.println(rmc.eastWestIndicator);\r\n\t    Serial.print(\"Speed Over Ground: \"); Serial.println(rmc.speedOverGround);\r\n\t    Serial.print(\"Course Over Ground: \"); Serial.println(rmc.courseOverGround);\r\n\t    Serial.print(\"Date: \"); Serial.println(rmc.date);\r\n\t    Serial.print(\"Magnetic Variation: \"); Serial.print(rmc.magneticVariation); Serial.print(\" \"); Serial.println(rmc.magneticVariationDirection);\r\n\t    Serial.print(\"Mode: \"); Serial.println(rmc.mode);\r\n\t    Serial.println(\"\");\r\n    }\r\n\r\n###Serial Port Debugging\r\nNote the sample lines of code above use the serial pins connected through the USB port to send data back to the computer. Make sure the following line of code is included in your setup().\r\n\r\n    Serial.begin();\r\n",

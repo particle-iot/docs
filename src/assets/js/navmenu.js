@@ -2,6 +2,16 @@
 let navMenu = {};
 
 navMenu.scanHeaders = function () {
+    const thisUrl = new URL(location.href);
+    if (thisUrl.pathname.startsWith('/reference/device-os/api')) {
+        return;
+    }
+
+    let navLevel = 3;
+    if (thisUrl.pathname.split('/').length >= 6) {
+        navLevel = 4;
+    }
+
     navMenu.headers = [];
 
     const contentInner = $('div.content-inner');
@@ -11,10 +21,13 @@ navMenu.scanHeaders = function () {
     let headerLevels = 'h2,h3,h4';
     let levelAdjust = 0;
 
-    if (location.href.includes('cards/firmware')) {
+    // TODO: Remove this block, no longer used 
+    /*
+    if (location.href.includes('reference/device-os/api')) {
         headerLevels = 'h4,h5';
         levelAdjust = -2;
     }
+    */
 
     let lastL2;
 
@@ -126,10 +139,10 @@ navMenu.scanHeaders = function () {
             let e1, e2, e3, e4;
 
             e1 = document.createElement('div');
-            $(e1).addClass('navMenu3 navContainer');
+            $(e1).addClass('navMenu' + navLevel + ' navContainer');
 
             e2 = document.createElement('div');
-            $(e2).addClass('navIndent3');
+            $(e2).addClass('navIndent' + navLevel);
             $(e1).append(e2);
 
             if (hdr.hasDisclosureTriangle) {

@@ -1,0 +1,118 @@
+{
+  "type": "libraries",
+  "id": "Print64",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Print64/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Print64",
+    "version": "0.0.1",
+    "installs": 328,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "Library for 64-bit number to ASCII conversion",
+    "url": "https://github.com/rickkas7/Print64",
+    "repository": "https://github.com/rickkas7/Print64.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/Print64",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "p2": {
+            "1-simple": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          },
+          "bsom": {
+            "1-simple": true
+          },
+          "b5som": {
+            "1-simple": true
+          },
+          "tracker": {
+            "1-simple": true
+          },
+          "esomx": {
+            "1-simple": true
+          }
+        }
+      },
+      "added": "2022-06-17T10:16:54.098Z"
+    }
+  },
+  "readme": "# Print64\n\n*Library for printing 64-bit integers on Particle devices*\n\nThe standard C library on Particle devices (at least as of Device OS 3.0) does not support 64-bit sprintf formatting such as `%llu` or `%llx` or Microsoft extensions like `%I64u`. This includes not only `sprintf()`, and its variations like `snprintf()`, but also things that use it, like `Log.info()`.\n\n## API\n\n### toString (uint64_t)\n\nConvert an unsigned 64-bit integer to a string\n\n```cpp\nString toString(uint64_t value, unsigned char base = 10);\n```\n\n- `value` The value to convert (uint64_t)\n- `base` The number base. Acceptable values are 2, 8, 10, and 16. Default is 10 (decimal).\n- Returns A String object containing an ASCII representation of the value.\n\n\n### toString (int64_t)\n\nConvert an signed 64-bit integer to a string (ASCII decimal signed integer)\n\n```cpp\nString toString(int64_t value);\n```\n\n- `value` The value to convert (int64_t)\n- Returns A String object containing an ASCII representation of the value (decimal)\n \n\n## Example\n\n```\n#include \"Particle.h\"\n\n#include \"Print64.h\"\n\nSYSTEM_THREAD(ENABLED);\nSerialLogHandler logHandler;\n\nvoid setup() {\n\n}\n\nvoid loop() {\n    Log.info(\"millis=%s\", toString(System.millis()).c_str());\n    delay(1000);\n}\n```\n\nThe `System.millis()` function returns a `uint64_t`. It works like `millis()` but since it's 64-bit, it doesn't wrap around to 0 after 49 days so it's easier to do comparisons with it.\n\nNote that you must add a `.c_str()` to the result of `toString()` when passing it as variable arguments to `sprintf()`, `Log.info()`, etc.!\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

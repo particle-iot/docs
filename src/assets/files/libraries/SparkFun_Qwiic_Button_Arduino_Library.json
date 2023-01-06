@@ -1,0 +1,246 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_Qwiic_Button_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_Qwiic_Button_Arduino_Library/archive/2.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_Qwiic_Button_Arduino_Library",
+    "version": "2.0.4",
+    "installs": 491,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
+    "sentence": "Communicates and configures the SparkFun Qwiic Button and Switch.",
+    "paragraph": "This library allows the user to see the button status, configure the built-in LED, set up interrupts, change I2C addresses, and interface with the onboard button queues.",
+    "category": "Sensors",
+    "url": "https://sparkfun.com/products/15584",
+    "repository": "https://github.com/sparkfun/SparkFun_Qwiic_Button_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Button_Arduino_Library",
+  "versions": {
+    "2.0.4": {
+      "added": "2022-10-31T16:09:11.414Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "bsom": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "b5som": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "tracker": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "p2": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "bsom": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "b5som": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "tracker": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "esomx": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": false,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "electron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": false,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "electron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Qwiic Button Arduino Library [![Build Status](https://travis-ci.org/sparkfun/SparkFun_Qwiic_Button_Arduino_Library.svg?branch=master)](https://travis-ci.org/sparkfun/SparkFun_Qwiic_Button_Arduino_Library)\n========================================\n<table class=\"table table-hover table-striped table-bordered\">\n  <tr align=\"center\">\n   <td><a href=\"https://www.sparkfun.com/products/15584\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/4/1/9/0/15584-Qwiic_Button_-_Red-01a.jpg\"></a></td>\n   <td><a href=\"https://www.sparkfun.com/products/15585\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/4/1/9/1/15585-Qwiic_Button_-_Blue-02a.jpg\"></a></td>\n   <td><a href=\"https://www.sparkfun.com/products/15591\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/4/1/9/8/15591-Qwiic_Arcade_-_Red-01a.jpg\"></a></td>\n   <td><a href=\"https://www.sparkfun.com/products/15592\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/4/1/9/9/15592-Qwiic_Arcade_-_Blue-01a.jpg\"></a></td>\n   <td><a href=\"https://www.sparkfun.com/products/15586\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/4/1/9/2/15586-Qwiic_Switch__without_microswitch_-01a.jpg\"></a></td>\n  </tr>\n  <tr align=\"center\">\n    <td><a href=\"https://www.sparkfun.com/products/15584\">SparkFun Qwiic Button - Red (SPX-15584)</a></td>\n    <td><a href=\"https://www.sparkfun.com/products/15585\">SparkFun Qwiic Button - Blue (SPX-15585)</a></td>\n    <td><a href=\"https://www.sparkfun.com/products/15591\">SparkFun Qwiic Arcade - Red (SPX-15591)</a></td>\n    <td><a href=\"https://www.sparkfun.com/products/15592\">SparkFun Qwiic Arcade - Blue (SPX-15592)</a></td>\n    <td><a href=\"https://www.sparkfun.com/products/15586\">SparkFun Qwiic Switch (SPX-15586)</a></td>\n  </tr>\n</table>\n\n\nThis library allows the user to:\n\n* Determine whether or not the button/switch is pressed \n* Set the brightness of the onboard LED\n* Configure the onboard LED's \"breathing\" effect\n* Use button-based interrupts\n* Adjust the device's I<sup>2</sup>C address\n\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_Switch)** - Main repository (including hardware files) for the SparkFun Qwiic Switch.\n* **[Product Repository](https://github.com/sparkfunX/Qwiic_Button)** - Main repository (including hardware files) for the SparkFun Qwiic Button.\n\nProducts that use this Library \n---------------------------------\n\n* [*SPX-15584*](https://www.sparkfun.com/products/15584)\n* [*SPX-15585*](https://www.sparkfun.com/products/15585)\n* [*SPX-15591*](https://www.sparkfun.com/products/15591)\n* [*SPX-15592*](https://www.sparkfun.com/products/15592)\n* [*SPX-15586*](https://www.sparkfun.com/products/15586)\n\nVersion History\n---------------\n\n* [v1.0.1](https://github.com/sparkfun/SparkFun_Qwiic_Button_Arduino_Library/releases/tag/v1.0.1) - Arduino Library Specification Compliance\n* [v1.0.0](https://github.com/sparkfun/SparkFun_Qwiic_Button_Arduino_Library/releases/tag/v1.0.0) - Initial Public release.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "2.0.4"
+  ]
+}

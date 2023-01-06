@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-web-embd-rest-json",
     "version": "0.1.1",
-    "installs": 2105,
+    "installs": 2190,
     "license": "GPLv3",
     "author": "CaptainIgloo <joly dot sebastien at gmail dot com>",
     "sentence": "This project implement a Http server on Sparkcore itself. Once compiled into the Web IDE, the server will be available at http://IP-SPARKCORE (port 80 by default).",
@@ -50,8 +50,63 @@
           "boron": {
             "spark-web": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "spark-web": true
+          },
+          "electron": {
+            "spark-web": true
+          },
+          "argon": {
+            "spark-web": true
+          },
+          "boron": {
+            "spark-web": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "spark-web": true
+          },
+          "boron": {
+            "spark-web": true
+          },
+          "bsom": {
+            "spark-web": true
+          },
+          "b5som": {
+            "spark-web": true
+          },
+          "tracker": {
+            "spark-web": true
+          },
+          "p2": {
+            "spark-web": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "spark-web": true
+          },
+          "boron": {
+            "spark-web": true
+          },
+          "bsom": {
+            "spark-web": true
+          },
+          "b5som": {
+            "spark-web": true
+          },
+          "tracker": {
+            "spark-web": true
+          },
+          "esomx": {
+            "spark-web": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.878Z"
     }
   },
   "readme": "spark-web-embd-rest-json\n========================\n\nspark-web-embd-rest-json Librairies on Web IDE Spark.io\n\n# HTTP server (REST & JSON) on [Spark core](https://www.spark.io/)\n![alt text](https://s3.amazonaws.com/spark-website/spark.png \"\")\n## EN : Local HTTP server (REST & JSON) for Sparkcore\n\nThis project implement a Http server on Sparkcore itself. Once compiled into the [Web IDE](https://www.spark.io/build), the server will be available at http://IP-SPARKCORE (port 80 by default).\n\n### Common files of projects :\n- slre.h\n- slre.cpp\n- HttpResponse.h\n- HttpResponse.cpp\n- HttpRequest.h\n- HttpRequest.cpp\n- http_parser.h\n- http_parser.cpp\n- SparkTime.h\n- SparkTime.cpp\n\nThanks to :\n- [SLRE: Super Light Regular Expression library](https://github.com/cesanta/slre)\n- [Marcussacapuces91 Github / SparkCore-RESTserver ](https://github.com/Marcussacapuces91/SparkCore-RESTserver)\n- [Joyent Github/ http-parser](https://github.com/joyent/http-parser)\n\n### Projet \"spark-Web-Tinker.ino\"\n\n- RESTFull URL : http://IP-Sparkcore/D0/on|off\n- Digital JSON URL : http://IP-Sparkcore/json/dig/\n- Return : {\"TS\":20140802091229,\"D0\":0,\"D1\":0,\"D2\":0,\"D3\":0,\"D4\":0,\"D5\":0,\"D6\":0,\"D7\":1}\n- Analog JSON URL : http://IP-Sparkcore/json/ana/\n- Return : {\"TS\":20140802091252,\"A0\":2127,\"A1\":2117,\"A2\":2097,\"A3\":2098,\"A4\":2107,\"A5\":2114,\"A6\":2083,\"A7\":2085}\n\n### Installation\n- [Connect the Spark Core to your wifi](https://www.spark.io/start)\n- [Deploy the firmware using the Spark Cloud](https://www.spark.io/build/)\n- How add files in project :\n\n![Add file](http://domotique-info.fr/wp-content/uploads/2014/04/domotique-info-webideaddlib.gif)\n\n## FR : Serveur HTTP REST et JSON pour Spark Core.\n\nCe projet permet de mettre en oeuvre un serveur sur le Spark core lui-même.\nUn fois compilé dans le [Web IDE](https://www.spark.io/build), le serveur sera accessible à l'adresse http://IP-SPARKCORE (port :80 par défaut). Ce projet est un exemple permettant d'envisager d'autres projet.\n\nFichiers communs des projets (Rappel .h = fichier d'entête, .cpp = fichier de définition [Sources]) :\n- slre.h\n- slre.cpp\n- HttpResponse.h\n- HttpResponse.cpp\n- HttpRequest.h\n- HttpRequest.cpp\n- http_parser.h\n- http_parser.cpp\n- SparkTime.h\n- SparkTime.cpp\n\nRemerciements à :\n- [SLRE: Super Light Regular Expression library](https://github.com/cesanta/slre)\n- [Marcussacapuces91 Github / SparkCore-RESTserver ](https://github.com/Marcussacapuces91/SparkCore-RESTserver)\n- [Joyent Github/ http-parser](https://github.com/joyent/http-parser)\n\n### Projet \"spark-Web-Tinker.ino\"\n\n- RESTFull URL : http://IP-Sparkcore/D0/on|off.\n- Digital JSON URL : http://IP-Sparkcore/json/dig/\n- Retour : {\"TS\":20140802091229,\"D0\":0,\"D1\":0,\"D2\":0,\"D3\":0,\"D4\":0,\"D5\":0,\"D6\":0,\"D7\":1}\n- Analog JSON URL : http://IP-Sparkcore/json/ana/\n- Retour : {\"TS\":20140802091252,\"A0\":2127,\"A1\":2117,\"A2\":2097,\"A3\":2098,\"A4\":2107,\"A5\":2114,\"A6\":2083,\"A7\":2085}\n\n### Installation\n- [Connecter le Spark Core à votre Wifi](https://www.spark.io/start)\n- [Déployer le firmware depuis le Web IDE Spark Cloud](https://www.spark.io/build/)\n- Comment ajouter les fichiers dans le projet :\n\n![Add file](http://domotique-info.fr/wp-content/uploads/2014/04/domotique-info-webideaddlib.gif)\n\nOld GUI version :\n\n<a href=\"http://www.youtube.com/watch?feature=player_embedded&v=ifYkC7UdMVA\n\" target=\"_blank\"><img src=\"http://img.youtube.com/vi/ifYkC7UdMVA/0.jpg\" \nalt=\"Aller sur Youtube\" width=\"560\" border=\"10\" /></a>\n\n<a href=\"http://www.youtube.com/watch?feature=player_embedded&v=bbSlwt5ZI3Q\n\" target=\"_blank\"><img src=\"http://img.youtube.com/vi/bbSlwt5ZI3Q/0.jpg\" \nalt=\"Aller sur Youtube\" width=\"560\" border=\"10\" /></a>\n\n[Youtube video 1](https://www.youtube.com/watch?v=ifYkC7UdMVA)\n[Youtube video 2](http://youtu.be/bbSlwt5ZI3Q)\n\n",

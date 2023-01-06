@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MelodySpeaker",
     "version": "1.0.0",
-    "installs": 2134,
+    "installs": 2488,
     "license": "MIT",
     "author": "Stan Borkowski",
     "sentence": "Particle Photon Library for playing mono-tone melodies.",
@@ -50,8 +50,63 @@
           "boron": {
             "application": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "application": true
+          },
+          "electron": {
+            "application": true
+          },
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "p2": {
+            "application": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          },
+          "bsom": {
+            "application": false
+          },
+          "b5som": {
+            "application": false
+          },
+          "tracker": {
+            "application": false
+          },
+          "esomx": {
+            "application": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.865Z"
     }
   },
   "readme": "MelodySpeaker\n=============\n\nA Library for playing mono-tone melodies over a piezo speaker using the `tone()` function.\nYou can set playback tempo, and notes to play following the note encoding defined below.\nThe melody can be played either in blocking and non-blocking way.\nIn blocking mode the first call of `processMelody` will play the complete melody and return at the end.\nIn non-blocking mode the `MelodySpeaker` class tries to execute the melody following the system clock.\nIn this case the `processMelody` method must be called as often as possible.\nIf the execution of `processMelody` is delayed by other CPU-load, the playback of next note of the melody will be delayed as well.\n\n## Melody encoding\n\nThe melody is passed to the `setMelody` method as a string where each note is encoded by 3 characters; note length, note value, octave.\nFor example, \"8A4\" means en eight-note A4 (440 Hz).\nValid notes are \"CdDeEFgGaAbB\", with lower case letters being the lower half notes.\nValid scales go from 1 to 7.\n\n## Melody tempo\n\nYou can set the playback tempo to a value of beats per minute.\nWith 120 BPM a quarter note will last for 1 second.\n\nNote that tempo applies only to the next melody set by invoking `setMelody`.\n\n## Getting Started\n\n```\nMelodySpeaker speaker = Melody(D1, false); // non-blocking operation\n\nvoid setup() {\n    speaker.begin(); // sets the selected pin to OUTPUT\n\n    speaker.setTempo(240); // optional\n    speaker.setMelody(\"4C7,8G6,8G6,4A6,4G6,4  ,4B6,4C7\");\n}\n\nvoid loop() {\n    speaker.processMelody();\n}\n```\n\n## License\n\nMIT license.\n",

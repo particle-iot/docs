@@ -7,7 +7,7 @@
   "attributes": {
     "name": "clickButton",
     "version": "1.0.9",
-    "installs": 76200,
+    "installs": 78150,
     "license": "GNU General Public License v3+",
     "author": "Paul Kourany/raron, raronzen@gmail.com",
     "sentence": "clickButton Library",
@@ -50,8 +50,63 @@
           "boron": {
             "clickButtonDemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "clickButtonDemo": true
+          },
+          "electron": {
+            "clickButtonDemo": true
+          },
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          },
+          "bsom": {
+            "clickButtonDemo": true
+          },
+          "b5som": {
+            "clickButtonDemo": true
+          },
+          "tracker": {
+            "clickButtonDemo": true
+          },
+          "p2": {
+            "clickButtonDemo": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          },
+          "bsom": {
+            "clickButtonDemo": true
+          },
+          "b5som": {
+            "clickButtonDemo": true
+          },
+          "tracker": {
+            "clickButtonDemo": true
+          },
+          "esomx": {
+            "clickButtonDemo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.667Z"
     }
   },
   "readme": "ClickButton\n===========\n- Jan 2016, update to Libraries 2.0\n\nA library that decodes multiple clicks on one button. Also copes with \nlong clicks and click-and-hold. \n \nUsage:\n-------\n\n```\nClickButton buttonObject(pin [LOW/HIGH, [CLICKBTN_PULLUP]]);\n```\n \nwhere LOW/HIGH denotes active LOW or HIGH button (default is LOW) \nCLICKBTN_PULLUP is only possible with active low buttons. \n \nReturned click counts:\n----------------------\n\n   A positive number denotes the number of (short) clicks after a released button\n   A negative number denotes the number of \"long\" clicks\n\n",

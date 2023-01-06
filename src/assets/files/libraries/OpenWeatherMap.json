@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OpenWeatherMap",
     "version": "1.1.0",
-    "installs": 2194,
+    "installs": 2325,
     "license": "MIT",
     "author": "Daniel Klose <d.klose@walbert-schmitz.de>",
     "maintainer": "Daniel Klose <d.klose@walbert-schmitz.de>",
@@ -51,8 +51,63 @@
           "boron": {
             "getAllData-example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "getAllData-example": false
+          },
+          "electron": {
+            "getAllData-example": false
+          },
+          "argon": {
+            "getAllData-example": false
+          },
+          "boron": {
+            "getAllData-example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "getAllData-example": false
+          },
+          "boron": {
+            "getAllData-example": false
+          },
+          "bsom": {
+            "getAllData-example": false
+          },
+          "b5som": {
+            "getAllData-example": false
+          },
+          "tracker": {
+            "getAllData-example": false
+          },
+          "p2": {
+            "getAllData-example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "getAllData-example": false
+          },
+          "boron": {
+            "getAllData-example": false
+          },
+          "bsom": {
+            "getAllData-example": false
+          },
+          "b5som": {
+            "getAllData-example": false
+          },
+          "tracker": {
+            "getAllData-example": false
+          },
+          "esomx": {
+            "getAllData-example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.876Z"
     }
   },
   "readme": "# OpenWeatherMap\n\nAn Arduino library to get easy readable data from [openweathermap.org](openweathermap.org).\n\n## Dependencies\n\nBefore using the library please install the following libraries if they are not already on your system:\n\n* Arduino\n* ArduinoJson\n* HTTPClient\n* Time\n\n## Usage\n\nTo use the library you have to create a free account on [openweathermap.org](openweathermap.org) (no creditcard required). After you loged into your account click on *API keys* whre you will se one key already initialized. You are able to rename this key, delete it or generate a new one.\n\nThe key should look something like this:\n\n````\ndc22da34c61984e030c370957626c635\n````\n\nThat's already everything you need to get started. Jump to your favorite Arduino IDE and open the *test_OpenWeatherMap.ino* file in the examples-folder.\n\n## Change your parameters\n\nIn the example-file you will have to change a few parameters depending on how you would like to use the library as well as you location from which you want to get your weather data.\n\nFirst, if you want to go wireless, change your SSID and according password to log into your router to get access to the internet:\n\n````\nconst char* ssid = \"MySSID\";          //Change to your SSID\nconst char* password =  \"password\";   //Change to your router password\n````\n\nNext comes the crucial part to log into openweathermap.org to get your weather data. To do so, simply change the parameters to your needs:\n\n````\nconst String city = \"MyCity\";       //type your City here \nconst String cc = \"MyCountrycode\";  //Enter your countrycode here e.g. (united states = us, germany = de, france = fr, etc.)\nconst String apiKey = \"MyAPIKey\";   //enter your uniqe API key which you created on openweathermap.org\nconst String unit = \"metric\";       //Enter metric, imperial or leave empty for standard values\n````\n\nThat's it! Everything is configured!\n\n## Getting the data\n\nAfter changing all parameters you have to initiate the library. Create a new instance with\n\n````\nOpenWeatherMap myCity(endpoint, city, cc, apiKey, unit)\n````\n\nAs you can see by initiating more instances you can also get data from multiple citys. \n\n*Have in mind that your **free account** only provides you with **60 datapoints per minute**. If you need more datapoints please refer to paid subscriptions on their website.*\n\nAfter initiating your city/cities, start the library with\n\n````\nvoid setup(){\n\n    Serial.begin(115200);\n    myCity.begin();\n}\n\nvoid loop(){\n\n    myCity.update();\n    float temperature = myCity.temperatur();\n    Serial.println(temperature);\n}\n````\n\nNow comes the fun part: Getting all the data you want form your city. You have multiple functions to get multiple details provided by openweathermap.org.\n\n\n\n# Standard functions\n\n**.begin():** *output: int*  \nReturns the http code of the website. Use this for debugging.\n\n----\n\n**.update():** *output: bool*  \nHas to be called at least once in the *loop()* to get the the informations from the website.\n\n----\n\n**.sunrise():** *output: String*  \nRetruns the time of the sunrise as a String in the format *hh:mm:ss*. The time is already timecorrected from the UTC time by using your provided city and countrycode parameters.\n\n----\n\n**.sunset():** *output: String*  \nReturns the time of the sunrise as a String in the format *hh:mm:ss*. The time is already timecorrected from the UTC time by using your provided city and countrycode parameters.\n\n----\n\n**.weather():** *output: String*  \nReturns the weathercondition. Please refer to [Weather Conditions](https://openweathermap.org/weather-conditions) to find all conditions under: \n\n*\"Weather condition does\" **Main***. (halfway through the page)\n\nThese conditions are a rough estimate of the weather. To get more detailed informations use *weatherDetail()*.\n\n----\n\n**.icon():** *output: String*  \nReturns a String corresponding to openweathermap's own iconset. You can get more informations on [Weather Conditions](https://openweathermap.org/weather-conditions).\n\n*\"Icon list\"* (halfway through the page)\n\nSadly you can't download the whole iconset but you can access all icons by using [http://openweathermap.org/img/wn/**YOUR_ICON_CODE_HERE**.png](http://openweathermap.org/img/wn/YOUR_ICON_CODE_HERE.png) for@1x resolutions or for @2x resolutions [http://openweathermap.org/img/wn/**YOUR_ICON_CODE_HERE@2x**.png](http://openweathermap.org/img/wn/YOUR_ICON_CODE_HERE@2x.png).\n\n----\n\n**.temperature():** *output: float*  \nReturns the temperature in: \n* °C (metric)\n* °F (imperial)\n* °K (*empty*)\n\n----\n\n**.windSpeed():** *output: float*  \nReturns the windspeed in: \n* meter/sec(metric and *emtpy*)\n* miles/hour (imperial)\n\n----\n\n**.timezone():** *output: int*  \nReturns the timezone related to the UTC in hours. \ne.g. Berlin (+1h) or Berlin (+2h summertime)\n\n\n## Advanced functions\n\nAdvanced funtions aren't any special or harder to code but deliver more inforamtions than the standard functions. You need the wind direction? Cloudiness? Rain prediction for the next 1h or 3h? \nTake one of these functions and you are good to go!\n\n----\n\n**.weatherDetail():** *output: String*  \nTo get more detailed weather descriptions use this. Please refer to [Weather Conditions](https://openweathermap.org/weather-conditions) to find all detailed conditions under:\n\n*\"Weather condition does\" **Description***. (halfway through the page)\n\nIf you are looking for a rough estimate of the weathercondition please use *weather()*.\n\n----\n\n**.weatherId():** *output: int*  \nIf Strings aren't your favourite or simply don't convey the weather in the kind of manner you like it to appear there are still the weatherIDs you can ask for. A translation to human readable weather can be found here:\n\n[Weather Conditions](https://openweathermap.org/weather-conditions)\n*\"Weather condition does\" **ID***. (halfway through the page)\n\n----\n\n**.temperature_min():** *output: float*  \nReturns the current minimum temperature in\n* °C (metric)\n* °F (imperial)\n* °K (*empty*)\n\n----\n\n**.temperature_max():** *output: float*  \nReturns the current maximum temperature in\n* °C (metric)\n* °F (imperial)\n* °K (*empty*)\n\n----\n\n**.coordLat():** *output: float*  \nReturns the coordinates' latitude (North/South) in 90°-0° from equator to northpole and 0°-90° southpole to equator. It sadly *doesn't* tell you if it is N°xxx.xxx or S°xxx.xxx.\n\n----\n\n**.coordLon():** *output: float*  \nReturns the coordinates' longitude in 180° where 0° is Greenwich in Great Britain and then 0°-180° east- and westwards. Same as with the latitude the API *doesn't* send W°xxx.xxx or E°xxx.xxx\n\n----\n\n**.humidity():** *output: int*  \nOutputs the humidity in percent.\n\n----\n\n**.pressure():** *output: int*  \nReturns the atmospheric pressure meassured from sea-level in hPa. \n\n----\n\n**.windDegrees():** *output: int*  \nReturns the wind direction on degrees. \n\n| Direction | Degrees           |\n|-----------|:------------------|\n| North     | 0° / 360°         |\n| East      | 90°               |\n| South     | 180°              |\n| West      | 270°              |\n\n----\n\n**.windDirections()** *output: String*  \nOutputs easyly readable wind directions:\n| Short | Long              |\n|-------|-------------------|\n| N     | north             |\n| NNE   | north north east  |\n| NE    | north east        |\n| ENE   | east north east   |\n| E     | east              |\n| ESE   | east south east   |\n| SE    | south east        |\n| SSE   | south south east  |\n| S     | south             |\n| SSW   | south south west  |\n| SW    | south west        |\n| WSW   | west south west   |\n| W     | west              |\n| WNW   | west south west   |\n| NW    | north west        |\n| NNW   | north north west  |\n\n----\n\n**.cloudiness():** *output: int*  \nReturns the cloudiness in percent.\n\n\n\n# Future features\n\nThese are features that still have to be implemented into the library.\n\n**uint16_t rain(int hours):** //hours = 1||3 in mm\n\n**uint16_t snow(int hours):**",

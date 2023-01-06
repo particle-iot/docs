@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP_CAN_RK",
     "version": "1.5.1",
-    "installs": 1534,
+    "installs": 2181,
     "license": "LGPL2.1",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "https://github.com/coryjfowler/MCP_CAN_lib port for Particle",
@@ -124,8 +124,207 @@
             "RPM_Sim": true,
             "Standard_MaskFilter": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "electron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "argon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "boron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "boron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "bsom": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "b5som": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "tracker": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "p2": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "boron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "bsom": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "b5som": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "tracker": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "esomx": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.886Z"
     }
   },
   "readme": "# MCP_CAN_RK Library for Particle\n\nThis is a port of [MCP_CAN_lib](https://github.com/coryjfowler/MCP_CAN_lib) for Particle devices.\n\nLicensing note: The original library was distributed using the GNU Lesser General Public License, version 2.1. As such, there may be limitations using this with a closed-source commercial project because Particle firmware binaries are statically linked. See [this answer](http://answers.google.com/answers/threadview/id/439136.html) for more details.\n\n## Notes\n\nBe sure to correctly set the clock speed:\n\n```\nif (CAN0.begin(MCP_ANY, CAN_500KBPS, MCP_8MHZ) == CAN_OK)\n```\n\nThe `MCP_8MHZ` must match the crystal on your board. It could be 8, 16, or 20 MHz.\n\n## Version history\n\n#### 1.5.0 (2020-06-23)\n\n- Initial port\n\n\n\n---\n\nThe original README follows:\n\n## MCP_CAN Library for Arduino\nMCP_CAN library v1.5\nThis library is compatible with any shield or board that uses the MCP2515 or MCP25625 CAN protocol controller.\n\nThis version supports setting the ID filter mode of the protocol controller, the BAUD rate with clock speed with the begin() function.  Baudrates 5k, 10k, 20k, 50k, 100k, 125k, 250k, 500k, & 1000k using 16MHz clock on the MCP2515 are confirmed to work using a Peak-System PCAN-USB dongle as a reference.  Baudrates for 8MHz and 20MHz crystals are yet to be confirmed but were calculated appropiately.\n\n**The readMsgBuf() functions bring in the message ID. The getCanId() function is obsolete and no longer exists, don't use it.**\n\nThe readMsgBuf(*ID, *DLC, *DATA) function will return the ID type (extended or standard) and it will bring back the remote request status bit.  \nIf the ID AND 0x80000000 EQUALS 0x80000000, the ID is of the Extended type, otherwise it is standard.  \nIf the ID AND 0x40000000 EQUALS 0x40000000, the message is a remote request.  \n\nThe readMsgBuf(*ID, *EXT, *DLC, *DATA) function will return the ID unaltered and doesn't inform us of a remote request.  \nIf EXT is true, the ID is extended.  \n  \nThe sendMsgBuf(ID, DLC, DATA) function can send extended or standard IDs.  \nTo mark an ID as extended, OR the ID with 0x80000000.    \nTo send a remote request, OR the ID with 0x40000000.  \n  \nThe sendMsgBuf(ID, EXT, DLC, DATA) has not changed other than fixing return values.  \n\nUsing the setMode() function the sketch can now put the protocol controller into sleep, loop-back, or listen-only modes as well as normal operation.  Right now the code defaults to loop-back mode after the begin() function runs.  I have found this to increase the stability of filtering when the controller is initialized while connected to an active bus.\n\nUser can enable and disable (default) One-Shot transmission mode from the sketch using enOneShotTX() or disOneShotTX() respectively.\n\nInstallation\n==============\nCopy this into the \"[.../MySketches/]libraries/\" folder and restart the Arduino editor.\n\nNOTE: If an older version of the library exists (e.g. CAN_BUS_Shield) be sure to remove it from the libraries folder or replace the files with those in this library to avoid conflicts.\n\n\nHelp and Support\n==============\nThis is primarily for non-bug related issues: Please start a *new thread* in an appropriate area at Seeedstudio forums or Arduino.cc forums and then send me (coryjfowler) a link through the PM system, my user name is the same as it is here.  I will receive an email about the PM and generally get to it with-in a week or less.  Keep in mind, I do this in my spare time.\n\n\n*Happy Coding!*\n",

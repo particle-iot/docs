@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADAFRUIT_ST7565",
     "version": "0.0.3",
-    "installs": 901,
+    "installs": 958,
     "license": "GNU GENERAL PUBLIC LICENSE",
     "author": "Someone <email@somesite.com>",
     "sentence": "Adafruit ST7565 Library",
@@ -50,8 +50,63 @@
           "boron": {
             "LCDTest_ST7565": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "LCDTest_ST7565": false
+          },
+          "electron": {
+            "LCDTest_ST7565": false
+          },
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          },
+          "bsom": {
+            "LCDTest_ST7565": false
+          },
+          "b5som": {
+            "LCDTest_ST7565": false
+          },
+          "tracker": {
+            "LCDTest_ST7565": false
+          },
+          "p2": {
+            "LCDTest_ST7565": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          },
+          "bsom": {
+            "LCDTest_ST7565": false
+          },
+          "b5som": {
+            "LCDTest_ST7565": false
+          },
+          "tracker": {
+            "LCDTest_ST7565": false
+          },
+          "esomx": {
+            "LCDTest_ST7565": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.968Z"
     }
   },
   "readme": "# ST7565\nST7565 Library for Particle Devices.  Ported from Adafruit's ST7565_LCD library.\n\nExtended with Particle Library Information.\n",

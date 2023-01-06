@@ -121,6 +121,7 @@ carriers2.selectMenu = function() {
     });
 
     let warnRoaming = false;
+    let warnTMobile = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
         let html = '';
@@ -137,7 +138,7 @@ carriers2.selectMenu = function() {
 
         }
         
-        html += '</td>';
+        html += '</td>';        
 
         let allow = false;
         technologies.forEach(function(tech) {
@@ -145,11 +146,17 @@ carriers2.selectMenu = function() {
 
             if (ccObj[countryCarrierKey]['allow' + tech]) {
                 allow = true;
+
+                if (ccObj[countryCarrierKey]['allow' + tech] == 5) {
+                    cell = '<sup>5</sup>'; 
+                    warnTMobile = true;
+                }
+                else
                 if (!ccObj[countryCarrierKey].roamingRestrictions) {
                     cell = '&check;'; 
                 }
                 else {
-                    cell = '<sup>*</sup>'; 
+                    cell = '<sup>6</sup>'; 
                     warnRoaming = true;
                 }
             }
@@ -164,6 +171,13 @@ carriers2.selectMenu = function() {
         $('#' + carriers2.options.table + ' > tbody').append(html);
 
     });
+
+    if (warnTMobile) {
+        $('#byDeviceTMobileWarning').show();
+    }
+    else {
+        $('#byDeviceTMobileWarning').hide();        
+    }
 
     if (warnRoaming) {
         $('#byDeviceRoamingWarning').show();
@@ -341,7 +355,7 @@ rec2.selectMenu = function() {
 
 
     let html = '';
-
+    let carrierOptions = {};
 
 
     const generateCountryListReason = function(labelStr, modemSimObj) {
@@ -368,7 +382,7 @@ rec2.selectMenu = function() {
 
         let lastCountry;
         let countryCount = 0;
-
+        
         datastore.data.countryCarrier.forEach(function(ccObj) {
             if (!modemSimObj.countries.includes(ccObj.country)) {
                 return;
@@ -396,8 +410,13 @@ rec2.selectMenu = function() {
             html += '<tr class="' + rowClass + '"><td>' + ccObj.country + '</td><td>' + ccObj.carrier + '</td>';
 
             modemObj.technologies.forEach(function(tech) {
-                const allow = !!ccObj[etherSimObj.simPlanKey]['allow' + tech];
-                html += '<td class="technologyCell">' + (allow ? '\u2705' : '&nbsp;') + '</td>'; // Green Check
+                const allow = ccObj[etherSimObj.simPlanKey]['allow' + tech];
+                html += '<td class="technologyCell">' + (!!allow ? '\u2705' : '&nbsp;');
+                if (allow == 5) {
+                    html += '<sup>5</sup>';
+                    carrierOptions.showFootnote5 = true;
+                }
+                html += '</td>'; // Green Check
             });
 
                 
@@ -408,7 +427,19 @@ rec2.selectMenu = function() {
     
     };
 
+    const generateFootnotes = function() {
+        if (carrierOptions.showFootnote5) {
+            html += '<p style="font-size: small;"><sup>5</sup>T-Mobile in the United States only officially supports ' +
+            'LTE Cat NB1, which is not supported by this device. T-Mobile has unofficially enabled LTE Cat M1 in some areas, ' +
+            'and where enabled, this device can connect to it. ' +
+            'There is no coverage map as T-Mobile does not acknowledge the existence of LTE Cat M1 coverage.</p>';             
+        }
+
+    };
+
     const generateSimpleSkuTables = function(labelStr, modemSimArray, showCarriers) {
+
+        let op
 
         modemSimArray.forEach(function(modemSimObj, index) {
             generateCountryListReason(labelStr, modemSimObj);
@@ -417,9 +448,12 @@ rec2.selectMenu = function() {
 
             if (showCarriers) {
                 generateCarrierTable(modemSimObj);
-            }
 
+                generateFootnotes();
+            }
         });
+
+
     }
 
 
@@ -474,6 +508,7 @@ rec2.selectMenu = function() {
             });
             html += '</div>'; // flex container close    
         }
+        generateFootnotes();
 
         if (modemSimArray.length == 2 && countriesMissing.length > 0) {
             html += '<p>Not recommended in: ' + countriesMissing.join(', ') + '</p>';
@@ -585,6 +620,7 @@ const familyMapCreate = function() {
 
     familyMap.drawMap = function() {
         let family;
+
         if (familyMap.options.familySelect) {
             family = $(familyMap.options.familySelect).val();
         }
@@ -600,7 +636,7 @@ const familyMapCreate = function() {
 
         let models = [];
         skuFamilyObj.group.forEach(function(obj) {
-            if (obj.lifecycle == 'GA') {
+            if (obj.lifecycle == 'GA' || obj.lifecycle == 'In development' || obj.lifecycle == 'Sampling') {
                 models.push(obj);
             }
         });
@@ -618,7 +654,12 @@ const familyMapCreate = function() {
 
                 models.forEach(function(modelObj, modelIndex) {
                     if (modelObj.sim == cmsObj.sim && modelObj.modem == cmsObj.modem) {
-                        foundModel = modelIndex;
+                        if (typeof modelObj['mapColor'] != 'undefined') {
+                            foundModel = modelObj.mapColor;
+                        }
+                        else {
+                            foundModel = modelIndex;
+                        }
                     }
                 });
             });    
@@ -647,7 +688,11 @@ const familyMapCreate = function() {
             let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th><th>Lifecycle</th></tr></thead><tbody>';
 
             models.forEach(function(skuFamilyObj, modelIndex) {
-                const style = 'background-color:#' + options.colorAxis.colors[modelIndex];
+                let mapColor = modelIndex;
+                if (typeof skuFamilyObj['mapColor'] != 'undefined') {
+                    mapColor = skuFamilyObj.mapColor;
+                }
+                const style = 'background-color:#' + options.colorAxis.colors[mapColor];
 
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {
@@ -664,6 +709,67 @@ const familyMapCreate = function() {
 
     }
 
+    familyMap.drawMapCat1Expansion = function() {
+        let countryDataArray = [['Country', 'Coverage']];
+
+        const labelValues = ['Original Coverage', 'Expanded Coverage'];
+
+        datastore.data.countries.forEach(function(countryObj) {
+
+            let foundValue = 0;
+
+            datastore.data.countryModemSim.forEach(function(cmsObj) {
+                if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
+                    return;
+                }
+                if (!cmsObj.modem.startsWith('EG91-E') || cmsObj.sim != 4) {
+                    return;
+                }
+
+                if (cmsObj.expansion) {
+                    foundValue = 2;
+                }
+                else {
+                    if (foundValue == 0) {
+                        foundValue = 1;
+                    }
+                }
+            });    
+
+            if (foundValue) {
+                countryDataArray.push([countryObj.isoCode, foundValue]);
+            }
+        });
+
+        var data = google.visualization.arrayToDataTable(countryDataArray);
+
+        var options = {
+            colorAxis: {colors: ['AFE4EE', '2BB1CA']}, // Sky 600 to Sky 900
+            legend: 'none',
+            tooltip: {trigger: 'none'}
+        };
+
+
+        var chart = new google.visualization.GeoChart(familyMap.options.mapDiv[0]);
+
+        chart.draw(data, options);
+
+        // 
+        {
+            let html = '<div><table><tbody>';
+
+            for(let ii = 0; ii < labelValues.length; ii++) {
+                const style = 'background-color:#' + options.colorAxis.colors[ii];
+
+                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + labelValues[ii] + '</td></tr>';
+            }
+
+            html += '</tbody></table></div>';
+
+            $(familyMap.options.skusDiv).html(html);
+        }
+    }
+    
     familyMap.initMap = function() {
         familyMap.initMapStarted = true;
 
@@ -691,6 +797,13 @@ const familyMapCreate = function() {
         // family - the device family if familySelect is not present
         // noHistory - don't update page history
         familyMap.options = options;
+
+        if (familyMap.options.family == 'cat1expansion') {
+            // Not really a family
+            familyMap.options.clickToShow = false;
+            familyMap.drawMap = familyMap.drawMapCat1Expansion;
+        }
+
 
         if (familyMap.options.clickToShow) {
             $(familyMap.options.mapDiv).find('.clickToShow').show();
@@ -850,7 +963,8 @@ countryDetails.generateTable = function(options) {
             noBand:'1',
             noPlan:'2',
             noBandNoPlan:'3',
-            warnM1:'4'
+            warnM1:'4',
+            warnTMobile: '5',
         },
         footnotesDiv: footnotesDivId, // countryDetails.options.footnotesDiv,
         showAllTechnologies: true,

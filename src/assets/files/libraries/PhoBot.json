@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PhoBot",
     "version": "0.0.11",
-    "installs": 11406,
+    "installs": 11655,
     "license": "MIT",
     "author": "Simon Monk <simon@monkmakes.com>",
     "sentence": "A library for the MonkMakes PhoBot robot controller shield",
@@ -66,8 +66,95 @@
             "WebControl": false,
             "WebRover": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "electron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "bsom": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "b5som": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "tracker": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "p2": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "bsom": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "b5som": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "tracker": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "esomx": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.746Z"
     }
   },
   "readme": "# PhoBot\nA Spark Photon library for the PhoBot robot controller shield from MonkMakes.\n\nIf you are using a Spark Core, you need the companion library PHOBOT_SPARKCORE instead of this one.\n",

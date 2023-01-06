@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DAC121C08X",
     "version": "0.1.2",
-    "installs": 1831,
+    "installs": 1984,
     "license": "MIT",
     "author": "David H Hagan",
     "sentence": "Add support for a default i2c address.",
@@ -54,8 +54,63 @@
           "boron": {
             "write_value": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "write_value": true
+          },
+          "electron": {
+            "write_value": true
+          },
+          "argon": {
+            "write_value": true
+          },
+          "boron": {
+            "write_value": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "write_value": true
+          },
+          "boron": {
+            "write_value": true
+          },
+          "bsom": {
+            "write_value": true
+          },
+          "b5som": {
+            "write_value": true
+          },
+          "tracker": {
+            "write_value": true
+          },
+          "p2": {
+            "write_value": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "write_value": true
+          },
+          "boron": {
+            "write_value": true
+          },
+          "bsom": {
+            "write_value": true
+          },
+          "b5som": {
+            "write_value": true
+          },
+          "tracker": {
+            "write_value": true
+          },
+          "esomx": {
+            "write_value": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.889Z"
     }
   },
   "readme": "# DAC121C08X\n\nA Particle library for the [DAC121C08X](http://www.ti.com/product/DAC121C085?)\n\n## Welcome to your library!\n\nEver need to add more than one 12-bit DAC IC's to your board? Or, is the 3.3V max on the on-board DAC not quite what you're looking for? Look no further! Add up to 8 12-bit micropower DAC with an external reference at once using Texas Instruments' DAC121C085 chip!\n\nTo hook up, simply grab an 8VSSOP breakout board from Adafruit/Sparkfun/Digikey/Mouser and get started!\n\n\n## Usage\n\nConnect the DAC hardware, add the DAC121C08X library to your project and follow this simple example:\n\n```\n#include \"DAC121C08X.h\"\n\nDAC121C08X dac(0x09);\n\nvoid setup() {\n  dac.begin();\n}\n\nvoid loop() {\n  for (int i=0;i<4095;i++) {\n    dac.write_value(i);   // Increment the DAC value\n\n    delay(1000);\n  }\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nThere is only one class with two methods in this (ultra) tiny library.\n\n### `DAC121C08X(uint8_t ADDR, float VREF = 5.0)`\n\nTo initialize an instance of the class, the only requirement is the i2c address. For this chip, the available addresses include: `0xA`, `0xC`, `0xD`, `0xE`, `0x08`, `0x09`, `0x4C`, `0x4D`, and `0x4E`. For specific details, check out the datasheet.\n\nOptionally, you can provide the reference voltage you have wired up; the default value is 5V.\n\n#### `bool DAC121C08X::write_value(unsigned int val)`\n\nTo write a specific value, simply provide an unsigned int between 0-4095 for the 12-bit version. Here, 0 will correspond to 0V and 4095 will correspond to [VREF] volts.\n\n#### `bool DAC121C08X::write_voltage(float voltage)`\n\nRather than have to calculate the number of bits for the voltage you actually want, use this method to do all the (not very) hard work for you. Simply provide a float between 0 and [VREF] volts.\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add DAC121C08X_myname` to add the library to a project on your machine or add the DAC121C08X_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 David H Hagan\n\nLicensed under the MIT license\n",

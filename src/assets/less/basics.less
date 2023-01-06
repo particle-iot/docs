@@ -83,11 +83,88 @@ td {
   font-size: 100%;
   vertical-align: baseline;
 }
-body {
-  line-height: 1;
-  color: @NC_BLACK;
-  background: @NC_WHITE;
+
+div {
+  .STYLE_body_md_r();
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    line-height: 1;
+    color: @COLOR_Gray_100;
+    background: @COLOR_Midnight_800;
+  }
+
+  a {
+    .STYLE_link_inline_md_r(); // Use bold Grafik
+    // .STYLE_link_md_r(); // Use MDIO
+    color: @COLOR_Gray_100;
+
+    &:visited {
+      color: @COLOR_Gray_100;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+    &.menu {
+      text-decoration: underline;
+    }
+  }
+
+  input[type=text],input[type=password] {
+    .STYLE_body_md_r();
+    color: @COLOR_Gray_100;
+    background-color: @COLOR_Midnight_600;
+    border: 0px;
+    &:focus {
+      color: @COLOR_Gray_100;
+      background-color: @COLOR_Midnight_600;  
+    }
+  }
+
+  img:not(.no-darken) {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    line-height: 1;
+    color: @COLOR_Midnight_500;
+    background: @COLOR_White_0;
+  }
+
+  a {
+    color: @COLOR_Midnight_300;
+    .STYLE_link_inline_md_r(); // Use bold Grafik
+    // .STYLE_link_md_r(); // Use MDIO
+
+    &:visited {
+      color: @COLOR_Midnight_300;
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.menu {
+      text-decoration: underline;
+    }
+  }
+
+  input[type=text],input[type=password] {
+    .STYLE_body_md_r();
+    color: @COLOR_Midnight_500;
+    background-color: @COLOR_Gray_200;
+    border: 0px;
+    &:focus {
+      color: @COLOR_Midnight_500;
+      background-color: @COLOR_Gray_200;  
+    }
+  }
+}
+
 ol,
 ul {
   list-style: none;
@@ -122,13 +199,51 @@ body,
 td,
 textarea,
 input {
-  line-height: 1.6;
+  line-height: 20px; // body large regular
   font-size: 16px;
-  color: @NC_SPACE_GRAY;
+  //color: @NC_HEADER;
 }
 pre code {
   color: @NC_WHITE;
 }
+button {
+  .STYLE_button_md();
+  border-radius: 0px;
+  height: 32px;
+  color: @COLOR_Midnight_500;
+  padding-left: 12px;
+  padding-right: 12px;
+  &:enabled {
+      background-color: @COLOR_ParticleBlue_500;
+  }
+  &:hover:enabled {
+      text-decoration: underline;
+  }
+  &:disabled {
+      background-color: @COLOR_ParticleBlue_800;
+  }
+
+};
+
+button.smallButton {
+  .STYLE_button_sm();
+  border-radius: 0px;
+  height: 20px;
+  color: @COLOR_Midnight_500;
+  padding-left: 8px;
+  padding-right: 8px;
+  &:enabled {
+      background-color: @COLOR_ParticleBlue_500;
+  }
+  &:hover:enabled {
+      text-decoration: underline;
+  }
+  &:disabled {
+      background-color: @COLOR_ParticleBlue_800;
+  }
+
+};
+
 @media (max-width: 480px) {
   body,
   td,
@@ -137,10 +252,14 @@ pre code {
     font-size: 14px;
   }
 }
+/*
 a {
-  color: @NC_CYAN;
-  text-decoration: none;
+  font-family: @link-font;
+  font-size: 16px;
+  font-weight: 400px;
+  text-decoration: underline;
 }
 a:hover {
   color: @NC_CYAN_HOVER;
 }
+*/

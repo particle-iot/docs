@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP23008-RK",
     "version": "0.0.4",
-    "installs": 2377,
+    "installs": 2733,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for 8-port I2C GPIO Expander MCP23008",
@@ -76,8 +76,111 @@
             "03-interrupts": false,
             "04-interrupts-class": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "electron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": true,
+            "04-interrupts-class": true
+          },
+          "p2": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "bsom": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "b5som": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "tracker": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": true,
+            "04-interrupts-class": true
+          },
+          "esomx": {
+            "01-simple-gpio": false,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.865Z"
     }
   },
   "readme": "# MCP23008-RK\n*Particle driver for MCP23008 8-port I2C GPIO expander*\n\n\n## Pinouts\n\nOne Side:\n\n- 1 SCL (to Photon D1, blue)\n- 2 SDA (to Photon D0, green)\n- 3 A2\n- 4 A1\n- 5 A0\n- 6 /RESET\n- 7 NC \n- 8 INT (output)\n- 9 VSS (GND, black)\n\nOther Side:\n\n- 10 GP0\n- 11 GP1\n- 12 GP2\n- 13 GP3\n- 14 GP4\n- 15 GP5\n- 16 GP6\n- 17 GP7\n- 18 VDD (3.3 or 5V, red)\n\nNote that the address lines are not biased so you must connect them to GND or VDD to set the address! Normally you'd connect all to GND to set address 0.\n\nSame for /RESET, though you probably want to connect that to VDD to keep the device out of reset.\n\nHere's my test circuit:\n\n![circuit](images/circuit.jpg)\n\nImportant: Remember the pull-ups on the SDA and SCL lines (4.7K or 10K typically)! While many breakout boards like you'd get from Adafruit or Sparkfun includes the pull-ups on the board, you must add external resistors when using a bare MCP23008.\n\n## Using the Library\n\nThis library has an API that looks remarkably like the regular GPIO calls.\n\nThe full API documentation is available in the docs/index.html file or in the [browsable API reference](https://rickkas7.github.io/MCP23008-RK/). \n\n### Initialization\n\nTypically you create an global object like this in your source:\n\n```\nMCP23008 gpio(Wire, 0);\n```\n\nThe first parameter is the interface. It's typically Wire (D0 and D1). \n\nThe second parameter is the address of the device (0-7). This corresponds to the value set on the A0, A1, and A2 pins and allows up to 8 separate MCP23008 devices on a single I2C bus.\n\nOn the Electron, you can also use Wire1 on C4 and C5:\n\n```\nMCP23008 gpio(Wire1, 0);\n```\n\n### begin\n\n```\nvoid begin();\n```\n\nYou must call begin(), typically during setup(), to initialize the Wire interface.\n\n### pinMode\n\n```\nvoid pinMode(uint16_t pin, PinMode mode);\n```\n\nSets the pin mode of a pin (0-7). Values for mode include:\n\n- INPUT (default)\n- INPUT_PULLUP\n- OUTPUT\n\nNote that it does not support INPUT_PULLDOWN, as the MCP23008 only supports internal pull-ups. Also, they're 100K vs. the 40K (-ish) pull-ups in the STM32F205.\n\n### digitalWrite\n\n```\nvoid digitalWrite(uint16_t pin, uint8_t value);\n```\n\nSets the value of a pin (0-7) to the specified value. Values are typically:\n\n- 0 (or false or LOW)\n- 1 (or true or HIGH)\n\n### digitalRead\n\n```\nint32_t digitalRead(uint16_t pin);\n```\n\nReads the value of the pin (0-7). This will be HIGH (true, 1) or LOW (false, 0).\n\nIf used on an output pin, returns the current output state.\n\n\n### getPinMode\n\n```\nPinMode getPinMode(uint16_t pin);\n```\n\nReturns the pin mode of pin (0-7), which will be one of:\n\n- INPUT (default)\n- INPUT_PULLUP\n- OUTPUT\n\n### pinAvailable\n\n```\nbool pinAvailable(uint16_t pin);\n```\n\nReturns true if 0 <= pin <= 7.\n\t\n### More Functions\n\nThe full documentation is available in the docs/index.html file or in the [browsable API reference](https://rickkas7.github.io/MCP23008-RK/). This documentation is generated automatically from comments in MCP23008-RK.h using the Doxygen tool.\n\n\n## Example Programs\n\n\n### 02-Really-Simple-Output\n\n```\n#include \"Particle.h\"\n#include \"MCP23008-RK.h\"\n\nMCP23008 gpio(Wire, 0);\n\nvoid setup() {\n\tSerial.begin(9600);\n\n\tgpio.begin();\n\tgpio.pinMode(0, OUTPUT);\n\tgpio.digitalWrite(0, HIGH);\n}\n\nvoid loop() {\n}\n```\n\nIt's simple!\n\n### 01-simple-gpio\n\nThis example outputs a square wave on pins 0 - 3:\n\n- GP0: 1000 ms. period (1 Hz)\n- GP1: 666 ms. period\n- GP2: 200 ms. period (5 Hz)\n- GP3: 20 ms. period (50 Hz)\n\nThis should result in the following:\n\n![Output](images/output.png)\n\nYou can also connect a jumper from GP7 to one of those pins. It echoes the value on the GP7 input to the blue D7 LED on the Photon, so you can see the different frequencies.\n\n\n### 03-interrupts\n\nUses the INT pin and a handler to be notified of changes in a GPIO on the MCP23008 efficiently.\n\n### 04-interrupts-class\n\nUses the INT pin and has a handler as a C++ class member function.\n\n\n## Version History\n\n### 0.0.4 (2021-02-01)\n\n- Added documentation\n\n### 0.0.3 (2021-01-28)\n\n- Adds support for interrupt mode, to be further documented later.\n- Adds Wire lock() and unlock() for thread safety\n\n",

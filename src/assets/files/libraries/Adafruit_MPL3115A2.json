@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MPL3115A2",
     "version": "1.0.1",
-    "installs": 7791,
+    "installs": 7990,
     "license": "BSD",
     "author": "Garrett Bartley",
     "sentence": "Spark Core library for the MPL3115A2 sensors in the Adafruit shop",
@@ -50,8 +50,63 @@
           "boron": {
             "example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "p2": {
+            "example": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          },
+          "bsom": {
+            "example": true
+          },
+          "b5som": {
+            "example": true
+          },
+          "tracker": {
+            "example": true
+          },
+          "esomx": {
+            "example": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.777Z"
     }
   },
   "readme": "Adafruit_MPL3115A2\n==================\n\nDriver for the Adafruit MPL3115A2 barometric/altitude pressure sensor breakout\n\nDesigned specifically to work with the MPL3115A2 Breakout in the Adafruit shop \n  ----> https://www.adafruit.com/products/1893\n\nThis sensor uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Kevin Townsend for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nCheck out the links above for our tutorials and wiring diagrams \n\nTo download. click the ZIP button in the top-middle navbar, \nrename the uncompressed folder Adafruit_MPL3115A2. \nCheck that the Adafruit_MPL3115A2 folder contains Adafruit_MPL3115A2.cpp and Adafruit_MPL3115A2.h\n\nPlace the Adafruit_AM2315 library folder your arduinosketchfolder/libraries/ folder. \nYou may need to create the libraries subfolder if its your first library. Restart the IDE.\n\nWe also have a great tutorial on Arduino library installation at:\nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use",

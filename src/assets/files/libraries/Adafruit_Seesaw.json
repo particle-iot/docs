@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Seesaw",
     "version": "0.0.6",
-    "installs": 7720,
+    "installs": 8464,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
     "sentence": "This is a (Particle-compatible) library for the Adafruit seesaw helper IC.",
@@ -56,8 +56,63 @@
           "boron": {
             "EEPROM": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "EEPROM": true
+          },
+          "electron": {
+            "EEPROM": true
+          },
+          "argon": {
+            "EEPROM": true
+          },
+          "boron": {
+            "EEPROM": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "EEPROM": true
+          },
+          "boron": {
+            "EEPROM": true
+          },
+          "bsom": {
+            "EEPROM": true
+          },
+          "b5som": {
+            "EEPROM": true
+          },
+          "tracker": {
+            "EEPROM": true
+          },
+          "p2": {
+            "EEPROM": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "EEPROM": true
+          },
+          "boron": {
+            "EEPROM": true
+          },
+          "bsom": {
+            "EEPROM": true
+          },
+          "b5som": {
+            "EEPROM": true
+          },
+          "tracker": {
+            "EEPROM": true
+          },
+          "esomx": {
+            "EEPROM": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.774Z"
     }
   },
   "readme": "# Adafruit_Seesaw\n\nArduino driver for seesaw multi-use chip. Ported to the Particle platform for use with Particle Feather-compatible devices (Xenon, Argon, Boron).\n\nCheck out the [documentation](https://adafruit.github.io/Adafruit_Seesaw/html/class_adafruit__seesaw.html) for a listing and explanation of the available methods!\n",

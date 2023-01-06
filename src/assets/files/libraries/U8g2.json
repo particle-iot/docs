@@ -7,7 +7,7 @@
   "attributes": {
     "name": "U8g2",
     "version": "2.25.7",
-    "installs": 1612,
+    "installs": 1966,
     "license": "BSD-2-Clause",
     "author": "oliver <olikraus@gmail.com>",
     "maintainer": "oliver <olikraus@gmail.com>",
@@ -54,8 +54,63 @@
           "boron": {
             "usage": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "p2": {
+            "usage": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          },
+          "bsom": {
+            "usage": true
+          },
+          "b5som": {
+            "usage": true
+          },
+          "tracker": {
+            "usage": true
+          },
+          "esomx": {
+            "usage": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.895Z"
     }
   },
   "readme": "# U8g2_Arduino: Arduino Monochrome Graphics Library\n\n![https://raw.githubusercontent.com/wiki/olikraus/u8g2/img/uc1701_dogs102_uno_board_320.jpg](https://raw.githubusercontent.com/wiki/olikraus/u8g2/img/uc1701_dogs102_uno_board_320.jpg) \n\nU8glib V2 library for Arduino\n\nDescription: https://github.com/olikraus/u8g2/wiki\n\nIssue Tracker: https://github.com/olikraus/u8g2/issues\n\nDownload (2.25.7): https://github.com/olikraus/U8g2_Arduino/archive/master.zip\n\n",

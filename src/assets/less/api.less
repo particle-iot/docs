@@ -1,7 +1,5 @@
 .content ul.api-attributes {
 	&::before {
-		text-transform: uppercase;
-		color: @another-gray;
 		font-size: 12px;
 		line-height: 30px;
 	}
@@ -10,7 +8,6 @@
 		font-size: 14px;
 		font-weight: normal;
 		padding: 10px;
-		color: @NC_SPACE_GRAY;
 	}
 
 	.api-field {
@@ -18,7 +15,6 @@
 		width: 150px;
 		font-size: 14px;
 		float: left;
-		color: @almost-black;
 		overflow:hidden;
 		word-wrap: break-word;
 	}
@@ -42,7 +38,6 @@
         margin-bottom: 5px;
         font-weight: normal;
         line-height: 24px;
-        color: @NC_SPACE_GRAY;
       }
     }
 	}
@@ -50,18 +45,15 @@
 	.field-required {
 		display: block;
 		font-size: 12px;
-		color: @spark-blue;
 	}
 
 	small {
 		display: block;
-		color: @another-gray;
 		text-transform: lowercase;
 		font-size: 12px;
 	}
 
 	> li {
-		border-top: 1px solid @NC_MORNING_MIST;
 		clear: both;
 		overflow: auto;
 		list-style-type: none;
@@ -71,7 +63,6 @@
 	}
 
 	> li:last-child {
-		border-bottom: 1px solid @NC_MORNING_MIST;
 	}
 
 	.nested-params {
@@ -107,8 +98,8 @@
 	background-color: @super-dark-gray;
 
 	&::before {
-		color: @another-gray;
-		background-color: @NC_SPACE_GRAY;
+		color: @NC_HAZE;
+		background-color: @NC_HEADER;
 		display: block;
 		margin: 0 -40px;
 		padding: 10px 40px;
@@ -135,6 +126,90 @@
 		margin-bottom: 0 !important;
 	}
 }
+
+
+@media (prefers-color-scheme: dark) {
+	.content ul.api-attributes {
+		&::before {
+			color: @COLOR_Gray_100;
+		}
+	
+		div, p {
+			color: @COLOR_Gray_100;
+		}
+	
+		.api-field {
+			color: @COLOR_Gray_100;
+		}
+	
+		.field-desc {
+			ul {
+				li {
+					color: @COLOR_Gray_100;
+				}
+			}
+		}
+	
+		.field-required {
+			color: @COLOR_ParticleBlue_500;
+		}
+	
+		small {
+			color: @COLOR_Gray_300;
+		}
+	
+		> li {
+			border-top: 1px solid @COLOR_Midnight_500;
+		}
+	
+		> li:last-child {
+			border-bottom: 1px solid @COLOR_Midnight_500;
+		}
+	
+	}		
+}
+
+@media (prefers-color-scheme: light) {
+	.content ul.api-attributes {
+		&::before {
+			color: @NC_SPACE_GRAY;
+		}
+	
+		div, p {
+			color: @NC_HEADER;
+		}
+	
+		.api-field {
+			color: @almost-black;
+		}
+	
+		.field-desc {
+			ul {
+				li {
+					color: @NC_HEADER;
+				}
+			}
+		}
+	
+		.field-required {
+			color: @spark-blue;
+		}
+	
+		small {
+			color: @NC_SPACE_GRAY;
+		}
+	
+		> li {
+			border-top: 1px solid @NC_MORNING_MIST;
+		}
+	
+		> li:last-child {
+			border-bottom: 1px solid @NC_MORNING_MIST;
+		}
+	
+	}		
+}
+
 
 @media (max-width: 1180px) {
 	.api-docs {

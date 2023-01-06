@@ -7,7 +7,7 @@
   "attributes": {
     "name": "rht03-humidity-temperature-sensor",
     "version": "1.0.0",
-    "installs": 4945,
+    "installs": 5153,
     "license": "BSD",
     "author": "Marc Liyanage <reg.github@entropy.ch>",
     "sentence": "Reads out a Maxdetect RHT03 (also known as DHT22 and AM2302) humidity/temperature sensor.",
@@ -50,8 +50,63 @@
           "boron": {
             "rht03-humidity-temperature-sensor": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "electron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "bsom": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "b5som": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "tracker": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "p2": {
+            "rht03-humidity-temperature-sensor": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "bsom": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "b5som": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "tracker": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "esomx": {
+            "rht03-humidity-temperature-sensor": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.813Z"
     }
   },
   "readme": "\nCode to read out the humidity and temperature values from a Maxdetect RHT03 humidity/temperature sensor.\nThat sensor is apparently also known as DHT22 and AM2302.\n\nSee https://www.sparkfun.com/products/10167 and http://www.humiditycn.com/fl1_1.html\n\nMaintained at https://github.com/liyanage/maxdetect-rht03-humidity-sensor\n",

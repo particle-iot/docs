@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Modulo",
     "version": "1.2.0",
-    "installs": 282,
+    "installs": 304,
     "author": "Erin Tomson <erin@modulo.co>",
     "url": "https://github.com/modulolabs/modulo-particle",
     "repository": "https://github.com/modulolabs/modulo-particle.git",
@@ -104,8 +104,175 @@
             "MotorTutorial": true,
             "USBControl": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "electron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "argon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "boron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "boron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "bsom": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "b5som": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "tracker": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "p2": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "boron": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "bsom": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "b5som": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "tracker": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          },
+          "esomx": {
+            "DisplayEventsTutorial": false,
+            "DisplayTutorial": false,
+            "IRTutorial": false,
+            "KnobEventsTutorial": false,
+            "KnobTutorial": false,
+            "MotorEventsTutorial": false,
+            "MotorTutorial": false,
+            "USBControl": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.106Z"
     }
   },
   "readme": "# modulo-particle\nThe modulo library for particle.io\n",

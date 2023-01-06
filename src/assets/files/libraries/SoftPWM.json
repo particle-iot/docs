@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SoftPWM",
     "version": "1.1.1",
-    "installs": 5066,
+    "installs": 5155,
     "license": "GNU General Public License 3+",
     "author": "Brett Hagman / Paul Kourany",
     "sentence": "Software PWM library adapted for Particle Core/Photon",
@@ -82,8 +82,127 @@
             "SoftPWM_Spark_LED_Blink": false,
             "SoftPWM_Wiring_HeartBeat": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SoftPWM_LEDHead_Bounce": true,
+            "SoftPWM_LEDHead_Bounce2": true,
+            "SoftPWM_LEDHead_Random_Blink": true,
+            "SoftPWM_Spark_LED_Blink": true,
+            "SoftPWM_Wiring_HeartBeat": true
+          },
+          "electron": {
+            "SoftPWM_LEDHead_Bounce": true,
+            "SoftPWM_LEDHead_Bounce2": true,
+            "SoftPWM_LEDHead_Random_Blink": true,
+            "SoftPWM_Spark_LED_Blink": true,
+            "SoftPWM_Wiring_HeartBeat": true
+          },
+          "argon": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "boron": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "boron": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "bsom": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "b5som": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "tracker": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "p2": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "boron": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "bsom": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "b5som": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "tracker": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "esomx": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.812Z"
     }
   },
   "readme": "SoftPWM Library\n================\n\nArduino and wiring library adapted for Particle Core/Photon to produce PWM signals on any arbitrary pin.\n\thttps://code.google.com/p/rogue-code/wiki/SoftPWMLibraryDocumentation\n\nAdapted for Spark by Paul Kourany, August 12, 2014\nUpdated for Core/Photon by Paul Kourany, Oct 3, 2015\nUpdated for Libraries 2.0, Jan 29, 2017\n\nSpark Adaptation\n---\nThe Particle adaptation uses the SparkIntervalTimer library for timing.  The timer is set\nto the same 66us period as the Arduino code.\n\nThere are a maximum of 16 pins which can be configured with SoftPWM, namely D0-D7 and\nA0-A7.\n\nRequirements\n---\nThe SparkIntervalTimer library is used.\n",

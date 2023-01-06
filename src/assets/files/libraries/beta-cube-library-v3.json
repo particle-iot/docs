@@ -7,7 +7,7 @@
   "attributes": {
     "name": "beta-cube-library-v3",
     "version": "0.3.0",
-    "installs": 2312,
+    "installs": 2377,
     "license": "MIT",
     "author": "Alex Hornstein & Owen Trueblood (Text by Hape, included in library by Werner Moecke)",
     "sentence": "Controls an LED Cube",
@@ -98,8 +98,159 @@
             "streaming": false,
             "text": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "electron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "p2": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "bsom": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "b5som": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "tracker": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "esomx": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.869Z"
     }
   },
   "readme": "Spark L3D Cube Library\n======================\n\n## About\n\nThis is the official library for use with the Spark Core in the [L3D Cube](http://l3dcube.com).\n\nIt provides 3D drawing functions for writing visual effects and utility functions for working with color. The library also takes care of communication with the LED strips making up the cube.\n\nThe API can be found in L3D.h. Further documentation can be found on the [L3D Cube website](http://docs.l3dcube.com/).\n\n## Example Usage\n\n```C++\nCube cube = Cube(); // 8x8x8 cube with max brightness of 50\ncube.begin(); // initialize the cube\n\ncube.background(Color(0, 0, 0)); // clear the cube\ncube.sphere(4, 4, 4, 3, Color(255, 0, 0)); // draw a red sphere in the center\ncube.show(); // update the LEDs to make the changes visible\n```\n\n## Building Locally\n\nTo compile a firmware binary using a local copy of the library:\n\n1. Follow the instructions for compiling the [Spark firmware](https://github.com/spark/firmware#1-download-and-install-dependencies). Make sure you can successfuly compile the firmware before continuing.\n2. Edit the FIRMWARE_DIR variable in the l3d-cube makefile to the path of the spark firmware repository on your machine.\n3. Choose an example to compile or put your own code in firmware/examples.\n4. Run `make bin/<name of example>.bin` to generate firmware for that example in the bin/ directory. For example, to compile examples/bit-of-everything.cpp run `make bin/bit-of-everything.bin`.\n5. Flash the firmware using `spark flash` (the [Spark CLI tool](https://github.com/spark/spark-cli)) or dfu-util.\n",

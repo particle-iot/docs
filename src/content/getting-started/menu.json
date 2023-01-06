@@ -1,0 +1,375 @@
+{
+  "items": [
+    {
+      "dir": "getting-started",
+      "title": "Getting Started",
+      "href": "/getting-started/",
+      "tiles": [
+        {
+          "title": "Hardware overview",
+          "detail": "Learn about Particle hardware",
+          "href": "/getting-started/hardware/hardware-overview/"
+        },
+        {
+          "title": "Device OS",
+          "detail": "Learn about the operating system on Particle devices",
+          "href": "/getting-started/device-os/introduction-to-device-os/"
+        },
+        {
+          "title": "Workbench",
+          "detail": "Development environment for Particle devices",
+          "href": "/getting-started/developer-tools/workbench/"
+        },
+        {
+          "title": "Cloud",
+          "detail": "Learn how to use the Particle cloud to communicate with devices",
+          "href": "/getting-started/cloud/introduction/"
+        },
+        {
+          "title": "Console",
+          "detail": "Manage devices from the Particle console",
+          "href": "/getting-started/console/console/"
+        },
+        {
+          "title": "Products",
+          "detail": "Learn about products and device fleets",
+          "href": "/getting-started/products/introduction-to-products/"
+        }
+      ]
+    },
+    {
+      "dir": "hardware",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "hardware-overview",
+        "title": "Hardware overview",
+        "href": "/getting-started/hardware/hardware-overview/"
+      },
+      {
+        "dir": "tracking-system",
+        "title": "Tracking system",
+        "href": "/getting-started/hardware/tracking-system"
+      },
+      {
+        "dir": "cellular-overview",
+        "title": "Cellular overview",
+        "href": "/getting-started/hardware/cellular-overview/"
+      }
+    ],
+    {
+      "dir": "setup",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "setup-options",
+        "title": "Setup options",
+        "href": "/getting-started/setup/setup-options/",
+        "tiles": [
+          {
+            "title": "setup.particle.io",
+            "detail": "Set up your Particle device from a web browser or mobile app",
+            "href": "https://setup.particle.io/"
+          },
+          {
+            "title": "Command Line",
+            "detail": "Command line interface setup",
+            "href": "/getting-started/developer-tools/cli/"
+          },
+          {
+            "title": "Tracker",
+            "detail": "Set up a Tracker One of Tracker SoM eval board",
+            "href": "/getting-started/tracker/tracker-setup/"
+          }
+        ]
+      },
+      {
+        "dir": "manual-setup",
+        "title": "Manual setup",
+        "href": "/getting-started/setup/manual-setup/",
+        "hidden": true
+      },
+      {
+        "dir": "wpa2-enterprise",
+        "title": "WPA2 Enterprise Wi-Fi Setup",
+        "href": "/getting-started/setup/wpa2-enterprise/"
+      }
+    ],
+    {
+      "dir": "device-os",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction-to-device-os",
+        "title": "Introduction to Device OS",
+        "href": "/getting-started/device-os/introduction-to-device-os/"
+      },
+      {
+        "dir": "firmware-libraries",
+        "title": "Firmware libraries",
+        "href": "/getting-started/device-os/firmware-libraries/"
+      },
+      {
+        "title": "Library search",
+        "href": "/cards/libraries/search/"
+      }
+    ],
+    {
+      "dir": "developer-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "workbench",
+        "title": "Workbench",
+        "href": "/getting-started/developer-tools/workbench/"
+      },
+      {
+        "dir": "workbench FAQ",
+        "title": "Workbench FAQ",
+        "href": "/getting-started/developer-tools/workbench-faq/"
+      },
+      {
+        "dir": "cli",
+        "title": "Command line",
+        "href": "/getting-started/developer-tools/cli/"
+      },
+      {
+        "dir": "build",
+        "title": "Web IDE",
+        "href": "/getting-started/developer-tools/build/"
+      }
+    ],
+    {
+      "dir": "cloud",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/getting-started/cloud/introduction/"
+      },
+      {
+        "dir": "cloud-communication",
+        "title": "Cloud communication",
+        "href": "/getting-started/cloud/cloud-communication/"
+      },
+      {
+        "dir": "ota-updates",
+        "title": "OTA firmware updates",
+        "href": "/getting-started/cloud/ota-updates/"
+      },
+      {
+        "dir": "cloud-api",
+        "title": "Cloud API",
+        "href": "/getting-started/cloud/cloud-api/"
+      },
+      {
+        "dir": "device-claiming",
+        "title": "Device claiming",
+        "href": "/getting-started/cloud/device-claiming/"
+      }
+    ],
+    {
+      "dir": "tracker",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-setup",
+        "title": "Tracker setup",
+        "href": "/getting-started/tracker/tracker-setup/"
+      },
+      {
+        "dir": "tracker-eval-tutorials",
+        "title": "Tracker eval board tutorials",
+        "href": "/getting-started/tracker/tracker-eval-tutorials/"
+      }
+    ],
+    {
+      "dir": "console",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "console",
+        "title": "Console",
+        "href": "/getting-started/console/console/"
+      },
+      {
+        "dir": "fleet-health",
+        "title": "Fleet health",
+        "href": "/getting-started/console/fleet-health/"
+      },
+      {
+        "dir": "device-vitals",
+        "title": "Device vitals",
+        "href": "/getting-started/console/device-vitals/"
+      },
+      {
+        "dir": "device-groups",
+        "title": "Device groups",
+        "href": "/getting-started/console/device-groups/"
+      },
+      {
+        "dir": "development-devices",
+        "title": "Development devices",
+        "href": "/getting-started/console/development-devices/"
+      },
+      {
+        "dir": "team-access-controls",
+        "title": "Team access controls",
+        "href": "/getting-started/console/team-access-controls/"
+      },
+      {
+        "dir": "sim-management",
+        "title": "SIM management",
+        "href": "/getting-started/console/sim-management/"
+      },
+      {
+        "dir": "two-step-authentication",
+        "title": "Two-step authentication",
+        "href": "/getting-started/console/two-step-authentication/"
+      }
+    ],
+    {
+      "dir": "products",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction-to-products",
+        "title": "Introduction to products",
+        "href": "/getting-started/products/introduction-to-products/"
+      },
+      {
+        "dir": "creating-a-product",
+        "title": "Creating a product",
+        "href": "/getting-started/products/creating-a-product/"
+      },
+      {
+        "dir": "security",
+        "title": "Security",
+        "href": "/getting-started/products/security/"
+      },
+      {
+        "dir": "organizations",
+        "title": "Organizations",
+        "href": "/getting-started/products/organizations/"
+      }
+    ],
+    {
+      "dir": "billing",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "data-operations",
+        "title": "Data operations",
+        "href": "/getting-started/billing/data-operations/"
+      },
+      {
+        "dir": "cellular-data",
+        "title": "Cellular data guide",
+        "href": "/getting-started/billing/cellular-data/"
+      },
+      {
+        "dir": "migrating-to-growth",
+        "title": "Migrating to growth plan",
+        "href": "/getting-started/billing/migrating-to-growth/"
+      }
+    ],
+    {
+      "dir": "integrations",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "integrations",
+        "title": "Integrations",
+        "href": "/getting-started/integrations/integrations/"
+      },
+      {
+        "dir": "webhooks",
+        "title": "Webhooks",
+        "href": "/getting-started/integrations/webhooks/"
+      },
+      {
+        "dir": "google-cloud-platform",
+        "title": "Google cloud platform",
+        "href": "/getting-started/integrations/google-cloud-platform/"
+      },
+      {
+        "dir": "google-maps",
+        "title": "Google maps",
+        "href": "/getting-started/integrations/google-maps/"
+      },
+      {
+        "dir": "community-integrations",
+        "isSection": true
+      },
+      [
+        {
+          "dir": "azure-iot-hub",
+          "title": "Azure IoT Hub",
+          "href": "/getting-started/integrations/community-integrations/azure-iot-hub/"
+        },
+        {
+          "dir": "influxdata",
+          "title": "InfluxData",
+          "href": "/getting-started/integrations/community-integrations/influxdata/"
+        },
+        {
+          "dir": "questdb",
+          "title": "QuestDB",
+          "href": "/getting-started/integrations/community-integrations/questdb/"
+        },
+        {
+          "dir": "ifttt",
+          "title": "IFTTT",
+          "href": "/getting-started/integrations/community-integrations/ifttt/"
+        },
+        {
+          "dir": "zapier",
+          "title": "Zapier",
+          "href": "/getting-started/integrations/community-integrations/zapier/"
+        },
+        {
+          "dir": "publish-to-google-sheets",
+          "title": "Publish to Google sheets",
+          "href": "/getting-started/integrations/community-integrations/publish-to-google-sheets/"
+        },
+        {
+          "dir": "weather",
+          "title": "Weather API",
+          "href": "/getting-started/integrations/community-integrations/weather/"
+        },
+        {
+          "dir": "memfault",
+          "title": "Memfault",
+          "href": "/getting-started/integrations/community-integrations/memfault/"
+        }
+      ]
+    ],
+    {
+      "dir": "hardware-tutorials",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "hardware-examples",
+        "title": "Blink an LED hardware examples",
+        "href": "/getting-started/hardware-tutorials/hardware-examples/"
+      },
+      {
+        "dir": "e-series-eval-kit",
+        "title": "E Series eval kit tutorials",
+        "href": "/getting-started/hardware-tutorials/e-series-eval-kit/"
+      }
+    ]
+  ]
+}

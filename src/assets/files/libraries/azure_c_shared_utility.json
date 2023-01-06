@@ -7,7 +7,7 @@
   "attributes": {
     "name": "azure_c_shared_utility",
     "version": "0.0.3",
-    "installs": 741,
+    "installs": 790,
     "license": "MIT",
     "author": "dcristo@microsoft.com",
     "sentence": "Experimental port - Azure C shared utility",
@@ -50,8 +50,63 @@
           "boron": {
             "main": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "p2": {
+            "main": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "esomx": {
+            "main": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.987Z"
     }
   },
   "readme": "# Azure C Shared Utility\n\n*Warning: experimental port*\n\nazure-c-shared-utility is a C library providing common functionality for basic tasks (like string, list manipulation, IO, etc.).\n\nThis is a port of the library available at https://www.github.com/Azure/azure-c-shared-utility.git.",

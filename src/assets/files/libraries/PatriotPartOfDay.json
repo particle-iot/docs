@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotPartOfDay",
     "version": "5.1.0",
-    "installs": 576,
+    "installs": 744,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to generate partofday MQTT events for dusk, morning, etc.",
@@ -26,7 +26,8 @@
   "versions": {
     "5.1.0": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.011Z"
     }
   },
   "readme": "# PatriotPartOfDay\n\nA Patriot plugin to provide MQTT partofday messages for dawn, sunrise,\nmorning, noon, afternoon, sunset, dusk, and night\n\n\n## Usage\n\nInclude this library in one Photon sketch to provide partofday states\nfor use by all controllers on the same MQTT network.\nRefer to the more complex examples in the main Patriot IoT examples\n directory.\n\nThis example creates a single PartOfDay device to broadcast\nmessages to the MQTT network.\n\nYou can use the Particle.io console to monitor these states via the\npublished 'States' variable, or observe them in realtime on MQTT\n(eg. using mosquitto_sub)\n\n```\n#include <IoT.h>\n#include <PatriotPartOfDay.h>\n\nIoT *iot;\n\nvoid setup() {\n    iot = IoT::getInstance();\n    iot->begin();\n\n    // Create DateTime device\n    iot->addDevice(new PartOfDay());\n}\n\nvoid loop() {\n    iot->loop();\n}\n```\n\n## Documentation\n\nRefer to the Patriot Github repository and documentation for more\ninformation.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add IoT_myname` to add the library to a project on your machine or add the IoT_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017-2020 Ron Lisle\n\nRefer to the included LICENSE file.\n",

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { update } = require('lodash');
 const path = require('path');
 
 const generatorConfig = require('./generator-config');
@@ -373,6 +374,10 @@ const generatorConfig = require('./generator-config');
                     if (!ccObj.supersim['allow' + tech]) {
                         return;
                     }
+                    if (tech == 'M1' && ccObj.supersim['allowM1'] == 5) {
+                        // T-Mobile unofficial support
+                        return;
+                    }
                     if (!showTechnologies.includes(tech)) {
                         showTechnologies.push(tech);
                     }
@@ -399,6 +404,84 @@ const generatorConfig = require('./generator-config');
         return md;
 
     };
+
+    updater.generateCountryComparison = function(options) {
+        // models: array of objects: title, modem, sim
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'country',
+                    title: 'Country',
+                },
+            ],
+        };
+        for(let ii = 0; ii < options.models.length; ii++) {
+            tableOptions.columns.push({
+                key: ii.toString(),
+                title: options.models[ii].title,
+                align: 'center',
+            });
+        }
+
+        let recommendationMap = {
+            'YES': '&check;', 
+            'NS': '?',
+            'POSS': '',
+            'NRND': 'NRND',
+            'NR': '',
+        }
+
+        let tableData = [];
+
+        for(const cmsObj of updater.datastore.data.countryModemSim) {
+            for(let ii = 0; ii < options.models.length; ii++) {                
+                if (cmsObj.modem != options.models[ii].modem || cmsObj.sim != options.models[ii].sim) {
+                    continue;
+                }
+                if (cmsObj.roamingRestrictions == 'hide') {
+                    continue;
+                }
+                let countryData = tableData.find(e => e.country == cmsObj.country);
+                if (!countryData) {
+                    countryData = {
+                        country: cmsObj.country
+                    }
+                    tableData.push(countryData);
+                }
+                let recommendation;
+                if (!recommendation && options.models[ii].recommendationMap) {
+                    recommendation = options.models[ii].recommendationMap[cmsObj.recommendation];
+                }
+                if (!recommendation) {
+                    recommendation = recommendationMap[cmsObj.recommendation];
+                }
+                countryData[ii.toString()] = recommendation;
+            }    
+        }
+
+        // Remove blank rows
+        for(let row = tableData.length - 1; row >= 0; row--) {
+            let hasData = false;
+
+            for(let ii = 0; ii < options.models.length; ii++) {                
+                if (tableData[row][ii.toString()]) {
+                    hasData = true;
+                }
+            }
+            if (!hasData) {
+                tableData.splice(row, 1);
+            }
+        }
+
+        tableData.sort(function(a, b) {
+            return a.country.localeCompare(b.country);
+        });
+        
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);        
+    }
+
 
     updater.generateFamilySkus = function(skuFamily, options) {
         let skus = [];
@@ -476,6 +559,7 @@ const generatorConfig = require('./generator-config');
         return md;
     }
 
+
     updater.generateTable = function(options, data) {
         // options includes options, table headers, etc.
         // data contains the data as an array of objects. The elements of the array are rows in the table.
@@ -528,6 +612,11 @@ const generatorConfig = require('./generator-config');
                 }
                 else
                 if (d[c.key]) {
+                    if (c.map && c.map[d[c.key]]) {
+                        line += '| ' + c.map[d[c.key]] + ' ';
+                        continue;
+                    }
+
                     if (c.capitalizeValue) {
                         line += '| ' + d[c.key].substr(0, 1).toUpperCase() + d[c.key].substr(1) + ' ';
                     }
@@ -546,6 +635,118 @@ const generatorConfig = require('./generator-config');
         return md;
     };
 
+    updater.generateUsbCable = function(options = {}) {
+        let tableData = [];
+
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (skuObj.usb === false) {
+                // No USB required
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden SKU
+                return;
+            }
+            if (skuObj.multiple) {
+                // Omit tray SKUs
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            tableData.push(skuObj);
+        });
+
+        tableData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'usb',
+                    title: 'USB Cable',
+                    map: {
+                        'micro-b': 'Micro B',
+                        'c': 'USB-C',
+                    },
+                },
+            ]
+        };
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+
+
+    }
+
+
+    updater.generateBatteryRequired = function(options = {}) {
+        let tableData = [];
+
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (!skuObj.gen) {
+                // Not a device
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden SKU
+                return;
+            }
+            if (skuObj.multiple) {
+                // Omit tray SKUs
+                return;
+            }
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+            tableData.push(skuObj);
+        });
+
+        tableData.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU',
+                },
+                {
+                    key: 'desc',
+                    title: 'Description',
+                },
+                {
+                    key: 'batteryRequired',
+                    title: 'Battery Required',
+                    checkmark: true,
+                    align: 'center',
+                },
+            ]
+        };
+
+        // Render
+        return updater.generateTable(tableOptions, tableData);
+
+
+    }
+
+
     updater.generateSkuList = function(options) {
         let skus = [];
 
@@ -562,6 +763,12 @@ const generatorConfig = require('./generator-config');
                 }
             }
 
+            if (options.lifecycles) {
+                if (!options.lifecycles.includes(skuObj.lifecycle)) {
+                    return;
+                }
+            }
+            else
             if (options.onlyGA && skuObj.lifecycle != 'GA' && skuObj.lifecycle != 'NRND-US') {
                 return;
             }
@@ -1109,7 +1316,7 @@ const generatorConfig = require('./generator-config');
                 
 
                 cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'R410', 4);
-                if (cmsObj && cmsObj.recommendation == 'YES' && ccObj.supersim.allowM1) {
+                if (cmsObj && cmsObj.recommendation == 'YES' && ccObj.supersim.allowM1 === true) {
                     row += '&check; |';
                     hasCheck = true;
                 }
@@ -1194,6 +1401,131 @@ const generatorConfig = require('./generator-config');
         });
 
         return md;    
+    };
+
+
+    updater.generateSpecialSkuList = function(options) {
+        let skus = [];
+
+        if (!options) {
+            options = {};
+        }
+
+        let tableData = [];
+
+        // Filter
+        updater.datastore.data.skus.forEach(function(skuObj) {
+            if (skuObj.lifecycle == 'Discontinued' && skuObj.skuClass == 'kit') {
+                // Hide discontinued kits
+                return;
+            }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden, whether a kit or not
+                return;
+            }
+
+            if (options.filterFn) {
+                if (options.filterFn(skuObj)) {
+                    return;
+                }
+            }
+
+            tableData.push(skuObj);
+        });
+
+        // Sort
+        skus.sort(function(a, b) {
+            const lifecycleA = updater.datastore.findSkuLifecycle(a.lifecycle);
+            const lifecycleB = updater.datastore.findSkuLifecycle(b.lifecycle);
+
+            let cmp = lifecycleA.sortOrder - lifecycleB.sortOrder;
+            if (cmp) {
+                return cmp;
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'name',
+                    title: 'SKU'
+                },
+                {
+                    key: 'desc',
+                    title: 'Description'
+                },
+                {
+                    key: 'modem',
+                    title: 'Modem'
+                },
+                /*
+                {
+                    key: 'lifecycle',
+                    title: 'Lifecycle'
+                },
+                {
+                    key: 'replacement',
+                    title: 'Replacement'
+                }
+                */
+            ],
+        };
+
+        return updater.generateTable(tableOptions, tableData);
+    }
+
+    updater.generateExpansionCarrierList = function(options) {
+        let tableData = [];
+
+        // Build list of LTE Cat 1 countries
+        let cmsList = [];
+        for(const cmsObj of updater.datastore.data.countryModemSim) {
+            if (cmsObj.modem != 'EG91-E' || cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
+                continue;
+            }
+            cmsList.push(cmsObj);
+        }
+
+        for(const cmsObj of cmsList) {
+            for(const ccObj of updater.datastore.data.countryCarrier) {
+                if (ccObj.country != cmsObj.country) {
+                    continue;
+                }
+                if (!ccObj.supersim) {
+                    continue;
+                }
+                
+                tableData.push({
+                    country: ccObj.country,
+                    carrier: ccObj.carrier,
+                    expansion: (cmsObj.expansion == '2022-05-18')
+                });
+            }
+        }
+
+        let tableOptions = {
+            columns: [
+                {
+                    key: 'country',
+                    title: 'Country'
+                },
+                {
+                    key: 'carrier',
+                    title: 'Carrier'
+                },
+                {
+                    key: 'expansion',
+                    title: 'Expansion',
+                    checkmark: true,
+                    align: 'center'    
+                },
+            ]
+        };
+
+        return updater.generateTable(tableOptions, tableData);
     };
 
     updater.generatePinInfo = function(options) {
@@ -1312,9 +1644,26 @@ const generatorConfig = require('./generator-config');
             }
         } 
 
-        const platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
+        const sortTableData = function(tableData) {
+            if (options.tableSortFn) {
+                tableData.sort(options.tableSortFn);
+            }    
+        }
+
+        let platformInfoNew = updater.pinInfo.platforms.find(p => p.name == options.platformNew);
         if (!platformInfoNew) {
             return '';
+        }
+        platformInfoNew = Object.assign({}, platformInfoNew);
+
+        if (options.pinIncludeFn) {
+            let tempPins = [];
+            for(let ii = 0; ii < platformInfoNew.pins.length; ii++) {
+                if (options.pinIncludeFn(platformInfoNew.pins[ii])) {
+                    tempPins.push(platformInfoNew.pins[ii]);
+                }
+            }
+            platformInfoNew.pins = tempPins;
         }
 
         let platformInfoOld;
@@ -1643,11 +1992,49 @@ const generatorConfig = require('./generator-config');
                 let rowData = Object.assign({}, pin);
                 rowData.pinName = getPinNameWithAlt(pin);
                 
+                if (options.specialPinFn) {
+                    rowData.num = options.specialPinFn(pin.num);
+                }
+
                 tableData.push(rowData);
             }
 
+            sortTableData(tableData);
+
             md += updater.generateTable(tableOptions, tableData);
         }
+
+        if (options.style == 'pwm-groups') {
+            let timerNames = [];
+            let timers = {};
+
+            for(const p of platformInfoNew.pins) {
+                if (p.hardwareTimer) {
+                    if (!timerNames.includes(p.hardwareTimer)) {
+                        timerNames.push(p.hardwareTimer);
+                        timers[p.hardwareTimer] = [];
+                    }
+                    timers[p.hardwareTimer].push(p.name);
+                }
+            }
+            timerNames.sort(function(a, b) {
+                return a.localeCompare(b);
+            });
+
+            for(const t of timerNames) {
+                timers[t].sort(function(a, b) {
+                    return a.localeCompare(b);
+                });    
+
+                let tName = t;
+                if (options.useGroup) {
+                    tName = tName.replace('PWM', 'Group ').replace('TIM', 'Group ');
+                }
+
+                md += '- ' + tName + ': ' + timers[t].join(', ') + '\n';
+            }
+        }
+
 
         if (options.style == 'migration-removed') {
             let tableOptions = {
@@ -1812,9 +2199,11 @@ const generatorConfig = require('./generator-config');
                 'attachInterrupt',
                 'can',
                 'i2s',
+                'internalPull',
                 'is5VTolerant',
                 'jtag',
-                'swd'      
+                'swd',
+                'boot'
             ];
 
             if (options.showPinNum) {
@@ -1840,7 +2229,6 @@ const generatorConfig = require('./generator-config');
                     }
                 }
 
-                md += '#### ' + m.title + '\n';
                 
                 let hasChanges = false;
                 for(const tag of comparisonTags) {
@@ -1852,6 +2240,10 @@ const generatorConfig = require('./generator-config');
                        hasChanges = true;
                        break;
                    }
+                }
+
+                if (hasChanges || !options.hideUnchanged) {
+                    md += '#### ' + m.title + '\n';
                 }
 
                 if (!m.old) {
@@ -1918,7 +2310,8 @@ const generatorConfig = require('./generator-config');
 
                     md += updater.generateTable(tableOptions, tableData);
                 }
-                else {
+                else 
+                if (!options.hideUnchanged) {
                     md += '| | Unchanged between ' + oldTitle + ' and ' + newTitle + ' |\n';
                     md += '| :--- | :--- |\n';
 
@@ -1950,6 +2343,13 @@ const generatorConfig = require('./generator-config');
                     align: 'center',
                 });    
             }
+            if (options.oldPinNumber) {
+                tableOptions.columns.push({
+                    key: 'oldNum',
+                    title: oldTitle + ' Pin',
+                    align: 'center',
+                });    
+            }
             tableOptions.columns.push({
                 key: 'oldPinName',
                 title: oldTitle + ' Pin Name'
@@ -1959,6 +2359,13 @@ const generatorConfig = require('./generator-config');
                 title: oldTitle + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });    
+            if (options.newPinNumber) {
+                tableOptions.columns.push({
+                    key: 'newNum',
+                    title: newTitle + ' Pin',
+                    align: 'center',
+                });    
+            }
             tableOptions.columns.push({
                 key: 'newPinName',
                 title: newTitle + ' Pin Name'
@@ -1968,6 +2375,12 @@ const generatorConfig = require('./generator-config');
                 title: newTitle + ' ' + options.label,
                 checkmark: !!options.checkmark,
             });    
+            if (options.includeHardwareTimer) {
+                tableOptions.columns.push({
+                    key: 'newHardwareTimer',
+                    title: newTitle + ' Hardware Timer'
+                });        
+            }
 
             let tableData = [];
 
@@ -1977,12 +2390,15 @@ const generatorConfig = require('./generator-config');
                         num: m.num
                     };
                     if (m.old) {
+                        rowData.oldNum = m.old.num;
                         rowData.oldPinName = getPinNameWithAlt(m.old);
                         rowData.oldPort = portColumnValue(m.old[options.port]);
                     }
                     if (m.new) {
+                        rowData.newNum = m.new.num;
                         rowData.newPinName = getPinNameWithAlt(m.new);
                         rowData.newPort = portColumnValue(m.new[options.port]);
+                        rowData.newHardwareTimer = m.new.hardwareTimer;
                     }
                     tableData.push(rowData);
                 }
@@ -2051,6 +2467,7 @@ const generatorConfig = require('./generator-config');
                 }
 
             }
+            sortTableData(tableData);
         
 
             md += updater.generateTable(tableOptions, tableData);
@@ -2099,6 +2516,77 @@ const generatorConfig = require('./generator-config');
                     key: 'interface'
                 });    
             }
+            if (options.showHardwareTimer) {
+                tableOptions.columns.push({
+                    key: 'hardwareTimer',
+                    title: 'Timer',
+                });    
+            }
+            if (options.showSomPin) {
+                tableOptions.columns.push({
+                    key: 'somPin',
+                    title: 'SoM Pin'
+                });    
+            }
+            if (options.showP2pin) {
+                tableOptions.columns.push({
+                    key: 'p2pin',
+                    title: 'P2 Pin'
+                });    
+            }
+            if (!options.noMCU) {
+                tableOptions.columns.push({
+                    key: 'hardwarePin',
+                    title: 'MCU'
+                });    
+            }
+
+            let tableData = [];
+            for(const pin of pins) {
+                let rowData = Object.assign({}, pin);
+                rowData.pinName = getPinNameWithAlt(pin);
+                rowData.interface = getShortName(pin[options.interface]);
+                
+                tableData.push(rowData);
+            }
+            sortTableData(tableData);
+
+            md += updater.generateTable(tableOptions, tableData);
+        }
+
+        if (options.style == 'bootPins') {
+            // options.interface
+
+            let pins = [];
+            for(const pin of platformInfoNew.pins) {
+                if (pin.boot) {
+                    pins.push(pin);
+                }    
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            let tableOptions = {
+                columns: [],
+            };
+
+            if (!options.noPinNumbers) {
+                tableOptions.columns.push({
+                    key: 'num',
+                    title: 'Pin',
+                    align: 'center',
+                });    
+            }
+            tableOptions.columns.push({
+                key: 'pinName',
+                title: 'Pin Name',
+            });
+            tableOptions.columns.push({
+                key: 'boot',
+                title: 'Description'
+            });
             tableOptions.columns.push({
                 key: 'hardwarePin',
                 title: 'MCU'

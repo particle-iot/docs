@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_LPS25HB_Arduino_Library",
     "version": "1.1.0",
-    "installs": 742,
+    "installs": 857,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the <a href=\"https://www.sparkfun.com/products/14767\">SparkFun Qwiic Pressure Sensor - LPS25HB</a>.",
@@ -86,8 +86,127 @@
             "Example4_Change_Settings": true,
             "Example5_FIFO_Average": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "electron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "p2": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "bsom": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "b5som": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "tracker": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "esomx": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.985Z"
     }
   },
   "readme": "SparkFun LPS25HB Absolute Barometric Pressure Sensor Arduino Library\n========================================\n\n![SparkFun Qwiic Pressure Sensor w/ LPS25HB](https://cdn.sparkfun.com//assets/parts/1/3/0/1/3/14767-Qwiic_Pressure_Sensor_-_LPS25HB-05.jpg)\n\n[*SparkFun Qwiic Pressure Sensor w/ LPS25HB (SPX-14767)*](https://www.sparkfun.com/products/14767)\n\nAn Arduino library that provides basic functions for getting pressure and temperature readings. \nAllows the user to support up to two sensors on a given I2C bus, and allows use of multiple I2C busses.\nAdditional access to settings is available for advanced use.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n\nProducts that use this Library \n---------------------------------\n\n* [SPX-14767](https://www.sparkfun.com/products/14767) - SparkX version\n\nVersion History\n---------------\n* [V 1.0.1](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library/tree/V_1.0.1) - Initial release\n* [V 1.0.2](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library/tree/V_1.0.2) - Boolean returns\n* [V 1.0.3](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library/tree/V_1.0.3) - Fixed reading bug\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is released under the GPL v3 license. See the included LICENSE.md for more information.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

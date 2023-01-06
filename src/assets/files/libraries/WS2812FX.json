@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WS2812FX",
     "version": "0.0.1",
-    "installs": 4741,
+    "installs": 5292,
     "license": "MIT",
     "author": "Justin Kolberg",
     "sentence": "A port of the WS2812FX library (by Harm Aldick, https://github.com/kitesurfer1404/WS2812FX) for the Particle platform.",
@@ -50,8 +50,63 @@
           "boron": {
             "demo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "demo": true
+          },
+          "electron": {
+            "demo": true
+          },
+          "argon": {
+            "demo": false
+          },
+          "boron": {
+            "demo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "demo": false
+          },
+          "boron": {
+            "demo": false
+          },
+          "bsom": {
+            "demo": false
+          },
+          "b5som": {
+            "demo": false
+          },
+          "tracker": {
+            "demo": false
+          },
+          "p2": {
+            "demo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "demo": false
+          },
+          "boron": {
+            "demo": false
+          },
+          "bsom": {
+            "demo": false
+          },
+          "b5som": {
+            "demo": false
+          },
+          "tracker": {
+            "demo": false
+          },
+          "esomx": {
+            "demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.814Z"
     }
   },
   "readme": "![WS2812FX library](https://raw.githubusercontent.com/amdprophet/WS2812FX/master/WS2812FX_logo.png)\n\nWS2812FX - More Blinken for your LEDs!\n======================================\n\nThis is a Particle-compatible fork of https://github.com/kitesurfer1404/WS2812FX.\n\nThis library features a variety of blinken effects for the WS2811/WS2812/NeoPixel LEDs. It is meant to be a drop-in replacement for the Particle NeoPixel library with additional features.\n\nFeatures\n--------\n\n* 53 different effects. And counting.\n* Free of any delay()\n* Tested on Particle Photon.\n* All effects with printable names - easy to use in user interfaces.\n* FX, speed and brightness controllable on the fly.\n* Ready for sound-to-light (see external trigger example)\n\n\nDownload, Install and Example\n-----------------------------\n\n* Install the [Particle NeoPixel library](https://github.com/technobly/Particle-NeoPixel)\n* Install this library (Should show up as WS2812FX under the Particle library browser)\n\nSee examples for basic usage.\n\nIn it's most simple form, here's the code to get you started!\n\n```cpp\n#include <WS2812FX.h>\n\n#define LED_COUNT 30\n#define LED_PIN 12\n\nWS2812FX ws2812fx = WS2812FX(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);\n\nvoid setup() {\n  ws2812fx.init();\n  ws2812fx.setBrightness(100);\n  ws2812fx.setSpeed(200);\n  ws2812fx.setMode(FX_MODE_RAINBOW_CYCLE);\n  ws2812fx.start();\n}\n\nvoid loop() {\n  ws2812fx.service();\n}\n```\n\nMore complex effects can be created by dividing your string of LEDs into segments (up to ten) and programming each segment independently. Use the **setSegment()** function to program each segment's mode, color, speed and direction (normal or reverse):\n  * setSegment(segment index, start LED, stop LED, mode, color, speed, reverse);\n\nNote, some effects make use of more then one color (up to three) and are programmed by specifying an array of colors:\n  * setSegment(segment index, start LED, stop LED, mode, colors[], speed, reverse);\n\n```cpp\n// divide the string of LEDs into two independent segments\nuint32_t colors[] = {RED, GREEN};\nws2812fx.setSegment(0, 0,           (LED_COUNT/2)-1, FX_MODE_BLINK, colors, 1000, false);\nws2812fx.setSegment(1, LED_COUNT/2, LED_COUNT-1,     FX_MODE_BLINK, (const uint32_t[]) {ORANGE, PURPLE}, 1000, false);\n```\n\n\nEffects\n-------\n\n* **Static** - No blinking. Just plain old static light.\n* **Blink** - Normal blinking. 50% on/off time.\n* **Breath** - Does the \"standby-breathing\" of well known i-Devices. Fixed Speed.\n* **Color Wipe** - Lights all LEDs after each other up. Then turns them in that order off. Repeat.\n* **Color Wipe Inverse** - Same as Color Wipe, except swaps on/off colors.\n* **Color Wipe Reverse** - Lights all LEDs after each other up. Then turns them in reverse order off. Repeat.\n* **Color Wipe Reverse Inverse** - Same as Color Wipe Reverse, except swaps on/off colors.\n* **Color Wipe Random** - Turns all LEDs after each other to a random color. Then starts over with another color.\n* **Random Color** - Lights all LEDs in one random color up. Then switches them to the next random color.\n* **Single Dynamic** - Lights every LED in a random color. Changes one random LED after the other to another random color.\n* **Multi Dynamic** - Lights every LED in a random color. Changes all LED at the same time to new random colors.\n* **Rainbow** - Cycles all LEDs at once through a rainbow.\n* **Rainbow Cycle** - Cycles a rainbow over the entire string of LEDs.\n* **Scan** - Runs a single pixel back and forth.\n* **Dual Scan** - Runs two pixel back and forth in opposite directions.\n* **Fade** - Fades the LEDs on and (almost) off again.\n* **Theater Chase** - Theatre-style crawling lights. Inspired by the Adafruit examples.\n* **Theater Chase Rainbow** - Theatre-style crawling lights with rainbow effect. Inspired by the Adafruit examples.\n* **Running Lights** - Running lights effect with smooth sine transition.\n* **Twinkle** - Blink several LEDs on, reset, repeat.\n* **Twinkle Random** - Blink several LEDs in random colors on, reset, repeat.\n* **Twinkle Fade** - Blink several LEDs on, fading out.\n* **Twinkle Fade Random** - Blink several LEDs in random colors on, fading out.\n* **Sparkle** - Blinks one LED at a time.\n* **Flash Sparkle** - Lights all LEDs in the selected color. Flashes single white pixels randomly.\n* **Hyper Sparkle** - Like flash sparkle. With more flash.\n* **Strobe** - Classic Strobe effect.\n* **Strobe Rainbow** - Classic Strobe effect. Cycling through the rainbow.\n* **Multi Strobe** - Strobe effect with different strobe count and pause, controlled by speed setting.\n* **Blink Rainbow** - Classic Blink effect. Cycling through the rainbow.\n* **Chase White** - Color running on white.\n* **Chase Color** - White running on color.\n* **Chase Random** - White running followed by random color.\n* **Chase Rainbow** - White running on rainbow.\n* **Chase Flash** - White flashes running on color.\n* **Chase Flash Random** - White flashes running, followed by random color.\n* **Chase Rainbow White** - Rainbow running on white.\n* **Chase Blackout** - Black running on color.\n* **Chase Blackout Rainbow** - Black running on rainbow.\n* **Color Sweep Random** - Random color introduced alternating from start and end of strip.\n* **Running Color** - Alternating color/white pixels running.\n* **Running Red Blue** - Alternating red/blue pixels running.\n* **Running Random** - Random colored pixels running.\n* **Larson Scanner** - K.I.T.T.\n* **Comet** - Firing comets from one end.\n* **Fireworks** - Firework sparks.\n* **Fireworks Random** - Random colored firework sparks.\n* **Merry Christmas** - Alternating green/red pixels running.\n* **Fire Flicker** - Fire flickering effect. Like in harsh wind.\n* **Fire Flicker (soft)** - Fire flickering effect. Runs slower/softer.\n* **Fire Flicker (intense)** - Fire flickering effect. More range of color.\n* **Circus Combustus** - Alternating white/red/black pixels running.\n* **Halloween** - Alternating orange/purple pixels running.\n* **Bicolor Chase** - Two LEDs running on a background color (set three colors).\n* **Tricolor Chase** - Alternating three color pixels running (set three colors).\n* **ICU** - Two eyes looking around.\n* **Custom** - User created custom effect.\n\nProjects using WS2812FX\n-----------------------\n\n* [Smart Home project by renat2985](https://github.com/renat2985/rgb) using the ESP8266. Including a nice webinterface in the demo video!\n* [WiFi LED Star by kitesurfer1404](http://www.kitesurfer1404.de/tech/led-star/en)\n* [McLighting by toblum](https://github.com/toblum/McLighting) is a multi-client lighting gadget for ESP8266\n",

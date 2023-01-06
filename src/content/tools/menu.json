@@ -1,82 +1,111 @@
 {
-    "items": [
+  "items": [
+    {
+      "dir": "tools",
+      "title": "Tools",
+      "href": "/tools/tools/",
+      "tiles": [
         {
-            "dir": "device-programming",
-            "isSection": true
+          "title": "Device doctor",
+          "detail": "Troubleshoot connectivity issues",
+          "href": "/tools/doctor/"
         },
-        [
-            {
-              "dir": "device-restore-usb",
-              "title": "Device Restore USB",
-              "href": "/tools/device-programming/device-restore-usb"
-            },
-            {
-                "dir": "device-restore-jtag",
-                "title": "Device Restore JTAG",
-                "href": "/tools/device-programming/device-restore-jtag"
-            },
-            {
-                "dir": "hex-generator",
-                "title": "Hex Generator",
-                "href": "/tools/device-programming/hex-generator"
-            },
-            {
-                "dir": "web-ide-exporter",
-                "title": "Web IDE Exporter",
-                "href": "/tools/device-programming/web-ide-exporter"
-            }
-        ],
         {
-            "dir": "troubleshooting",
-            "isSection": true
+          "title": "Look up",
+          "detail": "Find devices and SIMs",
+          "href": "/tools/developer-tools/lookup/"
         },
-        [
-            {
-                "dir": "lookup",
-                "title": "Lookup Tools",
-                "href": "/tools/troubleshooting/lookup"
-            },
-            {
-                "dir": "device-inspect",
-                "title": "Device Inspect",
-                "href": "/tools/troubleshooting/device-inspect"
-            },
-            {
-                "dir": "cloud-debug",
-                "title": "Cloud Debug",
-                "href": "/tools/troubleshooting/cloud-debug"
-            },
-            {
-                "dir": "usb-serial",
-                "title": "USB Serial Console",
-                "href": "/tools/troubleshooting/usb-serial"
-            },
-            {
-                "dir": "ble-serial",
-                "title": "BLE Serial Console",
-                "href": "/tools/troubleshooting/ble-serial"
-            }  
-        ],
         {
-            "dir": "product-tools",
-            "isSection": true
-        },
-        [
-            {
-                "dir": "cellular-usage",
-                "title": "Cellular data usage",
-                "href": "/tools/product-tools/cellular-usage"
-            },
-            {
-                "dir": "list-devices",
-                "title": "List devices",
-                "href": "/tools/product-tools/list-devices"
-            },
-            {
-                "dir": "integration-copy",
-                "title": "Copy integrations",
-                "href": "/tools/product-tools/integration-copy"
-            }
-        ]
+          "title": "Device restore",
+          "detail": "Restore your device firmware to a known good state",
+          "href": "/tools/device-restore/device-restore-usb/"
+        }
+      ]
+    },
+    {
+      "title": "Device Doctor",
+      "dir": "doctor",
+      "href": "/tools/doctor/"
+    },
+    {
+      "title": "Device Setup",
+      "dir": "setup",
+      "href": "/tools/setup/",
+      "hidden": true
+    },
+    {
+      "dir": "developer-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "lookup",
+        "href": "/tools/developer-tools/lookup/"
+      },
+      {
+        "dir": "device-inspect",
+        "href": "/tools/developer-tools/device-inspect/"
+      },
+      {
+        "dir": "usb-serial",
+        "href": "/tools/developer-tools/usb-serial/"
+      },
+      {
+        "dir": "ble-serial",
+        "href": "/tools/developer-tools/ble-serial/"
+      },
+      {
+        "dir": "web-ide-exporter",
+        "href": "/tools/developer-tools/web-ide-exporter/"
+      },
+      {
+        "dir": "hex-generator",
+        "href": "/tools/developer-tools/hex-generator/"
+      }
+    ],
+    {
+      "dir": "cloud-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "list-devices",
+        "href": "/tools/cloud-tools/list-devices/"
+      },
+      {
+        "dir": "events",
+        "title": "Event viewer",
+        "href": "/tools/cloud-tools/events/"
+      },
+      {
+        "dir": "import-devices",
+        "title": "Import devices",
+        "href": "/tools/cloud-tools/import-devices/",
+        "hidden": true
+      },
+      {
+        "dir": "integration-copy",
+        "href": "/tools/cloud-tools/integration-copy/"
+      }
+    ],
+    {
+      "dir": "device-restore",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "device-restore-usb",
+        "href": "/tools/device-restore/device-restore-usb/"
+      },
+      {
+        "dir": "device-restore-jtag",
+        "href": "/tools/device-restore/device-restore-jtag/"
+      },
+      {
+        "title": "Device Restore USB (Old Version)",
+        "href": "/tools/device-restore/device-restore-usb-old/",
+        "hidden": true
+      }
     ]
+  ]
 }

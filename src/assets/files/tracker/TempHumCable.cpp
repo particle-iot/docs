@@ -7,7 +7,9 @@
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(TRACKER_PRODUCT_ID);
+#endif
 PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -19,7 +21,7 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
 
 Sht3xi2c sensor(Wire3, 0x44);
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -27,7 +29,7 @@ void setup()
 
     // Register a location callback so we can add temperature and humidity information
     // to location publishes
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
     
     // Turn on 5V output on M8 connector
     pinMode(CAN_PWR, OUTPUT);
@@ -45,7 +47,7 @@ void loop()
     Tracker::instance().loop();
 }
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     double temp, humid;
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adxl345",
     "version": "0.0.3",
-    "installs": 9341,
+    "installs": 9749,
     "license": "GNU",
     "author": "Kenneth Lim <kennethlimcp@gmail.com>",
     "url": "https://github.com/spark/spark-lib-adxl345",
@@ -65,8 +65,95 @@
             "adxl345_test": false,
             "adxlrun345": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "electron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "bsom": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "b5som": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "tracker": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "p2": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "bsom": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "b5som": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "tracker": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "esomx": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.762Z"
     }
   },
   "readme": "To use this Library,\n -----------\n1) Create a new App in Spark IDE\n\n2) Add a new library and name it `ADXL345`\n\n3) Add another library and name it `Binary`\n\n4) Copy the code from `ADXL345.cpp`, `ADXL345.h` and `Binary.h` into your App\n\n5) Choose an example you want to try out and paste it in the `your_app_name.ino`\n\nLastly, have fun!\n\nUpdated on: 01 May 2014\n\nKennethlimcp\n",

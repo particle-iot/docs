@@ -7,7 +7,7 @@
   "attributes": {
     "name": "L9110Driver",
     "version": "0.0.10",
-    "installs": 555,
+    "installs": 724,
     "license": "GPL",
     "author": "Scott Beasley <scottbeasley@gmail.com>",
     "sentence": "L9110 Motor driver library for Particle boards",
@@ -50,8 +50,63 @@
           "boron": {
             "test_L9110": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "test_L9110": false
+          },
+          "electron": {
+            "test_L9110": false
+          },
+          "argon": {
+            "test_L9110": false
+          },
+          "boron": {
+            "test_L9110": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "test_L9110": false
+          },
+          "boron": {
+            "test_L9110": false
+          },
+          "bsom": {
+            "test_L9110": false
+          },
+          "b5som": {
+            "test_L9110": false
+          },
+          "tracker": {
+            "test_L9110": false
+          },
+          "p2": {
+            "test_L9110": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "test_L9110": false
+          },
+          "boron": {
+            "test_L9110": false
+          },
+          "bsom": {
+            "test_L9110": false
+          },
+          "b5som": {
+            "test_L9110": false
+          },
+          "tracker": {
+            "test_L9110": false
+          },
+          "esomx": {
+            "test_L9110": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.999Z"
     }
   },
   "readme": "# L9110Driver_Particle\nL9110 motor driver for Particle boards\n*\n",

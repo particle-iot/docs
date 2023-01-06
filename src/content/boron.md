@@ -16,7 +16,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">Set up your Boron</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -25,12 +25,11 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 - [Quickstart with starter project](/quickstart/boron/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
-- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/boron)
-- [Datasheet](/datasheets/boron/boron-datasheet/)
-- [Certification](/datasheets/certifications/certification)
+- [Datasheet](/reference/datasheets/b-series/boron-datasheet/)
+- [Certification](/hardware/certification/certification/)
 
 {{box op="end"}}
 
@@ -46,8 +45,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 - 1MB flash, 256KB RAM
 - Bluetooth LE (BLE) central and peripheral support
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) and encryption functions
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
 
@@ -57,7 +55,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 - LTE Cat M1 module with global hardware support (MVNO support for US, Canada, and Mexico only)
 - 2G/3G support world-wide
-- For availability in specific countries, see the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+- For availability in specific countries, see the [cellular carrier list](/reference/cellular/cellular-carriers/)
 
 ### General specifications:
 
@@ -78,7 +76,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/boron-lte" target="_blank" class="button">BUY A BORON</a>
+<a href="https://store.particle.io/products/boron-lte-cat-m1-noram-with-ethersim-4th-gen" target="_blank" class="button">BUY A BORON</a>
 
 </div>
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MMA8452-Accelerometer-Library-Spark-Core",
     "version": "0.0.3",
-    "installs": 1633,
+    "installs": 1673,
     "license": "See https://www.sparkfun.com/products/10955 for license information",
     "author": "SJim Lindblom @ SparkFun Electronics and modified by Dan Dawson for Spark Core",
     "sentence": "Spark Core library for the SparkFun Triple Axis Accelerometer Breakout - MMA8452Q (SEN-10955)",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.905Z"
     }
   },
   "readme": "Triple Axis Accelerometer Breakout - MMA8452Q Modified for use with the Spark Core\n=============================================\n\n[![Triple Axis Accelerometer Breakout - MMA8452Q](https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/0/9/5/5/10955-01_i_ma.jpg)  \n*Triple Axis Accelerometer Breakout - MMA8452Q (SEN-10955)*](https://www.sparkfun.com/products/10955)\n\nThis breakout board makes it easy to use the tiny MMA8452Q accelerometer in your project. The MMA8452Q is a smart low-power, three-axis, capacitive micro-machined accelerometer with 12 bits of resolution.\n\nRepository Contents\n-------------------\n* **/Firmware** - Example Arduino sketches for interfacing with the accelerometer\n\nLicense Information\n-------------------\n\nThe hardware is released under [Creative Commons Share-alike 3.0](http://creativecommons.org/licenses/by-sa/3.0/).  \nAll other code is open source hardware so please feel free to do anything you want with it; you buy me a beer if you use this and we meet someday ([Beerware license](http://en.wikipedia.org/wiki/Beerware)).\n",

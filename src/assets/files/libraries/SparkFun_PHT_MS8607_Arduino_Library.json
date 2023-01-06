@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_PHT_MS8607_Arduino_Library",
     "version": "1.0.1",
-    "installs": 433,
+    "installs": 536,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Arduino library for the TE Connectivity MS8607 PHT sensor",
@@ -110,8 +110,175 @@
             "Example7_Humidity": true,
             "Example9_Original_TE_Example": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "electron": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "argon": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "boron": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "boron": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "bsom": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "b5som": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "tracker": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "p2": {
+            "Example1_PressureReading": false,
+            "Example2_VariousUnits": false,
+            "Example3_WeatherPressure": false,
+            "Example4_LocalAltitudeChange": false,
+            "Example5_AdvancedSettings": false,
+            "Example6_UnitTester": false,
+            "Example7_Humidity": false,
+            "Example9_Original_TE_Example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "boron": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "bsom": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "b5som": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "tracker": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          },
+          "esomx": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.042Z"
     }
   },
   "readme": "# SparkFun MS8607 Combined Pressure, Humidity and Temperature Sensor Arduino Library\n\nThe MS8607 is a very sensitive, fully calibrated, low power, easy to use, combined pressure, humidity and temperature sensor.\nIt is perfect for home weather stations, detecting changes in altitude, and pneumatic based switches or actuators.\nThe pressure sensor will operate down to 10mbar which is equivalent to an altitude of approx. 31,000m making it suitable for high altitude ballooning\nand other low pressure applications.\n\nThe original manufacturer TE has written a [great Arduino library](https://github.com/TEConnectivity/MS8607_Arduino_Library) for the device.\nWe've added a heap of examples and new functions to make the sensor even easier to use, plus an example showing how to connect the board to one of the\nalternative I2C ports on the Artemis.\n\n## Products That Use This Library\n\n- [SPX-16298](https://www.sparkfun.com/products/16298) - Qwiic Pressure/Humidity/Temp (PHT) Sensor - MS8607\n\n## Repository Contents\n\n- **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n- **/src** - Source files for the library (.cpp, .h).\n- **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n- **library.properties** - General library properties for the Arduino package manager.\n\n## Documentation\n\n- **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n- **[Product Repository](https://github.com/sparkfun/Qwiic_PHT_MS8607)** - Main repository (including hardware files)\n\n## License Information\n\nThis product is _**open source**_!\n\nPlease use, reuse, and modify these files as you see fit.\nPlease maintain the attribution and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n",

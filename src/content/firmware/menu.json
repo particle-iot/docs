@@ -1,0 +1,140 @@
+{
+  "items": [
+    {
+      "dir": "firmware",
+      "title": "Firmware",
+      "href": "/firmware/",
+      "tiles": [
+        {
+          "title": "Best practices",
+          "detail": "Writing good device firmware",
+          "href": "/firmware/best-practices/firmware-introduction/"
+        },
+        {
+          "title": "USB serial debugging",
+          "detail": "Using logging and serial debugging to debug code",
+          "href": "/firmware/best-practices/usb-serial/"
+        },
+        {
+          "title": "Libraries",
+          "detail": "Using libraries to add new software features",
+          "href": "/firmware/best-practices/libraries/"
+        },
+        {
+          "title": "Tracker Edge",
+          "detail": "Writing code for the Tracker One and Tracker SoM",
+          "href": "/firmware/tracker-edge/tracker-edge-firmware/"
+        },
+        {
+          "title": "Low power",
+          "detail": "Designing for battery-powered applications",
+          "href": "/firmware/low-power/wake-publish-sleep-cellular/"
+        },
+        {
+          "title": "Finite state machines",
+          "detail": "Software design concepts for easier to maintain firmware",
+          "href": "/firmware/software-design/finite-state-machines/"
+        }
+      ]
+    },    
+    {
+      "dir": "best-practices",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "firmware-introduction",
+        "title": "Firmware introduction",
+        "href": "/firmware/best-practices/firmware-introduction/"
+      },
+      {
+        "dir": "about-apps",
+        "title": "About apps",
+        "href": "/firmware/best-practices/about-apps/"
+      },
+      {
+        "dir": "json",
+        "title": "JSON",
+        "href": "/firmware/best-practices/json/"
+      },
+      {
+        "dir": "usb-serial",
+        "title": "USB serial debugging",
+        "href": "/firmware/best-practices/usb-serial/"
+      },
+      {
+        "dir": "libraries",
+        "title": "Libraries",
+        "href": "/firmware/best-practices/libraries/"
+      },
+      {
+        "dir": "code-size-tips",
+        "title": "Code size tips",
+        "href": "/firmware/best-practices/code-size-tips/"
+      },
+      {
+        "dir": "scheduling",
+        "title": "Scheduling",
+        "href": "/firmware/best-practices/scheduling/"
+      }
+    ],
+    {
+      "dir": "tracker-edge",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-edge-firmware",
+        "title": "Tracker Edge Firmware",
+        "href": "/firmware/tracker-edge/tracker-edge-firmware/"
+      },
+      {
+        "dir": "tracker-edge-api-reference",
+        "title": "Tracker Edge API reference",
+        "href": "/firmware/tracker-edge/tracker-edge-api-reference/"
+      }
+    ],
+    {
+      "dir": "low-power",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "wake-publish-sleep-cellular",
+        "title": "Wake publish sleep example",
+        "href": "/firmware/low-power/wake-publish-sleep-cellular/"
+      },
+      {
+        "dir": "stop-sleep-cellular",
+        "title": "Stop sleep cellular example",
+        "href": "/firmware/low-power/stop-sleep-cellular/"
+      },
+      {
+        "dir": "device-powerdown",
+        "title": "Device Powerdown",
+        "href": "/firmware/low-power/device-powerdown/"
+      }
+    ],
+    {
+      "dir": "software-design",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "finite-state-machines",
+        "title": "Finite State Machines",
+        "href": "/firmware/software-design/finite-state-machines/"
+      },
+      {
+        "dir": "threading-explainer",
+        "title": "Threading explainer",
+        "href": "/firmware/software-design/threading-explainer/"
+      },
+      {
+        "dir": "singleton",
+        "title": "Singleton",
+        "href": "/firmware/software-design/singleton/"
+      }
+    ]
+  ]
+}

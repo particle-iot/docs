@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SegmentDriver",
     "version": "1.0.0",
-    "installs": 1429,
+    "installs": 1509,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of AS1115 3 character LED 7 segment driver I²C Mini Module",
@@ -50,8 +50,63 @@
           "boron": {
             "RSSI_Example": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "RSSI_Example": false
+          },
+          "electron": {
+            "RSSI_Example": false
+          },
+          "argon": {
+            "RSSI_Example": false
+          },
+          "boron": {
+            "RSSI_Example": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "RSSI_Example": false
+          },
+          "boron": {
+            "RSSI_Example": false
+          },
+          "bsom": {
+            "RSSI_Example": false
+          },
+          "b5som": {
+            "RSSI_Example": false
+          },
+          "tracker": {
+            "RSSI_Example": false
+          },
+          "p2": {
+            "RSSI_Example": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "RSSI_Example": false
+          },
+          "boron": {
+            "RSSI_Example": false
+          },
+          "bsom": {
+            "RSSI_Example": false
+          },
+          "b5som": {
+            "RSSI_Example": false
+          },
+          "tracker": {
+            "RSSI_Example": false
+          },
+          "esomx": {
+            "RSSI_Example": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.920Z"
     }
   },
   "readme": "# About\n\nThis Library intended for the operation of AS1115 3 character LED 7 segment driver I²C Mini Module.\n\nThe intention of this library is to make use of the AS1115 3 character LED 7 segment driver I²C Mini Module with Particle development web IDE(build) as simple as possible for users.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com\n\n###Requirements\n- AS1115 3 character LED 7 segment driver I²C Mini Module\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the VCNL4010.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particle's documentation] [sparkIncludeLibrary].\n\nThis Library also has an example application which can be flashed directly to your Photon module by clicking the Use This Example button.  This example application will display your Particle Photon module's RSSI on the 3 character display.  It will also post the module's RSSI as a variable on the Particle cloud.\nThe example will post two functions to the particle cloud.  1 allowing the user to post a int value to the display from 0-999.  The second function allows the user to select the internal or external WiFi antenna, after this function is called the module will reboot.\n\n### Example use\n\nOnce the Library is included in your applicaiton you should see an include statement at the top like this:\n```cpp\n//This #include statement was automatically added by the Particle IDE.\n#include \"SegmentDriver/SegmentDriver.h\"\n```\n\nNow you need to instanciate an object of the library for use in your application like this:\n```cpp\nSegmentLEDDriver display;\n```\n\nHere is an example use case for the class(counts from 0 to 999):\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"SegmentDriver/SegmentDriver.h\"\nSegmentLEDDriver display;\n\nvoid setup() {\n//Initialize 3 character display\ndisplay.init();\n}\n\nvoid loop() {\nfor(int i = 0; i < 1000; i++){\ndisplay..displayWriteInt(i);\ndelay(100);\n}\n}\n```\n\n###Public accessible methods\n```cpp\nvoid init();\n```\n>Must be called first before using the object.  This method sets required settings to the AS1115 3 character driver and returns true if setup of the driver is successful.  \n\n\n```cpp\nbool displayWriteInt(String val);\n```\n>This method accepts 1 int argument from 0-999 and displays that value on the 3 character display.  False is returned if there is an error communicating with the device.\n\n```cpp\nbool displayWriteInt(String val);\n```\n>This method accepts 1 String which should be a number from 0-999 and displays that value on the 3 character display.  False is returned if there is an error communicating with the device.\n\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/",

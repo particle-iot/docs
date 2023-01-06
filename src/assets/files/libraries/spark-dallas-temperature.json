@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-dallas-temperature",
     "version": "0.0.7",
-    "installs": 78978,
+    "installs": 87120,
     "license": "MIT",
     "author": "Tom de Boer <tom@tomdeboer.nl>",
     "maintainer": "Particle <libraries@particle.io>",
@@ -37,7 +37,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.662Z"
     }
   },
   "readme": "Spark Core compatible Dallas Temperature sensor library\n===\n\nThis library is a port of the original Arduino compatible Dallas Sensor library. Some includes have been fixed, but the libary is otherwise untouched.\n\n_**Note:** This library depends on the OneWire library._\n\nOriginal repository by Miles Burton: [Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library).\n  \n## Getting Started\n> This library supports the following devices :\n> \n> \n> * DS18B20\n> * DS18S20 - Please note there appears to be an issue with this series.\n> * DS1822\n> * DS1820\n>\n>\n> You will need a pull-up resistor of about 5 KOhm between the 1-Wire data line\n> and your 5V power. If you are using the DS18B20, ground pins 1 and 3. The\n> centre pin is the data line '1-wire'.",

@@ -26,12 +26,12 @@ var collapseConfig = {
 	},
 	'cellularDevice':{
 		'prompt':'Select the type of cellular device you have:',
-		'defaultValue':'Electron',
+		'defaultValue':'Boron',
 		'cssClass':'collapseCellularDevice',
 		'op':'cellularDevice',
 		'options':[
-			{'title':'Electron or E Series', 'tag':'Electron'},
-			{'title':'Boron', 'tag':'Boron'}
+			{'title':'Boron', 'tag':'Boron'},
+			{'title':'Electron or E Series', 'tag':'Electron'}
 		]				
 	},
 	'hardwareTutorial':{
@@ -84,8 +84,13 @@ module.exports = function(context) {
 		
 		if (!hasSelector)  {
 			// Default hidden section start					
+			let styleOptions = '';
+			if (context.hash['indent']) {
+				styleOptions += 'padding-left: ' + context.hash['indent'] + '; ';
+			}
+
 			var id = crypto.randomBytes(12).toString("hex");
-			html += '</p><p onclick="collapseToggle(\'' + id + '\')"><img src="/assets/images/disclosure-right.png" style="position:static; display:inline; margin:4px; width:12px; height:12px;" id="i' + id + '"/>' + context.hash.label + '</p>';
+			html += '</p><p onclick="collapseToggle(\'' + id + '\')" style="' + styleOptions + '"><img src="/assets/images/disclosure-right.png" style="position:static; display:inline; margin:4px; width:12px; height:12px;" id="i' + id + '"/>' + context.hash.label + '</p>';
 			
 			html += '<div id="s' + id + '" class="collapseIndent" style="display:none">';
 		}

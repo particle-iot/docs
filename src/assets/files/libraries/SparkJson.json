@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkJson",
     "version": "0.0.2",
-    "installs": 207778,
+    "installs": 214212,
     "license": "Choose a license",
     "author": "bblanchon",
     "sentence": "JSON library Ported from @bblanchon",
@@ -72,8 +72,111 @@
             "JsonParserExample": false,
             "JsonServer": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "electron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "argon": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "boron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "boron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "bsom": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "b5som": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "tracker": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "p2": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "boron": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "bsom": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "b5som": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "tracker": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          },
+          "esomx": {
+            "IndentedPrintExample": false,
+            "JsonGeneratorExample": false,
+            "JsonParserExample": false,
+            "JsonServer": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.646Z"
     }
   },
   "readme": "Arduino JSON library\r\n====================\r\n\r\n[![Build Status](https://travis-ci.org/bblanchon/ArduinoJson.svg?branch=master)](https://travis-ci.org/bblanchon/ArduinoJson) [![Coverage Status](https://img.shields.io/coveralls/bblanchon/ArduinoJson.svg)](https://coveralls.io/r/bblanchon/ArduinoJson?branch=master)\r\n\r\n*An elegant and efficient JSON library for embedded systems.*\r\n\r\nIt's design to have the most intuitive API, the smallest footprint and works without any allocation on the heap (no malloc).\r\n\r\nIt has been written with Arduino in mind, but it isn't linked to Arduino libraries so you can use this library in any other C++ project.\r\n\r\nFeatures\r\n--------\r\n\r\n* JSON decoding\r\n* JSON encoding (with optional indentation)\r\n* Elegant API, very easy to use \r\n* Fixed memory allocation (no malloc)\r\n* Small footprint\r\n* MIT License\r\n\r\nQuick start\r\n-----------\r\n\r\n#### Decoding / Parsing\r\n   \r\n    char json[] = \"{\\\"sensor\\\":\\\"gps\\\",\\\"time\\\":1351824120,\\\"data\\\":[48.756080,2.302038]}\";\r\n\r\n    StaticJsonBuffer<200> jsonBuffer;\r\n\r\n    JsonObject& root = jsonBuffer.parseObject(json);\r\n\r\n    const char* sensor = root[\"sensor\"];\r\n    long time          = root[\"time\"];\r\n    double latitude    = root[\"data\"][0];\r\n    double longitude   = root[\"data\"][1];\r\n\r\n#### Encoding / Generating\r\n   \r\n    StaticJsonBuffer<200> jsonBuffer;\r\n\r\n    JsonObject& root = jsonBuffer.createObject();\r\n    root[\"sensor\"] = \"gps\";\r\n    root[\"time\"] = 1351824120;\r\n\r\n    JsonArray& data = root.createNestedArray(\"data\");\r\n    data.add(48.756080, 6);  // 6 is the number of decimals to print\r\n    data.add(2.302038, 6);   // if not specified, 2 digits are printed\r\n\r\n    root.printTo(Serial);\r\n    // This prints:\r\n    // {\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}\r\n\r\n\r\nDocumentation\r\n-------------\r\n\r\nThe documentation is available online in the [Arduino JSON wiki](https://github.com/bblanchon/ArduinoJson/wiki) \r\n\r\nTestimonials\r\n------------\r\n\r\nFrom Arduino's Forum user `jflaplante`:\r\n> I tried aJson json-arduino before trying your library. I always ran into memory problem after a while. \r\n> I have no such problem so far with your library. It is working perfectly with my web services.\r\n\r\nFrom Arduino's Forum user `gbathree`:\r\n> Thanks so much - this is an awesome library!  If you want to see what we're doing with it - the project is located at www.photosynq.org.\r\n\r\nFrom StackOverflow user `thegreendroid`:\r\n> It has a really elegant, simple API and it works like a charm on embedded and Windows/Linux platforms. We recently started using this on an embedded project and I can vouch for its quality.\r\n\r\nFrom GitHub user `zacsketches`:\r\n\r\n> Thanks for a great library!!!\r\n> I've been watching you consistently develop this library over the past six months, and I used it today for a publish and subscribe architecture designed to help hobbyists move into more advanced robotics. Your library allowed me to implement remote subscription in order to facilitate multi-processor robots.\r\n> ArduinoJson saved me a week's worth of time!!\r\n\r\n---\r\n\r\nFound this library useful? [Help me back with a donation!](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=donate%40benoitblanchon%2efr&lc=GB&item_name=Benoit%20Blanchon&item_number=Arduino%20JSON&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) :smile:",

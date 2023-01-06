@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sh1106",
     "version": "0.0.2",
-    "installs": 8532,
+    "installs": 8944,
     "license": "MIT",
     "author": "Dan Milligan modified by Dustin Sellinger ",
     "sentence": "A library for the SH1106 chipset via I2C",
@@ -50,8 +50,63 @@
           "boron": {
             "SH1106": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "SH1106": true
+          },
+          "electron": {
+            "SH1106": true
+          },
+          "argon": {
+            "SH1106": true
+          },
+          "boron": {
+            "SH1106": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "SH1106": true
+          },
+          "boron": {
+            "SH1106": true
+          },
+          "bsom": {
+            "SH1106": true
+          },
+          "b5som": {
+            "SH1106": true
+          },
+          "tracker": {
+            "SH1106": true
+          },
+          "p2": {
+            "SH1106": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "SH1106": true
+          },
+          "boron": {
+            "SH1106": true
+          },
+          "bsom": {
+            "SH1106": true
+          },
+          "b5som": {
+            "SH1106": true
+          },
+          "tracker": {
+            "SH1106": true
+          },
+          "esomx": {
+            "SH1106": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.767Z"
     }
   },
   "readme": "sh1106\n======\n\nA Spark library for the SH1106 OLED chipset on the I2c bus\n\nFeatures:\n*\ttext display with scrolling\n*\tpixel drawing\n*\trectangles, outline, filled\n*\tlines, any angle\n",

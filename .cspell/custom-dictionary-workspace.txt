@@ -1,0 +1,6 @@
+# Custom Dictionary Words
+micromobility
+geolocation
+microcontroller
+pinout
+GNSS

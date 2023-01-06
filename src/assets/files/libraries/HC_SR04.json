@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HC_SR04",
     "version": "0.0.12",
-    "installs": 56772,
+    "installs": 62130,
     "license": "MIT",
     "author": "Simon Monk <simon@monkmakes.com>",
     "sentence": "A library for the HC-SR04 ultrasonic rangefinder",
@@ -50,8 +50,63 @@
           "boron": {
             "HC_SR04_Variables": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "HC_SR04_Variables": true
+          },
+          "electron": {
+            "HC_SR04_Variables": true
+          },
+          "argon": {
+            "HC_SR04_Variables": true
+          },
+          "boron": {
+            "HC_SR04_Variables": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "HC_SR04_Variables": true
+          },
+          "boron": {
+            "HC_SR04_Variables": true
+          },
+          "bsom": {
+            "HC_SR04_Variables": true
+          },
+          "b5som": {
+            "HC_SR04_Variables": true
+          },
+          "tracker": {
+            "HC_SR04_Variables": true
+          },
+          "p2": {
+            "HC_SR04_Variables": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "HC_SR04_Variables": true
+          },
+          "boron": {
+            "HC_SR04_Variables": true
+          },
+          "bsom": {
+            "HC_SR04_Variables": true
+          },
+          "b5som": {
+            "HC_SR04_Variables": true
+          },
+          "tracker": {
+            "HC_SR04_Variables": true
+          },
+          "esomx": {
+            "HC_SR04_Variables": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.677Z"
     }
   },
   "readme": "# Spark_HC_SR04\nA Spark Photon/Core library for the HC-SR04 Ultrasonic Rangefinder\n",

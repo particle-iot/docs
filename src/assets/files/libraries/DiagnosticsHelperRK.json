@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DiagnosticsHelperRK",
     "version": "0.0.2",
-    "installs": 22602,
+    "installs": 24969,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions for accessing diagnostics data on-device",
@@ -68,8 +68,95 @@
             "2-get-json-DiagnosticsHelperRK": true,
             "3-powered-by-DiagnosticsHelperRK": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "electron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "argon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "bsom": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "b5som": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "tracker": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "p2": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "bsom": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "b5som": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "tracker": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "esomx": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.707Z"
     }
   },
   "readme": "# Diagnostics Helper\n\n- Location: [https://github.com/rickkas7/DiagnosticsHelperRK](https://github.com/rickkas7/DiagnosticsHelperRK)\n- License: MIT\n\nThe system diagnostics feature in Particle Device OS 0.8.0 can make troubleshooting device problems easier.\n\nFor example, when viewing a device in [the console](https://console.particle.io), you can view the device vitals:\n\n![Device Vitals](images/devicevitals.png)\n\nThis is periodically updated automatically so you don't have to worry about it. You can also use the cloud API to [request a refresh of the device vitals](https://docs.particle.io/reference/api/#refresh-device-vitals).\n\nYou can also monitor the [device vitals event](https://docs.particle.io/reference/api/#device-vitals-event) by subscribing to it.\n\nBut what if you want to get at some of this information from your user firmware, so you can send it somewhere else, or use it to control things in your firmware?\n\nFor example, the [Device Key Helper](https://github.com/rickkas7/DeviceKeyHelperRK) library uses diagnostics to find the last connection error. From this, it can determine if the connection failed because of a keys error and take appropriate action.\n\nSome things like free memory are more easily obtained using the regular system firmware calls like [System.freeMemory](https://docs.particle.io/reference/firmware/#freememory-), but others are only available in diagnostics.\n\n## Diagnostic Items\n\nThe various items that are available are described in the [device vitals metadata](https://docs.particle.io/reference/api/#get-device-vitals-metadata). \n\nThere's also [the official list in the Device OS source](https://github.com/particle-iot/firmware/blob/develop/services/inc/diagnostics.h):\n\n```\ntypedef enum diag_id {\n    DIAG_ID_INVALID = 0, // Invalid source ID\n    DIAG_ID_SYSTEM_LAST_RESET_REASON = 1, // sys:reset\n    DIAG_ID_SYSTEM_FREE_MEMORY = 2, // mem:free\n    DIAG_ID_SYSTEM_BATTERY_CHARGE = 3, // batt:soc\n    DIAG_ID_SYSTEM_SYSTEM_LOOPS = 4, // sys:loops\n    DIAG_ID_SYSTEM_APPLICATION_LOOPS = 5, // app:loops\n    DIAG_ID_SYSTEM_UPTIME = 6, // sys:uptime\n    DIAG_ID_SYSTEM_BATTERY_STATE = 7, // batt:state\n    DIAG_ID_SYSTEM_POWER_SOURCE = 24, // pwr::src\n    DIAG_ID_NETWORK_CONNECTION_STATUS = 8, // net:stat\n    DIAG_ID_NETWORK_CONNECTION_ERROR_CODE = 9, // net:err\n    DIAG_ID_NETWORK_DISCONNECTS = 12, // net:dconn\n    DIAG_ID_NETWORK_CONNECTION_ATTEMPTS = 27, // net:connatt\n    DIAG_ID_NETWORK_DISCONNECTION_REASON = 28, // net:dconnrsn\n    DIAG_ID_NETWORK_IPV4_ADDRESS = 15, // net:ip:addr\n    DIAG_ID_NETWORK_IPV4_GATEWAY = 16, // net.ip:gw\n    DIAG_ID_NETWORK_FLAGS = 17, // net:flags\n    DIAG_ID_NETWORK_COUNTRY_CODE = 18, // net:cntry\n    DIAG_ID_NETWORK_RSSI = 19, // net:rssi\n    DIAG_ID_NETWORK_SIGNAL_STRENGTH_VALUE = 37, // net:sigstrv\n    DIAG_ID_NETWORK_SIGNAL_STRENGTH = 33, // net:sigstr\n    DIAG_ID_NETWORK_SIGNAL_QUALITY = 34, // net:sigqual\n    DIAG_ID_NETWORK_SIGNAL_QUALITY_VALUE = 35, // net:sigqualv\n    DIAG_ID_NETWORK_ACCESS_TECNHOLOGY = 36, // net:at\n    DIAG_ID_CLOUD_CONNECTION_STATUS = 10, // cloud:stat\n    DIAG_ID_CLOUD_CONNECTION_ERROR_CODE = 13, // cloud:err\n    DIAG_ID_CLOUD_DISCONNECTS = 14, // cloud:dconn\n    DIAG_ID_CLOUD_CONNECTION_ATTEMPTS = 29, // cloud:connatt\n    DIAG_ID_CLOUD_DISCONNECTION_REASON = 30, // cloud:dconnrsn\n    DIAG_ID_CLOUD_REPEATED_MESSAGES = 21, // coap:resend\n    DIAG_ID_CLOUD_UNACKNOWLEDGED_MESSAGES = 22, // coap:unack\n    DIAG_ID_CLOUD_RATE_LIMITED_EVENTS = 20, // pub:throttle\n    DIAG_ID_SYSTEM_TOTAL_RAM = 25, // sys:tram\n    DIAG_ID_SYSTEM_USED_RAM = 26, // sys:uram\n    DIAG_ID_USER = 32768 // Base value for application-specific source IDs\n} diag_id;\n```\n\n## Diagnostic Helper Functions\n\nThere are only two functions in the DiagnosticHelperRK library:\n\n### getValue\n\nGets a single diagnostic value.\n\n```\nint32_t DiagnosticHelper::getValue(uint16_t id);\n```\n\nThe id is the code above, such as `DIAG_ID_CLOUD_CONNECTION_ERROR_CODE`.\n\nYou might use it like this:\n\n```\nLog.info(\"cloud:err=%d\", DiagnosticsHelper::getValue(DIAG_ID_CLOUD_CONNECTION_ERROR_CODE));\n```\n\n### getJson\n\nGets the diagnostic data as a JSON object in a String.\n\n```\nString DiagnosticHelper::getJson();\n```\n\nFor example, you might get something like this on a Photon:\n\n```\n{\"sys:uptime\":2001,\"net:stat\":4,\"net:err\":0,\"cloud:stat\":2,\"net:dconn\":0,\"cloud:err\":0,\"cloud:dconn\":0,\"net:rssi\":-18688,\"pub:limit\":0,\"coap:unack\":0,\"sys:tram\":83200,\"sys:uram\":32992,\"net:connatt\":1,\"net:dconnrsn\":0,\"cloud:connatt\":1,\"cloud:dconnrsn\":0,\"net:sigstr\":13823,\"net:sigqual\":8257,\"net:sigqualv\":1245184,\"net:at\":1,\"net:sigstrv\":-4784128,\"_\":\"\"}\n```\n\n## Examples\n\n### 1-get-values\n\n```\n#include \"Particle.h\"\n\n#include \"DiagnosticsHelperRK.h\"\n\nSerialLogHandler logHandler;\n\nconst unsigned long CHECK_INTERVAL_MS = 5000;\nunsigned long lastCheck = 0;\n\nvoid setup() {\n\tSerial.begin();\n}\n\nvoid loop() {\n\tif (millis() - lastCheck >= CHECK_INTERVAL_MS) {\n\t\tlastCheck = millis();\n\n\t\t// Constants for the various diagnostics items can be found here:\n\t\t// https://github.com/particle-iot/firmware/blob/develop/services/inc/diagnostics.h\n\n\t\tLog.info(\"cloud:stat=%d\", DiagnosticsHelper::getValue(DIAG_ID_CLOUD_CONNECTION_STATUS));\n\t\tLog.info(\"cloud:err=%d\", DiagnosticsHelper::getValue(DIAG_ID_CLOUD_CONNECTION_ERROR_CODE));\n\t\tLog.info(\"cloud:dconn=%d\", DiagnosticsHelper::getValue(DIAG_ID_CLOUD_DISCONNECTS));\n\t\tLog.info(\"cloud:connatt=%d\", DiagnosticsHelper::getValue(DIAG_ID_CLOUD_CONNECTION_ATTEMPTS));\n\t\tLog.info(\"cloud:dconnrsn=%d\", DiagnosticsHelper::getValue(DIAG_ID_CLOUD_DISCONNECTION_REASON));\n\t}\n}\n```\n\nRunning this, you'd see something like this on the debug serial:\n\n```\n0000010000 [app] INFO: cloud:stat=2\n0000010000 [app] INFO: cloud:err=0\n0000010000 [app] INFO: cloud:dconn=0\n0000010000 [app] INFO: cloud:connatt=1\n0000010000 [app] INFO: cloud:dconnrsn=0\n```\n\n\n### 2-get-json\n\nThis example gets the JSON data and publishes it when the \"pub\" function is called.\n\n```\n#include \"Particle.h\"\n\n#include \"DiagnosticsHelperRK.h\"\n\nint pubHandler(String data);\n\nvoid setup() {\n\tSerial.begin();\n\n\tParticle.function(\"pub\", pubHandler);\n}\n\nvoid loop() {\n\n}\n\nint pubHandler(String data) {\n\tString json = DiagnosticsHelper::getJson();\n\tParticle.publish(\"diagData\", json, PRIVATE);\n\treturn 0;\n}\n```\n\nYou might see something like this in the event log:\n\n![Event Log](images/event.png)\n\n\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-osc",
     "version": "0.0.3",
-    "installs": 833,
+    "installs": 861,
     "license": "See LICENSE file",
     "author": "Tekin Suleyman <tekin@tekin.co.uk>",
     "sentence": "OSC encoding library for the Particle platform",
@@ -50,8 +50,63 @@
           "boron": {
             "ip-reporter": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "ip-reporter": false
+          },
+          "electron": {
+            "ip-reporter": false
+          },
+          "argon": {
+            "ip-reporter": false
+          },
+          "boron": {
+            "ip-reporter": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "ip-reporter": false
+          },
+          "boron": {
+            "ip-reporter": false
+          },
+          "bsom": {
+            "ip-reporter": false
+          },
+          "b5som": {
+            "ip-reporter": false
+          },
+          "tracker": {
+            "ip-reporter": false
+          },
+          "p2": {
+            "ip-reporter": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "ip-reporter": false
+          },
+          "boron": {
+            "ip-reporter": false
+          },
+          "bsom": {
+            "ip-reporter": false
+          },
+          "b5som": {
+            "ip-reporter": false
+          },
+          "tracker": {
+            "ip-reporter": false
+          },
+          "esomx": {
+            "ip-reporter": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.977Z"
     }
   },
   "readme": "OSC library for the Particle (formerly Spark) platform.\n\n## Examples\n\nip-reporter.ino - simple example that reports the devices IP address over OSC\n\n## Provenance\n\nThis is a package of the library put together by [Collectif Trublion](http://www.trublion.org/)\nthat can be found at [trublion/sparkcore_osc](https://github.com/trublion/sparkcore_osc).\nThat was itself a port of the [Oscuino library](https://github.com/CNMAT/OSC)\nlibrary for Arduino and related embedded processor platforms.\n",

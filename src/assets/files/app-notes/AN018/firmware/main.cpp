@@ -25,7 +25,9 @@
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#ifndef SYSTEM_VERSION_v400ALPHA1
 PRODUCT_ID(TRACKER_PRODUCT_ID);
+#endif
 PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
@@ -55,7 +57,7 @@ const std::chrono::milliseconds debugLevelPeriod = 2s;
 
 
 int readLevel();
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
 void setup()
 {
@@ -66,7 +68,7 @@ void setup()
     Tracker::instance().init();
 
     // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(myLocationGenerationCallback);
 
     // Turn on CAN_5V power
     pinMode(CAN_PWR, OUTPUT);
@@ -125,7 +127,7 @@ int readLevel() {
 }
 
 
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+void myLocationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
 {
     writer.name("level").value(readLevel());
 }

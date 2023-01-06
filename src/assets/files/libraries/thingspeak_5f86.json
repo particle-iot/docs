@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thingspeak_5f86",
     "version": "0.0.2",
-    "installs": 1054,
+    "installs": 1121,
     "license": "The MIT License (MIT)",
     "author": "Dan Reid <danielallenreid@gmail.com>",
     "sentence": "Spark library for sending values to thingspeak",
@@ -50,8 +50,63 @@
           "boron": {
             "sendRandomValue": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "sendRandomValue": false
+          },
+          "electron": {
+            "sendRandomValue": false
+          },
+          "argon": {
+            "sendRandomValue": false
+          },
+          "boron": {
+            "sendRandomValue": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "sendRandomValue": false
+          },
+          "boron": {
+            "sendRandomValue": false
+          },
+          "bsom": {
+            "sendRandomValue": false
+          },
+          "b5som": {
+            "sendRandomValue": false
+          },
+          "tracker": {
+            "sendRandomValue": false
+          },
+          "p2": {
+            "sendRandomValue": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "sendRandomValue": false
+          },
+          "boron": {
+            "sendRandomValue": false
+          },
+          "bsom": {
+            "sendRandomValue": false
+          },
+          "b5som": {
+            "sendRandomValue": false
+          },
+          "tracker": {
+            "sendRandomValue": false
+          },
+          "esomx": {
+            "sendRandomValue": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.947Z"
     }
   },
   "readme": "##About\n\n[Spark Core](https://www.spark.io/) library for sending values to a [ThingSpeak](https://thingspeak.com/) channel. This library can be used in the [Spark IDE](https://www.spark.io/build).\n\n## Getting Started\n\n### 1. Include the library\n\nInclude the library from the [Spark IDE](https://www.spark.io/build) or download it to your local machine. Below is an example of including the library within the Spark IDE:\n\n```cpp\n#include \"thingspeak/thingspeak.h\"\n```\n\n### 2. Create thingspeak object\n\nTo use the library, an instance of the thingspeak class should be instantiated. The constructor requires a channel API key to be provided. This key can be obtained from the thingspeak website, more details available [here](https://thingspeak.com/docs/channels#api_keys). \n\n```cpp\n    ThingSpeakLibrary::ThingSpeak thingspeak (\"YOUR-CHANNEL-KEY\");\n```\n\n### 3. Set values\n\nThere are two steps in sending values to thingspeak. Initially values must be given to some or all of the 9 fields supported by the thingspeak channel. The example below sets a random integer to field 1:\n\n```cpp\nint rand = random(100);\nthingspeak.recordValue(1, String(rand, DEC));\n```\n\n### 4. Send values\n\nAfter setting, the values must be sent to thingspeak. The sendValues method constructs a GET query to the thingspeak API using any set values. Once the sendValues method has been called all the values are emptied. The example below sends any set values:\n\n```cpp\nbool valsSent = thingspeak.sendValues();\nif(valsSent) {\n    Serial.println(\"Value successfully sent to thingspeak\");\n} else {\n    Serial.println(\"Sending to thingspeak failed\");\n}\n```\n\nNote: Values will be emptied after each send, if you want to maintain a value this should be set before each sendValues call.\n\n## Configuration\n\n### Set connection timeout\n\nAfter sending values to thingspeak, the library will wait up to a specified timeout for a response. Once a response is received or the timeout is met, the connection is closed. Waiting for a response before closing the connection ensures that the data was successfully sent. The value of the timeout can be set using the setConnectionTimeout method. The default is 1500 ms.\n\n```cpp\n    thingspeak.setConnectionTimeout(1500);\n```\n\n## Examples\n\nA full example can be found in firmware/examples which can be run within the [Spark IDE](https://www.spark.io/build).\n\n## Contributing\n\nPlease feel free to suggest new features or contribute code",

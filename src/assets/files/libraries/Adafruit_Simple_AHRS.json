@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Simple_AHRS",
     "version": "0.0.3",
-    "installs": 335,
+    "installs": 409,
     "license": "Choose a license",
     "author": "Someone <email@somesite.com>",
     "sentence": "Briefly describe this library",
@@ -23,7 +23,8 @@
   "versions": {
     "0.0.3": {
       "builds": {},
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:54.075Z"
     }
   },
   "readme": "TODO: Describe your library and how to run the examples\n",

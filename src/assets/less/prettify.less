@@ -1,9 +1,9 @@
 @_almost-white: #F7F7F7;
 @_carrot: #E67E22;
-@_emerald: #2ECC71;
-@_spark-blue-dark: #009DCF;
-@_spark-blue: #00ADEF;
-@_sunflower: #F1C40F;
+@_emerald: #78ECB0; // #2ECC71;
+@_spark-blue-dark: #00E1FF; // #009DCF;
+@_spark-blue: #00E1FF; // #00ADEF;
+@_sunflower: #FFE949; // #F1C40F;
 
 /* ========================
 //#google-prettify-monokai-theme
@@ -28,13 +28,15 @@ pre .atv, code .atv { color: @_spark-blue; } /* html/xml attribute value */
 pre .dec, code .dec { color: @_carrot; } /* decimal */
 
 pre.prettyprint, code.prettyprint {
-	background-color: #272822;
+	background-color: @COLOR_Midnight_500; // #272822;
+	/*
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-o-border-radius: 8px;
 	-ms-border-radius: 8px;
 	-khtml-border-radius: 8px;
 	border-radius: 8px;
+	*/
 }
 
 pre.prettyprint {

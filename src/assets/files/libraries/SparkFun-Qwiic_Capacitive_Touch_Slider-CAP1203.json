@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203",
     "version": "1.0.2",
-    "installs": 549,
+    "installs": 609,
     "author": "SparkFun Electronics <sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "SparkFun library for the CAP1203 cap sense IC and slider sensor",
@@ -101,8 +101,159 @@
             "Example06_DisableInterrupt": true,
             "Example07_SetSensitivity": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "electron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "argon": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "boron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "boron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "bsom": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "b5som": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "tracker": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "p2": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "boron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "bsom": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "b5som": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "tracker": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "esomx": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:54.020Z"
     }
   },
   "readme": "SparkFun Capacitive Touch Slider - CAP1203 (Qwiic)\n========================================\n\n![SparkFun Capacitive Touch Slider Board](https://cdn.sparkfun.com/assets/parts/1/3/8/7/1/15344-SparkFun_Capacitive_Touch_Slider_-_CAP1203__Qwiic_-01a.jpg)\n\n[*SparkFun Capacitive Touch Slider - CAP1203 (Qwiic) (SEN-15344)*](https://www.sparkfun.com/products/15344)\n\nArduino library for the I2C based capacitive touch slider with 3 unique touch inputs. \n\nRepository Contents\n------------------- \n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the  library (.cpp, .h).\n\nDocumentation\n--------------\n* **[Product Repository](https://github.com/sparkfun/Qwiic_Capacitive_Touch_Slider_CAP1203)** - Product repository for the SparkFun Capacitive Touch Slider.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/capacitive-touch-slider-cap1203-hookup-guide)** - Basic hookup guide for the SparkFun Capacitive Touch Slider.\n\nProduct Versions\n----------------\n* [SparkFun Capacitive Touch Slider - CAP1203 (Qwiic) (SEN-15344)](https://www.sparkfun.com/products/15344) - Storefront Product\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",

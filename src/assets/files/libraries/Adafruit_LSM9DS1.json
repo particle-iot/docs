@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LSM9DS1",
     "version": "1.0.1",
-    "installs": 1330,
+    "installs": 1405,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for LSM9DS1 9-DOF sensor board.",
@@ -33,7 +33,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.928Z"
     }
   },
   "readme": "Adafruit LSM9DS1 Library\n========================\n\nThis is a library for the Adafruit triple-axis accelerometer/magnetometer/gyroscope LSM9DS1  breakouts\n\nDesigned specifically to work with the Adafruit LSM9DS1 Breakout\n\n   *  https://www.adafruit.com/products/3387\n\nThese sensors use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n\nWritten by Kevin Townsend for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\nhttps://opensource.org/licenses/BSD-3-Clause\n",

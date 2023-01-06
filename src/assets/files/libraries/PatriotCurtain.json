@@ -1,0 +1,37 @@
+{
+  "type": "libraries",
+  "id": "PatriotCurtain",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PatriotCurtain/archive/5.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "PatriotCurtain",
+    "version": "5.1.0",
+    "installs": 309,
+    "license": "BSD",
+    "author": "Ron Lisle",
+    "sentence": "Extend Patriot IoT to support NCD 4 Relay board curtain control",
+    "paragraph": "Patriot provides support for controlling IoT devices using Alexa and iOS devices. This plugin adds support",
+    "url": "http://www.github.com/rlisle/Patriot",
+    "repository": "http://www.github.com/rlisle/Patriot",
+    "architectures": [
+      "particle-photon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PatriotCurtain",
+  "versions": {
+    "5.1.0": {
+      "added": "2022-10-31T20:59:19.347Z",
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# PatriotNCD8Relay\n\nA Patriot plugin to support NCD 8 Relay boards\n\nThis library makes it used to support relay devices using the \nNCD 8 relay board.\n\n## Usage\n\nInclude this library in a Photon sketch running on the NCD 8 relay board.\nRefer to the more complex examples in the main Patriot IoT examples\n directory.\n\nThis example creates a single device connected to relay 1.\nYou can view the state of the relay using the LED associated with\nrelay 1 on the 8 Relay board.\n\nA behavior is setup to control this LED with an event named \"Relay\".\n\nSince Patriot supports automatic detection by the iOS app and Alexa,\neither of these can be used to control the relay once this sketch is\nloaded to a Photon. There may be a 15 minute delay before Alexa starts\nto work, since a \"Discover Devices\" cycle is needed. You can manually\ninvoke a discovery using the Alexa app to eliminate the delay.\n\n\n## Documentation\n\nRefer to the Patriot Github repository and documentation for more\ninformation.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add IoT_myname` to add the library to a project on your machine or add the IoT_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 Ron Lisle\n\nRefer to the included LICENSE file.\n",
+  "allVersions": [
+    "5.1.0"
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "type": "libraries",
+  "id": "hackerpet_plus_dev",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/hackerpet_plus_dev/archive/0.1.112.tar.gz"
+  },
+  "attributes": {
+    "name": "hackerpet_plus_dev",
+    "version": "0.1.112",
+    "installs": 334,
+    "license": "AGPL",
+    "author": "Csaba Petre <csaba.petre@gmail.com>",
+    "maintainer": "Csaba Petre <csaba.petre@gmail.com>",
+    "sentence": "(Dev Version!) Long-term cloud-less firmware!",
+    "category": "Other",
+    "url": "http://hackerpet.com",
+    "repository": "https://github.com/CleverPet/hackerpet_plus/",
+    "architectures": [
+      "particle-photon"
+    ],
+    "dependencies": {
+      "hackerpet": "0.2.7"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/hackerpet_plus_dev",
+  "versions": {
+    "0.1.112": {
+      "added": "2022-10-31T20:06:10.095Z",
+      "builds": {
+        "5.0.1": {
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "p2": {
+            "main": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          },
+          "bsom": {
+            "main": false
+          },
+          "b5som": {
+            "main": false
+          },
+          "tracker": {
+            "main": false
+          },
+          "esomx": {
+            "main": false
+          }
+        },
+        "3.3.0": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        },
+        "2.3.0": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# hackerpet_plus\n\nA Particle project named hackerpet_plus\n\n## Welcome to your project!\n\nEvery new Particle project is composed of 3 important elements that you'll see have been created in your project directory for hackerpet_plus.\n\n#### ```/src``` folder:  \nThis is the source folder that contains the firmware files for your project. It should *not* be renamed. \nAnything that is in this folder when you compile your project will be sent to our compile service and compiled into a firmware binary for the Particle device that you have targeted.\n\nIf your application contains multiple files, they should all be included in the `src` folder. If your firmware depends on Particle libraries, those dependencies are specified in the `project.properties` file referenced below.\n\n#### ```.ino``` file:\nThis file is the firmware that will run as the primary application on your Particle device. It contains a `setup()` and `loop()` function, and can be written in Wiring or C/C++. For more information about using the Particle firmware API to create firmware for your Particle device, refer to the [Firmware Reference](https://docs.particle.io/reference/firmware/) section of the Particle documentation.\n\n#### ```project.properties``` file:  \nThis is the file that specifies the name and version number of the libraries that your project depends on. Dependencies are added automatically to your `project.properties` file when you add a library to a project using the `particle library add` command in the CLI or add a library in the Desktop IDE.\n\n## Adding additional files to your project\n\n#### Projects with multiple sources\nIf you would like add additional files to your application, they should be added to the `/src` folder. All files in the `/src` folder will be sent to the Particle Cloud to produce a compiled binary.\n\n#### Projects with external libraries\nIf your project includes a library that has not been registered in the Particle libraries system, you should create a new folder named `/lib/<libraryname>/src` under `/<project dir>` and add the `.h`, `.cpp` & `library.properties` files for your library there. Read the [Firmware Libraries guide](https://docs.particle.io/guide/tools-and-features/libraries/) for more details on how to develop libraries. Note that all contents of the `/lib` folder and subfolders will also be sent to the Cloud for compilation.\n\n## Compiling your project\n\nWhen you're ready to compile your project, make sure you have the correct Particle device target selected and run `particle compile <platform>` in the CLI or click the Compile button in the Desktop IDE. The following files in your project folder will be sent to the compile service:\n\n- Everything in the `/src` folder, including your `.ino` application file\n- The `project.properties` file for your project\n- Any libraries stored under `lib/<libraryname>/src`\n",
+  "allVersions": [
+    "0.1.112",
+    "0.1.111",
+    "0.1.110",
+    "0.1.109",
+    "0.1.108",
+    "0.1.107",
+    "0.1.106",
+    "0.1.105",
+    "0.1.104",
+    "0.1.103",
+    "0.1.102",
+    "0.1.101",
+    "0.1.100",
+    "0.1.99",
+    "0.1.98",
+    "0.1.97",
+    "0.1.96",
+    "0.1.95",
+    "0.1.94",
+    "0.1.93",
+    "0.1.92",
+    "0.1.91",
+    "0.1.90",
+    "0.1.89",
+    "0.1.88",
+    "0.1.87",
+    "0.1.86",
+    "0.1.85",
+    "0.1.84",
+    "0.1.83",
+    "0.1.82",
+    "0.1.81",
+    "0.1.80",
+    "0.1.79",
+    "0.1.78",
+    "0.1.77",
+    "0.1.76",
+    "0.1.75",
+    "0.1.74",
+    "0.1.73",
+    "0.1.72",
+    "0.1.71",
+    "0.1.70",
+    "0.1.69",
+    "0.1.68",
+    "0.1.67",
+    "0.1.66",
+    "0.1.65",
+    "0.1.64",
+    "0.1.63",
+    "0.1.62",
+    "0.1.61",
+    "0.1.60",
+    "0.1.59",
+    "0.1.58",
+    "0.1.57",
+    "0.1.56",
+    "0.1.55",
+    "0.1.54",
+    "0.1.53",
+    "0.1.52",
+    "0.1.51",
+    "0.1.50",
+    "0.1.49",
+    "0.1.48",
+    "0.1.47",
+    "0.1.46",
+    "0.1.45",
+    "0.1.44",
+    "0.1.43",
+    "0.1.41",
+    "0.1.40",
+    "0.1.39",
+    "0.1.38",
+    "0.1.37",
+    "0.1.36",
+    "0.1.35",
+    "0.1.34",
+    "0.1.33",
+    "0.1.32",
+    "0.1.31",
+    "0.1.30",
+    "0.1.29",
+    "0.1.28",
+    "0.1.27",
+    "0.1.26",
+    "0.1.25",
+    "0.1.24",
+    "0.1.23",
+    "0.1.22",
+    "0.1.21",
+    "0.1.20",
+    "0.1.19",
+    "0.1.18",
+    "0.1.17",
+    "0.1.16",
+    "0.1.15",
+    "0.1.14",
+    "0.1.12",
+    "0.1.11",
+    "0.1.10",
+    "0.1.9",
+    "0.1.8",
+    "0.1.7",
+    "0.1.6",
+    "0.1.5",
+    "0.1.4",
+    "0.1.3",
+    "0.1.2",
+    "0.1.1"
+  ]
+}

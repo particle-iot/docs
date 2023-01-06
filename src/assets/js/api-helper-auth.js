@@ -2,8 +2,10 @@
 $(document).ready(function() {
     const eventCategory = 'Docs SSO';
 
+    const localTokenSafety = 600; // amount of time in seconds before expiration to stop using it
     let auth = null;
     let localAuth;
+    let orgInfo;
 
     const handleLogin = function() {
         ga('send', 'event', eventCategory, 'Login Started');
@@ -21,6 +23,7 @@ $(document).ready(function() {
 
     const handleLogout = function() {
         localStorage.removeItem('particleAuth'); // No longer used, but if present, remove
+        localStorage.removeItem('apiHelperOrg')
 
         if (typeof apiHelper != 'undefined' && apiHelper.localLogin && apiHelper.localLogin.access_token ) {
             ga('send', 'event', eventCategory, 'Logged Out Local');
@@ -64,16 +67,18 @@ $(document).ready(function() {
     
     }
 
-    const checkLogin = function() {
-        const cookie = Cookies.get('ember_simple_auth_session');
-        if (cookie) {
-            try {
-                const json = JSON.parse(cookie);
-                if (json.authenticated && json.authenticated.username) {
-                    auth = json.authenticated;
+    const checkLogin = async function() {
+        if (window.location.hostname.endsWith('particle.io')) {
+            const cookie = Cookies.get('ember_simple_auth_session');
+            if (cookie) {
+                try {
+                    const json = JSON.parse(cookie);
+                    if (json.authenticated && json.authenticated.username) {
+                        auth = json.authenticated;
+                    }
                 }
-            }
-            catch(e) {
+                catch(e) {
+                }
             }
         }
         if (!auth) {
@@ -94,13 +99,17 @@ $(document).ready(function() {
         if (localLoginString) {
             try {
                 localAuth = JSON.parse(localLoginString);
+                if (!localAuth.tokenLogin) {
+                    if (!localAuth.expires || localAuth.expires < Math.floor(Date.now() / 1000)) {
+                        localAuth = null;
+                    }    
+                }
             }
             catch(e) {
             }
         }
     
-    
-        if (auth || localAuth) {
+        const showLoggedIn = function() {
             if (localAuth) {
                 $('.apiHelperLocalLogIn').hide();
                 $('.apiHelperLogoutButton').text('Log out of manual login');
@@ -137,11 +146,14 @@ $(document).ready(function() {
             else {
                 $('#userMenuEditAccount > a').on('click', handleEditAccount);
             }
-    
+            
+
             $('#userMenuLogout > a').on('click', handleLogout);
         
-        }
-        else {
+        };
+        const showNotLoggedIn = function() {
+            $('#userMenuLabel').text('User');
+
             $('.apiHelperNotLoggedIn').show();
             if (window.location.hostname.endsWith('particle.io')) {
                 $('.apiHelperCouldSSO').show();
@@ -156,18 +168,36 @@ $(document).ready(function() {
                 $('.apiHelperLocalLogIn').show();
                 $('.apiHelperCouldSSO').hide();
             }
+            $('.apiHelperLoggedIn').hide();
             $('#userMenuConsole').hide();
             $('#userMenuEditAccount').hide();
             $('#userMenuLogout').hide();
+        };
+    
+        if (auth || localAuth) {
+            showLoggedIn();
+        }
+        else {
+            showNotLoggedIn();
         }
 
         if (typeof apiHelper != 'undefined') {
             if (auth) {
                 apiHelper.auth = auth;
+                $('.apiHelper').trigger('apiHelperLoggedIn');
             }
             else {
                 delete apiHelper.auth;
             }
+
+            apiHelper.notLoggedIn = showNotLoggedIn;
+
+            apiHelper.scrollToSSO = function() {
+                let ssoElem = $('.apiHelperSSO').first();                
+                let pos = ssoElem.position().top;
+                $('.content-inner').scrollTop(pos);          
+            };
+            $('.apiHelperScrollToLoginButton').on('click', apiHelper.scrollToSSO);
         }
     }
     
@@ -190,13 +220,143 @@ $(document).ready(function() {
         $('.apiHelperLocalLogIn').show(); 
         $('.apiHelperLocalLoginLogInUsingRow').find('input[value="userPass"]').trigger('click');
     });
-
     checkLogin();
 
     if (typeof apiHelper == 'undefined') {
         // This page doesn't have API helper
         return;
     }
+    const checkOrgs = async function() {
+        const selectOrg = $('.apiHelperSSO').data('select-org');
+        if (selectOrg) {
+            let showContent = false;
+
+            try {
+                orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
+                if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username) {
+                    // Username changed, ignore cached 
+                    orgInfo = null;
+                }
+            }
+            catch(e) {                    
+            }
+            if (!orgInfo) {
+                orgInfo = {};
+            }
+    
+            const saveOrgInfo = function() {
+                localStorage.setItem('apiHelperOrg', JSON.stringify(orgInfo));
+                $('.apiHelper').trigger('selectedOrgUpdated');
+            };
+    
+            if (!orgInfo.orgList && apiHelper.auth) {
+                try {
+                    // Fetch organization list
+                    orgInfo.username = apiHelper.auth.username;
+                    orgInfo.orgList = await apiHelper.getOrgs();
+
+                    // Fetch service agreements
+                    orgInfo.agreements = {};
+
+                    for(const org of orgInfo.orgList.organizations) {
+                        
+                        await new Promise(function(resolve) {
+                            $.ajax({
+                                dataType: 'json',
+                                data: {
+                                    'access_token': apiHelper.localLogin.access_token
+                                },
+                                method: 'GET',
+                                success: function (resp, textStatus, jqXHR) {
+                                    orgInfo.agreements[org.id] = resp.data;
+                                    for(const obj of resp.data) {
+                                        const agreementType = obj.attributes.agreement_type;
+                                        if (agreementType == 'enterprise') {
+                                            orgInfo.isEnterprise = true;
+                                        }
+                                    }
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/orgs/' + org.id + '/service_agreements/',
+                            });
+                    
+    
+                        });
+                    }
+                }
+                catch(e) {
+                    console.log('exception fetching org', e);
+                }
+            }
+            if (orgInfo.orgList) {
+                if (orgInfo.orgList.organizations.length > 0) {
+                    const selectElem = $('.apiHelperSsoSelectOrg > select');
+                    $(selectElem).html('');
+    
+                    for(const org of orgInfo.orgList.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(selectElem).append(optionElem);
+                    }
+    
+                    if (orgInfo.orgId) {
+                        $(selectElem).val(orgInfo.orgId);
+                    }
+
+                    const updateSelectedOrg = function() {
+                        const orgId = orgInfo.orgId = $(selectElem).val();
+                        apiHelper.selectedOrg = {
+                            id: orgId,
+                            name: orgInfo.orgList.organizations.find(e => e.id == orgId).name,
+                        }    
+
+                        $('.apiHelperContentGuard').each(function() {
+                            const guardedElem = $(this);
+                            const guardMode = $(guardedElem).data('mode');
+
+                            if (guardMode == 'orgRequired') {
+                                showContent = true;
+                                $(guardedElem).show()
+                            }
+                            else if (guardMode == 'enterpriseRequired') {
+                                if (orgInfo.isEnterprise) {
+                                    showContent = true;
+                                    $(guardedElem).show()
+                                }
+                            }        
+                        });                        
+                    }
+                    updateSelectedOrg();
+                    
+                    $('.apiHelperSsoSelectOrg').show();
+    
+                    $(selectElem).on('change', function() {
+                        updateSelectedOrg();
+                        saveOrgInfo();
+                    });
+                }
+                saveOrgInfo();
+            }    
+
+            $('.apiHelperContentGuard').each(function() {
+                const guardedElem = $(this);
+                const guardMode = $(guardedElem).data('mode');
+
+                if (guardMode == 'loggedIn' && apiHelper.auth) {
+                    showContent = true;
+                    $(guardedElem).show()
+                }
+            });
+            if (!showContent) {
+                $('.apiHelperContentGuardElse').show();
+            }
+        }
+        else {
+            $('.apiHelperSsoSelectOrg').hide();
+        }        
+    }
+    checkOrgs();
 
 
     $('.apiHelperLocalLogIn').each(function() {
@@ -207,8 +367,8 @@ $(document).ready(function() {
         const logInUsingRowElem = $(pageLoginElem).find('.apiHelperLocalLoginLogInUsingRow');
         const usernameRowElem = $(pageLoginElem).find('.apiHelperLocalLoginUsernameRow');
         const usernameInputElem = $(pageLoginElem).find('.apiHelperLocalLoginUsernameInput');
-        const passwordRowElem = $(pageLoginElem).find('.apiHelperLocalLoginPasswordRow');
         const passwordInputElem = $(pageLoginElem).find('.apiHelperLocalLoginPasswordInput');
+        const tokenDurationElem = $(pageLoginElem).find('.apiHelperLocalLoginTokenDuration');
         const accessTokenRowElem = $(pageLoginElem).find('.apiHelperLocalLoginAccessTokenRow');
         const accessTokenInputElem = $(pageLoginElem).find('.apiHelperLocalLoginAccessTokenInput');
         const pageLoginButtonElem = $(pageLoginElem).find('.apiHelperLocalLoginLoginButton');
@@ -245,14 +405,12 @@ $(document).ready(function() {
             
             switch(radioVal) {
                 case 'userPass':
-                    $(usernameRowElem).show();
-                    $(passwordRowElem).show();
+                    $(usernameRowElem).show(); // Also password and token duration
                     $(accessTokenRowElem).hide();
                     $(usernameInputElem).focus();   
                     break;
                 case 'token':
                     $(usernameRowElem).hide();
-                    $(passwordRowElem).hide();
                     $(accessTokenRowElem).show();
                     $(accessTokenInputElem).focus();   
                     break;
@@ -275,11 +433,13 @@ $(document).ready(function() {
                     // Attempt to log into the Particle cloud
                     apiHelper.localLogin.username = $(usernameInputElem).val();
                     apiHelper.localLogin.tokenLogin = false;
+                    const localTokenLength = parseInt($(tokenDurationElem).val());
+                    apiHelper.localLogin.expires = localTokenLength + Math.floor(Date.now() / 1000) - localTokenSafety;
                     $.ajax({
                         data: {
                             'client_id': 'particle',
                             'client_secret': 'particle',
-                            'expires_in': 3600,
+                            'expires_in': localTokenLength,
                             'grant_type': 'password',
                             'password': $(passwordInputElem).val(),
                             'username': $(usernameInputElem).val()

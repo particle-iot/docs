@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_LIS3DH",
     "version": "1.0.3",
-    "installs": 59673,
+    "installs": 61842,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit LIS3DH Accelerometer.",
@@ -69,8 +69,95 @@
             "adcdemo": true,
             "tapdemo": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "electron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "bsom": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "b5som": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "tracker": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "p2": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "boron": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "bsom": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "b5som": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "tracker": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          },
+          "esomx": {
+            "acceldemo": false,
+            "adcdemo": false,
+            "tapdemo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.676Z"
     }
   },
   "readme": "# Adafruit_LIS3DH\nArduino Library for Adafruit LIS3DH breakout board (https://www.adafruit.com/products/2809)\n\n<!-- START COMPATIBILITY TABLE -->\n\n## Compatibility\n\nMCU                | Tested Works | Doesn't Work | Not Tested  | Notes\n------------------ | :----------: | :----------: | :---------: | -----\nAtmega328 @ 16MHz  |      X       |             |            | \nAtmega328 @ 12MHz  |      X       |             |            | \nAtmega32u4 @ 16MHz |      X       |             |            | Use SDA/SCL on pins D2 &amp; D3\nAtmega32u4 @ 8MHz  |      X       |             |            | Use SDA/SCL on pins D2 &amp; D3\nESP8266            |      X       |             |            | SDA/SCL default to pins 4 &amp; 5 but any two pins can be assigned as SDA/SCL using Wire.begin(SDA,SCL)\nAtmega2560 @ 16MHz |      X       |             |            | \nATSAM3X8E          |      X       |             |            | \nATSAM21D           |      X       |             |            | Use SDA and SCL pins and Native USB port\nATtiny85 @ 16MHz   |      X       |             |            | \nATtiny85 @ 8MHz    |      X       |             |            | \nIntel Curie @ 32MHz |             |             |     X       | \nSTM32F2            |             |             |     X       | \n\n  * ATmega328 @ 16MHz : Arduino UNO, Adafruit Pro Trinket 5V, Adafruit Metro 328, Adafruit Metro Mini\n  * ATmega328 @ 12MHz : Adafruit Pro Trinket 3V\n  * ATmega32u4 @ 16MHz : Arduino Leonardo, Arduino Micro, Arduino Yun, Teensy 2.0\n  * ATmega32u4 @ 8MHz : Adafruit Flora, Bluefruit Micro\n  * ESP8266 : Adafruit Huzzah\n  * ATmega2560 @ 16MHz : Arduino Mega\n  * ATSAM3X8E : Arduino Due\n  * ATSAM21D : Arduino Zero, M0 Pro\n  * ATtiny85 @ 16MHz : Adafruit Trinket 5V\n  * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V\n\n<!-- END COMPATIBILITY TABLE -->\n",

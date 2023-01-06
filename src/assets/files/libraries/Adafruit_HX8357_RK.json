@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_HX8357_RK",
     "version": "1.0.10",
-    "installs": 8078,
+    "installs": 8398,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Adafruit HX8357 3.5\" display library. Port of version 1.0.8 by rickkas7",
@@ -60,8 +60,79 @@
             "graphicstest_featherwing": true,
             "touchpaint_featherwing": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "electron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "p2": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "bsom": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "b5som": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "tracker": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "esomx": {
+            "graphicstest_featherwing": false,
+            "touchpaint_featherwing": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.769Z"
     }
   },
   "readme": "# Adafruit_HX8357_RK\n\n*Port of Adafruit TFT FeatherWing - 3.5\" Touchscreen for Particle Argon/Boron/Xenon*\n\nThe [Adafruit 3.5\" TFT FeatherWing](https://www.adafruit.com/product/3651) has a touch screen display on the front and a socket for any Feather on the back, including the Particle Argon, Boron, and Xenon. You can find [technical information](https://learn.adafruit.com/adafruit-3-5-tft-featherwing) at Adafruit.\n\nThere aren't any wires necessary, but it does use the following pins:\n\n- SPI (SCK, MISO, MOSI)\n- SD (SD card CS) = D2\n- RT (Touch screen CS) = D3\n- TFT_CS (display) = D4\n- D/C (display) = D5\n\nThis library is just a wrapper around two other libraries:\n\n- [Adafruit\\_STMPE610\\_RK](https://github.com/rickkas7/Adafruit_STMPE610_RK)\n- [Adafruit\\_GFX\\_RK](https://github.com/rickkas7/Adafruit_GFX_RK)\n\nOnce the SdFat library is modified to support the mesh devices it will be added as well. \n\nYou don't need to use this library - if you only need the display and not the touchscreen, for example, you can use the Adafruit\\_ILI9341\\_RK directly directly.\n\nThere are two Adafruit examples:\n\n- examples/graphicstest\\_featherwing\n- examples/touchpaint\\_featherwing\n\nIf you are looking for the 2.4\" TFT Featherwing, check out [Adafruit\\_ILI9341\\_RK](https://github.com/rickkas7/Adafruit_ILI9341_RK) instead.\n\n\n\n# Adafruit HX8357 Arduino Library [![Build Status](https://travis-ci.org/adafruit/Adafruit_HX8357_Library.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_HX8357_Library)\n\n\n\nThis is a library for the Adafruit HX8357 display products\n\nThis library works with the Adafruit 3.5\" Breakout\n   * http://www.adafruit.com/products/2050\nAnd the 3.5\" TFT FeatherWing\n   * https://www.adafruit.com/product/3651\n\nCheck out the links above for our tutorials and wiring diagrams.\nThese displays use SPI to communicate, 4 or 5 pins are required\nto interface (RST is optional).\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nMIT license, all text above must be included in any redistribution\n\nRecent Arduino IDE releases include the Library Manager for easy installation. Otherwise, to download, click the DOWNLOAD ZIP button, uncompress and rename the uncompressed folder Adafruit_HX8357. Confirm that the Adafruit_HX8357 folder contains Adafruit_HX8357.cpp and Adafruit_HX8357.h. Place the Adafruit_HX8357 library folder your ArduinoSketchFolder/Libraries/ folder. You may need to create the Libraries subfolder if its your first library. Restart the IDE.\n\nAlso requires the Adafruit_GFX library for Arduino.\n\n# Version History\n\n### 1.0.10 (2020-08-02)\n\n- Upgrade to Adafruit_GFX_RK 1.5.8\n\n\n### 1.0.9 (2020-05-04)\n\n- Fix compiler error for undefined conversion to SpiClass with 1.5.1-rc.1.\n- Upgrade to Adafruit_GFX_RK 1.5.7\n",

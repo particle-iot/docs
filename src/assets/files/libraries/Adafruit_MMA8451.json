@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MMA8451",
     "version": "1.0.3",
-    "installs": 4609,
+    "installs": 4732,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Arduino library for the MMA8451 Accelerometer sensors in the Adafruit shop",
@@ -53,8 +53,63 @@
           "boron": {
             "MMA8451demo": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "MMA8451demo": false
+          },
+          "electron": {
+            "MMA8451demo": false
+          },
+          "argon": {
+            "MMA8451demo": false
+          },
+          "boron": {
+            "MMA8451demo": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "MMA8451demo": false
+          },
+          "boron": {
+            "MMA8451demo": false
+          },
+          "bsom": {
+            "MMA8451demo": false
+          },
+          "b5som": {
+            "MMA8451demo": false
+          },
+          "tracker": {
+            "MMA8451demo": false
+          },
+          "p2": {
+            "MMA8451demo": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "MMA8451demo": false
+          },
+          "boron": {
+            "MMA8451demo": false
+          },
+          "bsom": {
+            "MMA8451demo": false
+          },
+          "b5som": {
+            "MMA8451demo": false
+          },
+          "tracker": {
+            "MMA8451demo": false
+          },
+          "esomx": {
+            "MMA8451demo": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.817Z"
     }
   },
   "readme": "#Adafruit MMA8451 Accelerometer Driver #\n\nThis driver is for the Adafruit MMA8451 Accelerometer Breakout (http://www.adafruit.com/products/2019), and is based on Adafruit's Unified Sensor Library (Adafruit_Sensor).\n\n## About the MMA8451 ##\n\nThe MMA8451 is a low-cost but high-precision digital accelerometer that uses repeated-start I2C mode, with adjustable data rata and 'range' (+/-2/4/8).\n\nMore information on the MMA8451 can be found in the datasheet: http://www.adafruit.com/datasheets/MMA8451Q-1.pdf\n\n## What is the Adafruit Unified Sensor Library? ##\n\nThe Adafruit Unified Sensor Library (https://github.com/adafruit/Adafruit_Sensor) provides a common interface and data type for any supported sensor.  It defines some basic information about the sensor (sensor limits, etc.), and returns standard SI units of a specific type and scale for each supported sensor type.\n\nIt provides a simple abstraction layer between your application and the actual sensor HW, allowing you to drop in any comparable sensor with only one or two lines of code to change in your project (essentially the constructor since the functions to read sensor data and get information about the sensor are defined in the base Adafruit_Sensor class).\n\nThis is imporant useful for two reasons:\n\n1.) You can use the data right away because it's already converted to SI units that you understand and can compare, rather than meaningless values like 0..1023.\n\n2.) Because SI units are standardised in the sensor library, you can also do quick sanity checks working with new sensors, or drop in any comparable sensor if you need better sensitivity or if a lower cost unit becomes available, etc. \n\nLight sensors will always report units in lux, gyroscopes will always report units in rad/s, etc. ... freeing you up to focus on the data, rather than digging through the datasheet to understand what the sensor's raw numbers really mean.\n\n## About this Driver ##\n\nAdafruit invests time and resources providing this open source code.  Please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Kevin (KTOWN) Townsend & Limor (LADYADA) Fried for Adafruit Industries.\n",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CircularBuffer",
     "version": "1.3.3",
-    "installs": 1012,
+    "installs": 1932,
     "author": "AgileWare",
     "maintainer": "Roberto Lo Giacco <rlogiacco@gmail.com>",
     "sentence": "Arduino circular buffer library",
@@ -112,8 +112,175 @@
             "Struct": false,
             "Test": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "electron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "argon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "bsom": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "b5som": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "tracker": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "p2": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "bsom": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "b5som": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "tracker": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "esomx": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.944Z"
     }
   },
   "readme": "### &#x26A0; **IMPORTANT**\n \n> Please, before submitting a support request read carefully this README and check if an answer already exists among [previously answered questions](https://github.com/rlogiacco/CircularBuffer/issues?q=label:question): do not abuse of the Github issue tracker.\n\n<!-- omit in toc -->\nCircularBuffer\n[![GitHub stars](https://img.shields.io/github/stars/rlogiacco/CircularBuffer.svg?style=social&label=Star)](https://github.com/rlogiacco/CircularBuffer/stargazers) \n[![GitHub forks](https://img.shields.io/github/forks/rlogiacco/CircularBuffer.svg?style=social&label=Fork)](https://github.com/rlogiacco/CircularBuffer/network)\n[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Roll%20your%20data%20on%20embedded%20devices%20easily!&url=https://github.com/rlogiacco/CircularBuffer&hashtags=IoT,Arduino,ESP8266,ESP32)\n=============\n\n[![GitHub version](https://img.shields.io/github/release/rlogiacco/CircularBuffer.svg)](https://github.com/rlogiacco/CircularBuffer/releases)\n[![GitHub download](https://img.shields.io/github/downloads/rlogiacco/CircularBuffer/total.svg)](https://github.com/rlogiacco/CircularBuffer/releases/latest)\n[![GitHub stars](https://img.shields.io/github/stars/rlogiacco/CircularBuffer.svg)](https://github.com/rlogiacco/CircularBuffer/stargazers)\n[![GitHub issues](https://img.shields.io/github/issues/rlogiacco/CircularBuffer.svg)](https://github.com/rlogiacco/CircularBuffer/issues)\n[![Build Status](https://img.shields.io/travis/rlogiacco/CircularBuffer.svg?branch=master)](https://travis-ci.org/rlogiacco/CircularBuffer)\n[![License](https://img.shields.io/badge/license-LGPL%203-blue.svg)](https://github.com/rlogiacco/CircularBuffer/blob/master/LICENSE)\n\n\nThe library itself has an implicit memory consumption of about *0.5Kb*: 580 bytes (max) of code and 8 bytes of memory, to my calculations. That does not consider the space used to store the items themselves, obviously.\n\n<!-- toc -->\n  - [Usage](#usage)\n    - [Declare and initialize](#declare-and-initialize)\n    - [Store data](#store-data)\n    - [Retrieve data](#retrieve-data)\n    - [Additional operations](#additional-operations)\n  - [Advanced Usage](#advanced-usage)\n    - [Automatic optimization](#automatic-optimization)\n    - [Legacy optimization](#legacy-optimization)\n    - [Interrupts](#interrupts)\n  - [Examples](#examples)\n  - [Limitations](#limitations)\n    - [Reclaim dynamic memory](#reclaim-dynamic-memory)\n  - [CHANGE LOG](#change-log)\n    - [1.3.3](#133)\n    - [1.3.2](#132)\n    - [1.3.1](#131)\n    - [1.3.0](#130)\n    - [1.2.0](#120)\n    - [1.1.1](#111)\n    - [1.1.0](#110)\n    - [1.0.0](#100)\n<!-- tocstop -->\n\n## Usage\n\n### Declare and initialize\n\nWhen declaring your buffer you should specify the data type it must handle and the buffer capacity: those two parameters will influence the memory consumed by the buffer.\n\n``` cpp\n#include <CircularBuffer.h>\n\nCircularBuffer<byte,100> bytes;     // uses 538 bytes\nCircularBuffer<int,100> ints;       // uses 638 bytes\nCircularBuffer<long,100> longs;     // uses 838 bytes\nCircularBuffer<float,100> floats;   // uses 988 bytes\nCircularBuffer<double,100> doubles; // uses 988 bytes\nCircularBuffer<char,100> chars;     // uses 538 bytes \nCircularBuffer<void*,100> pointers; // uses 638 bytes\n```\n\n**Please note**: the memory usage reported above includes the program memory used by the library code, the heap memory is much less and is comparable to an array of the same size and type of the buffer.\n\n### Store data\n\nLet's start making things clear: the library doesn't support inserting data in the middle of the buffer.\nYou can add data to the buffer either before the first element via an `unshift()` operation or after the last element via a `push()` operation.\nYou can keep adding data beyond the buffer maximum capacity, but you'll lose the least significant information:\n\n* since `unshift()` adds to the _head_, adding beyond capacity causes the element at _tail_ to be overwritten and lost\n* since `push()` adds to the _tail_, adding beyond capacity causes the element at _head_ to be overwritten and lost\n\nBoth `unshift()` and `push()` return `true` if the addition didn't cause any information loss, `false` if an overwrite occurred:\n\n``` cpp\nCircularBuffer<int,5> buffer; // buffer capacity is 5\n\n// all of the following return true\nbuffer.unshift(1); // [1] \nbuffer.unshift(2); // [2,1]\nbuffer.unshift(3); // [3,2,1]\nbuffer.push(0);  // [3,2,1,0]\nbuffer.push(5);  // [3,2,1,0,5]\n\n// buffer is now at full capacity, from now on any addition returns false\nbuffer.unshift(2);  // [2,3,2,1,0] returns false\nbuffer.unshift(10); // [10,2,3,2,1] returns false\nbuffer.push(-5);  // [2,3,2,1,-5] returns false\n```\n\n### Retrieve data\n\nSimilarly to data addition, data retrieval can be performed at _tail_ via a `pop()` operation or from _head_ via an `shift()` operation: both cause the element being read to be removed from the buffer.\n\n> &#x26A0; Reading data beyond the actual buffer size has an undefined behaviour and is user's responsibility to prevent such boundary violations using the [_additional operations_](#additional-operations) listed in the next section. The library will behave differently depending on the data type and allocation method, but you can safely assume your program will crash if you don't watch your steps.\n\nNon-destructive read operations are also available:\n\n* `first()` returns the element at _head_\n* `last()` returns the element at _tail_\n* an array-like indexed read operation is also available so you can read any element in the buffer using the `[]` operator\n\n\n``` cpp\nCircularBuffer<char, 50> buffer; // ['a','b','c','d','e','f','g']\n\nbuffer.first(); // ['a','b','c','d','e','f','g'] returns 'a'\nbuffer.last(); // ['a','b','c','d','e','f','g'] returns 'g'\nbuffer.pop(); // ['a','b','c','d','e','f'] returns 'g'\nbuffer.pop(); // ['a','b','c','d','e'] returns 'f'\nbuffer.shift(); // ['b','c','d','e'] returns 'a'\nbuffer.shift(); // ['c','d','e'] returns 'b'\nbuffer[0]; // ['c','d','e'] returns 'c'\nbuffer[1]; // ['c','d','e'] returns 'd'\nbuffer[2]; // ['c','d','e'] returns 'e'\n\nbuffer[10]; // ['c','d','e'] returned value is unpredictable\nbuffer[15]; // ['c','d','e'] returned value is unpredictable\n```\n\n### Additional operations\n\n* `isEmpty()` returns `true` only if no data is stored in the buffer\n* `isFull()` returns `true` if no data can be further added to the buffer without causing overwrites/data loss\n* `size()` returns the number of elements currently stored in the buffer; it should be used in conjunction with the `[]` operator to avoid boundary violations: the first element index is always `0` (if buffer is not empty), the last element index is always `size() - 1`\n* `available()` returns the number of elements that can be added before saturating the buffer\n* `capacity()` returns the number of elements the buffer can store, for completeness only as it's user-defined and never changes **REMOVED** from `1.3.0` replaced by the read-only member variable `capacity`\n* `clear()` resets the whole buffer to its initial state (pay attention though, if you had dynamically allocated objects in your buffer, memory used by such object is *not* released: iterate over the buffer contents and release object accordingly to their allocation method)\n\n## Advanced Usage\n\n### Automatic optimization\n\nStarting from version `1.3.0` the library is capable to automatically detect which data type should be used for the index based on the buffer capacity: \n* if you declare a buffer with a capacity greater than `65535` then your index is going to be an `unsigned long`\n* `unsigned int` for buffers with a declared capacity greater than `255`\n* otherwise a `byte` is going to suffice\n\nIn addition, you can mix in the same code buffers with small index and buffers with normal index: previously this was not possible.\n\n``` cpp\nCircularBuffer<char,100> optimizedBuffer; // reduced memory footprint, index type is uint8_t (a.k.a. byte)\nCircularBuffer<long,500> normalBuffer;    // standard memory footprint, index type is unit16_t (a.k.a. unsigned int)\nCircularBuffer<int,66000> hugeBuffer;     // extended memory footprint, index type is unit32_t (a.k.a. unsigned long)\n```\n\nTo obtain the maximum advantage of the optimization above, anytime you need to refer to the buffer index you should use the most appropriate type: this can be easily achieved using the `decltype` specifier, like in the following example:\n\n```cpp\n// the iterator variable i is of the correct type, even if  \n// we don't know what's the buffer declared capacity\nfor (decltype(buffer)::index_t i = 0; i < buffer.size(); i++) {\n    avg += buffer[i] / buffer.size();\n}\n```\n\nIf you prefer, you can alias the index type and refer to such alias:\n\n```cpp\nusing index_t = decltype(buffer)::index_t;\nfor (index_t i = 0; i < buffer.size(); i++) {\n    avg += buffer[i] / buffer.size();\n}\n```\n\n### Legacy optimization\n\n_The following applies to versions prior to `1.3.0` only._\n\nBy default the library uses `unsigned int` indexes, allowing for a maximum of `65535` items, but you'll rarely need such a huge store.\n\nYou can switch the library indexes to `byte` type defining the `CIRCULAR_BUFFER_XS` macro **BEFORE** the `#include` directive: this reduces the memory used by the library itself by only `36` bytes, but allows you to potentially squeeze out much more whenever you perform an indexed access, if you do any, by using the smaller data type.\n\n``` cpp\n#define CIRCULAR_BUFFER_XS\n#include <CircularBuffer.h>\n\nCircularBuffer<short,100> buffer;\n\nvoid setup() { }\n\nvoid loop() {\n\t  // here i should be declared of type byte rather than unsigned int\n    // in order to maximize the effects of the optimization\n    for (byte i = 0; i < buffer.size() - 1; i++) {\n        Serial.print(buffer[i]);\n    }\n}\n```\n\n**Please note**: this _macro switch_ forces the buffer to use an 8 bits data type as internal index, as such **all** your buffers will be limited to a maximum capacity of `255`.\n\n### Interrupts\n\nThe library does help working with interrupts defining the `CIRCULAR_BUFFER_INT_SAFE` macro switch, which introduces the `volatile` modifier to the `count` variable, making the whole library more interrupt friendly at the price of disabling some compiler optimizations. The `#define` statement needs to be put somewhere before the `#include` statement:\n\n```cpp\n#define CIRCULAR_BUFFER_INT_SAFE\n#include <CircularBuffer.h>\nCircularBuffer<unsigned long, 10> timings;\n\nvoid count() {\n  timings.push(millis());\n}\n\nvoid setup() {\n    attachInterrupt(digitalPinToInterrupt(2), count, RISING);\n}\n\nvoid loop() {\n    Serial.print(\"buffer size is \"); Serial.println(timings.size());\n    delay(250);\n}\n\n```\n\n> Please note this does **NOT** make the library _interrupt safe_, but it does help its usage in interrupt driven firmwares.\n\n## Examples\n\nMultiple examples are available in the `examples` folder of the library:\n\n * [CircularBuffer.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/CircularBuffer/CircularBuffer.ino) shows how you can use the library to create a continous averaging of the most recent readings\n * [EventLogging.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/EventLogging/EventLogging.ino) focuses on dumping the buffer when it becomes full and printing the buffer contents periodically at the same time\n * [Object.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/Object/Object.ino) is meant to demonstrate how to use the buffer to store dynamic structures\n * [Queue.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/Queue/Queue.ino) is a classical example of a queue, or a FIFO data structure\n * [Stack.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/Stack/Stack.ino) on the other end shows how to use the library to represent a LIFO data structure\n * [Struct.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/Struct/Struct.ino) answers to the question _can this library store structured data?_\n * [Interrupts.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/Interrupts/Interrupts.ino) demonstrates the use of the library in interrupt driven code\n\n## Limitations\n\n### Reclaim dynamic memory\n\nIf you use this library to store dynamically allocated objects, refrain from using the `clear()` method as that will **not** perform memory deallocation: you need to iterate over your buffer content and release memory accordingly to the allocation method used, either via `delete` (if you had used `new`) or `free` (in case of `malloc`):\n\n```cpp\nwhile (!buffer.isEmpty()) {\n    // pick the correct one\n    delete buffer.pop();\n    free(buffer.pop());\n}\n```\n\nThe very same applies for the `pop()` and `shift()` operations as any dynamically allocated object is only _detached_ from the buffer, but the memory it uses is **not** automagically released (see the [Object.ino](https://github.com/rlogiacco/CircularBuffer/blob/master/examples/Object/Object.ino) example)\n\n```cpp\nRecord* record = new Record(millis(), sample);  // a dynamically allocated object\nbuffer.push(record);\n\n// somewhere else\nif (!buffer.isEmpty()) {\n    Record* current = buffer.pop();\n    Serial.println(current.value());\n    delete current; // not doing this will leaves the object in memory!!!\n}\n```\n\n------------------------\n## CHANGE LOG\n\n### 1.3.3\n* Fixes #27 compilation error\n\n### 1.3.2\n* Fixes #2 preventing `shift()` and `pop()` operations misuse to mess up the buffer\n* Fixes #2 preventing _out of boundary_ access using the `[]` operator\n\n### 1.3.1\n* Fixes #21 _call to `abort()` is AVR-specific\n\n### 1.3.0\n\nMost of the major improvements below have been contributed by [Erlkoenig90](https://github.com/Erlkoenig90): thank you Niklas!\n\n* Slightly reduced both flash and heap footprint\n* Introduced _instance based_ control over index data type\n* Replaced method `capacity()` in favour of the constant instance attribute `capacity`\n* Added the `EventLogging` and `Interrupts` examples\n* Dropped the `CIRCULAT_BUFFER_XS` _macro switch_ in favor of automatic index type identification\n* Added support for very large buffers (capacity can go up to `UINT32_MAX`)\n\n### 1.2.0\n* Added interrupt related macro switch `CIRCULAR_BUFFER_INT_SAFE`\n* Dropped unecessary call to `memset` when clearing\n\n### 1.1.1\n* Added tests\n* Fixed `clear()` function\n* Fixed `pop()` function\n\n### 1.1.0\n* Improved robustness against access outside the buffer boundaries\n* Fixed `pop()` and `shift()` implementations\n* Added test sketch\n* Added `capacity()` function\n* Added `debug()` function, disabled by pre processor by default\n\n### 1.0.0\n* Initial implementation\n",

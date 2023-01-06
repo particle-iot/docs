@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IRremote",
     "version": "0.0.3",
-    "installs": 35692,
+    "installs": 36326,
     "license": "GPL",
     "author": "Michael Doan",
     "sentence": "IR Remote Control",
@@ -53,8 +53,63 @@
           "boron": {
             "usage": false
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "p2": {
+            "usage": false
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          },
+          "bsom": {
+            "usage": false
+          },
+          "b5som": {
+            "usage": false
+          },
+          "tracker": {
+            "usage": false
+          },
+          "esomx": {
+            "usage": false
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.692Z"
     }
   },
   "readme": "# IRRemote\n\nModified from PJRC for Particle Photon.\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n",

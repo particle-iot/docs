@@ -14,8 +14,10 @@ SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 // If you are using a product, uncomment these lines and set the correct product ID and version
-// for your product
+// for your product. 
+// #ifndef SYSTEM_VERSION_v400ALPHA1
 // PRODUCT_ID(8761);
+// #endif
 // PRODUCT_VERSION(4);
 
 // Using Serial1 (RX/TX) for debugging logs and an external TTL serial to USB (FT232) converter

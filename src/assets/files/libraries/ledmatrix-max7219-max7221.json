@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ledmatrix-max7219-max7221",
     "version": "0.0.10",
-    "installs": 12998,
+    "installs": 13286,
     "license": "BSD",
     "author": "Digital Wizards Group <kavik@dwgroup.cz>",
     "sentence": "Library for control 8x8 LED matrices using MAX7219 / MAX7221. Uses Adafruit GFX library.",
@@ -50,8 +50,63 @@
           "boron": {
             "heart": true
           }
+        },
+        "3.3.0": {
+          "photon": {
+            "heart": true
+          },
+          "electron": {
+            "heart": true
+          },
+          "argon": {
+            "heart": true
+          },
+          "boron": {
+            "heart": true
+          }
+        },
+        "5.0.1": {
+          "argon": {
+            "heart": true
+          },
+          "boron": {
+            "heart": true
+          },
+          "bsom": {
+            "heart": true
+          },
+          "b5som": {
+            "heart": true
+          },
+          "tracker": {
+            "heart": true
+          },
+          "p2": {
+            "heart": true
+          }
+        },
+        "4.0.0": {
+          "argon": {
+            "heart": true
+          },
+          "boron": {
+            "heart": true
+          },
+          "bsom": {
+            "heart": true
+          },
+          "b5som": {
+            "heart": true
+          },
+          "tracker": {
+            "heart": true
+          },
+          "esomx": {
+            "heart": true
+          }
         }
-      }
+      },
+      "added": "2022-06-17T10:16:53.736Z"
     }
   },
   "readme": "# SparkCore-LEDMatrix\nSpark Core library for control 8x8 LED matrices using MAX7219 / MAX7221.<br>\n\n## Features\n* uses Adafruit_GFX library which provides basic graphics methods<br>\n(draw/fill circles, triangles, chars, etc.)\n* allows to set transformations (rotating, mirroring) and position for each display\n* provides direct access to the whole bitmap, independent on display transformations\n* transformation buffers and flushing whole bitmap at once avoid flickering\n* possible to choose pins for CLK, CS, D_OUT (= CLK, SS, MOSI)\n* bitmaps are implemented as bit arrays for minimalizing memory usage<br>\n(some memory has been sacrificed for trans. buffers and direct access to the unchanged bitmap)\n\n### Using with [Spark WEB IDE](https://www.spark.io/build)\n1. Include library **LEDMATRIX-MAX7219-MAX7221**\n\n### Using with [Spark Dev](https://www.spark.io/dev)\n1. Create a project folder.\n2. The folder must contains **ledmatrix-max7219-max7221.cpp**, **ledmatrix-max7219-max7221.h**<br>\nand **Adafruit_GFX.cpp**, **Adafruit_GFX.h**, **glcdfont.cpp** from [SparkCore-Adafruit-GFX-Library](https://github.com/digitalwizards/SparkCore-Adafruit-GFX-Library)<br>\n(everything included in [firmware](firmware) folder).\n3. Include [license.txt](license.txt) and [text required by Adafruit GFX library](#text-required-by-adafruit-gfx-library).\n\n### Initializing\n1) Include header file:\n```C++\n#include \"LEDMatrix.h\"\n```\n2) Create instance:\n```C++\n// 1 display per row, 1 display per column\n// optional pin settings - default: CLK = A0, CS = A1, D_OUT = A2\n// (pin settings is independent on HW SPI)\nLEDMatrix *led = new LEDMatrix(1, 1, A0, A1, A2);\n```\n3) Setup matrices:\n```C++\n// > add every matrix in the order in which they have been connected <\n// the first matrix in a row, the first matrix in a column\n// vertical orientation (270°) and no mirroring (x, y axes) - last three args optional\nled->addMatrix(0, 0, 270, false, false);\n```\n\n### Methods\nIt is possible to use almost all inhereted methods from Adafruit_GFX library:\n```C++\nled->fillCircle(5, 3, 2, true);\n```\nUse built-in methods:\n```C++\n// set intensity of the third display (0-15)  \nled->setIntensity(7, 2);\n// invert displays\nled->invert();\n// shutdown all displays\nled->shutdown(true);\n```\nDirect access to the bitmap:\n```C++\n// turn off pixel\nled->bitmap->setPixel(3, 1, false);\nbool val = led->bitmap->getPixel(3, 1);\nled->bitmap->togglePixel(3, 1);\nled->bitmap->getWidth();\nled->bitmap->getHeight();\n```\n\n### Bitmap changes\nPixel changes do not take effect immediately. Update displays:\n```C++\nled->flush();\n```\n\n### Closing\nYou can shutdown display(s):\n```C++\nled->shutdown(true);\n```\nAnd free memory:\n```C++\ndelete led;\n```\n\n### Example\n[heart.ino](firmware/examples/heart.ino) contains the implementation of a simple scrolling text and function for drawing a heart symbol.\n\n### Inspiration\n* [markruys/arduino-Max72xxPanel](https://github.com/markruys/arduino-Max72xxPanel)\n* [chrisloris/LedControl-MAX7219-MAX7221](https://github.com/chrisloris/LedControl-MAX7219-MAX7221)\n\n## Feedback\nSuggestions for new features, reporting bugs and other contributions will be very much appreciated!\n\n<br><hr>\n### Text required by Adafruit GFX library:\n```\nThis is the core graphics library for all our displays, providing a common set of graphics primitives (points, lines, circles, etc.).  It needs to be paired with a hardware-specific library for each display device we carry (to handle the lower-level functions).\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nBSD license, check license.txt for more information.\n```\n",

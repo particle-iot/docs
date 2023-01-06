@@ -16,7 +16,7 @@ Device OS API
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/cards/firmware/introduction/introduction/) if you prefer that style. 
+It is also available [divided into small sections](/reference/device-os/api/introduction/introduction/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
@@ -65,7 +65,7 @@ Instead of hardcoding these values, you should use these definitions:
 - `particle::protocol::MAX_EVENT_NAME_LENGTH`
 - `particle::protocol::MAX_EVENT_DATA_LENGTH`
 
-Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/cards/firmware/cloud-functions/particle-maxeventdatasize/) for more information.
+Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/reference/device-os/api/cloud-functions/particle-maxeventdatasize/) for more information.
 
 ### Particle.variable()
 
@@ -495,7 +495,9 @@ Publish an event with the given name and data.
 
 The data must be a string in the ASCII or UTF-8 character set. If you have an integer or floating point value, you'll need to convert it to a string first.
 
-You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex, Base 64, or Base 85 encoding.
+You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex or Base 64 encoding. 
+
+While Base85 (Ascii85) provides a more dense encoding than Base64, it is not recommended if you are publishing data to be sent to an external server by a webhook. The Base85 alphabet includes the left curly bracket, and the `\{{` sequence is recognized as a mustache template delimiter during webhook processing, causing the data to be corrupted. The backslash can also cause unexpected data transformation.
 
 ---
 
@@ -512,7 +514,7 @@ bool success = Particle.publish("temperature", String::format("%.1f", temp);
 
 Normally, you store or test the result of Particle.publish in a `bool` variable that indicates that the event was queued for publishing successfully, or reached the cloud, when used with `WITH_ACK`.
 
-But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](/datasheets/app-notes/an028-stop-sleep-cellular/#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
+But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](/firmware/low-power/stop-sleep-cellular/#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
 
 ---
 
@@ -592,7 +594,7 @@ Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 
 ---
 
-For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/getting-started/console/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
 ---
 
@@ -681,7 +683,7 @@ You should not call `Particle.subscribe()` from the constructor of a globally al
 
 Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
 
-If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
+If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/cloud-apis/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
 
 ```cpp
 Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler, MY_DEVICES);
@@ -701,7 +703,7 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
-See [special webhook events](/reference/device-cloud/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
+See [special webhook events](/reference/cloud-apis/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
 
 **NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
@@ -734,11 +736,11 @@ Only devices that are claimed to an account can subscribe to events.
 {{note op="start" type="gen3" deviceList="Tracker SoM and Tracker One"}}
 By default, Tracker One and Tracker SoM devices are unclaimed product devices. You can either:
 
-- Use [`Particle.function`](/cards/firmware/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
+- Use [`Particle.function`](/reference/device-os/api/cloud-functions/particle-function/) instead of subscribe, as functions and variables work with unclaimed product devices.
 
 - Claim the Tracker devices to an account. Often this will be a single account for all devices, possibly the owner of the product.
 
-For more information, see [Device claiming](/tutorials/device-cloud/device-claiming/).
+For more information, see [Device claiming](/getting-started/cloud/device-claiming/).
 {{note op="end"}}
 
 ---
@@ -1100,7 +1102,7 @@ The keep-alive for cellular devices duration varies by mobile network operator. 
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
-For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
+For Ethernet, you will probably want to set a keepAlive to 25 seconds, like the Argon. In some cases, it could be raised to 2 to 5 minutes; this is dependent on how quickly the Internet router at the site releases port-forwarded back-channel.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 
@@ -1134,7 +1136,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-- It will also update the [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
+- It will also update the [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -1165,7 +1167,7 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 Synchronizing time does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary time synchronization can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
-For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/tutorials/learn-more/real-time-clocks/).
+For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/reference/device-os/real-time-clocks/).
 
 ### Particle.syncTimeDone()
 
@@ -1377,11 +1379,11 @@ void setup() {
 
 {{note op="start" type="note"}}
 
-Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
+Ethernet is available on the Photon 2, Argon, Boron when used with the [Ethernet FeatherWing](/reference/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board. Circuitry can be added to your P2 or E404X base board for Ethernet as well.
 
 It is not available on Gen 2 devices (Photon, P1, Electron, and E Series except the E404X).
 
-For more information about Ethernet, see the application note [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/).
+For more information about Ethernet, see the application note [AN037 Ethernet](/hardware/ethernet/ethernet/).
 
 {{note op="end"}}
 
@@ -1436,7 +1438,7 @@ Note that `Ethernet.on()` does not need to be called unless you have changed the
 
 {{api name1="Ethernet.connect"}}
 
-Attempts to connect to the Ethernet network. If there are no credentials stored, this will enter listening mode. When this function returns, the device may not have an IP address on the LAN; use `Ethernet.ready()` to determine the connection status.
+Attempts to connect to the Ethernet network. When this function returns, the device may not have an IP address on the LAN; use `Ethernet.ready()` to determine the connection status.
 
 ```cpp
 // SYNTAX
@@ -1458,7 +1460,7 @@ Ethernet.disconnect();
 
 {{api name1="Ethernet.connecting"}}
 
-This function will return `true` once the device is attempting to connect using stored credentials, and will return `false` once the device has successfully connected to the Ethernet network.
+This function will return `true` once the device is attempting to connect, and will return `false` once the device has successfully connected to the Ethernet network.
 
 ```cpp
 // SYNTAX
@@ -1943,7 +1945,7 @@ It is not supported on the Argon.
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
 
-For information on setting up WPA2 Enterprise from the Particle CLI, see [this article](https://support.particle.io/hc/en-us/articles/360039741153).
+For information on setting up WPA2 Enterprise from the Particle CLI, see [this article](/getting-started/setup/wpa2-enterprise/).
 
 ```cpp
 // WPA2 Enterprise with EAP-TLS
@@ -2448,7 +2450,7 @@ has connected.
 Defines the static IP addresses used by the system to connect to the network when static IP is activated.
 
 Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ```cpp
 // SYNTAX
@@ -2480,7 +2482,7 @@ Instructs the system to connect to the network using the IP addresses provided t
 The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
 
 Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ### useDynamicIP()
 
@@ -2494,7 +2496,7 @@ by the system after calling `WiFi.useDynamicIP()`, and so are available for use 
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ### setHostname()
 
@@ -2527,7 +2529,7 @@ Serial.println(System.deviceID());
 ```
 
 Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 ### hostname()
 
@@ -2547,7 +2549,7 @@ String hostname = WiFi.hostname();
 By default the device uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
 
 Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
-or Ethernet (Gen 3).
+or Ethernet (Gen 3), P2, or Photon 2.
 
 
 ### WiFiCredentials class
@@ -2901,6 +2903,224 @@ This enum defines wireless security ciphers.
 | `WLAN_CIPHER_TKIP`     | TKIP cipher        |
 | `WLAN_CIPHER_AES_TKIP` | AES or TKIP cipher |
 
+
+## Network
+
+The `Network` class can be used instead of `Cellular` or `WiFi` and represents the set of features common across all supported networking types: Cellular, Wi-Fi, and Ethernet. 
+
+There are two common uses for this:
+
+- When you have code that runs on both Wi-Fi and Cellular devices, and you want to work automatically with the default network interface without having to use `#ifdef`.
+- When you are writing a library or module within a large application and want to be able to work with a specific interface that is decided on by the caller.
+
+```cpp
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_THREAD(ENABLED);
+SerialLogHandler logHandler;
+
+class ExampleModule {
+public:
+    ExampleModule &withNetwork(NetworkClass &network) {
+        this->network = network;
+        return *this;
+    }
+
+    void setup() {        
+    }
+
+    void loop() {
+        bool ready = network.ready();
+        if (ready != lastReady) {
+            lastReady = ready;
+            Log.info("ready=%d", (int) ready);
+        }
+    }
+
+    NetworkClass &network = Network;
+    bool lastReady = false;
+};
+ExampleModule exampleModule;
+
+void setup() {
+    exampleModule
+        .withNetwork(Ethernet)
+        .setup();
+}
+
+void loop() {
+    exampleModule.loop();
+}
+
+```
+
+This example prints when the network changes to or from ready state. By default, it uses `Network`, the default networking for this device. However, the caller can use the `withNetwork()` method to pass in a different network. In this example, it changes the behavior to monitor the `Ethernet` network instead.
+
+When using the switchable network, it uses `network` (lowercase, the member variable), instead of `Network` (default interface), or a specific interface like `Cellular` or `WiFi`.
+
+### on() [Network]
+
+{{api name1="Network.on"}}
+
+`Network.on()` turns on the the default network interface for this device, typically Cellular or Wi-Fi.
+
+Note that `Network.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the network off.
+
+### off() [Network]
+
+{{api name1="Network.off"}}
+
+```cpp
+// EXAMPLE:
+Particle.disconnect();
+Network.off();
+```
+
+`Network.off()` turns off the default network interface for this device, typically Cellular or Wi-Fi.
+
+You must call [`Particle.disconnect()`](#particle-disconnect-) before turning off the network manually, otherwise the cloud connection may turn it back on again.
+
+This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode) (or `MANUAL`) as the cloud connection and Wi-Fi are managed by Device OS in `AUTOMATIC` mode.
+
+
+### connect() [Network]
+
+{{api name1="Network.connect"}}
+
+Attempts to connect to default network interface for this device, typically Cellular or Wi-Fi. 
+
+For Wi-Fi devices, if there are no credentials stored, this will enter listening mode, blinking dark blue. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `Network.ready()` to determine the connection status.
+
+```cpp
+// SYNTAX
+Network.connect();
+```
+
+On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
+
+On the Argon, starting with Device OS 1.5.0, a quick Wi-Fi scan is done before connecting. The list of available networks is compared with the configured SSIDs. The access point with the strongest signal is connected to. Prior to 1.5.0, only the original access point BSSID that was configured would ever be connected to, even if there was a different access point on the same SSID and network with a stronger signal.
+
+### disconnect() [Network]
+
+{{api name1="Network.disconnect"}}
+
+Disconnects from the network, but leaves the network module on.
+
+```cpp
+// SYNTAX
+Network.disconnect();
+```
+
+### connecting() [Network]
+
+{{api name1="Network.connecting"}}
+
+This function will return `true` once the device is attempting to connect, and will return `false` once the device has successfully connected to the network.
+
+```cpp
+// SYNTAX
+Network.connecting();
+```
+
+### ready() [Network]
+
+{{api name1="Network.ready"}}
+
+This function will return `true` once the device is connected to the network. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Network.ready();
+```
+
+### listen() [Network]
+
+{{api name1="Network.listen"}}
+
+This will enter or exit listening mode, blinking dark blue. The cloud connection is not available in listening mode.
+
+```cpp
+// SYNTAX - enter listening mode
+Network.listen();
+```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listening mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+Network.listen(false);
+
+```
+
+
+
+### listening() [Network]
+
+{{api name1="Network.listening"}}
+
+```cpp
+// SYNTAX
+Network.listening();
+```
+
+Returns true if the device is in listening mode (blinking dark blue). 
+
+This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
+user firmware from running, so you would not have an opportunity to test the value and calling this always 
+returns false.
+
+
+### setListenTimeout() [Network]
+
+{{api name1="Network.setListenTimeout"}}
+
+{{since when="0.6.1"}}
+
+```cpp
+// SYNTAX
+Network.setListenTimeout(seconds);
+```
+
+`Network.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout. This function is rarely needed.
+
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(Network.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) Network.setListenTimeout(0); // disables the listening mode timeout
+}
+```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Network.setListenTimeout(5min)` for 5 minutes.
+
+
+
+### getListenTimeout() [Network]
+
+{{api name1="Network.getListenTimeout"}}
+
+{{since when="0.6.1"}}
+
+```cpp
+// SYNTAX
+uint16_t seconds = Network.getListenTimeout();
+```
+
+`Network.getListenTimeout()` is used to get the timeout value currently set for Listening Mode. Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled. This function is rarely needed.
 
 
 ## SoftAP HTTP Pages
@@ -3275,7 +3495,7 @@ Unlocks the `Cellular` mutex. See `lock()`.
 
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
 
-Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/tutorials/cellular-connectivity/introduction/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](https://support.particle.io/hc/en-us/articles/360039741113).
+Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/getting-started/hardware/cellular-overview/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/).
 
 | Device | Internal SIM | SIM Card Slot | APN Saved |
 | :--- | :---: | :---: | :---: |
@@ -3307,7 +3527,7 @@ You may set credentials in 3 different ways:
 - USERNAME & PASSWORD only
 - APN, USERNAME & PASSWORD
 
-The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -3372,7 +3592,7 @@ On Gen 2 devices, cellular credentials are not added to the device's non-volatil
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/getting-started/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -3427,7 +3647,7 @@ not support `Cellular.setActiveSim()`.
 
 {{note op="end"}}
 
-For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](https://support.particle.io/hc/en-us/articles/360039741113/) if you are switching SIM cards with Boron LTE.
+For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](/troubleshooting/guides/connectivity-troubleshooting/using-3rd-party-sim-cards/) if you are switching SIM cards with Boron LTE.
 
 
 
@@ -4238,7 +4458,7 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 
 ## Input/Output
 
-Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for which functions is available on the [pin information page](/reference/device-os/pin-info/).
 
 ---
 
@@ -4259,7 +4479,7 @@ The Tracker SoM has shared A and D pins. In other words, pin A0 is the same phys
 | TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
 | RX / D9 | 4      | Serial1 RX  | Wire3 SDA   |           | &check; |
 
-On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](/reference/technical-advisory-notices/tan002-tracker-one-v10-shipping-mode/).
 
 {{note op="end"}}
 
@@ -4374,6 +4594,19 @@ STARTUP(disable());
 {{note op="start" type="P2"}}
 - Make sure the signal does not exceed 3.3V. The P2 and Photon 2 are not 5V tolerant in any mode (digital or analog).
 
+- `INPUT_PULLUP` and `INPUT_PULLDOWN` vary by pin and can be approximately 2.1K, 22K, or 42K depending on the pin.
+
+  - Pins A0, A1, D2, D3, D4, D5, D10, S0, S1, S2 are 2.1K
+  - Pins D0, D1, S4, S5, S6 are 22K
+  - Pins A2, A5, D6, TX, RX are 42K
+
+- On the P2, pins S4, S5, S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- On the P2, make sure you do not hold down pins D8 or D7 at boot as this will cause the MCU to enter download or test mode and will not operate correctly.
+
+- On the P2, Pin RGBR (PA[30]) has a 10K hardware pull-up in the module because it's a trap pin that controls the behavior of the internal 1.1V regulator. This does not affect the RGB LED but could affect your design if you are repurposing this pin as GPIO. You must not hold this pin low at boot.
+
+
 If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
 | Photon 2, P2 | Ethernet FeatherWing Pin  |
@@ -4485,6 +4718,8 @@ void loop()
 - All GPIO pins (`A0`, `A1`, `A2`, `A5`, `D0`..`D10`, `MOSI`, `MISO`, `SCK`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 - Pins `D0` and `D1` can be used as analog inputs on the P2 (`A3` and `A4`) if I2C is not being used.
+
+- The drive strength on the P2 and Photon 2 is 16 mA per pin with a maximum of 200 mA across all pins. On the P2, the total maximum could be further limited by your 3.3V regulator.
 {{note op="end"}}
 
 ---
@@ -4551,6 +4786,7 @@ void loop()
 
 - GPIO are **not** 5V tolerant on the P2 and Photon 2. Be sure the input voltage does not exceed 3.3V (typical).
 
+- For the P2 and Photon pin, if you are using an external pull-down resistor, the resistance m be greater than or equal to 1K. It is typically larger than that, but it cannot be smaller.
 {{note op="end"}}
 
 ---
@@ -4595,8 +4831,9 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 ---
 
 {{note op="start" type="gen3"}}
-Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
-On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
+- Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
+- On the P2 and Photon 2, the pin drive strength is always 16 mA.
+- On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
 {{note op="end"}}
 
 
@@ -4658,7 +4895,7 @@ void loop()
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.
 
-Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/device-os/pin-info/).
 
 ---
 
@@ -4687,6 +4924,18 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 - Group 1: D4, D5, D6, D7
 - Group 1: D0, D1, D2, D3
 
+On the E404X, the following groups are defined. Each group must share the same frequency and resolution, but individual pins in the group can have a different duty cycle. Group 0 is shared with the RGB LED and must use the default resolution of 8 bits (0-255) and frequency of 500 Hz, but can have its own duty cycle.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 4d3ada5a-494c-469b-b6ee-6b4ec53bc3d3 --}}
+
+- Group 0: C5, RGBB, RGBG, RGBR
+- Group 1: A3, C0, D0, D1, D2
+- Group 2: B2, B3, RX, TX
+- Group 3: A4, A5, A6, C4
+
+
+{{!-- END do not edit content above, it is automatically generated --}}
+
 {{note op="end"}}
 
 ---
@@ -4701,9 +4950,8 @@ On the P2 and Photon 2, all PWM pins and the RGB LED share the same PWM timer an
 | :---: | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | PB[6] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | PA[13] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | PB[7] |
 
 
@@ -4865,7 +5113,7 @@ The P2 and Photon 2 have four dedicated ADC pins, and two shared pins. If you ar
 | :---: | :--- | :--- | :--- | :--- |
 | 23 | A5 / D14 | A5 Analog in, GPIO, PWM. | ADC_0 | PB[4] |
 | 35 | D1 / A4 | D1 GPIO, PWM, I2C SCL, A4 Analog In | ADC_1 | PB[5] |
-| 36 | D0 / A3 | D0 GPIO, PWM, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
+| 36 | D0 / A3 | D0 GPIO, I2C SDA, A3 Analog In | ADC_2 | PB[6] |
 | 43 | A1 / D12 | A1 Analog in, GPIO | ADC_5 | PB[2] |
 | 49 | A2 / D13 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
 | 50 | A0 / D11 | A0 Analog in, GPIO | ADC_4 | PB[1] |
@@ -5223,7 +5471,7 @@ C5   |      |      |  x   |      |      |
 
 ---
 
-Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for tone() is available on the [pin information page](/reference/device-os/pin-info/).
 
 
 ```cpp
@@ -6065,16 +6313,18 @@ Returns the charge voltage register. This is the direct register value from the 
 {{api name1="Serial" name2="Serial1" name3="Serial2" name4="Serial3" name5="Serial4" name6="Serial5"}}
 
 
-| Device       | Serial   | USBSerial1   | Serial1   | Serial2   | Serial4   | Serial5   |
-| :----------- | :------: | :----------: | :-------: | :-------: | :-------: | :-------: |
-| Argon        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
-| Boron        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
-| B Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | 
-| Tracker SoM  | &check;  | &nbsp;       | 2         | &nbsp;    | &nbsp;    | &nbsp;    |
-| Photon       | &check;  | &check;      | &check;   | 1         | &nbsp;    | &nbsp;    |
-| P1           | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &nbsp;    |
-| Electron     | &check;  | &check;      | &check;   | 1         | &check;   | &check;   | 
-| E Series     | &check;  | &check;      | &check;   | &check;   | &check;   | &check;   | 
+| Device       | Serial   | USBSerial1   | Serial1   | Serial2   | Serial3   | Serial4   | Serial5   |
+| :----------- | :------: | :----------: | :-------: | :-------: | :-------: | :-------: | :-------: |
+| Argon        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
+| Boron        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
+| B Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    | 
+| Tracker SoM  | &check;  | &nbsp;       | 2         | &nbsp;    | &nbsp;    | &nbsp;    | &nbsp;    |
+| P2           | &check;  | &nbsp;       | &check;   | &check;   | &check;   | &nbsp;    | &nbsp;    |
+| Photon 2     | &check;  | &nbsp;       | &check;   | &check;   | &check;   | &nbsp;    | &nbsp;    |
+| Photon       | &check;  | &check;      | &check;   | 1         | &nbsp;    | &nbsp;    | &nbsp;    |
+| P1           | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
+| Electron     | &check;  | &check;      | &check;   | 1         | &nbsp;    | &check;   | &check;   | 
+| E Series     | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &check;   | &check;   | 
 
 - (1) `Serial2` on the Photon and Electron uses the same pins as the RGB status LED, and cannot be used without 
 physically disconnecting the status LED on the device by removing the LED or current limiting resistors.
@@ -6138,9 +6388,9 @@ The P2 and Photon 2 support three serial interfaces, two with hardware flow cont
 
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
-| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
+| 30 | D10 / WKP | D10 GPIO, Serial 3 CTS, WKP. (Was WKP/A7 on P1.) | Serial3 (CTS) | PA[15] |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | Serial3 (TX) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | Serial3 (RX) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | Serial3 (RTS) | PA[14] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | Serial2 (RTS) | PA[16] |
 | 51 | D3 | D3 GPIO, Serial2 CTS, SPI1 MISO | Serial2 (CTS) | PA[17] |
@@ -6161,9 +6411,9 @@ The P2 and Photon 2 support three serial interfaces, two with hardware flow cont
 
 ---
 
-{{note op="start" type="gen2"}}
+`Serial2:` On the P2 and Photon 2, this channel is available. It uses the same pins as `SPI1`, so you can only use `Serial2` or `SPI1`, not both.
 
-`Serial2:` On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed. If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
+On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/reference/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed. If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
 On the Electron, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. If used for Serial2, the LED or current limiting resistors should be removed. As there are no test pads for these LED pins on the Electron, Serial2 will be difficult to use.
 
@@ -6173,13 +6423,13 @@ Other devices do not support `Serial2`. On the Argon and Boron, the hardware por
 
 To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
+`Serial3`: This channel is optionally available on the P2 and Photon 2 only. It optionally supports hardware flow control. To use Serial3, add `#include "Serial3/Serial3.h"` near the top of your app's main code file.
+
 `Serial4:` This channel is optionally available via the Electron and E Series C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file. This port is not available on other devices.
 
 `Serial5:` This channel is optionally available via the Electron and E Series C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file. This port is not available on other devices.
 
-`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E Series) with Device OS 0.6. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
-
-{{note op="end"}}
+`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E Series) with Device OS 0.6.0. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
 
 ---
 
@@ -6213,7 +6463,7 @@ To use the hardware serial pins of (Serial1, etc.) to communicate with your pers
 
 **NOTE:** On Windows 10, using `USBSerial1` on the Electron, E Series, and P1 may not be reliable due to limitations of the USB peripheral used for those 2 devices. Characters may be dropped between the computer and device. `USBSerial1` is reliable on other operating systems and also on the Photon. `USBSerial1` is not available on Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM).
 
-For more information about serial ports, see [learn more about serial](/tutorials/learn-more/about-serial/).
+For more information about serial ports, see [learn more about serial](/hardware/expansion/about-serial/).
 
 ### begin()
 
@@ -6234,7 +6484,7 @@ Serial1.begin(speed, config); //  "
 Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
 Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
 
-// Photon, P1, Electron, and E Series
+// P2, Photon 2, Photon, P1, Electron, and E Series
 #include "Serial2/Serial2.h"
 Serial2.begin(speed);         // RGB-LED green(TX) and blue (RX) pins
 Serial2.begin(speed, config); //  "
@@ -6928,7 +7178,7 @@ Returns:
 
 {{api name1="Serial.lock" name2="Serial1.lock"}}
 
-The USB and UART serial objects do not have built-in thread-safety. If you want to read or write the object from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
+The USB serial objects does not have built-in thread-safety. If you want to read or write the object from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
 A call to lock `lock()` must be balanced with a call to `unlock()` and not be nested. To make sure every lock is released, it's good practice to use `WITH_LOCK` like this:
 
@@ -6943,6 +7193,8 @@ void loop()
 ```
 
 Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlock can occur.
+
+The UART serial objects such as `Serial1` allow multiple threads to read and write at the byte level. They do not support WITH_LOCK, however, so if you need to control access at the line, transaction, block, etc. level you need to implement an external mutex.
 
 ### unlock()
 
@@ -7648,7 +7900,7 @@ The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
 | Pin | Pin Name | Description | Interface | MCU |
 | :---: | :--- | :--- | :--- | :--- |
 | 40 | S0 / D15 | S0 GPIO, PWM, SPI MOSI, Serial3 TX. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
-| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serail3 RX. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
+| 41 | S1 / D16 | S1 GPIO, PWM, SPI MISO, Serial3 RX. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
 | 42 | S2 / D17 | S2 GPIO, SPI SCK, Serial3 RTS. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
 | 44 | S3 / D18 | S3 GPIO. (Was P1S3 on P1.), SPI SS | SPI (SS) | PB[26] |
 | 45 | D2 | D2 GPIO, Serial2 RTS, SPI1 MOSI | SPI1 (MOSI) | PA[16] |
@@ -7665,6 +7917,7 @@ The P2 and Photon 2 supports two SPI (serial peripheral interconnect) ports.
 - Multiple devices can generally share a single SPI port
 - SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
 - SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+- SPI1 shares the same pins as Serial2
 
 {{note op="end"}}
 
@@ -8143,7 +8396,7 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 {{api name1="Wire" name2="Wire1" name3="Wire2" name4="Wire3"}}
 
-This object allows you to communicate with I2C / TWI (Two Wire Interface) devices. For an in-depth tutorial on I2C, see [learn more about I2C](/tutorials/learn-more/about-i2c/).
+This object allows you to communicate with I2C / TWI (Two Wire Interface) devices. For an in-depth tutorial on I2C, see [learn more about I2C](/hardware/expansion/about-i2c/).
 
 | Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
 | :--- | :--- | :--- | :--- |
@@ -8647,7 +8900,7 @@ For devices with `Wire1` (Electron, E Series) or `Wire3` (Tracker SoM), the equi
 {{note op="start" type="note"}}
 This CAN API is supported only on Gen 2 devices (Photon, P1, Electron, and E Series).
 
-The Tracker SoM supports CAN, but uses an external library. See [Tracker CAN](/tutorials/asset-tracking/can-bus/).
+The Tracker SoM supports CAN, but uses an external library. See [Tracker CAN](/reference/tracker/can-bus/).
 
 The Argon, Boron, B Series SoM, P2, and Photon 2 do not include CAN hardware, but it can be added with an external
 CAN interface chip and library, like the Tracker SoM.
@@ -9003,7 +9256,7 @@ Serial.println(myIP);    // prints the device's IP address
 
 {{api name1="BLE"}}
 
-The P2, Photon 2, and Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
+The P2, Photon 2, and Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/reference/device-os/bluetooth-le/).
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
@@ -9277,7 +9530,7 @@ You can only specify a single phy mode for advertising. You cannot logically OR 
 
 Coded Phy mode employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you can expect closer to a 50% increase in range. 
 
-For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
+For an example of using this API, see the [RSSI Meter (Long Range)](/reference/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
 #### BLE.getScanResponseData()
 
@@ -9742,7 +9995,7 @@ Note: In Device OS 3.0.0 (only), a bug sets an invalid default value for the sca
 BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
 ```
 
-For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
+For an example of using this API, see the [RSSI Meter (Long Range)](/reference/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
 
 #### BLE.connect()
@@ -10125,7 +10378,7 @@ Ideally you want one side to have a keyboard and one side to have a display. Thi
 
 Even if neither side has a display or keyboard, the connection can still be paired and encrypted, but there will be no authentication.
 
-For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+For more information about pairing, see [BLE pairing](/reference/device-os/bluetooth-le/#pairing).
 
 #### BLE.setPairingAlgorithm()
 
@@ -10144,8 +10397,8 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-LESC pairing is supported on Device OS 3.1 and later only.
-
+- LESC pairing is supported on Device OS 3.1 and later only.
+- LESC pairing is not supported on the P2 and Photon 2.
 
 #### BLE.startPairing()
 
@@ -10162,7 +10415,7 @@ When using BLE pairing, one side is the initiator. It's usually the BLE central 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+For more information about pairing, see [BLE pairing](/reference/device-os/bluetooth-le/#pairing).
 
 
 #### BLE.rejectPairing()
@@ -10195,7 +10448,8 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-LESC pairing is supported in Device OS 3.1 and later only.
+- LESC pairing is supported on Device OS 3.1 and later only.
+- LESC pairing is not supported on the P2 and Photon 2.
 
 
 #### BLE.setPairingPasskey()
@@ -10271,7 +10525,7 @@ typedef std::function<void(const BlePairingEvent& event)> BleOnPairingEventStdFu
 
 {{since when="3.0.0"}}
 
-For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+For more information about pairing, see [BLE pairing](/reference/device-os/bluetooth-le/#pairing).
 
 `BlePairingEventType::REQUEST_RECEIVED`
 
@@ -10488,7 +10742,7 @@ The health thermometer only has a single characteristic, however if your service
 
 You can also create custom services by using a long UUID. You define what characteristic data to include for a custom service. [UUIDs](#bleuuid) are described below.
 
-For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#services) and  [`BleCharacteristicProperty`](#blecharacteristicproperty).
+For more information about characteristics, see [the BLE tutorial](/reference/device-os/bluetooth-le/#services) and  [`BleCharacteristicProperty`](#blecharacteristicproperty).
 
 
 ### BleCharacteristic
@@ -10501,11 +10755,11 @@ In a BLE central role, you typically have a receive handler to be notified when 
 
 For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). 
 
-For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#characteristics).
+For more information about characteristics, see [the BLE tutorial](/reference/device-os/bluetooth-le/#characteristics).
 
 #### BleCharacteristic()
 
-You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/tutorials/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
+You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/reference/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
 
 ```cpp
 // PROTOTYPE
@@ -10951,7 +11205,7 @@ The BleAdvertisingData is used in two ways:
 - In the central role, as a container to hold what the other side has sent during a scan.
 
 
-For more information about advertising, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#advertising).
+For more information about advertising, see [the BLE tutorial](/reference/device-os/bluetooth-le/#advertising).
 
 #### BleAdvertisingData()
 
@@ -11011,7 +11265,7 @@ Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and 
 
 If `BlePhy::BLE_PHYS_CODED` advertising PHY is set, it's possible to provide up to 255 (`BLE_MAX_ADV_DATA_LEN_EXT_CONNECTABLE`) of advertising data.
 
-The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
+The first two bytes of the company data are typically the unique company identifier assigned by the Bluetooth SIG. You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
 
 The special value of 0xffff is reserved for internal use and testing. 
 
@@ -12261,7 +12515,7 @@ void loop()
 
 ---
 {{note op="start" type="cellular"}}
-On cellular devices, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+On cellular devices, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/getting-started/integrations/webhooks/).
 
 Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{note op="end"}}
@@ -13372,7 +13626,7 @@ Parameters:
 This object allows applications to share control over the on-device RGB
 LED with the Device OS in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
 
-The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/tutorials/device-os/led/) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
+The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/troubleshooting/led/) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
 
 **Note:** Consider using this object instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
 
@@ -14589,7 +14843,7 @@ void loop()
 
 ```
 
-For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/tutorials/learn-more/real-time-clocks/).
+For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/reference/device-os/real-time-clocks/).
 
 ### Advanced
 
@@ -14662,6 +14916,8 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
+
+The `attachInterrpt()` function is not interrupt-safe. Do not call it from within an interrupt service routine (ISR).
 
 ---
 {{note op="start" type="gen3"}}
@@ -14744,7 +15000,7 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 
 ---
 
-Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
+Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/device-os/pin-info/).
 
 ```
 // SYNTAX
@@ -14819,8 +15075,18 @@ ISRs are special kinds of functions that have some unique limitations most other
 
 Generally, an ISR should be as short and fast as possible. If your sketch uses multiple ISRs, only one can run at a time, other interrupts will be executed after the current one finishes in an order that depends on the priority they have. `millis()` relies on interrupts to count, so it will never increment inside an ISR. Since `delay()` requires interrupts to work, it will not work if called inside an ISR. Using `delayMicroseconds()` will work as normal.
 
-Typically global variables are used to pass data between an ISR and the main program. To make sure variables shared between an ISR and the main program are updated correctly, declare them as `volatile`.
+{{!-- BEGIN shared-blurb 7a43657c-a231-439b-b1bd-f1d4a189dc0c --}}
+Things you should not do from an ISR:
 
+- Any memory allocation or free: new, delete, malloc, free, strdup, etc.
+- Any Particle class function like Particle.publish, Particle.subscribe, etc.
+- Most API functions, with the exception of pinSetFast, pinResetFast, and analogRead.
+- delay or other functions that block.
+- Log.info, Log.error, etc.
+- sprintf, Serial.printlnf, etc. with a `%f` (float) value.
+- attachInterrupt and detachInterrupt cannot be called within the ISR.
+- Mutex locks. This includes SPI transactions and I2C lock.
+{{!-- END shared-blurb --}}
 
 ### detachInterrupt()
 
@@ -14834,6 +15100,8 @@ detachInterrupt(pin);
 ```
 
 `pin` is the pin number of the interrupt to disable.
+
+The `detachInterrpt()` function is not interrupt-safe. Do not call it from within an interrupt service routine (ISR).
 
 
 ### interrupts()
@@ -15083,9 +15351,9 @@ if (timer.isActive()) {
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-Device OS includes a software-based watchdog, [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
+Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
-The application note [AN023 Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
+The application note [AN023 Watchdog Timers](/hardware/best-practices/watchdog-timers/) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
 ```cpp
 // PROTOTYPES
@@ -15126,7 +15394,7 @@ void loop() {
 // AWDT count reset automatically after loop() ends
 ```
 
-A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
+A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/troubleshooting/led/#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
 
@@ -15859,11 +16127,20 @@ void loop() {
  */
 ```
 
+{{note op="start" type="P2"}}
+On the P2, Photon 2, and Tracker M, retained memory is not available. The flash file system can be used in some applications as an alternative.
+{{note op="end"}}
+
+
 ### Enabling Backup RAM (SRAM)
 
 {{api name1="FEATURE_RETAINED_MEMORY"}}
 
-Backup RAM is disabled by default, since it does require some maintenance power
+- On Gen 3 devices (B Series SoM, Boron, Argon, Tracker SoM, Tracker One, E404X), retained memory is always enabled, regagrdless of the feature flag.
+
+- On the P2, Photon 2, and Tracker M, retained memory is not available.
+
+- On Gen 2 devices (E Series, Photon, P1), backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
 5uA or less on VIN and 9uA or less on VBAT.
 
@@ -15954,7 +16231,7 @@ in mind, using pullup/pulldown resistors as appropriate. For Gen 2 devices, see 
 
 Other acceptable calls to make from STARTUP include:
 
-- [`System.setPowerConfiguration()`](/cards/firmware/power-manager/systempowerfeature/)
+- [`System.setPowerConfiguration()`](/reference/device-os/api/power-manager/systempowerfeature/)
 - `System.enableFeature()`
 
 ---
@@ -15976,30 +16253,72 @@ On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controllin
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
 {{note op="end"}}
 
-### PRODUCT_ID()
 
-{{api name1="PRODUCT_ID" name2="PRODUCT_VERSION"}}
+### PRODUCT_VERSION()
 
-When preparing software for your product, it is essential to include your product ID and version at the top of the firmware source code.
+{{api name1="PRODUCT_VERSION"}}
+
+When preparing software for your product, you must include product version at the top of the firmware source code. This must also match the version specified when uploading the firmware as product firmware.
 
 ```cpp
 // EXAMPLE
+PRODUCT_VERSION(1); // increment each time you upload to the console
+```
+
+Devices that are marked as development devices do not need a valid `PRODUCT_VERSION`.
+
+With Device OS 4.0 and later, you only need the `PRODUCT_VERSION` and not the `PRODUCT_ID`.  
+
+### PRODUCT_ID()
+
+{{api name1="PRODUCT_ID"}}
+
+#### Device OS 4.0 and later
+
+In Device OS 4.0 and later, the `PRODUCT_ID` macro is no longer used. If you attempt to use it, you will get an error during compilation targeting 4.0.0 and later.
+
+```
+The PRODUCT_ID macro must be removed from your firmware source code. The same compiled firmware binary may be used in multiple products that share the same platform and functionality.
+```
+
+You must also pre-add all Device IDs that will be using your product when using Device OS 4.0 and later. There is no support for quarantine mode or auto-approve modes. The only way to add a device to a product is to do it using the console or cloud API before the device first connects to the cloud.
+
+You still need to include `PRODUCT_VERSION`.
+
+#### Device OS before 3.x and earlier
+
+When preparing software for versions of Device OS before 4.0 it is essential to include your product ID and version at the top of the firmware source code.
+
+```cpp
+// EXAMPLE 3.x and earlier
 PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
-You can find more details about the product ID and how to get yours in the [_Console_ guide.](/tutorials/device-cloud/console#your-product-id)
+You can find more details about the product ID and how to get yours in the [_Console_ guide.](/getting-started/console/console/#your-product-id)
 
-In Device OS 1.5.3 and later, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
+#### Device OS 1.5.3 to 3.x Wildcard
+
+In Device OS 1.5.3 and later, but before 4.0, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
 
 ```cpp
+// EXAMPLE 1.5.3 to 3.x with wildcard product ID
 PRODUCT_ID(PLATFORM_ID);
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
 This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
 
+The behavior with 4.0 and later is similar to using a wildcard product ID, but you simply omit the `PRODUCT_ID`.
 
+If you want to make your product firmware compile both before and after 4.0, you could use something like:
+
+```cpp
+#ifndef SYSTEM_VERSION_v400ALPHA1
+// Include this only for versions prior to 4.0.0-alpha.1
+PRODUCT_ID(PLATFORM_ID)
+#endif
+```
 
 ## sleep() [ Sleep ]
 
@@ -16017,13 +16336,13 @@ SystemSleepResult result = System.sleep(config);
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. 
 
-For introduction to sleep and the various sleep modes and trade-offs, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+For introduction to sleep and the various sleep modes and trade-offs, see [Learn more about sleep modes](/reference/device-os/sleep/).
 
 The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the previous numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
-The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/) and [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the Tracker Edge sleep functionality, not Device OS.
+The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/reference/tracker/tracker-sleep/) and [TrackerSleep API Reference](/firmware/tracker-edge/tracker-edge-api-reference/#trackersleep). You generally should avoid directly using this sleep API on the Tracker as it will not put the tracker-specific peripherals like the GNSS, IMU, CAN, and RTC to sleep properly, as these functions are implemented in the Tracker Edge sleep functionality, not Device OS.
 
 ### mode() (SystemSleepConfiguration)
 
@@ -16041,7 +16360,7 @@ The are are three sleep modes:
 | Relative wake options | Most | Some | Fewest |
 | Execution continues with variables intact | &check; | &check; | &nbsp; |
 
-To help decide which mode you should use, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+To help decide which mode you should use, see [Learn more about sleep modes](/reference/device-os/sleep/).
 
 ---
 
@@ -16097,6 +16416,7 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 | Boron LTE   |    575 uA |    584 uA |    577 uA |    587 uA |    885 uA |   12.1 mA |
 | B402 SoM    |    555 uA |    556 uA |    557 uA |    556 uA |    631 uA |    9.7 mA |
 | B523 SoM    |    538 uA |    537 uA |    537 uA |    537 uA |    604 uA |   23.1 mA |
+| P2          |    579 uA |    572 uA |           |           |           |           |
 | Argon       |    396 uA |    398 uA |    398 uA |    397 uA |    441 uA |   22.2 mA |
 | Electron    |   2.40 mA |   2.53 mA |   6.03 mA |   13.1 mA |       n/a |   28.1 mA |  
 | Photon      |   2.75 mA |   2.82 mA |   7.56 mA |   18.2 mA |       n/a |       n/a |
@@ -16159,9 +16479,11 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 | Boron LTE   |    127 uA |    128 uA |    130 uA |    584 uA |    442 uA |   14.2 mA |
 | B402 SoM    |     48 uA |     47 uA |     48 uA |    557 uA |    130 uA |    9.5 mA |
 | B523 SoM    |     54 uA |     55 uA |     56 uA |    537 uA |    139 uA |   22.8 mA |
+| P2          |    579 uA |    572 uA |           |           |           |           |
 | Argon       |     82 uA |     81 uA |     82 uA |    520 uA |    141 uA |   21.3 mA |
 | Electron    |   2.42 mA |   2.55 mA |       n/a |       n/a |       n/a |       n/a |  
 | Photon      |   2.76 mA |   2.83 mA |       n/a |       n/a |       n/a |       n/a |
+
 
 ---
 
@@ -16187,11 +16509,11 @@ System.sleep(config);
 
 The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. It is the lowest power mode, however there are limited ways you can wake:
 
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | WKP RISING Only | &check; |
-| Time (RTC) | &check; | <sup>1</sup> | 
-| Analog | &nbsp; | &check; | 
+| Wake Mode | Gen 2 | Gen 3 | P2/Photon 2 |
+| :--- | :---: | :---: | :---: |
+| GPIO | WKP RISING Only | &check; | WKP |
+| Time (RTC) | &check; | <sup>1</sup> | &check; |
+| Analog | &nbsp; | &check; | &nbsp; |
 
 <sup>1</sup>Tracker SoM can wake from RTC in HIBERNATE mode. Other Gen 3 devices cannot.
 
@@ -16205,33 +16527,48 @@ Typical power consumption in hibernate sleep mode, based on the wakeup source:
 | Boron LTE   |    106 uA |       n/a |
 | B402 SoM    |     26 uA |       n/a |
 | B523 SoM    |     30 uA |       n/a |
+| P2          |    114 uA |    115 uA |
 | Argon       |     65 uA |       n/a |
 | Electron    |    114 uA |    114 uA |
 | Photon      |    114 uA |    114 uA |
 
-In this mode:
 
-- Real-time clock (RTC) stops (Argon, Boron, B Series SoM).
-- Can wake from: Time or GPIO. On Gen 3 also analog.
-- On wake, device is reset, running setup() again.
-
+In this mode on wake, device is reset, running setup() again.
 
 ---
 
 {{note op="start" type="gen3"}}
-- On the Argon, Boron, and B Series SoM you can only wake by pin, not by time, in HIBERNATE mode.
+- On the Argon, Boron, B Series SoM, and E404X you can only wake by pin, not by time, in HIBERNATE mode.
 
-- On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
+- On the Tracker SoM, Tracker One, and Monitor One, you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
 - You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later on Gen 3 devices.
 
 - Since the difference in current consumption is so small between HIBERNATE and ULTRA_LOW_POWER, using ULTRA_LOW_POWER is a good alternative if you wish to wake based on time on Gen 3 devices. The difference is 106 uA vs. 127 uA on the Boron LTE, for example.
 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
+
+- Gen 3 devices (Argon, Boron, B Series SoM, E404X, Tracker SoM, Tracker One), can wake on analog voltage comparison.
 {{note op="end"}}
 
+---
+
+{{note op="start" type="P2"}}
+- The P2, Photon 2, and Tracker M can only wake from `HIBERNATE` mode on `WKP` (D10), `RISING`, `FALLING`, or `CHANGE`.
+
+- On the Photon 2, pin D10 is in the same position as the Argon/Feather pin D8. 
+
+- On the P2, pins S4, S5, and S6 do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- On the Photon 2, pin S4 is in the position of A4 on the Argon and other Feather devices. It do not support pull-up or pull-down in HIBERNATE sleep mode. Use an external pull resistor if this is required.
+
+- The P2, Photon 2, and Tracker M do not support wake on analog.
+{{note op="end"}}
+
+---
+
 {{note op="start" type="gen2"}}
-- On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
+- On the Photon, P1, Electron, and E Series you can only wake on time or `WKP` `RISING` in `HIBERNATE` mode.
 
 - GPIO are put into high impedance state before sleep. However, you can use `pinMode(INPUT)` to disconnect output pins on Gen 2 devices so the same code can be used for both Gen 2 and Gen 3 with HIBERNATE mode.
 {{note op="end"}}
@@ -16422,8 +16759,15 @@ If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data fr
 
 If you use `INACTIVE_STANDBY`, the modem is kept powered, but the cloud is disconnected. This eliminates the need to go through a reconnection process to the cellular tower (blinking green) and prevents problems with aggressive reconnection. The device will not wake from sleep on functions, variables, or OTA. However, it also will cause the cloud to disconnect. The device will be marked offline in the console, and will go through a cloud session resumption on wake. This will result in the normal session negotiation and device vitals events at wake that are normally part of the blinking cyan phase.
 
-For more information on using network sleep modes, see [Learn more about sleep modes](/tutorials/learn-more/about-sleep/).
+For more information on using network sleep modes, see [Learn more about sleep modes](/reference/device-os/sleep/).
 
+---
+
+{{note op="start" type="P2"}}
+Wake on network is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
+
+---
 
 ### analog() (SystemSleepConfiguration)
 
@@ -16453,6 +16797,13 @@ The `AnalogInterruptMode` is one of:
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp;  |
 
+---
+
+{{note op="start" type="P2"}}
+Wake on analog is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
+
+---
 
 ### usart (SystemSleepConfiguration)
 
@@ -16477,6 +16828,12 @@ Note: Keeping the USART active in ultra-low power mode significanly increases th
 | Wake from STOP sleep | &check; | &check; |
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
+
+---
+
+{{note op="start" type="P2"}}
+Wake on serial is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
 
 ---
 
@@ -16510,6 +16867,14 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
 
+---
+
+{{note op="start" type="P2"}}
+Wake on BLE is not supported on the P2, Photon 2, or Tracker M.
+{{note op="end"}}
+
+---
+
 ### Sleep and GPIO outputs
 
 In most sleep modes, GPIO outputs retain their HIGH or LOW GPIO output states. The exception is HIBERNATE on Gen 2 devices, where outputs go into a high-impedance state during sleep.
@@ -16518,11 +16883,11 @@ This can result in unexpected current usage, depending on your design. You shoul
 
 Make sure the external device can handle the pin being disconnected. This may require an external pull-up or pull-down, or you can just drive the pin always at the expense of slightly increased power usage.
 
-| Sleep mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| STOP | Preserved | Preserved |
-| ULTRA_LOW_POWER | Preserved | Preserved |
-| HIBERNATE  | High-Z | Preserved |
+| Sleep mode | Gen 2 | Gen 3 | P2/Photon 2 |
+| :--- | :---: | :---: | :---: |
+| STOP | Preserved | Preserved | Preserved |
+| ULTRA_LOW_POWER | Preserved | Preserved | Preserved |
+| HIBERNATE  | High-Z | Preserved | Preserved |
 
 
 ## SystemSleepResult Class
@@ -16605,6 +16970,8 @@ Returns the previous style of [`SleepResult`](#sleepresult-). There is also an o
 {{api name1="System.sleep"}}
 
 This API is the previous API for sleep and is less flexible. You should use the [newer sleep APIs](#sleep-sleep-) with Device OS 1.5.0 and later.
+
+Using the current sleep APIs is recommended on all cellular devices. The legacy sleep API does not wait for the cellular modem to power off before going into sleep mode, which may leave the modem on or in a partially on state. The newer sleep APIs correct this. It will not be fixed in the legacy sleep APIs.
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
@@ -17617,8 +17984,7 @@ When executing timing-critical sections of code, the task switching needs to be 
 ```
 // SYNTAX
 SINGLE_THREADED_BLOCK() {
-   // code here is executed atomically, without task switching
-   // or interrupts
+   // code here is executed without thread swapping
 }
 ```
 
@@ -17665,7 +18031,7 @@ WARNING: Disabling interrupts prevents normal system operation. Consequently, `A
 // SYNTAX
 ATOMIC_BLOCK() {
    // code here is executed atomically, without task switching
-   // or interrupts
+   // or interrupts of a lower priority than this thread
 }
 ```
 
@@ -18430,6 +18796,63 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+### System.enableFeature
+
+{{api name1="System.enableFeature"}}
+
+```cpp
+// PROTOTYPE
+int enableFeature(HAL_Feature feature)
+
+// EXAMPLE
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+```
+
+Enables a system feature. System feature that are read/write or write only are persistent and saved to configuration flash.
+
+| Feature | Read/Write | Description |
+| :--- | :---: | :--- |
+| FEATURE_RETAINED_MEMORY | Write Only | Preserve retained memory on backup power |
+| FEATURE_WARM_START | Read Only | True if previous retained memory contents were available |
+| FEATURE_CLOUD_UDP | Read Only | True if cloud connection is UDP and the alt keys in the DCT are used |
+| FEATURE_RESET_INFO | Read/Write | Store last reset reason in retained memory |
+| FEATURE_WIFI_POWERSAVE_CLOCK | Write Only | Enable Wi-Fi Powersave clock on TESTMODE/P1S6 pin on P1. Disabling it allows P1S6 to be used as GPIO. |
+| FEATURE_ETHERNET_DETECTION | Read/Write | Enable detection of Ethernet FeatherWing at boot |
+| FEATURE_LED_OVERRIDDEN | Read/Write | Override RGB LED signaling at boot |
+| FEATURE_DISABLE_EXTERNAL_LOW_SPEED_CLOCK | Read/Write | If true, use internal low-speed clock instead of the external crystal clock |
+| FEATURE_DISABLE_LISTENING_MODE | Read/Write | Disable listening mode |
+
+- Use `System.disableFeature()` to disable a feature flag after enabling it (for read/write or write only flags)
+- Use `System.featureEnabled()` to get the current value of the feature flag (for read/write or read only flags)
+- Beware of features such as `FEATURE_DISABLE_LISTENING_MODE`. Enabling the feature disables listening mode, and disabling the feature enables listening mode
+
+
+### System.disableFeature
+
+{{api name1="System.disableFeature"}}
+
+```cpp
+// PROTOTYPE
+int disableFeature(HAL_Feature feature)
+```
+
+Disable a feature flag.
+
+See `System.enableFeature()` for a list of available feature codes.
+
+### System.featureEnabled
+
+{{api name1="System.featureEnabled"}}
+
+```cpp
+// PROTOTYPE
+bool featureEnabled(HAL_Feature feature)
+```
+
+Returns true if the feature is enabled. 
+
+Beware of features such as `FEATURE_DISABLE_LISTENING_MODE`. A value of true means listening mode is disabled, and false means listening mode is not disabled (is enabled).
+
 
 ## System Interrupts
 
@@ -18672,7 +19095,7 @@ The P2, Photon 2, and Gen 3 devices (B Series SoM, Tracker SoM, Boron, Argon, an
 | Tracker SoM | 1.5.4-rc.1 | 4 MB |
 | Argon, Boron, B Series SoM | 2.0.0-rc.1 | 2 MB |
 
-For more detailed information about the file system, see the application note [AN035 File System](/datasheets/app-notes/an035-file-system/).
+For more detailed information about the file system, see the application note [AN035 File System](/reference/device-os/file-system/).
 
 ---
 
@@ -19191,7 +19614,7 @@ _single device OTA updates_ (flashing a single device) and _fleet-wide OTA updat
 Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`.
 
 When the firmware update is the result of an [Intelligent
-Firmware Release](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases),
+Firmware Release](/getting-started/cloud/ota-updates/#intelligent-firmware-releases),
 the update is delivered immediately after `System.enableUpdates()` is called.
 
 Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
@@ -19233,7 +19656,7 @@ void setup() {
 ```
 Disables OTA updates on this device. An attempt to begin an OTA update
 from the cloud will be prevented by the device. When updates are disabled, firmware updates are not
-delivered to the device [unless forced](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates).
+delivered to the device [unless forced](/getting-started/cloud/ota-updates/#force-enable-ota-updates).
 
 **Since 1.2.0**
 
@@ -19241,11 +19664,11 @@ Device OS version 1.2.0 introduced enhanced support of
 `System.disableUpdates()` and `System.enableUpdates()`. When running Device OS version 1.2.0
 or higher, the device will notify the Device Cloud of its OTA
 availability, which is [visible in the
-Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+Console](/getting-started/cloud/ota-updates/#ota-availability-in-the-console)
 as well as [queryable via the REST
-API](/reference/device-cloud/api/#get-device-information). The cloud
+API](/reference/cloud-apis/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
-Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+Releases](/getting-started/cloud/ota-updates/#intelligent-firmware-releases).
 
 In addition, a cloud-side system event will be emitted when updates are disabled,
 `particle/device/updates/enabled` with a data value of `false`. This event is sent
@@ -19313,11 +19736,11 @@ Device OS version 1.2.0 introduced enhanced support of
 `System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
 or higher, the device will notify the Device Cloud of its OTA update
 availability, which is [visible in the
-Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+Console](/getting-started/cloud/ota-updates/#ota-availability-in-the-console)
 as well as [queryable via the REST
-API](/reference/device-cloud/api/#get-device-information). The cloud
+API](/reference/cloud-apis/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
-Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+Releases](/getting-started/cloud/ota-updates/#intelligent-firmware-releases).
 
 | Version | Developer Devices | Product |
 | ------- | ---------------------- | ---------------- |
@@ -19440,7 +19863,7 @@ void loop() {
 
 When the device is not available for updates, the pending firmware
 update is not normally delivered to the device. Updates can be forced in
-the cloud [either via the Console or the REST API](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates) to override the local
+the cloud [either via the Console or the REST API](/getting-started/cloud/ota-updates/#force-enable-ota-updates) to override the local
 setting on the device. This means that firmware updates are delivered
 even when `System.disableUpdates()` has been called by the device application.
 
@@ -20569,7 +20992,7 @@ The Particle JSON library is based on [JSMN](https://github.com/zserge/jsmn) for
 - The JSON encoded data consists only of 7-bit ASCII characters. Control characters are escaped.
 - There are types of data for bool, int, double, string, object, and array.
 - Objects and arrays can contain nested objects and arrays, as well as primitive types (bool, int, double, string).
-- There is no binary blob in JSON, you need to encode the data in something like Base64, Base85, or hex encoding.
+- There is no binary blob in JSON, you need to encode the data in something like Base64 or hex encoding.
 - You can't encode circular structures with JSON.
 
 ### JSONWriter
@@ -21642,7 +22065,7 @@ The most common method of debugging is to use serial print statements. A full so
 
 ### Using a serial terminal
 
-The [Particle CLI](/tutorials/developer-tools/cli/) provides a simple read-only terminal for USB serial. Using the `--follow` option will wait and retry connecting. This is helpful because USB serial disconnects on reboot and sleep.
+The [Particle CLI](/getting-started/developer-tools/cli/) provides a simple read-only terminal for USB serial. Using the `--follow` option will wait and retry connecting. This is helpful because USB serial disconnects on reboot and sleep.
 
 ```
 particle serial monitor --follow
@@ -22269,7 +22692,8 @@ Particle devices are programmed in C/C++. While the Arduino compatibility featur
 
 | Device OS Version | C++ (.cpp and .ino) | C (.c) |
 | --- | :--: | :---: |
-| 1.2.1 and later | gcc C++14 | gcc C11 |
+| 3.3.0 and later | gcc C++17 | gcc C11 |
+| 1.2.1 to 3.2.x | gcc C++14 | gcc C11 |
 | earlier versions | gcc C++11 | gcc C11 |
 
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
@@ -23817,7 +24241,7 @@ Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM and E404X) have an nRF528
 
 Gen 2 devices (Photon, P1, Electron, and E Series) all have an STM32F205 processor with 128K of flash for your user firmware.
 
-Some tips for understanding the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+Some tips for understanding the memory used by your firmware [can be found here](/firmware/best-practices/code-size-tips/).
 
 Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
 
@@ -23846,7 +24270,12 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v3.3.x releases|[v3.3.0](https://github.com/particle-iot/device-os/releases/tag/v3.3.0)|-|-|-|-|-|-|
+|v5.0.x releases|[v5.1.0](https://github.com/particle-iot/device-os/releases/tag/v5.1.0)|[v5.2.0](https://github.com/particle-iot/device-os/releases/tag/v5.2.0)|-|-|-|-|-|
+|v5.0.x releases|[v5.0.1](https://github.com/particle-iot/device-os/releases/tag/v5.0.1)|-|-|-|-|-|-|
+|v5.0.x releases|[v5.0.0](https://github.com/particle-iot/device-os/releases/tag/v5.0.0)|-|-|-|-|-|-|
+|v4.0.x releases|[v4.0.0](https://github.com/particle-iot/device-os/releases/tag/v4.0.0)|[v4.0.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.1)|[v4.0.2](https://github.com/particle-iot/device-os/releases/tag/v4.0.2)|-|-|-|-|
+|v4.0.x prereleases|[v4.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.0-beta.1)|[v4.0.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v4.0.1-rc.1)|-|-|-|-|-|
+|v3.3.x releases|[v3.3.0](https://github.com/particle-iot/device-os/releases/tag/v3.3.0)|[v3.3.1](https://github.com/particle-iot/device-os/releases/tag/v3.3.1)|-|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.3.0-rc.1)|-|-|-|-|-|-|
 |v3.2.x releases|[v3.2.0](https://github.com/particle-iot/device-os/releases/tag/v3.2.0)|-|-|-|-|-|-|
 |v3.2.x prereleases|[v3.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.2.0-rc.1)|-|-|-|-|-|-|
@@ -23854,7 +24283,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
-|v2.3.x default releases|[v2.3.0](https://github.com/particle-iot/device-os/releases/tag/v2.3.0)|-|-|-|-|-|-|
+|v2.3.x default releases|[v2.3.0](https://github.com/particle-iot/device-os/releases/tag/v2.3.0)|[v2.3.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.1)|-|-|-|-|-|
 |v2.3.x prereleases|[v2.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.0-rc.1)|-|-|-|-|-|-|
 |v2.2.x default releases|[v2.2.0](https://github.com/particle-iot/device-os/releases/tag/v2.2.0)|-|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
@@ -23890,7 +24319,12 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v3.3.x releases|[v3.3.0](/reference/device-os/firmware/?fw_ver=3.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v5.0.x releases|[v5.1.0](/reference/device-os/firmware/?fw_ver=5.1.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v5.2.0](/reference/device-os/firmware/?fw_ver=5.2.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v5.0.x releases|[v5.0.1](/reference/device-os/firmware/?fw_ver=5.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v5.0.x releases|[v5.0.0](/reference/device-os/firmware/?fw_ver=5.0.0&cli_ver=3.4.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v4.0.x releases|[v4.0.0](/reference/device-os/firmware/?fw_ver=4.0.0&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.0.1](/reference/device-os/firmware/?fw_ver=4.0.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|[v4.0.2](/reference/device-os/firmware/?fw_ver=4.0.2&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v4.0.x prereleases|[v4.0.0-beta.1](/reference/device-os/firmware/?fw_ver=4.0.0-beta.1&cli_ver=3.3.3&electron_parts=3#programming-and-debugging-notes)|[v4.0.1-rc.1](/reference/device-os/firmware/?fw_ver=4.0.1-rc.1&cli_ver=3.5.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v3.3.x releases|[v3.3.0](/reference/device-os/firmware/?fw_ver=3.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|[v3.3.1](/reference/device-os/firmware/?fw_ver=3.3.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v3.3.x prereleases|[v3.3.0-rc.1](/reference/device-os/firmware/?fw_ver=3.3.0-rc.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.2.x releases|[v3.2.0](/reference/device-os/firmware/?fw_ver=3.2.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.2.x prereleases|[v3.2.0-rc.1](/reference/device-os/firmware/?fw_ver=3.2.0-rc.1&cli_ver=2.16.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
@@ -23898,7 +24332,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v2.3.x default releases|[v2.3.0](/reference/device-os/firmware/?fw_ver=2.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.3.x default releases|[v2.3.0](/reference/device-os/firmware/?fw_ver=2.3.0&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|[v2.3.1](/reference/device-os/firmware/?fw_ver=2.3.1&cli_ver=3.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.3.x prereleases|[v2.3.0-rc.1](/reference/device-os/firmware/?fw_ver=2.3.0-rc.1&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x default releases|[v2.2.0](/reference/device-os/firmware/?fw_ver=2.2.0&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
@@ -23931,7 +24365,10 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v3.1.0  = 2.3.0, 3.3.0-rc.1, 3.3.0
+v3.5.0  = 4.0.0, 5.0.1, 5.1.0, 4.0.1-rc.1, 4.0.1, 4.0.2, 5.2.0
+v3.4.0  = 5.0.0
+v3.3.3  = 4.0.0-beta.1
+v3.1.0  = 2.3.0, 3.3.0-rc.1, 3.3.0, 2.3.1, 3.3.1
 v2.16.0 = 3.2.0-rc.1, 3.2.0
 v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
@@ -24051,6 +24488,12 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@3.2.0endif
 ##### @FW_VER@3.3.0if
 ##### @FW_VER@3.3.0endif
+##### @FW_VER@5.0.0if
+##### @FW_VER@5.0.0endif
+##### @FW_VER@5.0.1if
+##### @FW_VER@5.0.1endif
+##### @FW_VER@5.1.0if
+##### @FW_VER@5.1.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -24143,6 +24586,10 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.16.0endif
 ##### @CLI_VER@3.1.0if
 ##### @CLI_VER@3.1.0endif
+##### @CLI_VER@3.4.0if
+##### @CLI_VER@3.4.0endif
+##### @CLI_VER@3.5.0if
+##### @CLI_VER@3.5.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -24188,9 +24635,9 @@ The easiest way to upgrade to Device OS Version @FW_VER@ is to use the
 Particle CLI with a single command.  You will first upgrade the Device
 OS, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/getting-started/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
+To upgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -24378,9 +24825,9 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/getting-started/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -24429,7 +24876,7 @@ particle flash --usb tinker (optional)
 
 **The local DFU-UTIL method**
 can be applied to offline devices locally over USB using `dfu-util`
-- Put the device in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED)
+- Put the device in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED)
 - open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
@@ -24493,9 +24940,9 @@ Current default Device OS would be the latest non-rc.x firmware version.  E.g. i
 ##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a Device OS Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the Device OS. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/getting-started/developer-tools/cli/) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
+To downgrade Device OS, make sure the device is in [DFU mode](/troubleshooting/led/#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware

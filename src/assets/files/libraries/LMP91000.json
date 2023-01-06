@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LMP91000",
     "version": "0.0.1",
-    "installs": 8765,
+    "installs": 8823,
     "license": "OIZOM",
     "author": "Shashank Sharma",
     "sentence": "LMP91000 library",
@@ -30,7 +30,8 @@
           "boron": {}
         }
       },
-      "noExamples": true
+      "noExamples": true,
+      "added": "2022-06-17T10:16:53.766Z"
     }
   },
   "readme": "# LMP91000",
