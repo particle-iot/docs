@@ -1,38 +1,43 @@
 <!-- api-helper, api-helper-extras, battery-calculator -->
-{{#if deviceSelect}}
-<div class="batteryCalculator batteryCalculatorDeviceSelect"> 
-    <div>Device: <select class="deviceSelect apiHelperSelect">
-        <option value="ONE402">Tracker One ONE404, ONE402 (North America)</option>
-        <option value="ONE523">Tracker One ONE524, ONE523 (EMEAA)</option>
-        <option value="B402">B SoM B404, B402 (North America)</option>
-        <option value="B523">B SoM B524, B523 (EMEAA)</option>
-        <option value="BRN402">Boron BRN404, BRN402 (North America)</option>
-        <option value="BRN310">Boron 2G/3G</option>
-    </select></div>
+<div class="batteryCalculator">
+    <div class="batteryCalculatorDeviceSelect" style="padding: 8px 0px 8px 0px;"> 
+        <div>Device: <select class="deviceSelect apiHelperSelect">
+            <option value="ONE402">Tracker One ONE404, ONE402 (North America)</option>
+            <option value="ONE523">Tracker One ONE524, ONE523 (EMEAA)</option>
+            <option value="B402">B SoM B404, B402 (North America)</option>
+            <option value="B523">B SoM B524, B523 (EMEAA)</option>
+            <option value="BRN402">Boron BRN404, BRN402 (North America)</option>
+            <option value="BRN310">Boron 2G/3G</option>
+        </select></div>
+    </div>
+    <div class="batteryCalculatorSleepMode" style="padding: 8px 0px 8px 0px;"> 
+        <div>Sleep Mode: <select class="sleepMode apiHelperSelect">
+            <option value="ulp,Iulp_intrtc">Ultra Low Power (ULP), wake by time</option>
+            <option value="ulp,Iulp_imu">Ultra Low Power (ULP), wake by motion</option>
+            <option value="stop,Istop_intrtc">Stop mode sleep, wake by time</option>
+            <option value="hibernate,Ihib_gpio">Hibernate mode sleep, wake by GPIO</option>
+        </select></div>
+    </div>
+    <div class="numPublishes" style="padding: 8px 0px 8px 0px;"> 
+        <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="everyMinutes" checked/>Publish every <input type="text" size="10" class="everyMinutes" value="30"/> minutes</label></div>
+        <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="perDay"/>Publish <input type="text" size="10" class="perDay" value="4"/> times per day</label></div>
+    </div>
+    <div class="batteryCalculatorParameter" data-parameter="batterySize" style="padding: 8px 0px 8px 0px;"> 
+        <div><span>Battery size:</span> &nbsp;<input type="text" size="10" class="batterySize" value=""/> mAh</div>
+    </div>
+    <div class="batteryCalculatorParameter" data-parameter="connectTime" style="padding: 8px 0px 8px 0px;"> 
+        <div><span>Time to connect and publish</span> &nbsp;<input type="text" size="10" class="connectTime" value="60"/> sec</div>
+    </div>
+    <div class="batteryCalculatorParameter" data-parameter="afterPublish" style="padding: 8px 0px 8px 0px;"> 
+        <div><span>Time to stay awake after publish:</span> &nbsp;<input type="text" size="10" class="afterPublish" value=""/> sec</div>
+    </div>
+    <div class="batteryCalculatorParameter" data-parameter="reservePct" style="padding: 8px 0px 8px 0px;"> 
+        <div><span>Battery percentage to reserve:</span> &nbsp;<input type="text" size="10" class="reservePct" value=""/> %</div>
+    </div>
+    <div class="batteryCalculatorParameter" data-parameter="numDevices" style="padding: 8px 0px 8px 0px;"> 
+        <div><span>Number of devices in your fleet:</span> &nbsp;<input type="text" size="10" class="numDevices" value="50"/></div>
+    </div>
+    <h3>Results</h3>
+    <div class="calculatorResult" style="padding: 8px 0px 8px 0px;">         
+    </div>
 </div>
-{{/if}}
-{{#if sleepMode}}
-<div class="batteryCalculator batteryCalculatorSleepMode"> 
-    <div>Sleep Mode: <select class="sleepMode apiHelperSelect">
-        <option value="ulp,Iulp_intrtc">Ultra Low Power (ULP), wake by time</option>
-        <option value="ulp,Iulp_imu">Ultra Low Power (ULP), wake by motion</option>
-        <option value="stop,Istop_intrtc">Stop mode sleep, wake by time</option>
-        <option value="hibernate,Ihib_gpio">Hibernate mode sleep, wake by GPIO</option>
-    </select></div>
-</div>
-{{/if}}
-{{#if numPublishes}}
-<div class="batteryCalculator numPublishes" style="padding: 8px 0px 8px 0px;"> 
-    <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="everyMinutes" checked/>Publish every <input type="text" size="10" class="everyMinutes" value="30"/> minutes</label></div>
-    <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="perDay"/>Publish <input type="text" size="10" class="perDay" value="4"/> times per day</label></div>
-</div>
-{{/if}}
-{{#if parameter}}
-<div class="batteryCalculator batteryCalculatorParameter" data-parameter="{{parameter}}" style="padding: 8px 0px 8px 0px;"> 
-    <div><span>{{label}}:</span> &nbsp;<input type="text" size="10" class="{{parameter}}" value="{{default}}"/> {{labelAfter}}</div>
-</div>
-{{/if}}
-{{#if result}}
-<div class="batteryCalculator calculatorResult" style="padding: 8px 0px 8px 0px;"> 
-</div>
-{{/if}}
