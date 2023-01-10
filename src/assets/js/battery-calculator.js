@@ -16,8 +16,15 @@ $(document).ready(function () {
     let parameters = [];
     let parameterValues = {};
 
-    const getValue_ma = function(symbolValue) {
+    const getValue_ma = function(symbolValue, options = {}) {
         let result = symbolValue.typ;
+        if (options.avgTypMax) {
+            result = (symbolValue.typ + symbolValue.max) / 2;
+        }
+        else
+        if (options.useMax) {
+            result = symbolValue.max;
+        }
 
         switch(symbolValue.unit) {
             case 'uA':
@@ -148,21 +155,21 @@ $(document).ready(function () {
         console.log('Icell_cloud_idle='+ getValue_ma(modes.normal.Icell_conn_twr));
         console.log('sleep mA='+ getValue_ma(modes[mode][modeKey]));
 
-        calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr) / 3600.0; // mAh
+        calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr, {avgTypMax:true}) / 3600.0; // mAh per connection
  
-        calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh
+        calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh per connection
 
-        calculations.partialWakePower = parameterValues.partialWakeTime * getValue_ma(modes.normal.Iidle) / 3600.0; // mAh
+        calculations.partialWakePower = parameterValues.partialWakeTime * getValue_ma(modes.normal.Iidle) / 3600.0; // mAh per wake
  
-        calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.numPublishes; // sec
+        calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.numPublishes; // sec per day
 
-        calculations.partialWakeTimePerDay = parameterValues.partialWakeTime * parameterValues.numPartialWake; // sec
+        calculations.partialWakeTimePerDay = parameterValues.partialWakeTime * parameterValues.numPartialWake; // sec per day
 
-        calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay - calculations.partialWakeTimePerDay; // sec
+        calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay - calculations.partialWakeTimePerDay; // sec per day
 
-        calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh
+        calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh per day
 
-        calculations.powerPerDay = calculations.connectPower + calculations.postPublishPower + calculations.partialWakePower + calculations.sleepPower;  // mAh
+        calculations.powerPerDay = (calculations.connectPower + calculations.postPublishPower) * parameterValues.numPublishes + calculations.partialWakePower + calculations.sleepPower;  // mAh
 
         calculations.batteryPower = parameterValues.batterySize * ((100 - parameterValues.reservePct) / 100); // mAh
 
