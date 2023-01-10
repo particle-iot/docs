@@ -400,11 +400,13 @@ $(document).ready(function () {
             }
 
             if (pageObj.ticketForm) {
-                addField({
-                    title: 'Subject',
-                    type: 'text',
-                    field: 'subject',
-                });
+                if (!pageObj.subjectValue) {
+                    addField({
+                        title: 'Subject',
+                        type: 'text',
+                        field: 'subject',
+                    });    
+                }
                 addField({
                     title: 'Description',
                     type: 'textarea',
@@ -573,7 +575,7 @@ $(document).ready(function () {
 
 
                 const buttonElem = submitButton = document.createElement('button');
-                $(buttonElem).text('Submit support request');
+                $(buttonElem).text(pageObj.submitButtonTitle ? pageObj.submitButtonTitle : 'Submit support request');
                 $(pageDivElem).append(buttonElem);
 
                 $(buttonElem).on('click', async function() {
@@ -616,6 +618,14 @@ $(document).ready(function () {
                             });
                         }
                     }
+                    if (pageObj.subjectValue) {
+                        options.customFields.push({
+                            id: 22020244,
+                            value: pageObj.subjectValue
+                        });
+                    }
+
+                    
 
                     console.log('options', options);
 
