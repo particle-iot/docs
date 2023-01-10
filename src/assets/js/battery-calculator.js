@@ -16,6 +16,10 @@ $(document).ready(function () {
     let parameters = [];
     let parameterValues = {};
 
+    const setResult = function(s) {
+        $('.calculatorResult').text(s);
+    }
+
     const getValue_ma = function(symbolValue, options = {}) {
         let result = symbolValue.typ;
         if (options.avgTypMax) {
@@ -130,6 +134,17 @@ $(document).ready(function () {
         const mode = modeParts[0];
         const modeKey = modeParts[1];
 
+        urlConfig.countMode = $('input[name="countMode"]:checked').val();
+        switch(urlConfig.countMode) {
+            case 'everyMinutes':
+                urlConfig.count = $('input.everyMinutes').val();
+                break;
+
+            case 'perDay':
+                urlConfig.count = $('input.perDay').val();
+                break;
+        }
+
         for(const p of parameters) {
             urlConfig[p.parameter] = $(p.inputElem).val();
 
@@ -144,6 +159,17 @@ $(document).ready(function () {
         history.pushState(null, '', '?' + searchStr);     
 
         // Calculate power per publish
+
+        parameterValues.countMode = urlConfig.countMode;
+        switch(urlConfig.countMode) {
+            case 'everyMinutes':
+                parameterValues.numPublishes = 60.0 / parseFloat($('input.everyMinutes').val()) * 24;
+                break;
+
+                case 'perDay':
+                parameterValues.numPublishes = parseFloat($('input.perDay').val());
+                break;
+        }
 
         console.log('parameterValues', parameterValues);
 
@@ -177,49 +203,22 @@ $(document).ready(function () {
 
         console.log('calculations', calculations);
 
-        /*
-
-{{> battery-calculator parameter="numPublishes" label="Publishes per day" default="24"}}
-
-
-{{> battery-calculator parameter="connectTime" label="Time to connect and publish" default="15" labelAfter="seconds"}}
-
-
-{{> battery-calculator parameter="afterPublish" label="Time to stay awake after publish" default="10" labelAfter="seconds"}}
-
-
-{{> battery-calculator parameter="numPartialWake" label="Partial wakes" default="0"}}
-
-{{> battery-calculator parameter="partialWakeTime" label="Partial wake duration" default="10" labelAfter="seconds"}}
-
-*/
-
-/*
-ONE402 old calculator
-
-                   {"name":"Ultra Low Power: RTC wake-up","power":0.117},
-                    {"name":"Ultra Low Power: RTC+motion wake-up","power":0.158},
-                    {"name":"Ultra Low power: RTC+BLE wake-up","power":0.186},
-                    {"name":"Ultra Low power: RTC+UART wake-up","power":0.530},
-                    {"name":"Hibernate: RTC wake-up","power":0.103},
-                    {"name":"Hibernate: RTC+motion wake-up","power":0.137}
-                    
-                    
-                    "Iulp_intrtc": {
-                        "min": "-38.2",
-                        "typ": "188",
-                        "max": "558",
-                        "unit": "uA"
-                    },
-                    "Iulp_imu": {
-                        "min": "-48.4",
-                        "typ": "225",
-                        "max": "642",
-                        "unit": "uA"
-                    },
-                    
-                    */
-
+        let result = 'Estimated runtime: ';
+        if (calculations.days < 2) {
+            // Show in hours
+            result += Math.floor(calculations.days * 24) + ' hours';
+        }
+        else
+        if (calculations.days < 14) {
+            // Show in days only
+            result += Math.floor(calculations.days * 10) / 10 + ' days';
+        }
+        else {
+            // Show in days and weeks
+            const weeks = Math.floor(calculations.days / 7 * 10) / 10;
+            result += Math.floor(calculations.days) + ' days (' + weeks + ' weeks)';
+        }
+        setResult(result);
                     
     };
 
@@ -252,6 +251,43 @@ ONE402 old calculator
 
     })
 
+    $('.numPublishes').each(function() {
+        const thisElem = $(this);
+
+        const optionCountMode = urlParams.get('countMode');
+        if (optionCountMode) {
+            $(thisElem).find('input').prop('checked', false);
+            $(thisElem).find('input[value="' + optionCountMode + '"]').prop('checked', true);
+
+            const optionCount = urlParams.get('count');
+            if (optionCount) {
+                switch(optionCount) {
+                    case 'everyMinutes':
+                        $(thisElem).find('input.everyMinutes').val(optionCount);
+                        break;
+    
+                    case 'perDay':                    
+                    $(thisElem).find('input.perDay').val(optionCount);
+                    break;
+                }    
+            }
+        }
+
+        $(thisElem).find('input[type="radio"]').on('change', recalculate);        
+
+        $(thisElem).find('input.everyMinutes').on('input', function() {
+            $(thisElem).find('input').prop('checked', false);
+            $(thisElem).find('input[value="everyMinutes"]').prop('checked', true);            
+            recalculate();
+        });        
+        $(thisElem).find('input.perDay').on('input', function() {
+            $(thisElem).find('input').prop('checked', false);
+            $(thisElem).find('input[value="perDay"]').prop('checked', true);            
+            recalculate();
+        });        
+
+    });
+    
 
     $('.batteryCalculatorParameter').each(function() {
         const thisElem = $(this);

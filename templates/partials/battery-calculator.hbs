@@ -6,6 +6,8 @@
         <option value="ONE523">Tracker One ONE524, ONE523 (EMEAA)</option>
         <option value="B402">B SoM B404, B402 (North America)</option>
         <option value="B523">B SoM B524, B523 (EMEAA)</option>
+        <option value="BRN402">Boron BRN404, BRN402 (North America)</option>
+        <option value="BRN310">Boron 2G/3G</option>
     </select></div>
 </div>
 {{/if}}
@@ -19,8 +21,18 @@
     </select></div>
 </div>
 {{/if}}
+{{#if numPublishes}}
+<div class="batteryCalculator numPublishes" style="padding: 8px 0px 8px 0px;"> 
+    <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="everyMinutes" checked/>Publish every <input type="text" size="10" class="everyMinutes" value="30"/> minutes</label></div>
+    <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="perDay"/>Publish <input type="text" size="10" class="perDay"/> times per day</label></div>
+</div>
+{{/if}}
 {{#if parameter}}
 <div class="batteryCalculator batteryCalculatorParameter" data-parameter="{{parameter}}" style="padding: 8px 0px 8px 0px;"> 
     <div><span>{{label}}:</span> &nbsp;<input type="text" size="10" class="{{parameter}}" value="{{default}}"/> {{labelAfter}}</div>
+</div>
+{{/if}}
+{{#if result}}
+<div class="batteryCalculator calculatorResult" style="padding: 8px 0px 8px 0px;"> 
 </div>
 {{/if}}
