@@ -166,7 +166,7 @@ $(document).ready(function () {
                 parameterValues.numPublishes = 60.0 / parseFloat($('input.everyMinutes').val()) * 24;
                 break;
 
-                case 'perDay':
+            case 'perDay':
                 parameterValues.numPublishes = parseFloat($('input.perDay').val());
                 break;
         }
@@ -175,27 +175,21 @@ $(document).ready(function () {
 
         let calculations = {};
         
-        // batterySize: mAh
-
-        console.log('Icell_conn_twr='+ getValue_ma(modes.normal.Icell_conn_twr));
-        console.log('Icell_cloud_idle='+ getValue_ma(modes.normal.Icell_conn_twr));
-        console.log('sleep mA='+ getValue_ma(modes[mode][modeKey]));
+        // console.log('Icell_conn_twr='+ getValue_ma(modes.normal.Icell_conn_twr));
+        // console.log('Icell_cloud_idle='+ getValue_ma(modes.normal.Icell_conn_twr));
+        // console.log('sleep mA='+ getValue_ma(modes[mode][modeKey]));
 
         calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr, {avgTypMax:true}) / 3600.0; // mAh per connection
  
         calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh per connection
-
-        calculations.partialWakePower = parameterValues.partialWakeTime * getValue_ma(modes.normal.Iidle) / 3600.0; // mAh per wake
  
         calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.numPublishes; // sec per day
 
-        calculations.partialWakeTimePerDay = parameterValues.partialWakeTime * parameterValues.numPartialWake; // sec per day
-
-        calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay - calculations.partialWakeTimePerDay; // sec per day
+        calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay; // sec per day
 
         calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh per day
 
-        calculations.powerPerDay = (calculations.connectPower + calculations.postPublishPower) * parameterValues.numPublishes + calculations.partialWakePower + calculations.sleepPower;  // mAh
+        calculations.powerPerDay = (calculations.connectPower + calculations.postPublishPower) * parameterValues.numPublishes + calculations.sleepPower;  // mAh
 
         calculations.batteryPower = parameterValues.batterySize * ((100 - parameterValues.reservePct) / 100); // mAh
 
@@ -267,8 +261,8 @@ $(document).ready(function () {
                         break;
     
                     case 'perDay':                    
-                    $(thisElem).find('input.perDay').val(optionCount);
-                    break;
+                        $(thisElem).find('input.perDay').val(optionCount);
+                        break;
                 }    
             }
         }

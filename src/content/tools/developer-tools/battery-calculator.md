@@ -23,9 +23,10 @@ Non-Tracker content goes here
 
 {{> battery-calculator sleepMode="1"}}
 
-Number of publishes per day:
+The biggest factor in how long your battery will last is how may times you will wake the device to publish data. 
 
 {{> battery-calculator numPublishes="1"}}
+
 
 {{content-guard op="start" mode="family-tracker-one"}}
 The Tracker One has a built-in 2000 mAh LiPo battery. You should leave the battery size set at 2000.
@@ -37,18 +38,10 @@ The standard Particle battery for this device is 1800 mAh, however you can use a
 
 
 
-{{!-- {{> battery-calculator parameter="numPublishes" label="Publishes per day" default="24"}} --}}
-
-
 {{> battery-calculator parameter="connectTime" label="Time to connect and publish" default="15" labelAfter="seconds"}}
 
 
 {{> battery-calculator parameter="afterPublish" label="Time to stay awake after publish" default="10" labelAfter="seconds"}}
-
-
-{{> battery-calculator parameter="numPartialWake" label="Partial wakes" default="0"}}
-
-{{> battery-calculator parameter="partialWakeTime" label="Partial wake duration" default="10" labelAfter="seconds"}}
 
 {{> battery-calculator parameter="reservePct" label="Battery percentage to reserve" default="10" labelAfter="%"}}
 
