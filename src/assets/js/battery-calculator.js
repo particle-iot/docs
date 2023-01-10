@@ -141,23 +141,32 @@ $(document).ready(function () {
         console.log('parameterValues', parameterValues);
 
         let calculations = {};
+        
+        // batterySize: mAh
 
+        console.log('Icell_conn_twr='+ getValue_ma(modes.normal.Icell_conn_twr));
+        console.log('Icell_cloud_idle='+ getValue_ma(modes.normal.Icell_conn_twr));
+        console.log('sleep mA='+ getValue_ma(modes[mode][modeKey]));
 
-        calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr) / 3600.0;
+        calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr) / 3600.0; // mAh
  
-        calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0;
+        calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh
 
-        calculations.partialWakePower = parameterValues.partialWakeTime * getValue_ma(modes.normal.Iidle) / 3600.0;
+        calculations.partialWakePower = parameterValues.partialWakeTime * getValue_ma(modes.normal.Iidle) / 3600.0; // mAh
  
-        calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.numPublishes;
+        calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.numPublishes; // sec
 
-        calculations.partialWakeTimePerDay = parameterValues.partialWakeTime * parameterValues.numPartialWake;
+        calculations.partialWakeTimePerDay = parameterValues.partialWakeTime * parameterValues.numPartialWake; // sec
 
-        calculations.sleepTimePerDay = (3600 * 24) - calculations.connectTimePerDay - calculations.partialWakeTimePerDay;
+        calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay - calculations.partialWakeTimePerDay; // sec
 
-        calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay;
+        calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh
 
-        calculations.powerPerDay = calculations.connectPower + calculations.postPublishPower + calculations.partialWakePower + calculations.sleepPower;
+        calculations.powerPerDay = calculations.connectPower + calculations.postPublishPower + calculations.partialWakePower + calculations.sleepPower;  // mAh
+
+        calculations.batteryPower = parameterValues.batterySize * ((100 - parameterValues.reservePct) / 100); // mAh
+
+        calculations.days = calculations.batteryPower / calculations.powerPerDay;
 
         console.log('calculations', calculations);
 

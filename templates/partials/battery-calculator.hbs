@@ -19,13 +19,8 @@
     </select></div>
 </div>
 {{/if}}
-{{#if batterySize}}
-<div class="batteryCalculator batteryCalculatorBatterySize"> 
-    <div>Battery size: <input type="text" size="10" class="batterySizeInput" /> mAh</div>
-</div>
-{{/if}}
 {{#if parameter}}
 <div class="batteryCalculator batteryCalculatorParameter" data-parameter="{{parameter}}" style="padding: 8px 0px 8px 0px;"> 
-    <div>{{label}}: <input type="text" size="10" class="{{parameter}}" value="{{default}}"/> {{labelAfter}}</div>
+    <div><span>{{label}}:</span> &nbsp;<input type="text" size="10" class="{{parameter}}" value="{{default}}"/> {{labelAfter}}</div>
 </div>
 {{/if}}
