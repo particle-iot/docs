@@ -68,7 +68,7 @@ async function run() {
             if (parts.length > 1) {
                 s = parts[0];
             }
-            return s.trim();
+            return parseFloat(s);
         }
 
         const processRow = function() {
@@ -94,6 +94,8 @@ async function run() {
                     max: normalizeValue(curRow[4]),
                     unit: curRow[5],
                 };
+
+                curRow = [];
             }
         }
 
@@ -108,6 +110,7 @@ async function run() {
                         curRow.push($(elem2).text().replaceAll('\n', ' ').replace(/ [ ]+/g, ' ').trim());
                     }
                 }
+                processRow();
             }
             else {
                 let headingText = $(elem1).text().trim();
@@ -145,6 +148,24 @@ async function run() {
 
             }
         }
+
+        // Fix missing data
+        for(const key in data.devices.T402.modes.normal) {
+            if (!data.devices.ONE402.modes.normal[key]) {
+                data.devices.ONE402.modes.normal[key] = data.devices.T402.modes.normal[key]; 
+            }
+        }
+        for(const key in data.devices.T523.modes.normal) {
+            if (!data.devices.ONE523.modes.normal[key]) {
+                data.devices.ONE523.modes.normal[key] = data.devices.T523.modes.normal[key]; 
+            }
+        }
+
+        /*
+        if (data.devices.ONE402.modes.normal.Iconn_cloud.unit == 'TBD') {
+            data.devices.ONE402.modes.normal = data.devices.ONE523.modes.normal;
+        }
+        */
 
 
         let oldString;

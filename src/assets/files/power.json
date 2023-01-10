@@ -5,279 +5,285 @@
             "modes": {
                 "stop": {
                     "Istop_gpio": {
-                        "min": "625",
-                        "typ": "872",
-                        "max": "1270",
+                        "min": 625,
+                        "typ": 872,
+                        "max": 1270,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "655",
-                        "typ": "853",
-                        "max": "1210",
+                        "min": 655,
+                        "typ": 853,
+                        "max": 1210,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "632",
-                        "typ": "873",
-                        "max": "1260",
+                        "min": 632,
+                        "typ": 873,
+                        "max": 1260,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-127",
-                        "typ": "919",
-                        "max": "2700",
+                        "min": -127,
+                        "typ": 919,
+                        "max": 2700,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "421",
-                        "typ": "901",
-                        "max": "1680",
+                        "min": 421,
+                        "typ": 901,
+                        "max": 1680,
                         "unit": "uA"
                     },
                     "Istop_imu": {
-                        "min": "584",
-                        "typ": "858",
-                        "max": "1250",
+                        "min": 584,
+                        "typ": 858,
+                        "max": 1250,
                         "unit": "uA"
                     },
                     "Istop_can": {
-                        "min": "622",
-                        "typ": "869",
-                        "max": "1280",
+                        "min": 622,
+                        "typ": 869,
+                        "max": 1280,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "613",
-                        "typ": "840",
-                        "max": "1240",
+                        "min": 613,
+                        "typ": 840,
+                        "max": 1240,
                         "unit": "uA"
                     },
                     "Istop_cell": {
-                        "min": "19.2",
-                        "typ": "21.5",
-                        "max": "149",
+                        "min": 19.2,
+                        "typ": 21.5,
+                        "max": 149,
+                        "unit": "mA"
+                    },
+                    "Istop_gps": {
+                        "min": 23.8,
+                        "typ": 30.8,
+                        "max": 44.7,
                         "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_gps": {
-                        "min": "23.8",
-                        "typ": "30.8",
-                        "max": "44.7",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "130",
-                        "typ": "139",
-                        "max": "540",
+                        "min": 130,
+                        "typ": 139,
+                        "max": 540,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "132",
-                        "typ": "140",
-                        "max": "542",
+                        "min": 132,
+                        "typ": 140,
+                        "max": 542,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "131",
-                        "typ": "139",
-                        "max": "531",
+                        "min": 131,
+                        "typ": 139,
+                        "max": 531,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "132",
-                        "typ": "214",
-                        "max": "2240",
+                        "min": 132,
+                        "typ": 214,
+                        "max": 2240,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-275",
-                        "typ": "230",
-                        "max": "1110",
+                        "min": -275,
+                        "typ": 230,
+                        "max": 1110,
                         "unit": "uA"
                     },
                     "Iulp_imu": {
-                        "min": "-88.4",
-                        "typ": "172",
-                        "max": "580",
+                        "min": -88.4,
+                        "typ": 172,
+                        "max": 580,
                         "unit": "uA"
                     },
                     "Iulp_can": {
-                        "min": "-8.4",
-                        "typ": "162",
-                        "max": "513",
+                        "min": -8.4,
+                        "typ": 162,
+                        "max": 513,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "366",
-                        "typ": "564",
-                        "max": "933",
+                        "min": 366,
+                        "typ": 564,
+                        "max": 933,
                         "unit": "uA"
                     },
                     "Iulp_cell": {
-                        "min": "18.9",
-                        "typ": "21.7",
-                        "max": "210",
+                        "min": 18.9,
+                        "typ": 21.7,
+                        "max": 210,
+                        "unit": "mA"
+                    },
+                    "Iulp_gps": {
+                        "min": 23.1,
+                        "typ": 30.2,
+                        "max": 44.6,
                         "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_gps": {
-                        "min": "23.1",
-                        "typ": "30.2",
-                        "max": "44.6",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "-80.2",
-                        "typ": "111",
-                        "max": "474",
+                        "min": -80.2,
+                        "typ": 111,
+                        "max": 474,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-98.9",
-                        "typ": "114",
-                        "max": "521",
+                        "min": -98.9,
+                        "typ": 114,
+                        "max": 521,
                         "unit": "uA"
                     },
                     "Ihib_extrtc": {
-                        "min": "-78.5",
-                        "typ": "111",
-                        "max": "478",
+                        "min": -78.5,
+                        "typ": 111,
+                        "max": 478,
                         "unit": "uA"
                     },
                     "Ihib_imu": {
-                        "min": "-109",
-                        "typ": "144",
-                        "max": "580",
+                        "min": -109,
+                        "typ": 144,
+                        "max": 580,
+                        "unit": "uA"
+                    },
+                    "Ihib_can": {
+                        "min": 8.76,
+                        "typ": 133,
+                        "max": 386,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_can": {
-                        "min": "8.76",
-                        "typ": "133",
-                        "max": "386",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "3.22",
-                        "typ": "3.24",
-                        "max": "3.26",
+                        "min": 3.22,
+                        "typ": 3.24,
+                        "max": 3.26,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "3.74",
-                        "typ": "3.86",
-                        "max": "3.95",
+                        "min": 3.74,
+                        "typ": 3.86,
+                        "max": 3.95,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "3.58",
-                        "typ": "3.68",
-                        "max": "3.77",
+                        "min": 3.58,
+                        "typ": 3.68,
+                        "max": 3.77,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "3.54",
-                        "typ": "3.64",
-                        "max": "3.72",
+                        "min": 3.54,
+                        "typ": 3.64,
+                        "max": 3.72,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "4.00",
-                        "typ": "4.08",
-                        "max": "4.13",
+                        "min": 4,
+                        "typ": 4.08,
+                        "max": 4.13,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "3.62",
-                        "typ": "4.16",
-                        "max": "5.08",
+                        "min": 3.62,
+                        "typ": 4.16,
+                        "max": 5.08,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "3.84",
-                        "typ": "4.14",
-                        "max": "4.65",
+                        "min": 3.84,
+                        "typ": 4.14,
+                        "max": 4.65,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "3.74",
-                        "typ": "4.06",
-                        "max": "4.60",
+                        "min": 3.74,
+                        "typ": 4.06,
+                        "max": 4.6,
                         "unit": "mA"
                     },
                     "Iimu": {
-                        "min": "3.93",
-                        "typ": "3.98",
-                        "max": "4.00",
+                        "min": 3.93,
+                        "typ": 3.98,
+                        "max": 4,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "3.91",
-                        "typ": "5.68",
-                        "max": "8.88",
+                        "min": 3.91,
+                        "typ": 5.68,
+                        "max": 8.88,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "18.9",
-                        "typ": "22.0",
-                        "max": "136",
+                        "min": 18.9,
+                        "typ": 22,
+                        "max": 136,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "35.5",
-                        "typ": "106",
-                        "max": "726",
+                        "min": 35.5,
+                        "typ": 106,
+                        "max": 726,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "21.6",
-                        "typ": "23.9",
-                        "max": "159",
+                        "min": 21.6,
+                        "typ": 23.9,
+                        "max": 159,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "38.0",
-                        "typ": "137",
-                        "max": "553",
+                        "min": 38,
+                        "typ": 137,
+                        "max": 553,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "21.7",
-                        "typ": "24.7",
-                        "max": "149",
+                        "min": 21.7,
+                        "typ": 24.7,
+                        "max": 149,
                         "unit": "mA"
                     },
                     "Icell_cloud_tx": {
-                        "min": "117",
-                        "typ": "145",
-                        "max": "787",
+                        "min": 117,
+                        "typ": 145,
+                        "max": 787,
                         "unit": "mA"
                     },
                     "Iwifi_idle": {
-                        "min": "87.1",
-                        "typ": "87.9",
-                        "max": "93.5",
+                        "min": 87.1,
+                        "typ": 87.9,
+                        "max": 93.5,
                         "unit": "mA"
                     },
                     "Iwifi_scan": {
-                        "min": "81.0",
-                        "typ": "84.3",
-                        "max": "151",
+                        "min": 81,
+                        "typ": 84.3,
+                        "max": 151,
                         "unit": "mA"
                     },
                     "Igps_loc": {
-                        "min": "26.9",
-                        "typ": "34.5",
-                        "max": "49.2",
+                        "min": 26.9,
+                        "typ": 34.5,
+                        "max": 49.2,
                         "unit": "mA"
                     },
                     "Ican_idle": {
-                        "min": "31.3",
-                        "typ": "31.6",
-                        "max": "31.9",
+                        "min": 31.3,
+                        "typ": 31.6,
+                        "max": 31.9,
+                        "unit": "mA"
+                    },
+                    "Ican_tx": {
+                        "min": 31.6,
+                        "typ": 31.8,
+                        "max": 32.1,
                         "unit": "mA"
                     }
                 }
@@ -287,286 +293,286 @@
             "sku": "T402",
             "modes": {
                 "stop": {
-                    "Ican_tx": {
-                        "min": "31.6",
-                        "typ": "31.8",
-                        "max": "32.1",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "566",
-                        "typ": "806",
-                        "max": "1170",
+                        "min": 566,
+                        "typ": 806,
+                        "max": 1170,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "588",
-                        "typ": "831",
-                        "max": "1230",
+                        "min": 588,
+                        "typ": 831,
+                        "max": 1230,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "593",
-                        "typ": "835",
-                        "max": "1240",
+                        "min": 593,
+                        "typ": 835,
+                        "max": 1240,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-20.1",
-                        "typ": "858",
-                        "max": "2330",
+                        "min": -20.1,
+                        "typ": 858,
+                        "max": 2330,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "360",
-                        "typ": "875",
-                        "max": "1600",
+                        "min": 360,
+                        "typ": 875,
+                        "max": 1600,
                         "unit": "uA"
                     },
                     "Istop_imu": {
-                        "min": "548",
-                        "typ": "834",
-                        "max": "1250",
+                        "min": 548,
+                        "typ": 834,
+                        "max": 1250,
                         "unit": "uA"
                     },
                     "Istop_can": {
-                        "min": "605",
-                        "typ": "817",
-                        "max": "1210",
+                        "min": 605,
+                        "typ": 817,
+                        "max": 1210,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "577",
-                        "typ": "798",
-                        "max": "1210",
+                        "min": 577,
+                        "typ": 798,
+                        "max": 1210,
                         "unit": "uA"
                     },
                     "Istop_cell": {
-                        "min": "7.66",
-                        "typ": "17.2",
-                        "max": "90.1",
+                        "min": 7.66,
+                        "typ": 17.2,
+                        "max": 90.1,
+                        "unit": "mA"
+                    },
+                    "Istop_gps": {
+                        "min": 23.7,
+                        "typ": 31.1,
+                        "max": 46.3,
                         "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_gps": {
-                        "min": "23.7",
-                        "typ": "31.1",
-                        "max": "46.3",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "-90.2",
-                        "typ": "114",
-                        "max": "479",
+                        "min": -90.2,
+                        "typ": 114,
+                        "max": 479,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-90.2",
-                        "typ": "117",
-                        "max": "508",
+                        "min": -90.2,
+                        "typ": 117,
+                        "max": 508,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "-94",
-                        "typ": "114",
-                        "max": "509",
+                        "min": -94,
+                        "typ": 114,
+                        "max": 509,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-725",
-                        "typ": "186",
-                        "max": "2200",
+                        "min": -725,
+                        "typ": 186,
+                        "max": 2200,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-268",
-                        "typ": "203",
-                        "max": "1070",
+                        "min": -268,
+                        "typ": 203,
+                        "max": 1070,
                         "unit": "uA"
                     },
                     "Iulp_imu": {
-                        "min": "-122",
-                        "typ": "175",
-                        "max": "616",
+                        "min": -122,
+                        "typ": 175,
+                        "max": 616,
                         "unit": "uA"
                     },
                     "Iulp_can": {
-                        "min": "-63.8",
-                        "typ": "142",
-                        "max": "528",
+                        "min": -63.8,
+                        "typ": 142,
+                        "max": 528,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "287",
-                        "typ": "530",
-                        "max": "934",
+                        "min": 287,
+                        "typ": 530,
+                        "max": 934,
                         "unit": "uA"
                     },
                     "Iulp_cell": {
-                        "min": "3.06",
-                        "typ": "16.9",
-                        "max": "83.4",
+                        "min": 3.06,
+                        "typ": 16.9,
+                        "max": 83.4,
+                        "unit": "mA"
+                    },
+                    "Iulp_gps": {
+                        "min": 23.6,
+                        "typ": 30.9,
+                        "max": 45.7,
                         "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_gps": {
-                        "min": "23.6",
-                        "typ": "30.9",
-                        "max": "45.7",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "-97.6",
-                        "typ": "103",
-                        "max": "503",
+                        "min": -97.6,
+                        "typ": 103,
+                        "max": 503,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-98.2",
-                        "typ": "100",
-                        "max": "493",
+                        "min": -98.2,
+                        "typ": 100,
+                        "max": 493,
                         "unit": "uA"
                     },
                     "Ihib_extrtc": {
-                        "min": "-107",
-                        "typ": "94.3",
-                        "max": "487",
+                        "min": -107,
+                        "typ": 94.3,
+                        "max": 487,
                         "unit": "uA"
                     },
                     "Ihib_imu": {
-                        "min": "-97.8",
-                        "typ": "151",
-                        "max": "590",
+                        "min": -97.8,
+                        "typ": 151,
+                        "max": 590,
+                        "unit": "uA"
+                    },
+                    "Ihib_can": {
+                        "min": -72.4,
+                        "typ": 121,
+                        "max": 477,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_can": {
-                        "min": "-72.4",
-                        "typ": "121",
-                        "max": "477",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "3.35",
-                        "typ": "3.38",
-                        "max": "4.39",
+                        "min": 3.35,
+                        "typ": 3.38,
+                        "max": 4.39,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "3.70",
-                        "typ": "3.80",
-                        "max": "3.90",
+                        "min": 3.7,
+                        "typ": 3.8,
+                        "max": 3.9,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "3.58",
-                        "typ": "3.62",
-                        "max": "3.65",
+                        "min": 3.58,
+                        "typ": 3.62,
+                        "max": 3.65,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "3.54",
-                        "typ": "3.58",
-                        "max": "3.60",
+                        "min": 3.54,
+                        "typ": 3.58,
+                        "max": 3.6,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "3.96",
-                        "typ": "4.03",
-                        "max": "4.09",
+                        "min": 3.96,
+                        "typ": 4.03,
+                        "max": 4.09,
                         "unit": "mA"
                     },
                     "Iimu": {
-                        "min": "3.90",
-                        "typ": "3.92",
-                        "max": "3.94",
+                        "min": 3.9,
+                        "typ": 3.92,
+                        "max": 3.94,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "3.50",
-                        "typ": "4.07",
-                        "max": "5.02",
+                        "min": 3.5,
+                        "typ": 4.07,
+                        "max": 5.02,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "3.74",
-                        "typ": "4.05",
-                        "max": "4.58",
+                        "min": 3.74,
+                        "typ": 4.05,
+                        "max": 4.58,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "3.65",
-                        "typ": "4.05",
-                        "max": "4.60",
+                        "min": 3.65,
+                        "typ": 4.05,
+                        "max": 4.6,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-2.61",
-                        "typ": "5.68",
-                        "max": "9.04",
+                        "min": -2.61,
+                        "typ": 5.68,
+                        "max": 9.04,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "-47.0",
-                        "typ": "21.3",
-                        "max": "277",
+                        "min": -47,
+                        "typ": 21.3,
+                        "max": 277,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "16.8",
-                        "typ": "56.7",
-                        "max": "329",
+                        "min": 16.8,
+                        "typ": 56.7,
+                        "max": 329,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "19.2",
-                        "typ": "21.2",
-                        "max": "94.5",
+                        "min": 19.2,
+                        "typ": 21.2,
+                        "max": 94.5,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "19.1",
-                        "typ": "53.3",
-                        "max": "292",
+                        "min": 19.1,
+                        "typ": 53.3,
+                        "max": 292,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "19.2",
-                        "typ": "21.2",
-                        "max": "97.1",
+                        "min": 19.2,
+                        "typ": 21.2,
+                        "max": 97.1,
                         "unit": "mA"
                     },
                     "Icell_cloud_tx": {
-                        "min": "19.5",
-                        "typ": "63.6",
-                        "max": "280",
+                        "min": 19.5,
+                        "typ": 63.6,
+                        "max": 280,
                         "unit": "mA"
                     },
                     "Iwifi_idle": {
-                        "min": "86.5",
-                        "typ": "87.7",
-                        "max": "91.0",
+                        "min": 86.5,
+                        "typ": 87.7,
+                        "max": 91,
                         "unit": "mA"
                     },
                     "Iwifi_scan": {
-                        "min": "79.6",
-                        "typ": "83.4",
-                        "max": "155",
+                        "min": 79.6,
+                        "typ": 83.4,
+                        "max": 155,
                         "unit": "mA"
                     },
                     "Igps_loc": {
-                        "min": "28.6",
-                        "typ": "37.0",
-                        "max": "51.0",
+                        "min": 28.6,
+                        "typ": 37,
+                        "max": 51,
                         "unit": "mA"
                     },
                     "Ican_idle": {
-                        "min": "33.4",
-                        "typ": "33.6",
-                        "max": "34.0",
+                        "min": 33.4,
+                        "typ": 33.6,
+                        "max": 34,
+                        "unit": "mA"
+                    },
+                    "Ican_tx": {
+                        "min": 33.6,
+                        "typ": 33.8,
+                        "max": 34.1,
                         "unit": "mA"
                     }
                 }
@@ -576,184 +582,310 @@
             "sku": "ONE523",
             "modes": {
                 "stop": {
-                    "Ican_tx": {
-                        "min": "33.6",
-                        "typ": "33.8",
-                        "max": "34.1",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "778",
-                        "typ": "1010",
-                        "max": "1390",
+                        "min": 778,
+                        "typ": 1010,
+                        "max": 1390,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "740",
-                        "typ": "995",
-                        "max": "1390",
+                        "min": 740,
+                        "typ": 995,
+                        "max": 1390,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "758",
-                        "typ": "993",
-                        "max": "1420",
+                        "min": 758,
+                        "typ": 993,
+                        "max": 1420,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "150",
-                        "typ": "1050",
-                        "max": "2500",
+                        "min": 150,
+                        "typ": 1050,
+                        "max": 2500,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "521",
-                        "typ": "1050",
-                        "max": "1920",
+                        "min": 521,
+                        "typ": 1050,
+                        "max": 1920,
                         "unit": "uA"
                     },
                     "Istop_imu": {
-                        "min": "714",
-                        "typ": "1020",
-                        "max": "1460",
+                        "min": 714,
+                        "typ": 1020,
+                        "max": 1460,
                         "unit": "uA"
                     },
                     "Istop_can": {
-                        "min": "844",
-                        "typ": "1080",
-                        "max": "1490",
+                        "min": 844,
+                        "typ": 1080,
+                        "max": 1490,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "729",
-                        "typ": "995",
-                        "max": "1390",
+                        "min": 729,
+                        "typ": 995,
+                        "max": 1390,
                         "unit": "uA"
                     },
                     "Istop_cell": {
-                        "min": "19.2",
-                        "typ": "21.2",
-                        "max": "151",
+                        "min": 19.2,
+                        "typ": 21.2,
+                        "max": 151,
+                        "unit": "mA"
+                    },
+                    "Istop_gps": {
+                        "min": 28,
+                        "typ": 34.8,
+                        "max": 49,
                         "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_gps": {
-                        "min": "28.0",
-                        "typ": "34.8",
-                        "max": "49.0",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "-50.5",
-                        "typ": "172",
-                        "max": "556",
+                        "min": -50.5,
+                        "typ": 172,
+                        "max": 556,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-25.5",
-                        "typ": "165",
-                        "max": "526",
+                        "min": -25.5,
+                        "typ": 165,
+                        "max": 526,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "-88.8",
-                        "typ": "164",
-                        "max": "561",
+                        "min": -88.8,
+                        "typ": 164,
+                        "max": 561,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-535",
-                        "typ": "228",
-                        "max": "1810",
+                        "min": -535,
+                        "typ": 228,
+                        "max": 1810,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-167",
-                        "typ": "231",
-                        "max": "1100",
+                        "min": -167,
+                        "typ": 231,
+                        "max": 1100,
                         "unit": "uA"
                     },
                     "Iulp_imu": {
-                        "min": "-11.5",
-                        "typ": "194",
-                        "max": "534",
+                        "min": -11.5,
+                        "typ": 194,
+                        "max": 534,
                         "unit": "uA"
                     },
                     "Iulp_can": {
-                        "min": "45.1",
-                        "typ": "247",
-                        "max": "609",
+                        "min": 45.1,
+                        "typ": 247,
+                        "max": 609,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "503",
-                        "typ": "731",
-                        "max": "1160",
+                        "min": 503,
+                        "typ": 731,
+                        "max": 1160,
                         "unit": "uA"
                     },
                     "Iulp_cell": {
-                        "min": "18.6",
-                        "typ": "20.9",
-                        "max": "212",
+                        "min": 18.6,
+                        "typ": 20.9,
+                        "max": 212,
+                        "unit": "mA"
+                    },
+                    "Iulp_gps": {
+                        "min": 27.4,
+                        "typ": 33.9,
+                        "max": 48,
                         "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_gps": {
-                        "min": "27.4",
-                        "typ": "33.9",
-                        "max": "48.0",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "-28.9",
-                        "typ": "148",
-                        "max": "519",
+                        "min": -28.9,
+                        "typ": 148,
+                        "max": 519,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-46.6",
-                        "typ": "141",
-                        "max": "515",
+                        "min": -46.6,
+                        "typ": 141,
+                        "max": 515,
                         "unit": "uA"
                     },
                     "Ihib_extrtc": {
-                        "min": "-94.5",
-                        "typ": "140",
-                        "max": "525",
+                        "min": -94.5,
+                        "typ": 140,
+                        "max": 525,
                         "unit": "uA"
                     },
                     "Ihib_imu": {
-                        "min": "-209",
-                        "typ": "170",
-                        "max": "544",
+                        "min": -209,
+                        "typ": 170,
+                        "max": 544,
+                        "unit": "uA"
+                    },
+                    "Ihib_can": {
+                        "min": -24.5,
+                        "typ": 222,
+                        "max": 603,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_can": {
-                        "min": "-24.5",
-                        "typ": "222",
-                        "max": "603",
-                        "unit": "uA"
-                    },
                     "Istartup": {
-                        "min": "24.2",
-                        "typ": "132",
-                        "max": "689",
+                        "min": 24.2,
+                        "typ": 132,
+                        "max": 689,
                         "unit": "mA"
                     },
                     "Iconn_cloud": {
-                        "min": "51.2",
-                        "typ": "112",
-                        "max": "594",
+                        "min": 51.2,
+                        "typ": 112,
+                        "max": 594,
                         "unit": "mA"
                     },
                     "Icloud_idle": {
-                        "min": "50.9",
-                        "typ": "60.2",
-                        "max": "197",
+                        "min": 50.9,
+                        "typ": 60.2,
+                        "max": 197,
+                        "unit": "mA"
+                    },
+                    "Icloud_pub": {
+                        "min": 57.2,
+                        "typ": 173,
+                        "max": 702,
+                        "unit": "mA"
+                    },
+                    "Iidle": {
+                        "min": 3.22,
+                        "typ": 3.24,
+                        "max": 3.26,
+                        "unit": "mA"
+                    },
+                    "Irgb_r": {
+                        "min": 3.74,
+                        "typ": 3.86,
+                        "max": 3.95,
+                        "unit": "mA"
+                    },
+                    "Irgb_g": {
+                        "min": 3.58,
+                        "typ": 3.68,
+                        "max": 3.77,
+                        "unit": "mA"
+                    },
+                    "Irgb_b": {
+                        "min": 3.54,
+                        "typ": 3.64,
+                        "max": 3.72,
+                        "unit": "mA"
+                    },
+                    "Irgb_w": {
+                        "min": 4,
+                        "typ": 4.08,
+                        "max": 4.13,
+                        "unit": "mA"
+                    },
+                    "Ible_adv": {
+                        "min": 3.62,
+                        "typ": 4.16,
+                        "max": 5.08,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_idle": {
+                        "min": 3.84,
+                        "typ": 4.14,
+                        "max": 4.65,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_tx": {
+                        "min": 3.74,
+                        "typ": 4.06,
+                        "max": 4.6,
+                        "unit": "mA"
+                    },
+                    "Iimu": {
+                        "min": 3.93,
+                        "typ": 3.98,
+                        "max": 4,
+                        "unit": "mA"
+                    },
+                    "Ible_scan": {
+                        "min": 3.91,
+                        "typ": 5.68,
+                        "max": 8.88,
+                        "unit": "mA"
+                    },
+                    "Icell_idle": {
+                        "min": 18.9,
+                        "typ": 22,
+                        "max": 136,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_twr": {
+                        "min": 35.5,
+                        "typ": 106,
+                        "max": 726,
+                        "unit": "mA"
+                    },
+                    "Icell_twr_idle": {
+                        "min": 21.6,
+                        "typ": 23.9,
+                        "max": 159,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_cloud": {
+                        "min": 38,
+                        "typ": 137,
+                        "max": 553,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_idle": {
+                        "min": 21.7,
+                        "typ": 24.7,
+                        "max": 149,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": 117,
+                        "typ": 145,
+                        "max": 787,
+                        "unit": "mA"
+                    },
+                    "Iwifi_idle": {
+                        "min": 87.1,
+                        "typ": 87.9,
+                        "max": 93.5,
+                        "unit": "mA"
+                    },
+                    "Iwifi_scan": {
+                        "min": 81,
+                        "typ": 84.3,
+                        "max": 151,
+                        "unit": "mA"
+                    },
+                    "Igps_loc": {
+                        "min": 26.9,
+                        "typ": 34.5,
+                        "max": 49.2,
+                        "unit": "mA"
+                    },
+                    "Ican_idle": {
+                        "min": 31.3,
+                        "typ": 31.6,
+                        "max": 31.9,
+                        "unit": "mA"
+                    },
+                    "Ican_tx": {
+                        "min": 31.6,
+                        "typ": 31.8,
+                        "max": 32.1,
                         "unit": "mA"
                     }
                 }
@@ -763,185 +895,311 @@
             "sku": "ONE402",
             "modes": {
                 "stop": {
-                    "Icloud_pub": {
-                        "min": "57.2",
-                        "typ": "173",
-                        "max": "702",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "911",
-                        "typ": "1140",
-                        "max": "1530",
+                        "min": 911,
+                        "typ": 1140,
+                        "max": 1530,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "920",
-                        "typ": "1120",
-                        "max": "1480",
+                        "min": 920,
+                        "typ": 1120,
+                        "max": 1480,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "919",
-                        "typ": "1130",
-                        "max": "1500",
+                        "min": 919,
+                        "typ": 1130,
+                        "max": 1500,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "136",
-                        "typ": "1190",
-                        "max": "2880",
+                        "min": 136,
+                        "typ": 1190,
+                        "max": 2880,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "772",
-                        "typ": "1180",
-                        "max": "1790",
+                        "min": 772,
+                        "typ": 1180,
+                        "max": 1790,
                         "unit": "uA"
                     },
                     "Istop_imu": {
-                        "min": "850",
-                        "typ": "1150",
-                        "max": "1590",
+                        "min": 850,
+                        "typ": 1150,
+                        "max": 1590,
                         "unit": "uA"
                     },
                     "Istop_can": {
-                        "min": "981",
-                        "typ": "1200",
-                        "max": "1600",
+                        "min": 981,
+                        "typ": 1200,
+                        "max": 1600,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "933",
-                        "typ": "1120",
-                        "max": "1510",
+                        "min": 933,
+                        "typ": 1120,
+                        "max": 1510,
                         "unit": "uA"
                     },
                     "Istop_cell": {
-                        "min": "11.2",
-                        "typ": "17.3",
-                        "max": "116",
+                        "min": 11.2,
+                        "typ": 17.3,
+                        "max": 116,
+                        "unit": "mA"
+                    },
+                    "Istop_gps": {
+                        "min": 29.3,
+                        "typ": 36.1,
+                        "max": 50.2,
                         "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_gps": {
-                        "min": "29.3",
-                        "typ": "36.1",
-                        "max": "50.2",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "-4.92",
-                        "typ": "201",
-                        "max": "552",
+                        "min": -4.92,
+                        "typ": 201,
+                        "max": 552,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-28.6",
-                        "typ": "190",
-                        "max": "593",
+                        "min": -28.6,
+                        "typ": 190,
+                        "max": 593,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "-38.2",
-                        "typ": "188",
-                        "max": "558",
+                        "min": -38.2,
+                        "typ": 188,
+                        "max": 558,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-650",
-                        "typ": "270",
-                        "max": "2150",
+                        "min": -650,
+                        "typ": 270,
+                        "max": 2150,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-180",
-                        "typ": "258",
-                        "max": "990",
+                        "min": -180,
+                        "typ": 258,
+                        "max": 990,
                         "unit": "uA"
                     },
                     "Iulp_imu": {
-                        "min": "-48.4",
-                        "typ": "225",
-                        "max": "642",
+                        "min": -48.4,
+                        "typ": 225,
+                        "max": 642,
                         "unit": "uA"
                     },
                     "Iulp_can": {
-                        "min": "75.3",
-                        "typ": "270",
-                        "max": "631",
+                        "min": 75.3,
+                        "typ": 270,
+                        "max": 631,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "638",
-                        "typ": "842",
-                        "max": "1200",
+                        "min": 638,
+                        "typ": 842,
+                        "max": 1200,
                         "unit": "uA"
                     },
                     "Iulp_cell": {
-                        "min": "13.9",
-                        "typ": "16.9",
-                        "max": "86.0",
+                        "min": 13.9,
+                        "typ": 16.9,
+                        "max": 86,
+                        "unit": "mA"
+                    },
+                    "Iulp_gps": {
+                        "min": 28,
+                        "typ": 35.3,
+                        "max": 49.5,
                         "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_gps": {
-                        "min": "28.0",
-                        "typ": "35.3",
-                        "max": "49.5",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "-86.7",
-                        "typ": "161",
-                        "max": "564",
+                        "min": -86.7,
+                        "typ": 161,
+                        "max": 564,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-59.4",
-                        "typ": "151",
-                        "max": "557",
+                        "min": -59.4,
+                        "typ": 151,
+                        "max": 557,
                         "unit": "uA"
                     },
                     "Ihib_extrtc": {
-                        "min": "-57.8",
-                        "typ": "151",
-                        "max": "562",
+                        "min": -57.8,
+                        "typ": 151,
+                        "max": 562,
                         "unit": "uA"
                     },
                     "Ihib_imu": {
-                        "min": "-109",
-                        "typ": "185",
-                        "max": "669",
+                        "min": -109,
+                        "typ": 185,
+                        "max": 669,
+                        "unit": "uA"
+                    },
+                    "Ihib_can": {
+                        "min": 6.06,
+                        "typ": 230,
+                        "max": 636,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_can": {
-                        "min": "6.06",
-                        "typ": "230",
-                        "max": "636",
-                        "unit": "uA"
-                    },
                     "Istartup": {
-                        "min": "TBD",
-                        "typ": "TBD",
-                        "max": "TBD",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "TBD"
                     },
                     "Iconn_cloud": {
-                        "min": "TBD",
-                        "typ": "TBD",
-                        "max": "TBD",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "TBD"
                     },
                     "Icloud_idle": {
-                        "min": "TBD",
-                        "typ": "TBD",
-                        "max": "TBD",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "TBD"
+                    },
+                    "Icloud_pub": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "TBD"
+                    },
+                    "Iidle": {
+                        "min": 3.35,
+                        "typ": 3.38,
+                        "max": 4.39,
+                        "unit": "mA"
+                    },
+                    "Irgb_r": {
+                        "min": 3.7,
+                        "typ": 3.8,
+                        "max": 3.9,
+                        "unit": "mA"
+                    },
+                    "Irgb_g": {
+                        "min": 3.58,
+                        "typ": 3.62,
+                        "max": 3.65,
+                        "unit": "mA"
+                    },
+                    "Irgb_b": {
+                        "min": 3.54,
+                        "typ": 3.58,
+                        "max": 3.6,
+                        "unit": "mA"
+                    },
+                    "Irgb_w": {
+                        "min": 3.96,
+                        "typ": 4.03,
+                        "max": 4.09,
+                        "unit": "mA"
+                    },
+                    "Iimu": {
+                        "min": 3.9,
+                        "typ": 3.92,
+                        "max": 3.94,
+                        "unit": "mA"
+                    },
+                    "Ible_adv": {
+                        "min": 3.5,
+                        "typ": 4.07,
+                        "max": 5.02,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_idle": {
+                        "min": 3.74,
+                        "typ": 4.05,
+                        "max": 4.58,
+                        "unit": "mA"
+                    },
+                    "Ible_conn_tx": {
+                        "min": 3.65,
+                        "typ": 4.05,
+                        "max": 4.6,
+                        "unit": "mA"
+                    },
+                    "Ible_scan": {
+                        "min": -2.61,
+                        "typ": 5.68,
+                        "max": 9.04,
+                        "unit": "mA"
+                    },
+                    "Icell_idle": {
+                        "min": -47,
+                        "typ": 21.3,
+                        "max": 277,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_twr": {
+                        "min": 16.8,
+                        "typ": 56.7,
+                        "max": 329,
+                        "unit": "mA"
+                    },
+                    "Icell_twr_idle": {
+                        "min": 19.2,
+                        "typ": 21.2,
+                        "max": 94.5,
+                        "unit": "mA"
+                    },
+                    "Icell_conn_cloud": {
+                        "min": 19.1,
+                        "typ": 53.3,
+                        "max": 292,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_idle": {
+                        "min": 19.2,
+                        "typ": 21.2,
+                        "max": 97.1,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": 19.5,
+                        "typ": 63.6,
+                        "max": 280,
+                        "unit": "mA"
+                    },
+                    "Iwifi_idle": {
+                        "min": 86.5,
+                        "typ": 87.7,
+                        "max": 91,
+                        "unit": "mA"
+                    },
+                    "Iwifi_scan": {
+                        "min": 79.6,
+                        "typ": 83.4,
+                        "max": 155,
+                        "unit": "mA"
+                    },
+                    "Igps_loc": {
+                        "min": 28.6,
+                        "typ": 37,
+                        "max": 51,
+                        "unit": "mA"
+                    },
+                    "Ican_idle": {
+                        "min": 33.4,
+                        "typ": 33.6,
+                        "max": 34,
+                        "unit": "mA"
+                    },
+                    "Ican_tx": {
+                        "min": 33.6,
+                        "typ": 33.8,
+                        "max": 34.1,
+                        "unit": "mA"
                     }
                 }
             }
@@ -950,196 +1208,196 @@
             "sku": "BRN310",
             "modes": {
                 "stop": {
-                    "Icloud_pub": {
-                        "min": "TBD",
-                        "typ": "TBD",
-                        "max": "TBD",
-                        "unit": "TBD"
-                    },
                     "Istop_gpio": {
-                        "min": "594",
-                        "typ": "631",
-                        "max": "665",
+                        "min": 594,
+                        "typ": 631,
+                        "max": 665,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "579",
-                        "typ": "585",
-                        "max": "591",
+                        "min": 579,
+                        "typ": 585,
+                        "max": 591,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "589",
-                        "typ": "607",
-                        "max": "630",
+                        "min": 589,
+                        "typ": 607,
+                        "max": 630,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "17.0",
-                        "typ": "907",
-                        "max": "2400",
+                        "min": 17,
+                        "typ": 907,
+                        "max": 2400,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "443",
-                        "typ": "906",
-                        "max": "1540",
+                        "min": 443,
+                        "typ": 906,
+                        "max": 1540,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "589",
-                        "typ": "606",
-                        "max": "627",
+                        "min": 589,
+                        "typ": 606,
+                        "max": 627,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": 6.49,
+                        "typ": 15.6,
+                        "max": 81,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "6.49",
-                        "typ": "15.6",
-                        "max": "81.0",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "160",
-                        "typ": "171",
-                        "max": "182",
+                        "min": 160,
+                        "typ": 171,
+                        "max": 182,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "166",
-                        "typ": "178",
-                        "max": "188",
+                        "min": 166,
+                        "typ": 178,
+                        "max": 188,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "163",
-                        "typ": "174",
-                        "max": "185",
+                        "min": 163,
+                        "typ": 174,
+                        "max": 185,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-379",
-                        "typ": "494",
-                        "max": "2110",
+                        "min": -379,
+                        "typ": 494,
+                        "max": 2110,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "55.9",
-                        "typ": "515",
-                        "max": "1090",
+                        "min": 55.9,
+                        "typ": 515,
+                        "max": 1090,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "590",
-                        "typ": "610",
-                        "max": "634",
+                        "min": 590,
+                        "typ": 610,
+                        "max": 634,
                         "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": 6.96,
+                        "typ": 16.4,
+                        "max": 81.1,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "6.96",
-                        "typ": "16.4",
-                        "max": "81.1",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "139",
-                        "typ": "146",
-                        "max": "162",
+                        "min": 139,
+                        "typ": 146,
+                        "max": 162,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": 139,
+                        "typ": 147,
+                        "max": 163,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "139",
-                        "typ": "147",
-                        "max": "163",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "3.76",
-                        "typ": "3.77",
-                        "max": "3.79",
+                        "min": 3.76,
+                        "typ": 3.77,
+                        "max": 3.79,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "4.14",
-                        "typ": "4.18",
-                        "max": "4.21",
+                        "min": 4.14,
+                        "typ": 4.18,
+                        "max": 4.21,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "3.98",
-                        "typ": "4.01",
-                        "max": "4.03",
+                        "min": 3.98,
+                        "typ": 4.01,
+                        "max": 4.03,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "3.95",
-                        "typ": "3.97",
-                        "max": "4.00",
+                        "min": 3.95,
+                        "typ": 3.97,
+                        "max": 4,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "4.49",
-                        "typ": "4.53",
-                        "max": "4.58",
+                        "min": 4.49,
+                        "typ": 4.53,
+                        "max": 4.58,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "2.62",
-                        "typ": "3.15",
-                        "max": "4.03",
+                        "min": 2.62,
+                        "typ": 3.15,
+                        "max": 4.03,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "2.87",
-                        "typ": "3.25",
-                        "max": "3.80",
+                        "min": 2.87,
+                        "typ": 3.25,
+                        "max": 3.8,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "2.89",
-                        "typ": "3.19",
-                        "max": "3.70",
+                        "min": 2.89,
+                        "typ": 3.19,
+                        "max": 3.7,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-5.24",
-                        "typ": "5.00",
-                        "max": "8.43",
+                        "min": -5.24,
+                        "typ": 5,
+                        "max": 8.43,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "3.84",
-                        "typ": "25.2",
-                        "max": "901",
+                        "min": 3.84,
+                        "typ": 25.2,
+                        "max": 901,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "11.6",
-                        "typ": "56.9",
-                        "max": "579",
+                        "min": 11.6,
+                        "typ": 56.9,
+                        "max": 579,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "15.6",
-                        "typ": "19.0",
-                        "max": "91.3",
+                        "min": 15.6,
+                        "typ": 19,
+                        "max": 91.3,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "22.4",
-                        "typ": "97.9",
-                        "max": "957",
+                        "min": 22.4,
+                        "typ": 97.9,
+                        "max": 957,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "15.6",
-                        "typ": "18.7",
-                        "max": "84.7",
+                        "min": 15.6,
+                        "typ": 18.7,
+                        "max": 84.7,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": 19.5,
+                        "typ": 86.1,
+                        "max": 981,
                         "unit": "mA"
                     }
                 }
@@ -1149,190 +1407,190 @@
             "sku": "BRN402",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "19.5",
-                        "typ": "86.1",
-                        "max": "981",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "565",
-                        "typ": "575",
-                        "max": "590",
+                        "min": 565,
+                        "typ": 575,
+                        "max": 590,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "565",
-                        "typ": "577",
-                        "max": "593",
+                        "min": 565,
+                        "typ": 577,
+                        "max": 593,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "91.6",
-                        "typ": "885",
-                        "max": "2210",
+                        "min": 91.6,
+                        "typ": 885,
+                        "max": 2210,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "486",
-                        "typ": "866",
-                        "max": "1440",
+                        "min": 486,
+                        "typ": 866,
+                        "max": 1440,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "569",
-                        "typ": "587",
-                        "max": "612",
+                        "min": 569,
+                        "typ": 587,
+                        "max": 612,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": -12.4,
+                        "typ": 12.2,
+                        "max": 104,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "-12.4",
-                        "typ": "12.2",
-                        "max": "104",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "118",
-                        "typ": "127",
-                        "max": "137",
+                        "min": 118,
+                        "typ": 127,
+                        "max": 137,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "122",
-                        "typ": "130",
-                        "max": "141",
+                        "min": 122,
+                        "typ": 130,
+                        "max": 141,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "118",
-                        "typ": "128",
-                        "max": "138",
+                        "min": 118,
+                        "typ": 128,
+                        "max": 138,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-402",
-                        "typ": "442",
-                        "max": "2120",
+                        "min": -402,
+                        "typ": 442,
+                        "max": 2120,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "56.0",
-                        "typ": "438",
-                        "max": "1050",
+                        "min": 56,
+                        "typ": 438,
+                        "max": 1050,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "568",
-                        "typ": "584",
-                        "max": "601",
+                        "min": 568,
+                        "typ": 584,
+                        "max": 601,
                         "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": -12.3,
+                        "typ": 14.2,
+                        "max": 112,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "-12.3",
-                        "typ": "14.2",
-                        "max": "112",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "98.7",
-                        "typ": "106",
-                        "max": "118",
+                        "min": 98.7,
+                        "typ": 106,
+                        "max": 118,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": 99.4,
+                        "typ": 106,
+                        "max": 120,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "99.4",
-                        "typ": "106",
-                        "max": "120",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "3.89",
-                        "typ": "3.90",
-                        "max": "3.92",
+                        "min": 3.89,
+                        "typ": 3.9,
+                        "max": 3.92,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "4.27",
-                        "typ": "4.29",
-                        "max": "4.33",
+                        "min": 4.27,
+                        "typ": 4.29,
+                        "max": 4.33,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "4.11",
-                        "typ": "4.13",
-                        "max": "4.16",
+                        "min": 4.11,
+                        "typ": 4.13,
+                        "max": 4.16,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "4.08",
-                        "typ": "4.09",
-                        "max": "4.12",
+                        "min": 4.08,
+                        "typ": 4.09,
+                        "max": 4.12,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "4.61",
-                        "typ": "4.65",
-                        "max": "4.69",
+                        "min": 4.61,
+                        "typ": 4.65,
+                        "max": 4.69,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "3.35",
-                        "typ": "3.89",
-                        "max": "4.82",
+                        "min": 3.35,
+                        "typ": 3.89,
+                        "max": 4.82,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "3.68",
-                        "typ": "3.97",
-                        "max": "4.42",
+                        "min": 3.68,
+                        "typ": 3.97,
+                        "max": 4.42,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "3.62",
-                        "typ": "3.91",
-                        "max": "4.32",
+                        "min": 3.62,
+                        "typ": 3.91,
+                        "max": 4.32,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-6.64",
-                        "typ": "5.11",
-                        "max": "8.52",
+                        "min": -6.64,
+                        "typ": 5.11,
+                        "max": 8.52,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "-3.02",
-                        "typ": "5.78",
-                        "max": "16.9[i]",
+                        "min": -3.02,
+                        "typ": 5.78,
+                        "max": 16.9,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "14.7",
-                        "typ": "58.9",
-                        "max": "178",
+                        "min": 14.7,
+                        "typ": 58.9,
+                        "max": 178,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "-1.46",
-                        "typ": "17.9",
-                        "max": "121",
+                        "min": -1.46,
+                        "typ": 17.9,
+                        "max": 121,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "14.6",
-                        "typ": "53.4",
-                        "max": "207",
+                        "min": 14.6,
+                        "typ": 53.4,
+                        "max": 207,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "-21.9",
-                        "typ": "17.9",
-                        "max": "108",
+                        "min": -21.9,
+                        "typ": 17.9,
+                        "max": 108,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": -30.9,
+                        "typ": 63.9,
+                        "max": 184,
                         "unit": "mA"
                     }
                 }
@@ -1342,196 +1600,196 @@
             "sku": "BRN404X",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "-30.9",
-                        "typ": "63.9",
-                        "max": "184",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "585",
-                        "typ": "589",
-                        "max": "595",
+                        "min": 585,
+                        "typ": 589,
+                        "max": 595,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "586",
-                        "typ": "591",
-                        "max": "595",
+                        "min": 586,
+                        "typ": 591,
+                        "max": 595,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "586",
-                        "typ": "590",
-                        "max": "595",
+                        "min": 586,
+                        "typ": 590,
+                        "max": 595,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-115",
-                        "typ": "692",
-                        "max": "2370",
+                        "min": -115,
+                        "typ": 692,
+                        "max": 2370,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "276",
-                        "typ": "712",
-                        "max": "1240",
+                        "min": 276,
+                        "typ": 712,
+                        "max": 1240,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "594",
-                        "typ": "607",
-                        "max": "624",
+                        "min": 594,
+                        "typ": 607,
+                        "max": 624,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "134",
-                        "typ": "160",
-                        "max": "193",
+                        "min": 134,
+                        "typ": 160,
+                        "max": 193,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "135",
-                        "typ": "160",
-                        "max": "192",
+                        "min": 135,
+                        "typ": 160,
+                        "max": 192,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "135",
-                        "typ": "159",
-                        "max": "192",
+                        "min": 135,
+                        "typ": 159,
+                        "max": 192,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-563",
-                        "typ": "256",
-                        "max": "1980",
+                        "min": -563,
+                        "typ": 256,
+                        "max": 1980,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-179",
-                        "typ": "286",
-                        "max": "943",
+                        "min": -179,
+                        "typ": 286,
+                        "max": 943,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "596",
-                        "typ": "608",
-                        "max": "626",
+                        "min": 596,
+                        "typ": 608,
+                        "max": 626,
+                        "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "uA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                    "Ihib_gpio": {
+                        "min": 116,
+                        "typ": 138,
+                        "max": 177,
                         "unit": "uA"
                     },
-                    "Ihib_gpio": {
-                        "min": "116",
-                        "typ": "138",
-                        "max": "177",
+                    "Ihib_analog": {
+                        "min": 117,
+                        "typ": 139,
+                        "max": 177,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "117",
-                        "typ": "139",
-                        "max": "177",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "4.54",
-                        "typ": "4.67",
-                        "max": "4.74",
+                        "min": 4.54,
+                        "typ": 4.67,
+                        "max": 4.74,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "4.98",
-                        "typ": "5.13",
-                        "max": "5.30",
+                        "min": 4.98,
+                        "typ": 5.13,
+                        "max": 5.3,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "4.82",
-                        "typ": "4.96",
-                        "max": "5.12",
+                        "min": 4.82,
+                        "typ": 4.96,
+                        "max": 5.12,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "4.78",
-                        "typ": "4.91",
-                        "max": "5.06",
+                        "min": 4.78,
+                        "typ": 4.91,
+                        "max": 5.06,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "5.38",
-                        "typ": "5.44",
-                        "max": "5.51",
+                        "min": 5.38,
+                        "typ": 5.44,
+                        "max": 5.51,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "4.11",
-                        "typ": "4.62",
-                        "max": "5.42",
+                        "min": 4.11,
+                        "typ": 4.62,
+                        "max": 5.42,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "4.56",
-                        "typ": "4.74",
-                        "max": "4.96",
+                        "min": 4.56,
+                        "typ": 4.74,
+                        "max": 4.96,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "4.45",
-                        "typ": "4.69",
-                        "max": "5.04",
+                        "min": 4.45,
+                        "typ": 4.69,
+                        "max": 5.04,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-3.48",
-                        "typ": "6.46",
-                        "max": "10",
+                        "min": -3.48,
+                        "typ": 6.46,
+                        "max": 10,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     }
                 }
@@ -1541,196 +1799,196 @@
             "sku": "B402",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "552",
-                        "typ": "555",
-                        "max": "559",
+                        "min": 552,
+                        "typ": 555,
+                        "max": 559,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "554",
-                        "typ": "557",
-                        "max": "559",
+                        "min": 554,
+                        "typ": 557,
+                        "max": 559,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "553",
-                        "typ": "556",
-                        "max": "558",
+                        "min": 553,
+                        "typ": 556,
+                        "max": 558,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-433",
-                        "typ": "631",
-                        "max": "2650",
+                        "min": -433,
+                        "typ": 631,
+                        "max": 2650,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "47.3",
-                        "typ": "630",
-                        "max": "1540",
+                        "min": 47.3,
+                        "typ": 630,
+                        "max": 1540,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "553",
-                        "typ": "556",
-                        "max": "558",
+                        "min": 553,
+                        "typ": 556,
+                        "max": 558,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": 8.87,
+                        "typ": 9.65,
+                        "max": 63.6,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "8.87",
-                        "typ": "9.65",
-                        "max": "63.6",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "44.7",
-                        "typ": "47.6",
-                        "max": "49.6",
+                        "min": 44.7,
+                        "typ": 47.6,
+                        "max": 49.6,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "45.0",
-                        "typ": "47.8",
-                        "max": "49.5",
+                        "min": 45,
+                        "typ": 47.8,
+                        "max": 49.5,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "43.4",
-                        "typ": "46.4",
-                        "max": "47.9",
+                        "min": 43.4,
+                        "typ": 46.4,
+                        "max": 47.9,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-871",
-                        "typ": "130",
-                        "max": "2560",
+                        "min": -871,
+                        "typ": 130,
+                        "max": 2560,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-260",
-                        "typ": "121",
-                        "max": "1010",
+                        "min": -260,
+                        "typ": 121,
+                        "max": 1010,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "554",
-                        "typ": "557",
-                        "max": "559",
+                        "min": 554,
+                        "typ": 557,
+                        "max": 559,
                         "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": 0.37,
+                        "typ": 9.47,
+                        "max": 53.7,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "0.37",
-                        "typ": "9.47",
-                        "max": "53.7",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "22.6",
-                        "typ": "26.0",
-                        "max": "29.7",
+                        "min": 22.6,
+                        "typ": 26,
+                        "max": 29.7,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": 23.9,
+                        "typ": 26.5,
+                        "max": 30.5,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "23.9",
-                        "typ": "26.5",
-                        "max": "30.5",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "4.48",
-                        "typ": "4.71",
-                        "max": "5.17",
+                        "min": 4.48,
+                        "typ": 4.71,
+                        "max": 5.17,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "4.97",
-                        "typ": "5.22",
-                        "max": "5.61",
+                        "min": 4.97,
+                        "typ": 5.22,
+                        "max": 5.61,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "4.79",
-                        "typ": "4.99",
-                        "max": "5.40",
+                        "min": 4.79,
+                        "typ": 4.99,
+                        "max": 5.4,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "4.73",
-                        "typ": "4.96",
-                        "max": "5.33",
+                        "min": 4.73,
+                        "typ": 4.96,
+                        "max": 5.33,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "5.24",
-                        "typ": "5.50",
-                        "max": "5.94",
+                        "min": 5.24,
+                        "typ": 5.5,
+                        "max": 5.94,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "2.72",
-                        "typ": "3.59",
-                        "max": "5.15",
+                        "min": 2.72,
+                        "typ": 3.59,
+                        "max": 5.15,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "3.49",
-                        "typ": "3.78",
-                        "max": "4.26",
+                        "min": 3.49,
+                        "typ": 3.78,
+                        "max": 4.26,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "3.35",
-                        "typ": "3.78",
-                        "max": "4.51",
+                        "min": 3.35,
+                        "typ": 3.78,
+                        "max": 4.51,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-4.83",
-                        "typ": "6.24",
-                        "max": "10.9",
+                        "min": -4.83,
+                        "typ": 6.24,
+                        "max": 10.9,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "5.10",
-                        "typ": "45.2",
-                        "max": "166",
+                        "min": 5.1,
+                        "typ": 45.2,
+                        "max": 166,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "13.7",
-                        "typ": "56.0",
-                        "max": "192",
+                        "min": 13.7,
+                        "typ": 56,
+                        "max": 192,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "13.4",
-                        "typ": "15.6",
-                        "max": "121",
+                        "min": 13.4,
+                        "typ": 15.6,
+                        "max": 121,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "-24.6",
-                        "typ": "63.2",
-                        "max": "185",
+                        "min": -24.6,
+                        "typ": 63.2,
+                        "max": 185,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "13.4",
-                        "typ": "15.5",
-                        "max": "98.3",
+                        "min": 13.4,
+                        "typ": 15.5,
+                        "max": 98.3,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": 9.47,
+                        "typ": 66.3,
+                        "max": 192,
                         "unit": "mA"
                     }
                 }
@@ -1740,196 +1998,196 @@
             "sku": "B404X",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "9.47",
-                        "typ": "66.3",
-                        "max": "192",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "598",
-                        "typ": "602",
-                        "max": "608",
+                        "min": 598,
+                        "typ": 602,
+                        "max": 608,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "607",
-                        "typ": "609",
-                        "max": "611",
+                        "min": 607,
+                        "typ": 609,
+                        "max": 611,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "600",
-                        "typ": "603",
-                        "max": "607",
+                        "min": 600,
+                        "typ": 603,
+                        "max": 607,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-236",
-                        "typ": "670",
-                        "max": "2470",
+                        "min": -236,
+                        "typ": 670,
+                        "max": 2470,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "229",
-                        "typ": "673",
-                        "max": "1440",
+                        "min": 229,
+                        "typ": 673,
+                        "max": 1440,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "601",
-                        "typ": "604",
-                        "max": "607",
+                        "min": 601,
+                        "typ": 604,
+                        "max": 607,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "40.1",
-                        "typ": "42.4",
-                        "max": "44.8",
+                        "min": 40.1,
+                        "typ": 42.4,
+                        "max": 44.8,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "44.4",
-                        "typ": "46.4",
-                        "max": "48.6",
+                        "min": 44.4,
+                        "typ": 46.4,
+                        "max": 48.6,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "44.9",
-                        "typ": "47.2",
-                        "max": "49.6",
+                        "min": 44.9,
+                        "typ": 47.2,
+                        "max": 49.6,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-939",
-                        "typ": "130",
-                        "max": "2810",
+                        "min": -939,
+                        "typ": 130,
+                        "max": 2810,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-325",
-                        "typ": "133",
-                        "max": "1020",
+                        "min": -325,
+                        "typ": 133,
+                        "max": 1020,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "606",
-                        "typ": "608",
-                        "max": "610",
+                        "min": 606,
+                        "typ": 608,
+                        "max": 610,
                         "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "2.6",
-                        "typ": "5.2",
-                        "max": "9.5",
+                        "min": 2.6,
+                        "typ": 5.2,
+                        "max": 9.5,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": 3.1,
+                        "typ": 5.8,
+                        "max": 10.5,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "3.1",
-                        "typ": "5.8",
-                        "max": "10.5",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "4.60",
-                        "typ": "4.69",
-                        "max": "4.76",
+                        "min": 4.6,
+                        "typ": 4.69,
+                        "max": 4.76,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "5.05",
-                        "typ": "5.21",
-                        "max": "5.34",
+                        "min": 5.05,
+                        "typ": 5.21,
+                        "max": 5.34,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "4.85",
-                        "typ": "4.97",
-                        "max": "5.07",
+                        "min": 4.85,
+                        "typ": 4.97,
+                        "max": 5.07,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "4.86",
-                        "typ": "4.94",
-                        "max": "4.99",
+                        "min": 4.86,
+                        "typ": 4.94,
+                        "max": 4.99,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "5.42",
-                        "typ": "5.65",
-                        "max": "5.87",
+                        "min": 5.42,
+                        "typ": 5.65,
+                        "max": 5.87,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "4.13",
-                        "typ": "4.79",
-                        "max": "6.24",
+                        "min": 4.13,
+                        "typ": 4.79,
+                        "max": 6.24,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "4.69",
-                        "typ": "4.86",
-                        "max": "5.17",
+                        "min": 4.69,
+                        "typ": 4.86,
+                        "max": 5.17,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "4.48",
-                        "typ": "4.74",
-                        "max": "5.19",
+                        "min": 4.48,
+                        "typ": 4.74,
+                        "max": 5.19,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "1.31",
-                        "typ": "6.87",
-                        "max": "11.2",
+                        "min": 1.31,
+                        "typ": 6.87,
+                        "max": 11.2,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     }
                 }
@@ -1939,196 +2197,196 @@
             "sku": "E404X",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "626",
-                        "typ": "651",
-                        "max": "695",
+                        "min": 626,
+                        "typ": 651,
+                        "max": 695,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "627",
-                        "typ": "652",
-                        "max": "697",
+                        "min": 627,
+                        "typ": 652,
+                        "max": 697,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "627",
-                        "typ": "651",
-                        "max": "694",
+                        "min": 627,
+                        "typ": 651,
+                        "max": 694,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-274",
-                        "typ": "724",
-                        "max": "2440",
+                        "min": -274,
+                        "typ": 724,
+                        "max": 2440,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "240",
-                        "typ": "739",
-                        "max": "1350",
+                        "min": 240,
+                        "typ": 739,
+                        "max": 1350,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "627",
-                        "typ": "653",
-                        "max": "698",
+                        "min": 627,
+                        "typ": 653,
+                        "max": 698,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "49.8",
-                        "typ": "108",
-                        "max": "198",
+                        "min": 49.8,
+                        "typ": 108,
+                        "max": 198,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "80.5",
-                        "typ": "109",
-                        "max": "157",
+                        "min": 80.5,
+                        "typ": 109,
+                        "max": 157,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "80.5",
-                        "typ": "108",
-                        "max": "157",
+                        "min": 80.5,
+                        "typ": 108,
+                        "max": 157,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-603",
-                        "typ": "185",
-                        "max": "1840",
+                        "min": -603,
+                        "typ": 185,
+                        "max": 1840,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-239",
-                        "typ": "181",
-                        "max": "829",
+                        "min": -239,
+                        "typ": 181,
+                        "max": 829,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "629",
-                        "typ": "654",
-                        "max": "702",
+                        "min": 629,
+                        "typ": 654,
+                        "max": 702,
                         "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "71.7",
-                        "typ": "98.1",
-                        "max": "151",
+                        "min": 71.7,
+                        "typ": 98.1,
+                        "max": 151,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": -7.87,
+                        "typ": 99.2,
+                        "max": 200,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "-7.87",
-                        "typ": "99.2",
-                        "max": "200",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "4.73",
-                        "typ": "4.93",
-                        "max": "5.12",
+                        "min": 4.73,
+                        "typ": 4.93,
+                        "max": 5.12,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "5.15",
-                        "typ": "5.38",
-                        "max": "5.60",
+                        "min": 5.15,
+                        "typ": 5.38,
+                        "max": 5.6,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "5.00",
-                        "typ": "5.20",
-                        "max": "5.40",
+                        "min": 5,
+                        "typ": 5.2,
+                        "max": 5.4,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "4.95",
-                        "typ": "5.15",
-                        "max": "5.34",
+                        "min": 4.95,
+                        "typ": 5.15,
+                        "max": 5.34,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "5.55",
-                        "typ": "5.72",
-                        "max": "5.89",
+                        "min": 5.55,
+                        "typ": 5.72,
+                        "max": 5.89,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "4.20",
-                        "typ": "4.85",
-                        "max": "5.87",
+                        "min": 4.2,
+                        "typ": 4.85,
+                        "max": 5.87,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "4.61",
-                        "typ": "4.83",
-                        "max": "5.12",
+                        "min": 4.61,
+                        "typ": 4.83,
+                        "max": 5.12,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "4.61",
-                        "typ": "4.92",
-                        "max": "5.35",
+                        "min": 4.61,
+                        "typ": 4.92,
+                        "max": 5.35,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-4.72",
-                        "typ": "6.99",
-                        "max": "11.1",
+                        "min": -4.72,
+                        "typ": 6.99,
+                        "max": 11.1,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
+                        "min": null,
+                        "typ": null,
+                        "max": null,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": null,
+                        "typ": null,
+                        "max": null,
                         "unit": "mA"
                     }
                 }
@@ -2138,196 +2396,196 @@
             "sku": "B523",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "",
-                        "typ": "TBD",
-                        "max": "",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "323",
-                        "typ": "538",
-                        "max": "916",
+                        "min": 323,
+                        "typ": 538,
+                        "max": 916,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "272",
-                        "typ": "537",
-                        "max": "948",
+                        "min": 272,
+                        "typ": 537,
+                        "max": 948,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "264",
-                        "typ": "537",
-                        "max": "947",
+                        "min": 264,
+                        "typ": 537,
+                        "max": 947,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-387",
-                        "typ": "604",
-                        "max": "2260",
+                        "min": -387,
+                        "typ": 604,
+                        "max": 2260,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "-129",
-                        "typ": "619",
-                        "max": "1700",
+                        "min": -129,
+                        "typ": 619,
+                        "max": 1700,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "327",
-                        "typ": "537",
-                        "max": "912",
+                        "min": 327,
+                        "typ": 537,
+                        "max": 912,
                         "unit": "uA"
+                    },
+                    "Istop_cell": {
+                        "min": 18.7,
+                        "typ": 23.1,
+                        "max": 140,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_cell": {
-                        "min": "18.7",
-                        "typ": "23.1",
-                        "max": "140",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "-125",
-                        "typ": "53.6",
-                        "max": "446",
+                        "min": -125,
+                        "typ": 53.6,
+                        "max": 446,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-115",
-                        "typ": "55.8",
-                        "max": "420",
+                        "min": -115,
+                        "typ": 55.8,
+                        "max": 420,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "-103",
-                        "typ": "54.8",
-                        "max": "444",
+                        "min": -103,
+                        "typ": 54.8,
+                        "max": 444,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-862",
-                        "typ": "139",
-                        "max": "2430",
+                        "min": -862,
+                        "typ": 139,
+                        "max": 2430,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-262",
-                        "typ": "162",
-                        "max": "1090",
+                        "min": -262,
+                        "typ": 162,
+                        "max": 1090,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "317",
-                        "typ": "537",
-                        "max": "938",
+                        "min": 317,
+                        "typ": 537,
+                        "max": 938,
                         "unit": "uA"
+                    },
+                    "Iulp_cell": {
+                        "min": 18.4,
+                        "typ": 22.8,
+                        "max": 149,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_cell": {
-                        "min": "18.4",
-                        "typ": "22.8",
-                        "max": "149",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "-134",
-                        "typ": "29.7",
-                        "max": "430",
+                        "min": -134,
+                        "typ": 29.7,
+                        "max": 430,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": -134,
+                        "typ": 30.8,
+                        "max": 441,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "-134",
-                        "typ": "30.8",
-                        "max": "441",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "4.47",
-                        "typ": "4.48",
-                        "max": "4.51",
+                        "min": 4.47,
+                        "typ": 4.48,
+                        "max": 4.51,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "4.96",
-                        "typ": "5.00",
-                        "max": "5.05",
+                        "min": 4.96,
+                        "typ": 5,
+                        "max": 5.05,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "4.74",
-                        "typ": "4.76",
-                        "max": "4.80",
+                        "min": 4.74,
+                        "typ": 4.76,
+                        "max": 4.8,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "4.71",
-                        "typ": "4.73",
-                        "max": "4.77",
+                        "min": 4.71,
+                        "typ": 4.73,
+                        "max": 4.77,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "5.33",
-                        "typ": "5.40",
-                        "max": "5.47",
+                        "min": 5.33,
+                        "typ": 5.4,
+                        "max": 5.47,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "2.67",
-                        "typ": "3.44",
-                        "max": "4.64",
+                        "min": 2.67,
+                        "typ": 3.44,
+                        "max": 4.64,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "3.30",
-                        "typ": "3.60",
-                        "max": "4.08",
+                        "min": 3.3,
+                        "typ": 3.6,
+                        "max": 4.08,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "3.22",
-                        "typ": "3.55",
-                        "max": "4.00",
+                        "min": 3.22,
+                        "typ": 3.55,
+                        "max": 4,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "-9.0",
-                        "typ": "5.97",
-                        "max": "10.7",
+                        "min": -9,
+                        "typ": 5.97,
+                        "max": 10.7,
                         "unit": "mA"
                     },
                     "Icell_idle": {
-                        "min": "17.5",
-                        "typ": "34.2",
-                        "max": "744",
+                        "min": 17.5,
+                        "typ": 34.2,
+                        "max": 744,
                         "unit": "mA"
                     },
                     "Icell_conn_twr": {
-                        "min": "17.9",
-                        "typ": "72.3",
-                        "max": "711",
+                        "min": 17.9,
+                        "typ": 72.3,
+                        "max": 711,
                         "unit": "mA"
                     },
                     "Icell_twr_idle": {
-                        "min": "22.7",
-                        "typ": "26.8",
-                        "max": "154",
+                        "min": 22.7,
+                        "typ": 26.8,
+                        "max": 154,
                         "unit": "mA"
                     },
                     "Icell_conn_cloud": {
-                        "min": "23.0",
-                        "typ": "93.6",
-                        "max": "669",
+                        "min": 23,
+                        "typ": 93.6,
+                        "max": 669,
                         "unit": "mA"
                     },
                     "Icell_cloud_idle": {
-                        "min": "22.9",
-                        "typ": "26.8",
-                        "max": "149",
+                        "min": 22.9,
+                        "typ": 26.8,
+                        "max": 149,
+                        "unit": "mA"
+                    },
+                    "Icell_cloud_tx": {
+                        "min": 113,
+                        "typ": 139,
+                        "max": 519,
                         "unit": "mA"
                     }
                 }
@@ -2337,196 +2595,196 @@
             "sku": "ARGN-H",
             "modes": {
                 "stop": {
-                    "Icell_cloud_tx": {
-                        "min": "113",
-                        "typ": "139",
-                        "max": "519",
-                        "unit": "mA"
-                    },
                     "Istop_gpio": {
-                        "min": "340",
-                        "typ": "396",
-                        "max": "459",
+                        "min": 340,
+                        "typ": 396,
+                        "max": 459,
                         "unit": "uA"
                     },
                     "Istop_analog": {
-                        "min": "349",
-                        "typ": "398",
-                        "max": "456",
+                        "min": 349,
+                        "typ": 398,
+                        "max": 456,
                         "unit": "uA"
                     },
                     "Istop_intrtc": {
-                        "min": "340",
-                        "typ": "398",
-                        "max": "461",
+                        "min": 340,
+                        "typ": 398,
+                        "max": 461,
                         "unit": "uA"
                     },
                     "Istop_ble_adv": {
-                        "min": "-66.0",
-                        "typ": "442",
-                        "max": "3420",
+                        "min": -66,
+                        "typ": 442,
+                        "max": 3420,
                         "unit": "uA"
                     },
                     "Istop_ble_conn": {
-                        "min": "102",
-                        "typ": "435",
-                        "max": "1970",
+                        "min": 102,
+                        "typ": 435,
+                        "max": 1970,
                         "unit": "uA"
                     },
                     "Istop_usart": {
-                        "min": "348",
-                        "typ": "397",
-                        "max": "449",
+                        "min": 348,
+                        "typ": 397,
+                        "max": 449,
                         "unit": "uA"
+                    },
+                    "Istop_wifi": {
+                        "min": 15.3,
+                        "typ": 22.2,
+                        "max": 110,
+                        "unit": "mA"
                     }
                 },
                 "ulp": {
-                    "Istop_wifi": {
-                        "min": "15.3",
-                        "typ": "22.2",
-                        "max": "110",
-                        "unit": "mA"
-                    },
                     "Iulp_gpio": {
-                        "min": "-13.5",
-                        "typ": "81.7",
-                        "max": "169",
+                        "min": -13.5,
+                        "typ": 81.7,
+                        "max": 169,
                         "unit": "uA"
                     },
                     "Iulp_analog": {
-                        "min": "-13.4",
-                        "typ": "81.1",
-                        "max": "174",
+                        "min": -13.4,
+                        "typ": 81.1,
+                        "max": 174,
                         "unit": "uA"
                     },
                     "Iulp_intrtc": {
-                        "min": "-14.2",
-                        "typ": "80.7",
-                        "max": "168",
+                        "min": -14.2,
+                        "typ": 80.7,
+                        "max": 168,
                         "unit": "uA"
                     },
                     "Iulp_ble_adv": {
-                        "min": "-367",
-                        "typ": "141",
-                        "max": "3280",
+                        "min": -367,
+                        "typ": 141,
+                        "max": 3280,
                         "unit": "uA"
                     },
                     "Iulp_ble_conn": {
-                        "min": "-200",
-                        "typ": "138",
-                        "max": "1870",
+                        "min": -200,
+                        "typ": 138,
+                        "max": 1870,
                         "unit": "uA"
                     },
                     "Iulp_usart": {
-                        "min": "476",
-                        "typ": "520",
-                        "max": "569",
+                        "min": 476,
+                        "typ": 520,
+                        "max": 569,
                         "unit": "uA"
+                    },
+                    "Iulp_wifi": {
+                        "min": 16.3,
+                        "typ": 21.3,
+                        "max": 105,
+                        "unit": "mA"
                     }
                 },
                 "hibernate": {
-                    "Iulp_wifi": {
-                        "min": "16.3",
-                        "typ": "21.3",
-                        "max": "105",
-                        "unit": "mA"
-                    },
                     "Ihib_gpio": {
-                        "min": "-9.96",
-                        "typ": "64.7",
-                        "max": "161",
+                        "min": -9.96,
+                        "typ": 64.7,
+                        "max": 161,
+                        "unit": "uA"
+                    },
+                    "Ihib_analog": {
+                        "min": -9.79,
+                        "typ": 65,
+                        "max": 159,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Ihib_analog": {
-                        "min": "-9.79",
-                        "typ": "65.0",
-                        "max": "159",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "3.11",
-                        "typ": "3.52",
-                        "max": "3.58",
+                        "min": 3.11,
+                        "typ": 3.52,
+                        "max": 3.58,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "3.46",
-                        "typ": "3.92",
-                        "max": "4.39",
+                        "min": 3.46,
+                        "typ": 3.92,
+                        "max": 4.39,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "3.47",
-                        "typ": "3.74",
-                        "max": "4.02",
+                        "min": 3.47,
+                        "typ": 3.74,
+                        "max": 4.02,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "3.47",
-                        "typ": "3.71",
-                        "max": "3.97",
+                        "min": 3.47,
+                        "typ": 3.71,
+                        "max": 3.97,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "3.16",
-                        "typ": "4.07",
-                        "max": "5.00",
+                        "min": 3.16,
+                        "typ": 4.07,
+                        "max": 5,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "2.40",
-                        "typ": "2.76",
-                        "max": "4.93",
+                        "min": 2.4,
+                        "typ": 2.76,
+                        "max": 4.93,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "2.73",
-                        "typ": "2.93",
-                        "max": "3.96",
+                        "min": 2.73,
+                        "typ": 2.93,
+                        "max": 3.96,
                         "unit": "mA"
                     },
                     "Ible_conn_tx": {
-                        "min": "2.69",
-                        "typ": "2.92",
-                        "max": "4.13",
+                        "min": 2.69,
+                        "typ": 2.92,
+                        "max": 4.13,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "2.37",
-                        "typ": "4.78",
-                        "max": "7.27",
+                        "min": 2.37,
+                        "typ": 4.78,
+                        "max": 7.27,
                         "unit": "mA"
                     },
                     "Iwifi_idle": {
-                        "min": "69.8",
-                        "typ": "74.3",
-                        "max": "253",
+                        "min": 69.8,
+                        "typ": 74.3,
+                        "max": 253,
                         "unit": "mA"
                     },
                     "Iwifi_conn_ap": {
-                        "min": "20.7",
-                        "typ": "61.3",
-                        "max": "317",
+                        "min": 20.7,
+                        "typ": 61.3,
+                        "max": 317,
                         "unit": "mA"
                     },
                     "Iwifi_ap_idle": {
-                        "min": "20.5",
-                        "typ": "25.6",
-                        "max": "125",
+                        "min": 20.5,
+                        "typ": 25.6,
+                        "max": 125,
                         "unit": "mA"
                     },
                     "Iwifi_conn_cloud": {
-                        "min": "20.5",
-                        "typ": "27.8",
-                        "max": "292",
+                        "min": 20.5,
+                        "typ": 27.8,
+                        "max": 292,
                         "unit": "mA"
                     },
                     "Iwifi_cloud_idle": {
-                        "min": "20.5",
-                        "typ": "25.8",
-                        "max": "219",
+                        "min": 20.5,
+                        "typ": 25.8,
+                        "max": 219,
+                        "unit": "mA"
+                    },
+                    "Iwifi_cloud_tx": {
+                        "min": 20.1,
+                        "typ": 31.7,
+                        "max": 261,
                         "unit": "mA"
                     }
                 }
@@ -2537,85 +2795,91 @@
             "modes": {
                 "stop": {
                     "Iwifi_cloud_tx": {
-                        "min": "80.2",
-                        "typ": "107",
-                        "max": "294",
+                        "min": 80.2,
+                        "typ": 107,
+                        "max": 294,
                         "unit": "mA"
                     },
                     "Istop_gpio": {
-                        "min": "549",
-                        "typ": "579",
-                        "max": "608",
+                        "min": 549,
+                        "typ": 579,
+                        "max": 608,
+                        "unit": "uA"
+                    },
+                    "Istop_intrtc": {
+                        "min": 543,
+                        "typ": 572,
+                        "max": 604,
                         "unit": "uA"
                     }
                 },
                 "hibernate": {
-                    "Istop_intrtc": {
-                        "min": "543",
-                        "typ": "572",
-                        "max": "604",
+                    "Ihib_gpio": {
+                        "min": 93.8,
+                        "typ": 114,
+                        "max": 133,
                         "unit": "uA"
                     },
-                    "Ihib_gpio": {
-                        "min": "93.8",
-                        "typ": "114",
-                        "max": "133",
+                    "Istop_intrtc": {
+                        "min": 93.3,
+                        "typ": 115,
+                        "max": 133,
                         "unit": "uA"
                     }
                 },
                 "normal": {
-                    "Istop_intrtc": {
-                        "min": "93.3",
-                        "typ": "115",
-                        "max": "133",
-                        "unit": "uA"
-                    },
                     "Iidle": {
-                        "min": "63.8",
-                        "typ": "65.8",
-                        "max": "68.9",
+                        "min": 63.8,
+                        "typ": 65.8,
+                        "max": 68.9,
                         "unit": "mA"
                     },
                     "Irgb_r": {
-                        "min": "64.4",
-                        "typ": "66.6",
-                        "max": "69.5",
+                        "min": 64.4,
+                        "typ": 66.6,
+                        "max": 69.5,
                         "unit": "mA"
                     },
                     "Irgb_g": {
-                        "min": "64.7",
-                        "typ": "66.3",
-                        "max": "69.0",
+                        "min": 64.7,
+                        "typ": 66.3,
+                        "max": 69,
                         "unit": "mA"
                     },
                     "Irgb_b": {
-                        "min": "63.9",
-                        "typ": "66.3",
-                        "max": "69.0",
+                        "min": 63.9,
+                        "typ": 66.3,
+                        "max": 69,
                         "unit": "mA"
                     },
                     "Irgb_w": {
-                        "min": "64.7",
-                        "typ": "67.2",
-                        "max": "70.6",
+                        "min": 64.7,
+                        "typ": 67.2,
+                        "max": 70.6,
                         "unit": "mA"
                     },
                     "Ible_adv": {
-                        "min": "62.4",
-                        "typ": "66.1",
-                        "max": "73.8",
+                        "min": 62.4,
+                        "typ": 66.1,
+                        "max": 73.8,
                         "unit": "mA"
                     },
                     "Ible_conn_idle": {
-                        "min": "61.9",
-                        "typ": "66.0",
-                        "max": "69.0",
+                        "min": 61.9,
+                        "typ": 66,
+                        "max": 69,
                         "unit": "mA"
                     },
                     "Ible_scan": {
-                        "min": "63.0",
-                        "typ": "65.9",
-                        "max": "69.8",
+                        "min": 63,
+                        "typ": 65.9,
+                        "max": 69.8,
+                        "unit": "mA"
+                    },
+                    "Iwifi_conn_ap": {
+                        "min": 62.3,
+                        "typ": 67.8,
+                        "max": 325,
                         "unit": "mA"
                     }
                 }

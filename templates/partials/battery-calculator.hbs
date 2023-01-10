@@ -4,6 +4,28 @@
     <div>Device: <select class="deviceSelect apiHelperSelect">
         <option value="ONE402">Tracker One ONE404, ONE402 (North America)</option>
         <option value="ONE523">Tracker One ONE524, ONE523 (EMEAA)</option>
+        <option value="B402">B SoM B404, B402 (North America)</option>
+        <option value="B523">B SoM B524, B523 (EMEAA)</option>
     </select></div>
+</div>
+{{/if}}
+{{#if sleepMode}}
+<div class="batteryCalculator batteryCalculatorSleepMode"> 
+    <div>Sleep Mode: <select class="sleepMode apiHelperSelect">
+        <option value="ulp,Iulp_intrtc">Ultra Low Power (ULP), wake by time</option>
+        <option value="ulp,Iulp_imu">Ultra Low Power (ULP), wake by motion</option>
+        <option value="stop,Istop_intrtc">Stop mode sleep, wake by time</option>
+        <option value="hibernate,Ihib_gpio">Hibernate mode sleep, wake by GPIO</option>
+    </select></div>
+</div>
+{{/if}}
+{{#if batterySize}}
+<div class="batteryCalculator batteryCalculatorBatterySize"> 
+    <div>Battery size: <input type="text" size="10" class="batterySizeInput" /> mAh</div>
+</div>
+{{/if}}
+{{#if parameter}}
+<div class="batteryCalculator batteryCalculatorParameter" data-parameter="{{parameter}}" style="padding: 8px 0px 8px 0px;"> 
+    <div>{{label}}: <input type="text" size="10" class="{{parameter}}" value="{{default}}"/> {{labelAfter}}</div>
 </div>
 {{/if}}
