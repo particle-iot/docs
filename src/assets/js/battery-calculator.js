@@ -26,6 +26,7 @@ $(document).ready(function () {
         }
         const appendResult = function(s) {
             const divElem = document.createElement('div');
+            $(divElem).css('padding', '2px 0px 2px 0px');
             $(divElem).text(s);
             $(calculatorResultElem).append(divElem);
         }
@@ -40,6 +41,11 @@ $(document).ready(function () {
             if (options.useMax) {
                 result = symbolValue.max;
             }
+            else
+            if (options.avgTypMax90_10) {
+                result = (symbolValue.typ * 9 + symbolValue.max) / 10;
+            }
+
 
             switch(symbolValue.unit) {
                 case 'uA':
@@ -133,17 +139,28 @@ $(document).ready(function () {
                 }
                 $(parameters.find(e => e.parameter == 'batterySize').inputElem).val(batterySize.toString());
 
-                if (family != 'tracker' && $(sleepModeElem).val() == 'ulp,Iulp_imu') {
-                    $(sleepModeElem).val('ulp,Iulp_imu');
-                }
+                $(sleepModeElem).find('option[value="ulp,Iulp_cell"]').prop('disabled', family == 'tracker');
                 $(sleepModeElem).find('option[value="ulp,Iulp_imu"]').prop('disabled', family != 'tracker');
+
+                const optionElem = $(sleepModeElem).find('option:selected');
+                if ($(optionElem).prop('disabled')) {
+                    $(sleepModeElem).val('ulp,Iulp_intrtc');
+                }
+
             }
 
             urlConfig.mode = $(sleepModeElem).val();
 
             const modeParts = urlConfig.mode.split(',');
             const mode = modeParts[0];
-            const modeKey = modeParts[1];
+            const modeKey = modeParts.length > 1 ? modeParts[1] : '';
+
+            if (mode == 'none' || modeKey == 'Iulp_cell') {
+                $(thisElem).find('.sleepParameter').hide();
+            }
+            else {
+                $(thisElem).find('.sleepParameter').show();
+            }
 
             urlConfig.countMode = $('input[name="countMode"]:checked').val();
             switch(urlConfig.countMode) {
@@ -182,6 +199,18 @@ $(document).ready(function () {
                     break;
             }
 
+            if (mode == 'none' || modeKey == 'Iulp_cell') {
+                // No reconnection
+                $(thisElem).find('.warnAggressiveReconnection').hide();
+            }
+            else
+            if (parameterValues.publishesPerDay > (24 * 6)) {
+                $(thisElem).find('.warnAggressiveReconnection').show();
+            }
+            else {
+                $(thisElem).find('.warnAggressiveReconnection').hide();
+            }
+
             console.log('parameterValues', parameterValues);
 
             let calculations = {};
@@ -190,17 +219,27 @@ $(document).ready(function () {
             // console.log('Icell_cloud_idle='+ getValue_ma(modes.normal.Icell_conn_twr));
             // console.log('sleep mA='+ getValue_ma(modes[mode][modeKey]));
 
-            calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr, {avgTypMax:true}) / 3600.0; // mAh per connection
-    
-            calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh per connection
-    
-            calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.publishesPerDay; // sec per day
+            if (mode != 'none') {
+                calculations.connectPower = parameterValues.connectTime * getValue_ma(modes.normal.Icell_conn_twr, {avgTypMax:true}) / 3600.0; // mAh per connection
+        
+                calculations.postPublishPower = parameterValues.afterPublish * getValue_ma(modes.normal.Icell_cloud_idle) / 3600.0; // mAh per connection
+        
+                calculations.connectTimePerDay = (parameterValues.connectTime + parameterValues.afterPublish) * parameterValues.publishesPerDay; // sec per day
 
-            calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay; // sec per day
+                calculations.sleepTimePerDay = 86400 - calculations.connectTimePerDay; // sec per day
 
-            calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh per day
+                calculations.sleepPower = getValue_ma(modes[mode][modeKey]) * calculations.sleepTimePerDay / 3600.0;  // mAh per day
 
-            calculations.powerPerDay = (calculations.connectPower + calculations.postPublishPower) * parameterValues.publishesPerDay + calculations.sleepPower;  // mAh
+                calculations.powerPerDay = (calculations.connectPower + calculations.postPublishPower) * parameterValues.publishesPerDay + calculations.sleepPower;  // mAh
+            }
+            else {
+                // Assume 10 seconds to publish
+                calculations.publishPower = 10 * getValue_ma(modes.normal.Icell_cloud_tx) / 3600.0 ;  // mAh
+
+                calculations.idlePower = 24 * getValue_ma(modes.normal.Icell_cloud_idle, {avgTypMax90_10:true});  // mAh
+
+                calculations.powerPerDay = calculations.publishPower + calculations.idlePower;  // mAh
+            }
 
             calculations.batteryPower = parameterValues.batterySize * ((100 - parameterValues.reservePct) / 100); // mAh
 
@@ -234,7 +273,7 @@ $(document).ready(function () {
             }
             appendResult(result);
             
-            
+            appendResult('A minimum of ' + calculations.blocks + ' growth blocks will be required');
                 
         };
 

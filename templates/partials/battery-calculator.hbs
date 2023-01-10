@@ -12,7 +12,9 @@
     </div>
     <div class="batteryCalculatorSleepMode" style="padding: 8px 0px 8px 0px;"> 
         <div>Sleep Mode: <select class="sleepMode apiHelperSelect">
-            <option value="ulp,Iulp_intrtc">Ultra Low Power (ULP), wake by time</option>
+            <option value="none">No sleep</option>
+            <option value="ulp,Iulp_cell" selected>Ultra Low Power (ULP), cellular standby</option>
+            <option value="ulp,Iulp_intrtc" selected>Ultra Low Power (ULP), wake by time</option>
             <option value="ulp,Iulp_imu">Ultra Low Power (ULP), wake by motion</option>
             <option value="stop,Istop_intrtc">Stop mode sleep, wake by time</option>
             <option value="hibernate,Ihib_gpio">Hibernate mode sleep, wake by GPIO</option>
@@ -22,13 +24,18 @@
         <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="everyMinutes" checked/>Publish every <input type="text" size="10" class="everyMinutes" value="30"/> minutes</label></div>
         <div style="padding: 2px 0px 2px 0px;"><label><input type="radio" name="countMode" value="perDay"/>Publish <input type="text" size="10" class="perDay" value="4"/> times per day</label></div>
     </div>
+    <div class="warnAggressiveReconnection" style="padding: 8px 0px 8px 0px;"> 
+        You should avoid sleep settings that will reconnect more often than every 10 minutes. Doing so can cause your SIM
+        to be banned by your mobile carrier for excessive reconnection. If you need to publish frequently, you should
+        use no sleep or cellular standby mode.
+    </div>
     <div class="batteryCalculatorParameter" data-parameter="batterySize" style="padding: 8px 0px 8px 0px;"> 
         <div><span>Battery size:</span> &nbsp;<input type="text" size="10" class="batterySize" value=""/> mAh</div>
     </div>
-    <div class="batteryCalculatorParameter" data-parameter="connectTime" style="padding: 8px 0px 8px 0px;"> 
+    <div class="batteryCalculatorParameter sleepParameter" data-parameter="connectTime" style="padding: 8px 0px 8px 0px;"> 
         <div><span>Time to connect and publish</span> &nbsp;<input type="text" size="10" class="connectTime" value="60"/> sec</div>
     </div>
-    <div class="batteryCalculatorParameter" data-parameter="afterPublish" style="padding: 8px 0px 8px 0px;"> 
+    <div class="batteryCalculatorParameter sleepParameter" data-parameter="afterPublish" style="padding: 8px 0px 8px 0px;"> 
         <div><span>Time to stay awake after publish:</span> &nbsp;<input type="text" size="10" class="afterPublish" value=""/> sec</div>
     </div>
     <div class="batteryCalculatorParameter" data-parameter="reservePct" style="padding: 8px 0px 8px 0px;"> 
