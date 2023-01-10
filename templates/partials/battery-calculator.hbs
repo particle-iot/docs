@@ -1,14 +1,9 @@
-<div class="apiHelper batteryCalculator"> 
-    <!-- api-helper, api-helper-extras, battery-calculator -->
-    
-
-    <table class="apiHelperTableNoMargin">
-        <tbody>            
-            <tr class="productIsSelected" style="display:none;">
-                <td>Selected Product</td>
-                <td class="selectedProductCell"></td>
-                <td>&nbsp;</td>
-            </tr>
-        </tbody>
-    </table>
+<!-- api-helper, api-helper-extras, battery-calculator -->
+{{#if deviceSelect}}
+<div class="batteryCalculator batteryCalculatorDeviceSelect"> 
+    <div>Device: <select class="deviceSelect apiHelperSelect">
+        <option value="ONE402">Tracker One ONE404, ONE402 (North America)</option>
+        <option value="ONE523">Tracker One ONE524, ONE523 (EMEAA)</option>
+    </select></div>
 </div>
+{{/if}}

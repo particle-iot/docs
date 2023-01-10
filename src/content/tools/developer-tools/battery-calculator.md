@@ -10,4 +10,11 @@ includeDefinitions: [api-helper, api-helper-extras, battery-calculator]
 
 This tool provides a rough estimate of how long your device will run on a battery given various sleep parameters. This is only a rough estimate and you should always confirm the calculations with actual devices in your intended environment.
 
-{{> battery-calculator}}
+
+Select the type of device you wish to calculate for:
+
+{{> battery-calculator deviceSelect="1"}}
+
+
+{{> battery-calculator test="1"}}
+
