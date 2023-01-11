@@ -233,7 +233,7 @@ $(document).ready(function() {
 
             try {
                 orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
-                if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username) {
+                if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username || !orgInfo.agreements) {
                     // Username changed, ignore cached 
                     orgInfo = null;
                 }

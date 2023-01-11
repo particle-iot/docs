@@ -54,7 +54,7 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
  * Reset and Mode pins for buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
- * FCC and PTCRB certified
+ * FCC and IC certified
  * RoHS compliant (lead-free)
  * Requires Device OS 4.0.0 LTS (or later)
 
@@ -749,6 +749,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 |     | 2022-10-12 | RK | Removed power consumption section, was for B404 not E404X |
 |     | 2023-01-06 | RK | Update ADC information |
+|     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 
 ### 2022-07-28 PWM changes
 

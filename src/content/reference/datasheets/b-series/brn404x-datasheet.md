@@ -55,7 +55,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * On-board PCB antenna
  * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
- * FCC and PTCRB certified
+ * FCC and IC certified
  * RoHS compliant (lead-free)
 
 ## Interfaces
@@ -847,6 +847,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 011      | 2022-09-07 | RK | Add additional port and pin information |
 | 012      | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 | 013      | 2022-12-13 | RK | Update block diagram and antenna information |
+| 014      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 
 ## Known Errata
 

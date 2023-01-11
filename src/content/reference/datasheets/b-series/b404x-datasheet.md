@@ -56,7 +56,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
  * M.2 interface
- * FCC and PTCRB certified
+ * FCC and IC certified
  * RoHS compliant (lead-free)
 
 
@@ -1034,3 +1034,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 024      | 2022-12-10 | RK | Added PMIC notes |
 | 025      | 2022-12-13 | RK | Update block diagram and antenna information |
 | 026      | 2023-01-06 | RK | Clarify power supply notes for VCC and 3V3, ADC |
+| 027      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
