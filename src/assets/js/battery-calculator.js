@@ -235,12 +235,6 @@ $(document).ready(function () {
 
             calculations.days = calculations.batteryPower / calculations.powerPerDay;
 
-            calculations.fleetPublishesPerMonth = Math.ceil(parameterValues.publishesPerDay * 31 * parameterValues.numDevices)
-        
-            calculations.blocksForDevices = Math.ceil(parameterValues.numDevices / 100);
-            calculations.blocksForPublishes = Math.ceil(calculations.fleetPublishesPerMonth/ 720000);
-            calculations.blocks = Math.max(calculations.blocksForDevices, calculations.blocksForPublishes);
-        
 
             // console.log('calculations', calculations);
 
@@ -262,14 +256,7 @@ $(document).ready(function () {
                 result += Math.floor(calculations.days) + ' days (' + weeks + ' weeks).';
             }
             appendResult(result);
-            
-            if (parameterValues.numDevices < 100 && calculations.fleetPublishesPerMonth < 100000) {
-                appendResult('It may be possible to use the free plan with this fleet and publish rate (' + calculations.fleetPublishesPerMonth + ' data operations per month).');
-            }
-            else {
-                appendResult('A minimum of ' + calculations.blocks + ' growth blocks will be required (' + calculations.fleetPublishesPerMonth + ' data operations per month).');
-            }
-                
+                            
         };
 
         {
