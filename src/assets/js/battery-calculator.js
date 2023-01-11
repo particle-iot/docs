@@ -25,10 +25,9 @@ $(document).ready(function () {
             $(calculatorResultElem).empty();
         }
         const appendResult = function(s) {
-            const divElem = document.createElement('div');
-            $(divElem).css('padding', '2px 0px 2px 0px');
-            $(divElem).text(s);
-            $(calculatorResultElem).append(divElem);
+            const pElem = document.createElement('p');
+            $(pElem).text(s);
+            $(calculatorResultElem).append(pElem);
         }
 
             
@@ -59,8 +58,19 @@ $(document).ready(function () {
             return result;
         }
 
+        const showHideSections = function(key, show) {
+            if (show) {
+                $(thisElem).find('.show' + key).show();
+                $(thisElem).find('.showNot' + key).hide();
+            }
+            else {
+                $(thisElem).find('.show' + key).hide();
+                $(thisElem).find('.showNot' + key).show();
+            }
+        }
+
         const recalculate = async function(options = {}) {
-            console.log('recalculate', options);
+            // console.log('recalculate', options);
 
             if (!powerConsumption || !deviceSelectElem) {
                 return;
@@ -69,12 +79,25 @@ $(document).ready(function () {
             let urlConfig = {};
             
             const dev = $(deviceSelectElem).val();
+            if (!dev) {
+                return;
+            }
+
             urlConfig.dev = dev;
 
             if (!powerConsumption.devices[dev]) {
-                console.log('invalid dev in deviceSelect');
+                // console.log('invalid dev ' + dev + ' in deviceSelect');
                 return;
             }
+
+            urlConfig.mode = $(sleepModeElem).val();
+
+            const modeParts = urlConfig.mode.split(',');
+            const mode = modeParts[0];
+            const modeKey = modeParts.length > 1 ? modeParts[1] : '';
+
+            const modes = powerConsumption.devices[dev].modes;
+            // console.log('modes', modes);
 
             let skus = [];
 
@@ -88,47 +111,22 @@ $(document).ready(function () {
                 }
             }
             if (skus.length == 0) {
-                console.log('dev not in carriers.json');
+                // console.log('dev not in carriers.json');
                 return;
             }
-            console.log('skus', skus);
+            // console.log('skus', skus);
+
 
             const family = skus[0].family;
+            const isCellular = !!skus[0].modem;
+            const isWiFi = skus[0].wifi;
+            const isTrackerOne = dev.includes('ONE') && family == 'tracker';
+
+            showHideSections('TrackerOne', isTrackerOne);
+            showHideSections('Tracker', family == 'tracker');
+            showHideSections('Cellular', isCellular);
+            showHideSections('WiFi', isWiFi);
             
-            $('.apiHelperContentGuard').each(function() {
-                const guardElem = $(this);
-                const mode = $(guardElem).data('mode');
-                const modes = mode.split(' ');
-
-                let showItem = false;
-
-                if (modes.includes('family-' + family)) {
-                    showItem = true;
-                }
-                else
-                if (dev.includes('ONE') && family == 'tracker' && modes.includes('family-' + family + '-one')) {
-                    showItem = true;
-                }
-
-                if (showItem) {
-                    $(guardElem).show();
-                }
-                else {
-                    $(guardElem).hide();
-                }
-
-                const elseElem = $(guardElem).next();
-                if ($(elseElem).hasClass('apiHelperContentGuardElse')) {
-                    if (showItem) {
-                        $(elseElem).hide();
-                    }
-                    else {
-                        $(elseElem).show();
-                    }
-                        
-                }
-            });
-
             if (options.changeDevice) {
                 let batterySize;
                 if (family == 'tracker') {
@@ -148,12 +146,6 @@ $(document).ready(function () {
                 }
 
             }
-
-            urlConfig.mode = $(sleepModeElem).val();
-
-            const modeParts = urlConfig.mode.split(',');
-            const mode = modeParts[0];
-            const modeKey = modeParts.length > 1 ? modeParts[1] : '';
 
             if (mode == 'none' || modeKey == 'Iulp_cell') {
                 $(thisElem).find('.sleepParameter').hide();
@@ -179,8 +171,6 @@ $(document).ready(function () {
                 parameterValues[p.parameter] = parseFloat($(p.inputElem).val());
             }
 
-            const modes = powerConsumption.devices[dev].modes;
-            console.log('modes', modes);
 
             // Update URL
             const searchStr = $.param(urlConfig);
@@ -211,7 +201,7 @@ $(document).ready(function () {
                 $(thisElem).find('.warnAggressiveReconnection').hide();
             }
 
-            console.log('parameterValues', parameterValues);
+            // console.log('parameterValues', parameterValues);
 
             let calculations = {};
             
@@ -252,28 +242,33 @@ $(document).ready(function () {
             calculations.blocks = Math.max(calculations.blocksForDevices, calculations.blocksForPublishes);
         
 
-            console.log('calculations', calculations);
+            // console.log('calculations', calculations);
 
             clearResult();
 
             let result = 'Estimated runtime: ';
             if (calculations.days < 2) {
                 // Show in hours
-                result += Math.floor(calculations.days * 24) + ' hours';
+                result += Math.floor(calculations.days * 24) + ' hours.';
             }
             else
             if (calculations.days < 14) {
                 // Show in days only
-                result += Math.floor(calculations.days * 10) / 10 + ' days';
+                result += Math.floor(calculations.days * 10) / 10 + ' days.';
             }
             else {
                 // Show in days and weeks
                 const weeks = Math.floor(calculations.days / 7 * 10) / 10;
-                result += Math.floor(calculations.days) + ' days (' + weeks + ' weeks)';
+                result += Math.floor(calculations.days) + ' days (' + weeks + ' weeks).';
             }
             appendResult(result);
             
-            appendResult('A minimum of ' + calculations.blocks + ' growth blocks will be required');
+            if (parameterValues.numDevices < 100 && calculations.fleetPublishesPerMonth < 100000) {
+                appendResult('It may be possible to use the free plan with this fleet and publish rate (' + calculations.fleetPublishesPerMonth + ' data operations per month).');
+            }
+            else {
+                appendResult('A minimum of ' + calculations.blocks + ' growth blocks will be required (' + calculations.fleetPublishesPerMonth + ' data operations per month).');
+            }
                 
         };
 
