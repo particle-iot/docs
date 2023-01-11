@@ -263,12 +263,11 @@ $(document).ready(function() {
                             $.ajax({
                                 dataType: 'json',
                                 data: {
-                                    'access_token': apiHelper.localLogin.access_token
+                                    'access_token': apiHelper.auth.access_token
                                 },
                                 error: function(err) {
                                     // If unable to get agreements, still show enterprise for now
                                     console.log('error getting service agreements', err);
-                                    orgInfo.isEnterprise = true;
                                     resolve();
                                 },
                                 method: 'GET',
