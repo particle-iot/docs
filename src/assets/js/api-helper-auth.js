@@ -259,12 +259,17 @@ $(document).ready(function() {
                     orgInfo.agreements = {};
 
                     for(const org of orgInfo.orgList.organizations) {
-                        
                         await new Promise(function(resolve) {
                             $.ajax({
                                 dataType: 'json',
                                 data: {
                                     'access_token': apiHelper.localLogin.access_token
+                                },
+                                error: function(err) {
+                                    // If unable to get agreements, still show enterprise for now
+                                    console.log('error getting service agreements', err);
+                                    orgInfo.isEnterprise = true;
+                                    resolve();
                                 },
                                 method: 'GET',
                                 success: function (resp, textStatus, jqXHR) {
