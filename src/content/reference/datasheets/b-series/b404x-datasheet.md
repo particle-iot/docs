@@ -80,7 +80,14 @@ If you are not using a battery, or using a battery of a different voltage, you s
 
 These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
 
-Your power supply must have a maximum ripple of 120mV peak-to-peak for proper operation of the MCU.
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
 
 We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
 
