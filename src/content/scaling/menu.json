@@ -44,9 +44,19 @@
         "href": "/scaling/quick-start-guide/device-communication/"
       },
       {
+        "dir": "organizations",
+        "title": "Introduction to Organizations",
+        "href": "/scaling/quick-start-guide/organizations/"
+      },
+      {
         "dir": "introduction-to-products",
         "title": "Introduction to Products",
         "href": "/scaling/quick-start-guide/introduction-to-products/"
+      },
+      {
+        "dir": "billing",
+        "title": "Billing",
+        "href": "/scaling/quick-start-guide/billing/"
       },
       {
         "dir": "enterprise-order-placement",
