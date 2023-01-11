@@ -61,6 +61,11 @@
       {
         "dir": "hex-generator",
         "href": "/tools/developer-tools/hex-generator/"
+      },
+      {
+        "dir": "battery-calculator",
+        "title": "Battery calculator",
+        "href": "/tools/developer-tools/battery-calculator/"
       }
     ],
     {
