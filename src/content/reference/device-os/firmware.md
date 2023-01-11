@@ -15136,6 +15136,10 @@ void loop()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
+- Do not disable interrupts around any code that will obtain a mutex, such as SPI transactions and I2C lock.
+- Do not make Particle calls, such as `Particle.publish`, or Cellular calls, with interrupts disabled.
+- Do not allocate memory with interrupts disabled. This includes malloc, new, strdup, as well as `String` and many standard library functions (like std::vector).
+
 ```cpp
 // SYNTAX
 noInterrupts();
