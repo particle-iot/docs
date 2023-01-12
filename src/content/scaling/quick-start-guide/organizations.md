@@ -29,6 +29,8 @@ In many cases, developers will have access to all products by default, but you c
 
 ## Migrating to enterprise
 
+<a id="top"></a>
+
 ### 1. Select the products you want to upgrade
 
 You can select any number of products from your free sandbox to migrate to enterprise.
