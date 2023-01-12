@@ -42,7 +42,7 @@ Thus geofence data can be processed by any methods used to handle location event
 
 - [Webhooks](/getting-started/integrations/webhooks/)
 - Other integrations such as [Google Cloud Platform](/getting-started/integrations/google-cloud-platform/)
-- The [Server Sent Events Stream](/reference/cloud-apis/api/#product-event-stream)
+- The [Server-Sent Events Stream](/reference/cloud-apis/api/#product-event-stream)
 - [Querying historical location data](/reference/cloud-apis/api/#location)
 
 
