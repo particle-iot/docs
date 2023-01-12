@@ -42,6 +42,7 @@
   "integrations:test",
   "integrations:update",
   "locations:get",
+  "organization:get",
   "products:get",
   "products:list",
   "service_agreements.notifications:list",
