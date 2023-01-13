@@ -216,6 +216,10 @@ The Photon, P1, and Spark Core connect to TCP Port 5683 (CoAP), outbound.
 
 If you are connecting from a restrictive network that does not allow outbound TCP access on Port 5683, you may need to allow-list these IP addresses or allow access based on the device's MAC address.
 
+### Internet test
+
+If your device is unable to connect to the Particle cloud, but is able to connect to its network, an outbound UDP NTP request may be made to pool.ntp.org, port 123 to see if DNS and other hosts on the Internet are accessible. This is only done on connection failures, and only affects logging. It will not prevent connecting to the Particle cloud.
+
 ### Cloud IP Addresses
 
 The list of servers devices connect to is subject to change and you should avoid relying on a static list of IP addresses if possible.
