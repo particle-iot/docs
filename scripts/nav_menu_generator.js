@@ -176,7 +176,19 @@ function generateNavHtml(menuJson) {
     const makeNavMenu2 = function (item, indent) {
         let html = '';
 
-        html += '<div class="navContainer ' + (item.addClass ? item.addClass : '') + '">';
+        let tooltipOption = '';
+
+        let classOption = 'navContainer ' + (item.addClass ? item.addClass + ' ' : '');
+
+        let styleOption = '';
+        if (!item.activeItem && item.internal) {
+            styleOption += 'display:none ';
+            classOption += 'internalMenuItem ';
+            tooltipOption += 'Only visible to internal users';
+        }
+
+
+        html += '<div class="' + classOption + '" ' + (styleOption.length ? 'style="' + styleOption + '" ' : '') + '>';
 
         if (indent) {
             html += '<div style="width:' + indent * 15 + 'px;">&nbsp;</div>'; // Replacement for navIndent2
@@ -187,7 +199,9 @@ function generateNavHtml(menuJson) {
             html += '<div class="navPlusMinus"><i class="ion-minus"></i></div>';
         }
         else {
-            html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
+            html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink" ' +
+                (tooltipOption.length ? 'title="' + tooltipOption + '" ': '') +
+                '>' + makeTitle(item) + '</a></div>';
         }
 
         html += '</div>'; // navContainer
@@ -248,7 +262,7 @@ function generateNavHtml(menuJson) {
                 }
                 
             }
-            else 
+            else         
             if (item.activeItem || !item.hidden) {
                 nav += makeNavMenu2(item, indent);
                 itemsFlat.push(item);
@@ -268,47 +282,6 @@ function generateNavHtml(menuJson) {
 
     nav += '</div>'; // navMenuOuter
 
-    // Generate keyboard and swipe navigation directions for this page
-    // This can be removed after fully migrated to using the new apiIndexJson
-    /*
-    let navigationInfo = {};
-    let itemFound = false;
-
-    for(let ii = 0; ii < itemsFlat.length; ii++) {
-        if (itemsFlat[ii].activeItem) {
-            if (ii > 0) {
-                navigationInfo.prevLink = itemsFlat[ii - 1].href;
-            }
-            if ((ii + 1) < itemsFlat.length) {
-                navigationInfo.nextLink = itemsFlat[ii + 1].href;
-            }
-            itemFound = true;
-            break;
-        }
-    }
-    if (!itemFound && itemsFlat.length >= 2) {
-        navigationInfo.nextLink = itemsFlat[1].href;
-    }
-
-    itemFound = false;
-    for(let ii = 0; ii < cardSections.length; ii++) {
-        if (cardSections[ii].activeSection) {
-            if (ii > 0) {
-                navigationInfo.prevGroup = cardSections[ii - 1].href;
-            }
-            if ((ii + 1) < cardSections.length) {
-                navigationInfo.nextGroup = cardSections[ii + 1].href;
-            }
-            itemFound = true;
-            break;
-        }
-    }
-    if (!itemFound && cardSections.length >= 2) {
-        navigationInfo.nextGroup = cardSections[1].href;
-    }
-
-    nav += '\n<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>\n';
-    */
 
     return nav;
 }
@@ -358,16 +331,6 @@ function metalsmith(options) {
             generateNavMenu(files, fileName, contentDir);
         });
 
-        /*
-        // This doesn't quite work as planned because the active items are hardcoded in it, though
-        // it might be possible to fix from Javascript
-        Object.keys(files).forEach(function (fileName) {
-            if (fileName.startsWith('reference/device-os/api/')) {
-                // Replace this navigation with the full navigation
-                files[fileName].navigation = files['reference/device-os/firmware.md'].navigation;
-            }
-        });
-        */
 
         done();
     };

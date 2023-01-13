@@ -150,6 +150,10 @@ $(document).ready(function() {
 
             $('#userMenuLogout > a').on('click', handleLogout);
         
+            if (auth.username.endsWith('particle.io')) {
+                $('.internalMenuItem').show();
+            }
+
         };
         const showNotLoggedIn = function() {
             $('#userMenuLabel').text('User');

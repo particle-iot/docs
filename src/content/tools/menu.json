@@ -31,7 +31,7 @@
       "title": "Device Setup",
       "dir": "setup",
       "href": "/tools/setup/",
-      "hidden": true
+      "internal": true
     },
     {
       "dir": "developer-tools",
@@ -86,7 +86,7 @@
         "dir": "import-devices",
         "title": "Import devices",
         "href": "/tools/cloud-tools/import-devices/",
-        "hidden": true
+        "internal": true
       },
       {
         "dir": "integration-copy",
@@ -109,7 +109,7 @@
       {
         "title": "Device Restore USB (Old Version)",
         "href": "/tools/device-restore/device-restore-usb-old/",
-        "hidden": true
+        "internal": true
       }
     ]
   ]
