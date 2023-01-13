@@ -1720,6 +1720,7 @@
   "/datasheets/wi-fi/photon-2-photon-migration-guide": "/hardware/migration-guides/photon-2-photon-migration-guide",
   "/datasheets/wi-fi/photon-datasheet": "/reference/datasheets/wi-fi/photon-datasheet",
   "/dev": "/getting-started/developer-tools/workbench",
+  "/device-remove": "/tools/cloud-tools/device-remove",
   "/device-restore": "/tools/device-restore/device-restore-jtag",
   "/device-restore-jtag": "/tools/device-restore/device-restore-jtag",
   "/device-restore-usb": "/tools/device-restore/device-restore-usb",

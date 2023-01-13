@@ -176,15 +176,12 @@ function generateNavHtml(menuJson) {
     const makeNavMenu2 = function (item, indent) {
         let html = '';
 
-        let tooltipOption = '';
-
         let classOption = 'navContainer ' + (item.addClass ? item.addClass + ' ' : '');
 
         let styleOption = '';
         if (!item.activeItem && item.internal) {
             styleOption += 'display:none ';
             classOption += 'internalMenuItem ';
-            tooltipOption += 'Only visible to internal users';
         }
 
 
@@ -199,9 +196,10 @@ function generateNavHtml(menuJson) {
             html += '<div class="navPlusMinus"><i class="ion-minus"></i></div>';
         }
         else {
-            html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink" ' +
-                (tooltipOption.length ? 'title="' + tooltipOption + '" ': '') +
-                '>' + makeTitle(item) + '</a></div>';
+            html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink" ' + '>' + makeTitle(item) + '</a></div>';
+        }
+        if (item.internal) {
+            html += '<img src="/assets/images/logo.png" width="16" height="16" title="Only visible to internal users"/>';
         }
 
         html += '</div>'; // navContainer

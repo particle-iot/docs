@@ -32,7 +32,7 @@ module.exports = function plugin(options) {
                                 processMenuArray(e);
                             }
                             else {
-                                if (e.hidden) {
+                                if (e.hidden || e.internal) {
                                     if (!e.searchable) {
                                         // Example e.href: /reference/technical-advisory-notices/tan007/
 

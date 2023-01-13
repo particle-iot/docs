@@ -91,6 +91,11 @@
       {
         "dir": "integration-copy",
         "href": "/tools/cloud-tools/integration-copy/"
+      },
+      {
+        "dir": "device-remove",
+        "href": "/tools/cloud-tools/device-remove/",
+        "internal": true
       }
     ],
     {
