@@ -57,7 +57,7 @@ Copy and paste the token out of the Access Token field to use in locations where
 You should not create a new access token for each API operation! You should instead create one at most for each session, and save the token and reuse it where it's safe to do so. The limits for access token and general API calls are:
 
 {{!-- BEGIN shared-blurb 1ef79152-ac34-11ec-b909-0242ac120002 --}}
-#### Create an Access Token - API rate limits
+#### Create an access token - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
