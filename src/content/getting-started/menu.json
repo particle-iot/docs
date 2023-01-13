@@ -89,7 +89,7 @@
         "dir": "manual-setup",
         "title": "Manual setup",
         "href": "/getting-started/setup/manual-setup/",
-        "hidden": true
+        "internal": true
       },
       {
         "dir": "accounts",

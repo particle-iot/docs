@@ -273,13 +273,13 @@
           "dir": "monitor-one-datasheet",
           "title": "Monitor One Datasheet",
           "href": "/reference/datasheets/tracker/monitor-one-datasheet/",
-          "hidden": true
+          "internal": true
         },
         {
           "dir": "tracker-m-datasheet",
           "title": "Tracker M Datasheet",
           "href": "/reference/datasheets/tracker/tracker-m-datasheet/",
-          "hidden": true
+          "internal": true
         },
         {
           "dir": "tracker-m8-accessories",
@@ -495,7 +495,7 @@
         "dir": "tan007",
         "title": "TAN007 - SARA-R410M-02B-03 OTA Upgrade Issue",
         "href": "/reference/technical-advisory-notices/tan007/",
-        "hidden": true
+        "internal": true
       },
       {
         "dir": "tan008",
