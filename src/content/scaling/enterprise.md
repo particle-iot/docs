@@ -104,7 +104,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 You can submit your initial blanket PO or order PO using this form:
 
 - Be sure your purchase order matches the details of your contract.
-- [Additional purchase order details](scaling/quick-start-guide/enterprise-order-placement/).
+- [Additional purchase order details](/scaling/quick-start-guide/enterprise-order-placement/).
 - [Example purchase order](/assets/images/support/Screen_Shot_2022-01-24_at_11.09.03_AM.png) or [Excel Purchase Order Template](/assets/files/enterprise-order-template.xlsx).
 
 {{> troubleshooting page="227" options="noUpdateUrl,noScroll"}}
