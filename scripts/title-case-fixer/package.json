@@ -1,0 +1,14 @@
+{
+    "name": "title-case-fixer",
+    "version": "0.0.1",
+    "description": "tool fix capitalization of markdown headers",
+    "private": true,
+    "scripts": {},
+    "contributors": [],
+    "license": "MIT",
+    "engines": {
+        "node": ">=16.13.0"
+    },
+    "dependencies": {
+    }
+}
