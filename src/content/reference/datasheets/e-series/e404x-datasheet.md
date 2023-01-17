@@ -107,10 +107,12 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 ### FCC approved antennas
 
-| Antenna | SKU | Details | Links |
-| :----- | :--- | :------ | :---- |
-| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
-| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Antenna | SKU | Links |
+| :----- | :---| :---- |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1] | ANTCW2EA |[Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1] | ANT-FLXU | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 
 
 #### Bluetooth LE (BLE)
