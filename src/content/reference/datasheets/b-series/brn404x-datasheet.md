@@ -706,6 +706,13 @@ The complete schematic and board files are open source and available on Particle
 ## Bill of materials
 -->
 
+## Block Diagram Detail
+
+For FCC § 2.1033(b)(5)
+
+{{imageOverlay src="/assets/images/boron/brn404x-block-diagram-detail.png" alt="Block Diagram Detail" class="full-width"}}
+
+
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated e2c1aabb-d8d1-4bf4-90e1-6fe0978663e8 --}}
@@ -848,6 +855,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 012      | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 | 013      | 2022-12-13 | RK | Update block diagram and antenna information |
 | 014      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+| 015      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 
 ## Known Errata
 

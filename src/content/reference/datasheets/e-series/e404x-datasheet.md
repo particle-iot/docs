@@ -615,9 +615,13 @@ These specifications are based on the nRF52840 datasheet.
 
 An E series part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
-## Schematics
 
-**To be provided at a later date**
+## Block Diagram Detail
+
+For FCC § 2.1033(b)(5)
+
+{{imageOverlay src="/assets/images/e-series/illustrations/e404x-block-diagram-detail.png" alt="Block Diagram Detail" class="full-width"}}
+
 
 ---
 
@@ -750,6 +754,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-10-12 | RK | Removed power consumption section, was for B404 not E404X |
 |     | 2023-01-06 | RK | Update ADC information |
 |     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+|     | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
 
 ### 2022-07-28 PWM changes
 
