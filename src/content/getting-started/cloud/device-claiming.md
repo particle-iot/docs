@@ -397,7 +397,7 @@ The amount of time it takes to activate or reactivate a SIM may depend on:
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Fast<sup>1</sup> | NRND | |
 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Sometimes slow<sup>3</sup> | End of life | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Sometimes slow<sup>3</sup> | Deprecated | |
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | NRND | |
+| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Generally fast<sup>2</sup> | Deprecated | |
 | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Generally fast<sup>2</sup> | Deprecated | E314MOD1|
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Generally fast<sup>2</sup> | NRND | E314KIT|
 | E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Generally fast<sup>2</sup> | Deprecated | ELC314TY|

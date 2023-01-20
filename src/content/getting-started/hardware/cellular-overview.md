@@ -203,7 +203,6 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | E404XTRAY50 | E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50] | NORAM | R510 | &check; | In development | |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | NRND | |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | &check; | NRND | |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | &check; | NRND | |
 | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 |  | NRND | E404KIT|
@@ -211,6 +210,7 @@ The E Series modules are generally 2nd-generation cellular device that is reflow
 | E404KIT | E Series LTE CAT-M1 (NorAm, EtherSIM) Evaluation Kit, [x1] | NORAM | R410 | &check; | NRND | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm, EtherSIM), [x1] | NORAM | R410 | &check; | NRND | |
 | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 |  | Deprecated | E314MOD1|
+| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | Deprecated | |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 |  | Deprecated | |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | &check; | Deprecated | |
 | E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | Deprecated | E404MOD1|
@@ -298,7 +298,7 @@ The Electron is the 2nd-generation cellular device in a prototyping form factor.
 | Global | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | U201 | &check; | 3 | NRND | &nbsp; |
 | Global | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | U201 | &nbsp; | 2 | NRND | E314KIT |
 | Global | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | U201 | &nbsp; | 2 | Deprecated | E314MOD1 |
-| Global | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | U201 | &nbsp; | 2 | NRND | &nbsp; |
+| Global | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | U201 | &nbsp; | 2 | Deprecated | &nbsp; |
 | Global | E313EA | E Series 2G/3G (Global - E313), [x1] | U201 | &nbsp; | 2 | Deprecated | &nbsp; |
 | Global | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | U201 | &nbsp; | 2 | End of life | &nbsp; |
 | Global | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | U201 | &check; | 2 | NRND | &nbsp; |
@@ -433,7 +433,7 @@ This table lists all SKUs, sorted by the type of cellular modem in the device.
 | U201 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &check; | 3 | NRND | &nbsp; |
 | U201 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | &nbsp; | 2 | NRND | E314KIT |
 | U201 | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | 2 | Deprecated | E314MOD1 |
-| U201 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | 2 | NRND | &nbsp; |
+| U201 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | 2 | Deprecated | &nbsp; |
 | U201 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | &nbsp; | 2 | Deprecated | &nbsp; |
 | U201 | E313TRAY50 | E Series 2G/3G (Global - E313), Tray [x50] | Global | &nbsp; | 2 | End of life | &nbsp; |
 | U201 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | 2 | NRND | &nbsp; |
@@ -545,7 +545,7 @@ This table lists SKUs by the type of SIM. There are four possible Particle SIM c
 | Type T | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 | 2 | NRND | ELC314TY |
 | Type T | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | 2 | NRND | E314KIT |
 | Type T | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 | 2 | Deprecated | E314MOD1 |
-| Type T | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | 2 | NRND | &nbsp; |
+| Type T | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | 2 | Deprecated | &nbsp; |
 | Type T | E350KIT | Electron 2G Kit (Global) | Global | G350 | 2 | Deprecated | &nbsp; |
 | Type T | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | 2 | Deprecated | ELC314TY |
 | Type T | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | U260 | 2 | Deprecated | &nbsp; |
@@ -730,7 +730,6 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 | BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | &check; | U201 | 3 | NRND | &nbsp; |
 | E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | &nbsp; | U270 | 2 | NRND | ELC314TY |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | &nbsp; | U201 | 2 | NRND | E314KIT |
-| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | U201 | 2 | NRND | &nbsp; |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | &check; | U201 | 2 | NRND | &nbsp; |
@@ -741,6 +740,7 @@ The following SKUs are 2G/3G only and should not be deployed in the United State
 | E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | &nbsp; | U260 | 2 | Deprecated | ELC314TY |
 | E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | &nbsp; | U270 | 2 | Deprecated | ELC314TY |
 | E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | E314MOD1 |
+| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | &nbsp; | U201 | 2 | Deprecated | &nbsp; |
 | E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | &check; | U201 | 2 | Deprecated | &nbsp; |
 | SNSRKIT3G260 | Electron 3G (Americas/Aus) Sensor Kit, [x1] | Americas | &nbsp; | U260 | 2 | Deprecated | &nbsp; |
