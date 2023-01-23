@@ -96,6 +96,10 @@
         "dir": "device-remove",
         "href": "/tools/cloud-tools/device-remove/",
         "internal": true
+      },
+      {
+        "title": "Cellular usage",
+        "href": "/troubleshooting/connectivity/cellular-usage/"
       }
     ],
     {

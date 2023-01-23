@@ -5,9 +5,9 @@ description: Product SIM cellular data usage viewer
 includeDefinitions: [api-helper, api-helper-extras, api-helper-cloud, api-helper-sim, chart]
 ---
 
-# {{title}} (Experimental)
+# {{title}}
 
-This experimental tool shows cellular data usage for product fleets. It is still in development and may contain bugs still.
+This tool shows cellular data usage for product fleets.
 
 {{> sso}}
 
