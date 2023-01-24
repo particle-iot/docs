@@ -56,7 +56,7 @@ $(document).ready(function() {
         }
 
         if (mode == 'wifi') {
-            $(thisElem).find('.setupStepWiFiInstructions').show();
+            $(thisElem).find('.setupWiFiInstructions').show();
         }
 
         ga('send', 'event', gaCategory, 'Opened Page', mode);
@@ -3537,7 +3537,7 @@ $(document).ready(function() {
                 usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
 
                 if (mode == 'wifi') {
-                    $(thisElem).find('.setupStepWiFiInstructions').hide();
+                    $(thisElem).find('.setupWiFiInstructions').hide();
                 }
     
                 // TODO: Try this with a device with old Device OS, not sure whether this step
