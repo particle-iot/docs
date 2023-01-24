@@ -360,7 +360,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <p><button class="setCredentials">Select Wi-Fi Network</button></p>
+                <p><button class="setCredentials" disabled>Select Wi-Fi Network</button></p>
                 <div class="showUseExisting" style="display:none">
                     <p style="padding-top:15px"><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
                 </div>
@@ -459,8 +459,14 @@
                 <p>If you continue without activating the SIM you may not be able to get online until you manually activate the SIM.</p>
                 </p>
             </div>
+            <div class="setupStepWifiStart" style="display:none">
+                <p>Wi-Fi setup in progress... this can take up to 1 minute.</p>
+            </div>
             <div class="setupStepWifiComplete" style="display:none">
                 <p>Wi-Fi setup done!</p>
+            </div>
+            <div class="setupStepWifiFailed" style="display:none">
+                <p>Wi-Fi setup failed. This can happen if the password is invalid. It may help to reset the device and try again.</p>
             </div>
             <div class="setupStepTowerScan" style="display:none">
                 <div class="setupStepTowerScanRunning">

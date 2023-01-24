@@ -3040,108 +3040,59 @@ $(document).ready(function() {
             if (mode == 'wifi') {
                 // Use Device OS control requests for Wi-Fi scan
 
+                const networkResults = await usbDevice.scanWifiNetworks();
 
-                // option (type_id) = 506; // CTRL_REQUEST_WIFI_SCAN_NETWORKS
-                const res = await usbDevice.sendControlRequest(506);
-                if (res.result == 0) {
-                    // data is a protobuf https://protobuf.dev/
-                    /*
-                        enum Security {
-                        NO_SECURITY = 0;
-                        WEP = 1;
-                        WPA_PSK = 2;
-                        WPA2_PSK = 3;
-                        WPA_WPA2_PSK = 4;
-                        }                    
-
-                        message ScanNetworksReply {
-                        message Network {
-                            string ssid = 1;
-                            bytes bssid = 2 [(nanopb).max_size = 6];
-                            Security security = 3;
-                            int32 channel = 4;
-                            int32 rssi = 5;
-                        }
-
-                        repeated Network networks = 1;
-                        }
-                    */
-                    let protobuf = apiHelper.protobuf(res.data);
-
-                    const decodeNetwork = function(end) {
-                        let network = {
-
-                        };
-                        while(protobuf.offset < end) {
-                            result = protobuf.decodeTag();
-                            switch(result.field) {
-                                case 1: // SSID (string)
-                                    network.ssid = protobuf.decodeString(result.value);
-                                    break;
-                                case 2: // BSSID (array)
-                                    network.bssid = protobuf.decodeBytes(result.value);
-                                    break;
-                                case 3: // Security
-                                    network.security = result.value;
-                                    break;
-                                case 4: // Channel
-                                    network.channel = result.value;
-                                    break;
-                                case 5: // RSSI
-                                    network.rssi = result.value;
-                                    break;
-                            }
-                        };
-                        return network;
-                    }
-
-                    sortedNetworks = [];
-                    
-                    while(protobuf.offset < res.data.byteLength) {
-                        result = protobuf.decodeTag();
-
-                        // repeated Network networks = 1;
-                        if (result.field != 1 || result.wireType != 2) {
-                            console.log('unexpected result', result);
-                            break;
-                        }
-            
-                        // Decode Network 
-                        result = decodeNetwork(protobuf.offset + result.value);
-                        if (result.ssid && result.ssid.length > 0 && result.bssid && result.bssid.length > 0) {
-                            let found = false;
-
-                            for(let ii = 0; ii < sortedNetworks.length; ii++) {
-                                if (sortedNetworks[ii].ssid == result.ssid) {
-                                    if (result.rssi > sortedNetworks[ii].rssi) {
-                                        sortedNetworks[ii] = result;    
-                                    }
-                                    found = true;
-                                }
-                            }
-                            if (!found) {
-                                sortedNetworks.push(result);
-                            }
-
-                        }
-                    }
-
-                    sortedNetworks.sort(function(a, b) {
-                        return a.ssid.localeCompare(b.ssid);
-                    })
-
-                    console.log('sortedNetworks', sortedNetworks);
-                    
-                    wifiNetworksUpdate();
-                    wifiNetworksDone();
-                }
-                else {
-                    // TODO: Handle error here
-                    console.log('res', res);
-                }
+                sortedNetworks = [];
                 
+                for(let networkObj of networkResults) {
+                    // Convert enums back into numbers for compatibility with setup firmware
+                    switch(networkObj.security) {
+                        case 'NO_SECURITY':
+                            networkObj.sec = 0;
+                            break;
+
+                        case 'WEP':
+                            networkObj.sec = 1;
+                            break;
+
+                        case 'WPA_PSK':
+                            networkObj.sec = 2;
+                            break;
+
+                        default:
+                        case 'WPA_WPA2_PSK':
+                        case 'WPA2_PSK':
+                            networkObj.sec = 3;
+                            break;
+
+                    }
 
 
+                    if (networkObj.ssid && networkObj.ssid.length > 0 && networkObj.bssid && networkObj.bssid.length > 0) {
+                        let found = false;
+
+                        for(let ii = 0; ii < sortedNetworks.length; ii++) {
+                            if (sortedNetworks[ii].ssid == networkObj.ssid) {
+                                if (networkObj.rssi > sortedNetworks[ii].rssi) {
+                                    sortedNetworks[ii] = networkObj;    
+                                }
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            sortedNetworks.push(networkObj);
+                        }
+                    }
+                }
+
+                sortedNetworks.sort(function(a, b) {
+                    return a.ssid.localeCompare(b.ssid);
+                })
+                
+                wifiNetworksUpdate();
+                wifiNetworksDone();
+            
+    
             }
             else {
                 // Use device setup firmware control requests for Wi-Fi scan
@@ -3175,15 +3126,16 @@ $(document).ready(function() {
             $(setCredentialsElem).on('click', async function() {
                 $(setCredentialsElem).prop('disabled', true);
                 
+                const checkedItems = $('input[name="selectedNetwork"]:checked');
+                const ssid = $(checkedItems).val();
+                const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
+                const password = $(passwordInputElem).val();
+
                 if (mode != 'wifi') {
                     // Setting credentials can take a few seconds, so put up the next step first
                     // so it's clear that the button worked
                     setSetupStep('setupStepWaitForOnline');
 
-                    const checkedItems = $('input[name="selectedNetwork"]:checked');
-                    const ssid = $(checkedItems).val();
-
-                    const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
 
                     let reqObj = {
                         op: 'wifiSetCredentials',
@@ -3194,7 +3146,7 @@ $(document).ready(function() {
 
                     if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
                         // WEP, WPA, WPA2
-                        reqObj.pass = $(passwordInputElem).val();
+                        reqObj.pass = password;
                     }
         
                     if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
@@ -3207,7 +3159,7 @@ $(document).ready(function() {
                             // Optional: Root CA, Outer Identity
                             reqObj.eap = 25; // WLAN_EAP_TYPE_PEAP
                             reqObj.username = $(wifiUsernameElem).val();
-                            reqObj.pass = $(passwordInputElem).val();
+                            reqObj.pass = password;
                         }
                         else
                         if (eapMode == 1) {
@@ -3248,16 +3200,31 @@ $(document).ready(function() {
                 }
                 else {
                     // Set using Device OS control request
+                    hideDeviceFirmwareInfo();
 
-                    /*
-                    message JoinNewNetworkRequest {
-                    option (type_id) = 500; // CTRL_REQUEST_WIFI_JOIN_NEW_NETWORK
-                    string ssid = 1;
-                    bytes bssid = 2 [(nanopb).max_size = 6];
-                    Security security = 3;
-                    Credentials credentials = 4;
-                    }                    
-                    */
+                    setSetupStep('setupStepWifiStart');
+
+                    
+                    const reqObj = {
+                        ssid, 
+                        password
+                    };
+
+                
+                    try {
+                        const res = await usbDevice.joinNewWifiNetwork(reqObj);
+
+                        setSetupStep('setupStepWifiComplete');
+
+                        await usbDevice.reset();
+
+                        await usbDevice.close();
+                        usbDevice = null;
+                    }
+                    catch(e) {
+                        setSetupStep('setupStepWifiFailed');
+                    }
+
                 }
 
                 return;
