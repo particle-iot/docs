@@ -48,11 +48,23 @@ $(document).ready(function () {
             
             if (result.wireType == 0 || result.wireType == 2) {
                 // varint, zigzag, or delimited, next thing is a varint size
+                // Also length delimited (string, bytes, embedded messages, packed repeated fields)
                 result.value = protobuf.decodeVarint();
             }
 
             return result;
         }
+
+        protobuf.decodeString = function(len) {
+            const a = protobuf.data.slice(protobuf.offset, protobuf.offset + len);
+
+            return new TextDecoder('utf-8').decode(a);
+        }
+
+        protobuf.decodeBytes = function(len) {
+            return protobuf.data.slice(protobuf.offset, protobuf.offset + len);
+        }
+
 
 
         return protobuf;
