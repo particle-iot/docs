@@ -66,6 +66,11 @@
         "dir": "battery-calculator",
         "title": "Battery calculator",
         "href": "/tools/developer-tools/battery-calculator/"
+      },
+      {
+        "dir": "configure-wi-fi",
+        "title": "Configure Wi-Fi",
+        "href": "/tools/developer-tools/configure-wi-fi/"
       }
     ],
     {
