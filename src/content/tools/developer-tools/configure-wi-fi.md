@@ -8,6 +8,8 @@ includeDefinitions: [api-helper, api-helper-cloud, device-setup-usb, api-helper-
 
 # {{title}}
 
+*For P2, Photon 2, and Argon*
+
 {{> device-setup-usb mode="wifi"}}
 
 

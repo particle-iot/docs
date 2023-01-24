@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    const gaCategory = 'USB Device Setup';
+    let gaCategory = 'USB Device Setup';
     const storageActivateSim = "DeviceSetupActivatingSim";
     const doneUrl = '/assets/images/device-setup/ok-48.png';
 
@@ -47,11 +47,16 @@ $(document).ready(function() {
                 $(thisElem).find('.' + m + 'Mode').show();    
             }
         }
+        gaCategory = 'USB Device Setup ' + mode;
 
         const noLoginRequired = (mode == 'restore' || mode == 'wifi');
 
         if (noLoginRequired || apiHelper.auth) {
             $(thisElem).find('.deviceSetupLoggedIn').show();
+        }
+
+        if (mode == 'wifi') {
+            $(thisElem).find('.setupStepWiFiInstructions').show();
         }
 
         ga('send', 'event', gaCategory, 'Opened Page', mode);
@@ -1017,7 +1022,6 @@ $(document).ready(function() {
                 if (!usbDevice.isInDfuMode) {
                     // Attempt to get the module info on the device using control requests if not already in DFU mode.
                     // When in DFU already, just flash full Device OS and binaries to avoid leaving DFU.
-                    ga('send', 'event', gaCategory, 'Already DFU', deviceInfo.platformId);
 
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
 
@@ -1028,6 +1032,9 @@ $(document).ready(function() {
                         setSetupStep('setupStepManualDfu');      
                         return;              
                     }
+                }
+                else {
+                    ga('send', 'event', gaCategory, 'Already DFU', deviceInfo.platformId);
                 }
 
                 if (usbDevice.isCellularDevice) {                    
@@ -1052,12 +1059,22 @@ $(document).ready(function() {
 
                 if (mode == 'wifi') {
                     if (!deviceInfo.wifi) {
-                        setSetupStep('setupOnlyWiFi');
+                        ga('send', 'event', gaCategory, 'Not allowed Is Cellular');
+                        setSetupStep('setupStepWiFiIsCellular');
+                        return;
                     }
-                    // TODO: Check for Gen 2 devices here?
-                    // TODO: Check if in DFU mode
-                    // TODO: Check for minimum system version?
 
+                    if (deviceInfo.platformVersionInfo.gen == 2) {
+                        ga('send', 'event', gaCategory, 'Not allowed Is Gen 2');
+                        setSetupStep('setupStepWifiGen2');
+                        return;
+                    }
+
+                    if (usbDevice.isInDfuMode) {
+                        ga('send', 'event', gaCategory, 'Not allowed Is DFU');
+                        setSetupStep('setupStepWifiInDFU');
+                        return;
+                    }
 
                     configureWiFi();                              
                 }
@@ -2825,11 +2842,6 @@ $(document).ready(function() {
 
             $(thisElem).find('.useExisting').on('click', async function() {
 
-                if (mode == 'wifi') {
-                    setSetupStep('setupStepWifiComplete');
-                    return;
-                }
-
                 setSetupStep('setupStepWaitForOnline');
                 reqObj = {
                     op: 'connect',
@@ -3025,6 +3037,8 @@ $(document).ready(function() {
 
                 $(thisElem).find('.scanAgain').prop('disabled', false);
 
+                ga('send', 'event', gaCategory, 'Wi-Fi Scan Done', sortedNetworks.length);
+
                 if (sortedNetworks.length == 0) {
                     setSetupStep('setupStepNoWiFi');
                 }
@@ -3091,8 +3105,7 @@ $(document).ready(function() {
                 
                 wifiNetworksUpdate();
                 wifiNetworksDone();
-            
-    
+        
             }
             else {
                 // Use device setup firmware control requests for Wi-Fi scan
@@ -3203,6 +3216,7 @@ $(document).ready(function() {
                     hideDeviceFirmwareInfo();
 
                     setSetupStep('setupStepWifiStart');
+                    ga('send', 'event', gaCategory, 'Wi-Fi Configure Start');
 
                     
                     const reqObj = {
@@ -3215,6 +3229,7 @@ $(document).ready(function() {
                         const res = await usbDevice.joinNewWifiNetwork(reqObj);
 
                         setSetupStep('setupStepWifiComplete');
+                        ga('send', 'event', gaCategory, 'Wi-Fi Configure Success');
 
                         await usbDevice.reset();
 
@@ -3223,6 +3238,7 @@ $(document).ready(function() {
                     }
                     catch(e) {
                         setSetupStep('setupStepWifiFailed');
+                        ga('send', 'event', gaCategory, 'Wi-Fi Configure Failed');
                     }
 
                 }
@@ -3232,60 +3248,60 @@ $(document).ready(function() {
 
             radioSelectionUpdate();
 
-
-            // Display results
-            while(true) {
-                reqObj = {
-                    op: 'wifiScanResult'
-                } 
-                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                if (res.result) {
-                    break;
-                }
-
-                if (res.data) {
-                    // TODO: catch exception here
-                    const respObj = JSON.parse(res.data);
-                    
-                    if (respObj.ssid) {
-                        let found = false;
-
-                        for(let ii = 0; ii < sortedNetworks.length; ii++) {
-                            if (sortedNetworks[ii].ssid == respObj.ssid) {
-                                if (respObj.rssi > sortedNetworks[ii].rssi) {
-                                    sortedNetworks[ii] = respObj;    
-                                }
-                                found = true;
-                            }
-                        }
-                        if (!found) {
-                            sortedNetworks.push(respObj);
-                        }
-
-                        sortedNetworks.sort(function(a, b) {
-                            return a.ssid.localeCompare(b.ssid);
-                        });
-
-                        wifiNetworksUpdate();
-    
-                    }
-                    if (respObj.done) {
-                        wifiNetworksDone();
+            if (mode != 'wifi') {
+                // Display results
+                while(true) {
+                    reqObj = {
+                        op: 'wifiScanResult'
+                    } 
+                    const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    if (res.result) {
                         break;
                     }
-                    else {
-                        // Wait a bit to try again
-                        await new Promise(function(resolve) {
-                            setTimeout(function() {
-                                resolve();
-                            }, 500);
-                        });
+
+                    if (res.data) {
+                        // TODO: catch exception here
+                        const respObj = JSON.parse(res.data);
+                        
+                        if (respObj.ssid) {
+                            let found = false;
+
+                            for(let ii = 0; ii < sortedNetworks.length; ii++) {
+                                if (sortedNetworks[ii].ssid == respObj.ssid) {
+                                    if (respObj.rssi > sortedNetworks[ii].rssi) {
+                                        sortedNetworks[ii] = respObj;    
+                                    }
+                                    found = true;
+                                }
+                            }
+                            if (!found) {
+                                sortedNetworks.push(respObj);
+                            }
+
+                            sortedNetworks.sort(function(a, b) {
+                                return a.ssid.localeCompare(b.ssid);
+                            });
+
+                            wifiNetworksUpdate();
+        
+                        }
+                        if (respObj.done) {
+                            wifiNetworksDone();
+                            break;
+                        }
+                        else {
+                            // Wait a bit to try again
+                            await new Promise(function(resolve) {
+                                setTimeout(function() {
+                                    resolve();
+                                }, 500);
+                            });
+                        }
+
+
                     }
-
-
                 }
-
-            }
+            }     
 
         };
 
@@ -3507,7 +3523,6 @@ $(document).ready(function() {
             ];
         
 
-
             try {
                 $(setupSelectDeviceButtonElem).prop('disabled', false);
         
@@ -3521,6 +3536,10 @@ $(document).ready(function() {
         
                 usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
 
+                if (mode == 'wifi') {
+                    $(thisElem).find('.setupStepWiFiInstructions').hide();
+                }
+    
                 // TODO: Try this with a device with old Device OS, not sure whether this step
                 // fails or the next one, but if the Device OS doesn't support control requests
                 // we need to update Device OS first, then go back to check device settings.
