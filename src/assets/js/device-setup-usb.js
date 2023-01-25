@@ -3050,6 +3050,174 @@ $(document).ready(function() {
 
             }
 
+            const updateWiFiOnDevice = async function() {
+                let knownNetworks = [];
+
+                const wifiExistingElem = $(thisElem).find('.wifiExisting');
+                const wifiExistingListElem = $(thisElem).find('.wifiExistingList');
+                const wifiExistingRemoveSelectedElem = $(thisElem).find('.wifiExistingRemoveSelected');
+                const wifiExistingRemoveAllElem = $(thisElem).find('.wifiExistingRemoveAll');                                
+
+                $(wifiExistingElem).hide();
+
+                try {
+                    const knownNetworksRes = await usbDevice.sendControlRequest(502); // CTRL_REQUEST_WIFI_GET_KNOWN_NETWORKS
+
+                    if (knownNetworksRes.result == 0 && knownNetworksRes.data) {
+                        /*
+                        enum Security {
+                            NO_SECURITY = 0;
+                            WEP = 1;
+                            WPA_PSK = 2;
+                            WPA2_PSK = 3;
+                            WPA_WPA2_PSK = 4;
+                        }
+                        enum CredentialsType {
+                            NO_CREDENTIALS = 0;
+                            PASSWORD = 1;
+                        }
+
+                        message GetKnownNetworksRequest {
+                            option (type_id) = 502; // CTRL_REQUEST_WIFI_GET_KNOWN_NETWORKS
+                        }
+
+                        message GetKnownNetworksReply {
+                            message Network {
+                                string ssid = 1;
+                                Security security = 2;
+                                CredentialsType credentials_type = 3;
+                            }
+
+                            repeated Network networks = 1;
+                        }
+                        */
+                        let protobuf = apiHelper.protobuf(knownNetworksRes.data);
+
+                        const decodeNetwork = function(end) {
+                            let network = {};
+
+                            while(protobuf.offset < end) {
+                                result = protobuf.decodeTag();
+                                switch(result.field) {
+                                case 1: // string ssid = 1;
+                                    network.ssid = protobuf.decodeString(result.value);                                      
+                                    break;
+
+                                case 2: // Security security = 2;
+                                    network.security = result.value;
+                                    break;
+                                    
+                                case 3: // CredentialsType credentials_type = 3;
+                                    network.credentialsType = result.value;
+                                    break;
+                                }                                        
+                            }
+                            return network;
+                        }
+    
+                        while(protobuf.offset < knownNetworksRes.data.byteLength) {
+                            result = protobuf.decodeTag();
+                    
+                            // repeated Network networks = 1;
+                            if (result.field != 1 || result.wireType != 2) {
+                                break;
+                            }
+                            
+                            result = decodeNetwork(protobuf.offset + result.value);
+                            if (result.ssid) {
+                                knownNetworks.push(result);
+                            }
+                        }
+
+                        knownNetworks.sort(function(a, b) {
+                            return a.ssid.localeCompare(b.ssid);
+                        })
+
+
+                        if (knownNetworks.length > 0) {
+                            ga('send', 'event', gaCategory, 'Wi-Fi Existing', knownNetworks.length);
+
+                            $(wifiExistingRemoveSelectedElem).prop('disabled', true);
+                            $(wifiExistingElem).show();
+                            $(wifiExistingListElem).empty();
+
+                            for(const network of knownNetworks) {
+                                const divElem = document.createElement('div');
+                                $(divElem).css('padding', '3px 0px 3px 0px');
+
+                                const labelElem = document.createElement('label');
+
+                                const radioElem = document.createElement('input');
+                                $(radioElem).attr('type', 'radio');
+                                $(radioElem).attr('value', network.ssid);
+                                $(radioElem).on('click', function() {
+                                    $(wifiExistingListElem).find('input').prop('checked', false);
+                                    $(radioElem).prop('checked', true);
+                                    $(wifiExistingRemoveSelectedElem).prop('disabled', false);
+                                });
+
+                                $(labelElem).append(radioElem);
+
+                                $(labelElem).append(document.createTextNode(network.ssid));
+
+                                $(divElem).append(labelElem);
+
+                                $(wifiExistingListElem).append(divElem);
+                            }
+
+                            $(wifiExistingRemoveSelectedElem).on('click', async function() {
+                                const ssid = $(wifiExistingListElem).find('input:checked').val();
+                                console.log('remove ssid ' + ssid);
+
+                                /*
+                                message RemoveKnownNetworkRequest {
+                                option (type_id) = 503; // CTRL_REQUEST_WIFI_REMOVE_KNOWN_NETWORK
+                                string ssid = 1;
+                                }
+                                */
+                                const enc = apiHelper.protobufEncoder();
+                                enc.appendTag(1, 2);
+                                enc.appendString(ssid);
+
+                                const res = await usbDevice.sendControlRequest(503, enc.toUint8Array()); // CTRL_REQUEST_WIFI_REMOVE_KNOWN_NETWORK
+                                console.log('res', res);
+
+                                ga('send', 'event', gaCategory, 'Wi-Fi Remove Existing');
+
+                                updateWiFiOnDevice();
+                            });
+                            $(wifiExistingRemoveAllElem).on('click', async function() {
+                                /*
+                                message ClearKnownNetworksRequest {
+                                option (type_id) = 504; // CTRL_REQUEST_WIFI_CLEAR_KNOWN_NETWORKS
+                                }
+                                */
+                                const res = await usbDevice.sendControlRequest(504); // CTRL_REQUEST_WIFI_CLEAR_KNOWN_NETWORKS
+                                // console.log('res', res);
+                                // res.result == 0 on success
+
+                                ga('send', 'event', gaCategory, 'Wi-Fi Remove All');
+
+                                updateWiFiOnDevice();
+                            });
+
+                        }
+                    }
+                    else {
+                        console.log('non-zero status getting known networks or no data', knownNetworksRes.result);
+                    }
+                }  
+                catch(e) {
+                    console.log('exception getting known networks', e);
+                }
+                    
+            }
+
+            // Get list of known networks. Use Device OS control requests. This only works on Gen 3
+            if (deviceInfo.platformVersionInfo.gen >= 3) {
+                updateWiFiOnDevice();
+            }
+
             // Start Wi-Fi scan
             if (mode == 'wifi') {
                 // Use Device OS control requests for Wi-Fi scan
