@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 ---
 
 # {{title}}
-<h4>Everything You Need to Transition to Your Enterprise Account</h4>
+<h4>Here are some essential Enterprise resources! Scroll below to submit POs, perform inventory-related actions, and access a suite of helpful tools and guides.</h4>
 {{> sso selectOrg="1"}}
 
 {{content-guard op="start" mode="enterpriseRequired"}}
@@ -17,9 +17,9 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 <div><h2 style="text-align:center;">Inventory</h2></div>
 <div class="containerInv">
     <div class="itemInv">
-        <a  class = "aHub" href="#https://wholesale.particle.io/" >
-            <h5 class = "h5Hub">Particle Wholesale Store</h5>
-            <p  class = "pHub" class="text">Order Your Device Accessories</p>
+        <a class = "aHub" href="" >
+            <h5 class = "h5Hub">Device Sample Request</h5>
+            <p class = "pHub">Request an Engineering Sample</p>
         </a>
     </div>
     <div class="itemInv">
@@ -29,9 +29,9 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
         </a>
     </div>
     <div class="itemInv">
-        <a class = "aHub" href="" >
-            <h5 class = "h5Hub">Device Sample Request</h5>
-            <p class = "pHub">Request an Engineering Sample</p>
+        <a  class = "aHub" href="#https://wholesale.particle.io/" >
+            <h5 class = "h5Hub">Particle Wholesale Store</h5>
+            <p  class = "pHub" class="text">Order Your Device Accessories</p>
         </a>
     </div>
 </div>
@@ -87,7 +87,7 @@ The Enterprise Hub is only available when logged into an account that is part of
   </a>
       <a class="card aHub" href="#">
         <h5 class = "h5Hub">Cloud Debug Tool</h5>
-        <p class="small  pHub">Remotely Debug Your Devices</p>
+        <p class="small  pHub">Collect Debug Logs from Your Devices</p>
          <div class="dimmer"></div>
         <div class="go-corner" href="#">
             <div class="go-arrow">
@@ -97,7 +97,7 @@ The Enterprise Hub is only available when logged into an account that is part of
   </a>
   <a class="card aHub" href="#">
     <h5 class = "h5Hub">Particle Github<</h5>
-    <p class="small pHub">Check Out Code Examples</p>
+    <p class="small pHub">Device OS Changelog</p>
     <div class="go-corner" href="#">
       <div class="go-arrow">
         →
@@ -107,7 +107,7 @@ The Enterprise Hub is only available when logged into an account that is part of
   
   <a class="card aHub" href="">
     <h5 class = "h5Hub">Device Removal</h5>
-    <p class="small pHub">Remove a Device From Your Product</p>
+    <p class="small pHub">Perform Batch Operations on Your Devices</p>
     <div class="go-corner" href="#">
       <div class="go-arrow">
         →
