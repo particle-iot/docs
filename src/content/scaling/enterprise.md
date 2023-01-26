@@ -8,141 +8,34 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 ---
 
 # {{title}}
-<h3>Everything You Need to Transition to Your Enterprise Account</h3>
+<h4>Everything You Need to Transition to Your Enterprise Account</h4>
 {{> sso selectOrg="1"}}
 
 {{content-guard op="start" mode="enterpriseRequired"}}
 
+<div>
 <div><h2 style="text-align:center;">Inventory</h2></div>
-<div class="inventory">
-    <a class="card" href="#https://wholesale.particle.io/">
-        <h5>Particle Wholesale Store</h5>
-        <p class="small">Order Your Device Accessories</p>
-         <div class="dimmer"></div>
-        <div class="go-corner" href="#">
-            <div class="go-arrow">
-                →
-            </div>
-        </div>
-  </a>
-  <a class="card" href="#">
-    <h5>Returns and Replacements</h5>
-    <p class="small">Return or Exchange a Device</p>
-    <div class="go-corner" href="#">
-      <div class="go-arrow">
-        →
-      </div>
-    </div>
-  </a>
-  
-  <a class="card" href="">
-    <h5>Device Sample Request</h5>
-    <p class="small">Request an Engineering Sample</p>
-    <div class="go-corner" href="#">
-      <div class="go-arrow">
-        →
-      </div>
-    </div>
-  </a>
-  
-  
-</div>
-
----
-
-<div>
-<div><h2 style="text-align:center;">Useful Tools</h2></div>
-<div class="containerTool">
-    <div class="itemTool">
-        <a href="" >
-            <h5>Device Compatibility by Region</h5>
-            <p class="text">Check Which Devices Work Where</p>
+<div class="containerInv">
+    <div class="itemInv">
+        <a  class = "aHub" href="#https://wholesale.particle.io/" >
+            <h5 class = "h5Hub">Particle Wholesale Store</h5>
+            <p  class = "pHub" class="text">Order Your Device Accessories</p>
         </a>
     </div>
-    <div class="itemTool">
-        <a href="" >
-            <h5>Particle Device Doctor</h5>
-            <p>Troubleshoot Your Device Issues</p>
+    <div class="itemInv">
+        <a class = "aHub" href="" >
+            <h5 class = "h5Hub" >Returns and Replacements</h5>
+            <p class ="pHub" >Return or Exchange a Device</p>
         </a>
     </div>
-    <div class="itemTool">
-        <a href="" >
-            <h5>Device Vitals and Diagnostics</h5>
-            <p>Check the Health of Your Devices</p>
-        </a>
-    </div>
-    <div class="itemTool">
-        <a href="https://community.particle.io" >
-            <h5>Particle Community Forums</h5>
-            <p>Connect with Other Particle Users</p>
-        </a>
-    </div>
-    <div class="itemTool">
-        <a href="" >
-            <h5>Cloud Debug Tool</h5>
-            <p>Remotely Debug Your Devices</p>
-        </a>
-    </div>
-    <div class="itemTool">
-        <a href="https://github.com/particle-iot" >
-            <h5>Particle Github</h5>
-            <p>Check Out Code Examples</p>
-        </a>
-    </div>
-    <div class="itemTool">
-        <a href="" >
-            <h5>Device Removal</h5>
-            <p>Remove a Device From Your Product</p>
-        </a>
-    </div>
-    <div class="itemTool">
-        <a href="" >
-            <h5>Particle API Documentation</h5>
-            <p>WHAT SHOULD I WRITE HERE</p>
+    <div class="itemInv">
+        <a class = "aHub" href="" >
+            <h5 class = "h5Hub">Device Sample Request</h5>
+            <p class = "pHub">Request an Engineering Sample</p>
         </a>
     </div>
 </div>
 </div>
-
----
-
-<div>
-<div><h2 style="text-align:center;">Guides to Get You Started </h2></div>
-<div class="container">
-    <div class="item">
-        <a href="/scaling/quick-start-guide/organizations/" >
-            <h5>Intro to Particle Organizations</h5>
-        </a>
-    </div>
-    <div class="item">
-        <a href="/getting-started/setup/accounts/" >
-            <h5>Getting Started with Team Access Controls</h5>
-        </a>
-    </div>
-    <div class="item">
-        <a href="/getting-started/setup/accounts/" >
-            <h5>How to Program Your First Particle Fleet</h5>
-        </a>
-    </div>
-    <div class="item">
-        <a href="/scaling/quick-start-guide/organizations/" >
-            <h5>Overview of Manufacturing Best Practices</h5>
-        </a>
-    </div>
-    <div class="item">
-        <a href="" >
-            <h5>How to Check Your Device/Fleet Health</h5>
-        </a>
-    </div>
-        <div class="item">
-        <a href="" >
-            <h5>Billing and Data Consumption 101</h5>
-        </a>
-    </div>
-</div>
-</div>
-
----
 
 <h2 style="text-align:center;"> Purchase order submission</h2>
 
@@ -158,3 +51,110 @@ You can submit your initial blanket PO or order PO using this form:
 {{content-guard op="else"}}
 The Enterprise Hub is only available when logged into an account that is part of an enterprise organization.
 {{content-guard op="end"}}
+
+
+
+<div><h2 style="text-align:center;">Useful Tools</h2></div>
+<div class="containerTool">
+    <a class="card aHub" href="#">
+        <h5 class = "h5Hub">Regional Device Compatibility</h5>
+        <p class="small  pHub">Check Which Devices Work Where</p>
+         <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+  </a>
+  <a class="card aHub" href="#">
+    <h5 class = "h5Hub">Particle Device Doctor</h5>
+    <p class="small pHub">Troubleshoot Your Device Issues</p>
+    <div class="go-corner" href="#">
+      <div class="go-arrow">
+        →
+      </div>
+    </div>
+  </a>
+  
+  <a class="card aHub" href="#">
+    <h5 class = "h5Hub">Device Vitals and Diagnostics</h5>
+    <p class="small pHub">Check the Health of Your Devices</p>
+    <div class="go-corner" href="#">
+      <div class="go-arrow">
+        →
+      </div>
+    </div>
+  </a>
+      <a class="card aHub" href="#">
+        <h5 class = "h5Hub">Cloud Debug Tool</h5>
+        <p class="small  pHub">Remotely Debug Your Devices</p>
+         <div class="dimmer"></div>
+        <div class="go-corner" href="#">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+  </a>
+  <a class="card aHub" href="#">
+    <h5 class = "h5Hub">Particle Github<</h5>
+    <p class="small pHub">Check Out Code Examples</p>
+    <div class="go-corner" href="#">
+      <div class="go-arrow">
+        →
+      </div>
+    </div>
+  </a>
+  
+  <a class="card aHub" href="">
+    <h5 class = "h5Hub">Device Removal</h5>
+    <p class="small pHub">Remove a Device From Your Product</p>
+    <div class="go-corner" href="#">
+      <div class="go-arrow">
+        →
+      </div>
+    </div>
+  </a>
+</div>
+
+
+
+
+
+<div>
+<div><h2 style="text-align:center;">Guides to Get You Started </h2></div>
+<div class="container">
+    <div class="item">
+        <a  class = "aHub" href="/scaling/quick-start-guide/organizations/" >
+            <h5 class = "h5Hub">Intro to Particle Organizations</h5>
+        </a>
+    </div>
+    <div class="item">
+        <a class = "aHub" href="/getting-started/setup/accounts/" >
+            <h5 class = "h5Hub">Getting Started with Team Access Controls</h5>
+        </a>
+    </div>
+    <div class="item">
+        <a class = "aHub" href="/getting-started/setup/accounts/" >
+            <h5 class = "h5Hub">How to Program Your First Particle Fleet</h5>
+        </a>
+    </div>
+    <div class="item">
+        <a class = "aHub" href="/scaling/quick-start-guide/organizations/" >
+            <h5 class = "h5Hub">Overview of Manufacturing Best Practices</h5>
+        </a>
+    </div>
+    <div class="item">
+        <a class = "aHub" href="" >
+            <h5 class = "h5Hub">How to Check Your Device/Fleet Health</h5>
+        </a>
+    </div>
+        <div class="item">
+        <a class = "aHub" href="" >
+            <h5 class = "h5Hub" >Billing and Data Consumption 101</h5>
+        </a>
+    </div>
+</div>
+</div>
+
+
+

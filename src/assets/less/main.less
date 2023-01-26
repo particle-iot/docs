@@ -2,45 +2,79 @@
 * {
 	transition: all 0.3s ease-out;
   }
-  
+  .toBeReplaced {
+    visibility: hidden;
+    position: relative;
+}
+@media (min-width: 800px) {
+	.containerInv { grid-template-columns: repeat(3, 1fr); }
+	.containerTool { grid-template-columns: repeat(3, 1fr); }
+	.container { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 400px) {
+	.containerInv { grid-template-columns: repeat(1, 1fr); }
+	.containerTool { grid-template-columns: repeat(2, 1fr); }
+	.container { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 100px) {
+	.containerInv { grid-template-columns: repeat(1, 1fr); }
+	.containerTool { grid-template-columns: repeat(1, 1fr); }
+	.container { grid-template-columns: repeat(1, 1fr); }
+  }
+.toBeReplaced:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Check Which Devices Work Where";
+}
   html,
   body {
 	height: 100%;
 	font-family: sans-serif;
 	font-size: 16px;
   }
-  
-  .inventory {
+  hr.solid{
+	border-top: 3px dashed #BBBDC4;
+  }
+  .containerTool {
+	display: grid;
+	max-width: 1200px;
 	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
+	grid-template-columns: 
+	   auto auto auto;
+	
+	grid-column-gap: 10px;
+	grid-row-gap: 25px;
+   
+	background-color: #fff;
+	padding: 0px;
+	border-radius: 10px;
+	margin: 10px;
   }
   
-  h3 {
+  .h3Hub {
 	color: #004F57; 
 	font-size: 17px;
 	line-height: 24px;
 	font-weight: 700;
 	margin-bottom: 4px;
   }
-  a{
+  .aHub{
 	text-decoration: none;
   }
-  a:hover{
+  .aHub:hover{
 	color: #fff;
 	text-decoration: none;
   }
-  h5{
+  .h5Hub{
 	color:#004F57; 
   }
-  h5:hover{
+  .h5Hub:hover{
 	color:#fff;
   }
   
-  p {
+  .pHub {
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 20px;
@@ -129,10 +163,10 @@
 	border-radius: 10px;
 	margin: 10px;
   }
-  .containerTool {
+  .containerInv {
 	display: grid;
 	grid-template-columns: 
-	   auto auto auto;
+	   auto auto auto auto;
 	grid-column-gap: 10px;
 	grid-row-gap: 25px;
 	background-color: #fff;
@@ -140,7 +174,7 @@
 	border-radius: 10px;
 	margin: 10px;
   }
-  .itemTool {
+  .itemInv {
 	background-color: #00D2E6;
 	border: 1px solid #fff;
 	padding: 10%;
