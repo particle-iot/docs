@@ -451,6 +451,17 @@ The historical API returns all historical data for a date range (up to 1 month i
 
 {{> cloud-api-device-vitals}}
 
+### Service agreements
+
+If you want to know information about your usage or billing period information, you can use the [service_agreements](/reference/cloud-apis/api/#service-agreements-and-usage) API. 
+There are two versions, one for your developer sandbox, and another for growth or enterprise organizations. Only organization administrators can see the service agreement information 
+for an organization.
+
+The API just returns a big block of JSON which can easily be parsed to find the information you want.
+
+{{> cloud-api-service-agreements}}
+
+
 ## API Users
 
 An [API User Account](/reference/cloud-apis/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. The controls in this section will allow you to add API users without having to use the `curl` command.
