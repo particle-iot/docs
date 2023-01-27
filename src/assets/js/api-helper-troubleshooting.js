@@ -338,7 +338,7 @@ $(document).ready(function () {
                 });
             }
 
-            if (pageObj.title) {
+            if (pageObj.title && !partialOptions.includes('noTitle')) {
                 const titleElem = document.createElement('h3');
                 $(titleElem).text(pageObj.title);
                 $(pageDivElem).append(titleElem);    
