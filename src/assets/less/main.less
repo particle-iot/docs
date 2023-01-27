@@ -183,11 +183,13 @@
 	border-radius: 4px;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
 	line-height: 0.8;
-	p{
-		color: transparent;
-	}
+	position: relative;
+    display: inline-block;
 	h5{
 		color:#fff;
+	}
+	.itemInvTip {
+		display: none;
 	}
   }
   .itemInv:hover{
@@ -196,9 +198,22 @@
 	h5{
 		color:#fff;
 	}
-	p{
-		color: #fff;
+	.itemInvTip {
+		display: inline-block;
 	}
+  }
+  .itemInvTip{
+	display: none;
+	left: 20px;
+	top: 100px; //
+	width: 150px;
+	background-color: #00A3B3;
+	color:#fff;
+	font-size: 16px;
+	line-height: normal;
+	padding: 20px 20px 20px 20px;
+	position: absolute;
+  	z-index: 1;
   }
   .item {
 	background-color: #00D2E6;

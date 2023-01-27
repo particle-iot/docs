@@ -18,19 +18,19 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
     <div class="itemInv">
         <a class = "aHub" href="/troubleshooting/troubleshooting/?p=11779868461851" >
             <h5 class = "h5Hub">Device Sample Request</h5>
-            <p class = "pHub">Request an Engineering Sample</p>
+            <span class="itemInvTip">Request an Engineering Sample</span>
         </a>
     </div>
     <div class="itemInv">
         <a class = "aHub" href="/scaling/quick-start-guide/returns/" >
             <h5 class = "h5Hub" >Returns and Replacements</h5>
-            <p class ="pHub" >Return or Exchange a Device</p>
+            <span class="itemInvTip">Return or Exchange a Device</span>
         </a>
     </div>
     <div class="itemInv">
         <a  class = "aHub" href="#https://wholesale.particle.io/" >
             <h5 class = "h5Hub">Particle Wholesale Store</h5>
-            <p  class = "pHub" class="text">Order Your Device Accessories</p>
+            <span class="itemInvTip">Order Your Device Accessories</span>
         </a>
     </div>
 </div>
