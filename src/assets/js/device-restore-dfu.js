@@ -283,9 +283,7 @@ async function dfuDeviceRestore(usbDevice, options) {
 
         try {
             await new Promise(function(resolve, reject) {
-                // When updating this, be sure to update device-setup-usb.js. Search for:
-                // TODO: Get this from the NCP binary
-                fetch('/assets/files/tracker/tracker-esp32-ncp@0.0.7.bin')
+                fetch(options.ncpPath)
                 .then(response => response.arrayBuffer())
                 .then(function(res) {
                     ncpImage = res;
@@ -676,6 +674,8 @@ async function dfuDeviceRestore(usbDevice, options) {
             else
             if (options.ncpUpdate) {
                 dfuParts.push({ name: 'ncp', title: 'Network Coprocessor' });
+                // NCP requires OTA flag trick
+                setOTAFlag = true;
             }
             else {
                 for(const dfuPart of allDfuPartsWithBinaries) {
