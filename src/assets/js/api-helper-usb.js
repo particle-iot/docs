@@ -61,6 +61,7 @@ $(document).ready(function () {
                     result = Object.assign({}, tempPlatformObj);
                     result.versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
                     result.isTracker = (result.id == 26);
+                    result.hasNCP = (result.id == 26) || (result.id == 12); // Tracker or Argon
                     result.isRTL872x = (result.mcu.startsWith('RTL872'));
                     result.isnRF52 = (result.mcu.startsWith('nRF52'));
                     result.isSTM32F2xx = (result.mcu.startsWith('STM32F2'));

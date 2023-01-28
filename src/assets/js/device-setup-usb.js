@@ -1977,19 +1977,21 @@ $(document).ready(function() {
 
                 let dfuPartTableInfo = {};
 
-                let options = {
+                // These used to be manually copied, but now flashDeviceOptions is just added to options by default
+                // setupBit: flashDeviceOptions.setupBit,
+                // claimCode: flashDeviceOptions.claimCode,
+                // downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
+                // prebootloader: flashDeviceOptions.prebootloader,
+                // moduleInfo: flashDeviceOptions.moduleInfo,
+                // zipFs: flashDeviceOptions.zipFs,
+
+                let options = Object.assign(Object.assign({}, flashDeviceOptions), {
                     eventCategory: 'USB Device Setup',
                     platformVersionInfo: deviceInfo.platformVersionInfo,
                     userFirmwareBinary,
                     setStatus,
                     version: deviceInfo.targetVersion, 
-                    setupBit: flashDeviceOptions.setupBit,
-                    claimCode: flashDeviceOptions.claimCode,
-                    deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
-                    downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
-                    prebootloader: flashDeviceOptions.prebootloader,
-                    moduleInfo: flashDeviceOptions.moduleInfo,
-                    zipFs: flashDeviceOptions.zipFs,
+                    deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo),
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -2096,7 +2098,7 @@ $(document).ready(function() {
                             };
                         }
                     }
-                };
+                });
 
             
                 if (flashDeviceOptions.mode == 'doctor' && !restoreFirmwareBinary) {
@@ -2214,22 +2216,31 @@ $(document).ready(function() {
                 ga('send', 'event', gaCategory, 'Flash Prebootloade rLast');
             }
 
-            if (deviceInfo.platformVersionInfo.isTracker) {
+            if (deviceInfo.platformVersionInfo.hasNCP) {
                 let updateNcp = false;
 
-                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
-                    // Is a tracker, could need NCP
-                    const m = deviceModuleInfo.getModuleNcp();
-                    if (m) {
-                        // TODO: Get this from the NCP binary
-                        if (m.version < 7) {
-                            updateNcp = true;
+                if (deviceInfo.platformVersionInfo.isTracker) {
+                    if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
+                        // Is a tracker, could need NCP
+                        const m = deviceModuleInfo.getModuleNcp();
+                        if (m) {
+                            // TODO: Get this from the NCP binary
+                            if (m.version < 7) {
+                                updateNcp = true;                            
+                            }
                         }
                     }
+                    else {
+                        updateNcp = flashDeviceOptions.updateNcp;
+                    }
+                    flashDeviceOptions.ncpPath = '/assets/files/ncp/tracker-esp32-ncp@0.0.7.bin';                    
                 }
                 else {
+                    // TODO: Probably add the logic above if we ever have a required Argon NCP upgrade
                     updateNcp = flashDeviceOptions.updateNcp;
+                    flashDeviceOptions.ncpPath = '/assets/files/ncp/argon-ncp-firmware-0.0.5-ota.bin';
                 }
+
                 if (updateNcp) {
                     flashDeviceOptions.ncpUpdate = true;
                     await flashDeviceInternal();
@@ -2363,7 +2374,7 @@ $(document).ready(function() {
                             break;
                     }
 
-                    if (deviceInfo.platformVersionInfo.isTracker) {
+                    if (deviceInfo.platformVersionInfo.hasNCP) {
                         const forceUpdate = $(forceUpdateElem).prop('checked');
                         if (forceUpdate) {
                             $(updateNcpCheckboxTrElem).show();
@@ -2632,7 +2643,7 @@ $(document).ready(function() {
                     flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
                     flashDeviceOptions.forceUpdate = $(forceUpdateElem).prop('checked');
 
-                    if (deviceInfo.platformVersionInfo.isTracker) {    
+                    if (deviceInfo.platformVersionInfo.hasNCP) {    
                         if (!deviceModuleInfo || flashDeviceOptions.forceUpdate) {
                             flashDeviceOptions.updateNcp = $(updateNcpCheckboxElem).prop('checked');
                         }
