@@ -615,12 +615,27 @@ $(document).ready(function() {
                 try {
                     const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, auth: apiHelper.auth.access_token });
         
-                    currentOutput('\u2705 Yes!'); // green check
                     deviceLookup.deviceFound = true;
                     deviceLookup.deviceInfo = deviceData.body;      
-                    deviceLookup.deviceMine = true;  // Device is claimed to the account currently logged into
 
                     deviceLookup.isProductDevice = (deviceLookup.deviceInfo.product_id > 100);
+                    if (deviceLookup.isProductDevice) {
+                        // Need to check the owner field as the non-product API can return information about 
+                        // devices you have access to that are not claimed to your account
+                        deviceLookup.isProductDevice = true;
+                        deviceLookup.deviceProductId = deviceLookup.deviceInfo.product_id;
+                        deviceLookup.deviceMine = (deviceLookup.deviceInfo.owner == apiHelper.auth.username);
+                    }
+                    else {
+                        // Non-product devices can only be claimed to your own account
+                        deviceLookup.deviceMine = true;
+                    }
+                    if (deviceLookup.deviceMine) {
+                        currentOutput('\u2705 Yes!'); // green check
+                    }
+                    else {
+                        currentOutput('\u274C No'); // red x
+                    }
                 }
                 catch(e) {
                     currentOutput('\u274C No'); // red x
@@ -635,54 +650,40 @@ $(document).ready(function() {
                 };
 
                 try {
-                    const productsData = await apiHelper.getProducts();
-    
-                    let foundInProduct = false;
-    
-                    for(const product of productsData.products) {
-                        if (deviceLookup.deviceMine && deviceLookup.isProductDevice) {
-                            if (product.id != deviceLookup.deviceInfo.product_id) {
-                                // Skip this product
-                                continue;
-                            }
-                        }
-                        if (deviceLookup.options.platformId) {
-                            if (product.platform_id != deviceLookup.options.platformId) {
-                                continue;
-                            }
-                        }
+                    const productRes = await apiHelper.particle.getProduct({ 
+                        product: deviceLookup.deviceProductId,
+                        auth: apiHelper.auth.access_token 
+                    });
 
-                        try {
-                            const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, product: product.id, auth: apiHelper.auth.access_token });
-            
-                            if (deviceData.body.product_id == product.id) {
-            
-                                currentOutput('\u2705 ' + product.name + ' (' + product.id + ') Yes!<br/>'); // green check
-                                foundInProduct = true;
-                                deviceLookup.deviceFound = true;
-                                deviceLookup.deviceInfo = deviceData.body;
-                                deviceLookup.deviceProductName = product.name;
-                                deviceLookup.deviceProductId = product.id;
-                                deviceLookup.deviceInMyProduct = true; // Device is in a product owned by this account (sandbox)
-                                deviceLookup.isProductDevice = true;
-                                break;
-                            }
-                        }
-                        catch(e) {
-                        }
+                    // console.log('productRes', productRes);
+                    // body.product.
+                    //  id, name, description, device_count, groups[], etc.
+                    //  org, organization_id
+    
+                    foundInProduct = true;
+                    deviceLookup.productInfo = productRes.body.product;
+                    deviceLookup.deviceFound = true;
+                    deviceLookup.deviceProductName = deviceLookup.productInfo.name;
 
-                        if (!foundInProduct) {
-                            currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
-                        }
-        
+                    if (deviceLookup.productInfo.org) {
+                        deviceLookup.deviceInOrgProduct = true; // In an product in an org I have access to
+                        deviceLookup.orgId = deviceLookup.productInfo.organization_id;
+                        deviceLookup.orgName = deviceLookup.productInfo.org;    
+                        currentOutput('\u2705 ' + deviceLookup.deviceProductName + ' (' + deviceLookup.deviceProductId + ') Yes (organization ' + deviceLookup.orgName + ')!<br/>'); // green check
                     }
-       
+                    else {
+                        deviceLookup.deviceInMyProduct = true; // Device is in a product owned by this account (sandbox)
+                        currentOutput('\u2705 ' + deviceLookup.deviceProductName + ' (' + deviceLookup.deviceProductId + ') Yes (sandbox)!<br/>'); // green check
+                    }
     
                 }
                 catch(e) {
+                    // This should never happen
+                    console.log('exception', e);
+                    currentOutput('\u274C No'); // red x
                 }
             }
-
+            /*
             if ((!deviceLookup.deviceFound || deviceLookup.isProductDevice) && !options.modeNoCheckOrgs) {
 
                 const currentOutput = function(status) {
@@ -752,6 +753,7 @@ $(document).ready(function() {
                 catch(e) {
                 }
             }
+            */
 
             if (deviceLookup.deviceInfo) {
                 const currentOutput = function(label, value) {

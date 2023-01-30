@@ -171,7 +171,7 @@
   {
     "type": "get",
     "url": "/v1/access_tokens",
-    "title": "List Access Tokens",
+    "title": "List access tokens",
     "name": "ListAccessTokens",
     "description": "<p>Retrieve a list of all the issued access tokens for your account</p>",
     "group": "Authentication_4",
@@ -900,7 +900,7 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/customers",
-    "title": "Create a customer - Access Token",
+    "title": "Create a customer - Access token",
     "name": "CreateCustomer",
     "description": "<p>Create a customer for a product. An access token of a user that belongs to the product is required. The <code>email</code> field can contain a unique identifier instead but some platform functionalities might not work (i.e. sending a password reset email).</p>",
     "parameter": {
@@ -947,7 +947,7 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/customers",
-    "title": "Create a customer - Client Credentials",
+    "title": "Create a customer - Client credentials",
     "name": "CreateCustomer",
     "description": "<p>Create a customer for a product using OAuth client credentials grant type. <strong>This is the way you should hit the <code>POST</code> customers endpoint if you are creating customers from your server (two-legged authentication), or from a mobile application</strong>. In this case, you may create a customer without a password, by passing the <code>no_password: true</code> flag.</p> <p>You must give a valid product OAuth client ID and secret in HTTP Basic Auth or in the <code>client_id</code> and <code>client_secret</code> parameters.</p>",
     "header": {
@@ -1102,7 +1102,7 @@
   {
     "type": "get",
     "url": "/v1/products/:productIdOrSlug/customers",
-    "title": "List Customers for a Product",
+    "title": "List customers for a product",
     "name": "ListProductCustomers",
     "description": "<p>List Customers for a product.</p>",
     "parameter": {
@@ -1520,7 +1520,7 @@
   {
     "type": "post",
     "url": "/v1/devices",
-    "title": "Claim a Device",
+    "title": "Claim a device",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1846,7 +1846,7 @@
   {
     "type": "get",
     "url": "/v1/devices",
-    "title": "List Devices",
+    "title": "List devices",
     "name": "ListDevices",
     "description": "<p>List devices the currently authenticated user has access to. By default, devices will be sorted by <code>last_handshake_at</code> in descending order.</p>",
     "group": "Devices_1",
@@ -1877,7 +1877,7 @@
   {
     "type": "get",
     "url": "/v1/products/:productIdOrSlug/devices",
-    "title": "List Devices in a product",
+    "title": "List devices in a product",
     "name": "listDevicesForProduct",
     "group": "Devices_2",
     "description": "<p>List all devices that are part of a product. Results are paginated, by default returns 25 device records per page.</p>",
@@ -2048,7 +2048,7 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/devices",
-    "title": "Import Devices into product",
+    "title": "Import devices into product",
     "name": "importDevicesIntoProduct",
     "group": "Devices_3",
     "description": "<p>Import devices into a product. Devices must be of the same <em>platform type</em> as the product in order to be successfully imported. Imported devices may receive an immediate OTA firmware update to the product's released firmware.</p> <p>Importing a device with a Particle SIM card will also import the SIM card into the product and activate the SIM card.</p>",
@@ -5757,7 +5757,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Create a Webhook",
+    "title": "Create a webhook",
     "description": "<p>A webhook is a flexible type of integration that allows you to interact with a wide variety of external tools and services. Create a webhook either for devices you own as a Particle developer, or for your product fleet. For more info, check out <a href=\"/guide/tools-and-features/webhooks/\">the webhooks guide</a>.</p>",
     "group": "Integrations_1",
     "name": "CreateWebhook",
@@ -5972,7 +5972,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Enable Azure IoT Hub Integration",
+    "title": "Enable Azure IoT Hub integration",
     "group": "Integrations_2",
     "permission": [
       {
@@ -6138,7 +6138,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Enable Google Cloud Platform Integration",
+    "title": "Enable Google Cloud Platform integration",
     "group": "Integrations_3",
     "permission": [
       {
@@ -6269,7 +6269,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Enable Google Maps Integration",
+    "title": "Enable Google Maps integration",
     "group": "Integrations_4",
     "permission": [
       {
@@ -7668,7 +7668,7 @@
   {
     "type": "get",
     "url": "/v1/products/:productIdOrSlug/firmware/:version",
-    "title": "Get Product Firmware",
+    "title": "Get product firmware",
     "name": "getProductFirmwareVersion",
     "group": "ProductFirmware_1",
     "parameter": {
@@ -8224,7 +8224,7 @@
   {
     "type": "get",
     "url": "/v1/user/products",
-    "title": "List Products",
+    "title": "List products",
     "name": "listProducts",
     "description": "<p>List products the currently authenticated user has access to</p>",
     "group": "Products_1",
@@ -9258,7 +9258,7 @@
   {
     "type": "get",
     "url": "/v1/user/usage_reports/:usageReportId",
-    "title": "Get a User Usage Report",
+    "title": "Get a user usage report",
     "name": "getUserUsageReport",
     "description": "<p>Get a single usage report related to the user. Expect &quot;download_url&quot; to be present only when the usage report has an &quot;available&quot; state.</p>",
     "parameter": {
@@ -9420,7 +9420,7 @@
   {
     "type": "get",
     "url": "/v1/orgs/:orgSlugOrId/usage_reports/:usageReportId",
-    "title": "Get an Org Usage Report",
+    "title": "Get an org usage report",
     "name": "getOrgUsageReport",
     "description": "<p>Get a single usage report related to an organization. Expect &quot;download_url&quot; to be present only when the usage report has an &quot;available&quot; state.</p> <p>The user must be an active member of the organization.</p>",
     "parameter": {
@@ -9594,7 +9594,7 @@
   {
     "type": "post",
     "url": "/v1/user/service_agreements/:serviceAgreementId/usage_reports",
-    "title": "Create a User Usage Report",
+    "title": "Create a user usage report",
     "name": "createUserUsageReport",
     "description": "<p>Request a new usage report related to the user service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p>",
     "parameter": {
@@ -9803,7 +9803,7 @@
   {
     "type": "post",
     "url": "/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports",
-    "title": "Create an Org Usage Report",
+    "title": "Create an org usage report",
     "name": "createOrgUsageReport",
     "description": "<p>Request a new usage report related to the organization service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p> <p>The user must be an active member of the organization.</p>",
     "parameter": {
