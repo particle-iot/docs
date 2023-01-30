@@ -344,6 +344,13 @@ The [list products](/reference/cloud-apis/api/#list-products) API is a simple GE
 
 {{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
 
+### Retrieve product info
+
+The [retrieve product info](/reference/cloud-apis/api/#retrieve-a-product) API gets information about a single product that you have access to. This can be a sandbox product or an organization product.
+
+{{> cloud-api-get-product-info}}
+
+
 ### List product devices
 
 The [list product devices](/reference/cloud-apis/api/#list-devices-in-a-product) API lists the devices in the sandbox for this user.
@@ -422,6 +429,28 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 {{> cloud-api-list-org-team height="300"}}
 
 ## More APIs
+
+### Get device info
+
+The [get device information](/reference/cloud-apis/api/#get-device-information) API gets information about a device.
+
+This API also returns information about devices that are not in your developer sandbox, but you have access to, including those in 
+products, and organization products. This is useful because the the `product_id` field is populated with the product ID,
+which you can use to find which product it is in, so you can use product-specific APIs with it.
+
+{{> cloud-api-get-device-info}}
+
+
+### Set SIM info
+
+The [get SIM information](/reference/cloud-apis/api/#get-sim-information) API gets information about a SIM ICCID.
+
+This API also returns information about devices that are not in your developer sandbox, but you have access to, including those in 
+products, and organization products. Note, however, that the `product_id` field contains a string identifier, not the numeric
+product ID, and there is no way to get the actual product ID or slug from it, unfortunately.
+
+{{> cloud-api-get-sim-info}}
+
 
 ### Rename a device
 
@@ -633,7 +662,7 @@ In order to set the claim code by USB serial you need to connect the Photon to y
 
 The [get device info](/reference/cloud-apis/api/#get-device-information) is a good way to determine if the claiming succeeded.
 
-{{> cloud-api-get-device-info}}
+{{> cloud-api-get-product-device-info}}
 
 If the claiming succeeded, you should note:
 
