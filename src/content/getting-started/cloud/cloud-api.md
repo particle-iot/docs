@@ -446,7 +446,8 @@ which you can use to find which product it is in, so you can use product-specifi
 The [get SIM information](/reference/cloud-apis/api/#get-sim-information) API gets information about a SIM ICCID.
 
 This API also returns information about devices that are not in your developer sandbox, but you have access to, including those in 
-products, and organization products.
+products, and organization products. Note, however, that the `product_id` field contains a string identifier, not the numeric
+product ID, and there is no way to get the actual product ID or slug from it, unfortunately.
 
 {{> cloud-api-get-sim-info}}
 

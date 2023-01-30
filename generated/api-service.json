@@ -2187,7 +2187,7 @@
       }
     },
     "name": "GetDevice",
-    "description": "<p>Get basic information about the given device, including the custom variables and functions it has exposed.</p>",
+    "description": "<p>Get basic information about the given device, including the custom variables and functions it has exposed. This can be called for sandbox devices claimed to your account and for product devices you have access to, regardless of claiming.</p>",
     "group": "Devices_4",
     "success": {
       "fields": {
