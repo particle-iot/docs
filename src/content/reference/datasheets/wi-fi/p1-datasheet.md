@@ -56,6 +56,16 @@ flash and an antenna and U.FL connector on board.
 - Soft AP setup
 - FCC, CE and IC certified
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 2.x LTS release line with the all P1 devices.
+
+While the devices are compatible with older versions of Device OS and 3.x, these versions as past the end-of-support date and are not recommended for use in production. Only 2.x LTS remains in the Extended Support and Maintenance (ESM) window.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
+
 ## Interfaces
 
 ### Block Diagram
@@ -675,6 +685,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v011 | 09-Dec-2020 | RK | Remove paid tiers limit |
 | v012 | 15-Mar-2021 | RK | Updated ordering information |
 | v013 | 14-Mar-2023 | RK | Added deprecation notice |
+| v014 | 31-Jan-2023 | RK | Added Device OS versions |
 
 ## Known Errata
 

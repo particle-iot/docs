@@ -61,6 +61,12 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
 
 <sup>1</sup> Not all bands enabled in software by default
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the E404X. The minimum required version is 4.0.0. You cannot use the E404X with Device OS 2.x LTS.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
 ## Interfaces
 
 ### Block diagram
@@ -757,6 +763,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-01-06 | RK | Update ADC information |
 |     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 |     | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
+      | 2023-01-31 | RK | Add Device OS versions |
 
 ### 2022-07-28 PWM changes
 

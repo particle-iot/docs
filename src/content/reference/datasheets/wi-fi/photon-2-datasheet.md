@@ -41,6 +41,12 @@ It is intended to replace both the Photon and Argon modules. It contains the sam
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
+### Device OS Support
+
+The Photon 2 and P2 require Device OS 5.0.0 or later. It is recommended that you use the latest version in the 5.x release line.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
 
 ## Interfaces
 
@@ -662,6 +668,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-10-05 | RK | Added power consumption |
 |     | 2022-11-08 | RK | Added external antenna |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
+|     | 2023-01-31 | RK | Add Device OS versions |
 
 ## Known Errata
 

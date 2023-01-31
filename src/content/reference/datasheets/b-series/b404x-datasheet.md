@@ -59,6 +59,11 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * FCC and IC certified
  * RoHS compliant (lead-free)
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the B404X. The minimum required version is 4.0.0. You cannot use the B404X with Device OS 2.x LTS.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
 ## Interfaces
 
@@ -1045,3 +1050,4 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 026      | 2023-01-06 | RK | Clarify power supply notes for VCC and 3V3, ADC |
 | 027      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 | 028      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
+| 029      | 2023-01-31 | RK | Add Device OS versions |

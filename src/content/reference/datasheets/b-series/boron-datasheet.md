@@ -70,6 +70,20 @@ The BRN404X model (LTE Cat M1, North America) can be found in the [Boron BRN404X
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with Boron models.
+
+While the Boron 2G/3G (BRN314 and BRN310) and Boron LTE (BRN404 and BRN402) can use an older version of Device OS:
+- Device OS 3.x is a developer preview release and has reached its end-of-support date.
+- The 2.x LTS release line is in the Extended Support and Maintenance (ESM) window and will stop being supported in 2024.
+- Earlier versions of Device OS have reached their end-of-support dates.
+
+The BRN404X requires a minimum of Device OS 4.0.0, so if you have a mixed fleet of devices that contains both BRN404 and BRN404X devices, we recommend that you upgrade all devices in the fleet to use a consistent version of Device OS.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
 ## Interfaces
 
 ### Block diagram

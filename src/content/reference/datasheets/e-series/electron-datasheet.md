@@ -44,6 +44,16 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 <sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B404 SoM. It can only be used in the United States, Canada, and Mexico at this time.
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 2.x LTS release line with the all Electrons.
+
+While the devices are compatible with older versions of Device OS and 3.x, these versions as past the end-of-support date and are not recommended for use in production. Only 2.x LTS remains in the Extended Support and Maintenance (ESM) window.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
+
 ## Interfaces
 
 ### Block diagram
@@ -943,6 +953,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008 | 24-Feb-2021 | RK | Added ELC314 information |
 | v009 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 | v010 | 14-Mar-2022 | RK | Added deprecation warning |
+| v011 | 31-Jan-2023 | RK | Added Device OS versions |
+
 
 ## Known Errata
 

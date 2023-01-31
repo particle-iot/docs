@@ -42,6 +42,15 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Embedded Particle SIM (E310, E402)
 
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 2.x LTS release line with the E Series E310, E313, E314, E402, and E404 (but not the E404X). 
+
+While the devices are compatible with older versions of Device OS and 3.x, these versions as past the end-of-support date and are not recommended for use in production. Only 2.x LTS remains in the Extended Support and Maintenance (ESM) window.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
 ## Interfaces
 
 ### Block diagram
@@ -861,6 +870,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |          |               |        | Removed E201, E302, E303 models |
 | v003     | 11-Mar-2020   | RK     | Corrected FCC ID for 2G/3G model |
 | v004     | 14-Mar-2022   | RK     | Added deprecation notice |
+| v005     | 31-Jan-2023   | RK     | Added Device OS versions |
 
 ## Known Errata
 

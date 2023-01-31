@@ -34,6 +34,15 @@ the P2 supports 2.4 GHz and 5 GHz Wi-Fi, BLE, and has much larger RAM and flash 
 - 2 MB flash file system
 - FCC, IC, and CE certified
 
+### Device OS Support
+
+The P2 requires Device OS 5.0.0 or later. It is recommended that you use the latest version in the 5.x release line.
+
+Some P2 devices from the factory shipped with Device OS 3.2.1-p2.3. This version should not be used in production.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
 
 ## Interfaces
 
@@ -770,6 +779,7 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 |     | 2022-11-16 | RK | Added additional board layout tips |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 |     | 2022-12-16 | RK | Added warning about using RGBR as GPIO because of the 10K pull-up |
+|     | 2023-01-31 | RK | Add Device OS versions |
 
 ## Known Errata
 

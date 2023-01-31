@@ -58,6 +58,13 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * FCC and IC certified
  * RoHS compliant (lead-free)
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the BRN404X. The minimum required version is 4.0.0. You cannot use the BRN404X with Device OS 2.x LTS.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
 ## Interfaces
 
 ### Block diagram
@@ -856,6 +863,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 013      | 2022-12-13 | RK | Update block diagram and antenna information |
 | 014      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 | 015      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
+| 016      | 2023-01-31 | RK | Add Device OS versions |
 
 ## Known Errata
 
