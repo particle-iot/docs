@@ -176,11 +176,15 @@ Of note:
 - The new **engine** block goes directly in line and below the **tracker** block, which is the last configuration block (at the time of writing).
 - The new engine configuration includes two elements: Idle RPM speed and Publish period when running (milliseconds); both are integers.
 
+### Complete schema
+
 Here's the whole file so you can see exactly where the data goes when merged with the default schema.
 
 {{> codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
 
 If you set this schema you can go to the console and view your fleet configuration with the new panel!
+
+### Restore default schema
 
 To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
 
