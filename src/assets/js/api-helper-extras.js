@@ -1251,8 +1251,16 @@ $(document).ready(function() {
             const deviceIdRE = /([a-f0-9]{24})/gi;
 
             deviceList = deviceListRaw.match(deviceIdRE);
-            if (deviceList && deviceList.length) {
-                $(actionButtonElem).prop('disabled', false);
+            if (deviceList && deviceList.length) {          
+                const options = {};
+                getOptions(options);
+                if (options.isSandbox || !!options.productId) {        
+                    $(actionButtonElem).prop('disabled', false);
+                } 
+                else {
+                    $(actionButtonElem).prop('disabled', true);
+                }  
+                
                 setStatus(deviceList.length + ' device IDs entered');
             }
             else {
@@ -1377,22 +1385,28 @@ $(document).ready(function() {
                             notFound: true
                         }
                     }
+                    if (options.productId && deviceInfo.product_id != options.productId) {
+                        deviceInfo.notFound = true;
+                    }
 
                     {
                         const rowElem = deviceInfo.rowElem = document.createElement('tr');
 
                         deviceInfo.deviceId = deviceInfo.id;
                         
-                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'iccid']);
-
-                        if (deviceInfo.notFound) {
+                        if (deviceInfo.notFound) {                            
                             if (options.productId) {
                                 // $(deviceInfo.removeStatusElem).text('Device not found in product');
+                                deviceInfo.status = 'Not in product';
                             }
                             else {
                                 // $(deviceInfo.removeStatusElem).text('Device not found in sandbox');                                
+                                deviceInfo.status = 'Not in sandbox';
                             }
                         }
+
+                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'iccid', 'status']);
+
                         if (deviceInfo.cellular && deviceInfo.iccid) {
                             hasSim = true;
                         }
@@ -1547,8 +1561,9 @@ $(document).ready(function() {
             }
         }
 
-        const getOptions = function(options) {
-            $(thisPartial).data('getOptions')(options);
+        const getOptions = function(options = {}) {
+            const productSelector = $(thisPartial).data('productSelector')
+            productSelector.getOptions(options);
 
             options.removeFromProduct = (options.productId != 0) && $(removeFromProductElem).prop('checked'),
             options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
@@ -1556,6 +1571,8 @@ $(document).ready(function() {
             options.username = apiHelper.auth.username;
             options.accessToken = apiHelper.auth.access_token;
             options.deviceList = deviceList;
+
+            return options;
         }
 
         $(thisPartial).on('updateProductList', async function(event, options) {
