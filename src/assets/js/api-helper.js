@@ -661,8 +661,24 @@ apiHelper.filterByPlatformId = function(array, platformId) {
     return results;
 };
 
+apiHelper.filterByPlatformIdArray = function(array, platformIdArray) {
+    let results = [];
+
+    for(const obj of array) {
+        if (platformIdArray.includes(obj.platform_id)) {
+            results.push(obj);
+        }
+    }
+
+    results.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+    });
+
+    return results;
+};
+
 apiHelper.filterByTrackerPlatform = function(array) {
-    return apiHelper.filterByPlatformId(array, 26);
+    return apiHelper.filterByPlatformIdArray(array, [26, 28]);
 };
 
 apiHelper.unclaimDevice = async function(deviceId) {

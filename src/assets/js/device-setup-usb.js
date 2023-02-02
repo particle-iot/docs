@@ -1007,8 +1007,9 @@ $(document).ready(function() {
                     case 10: // electron (and E Series)
                     case 13: // boron
                     case 23: // bsom
-                    case 25: // bsom
+                    case 25: // b5som
                     case 26: // tracker
+                    case 28: // trackerm
                         deviceInfo.hasPMIC = true;
                         break;
                 }
