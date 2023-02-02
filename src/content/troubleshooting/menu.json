@@ -159,6 +159,11 @@
           "dir": "device-flashing-errors",
           "title": "Device flashing errors",
           "href": "/troubleshooting/guides/build-tools-troubleshooting/device-flashing-errors/"
+        },
+        {
+          "dir": "debugging-firmware-builds",
+          "title": "Debugging firmware builds",
+          "href": "/troubleshooting/guides/build-tools-troubleshooting/debugging-firmware-builds/"
         }
       ],
       {
