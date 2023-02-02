@@ -330,7 +330,42 @@ Code snippets are templates that make it easier to enter repeating code patterns
 ![Snippets](/assets/images/workbench/snippets.gif)
 
 
+
 ### Debugging (3rd-generation)
+
+{{!-- BEGIN shared-blurb 86b60d7d-f94f-4ca2-9d9a-e30f2a8bfb3d --}}
+
+There are two types of firmware:
+
+- Modular builds have a separate user firmware binary and a Device OS build. This is standard on all platforms during normal operation.
+- Monolithic builds combine the user firmware and Device OS into a single binary. This is used only for debugging on most platforms.
+
+Prior to Device OS 4.0, monolithic builds were used mainly for source level debugging using Particle Workbench. This had the advantage of being able to easily step between the system and user firmware, but also introduced a difference that could make problems behave differently while debugging.
+
+Starting with Device OS 4.0 (and also 5.0):
+
+- Debugging in Workbench now works with modular builds, and you can still step between user firmware and system parts.
+- This provides more consistent behavior between debugging and non-debugging builds.
+- Flashing only the user binary is significantly faster.
+
+
+| Platform | Gen | Debug Modular | Debug Monolithic |
+| :--- | :---: | :---: | :---: |
+| P2 / Photon 2 | 3 | >= 5.0 | n/a |
+| Tracker M | 3 | >= 5.0 | n/a |
+| Tracker | 3 | >= 4.0 | < 4.0 |
+| B SoM (B404X, B404, B402) | 3 | >= 4.0 | < 4.0 |
+| B5 SoM (B524, B523) | 3 | >= 4.0 | < 4.0 |
+| E SoM X (E404X) | 3 | >= 4.0 | n/a |
+| Boron | 3 | >= 4.0 | < 4.0 |
+| Argon | 3 | >= 4.0 | < 4.0 |
+| E Series / Electron | 2 |  | &check; |
+| P1 | 2 |  | &check; |
+| Photon | 2 |  | &check; |
+
+For Gen 2 devices, E Series (except E404X), Electron, P1, and Photon, debugging is still monolithic and unchanged as these devices cannot use Device OS 4.0 or later.
+
+{{!-- END shared-blurb --}}
 
 _Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
 
@@ -348,11 +383,18 @@ For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-deb
 - From the Command Palette select **Particle: Configure Workspace for Device** and choose the Device OS and type of device you want to use.
 - Connect the Particle Debugger using the ribbon cable to your Argon, Boron, or Xenon device.
 - Connect the device to your computer by USB.
+- Make sure that the version of Device OS that you have targeted in Workbench matches what is on the device. We recommend that you use [Device Restore USB](/tools/device-restore/device-restore-usb/) as flashing Device OS from Workbench does not updated some required components (bootloader, soft device, NCP, etc.).
 - Click the Debug icon (1), then select the correct Debugger (2). In this case, it's **Particle Debugger (argon, boron, xenon)**. Note that you need to select the type of device in both places!
 
 ![Debug View](/assets/images/workbench/debug-2.png)
 
 - Click the green arrow next to DEBUG in the upper left to build, flash, and begin debugging.
+- In order to debug code in the system parts, you will need .elf files that contain the symbols, addresses, and line information needed by the debugger. You may be prompted: "You haven't built Device OS locally for this platform and version. You must compile Device OS to get debugging symbols (this process will take several minutes). Would you like to do this now?"
+ 
+  - Debug Application Only: You will not be able to step into system code or see stack traces for system code.
+  - Cancel: Don't debug.
+  - Compile Now: Build the .elf files. This does not flash system parts to your device!
+
 - After flashing the device will typically halt. You can tell because the device status LED will go off.
 
 ![Debug Console](/assets/images/workbench/debug-3.png)
