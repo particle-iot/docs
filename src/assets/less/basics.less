@@ -164,7 +164,21 @@ div {
     }
   }
 }
-
+@media (min-width: 800px) {
+	.containerInv { grid-template-columns: repeat(3, 1fr); }
+	.containerTool { grid-template-columns: repeat(3, 1fr); }
+	.container { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 400px) {
+	.containerInv { grid-template-columns: repeat(1, 1fr); }
+	.containerTool { grid-template-columns: repeat(2, 1fr); }
+	.container { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 100px) {
+	.containerInv { grid-template-columns: repeat(1, 1fr); }
+	.containerTool { grid-template-columns: repeat(1, 1fr); }
+	.container { grid-template-columns: repeat(1, 1fr); }
+  }
 ol,
 ul {
   list-style: none;

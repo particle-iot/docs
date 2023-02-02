@@ -13,6 +13,8 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 
 {{content-guard op="start" mode="enterpriseRequired"}}
 
+
+
 <h2 style="text-align:center;">Inventory</h2>
 <div class="containerInv">
     <div class="itemInv">
@@ -35,16 +37,25 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
     </div>
 </div>
 
-<h2 style="text-align:center;"> Purchase order submission</h2>
-
+<h2 style="text-align:center;"> Purchase Order Submission</h2>
+<p style="tect-align: center">
 You can submit your initial blanket PO or order PO using this form:
 
 - Be sure your purchase order matches the details of your contract.
 - [Additional purchase order details](/scaling/quick-start-guide/enterprise-order-placement/).
 - [Example purchase order](/assets/images/support/Screen_Shot_2022-01-24_at_11.09.03_AM.png) or [Excel Purchase Order Template](/assets/files/enterprise-order-template.xlsx).
+</p>
 
 {{> troubleshooting page="227" options="noUpdateUrl,noScroll,noTitle"}}
 &nbsp;
+<div class="containerCommunity">
+     <div class="itemCommunity">
+        <a class = "aHub" href="www.community.particle.io" >
+            Connect with the Particle Community
+        </a>
+    </div>  
+</div>
+
 <h2 style="text-align:center;">Useful Tools</h2>
 <div class="containerTool">
     <a class="card aHub" href="/reference/cellular/cellular-carriers/">
@@ -140,6 +151,9 @@ You can submit your initial blanket PO or order PO using this form:
         </a>
     </div>
 </div>
+<br>
+
+
 
 {{content-guard op="else"}}
 The Enterprise Hub is only available when logged into an account that is part of an enterprise organization.
