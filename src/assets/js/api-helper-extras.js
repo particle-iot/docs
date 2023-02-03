@@ -1701,6 +1701,8 @@ $(document).ready(function() {
 
             const platformInfo = await apiHelper.getPlatformInfo(dev.platform_id);
 
+            $('.apiHelperTinker').trigger('updateInfo', [{dev, platformInfo}]);
+
             const deviceKind = platformInfo ? platformInfo.displayName : 'Device';
 
             let canFlash = true;
@@ -1877,6 +1879,124 @@ $(document).ready(function() {
 
     });
 
+
+    $('.apiHelperTinker').each(function() {
+        const thisPartial = $(this);
+
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const tableViewDivElem = $(thisPartial).find('.tableViewDiv');
+        const tableViewBodyElem = $(thisPartial).find('.tableViewDiv > table > tbody');
+
+        let tinker = {
+        };
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/assets/files/pinInfo.json',
+            dataType: 'json',
+            success: function(data) {
+                // .details (array)
+                // .platforms (array)
+                tinker.pinInfo = data;
+                console.log('pinInfo', tinker.pinInfo);
+            },
+            error: function(err) {
+                console.log('error fetching pinInfo', err);
+            },
+        });	
+
+        tinker.functions = [
+            {
+                pinInfoKey: 'analogRead',
+            },
+            {
+                pinInfoKey: 'analogWritePWM',
+            },
+            {
+                pinInfoKey: 'analogWriteDAC',
+            },
+            {
+                pinInfoKey: 'digitalRead',
+            },
+            {
+                pinInfoKey: 'digitalWrite',
+            },
+        ];
+            
+        tinker.update = function() {
+            // tinker.dev (object) Device Information
+            // tinker.platformInfo (object): Device Constants platform info
+
+            $(tableViewDivElem).hide();
+            $(tableViewBodyElem).empty();
+            
+            tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
+            if (!tinker.devicePinInfo) {
+                setStatus('The device platform ' + tinker.dev.platform_id + ' is not currently supported');
+                return;
+            }
+            console.log('tinker.devicePinInfo', tinker.devicePinInfo);
+
+            console.log('tinker.platformInfo', tinker.platformInfo);
+
+            $(tableViewDivElem).show();
+            for(const pin of tinker.devicePinInfo.pins) {
+                if (!pin.isIO) {
+                    continue;
+                }
+                const rowElem = document.createElement('tr');
+
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).addClass('apiHelperProductSelectorLabel');
+                    $(tdElem).text(pin.name)
+                    $(rowElem).append(tdElem);
+                }
+                {
+                    const tdElem = document.createElement('td');
+                    
+                    const selectElem = document.createElement('select');
+                    $(selectElem).addClass('apiHelperSelect');
+
+                    {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).prop('value', '-');
+                        $(optionElem).text('-');
+                        $(selectElem).append(optionElem);
+                    }
+                    for(const fun of tinker.functions) {
+                        if (pin[fun.pinInfoKey]) {
+                            const optionElem = document.createElement('option');
+                            $(optionElem).prop('value', fun.pinInfoKey);
+                            $(optionElem).text(fun.pinInfoKey);
+                            $(selectElem).append(optionElem);    
+                        }
+                    }
+
+                    $(tdElem).append(selectElem);
+                    $(rowElem).append(tdElem);
+                }
+
+
+                $(tableViewBodyElem).append(rowElem);
+            }
+
+        };
+
+        $(thisPartial).data('tinker', tinker);
+
+        $(thisPartial).on('updateInfo', function(event, info) {
+            console.log('tinker update device', info);
+            for(const key in info) {
+                tinker[key] = info[key];
+            }
+            tinker.update();
+        });
+    });
 
 
     $('.apiHelperProductOrSandboxSelector').each(function() {

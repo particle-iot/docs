@@ -20,4 +20,4 @@ You must log in to your Particle account to interact with your devices using the
 
 ## Tinker functions
 
-
+{{> tinker}}
