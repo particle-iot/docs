@@ -8,17 +8,16 @@ includeDefinitions: [api-helper, api-helper-events, api-helper-extras, api-helpe
 
 # {{title}}
 
-## Set up
-
-### Log in
+## Log in
 
 You must log in to your Particle account to interact with your devices using the web-based Tinker application.
 
 {{> sso }}
 
-### Select device
+## Select device
 
 {{> flash-tinker}}
 
-### Tinker functions
+## Tinker functions
+
 

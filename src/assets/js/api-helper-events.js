@@ -71,7 +71,7 @@ apiHelper.eventViewer.clickRow = function(thisRowElem) {
 };
 
 apiHelper.eventViewer.start = function(elem) {
-    if (!apiHelper.eventViewer.stream) {
+    if (!apiHelper.eventViewer.stream && apiHelper.auth && apiHelper.auth.access_token) {
         apiHelper.particle.getEventStream({ deviceId: 'mine', auth: apiHelper.auth.access_token }).then(function(stream) {
             apiHelper.eventViewer.stream = stream;
             

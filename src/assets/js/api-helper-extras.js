@@ -1684,11 +1684,76 @@ $(document).ready(function() {
         const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
         const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
         const flashControlsElem = $(thisPartial).find('.flashControls');
+        const warningMessageElem = $(thisPartial).find('.warningMessage');
 
         const setStatus = function(s) {
             $(apiHelperStatusElem).text(s);
         }
          
+        const updateInfo = async function() {
+            const newVal = $(apiHelperCloudDeviceSelectElem).val();
+            if (newVal == 'select' || newVal == 'refresh') {
+                $(flashTinkerButtonElem).prop('disabled', true);      
+                return;
+            }
+
+            const dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+
+            const platformInfo = await apiHelper.getPlatformInfo(dev.platform_id);
+
+            const deviceKind = platformInfo ? platformInfo.displayName : 'Device';
+
+            let canFlash = true;
+            
+            if (dev.isTracker) {
+                setStatus('Tinker functionality is not available on the Tracker.');
+                $(flashControlsElem).hide();
+            }
+            else
+            if (dev.isTinker) {
+                if (dev.online) {
+                    setStatus(deviceKind + ' is online and appears to be running Tinker firmware.');
+                }
+                else {
+                    setStatus(deviceKind + ' was last running Tinker firmware, but is currently offline.');
+                    // canFlash = false; // Once automatic online status change works, uncomment this line
+                }
+                $(flashControlsElem).hide();
+            }
+            else 
+            if (dev.productInfo && dev.productDevInfo) {
+                const prefix = deviceKind + ' is in product ' + dev.productInfo.name + ' (' + dev.productInfo.id + ') '; 
+                if (dev.productDevInfo.development) {
+                    if (dev.online) {
+                        setStatus(prefix + 'and is a development device so it can be used');
+                    }
+                    else {
+                        setStatus(prefix + 'and is a development device so it could be used, but is currently offline');  
+                        // canFlash = false; // Once automatic online status change works, uncomment this line
+                    }
+                    $(flashControlsElem).show();
+                }
+                else {
+                    setStatus(prefix + 'but is not a development device so it can be used');
+                    canFlash = false;                    
+                    $(flashControlsElem).hide();
+                }
+            }
+            else {
+                if (dev.online) {
+                    setStatus(deviceKind + ' is online and can be flashed with Tinker firmware');
+                }
+                else {
+                    setStatus(deviceKind + ' is offline, make sure it is powered on and breathing cyan.');
+                    // canFlash = false; // Once automatic online status change works, uncomment this line
+                }
+                $(flashControlsElem).show();
+            }
+            $(flashTinkerButtonElem).prop('disabled', !canFlash);      
+
+        }
+
+
         apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
             deviceFilter: function(dev) {
                 return true;
@@ -1722,75 +1787,33 @@ $(document).ready(function() {
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
-            monitorEvents: true,
+            monitorEvents: function(event) {
+                switch(event.name) {
+                    case 'spark/flash/status':
+                        // This event has a trailing space on the data
+                        if (event.data.trim() == 'success') {
+                            setStatus('Flash successful, waiting for device to restart and reconnect to the cloud');
+                        }
+                        break;
+
+                    case 'spark/status':
+                        break;
+                }
+            },
             onChange: async function(elem) {
-                const newVal = $(elem).val();
-                if (newVal == 'select' || newVal == 'refresh') {
-                    $(flashTinkerButtonElem).prop('disabled', true);      
-                    return;
-                }
+                updateInfo();
+            },
+            onUpdateInfo: async function(elem) {
+                updateInfo();
+            },
 
-                const dev = apiHelper.deviceListCache.find(e => e.id == newVal);
-                console.log('device ' +  newVal, dev);
-
-                const platformInfo = await apiHelper.getPlatformInfo(dev.platform_id);
-                console.log('platformInfo', platformInfo);
-
-                const deviceKind = platformInfo ? platformInfo.displayName : 'Device';
-
-                let canFlash = true;
-                
-                if (dev.isTracker) {
-                    setStatus('Tinker functionality is not available on the Tracker.');
-                    $(flashControlsElem).hide();
-                }
-                else
-                if (dev.isTinker) {
-                    if (dev.online) {
-                        setStatus(deviceKind + ' is online and appears to be running Tinker firmware.');
-                    }
-                    else {
-                        setStatus(deviceKind + ' was last running Tinker firmware, but is currently offline.');
-                        // canFlash = false; // Once automatic online status change works, uncomment this line
-                    }
-                    $(flashControlsElem).hide();
-                }
-                else 
-                if (dev.productInfo && dev.productDevInfo) {
-                    const prefix = deviceKind + ' is in product ' + dev.productInfo.name + ' (' + dev.productInfo.id + ') '; 
-                    if (dev.productDevInfo.development) {
-                        if (dev.online) {
-                            setStatus(prefix + 'and is a development device so it can be used');
-                        }
-                        else {
-                            setStatus(prefix + 'and is a development device so it could be used, but is currently offline');  
-                            // canFlash = false; // Once automatic online status change works, uncomment this line
-                        }
-                        $(flashControlsElem).show();
-                    }
-                    else {
-                        setStatus(prefix + 'but is not a development device so it can be used');
-                        canFlash = false;                    
-                        $(flashControlsElem).hide();
-                    }
-                }
-                else {
-                    if (dev.online) {
-                        setStatus(deviceKind + ' is online and can be flashed with Tinker firmware');
-                    }
-                    else {
-                        setStatus(deviceKind + ' is offline, make sure it is powered on and breathing cyan.');
-                        // canFlash = false; // Once automatic online status change works, uncomment this line
-                    }
-                    $(flashControlsElem).show();
-                }
-                $(flashTinkerButtonElem).prop('disabled', !canFlash);      
-
-            }
         });   
 
         $(flashTinkerButtonElem).on('click', async function() {
             let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
+
+            $(flashTinkerButtonElem).prop('disabled', true);
+            $(warningMessageElem).hide();
 
             const deviceId = $(apiHelperCloudDeviceSelectElem).val();
 

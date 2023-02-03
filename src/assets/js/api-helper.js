@@ -504,55 +504,96 @@ apiHelper.deviceList = function(elems, options) {
     if (!options) {
         options = {};
     }
+
+
+    const updateList = function() {
+        $(elems).each(function() {
+            const elem = $(this);
+            const oldValue = $(elem).val();
+
+            $(elem).empty();
+            
+            let optionElem;
+
+            if (options.hasAllDevices) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'all');
+                $(optionElem).text(options.allDevicesTitle || 'All Devices');
+                $(elem).append(optionElem);
+            }
+            if (options.hasSelectDevice) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'select');
+                $(optionElem).text(options.selectDeviceTitle || 'Select Device');
+                $(elem).append(optionElem);
+            }
+            if (options.hasRefresh) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'refresh');
+                $(optionElem).text(options.refreshTitle || 'Refresh Device List');
+                $(elem).append(optionElem);
+            }
     
+            let first = true;
+    
+            apiHelper.deviceListCache.forEach(function(dev, index) {
+                if (!options.deviceFilter || options.deviceFilter(dev)) {
+                    optionElem = document.createElement('option');
+                    $(optionElem).attr('value', options.getValue ? options.getValue(dev) : dev.id);
+                    $(optionElem).text(options.getTitle ? options.getTitle(dev) : dev.name);
+
+                    if ((!options.hasSelectDevice) && !options.hasAllDevices && first) {
+                        $(optionElem).attr('selected', 'selected');
+                    }
+                    first = false;
+    
+                    $(elem).append(optionElem);
+                }
+            });
+            if (apiHelper.deviceListCache.length == 0) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'none');
+                $(optionElem).text(options.noDevicesTitle || 'No devices in this account');
+
+                $(elem).append(optionElem);
+            }        
+            if (oldValue && oldValue != 'refresh') {
+                $(elem).val(oldValue);
+            }
+        });
+    };
+
+    const refreshList = function() {
+        apiHelper.deviceListRefresh(function() {
+            updateList();
+            if (options.onUpdateInfo) {
+                options.onUpdateInfo();
+            }
+        });
+    }
+
+
+
     if (options.monitorEvents) {
         apiHelper.eventViewer.addMonitor(function(event) {
+            if (typeof options.monitorEvents == 'function') {
+                options.monitorEvents(event);
+            }
+
             switch(event.name) {
                 case 'spark/status':
-                    console.log('deviceLog event', event);
+                    // event .name, data, .coreid
+                    // Wait a bit, then refresh the list to make sure the cloud has the right data
+                    setTimeout(function() {
+                        refreshList();
+                    }, 1000);
                     break;
-                case 'spark/flash/status':
-                    console.log('deviceLog event', event);
-                    break;
+
+                // case 'spark/flash/status':
             }
         });
         apiHelper.eventViewer.start();
     }
-
-    const updateList = function() {
-        let html = '';
-        if (options.hasAllDevices) {
-            const title = options.allDevicesTitle || 'All Devices';
-            html += '<option value="all">' + title + '</option>';
-        }
-        if (options.hasSelectDevice) {
-            const title = options.selectDeviceTitle || 'Select Device';
-            html += '<option value="select">' + title + '</option>';
-        }
-        if (options.hasRefresh) {
-            const title = options.refreshTitle || 'Refresh Device List';
-            html += '<option value="refresh">' + title + '</option>';
-        }
-
-        let first = true;
-
-        apiHelper.deviceListCache.forEach(function(dev, index) {
-            if (!options.deviceFilter || options.deviceFilter(dev)) {
-                const value = options.getValue ? options.getValue(dev) : dev.id;
-                const title = options.getTitle ? options.getTitle(dev) : dev.name;
-                const sel = ((!options.hasSelectDevice) && !options.hasAllDevices && first) ? ' selected' : '';
-                first = false;
-
-                html += '<option value="' + value + '"' + sel + '>' + title + '</option>';
-            }
-        });
-        if (apiHelper.deviceListCache.length == 0) {
-            const title = options.noDevicesTitle || 'No devices in this account';
-            html += '<option value="none">' + title + '</option>';
-        }
-
-        elems.html(html);
-    };
 
     apiHelper.deviceListRefreshCallbacks.push(updateList);
     
@@ -571,23 +612,31 @@ apiHelper.deviceList = function(elems, options) {
     $(elems).on('change', async function() {
         const val = $(this).val();
         if (val == 'refresh') {
-            apiHelper.deviceListRefresh(function() {
-            });
+            refreshList();
             return;
+        }
+        if (options.hasSelectDevice) {
+            const selectOptionElem = $(this).find('option[value="select"]');
+            if (selectOptionElem.length) {
+                $(selectOptionElem).remove();           
+            }
         }
 
         // Find the device in the cache
         let dev = apiHelper.deviceListCache.find(e => e.id == val);
-        if (dev.isProductDevice) {
-            const sandboxProducts = await apiHelper.sandboxProducts().get();
-
-            dev.productInfo = sandboxProducts.find(e => e.id == dev.product_id);
-                        
-            dev.productDevInfo = (await apiHelper.particle.getDevice({ deviceId: dev.id, product: dev.product_id, auth: apiHelper.auth.access_token })).body;            
-        }
-
-        if ($(this).hasClass('apiHelperCommonDevice')) {
-            apiHelper.setCommonDevice(val);
+        if (dev) {
+            if (dev.isProductDevice) {
+                const sandboxProducts = await apiHelper.sandboxProducts().get();
+    
+                dev.productInfo = sandboxProducts.find(e => e.id == dev.product_id);
+                            
+                dev.productDevInfo = (await apiHelper.particle.getDevice({ deviceId: dev.id, product: dev.product_id, auth: apiHelper.auth.access_token })).body;            
+            }
+    
+            if ($(this).hasClass('apiHelperCommonDevice')) {
+                apiHelper.setCommonDevice(val);
+            }
+    
         }
     });
 };
