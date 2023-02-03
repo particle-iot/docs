@@ -23,6 +23,7 @@ $(document).ready(function() {
         return parts.join('_');
     };
 
+
     if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
@@ -1639,25 +1640,21 @@ $(document).ready(function() {
 
     });
 
-    $('.apiHelperFlashTinker').each(async  function() {
+    $('.apiHelperCloudApiDeviceSelect').each(async function() {
         const thisPartial = $(this);
 
-        const flashTinkerDeviceSelectElem = $(thisPartial).find('.flashTinkerDeviceSelect');
-        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
-        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const options = $(thisPartial).data('options').split(',');
+
+        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
+        const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
 
         const setStatus = function(s) {
-            $(apiHelperStatusElem).text(s);
+            $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
         }
 
-        let devInfo = {};
-                
-        apiHelper.deviceList(flashTinkerDeviceSelectElem, {
+        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
             deviceFilter: function(dev) {
-                if (dev.online) {
-                    devInfo[dev.id] = dev;
-                }
-                return dev.online;
+                return true;
             },
             getTitle: function(dev) {
                 let result;
@@ -1669,34 +1666,142 @@ $(document).ready(function() {
                     result = dev.id;
                 }
                 result += (dev.online ? '' : ' (offline)');
+            },                    
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: async function(elem) {
+                const newVal = $(elem).val();
+
+            }
+        });   
+
+    });
+
+    $('.apiHelperFlashTinker').each(async  function() {
+        const thisPartial = $(this);
+
+        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
+        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const flashControlsElem = $(thisPartial).find('.flashControls');
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+         
+        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
+            deviceFilter: function(dev) {
+                return true;
+            },
+            getTitle: function(dev) {
+                let result;
+
+                if (dev.name) {
+                    result = dev.name;
+                }
+                else {
+                    result = dev.id;
+                }
+                let attributes = [];
+                if (!dev.online) {
+                    attributes.push('offline');                    
+                }
+                if (dev.isProductDevice) {
+                    attributes.push('product');                    
+                }
+                if (dev.isTracker) {
+                    attributes.push('tracker');     
+                }
+                if (dev.isTinker) {
+                    attributes.push('tinker');                    
+                }
+                if (attributes.length) {
+                    result += ' (' + attributes.join(', ') + ')';
+                }                            
                 return result;
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
-            onChange: function(elem) {
+            monitorEvents: true,
+            onChange: async function(elem) {
                 const newVal = $(elem).val();
-                if (newVal != 'select') {
-                    $(flashTinkerButtonElem).removeAttr('disabled');
+                if (newVal == 'select' || newVal == 'refresh') {
+                    $(flashTinkerButtonElem).prop('disabled', true);      
+                    return;
+                }
+
+                const dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+                console.log('device ' +  newVal, dev);
+
+                const platformInfo = await apiHelper.getPlatformInfo(dev.platform_id);
+                console.log('platformInfo', platformInfo);
+
+                const deviceKind = platformInfo ? platformInfo.displayName : 'Device';
+
+                let canFlash = true;
+                
+                if (dev.isTracker) {
+                    setStatus('Tinker functionality is not available on the Tracker.');
+                    $(flashControlsElem).hide();
+                }
+                else
+                if (dev.isTinker) {
+                    if (dev.online) {
+                        setStatus(deviceKind + ' is online and appears to be running Tinker firmware.');
+                    }
+                    else {
+                        setStatus(deviceKind + ' was last running Tinker firmware, but is currently offline.');
+                        // canFlash = false; // Once automatic online status change works, uncomment this line
+                    }
+                    $(flashControlsElem).hide();
+                }
+                else 
+                if (dev.productInfo && dev.productDevInfo) {
+                    const prefix = deviceKind + ' is in product ' + dev.productInfo.name + ' (' + dev.productInfo.id + ') '; 
+                    if (dev.productDevInfo.development) {
+                        if (dev.online) {
+                            setStatus(prefix + 'and is a development device so it can be used');
+                        }
+                        else {
+                            setStatus(prefix + 'and is a development device so it could be used, but is currently offline');  
+                            // canFlash = false; // Once automatic online status change works, uncomment this line
+                        }
+                        $(flashControlsElem).show();
+                    }
+                    else {
+                        setStatus(prefix + 'but is not a development device so it can be used');
+                        canFlash = false;                    
+                        $(flashControlsElem).hide();
+                    }
                 }
                 else {
-                    $(flashTinkerButtonElem).attr('disabled', 'disabled');      
-                }            
+                    if (dev.online) {
+                        setStatus(deviceKind + ' is online and can be flashed with Tinker firmware');
+                    }
+                    else {
+                        setStatus(deviceKind + ' is offline, make sure it is powered on and breathing cyan.');
+                        // canFlash = false; // Once automatic online status change works, uncomment this line
+                    }
+                    $(flashControlsElem).show();
+                }
+                $(flashTinkerButtonElem).prop('disabled', !canFlash);      
+
             }
         });   
 
         $(flashTinkerButtonElem).on('click', async function() {
             let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
 
-            const deviceId = $(flashTinkerDeviceSelectElem).val();
+            const deviceId = $(apiHelperCloudDeviceSelectElem).val();
 
-            const deviceInfoObj = devInfo[deviceId];
+            const dev = apiHelper.deviceListCache.find(e => e.id == deviceId);
 
             // 
-            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == deviceInfoObj.platform_id);
+            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == dev.platform_id);
 
             const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
 
-            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceInfoObj.system_firmware_version) >= 0);
+            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, dev.system_firmware_version) >= 0);
 
             const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
 

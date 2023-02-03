@@ -371,6 +371,89 @@ apiHelper.confirmFlash = function() {
     return true;
 }
 
+
+apiHelper.sandboxProducts = function() {
+    let sandboxProducts = {
+    };
+
+    sandboxProducts.get = function() {
+        return new Promise(function(resolve, reject) {      
+            if (sandboxProducts.result) {
+                resolve(result);
+            }
+            else
+            if (sandboxProducts.pending) {
+                sandboxProducts.pending.push({resolve, reject});
+            }
+            else {
+                sandboxProducts.pending = [];
+                sandboxProducts.pending.push({resolve, reject});
+
+                const request = {
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        delete sandboxProducts.result;
+                        sandboxProducts.pending.forEach(e => e.reject());
+                        delete sandboxProducts.pending;
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'GET',
+                    success: function (resp, textStatus, jqXHR) {
+                        sandboxProducts.result = resp.products;
+                        for(let p of sandboxProducts.result) {
+                            p.mine = (p.user == apiHelper.auth.username);
+                            p.sandbox = true;
+                        }
+                        sandboxProducts.pending.forEach(e => e.resolve(sandboxProducts.result));
+                        delete sandboxProducts.pending;
+                    },
+                    url: 'https://api.particle.io/v1/user/products/'
+                };
+    
+                $.ajax(request);
+            }
+        });    
+    }
+
+    sandboxProducts.getById = async function(id) {
+        await sandboxProducts.get();
+
+        if (sandboxProducts.result) {
+            return sandboxProducts.result.find(e => e.id == id);
+        }
+        return undefined;
+    }
+
+    sandboxProducts.getNameById = async function(id) {
+        const e = sandboxProducts.getById(id);
+        if (e) {
+            return e.name;
+        }
+        return '';
+    }
+    return sandboxProducts;
+}
+
+
+const tinkerFunctions = ['digitalread', 'digitalwrite', 'analogread', 'analogwrite'];
+
+apiHelper.deviceSupplementInfo = function(dev) {
+    dev.isTracker = (dev.platform_id == 26 || dev.platform_id == 28);
+
+    dev.isProductDevice = (dev.product_id > 100);
+
+    let tinkerFunctionCount = 0;
+    for(const s of tinkerFunctions) {
+        if (dev.functions.includes(s)) {
+            tinkerFunctionCount++;
+        }
+    }
+    dev.isTinker = (tinkerFunctionCount == tinkerFunctions.length);
+};
+
 apiHelper.deviceListRefresh = function(next) {
     if (apiHelper.fetchInProgress || !apiHelper.auth) {
         return;
@@ -385,6 +468,8 @@ apiHelper.deviceListRefresh = function(next) {
             apiHelper.deviceIdToName = {};
             apiHelper.deviceListCache.forEach(function(dev) {
                 apiHelper.deviceIdToName[dev.id] = dev.name;
+
+                apiHelper.deviceSupplementInfo(dev);
             });
 
             apiHelper.deviceListRefreshCallbacks.forEach(function(callback) {
@@ -420,6 +505,20 @@ apiHelper.deviceList = function(elems, options) {
         options = {};
     }
     
+    if (options.monitorEvents) {
+        apiHelper.eventViewer.addMonitor(function(event) {
+            switch(event.name) {
+                case 'spark/status':
+                    console.log('deviceLog event', event);
+                    break;
+                case 'spark/flash/status':
+                    console.log('deviceLog event', event);
+                    break;
+            }
+        });
+        apiHelper.eventViewer.start();
+    }
+
     const updateList = function() {
         let html = '';
         if (options.hasAllDevices) {
@@ -469,12 +568,22 @@ apiHelper.deviceList = function(elems, options) {
         });
     }
 
-    $(elems).on('change', function() {
+    $(elems).on('change', async function() {
         const val = $(this).val();
         if (val == 'refresh') {
             apiHelper.deviceListRefresh(function() {
             });
             return;
+        }
+
+        // Find the device in the cache
+        let dev = apiHelper.deviceListCache.find(e => e.id == val);
+        if (dev.isProductDevice) {
+            const sandboxProducts = await apiHelper.sandboxProducts().get();
+
+            dev.productInfo = sandboxProducts.find(e => e.id == dev.product_id);
+                        
+            dev.productDevInfo = (await apiHelper.particle.getDevice({ deviceId: dev.id, product: dev.product_id, auth: apiHelper.auth.access_token })).body;            
         }
 
         if ($(this).hasClass('apiHelperCommonDevice')) {
