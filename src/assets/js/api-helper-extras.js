@@ -1964,74 +1964,94 @@ $(document).ready(function() {
 
             $(tableViewDivElem).show();
 
+            const pinDiagram = {
+                layout: [
+                    [  1, 24 ],
+                    [  2, 23 ],
+                    [  3, 22 ],
+                    [  4, 21 ],
+                    [  5, 20 ],
+                    [  6, 19 ],
+                    [  7, 18 ],
+                    [  8, 17 ],
+                    [  9, 16 ],
+                    [ 10, 15 ],
+                    [ 11, 14 ],
+                    [ 12, 13 ],
+                ],
+            };        
+
             tinker.pinElements = [];
 
-            for(const pin of tinker.devicePinInfo.pins) {
-                if (!pin.isIO) {
-                    continue;
-                }
-
+            const generatePin = function(pin, options = {}) {
                 const pinElement = {
                     pin,
+                    cells: [],
                 };
-
-                const rowElem = document.createElement('tr');
 
                 {
                     const tdElem = document.createElement('td');
                     $(tdElem).addClass('apiHelperProductSelectorLabel');
                     $(tdElem).text(pin.name)
-                    $(rowElem).append(tdElem);
+                    pinElement.cells.push(tdElem);
                 }
-                {
-                    const tdElem = document.createElement('td');
-                    
-                    const selectElem = pinElement.selectElem = document.createElement('select');
-                    $(selectElem).addClass('apiHelperSelect');
-
+                if (pin.isIO) {
                     {
-                        const optionElem = document.createElement('option');
-                        $(optionElem).prop('value', '-');
-                        $(optionElem).text('-');
-                        $(selectElem).append(optionElem);
-                    }
-                    for(const fun of tinker.functions) {
-                        if (pin[fun.pinInfoKey] || (fun.pinInfoAltKey && pin[fun.pinInfoAltKey])) {
+                        const tdElem = document.createElement('td');
+                        
+                        const selectElem = pinElement.selectElem = document.createElement('select');
+                        $(selectElem).addClass('apiHelperSelect');
+                        $(selectElem).css('width', '100px');
+    
+                        {
                             const optionElem = document.createElement('option');
-                            $(optionElem).prop('value', fun.tinkerFunction);
-                            $(optionElem).text(fun.title);
-                            $(selectElem).append(optionElem);    
+                            $(optionElem).prop('value', '-');
+                            $(optionElem).text('-');
+                            $(selectElem).append(optionElem);
                         }
+                        for(const fun of tinker.functions) {
+                            if (pin[fun.pinInfoKey] || (fun.pinInfoAltKey && pin[fun.pinInfoAltKey])) {
+                                const optionElem = document.createElement('option');
+                                $(optionElem).prop('value', fun.tinkerFunction);
+                                $(optionElem).text(fun.title);
+                                $(selectElem).append(optionElem);    
+                            }
+                        }
+    
+                        $(tdElem).append(selectElem);
+                        pinElement.cells.push(tdElem);
                     }
-
-                    $(tdElem).append(selectElem);
-                    $(rowElem).append(tdElem);
+                    {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).addClass('apiHelperProductSelectorLabel');
+    
+                        const inputElem = pinElement.inputElem = document.createElement('input');
+                        $(inputElem).css('display', 'none');
+                        $(inputElem).css('font-size', '11px');
+                        $(inputElem).prop('size', 8);
+                        $(inputElem).prop('value', '0');
+                        $(tdElem).append(inputElem);
+    
+                        const spanElem = pinElement.spanElem = document.createElement('span');
+                        $(spanElem).css('display', 'none');
+                        $(tdElem).append(spanElem);
+    
+                        const buttonElem = pinElement.buttonElem = document.createElement('button');
+                        $(buttonElem).css('display', 'none');
+                        $(buttonElem).text('LOW');      
+                        $(tdElem).append(buttonElem);
+    
+    
+                        pinElement.cells.push(tdElem);
+                    }    
                 }
-                {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).addClass('apiHelperProductSelectorLabel');
-
-                    const inputElem = pinElement.inputElem = document.createElement('input');
-                    $(inputElem).css('display', 'none');
-                    $(inputElem).css('font-size', '11px');
-                    $(inputElem).prop('size', 8);
-                    $(inputElem).prop('value', '0');
-                    $(tdElem).append(inputElem);
-
-                    const spanElem = pinElement.spanElem = document.createElement('span');
-                    $(spanElem).css('display', 'none');
-                    $(tdElem).append(spanElem);
-
-                    const buttonElem = pinElement.buttonElem = document.createElement('button');
-                    $(buttonElem).css('display', 'none');
-                    $(buttonElem).text('LOW');      
-                    $(tdElem).append(buttonElem);
-
-
-                    $(rowElem).append(tdElem);
+                else {
+                    for(let ii = 0; ii < 2; ii++) {
+                        const tdElem = document.createElement('td');
+                        $(tdElem).html('&nbsp;');
+                        pinElement.cells.push(tdElem);
+                    }
                 }
-
-                $(tableViewBodyElem).append(rowElem);
 
 
                 const updateValue = async function() {
@@ -2110,10 +2130,59 @@ $(document).ready(function() {
                     pinElement.output = !pinElement.output;
                     await updateValue();
                 });
-
-
+                
                 tinker.pinElements.push(pinElement);
+
+                return pinElement;
             }
+
+            for(const diagramRow of pinDiagram.layout) {
+                const rowElem = document.createElement('tr');
+                $(rowElem).css('height', '45px');
+
+                if (diagramRow.length >= 1 && diagramRow[0] != null && diagramRow[0] != undefined) {
+                    const pin = tinker.devicePinInfo.pins.find(e => e.num == diagramRow[0]);
+                    if (pin) {
+                        pinElement = generatePin(pin);
+                        pinElement.cells.reverse().forEach(e => $(rowElem).append(e));                                
+
+                    }
+                }
+                else {
+
+                }
+                if (diagramRow.length >= 2 && diagramRow[1] != null && diagramRow[1] != undefined) {
+                    const pin = tinker.devicePinInfo.pins.find(e => e.num == diagramRow[1]);
+                    if (pin) {
+                        pinElement = generatePin(pin);
+                        pinElement.cells.forEach(e => $(rowElem).append(e));                                
+                    }
+                }
+                else {
+
+                }
+
+
+                $(tableViewBodyElem).append(rowElem);
+
+            }
+
+            /*
+            for(const pin of tinker.devicePinInfo.pins) {
+                if (!pin.isIO) {
+                    continue;
+                }
+
+                const rowElem = document.createElement('tr');
+
+                pinElement = generatePin(pin);
+                
+                pinElement.cells.forEach(e => $(rowElem).append(e));
+
+                $(tableViewBodyElem).append(rowElem);
+
+            }
+            */
 
         };
 
