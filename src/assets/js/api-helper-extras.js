@@ -1912,21 +1912,40 @@ $(document).ready(function() {
         tinker.functions = [
             {
                 pinInfoKey: 'analogRead',
+                tinkerFunction: 'analogread',
+                title: 'analogRead',
             },
             {
                 pinInfoKey: 'analogWritePWM',
-            },
-            {
-                pinInfoKey: 'analogWriteDAC',
+                pinInfoAltKey: 'analogWriteDAC',
+                tinkerFunction: 'analogwrite',
+                title: 'analogWrite',
             },
             {
                 pinInfoKey: 'digitalRead',
+                tinkerFunction: 'digitalread',
+                title: 'digitalRead',
             },
             {
                 pinInfoKey: 'digitalWrite',
+                tinkerFunction: 'digitalwrite',
+                title: 'digitalWrite',
             },
         ];
             
+        tinker.callFunction = async function(functionName, arg) {
+            const res = await apiHelper.particle.callFunction({ deviceId: tinker.dev.id, name: functionName, argument: arg, auth: apiHelper.auth.access_token  });
+            console.log('res', res);
+            if (res.statusCode == 200) {
+                setStatus('Called function ' + functionName + ' ' + arg + ', returned ' + res.body.return_value);
+                return res.body.return_value;
+            }
+            else {
+                setStatus('Calling function ' + functionName + ' failed');
+                return 0;
+            }
+        }
+
         tinker.update = function() {
             // tinker.dev (object) Device Information
             // tinker.platformInfo (object): Device Constants platform info
@@ -1944,10 +1963,18 @@ $(document).ready(function() {
             console.log('tinker.platformInfo', tinker.platformInfo);
 
             $(tableViewDivElem).show();
+
+            tinker.pinElements = [];
+
             for(const pin of tinker.devicePinInfo.pins) {
                 if (!pin.isIO) {
                     continue;
                 }
+
+                const pinElement = {
+                    pin,
+                };
+
                 const rowElem = document.createElement('tr');
 
                 {
@@ -1959,7 +1986,7 @@ $(document).ready(function() {
                 {
                     const tdElem = document.createElement('td');
                     
-                    const selectElem = document.createElement('select');
+                    const selectElem = pinElement.selectElem = document.createElement('select');
                     $(selectElem).addClass('apiHelperSelect');
 
                     {
@@ -1969,10 +1996,10 @@ $(document).ready(function() {
                         $(selectElem).append(optionElem);
                     }
                     for(const fun of tinker.functions) {
-                        if (pin[fun.pinInfoKey]) {
+                        if (pin[fun.pinInfoKey] || (fun.pinInfoAltKey && pin[fun.pinInfoAltKey])) {
                             const optionElem = document.createElement('option');
-                            $(optionElem).prop('value', fun.pinInfoKey);
-                            $(optionElem).text(fun.pinInfoKey);
+                            $(optionElem).prop('value', fun.tinkerFunction);
+                            $(optionElem).text(fun.title);
                             $(selectElem).append(optionElem);    
                         }
                     }
@@ -1980,9 +2007,112 @@ $(document).ready(function() {
                     $(tdElem).append(selectElem);
                     $(rowElem).append(tdElem);
                 }
+                {
+                    const tdElem = document.createElement('td');
+                    $(tdElem).addClass('apiHelperProductSelectorLabel');
 
+                    const inputElem = pinElement.inputElem = document.createElement('input');
+                    $(inputElem).css('display', 'none');
+                    $(inputElem).css('font-size', '11px');
+                    $(inputElem).prop('size', 8);
+                    $(inputElem).prop('value', '0');
+                    $(tdElem).append(inputElem);
+
+                    const spanElem = pinElement.spanElem = document.createElement('span');
+                    $(spanElem).css('display', 'none');
+                    $(tdElem).append(spanElem);
+
+                    const buttonElem = pinElement.buttonElem = document.createElement('button');
+                    $(buttonElem).css('display', 'none');
+                    $(buttonElem).text('LOW');      
+                    $(tdElem).append(buttonElem);
+
+
+                    $(rowElem).append(tdElem);
+                }
 
                 $(tableViewBodyElem).append(rowElem);
+
+
+                const updateValue = async function() {
+                    console.log('updateValue', pinElement);
+
+                    let s;
+
+                    const val = $(pinElement.selectElem).val();
+                    switch(val) {
+                        case 'analogwrite':
+                            s = parseInt($(pinElement.inputElem).val()).toString();
+                            await tinker.callFunction(val, pinElement.pin.name + ':' + s);
+                            break;
+                            
+                        case 'analogread':
+                            s = (await tinker.callFunction(val, pinElement.pin.name)).toString();
+                            $(pinElement.spanElem).text(s);
+                            break;
+
+                        case 'digitalread':
+                            s = (await tinker.callFunction(val, pinElement.pin.name)) ? 'HIGH' : 'LOW';
+                            $(pinElement.spanElem).text(s);
+                            break;
+
+                        case 'digitalwrite':
+                            s = pinElement.output ? 'HIGH' : 'LOW';
+                            $(pinElement.buttonElem).text(s);
+                            await tinker.callFunction(val, pinElement.pin.name + ':' + s);
+                            break;
+                    }
+
+                }
+
+                $(pinElement.selectElem).on('change', async function() {
+                    const val = $(pinElement.selectElem).val();
+                    console.log('')
+                    $(pinElement.inputElem).hide();
+                    $(pinElement.spanElem).hide();
+                    $(pinElement.buttonElem).hide();
+
+                    switch(val) {
+                        case 'analogwrite':
+                            $(pinElement.inputElem).show();
+                            break;
+
+                        case 'analogread':
+                        case 'digitalread':
+                            $(pinElement.spanElem).show();
+                            break;
+
+                        case 'digitalwrite':
+                            $(pinElement.buttonElem).show();
+                            break;
+
+                    }
+                    await updateValue();
+                });
+
+
+                $(pinElement).on('keydown', async function(ev) {
+                    if (ev.key != 'Enter') {
+                        return;
+                    }
+        
+                    ev.preventDefault();
+                    await updateValue();                    
+                });
+                $(pinElement.inputElem).on('blur', async function() {
+                    await updateValue();                    
+                });
+                $(pinElement.spanElem).on('click', async function() {
+                    await updateValue();                    
+                });
+
+                $(pinElement.buttonElem).on('click', async function() {
+                    pinElement.output = !pinElement.output;
+                    await updateValue();
+                });
+
+
+                tinker.pinElements.push(pinElement);
             }
 
         };
