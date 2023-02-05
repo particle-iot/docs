@@ -1956,7 +1956,6 @@ $(document).ready(function() {
                     return pin;
                 }
             }
-            const pin = tinker.devicePinInfo.pins.find(e => e.num == diagramRow[col]);
             return null;
         }
 
@@ -1966,13 +1965,10 @@ $(document).ready(function() {
 
             $(canvasViewDivElem).hide();
 
-            const contentWidth = $('.content-inner').width();
-            if (contentWidth < 600) {
-                $(canvasElem).css('width', contentWidth);
-            }
-            else {
-                $(canvasElem).css('width', 600);
-            }
+            const canvasWidth = $(thisPartial).width();
+            console.log('canvasWidth', canvasWidth);
+            $(canvasElem).css('width', canvasWidth);
+
 
             tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
             if (!tinker.devicePinInfo) {
@@ -2150,16 +2146,6 @@ $(document).ready(function() {
             $(pinsDivElem).empty();
 
 
-            const contentOffset = $('.content-inner').offset();
-
-            const contentCenter = Math.floor($(canvasElem).width() / 2);
-
-            console.log('pos', {
-                contentOffset,
-                contentCenter,
-                'canvasOffset': $(canvasElem).offset(),
-            });
-
             let layout = tinker.devicePinInfo.layout;
             if (!layout) {
                 // Create default layout here
@@ -2175,6 +2161,7 @@ $(document).ready(function() {
     
                     }
                 }
+                console.log('create default pinNumbers', pinNumbers);
                 pinNumbers.sort();
 
                 layout = {
@@ -2183,23 +2170,25 @@ $(document).ready(function() {
                             pins: [],
                             reverse: false,
                             rowStart: 0,
-                            hOffset: 0,
+                            hOffset: -100,
                         }
                     ],
                 };
                 for(let ii = 0; ii < pinNumbers.length; ii++) {
-                    layout.columns[0].pins.push({
-                        pin: pinNumbers[ii],
-                        row: ii,
-                        col: 0,
-                    })
+                    layout.columns[0].pins.push(pinNumbers[ii]);
                 }
+                console.log('layout', layout);
             }
+
+            const contentCenter = Math.floor($(canvasElem).width() / 2);
+            let maxHeight = 0;
+
             for(let col = 0; col < layout.columns.length; col++) {
-                const pos = contentCenter + layout.columns[col].hOffset;
+                const pos = $(canvasElem).position().left + contentCenter + layout.columns[col].hOffset;
 
                 for(let ii = 0; ii < layout.columns[col].pins.length; ii++) {
-                    const top = $(canvasElem).offset().top - contentOffset.top + (layout.columns[col].rowStart + ii) * 30;
+                    const vOffset = (layout.columns[col].rowStart + ii) * 30;
+                    const top = $(canvasElem).position().top + vOffset;
                     const pin = tinker.findPinByNum(layout.columns[col].pins[ii]);
                     if (pin) {
                         pinElement = generatePin(pin, {
@@ -2209,12 +2198,15 @@ $(document).ready(function() {
                             elem: $(pinsDivElem),
                             height: '27px',
                         });                    
+                        if ((vOffset + 30) > maxHeight) {
+                            maxHeight = (vOffset + 30);
+                        }
                     }
     
                 }
 
             }
-
+            $(canvasElem).prop('height', maxHeight);
 
         }
 
