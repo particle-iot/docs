@@ -2214,6 +2214,128 @@
           "modulePinName": "MICRO_USB_HS_DP"
         }
       ],
+      "layout": [
+        {
+          "pin": 1,
+          "row": 0,
+          "col": 0
+        },
+        {
+          "pin": 2,
+          "row": 1,
+          "col": 0
+        },
+        {
+          "pin": 3,
+          "row": 2,
+          "col": 0
+        },
+        {
+          "pin": 4,
+          "row": 3,
+          "col": 0
+        },
+        {
+          "pin": 5,
+          "row": 4,
+          "col": 0
+        },
+        {
+          "pin": 6,
+          "row": 5,
+          "col": 0
+        },
+        {
+          "pin": 7,
+          "row": 6,
+          "col": 0
+        },
+        {
+          "pin": 8,
+          "row": 7,
+          "col": 0
+        },
+        {
+          "pin": 9,
+          "row": 8,
+          "col": 0
+        },
+        {
+          "pin": 10,
+          "row": 9,
+          "col": 0
+        },
+        {
+          "pin": 11,
+          "row": 10,
+          "col": 0
+        },
+        {
+          "pin": 12,
+          "row": 11,
+          "col": 0
+        },
+        {
+          "pin": 13,
+          "row": 11,
+          "col": 1
+        },
+        {
+          "pin": 14,
+          "row": 10,
+          "col": 1
+        },
+        {
+          "pin": 15,
+          "row": 9,
+          "col": 1
+        },
+        {
+          "pin": 16,
+          "row": 8,
+          "col": 1
+        },
+        {
+          "pin": 17,
+          "row": 7,
+          "col": 1
+        },
+        {
+          "pin": 18,
+          "row": 6,
+          "col": 1
+        },
+        {
+          "pin": 19,
+          "row": 5,
+          "col": 1
+        },
+        {
+          "pin": 20,
+          "row": 4,
+          "col": 1
+        },
+        {
+          "pin": 21,
+          "row": 3,
+          "col": 1
+        },
+        {
+          "pin": 22,
+          "row": 2,
+          "col": 1
+        },
+        {
+          "pin": 23,
+          "row": 1,
+          "col": 1
+        },
+        {
+          "pin": 24,
+          "row": 0,
+          "col": 1
+        }
+      ],
       "diagram": {
         "columns": [
           "num",

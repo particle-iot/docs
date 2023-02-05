@@ -1884,8 +1884,9 @@ $(document).ready(function() {
         const thisPartial = $(this);
 
         const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
-        const tableViewDivElem = $(thisPartial).find('.tableViewDiv');
-        const tableViewBodyElem = $(thisPartial).find('.tableViewDiv > table > tbody');
+        const canvasViewDivElem = $(thisPartial).find('.canvasViewDiv');
+        const canvasElem = $(thisPartial).find('.canvasViewDiv > canvas');
+        const pinsDivElem = $(thisPartial).find('.pinsDiv');
 
         let tinker = {
         };
@@ -1946,13 +1947,33 @@ $(document).ready(function() {
             }
         }
 
+        tinker.findPinByNum = function(num) {
+            for(const pin of tinker.devicePinInfo.pins) {
+                if (pin.num == num) {
+                    return pin;
+                }
+                if (pin.morePins && pin.morePins.includes(num)) {
+                    return pin;
+                }
+            }
+            const pin = tinker.devicePinInfo.pins.find(e => e.num == diagramRow[col]);
+            return null;
+        }
+
         tinker.update = function() {
             // tinker.dev (object) Device Information
             // tinker.platformInfo (object): Device Constants platform info
 
-            $(tableViewDivElem).hide();
-            $(tableViewBodyElem).empty();
-            
+            $(canvasViewDivElem).hide();
+
+            const contentWidth = $('.content-inner').width();
+            if (contentWidth < 600) {
+                $(canvasElem).css('width', contentWidth);
+            }
+            else {
+                $(canvasElem).css('width', 600);
+            }
+
             tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
             if (!tinker.devicePinInfo) {
                 setStatus('The device platform ' + tinker.dev.platform_id + ' is not currently supported');
@@ -1962,7 +1983,7 @@ $(document).ready(function() {
 
             console.log('tinker.platformInfo', tinker.platformInfo);
 
-            $(tableViewDivElem).show();
+            $(canvasViewDivElem).show();
 
             const pinDiagram = {
                 layout: [
@@ -1986,19 +2007,34 @@ $(document).ready(function() {
             const generatePin = function(pin, options = {}) {
                 const pinElement = {
                     pin,
-                    cells: [],
                 };
 
+                let posOffsets;
+                if (options.reverse) {
+                    posOffsets = [-40, -150, -210];
+                }
+                else {
+                    posOffsets = [0, 40, 150];
+                }
+
                 {
-                    const tdElem = document.createElement('td');
-                    $(tdElem).addClass('apiHelperProductSelectorLabel');
-                    $(tdElem).text(pin.name)
-                    pinElement.cells.push(tdElem);
+                    const divElem = document.createElement('div');
+                    $(divElem).css('position', 'absolute');
+                    $(divElem).css('left', options.pos + posOffsets[0]);
+                    $(divElem).css('top', options.top);
+                    $(divElem).css('height', options.height);
+                    $(divElem).css('line-height', options.height);
+                    $(divElem).text(pin.name);
+                    $(options.elem).append(divElem);
                 }
                 if (pin.isIO) {
                     {
-                        const tdElem = document.createElement('td');
-                        
+                        const divElem = document.createElement('div');
+                        $(divElem).css('position', 'absolute');
+                        $(divElem).css('left', options.pos + posOffsets[1]);
+                        $(divElem).css('top', options.top);
+                        $(divElem).css('height', options.height);
+                            
                         const selectElem = pinElement.selectElem = document.createElement('select');
                         $(selectElem).addClass('apiHelperSelect');
                         $(selectElem).css('width', '100px');
@@ -2018,41 +2054,38 @@ $(document).ready(function() {
                             }
                         }
     
-                        $(tdElem).append(selectElem);
-                        pinElement.cells.push(tdElem);
+                        $(divElem).append(selectElem);
+                        $(options.elem).append(divElem);
                     }
                     {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).addClass('apiHelperProductSelectorLabel');
-    
+                        const divElem = document.createElement('div');
+                        $(divElem).css('position', 'absolute');
+                        $(divElem).css('left', options.pos + posOffsets[2]);
+                        $(divElem).css('top', options.top);
+                        $(divElem).css('height', options.height);
+
                         const inputElem = pinElement.inputElem = document.createElement('input');
                         $(inputElem).css('display', 'none');
                         $(inputElem).css('font-size', '11px');
                         $(inputElem).prop('size', 8);
                         $(inputElem).prop('value', '0');
-                        $(tdElem).append(inputElem);
+                        $(divElem).append(inputElem);
     
                         const spanElem = pinElement.spanElem = document.createElement('span');
                         $(spanElem).css('display', 'none');
-                        $(tdElem).append(spanElem);
+                        $(divElem).css('line-height', options.height);
+                        $(divElem).append(spanElem);
     
                         const buttonElem = pinElement.buttonElem = document.createElement('button');
                         $(buttonElem).css('display', 'none');
                         $(buttonElem).text('LOW');      
-                        $(tdElem).append(buttonElem);
+                        $(divElem).append(buttonElem);
     
     
-                        pinElement.cells.push(tdElem);
+                        $(options.elem).append(divElem);
                     }    
                 }
-                else {
-                    for(let ii = 0; ii < 2; ii++) {
-                        const tdElem = document.createElement('td');
-                        $(tdElem).html('&nbsp;');
-                        pinElement.cells.push(tdElem);
-                    }
-                }
-
+                
 
                 const updateValue = async function() {
                     console.log('updateValue', pinElement);
@@ -2136,55 +2169,43 @@ $(document).ready(function() {
                 return pinElement;
             }
 
-            for(const diagramRow of pinDiagram.layout) {
-                const rowElem = document.createElement('tr');
-                $(rowElem).css('height', '45px');
+            $(pinsDivElem).empty();
 
-                if (diagramRow.length >= 1 && diagramRow[0] != null && diagramRow[0] != undefined) {
-                    const pin = tinker.devicePinInfo.pins.find(e => e.num == diagramRow[0]);
-                    if (pin) {
-                        pinElement = generatePin(pin);
-                        pinElement.cells.reverse().forEach(e => $(rowElem).append(e));                                
 
+            const contentOffset = $('.content-inner').offset();
+
+            const contentCenter = Math.floor($(canvasElem).width() / 2);
+
+            console.log('pos', {
+                contentOffset,
+                contentCenter,
+                'canvasOffset': $(canvasElem).offset(),
+            });
+
+            for(let row = 0; row < pinDiagram.layout.length; row++) {    
+                const diagramRow = pinDiagram.layout[row];
+                const top = $(canvasElem).offset().top - contentOffset.top + row * 30;
+                for(let col = 0; col < 2; col++) {
+                    const pos = [contentCenter - 25, contentCenter + 25][col];
+                    if (diagramRow.length > col && diagramRow[col] != null && diagramRow[col] != undefined) {
+                        const pin = tinker.findPinByNum(diagramRow[col]);
+                        if (pin) {
+                            pinElement = generatePin(pin, {
+                                top,
+                                pos,
+                                reverse: (col == 0),
+                                elem: $(pinsDivElem),
+                                height: '27px',
+                            });                    
+                        }
                     }
+    
                 }
-                else {
-
-                }
-                if (diagramRow.length >= 2 && diagramRow[1] != null && diagramRow[1] != undefined) {
-                    const pin = tinker.devicePinInfo.pins.find(e => e.num == diagramRow[1]);
-                    if (pin) {
-                        pinElement = generatePin(pin);
-                        pinElement.cells.forEach(e => $(rowElem).append(e));                                
-                    }
-                }
-                else {
-
-                }
-
-
-                $(tableViewBodyElem).append(rowElem);
-
-            }
-
-            /*
-            for(const pin of tinker.devicePinInfo.pins) {
-                if (!pin.isIO) {
-                    continue;
-                }
-
-                const rowElem = document.createElement('tr');
-
-                pinElement = generatePin(pin);
                 
-                pinElement.cells.forEach(e => $(rowElem).append(e));
 
-                $(tableViewBodyElem).append(rowElem);
 
             }
-            */
-
-        };
+        }
 
         $(thisPartial).data('tinker', tinker);
 
