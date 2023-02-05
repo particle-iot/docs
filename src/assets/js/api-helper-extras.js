@@ -2056,14 +2056,10 @@ $(document).ready(function() {
     
                         const spanElem = pinElement.spanElem = document.createElement('span');
                         $(spanElem).css('display', 'none');
+                        $(spanElem).css('cursor', 'pointer');
                         $(divElem).css('line-height', options.height);
                         $(divElem).append(spanElem);
-    
-                        const buttonElem = pinElement.buttonElem = document.createElement('button');
-                        $(buttonElem).css('display', 'none');
-                        $(buttonElem).text('LOW');      
-                        $(divElem).append(buttonElem);
-    
+        
     
                         $(options.elem).append(divElem);
                     }    
@@ -2094,7 +2090,7 @@ $(document).ready(function() {
 
                         case 'digitalwrite':
                             s = pinElement.output ? 'HIGH' : 'LOW';
-                            $(pinElement.buttonElem).text(s);
+                            $(pinElement.spanElem).text(s);
                             await tinker.callFunction(val, pinElement.pin.name + ':' + s);
                             break;
                     }
@@ -2103,10 +2099,8 @@ $(document).ready(function() {
 
                 $(pinElement.selectElem).on('change', async function() {
                     const val = $(pinElement.selectElem).val();
-                    console.log('')
                     $(pinElement.inputElem).hide();
                     $(pinElement.spanElem).hide();
-                    $(pinElement.buttonElem).hide();
 
                     switch(val) {
                         case 'analogwrite':
@@ -2115,13 +2109,14 @@ $(document).ready(function() {
 
                         case 'analogread':
                         case 'digitalread':
+                            $(pinElement.spanElem).prop('title', 'Click to re-read value');
                             $(pinElement.spanElem).show();
                             break;
 
                         case 'digitalwrite':
-                            $(pinElement.buttonElem).show();
+                            $(pinElement.spanElem).prop('title', 'Click to toggle output');
+                            $(pinElement.spanElem).show();
                             break;
-
                     }
                     await updateValue();
                 });
@@ -2139,14 +2134,14 @@ $(document).ready(function() {
                     await updateValue();                    
                 });
                 $(pinElement.spanElem).on('click', async function() {
+                    const val = $(pinElement.selectElem).val();
+                    if (val == 'digitalwrite') {
+                        pinElement.output = !pinElement.output;
+                    }
+
                     await updateValue();                    
                 });
 
-                $(pinElement.buttonElem).on('click', async function() {
-                    pinElement.output = !pinElement.output;
-                    await updateValue();
-                });
-                
                 tinker.pinElements.push(pinElement);
 
                 return pinElement;
@@ -2170,41 +2165,56 @@ $(document).ready(function() {
                 // Create default layout here
                 let pinNumbers = [];
                 for(const pin of tinker.devicePinInfo.pins) {
-                    pinNumbers.push(pin.num);
-                    if (pin.morePins) {
-                        for(const p of pin.morePins) {
-                            pinNumbers.push(p);
+                    if (pin.isIO) {
+                        pinNumbers.push(pin.num);
+                        if (pin.morePins) {
+                            for(const p of pin.morePins) {
+                                pinNumbers.push(p);
+                            }
                         }
+    
                     }
                 }
                 pinNumbers.sort();
 
-                layout = [];
+                layout = {
+                    columns: [
+                        {
+                            pins: [],
+                            reverse: false,
+                            rowStart: 0,
+                            hOffset: 0,
+                        }
+                    ],
+                };
                 for(let ii = 0; ii < pinNumbers.length; ii++) {
-                    layout.push({
+                    layout.columns[0].pins.push({
                         pin: pinNumbers[ii],
                         row: ii,
                         col: 0,
                     })
                 }
             }
+            for(let col = 0; col < layout.columns.length; col++) {
+                const pos = contentCenter + layout.columns[col].hOffset;
 
-            for(const layoutObj of layout) {
-                const top = $(canvasElem).offset().top - contentOffset.top + layoutObj.row * 30;
-                const pos = [contentCenter - 25, contentCenter + 25][layoutObj.col];
-
-                const pin = tinker.findPinByNum(layoutObj.pin);
-                if (pin) {
-                    pinElement = generatePin(pin, {
-                        top,
-                        pos,
-                        reverse: layoutObj.reverse,
-                        elem: $(pinsDivElem),
-                        height: '27px',
-                    });                    
+                for(let ii = 0; ii < layout.columns[col].pins.length; ii++) {
+                    const top = $(canvasElem).offset().top - contentOffset.top + (layout.columns[col].rowStart + ii) * 30;
+                    const pin = tinker.findPinByNum(layout.columns[col].pins[ii]);
+                    if (pin) {
+                        pinElement = generatePin(pin, {
+                            top,
+                            pos,
+                            reverse: layout.columns[col].reverse,
+                            elem: $(pinsDivElem),
+                            height: '27px',
+                        });                    
+                    }
+    
                 }
 
             }
+
 
         }
 
