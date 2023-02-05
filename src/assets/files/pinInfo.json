@@ -2218,62 +2218,74 @@
         {
           "pin": 1,
           "row": 0,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 2,
           "row": 1,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 3,
           "row": 2,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 4,
           "row": 3,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 5,
           "row": 4,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 6,
           "row": 5,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 7,
           "row": 6,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 8,
           "row": 7,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 9,
           "row": 8,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 10,
           "row": 9,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 11,
           "row": 10,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 12,
           "row": 11,
-          "col": 0
+          "col": 0,
+          "reverse": true
         },
         {
           "pin": 13,

@@ -1985,23 +1985,6 @@ $(document).ready(function() {
 
             $(canvasViewDivElem).show();
 
-            const pinDiagram = {
-                layout: [
-                    [  1, 24 ],
-                    [  2, 23 ],
-                    [  3, 22 ],
-                    [  4, 21 ],
-                    [  5, 20 ],
-                    [  6, 19 ],
-                    [  7, 18 ],
-                    [  8, 17 ],
-                    [  9, 16 ],
-                    [ 10, 15 ],
-                    [ 11, 14 ],
-                    [ 12, 13 ],
-                ],
-            };        
-
             tinker.pinElements = [];
 
             const generatePin = function(pin, options = {}) {
@@ -2182,29 +2165,47 @@ $(document).ready(function() {
                 'canvasOffset': $(canvasElem).offset(),
             });
 
-            for(let row = 0; row < pinDiagram.layout.length; row++) {    
-                const diagramRow = pinDiagram.layout[row];
-                const top = $(canvasElem).offset().top - contentOffset.top + row * 30;
-                for(let col = 0; col < 2; col++) {
-                    const pos = [contentCenter - 25, contentCenter + 25][col];
-                    if (diagramRow.length > col && diagramRow[col] != null && diagramRow[col] != undefined) {
-                        const pin = tinker.findPinByNum(diagramRow[col]);
-                        if (pin) {
-                            pinElement = generatePin(pin, {
-                                top,
-                                pos,
-                                reverse: (col == 0),
-                                elem: $(pinsDivElem),
-                                height: '27px',
-                            });                    
+            let layout = tinker.devicePinInfo.layout;
+            if (!layout) {
+                // Create default layout here
+                let pinNumbers = [];
+                for(const pin of tinker.devicePinInfo.pins) {
+                    pinNumbers.push(pin.num);
+                    if (pin.morePins) {
+                        for(const p of pin.morePins) {
+                            pinNumbers.push(p);
                         }
                     }
-    
                 }
-                
+                pinNumbers.sort();
 
+                layout = [];
+                for(let ii = 0; ii < pinNumbers.length; ii++) {
+                    layout.push({
+                        pin: pinNumbers[ii],
+                        row: ii,
+                        col: 0,
+                    })
+                }
+            }
+
+            for(const layoutObj of layout) {
+                const top = $(canvasElem).offset().top - contentOffset.top + layoutObj.row * 30;
+                const pos = [contentCenter - 25, contentCenter + 25][layoutObj.col];
+
+                const pin = tinker.findPinByNum(layoutObj.pin);
+                if (pin) {
+                    pinElement = generatePin(pin, {
+                        top,
+                        pos,
+                        reverse: layoutObj.reverse,
+                        elem: $(pinsDivElem),
+                        height: '27px',
+                    });                    
+                }
 
             }
+
         }
 
         $(thisPartial).data('tinker', tinker);
