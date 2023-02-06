@@ -371,6 +371,89 @@ apiHelper.confirmFlash = function() {
     return true;
 }
 
+
+apiHelper.sandboxProducts = function() {
+    let sandboxProducts = {
+    };
+
+    sandboxProducts.get = function() {
+        return new Promise(function(resolve, reject) {      
+            if (sandboxProducts.result) {
+                resolve(result);
+            }
+            else
+            if (sandboxProducts.pending) {
+                sandboxProducts.pending.push({resolve, reject});
+            }
+            else {
+                sandboxProducts.pending = [];
+                sandboxProducts.pending.push({resolve, reject});
+
+                const request = {
+                    dataType: 'json',
+                    error: function (jqXHR) {
+                        delete sandboxProducts.result;
+                        sandboxProducts.pending.forEach(e => e.reject());
+                        delete sandboxProducts.pending;
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'GET',
+                    success: function (resp, textStatus, jqXHR) {
+                        sandboxProducts.result = resp.products;
+                        for(let p of sandboxProducts.result) {
+                            p.mine = (p.user == apiHelper.auth.username);
+                            p.sandbox = true;
+                        }
+                        sandboxProducts.pending.forEach(e => e.resolve(sandboxProducts.result));
+                        delete sandboxProducts.pending;
+                    },
+                    url: 'https://api.particle.io/v1/user/products/'
+                };
+    
+                $.ajax(request);
+            }
+        });    
+    }
+
+    sandboxProducts.getById = async function(id) {
+        await sandboxProducts.get();
+
+        if (sandboxProducts.result) {
+            return sandboxProducts.result.find(e => e.id == id);
+        }
+        return undefined;
+    }
+
+    sandboxProducts.getNameById = async function(id) {
+        const e = sandboxProducts.getById(id);
+        if (e) {
+            return e.name;
+        }
+        return '';
+    }
+    return sandboxProducts;
+}
+
+
+const tinkerFunctions = ['digitalread', 'digitalwrite', 'analogread', 'analogwrite'];
+
+apiHelper.deviceSupplementInfo = function(dev) {
+    dev.isTracker = (dev.platform_id == 26 || dev.platform_id == 28);
+
+    dev.isProductDevice = (dev.product_id > 100);
+
+    let tinkerFunctionCount = 0;
+    for(const s of tinkerFunctions) {
+        if (dev.functions.includes(s)) {
+            tinkerFunctionCount++;
+        }
+    }
+    dev.isTinker = (tinkerFunctionCount == tinkerFunctions.length);
+};
+
 apiHelper.deviceListRefresh = function(next) {
     if (apiHelper.fetchInProgress || !apiHelper.auth) {
         return;
@@ -385,6 +468,8 @@ apiHelper.deviceListRefresh = function(next) {
             apiHelper.deviceIdToName = {};
             apiHelper.deviceListCache.forEach(function(dev) {
                 apiHelper.deviceIdToName[dev.id] = dev.name;
+
+                apiHelper.deviceSupplementInfo(dev);
             });
 
             apiHelper.deviceListRefreshCallbacks.forEach(function(callback) {
@@ -419,41 +504,96 @@ apiHelper.deviceList = function(elems, options) {
     if (!options) {
         options = {};
     }
-    
+
+
     const updateList = function() {
-        let html = '';
-        if (options.hasAllDevices) {
-            const title = options.allDevicesTitle || 'All Devices';
-            html += '<option value="all">' + title + '</option>';
-        }
-        if (options.hasSelectDevice) {
-            const title = options.selectDeviceTitle || 'Select Device';
-            html += '<option value="select">' + title + '</option>';
-        }
-        if (options.hasRefresh) {
-            const title = options.refreshTitle || 'Refresh Device List';
-            html += '<option value="refresh">' + title + '</option>';
-        }
+        $(elems).each(function() {
+            const elem = $(this);
+            const oldValue = $(elem).val();
 
-        let first = true;
+            $(elem).empty();
+            
+            let optionElem;
 
-        apiHelper.deviceListCache.forEach(function(dev, index) {
-            if (!options.deviceFilter || options.deviceFilter(dev)) {
-                const value = options.getValue ? options.getValue(dev) : dev.id;
-                const title = options.getTitle ? options.getTitle(dev) : dev.name;
-                const sel = ((!options.hasSelectDevice) && !options.hasAllDevices && first) ? ' selected' : '';
-                first = false;
+            if (options.hasAllDevices) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'all');
+                $(optionElem).text(options.allDevicesTitle || 'All Devices');
+                $(elem).append(optionElem);
+            }
+            if (options.hasSelectDevice) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'select');
+                $(optionElem).text(options.selectDeviceTitle || 'Select Device');
+                $(elem).append(optionElem);
+            }
+            if (options.hasRefresh) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'refresh');
+                $(optionElem).text(options.refreshTitle || 'Refresh Device List');
+                $(elem).append(optionElem);
+            }
+    
+            let first = true;
+    
+            apiHelper.deviceListCache.forEach(function(dev, index) {
+                if (!options.deviceFilter || options.deviceFilter(dev)) {
+                    optionElem = document.createElement('option');
+                    $(optionElem).attr('value', options.getValue ? options.getValue(dev) : dev.id);
+                    $(optionElem).text(options.getTitle ? options.getTitle(dev) : dev.name);
 
-                html += '<option value="' + value + '"' + sel + '>' + title + '</option>';
+                    if ((!options.hasSelectDevice) && !options.hasAllDevices && first) {
+                        $(optionElem).attr('selected', 'selected');
+                    }
+                    first = false;
+    
+                    $(elem).append(optionElem);
+                }
+            });
+            if (apiHelper.deviceListCache.length == 0) {
+                optionElem = document.createElement('option');
+                $(optionElem).attr('value', 'none');
+                $(optionElem).text(options.noDevicesTitle || 'No devices in this account');
+
+                $(elem).append(optionElem);
+            }        
+            if (oldValue && oldValue != 'refresh') {
+                $(elem).val(oldValue);
             }
         });
-        if (apiHelper.deviceListCache.length == 0) {
-            const title = options.noDevicesTitle || 'No devices in this account';
-            html += '<option value="none">' + title + '</option>';
-        }
-
-        elems.html(html);
     };
+
+    const refreshList = function() {
+        apiHelper.deviceListRefresh(function() {
+            updateList();
+            if (options.onUpdateInfo) {
+                options.onUpdateInfo();
+            }
+        });
+    }
+
+
+
+    if (options.monitorEvents) {
+        apiHelper.eventViewer.addMonitor(function(event) {
+            if (typeof options.monitorEvents == 'function') {
+                options.monitorEvents(event);
+            }
+
+            switch(event.name) {
+                case 'spark/status':
+                    // event .name, data, .coreid
+                    // Wait a bit, then refresh the list to make sure the cloud has the right data
+                    setTimeout(function() {
+                        refreshList();
+                    }, 1000);
+                    break;
+
+                // case 'spark/flash/status':
+            }
+        });
+        apiHelper.eventViewer.start();
+    }
 
     apiHelper.deviceListRefreshCallbacks.push(updateList);
     
@@ -469,16 +609,34 @@ apiHelper.deviceList = function(elems, options) {
         });
     }
 
-    $(elems).on('change', function() {
+    $(elems).on('change', async function() {
         const val = $(this).val();
         if (val == 'refresh') {
-            apiHelper.deviceListRefresh(function() {
-            });
+            refreshList();
             return;
         }
+        if (options.hasSelectDevice) {
+            const selectOptionElem = $(this).find('option[value="select"]');
+            if (selectOptionElem.length) {
+                $(selectOptionElem).remove();           
+            }
+        }
 
-        if ($(this).hasClass('apiHelperCommonDevice')) {
-            apiHelper.setCommonDevice(val);
+        // Find the device in the cache
+        let dev = apiHelper.deviceListCache.find(e => e.id == val);
+        if (dev) {
+            if (dev.isProductDevice) {
+                const sandboxProducts = await apiHelper.sandboxProducts().get();
+    
+                dev.productInfo = sandboxProducts.find(e => e.id == dev.product_id);
+                            
+                dev.productDevInfo = (await apiHelper.particle.getDevice({ deviceId: dev.id, product: dev.product_id, auth: apiHelper.auth.access_token })).body;            
+            }
+    
+            if ($(this).hasClass('apiHelperCommonDevice')) {
+                apiHelper.setCommonDevice(val);
+            }
+    
         }
     });
 };

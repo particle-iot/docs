@@ -3,6 +3,12 @@ apiHelper.eventViewer = {};
 
 apiHelper.eventViewer.events = [];
 
+apiHelper.eventViewer.monitors = [];
+
+apiHelper.eventViewer.addMonitor = function(fn) {
+    apiHelper.eventViewer.monitors.push(fn);
+}
+
 apiHelper.eventViewer.addRow = function(eventViewerElem, event, eventsIndex) {
     const deviceFilter = $(eventViewerElem).find('.apiHelperEventViewerDeviceSelect').val();
     if (deviceFilter != 'all' && deviceFilter != event.coreid) {
@@ -33,6 +39,10 @@ apiHelper.eventViewer.addRow = function(eventViewerElem, event, eventsIndex) {
 apiHelper.eventViewer.event = function(event) {
     apiHelper.eventViewer.events.push(event);
 
+    apiHelper.eventViewer.monitors.forEach(function(fn) {
+        fn(event);
+    });
+
     $('.apiHelperEventViewer').each(function(index) {
         if ($(this).find('.apiHelperEventViewerEnable').prop('checked')) {
             apiHelper.eventViewer.addRow($(this), event, apiHelper.eventViewer.events.length - 1);
@@ -61,7 +71,7 @@ apiHelper.eventViewer.clickRow = function(thisRowElem) {
 };
 
 apiHelper.eventViewer.start = function(elem) {
-    if (!apiHelper.eventViewer.stream) {
+    if (!apiHelper.eventViewer.stream && apiHelper.auth && apiHelper.auth.access_token) {
         apiHelper.particle.getEventStream({ deviceId: 'mine', auth: apiHelper.auth.access_token }).then(function(stream) {
             apiHelper.eventViewer.stream = stream;
             

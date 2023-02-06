@@ -23,6 +23,7 @@ $(document).ready(function() {
         return parts.join('_');
     };
 
+
     if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
@@ -1639,25 +1640,21 @@ $(document).ready(function() {
 
     });
 
-    $('.apiHelperFlashTinker').each(async  function() {
+    $('.apiHelperCloudApiDeviceSelect').each(async function() {
         const thisPartial = $(this);
 
-        const flashTinkerDeviceSelectElem = $(thisPartial).find('.flashTinkerDeviceSelect');
-        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
-        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const options = $(thisPartial).data('options').split(',');
+
+        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
+        const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
 
         const setStatus = function(s) {
-            $(apiHelperStatusElem).text(s);
+            $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
         }
 
-        let devInfo = {};
-                
-        apiHelper.deviceList(flashTinkerDeviceSelectElem, {
+        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
             deviceFilter: function(dev) {
-                if (dev.online) {
-                    devInfo[dev.id] = dev;
-                }
-                return dev.online;
+                return true;
             },
             getTitle: function(dev) {
                 let result;
@@ -1669,34 +1666,167 @@ $(document).ready(function() {
                     result = dev.id;
                 }
                 result += (dev.online ? '' : ' (offline)');
+            },                    
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: async function(elem) {
+                const newVal = $(elem).val();
+
+            }
+        });   
+
+    });
+
+    $('.apiHelperFlashTinker').each(async  function() {
+        const thisPartial = $(this);
+
+        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
+        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const flashControlsElem = $(thisPartial).find('.flashControls');
+        const warningMessageElem = $(thisPartial).find('.warningMessage');
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+         
+        const updateInfo = async function() {
+            const newVal = $(apiHelperCloudDeviceSelectElem).val();
+            if (newVal == 'select' || newVal == 'refresh') {
+                $(flashTinkerButtonElem).prop('disabled', true);      
+                return;
+            }
+
+            const dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+
+            const platformInfo = await apiHelper.getPlatformInfo(dev.platform_id);
+
+            $('.apiHelperTinker').trigger('updateInfo', [{dev, platformInfo}]);
+
+            const deviceKind = platformInfo ? platformInfo.displayName : 'Device';
+
+            let canFlash = true;
+            
+            if (dev.isTracker) {
+                setStatus('Tinker functionality is not available on the Tracker.');
+                $(flashControlsElem).hide();
+            }
+            else
+            if (dev.isTinker) {
+                if (dev.online) {
+                    setStatus(deviceKind + ' is online and appears to be running Tinker firmware.');
+                }
+                else {
+                    setStatus(deviceKind + ' was last running Tinker firmware, but is currently offline.');
+                    // canFlash = false; // Once automatic online status change works, uncomment this line
+                }
+                $(flashControlsElem).hide();
+            }
+            else 
+            if (dev.productInfo && dev.productDevInfo) {
+                const prefix = deviceKind + ' is in product ' + dev.productInfo.name + ' (' + dev.productInfo.id + ') '; 
+                if (dev.productDevInfo.development) {
+                    if (dev.online) {
+                        setStatus(prefix + 'and is a development device so it can be used');
+                    }
+                    else {
+                        setStatus(prefix + 'and is a development device so it could be used, but is currently offline');  
+                        // canFlash = false; // Once automatic online status change works, uncomment this line
+                    }
+                    $(flashControlsElem).show();
+                }
+                else {
+                    setStatus(prefix + 'but is not a development device so it can be used');
+                    canFlash = false;                    
+                    $(flashControlsElem).hide();
+                }
+            }
+            else {
+                if (dev.online) {
+                    setStatus(deviceKind + ' is online and can be flashed with Tinker firmware');
+                }
+                else {
+                    setStatus(deviceKind + ' is offline, make sure it is powered on and breathing cyan.');
+                    // canFlash = false; // Once automatic online status change works, uncomment this line
+                }
+                $(flashControlsElem).show();
+            }
+            $(flashTinkerButtonElem).prop('disabled', !canFlash);      
+
+        }
+
+
+        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
+            deviceFilter: function(dev) {
+                return true;
+            },
+            getTitle: function(dev) {
+                let result;
+
+                if (dev.name) {
+                    result = dev.name;
+                }
+                else {
+                    result = dev.id;
+                }
+                let attributes = [];
+                if (!dev.online) {
+                    attributes.push('offline');                    
+                }
+                if (dev.isProductDevice) {
+                    attributes.push('product');                    
+                }
+                if (dev.isTracker) {
+                    attributes.push('tracker');     
+                }
+                if (dev.isTinker) {
+                    attributes.push('tinker');                    
+                }
+                if (attributes.length) {
+                    result += ' (' + attributes.join(', ') + ')';
+                }                            
                 return result;
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
-            onChange: function(elem) {
-                const newVal = $(elem).val();
-                if (newVal != 'select') {
-                    $(flashTinkerButtonElem).removeAttr('disabled');
+            monitorEvents: function(event) {
+                switch(event.name) {
+                    case 'spark/flash/status':
+                        // This event has a trailing space on the data
+                        if (event.data.trim() == 'success') {
+                            setStatus('Flash successful, waiting for device to restart and reconnect to the cloud');
+                        }
+                        break;
+
+                    case 'spark/status':
+                        break;
                 }
-                else {
-                    $(flashTinkerButtonElem).attr('disabled', 'disabled');      
-                }            
-            }
+            },
+            onChange: async function(elem) {
+                updateInfo();
+            },
+            onUpdateInfo: async function(elem) {
+                updateInfo();
+            },
+
         });   
 
         $(flashTinkerButtonElem).on('click', async function() {
             let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
 
-            const deviceId = $(flashTinkerDeviceSelectElem).val();
+            $(flashTinkerButtonElem).prop('disabled', true);
+            $(warningMessageElem).hide();
 
-            const deviceInfoObj = devInfo[deviceId];
+            const deviceId = $(apiHelperCloudDeviceSelectElem).val();
+
+            const dev = apiHelper.deviceListCache.find(e => e.id == deviceId);
 
             // 
-            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == deviceInfoObj.platform_id);
+            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == dev.platform_id);
 
             const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
 
-            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceInfoObj.system_firmware_version) >= 0);
+            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, dev.system_firmware_version) >= 0);
 
             const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
 
@@ -1749,7 +1879,401 @@ $(document).ready(function() {
 
     });
 
+    $('.apiHelperTinker').each(function() {
+        const thisPartial = $(this);
 
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const canvasViewDivElem = $(thisPartial).find('.canvasViewDiv');
+        const canvasElem = $(thisPartial).find('.canvasViewDiv > canvas');
+        const pinsDivElem = $(thisPartial).find('.pinsDiv');
+        const deviceImageElem = $(thisPartial).find('.deviceImage');
+
+        let tinker = {
+        };
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/assets/files/pinInfo.json',
+            dataType: 'json',
+            success: function(data) {
+                // .details (array)
+                // .platforms (array)
+                tinker.pinInfo = data;
+            },
+            error: function(err) {
+                console.log('error fetching pinInfo', err);
+            },
+        });	
+
+        tinker.functions = [
+            {
+                pinInfoKey: 'analogRead',
+                tinkerFunction: 'analogread',
+                title: 'analogRead',
+            },
+            {
+                pinInfoKey: 'analogWritePWM',
+                pinInfoAltKey: 'analogWriteDAC',
+                tinkerFunction: 'analogwrite',
+                title: 'analogWrite',
+            },
+            {
+                pinInfoKey: 'digitalRead',
+                tinkerFunction: 'digitalread',
+                title: 'digitalRead',
+            },
+            {
+                pinInfoKey: 'digitalWrite',
+                tinkerFunction: 'digitalwrite',
+                title: 'digitalWrite',
+            },
+        ];
+            
+        tinker.callFunction = async function(functionName, arg) {
+            try {
+                const res = await apiHelper.particle.callFunction({ deviceId: tinker.dev.id, name: functionName, argument: arg, auth: apiHelper.auth.access_token  });
+                if (res.statusCode == 200) {
+                    setStatus('Called function ' + functionName + ' ' + arg + ', returned ' + res.body.return_value);
+                    return res.body.return_value;
+                }
+                else {
+                    setStatus('Calling function ' + functionName + ' failed');
+                    return 0;
+                }    
+            }
+            catch(e) {
+                setStatus('Calling function ' + functionName + ' failed');
+                return 0;
+            }
+        }
+
+        tinker.findPinByNum = function(num) {
+            for(const pin of tinker.devicePinInfo.pins) {
+                if (pin.num == num) {
+                    return pin;
+                }
+                if (pin.morePins && pin.morePins.includes(num)) {
+                    return pin;
+                }
+            }
+            return null;
+        }
+
+        tinker.update = async function() {
+            // tinker.dev (object) Device Information
+            // tinker.platformInfo (object): Device Constants platform info
+
+            $(canvasViewDivElem).hide();
+
+            const canvasWidth = $(thisPartial).width();
+            $(canvasElem).css('width', canvasWidth);
+
+            let pinInfoName;
+            switch(tinker.dev.platform_id) {
+                case 10:
+                    pinInfoName = 'Electron';
+                    setStatus('Both E Series and Electron devices display as Electron; this does not affect operation');
+                    break;
+
+                case 32:
+                    // TODO: In the future, determine this by SKU 
+                    pinInfoName = 'Photon 2';
+                    setStatus('Both P2 and Photon 2 devices display as Photon 2; this does not affect operation');
+                    break;
+            }
+
+
+            let skuObj;
+            if (tinker.dev.serial_number) {
+                skuObj = await apiHelper.getSkuObjFromSerial(tinker.dev.serial_number);
+                // console.log('skuObj', skuObj);
+            }
+
+            if (pinInfoName) {
+                tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.name == pinInfoName);
+            }
+            else {
+                tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
+            }
+            if (!tinker.devicePinInfo) {
+                setStatus('The device platform ' + tinker.dev.platform_id + ' is not currently supported');
+                return;
+            }
+            // console.log('tinker.devicePinInfo', tinker.devicePinInfo);
+            // console.log('tinker.platformInfo', tinker.platformInfo);
+            
+            $(canvasViewDivElem).show();
+
+
+            tinker.pinElements = [];
+
+            const generatePin = function(pin, options = {}) {
+                const pinElement = {
+                    pin,
+                };
+
+                const widths = {
+                    label: 40,
+                    select: 110,
+                    value: 60,
+                }
+                let posOffsets;
+                if (options.reverse) {
+                    posOffsets = [-widths.label, -(widths.label + widths.select), -(widths.label + widths.select + widths.value)];
+                }
+                else {
+                    posOffsets = [0, widths.label, widths.label + widths.select];
+                }
+
+                {
+                    const divElem = document.createElement('div');
+                    $(divElem).css('position', 'absolute');
+                    $(divElem).css('left', options.pos + posOffsets[0]);
+                    $(divElem).css('top', options.top);
+                    $(divElem).css('height', options.height);
+                    $(divElem).css('width', widths.label);
+                    $(divElem).css('line-height', options.height);
+                    if (options.reverse) {
+                        $(divElem).css('text-align', 'right');
+                    }
+                    $(divElem).text(pin.name);
+                    $(options.elem).append(divElem);
+                }
+                if (pin.isIO) {
+                    {
+                        const divElem = document.createElement('div');
+                        $(divElem).css('position', 'absolute');
+                        $(divElem).css('left', options.pos + posOffsets[1]);
+                        $(divElem).css('top', options.top);
+                        $(divElem).css('width', widths.select);
+                        $(divElem).css('height', options.height);
+                            
+                        const selectElem = pinElement.selectElem = document.createElement('select');
+                        $(selectElem).addClass('apiHelperSelect');
+                        $(selectElem).css('width', '100px');
+    
+                        {
+                            const optionElem = document.createElement('option');
+                            $(optionElem).prop('value', '-');
+                            $(optionElem).text('-');
+                            $(selectElem).append(optionElem);
+                        }
+                        for(const fun of tinker.functions) {
+                            if (pin[fun.pinInfoKey] || (fun.pinInfoAltKey && pin[fun.pinInfoAltKey])) {
+                                const optionElem = document.createElement('option');
+                                $(optionElem).prop('value', fun.tinkerFunction);
+                                $(optionElem).text(fun.title);
+                                $(selectElem).append(optionElem);    
+                            }
+                        }
+    
+                        $(divElem).append(selectElem);
+                        $(options.elem).append(divElem);
+                    }
+                    {
+                        const divElem = document.createElement('div');
+                        $(divElem).css('position', 'absolute');
+                        $(divElem).css('left', options.pos + posOffsets[2]);
+                        $(divElem).css('top', options.top);
+                        $(divElem).css('width', widths.value);
+                        $(divElem).css('height', options.height);
+
+                        const inputElem = pinElement.inputElem = document.createElement('input');
+                        $(inputElem).css('display', 'none');
+                        $(inputElem).css('font-size', '11px');
+                        $(inputElem).prop('size', 8);
+                        $(inputElem).prop('value', '0');
+                        $(divElem).append(inputElem);
+    
+                        const spanElem = pinElement.spanElem = document.createElement('span');
+                        $(spanElem).css('display', 'none');
+                        $(spanElem).css('cursor', 'pointer');
+                        $(divElem).css('line-height', options.height);
+                        $(divElem).append(spanElem);
+        
+    
+                        $(options.elem).append(divElem);
+                    }    
+                }
+                
+
+                const updateValue = async function() {
+                    let s;
+
+                    const val = $(pinElement.selectElem).val();
+                    switch(val) {
+                        case 'analogwrite':
+                            s = parseInt($(pinElement.inputElem).val()).toString();
+                            await tinker.callFunction(val, pinElement.pin.name + ':' + s);
+                            break;
+                            
+                        case 'analogread':
+                            s = (await tinker.callFunction(val, pinElement.pin.name)).toString();
+                            $(pinElement.spanElem).text(s);
+                            break;
+
+                        case 'digitalread':
+                            s = (await tinker.callFunction(val, pinElement.pin.name)) ? 'HIGH' : 'LOW';
+                            $(pinElement.spanElem).text(s);
+                            break;
+
+                        case 'digitalwrite':
+                            s = pinElement.output ? 'HIGH' : 'LOW';
+                            $(pinElement.spanElem).text(s);
+                            await tinker.callFunction(val, pinElement.pin.name + ':' + s);
+                            break;
+                    }
+
+                }
+
+                $(pinElement.selectElem).on('change', async function() {
+                    const val = $(pinElement.selectElem).val();
+                    $(pinElement.inputElem).hide();
+                    $(pinElement.spanElem).hide();
+
+                    switch(val) {
+                        case 'analogwrite':
+                            $(pinElement.inputElem).show();
+                            break;
+
+                        case 'analogread':
+                        case 'digitalread':
+                            $(pinElement.spanElem).prop('title', 'Click to re-read value');
+                            $(pinElement.spanElem).show();
+                            break;
+
+                        case 'digitalwrite':
+                            $(pinElement.spanElem).prop('title', 'Click to toggle output');
+                            $(pinElement.spanElem).show();
+                            break;
+                    }
+                    await updateValue();
+                });
+
+
+                $(pinElement).on('keydown', async function(ev) {
+                    if (ev.key != 'Enter') {
+                        return;
+                    }
+        
+                    ev.preventDefault();
+                    await updateValue();                    
+                });
+                $(pinElement.inputElem).on('blur', async function() {
+                    await updateValue();                    
+                });
+                $(pinElement.spanElem).on('click', async function() {
+                    const val = $(pinElement.selectElem).val();
+                    if (val == 'digitalwrite') {
+                        pinElement.output = !pinElement.output;
+                    }
+
+                    await updateValue();                    
+                });
+
+                tinker.pinElements.push(pinElement);
+
+                return pinElement;
+            }
+
+            $(pinsDivElem).empty();
+
+
+            tinker.layout = tinker.devicePinInfo.layout;
+            if (!tinker.layout) {
+                // Create default layout here
+                let pinNumbers = [];
+                for(const pin of tinker.devicePinInfo.pins) {
+                    if (pin.isIO) {
+                        pinNumbers.push(pin.num);
+                        if (pin.morePins) {
+                            for(const p of pin.morePins) {
+                                pinNumbers.push(p);
+                            }
+                        }
+    
+                    }
+                }
+                pinNumbers.sort();
+
+                tinker.layout = {
+                    columns: [
+                        {
+                            pins: [],
+                            reverse: false,
+                            rowStart: 0,
+                            hOffset: -100,
+                        }
+                    ],
+                };
+                for(let ii = 0; ii < pinNumbers.length; ii++) {
+                    tinker.layout.columns[0].pins.push(pinNumbers[ii]);
+                }
+            }
+
+            const contentCenter = Math.floor($(canvasElem).width() / 2);
+            let maxHeight = 0;
+
+            for(let col = 0; col < tinker.layout.columns.length; col++) {
+                const pos = $(canvasElem).position().left + contentCenter + tinker.layout.columns[col].hOffset;
+
+                
+
+                for(let ii = 0; ii < tinker.layout.columns[col].pins.length; ii++) {
+                    const vOffset = (tinker.layout.columns[col].rowStart + ii) * 30;
+                    let top = $(canvasElem).position().top + 20 + vOffset;
+                    if (tinker.layout.extraTop) {
+                        top += tinker.layout.extraTop;
+                    }
+                    const pin = tinker.findPinByNum(tinker.layout.columns[col].pins[ii]);
+                    if (pin) {
+                        pinElement = generatePin(pin, {
+                            top,
+                            pos,
+                            reverse: tinker.layout.columns[col].reverse,
+                            elem: $(pinsDivElem),
+                            height: '27px',
+                        });                    
+                        if ((vOffset + 30) > maxHeight) {
+                            maxHeight = (vOffset + 30);
+                        }
+                    }
+    
+                }
+            }
+
+            if (tinker.layout.extraBottom) {
+                maxHeight += tinker.layout.extraBottom;
+            }
+
+            $(canvasElem).prop('height', maxHeight);
+
+            if (tinker.devicePinInfo.layout && tinker.devicePinInfo.layout.image) {
+                $(deviceImageElem).on('load', function() {
+                    const ctx = canvasElem[0].getContext('2d');
+                    ctx.globalAlpha = 0.5;
+    
+                    ctx.setTransform(tinker.devicePinInfo.layout.scale, 0, 0, tinker.devicePinInfo.layout.scale, tinker.devicePinInfo.layout.translate[0], tinker.devicePinInfo.layout.translate[1]);
+                    ctx.drawImage(deviceImageElem[0], 0, 0);
+                });    
+                $(deviceImageElem).prop('src', tinker.devicePinInfo.layout.image);
+            }
+
+        }
+
+        $(thisPartial).data('tinker', tinker);
+
+        $(thisPartial).on('updateInfo', async function(event, info) {
+            for(const key in info) {
+                tinker[key] = info[key];
+            }
+            await tinker.update();
+        });
+    });
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
@@ -3036,3 +3560,29 @@ $(document).ready(function() {
 
 });
 
+
+/*
+function updateTinker(settings) {
+    $('.apiHelperTinker').each(function() {
+        const thisPartial = $(this);
+
+        let tinker = $(thisPartial).data('tinker');
+        for(const key in settings) {
+            switch(key) {
+                case 'leftOffset':
+                    tinker.layout.columns[0].hOffset = settings[key];
+                    break;
+
+                case 'rightOffset':
+                    tinker.layout.columns[1].hOffset = settings[key];
+                    break;
+
+                default:
+                    tinker.layout[key] = settings[key];
+                    break;
+            }
+        }
+        tinker.update();
+    });    
+}
+*/

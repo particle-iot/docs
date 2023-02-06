@@ -105,6 +105,12 @@
       {
         "title": "Cellular usage",
         "href": "/troubleshooting/connectivity/cellular-usage/"
+      },
+      {
+        "dir": "tinker",
+        "title": "Tinker",
+        "href": "/tools/cloud-tools/tinker/",
+        "internal": true
       }
     ],
     {
