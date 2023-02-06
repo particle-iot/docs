@@ -948,7 +948,7 @@
             "hOffset": 130
           }
         ],
-        "extraTop": 67,
+        "extraTop": 53,
         "extraBottom": 40,
         "image": "/assets/images/photon2.svg",
         "scale": 2.68,
@@ -2308,7 +2308,7 @@
             "hOffset": 120
           }
         ],
-        "extraTop": 52,
+        "extraTop": 37,
         "extraBottom": 20,
         "image": "/assets/images/photon.svg",
         "scale": 2.65,
@@ -4957,7 +4957,7 @@
             "hOffset": 130
           }
         ],
-        "extraTop": 67,
+        "extraTop": 53,
         "extraBottom": 40,
         "image": "/assets/images/argon.svg",
         "scale": 2.68,
@@ -5457,7 +5457,7 @@
             "hOffset": 130
           }
         ],
-        "extraTop": 67,
+        "extraTop": 53,
         "extraBottom": 40,
         "image": "/assets/images/boron.svg",
         "scale": 2.68,

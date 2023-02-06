@@ -1965,7 +1965,7 @@ $(document).ready(function() {
             return null;
         }
 
-        tinker.update = function() {
+        tinker.update = async function() {
             // tinker.dev (object) Device Information
             // tinker.platformInfo (object): Device Constants platform info
 
@@ -1975,6 +1975,11 @@ $(document).ready(function() {
             console.log('canvasWidth', canvasWidth);
             $(canvasElem).css('width', canvasWidth);
 
+            let skuObj;
+            if (tinker.dev.serial_number) {
+                skuObj = await apiHelper.getSkuObjFromSerial(tinker.dev.serial_number);
+                console.log('skuObj', skuObj);
+            }
 
             tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
             if (!tinker.devicePinInfo) {
@@ -2250,12 +2255,11 @@ $(document).ready(function() {
 
         $(thisPartial).data('tinker', tinker);
 
-        $(thisPartial).on('updateInfo', function(event, info) {
-            console.log('tinker update device', info);
+        $(thisPartial).on('updateInfo', async function(event, info) {
             for(const key in info) {
                 tinker[key] = info[key];
             }
-            tinker.update();
+            await tinker.update();
         });
     });
 
