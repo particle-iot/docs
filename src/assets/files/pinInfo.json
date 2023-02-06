@@ -926,7 +926,7 @@
             ],
             "rowStart": 0,
             "reverse": true,
-            "hOffset": -20
+            "hOffset": -145
           },
           {
             "pins": [
@@ -945,8 +945,16 @@
             ],
             "rowStart": 4,
             "reverse": false,
-            "hOffset": 20
+            "hOffset": 130
           }
+        ],
+        "extraTop": 67,
+        "extraBottom": 40,
+        "image": "/assets/images/photon2.svg",
+        "scale": 2.68,
+        "translate": [
+          177,
+          0
         ]
       },
       "diagram": {
@@ -2278,7 +2286,7 @@
             ],
             "rowStart": 0,
             "reverse": true,
-            "hOffset": -20
+            "hOffset": -125
           },
           {
             "pins": [
@@ -2297,8 +2305,16 @@
             ],
             "rowStart": 0,
             "reverse": false,
-            "hOffset": 20
+            "hOffset": 120
           }
+        ],
+        "extraTop": 52,
+        "extraBottom": 20,
+        "image": "/assets/images/photon.svg",
+        "scale": 2.65,
+        "translate": [
+          195,
+          0
         ]
       },
       "diagram": {
@@ -4919,7 +4935,7 @@
             ],
             "rowStart": 0,
             "reverse": true,
-            "hOffset": -20
+            "hOffset": -145
           },
           {
             "pins": [
@@ -4938,8 +4954,16 @@
             ],
             "rowStart": 4,
             "reverse": false,
-            "hOffset": 20
+            "hOffset": 130
           }
+        ],
+        "extraTop": 67,
+        "extraBottom": 40,
+        "image": "/assets/images/argon.svg",
+        "scale": 2.68,
+        "translate": [
+          177,
+          0
         ]
       },
       "diagram": {
@@ -5411,7 +5435,7 @@
             ],
             "rowStart": 0,
             "reverse": true,
-            "hOffset": -20
+            "hOffset": -145
           },
           {
             "pins": [
@@ -5430,8 +5454,16 @@
             ],
             "rowStart": 4,
             "reverse": false,
-            "hOffset": 20
+            "hOffset": 130
           }
+        ],
+        "extraTop": 67,
+        "extraBottom": 40,
+        "image": "/assets/images/boron.svg",
+        "scale": 2.68,
+        "translate": [
+          177,
+          0
         ]
       },
       "diagram": {

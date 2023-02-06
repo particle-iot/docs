@@ -1879,7 +1879,6 @@ $(document).ready(function() {
 
     });
 
-
     $('.apiHelperTinker').each(function() {
         const thisPartial = $(this);
 
@@ -1887,6 +1886,7 @@ $(document).ready(function() {
         const canvasViewDivElem = $(thisPartial).find('.canvasViewDiv');
         const canvasElem = $(thisPartial).find('.canvasViewDiv > canvas');
         const pinsDivElem = $(thisPartial).find('.pinsDiv');
+        const deviceImageElem = $(thisPartial).find('.deviceImage');
 
         let tinker = {
         };
@@ -1935,13 +1935,19 @@ $(document).ready(function() {
         ];
             
         tinker.callFunction = async function(functionName, arg) {
-            const res = await apiHelper.particle.callFunction({ deviceId: tinker.dev.id, name: functionName, argument: arg, auth: apiHelper.auth.access_token  });
-            console.log('res', res);
-            if (res.statusCode == 200) {
-                setStatus('Called function ' + functionName + ' ' + arg + ', returned ' + res.body.return_value);
-                return res.body.return_value;
+            try {
+                const res = await apiHelper.particle.callFunction({ deviceId: tinker.dev.id, name: functionName, argument: arg, auth: apiHelper.auth.access_token  });
+                console.log('res', res);
+                if (res.statusCode == 200) {
+                    setStatus('Called function ' + functionName + ' ' + arg + ', returned ' + res.body.return_value);
+                    return res.body.return_value;
+                }
+                else {
+                    setStatus('Calling function ' + functionName + ' failed');
+                    return 0;
+                }    
             }
-            else {
+            catch(e) {
                 setStatus('Calling function ' + functionName + ' failed');
                 return 0;
             }
@@ -1978,8 +1984,9 @@ $(document).ready(function() {
             console.log('tinker.devicePinInfo', tinker.devicePinInfo);
 
             console.log('tinker.platformInfo', tinker.platformInfo);
-
+            
             $(canvasViewDivElem).show();
+
 
             tinker.pinElements = [];
 
@@ -1988,12 +1995,17 @@ $(document).ready(function() {
                     pin,
                 };
 
+                const widths = {
+                    label: 40,
+                    select: 110,
+                    value: 60,
+                }
                 let posOffsets;
                 if (options.reverse) {
-                    posOffsets = [-40, -150, -210];
+                    posOffsets = [-widths.label, -(widths.label + widths.select), -(widths.label + widths.select + widths.value)];
                 }
                 else {
-                    posOffsets = [0, 40, 150];
+                    posOffsets = [0, widths.label, widths.label + widths.select];
                 }
 
                 {
@@ -2002,7 +2014,11 @@ $(document).ready(function() {
                     $(divElem).css('left', options.pos + posOffsets[0]);
                     $(divElem).css('top', options.top);
                     $(divElem).css('height', options.height);
+                    $(divElem).css('width', widths.label);
                     $(divElem).css('line-height', options.height);
+                    if (options.reverse) {
+                        $(divElem).css('text-align', 'right');
+                    }
                     $(divElem).text(pin.name);
                     $(options.elem).append(divElem);
                 }
@@ -2012,6 +2028,7 @@ $(document).ready(function() {
                         $(divElem).css('position', 'absolute');
                         $(divElem).css('left', options.pos + posOffsets[1]);
                         $(divElem).css('top', options.top);
+                        $(divElem).css('width', widths.select);
                         $(divElem).css('height', options.height);
                             
                         const selectElem = pinElement.selectElem = document.createElement('select');
@@ -2041,6 +2058,7 @@ $(document).ready(function() {
                         $(divElem).css('position', 'absolute');
                         $(divElem).css('left', options.pos + posOffsets[2]);
                         $(divElem).css('top', options.top);
+                        $(divElem).css('width', widths.value);
                         $(divElem).css('height', options.height);
 
                         const inputElem = pinElement.inputElem = document.createElement('input');
@@ -2146,8 +2164,8 @@ $(document).ready(function() {
             $(pinsDivElem).empty();
 
 
-            let layout = tinker.devicePinInfo.layout;
-            if (!layout) {
+            tinker.layout = tinker.devicePinInfo.layout;
+            if (!tinker.layout) {
                 // Create default layout here
                 let pinNumbers = [];
                 for(const pin of tinker.devicePinInfo.pins) {
@@ -2164,7 +2182,7 @@ $(document).ready(function() {
                 console.log('create default pinNumbers', pinNumbers);
                 pinNumbers.sort();
 
-                layout = {
+                tinker.layout = {
                     columns: [
                         {
                             pins: [],
@@ -2175,26 +2193,31 @@ $(document).ready(function() {
                     ],
                 };
                 for(let ii = 0; ii < pinNumbers.length; ii++) {
-                    layout.columns[0].pins.push(pinNumbers[ii]);
+                    tinker.layout.columns[0].pins.push(pinNumbers[ii]);
                 }
-                console.log('layout', layout);
+                console.log('layout', tinker.layout);
             }
 
             const contentCenter = Math.floor($(canvasElem).width() / 2);
             let maxHeight = 0;
 
-            for(let col = 0; col < layout.columns.length; col++) {
-                const pos = $(canvasElem).position().left + contentCenter + layout.columns[col].hOffset;
+            for(let col = 0; col < tinker.layout.columns.length; col++) {
+                const pos = $(canvasElem).position().left + contentCenter + tinker.layout.columns[col].hOffset;
 
-                for(let ii = 0; ii < layout.columns[col].pins.length; ii++) {
-                    const vOffset = (layout.columns[col].rowStart + ii) * 30;
-                    const top = $(canvasElem).position().top + vOffset;
-                    const pin = tinker.findPinByNum(layout.columns[col].pins[ii]);
+                
+
+                for(let ii = 0; ii < tinker.layout.columns[col].pins.length; ii++) {
+                    const vOffset = (tinker.layout.columns[col].rowStart + ii) * 30;
+                    let top = $(canvasElem).position().top + 20 + vOffset;
+                    if (tinker.layout.extraTop) {
+                        top += tinker.layout.extraTop;
+                    }
+                    const pin = tinker.findPinByNum(tinker.layout.columns[col].pins[ii]);
                     if (pin) {
                         pinElement = generatePin(pin, {
                             top,
                             pos,
-                            reverse: layout.columns[col].reverse,
+                            reverse: tinker.layout.columns[col].reverse,
                             elem: $(pinsDivElem),
                             height: '27px',
                         });                    
@@ -2204,9 +2227,24 @@ $(document).ready(function() {
                     }
     
                 }
-
             }
+
+            if (tinker.layout.extraBottom) {
+                maxHeight += tinker.layout.extraBottom;
+            }
+
             $(canvasElem).prop('height', maxHeight);
+
+            if (tinker.devicePinInfo.layout && tinker.devicePinInfo.layout.image) {
+                $(deviceImageElem).on('load', function() {
+                    const ctx = canvasElem[0].getContext('2d');
+                    ctx.globalAlpha = 0.5;
+    
+                    ctx.setTransform(tinker.devicePinInfo.layout.scale, 0, 0, tinker.devicePinInfo.layout.scale, tinker.devicePinInfo.layout.translate[0], tinker.devicePinInfo.layout.translate[1]);
+                    ctx.drawImage(deviceImageElem[0], 0, 0);
+                });    
+                $(deviceImageElem).prop('src', tinker.devicePinInfo.layout.image);
+            }
 
         }
 
@@ -2220,7 +2258,6 @@ $(document).ready(function() {
             tinker.update();
         });
     });
-
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
@@ -3507,3 +3544,29 @@ $(document).ready(function() {
 
 });
 
+
+/*
+function updateTinker(settings) {
+    $('.apiHelperTinker').each(function() {
+        const thisPartial = $(this);
+
+        let tinker = $(thisPartial).data('tinker');
+        for(const key in settings) {
+            switch(key) {
+                case 'leftOffset':
+                    tinker.layout.columns[0].hOffset = settings[key];
+                    break;
+
+                case 'rightOffset':
+                    tinker.layout.columns[1].hOffset = settings[key];
+                    break;
+
+                default:
+                    tinker.layout[key] = settings[key];
+                    break;
+            }
+        }
+        tinker.update();
+    });    
+}
+*/
