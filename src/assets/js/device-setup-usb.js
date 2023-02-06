@@ -2764,6 +2764,8 @@ $(document).ready(function() {
 
                     setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
 
+                    apiHelper.setCommonDevice(deviceInfo.deviceId);
+
                     flashDeviceOptions.setupBit = 'done';
                 }
                 else {
@@ -2778,6 +2780,8 @@ $(document).ready(function() {
                         setupOptions.keepAlive = parseInt($(doctorKeepAliveInputElem).val());
                     }
                     
+                    apiHelper.setCommonDevice(deviceInfo.deviceId);
+
                     flashDeviceOptions.setupBit = 'done';
                 }
 

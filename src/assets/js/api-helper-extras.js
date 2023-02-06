@@ -1903,7 +1903,6 @@ $(document).ready(function() {
                 // .details (array)
                 // .platforms (array)
                 tinker.pinInfo = data;
-                console.log('pinInfo', tinker.pinInfo);
             },
             error: function(err) {
                 console.log('error fetching pinInfo', err);
@@ -1937,7 +1936,6 @@ $(document).ready(function() {
         tinker.callFunction = async function(functionName, arg) {
             try {
                 const res = await apiHelper.particle.callFunction({ deviceId: tinker.dev.id, name: functionName, argument: arg, auth: apiHelper.auth.access_token  });
-                console.log('res', res);
                 if (res.statusCode == 200) {
                     setStatus('Called function ' + functionName + ' ' + arg + ', returned ' + res.body.return_value);
                     return res.body.return_value;
@@ -1972,7 +1970,6 @@ $(document).ready(function() {
             $(canvasViewDivElem).hide();
 
             const canvasWidth = $(thisPartial).width();
-            console.log('canvasWidth', canvasWidth);
             $(canvasElem).css('width', canvasWidth);
 
             let pinInfoName;
@@ -1993,7 +1990,7 @@ $(document).ready(function() {
             let skuObj;
             if (tinker.dev.serial_number) {
                 skuObj = await apiHelper.getSkuObjFromSerial(tinker.dev.serial_number);
-                console.log('skuObj', skuObj);
+                // console.log('skuObj', skuObj);
             }
 
             if (pinInfoName) {
@@ -2006,9 +2003,8 @@ $(document).ready(function() {
                 setStatus('The device platform ' + tinker.dev.platform_id + ' is not currently supported');
                 return;
             }
-            console.log('tinker.devicePinInfo', tinker.devicePinInfo);
-
-            console.log('tinker.platformInfo', tinker.platformInfo);
+            // console.log('tinker.devicePinInfo', tinker.devicePinInfo);
+            // console.log('tinker.platformInfo', tinker.platformInfo);
             
             $(canvasViewDivElem).show();
 
@@ -2106,8 +2102,6 @@ $(document).ready(function() {
                 
 
                 const updateValue = async function() {
-                    console.log('updateValue', pinElement);
-
                     let s;
 
                     const val = $(pinElement.selectElem).val();
@@ -2204,7 +2198,6 @@ $(document).ready(function() {
     
                     }
                 }
-                console.log('create default pinNumbers', pinNumbers);
                 pinNumbers.sort();
 
                 tinker.layout = {
@@ -2220,7 +2213,6 @@ $(document).ready(function() {
                 for(let ii = 0; ii < pinNumbers.length; ii++) {
                     tinker.layout.columns[0].pins.push(pinNumbers[ii]);
                 }
-                console.log('layout', tinker.layout);
             }
 
             const contentCenter = Math.floor($(canvasElem).width() / 2);
