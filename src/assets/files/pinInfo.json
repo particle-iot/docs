@@ -948,12 +948,12 @@
             "hOffset": 130
           }
         ],
-        "extraTop": 53,
+        "extraTop": 40,
         "extraBottom": 40,
         "image": "/assets/images/photon2.svg",
-        "scale": 2.68,
+        "scale": 3.49,
         "translate": [
-          177,
+          178,
           0
         ]
       },
@@ -4435,7 +4435,7 @@
             ],
             "rowStart": 0,
             "reverse": true,
-            "hOffset": -20
+            "hOffset": -125
           },
           {
             "pins": [
@@ -4460,8 +4460,16 @@
             ],
             "rowStart": 0,
             "reverse": false,
-            "hOffset": 20
+            "hOffset": 120
           }
+        ],
+        "extraTop": 0,
+        "extraBottom": 10,
+        "image": "/assets/images/electron.svg",
+        "scale": 3.43,
+        "translate": [
+          195,
+          0
         ]
       },
       "diagram": {

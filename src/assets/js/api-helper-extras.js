@@ -1975,13 +1975,33 @@ $(document).ready(function() {
             console.log('canvasWidth', canvasWidth);
             $(canvasElem).css('width', canvasWidth);
 
+            let pinInfoName;
+            switch(tinker.dev.platform_id) {
+                case 10:
+                    pinInfoName = 'Electron';
+                    setStatus('Both E Series and Electron devices display as Electron; this does not affect operation');
+                    break;
+
+                case 32:
+                    // TODO: In the future, determine this by SKU 
+                    pinInfoName = 'Photon 2';
+                    setStatus('Both P2 and Photon 2 devices display as Photon 2; this does not affect operation');
+                    break;
+            }
+
+
             let skuObj;
             if (tinker.dev.serial_number) {
                 skuObj = await apiHelper.getSkuObjFromSerial(tinker.dev.serial_number);
                 console.log('skuObj', skuObj);
             }
 
-            tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
+            if (pinInfoName) {
+                tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.name == pinInfoName);
+            }
+            else {
+                tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
+            }
             if (!tinker.devicePinInfo) {
                 setStatus('The device platform ' + tinker.dev.platform_id + ' is not currently supported');
                 return;
