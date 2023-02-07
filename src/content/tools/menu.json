@@ -91,7 +91,7 @@
         "dir": "import-devices",
         "title": "Import devices",
         "href": "/tools/cloud-tools/import-devices/",
-        "internal": true
+        "hidden": true
       },
       {
         "dir": "integration-copy",
