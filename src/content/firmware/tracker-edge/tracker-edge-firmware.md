@@ -82,11 +82,21 @@ You can download a complete project for use with Particle Workbench as a zip fil
 - Open the **tracker-edge** directory in Workbench; it is a pre-configured project directory.
 
 - In order to use the Geofencing features, Tracker Edge v17 is required.
-- In order to use Store and Forewad, Tracker Edge v18 is required
+- In order to use Store and Forward, Tracker Edge v18 is required
 
 {{box op="start" cssClass="boxed warningBox"}}
 Tracker Edge v18 can only be built by the Particle Workbench local compile. It cannot be built by the CLI or cloud compliers.
+
+Tracker Edge v18 should target Device OS 3.3.0 (not 4.x or 5.x).
 {{box op="end"}}
+
+- Open Particle Workbench.
+- From the command palette, **Particle: Import Project**.
+- Run **Particle: Configure Workspace for Device**, select version 3.3.0, Tracker, and your device.
+- Run **Particle: Flash application (local)**.
+
+Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
+
 
 ### Manually
 
@@ -98,13 +108,14 @@ You will probably want to use the command line as there are additional commands 
 
 ```bash
 git clone https://github.com/particle-iot/tracker-edge
-cd tracker-edge
-git submodule update --init --recursive
+git submodule init
+git checkout release/v18
+git submodule update --recursive
 ```
 
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
+- Run **Particle: Configure Workspace for Device**, select version 3.3.0, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
 Make sure you've used the [**Mark As Development Device**](/getting-started/console/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
