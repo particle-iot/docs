@@ -7,12 +7,6 @@ description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass
 
 # E404X Datasheet
 
-**Preliminary pre-release version 2022-05-06**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release datasheet and the contents are subject to change.
-{{box op="end"}}
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e404x-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -763,23 +757,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2023-01-06 | RK | Update ADC information |
 |     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
 |     | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
-      | 2023-01-31 | RK | Add Device OS versions |
-
-### 2022-07-28 PWM changes
-
-Several PWM channel assignments have been changed in Device OS 5.0.0-beta.1.
-
-| Pin | New Assignment | Old Assignment | Notes |
-| :---: | :--- | :--- | :--- |
-| A2 | No PWM | PWM2 | |
-| A3 | PWM1 | PWM2 | |
-| A6 | PWM3 | | |
-| B2 | PWM2 | PWM0 | No longer shared with RGB LED |
-| B3 | PWM2 | PWM1 | |
-| C4 | PWM3 | | |
-| C5 | PWM0 | | Shared with RGB LED |
-| D0 | PWM1 | PWM3 | |
-| D1 | PWM1 | PWM3 | |
+|     | 2023-01-31 | RK | Add Device OS versions |
+| 1   | 2023-02-07 | RK | GA (remove preliminary banner) |
 
 ## Known Errata
 

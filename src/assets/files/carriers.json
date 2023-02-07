@@ -20677,7 +20677,7 @@
     {
       "name": "E404XTRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
       "sim": 4,
