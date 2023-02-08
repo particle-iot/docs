@@ -1303,6 +1303,7 @@ $(document).ready(function() {
 
 
             }
+            ga('send', 'event', gaCategory, 'Checked', deviceList.length);
             setStatus('Checked ' + deviceList.length + ' devices');
         }
 
@@ -1388,6 +1389,8 @@ $(document).ready(function() {
 
                 const deviceCount = Object.keys(deviceInfoCache).length;
                 let deviceNum = 1;
+
+                ga('send', 'event', gaCategory, 'Remove Start', deviceCount);
 
                 for(const deviceId in deviceInfoCache) {
                     setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
