@@ -1229,7 +1229,7 @@ $(document).ready(function() {
         const setStatus = function(s) {
             $(statusElem).text(s);
         }
-        
+
         let deviceList;
         let deviceInfoCache = {};
         let simInfoMap = {}; // probably remove
@@ -2600,7 +2600,7 @@ $(document).ready(function() {
         deviceGroup.checkboxList.urlKey = 'g';
 
         deviceGroup.getOptions = function(options = {}) {
-            deviceGroup.checkboxList(options);
+            options.groups = deviceGroup.checkboxList.getSelectedItems();
             return options;
         }
         

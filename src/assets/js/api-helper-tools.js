@@ -501,14 +501,14 @@ $(document).ready(function() {
                         width: 10,
                     },
                     {
-                        title: 'Named',
-                        key: 'named',
-                        width: 10,
-                    },
-                    {
                         title: 'Development',
                         key: 'development',
                         width: 10,
+                    },
+                    {
+                        title: 'Groups',
+                        key: 'groups',
+                        width: 20,
                     },
                 ],
             },
@@ -529,6 +529,7 @@ $(document).ready(function() {
             
             productSelectorObj.getOptions(options);
             // tableObj.getOptions(options);
+            deviceGroup.getOptions(options); // Fills in groups array
 
             if ($(claimCheckboxElem).prop('checked')) {
                 options.claim = $(claimUsernameSelectElem).val();
@@ -656,6 +657,7 @@ $(document).ready(function() {
                     setStatus('Retrieving product device list...');
                     deviceList = await apiHelper.getAllDevices({productId:options.productId});
                     deviceListProductId = options.productId;
+                    setStatus(deviceList.length + ' devices currently in product ' + options.productId);
                 }
             }
             catch(e) {
@@ -685,26 +687,29 @@ $(document).ready(function() {
                 console.log('found tableDeviceObj', tableDeviceObj);
                 console.log('deviceObj', deviceObj);
 
-                if (!tableDeviceObj.deviceId && deviceObj.id) {
+                if (deviceObj.id) {
                     tableDeviceObj.deviceId = deviceObj.id;
                 }
-                if (!tableDeviceObj.serial && deviceObj.serial_number) {
+                if (deviceObj.serial_number) {
                     tableDeviceObj.serial = deviceObj.serial_number;
                 }
-                if (!tableDeviceObj.iccid && deviceObj.iccid) {
+                if (deviceObj.iccid) {
                     tableDeviceObj.iccid = deviceObj.iccid;
                 }
-                if (!tableDeviceObj.name && deviceObj.name) {
+                if (deviceObj.name) {
                     tableDeviceObj.name = deviceObj.name;                        
                 }
-                if (!tableDeviceObj.claimed && deviceObj.owner) {
+                if (deviceObj.owner) {
                     tableDeviceObj.claimed = deviceObj.owner;
                 }
-                if (!tableDeviceObj.development && deviceObj.development) {
+                if (deviceObj.development) {
                     tableDeviceObj.development = '\u2705'; // green check
                 }
                 if (!tableDeviceObj.added) {
                     tableDeviceObj.added = '\u2705'; // green check
+                }
+                if (deviceObj.groups) {
+                    tableDeviceObj.groups = deviceObj.groups.join(', ');
                 }
             }    
         };
@@ -791,20 +796,39 @@ $(document).ready(function() {
             await parseManualInput();
         });
 
+        const deviceNameExistsInProduct = function(name) {
+            if (name && deviceList) {
+                for(const dev of deviceList) {
+                    if (dev.name == name) {
+                        return true;
+                    }
+                }    
+            }
+            return false;
+        }
+
+        const isNamePrefix = function(name, namePrefix) {
+            if (name && name.startsWith(namePrefix)) {
+                const value = parseInt(name.substring(namePrefix.length));
+                if (!isNaN(value)) {
+                    return value;
+                }
+            }
+            return 0;
+        }
 
         $(importButtonElem).on('click', async function() {
             const options = getOptions();
 
             // options.productId
+            console.log('import options', options);
 
             // Get sequence number in case that option is used
             let lastSeqNum = 0;
             for(const dev of deviceList) {
-                if (dev.name && dev.name.startsWith(options.namePrefix)) {
-                    let seqNum = parseInt(dev.name.substring(options.namePrefix));
-                    if (seqNum > lastSeqNum) {
-                        lastSeqNum = seqNum;
-                    }
+                const seqNum = isNamePrefix(dev.name, options.namePrefix);
+                if (seqNum > lastSeqNum) {
+                    lastSeqNum = seqNum;
                 }
             }
             console.log('lastSeqNum', lastSeqNum);
@@ -812,10 +836,12 @@ $(document).ready(function() {
             let devicesToImport = [];
 
             for(let tableDeviceObj of tableObj.tableData.data) {
+                /*                
                 if (tableDeviceObj.deviceObj && tableDeviceObj.deviceObj.product_id == options.productId) {
                     // Already in product
                     continue;
                 }
+                */
 
                 if (tableDeviceObj.deviceId) {
                     devicesToImport.push(tableDeviceObj.deviceId);
@@ -884,7 +910,102 @@ $(document).ready(function() {
                 }
                 tableObj.refreshTable();
        
+       
             }
+            if (options.development || options.name != 'none' || options.groups) {
+                for(let tableDeviceObj of tableObj.tableData.data) {
+                    if (!tableDeviceObj.deviceObj) {
+                        // Was not added to the product
+                        continue;
+                    }
+
+                    const reqObj = {
+
+                    };
+
+                    if (!tableDeviceObj.development) {
+                        // Mark as development
+                        reqObj.development = true;
+                    }
+                    
+                    // Name device
+                    let newName;
+                    switch(options.name) {
+                        case 'sequential':
+                            const seqNum = isNamePrefix(tableDeviceObj.deviceObj.name, options.namePrefix);
+                            if (seqNum == 0) {
+                                newName = options.namePrefix + (++lastSeqNum);
+                            }
+                            break;
+
+                        case 'serial':
+                            if (tableDeviceObj.deviceObj.serial_number) {
+                                newName = tableDeviceObj.deviceObj.serial_number;
+                            }
+                            break;
+
+                        case 'random':
+                            do {
+                                newName = apiHelper.getRandomTrochee();
+                            } while(deviceNameExistsInProduct(newName));
+                            break;
+                    }
+                    if (newName && newName != tableDeviceObj.deviceObj.name) {
+                        reqObj.name = newName;
+                    }
+
+                    // Device groups
+                    if (options.groups && options.groups.length) {
+                        reqObj.groups = options.groups;
+                    }
+
+                    const setRes = await new Promise(function(resolve, reject) {
+                        $.ajax({
+                            data: JSON.stringify(reqObj),
+                            contentType: 'application/json',
+                            error: function(err) {
+                                console.log('error setting device info', err);
+                                reject(err);
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json'
+                            },
+                            method: 'PUT',
+                            success: function (resp) {
+                                resolve(resp);
+                            },
+                            url: 'https://api.particle.io/v1/products/' + options.productId + '/devices/' + tableDeviceObj.deviceId
+                        });    
+                    });
+                    console.log('setRes', setRes);
+
+
+                    // Fetch updated data
+                    for(let ii = 0; ii < deviceList.length; ii++) {
+                        if (deviceList[ii].id == tableDeviceObj.deviceId) {
+                            /*
+                            const deviceData = await apiHelper.particle.getDevice({ deviceId: tableDeviceObj.deviceId, product: options.productId, auth: apiHelper.auth.access_token });
+                            console.log('deviceData', deviceData);
+                            deviceList[ii] = tableDeviceObj.deviceObj = deviceData;
+                            */
+                            for(const key in setRes) {
+                                if (!['id', 'updated_at'].includes(key)) {
+                                    deviceList[ii][key] = tableDeviceObj.deviceObj[key] = setRes[key];
+                                    console.log('updated ' + key, deviceList[ii][key]);
+                                }
+                            }
+                        }
+                    }
+
+
+                    updateDeviceInfo(tableDeviceObj);
+                    tableObj.refreshTable();
+
+                }    
+            }
+
+            setStatus('Done!');
 
 
             /*
