@@ -421,7 +421,6 @@ $(document).ready(function() {
         const markDevelopmentCheckboxElem = $(thisPartial).find('.markDevelopmentCheckbox');
         const nameDevicePrefixElem = $(thisPartial).find('.nameDevicePrefix');
 
-        const prepareButtonElem = $(thisPartial).find('.prepareButton');
         const importButtonElem = $(thisPartial).find('.importButton');
         const downloadButtonElem = $(thisPartial).find('.downloadButton');
         const clearButtonElem = $(thisPartial).find('.clearButton');
@@ -460,9 +459,11 @@ $(document).ready(function() {
         const productSelectorObj = $(productSelectorElem).data('productSelector');
         productSelectorObj.loadUrlParams(urlParams);
 
+
         let deviceGroup = $(deviceGroupElem).data('deviceGroup');
 
         let deviceList;
+        let deviceListProductId;
 
         const tableConfigObj = {
             gaCategory,
@@ -531,6 +532,9 @@ $(document).ready(function() {
 
             options.claimLogin = $(claimLoggedInCheckboxElem).prop('checked');
             options.claimToken = $(claimTokenCheckboxElem).prop('checked');
+            if (options.claimToken) {
+                option.claimTokenAccessToken = $(claimTokenInputElem).val();
+            }
 
             options.development = $(markDevelopmentCheckboxElem).prop('checked');
 
@@ -630,7 +634,7 @@ $(document).ready(function() {
             }
             value = urlParams.get('claimToken');
             if (value) {
-                $(claimLoggedInCclaimTokenCheckboxElemheckboxElem).prop('checked', true);
+                $(claimTokenCheckboxElem).prop('checked', true);
                 if (typeof value == 'string') {
                     $(claimTokenInputElem).val(value);
                 }
@@ -657,7 +661,7 @@ $(document).ready(function() {
         }
 
         // This is triggered to update the URL search parameters when settings change
-        $(document).on('updateSearchParam', function() {
+        $(document).on('updateSearchParam', async function() {
             console.log('import devices updateSearchParam');
             try {
                 let options = {};
@@ -679,6 +683,12 @@ $(document).ready(function() {
                 const searchStr = $.param(urlConfig);
     
                 history.pushState(null, '', '?' + searchStr);     
+        
+                if (!deviceList || deviceListProductId != options.productId) {
+                    setStatus('Retrieving product device list...');
+                    deviceList = await apiHelper.getAllDevices({productId:options.productId});
+                    deviceListProductId = options.productId;
+                }
             }
             catch(e) {
                 console.log('exception', e);
@@ -689,16 +699,71 @@ $(document).ready(function() {
             $(importFileInputElem).trigger('click');
         });
 
+        const updateDeviceInfo = async function(deviceIdOrSerial) {
+            let tableDeviceObj;
+            let deviceObj;
+
+            if (deviceList) {
+                deviceObj = deviceList.find(e => (e.id == deviceIdOrSerial.deviceId));
+                if (deviceObj) {
+                    tableDeviceObj = tableObj.tableData.data.find(e => e.id == deviceIdOrSerial.deviceId);
+                }
+                else {
+                    deviceObj = deviceList.find(e => (e.serial_number == deviceIdOrSerial.serial));
+                    if (deviceObj) {
+                        tableDeviceObj = tableObj.tableData.data.find(e => e.serial == deviceIdOrSerial.serial);
+                    }
+                    else {
+                        deviceObj = deviceList.find(e => (e.iccid == deviceIdOrSerial.iccid));
+                        if (deviceObj) {
+                            tableDeviceObj = tableObj.tableData.data.find(e => e.iccid == deviceIdOrSerial.iccid);
+                        }
+                    }    
+                }
+            }
+    
+            if (tableDeviceObj && deviceObj) {
+                tableDeviceObj.deviceObj = deviceObj;
+                console.log('found tableDeviceObj', tableDeviceObj);
+                console.log('deviceObj', deviceObj);
+
+                if (!tableDeviceObj.deviceId && deviceObj.id) {
+                    tableDeviceObj.deviceId = deviceObj.id;
+                }
+                if (!tableDeviceObj.serial && deviceObj.serial_number) {
+                    tableDeviceObj.serial = deviceObj.serial_number;
+                }
+                if (!tableDeviceObj.iccid && deviceObj.iccid) {
+                    tableDeviceObj.iccid = deviceObj.iccid;
+                }
+                if (!tableDeviceObj.name && deviceObj.name) {
+                    tableDeviceObj.name = deviceObj.name;                        
+                }
+                if (!tableDeviceObj.claimed && deviceObj.owner) {
+                    tableDeviceObj.claimed = deviceObj.owner;
+                }
+                if (!tableDeviceObj.development && deviceObj.development) {
+                    tableDeviceObj.development = '\u2705'; // green check
+                }
+                if (!tableDeviceObj.added) {
+                    tableDeviceObj.added = '\u2705'; // green check
+                }
+                tableObj.refreshTable();
+            }    
+        };
+
         const parseMultiLine = async function(text) {
             let hasDevices = false;
 
             for(let line of text.split(/[\r\n]/)) {
                 line = line.trim();
                 if (line.length > 0) {
-                    const parsed = await apiHelper.parseDeviceLine(line);
-                    if (parsed) {
-                        tableObj.addRow(parsed, {show: true, addToTableData: true, sort: true});
-                        $(prepareButtonElem).prop('disabled', false);
+                    const deviceIdOrSerial = await apiHelper.parseDeviceLine(line);
+                    if (deviceIdOrSerial) {
+                        tableObj.addRow(deviceIdOrSerial, {show: true, addToTableData: true, sort: true});
+
+                        updateDeviceInfo(deviceIdOrSerial);
+                        $(importButtonElem).prop('disabled', false);
                         hasDevices = true;
                     }                
                 }
@@ -749,7 +814,6 @@ $(document).ready(function() {
 
             if (parseMultiLine(text)) {
                 $(manualEntryInputElem).val('');
-                $(prepareButtonElem).prop('disabled', false);
             }
         };
 
@@ -771,59 +835,114 @@ $(document).ready(function() {
         });
 
 
-        $(prepareButtonElem).on('click', async function() {
-            // Download the device list for the product
+        $(importButtonElem).on('click', async function() {
             const options = getOptions();
 
-            setStatus('Retrieving product device list...');
-            deviceList = await apiHelper.getAllDevices({productId:options.productId});
-            console.log('deviceList', deviceList);
-            console.log('tableObj.tableData', tableObj.tableData);
-            for(let tableDeviceObj of tableObj.tableData.data) {
-                let deviceObj = deviceList.find(e => (e.id == tableDeviceObj.deviceId));
-                if (!deviceObj) {
-                    deviceObj = deviceList.find(e => (e.serial_number == tableDeviceObj.serial));
-                }
-                if (!deviceObj) {
-                    deviceObj = deviceList.find(e => (e.iccid == tableDeviceObj.iccid));
-                }
+            // options.productId
 
-                if (deviceObj) {
-                    console.log('found tableDeviceObj', tableDeviceObj);
-                    console.log('deviceObj', deviceObj);
-
-                    if (!tableDeviceObj.deviceId && deviceObj.id) {
-                        tableDeviceObj.deviceId = deviceObj.id;
-                    }
-                    if (!tableDeviceObj.serial && deviceObj.serial_number) {
-                        tableDeviceObj.serial = deviceObj.serial_number;
-                    }
-                    if (!tableDeviceObj.iccid && deviceObj.iccid) {
-                        tableDeviceObj.iccid = deviceObj.iccid;
-                    }
-                    if (!tableDeviceObj.name && deviceObj.name) {
-                        tableDeviceObj.name = deviceObj.name;                        
-                    }
-                    if (!tableDeviceObj.claimed && deviceObj.owner) {
-                        tableDeviceObj.claimed = deviceObj.owner;
-                    }
-                    if (!tableDeviceObj.development && deviceObj.development) {
-                        tableDeviceObj.development = '\u2705'; // green check
-                    }
-                    if (!tableDeviceObj.added) {
-                        tableDeviceObj.added = '\u2705'; // green check
+            // Get sequence number in case that option is used
+            let lastSeqNum = 0;
+            for(const dev of deviceList) {
+                if (dev.name.startsWith(options.namePrefix)) {
+                    let seqNum = parseInt(dev.name.substring(options.namePrefix));
+                    if (seqNum > lastSeqNum) {
+                        lastSeqNum = seqNum;
                     }
                 }
-
             }
+            console.log('lastSeqNum', lastSeqNum);
 
-            tableObj.refreshTable(tableObj.tableData);
+            // Import devices into product
+            let devicesToImport = [];
 
-            setStatus('Ready to import');
+            for(let tableDeviceObj of tableObj.tableData.data) {
+                if (tableDeviceObj.deviceObj && tableDeviceObj.deviceObj.product_id == options.productId) {
+                    // Already in product
+                    continue;
+                }
 
-        });
-        $(importButtonElem).on('click', function() {
+                if (tableDeviceObj.deviceId) {
+                    devicesToImport.push(tableDeviceObj.deviceId);
+                }
+                else
+                if (tableDeviceObj.serial) {
+                    devicesToImport.push(tableDeviceObj.serial);
+                }
+                else
+                if (tableDeviceObj.iccid) {
+                    devicesToImport.push(tableDeviceObj.iccid);                    
+                }
+            }
+            console.log('devicesToImport', devicesToImport);
 
+            let formData = new FormData();
+
+            let blob = new Blob([devicesToImport.join('\n')], {type:'text/plain'});
+            formData.append('file', blob, 'devices.txt');
+            formData.append('import_sims', 'true');
+            // formDat.append('claim_user, );
+
+            const importRes = await new Promise(function(resolve, reject) {
+
+                $.ajax({
+                    data: formData,
+                    contentType: false,
+                    error: function(err) {
+                        console.log('error importing devices', err);
+                        setStatus('Error importing devices');
+                        reject(err);
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    processData: false,
+                    success: function (resp) {
+                        resolve(resp);
+                    },
+                    url: 'https://api.particle.io/v1/products/' + options.productId + '/devices'
+                });    
+            });
+            console.log('importRes', importRes);
+            // existingDeviceIds (array)
+            // invalidDeviceIds (array)
+            // nonmemberDeviceIds (array)
+            // updated (number)
+            // updatedDeviceIds (array)
+
+            /*
+            for(let tableDeviceObj of tableObj.tableData.data) {
+                console.log('tableDeviceObj', tableDeviceObj);
+                console.log('deviceObj', tableDeviceObj.deviceObj); // will often be undefined
+
+                // options.claimLogin
+                // options.claimToken
+                // option.claimTokenAccessToken
+                // options.development
+                // options.name
+                // options.namePrefix = $(nameDevicePrefixElem).val();
+                if (options.name == 'sequential') {
+
+                }
+
+                // Add device to product
+                let resp = await particle.addDeviceToProduct({
+                    product: options.productId,
+                    deviceId, 
+                    auth: helper.auth
+                });
+        
+                // Get device info
+                const deviceInfo = (await particle.getDevice({ 
+                    product: productInfo.id,
+                    deviceId, 
+                    auth: helper.auth 
+                })).body;
+                    
+    
+            }
+            */
         });
         $(clearButtonElem).on('click', function() {
             tableObj.refreshTable([]);
