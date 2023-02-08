@@ -15,7 +15,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 
 
 
-<h2 style="text-align:center;">Inventory</h2>
+<h2 style="text-align:center;">Inventory!</h2>
 <div class="containerInv">
     <div class="itemInv">
         <a class = "aHub" href="/troubleshooting/troubleshooting/?p=11779868461851" >
