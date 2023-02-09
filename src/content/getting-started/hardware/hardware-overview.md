@@ -754,7 +754,7 @@ It is not possible to use Ethernet with Gen 2 devices (Photon, P1, Electron, or 
 
 Ethernet is only intended for use as a method of connecting to the Internet. It is not intended to connect to isolated Ethernet segments such as Ethernet control networks, and relay information over cellular, for example. See the [AN037 Ethernet](/hardware/ethernet/ethernet/) application note for more information.
 
-The following pins are used by Ethernet. These cannot be reconfigured.
+The following pins are used by Ethernet. In Device OS 5.3.0 and later these can be [reconfigured](/reference/device-os/api/ethernet/pin-configuration-ethernet/).
 
 | Ethernet Pin | Argon, Boron, P2, Photon 2 | B Series SoM | Tracker SoM |
 | :--- | :---: | :---: | :---: |
