@@ -2,7 +2,14 @@
     <div class="apiHelperBox">
         <div> 
             <p>Device IDs to remove:<br/>
-            <p><textarea class="deviceTextArea" rows="10" cols="50"></textarea></p>            
+            <p><textarea class="deviceTextArea" style="width: 450px; height: 60px; font-size: 9px;" spellcheck="false"></textarea></p>            
+            <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px; align-items: center;">
+                <div>Add devices from a file: </div>
+                <div style="width: 500px;" class="fileDropZone">
+                    <button class="selectFileButton">Select File</button> or drag-and-drop file here
+                    <input type="file" class="importFileInput" style="display:none" />
+                </div>
+            </div>
         </div>
         <div>
             <table class="apiHelperTableNoMargin">

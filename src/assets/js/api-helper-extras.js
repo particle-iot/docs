@@ -1210,7 +1210,10 @@ $(document).ready(function() {
         const gaCategory = 'deviceRemove';
 
         const deviceTextAreaElem = $(thisPartial).find('.deviceTextArea');
-        
+        const selectFileButtonElem = $(thisPartial).find('.selectFileButton');
+        const fileDropZoneElem = $(thisPartial).find('.fileDropZone');
+        const importFileInputElem = $(thisPartial).find('.importFileInput');
+
         const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
         const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
         const releaseSimElem = $(thisPartial).find('.releaseSim');
@@ -1281,7 +1284,7 @@ $(document).ready(function() {
                     {
                         title: 'SIM Released',
                         key: '_sim',
-                        width: 10,
+                        width: 13,
                     },
                     {
                         title: 'Unclaimed',
@@ -1392,10 +1395,8 @@ $(document).ready(function() {
             $(executeButtonElem).prop('disabled', !enableExecute)
         };
 
-        
-        const checkDeviceList = async function() {
-            // Called on input into the device list box or upload file
-            const deviceListRaw = $(deviceTextAreaElem).val();
+
+        const checkFileOrTextBoxData = async function(deviceListRaw) {
 
             const options = getOptions();
 
@@ -1403,20 +1404,22 @@ $(document).ready(function() {
 
             deviceList = deviceListRaw.match(deviceIdRE);
             
-            if (!options.removeFromProduct && !options.unclaimDevice && !options.releaseSim) {
-                setStatus('No remove options selected');
-            }
-            else
             if (deviceList && deviceList.length) {          
-                setStatus(deviceList.length + ' device IDs entered');
+                setStatus(deviceList.length + ' device IDs added');
 
                 await updateTable(options);
-
             }
             else {
-                setStatus('No device IDs in box');
+                setStatus('No device IDs');
             }
             checkExecuteButton(options);
+        }
+        
+        const checkDeviceList = async function() {
+            // Called on input into the device list box or upload file
+            const deviceListRaw = $(deviceTextAreaElem).val();
+
+            await checkFileOrTextBoxData(deviceListRaw);
         };
         
 
@@ -1547,6 +1550,41 @@ $(document).ready(function() {
             return options;
         }
 
+        $(selectFileButtonElem).on('click', function() {
+            $(importFileInputElem).trigger('click');
+        });
+
+        const processFilesArray = function(files, index) {
+            if (index < files.length) {
+                let fileReader = new FileReader();
+                fileReader.onload = async function() {
+                    await checkFileOrTextBoxData(fileReader.result);
+                    processFilesArray(files, index + 1);
+                };
+                fileReader.readAsText(files[index]);                         
+            }
+        };
+        $(importFileInputElem).on('change', function() {
+            processFilesArray(this.files, 0);
+        });
+
+        $(fileDropZoneElem).on('dragenter', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        $(fileDropZoneElem).on('dragover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        $(fileDropZoneElem).on('drop', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            const files = e.originalEvent.dataTransfer.files;
+            if (files) {
+                processFilesArray(files, 0);
+            }
+        });
 
         $(removeFromProductElem).on('click', function() {
             checkExecuteButton(getOptions());
