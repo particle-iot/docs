@@ -90,13 +90,11 @@
       {
         "dir": "import-devices",
         "title": "Import devices",
-        "href": "/tools/cloud-tools/import-devices/",
-        "internal": true
+        "href": "/tools/cloud-tools/import-devices/"
       },
       {
         "dir": "device-remove",
-        "href": "/tools/cloud-tools/device-remove/",
-        "internal": true
+        "href": "/tools/cloud-tools/device-remove/"
       },
       {
         "dir": "integration-copy",
