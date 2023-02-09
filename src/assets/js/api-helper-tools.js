@@ -396,6 +396,418 @@ $(document).ready(function() {
     });
 
 
+
+    $('.apiHelperDeviceRemove').each(function() {
+        const thisPartial = $(this);
+        const gaCategory = 'deviceRemove';
+
+        const deviceTextAreaElem = $(thisPartial).find('.deviceTextArea');
+        const selectFileButtonElem = $(thisPartial).find('.selectFileButton');
+        const fileDropZoneElem = $(thisPartial).find('.fileDropZone');
+        const importFileInputElem = $(thisPartial).find('.importFileInput');
+
+        const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
+        const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
+        const releaseSimElem = $(thisPartial).find('.releaseSim');
+        const statusElem = $(thisPartial).find('.apiHelperStatus');
+
+        const executeButtonElem = $(thisPartial).find('.executeButton');
+        const sandboxUnclaimWarningElem = $(thisPartial).find('.sandboxUnclaimWarning');
+        const productUnclaimWarningElem = $(thisPartial).find('.productUnclaimWarning');        
+
+        const setStatus = function(s) {
+            $(statusElem).text(s);
+        }
+
+        let deviceList;
+        let deviceInfoCache = {};
+        let simInfoMap = {}; // probably remove
+        let userInfo = {
+            productIndex: {},
+            productDevices: {}
+        };
+
+        const tableObj = $(thisPartial).data('table');
+        const tableConfigObj = {
+            gaCategory,
+            fieldSelector: {
+                showControl: false,                
+                fields: [
+                    {
+                        title: 'Device ID',
+                        key: 'id',
+                        width: 24
+                    },
+                    {
+                        title: 'Device Name',
+                        key: 'name',
+                        width: 15
+                    },
+                    {
+                        title: 'ICCID',
+                        key: 'iccid' ,
+                        width: 20
+                    },
+                    {
+                        title: 'Serial',
+                        key: 'serial_number',
+                        width: 20
+                    },
+                    {
+                        title: 'Claimed',
+                        key: '_claimed',
+                        width: 10,
+                    },
+                    {
+                        title: 'Product',
+                        key: '_product',
+                        width: 10,
+                    },
+                    {
+                        title: 'Groups',
+                        key: '_groups',
+                        width: 20,
+                    },
+                    {
+                        title: 'Online',
+                        key: 'online',
+                        width: 10
+                    },
+                    {
+                        title: 'SIM Released',
+                        key: '_sim',
+                        width: 13,
+                    },
+                    {
+                        title: 'Unclaimed',
+                        key: '_unclaimed',
+                        width: 10,
+                    },
+                    {
+                        title: 'Removed',
+                        key: '_removed',
+                        width: 10,
+                    },
+                ],
+            },
+            exportOptions: {
+                showControl: false,
+                showDateOptions: false,
+            },
+            tableOptions: {
+                showAlways: true,
+            },
+        };
+        tableObj.setConfig(tableConfigObj);
+        // tableObj.loadUrlParams(urlParams);
+        tableObj.refreshTable([], {});
+
+        const updateTable = async function(options) {
+
+            // $(deviceTableDivElem).show();
+
+            for(let ii = 0; ii < deviceList.length; ii++) {
+                let deviceId = deviceList[ii];
+                if (!deviceInfoCache[deviceId]) {
+                    let deviceInfo;
+
+                    try {
+                        setStatus('Checking device ' + (ii + 1) + ' of ' + deviceList.length);
+
+                        deviceInfo = (await apiHelper.particle.getDevice({ deviceId, auth: apiHelper.auth.access_token })).body;
+                        deviceInfoCache[deviceId] = deviceInfo;
+
+                        if (deviceInfo.customer_id) {
+                            deviceInfoCache[deviceId]['_claimed'] = '(customer)';
+                        }
+                        else {
+                            deviceInfoCache[deviceId]['_claimed'] = deviceInfo.owner;
+                        }
+
+                        if (deviceInfo.product_id == deviceInfo.platform_id) {
+                            deviceInfoCache[deviceId]['_product'] = 'sandbox';
+                        }
+                        else {
+                            deviceInfoCache[deviceId]['_product'] = deviceInfo.product_id;
+                            deviceInfoCache[deviceId]['_groups'] = deviceInfo.groups.join(', ');
+                        }
+                    }
+                    catch(e) {
+                        deviceInfoCache[deviceId] = {
+                            id: deviceId,
+                            notFound: true,
+                            name: '(device not found)',
+                        };
+                    }      
+                    tableObj.addRow(deviceInfoCache[deviceId], {show: true, addToTableData: true, sort: true});
+                }
+
+
+
+
+            }
+            ga('send', 'event', gaCategory, 'Checked', deviceList.length);
+            setStatus('Checked ' + deviceList.length + ' devices');
+        }
+
+        const checkExecuteButton = function(options) {
+
+            $(thisPartial).find('.warningDiv').hide();
+            for(const deviceId in deviceInfoCache) {
+                if (!deviceInfoCache[deviceId].notFound) {
+                    if (deviceInfoCache[deviceId].product_id == deviceInfoCache[deviceId].platform_id) {
+                        // Sandbox device
+                        if (options.unclaimDevice && deviceInfoCache[deviceId].owner) {
+                            $(sandboxUnclaimWarningElem).show();
+                        }
+                    }
+                    else {
+                        // Product device
+                        if (!options.unclaimDevice && deviceInfoCache[deviceId].owner) {
+                            $(productUnclaimWarningElem).show();
+                        }        
+                    }
+                }
+            }
+
+
+            if (!options.removeFromProduct && !options.unclaimDevice && !options.releaseSim) {
+                console.log('no operations');
+                return;
+            }
+
+            let enableExecute = false;
+
+            for(const deviceId in deviceInfoCache) {
+                if (!deviceInfoCache[deviceId].notFound) {
+                    enableExecute = true;
+                }
+            }
+
+            $(executeButtonElem).prop('disabled', !enableExecute)
+        };
+
+
+        const checkFileOrTextBoxData = async function(deviceListRaw) {
+
+            const options = getOptions();
+
+            const deviceIdRE = /([a-f0-9]{24})/gi;
+
+            deviceList = deviceListRaw.match(deviceIdRE);
+            
+            if (deviceList && deviceList.length) {          
+                setStatus(deviceList.length + ' device IDs added');
+
+                await updateTable(options);
+            }
+            else {
+                setStatus('No device IDs');
+            }
+            checkExecuteButton(options);
+        }
+        
+        const checkDeviceList = async function() {
+            // Called on input into the device list box or upload file
+            const deviceListRaw = $(deviceTextAreaElem).val();
+
+            await checkFileOrTextBoxData(deviceListRaw);
+        };
+        
+
+        const executeOperations = async function(options) {
+            try {
+                let hasErrors = false;
+
+
+                let stats = {};
+
+                const deviceCount = Object.keys(deviceInfoCache).length;
+                let deviceNum = 1;
+
+                if (!confirm('Removing cannot be undone and typically will cause the devices to go offline and not be able to reconnect. Proceed?')) {
+                    ga('send', 'event', gaCategory, 'Remove Cancel', deviceCount);
+                    return;
+                }
+
+                ga('send', 'event', gaCategory, 'Remove Start', deviceCount);
+
+                for(const deviceId in deviceInfoCache) {
+                    setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
+                    deviceNum++;
+
+                    let tableDeviceObj = tableObj.tableData.data.find(e => e.id == deviceId);
+
+        
+                    if (deviceInfoCache[deviceId].notFound || !tableDeviceObj) {
+                        continue;
+                    }
+
+                    const isProduct = (deviceInfoCache[deviceId].product_id && deviceInfoCache[deviceId].product_id != deviceInfoCache[deviceId].platform_id);
+
+
+                    const iccid = deviceInfoCache[deviceId].iccid;
+                    if (options.releaseSim && iccid) {
+                        try {
+                            if (isProduct) {
+                                // Remove product SIM
+                                await apiHelper.particle.removeSIM({ iccid, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+                            }
+                            else {
+                                // Remove developer SIM
+                                await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
+                            }
+                            stats.release = stats.release ? stats.release + 1 : 1;
+                            tableDeviceObj['_sim'] = '\u2705'; // green check
+                        }
+                        catch(e) {
+                            console.log('exception', e);
+                            tableDeviceObj['_sim'] = '\u274C'; // Red X
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
+                        }
+    
+                    }
+                    if (options.unclaimDevice && deviceInfoCache[deviceId].owner) {
+                        const unclaimElem = deviceInfoCache[deviceId].unclaimElem;
+
+                        try {
+                            if (isProduct) {
+                                // Unclaim product device
+                                await apiHelper.particle.removeDeviceOwner({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+                            }
+                            else {
+                                // Unclaim developer device
+                                await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
+                            }    
+                            tableDeviceObj['_unclaimed'] = '\u2705'; // green check
+                            stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
+                            // $(unclaimElem).html('&#x2705'); // green check
+                        }
+                        catch(e) {
+                            console.log('exception', e);
+                            tableDeviceObj['_unclaimed'] = '\u274C'; // Red X
+                            // $(unclaimElem).html('&#x274c'); // red x
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
+                        }
+                    }
+
+                    if (options.removeFromProduct && isProduct) {
+                        // Remove from product
+                        try {
+                            await apiHelper.particle.removeDevice({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
+
+                            tableDeviceObj['_removed'] = '\u2705'; // green check
+                            stats.remove = stats.remove ? stats.remove + 1 : 1;
+                        }
+                        catch(e) {
+                            console.log('exception', e);
+                            tableDeviceObj['_removed'] = '\u274C'; // Red X
+                            hasErrors = true;
+                            stats.errors = stats.errors ? stats.errors + 1 : 1;
+                        }
+                    }
+                    
+                    tableObj.refreshTable();
+
+                }                
+             
+                if (!hasErrors) {
+                    setStatus('All operations completed successfully!');
+                } 
+                else {
+                    setStatus('Operations completed, but errors occurred');
+                }
+
+                await tableObj.getXlsxData({toFile: true});
+
+
+                ga('send', 'event', gaCategory, 'Execute Success', JSON.stringify(stats));
+            }
+            catch(e) {
+                console.log('exception', e);
+                ga('send', 'event', gaCategory, 'Execute Error');
+            }
+        }
+
+        const getOptions = function(options = {}) {
+            options.removeFromProduct = $(removeFromProductElem).prop('checked'),
+            options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
+            options.releaseSim = $(releaseSimElem).prop('checked');
+            options.username = apiHelper.auth.username;
+            options.accessToken = apiHelper.auth.access_token;
+            options.deviceList = deviceList;
+
+            return options;
+        }
+
+        $(selectFileButtonElem).on('click', function() {
+            $(importFileInputElem).trigger('click');
+        });
+
+        const processFilesArray = function(files, index) {
+            if (index < files.length) {
+                let fileReader = new FileReader();
+                fileReader.onload = async function() {
+                    await checkFileOrTextBoxData(fileReader.result);
+                    processFilesArray(files, index + 1);
+                };
+                fileReader.readAsText(files[index]);                         
+            }
+        };
+        $(importFileInputElem).on('change', function() {
+            processFilesArray(this.files, 0);
+        });
+
+        $(fileDropZoneElem).on('dragenter', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        $(fileDropZoneElem).on('dragover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        $(fileDropZoneElem).on('drop', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            const files = e.originalEvent.dataTransfer.files;
+            if (files) {
+                processFilesArray(files, 0);
+            }
+        });
+
+        $(removeFromProductElem).on('click', function() {
+            checkExecuteButton(getOptions());
+        })
+        $(unclaimDeviceElem).on('click', function() {
+            checkExecuteButton(getOptions());
+        })
+        $(releaseSimElem).on('click', function() {
+            checkExecuteButton(getOptions());
+        })
+
+    
+        $(deviceTextAreaElem).on('input', async function() {
+            await checkDeviceList();
+        });
+
+        $(executeButtonElem).on('click', function() {
+            let options = {};
+            getOptions(options);
+
+            $(executeButtonElem).prop('disabled', true);
+    
+            // Hide all warning panes
+            $(thisPartial).find('.warningDiv').hide();
+
+            executeOperations(options);
+        });
+
+
+    });
+
     $('.apiHelperImportDevices').each(function() {
         const thisPartial = $(this);
         const gaCategory = 'importDevices';
