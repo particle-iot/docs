@@ -91,16 +91,16 @@
         "dir": "import-devices",
         "title": "Import devices",
         "href": "/tools/cloud-tools/import-devices/",
-        "hidden": true
-      },
-      {
-        "dir": "integration-copy",
-        "href": "/tools/cloud-tools/integration-copy/"
+        "internal": true
       },
       {
         "dir": "device-remove",
         "href": "/tools/cloud-tools/device-remove/",
         "internal": true
+      },
+      {
+        "dir": "integration-copy",
+        "href": "/tools/cloud-tools/integration-copy/"
       },
       {
         "title": "Cellular usage",

@@ -308,8 +308,10 @@ $(document).ready(function() {
             }
         }
 
-        tableObj.refreshTable = function(tableDataIn, options) {
-            tableObj.tableData = tableDataIn;
+        tableObj.refreshTable = function(tableDataIn, options = {}) {
+            if (tableDataIn) {
+                tableObj.tableData = tableDataIn;
+            }
 
             const tableFormat = getTableFormat(options);
 
