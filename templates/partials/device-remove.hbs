@@ -1,24 +1,8 @@
-<div class="apiHelper apiHelperDeviceRemove apiHelperProductOrSandboxSelector apiHelperLoggedIn">
+<div class="apiHelper apiHelperDeviceRemove apiHelperProductOrSandboxSelector apiHelperTable apiHelperLoggedIn">
     <div class="apiHelperBox">
         <div> 
             <p>Device IDs to remove:<br/>
             <p><textarea class="deviceTextArea" rows="10" cols="50"></textarea></p>            
-        </div>
-        <div class="deviceTableDiv" style="display:none">
-            <table class="apiHelperTableNoMargin">
-                <thead>
-                    <tr>
-                        <th data-key="id">Device ID</th>
-                        <th data-key="name">Device Name</th>
-                        <th data-key="online">Online</th>
-                        <th data-key="_claimed">Claimed To</th>
-                        <th data-key="iccid">ICCID</th>
-                        <th data-key="_product">Product</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
         </div>
         <div>
             <table class="apiHelperTableNoMargin">
@@ -45,10 +29,6 @@
             </table>
         </div>
         <div class="apiHelperStatus"></div>
-        <div class="logDiv" style="display:none">
-            <p>Log:</p>
-            <textarea rows="30" cols="80" style="font-size:9px;"></textarea>
-        </div>
         <div class="sandboxUnclaimWarning warningDiv" style="display:none">
             <p>Warning!<br/>
             If you unclaim sandbox devices you can only claim them again if they are online and breathing cyan.
@@ -60,6 +40,7 @@
             of 100 devices. Operations will fail if this limit is exceeded.
             </p>
         </div>
+        {{> table-display }}
     </div>
 </div>
 

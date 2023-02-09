@@ -1215,12 +1215,6 @@ $(document).ready(function() {
         const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
         const releaseSimElem = $(thisPartial).find('.releaseSim');
         const statusElem = $(thisPartial).find('.apiHelperStatus');
-        const logDivElem = $(thisPartial).find('.logDiv');
-        const logTextAreaElem = $(thisPartial).find('.logDiv > textarea');
-
-        const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
-        const deviceTableElem = $(deviceTableDivElem).find('table');
-        const deviceTableBodyElem = $(deviceTableElem).find('tbody');
 
         const executeButtonElem = $(thisPartial).find('.executeButton');
         const sandboxUnclaimWarningElem = $(thisPartial).find('.sandboxUnclaimWarning');
@@ -1238,9 +1232,84 @@ $(document).ready(function() {
             productDevices: {}
         };
 
+        const tableObj = $(thisPartial).data('table');
+        const tableConfigObj = {
+            gaCategory,
+            fieldSelector: {
+                showControl: false,                
+                fields: [
+                    {
+                        title: 'Device ID',
+                        key: 'id',
+                        width: 24
+                    },
+                    {
+                        title: 'Device Name',
+                        key: 'name',
+                        width: 15
+                    },
+                    {
+                        title: 'ICCID',
+                        key: 'iccid' ,
+                        width: 20
+                    },
+                    {
+                        title: 'Serial',
+                        key: 'serial_number',
+                        width: 20
+                    },
+                    {
+                        title: 'Claimed',
+                        key: '_claimed',
+                        width: 10,
+                    },
+                    {
+                        title: 'Product',
+                        key: '_product',
+                        width: 10,
+                    },
+                    {
+                        title: 'Groups',
+                        key: '_groups',
+                        width: 20,
+                    },
+                    {
+                        title: 'Online',
+                        key: 'online',
+                        width: 10
+                    },
+                    {
+                        title: 'SIM Released',
+                        key: '_sim',
+                        width: 10,
+                    },
+                    {
+                        title: 'Unclaimed',
+                        key: '_unclaimed',
+                        width: 10,
+                    },
+                    {
+                        title: 'Removed',
+                        key: '_removed',
+                        width: 10,
+                    },
+                ],
+            },
+            exportOptions: {
+                showControl: false,
+                showDateOptions: false,
+            },
+            tableOptions: {
+                showAlways: true,
+            },
+        };
+        tableObj.setConfig(tableConfigObj);
+        // tableObj.loadUrlParams(urlParams);
+        tableObj.refreshTable([], {});
+
         const updateTable = async function(options) {
 
-            $(deviceTableDivElem).show();
+            // $(deviceTableDivElem).show();
 
             for(let ii = 0; ii < deviceList.length; ii++) {
                 let deviceId = deviceList[ii];
@@ -1265,6 +1334,7 @@ $(document).ready(function() {
                         }
                         else {
                             deviceInfoCache[deviceId]['_product'] = deviceInfo.product_id;
+                            deviceInfoCache[deviceId]['_groups'] = deviceInfo.groups.join(', ');
                         }
                     }
                     catch(e) {
@@ -1274,29 +1344,7 @@ $(document).ready(function() {
                             name: '(device not found)',
                         };
                     }      
-
-                    const rowElem = deviceInfoCache[deviceId].rowElem = document.createElement('tr');
-                    deviceInfoCache[deviceId].colElem = {};
-                    $(deviceTableElem).find('thead > tr > th').each(function() {
-                        const key = $(this).data('key');
-                        
-                        const tdElem = deviceInfoCache[deviceId].colElem[key] = document.createElement('td');
-                        if (deviceInfoCache[deviceId][key]) {
-                            if (deviceInfoCache[deviceId][key] === true) {
-                                $(tdElem).html('&check;');
-                                $(tdElem).css('text-align', 'center');
-                            }
-                            else {
-                                $(tdElem).text(deviceInfoCache[deviceId][key]);
-                            }
-                        }
-                        $(rowElem).append(tdElem);
-                    });
-
-
-
-                    $(deviceTableBodyElem).append(rowElem);
-
+                    tableObj.addRow(deviceInfoCache[deviceId], {show: true, addToTableData: true, sort: true});
                 }
 
 
@@ -1336,7 +1384,6 @@ $(document).ready(function() {
             let enableExecute = false;
 
             for(const deviceId in deviceInfoCache) {
-                console.log('deviceId=' + deviceId, deviceInfoCache[deviceId]);
                 if (!deviceInfoCache[deviceId].notFound) {
                     enableExecute = true;
                 }
@@ -1373,22 +1420,20 @@ $(document).ready(function() {
         };
         
 
-        const appendLogLine = function(s) {
-            const old = $(logTextAreaElem).val();
-
-            $(logTextAreaElem).val(old + s + '\n');
-        }
-
         const executeOperations = async function(options) {
             try {
                 let hasErrors = false;
 
-                $(logDivElem).show();
 
                 let stats = {};
 
                 const deviceCount = Object.keys(deviceInfoCache).length;
                 let deviceNum = 1;
+
+                if (!confirm('Removing cannot be undone and typically will cause the devices to go offline and not be able to reconnect. Proceed?')) {
+                    ga('send', 'event', gaCategory, 'Remove Cancel', deviceCount);
+                    return;
+                }
 
                 ga('send', 'event', gaCategory, 'Remove Start', deviceCount);
 
@@ -1396,11 +1441,10 @@ $(document).ready(function() {
                     setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
                     deviceNum++;
 
-                    appendLogLine(deviceId + ' (' + (deviceInfoCache[deviceId].name ? deviceInfoCache[deviceId].name : 'no name') + ')');
+                    let tableDeviceObj = tableObj.tableData.data.find(e => e.id == deviceId);
 
         
-                    if (deviceInfoCache[deviceId].notFound) {
-                        appendLogLine('  Not found, ignoring  ****');
+                    if (deviceInfoCache[deviceId].notFound || !tableDeviceObj) {
                         continue;
                     }
 
@@ -1419,11 +1463,11 @@ $(document).ready(function() {
                                 await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
                             }
                             stats.release = stats.release ? stats.release + 1 : 1;
-                            appendLogLine('  Release SIM success ' + iccid);
+                            tableDeviceObj['_sim'] = '\u2705'; // green check
                         }
                         catch(e) {
                             console.log('exception', e);
-                            appendLogLine('  Release SIM failed ' + iccid + ' *****');
+                            tableDeviceObj['_sim'] = '\u274C'; // Red X
                             hasErrors = true;
                             stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
@@ -1441,13 +1485,13 @@ $(document).ready(function() {
                                 // Unclaim developer device
                                 await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
                             }    
-                            appendLogLine('  Unclaim success ' + deviceInfoCache[deviceId].owner);
+                            tableDeviceObj['_unclaimed'] = '\u2705'; // green check
                             stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
                             // $(unclaimElem).html('&#x2705'); // green check
                         }
                         catch(e) {
                             console.log('exception', e);
-                            appendLogLine('  Unclaim failed ' + deviceInfoCache[deviceId].owner + ' ****');
+                            tableDeviceObj['_unclaimed'] = '\u274C'; // Red X
                             // $(unclaimElem).html('&#x274c'); // red x
                             hasErrors = true;
                             stats.errors = stats.errors ? stats.errors + 1 : 1;
@@ -1459,17 +1503,18 @@ $(document).ready(function() {
                         try {
                             await apiHelper.particle.removeDevice({ deviceId, product:deviceInfoCache[deviceId].product_id, auth: apiHelper.auth.access_token });
 
-                            appendLogLine('  Remove from product ' + deviceInfoCache[deviceId].product_id+ ' success ');
+                            tableDeviceObj['_removed'] = '\u2705'; // green check
                             stats.remove = stats.remove ? stats.remove + 1 : 1;
                         }
                         catch(e) {
                             console.log('exception', e);
-                            appendLogLine('  Remove from product ' + deviceInfoCache[deviceId].product_id + ' failed ' + ' ****');
+                            tableDeviceObj['_removed'] = '\u274C'; // Red X
                             hasErrors = true;
                             stats.errors = stats.errors ? stats.errors + 1 : 1;
                         }
                     }
                     
+                    tableObj.refreshTable();
 
                 }                
              
@@ -1479,6 +1524,9 @@ $(document).ready(function() {
                 else {
                     setStatus('Operations completed, but errors occurred');
                 }
+
+                await tableObj.getXlsxData({toFile: true});
+
 
                 ga('send', 'event', gaCategory, 'Execute Success', JSON.stringify(stats));
             }

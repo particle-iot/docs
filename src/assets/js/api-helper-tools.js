@@ -400,9 +400,6 @@ $(document).ready(function() {
         const thisPartial = $(this);
         const gaCategory = 'importDevices';
 
-        //const productOrSandboxSelectorElem = $(thisPartial).find('.apiHelperProductOrSandboxSelector');
-        //const actionButtonElem = $(thisPartial).find('.actionButton');
-
         const productSelectorElem = $(thisPartial).find('.apiHelperCreateOrSelectProduct');
 
         const deviceGroupElem = $(thisPartial).find('.apiHelperDeviceGroup');
@@ -1007,7 +1004,6 @@ $(document).ready(function() {
         });
         $(clearButtonElem).on('click', function() {
             tableObj.refreshTable([]);
-            $(prepareButtonElem).prop('disabled', true);
             $(importButtonElem).prop('disabled', true);
         });
 
