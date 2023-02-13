@@ -15,7 +15,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
 
 
 
-<h2 style="text-align:center;">Inventory!</h2>
+<h2 style="text-align:center;">Inventory</h2>
 <div class="containerInv">
     <div class="itemInv">
         <a class = "aHub" href="/troubleshooting/troubleshooting/?p=11779868461851" >
@@ -108,7 +108,7 @@ You can submit your initial blanket PO or order PO using this form:
   </a>
   
   <a class="card aHub" href="/scaling/quick-start-guide/bulk-device-operations">
-    <h5 class = "h5Hub">Bulk operations</h5>
+    <h5 class = "h5Hub">Bulk Operations</h5>
     <p class="small pHub">Adding and removing devices at scale</p>
     <div class="go-corner" href="#">
       <div class="go-arrow">
@@ -131,12 +131,12 @@ You can submit your initial blanket PO or order PO using this form:
         </a>
     </div>
     <div class="item">
-        <a class = "aHub" href="/getting-started/setup/accounts/" >
+        <a class = "aHub" href="/getting-started/products/creating-a-product/" >
             <h5 class = "h5Hub">How to Program Your First Particle Fleet</h5>
         </a>
     </div>
     <div class="item">
-        <a class = "aHub" href="/scaling/quick-start-guide/organizations/" >
+        <a class = "aHub" href="/scaling/manufacturing/manufacturing-cellular/" >
             <h5 class = "h5Hub">Overview of Manufacturing Best Practices</h5>
         </a>
     </div>
