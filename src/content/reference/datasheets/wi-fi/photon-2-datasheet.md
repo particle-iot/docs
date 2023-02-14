@@ -669,6 +669,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-11-08 | RK | Added external antenna |
 |     | 2022-11-17 | RK | Pin D0 does not have PWM |
 |     | 2023-01-31 | RK | Add Device OS versions |
+|     | 2023-02-14 | RK | Updated Photon 2 graphic to fix pin labels |
 
 ## Known Errata
 
