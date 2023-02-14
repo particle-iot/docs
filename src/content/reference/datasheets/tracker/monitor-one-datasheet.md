@@ -23,15 +23,15 @@ This is an preliminary pre-release datasheet and the contents are subject to cha
 
 The Monitor One is an off-the-shelf complete design, like the Tracker One. The Monitor One is in a larger IP67 waterproof enclosure with room inside for expansion cards and additional connectors, allowing it to be used in more custom scenarios than the Tracker One.
 
-- **Ready to go** with IP67-rated enclosure.
-- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 90 VDC power input.
+- **Ready to go** with rugged IP67-rated enclosure with room inside for expansion cards and additional connectors.
+- **Flexible power supply** to easily add asset tracking to most devices with a 6 - 90 VDC power input and a large 18650 LiPo battery pack.
 - **Internal or external antennas** for cellular and GNSS.
 - **Temperature sensors** within the enclosure, and also a battery pack temperature sensor.
 - **Expansion cards** allow for custom features.
 - **RGB LEDs** for system status, and two user RGB LEDs for your own use, visible from outside the enclosure.
 - **User button**, waterproof and accessible from outside the enclosure.
 
-
+ 
 ## Block diagram
 
 {{imageOverlay src="/assets/images/monitor-one/block-diagram2.png" alt="Block diagram" class="full-width"}}
@@ -49,7 +49,7 @@ Details about the Tracker SoM that is contained within the Monitor One can be fo
 |  2 | GNSS antenna (internal) |
 |  3 | Cellular antenna (internal) |
 |  4 | External connectors (on bottom) |
-|  5 | Magnetic or bolt-down mounting bracket |
+|  5 | Magnetic, bolt-down, or strap down mounting bracket |
 |  6 | User RGB LEDs (2) |
 |  7 | User button (externally accessible) |
 |  8 | Wi-Fi geolocation antenna (internal) |
@@ -85,6 +85,7 @@ The bottom plate of the Monitor One can be customized with different connectors 
 
 By default the Monitor One uses the internal cellular and GNSS antennas, but can be switched to using the external connectors inside the enclosure.
 
+
 ## Mounting
 
 The Monitor One is intended to be mounted in the orientation shown at the top of the page, with the connectors facing down. You can also mount it with the mounting plate facing down as the GNSS antenna is angled to allow it to work in either orientation.
@@ -119,6 +120,14 @@ Once removed, you can screw or bolt the mounting plate to a surface and reattach
 
 {{imageOverlay src="/assets/images/monitor-one/hole-dim.png" alt="Mounting bracket screw hole dimensions" class="full-width"}}
 
+
+When mounting using a strap, the strap will hold the mounting bracket against a surface and is sandwiched between the mounting bracket and the Monitor One enclosure.
+
+| Dimensions | Metric | SAE      |
+| :--------- | -----: |  ------: |
+| Maximum strap width | 15 mm | 19/32" |
+
+{{imageOverlay src="/assets/images/monitor-one/strap-dim.png" alt="Strap mounting dimensions" class="full-width"}}
 
 ## Internal features
 
@@ -160,6 +169,9 @@ Tracker M is designed with easy-to-use expansion headers and an enclosure with s
 
 Pre-built expansion cards will be available, including a prototyping breadboard expansion card. You can also design and fabricate your own.
 
+{{imageOverlay src="/assets/images/monitor-one/expansion-proto.png" alt="Prototyping expansion card" class="full-width"}}
+
+### Expansion card pinout
 
 {{imageOverlay src="/assets/images/monitor-one-expansion.svg" alt="Expansion card pinout" class="full-width"}}
 
@@ -200,6 +212,20 @@ Note: wire color may vary from this graphic.
 
 - Cable length: 75mm
 - Wire gauge: 24 AWG
+- M12 8-pin connector, A-coded
+
+### M12 connectors
+
+The standard M12 connectors are IP67 waterproof (connected or not), 12 mm in diameter, and have 8 pins or 4 pins. However, M12 connectors are available from 2 pin to 17 pins. The connectors with smaller numbers of pins often have higher voltage and current ratings.
+
+The panel-mount 8-pin connector on the Monitor One is female, with the following pinout:
+
+{{imageOverlay src="/assets/images/monitor-one/8pin-connector-panel.png" alt="M12 connector" class="full-width"}}
+
+The panel mount M12 8-pin connector fits in the following hole in the enclosure:
+
+{{imageOverlay src="/assets/images/monitor-one/m12-hole.png" alt="M12 hole" class="full-width"}}
+
 
 ### GPIO
 
@@ -393,6 +419,7 @@ Note that the two 60.4 ohm resistors are DNP (do not populate). If populated, th
 
 {{!-- END do not edit content above, it is automatically generated --}}
 
+- Pins 9 and 10 have NFC in the name from the Tracker SoM, however NFC cannot be used on the Monitor One as the pins must be used as `VIN_EN` and `PERIPH_INT`.
 
 ### I/O Characteristics
 
@@ -433,6 +460,16 @@ The Tracker One circuit looks like this, and you may want to implement something
 
 
 This is not necessary if your external peripherals are powered by 3V3 or CAN_5V.
+
+### VIN disable
+
+By default, if power is applied at the VIN pin it will be used to power the Monitor One and charge the built-in battery.
+
+If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit:
+
+{{imageOverlay src="/assets/images/tracker/vin-disable.png" alt="VIN disable" class="full-width"}}
+
+By disconnecting the VIN power supply, it reduces the current used by the VIN and PMIC voltage regulators. The Monitor One can still be powered by its internal LiPo battery. This is particularly advantageous if the Monitor One is in sleep mode while VIN is disconnected as the power supply loss will be large compared to the very low sleep current in this scenario.
 
 ### GPIO and Ports vs. Tracker One
 
@@ -576,3 +613,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | Date | Author | Comments |
 |:-----|:-------|:---------|
 | 2022-10-24 | RK | For internal review only |
+| 2023-02-14 | RK | Updated diagrams |
