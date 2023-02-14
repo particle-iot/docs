@@ -925,15 +925,6 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/B404X-schematic-sim.png" alt="SIM and Flash" class="full-width"}}
 
----
-
-## Block Diagram Detail
-
-For FCC § 2.1033(b)(5)
-
-{{imageOverlay src="/assets/images/b-series/b404x-block-diagram-detail.png" alt="Block Diagram Detail" class="full-width"}}
-
-
 
 ---
 

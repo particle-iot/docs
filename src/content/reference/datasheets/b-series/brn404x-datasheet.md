@@ -715,13 +715,6 @@ The complete schematic and board files are open source and available on Particle
 ## Bill of materials
 -->
 
-## Block Diagram Detail
-
-For FCC § 2.1033(b)(5)
-
-{{imageOverlay src="/assets/images/boron/brn404x-block-diagram-detail.png" alt="Block Diagram Detail" class="full-width"}}
-
-
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated e2c1aabb-d8d1-4bf4-90e1-6fe0978663e8 --}}
