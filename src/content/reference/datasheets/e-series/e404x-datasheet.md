@@ -618,13 +618,6 @@ These specifications are based on the nRF52840 datasheet.
 An E series part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
 
-## Block Diagram Detail
-
-For FCC § 2.1033(b)(5)
-
-{{imageOverlay src="/assets/images/e-series/illustrations/e404x-block-diagram-detail.png" alt="Block Diagram Detail" class="full-width"}}
-
-
 ---
 
 
