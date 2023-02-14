@@ -224,7 +224,7 @@ If your device is unable to connect to the Particle cloud, but is able to connec
 
 The list of servers devices connect to is subject to change and you should avoid relying on a static list of IP addresses if possible.
 
-The current list is stored [here](https://infra.particle.io/v1/data/ips/device-service.json).
+The current list is stored [here](https://infra.particle.io/v2/data/ips/device-service.json).
 
 ### Cloud API
 
