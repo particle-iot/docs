@@ -1423,7 +1423,9 @@ When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for th
 
 {{since when="5.3.0"}}
 
-In Device OS 5.3.0 and later, it is possible to reconfigure the pins that are used for Ethernet control signals CS, RESET, and INT. This may be desirable if you need to use pins D3-D5 for other purposes, such as `SPI1`.
+In Device OS 5.3.x, it is possible to reconfigure the pins that are used for Ethernet control signals CS, RESET, and INT. This may be desirable if you need to use pins D3-D5 for other purposes, such as `SPI1`.
+
+**Warning**: This API is temporary and will change in a future version of Device OS. 
 
 The correct order of operations is:
 
@@ -1449,14 +1451,14 @@ auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nu
 // ret is SYSTEM_ERROR_NONE on success
 ```
 
-- After successful reconfiguration, enable ethernet detection, then reset the device. This will be fast because the device did not connect to the cloud the first time.
+- After successful reconfiguration, enable ethernet detection with System.enableFeature(FEATURE_ETHERNET_DETECTION), and then reset the device with System.reset(). This will be fast because the device did not connect to the cloud the first time. This setting is persistent on reset, cold boot, application firmware flash, and Device OS upgrade. It also is used when in safe mode so Device OS can be upgraded OTA over Ethernet.
 
 ```cpp
 System.enableFeature(FEATURE_ETHERNET_DETECTION);
 System.reset();
 ```
 
-- If you want to restore the default pins, use:
+- If you want to restore one or more pins as their default value, use PIN_INVALID, and the default will be used for that pin.
 
 ```cpp
 remap.cs_pin = PIN_INVALID; // default
