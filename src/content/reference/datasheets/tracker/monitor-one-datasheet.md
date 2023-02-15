@@ -467,7 +467,7 @@ By default, if power is applied at the VIN pin it will be used to power the Moni
 
 If you are supplying VIN from another, larger battery pack, and want to be able to disconnect the VIN power supply to minimize current loss, you can do so using the following circuit:
 
-{{imageOverlay src="/assets/images/tracker/vin-disable.png" alt="VIN disable" class="full-width"}}
+{{imageOverlay src="/assets/images/monitor-one/vin-disable.png" alt="VIN disable" class="full-width"}}
 
 By disconnecting the VIN power supply, it reduces the current used by the VIN and PMIC voltage regulators. The Monitor One can still be powered by its internal LiPo battery. This is particularly advantageous if the Monitor One is in sleep mode while VIN is disconnected as the power supply loss will be large compared to the very low sleep current in this scenario.
 
