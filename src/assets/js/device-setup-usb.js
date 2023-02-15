@@ -2348,6 +2348,8 @@ $(document).ready(function() {
             const doctorUseEthernetElem = $(thisElem).find('.doctorUseEthernet');
             const doctorSetKeepAliveCheckboxElem = $(thisElem).find('.doctorSetKeepAliveCheckbox');
             const doctorKeepAliveInputElem = $(thisElem).find('.doctorKeepAliveInput');
+            const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
+            const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
 
 
             $('.apiHelperProductDestination').each(function() {
@@ -2418,13 +2420,14 @@ $(document).ready(function() {
             for(const ver of deviceInfo.platformVersionInfo.versionArray) {
                 if (apiHelper.semVerToSystemVersion(ver) >= minSysVer) {
                     const optionElem = document.createElement('option');
-                    $(optionElem).prop('value', ver);
+                    $(optionElem).attr('value', ver);
                     $(optionElem).text(ver);
                     if (ver == deviceInfo.targetVersion) {
-                        $(optionElem).prop('selected', true);
+                        $(optionElem).attr('selected', 'selected');
                     }
 
                     $(setupDeviceOsVersionElem).append(optionElem);
+                    $(doctorDeviceOsVersionElem).append(optionElem.cloneNode(true));
                 }
             }
 
@@ -2618,6 +2621,10 @@ $(document).ready(function() {
                 $(setupForceVersionElem).prop('checked', true);
             });
 
+            $(doctorDeviceOsVersionElem).on('change', function() {
+                $(doctorForceVersionElem).prop('checked', true);
+            });
+
 
 
             $(setupDeviceButtonElem).on('click', async function() {
@@ -2760,6 +2767,7 @@ $(document).ready(function() {
 
                     if ($(setupForceVersionElem).prop('checked')) {
                         deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+                        ga('send', 'event', gaCategory, 'Setup using set version', deviceInfo.targetVersion);    
                     }
 
                     setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
@@ -2771,6 +2779,11 @@ $(document).ready(function() {
                 else {
                     // mode == doctor
                     setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
+
+                    if ($(doctorForceVersionElem).prop('checked')) {
+                        deviceInfo.targetVersion = $(doctorDeviceOsVersionElem).val();
+                        ga('send', 'event', gaCategory, 'Doctor using set version', deviceInfo.targetVersion);    
+                    }
 
                     if (setupOptions.ethernet) {
                         ga('send', 'event', gaCategory, 'Doctor using Ethernet');    
