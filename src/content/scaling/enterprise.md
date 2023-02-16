@@ -30,7 +30,7 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-troubleshooting]
         </a>
     </div>
     <div class="itemInv">
-        <a  class = "aHub" href="https://wholesale.particle.io/" >
+        <a  class = "aHub" href="#https://wholesale.particle.io/" >
             <h5 class = "h5Hub">Particle Wholesale Store</h5>
             <span class="itemInvTip">Order Your Device Accessories</span>
         </a>
