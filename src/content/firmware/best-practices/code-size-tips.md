@@ -695,6 +695,31 @@ It's usually a good idea to allocate any large buffers you need early, either as
 
 Another way to deal with fragmentation is to use an out-of-memory handler, as shown below in [out of memory handler](#out-of-memory-handler). If an allocation fails, you can reset the device, using `System.reset()`. Another option is to periodically reset the device, for example once per week. If you are using sleep mode `HIBERNATE` the device will reset after each wake cycle, which will also reduce fragmentation.
 
+To find the largest free block, you can use:
+
+```cpp
+#include "Particle.h"
+SYSTEM_THREAD(ENABLED);
+SerialLogHandler logHandler;
+void setup() {
+}
+
+void loop() {
+    static unsigned long lastUpdate = 0;
+    static runtime_info_t heapInfo;
+    
+    if (millis() - lastUpdate >= 10000UL) {
+        lastUpdate = millis();
+        
+        heapInfo.size = sizeof(heapInfo);
+        HAL_Core_Runtime_Info(&heapInfo, nullptr);
+
+        Log.info("FreeHeapMem: %6lu LargestBlockHeapMem: %lu", 
+            heapInfo.freeheap, heapInfo.largest_free_block_heap);
+    }
+}
+```
+
 ## Stack
 
 Stack allocated variables include most function local variables.

@@ -18383,6 +18383,8 @@ Serial.print("free memory: ");
 Serial.println(freemem);
 ```
 
+To get the largest allocatable block, see [fragmentation](/firmware/best-practices/code-size-tips/#fragmentation).
+
 ### reset()
 
 {{api name1="System.reset"}}
@@ -20039,7 +20041,7 @@ The String class allows you to use and manipulate strings of text in more comple
 
 For reference, character arrays are referred to as strings with a small s, and instances of the String class are referred to as Strings with a capital S. Note that constant strings, specified in "double quotes" are treated as char arrays, not instances of the String class.
 
-The `String` methods store the contents of the string as a heap allocated block of memory, such as with `malloc()`. As such, using a large number of long-lived strings can cause heap fragmentation, especially if you have used most of the available RAM.
+The `String` methods store the contents of the string as a heap allocated block of memory, such as with `malloc()`. As such, using a large number of long-lived strings can cause heap fragmentation, especially if you have used most of the available RAM. For more information, see [fragmentation](/firmware/best-practices/code-size-tips/#fragmentation).
 
 Because the contents of the string are stored separately from the object itself, and the string is variable length, you cannot pass `String` objects to `EEPROM.get()` or `EEPROM.put()`. You can only used fixed-length character arrays with `String`. 
 
