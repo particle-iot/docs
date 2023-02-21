@@ -42,33 +42,48 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 {{!-- BEGIN shared-blurb d07841d1-c7b6-4d06-b89d-f906d454d2b7 --}}
 ## Recommended LTS versions
 
-| Platform | Models | Previous LTS | Test With | Current LTS |
-| :--- | :--- | :--- | :--- | :--- | 
-| B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
-| B Series SoM | B404, B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} 
-| Boron | BRN404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
-| Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
-| Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
-| E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |
-| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
-| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  
+| Platform | Models | Previous LTS | Test With | Current LTS | Minimum Version |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| B Series SoM | B404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
+| B Series SoM | B404 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | 2.3.0<sup>1</sup>|
+| B Series SoM | B402, B524, B523 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}}  | |
+| Boron | BRN404X |  |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
+| Boron | BRN404, BRN402, BRN314, BRN310 | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
+| Argon | | {{version mode="latestRelease" line="2"}} |  {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | |
+| E404X | E404X | | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
+| Tracker | T404X, T524X, ONE404X, ONE524X || {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} | 4.0.0<sup>2</sup> |
+| Tracker | T404, T524, T523 ONE404, ONE402, ONE524, ONE523 | {{version mode="latestRelease" line="3"}} | {{version mode="testWith" line="4"}} | {{version mode="latestRelease" line="4" alt="4.0.0"}} |  |
+
+- <sup>1</sup>B404 SoMs should only use Device OS 2.3.0 or later. While older units worked with older versions, newer units from the factory will only with with 2.3.0 and later due to a required component change. It's recommended that all B404 units use this version for compatibility.
+- <sup>2</sup>B404X, BRN404X, E404X, and Tracker X devices require Device OS 4.0.0 or later. The most recent 4.x release, currently {{version mode="latestRelease" line="4"}}. 
 
 ### Devices that must stay on 2.x LTS
 
-| Platform | Models | Current LTS |
-| :--- | :--- | :--- |
-| E Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} |
-| Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} |
-| P1 | | {{version mode="latestRelease" line="2"}} |
-| Photon | | {{version mode="latestRelease" line="2"}} |
+| Platform | Models | Current LTS | Minimum Version |
+| :--- | :--- | :--- | :--- |
+| E Series | E404, E402, E314, E313, E310  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
+| Electron | ELC402, U260, U270, G350  | {{version mode="latestRelease" line="2"}} | 2.2.0<sup>1</sup> |
+| P1 | | {{version mode="latestRelease" line="2"}} | 1.2.1<sup>2</sup>|
+| Photon | | {{version mode="latestRelease" line="2"}} | 1.2.1<sup>2</sup>|
+
+-<sup>1</sup>The most recent versions of the devices shipped from the factory with 2.2.0. This device can use older versions of Device OS but we do not recommend downgrading the Device OS whenever possible.
+-<sup>2</sup>The Photon and P1 shipped with 1.2.1 from the factory. This device can use older versions of Device OS but we do not recommend downgrading the Device OS whenever possible.
+
+
 
 ### Devices that cannot use LTS yet
 
-| Platform | Current Version |
-| :--- | :--- |
-| P2 | {{version mode="latestRelease" line="5"}} |
+| Platform | Current Version | Minimum Version |
+| :--- | :--- | :--- |
+| P2 | {{version mode="latestRelease" line="5"}} | 5.0.0<sup>1</sup>|
+
+<sup>1</sup>Some devices from the factory shipped with 3.2.1-p2.3. This version should not be used in production, using the latest 5.0 release, currently {{version mode="latestRelease" line="5"}}, is recommended.
 
 {{!-- END shared-blurb --}}
+
+- For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. 
+- See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
 
 ## Upgrading Device OS
 

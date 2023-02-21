@@ -994,8 +994,18 @@ $(document).ready(function () {
         const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
 
         $(actionButtonElem).on('click', async function () {
-            const accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();
-            const productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
+            let accessToken;
+            let productId = 0;
+            if ($(thisElem).find('.apiHelperAuthSettingsProductAccessToken').length) {
+                accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();
+            }
+            else {
+                accessToken = apiHelper.auth.access_token;
+            }
+            if ($(thisElem).find('.apiHelperAuthSettingsProduct').length) {
+                productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
+            }
+
             const deviceId = $(thisElem).find('.apiHelperDeviceLookupDeviceId').val();
 
             let url;
@@ -1045,6 +1055,123 @@ $(document).ready(function () {
             $.ajax(request);
         });
     });
+
+
+    $('.apiHelperCloudApiGetSimInfo').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'GetSimInfo';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+
+            const iccid = $(thisElem).find('.apiHelperDeviceLookupSim').val();
+
+            let url = 'https://api.particle.io/v1/sims/' + iccid;
+            
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+    });
+
+
+
+
+    $('.apiHelperCloudApiGetProductInfo').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'GetProductInfo';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+
+            const productId = $(thisElem).find('.apiHelperDeviceLookupProductId').val();
+
+            let url = 'https://api.particle.io/v1/products/' + productId;
+            
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+    });
+
 
     $('.apiHelperProductDeveloperRadio').each(function(index) {
         const thisElem = $(this);
@@ -3255,6 +3382,103 @@ $(document).ready(function () {
         if (isList) {
             enableButton();
         }
+
+    });
+
+    $('.apiHelperCloudApiServiceAgreements').each(function() {
+        const thisElem = $(this);
+        const gaCategory = 'GetServiceAgreements';
+
+        const sandboxOrgSelectElem = $(thisElem).find('.apiHelperSandboxOrgSelect');
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const requestElem = $(thisElem).find('.apiHelperApiRequest');
+        const respElem = $(thisElem).find('.apiHelperApiResponse');
+        const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const getUrl = function(which) {
+            let url;
+
+            const orgId = $(sandboxOrgSelectElem).val();
+            if (orgId == 0) {
+                // Sandbox
+                url = 'https://api.particle.io/v1/user/' + which;
+            }
+            else {
+                // Organization
+                url = 'https://api.particle.io/v1/orgs/' + orgId + '/' + which;
+            }
+            return url;
+        }      
+                $(sandboxOrgSelectElem).on('change', function() {
+            // Copy this value to all sandbox org selects
+            const val = $(sandboxOrgSelectElem).val();
+            $('.apiHelperSandboxOrgSelect').val(val);
+        })
+
+        $(actionButtonElem).on('click', function() {
+            let request = {
+                contentType: 'application/json',
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error getting billing period');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: getUrl('service_agreements')
+            }
+
+            setRequest(thisElem, request);
+
+            $(respElem).find('pre').text('');
+
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+
+
+        if (apiHelper && apiHelper.auth && apiHelper.auth.access_token) {
+            apiHelper.getOrgs().then(function(orgsData) {
+                // No orgs: orgsData.organizations empty array
+                // Object in array orgsData.organizations: id, slug, name
+    
+                if (orgsData.organizations.length > 0) {
+                    let html = '';
+                    for (let org of orgsData.organizations) {
+                        const optionElem = document.createElement('option');
+                        $(optionElem).attr('value', org.id);
+                        $(optionElem).text(org.name);
+                        $(sandboxOrgSelectElem).append(optionElem);
+                    }
+                }
+                else {
+                    //$(sandboxOrgRowElem).hide();
+                }
+            });
+        }
+  
 
     });
 

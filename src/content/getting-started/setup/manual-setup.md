@@ -318,7 +318,7 @@ particle device rename <device_id> <device_name>
 
 ## Configure Wi-Fi
 
-This step is not necessary for cellular devices (including the Tracker, which uses Wi-Fi only for geolocation), and you can [skip to the next step](#test-your-device).
+This step is not necessary for cellular devices (or the Tracker, which uses Wi-Fi only for geolocation).
 
 For Wi-Fi devices you will need to set the Wi-Fi credentials. You can do this using the Particle CLI.
 

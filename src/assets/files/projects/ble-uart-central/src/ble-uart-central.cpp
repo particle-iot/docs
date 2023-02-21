@@ -61,7 +61,7 @@ void loop() {
     		// Time to scan
     		lastScan = millis();
 
-    		size_t count = BLE.scan(scanResults, SCAN_RESULT_COUNT);
+    		int count = BLE.scan(scanResults, SCAN_RESULT_COUNT);
 			if (count > 0) {
 				for (uint8_t ii = 0; ii < count; ii++) {
 					// Our serial peripheral only supports one service, so we only look for one here.

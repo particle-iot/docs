@@ -29,11 +29,9 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
  * 3GPP Release 14 LTE Cat M1 
- * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+ * LTE Cat M1 bands: 2, 4, 5, 12, 13
  * Embedded Particle EtherSIM
  * Requires Device OS 4.0.0 LTS (or later)
-
-<sup>1</sup> Not all bands enabled in software by default
 
 #### Features - All Models
 
@@ -55,8 +53,15 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * On-board PCB antenna
  * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
- * FCC and PTCRB certified
+ * FCC and IC certified
  * RoHS compliant (lead-free)
+
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the BRN404X. The minimum required version is 4.0.0. You cannot use the BRN404X with Device OS 2.x LTS.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
 
 ## Interfaces
 
@@ -599,30 +604,34 @@ Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, dep
 {{!-- BEGIN shared-blurb 2f821871-252e-4acd-8002-11854b95faa6 --}}
 | Parameter | Value | FCC Certified | 
 | --- | --- | :---: | 
-| Protocol stack | 3GPP Release 14 | |
+| Protocol stack | 3GPP Release 13 LTE Cat M1 | |
+| | 3GPP Release 14 LTE Cat M1<sup>1</sup> | |
 | RAT | LTE Cat M1 Half-Duplex | |
 | LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
 | | Band 12 (700 MHz) | &check; |
-| | Band 28 (700 MHz)  | &check; |
+| | Band 28 (700 MHz)  | &nbsp; |
 | | Band 85 (700 MHz)  | &nbsp; |
 | | Band 13 (750 MHz)  | &check; |
-| | Band 20 (800 MHz)  | &check; |
+| | Band 20 (800 MHz)  | &nbsp; |
 | | Band 5 (850 MHz) | &check; |
 | | Band 18 (850 MHz) | &nbsp; |
 | | Band 19 (850 MHz) | &nbsp; |
 | | Band 26 (850 MHz)  | &nbsp; |
-| | Band 8 (900 MHz)  | &check; |
-| | Band 4 (1700 MHz) | &check; |
-| | Band 3 (1800 MHz)  | &check; |
+| | Band 8 (900 MHz)  | &nbsp; |
+| | Band 4 (1700 MHz) | &nbsp; |
+| | Band 3 (1800 MHz)  | &nbsp; |
 | | Band 2 (1900 MHz) | &check; |
 | | Band 25 (1900 MHz)  | &nbsp; |
 | | Band 1 (2100 MHz)  | &nbsp; |
 | Power class | Class 3 (23 dBm) | &nbsp; |
-
+| Cellular data rate | up to 1200 kbit/s UL | |
+| | up to 375 kbit/s DL | |
+  
 - LTE Cat M1 for United States, Canada, and Mexico.
-- Not all bands are enabled in software by default. 
 - FCC Certification in the United States only tests bands in use in the United States.
+- Bands not listed as certified are disabled in the Device OS operating system and cannot be enabled from user firmware.
 - Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+- <sup>1</sup>3GPP Release 14 LTE Cat M1: Coverage Enhancement Mode B, Uplink TBS of 2984b 
 {{!-- END shared-blurb --}}
 
 
@@ -847,6 +856,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | 011      | 2022-09-07 | RK | Add additional port and pin information |
 | 012      | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 | 013      | 2022-12-13 | RK | Update block diagram and antenna information |
+| 014      | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+| 015      | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
+| 016      | 2023-01-31 | RK | Add Device OS versions |
 
 ## Known Errata
 

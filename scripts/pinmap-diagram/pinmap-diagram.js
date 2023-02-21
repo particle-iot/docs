@@ -328,7 +328,9 @@ const svg = require('./svg');
 
         if (saveFile) {
             fs.writeFileSync(outputPath, newContents);
-            files[options.outputPath].contents = Buffer.from(newContents, 'utf8');
+            if (files) {
+                files[options.outputPath].contents = Buffer.from(newContents, 'utf8');
+            }
         }
         
 
@@ -1036,7 +1038,7 @@ const svg = require('./svg');
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon2.svg'),
             outputPath: 'assets/images/photon-2-pinout.svg',
             // scale to make height 500px width 221
-            deviceImageTransform: 'translate(375,0) scale(3.42)',
+            deviceImageTransform: 'translate(374,0) scale(0.408)',
             width: 1000,
             height: 510,
             background: 'white',
@@ -1500,7 +1502,7 @@ const svg = require('./svg');
             platformName: 'Photon 2',
             deviceImage: path.join(generateOptions.topDir, 'src/assets/images/photon2.svg'),
             outputPath: 'assets/images/' + generateOptions.outputFile,
-            deviceImageTransform: 'translate(375,0) scale(3.42)',
+            deviceImageTransform: 'translate(374,0) scale(0.408)',
             width: 1000,
             height: 510,
             background: 'white',

@@ -18,6 +18,7 @@
         "discontinued":0.1,
         "reference/device-os/firmware.md":0.1,
         "support/":0.1,
-        "xenon":0.2
+        "xenon":0.2,
+        "archives/":0.1
     }
 }

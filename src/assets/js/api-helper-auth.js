@@ -150,6 +150,10 @@ $(document).ready(function() {
 
             $('#userMenuLogout > a').on('click', handleLogout);
         
+            if (auth.username.endsWith('particle.io')) {
+                $('.internalMenuItem').show();
+            }
+
         };
         const showNotLoggedIn = function() {
             $('#userMenuLabel').text('User');
@@ -233,7 +237,7 @@ $(document).ready(function() {
 
             try {
                 orgInfo = JSON.parse(localStorage.getItem('apiHelperOrg'));
-                if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username) {
+                if (!apiHelper.auth || orgInfo.username != apiHelper.auth.username || !orgInfo.agreements) {
                     // Username changed, ignore cached 
                     orgInfo = null;
                 }
@@ -259,12 +263,16 @@ $(document).ready(function() {
                     orgInfo.agreements = {};
 
                     for(const org of orgInfo.orgList.organizations) {
-                        
                         await new Promise(function(resolve) {
                             $.ajax({
                                 dataType: 'json',
                                 data: {
-                                    'access_token': apiHelper.localLogin.access_token
+                                    'access_token': apiHelper.auth.access_token
+                                },
+                                error: function(err) {
+                                    // If unable to get agreements, still show enterprise for now
+                                    console.log('error getting service agreements', err);
+                                    resolve();
                                 },
                                 method: 'GET',
                                 success: function (resp, textStatus, jqXHR) {

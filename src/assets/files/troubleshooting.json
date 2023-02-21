@@ -320,6 +320,18 @@
                 },
                 {
                     "id": 360056043773
+                },
+                {
+                    "id": 1260802583309,
+                    "value": "wb_yes"
+                },
+                {
+                    "id": 1500000072801,
+                    "value": "wb_updated"
+                },
+                {
+                    "id": 1500000072961,
+                    "value": "extensions_yes"
                 }
             ]
         },
@@ -380,6 +392,19 @@
                 },
                 {
                     "id": 360056043773
+                },
+                {
+                    "id": 360055035894
+                },
+                {
+                    "id": 360055036034
+                },
+                {
+                    "id": 360055036194
+                },
+                {
+                    "id": 1260802583329,
+                    "value": "cli_yes"
                 }
             ]
         },
@@ -2813,6 +2838,9 @@
             "page": 227,
             "title": "I'd like to submit a purchase order",
             "ticketForm": "360001730794",
+            "subjectValue": "PO submission",
+            "attachmentTitle": "Select a purchase order pdf file to attach, or drag-and-drop a file here",
+            "submitButtonTitle": "Submit purchase order",
             "fields": [
                 {
                     "id": 360026632133,

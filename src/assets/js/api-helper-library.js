@@ -236,7 +236,15 @@ $(document).ready(function() {
             $(thisPartial).find('.apiHelperLibraryBuildsVersion').html('');
 
             const builds = libInfo.versions[libInfo.attributes.version].builds;
-            for(const deviceOs in builds) {
+
+            // Convert object to array
+            let buildVersions = [];
+            for(const version in builds) {
+                buildVersions.push(version);
+            }
+            buildVersions.sort(apiHelper.versionSort);
+
+            for(const deviceOs of buildVersions) {
                 let html = '';
                 html += '<option value="' + deviceOs + '">' + deviceOs + '</option>\n';
                 $(thisPartial).find('.apiHelperLibraryBuildsVersion').append(html);

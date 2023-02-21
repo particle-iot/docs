@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    const gaCategory = 'USB Device Setup';
+    let gaCategory = 'USB Device Setup';
     const storageActivateSim = "DeviceSetupActivatingSim";
     const doneUrl = '/assets/images/device-setup/ok-48.png';
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
         const mode = $(thisElem).data('mode');
 
-        const modes = ['doctor', 'setup', 'restore'];
+        const modes = ['doctor', 'setup', 'restore', 'wifi'];
 
         // Hide all modes
         for(const m of modes) {
@@ -47,9 +47,16 @@ $(document).ready(function() {
                 $(thisElem).find('.' + m + 'Mode').show();    
             }
         }
+        gaCategory = 'USB Device Setup ' + mode;
 
-        if (mode == 'restore' || apiHelper.auth) {
+        const noLoginRequired = (mode == 'restore' || mode == 'wifi');
+
+        if (noLoginRequired || apiHelper.auth) {
             $(thisElem).find('.deviceSetupLoggedIn').show();
+        }
+
+        if (mode == 'wifi') {
+            $(thisElem).find('.setupWiFiInstructions').show();
         }
 
         ga('send', 'event', gaCategory, 'Opened Page', mode);
@@ -1000,8 +1007,9 @@ $(document).ready(function() {
                     case 10: // electron (and E Series)
                     case 13: // boron
                     case 23: // bsom
-                    case 25: // bsom
+                    case 25: // b5som
                     case 26: // tracker
+                    case 28: // trackerm
                         deviceInfo.hasPMIC = true;
                         break;
                 }
@@ -1015,7 +1023,6 @@ $(document).ready(function() {
                 if (!usbDevice.isInDfuMode) {
                     // Attempt to get the module info on the device using control requests if not already in DFU mode.
                     // When in DFU already, just flash full Device OS and binaries to avoid leaving DFU.
-                    ga('send', 'event', gaCategory, 'Already DFU', deviceInfo.platformId);
 
                     deviceModuleInfo = await getModuleInfoCtrlRequest();
 
@@ -1026,6 +1033,9 @@ $(document).ready(function() {
                         setSetupStep('setupStepManualDfu');      
                         return;              
                     }
+                }
+                else {
+                    ga('send', 'event', gaCategory, 'Already DFU', deviceInfo.platformId);
                 }
 
                 if (usbDevice.isCellularDevice) {                    
@@ -1048,38 +1058,64 @@ $(document).ready(function() {
                     deviceInfo.wifi = true;
                 }
 
-                // Don't check SIM or firmware backup when in device restore mode
-                if (mode == 'setup' || mode == 'doctor') {
-                    const stor = localStorage.getItem(storageActivateSim);
-                    if (stor) {
-                        try {
-                            const storObj = JSON.parse(stor);
-                            // TODO: Check date here
-                            if (stor.deviceId == deviceInfo.deviceId) {
-                                ga('send', 'event', gaCategory, 'Reopened during Activate SIM');
-                                // TODO: Maybe ask user here?
-                                activateSim();
-                                return;''   
+                if (mode == 'wifi') {
+                    if (!deviceInfo.wifi) {
+                        ga('send', 'event', gaCategory, 'Not allowed Is Cellular');
+                        setSetupStep('setupStepWiFiIsCellular');
+                        return;
+                    }
+
+                    if (deviceInfo.platformVersionInfo.gen == 2) {
+                        ga('send', 'event', gaCategory, 'Not allowed Is Gen 2');
+                        setSetupStep('setupStepWifiGen2');
+                        return;
+                    }
+
+                    if (usbDevice.isInDfuMode) {
+                        ga('send', 'event', gaCategory, 'Not allowed Is DFU');
+                        setSetupStep('setupStepWifiInDFU');
+                        return;
+                    }
+
+                    configureWiFi();                              
+                }
+                else {
+                    // Don't check SIM or firmware backup when in device restore mode
+                    if (mode == 'setup' || mode == 'doctor') {
+                        const stor = localStorage.getItem(storageActivateSim);
+                        if (stor) {
+                            try {
+                                const storObj = JSON.parse(stor);
+                                // TODO: Check date here
+                                if (stor.deviceId == deviceInfo.deviceId) {
+                                    ga('send', 'event', gaCategory, 'Reopened during Activate SIM');
+                                    // TODO: Maybe ask user here?
+                                    activateSim();
+                                    return;''   
+                                }
+                            }
+                            catch(e) {
+
                             }
                         }
-                        catch(e) {
-    
-                        }
-                    }
-    
-                    if (hasUserFirmwareBackup()) {
-                        ga('send', 'event', gaCategory, 'Firmware Backup Available');
 
-                        $('.restoreDeviceId').text(deviceInfo.deviceId);
-                        $('.restoreFirmwareDiv').show();
-    
-                        $('.setupRestoreDeviceButton').on('click', function() {
-                            $('#uploadUserBinary').trigger('click');
-                        });
-                    }    
+                        if (hasUserFirmwareBackup()) {
+                            ga('send', 'event', gaCategory, 'Firmware Backup Available');
+
+                            $('.restoreDeviceId').text(deviceInfo.deviceId);
+                            $('.restoreFirmwareDiv').show();
+
+                            $('.setupRestoreDeviceButton').on('click', function() {
+                                $('#uploadUserBinary').trigger('click');
+                            });
+                        }    
+                    }
+
+                    // confirmFlash is used for setup, doctor, and restore (not wifi)
+                    confirmFlash();
                 }
 
-                confirmFlash();
+
             }
             catch(e) {
                 console.log('exception', e);
@@ -1942,19 +1978,21 @@ $(document).ready(function() {
 
                 let dfuPartTableInfo = {};
 
-                let options = {
+                // These used to be manually copied, but now flashDeviceOptions is just added to options by default
+                // setupBit: flashDeviceOptions.setupBit,
+                // claimCode: flashDeviceOptions.claimCode,
+                // downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
+                // prebootloader: flashDeviceOptions.prebootloader,
+                // moduleInfo: flashDeviceOptions.moduleInfo,
+                // zipFs: flashDeviceOptions.zipFs,
+
+                let options = Object.assign(Object.assign({}, flashDeviceOptions), {
                     eventCategory: 'USB Device Setup',
                     platformVersionInfo: deviceInfo.platformVersionInfo,
                     userFirmwareBinary,
                     setStatus,
                     version: deviceInfo.targetVersion, 
-                    setupBit: flashDeviceOptions.setupBit,
-                    claimCode: flashDeviceOptions.claimCode,
-                    deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo), // 
-                    downloadUrl: flashDeviceOptions.downloadUrl, // May be undefined
-                    prebootloader: flashDeviceOptions.prebootloader,
-                    moduleInfo: flashDeviceOptions.moduleInfo,
-                    zipFs: flashDeviceOptions.zipFs,
+                    deviceModuleInfo: (flashDeviceOptions.forceUpdate ? null : deviceModuleInfo),
                     onEnterDFU: function() {
                         showStep('setupStepFlashDeviceEnterDFU');
                     },
@@ -2061,7 +2099,7 @@ $(document).ready(function() {
                             };
                         }
                     }
-                };
+                });
 
             
                 if (flashDeviceOptions.mode == 'doctor' && !restoreFirmwareBinary) {
@@ -2179,22 +2217,31 @@ $(document).ready(function() {
                 ga('send', 'event', gaCategory, 'Flash Prebootloade rLast');
             }
 
-            if (deviceInfo.platformVersionInfo.isTracker) {
+            if (deviceInfo.platformVersionInfo.hasNCP) {
                 let updateNcp = false;
 
-                if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
-                    // Is a tracker, could need NCP
-                    const m = deviceModuleInfo.getModuleNcp();
-                    if (m) {
-                        // TODO: Get this from the NCP binary
-                        if (m.version < 7) {
-                            updateNcp = true;
+                if (deviceInfo.platformVersionInfo.isTracker) {
+                    if (deviceModuleInfo && !flashDeviceOptions.forceUpdate) {
+                        // Is a tracker, could need NCP
+                        const m = deviceModuleInfo.getModuleNcp();
+                        if (m) {
+                            // TODO: Get this from the NCP binary
+                            if (m.version < 7) {
+                                updateNcp = true;                            
+                            }
                         }
                     }
+                    else {
+                        updateNcp = flashDeviceOptions.updateNcp;
+                    }
+                    flashDeviceOptions.ncpPath = '/assets/files/ncp/tracker-esp32-ncp@0.0.7.bin';                    
                 }
                 else {
+                    // TODO: Probably add the logic above if we ever have a required Argon NCP upgrade
                     updateNcp = flashDeviceOptions.updateNcp;
+                    flashDeviceOptions.ncpPath = '/assets/files/ncp/argon-ncp-firmware-0.0.5-ota.bin';
                 }
+
                 if (updateNcp) {
                     flashDeviceOptions.ncpUpdate = true;
                     await flashDeviceInternal();
@@ -2301,6 +2348,8 @@ $(document).ready(function() {
             const doctorUseEthernetElem = $(thisElem).find('.doctorUseEthernet');
             const doctorSetKeepAliveCheckboxElem = $(thisElem).find('.doctorSetKeepAliveCheckbox');
             const doctorKeepAliveInputElem = $(thisElem).find('.doctorKeepAliveInput');
+            const doctorForceVersionElem = $(thisElem).find('.doctorForceVersion');
+            const doctorDeviceOsVersionElem = $(thisElem).find('.doctorDeviceOsVersion');
 
 
             $('.apiHelperProductDestination').each(function() {
@@ -2328,7 +2377,7 @@ $(document).ready(function() {
                             break;
                     }
 
-                    if (deviceInfo.platformVersionInfo.isTracker) {
+                    if (deviceInfo.platformVersionInfo.hasNCP) {
                         const forceUpdate = $(forceUpdateElem).prop('checked');
                         if (forceUpdate) {
                             $(updateNcpCheckboxTrElem).show();
@@ -2371,13 +2420,14 @@ $(document).ready(function() {
             for(const ver of deviceInfo.platformVersionInfo.versionArray) {
                 if (apiHelper.semVerToSystemVersion(ver) >= minSysVer) {
                     const optionElem = document.createElement('option');
-                    $(optionElem).prop('value', ver);
+                    $(optionElem).attr('value', ver);
                     $(optionElem).text(ver);
                     if (ver == deviceInfo.targetVersion) {
-                        $(optionElem).prop('selected', true);
+                        $(optionElem).attr('selected', 'selected');
                     }
 
                     $(setupDeviceOsVersionElem).append(optionElem);
+                    $(doctorDeviceOsVersionElem).append(optionElem.cloneNode(true));
                 }
             }
 
@@ -2571,6 +2621,10 @@ $(document).ready(function() {
                 $(setupForceVersionElem).prop('checked', true);
             });
 
+            $(doctorDeviceOsVersionElem).on('change', function() {
+                $(doctorForceVersionElem).prop('checked', true);
+            });
+
 
 
             $(setupDeviceButtonElem).on('click', async function() {
@@ -2597,7 +2651,7 @@ $(document).ready(function() {
                     flashDeviceOptions.shippingMode = $(shippingModeCheckboxElem).prop('checked');
                     flashDeviceOptions.forceUpdate = $(forceUpdateElem).prop('checked');
 
-                    if (deviceInfo.platformVersionInfo.isTracker) {    
+                    if (deviceInfo.platformVersionInfo.hasNCP) {    
                         if (!deviceModuleInfo || flashDeviceOptions.forceUpdate) {
                             flashDeviceOptions.updateNcp = $(updateNcpCheckboxElem).prop('checked');
                         }
@@ -2713,15 +2767,23 @@ $(document).ready(function() {
 
                     if ($(setupForceVersionElem).prop('checked')) {
                         deviceInfo.targetVersion = $(setupDeviceOsVersionElem).val();
+                        ga('send', 'event', gaCategory, 'Setup using set version', deviceInfo.targetVersion);    
                     }
 
                     setupOptions.ethernet = $(setupUseEthernetElem).prop('checked');
+
+                    apiHelper.setCommonDevice(deviceInfo.deviceId);
 
                     flashDeviceOptions.setupBit = 'done';
                 }
                 else {
                     // mode == doctor
                     setupOptions.ethernet = $(doctorUseEthernetElem).prop('checked');
+
+                    if ($(doctorForceVersionElem).prop('checked')) {
+                        deviceInfo.targetVersion = $(doctorDeviceOsVersionElem).val();
+                        ga('send', 'event', gaCategory, 'Doctor using set version', deviceInfo.targetVersion);    
+                    }
 
                     if (setupOptions.ethernet) {
                         ga('send', 'event', gaCategory, 'Doctor using Ethernet');    
@@ -2731,6 +2793,8 @@ $(document).ready(function() {
                         setupOptions.keepAlive = parseInt($(doctorKeepAliveInputElem).val());
                     }
                     
+                    apiHelper.setCommonDevice(deviceInfo.deviceId);
+
                     flashDeviceOptions.setupBit = 'done';
                 }
 
@@ -2806,8 +2870,8 @@ $(document).ready(function() {
             $(thisElem).find('.scanAgain').prop('disabled', true);
 
             $(thisElem).find('.useExisting').on('click', async function() {
-                setSetupStep('setupStepWaitForOnline');
 
+                setSetupStep('setupStepWaitForOnline');
                 reqObj = {
                     op: 'connect',
                 };
@@ -2817,20 +2881,8 @@ $(document).ready(function() {
             });
             ga('send', 'event', gaCategory, 'Started Wi-Fi Scan');    
 
-            // Start Wi-Fi scan
-            let reqObj = {
-                op: 'wifiScan'
-            };
 
-            const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-            if (!res.status && res.data) {
-                const respObj = JSON.parse(res.data);
-                
-                if (respObj.hasCredentials) {
-                    // Show option to use existing
-                    $(thisElem).find('.showUseExisting').show();
-                }
-            }
+
 
             const wifiSettingsTableElem = $(thisElem).find('.wifiSettingsTable');
             const wifiSecurityTypeElem = $(thisElem).find('.wifiSecurityType');
@@ -2850,7 +2902,7 @@ $(document).ready(function() {
             const clientCertRowElem = $(thisElem).find('.clientCertRow');
             const clientCertElem = $(thisElem).find('.clientCert');
 
-            let addedNetworks = {};
+            let sortedNetworks = [];
 
             const eapSelectUpdate = function() {
                 const eapMode = parseInt($(eapSelectElem).val());
@@ -2877,7 +2929,7 @@ $(document).ready(function() {
 
                     const ssid = $(checkedItems).val();
 
-                    const wifiNetworkInfo = addedNetworks[ssid].respObj;
+                    const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
 
                     // sec values (WLanSecurityType):
                     // WLAN_SEC_UNSEC = 0,
@@ -2932,7 +2984,344 @@ $(document).ready(function() {
                     $(setCredentialsElem).prop('disabled', true);
                 }
             };
+            
+            const wifiNetworksUpdate = function() {
+                $(thisElem).find('.networkTable > tbody').empty();
+                
+                for(let ii = 0; ii < sortedNetworks.length; ii++) {
+                    const respObj = sortedNetworks[ii];
 
+                    let bars = 0;
+                    if (respObj.rssi >= -60) {
+                        bars = 4;
+                    }
+                    else    
+                    if (respObj.rssi >= -70) {
+                        bars = 3;
+                    }
+                    else
+                    if (respObj.rssi >= -80) {
+                        bars = 2;
+                    }
+                    else {
+                        bars = 1;
+                    }
+    
+                    const rowElem = sortedNetworks[ii].rowElem = document.createElement('tr');
+    
+                    let colElem;
+                    let radioElem;
+    
+                    // Radio button
+                    colElem = document.createElement('td');
+                    {
+                        radioElem = sortedNetworks[ii].radioElem = document.createElement('input');
+                        $(radioElem).attr('type', 'radio');
+                        $(radioElem).attr('name', 'selectedNetwork');
+                        $(radioElem).attr('value', respObj.ssid);
+                        $(colElem).append(radioElem);
+    
+                        $(radioElem).on('click', radioSelectionUpdate);
+                    }
+                    $(rowElem).append(colElem);
+    
+                    // SSID
+                    colElem = document.createElement('td');
+                    $(colElem).text(respObj.ssid);
+                    $(rowElem).append(colElem);
+    
+                    // Secure
+                    colElem = document.createElement('td');
+                    if (respObj.sec != 0) {
+                        // 56x68
+                        const imgElem = document.createElement('img');
+                        $(imgElem).attr('src', '/assets/images/device-setup/wifi-lock.png');
+                        $(imgElem).css('width', '15px');
+                        $(imgElem).css('height', '17px');
+                        $(imgElem).css('margin', '2px');
+                        $(colElem).append(imgElem);
+                    }
+                    $(rowElem).append(colElem);
+    
+                    // Strength
+                    colElem = document.createElement('td');
+                    {
+                        // 86x68
+                        const imgElem = document.createElement('img');
+                        $(imgElem).attr('src', '/assets/images/device-setup/signal-bars-' + bars + '.png');
+                        $(imgElem).css('width', '22px');
+                        $(imgElem).css('height', '17px');
+                        $(imgElem).css('margin', '2px');
+                        $(colElem).append(imgElem);    
+                    }
+                    $(rowElem).append(colElem);
+                    
+                    $(thisElem).find('.networkTable > tbody').append(rowElem);
+    
+                }     
+
+            }
+            const wifiNetworksDone = function() {
+                $(thisElem).find('.searchingWiFi').css('visibility', 'hidden');
+
+                $(thisElem).find('.scanAgain').prop('disabled', false);
+
+                ga('send', 'event', gaCategory, 'Wi-Fi Scan Done', sortedNetworks.length);
+
+                if (sortedNetworks.length == 0) {
+                    setSetupStep('setupStepNoWiFi');
+                }
+                else
+                if (sortedNetworks.length == 1) {
+                    const ssid = sortedNetworks[0].ssid;
+                    $(sortedNetworks[0].radioElem).trigger('click');
+                }
+
+            }
+
+            const updateWiFiOnDevice = async function() {
+                let knownNetworks = [];
+
+                const wifiExistingElem = $(thisElem).find('.wifiExisting');
+                const wifiExistingListElem = $(thisElem).find('.wifiExistingList');
+                const wifiExistingRemoveSelectedElem = $(thisElem).find('.wifiExistingRemoveSelected');
+                const wifiExistingRemoveAllElem = $(thisElem).find('.wifiExistingRemoveAll');                                
+
+                $(wifiExistingElem).hide();
+
+                try {
+                    const knownNetworksRes = await usbDevice.sendControlRequest(502); // CTRL_REQUEST_WIFI_GET_KNOWN_NETWORKS
+
+                    if (knownNetworksRes.result == 0 && knownNetworksRes.data) {
+                        /*
+                        enum Security {
+                            NO_SECURITY = 0;
+                            WEP = 1;
+                            WPA_PSK = 2;
+                            WPA2_PSK = 3;
+                            WPA_WPA2_PSK = 4;
+                        }
+                        enum CredentialsType {
+                            NO_CREDENTIALS = 0;
+                            PASSWORD = 1;
+                        }
+
+                        message GetKnownNetworksRequest {
+                            option (type_id) = 502; // CTRL_REQUEST_WIFI_GET_KNOWN_NETWORKS
+                        }
+
+                        message GetKnownNetworksReply {
+                            message Network {
+                                string ssid = 1;
+                                Security security = 2;
+                                CredentialsType credentials_type = 3;
+                            }
+
+                            repeated Network networks = 1;
+                        }
+                        */
+                        let protobuf = apiHelper.protobuf(knownNetworksRes.data);
+
+                        const decodeNetwork = function(end) {
+                            let network = {};
+
+                            while(protobuf.offset < end) {
+                                result = protobuf.decodeTag();
+                                switch(result.field) {
+                                case 1: // string ssid = 1;
+                                    network.ssid = protobuf.decodeString(result.value);                                      
+                                    break;
+
+                                case 2: // Security security = 2;
+                                    network.security = result.value;
+                                    break;
+                                    
+                                case 3: // CredentialsType credentials_type = 3;
+                                    network.credentialsType = result.value;
+                                    break;
+                                }                                        
+                            }
+                            return network;
+                        }
+    
+                        while(protobuf.offset < knownNetworksRes.data.byteLength) {
+                            result = protobuf.decodeTag();
+                    
+                            // repeated Network networks = 1;
+                            if (result.field != 1 || result.wireType != 2) {
+                                break;
+                            }
+                            
+                            result = decodeNetwork(protobuf.offset + result.value);
+                            if (result.ssid) {
+                                knownNetworks.push(result);
+                            }
+                        }
+
+                        knownNetworks.sort(function(a, b) {
+                            return a.ssid.localeCompare(b.ssid);
+                        })
+
+
+                        if (knownNetworks.length > 0) {
+                            ga('send', 'event', gaCategory, 'Wi-Fi Existing', knownNetworks.length);
+
+                            $(wifiExistingRemoveSelectedElem).prop('disabled', true);
+                            $(wifiExistingElem).show();
+                            $(wifiExistingListElem).empty();
+
+                            for(const network of knownNetworks) {
+                                const divElem = document.createElement('div');
+                                $(divElem).css('padding', '3px 0px 3px 0px');
+
+                                const labelElem = document.createElement('label');
+
+                                const radioElem = document.createElement('input');
+                                $(radioElem).attr('type', 'radio');
+                                $(radioElem).attr('value', network.ssid);
+                                $(radioElem).on('click', function() {
+                                    $(wifiExistingListElem).find('input').prop('checked', false);
+                                    $(radioElem).prop('checked', true);
+                                    $(wifiExistingRemoveSelectedElem).prop('disabled', false);
+                                });
+
+                                $(labelElem).append(radioElem);
+
+                                $(labelElem).append(document.createTextNode(network.ssid));
+
+                                $(divElem).append(labelElem);
+
+                                $(wifiExistingListElem).append(divElem);
+                            }
+
+                            $(wifiExistingRemoveSelectedElem).on('click', async function() {
+                                const ssid = $(wifiExistingListElem).find('input:checked').val();
+                                console.log('remove ssid ' + ssid);
+
+                                /*
+                                message RemoveKnownNetworkRequest {
+                                option (type_id) = 503; // CTRL_REQUEST_WIFI_REMOVE_KNOWN_NETWORK
+                                string ssid = 1;
+                                }
+                                */
+                                const enc = apiHelper.protobufEncoder();
+                                enc.appendTag(1, 2);
+                                enc.appendString(ssid);
+
+                                const res = await usbDevice.sendControlRequest(503, enc.toUint8Array()); // CTRL_REQUEST_WIFI_REMOVE_KNOWN_NETWORK
+                                console.log('res', res);
+
+                                ga('send', 'event', gaCategory, 'Wi-Fi Remove Existing');
+
+                                updateWiFiOnDevice();
+                            });
+                            $(wifiExistingRemoveAllElem).on('click', async function() {
+                                /*
+                                message ClearKnownNetworksRequest {
+                                option (type_id) = 504; // CTRL_REQUEST_WIFI_CLEAR_KNOWN_NETWORKS
+                                }
+                                */
+                                const res = await usbDevice.sendControlRequest(504); // CTRL_REQUEST_WIFI_CLEAR_KNOWN_NETWORKS
+                                // console.log('res', res);
+                                // res.result == 0 on success
+
+                                ga('send', 'event', gaCategory, 'Wi-Fi Remove All');
+
+                                updateWiFiOnDevice();
+                            });
+
+                        }
+                    }
+                    else {
+                        console.log('non-zero status getting known networks or no data', knownNetworksRes.result);
+                    }
+                }  
+                catch(e) {
+                    console.log('exception getting known networks', e);
+                }
+                    
+            }
+
+            // Get list of known networks. Use Device OS control requests. This only works on Gen 3
+            if (deviceInfo.platformVersionInfo.gen >= 3) {
+                updateWiFiOnDevice();
+            }
+
+            // Start Wi-Fi scan
+            if (mode == 'wifi') {
+                // Use Device OS control requests for Wi-Fi scan
+
+                const networkResults = await usbDevice.scanWifiNetworks();
+
+                sortedNetworks = [];
+                
+                for(let networkObj of networkResults) {
+                    // Convert enums back into numbers for compatibility with setup firmware
+                    switch(networkObj.security) {
+                        case 'NO_SECURITY':
+                            networkObj.sec = 0;
+                            break;
+
+                        case 'WEP':
+                            networkObj.sec = 1;
+                            break;
+
+                        case 'WPA_PSK':
+                            networkObj.sec = 2;
+                            break;
+
+                        default:
+                        case 'WPA_WPA2_PSK':
+                        case 'WPA2_PSK':
+                            networkObj.sec = 3;
+                            break;
+
+                    }
+
+
+                    if (networkObj.ssid && networkObj.ssid.length > 0 && networkObj.bssid && networkObj.bssid.length > 0) {
+                        let found = false;
+
+                        for(let ii = 0; ii < sortedNetworks.length; ii++) {
+                            if (sortedNetworks[ii].ssid == networkObj.ssid) {
+                                if (networkObj.rssi > sortedNetworks[ii].rssi) {
+                                    sortedNetworks[ii] = networkObj;    
+                                }
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            sortedNetworks.push(networkObj);
+                        }
+                    }
+                }
+
+                sortedNetworks.sort(function(a, b) {
+                    return a.ssid.localeCompare(b.ssid);
+                })
+                
+                wifiNetworksUpdate();
+                wifiNetworksDone();
+        
+            }
+            else {
+                // Use device setup firmware control requests for Wi-Fi scan
+                let reqObj = {
+                    op: 'wifiScan'
+                };
+    
+                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                if (!res.status && res.data) {
+                    const respObj = JSON.parse(res.data);
+                    
+                    if (respObj.hasCredentials) {
+                        // Show option to use existing
+                        $(thisElem).find('.showUseExisting').show();
+                    }
+                }
+    
+            }
+            
             $(eapSelectElem).on('change', eapSelectUpdate);
 
             $(passwordInputElem).on('keydown', function(ev) {
@@ -2947,201 +3336,169 @@ $(document).ready(function() {
             $(setCredentialsElem).on('click', async function() {
                 $(setCredentialsElem).prop('disabled', true);
                 
-                // Setting credentials can take a few seconds, so put up the next step first
-                // so it's clear that the button worked
-                setSetupStep('setupStepWaitForOnline');
-
                 const checkedItems = $('input[name="selectedNetwork"]:checked');
                 const ssid = $(checkedItems).val();
+                const wifiNetworkInfo = sortedNetworks.find(e => e.ssid == ssid);
+                const password = $(passwordInputElem).val();
 
-                const wifiNetworkInfo = addedNetworks[ssid].respObj;
+                if (mode != 'wifi') {
+                    // Setting credentials can take a few seconds, so put up the next step first
+                    // so it's clear that the button worked
+                    setSetupStep('setupStepWaitForOnline');
 
-                let reqObj = {
-                    op: 'wifiSetCredentials',
-                    ssid,
-                    sec: wifiNetworkInfo.sec,
-                    cip: wifiNetworkInfo.cip,                    
-                };
 
-                if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
-                    // WEP, WPA, WPA2
-                    reqObj.pass = $(passwordInputElem).val();
+                    let reqObj = {
+                        op: 'wifiSetCredentials',
+                        ssid,
+                        sec: wifiNetworkInfo.sec,
+                        cip: wifiNetworkInfo.cip,                    
+                    };
+
+                    if (wifiNetworkInfo.sec >= 1 && wifiNetworkInfo.sec <= 3) {
+                        // WEP, WPA, WPA2
+                        reqObj.pass = password;
+                    }
+        
+                    if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
+                        // Enterprise
+                        const eapMode = parseInt($(eapSelectElem).val());
+
+                        if (eapMode == 0) {
+                            // PEAP/MSCHAPv2
+                            // Requires: Inner Identity, Password
+                            // Optional: Root CA, Outer Identity
+                            reqObj.eap = 25; // WLAN_EAP_TYPE_PEAP
+                            reqObj.username = $(wifiUsernameElem).val();
+                            reqObj.pass = password;
+                        }
+                        else
+                        if (eapMode == 1) {
+                            // EAP-TLS
+                            // Requires: Client Certificate, Private Key
+                            // Optional: Root CA, Outer Identity
+                            reqObj.eap = 13; // WLAN_EAP_TYPE_TLS
+                            reqObj.client_certificate = $(clientCertElem).val();
+                            reqObj.private_key = $(privateKeyElem).val();
+                        }
+
+                        // Root CA
+                        const caCert = $(caCertElem).val();
+                        if (caCert.length) {
+                            reqObj.root_ca = caCert;
+                        }
+
+
+                        // Outer Identity
+                        const outerIdentity = $(outerIdentityElem).val();
+                        if (outerIdentity.length) {
+                            reqObj.outer_identity = outerIdentity;
+                        }
+
+                        ga('send', 'event', gaCategory, 'Wi-Fi Credentials Set');    
+
+                    }
+                    console.log('sending request', reqObj);
+
+                    await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                    reqObj = {
+                        op: 'connect',
+                    };
+                    await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                    waitDeviceOnline();
                 }
-    
-                if (wifiNetworkInfo.sec >= 4 && wifiNetworkInfo.sec <= 5) {
-                    // Enterprise
-                    const eapMode = parseInt($(eapSelectElem).val());
+                else {
+                    // Set using Device OS control request
+                    hideDeviceFirmwareInfo();
 
-                    if (eapMode == 0) {
-                        // PEAP/MSCHAPv2
-                        // Requires: Inner Identity, Password
-                        // Optional: Root CA, Outer Identity
-                        reqObj.eap = 25; // WLAN_EAP_TYPE_PEAP
-                        reqObj.username = $(wifiUsernameElem).val();
-                        reqObj.pass = $(passwordInputElem).val();
+                    setSetupStep('setupStepWifiStart');
+                    ga('send', 'event', gaCategory, 'Wi-Fi Configure Start');
+
+                    
+                    const reqObj = {
+                        ssid, 
+                        password
+                    };
+
+                
+                    try {
+                        const res = await usbDevice.joinNewWifiNetwork(reqObj);
+
+                        setSetupStep('setupStepWifiComplete');
+                        ga('send', 'event', gaCategory, 'Wi-Fi Configure Success');
+
+                        await usbDevice.reset();
+
+                        await usbDevice.close();
+                        usbDevice = null;
                     }
-                    else
-                    if (eapMode == 1) {
-                        // EAP-TLS
-                        // Requires: Client Certificate, Private Key
-                        // Optional: Root CA, Outer Identity
-                        reqObj.eap = 13; // WLAN_EAP_TYPE_TLS
-                        reqObj.client_certificate = $(clientCertElem).val();
-                        reqObj.private_key = $(privateKeyElem).val();
+                    catch(e) {
+                        setSetupStep('setupStepWifiFailed');
+                        ga('send', 'event', gaCategory, 'Wi-Fi Configure Failed');
                     }
-
-                    // Root CA
-                    const caCert = $(caCertElem).val();
-                    if (caCert.length) {
-                        reqObj.root_ca = caCert;
-                    }
-
-
-                    // Outer Identity
-                    const outerIdentity = $(outerIdentityElem).val();
-                    if (outerIdentity.length) {
-                        reqObj.outer_identity = outerIdentity;
-                    }
-
-                    ga('send', 'event', gaCategory, 'Wi-Fi Credentials Set');    
 
                 }
-                console.log('sending request', reqObj);
 
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-
-                reqObj = {
-                    op: 'connect',
-                };
-                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-
-                waitDeviceOnline();
                 return;
             });
 
             radioSelectionUpdate();
 
-            // Display results
-            while(true) {
-                reqObj = {
-                    op: 'wifiScanResult'
-                } 
-                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                if (res.result) {
-                    break;
-                }
-
-                if (res.data) {
-                    // TODO: catch exception here
-                    const respObj = JSON.parse(res.data);
-                    
-                    if (respObj.ssid) {
-
-                        if (!addedNetworks[respObj.ssid]) {
-                            let bars = 0;
-                            if (respObj.rssi >= -60) {
-                                bars = 4;
-                            }
-                            else    
-                            if (respObj.rssi >= -70) {
-                                bars = 3;
-                            }
-                            else
-                            if (respObj.rssi >= -80) {
-                                bars = 2;
-                            }
-                            else {
-                                bars = 1;
-                            }
-    
-                            const rowElem = document.createElement('tr');
-    
-                            let colElem;
-                            let radioElem;
-    
-                            // Radio button
-                            colElem = document.createElement('td');
-                            {
-                                radioElem = document.createElement('input');
-                                $(radioElem).attr('type', 'radio');
-                                $(radioElem).attr('name', 'selectedNetwork');
-                                $(radioElem).attr('value', respObj.ssid);
-                                $(colElem).append(radioElem);
-
-                                $(radioElem).on('click', radioSelectionUpdate);
-                            }
-                            $(rowElem).append(colElem);
-    
-                            // SSID
-                            colElem = document.createElement('td');
-                            $(colElem).text(respObj.ssid);
-                            $(rowElem).append(colElem);
-    
-                            // Secure
-                            colElem = document.createElement('td');
-                            if (respObj.sec != 0) {
-                                // 56x68
-                                const imgElem = document.createElement('img');
-                                $(imgElem).attr('src', '/assets/images/device-setup/wifi-lock.png');
-                                $(imgElem).css('width', '15px');
-                                $(imgElem).css('height', '17px');
-                                $(imgElem).css('margin', '2px');
-                                $(colElem).append(imgElem);
-                            }
-                            $(rowElem).append(colElem);
-    
-                            // Strength
-                            colElem = document.createElement('td');
-                            {
-                                // 86x68
-                                const imgElem = document.createElement('img');
-                                $(imgElem).attr('src', '/assets/images/device-setup/signal-bars-' + bars + '.png');
-                                $(imgElem).css('width', '22px');
-                                $(imgElem).css('height', '17px');
-                                $(imgElem).css('margin', '2px');
-                                $(colElem).append(imgElem);    
-                            }
-                            $(rowElem).append(colElem);
-                            
-                            $(thisElem).find('.networkTable > tbody').append(rowElem);
-
-                            addedNetworks[respObj.ssid] = {
-                                respObj,
-                                rowElem,
-                                radioElem
-                            };
-                        }                        
-                    }
-                    if (respObj.done) {
-                        $(thisElem).find('.searchingWiFi').css('visibility', 'hidden');
-
-                        $(thisElem).find('.scanAgain').prop('disabled', false);
-
-                        const numNetworks = Object.keys(addedNetworks).length;
-                        if (numNetworks == 0) {
-                            setSetupStep('setupStepNoWiFi');
-                        }
-                        else
-                        if (numNetworks == 1) {
-                            const ssid = Object.keys(addedNetworks)[0];
-                            $(addedNetworks[ssid].radioElem).trigger('click');
-                        }
-
+            if (mode != 'wifi') {
+                // Display results
+                while(true) {
+                    reqObj = {
+                        op: 'wifiScanResult'
+                    } 
+                    const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                    if (res.result) {
                         break;
                     }
-                    else {
-                        // Wait a bit to try again
-                        await new Promise(function(resolve) {
-                            setTimeout(function() {
-                                resolve();
-                            }, 500);
-                        });
+
+                    if (res.data) {
+                        // TODO: catch exception here
+                        const respObj = JSON.parse(res.data);
+                        
+                        if (respObj.ssid) {
+                            let found = false;
+
+                            for(let ii = 0; ii < sortedNetworks.length; ii++) {
+                                if (sortedNetworks[ii].ssid == respObj.ssid) {
+                                    if (respObj.rssi > sortedNetworks[ii].rssi) {
+                                        sortedNetworks[ii] = respObj;    
+                                    }
+                                    found = true;
+                                }
+                            }
+                            if (!found) {
+                                sortedNetworks.push(respObj);
+                            }
+
+                            sortedNetworks.sort(function(a, b) {
+                                return a.ssid.localeCompare(b.ssid);
+                            });
+
+                            wifiNetworksUpdate();
+        
+                        }
+                        if (respObj.done) {
+                            wifiNetworksDone();
+                            break;
+                        }
+                        else {
+                            // Wait a bit to try again
+                            await new Promise(function(resolve) {
+                                setTimeout(function() {
+                                    resolve();
+                                }, 500);
+                            });
+                        }
+
+
                     }
-
-
                 }
-
-            }
+            }     
 
         };
 
@@ -3363,7 +3720,6 @@ $(document).ready(function() {
             ];
         
 
-
             try {
                 $(setupSelectDeviceButtonElem).prop('disabled', false);
         
@@ -3377,6 +3733,10 @@ $(document).ready(function() {
         
                 usbDevice = await ParticleUsb.openNativeUsbDevice(nativeUsbDevice, {});
 
+                if (mode == 'wifi') {
+                    $(thisElem).find('.setupWiFiInstructions').hide();
+                }
+    
                 // TODO: Try this with a device with old Device OS, not sure whether this step
                 // fails or the next one, but if the Device OS doesn't support control requests
                 // we need to update Device OS first, then go back to check device settings.

@@ -9,8 +9,6 @@ description: Particle Debugger
 
 <div align=center><img src="/assets/images/accessories/debugger.png" ></div>
 
-**The Particle Debugger is no longer available for sale** however you can follow the instructions [here](/troubleshooting/debuggers/debugger-adapter/) for using other low-cost CMSIS-DAP debuggers that are compatible with it.
-
 The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle Gen 3 hardware over common interfaces like JTAG and SWD, using open source tools like GDB and openocd. It can also be used with Gen 2 devices, with the addition of some jumper wires.
 
 Supports the open source [CMSIS-DAP specification](https://os.mbed.com/handbook/DAPLink) and DAPLink firmware developed by ARM. On Mac, Linux, and Windows it requires no additional device drivers. 
@@ -76,4 +74,13 @@ It's normal if your operating system warns that the disk was not ejected safely.
 If you're interested in the details of the DAPLink software that runs on the Particle Debugger, it's open source and available in the [Particle DAPLink fork GitHub](https://github.com/particle-iot/DAPLink/).
 
 Drag-and-drop flashing only works with .hex files. You can't drop a Particle .bin file directly onto the debugger DAPLINK volume. Also, it's still not particularly reliable on Gen 2 devices (Photon, P1, Electron, and E Series). For Gen 2 devices, you should stick with using openocd, which works quite well.
+
+## Ordering information
+
+The Particle Debugger is available from [store.particle.io](https://store.particle.io/products/particle-debugger).
+
+| SKU | Description | Lifecycle | Replacement |
+| :--- | :--- | :--- | :--- |
+| ACC-DEBUG | Particle Debugger | In development | |
+
 

@@ -31,7 +31,7 @@
       "title": "Device Setup",
       "dir": "setup",
       "href": "/tools/setup/",
-      "hidden": true
+      "internal": true
     },
     {
       "dir": "developer-tools",
@@ -61,6 +61,16 @@
       {
         "dir": "hex-generator",
         "href": "/tools/developer-tools/hex-generator/"
+      },
+      {
+        "dir": "battery-calculator",
+        "title": "Battery calculator",
+        "href": "/tools/developer-tools/battery-calculator/"
+      },
+      {
+        "dir": "configure-wi-fi",
+        "title": "Configure Wi-Fi",
+        "href": "/tools/developer-tools/configure-wi-fi/"
       }
     ],
     {
@@ -80,12 +90,25 @@
       {
         "dir": "import-devices",
         "title": "Import devices",
-        "href": "/tools/cloud-tools/import-devices/",
-        "hidden": true
+        "href": "/tools/cloud-tools/import-devices/"
+      },
+      {
+        "dir": "device-remove",
+        "href": "/tools/cloud-tools/device-remove/"
       },
       {
         "dir": "integration-copy",
         "href": "/tools/cloud-tools/integration-copy/"
+      },
+      {
+        "title": "Cellular usage",
+        "href": "/troubleshooting/connectivity/cellular-usage/"
+      },
+      {
+        "dir": "tinker",
+        "title": "Tinker",
+        "href": "/tools/cloud-tools/tinker/",
+        "internal": true
       }
     ],
     {
@@ -104,7 +127,7 @@
       {
         "title": "Device Restore USB (Old Version)",
         "href": "/tools/device-restore/device-restore-usb-old/",
-        "hidden": true
+        "internal": true
       }
     ]
   ]

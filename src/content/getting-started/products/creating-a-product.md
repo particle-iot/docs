@@ -324,11 +324,11 @@ Beware: If you have two integrations, one in the owner account and one in the pr
 
 To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/cloud-tools/integration-copy/).
 
-### Server Sent Events (SSE)
+### Server-Sent Events (SSE)
 
 {{!-- BEGIN shared-blurb 7aab98b6-da1a-43e8-ac8c-49713ceef19d --}}
 
-Two common ways Particle devices can trigger external services are webhooks and Server Sent Events (SSE).
+Two common ways Particle devices can trigger external services are webhooks and Server-Sent Events (SSE).
 
 The SSE event stream works by having your server make an outbound https (encrypted) connection to the Particle API service. This connection is kept open, and if new events arrive, they are immediately passed down this stream. There are a number of advantages to this:
 

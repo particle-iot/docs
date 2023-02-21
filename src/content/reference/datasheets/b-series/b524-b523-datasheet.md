@@ -63,6 +63,15 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * RoHS compliant (lead-free)
 
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the B524 and B523.
+
+The B524 and B523 are compatible with Device OS 2.x LTS, however the 2.x LTS release line is in the Extended Support and Maintenance (ESM) window and will stop being supported in 2024.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
 ## Interfaces
 
 ### Block diagram
@@ -84,7 +93,14 @@ If you are not using a battery, or using a battery of a different voltage, you s
 
 These limits do not include any 3.3V peripherals on your base board, so that may increase the current requirements.
 
-Your power supply must have a maximum ripple of 120mV peak-to-peak for proper operation of the MCU.
+{{!-- BEGIN shared-blurb b7c36aca-bdfe-463c-b901-53a3aeec8ab0 --}}
+Power supply requirements:
+- 3.3V output
+- Maximum 5% voltage drop
+- 100 mV peak-to-peak ripple maximum
+- 500 mA minimum output current at 3.3V recommended for future compatibility
+- Maintain these values at no-load as well as maximum load
+{{!-- END shared-blurb --}}
 
 We do not recommend using a single 3.6V supply for both VCC and 3V3 as the cellular modem performance may be lower below 3.7V. Use two separate regulators for best results.
 
@@ -791,3 +807,4 @@ Radio Equipment Regulations 2017 (S.I. 2017/1206)
 | 016      | 31-Oct-2022 | RK | Updated EU operating frequencies |
 | 017      | 10-Dec-2022 | RK | Added PMIC notes |
 | 018      | 06-Jan-2022 | RK | Clarify power supply notes for VCC and 3V3 |
+| 019      | 31-Jan-2023 | RK | Add Device OS versions |

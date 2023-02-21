@@ -171,7 +171,7 @@
   {
     "type": "get",
     "url": "/v1/access_tokens",
-    "title": "List Access Tokens",
+    "title": "List access tokens",
     "name": "ListAccessTokens",
     "description": "<p>Retrieve a list of all the issued access tokens for your account</p>",
     "group": "Authentication_4",
@@ -900,7 +900,7 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/customers",
-    "title": "Create a customer - Access Token",
+    "title": "Create a customer - Access token",
     "name": "CreateCustomer",
     "description": "<p>Create a customer for a product. An access token of a user that belongs to the product is required. The <code>email</code> field can contain a unique identifier instead but some platform functionalities might not work (i.e. sending a password reset email).</p>",
     "parameter": {
@@ -947,7 +947,7 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/customers",
-    "title": "Create a customer - Client Credentials",
+    "title": "Create a customer - Client credentials",
     "name": "CreateCustomer",
     "description": "<p>Create a customer for a product using OAuth client credentials grant type. <strong>This is the way you should hit the <code>POST</code> customers endpoint if you are creating customers from your server (two-legged authentication), or from a mobile application</strong>. In this case, you may create a customer without a password, by passing the <code>no_password: true</code> flag.</p> <p>You must give a valid product OAuth client ID and secret in HTTP Basic Auth or in the <code>client_id</code> and <code>client_secret</code> parameters.</p>",
     "header": {
@@ -1102,7 +1102,7 @@
   {
     "type": "get",
     "url": "/v1/products/:productIdOrSlug/customers",
-    "title": "List Customers for a Product",
+    "title": "List customers for a product",
     "name": "ListProductCustomers",
     "description": "<p>List Customers for a product.</p>",
     "parameter": {
@@ -1520,7 +1520,7 @@
   {
     "type": "post",
     "url": "/v1/devices",
-    "title": "Claim a Device",
+    "title": "Claim a device",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1846,7 +1846,7 @@
   {
     "type": "get",
     "url": "/v1/devices",
-    "title": "List Devices",
+    "title": "List devices",
     "name": "ListDevices",
     "description": "<p>List devices the currently authenticated user has access to. By default, devices will be sorted by <code>last_handshake_at</code> in descending order.</p>",
     "group": "Devices_1",
@@ -1877,7 +1877,7 @@
   {
     "type": "get",
     "url": "/v1/products/:productIdOrSlug/devices",
-    "title": "List Devices in a product",
+    "title": "List devices in a product",
     "name": "listDevicesForProduct",
     "group": "Devices_2",
     "description": "<p>List all devices that are part of a product. Results are paginated, by default returns 25 device records per page.</p>",
@@ -2048,10 +2048,10 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/devices",
-    "title": "Import Devices into product",
+    "title": "Import devices into product",
     "name": "importDevicesIntoProduct",
     "group": "Devices_3",
-    "description": "<p>Import devices into a product. Devices must be of the same <em>platform type</em> as the product in order to be successfully imported. Imported devices may receive an immediate OTA firmware update to the product's released firmware.</p> <p>Importing a device with a SIM card will also import the SIM card into the product.</p>",
+    "description": "<p>Import devices into a product. Devices must be of the same <em>platform type</em> as the product in order to be successfully imported. Imported devices may receive an immediate OTA firmware update to the product's released firmware.</p> <p>Importing a device with a Particle SIM card will also import the SIM card into the product and activate the SIM card.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -2071,6 +2071,13 @@
           },
           {
             "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "ids",
+            "description": "<p>An array of device ID to import into a product. Pass <code>ids</code> if you are trying to import multiple device</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Boolean",
             "optional": true,
             "field": "import_sims",
@@ -2078,10 +2085,17 @@
           },
           {
             "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "claim_user",
+            "description": "<p>The username (email) of a Particle user to claim the imported devices. This user must be a member of the product team.</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "File",
             "optional": true,
             "field": "file",
-            "description": "<p>A .txt file containing a single-column list of device IDs, device serial numbers, device IMEIs or device ICCIDs. This is the preferred method of importing many devices into a product at once. Encoded in <code>multipart/form-data</code> format</p>"
+            "description": "<p>A .txt file containing a single-column list of device identifiers: device IDs, serial numbers, IMEIs or ICCIDs. This is an alternative to <code>ids</code> for importing many devices into a product at once. Encoded in <code>multipart/form-data</code> format</p>"
           }
         ]
       }
@@ -2093,8 +2107,13 @@
     ],
     "examples": [
       {
-        "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=12345\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=12345\" \\\n       -F file=@devices.txt",
+        "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?claim_user=user@domain.com\" \\",
+        "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?claim_user=user@domain.com\" \\\n       -H \"Authorization: Bearer 12345\" \\\n       -F file=@devices.txt",
+        "type": "bash"
+      },
+      {
+        "title": "Providing devices in the body",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/devices\n       -H \"Authorization: Bearer 12345\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{ \"ids\":[\"abc123\"], \"claim_user\": \"user@domain.com\" }'",
         "type": "bash"
       }
     ],
@@ -2112,22 +2131,36 @@
             "group": "Success 200",
             "type": "Array",
             "optional": false,
-            "field": "nonmemberDeviceIds",
-            "description": "<p>Device IDs that already belong to other products that could not be imported</p>"
+            "field": "updatedDeviceIds",
+            "description": "<p>Device identifiers that have been added to the product. The identifiers correspond to what was passed in the <code>file</code> or <code>id</code> field of the request, so they could be device IDs, serial numbers, IMEIs or ICCIDs.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
-            "field": "invalidDeviceIds",
-            "description": "<p>Device IDs that were invalid and could not be imported</p>"
+            "field": "existingDeviceIds",
+            "description": "<p>Device identifiers that were already in the product</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "nonmemberDeviceIds",
+            "description": "<p>Device identifiers that belong to another owner and could not be imported</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "inupdatedDeviceIds",
+            "description": "<p>Device identifiers that were invalid and could not be imported</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "POST /v1/products/:productIdOrSlug/devices",
-          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":20,\n\t\"nonmemberDeviceIds\":[],\n\t\"invalidDeviceIds\":[]\n}",
+          "content": "POST /v1/products/:productIdOrSlug/devices\nHTTP/1.1 200 OK\n{\n\t\"updated\":1,\n \"updatedDeviceIds\":[\"abc1234\"],\n \"existingDeviceIds\":[],\n\t\"nonmemberDeviceIds\":[],\n\t\"inupdatedDeviceIds\":[]\n}",
           "type": "json"
         }
       ]
@@ -2154,7 +2187,7 @@
       }
     },
     "name": "GetDevice",
-    "description": "<p>Get basic information about the given device, including the custom variables and functions it has exposed.</p>",
+    "description": "<p>Get basic information about the given device, including the custom variables and functions it has exposed. This can be called for sandbox devices claimed to your account and for product devices you have access to, regardless of claiming.</p>",
     "group": "Devices_4",
     "success": {
       "fields": {
@@ -5724,7 +5757,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Create a Webhook",
+    "title": "Create a webhook",
     "description": "<p>A webhook is a flexible type of integration that allows you to interact with a wide variety of external tools and services. Create a webhook either for devices you own as a Particle developer, or for your product fleet. For more info, check out <a href=\"/guide/tools-and-features/webhooks/\">the webhooks guide</a>.</p>",
     "group": "Integrations_1",
     "name": "CreateWebhook",
@@ -5939,7 +5972,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Enable Azure IoT Hub Integration",
+    "title": "Enable Azure IoT Hub integration",
     "group": "Integrations_2",
     "permission": [
       {
@@ -6105,7 +6138,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Enable Google Cloud Platform Integration",
+    "title": "Enable Google Cloud Platform integration",
     "group": "Integrations_3",
     "permission": [
       {
@@ -6236,7 +6269,7 @@
   {
     "type": "post",
     "url": "/v1/integrations",
-    "title": "Enable Google Maps Integration",
+    "title": "Enable Google Maps integration",
     "group": "Integrations_4",
     "permission": [
       {
@@ -7464,8 +7497,178 @@
   },
   {
     "type": "get",
+    "url": "/v1/orgs",
+    "title": "List organizations",
+    "name": "listOrganizationsForUser",
+    "description": "<p>List organizations the currently authenticated user has access to</p>",
+    "group": "Organizations_1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/orgs?access_token=12345\"",
+        "content": "$ curl \"https://api.particle.io/v1/orgs?access_token=12345\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "-",
+            "description": "<p>An array of organizations</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/orgs",
+          "content": "GET /v1/orgs\nHTTP/1.1 200 OK\n{\n\t \"organizations\": [\n       {\n\t\t\t\"id\":\"9980222caf8bad191600019b\",\n\t\t\t\"slug\":\"particle\",\n\t\t\t\"name\": \"Particle\"\n\t\t},\n       ...\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/product.js",
+    "groupTitle": "Organizations_1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug",
+    "title": "Retrieve an organization",
+    "name": "getOrganization",
+    "description": "<p>Retrieve details for an organization.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orgIdOrSlug",
+            "description": "<p>Organization ID or Slug</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "organization:get"
+      }
+    ],
+    "group": "Organizations_2",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "organization",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/orgs/particle",
+          "content": "GET /v1/orgs/particle\nHTTP/1.1 200 OK\n{\n  \"organization\": {\n    \"id\": \"9980222caf8bad191600019b\",\n    \"slug\": \"particle\",\n    \"name\": \"Particle\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/product.js",
+    "groupTitle": "Organizations_2"
+  },
+  {
+    "type": "get",
+    "url": "/v1/orgs/:orgIdOrSlug/products",
+    "title": "List organization products",
+    "name": "listOrgProducts",
+    "description": "<p>List products which belong the the organization</p>",
+    "group": "Organizations_3",
+    "permission": [
+      {
+        "name": "products:list"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "List Organization Products",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/particle/products?access_token=12345\"",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "products",
+            "description": "<p>List of Products</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/orgs/particle/products",
+          "content": "GET /v1/orgs/particle/products\nHTTP/1.1 200 OK\n{\n  \"products\": [{\n    \"id\": 12345,\n    \"platform_id\": 10,\n    \"name\": \"My Product\",\n    \"slug\": \"my-product\",\n    \"description\": \"My test product\",\n    \"org\": \"Particle\",\n    \"organization_id\": \"9980222caf8bad191600019b\",\n    \"groups\": [\n      \"one\",\n      \"two\"\n    ],\n    \"settings\": {\n        \"location\": {},\n        \"known_application\": {\n            \"opt_in\": true\n        },\n        \"quarantine\": false\n    }\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api-service/src/views/product.js",
+    "groupTitle": "Organizations_3"
+  },
+  {
+    "type": "get",
     "url": "/v1/products/:productIdOrSlug/firmware/:version",
-    "title": "Get Product Firmware",
+    "title": "Get product firmware",
     "name": "getProductFirmwareVersion",
     "group": "ProductFirmware_1",
     "parameter": {
@@ -8021,7 +8224,7 @@
   {
     "type": "get",
     "url": "/v1/user/products",
-    "title": "List Products",
+    "title": "List products",
     "name": "listProducts",
     "description": "<p>List products the currently authenticated user has access to</p>",
     "group": "Products_1",
@@ -8221,6 +8424,11 @@
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/team?access_token=123abc\"",
         "content": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/team?access_token=123abc\"",
         "type": "bash"
+      },
+      {
+        "title": "List organization team members",
+        "content": "$ curl \"https://api.particle.io/v1/orgs/:orgIdOrSlug/team?access_token=123abc\"",
+        "type": "bash"
       }
     ],
     "success": {
@@ -8284,6 +8492,13 @@
             "optional": false,
             "field": "username",
             "description": "<p>Username of the invitee. Must be a valid email associated with an Particle user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "role",
+            "description": "<p>The role for the invited user. One of Administrator, Developer, View-only, Support.</p>"
           }
         ]
       }
@@ -8291,12 +8506,20 @@
     "permission": [
       {
         "name": "teams.users:invite"
+      },
+      {
+        "name": "teams.users:invite"
       }
     ],
     "examples": [
       {
         "title": "Example request",
-        "content": "$ curl \"https://api.particle.io/products/:productIdOrSlug/team\" \\\n       -d username=test@example.com \\\n       -d access_token=123abc",
+        "content": "$ curl \"https://api.particle.io/products/:productIdOrSlug/team\" \\\n       -d username=test@example.com \\\n       -d role=Administrator \\\n       -d access_token=123abc",
+        "type": "bash"
+      },
+      {
+        "title": "Invite user to organization",
+        "content": "$ curl \"https://api.particle.io/orgs/:orgIdOrSlug/team\" \\\n       -d username=test@example.com \\\n       -d role=Administrator \\\n       -d access_token=123abc",
         "type": "bash"
       }
     ],
@@ -8502,6 +8725,18 @@
         }
       ]
     },
+    "examples": [
+      {
+        "title": "Delete product user",
+        "content": "$ curl -X DELETE \"https://api.particle.io/products/:productIdOrSlug/team/test@example.com?access_token=123abc\"",
+        "type": "bash"
+      },
+      {
+        "title": "Delete organization user",
+        "content": "$ curl -X DELETE \"https://api.particle.io/orgs/:orgIdOrSlug/team/test@example.com?access_token=123abc\"",
+        "type": "bash"
+      }
+    ],
     "success": {
       "examples": [
         {
@@ -9023,7 +9258,7 @@
   {
     "type": "get",
     "url": "/v1/user/usage_reports/:usageReportId",
-    "title": "Get a User Usage Report",
+    "title": "Get a user usage report",
     "name": "getUserUsageReport",
     "description": "<p>Get a single usage report related to the user. Expect &quot;download_url&quot; to be present only when the usage report has an &quot;available&quot; state.</p>",
     "parameter": {
@@ -9185,7 +9420,7 @@
   {
     "type": "get",
     "url": "/v1/orgs/:orgSlugOrId/usage_reports/:usageReportId",
-    "title": "Get an Org Usage Report",
+    "title": "Get an org usage report",
     "name": "getOrgUsageReport",
     "description": "<p>Get a single usage report related to an organization. Expect &quot;download_url&quot; to be present only when the usage report has an &quot;available&quot; state.</p> <p>The user must be an active member of the organization.</p>",
     "parameter": {
@@ -9359,7 +9594,7 @@
   {
     "type": "post",
     "url": "/v1/user/service_agreements/:serviceAgreementId/usage_reports",
-    "title": "Create a User Usage Report",
+    "title": "Create a user usage report",
     "name": "createUserUsageReport",
     "description": "<p>Request a new usage report related to the user service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p>",
     "parameter": {
@@ -9568,7 +9803,7 @@
   {
     "type": "post",
     "url": "/v1/orgs/:orgSlugOrId/service_agreements/:serviceAgreementId/usage_reports",
-    "title": "Create an Org Usage Report",
+    "title": "Create an org usage report",
     "name": "createOrgUsageReport",
     "description": "<p>Request a new usage report related to the organization service agreement.</p> <p>The usage report will be processed asynchronously. Expect its &quot;state&quot; to change throughout time.</p> <p>The user must be an active member of the organization.</p>",
     "parameter": {

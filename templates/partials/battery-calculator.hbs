@@ -1,0 +1,99 @@
+<!-- api-helper, api-helper-extras, battery-calculator -->
+<div class="batteryCalculator">
+    <div class="batteryCalculatorDeviceSelect batteryCalculatorRowItem"> 
+        <div>Device: <select class="deviceSelect apiHelperSelect">
+            <option value="ONE402" selected>Tracker One ONE404, ONE402 (North America)</option>
+            <option value="ONE523">Tracker One ONE524, ONE523 (EMEAA)</option>
+            <option value="B402">B SoM B404, B402 (North America)</option>
+            <option value="B523">B SoM B524, B523 (EMEAA)</option>
+            <option value="BRN402">Boron BRN404, BRN402 (North America)</option>
+            <option value="BRN310">Boron 2G/3G</option>
+        </select></div>
+    </div>
+    <div class="batteryCalculatorSeparatorRow"></div>
+    <div class="batteryCalculatorRowItem">
+        <div class="showTracker" style="display:none">
+            <p>Tracker devices generally wake using Ultra Low Power (ULP), wake by time or wake by motion, depending on 
+            your Tracker fleet settings. No sleep mode can be used as well, but generally only if you will be powering
+            using an external power supply. Other modes can be used with custom firmware, but are not recommended for 
+            the Tracker One and Tracker SoM.</p>
+        </div>
+        <div class="showNotTracker" style="display:none">
+            <p>A variety of sleep modes are available on Particle devices. In most cases you will use ULP mode if you 
+            are using sleep mode. More information can be found in the [sleep modes documentation](/reference/device-os/api/sleep-sleep/sleep-sleep/).</p>
+        </div>
+    </div>
+    <div class="batteryCalculatorSleepMode batteryCalculatorRowItem"> 
+        <div>Sleep Mode: <select class="sleepMode apiHelperSelect">
+            <option value="none">No sleep</option>
+            <option value="ulp,Iulp_cell">Ultra Low Power (ULP), cellular standby</option>
+            <option value="ulp,Iulp_intrtc" selected>Ultra Low Power (ULP), wake by time</option>
+            <option value="ulp,Iulp_imu">Ultra Low Power (ULP), wake by motion</option>
+            <option value="stop,Istop_intrtc">Stop mode sleep, wake by time</option>
+            <option value="hibernate,Ihib_gpio">Hibernate mode sleep, wake by GPIO</option>
+        </select></div>
+    </div>
+    <div class="batteryCalculatorSeparatorRow"></div>
+    <div class="batteryCalculatorRowItem">
+        <p>The frequency of publishing will affect the amount of power used and also the number of data operations per month 
+        that your fleet uses.</p>
+        <p>If you are using no sleep or ULP cellular standby mode, you can publish up to once per second, however this will 
+        likely use a cost-prohibitive number of data operations.
+        </p>
+        <p>In other sleep modes, reconnecting to cellular must not be done more than once every 10 minutes. Doing frequent
+        reconnection can cause your SIM to be banned by your mobile carrier for aggressive reconnection.
+        </p>
+    </div>
+    <div class="numPublishes batteryCalculatorRowItem"> 
+        <div style="padding: 3px 0px 3px 0px;"><label><input type="radio" name="countMode" value="everyMinutes" checked/>Publish every <input type="text" size="10" class="everyMinutes" value="30"/> minutes</label></div>
+        <div style="padding: 3px 0px 3px 0px;"><label><input type="radio" name="countMode" value="perDay"/>Publish <input type="text" size="10" class="perDay" value="4"/> times per day</label></div>
+    </div>
+    <div class="warnAggressiveReconnection batteryCalculatorRowItem"> 
+        <p>You should avoid sleep settings that will reconnect more often than every 10 minutes. Doing so can cause your SIM
+        to be banned by your mobile carrier for excessive reconnection. If you need to publish frequently, you should
+        use no sleep or cellular standby mode.</p>
+    </div>
+    <div class="batteryCalculatorSeparatorRow"></div>
+    <div class="batteryCalculatorRowItem">
+        <div class="showTrackerOne" style="display:none">
+            <p>The Tracker One has a built-in 2000 mAh battery. It's not practical to change the size of the internal battery.</p>
+        </div>
+        <div class="showNotTrackerOne" style="display:none">
+            <p>Devices that come with a battery generally include an 1800 mAh LiPo battery. Third-party batteries are available
+            in a variety of shapes and sizes, such as 2000 mAh, 2200 mAh, 4400 mAh, and 6600 mAh. See the 
+            <a href="/hardware/power/batteries/">battery guide</a> for more information.</p>
+        </div>
+    </div>
+    {{> battery-calculator-parameter parameter="batterySize" label="Battery size" default="mAh"}}
+    <div class="batteryCalculatorSeparatorRow sleepParameter"></div>
+    <div class="batteryCalculatorRowItem sleepParameter">
+        <p>The time to connect and publish is dependent on the type of cellular modem (LTE Cat M1 is the fastest, and 2G is the slowest),
+            and also the cellular signal strength and quality. It can range from as low as 5 seconds, to several minutes, which will 
+            dramatically affect your battery usage.
+        </p>
+    </div>
+    {{> battery-calculator-parameter parameter="connectTime" label="Time to connect and publish" default="60" labelAfter="seconds" addClass="sleepParameter"}}
+    <div class="batteryCalculatorSeparatorRow sleepParameter"></div>
+    <div class="batteryCalculatorRowItem sleepParameter">
+        <p>The time to stay awake after publish allows for other housekeeping tasks, and to allow time for a software update to be sent to the 
+            device, if needed.
+        </p>
+    </div>
+    {{> battery-calculator-parameter parameter="afterPublish" label="Time to stay awake after publish" default="10" labelAfter="seconds" addClass="sleepParameter"}}
+    <div class="batteryCalculatorSeparatorRow "></div>
+    <div class="batteryCalculatorRowItem">
+        <p>We do not recommend using the battery until completely discharged. While LiPo batteries are not damaged by complete discharge, during
+            the connection to cellular the device will use a lot of current, which can cause the MCU to brown out and reset. This 
+            should be avoided because abruptly resetting the cellular modem can damage it, particularly with the 
+            [SARA R410M](/reference/technical-advisory-notices/tan004-power-off-recommendations-for-sara-r410m-equipped-devices/) cellular modem.
+        </p>
+    </div>
+    {{> battery-calculator-parameter parameter="reservePct" label="Battery percentage to reserve" default="10" labelAfter="%"}}
+    <h3>Results</h3>
+    <div class="calculatorResult batteryCalculatorRowItem">         
+    </div>
+    <div><p>This tool only generates a rough estimate and you should always validate the results on your 
+        hardware in you intended environment. This tool is currently in beta testing may have bugs that affect
+        the results, as well.
+    </p></div>
+</div>

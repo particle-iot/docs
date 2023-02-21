@@ -36,7 +36,7 @@ For a webhook, when the triggering event is received, it makes an outgoing conne
 
 {{!-- BEGIN shared-blurb 7aab98b6-da1a-43e8-ac8c-49713ceef19d --}}
 
-Two common ways Particle devices can trigger external services are webhooks and Server Sent Events (SSE).
+Two common ways Particle devices can trigger external services are webhooks and Server-Sent Events (SSE).
 
 The SSE event stream works by having your server make an outbound https (encrypted) connection to the Particle API service. This connection is kept open, and if new events arrive, they are immediately passed down this stream. There are a number of advantages to this:
 

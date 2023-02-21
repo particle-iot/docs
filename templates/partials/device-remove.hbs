@@ -1,54 +1,20 @@
-<div class="apiHelper apiHelperDeviceRemove apiHelperProductOrSandboxSelector apiHelperLoggedIn">
+<div class="apiHelper apiHelperDeviceRemove apiHelperProductOrSandboxSelector apiHelperTable apiHelperLoggedIn">
     <div class="apiHelperBox">
         <div> 
             <p>Device IDs to remove:<br/>
-            <p><textarea class="deviceTextArea" rows="10" cols="50"></textarea></p>
-            <table class="apiHelperTableNoMargin">
-                <tbody>
-                    <tr class="devOrProductRow">
-                        <td class="apiHelperProductSelectorLabel apiHelperDevOrProductRadio">
-                        <label><input type="radio" name="devOrProduct" value="product" checked/>Product Devices</label> &nbsp;&nbsp;
-                        <label><input type="radio" name="devOrProduct" value="dev" />Sandbox Developer Devices</label> &nbsp;&nbsp;
-                        </td><td>&nbsp;</td>
-                    </tr>
-                    <tr class="sandboxOrgRow" style="display:none">
-                        <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
-                        <label><input type="radio" name="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
-                        <label><input type="radio" name="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
-                        </td><td>&nbsp;</td></tr>
-                    <tr class="orgSelectorRow" style="display:none">
-                        <td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td>
-                    </tr>
-                    <tr class="productSelectorRow">
-                        <td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button class="apiHelperButton actionButton" disabled>Check Device Status</button>
-                        </td>                
-                        <td>&nbsp;</td>
-                    </tr>
-                </tbody>
-            </table>            
-        </div>
-        <div class="deviceTableDiv" style="display:none">
-            <table class="apiHelperTableNoMargin">
-                <thead>
-                    <tr>
-                        <th>Device ID</th>
-                        <th>Device Name</th>
-                        <th>Claimed To</th>
-                        <th>ICCID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <p><textarea class="deviceTextArea" style="width: 450px; height: 60px; font-size: 9px;" spellcheck="false"></textarea></p>            
+            <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px; align-items: center;">
+                <div>Add devices from a file: </div>
+                <div style="width: 500px;" class="fileDropZone">
+                    <button class="selectFileButton">Select File</button> or drag-and-drop file here
+                    <input type="file" class="importFileInput" style="display:none" />
+                </div>
+            </div>
         </div>
         <div>
             <table class="apiHelperTableNoMargin">
                 <tbody>
-                    <tr class="removeFromProductRow">
+                    <tr>
                         <td colspan="2"><label><input class="removeFromProduct" type="checkbox" checked />Remove from product</label></td>
                         <td>&nbsp;</td>
                     </tr>
@@ -56,8 +22,8 @@
                         <td colspan="2"><label><input class="unclaimDevice" type="checkbox" checked />Unclaim device</label></td>
                         <td>&nbsp;</td>
                     </tr>
-                    <tr class="releaseSimRow">
-                        <td colspan="2"><label><input class="releaseSim" type="checkbox" checked />Release SIM ownership</label></td>
+                    <tr>
+                        <td colspan="2"><label><input class="releaseSim" type="checkbox" checked />Release SIM ownership (for cellular devices)</label></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
@@ -70,17 +36,18 @@
             </table>
         </div>
         <div class="apiHelperStatus"></div>
-        <div class="logDiv" style="display:none">
-            <p>Log:</p>
-            <textarea rows="20" cols="80">
-
-            </textarea>
-        </div>
-        <div class="sandboxUnclaimWarning" style="display:none">
+        <div class="sandboxUnclaimWarning warningDiv" style="display:none">
             <p>Warning!<br/>
             If you unclaim sandbox devices you can only claim them again if they are online and breathing cyan.
             </p>
         </div>
+        <div class="productUnclaimWarning warningDiv" style="display:none">
+            <p>Warning!<br/>
+            If you remove devices from a product but do not unclaim, the owner account is limited to a maximum 
+            of 100 devices. Operations will fail if this limit is exceeded.
+            </p>
+        </div>
+        {{> table-display }}
     </div>
 </div>
 

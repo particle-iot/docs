@@ -102,6 +102,9 @@
                 <div class="doctorMode">
                     <details style="padding-top: 100px" class="doctorModeSettings">
                         <summary>Advanced Options</summary>
+                        <p>These options are seldom needed and may adversely affect connectivity if used incorrectly.</p>
+                        <p><label><input type="checkbox" class="doctorForceVersion"/>Specific Device OS version</label> <select class="doctorDeviceOsVersion apiHelperSelect">
+                        </select></p>
                         <p class="hasEthernetRow"><label><input type="checkbox" class="doctorUseEthernet"/>Use Ethernet for connectivity</label></p>
                         <p><label><input type="checkbox" class="doctorSetKeepAliveCheckbox"/>Set keep-alive to </label> <input type="text" size="6" value="120" class="doctorKeepAliveInput" /> seconds</p>
                     </details>
@@ -360,12 +363,21 @@
                         </tr>
                     </tbody>
                 </table>
-                <p><button class="setCredentials">Select Wi-Fi Network</button></p>
+                <p><button class="setCredentials" disabled>Select Wi-Fi Network</button></p>
                 <div class="showUseExisting" style="display:none">
                     <p style="padding-top:15px"><button class="useExisting">Use Wi-Fi Already Configured on the Device</button></p>
                 </div>
                 <div>
                     <p style="padding-top:15px"><button class="scanAgain">Scan for Wi-Fi Networks Again</button></p>
+                </div>
+                <div class="wifiExisting" style="display:none; padding-top:25px;">
+                    <h3>Edit existing Wi-Fi networks on device</h3>
+                    <div class="wifiExistingList">                        
+                    </div>
+                    <p style="padding-top:15px">
+                        <button class="wifiExistingRemoveSelected" disabled>Remove Selected</button> &nbsp;
+                        <button class="wifiExistingRemoveAll">Remove All</button>
+                    </p>
                 </div>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
@@ -458,6 +470,26 @@
                 <p><button class="continueWithoutActivating">Continue Without Activating</button></p>
                 <p>If you continue without activating the SIM you may not be able to get online until you manually activate the SIM.</p>
                 </p>
+            </div>
+            <div class="setupStepWifiStart" style="display:none">
+                <p>Wi-Fi setup in progress... this can take up to 1 minute.</p>
+            </div>
+            <div class="setupStepWifiComplete" style="display:none">
+                <p>Wi-Fi setup compete. Your device will be reset to activate the new configuration.</p>
+            </div>
+            <div class="setupStepWifiFailed" style="display:none">
+                <p>Wi-Fi setup failed. This can happen if the password is invalid. It may help to reset the device and try again.</p>
+            </div>
+            <div class="setupStepWifiGen2" style="display:none">
+                <p>This Wi-Fi setup tool cannot be used with the Photon and P1. The Web Device Doctor can be used to set Wi-Fi credentials.</p>
+            </div>
+            <div class="setupStepWifiInDFU" style="display:none">
+                <p>The device must be in listening mode (blinking dark blue), normal operating mode (breathing cyan), blinking green, 
+                    blinking cyan or safe mode (breathing magenta) to use this tool.</p>
+                <p>The device cannot be in safe mode (blinking yellow), reset the device or use the Web Device Doctor to repair it.</p>
+            </div>
+            <div class="setupStepWiFiIsCellular" style="display:none">
+                <p>This option can only be used to configure Wi-Fi devices.</p>
             </div>
             <div class="setupStepTowerScan" style="display:none">
                 <div class="setupStepTowerScanRunning">
@@ -616,17 +648,25 @@
         </div>
         <div class="setupStatus">
         </div>
-        <div class="setupBrowserError" style="display:none">
-            <p>This tool can only be used on:</p>
-            <ul>
-                <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
-                <li>Edge (version 79 or later</li>
-                <li>Opera (Windows, Mac, Linux, or Android, version 48 or later</li>
-                <li>Samsung Internet (version 8.0 or later)</li>
-            </ul>
-            <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
-            you can use the Particle CLI for Windows, Mac, and Linux, or the Particle mobile app for iOS or Android instead.</p>
+        <div class="setupWiFiInstructions" style="display:none">
+            <p>This tool can be used to set up Wi-Fi for Argon, P2, and Photon 2 devices connected by USB.
+                It will only set Wi-Fi credentials and does not affect claiming or product membership
+                and does not flash any firmware to the device.</p>
+            <p>It can only be used in Chrome, Edge, or Opera browsers on Windows, Linux, Mac, and Chromebook. It cannot be used on phones or
+                tablets, and cannot be used with Safari or Firefox.</p>
+            <p>This tool cannot be used with the Photon or P1 (Gen 2).</p>
         </div>
+    </div>
+    <div class="setupBrowserError" style="display:none">
+        <p>This tool can only be used on:</p>
+        <ul>
+            <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
+            <li>Edge (version 79 or later</li>
+            <li>Opera (Windows, Mac, Linux, or Android, version 48 or later</li>
+            <li>Samsung Internet (version 8.0 or later)</li>
+        </ul>
+        <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
+        you can use the Particle CLI for Windows, Mac, and Linux, or the Particle mobile app for iOS or Android instead.</p>
     </div>
 </div>
 

@@ -78,6 +78,16 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * FCC, IC, and CE certified 
  * RoHS compliant (lead-free)
 
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the Tracker SoM.
+
+T404X and T524X devices, when released, will require a Device OS 4.x LTS release. If you plan on having a mixed fleet of Tracker devices containing the T404X or T524X, we recommend upgrading all device to the latest 4.x LTS release.
+
+Tracker Edge v18 requires a minimum of Device OS 3.3.0. Device OS 3.x is a developer preview release and has reached its end-of-support date. We recommend that all Tracker fleets upgrade to Device OS 4.x.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
 
 ## Interfaces
 
@@ -1331,3 +1341,4 @@ The bootloader allows you to easily update the user application via several diff
 | 020      | 2022 Jul 18 | RK | Correct typo in hot start time on Beidou |
 | 021      | 2022 Aug 29 | RK | Added EU declaration of conformity |
 | 022      | 2022 Sep 16 | RK | Added UKCA conformity |
+| 023      | 2023 Jan 31 | RK | Add Device OS versions |

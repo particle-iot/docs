@@ -53,6 +53,19 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
  * FCC, CE and IC certified
  * RoHS compliant (lead-free)
 
+
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the Argon.
+
+While Argons can use an older version of Device OS:
+- Device OS 3.x is a developer preview release and has reached its end-of-support date.
+- The 2.x LTS release line is in the Extended Support and Maintenance (ESM) window and will stop being supported in 2024.
+- Earlier versions of Device OS have reached their end-of-support dates.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
+
+
 ## Interfaces
 
 ### Block diagram

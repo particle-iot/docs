@@ -210,7 +210,7 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55 \
 
 {{> api group=apiGroups.Authentication}}
 
-## OAuth Clients
+## OAuth clients
 
 An OAuth client generally represents an app.
 The Particle CLI is a client, as are the Particle Web IDE, the Particle iOS app, and
@@ -265,7 +265,7 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
-## API Users
+## API users
 
 An API user account is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. It allows the creation of tightly scoped users that are unable to do things that machines shouldn't need to do - like log into the console, or administer accounts. This allows you to better enforce the security principle of least privilege.
 
@@ -415,7 +415,7 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 {{!-- END shared-blurb --}}
 
 {{!-- BEGIN shared-blurb 1ef79152-ac34-11ec-b909-0242ac120002 --}}
-#### Create an Access Token - API rate limits
+#### Create an access token - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
@@ -423,26 +423,26 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 - API Route: POST /oauth/token
 {{!-- END shared-blurb --}}
 
-#### Delete User Account - API rate limits
+#### Delete user account - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - API Route: DELETE /v1/user
 
-#### Generate a Password Reset Token - API rate limits
+#### Generate a password reset token - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - API Route: POST /v1/user/password-reset
 
-#### Reset Password - API rate limits
+#### Reset password - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
 - API Route: PUT /v1/user/password-reset
 
 
-#### Get All Events - API rate limits
+#### Get all events - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
@@ -450,7 +450,7 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
 - API Route: GET /v1/events
 
 
-#### Subscribe to Server Sent Events - API rate limits
+#### Subscribe to Server-Sent Events - API rate limits
 
 - Maximum of 100 requests every 5 minutes
 - Limited by source IP address (public IP address)
@@ -464,12 +464,12 @@ The following API rate limits apply. Exceeding the rate limit will result in a 4
   - GET /v1/products/:ProductID/events/
   - GET /v1/products/:ProductID/devices/:DeviceID/events/
 
-#### Open Server Sent Event Streams - API rate limits
+#### Open Server-Sent Event Streams - API rate limits
 
 - A maximum of 100 simultaneous connections
 - Limited by source IP address (public IP address)
 
-#### Get Device data via Serial Number - API rate limits
+#### Get device data via serial Number - API rate limits
 
 - Maximum of  of 50 requests every hour
 - Limited per user account that generated the access token
@@ -506,13 +506,13 @@ we'll give you lots of notice and a clear upgrade path.
 Note: Cellular devices may indicate that the device is online for up to 46 minutes after the device has gone offline because it went out of range or was powered off. Wi-Fi devices will generally be accurate to within a few minutes. Online indications are should occur immediately if the device was previously offline for both cellular and Wi-Fi.
 
 {{> api group=apiGroups.Devices}}
-## Remote Diagnostics
+## Remote diagnostics
 {{> api group=apiGroups.Diagnostics}}
 ## User
 {{> api group=apiGroups.User}}
 ## Quarantine
 {{> api group=apiGroups.Quarantine}}
-## SIM Cards
+## SIM cards
 {{> api group=apiGroups.Sims}}
 ## Events
 {{> api group=apiGroups.Events}}
@@ -527,7 +527,7 @@ Also note:
 
 {{!-- BEGIN shared-blurb 7aab98b6-da1a-43e8-ac8c-49713ceef19d --}}
 
-Two common ways Particle devices can trigger external services are webhooks and Server Sent Events (SSE).
+Two common ways Particle devices can trigger external services are webhooks and Server-Sent Events (SSE).
 
 The SSE event stream works by having your server make an outbound https (encrypted) connection to the Particle API service. This connection is kept open, and if new events arrive, they are immediately passed down this stream. There are a number of advantages to this:
 
@@ -564,14 +564,14 @@ Because of the simultaneous connection limit, if you want to subscribe to multip
 
 ## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
-## Special Events
+## Special events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
 cloud will automatically publish events in special situations that would be hard to monitor without an event.
 
-### Special Device Events
+### Special device events
 
-#### Connection Status
+#### Connection status
 
 When your device starts ("online") or stops ("offline") a session with the cloud, you'll see a 'spark/status' event.
 
@@ -597,7 +597,7 @@ about to be delivered over the air.
 ```
     
     
-#### Safe-Mode
+#### Safe-mode
 
 If your device is running an app that needs a particular version of
 Device OS, your device may come online and
@@ -646,7 +646,7 @@ the previous session.
 
 
 
-#### future reserved events
+#### Future reserved events
 
 These events are planned, but not yet available.
 
@@ -669,7 +669,7 @@ update.
 
 
 
-### Special Webhook Events
+### Special webhook events
 
 Webhooks are a powerful way to connect events from your devices to other services online.
 
@@ -716,9 +716,9 @@ Each chunk is a separate publish from the cloud point-of-view. Each chunk uses o
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/cloud-apis/api/#get-a-stream-of-events) to see these events.
 
-## Asset Tracking Events
+## Asset tracking events
 
-### Tracker Location Events
+### Tracker location events
 
 A location event typically has JSON that looks like this:
 
@@ -870,7 +870,7 @@ Reason for point location publish message, an array of cause enumeration strings
 
 The request identifier, used to make sure the event was received.
 
-### Enhanced Location Events 
+### Enhanced location events 
 
 The `loc-enhanced` event includes Location Fusion information, enhanced geolocation using Wi-Fi and/or cellular tower information. This can occur indoors, and in "urban canyons" where view of the GNSS satellites is obstructed.
 
@@ -884,14 +884,14 @@ Note that `loc.alt` (altitude), `loc.v_acc` (vertical accuracy), `loc.hd` (headi
 
 The sources used for enhanced geolocation, an array. Can be "cell" or "wifi" or both. Added in Tracker Edge v12.
 
-### Location Point Schema
+### Location point schema
 
 The full JSON schema for the location point can be downloaded [here](/assets/files/tracker/point-schema.json).
 
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
-## Product Firmware
+## Product firmware
 {{> api group=apiGroups.ProductFirmware}}
 
 
@@ -902,7 +902,7 @@ The libraries endpoints are a little different as they follow the [JSON API](htt
 ## Products
 {{> api group=apiGroups.Products}}
 
-## Device Groups
+## Device groups
 
 Device groups allow you to define subsets of your IoT deployment that
 can be addressed separately from the rest of the fleet. Groups are
@@ -911,7 +911,7 @@ please see [the guide](/getting-started/console/device-groups/).
 
 {{> api group=apiGroups.Groups}}
 
-## Asset Tracking
+## Asset tracking
 
 ### Location
 {{> api group=apiGroups.Location}}
@@ -923,7 +923,7 @@ please see [the guide](/getting-started/console/device-groups/).
 ## Customers
 {{> api group=apiGroups.Customers}}
 
-### Reset Password (Simple Auth)
+### Reset password (simple auth)
 
 In most cases, we recommend using **Two-Legged Auth** where you have complete control over your customers and accounts. **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
 

@@ -20315,7 +20315,7 @@
     {
       "name": "E310TRAY50",
       "desc": "E Series 2G/3G (Global - E310), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Deprecated",
       "modem": "U201",
       "multiple": true,
       "sim": 1,
@@ -20677,7 +20677,7 @@
     {
       "name": "E404XTRAY50",
       "desc": "E Series LTE CAT-M1 (NorAm, EtherSIM), Tray [x50]",
-      "lifecycle": "In development",
+      "lifecycle": "GA",
       "modem": "R510",
       "multiple": true,
       "sim": 4,
@@ -20689,8 +20689,9 @@
       "gen": "3",
       "skuClass": "production",
       "skuRegion": "noram",
-      "cellAnt": "PARANTC41EA",
+      "cellAnt": "ANT-FLXU",
       "cellAntInc": false,
+      "cellAntAlt": "PARANTC41EA",
       "enterprise": true,
       "wholesale": true,
       "retail": false,

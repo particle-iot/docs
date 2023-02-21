@@ -7,9 +7,7 @@
         <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
             <div style="width: 135px;">Claim device</div>
             <div style="width: 550px;">
-                <div><label><input type="checkbox" class="claimLoggedInCheckbox" />Claim to the logged in account <span></span></label></div>
-                <div><label><input type="checkbox" class="claimTokenCheckbox"/>Claim to an account using access token</label>
-                    <input type="text" size="20" class="claimTokenInput" /></div>
+                <div><label><input type="checkbox" class="claimCheckbox" />Claim to </label><select class="claimUsernameSelect apiHelperSelect"></select></div>
             </div>
         </div>
         <div class="apiHelperTableFlexContainer" style="margin: 2px 2px 2px 6px;">
@@ -41,7 +39,7 @@
             <div style="width: 135px;">Manual entry</div>
             <div style="width: 550px;">
                 <div class="apiHelperTableFlexContainer" style="align-items: center;">
-                    <div><textarea class="manualEntryInput" style="width: 450px; height: 60px; font-size: 9px;"></textarea></div>
+                    <div><textarea class="manualEntryInput" style="width: 450px; height: 60px; font-size: 9px;" spellcheck="false"></textarea></div>
                     <div style="margin: 0px 0px 0px 4px;"><button class="addButton">Add</button></div>
                 </div>
             </div>
@@ -52,9 +50,8 @@
         </div>
         {{> table-display }}
         <div>
-            <div style="padding: 16px 0px 6px 2px;"><button class="prepareButton" disabled>Prepare to import</button> &nbsp;
-            <button class="importButton" disabled>Import</button> &nbsp;&nbsp;
-            <button class="downloadButton" disabled>Download results</button></div>
+            <div style="padding: 16px 0px 6px 2px;"><button class="importButton" disabled>Import</button> &nbsp;&nbsp;
+                <button class="downloadButton" disabled>Download results</button></div>
             <div style="padding: 16px 0px 6px 2px;"><button class="clearButton" disabled>Clear Device List</button></div>
         </div>
         <div class="statusMessage"></div>

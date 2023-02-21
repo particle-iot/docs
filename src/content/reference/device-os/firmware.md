@@ -15136,6 +15136,10 @@ void loop()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
+- Do not disable interrupts around any code that will obtain a mutex, such as SPI transactions and I2C lock.
+- Do not make Particle calls, such as `Particle.publish`, or Cellular calls, with interrupts disabled.
+- Do not allocate memory with interrupts disabled. This includes malloc, new, strdup, as well as `String` and many standard library functions (like std::vector).
+
 ```cpp
 // SYNTAX
 noInterrupts();
@@ -18379,6 +18383,8 @@ Serial.print("free memory: ");
 Serial.println(freemem);
 ```
 
+To get the largest allocatable block, see [fragmentation](/firmware/best-practices/code-size-tips/#fragmentation).
+
 ### reset()
 
 {{api name1="System.reset"}}
@@ -20035,7 +20041,7 @@ The String class allows you to use and manipulate strings of text in more comple
 
 For reference, character arrays are referred to as strings with a small s, and instances of the String class are referred to as Strings with a capital S. Note that constant strings, specified in "double quotes" are treated as char arrays, not instances of the String class.
 
-The `String` methods store the contents of the string as a heap allocated block of memory, such as with `malloc()`. As such, using a large number of long-lived strings can cause heap fragmentation, especially if you have used most of the available RAM.
+The `String` methods store the contents of the string as a heap allocated block of memory, such as with `malloc()`. As such, using a large number of long-lived strings can cause heap fragmentation, especially if you have used most of the available RAM. For more information, see [fragmentation](/firmware/best-practices/code-size-tips/#fragmentation).
 
 Because the contents of the string are stored separately from the object itself, and the string is variable length, you cannot pass `String` objects to `EEPROM.get()` or `EEPROM.put()`. You can only used fixed-length character arrays with `String`. 
 

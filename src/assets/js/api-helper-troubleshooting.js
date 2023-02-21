@@ -37,6 +37,12 @@ $(document).ready(function () {
         const ticketFormDataUrl = '/assets/files/ticketForms.json';
         const environmentUrl = '/assets/files/environment.json';
 
+        let partialOptions = [];
+        const partialOptionsStr = $(thisPartial).data('options');
+        if (partialOptionsStr) {
+            partialOptions = partialOptionsStr.split(',');
+        }
+         
         const urlParams = new URLSearchParams(window.location.search);
 
         const parser = new DOMParser();
@@ -58,6 +64,10 @@ $(document).ready(function () {
         let pageStack = [];
 
         const updateUrl = function() {
+            if (partialOptions.includes('noUpdateUrl')) {
+                return;
+            }
+
             let query = '?p=';
             for(const p of pageStack) {
                 query += p.page + ','
@@ -390,11 +400,13 @@ $(document).ready(function () {
             }
 
             if (pageObj.ticketForm) {
-                addField({
-                    title: 'Subject',
-                    type: 'text',
-                    field: 'subject',
-                });
+                if (!pageObj.subjectValue) {
+                    addField({
+                        title: 'Subject',
+                        type: 'text',
+                        field: 'subject',
+                    });    
+                }
                 addField({
                     title: 'Description',
                     type: 'textarea',
@@ -563,7 +575,7 @@ $(document).ready(function () {
 
 
                 const buttonElem = submitButton = document.createElement('button');
-                $(buttonElem).text('Submit support request');
+                $(buttonElem).text(pageObj.submitButtonTitle ? pageObj.submitButtonTitle : 'Submit support request');
                 $(pageDivElem).append(buttonElem);
 
                 $(buttonElem).on('click', async function() {
@@ -606,6 +618,14 @@ $(document).ready(function () {
                             });
                         }
                     }
+                    if (pageObj.subjectValue) {
+                        options.customFields.push({
+                            id: 22020244,
+                            value: pageObj.subjectValue
+                        });
+                    }
+
+                    
 
                     console.log('options', options);
 
@@ -822,9 +842,11 @@ $(document).ready(function () {
             validateForm();
             updateConditions();
 
-            // Scroll new page into view
-            const pos = $(pageDivElem).position().top;
-            $('.content-inner').scrollTop(pos);
+            if (!partialOptions.includes('noScroll')) {
+                // Scroll new page into view
+                const pos = $(pageDivElem).position().top;
+                $('.content-inner').scrollTop(pos);
+            }
             
             if (!pageOptions.noUpdateUrl) {
                 updateUrl();

@@ -23,6 +23,7 @@ $(document).ready(function() {
         return parts.join('_');
     };
 
+
     if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
@@ -615,12 +616,27 @@ $(document).ready(function() {
                 try {
                     const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, auth: apiHelper.auth.access_token });
         
-                    currentOutput('\u2705 Yes!'); // green check
                     deviceLookup.deviceFound = true;
                     deviceLookup.deviceInfo = deviceData.body;      
-                    deviceLookup.deviceMine = true;  // Device is claimed to the account currently logged into
 
                     deviceLookup.isProductDevice = (deviceLookup.deviceInfo.product_id > 100);
+                    if (deviceLookup.isProductDevice) {
+                        // Need to check the owner field as the non-product API can return information about 
+                        // devices you have access to that are not claimed to your account
+                        deviceLookup.isProductDevice = true;
+                        deviceLookup.deviceProductId = deviceLookup.deviceInfo.product_id;
+                        deviceLookup.deviceMine = (deviceLookup.deviceInfo.owner == apiHelper.auth.username);
+                    }
+                    else {
+                        // Non-product devices can only be claimed to your own account
+                        deviceLookup.deviceMine = true;
+                    }
+                    if (deviceLookup.deviceMine) {
+                        currentOutput('\u2705 Yes!'); // green check
+                    }
+                    else {
+                        currentOutput('\u274C No'); // red x
+                    }
                 }
                 catch(e) {
                     currentOutput('\u274C No'); // red x
@@ -635,54 +651,40 @@ $(document).ready(function() {
                 };
 
                 try {
-                    const productsData = await apiHelper.getProducts();
-    
-                    let foundInProduct = false;
-    
-                    for(const product of productsData.products) {
-                        if (deviceLookup.deviceMine && deviceLookup.isProductDevice) {
-                            if (product.id != deviceLookup.deviceInfo.product_id) {
-                                // Skip this product
-                                continue;
-                            }
-                        }
-                        if (deviceLookup.options.platformId) {
-                            if (product.platform_id != deviceLookup.options.platformId) {
-                                continue;
-                            }
-                        }
+                    const productRes = await apiHelper.particle.getProduct({ 
+                        product: deviceLookup.deviceProductId,
+                        auth: apiHelper.auth.access_token 
+                    });
 
-                        try {
-                            const deviceData = await apiHelper.particle.getDevice({ deviceId: options.deviceId, product: product.id, auth: apiHelper.auth.access_token });
-            
-                            if (deviceData.body.product_id == product.id) {
-            
-                                currentOutput('\u2705 ' + product.name + ' (' + product.id + ') Yes!<br/>'); // green check
-                                foundInProduct = true;
-                                deviceLookup.deviceFound = true;
-                                deviceLookup.deviceInfo = deviceData.body;
-                                deviceLookup.deviceProductName = product.name;
-                                deviceLookup.deviceProductId = product.id;
-                                deviceLookup.deviceInMyProduct = true; // Device is in a product owned by this account (sandbox)
-                                deviceLookup.isProductDevice = true;
-                                break;
-                            }
-                        }
-                        catch(e) {
-                        }
+                    // console.log('productRes', productRes);
+                    // body.product.
+                    //  id, name, description, device_count, groups[], etc.
+                    //  org, organization_id
+    
+                    foundInProduct = true;
+                    deviceLookup.productInfo = productRes.body.product;
+                    deviceLookup.deviceFound = true;
+                    deviceLookup.deviceProductName = deviceLookup.productInfo.name;
 
-                        if (!foundInProduct) {
-                            currentOutput('\u274C ' + product.name + ' (' + product.id + ')<br/>'); // red x
-                        }
-        
+                    if (deviceLookup.productInfo.org) {
+                        deviceLookup.deviceInOrgProduct = true; // In an product in an org I have access to
+                        deviceLookup.orgId = deviceLookup.productInfo.organization_id;
+                        deviceLookup.orgName = deviceLookup.productInfo.org;    
+                        currentOutput('\u2705 ' + deviceLookup.deviceProductName + ' (' + deviceLookup.deviceProductId + ') Yes (organization ' + deviceLookup.orgName + ')!<br/>'); // green check
                     }
-       
+                    else {
+                        deviceLookup.deviceInMyProduct = true; // Device is in a product owned by this account (sandbox)
+                        currentOutput('\u2705 ' + deviceLookup.deviceProductName + ' (' + deviceLookup.deviceProductId + ') Yes (sandbox)!<br/>'); // green check
+                    }
     
                 }
                 catch(e) {
+                    // This should never happen
+                    console.log('exception', e);
+                    currentOutput('\u274C No'); // red x
                 }
             }
-
+            /*
             if ((!deviceLookup.deviceFound || deviceLookup.isProductDevice) && !options.modeNoCheckOrgs) {
 
                 const currentOutput = function(status) {
@@ -752,6 +754,7 @@ $(document).ready(function() {
                 catch(e) {
                 }
             }
+            */
 
             if (deviceLookup.deviceInfo) {
                 const currentOutput = function(label, value) {
@@ -1202,443 +1205,21 @@ $(document).ready(function() {
 
     });
     
-    $('.apiHelperDeviceRemove').each(function() {
-        const thisPartial = $(this);
-        const gaCategory = 'deviceRemove';
-
-        const deviceTextAreaElem = $(thisPartial).find('.deviceTextArea');
-        const productSelectElem = $(thisPartial).find('.apiHelperProductSelect');
-
-        const removeFromProductRowElem = $(thisPartial).find('.removeFromProductRow');
-        const removeFromProductElem = $(thisPartial).find('.removeFromProduct');
-        const unclaimDeviceElem = $(thisPartial).find('.unclaimDevice');
-        const releaseSimRowElem = $(thisPartial).find('.releaseSimRow');
-        const releaseSimElem = $(thisPartial).find('.releaseSim');
-        const actionButtonElem = $(thisPartial).find('.actionButton');
-        const statusElem = $(thisPartial).find('.apiHelperStatus');
-        const logDivElem = $(thisPartial).find('.logDiv');
-        const logTextAreaElem = $(thisPartial).find('.logDiv > textarea');
-
-        const deviceTableDivElem = $(thisPartial).find('.deviceTableDiv');
-        const deviceTableElem = $(deviceTableDivElem).find('table');
-        const deviceTableBodyElem = $(deviceTableElem).find('tbody');
-
-        const executeButtonElem = $(thisPartial).find('.executeButton');
-        const sandboxUnclaimWarningElem = $(thisPartial).find('.sandboxUnclaimWarning');
-        
-
-        const setStatus = function(s) {
-            $(statusElem).text(s);
-        }
-        const appendLog = function(s) {
-            const textNode = document.createTextNode(s);
-            $(logDivElem).append(textNode, document.createElement('br'));
-        }
-
-        let deviceList;
-        let deviceInfoMap = {};
-        let simInfoMap = {};
-        let userInfo = {
-            productIndex: {},
-            productDevices: {}
-        };
-
-        const checkDeviceList = function() {
-            const deviceListRaw = $(deviceTextAreaElem).val();
-
-            const deviceIdRE = /([a-f0-9]{24})/gi;
-
-            deviceList = deviceListRaw.match(deviceIdRE);
-            if (deviceList && deviceList.length) {
-                $(actionButtonElem).prop('disabled', false);
-                setStatus(deviceList.length + ' device IDs entered');
-            }
-            else {
-                $(actionButtonElem).prop('disabled', true);
-                setStatus('No device IDs in box');
-            }
-        };
-
-        const checkExecuteButton = function(options) {
-            let enableExecute = false;
-
-
-
-            if (options.productId && options.removeFromProduct) {
-                for(const deviceId in deviceInfoMap) {
-                    if (!deviceInfoMap[deviceId].notFound) {
-                        enableExecute = true;
-                    }
-                }
-            }
-
-            $(sandboxUnclaimWarningElem).hide();
-
-            if (options.unclaimDevice) {
-                let hasDevice = false;
-
-                for(const deviceId in deviceInfoMap) {
-                    const unclaimElem = deviceInfoMap[deviceId].unclaimElem;
-
-                    if (deviceInfoMap[deviceId].owner) {
-                        enableExecute = true;
-                        hasDevice = true;
-                        $(unclaimElem).text('');
-                    }
-                    else {
-                        $(unclaimElem).text('No');
-                    }
-                }    
-
-                if (!options.productId && hasDevice) {
-                    $(sandboxUnclaimWarningElem).show();
-                }            
-            }
-            else {
-
-                for(const deviceId in deviceInfoMap) {
-                    const unclaimElem = deviceInfoMap[deviceId].unclaimElem;
-                    $(unclaimElem).text('No');
-                }
-            }
-
-            if (options.releaseSim) {
-
-                for(const iccid in simInfoMap) {
-                    const releaseElem = simInfoMap[iccid].releaseElem;
-
-                    if (!simInfoMap[iccid].notFound) {
-                        enableExecute = true;
-                        $(releaseElem).text('');    
-                    }
-                    else {
-                        $(releaseElem).text('No');                        
-                    }
-                }                 
-            }
-            else {
-                for(const iccid in simInfoMap) {
-                    const releaseElem = simInfoMap[iccid].releaseElem;
-                    $(releaseElem).text('No');
-                }
-            }
-
-            $(executeButtonElem).prop('disabled', !enableExecute)
-
-        };
-
-        const addColumns = function(infoObj, columns) {
-            for(const col of columns) {
-                colElemKey = col + 'Elem';
-
-                const tdElem = infoObj[colElemKey] = document.createElement('td');
-
-                if (infoObj[col]) {
-                    $(tdElem).text(infoObj[col]);
-                }
-
-                $(infoObj.rowElem).append(tdElem);
-            }
-        };
-
-
-        const checkOperations = async function(options) {
-            $(deviceTableBodyElem).html('');
-            $(deviceTableDivElem).show();
-
-            try {
-
-
-                let hasSim = false;
-
-                // 
-                for(const deviceId of options.deviceList) {
-                    let deviceInfo;
-
-                    try {
-                        if (options.productId) {
-                            // Unclaim product device
-                            deviceInfo = (await apiHelper.particle.getDevice({ deviceId, product:options.productId, auth: apiHelper.auth.access_token })).body;
-                        }
-                        else {
-                            // Unclaim developer device
-                            deviceInfo = (await apiHelper.particle.getDevice({ deviceId, auth: apiHelper.auth.access_token })).body;
-                        }        
-                    }
-                    catch(e) {
-                        console.log('exception getting deviceInfo for ' + deviceId);
-                    }
-
-                    if (!deviceInfo) {
-                        deviceInfo = {
-                            id: deviceId,
-                            notFound: true
-                        }
-                    }
-
-                    {
-                        const rowElem = deviceInfo.rowElem = document.createElement('tr');
-
-                        deviceInfo.deviceId = deviceInfo.id;
-                        
-                        addColumns(deviceInfo, ['deviceId', 'name', 'owner', 'iccid']);
-
-                        if (deviceInfo.notFound) {
-                            if (options.productId) {
-                                // $(deviceInfo.removeStatusElem).text('Device not found in product');
-                            }
-                            else {
-                                // $(deviceInfo.removeStatusElem).text('Device not found in sandbox');                                
-                            }
-                        }
-                        if (deviceInfo.cellular && deviceInfo.iccid) {
-                            hasSim = true;
-                        }
-                                                                
-                        $(deviceTableBodyElem).append(rowElem);
-
-                        deviceInfoMap[deviceId] = deviceInfo;        
-                    }
-                }
-
-                if (hasSim) {
-                    $(releaseSimRowElem).show();
-                }
-                else {
-                    $(releaseSimRowElem).hide();
-                }
-                setStatus('Device and SIM check complete!');
-
-                $(logTextAreaElem).val('');
-                $(logDivElem).hide();
-
-                ga('send', 'event', gaCategory, 'Check Success');
-
-                checkExecuteButton(options);
-            }
-            catch(e) {
-                console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Check Error');
-            }
-
-        };
-
-        const appendLogLine = function(s) {
-            const old = $(logTextAreaElem).val();
-
-            $(logTextAreaElem).val(old + s + '\n');
-        }
-
-        const executeOperations = async function(options) {
-            try {
-                let hasErrors = false;
-
-                $(logDivElem).show();
-
-                let stats = {};
-
-                if (options.productId) {
-                    stats.product = true;
-                }
-                else {
-                    stats.sandbox = true;
-                }
-
-                const deviceCount = Object.keys(deviceInfoMap).length;
-                let deviceNum = 1;
-
-                for(const deviceId in deviceInfoMap) {
-                    setStatus('Processing device ' + deviceNum + ' of ' + deviceCount);
-                    deviceNum++;
-
-                    appendLogLine(deviceId + ' (' + deviceInfoMap[deviceId].name + ')');
-
-                    if (deviceInfoMap[deviceId].notFound) {
-                        if (options.productId) {
-                            appendLogLine('  Not found in product  ' + options.productId + ' ****');
-                        }
-                        else {
-                            appendLogLine('  Not found in developer sandbox ' + ' ****');
-                        }
-                        continue;
-                    }
-
-                    const iccid = deviceInfoMap[deviceId].iccid;
-                    if (options.releaseSim && iccid) {
-                        try {
-                            if (options.productId) {
-                                // Remove product SIM
-                                await apiHelper.particle.removeSIM({ iccid, product:options.productId, auth: apiHelper.auth.access_token });
-                            }
-                            else {
-                                // Remove developer SIM
-                                await apiHelper.particle.removeSIM({ iccid, auth: apiHelper.auth.access_token });
-                            }
-                            stats.release = stats.release ? stats.release + 1 : 1;
-                            appendLogLine('  Release SIM success ' + iccid);
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            appendLogLine('  Release SIM failed ' + iccid + ' *****');
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-    
-                    }
-                    if (options.unclaimDevice && deviceInfoMap[deviceId].owner) {
-                        const unclaimElem = deviceInfoMap[deviceId].unclaimElem;
-
-                        try {
-                            if (options.productId) {
-                                // Unclaim product device
-                                await apiHelper.particle.removeDeviceOwner({ deviceId, product:options.productId, auth: apiHelper.auth.access_token });
-                            }
-                            else {
-                                // Unclaim developer device
-                                await apiHelper.particle.removeDevice({ deviceId, auth: apiHelper.auth.access_token });
-                            }    
-                            appendLogLine('  Unclaim success ' + deviceInfoMap[deviceId].owner);
-                            stats.unclaim = stats.unclaim ? stats.unclaim + 1 : 1;
-                            // $(unclaimElem).html('&#x2705'); // green check
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            appendLogLine('  Unclaim failed ' + deviceInfoMap[deviceId].owner + ' ****');
-                            // $(unclaimElem).html('&#x274c'); // red x
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-                    }
-
-                    if (options.productId && options.removeFromProduct) {
-                        // Remove from product
-                        try {
-                            await apiHelper.particle.removeDevice({ deviceId, product:options.productId, auth: apiHelper.auth.access_token });
-
-                            appendLogLine('  Remove from product ' + options.productId + ' success ');
-                            stats.remove = stats.remove ? stats.remove + 1 : 1;
-                        }
-                        catch(e) {
-                            console.log('exception', e);
-                            appendLogLine('  Remove from product ' + options.productId + ' failed ' + ' ****');
-                            hasErrors = true;
-                            stats.errors = stats.errors ? stats.errors + 1 : 1;
-                        }
-                    }
-                    
-
-                }                
-             
-                if (!hasErrors) {
-                    setStatus('All operations completed successfully!');
-                } 
-                else {
-                    setStatus('Operations completed, but errors occurred');
-                }
-
-                $(actionButtonElem).prop('disabled', false);
-                ga('send', 'event', gaCategory, 'Execute Success', JSON.stringify(stats));
-            }
-            catch(e) {
-                console.log('exception', e);
-                ga('send', 'event', gaCategory, 'Execute Error');
-            }
-        }
-
-        const getOptions = function(options) {
-            $(thisPartial).data('getOptions')(options);
-
-            options.removeFromProduct = (options.productId != 0) && $(removeFromProductElem).prop('checked'),
-            options.unclaimDevice = $(unclaimDeviceElem).prop('checked');
-            options.releaseSim = $(releaseSimElem).prop('checked');
-            options.username = apiHelper.auth.username;
-            options.accessToken = apiHelper.auth.access_token;
-            options.deviceList = deviceList;
-        }
-
-        $(thisPartial).on('updateProductList', async function(event, options) {
-            switch(options.devOrProduct) {
-                case 'product':
-                    $(removeFromProductRowElem).show();
-                    break;
-
-                case 'dev':
-                    $(removeFromProductRowElem).hide();
-                    break;                    
-
-            }
-        });
-
-
-        $(removeFromProductElem).on('click', function() {
-            let options = {};
-            getOptions(options);
-            checkExecuteButton(options);
-        })
-        $(unclaimDeviceElem).on('click', function() {
-            let options = {};
-            getOptions(options);
-            checkExecuteButton(options);
-        })
-        $(releaseSimElem).on('click', function() {
-            let options = {};
-            getOptions(options);
-            checkExecuteButton(options);
-        })
-
-        
-
-        $(deviceTextAreaElem).on('input', function() {
-            checkDeviceList();
-        });
-
-        $(actionButtonElem).on('click', function() {
-            let options = {};
-            getOptions(options);
-    
-            $(actionButtonElem).prop('disabled', true);
-
-            checkOperations(options);
-        });
-
-        $(executeButtonElem).on('click', function() {
-            let options = {};
-            getOptions(options);
-
-            $(executeButtonElem).prop('disabled', true);
-    
-            // Hide all warning panes
-            $(sandboxUnclaimWarningElem).hide();
-
-            executeOperations(options);
-        });
-
-        $(productSelectElem).on('click', function() {
-            checkDeviceList();
-        });
-
-
-    });
-
-    $('.apiHelperFlashTinker').each(async  function() {
+    $('.apiHelperCloudApiDeviceSelect').each(async function() {
         const thisPartial = $(this);
 
-        const flashTinkerDeviceSelectElem = $(thisPartial).find('.flashTinkerDeviceSelect');
-        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
-        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const options = $(thisPartial).data('options').split(',');
+
+        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
+        const apiHelperCloudApiDeviceSelectStatusElem = $(thisPartial).find('.apiHelperCloudApiDeviceSelectStatus');
 
         const setStatus = function(s) {
-            $(apiHelperStatusElem).text(s);
+            $(apiHelperCloudApiDeviceSelectStatusElem).text(s);
         }
 
-        let devInfo = {};
-                
-        apiHelper.deviceList(flashTinkerDeviceSelectElem, {
+        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
             deviceFilter: function(dev) {
-                if (dev.online) {
-                    devInfo[dev.id] = dev;
-                }
-                return dev.online;
+                return true;
             },
             getTitle: function(dev) {
                 let result;
@@ -1650,34 +1231,167 @@ $(document).ready(function() {
                     result = dev.id;
                 }
                 result += (dev.online ? '' : ' (offline)');
+            },                    
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: async function(elem) {
+                const newVal = $(elem).val();
+
+            }
+        });   
+
+    });
+
+    $('.apiHelperFlashTinker').each(async  function() {
+        const thisPartial = $(this);
+
+        const apiHelperCloudDeviceSelectElem = $(thisPartial).find('.apiHelperCloudDeviceSelect');
+        const flashTinkerButtonElem = $(thisPartial).find('.flashTinkerButton');
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const flashControlsElem = $(thisPartial).find('.flashControls');
+        const warningMessageElem = $(thisPartial).find('.warningMessage');
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+         
+        const updateInfo = async function() {
+            const newVal = $(apiHelperCloudDeviceSelectElem).val();
+            if (newVal == 'select' || newVal == 'refresh') {
+                $(flashTinkerButtonElem).prop('disabled', true);      
+                return;
+            }
+
+            const dev = apiHelper.deviceListCache.find(e => e.id == newVal);
+
+            const platformInfo = await apiHelper.getPlatformInfo(dev.platform_id);
+
+            $('.apiHelperTinker').trigger('updateInfo', [{dev, platformInfo}]);
+
+            const deviceKind = platformInfo ? platformInfo.displayName : 'Device';
+
+            let canFlash = true;
+            
+            if (dev.isTracker) {
+                setStatus('Tinker functionality is not available on the Tracker.');
+                $(flashControlsElem).hide();
+            }
+            else
+            if (dev.isTinker) {
+                if (dev.online) {
+                    setStatus(deviceKind + ' is online and appears to be running Tinker firmware.');
+                }
+                else {
+                    setStatus(deviceKind + ' was last running Tinker firmware, but is currently offline.');
+                    // canFlash = false; // Once automatic online status change works, uncomment this line
+                }
+                $(flashControlsElem).hide();
+            }
+            else 
+            if (dev.productInfo && dev.productDevInfo) {
+                const prefix = deviceKind + ' is in product ' + dev.productInfo.name + ' (' + dev.productInfo.id + ') '; 
+                if (dev.productDevInfo.development) {
+                    if (dev.online) {
+                        setStatus(prefix + 'and is a development device so it can be used');
+                    }
+                    else {
+                        setStatus(prefix + 'and is a development device so it could be used, but is currently offline');  
+                        // canFlash = false; // Once automatic online status change works, uncomment this line
+                    }
+                    $(flashControlsElem).show();
+                }
+                else {
+                    setStatus(prefix + 'but is not a development device so it can be used');
+                    canFlash = false;                    
+                    $(flashControlsElem).hide();
+                }
+            }
+            else {
+                if (dev.online) {
+                    setStatus(deviceKind + ' is online and can be flashed with Tinker firmware');
+                }
+                else {
+                    setStatus(deviceKind + ' is offline, make sure it is powered on and breathing cyan.');
+                    // canFlash = false; // Once automatic online status change works, uncomment this line
+                }
+                $(flashControlsElem).show();
+            }
+            $(flashTinkerButtonElem).prop('disabled', !canFlash);      
+
+        }
+
+
+        apiHelper.deviceList(apiHelperCloudDeviceSelectElem, {
+            deviceFilter: function(dev) {
+                return true;
+            },
+            getTitle: function(dev) {
+                let result;
+
+                if (dev.name) {
+                    result = dev.name;
+                }
+                else {
+                    result = dev.id;
+                }
+                let attributes = [];
+                if (!dev.online) {
+                    attributes.push('offline');                    
+                }
+                if (dev.isProductDevice) {
+                    attributes.push('product');                    
+                }
+                if (dev.isTracker) {
+                    attributes.push('tracker');     
+                }
+                if (dev.isTinker) {
+                    attributes.push('tinker');                    
+                }
+                if (attributes.length) {
+                    result += ' (' + attributes.join(', ') + ')';
+                }                            
                 return result;
             },                    
             hasRefresh: true,
             hasSelectDevice: true,
-            onChange: function(elem) {
-                const newVal = $(elem).val();
-                if (newVal != 'select') {
-                    $(flashTinkerButtonElem).removeAttr('disabled');
+            monitorEvents: function(event) {
+                switch(event.name) {
+                    case 'spark/flash/status':
+                        // This event has a trailing space on the data
+                        if (event.data.trim() == 'success') {
+                            setStatus('Flash successful, waiting for device to restart and reconnect to the cloud');
+                        }
+                        break;
+
+                    case 'spark/status':
+                        break;
                 }
-                else {
-                    $(flashTinkerButtonElem).attr('disabled', 'disabled');      
-                }            
-            }
+            },
+            onChange: async function(elem) {
+                updateInfo();
+            },
+            onUpdateInfo: async function(elem) {
+                updateInfo();
+            },
+
         });   
 
         $(flashTinkerButtonElem).on('click', async function() {
             let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
 
-            const deviceId = $(flashTinkerDeviceSelectElem).val();
+            $(flashTinkerButtonElem).prop('disabled', true);
+            $(warningMessageElem).hide();
 
-            const deviceInfoObj = devInfo[deviceId];
+            const deviceId = $(apiHelperCloudDeviceSelectElem).val();
+
+            const dev = apiHelper.deviceListCache.find(e => e.id == deviceId);
 
             // 
-            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == deviceInfoObj.platform_id);
+            const platformObj = deviceRestoreInfo.platforms.find(e => e.id == dev.platform_id);
 
             const versionsList = deviceRestoreInfo.versionsZipByPlatform[platformObj.name];
 
-            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, deviceInfoObj.system_firmware_version) >= 0);
+            const targetVersion = versionsList.find(e => apiHelper.versionSort(e, dev.system_firmware_version) >= 0);
 
             const baseUrl = '/assets/files/device-restore/' + targetVersion + '/' + platformObj.name;
 
@@ -1730,7 +1444,401 @@ $(document).ready(function() {
 
     });
 
+    $('.apiHelperTinker').each(function() {
+        const thisPartial = $(this);
 
+        const apiHelperStatusElem = $(thisPartial).find('.apiHelperStatus');
+        const canvasViewDivElem = $(thisPartial).find('.canvasViewDiv');
+        const canvasElem = $(thisPartial).find('.canvasViewDiv > canvas');
+        const pinsDivElem = $(thisPartial).find('.pinsDiv');
+        const deviceImageElem = $(thisPartial).find('.deviceImage');
+
+        let tinker = {
+        };
+
+        const setStatus = function(s) {
+            $(apiHelperStatusElem).text(s);
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/assets/files/pinInfo.json',
+            dataType: 'json',
+            success: function(data) {
+                // .details (array)
+                // .platforms (array)
+                tinker.pinInfo = data;
+            },
+            error: function(err) {
+                console.log('error fetching pinInfo', err);
+            },
+        });	
+
+        tinker.functions = [
+            {
+                pinInfoKey: 'analogRead',
+                tinkerFunction: 'analogread',
+                title: 'analogRead',
+            },
+            {
+                pinInfoKey: 'analogWritePWM',
+                pinInfoAltKey: 'analogWriteDAC',
+                tinkerFunction: 'analogwrite',
+                title: 'analogWrite',
+            },
+            {
+                pinInfoKey: 'digitalRead',
+                tinkerFunction: 'digitalread',
+                title: 'digitalRead',
+            },
+            {
+                pinInfoKey: 'digitalWrite',
+                tinkerFunction: 'digitalwrite',
+                title: 'digitalWrite',
+            },
+        ];
+            
+        tinker.callFunction = async function(functionName, arg) {
+            try {
+                const res = await apiHelper.particle.callFunction({ deviceId: tinker.dev.id, name: functionName, argument: arg, auth: apiHelper.auth.access_token  });
+                if (res.statusCode == 200) {
+                    setStatus('Called function ' + functionName + ' ' + arg + ', returned ' + res.body.return_value);
+                    return res.body.return_value;
+                }
+                else {
+                    setStatus('Calling function ' + functionName + ' failed');
+                    return 0;
+                }    
+            }
+            catch(e) {
+                setStatus('Calling function ' + functionName + ' failed');
+                return 0;
+            }
+        }
+
+        tinker.findPinByNum = function(num) {
+            for(const pin of tinker.devicePinInfo.pins) {
+                if (pin.num == num) {
+                    return pin;
+                }
+                if (pin.morePins && pin.morePins.includes(num)) {
+                    return pin;
+                }
+            }
+            return null;
+        }
+
+        tinker.update = async function() {
+            // tinker.dev (object) Device Information
+            // tinker.platformInfo (object): Device Constants platform info
+
+            $(canvasViewDivElem).hide();
+
+            const canvasWidth = $(thisPartial).width();
+            $(canvasElem).css('width', canvasWidth);
+
+            let pinInfoName;
+            switch(tinker.dev.platform_id) {
+                case 10:
+                    pinInfoName = 'Electron';
+                    setStatus('Both E Series and Electron devices display as Electron; this does not affect operation');
+                    break;
+
+                case 32:
+                    // TODO: In the future, determine this by SKU 
+                    pinInfoName = 'Photon 2';
+                    setStatus('Both P2 and Photon 2 devices display as Photon 2; this does not affect operation');
+                    break;
+            }
+
+
+            let skuObj;
+            if (tinker.dev.serial_number) {
+                skuObj = await apiHelper.getSkuObjFromSerial(tinker.dev.serial_number);
+                // console.log('skuObj', skuObj);
+            }
+
+            if (pinInfoName) {
+                tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.name == pinInfoName);
+            }
+            else {
+                tinker.devicePinInfo = tinker.pinInfo.platforms.find(e => e.id == tinker.dev.platform_id);
+            }
+            if (!tinker.devicePinInfo) {
+                setStatus('The device platform ' + tinker.dev.platform_id + ' is not currently supported');
+                return;
+            }
+            // console.log('tinker.devicePinInfo', tinker.devicePinInfo);
+            // console.log('tinker.platformInfo', tinker.platformInfo);
+            
+            $(canvasViewDivElem).show();
+
+
+            tinker.pinElements = [];
+
+            const generatePin = function(pin, options = {}) {
+                const pinElement = {
+                    pin,
+                };
+
+                const widths = {
+                    label: 40,
+                    select: 110,
+                    value: 60,
+                }
+                let posOffsets;
+                if (options.reverse) {
+                    posOffsets = [-widths.label, -(widths.label + widths.select), -(widths.label + widths.select + widths.value)];
+                }
+                else {
+                    posOffsets = [0, widths.label, widths.label + widths.select];
+                }
+
+                {
+                    const divElem = document.createElement('div');
+                    $(divElem).css('position', 'absolute');
+                    $(divElem).css('left', options.pos + posOffsets[0]);
+                    $(divElem).css('top', options.top);
+                    $(divElem).css('height', options.height);
+                    $(divElem).css('width', widths.label);
+                    $(divElem).css('line-height', options.height);
+                    if (options.reverse) {
+                        $(divElem).css('text-align', 'right');
+                    }
+                    $(divElem).text(pin.name);
+                    $(options.elem).append(divElem);
+                }
+                if (pin.isIO) {
+                    {
+                        const divElem = document.createElement('div');
+                        $(divElem).css('position', 'absolute');
+                        $(divElem).css('left', options.pos + posOffsets[1]);
+                        $(divElem).css('top', options.top);
+                        $(divElem).css('width', widths.select);
+                        $(divElem).css('height', options.height);
+                            
+                        const selectElem = pinElement.selectElem = document.createElement('select');
+                        $(selectElem).addClass('apiHelperSelect');
+                        $(selectElem).css('width', '100px');
+    
+                        {
+                            const optionElem = document.createElement('option');
+                            $(optionElem).prop('value', '-');
+                            $(optionElem).text('-');
+                            $(selectElem).append(optionElem);
+                        }
+                        for(const fun of tinker.functions) {
+                            if (pin[fun.pinInfoKey] || (fun.pinInfoAltKey && pin[fun.pinInfoAltKey])) {
+                                const optionElem = document.createElement('option');
+                                $(optionElem).prop('value', fun.tinkerFunction);
+                                $(optionElem).text(fun.title);
+                                $(selectElem).append(optionElem);    
+                            }
+                        }
+    
+                        $(divElem).append(selectElem);
+                        $(options.elem).append(divElem);
+                    }
+                    {
+                        const divElem = document.createElement('div');
+                        $(divElem).css('position', 'absolute');
+                        $(divElem).css('left', options.pos + posOffsets[2]);
+                        $(divElem).css('top', options.top);
+                        $(divElem).css('width', widths.value);
+                        $(divElem).css('height', options.height);
+
+                        const inputElem = pinElement.inputElem = document.createElement('input');
+                        $(inputElem).css('display', 'none');
+                        $(inputElem).css('font-size', '11px');
+                        $(inputElem).prop('size', 8);
+                        $(inputElem).prop('value', '0');
+                        $(divElem).append(inputElem);
+    
+                        const spanElem = pinElement.spanElem = document.createElement('span');
+                        $(spanElem).css('display', 'none');
+                        $(spanElem).css('cursor', 'pointer');
+                        $(divElem).css('line-height', options.height);
+                        $(divElem).append(spanElem);
+        
+    
+                        $(options.elem).append(divElem);
+                    }    
+                }
+                
+
+                const updateValue = async function() {
+                    let s;
+
+                    const val = $(pinElement.selectElem).val();
+                    switch(val) {
+                        case 'analogwrite':
+                            s = parseInt($(pinElement.inputElem).val()).toString();
+                            await tinker.callFunction(val, pinElement.pin.name + ':' + s);
+                            break;
+                            
+                        case 'analogread':
+                            s = (await tinker.callFunction(val, pinElement.pin.name)).toString();
+                            $(pinElement.spanElem).text(s);
+                            break;
+
+                        case 'digitalread':
+                            s = (await tinker.callFunction(val, pinElement.pin.name)) ? 'HIGH' : 'LOW';
+                            $(pinElement.spanElem).text(s);
+                            break;
+
+                        case 'digitalwrite':
+                            s = pinElement.output ? 'HIGH' : 'LOW';
+                            $(pinElement.spanElem).text(s);
+                            await tinker.callFunction(val, pinElement.pin.name + ':' + s);
+                            break;
+                    }
+
+                }
+
+                $(pinElement.selectElem).on('change', async function() {
+                    const val = $(pinElement.selectElem).val();
+                    $(pinElement.inputElem).hide();
+                    $(pinElement.spanElem).hide();
+
+                    switch(val) {
+                        case 'analogwrite':
+                            $(pinElement.inputElem).show();
+                            break;
+
+                        case 'analogread':
+                        case 'digitalread':
+                            $(pinElement.spanElem).prop('title', 'Click to re-read value');
+                            $(pinElement.spanElem).show();
+                            break;
+
+                        case 'digitalwrite':
+                            $(pinElement.spanElem).prop('title', 'Click to toggle output');
+                            $(pinElement.spanElem).show();
+                            break;
+                    }
+                    await updateValue();
+                });
+
+
+                $(pinElement).on('keydown', async function(ev) {
+                    if (ev.key != 'Enter') {
+                        return;
+                    }
+        
+                    ev.preventDefault();
+                    await updateValue();                    
+                });
+                $(pinElement.inputElem).on('blur', async function() {
+                    await updateValue();                    
+                });
+                $(pinElement.spanElem).on('click', async function() {
+                    const val = $(pinElement.selectElem).val();
+                    if (val == 'digitalwrite') {
+                        pinElement.output = !pinElement.output;
+                    }
+
+                    await updateValue();                    
+                });
+
+                tinker.pinElements.push(pinElement);
+
+                return pinElement;
+            }
+
+            $(pinsDivElem).empty();
+
+
+            tinker.layout = tinker.devicePinInfo.layout;
+            if (!tinker.layout) {
+                // Create default layout here
+                let pinNumbers = [];
+                for(const pin of tinker.devicePinInfo.pins) {
+                    if (pin.isIO) {
+                        pinNumbers.push(pin.num);
+                        if (pin.morePins) {
+                            for(const p of pin.morePins) {
+                                pinNumbers.push(p);
+                            }
+                        }
+    
+                    }
+                }
+                pinNumbers.sort();
+
+                tinker.layout = {
+                    columns: [
+                        {
+                            pins: [],
+                            reverse: false,
+                            rowStart: 0,
+                            hOffset: -100,
+                        }
+                    ],
+                };
+                for(let ii = 0; ii < pinNumbers.length; ii++) {
+                    tinker.layout.columns[0].pins.push(pinNumbers[ii]);
+                }
+            }
+
+            const contentCenter = Math.floor($(canvasElem).width() / 2);
+            let maxHeight = 0;
+
+            for(let col = 0; col < tinker.layout.columns.length; col++) {
+                const pos = $(canvasElem).position().left + contentCenter + tinker.layout.columns[col].hOffset;
+
+                
+
+                for(let ii = 0; ii < tinker.layout.columns[col].pins.length; ii++) {
+                    const vOffset = (tinker.layout.columns[col].rowStart + ii) * 30;
+                    let top = $(canvasElem).position().top + 20 + vOffset;
+                    if (tinker.layout.extraTop) {
+                        top += tinker.layout.extraTop;
+                    }
+                    const pin = tinker.findPinByNum(tinker.layout.columns[col].pins[ii]);
+                    if (pin) {
+                        pinElement = generatePin(pin, {
+                            top,
+                            pos,
+                            reverse: tinker.layout.columns[col].reverse,
+                            elem: $(pinsDivElem),
+                            height: '27px',
+                        });                    
+                        if ((vOffset + 30) > maxHeight) {
+                            maxHeight = (vOffset + 30);
+                        }
+                    }
+    
+                }
+            }
+
+            if (tinker.layout.extraBottom) {
+                maxHeight += tinker.layout.extraBottom;
+            }
+
+            $(canvasElem).prop('height', maxHeight);
+
+            if (tinker.devicePinInfo.layout && tinker.devicePinInfo.layout.image) {
+                $(deviceImageElem).on('load', function() {
+                    const ctx = canvasElem[0].getContext('2d');
+                    ctx.globalAlpha = 0.5;
+    
+                    ctx.setTransform(tinker.devicePinInfo.layout.scale, 0, 0, tinker.devicePinInfo.layout.scale, tinker.devicePinInfo.layout.translate[0], tinker.devicePinInfo.layout.translate[1]);
+                    ctx.drawImage(deviceImageElem[0], 0, 0);
+                });    
+                $(deviceImageElem).prop('src', tinker.devicePinInfo.layout.image);
+            }
+
+        }
+
+        $(thisPartial).data('tinker', tinker);
+
+        $(thisPartial).on('updateInfo', async function(event, info) {
+            for(const key in info) {
+                tinker[key] = info[key];
+            }
+            await tinker.update();
+        });
+    });
 
     $('.apiHelperProductOrSandboxSelector').each(function() {
         const thisPartial = $(this);
@@ -2170,7 +2278,7 @@ $(document).ready(function() {
         deviceGroup.checkboxList.urlKey = 'g';
 
         deviceGroup.getOptions = function(options = {}) {
-            deviceGroup.checkboxList(options);
+            options.groups = deviceGroup.checkboxList.getSelectedItems();
             return options;
         }
         
@@ -3017,3 +3125,29 @@ $(document).ready(function() {
 
 });
 
+
+/*
+function updateTinker(settings) {
+    $('.apiHelperTinker').each(function() {
+        const thisPartial = $(this);
+
+        let tinker = $(thisPartial).data('tinker');
+        for(const key in settings) {
+            switch(key) {
+                case 'leftOffset':
+                    tinker.layout.columns[0].hOffset = settings[key];
+                    break;
+
+                case 'rightOffset':
+                    tinker.layout.columns[1].hOffset = settings[key];
+                    break;
+
+                default:
+                    tinker.layout[key] = settings[key];
+                    break;
+            }
+        }
+        tinker.update();
+    });    
+}
+*/

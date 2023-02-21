@@ -182,13 +182,7 @@ It requires these jumpers, which should be installed at the factory:
 
 ### Using the MicroSD Card
 
-To use the MicroSD card, you must add the jumpers:
-
-- SD_MISO to SPI MISO
-- SD_SCK to SPI SCK
-- SD_MOSI to SPI MOSI
-- SD_CS to PWM1 (D5)
-- SD_DECT to PWM2 (D6) (optional)
+To use the MicroSD card, you must add the jumpers for the SD_ pins.
 
 You will normally use this with the [SdFat](https://build.particle.io/libs/SdFat/1.0.16/tab/SdFat.h) library.
 
@@ -196,9 +190,9 @@ With the jumpers installed, it will use the secondary SPI (SPI1) and pin D5 as t
 
 | Micro SD | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
-| SD\_MISO | P1.14 | D11 / SPI MISO | 50 |
-| SD\_SCK | P1.15 | D13 / SPI SCK | 54 |
-| SD\_MOSI | P1.13 | D12 / SPI MOSI | 52 |
+| SD\_MISO | P1.08 | D4 / PWM0 / SPI1 MISO | 66 |
+| SD\_SCK | P1.02 | D2 / RTS / SPI1 SCK | 42 |
+| SD\_MOSI | P1.01 | D3 / CTS / SPI1 MOSI | 40 |
 | SD\_CS | P1.10 | D5 / PWM1 | 68 |
 | SD\_DET | P1.11 | D6 / PWM2 | 70 |
 
@@ -293,4 +287,5 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | 002      | 21 Jan 2020 | RK | Remove mesh |
 | 003      |  3 Feb 2020 | RK | Correct pins for SD card |
 | 004      | 20 Jul 2022 | RK | Correct pins for SD and Ethernet SPI, which are SPI not SPI1 |
-| 005      |  9 Sep 2023 | RK | Correct length |
+| 005      |  9 Sep 2022 | RK | Correct length |
+| 006      | 19 Jan 2023 | RK | Correct pins for SD card for version 1.2 board |

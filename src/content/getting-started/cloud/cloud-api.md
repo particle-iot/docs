@@ -344,6 +344,13 @@ The [list products](/reference/cloud-apis/api/#list-products) API is a simple GE
 
 {{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
 
+### Retrieve product info
+
+The [retrieve product info](/reference/cloud-apis/api/#retrieve-a-product) API gets information about a single product that you have access to. This can be a sandbox product or an organization product.
+
+{{> cloud-api-get-product-info}}
+
+
 ### List product devices
 
 The [list product devices](/reference/cloud-apis/api/#list-devices-in-a-product) API lists the devices in the sandbox for this user.
@@ -423,6 +430,28 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 
 ## More APIs
 
+### Get device info
+
+The [get device information](/reference/cloud-apis/api/#get-device-information) API gets information about a device.
+
+This API also returns information about devices that are not in your developer sandbox, but you have access to, including those in 
+products, and organization products. This is useful because the the `product_id` field is populated with the product ID,
+which you can use to find which product it is in, so you can use product-specific APIs with it.
+
+{{> cloud-api-get-device-info}}
+
+
+### Set SIM info
+
+The [get SIM information](/reference/cloud-apis/api/#get-sim-information) API gets information about a SIM ICCID.
+
+This API also returns information about devices that are not in your developer sandbox, but you have access to, including those in 
+products, and organization products. Note, however, that the `product_id` field contains a string identifier, not the numeric
+product ID, and there is no way to get the actual product ID or slug from it, unfortunately.
+
+{{> cloud-api-get-sim-info}}
+
+
 ### Rename a device
 
 The [rename a device](/reference/cloud-apis/api/#rename-a-device) API sets the device name.
@@ -450,6 +479,17 @@ These examples show how to use the Device Vitals (Diagnostics) APIs. The Last Vi
 The historical API returns all historical data for a date range (up to 1 month in the past), either as JSON or as CSV data.
 
 {{> cloud-api-device-vitals}}
+
+### Service agreements
+
+If you want to know information about your usage or billing period information, you can use the [service_agreements](/reference/cloud-apis/api/#service-agreements-and-usage) API. 
+There are two versions, one for your developer sandbox, and another for growth or enterprise organizations. Only organization administrators can see the service agreement information 
+for an organization.
+
+The API just returns a big block of JSON which can easily be parsed to find the information you want.
+
+{{> cloud-api-service-agreements}}
+
 
 ## API Users
 
@@ -622,7 +662,7 @@ In order to set the claim code by USB serial you need to connect the Photon to y
 
 The [get device info](/reference/cloud-apis/api/#get-device-information) is a good way to determine if the claiming succeeded.
 
-{{> cloud-api-get-device-info}}
+{{> cloud-api-get-product-device-info}}
 
 If the claiming succeeded, you should note:
 

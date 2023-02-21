@@ -7,12 +7,6 @@ description: Datasheet for the Particle E Series, Gen 3 LTE Cat M1 cellular mass
 
 # E404X Datasheet
 
-**Preliminary pre-release version 2022-05-06**
-
-{{box op="start" cssClass="boxed warningBox"}}
-This is an preliminary pre-release datasheet and the contents are subject to change.
-{{box op="end"}}
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e404x-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -54,12 +48,18 @@ New designs should use the B404X (B Series SoM) instead of the E404X.
  * Reset and Mode pins for buttons
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
- * FCC and PTCRB certified
+ * FCC and IC certified
  * RoHS compliant (lead-free)
  * Requires Device OS 4.0.0 LTS (or later)
 
 
 <sup>1</sup> Not all bands enabled in software by default
+
+### Device OS Support
+
+It is recommended that you use the latest version in the 4.x LTS release line with the E404X. The minimum required version is 4.0.0. You cannot use the E404X with Device OS 2.x LTS.
+
+For information on upgrading Device OS, see [Version information](/reference/device-os/versions/). For the latest version shipped from the factory, see [Manufacturing firmware versions](/scaling/manufacturing/manufacturing-firmware-versions/) page. See also [Long Term Support (LTS) releases](/reference/product-lifecycle/long-term-support-lts-releases/).
 
 ## Interfaces
 
@@ -107,10 +107,12 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 ### FCC approved antennas
 
-| Antenna | SKU | Details | Links |
-| :----- | :--- | :------ | :---- |
-| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
-| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | B404X, BRN404X, and E404X | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Antenna | SKU | Links |
+| :----- | :---| :---- |
+| Wide band LTE-CAT M1 cell antenna, [x1] | PARANTC41EA | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Wide band LTE-CAT M1 cell antenna, [x50] | PARANTC41TY | [Datasheet](/assets/datasheets/PARANTC41.pdf) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1] | ANT-FLXU | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
+| Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 
 
 #### Bluetooth LE (BLE)
@@ -533,32 +535,38 @@ The E404X has two radio modules.
 
 #### u-blox SARA-R510S-01B
 
+{{!-- BEGIN shared-blurb 2f821871-252e-4acd-8002-11854b95faa6 --}}
 | Parameter | Value | FCC Certified | 
 | --- | --- | :---: | 
-| Protocol stack | 3GPP Release 14 | |
+| Protocol stack | 3GPP Release 13 LTE Cat M1 | |
+| | 3GPP Release 14 LTE Cat M1<sup>1</sup> | |
 | RAT | LTE Cat M1 Half-Duplex | |
 | LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
 | | Band 12 (700 MHz) | &check; |
-| | Band 28 (700 MHz)  | &check; |
+| | Band 28 (700 MHz)  | &nbsp; |
 | | Band 85 (700 MHz)  | &nbsp; |
 | | Band 13 (750 MHz)  | &check; |
-| | Band 20 (800 MHz)  | &check; |
+| | Band 20 (800 MHz)  | &nbsp; |
 | | Band 5 (850 MHz) | &check; |
 | | Band 18 (850 MHz) | &nbsp; |
 | | Band 19 (850 MHz) | &nbsp; |
 | | Band 26 (850 MHz)  | &nbsp; |
-| | Band 8 (900 MHz)  | &check; |
-| | Band 4 (1700 MHz) | &check; |
-| | Band 3 (1800 MHz)  | &check; |
+| | Band 8 (900 MHz)  | &nbsp; |
+| | Band 4 (1700 MHz) | &nbsp; |
+| | Band 3 (1800 MHz)  | &nbsp; |
 | | Band 2 (1900 MHz) | &check; |
 | | Band 25 (1900 MHz)  | &nbsp; |
 | | Band 1 (2100 MHz)  | &nbsp; |
 | Power class | Class 3 (23 dBm) | &nbsp; |
-
-- LTE Cat M1 for United States, Canada, and Mexico
-- Not all bands are enabled in software by default. 
+| Cellular data rate | up to 1200 kbit/s UL | |
+| | up to 375 kbit/s DL | |
+  
+- LTE Cat M1 for United States, Canada, and Mexico.
 - FCC Certification in the United States only tests bands in use in the United States.
+- Bands not listed as certified are disabled in the Device OS operating system and cannot be enabled from user firmware.
 - Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+- <sup>1</sup>3GPP Release 14 LTE Cat M1: Coverage Enhancement Mode B, Uplink TBS of 2984b 
+{{!-- END shared-blurb --}}
 
 ---
 
@@ -615,9 +623,6 @@ These specifications are based on the nRF52840 datasheet.
 
 An E series part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
-## Schematics
-
-**To be provided at a later date**
 
 ---
 
@@ -749,22 +754,11 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |     | 2022-09-16 | RK | Add minimum Device OS version, is 4.0.0 |
 |     | 2022-10-12 | RK | Removed power consumption section, was for B404 not E404X |
 |     | 2023-01-06 | RK | Update ADC information |
-
-### 2022-07-28 PWM changes
-
-Several PWM channel assignments have been changed in Device OS 5.0.0-beta.1.
-
-| Pin | New Assignment | Old Assignment | Notes |
-| :---: | :--- | :--- | :--- |
-| A2 | No PWM | PWM2 | |
-| A3 | PWM1 | PWM2 | |
-| A6 | PWM3 | | |
-| B2 | PWM2 | PWM0 | No longer shared with RGB LED |
-| B3 | PWM2 | PWM1 | |
-| C4 | PWM3 | | |
-| C5 | PWM0 | | Shared with RGB LED |
-| D0 | PWM1 | PWM3 | |
-| D1 | PWM1 | PWM3 | |
+|     | 2023-01-11 | RK | Updated certifications, added IC, removed PTCRB |
+|     | 2023-01-17 | RK | Added FCC § 2.1033(b)(5) Block Diagram |
+|     | 2023-01-31 | RK | Add Device OS versions |
+| 1   | 2023-02-07 | RK | GA (remove preliminary banner) |
+| 2   | 2023-02-17 | RK | Update certififed bands list |
 
 ## Known Errata
 
