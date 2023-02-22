@@ -1091,7 +1091,7 @@ $(document).ready(function() {
                                     ga('send', 'event', gaCategory, 'Reopened during Activate SIM');
                                     // TODO: Maybe ask user here?
                                     activateSim();
-                                    return;''   
+                                    return;
                                 }
                             }
                             catch(e) {

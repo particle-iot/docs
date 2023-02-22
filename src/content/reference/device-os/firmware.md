@@ -1419,6 +1419,147 @@ When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and
 
 When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
 
+### Pin configuration - Ethernet
+
+{{since when="5.3.0"}}
+
+In Device OS 5.3.x, it is possible to reconfigure the pins that are used for Ethernet control signals CS, RESET, and INT. This may be desirable if you need to use pins D3-D5 for other purposes, such as `SPI1`.
+
+**Warning**: This API is temporary and will change in a future version of Device OS. 
+
+The correct order of operations is:
+
+- Start with `FEATURE_ETHERNET_DETECTION` disabled this will prevent probing the default GPIO that you are using for other purposes, which may have unintended consequences.
+
+- It is recommended that you enable threading and SEMI_AUTOMATIC mode because you will need to execute code before connecting to the cloud.
+
+```cpp
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+```
+
+- If `Ethernet.isOn()` is false (it's off), then remap the pins. This setting is persistent on reset, cold boot, application firmware flash, and Device OS upgrade. It also is used when in safe mode so Device OS can be upgraded OTA over Ethernet.
+
+```cpp
+if_wiznet_pin_remap remap = {};
+remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+remap.cs_pin = A0;
+remap.reset_pin = A2;
+remap.int_pin = A1;
+
+auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+// ret is SYSTEM_ERROR_NONE on success
+```
+
+- After successful reconfiguration, enable ethernet detection with System.enableFeature(FEATURE_ETHERNET_DETECTION), and then reset the device with System.reset(). This will be fast because the device did not connect to the cloud the first time. This setting is persistent on reset, cold boot, application firmware flash, and Device OS upgrade. It also is used when in safe mode so Device OS can be upgraded OTA over Ethernet.
+
+```cpp
+System.enableFeature(FEATURE_ETHERNET_DETECTION);
+System.reset();
+```
+
+- If you want to restore one or more pins as their default value, use PIN_INVALID, and the default will be used for that pin.
+
+```cpp
+remap.cs_pin = PIN_INVALID; // default
+remap.reset_pin = PIN_INVALID; // default
+remap.int_pin = PIN_INVALID; // default
+```
+
+Here's a full sample application for testing:
+
+```cpp
+// SAMPLE APPLICATION
+#include "Particle.h"
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+Serial1LogHandler log1Handler(115200, LOG_LEVEL_ALL);
+
+retained uint8_t resetRetry = 0;
+
+void setup() {
+#if HAL_PLATFORM_WIFI && !HAL_PLATFORM_WIFI_SCAN_ONLY
+    // To force Ethernet only, clear Wi-Fi credentials
+    Log.info("Clear Wi-Fi credentionals...");
+    WiFi.clearCredentials();
+#endif // HAL_PLATFORM_WIFI && !HAL_PLATFORM_WIFI_SCAN_ONLY
+
+    // Disable Listening Mode if not required
+    if (System.featureEnabled(FEATURE_DISABLE_LISTENING_MODE)) {
+        Log.info("FEATURE_DISABLE_LISTENING_MODE enabled");
+    } else {
+        Log.info("Disabling Listening Mode...");
+        System.enableFeature(FEATURE_DISABLE_LISTENING_MODE);
+    }
+
+    Log.info("Checking if Ethernet is on...");
+    if (Ethernet.isOn()) {
+        Log.info("Ethernet is on");
+        uint8_t macAddrBuf[8] = {};
+        uint8_t* macAddr = Ethernet.macAddress(macAddrBuf);
+        if (macAddr != nullptr) {
+            Log.info("Ethernet MAC: %02x %02x %02x %02x %02x %02x",
+                    macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]);
+        }
+        Ethernet.connect();
+        waitFor(Ethernet.ready, 30000);
+        Log.info("Ethernet.ready: %d", Ethernet.ready());
+        resetRetry = 0;
+    } else if (++resetRetry <= 3) {
+        Log.info("Ethernet is off or not detected, attmpting to remap pins: %d/3", resetRetry);
+
+        if_wiznet_pin_remap remap = {};
+        remap.base.type = IF_WIZNET_DRIVER_SPECIFIC_PIN_REMAP;
+
+        remap.cs_pin = D10;
+        remap.reset_pin = D6;
+        remap.int_pin = D7;
+
+        auto ret = if_request(nullptr, IF_REQ_DRIVER_SPECIFIC, &remap, sizeof(remap), nullptr);
+        if (ret != SYSTEM_ERROR_NONE) {
+            Log.error("Ethernet GPIO config error: %d", ret);
+        } else {
+            if (System.featureEnabled(FEATURE_ETHERNET_DETECTION)) {
+                Log.info("FEATURE_ETHERNET_DETECTION enabled");
+            } else {
+                Log.info("Enabling Ethernet...");
+                System.enableFeature(FEATURE_ETHERNET_DETECTION);
+            }
+            delay(500);
+            System.reset();
+        }
+    }
+
+    Particle.connect();
+}
+
+void loop() {
+    static system_tick_t lastPublish = millis();
+    static int count = 0;
+    static bool reconnect = false;
+
+    if (Particle.connected()) {
+        reconnect = false;
+        if (millis() - lastPublish >= 10000UL) {
+            Particle.publish("mytest", String(++count), PRIVATE, WITH_ACK);
+            lastPublish = millis();
+        }
+    }
+
+    // Detect a network dropout and reconnect quickly
+    if (!reconnect && !Ethernet.ready()) {
+        Log.info("Particle disconnect...");
+        Particle.disconnect();
+        waitFor(Particle.disconnected, 5000);
+        Log.info("Network disconnect...");
+        Network.disconnect();
+        Particle.connect();
+        reconnect = true;
+    }
+}
+```
+
+
 
 ### on()
 
@@ -15348,6 +15489,37 @@ if (timer.isActive()) {
 }
 ```
 
+## Hardware Watchdog
+
+{{since when="5.3.0"}}
+
+Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Series SoM, Argon, Tracker SoM) and RTL827x (P2, Photon 2, Tracker M) can use the hardware watchdog built into the MCU. This is highly effective at resetting based on conditions that cause user or system firmware to freeze when in normal operating mode. It is only operational in normal operations mode, not DFU or safe mode.
+
+Typically you start it from setup(). Since it does not run during firmware updates, it's safe to use a relatively short timeout, however you probably don't want to set it lower than 30 seconds to prevent unintended resets.
+
+```cpp
+Watchdog.init(WatchdogConfiguration().timeout(30s));
+Watchdog.start();
+```
+
+As long as you frequently return from `loop()` or call `delay()` you do not need to manually refresh the watchdog timer. It's best to structure your code to prevent blocking, but if necessary you can manually refresh the watchdog:
+
+```cpp
+Watchdog.refresh(); // Generally unnecessary
+```
+
+It is possible to set an expired handler, which is called right before the system is reset. Since the device is probably in an unstable state at that point, you are limited in what you can do from the expired handler. Additionally, it's called an interrupt context (ISR) so you cannot allocate memory, make Particle calls (like publish), cellular modem calls, etc.. About the only thing you can do safely is set a retained variable. Unlike the application watchdog, you should not reset the system from the handler; it will automatically be reset after you return.
+
+```cpp
+// As a global variable:
+retained bool watchdogExpiredFlag = false;
+
+// In setup():
+Watchdog.onExpired([]() {
+  // This is called from an ISR, beware!
+  watchdogExpiredFlag = true;
+});
+```
 
 ## Application Watchdog
 
@@ -15355,7 +15527,7 @@ if (timer.isActive()) {
 
 A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
+Device OS includes a software-based watchdog, [ApplicationWatchdog](/reference/device-os/api/application-watchdog/application-watchdog/), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations. In practice, the application watchdog is rarely effective.
 
 The application note [AN023 Watchdog Timers](/hardware/best-practices/watchdog-timers/) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
