@@ -35,7 +35,7 @@ The following do not count against your Data Operations limit:
 
 The[ Particle Console](http://console.particle.io) lists the three limits you will most likely encounter:
 
-* The number of devices (Cellular, Wi-Fi, and Tracker).
+* The number of devices (Cellular or Wi-Fi).
 * For Free and Growth plans, the number of Data Operations consumed this billing month (for Enterprise plans, Data Operations reporting will be annual). Data Operation reporting will be near real-time, but up to 30 minutes behind.
 * For Free and Growth plans, the number of MB of cellular usage this billing month (for Enterprise plans, data usage reporting will be annual). Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
 
@@ -53,11 +53,7 @@ Potential **Enterprise plan** users should contact Sales in order to determine t
 
 ## How Can I Determine What Plan I Belong To?
 
-If you are a **current customer,** Particle will reach out via email to notify you of the status of your account. If you haven’t heard from us, please check your Spam folder and then contact support via a support ticket ([support.particle.io](https://support.particle.io)). Particle’s new pricing model allows developers to use our products free with no charges for up to 100 devices and 100k Data Operations.
-
-Many of our existing users will belong to the Free Plan. We will email those customers whose current practices exceed the Sandbox limits about the process of moving to the Growth Plan. Enterprise Plan Customers will be in touch with their Customer Success Manager directly with more information.
-
-If you are a new customer, we encourage you to start developing within the free Sandbox. You will be able to see your monthly usage on the billing page in our Console ([console.particle.io](https://console.particle.io)) and if you cross the thresholds of usage, our UI will provide you with a warning.
+You can find your plan in billing page in our Console ([console.particle.io](https://console.particle.io)) and if you cross the thresholds of usage, our UI will provide you with a warning.
 
 ## How Can I Sign Up For The Growth Plan?
 

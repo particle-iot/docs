@@ -53,7 +53,7 @@ You'll be asked for the list of products to migrate, organization name, and numb
 
 ### How am I billed for the growth plan?
 
-You initially decide how many blocks you want when you create your growth organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi, cellular, and Tracker. You can find the pricing [below](#what-is-a-block-).
+You initially decide how many blocks you want when you create your growth organization. You will be billed for those blocks at the start of your billing period. There are 3 types of blocks: Wi-Fi or cellular. You can find the pricing [below](#what-is-a-block-).
 
 If another block is needed:
 
@@ -79,9 +79,8 @@ Billing is measured in blocks.
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
 - Up to {{growthTierDevices}} devices.
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month, pooled across all devices.
-- Blocks are specific to cellular, Tracker, or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B Series are all cellular devices that can share the same block even though they are in different products.
+- Blocks are specific to cellular or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B Series are all cellular devices that can share the same block even though they are in different products.
 - Cellular blocks are {{growthBlockCellularPrice}} per month per block
-- Tracker blocks are {{growthBlockTrackerPrice}} per month per block
 - Wi-Fi blocks are {{growthBlockWiFiPrice}} per month per block
 
 {{top}}
@@ -134,7 +133,7 @@ The following do **not** count against your Data Operations limit:
 
 The free plan is a place for prototyping products. It is free of charge, but there are limits on the number of devices and data operations you can use.
 
-- Up to {{freeTierDevices}} devices, any mix of cellular, Wi-Fi, and Tracker devices
+- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi devices
 - {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - Device communication is paused when a monthly limit is reached
@@ -279,7 +278,7 @@ However, if you change the device claiming you may need to move the webhook into
 
 The sandbox device list is confusing because it includes items that don't count against your free plan limit, and some devices that are part of the free plan limit are not in the list!
 
-- The device limit is 100 total devices across all device types (cellular, Wi-Fi, and Tracker).
+- The device limit is 100 total devices across all device types (cellular or Wi-Fi).
 - If you select the **Show sandbox devices only checkbox** (3) it will show only developer devices claimed to your account.
 - However if you are the product owner for a free sandbox tier product, all devices in that product count toward the device limit, even if they are not claimed to your account.
 
