@@ -26034,6 +26034,226 @@
                 2602,
                 2603
             ]
+        },
+        "v5.3.0": {
+            "url": "https://github.com/particle-iot/device-os/releases/tag/v5.3.0",
+            "tag_name": "v5.3.0",
+            "name": "v5.3.0 (Argon/Boron/B SoM/B5 SoM/Tracker/Tracker M/E SoM X/P2)",
+            "prerelease": true,
+            "created_at": "2023-02-21T19:36:31Z",
+            "published_at": "2023-02-22T05:19:02Z",
+            "entries": [
+                {
+                    "tags": [],
+                    "prs": [
+                        2621
+                    ],
+                    "section": "FEATURES",
+                    "text": "Static IP configuration support"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2595,
+                        2617,
+                        2620
+                    ],
+                    "section": "FEATURES",
+                    "text": "Hardware watchdog"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2616
+                    ],
+                    "section": "FEATURES",
+                    "text": "Ethernet GPIO config"
+                },
+                {
+                    "tags": [
+                        "wiring",
+                        "gen3"
+                    ],
+                    "prs": [
+                        2619
+                    ],
+                    "section": "FEATURES",
+                    "text": "Allow gen3 to select internal ADC reference source"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2604,
+                        2608,
+                        2614
+                    ],
+                    "section": "ENHANCEMENTS",
+                    "text": "Support IO wakeup sources through IO expander."
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2612
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "enable factory reset feature"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2623
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "Dcache fixes for exflash HAL"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2606
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "fix overflow error in HAL_Delay_Microseconds"
+                },
+                {
+                    "tags": [
+                        "nRF52"
+                    ],
+                    "prs": [
+                        2615
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "BLE plus RTC sleep causes hardfault"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2624
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "hal: fix heap allocation issue in interrupt hal and postpone the mode button initialization."
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2628
+                    ],
+                    "section": "BUGFIXES",
+                    "text": "bootloader: fix destination address flash page alignment in case of compressed modules"
+                },
+                {
+                    "tags": [
+                        "photon2"
+                    ],
+                    "prs": [
+                        2610
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Update FQC test with photon 2 pinout"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2611
+                    ],
+                    "section": "INTERNAL",
+                    "text": "mailbox support and support for resets within tests"
+                },
+                {
+                    "tags": [
+                        "bootloader"
+                    ],
+                    "prs": [
+                        2607
+                    ],
+                    "section": "INTERNAL",
+                    "text": "remove nanopb dependency"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2570
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Server key rotation"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2613,
+                        2618
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix GCC platform build"
+                },
+                {
+                    "tags": [],
+                    "prs": [
+                        2622
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Ensure thread07 test executes as intended"
+                },
+                {
+                    "tags": [
+                        "rtl872x"
+                    ],
+                    "prs": [
+                        2626
+                    ],
+                    "section": "INTERNAL",
+                    "text": "Fix watchdog tests; system/application thread stack size increase"
+                },
+                {
+                    "tags": [
+                        "test"
+                    ],
+                    "prs": [
+                        2627
+                    ],
+                    "section": "INTERNAL",
+                    "text": "turn off NCP before testing wiring/watchdog"
+                }
+            ],
+            "prs": [
+                2570,
+                2595,
+                2604,
+                2606,
+                2607,
+                2608,
+                2610,
+                2611,
+                2612,
+                2613,
+                2614,
+                2615,
+                2616,
+                2617,
+                2618,
+                2619,
+                2620,
+                2621,
+                2622,
+                2623,
+                2624,
+                2626,
+                2627,
+                2628
+            ]
         }
     },
     "pulls": {
@@ -38088,6 +38308,187 @@
             "title": "Device OS 5.2.0 Release",
             "state": "closed",
             "created_at": "2022-12-16T19:06:43Z"
+        },
+        "2606": {
+            "url": "https://github.com/particle-iot/device-os/pull/2606",
+            "number": 2606,
+            "title": "fix overflow error in HAL_Delay_Microseconds",
+            "state": "closed",
+            "created_at": "2022-12-19T19:04:15Z",
+            "detail": "`HAL_Delay_Microseconds` on the P2 has this main loop:\n\n```\n    system_tick_t start_micros = HAL_Timer_Get_Micro_Seconds();\n    system_tick_t current_micros = start_micros;\n    system_tick_t end_micros = start_micros + uSec;\n\n    ...\n\n    while (current_micros < end_micros) {\n        current_micros = HAL_Timer_Get_Micro_Seconds();\n    }\n```\n\nIf `end_micros` is close to `UINT_MAX` then it is possible that updating `current_micros` can wrap the counter and reset it to a low value, extending the wait by > 71 minutes. The closer `end_micros` is to precisely `UINT_MAX`, the less likely the loop will ever terminate."
+        },
+        "2607": {
+            "url": "https://github.com/particle-iot/device-os/pull/2607",
+            "number": 2607,
+            "title": "[bootloader] remove nanopb dependency",
+            "state": "closed",
+            "created_at": "2022-12-20T16:22:44Z"
+        },
+        "2608": {
+            "url": "https://github.com/particle-iot/device-os/pull/2608",
+            "number": 2608,
+            "title": "implements shared interrupt pin for Trackerm.",
+            "state": "closed",
+            "created_at": "2023-01-03T13:29:28Z"
+        },
+        "2609": {
+            "url": "https://github.com/particle-iot/device-os/pull/2609",
+            "number": 2609,
+            "title": "A workaround to fix the AMD USB issue",
+            "state": "closed",
+            "created_at": "2023-01-05T10:11:21Z",
+            "detail": "We found the USB request `Get Line Coding` couldn't get a response on the AMD Windows PC, the symptom could be that we can't open the com port on a serial tool software on the AMD Windows PC."
+        },
+        "2610": {
+            "url": "https://github.com/particle-iot/device-os/pull/2610",
+            "number": 2610,
+            "title": "[photon2] Update FQC test with photon 2 pinout",
+            "state": "closed",
+            "created_at": "2023-01-10T20:53:31Z",
+            "detail": "Photon 2 devices are going into production. The feather pinout of the Photon 2 differs from the bare P2 module. The FQC test will need to be updated to test the feather pins"
+        },
+        "2611": {
+            "url": "https://github.com/particle-iot/device-os/pull/2611",
+            "number": 2611,
+            "title": "[test] mailbox support and support for resets within tests",
+            "state": "closed",
+            "created_at": "2023-01-12T21:18:00Z",
+            "detail": "Currently there is no sane way of writing automated tests using our test framework that:\n1. Generate messages during the test that the JS side can act upon\n2. Notify device-os-test-runner about on-device tests triggering a reset/detach"
+        },
+        "2612": {
+            "url": "https://github.com/particle-iot/device-os/pull/2612",
+            "number": 2612,
+            "title": "[rtl872x] enable factory reset feature",
+            "state": "closed",
+            "created_at": "2023-01-18T03:52:02Z",
+            "detail": "Factory reset through bootloader and long MODE button press until blinking WHITE is only available as of right now on nRF52840 platforms."
+        },
+        "2613": {
+            "url": "https://github.com/particle-iot/device-os/pull/2613",
+            "number": 2613,
+            "title": "Fix GCC platform build",
+            "state": "closed",
+            "created_at": "2023-01-19T15:01:34Z",
+            "detail": "This PR fixes the build for GCC platform that was broken in https://github.com/particle-iot/device-os/pull/2570."
+        },
+        "2614": {
+            "url": "https://github.com/particle-iot/device-os/pull/2614",
+            "number": 2614,
+            "title": "[trackerm] Fix ioexpander interrupt config to pass version check",
+            "state": "closed",
+            "created_at": "2023-01-25T17:37:05Z",
+            "detail": "Before merging the shared interrupts PR, I added a check to validate the interrupt config version. This had the unintended consequence of rejecting the MCP23 IO expander interrupt configuration and breaking its operation."
+        },
+        "2615": {
+            "url": "https://github.com/particle-iot/device-os/pull/2615",
+            "number": 2615,
+            "title": "[nRF52] BLE plus RTC sleep causes hardfault",
+            "state": "closed",
+            "created_at": "2023-01-31T16:40:50Z",
+            "detail": "When `.ble()` and `.duration(...)` are specified as wakeup sources, device will crash on entering sleep mode."
+        },
+        "2616": {
+            "url": "https://github.com/particle-iot/device-os/pull/2616",
+            "number": 2616,
+            "title": "Ethernet GPIO config",
+            "state": "closed",
+            "created_at": "2023-02-02T06:07:34Z",
+            "detail": "Devices that support the WizNet Ethernet controller have 3 hard coded GPIO pins in system firmware that collide with SPI1 usage.  If a user wants to use Ethernet which requires SPI and D3, D4 and D5 to be reserved on Argon/Boron/P2/Photon2/TrackerM for example.  If they also need to use hardware SPI1 for some other peripheral, they cannot."
+        },
+        "2617": {
+            "url": "https://github.com/particle-iot/device-os/pull/2617",
+            "number": 2617,
+            "title": "[test]: add more watchdog test cases.",
+            "state": "closed",
+            "created_at": "2023-02-02T16:17:24Z"
+        },
+        "2618": {
+            "url": "https://github.com/particle-iot/device-os/pull/2618",
+            "number": 2618,
+            "title": "[ci] Fix gcc and newhal builds",
+            "state": "closed",
+            "created_at": "2023-02-03T18:15:21Z",
+            "detail": "1. Newhal and GCC platform builds are broken as of current develop\n2. Those platforms are not actually being built during CI"
+        },
+        "2619": {
+            "url": "https://github.com/particle-iot/device-os/pull/2619",
+            "number": 2619,
+            "title": "[wiring][gen3] Allow gen3 to select internal ADC reference source",
+            "state": "closed",
+            "created_at": "2023-02-06T20:24:56Z",
+            "detail": "Customer wishes to change ADC reference source from the default external VCC source to the internal voltage reference because it has greater accuracy on their particular design."
+        },
+        "2620": {
+            "url": "https://github.com/particle-iot/device-os/pull/2620",
+            "number": 2620,
+            "title": "Remove manual wakeup. Hibernate + watchdog on platforms that support it",
+            "state": "closed",
+            "created_at": "2023-02-09T18:52:48Z",
+            "detail": "Watchdog test 3 requires manual triggering of WKP pin to pass. This isnt feasible on HIL with automated tests."
+        },
+        "2621": {
+            "url": "https://github.com/particle-iot/device-os/pull/2621",
+            "number": 2621,
+            "title": "Static IP configuration support",
+            "state": "closed",
+            "created_at": "2023-02-10T22:17:46Z",
+            "detail": "See SDD: https://docs.google.com/document/d/1WjEtv3wgbmD6C93mm2qny-MG50iB2rR7hk8GNb6cuA4/edit#"
+        },
+        "2622": {
+            "url": "https://github.com/particle-iot/device-os/pull/2622",
+            "number": 2622,
+            "title": "Ensure thread07 test executes as intended",
+            "state": "closed",
+            "created_at": "2023-02-13T17:25:27Z",
+            "detail": "Test `THREAD_07_particle_process_behavior_when_threading_enabled` fails in most cases with current `develop`. The problem is that when an Async task is inserted into the application thread queue, we only call `Particle.process()` once to execute the task. This works fine unless there are other work items in the queue ahead of that task."
+        },
+        "2623": {
+            "url": "https://github.com/particle-iot/device-os/pull/2623",
+            "number": 2623,
+            "title": "rtl872x: Dcache fixes for exflash HAL",
+            "state": "closed",
+            "created_at": "2023-02-15T08:39:16Z",
+            "detail": "The read data from external flash might be incorrect. This issue cannot be reliably reproduced, but once it encountered, the issue persists on every wakup from hibernate mode, and the RGB will give several blinks while it is restoring the server key and address."
+        },
+        "2624": {
+            "url": "https://github.com/particle-iot/device-os/pull/2624",
+            "number": 2624,
+            "title": "[rtl872x] hal: fix heap allocation issue in interrupt hal and postpone the mode button initialization.",
+            "state": "closed",
+            "created_at": "2023-02-16T18:35:06Z",
+            "detail": "PR #2608 introduced a regression in MODE button handling for RTL872x-based platforms (P2, Tracker M)."
+        },
+        "2625": {
+            "url": "https://github.com/particle-iot/device-os/pull/2625",
+            "number": 2625,
+            "title": "Apply new usb stack and patch to fix the USB issue on Windows",
+            "state": "open",
+            "created_at": "2023-02-17T07:46:58Z",
+            "detail": "We found the USB request Get Line Coding couldn't get a response on the AMD Windows PC, the symptom could be that we can't open the com port on a serial tool software on the AMD Windows PC.\n\nBy enabling the low level USB log in `hw_config.c`\n```\nConfigDebugClose = 0;\nDBG_ERR_MSG_ON(MODULE_USB_OTG);\nDBG_WARN_MSG_ON(MODULE_USB_OTG);\nDBG_INFO_MSG_ON(MODULE_USB_OTG);\nConfigDebug[LEVEL_TRACE] |= BIT(MODULE_USB_OTG);\n```\n\nwe can see the last log when P2 got stuck, that is a race condition to access TxFIFO between EP3 and EP0.\n```\n[MODULE_USB_OTG-LEVEL_TRACE]:NPTxFEmp: token received for EP3 when TxFIFO is not ready\n```"
+        },
+        "2626": {
+            "url": "https://github.com/particle-iot/device-os/pull/2626",
+            "number": 2626,
+            "title": "[rtl872x] Fix watchdog tests; system/application thread stack size increase",
+            "state": "closed",
+            "created_at": "2023-02-17T21:47:08Z",
+            "detail": "1. In threaded mode System.sleep() triggers system thread stack overflow during BLE stack reinitialization\n2. USB stack and malloc are used on wake-up from STOP/ULP mode with disabled interrupts/scheduling\n3. wiring/watchdog test has incorrect `RESET_PENDING` usage and is a bit too tight on timings"
+        },
+        "2627": {
+            "url": "https://github.com/particle-iot/device-os/pull/2627",
+            "number": 2627,
+            "title": "[test] turn off NCP before testing wiring/watchdog",
+            "state": "closed",
+            "created_at": "2023-02-19T05:25:54Z",
+            "detail": "- `TEST=wiring/watchdog` failing for cellular devices due to WDT firing too soon"
+        },
+        "2628": {
+            "url": "https://github.com/particle-iot/device-os/pull/2628",
+            "number": 2628,
+            "title": "[rtl872x] bootloader: fix destination address flash page alignment in case of compressed modules",
+            "state": "closed",
+            "created_at": "2023-02-21T19:00:52Z",
+            "detail": "As title says"
         }
     }
 }
