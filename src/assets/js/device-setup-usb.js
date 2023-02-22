@@ -2436,9 +2436,44 @@ $(document).ready(function() {
                 $(hasEthernetRowElem).hide();
             }
 
+            const showHideSetupBitSelection = function() {
+                let show = false;
+
+                if (deviceInfo.platformVersionInfo.gen == 3) {
+                    let versionElemForMode;
+                    switch(mode) {
+                        case 'doctor':
+                            versionElemForMode = doctorDeviceOsVersionElem;
+                            break;
+
+                        case 'restore':
+                            versionElemForMode = versionElem;
+                            break;
+
+                        case 'setup':
+                            versionElemForMode = setupDeviceOsVersionElem;
+                            break;
+                    }
+                    if (versionElemForMode) {
+                        const verObj = apiHelper.parseVersionStr($(versionElemForMode).val());
+                        if (verObj && verObj.major < 4) {
+                            show = true;
+                        }
+                    }
+                }
+
+                if (show) {
+                    $(setupBitTrElem).show();
+                }
+                else {
+                    $(setupBitSelectElem).val('unchanged');
+                    $(setupBitTrElem).hide();
+                }    
+            };
             
+
             if (mode == 'doctor') {
-               
+                $(doctorDeviceOsVersionElem).on('change', showHideSetupBitSelection);    
             }
             else
             if (mode == 'restore') {                
@@ -2457,10 +2492,8 @@ $(document).ready(function() {
                 else if (firstRelease) {
                     $(versionElem).val(firstRelease);
                 }
+                $(versionElem).on('change', showHideSetupBitSelection);
 
-                if (deviceInfo.platformVersionInfo.gen == 3) {
-                    $(setupBitTrElem).show();
-                }
 
                 if (deviceInfo.platformVersionInfo.isTracker) {
                     $(modeSelectElem).find('option[value="tinker"]').text('Tracker Edge (Factory Default)');
@@ -2515,6 +2548,7 @@ $(document).ready(function() {
             else
             if (mode == 'setup') {
                 // Setup mode
+                $(setupDeviceOsVersionElem).on('change', showHideSetupBitSelection);
 
                 if (deviceInfo.platformVersionInfo.isTracker) {
                     // Tracker setup mode
@@ -2595,6 +2629,9 @@ $(document).ready(function() {
                 }
 
             }
+
+            showHideSetupBitSelection();
+
 
             const showSimSelectionOption = (deviceInfo.platformId == 13);
 
