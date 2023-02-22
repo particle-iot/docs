@@ -158,13 +158,15 @@ You can find more information in the [Data Operations](/getting-started/billing/
 | BLE configuration | &nbsp; | &check; |&check; |
 | [Soft AP](/reference/device-os/api/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; | &nbsp; |
 | Static IP address support | &check; | &nbsp; | &nbsp; |
-| WPA2 Enterprise support | &check; | &nbsp; | &check; |
+| WPA2 Enterprise support | &check; | &nbsp; | <sup>1</sup> |
+
+<sup>1</sup>WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 ### WPA2 Enterprise
 
 WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educations environments. It's sometimes referred to as WPA Enterprise, and mentions of 802.1(x), RADIUS, or eduroam indicate that WPA2 Enterprise is being used.
 
-To configure a Photon, P1, P2, or Photon 2 using WPA2 Enterprise using the Particle CLI. Of note:
+To configure a Photon, P1 using WPA2 Enterprise using the Particle CLI. Of note:
 
 - Setup can only be done over USB using the [Particle CLI](/getting-started/developer-tools/cli/) (no mobile app support).
 - Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
@@ -188,6 +190,8 @@ There are a variety of encryption protocols for WPA2 Enterprise, however only th
 | TLS versions | TLS1.0 and TLS1.1 only |
 
 Support has been tested with Microsoft NPS, Cisco Secure ACS, and Cisco ISE. FreeRADIUS RADIUS implementations with have been tested with Ubiquiti, Cisco, and Aruba access points. Eduroam sometimes works, however it is dependent on the university's WPA2 Enterprise configuration; some use settings that do not correspond to the requirements above.
+
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 ### Special Wi-Fi Considerations
 

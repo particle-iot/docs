@@ -2079,7 +2079,9 @@ The password is limited to 64 7-bit ASCII characters. If you pass in a longer pa
 {{since when="0.7.0"}}
 
 {{note op="start" type="note"}}
-WPA Enterprise is only supported on the P2 and Photon 2, and also on the Photon and P1.
+WPA Enterprise is only supported on the Photon and P1.
+
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 It is not supported on the Argon.
 {{note op="end"}}
@@ -2871,6 +2873,8 @@ Parameters:
 This is a feature of WPA Enterprise and is only available on the Photon and P1
 (Gen 2). It is not available on the Argon (Gen 3).
 
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+
 #### setIdentity()
 
 {{api name1="WiFiCredentials::setIdentify"}}
@@ -2915,6 +2919,8 @@ Parameters:
 This is a feature of WPA Enterprise and is only available on the Photon and P1
 (Gen 2). It is not available on the Argon (Gen 3).
 
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+
 #### setClientCertificate()
 
 {{api name1="WiFiCredentials::setClientCertificate"}}
@@ -2941,6 +2947,8 @@ Parameters:
 This is a feature of WPA Enterprise and is only available on the Photon and P1
 (Gen 2). It is not available on the Argon (Gen 3).
 
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+
 #### setPrivateKey()
 
 {{api name1="WiFiCredentials::setPrivateKey"}}
@@ -2966,6 +2974,8 @@ Parameters:
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
 (Gen 2). It is not available on the Argon (Gen 3).
+
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 #### setRootCertificate()
 
@@ -3002,6 +3012,8 @@ Parameters:
 This is a feature of WPA Enterprise and is only available on the Photon and P1
 (Gen 2). It is not available on the Argon (Gen 3).
 
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
+
 ### WLanEapType Enum
 
 {{api name1="WLanEapType"}}
@@ -3015,6 +3027,8 @@ This enum defines EAP types.
 
 This is a feature of WPA Enterprise and is only available on the Photon and P1
 (Gen 2). It is not available on the Argon (Gen 3).
+
+WPA2 Enterprise support will be added in a future version of Device OS for the P2 and Photon 2.
 
 ### SecurityType Enum
 
