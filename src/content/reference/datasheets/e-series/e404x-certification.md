@@ -145,7 +145,7 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 
 {{imageOverlay src="/assets/images/b-series/nRF52-block-diagram.png" alt="nRF52840 Block Diagram" class="full-width"}}
 
-- The E404X contains a Nordic nRF52840 MCU which contains BLE and NFC radios.
+- The E404X contains a Nordic nRF52840 MCU which contains BLE radio.
 - While the nRF52840 hardware supports other radio technologies such as OpenThread (6LoWPAN over IEEE 802.15.4) and BLE Mesh, the nRF52 SoftDevice firmware that is included on the E404X does not include these features and there is no way to enable them from user firmware.
 
 #### Nordic Semiconductor nRF52840 for BLE
@@ -161,21 +161,6 @@ For information on upgrading Device OS, see [Version information](/reference/dev
 {{!-- END shared-blurb --}}
 
 - BLE requires an external antenna and is not enabled by default. It can be enabled from user firmware.
-
-#### Nordic Semiconductor nRF52840 for NFC Tag
-
-{{!-- BEGIN shared-blurb b8bb013e-9b2f-443b-874e-842e94850e62 --}}
-| Feature | Description|
-| :-------|:---------- |
-| Feature | NFC Tag-A |
-| Frequency | 13.56 MHz |
-{{!-- END shared-blurb --}}
-
-- NFC Tag support only
-- NFC Tag requires an external antenna
-
-
-*This diagram for illustration only and is subject to change*
 
 ### Power
 The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
