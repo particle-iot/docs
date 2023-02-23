@@ -138,6 +138,16 @@ Additional FCC Test Reports:
 - [FCC Part 24](/assets/pdfs/elc402-fcc-part24-test-report.pdf)
 - [FCC Part 27](/assets/pdfs/elc402-fcc-part27-test-report.pdf)
 
+#### E Series E404X (R510)
+
+- [FCC Grant 15B licensed receiver](/assets/pdfs/e404x-fcc-15b-receiver.pdf)
+- [FCC Grant 15B peripheral](/assets/pdfs/e404x-fcc-15b-peripheral.pdf)
+- [FCC Grant 15C DTS transmitter](/assets/pdfs/e404x-fcc-15c-dts.pdf)
+- [FCC Grant 15C PCS transmitter](/assets/pdfs/e404x-fcc-15c-pcs.pdf)
+- [FCC Grant 15B Licensed Receiver](/assets/pdfs/e404x-fcc-15b-receiver.pdf)
+- [BLE test report](/assets/pdfs/e404x-ble-test-report.pdf)
+
+
 #### E Series E310 and E314 (U201)
 
 - FCC ID: [XPY1CGM5NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=3vkdOEQAe%2Fc2YGK%2FBZsiJQ%3D%3D&fcc_id=XPY1CGM5NNN)
@@ -387,6 +397,10 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Issue 7:2020 Class B](/assets/pdfs/elc402-ic-ices003-7.pdf)
 - [Test Report ICES-003 Issue 7:2020 Class B](/assets/pdfs/elc402-ic-ices003-7-test-report.pdf)
 - [ISED RF Exposure Report](/assets/pdfs/elc402-ic-ised-rf-exposure.pdf)
+
+#### E Series E404X (R510 modem)
+- IC ID: **20127-E404X**
+- [Certificate of conformity](/assets/pdfs/e404x-ic.pdf)
 
 
 #### E Series E310 and E314 (U201 modem)
@@ -758,6 +772,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Electron ELC402 LTE Cat M1 (SARA-R410M-02B modem)
 
 - [Test Reports](/assets/pdfs/electron402-rohs.pdf)
+
+#### E Series E404X (R510)
+
+- [RoHS 3.0 Test Report](/assets/pdfs/e404x-rohs.pdf)
 
 #### E Series E310 (U201 modem)
 
