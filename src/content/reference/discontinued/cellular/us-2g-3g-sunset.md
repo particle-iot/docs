@@ -18,7 +18,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### T-Mobile
 
-- T-Mobile 2G will shut down December 2022, though there are some unofficial reports that this deadline may be extended.
+- T-Mobile 2G will shut down by April 2, 2024. This deadline is not expected to be extended again.
 - T-Mobile 3G shutdown started in January 2021 and is substantially complete as of June 2022.
 
 
@@ -31,7 +31,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 | E310, E260 | AT&T (3G), T-Mobile (2G/3G) | AT&T (3G), T-Mobile (2G)<sup>1</sup> | T-Mobile (2G)<sup>1</sup> |
 | E350 | T-Mobile (2G) | T-Mobile (2G)<sup>1</sup> | T-Mobile (2G)<sup>1</sup> |
 
-**These devices will lose all connectivity in the United States in December 2022**
+**These devices will lose all connectivity in the United States in April 2024**
 
 <sup>1</sup> After the T-Mobile 3G shutdown in October 2021, there may be reduced T-Mobile coverage in some areas.
 
@@ -39,7 +39,7 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 ### Boron 2G/3G (BRN310)
 
-- The Boron 2G/3G only has ever connected to T-Mobile. It will likely revert to 2G only by October 2021 and stop working entirely in December 2022.
+- The Boron 2G/3G only has ever connected to T-Mobile. It will likely revert to 2G only by October 2021 and stop working entirely in April 2024.
 - After the T-Mobile 3G shutdown in October 2021, there may be reduced T-Mobile coverage in some areas.
 - Of the nationwide US mobile carriers, this model is only compatible with T-Mobile and AT&T, and using a 3rd-party SIM card will not help. This device is not compatible with Verizon.
 
@@ -47,24 +47,24 @@ The mobile operators used by Particle cellular devices in the United States are 
 
 - The E Series 2G/3G Global can connect to AT&T or T-Mobile.
 - After February 2022 it will not be able to connect to AT&T and will only be able to use T-Mobile 2G.
-- It will stop working entirely in December 2022.
+- It will stop working entirely in April 2024.
 
 ### Electron 2G/3G (ELC314, E260)
 
 - The E Series 2G/3G Global can connect to AT&T or T-Mobile.
 - After February 2022 it will not be able to connect to AT&T and will only be able to use T-Mobile 2G.
-- It will stop working entirely in December 2022.
+- It will stop working entirely in April 2024.
 - Of the nationwide US mobile carriers, this model is only compatible with T-Mobile and AT&T, and using a 3rd-party SIM card will not help. This device is not compatible with Verizon.
 
 ### Electron 2G (E350)
 
 - The Electron 2G has only connected to T-Mobile since 2016.
-- It will stop working entirely in December 2022.
+- It will stop working entirely in April 2024.
 - Of the nationwide US mobile carriers, this model is only compatible with T-Mobile and AT&T, and using a 3rd-party SIM card will not help. This device is not compatible with Verizon.
 
 ## SKUs not recommended in the US
 
-Because of the 2G/3G sunset, the following SKUs should not be used in the United States as they will lose all connectivity in December 2022.
+Because of the 2G/3G sunset, the following SKUs should not be used in the United States as they will lose all connectivity in April 2024.
 
 | Family | SKU | Replacement |
 | :--- | | :--- | :--- | :--- |

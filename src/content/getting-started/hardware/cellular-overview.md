@@ -931,7 +931,7 @@ AT&T's 3G shutdown will occur on **February 22, 2022**. After this occurs, the E
 
 T-Mobile began to reallocate 3G spectrum in March 2020 so there could be reduced coverage, and will eliminate all 3G coverage by July 1, 2022, leaving only 2G.
 
-T-Mobile will deactivate their 2G network at some point in the future, at which point 2G/3G devices will cease to work in the United States. This was originally scheduled for end of 2022. The new date has not been announced yet.
+T-Mobile will deactivate their 2G network in April 2024, at which point 2G/3G devices will cease to work in the United States. This was originally scheduled for end of 2022 and is unlikely to be extended again.
 
 The Boron 2G/3G only connects to T-Mobile in the United States already (it cannot connect to AT&T using the built-in MFF2 Particle SIM).
 

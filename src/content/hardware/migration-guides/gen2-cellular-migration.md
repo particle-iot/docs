@@ -129,7 +129,7 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 #### Country Compatibility - Boron
 
-- The Boron 2G/3G Global (BRN314) can be used world-wide, however it is not recommended for the United States. In December 2022, all 2G/3G cellular operators will have shut down their 2G and 3G cellular networks and this device will no longer be able to connect.
+- The Boron 2G/3G Global (BRN314) can be used world-wide, however it is not recommended for the United States. In April 2024, all 2G/3G cellular operators will have shut down their 2G and 3G cellular networks and this device will no longer be able to connect.
 - The Boron LTE Cat M1 (BRN404) is only recommended for use in the United States, Canada, and Mexico. 
 
 #### Peripherals and GPIO - Boron
