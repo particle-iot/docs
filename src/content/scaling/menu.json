@@ -54,6 +54,11 @@
         "href": "/scaling/quick-start-guide/introduction-to-products/"
       },
       {
+        "dir": "bulk-device-operations",
+        "title": "Bulk device operations",
+        "href": "/scaling/quick-start-guide/bulk-device-operations/"
+      },
+      {
         "dir": "billing",
         "title": "Billing",
         "href": "/scaling/quick-start-guide/billing/"
@@ -62,6 +67,11 @@
         "dir": "enterprise-order-placement",
         "title": "Enterprise Order Placement",
         "href": "/scaling/quick-start-guide/enterprise-order-placement/"
+      },
+      {
+        "dir": "returns",
+        "title": "Returns and replacements",
+        "href": "/scaling/quick-start-guide/returns/"
       }
     ],
     {
