@@ -39,7 +39,7 @@ In the item that's highlighted, select **libusbK** using the tiny arrows. Then c
 
 If you're installing for an Electron, note that the Zadig installer will still say **Photon DFU Mode**. This is normal. You can tell it's actually an Electron because the highlighted box will be D00A for an Electron.
 
-![Zadig for Electron](/assets/images/suppor/installing-dfu-util-24zadig.png)
+![Zadig for Electron](/assets/images/support/installing-dfu-util-24zadig.png)
 
 Some common values are:
 
