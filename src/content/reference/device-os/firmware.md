@@ -15511,10 +15511,33 @@ Starting with Device OS 5.3.0, Gen 3 devices based on the nRF52840 (Boron, B Ser
 
 Typically you start it from setup(). Since it does not run during firmware updates, it's safe to use a relatively short timeout, however you probably don't want to set it lower than 30 seconds to prevent unintended resets.
 
+The watchdog is automatically stopped before sleep mode and when reset, so it will not adversely affect safe mode, DFU mode, or OTA upgrades of Device OS.
+
+### Watchdog.init
+
+{{api name1="Watchdog::init"}}
+
 ```cpp
 Watchdog.init(WatchdogConfiguration().timeout(30s));
 Watchdog.start();
 ```
+
+The minimum is 1 millisecond, but you should never set it that short since it will frequently fire as the thread scheduler works at 1 millisecond timeslices, and any delays caused by high priority threads or disabled interrupts will exceed that limit.
+
+The maximium varies by platform:
+
+- Boron, B Series SoM, Argon, Tracker SoM (nRF52840): 131,071,999 milliseconds
+- P2 and Photon 2 (RTL872x): 8,190,000 milliseconds (around 2 hours and 15 minutes)
+
+### Watchdog.start
+
+{{api name1="Watchdog::start"}}
+
+You typically start it when initializating.
+
+### Watchdog.refresh
+
+{{api name1="Watchdog::refresh"}}
 
 You must call `Watchdog.refresh()` more often than the timeout interval. You can call it on every `loop()`. 
 
@@ -15526,6 +15549,11 @@ Watchdog.refresh();
 ```
 
 It is possible to set an expired handler, which is called right before the system is reset. Since the device is probably in an unstable state at that point, you are limited in what you can do from the expired handler. Additionally, it's called an interrupt context (ISR) so you cannot allocate memory, make Particle calls (like publish), cellular modem calls, etc.. About the only thing you can do safely is set a retained variable. Unlike the application watchdog, you should not reset the system from the handler; it will automatically be reset after you return.
+
+### Watchdog.onExpired
+
+{{api name1="Watchdog::onExpired"}}
+
 
 ```cpp
 // As a global variable:
