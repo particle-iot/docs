@@ -15516,10 +15516,13 @@ Watchdog.init(WatchdogConfiguration().timeout(30s));
 Watchdog.start();
 ```
 
-As long as you frequently return from `loop()` or call `delay()` you do not need to manually refresh the watchdog timer. It's best to structure your code to prevent blocking, but if necessary you can manually refresh the watchdog:
+You must call `Watchdog.refresh()` more often than the timeout interval. You can call it on every `loop()`. 
+
+If you have logic that blocks loop, you must also call it while blocking. Beware of using long `delay()` if you are using the hardware watchdog.
 
 ```cpp
-Watchdog.refresh(); // Generally unnecessary
+// Call on every loop, or when blocking
+Watchdog.refresh(); 
 ```
 
 It is possible to set an expired handler, which is called right before the system is reset. Since the device is probably in an unstable state at that point, you are limited in what you can do from the expired handler. Additionally, it's called an interrupt context (ISR) so you cannot allocate memory, make Particle calls (like publish), cellular modem calls, etc.. About the only thing you can do safely is set a retained variable. Unlike the application watchdog, you should not reset the system from the handler; it will automatically be reset after you return.
