@@ -15513,9 +15513,10 @@ Typically you start it from setup(). Since it does not run during firmware updat
 
 The watchdog is automatically stopped before sleep mode and when reset, so it will not adversely affect safe mode, DFU mode, or OTA upgrades of Device OS.
 
+
 ### Watchdog.init
 
-{{api name1="Watchdog::init"}}
+{{api name1="Watchdog.init"}}
 
 ```cpp
 Watchdog.init(WatchdogConfiguration().timeout(30s));
@@ -15529,15 +15530,28 @@ The maximium varies by platform:
 - Boron, B Series SoM, Argon, Tracker SoM (nRF52840): 131,071,999 milliseconds
 - P2 and Photon 2 (RTL872x): 8,190,000 milliseconds (around 2 hours and 15 minutes)
 
+#### Watchdog capabilities
+
+{{api name1="WatchdogConfiguration.capabilities"}}
+
+On nRF52840 (Boron, B Series SoM, Argon, Tracker SoM) devices, you can optionally keep the watchdog running during sleep by using a capabilities flag:
+
+```cpp
+Watchdog.init(WatchdogConfiguration()
+  .capabilities(WatchdogCap::SLEEP_RUNNING)
+  .timeout(20min));
+Watchdog.start();
+```
+
 ### Watchdog.start
 
-{{api name1="Watchdog::start"}}
+{{api name1="Watchdog.start"}}
 
 You typically start it when initializating.
 
 ### Watchdog.refresh
 
-{{api name1="Watchdog::refresh"}}
+{{api name1="Watchdog.refresh"}}
 
 You must call `Watchdog.refresh()` more often than the timeout interval. You can call it on every `loop()`. 
 
@@ -15552,7 +15566,7 @@ It is possible to set an expired handler, which is called right before the syste
 
 ### Watchdog.onExpired
 
-{{api name1="Watchdog::onExpired"}}
+{{api name1="Watchdog.onExpired"}}
 
 
 ```cpp

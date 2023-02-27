@@ -644,6 +644,7 @@
   "/reference/device-os/firmware/#isactive--1": "/reference/device-os/api/software-timers/isactive/",
   "/reference/device-os/firmware/#hardware-watchdog": "/reference/device-os/api/hardware-watchdog/hardware-watchdog/",
   "/reference/device-os/firmware/#watchdog-init": "/reference/device-os/api/hardware-watchdog/watchdog-init/",
+  "/reference/device-os/firmware/#watchdog-capabilities": "/reference/device-os/api/hardware-watchdog/watchdog-init/#watchdog-capabilities",
   "/reference/device-os/firmware/#watchdog-start": "/reference/device-os/api/hardware-watchdog/watchdog-start/",
   "/reference/device-os/firmware/#watchdog-refresh": "/reference/device-os/api/hardware-watchdog/watchdog-refresh/",
   "/reference/device-os/firmware/#watchdog-onexpired": "/reference/device-os/api/hardware-watchdog/watchdog-onexpired/",
