@@ -38,7 +38,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			ga('send', 'event', 'Codebox', 'Codebox Download', contentUrl);
+			gtag('send', 'event', 'Codebox', 'Codebox Download', contentUrl);
 		});
 
 		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
@@ -51,7 +51,7 @@ $(document).ready(function() {
 			document.execCommand("copy");
 			document.body.removeChild(t);
 
-			ga('send', 'event', 'Codebox', 'Codebox Copy', $(codeboxElem).attr('data-content'));
+			gtag('send', 'event', 'Codebox', 'Codebox Copy', $(codeboxElem).attr('data-content'));
 		});
 
 		$(codeboxElem).find('.codeboxWebIdeButton').on('click', function() {
@@ -62,7 +62,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			ga('send', 'event', 'Codebox', 'Codebox Open WebIDE', $(codeboxElem).attr('data-content'));
+			gtag('send', 'event', 'Codebox', 'Codebox Open WebIDE', $(codeboxElem).attr('data-content'));
 		});
 		
 		$(codeboxElem).find('.codeboxTryItButton').on('click', function() {
@@ -73,7 +73,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			ga('send', 'event', 'Codebox', 'Codebox Try It', $(codeboxElem).attr('data-project'));
+			gtag('send', 'event', 'Codebox', 'Codebox Try It', $(codeboxElem).attr('data-project'));
 		});
 
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
 							
 			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
 
-			ga('send', 'event', 'Codebox', 'Codebox Flash', $(codeboxElem).attr('data-content'));
+			gtag('send', 'event', 'Codebox', 'Codebox Flash', $(codeboxElem).attr('data-content'));
 		});
 
 		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
@@ -111,7 +111,7 @@ $(document).ready(function() {
 				
 			});
 
-			ga('send', 'event', 'Codebox', 'Codebox Upload Schema');
+			gtag('send', 'event', 'Codebox', 'Codebox Upload Schema');
 		});
 		
 	});

@@ -121,7 +121,7 @@ async function buildTrackerDownload(options) {
     options.setStatus('Saving ' + outputFile + ' to Downloads...');
     saveAs(blob, outputFile);
 
-    ga('send', 'event', 'Tracker Edge Download', 'Success', project);
+    gtag('send', 'event', 'Tracker Edge Download', 'Success', project);
 
     options.next();
 }

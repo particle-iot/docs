@@ -148,7 +148,7 @@ $(document).ready(function() {
             const fullUrlPath = projectUrlBase + '/' + $(fileSelect).val();
             showFile(fullUrlPath, text);
 
-			ga('send', 'event', gaCategory, 'View File', path);
+			gtag('send', 'event', gaCategory, 'View File', path);
             setStatus('');
         });
 
@@ -249,7 +249,7 @@ $(document).ready(function() {
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-                ga('send', 'event', gaCategory, 'Try It', $(tryItButtonElem).attr('data-project'));    
+                gtag('send', 'event', gaCategory, 'Try It', $(tryItButtonElem).attr('data-project'));    
             }
             else {
                 const params = $(thisElem).data('params');
@@ -295,7 +295,7 @@ $(document).ready(function() {
 			a.click();
 			document.body.removeChild(a);
 
-			ga('send', 'event', gaCategory, 'File Download', curPath);
+			gtag('send', 'event', gaCategory, 'File Download', curPath);
 		});
 
 		$(thisElem).find('.apiHelperProjectCopyButton').on('click', function() {			
@@ -306,7 +306,7 @@ $(document).ready(function() {
 			document.execCommand("copy");
 			document.body.removeChild(t);
 
-			ga('send', 'event', gaCategory, 'File Copy', curPath);
+			gtag('send', 'event', gaCategory, 'File Copy', curPath);
 		});
 
         $(thisElem).find('.apiHelperProjectDownloadZipButton').on('click', async function() {
@@ -320,7 +320,7 @@ $(document).ready(function() {
             setStatus('Saving ' + outputFile + ' to Downloads...');
             saveAs(blob, outputFile);
 
-			ga('send', 'event', gaCategory, 'Zip Download', project);
+			gtag('send', 'event', gaCategory, 'Zip Download', project);
         });
 
         const flashDeviceButton = $(thisElem).find('.codeboxFlashDeviceButton');
@@ -376,7 +376,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Flash Device Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+                    gtag('send', 'event', gaCategory, 'Flash Device Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
                     if (startTimer) {
                         clearTimeout(startTimer);
                         startTimer = null;
@@ -391,7 +391,7 @@ $(document).ready(function() {
                 method: 'PUT',
                 processData: false,
                 success: function (resp, textStatus, jqXHR) {
-                    ga('send', 'event', gaCategory, 'Flash Device Success');
+                    gtag('send', 'event', gaCategory, 'Flash Device Success');
                     if (startTimer) {
                         clearTimeout(startTimer);
                         startTimer = null;

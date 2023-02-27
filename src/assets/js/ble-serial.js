@@ -55,7 +55,7 @@ $(document).ready(function() {
             $(bleSerialConsoleControlsElem).hide();
             $(bleSerialConsoleOutputDiv).hide();
             setStatus('Web-based BLE serial is only available on the Chrome web browser on Mac, Windows, Linux, and Chromebook, version 89 and later.');
-			ga('send', 'event', eventCategory, 'No WebBLE', navigator.userAgent);
+			gtag('send', 'event', eventCategory, 'No WebBLE', navigator.userAgent);
             return;
         }
 
@@ -82,7 +82,7 @@ $(document).ready(function() {
             $(bleSerialConsoleConnectButton).prop('disabled', true);
             $(bleSerialConsoleDisconnectButton).prop('disabled', false);
 
-            ga('send', 'event', eventCategory, 'Connection Attempt');
+            gtag('send', 'event', eventCategory, 'Connection Attempt');
             
             try {
                 setStatus('Requesting bluetooth device...');
@@ -153,7 +153,7 @@ $(document).ready(function() {
     
             rxCharacteristic.writeValue(bytes);
 
-            ga('send', 'event', eventCategory, 'Data Sent');
+            gtag('send', 'event', eventCategory, 'Data Sent');
         };
     
         $(bleSerialConsoleSendButton).on('click', async function() {

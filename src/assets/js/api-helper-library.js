@@ -132,10 +132,10 @@ $(document).ready(function() {
             searchResults = lunrIndex.search(searchFor);
             if (searchResults.length == 0) {
                 $(searchOutputElem).text('No matching libraries found');
-                ga('send', 'event', 'Library Search', 'No Results', searchFor);
+                gtag('send', 'event', 'Library Search', 'No Results', searchFor);
             }
             else {
-                ga('send', 'event', 'Library Search', 'Success', searchFor);
+                gtag('send', 'event', 'Library Search', 'Success', searchFor);
                 fetchQueue = [];
                 fetchMore();
             }
@@ -296,7 +296,7 @@ $(document).ready(function() {
             }
 
             const name = extractedFiles[index].name;
-            ga('send', 'event', 'Library View', 'View', libInfo.id + ' ' + name);
+            gtag('send', 'event', 'Library View', 'View', libInfo.id + ' ' + name);
 
             if (name.endsWith('.txt') || name.endsWith('.properties') || name.toUpperCase().startsWith('LICENSE')) {
                 $(outputPreElem).find('pre').text(extractedFiles[index].readAsString());
@@ -351,7 +351,7 @@ $(document).ready(function() {
                 // 
                 libInfo = data;
 
-                ga('send', 'event', 'Library View', 'Download', libInfo.id);
+                gtag('send', 'event', 'Library View', 'Download', libInfo.id);
 
                 fetch(libInfo.links.download)
                     .then(response => response.arrayBuffer())
